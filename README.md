@@ -1,46 +1,49 @@
-# AINet-DB-Sakhawi
+---
+# Arab-Islam Network DB Project (AINet-DB)
+---
 
-# Project Metadata
+### プロジェクト概要（TEI Header）
 
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
-  &lt;teiHeader&gt;
-    &lt;fileDesc&gt;
-      &lt;titleStmt&gt;
-        &lt;title&gt;Arab-Islam Network DB Project (AINet-DB): al-Daw&#39; al-Lami&#39; Digital Edition&lt;/title&gt;
-        &lt;author&gt;AINet-DB Project Team&lt;/author&gt;
-        &lt;respStmt&gt;
-          &lt;resp&gt;Principal Investigator&lt;/resp&gt;
-          &lt;name xml:id=&quot;PI_ID&quot;&gt;Your Name&lt;/name&gt;
-        &lt;/respStmt&gt;
-      &lt;/titleStmt&gt;
-      &lt;publicationStmt&gt;
-        &lt;publisher&gt;Arab-Islam Network DB Project (AINet-DB)&lt;/publisher&gt;
-        &lt;availability status=&quot;restricted&quot;&gt;
-          &lt;p&gt;Available for research and academic purposes. Distributed under Creative Commons Attribution 4.0 International (CC BY 4.0).&lt;/p&gt;
-        &lt;/availability&gt;
-      &lt;/publicationStmt&gt;
-      &lt;sourceDesc&gt;
-        &lt;bibl xml:id=&quot;Sakhawi_Source&quot;&gt;
-          &lt;author&gt;al-Sakhawi&lt;/author&gt;
-          &lt;title&gt;al-Daw&#39; al-Lami&#39; li-ahl al-qarn al-tasi&#39;&lt;/title&gt;
-          &lt;note&gt;Biographical dictionary of the 9th century Hijri.&lt;/note&gt;
-        &lt;/bibl&gt;
-      &lt;/sourceDesc&gt;
-    &lt;/fileDesc&gt;
-    &lt;encodingDesc&gt;
-      &lt;projectDesc&gt;
-        &lt;p&gt;このプロジェクトは、アル＝サハウィーの『輝く光』を構造化し、マムルーク朝期の人物知識グラフを構築することを目的とする。&lt;/p&gt;
-        &lt;p&gt;13,000人のエントリーに対し、AIを用いた半自動アノテーションと、専門家による厳密な校閲（Human-in-the-loop）を組み合わせて実施する。&lt;/p&gt;
-      &lt;/projectDesc&gt;
-      &lt;editorialDecl&gt;
-        &lt;interpretation&gt;
-          &lt;p&gt;人名、地名、親族・師弟関係、および歴史学的な評価を抽出。評価には &amp;lt;desc&amp;gt; タグを用いて原文の根拠を付与する。&lt;/p&gt;
-        &lt;/interpretation&gt;
-        &lt;segmentation&gt;
-          &lt;p&gt;各人物には独自の内部ID（PID_XXXXX）を付与し、外部データベース（Wikidata, Ghent, PUA等）とのマッピングを行う。&lt;/p&gt;
-        &lt;/segmentation&gt;
-      &lt;/editorialDecl&gt;
-    &lt;/encodingDesc&gt;
-  &lt;/teiHeader&gt;
-&lt;/TEI&gt;
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="[http://www.tei-c.org/ns/1.0](http://www.tei-c.org/ns/1.0)">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Arab-Islam Network DB Project (AINet-DB): al-Daw' al-Lami' Digital Edition</title>
+        <author>AINet-DB Project Team</author>
+        <respStmt>
+          <resp>Principal Investigator</resp>
+          <name xml:id="PI_ID">Your Name</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Arab-Islam Network DB Project (AINet-DB)</publisher>
+        <availability status="restricted">
+          <p>Available for research and academic purposes. Distributed under Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl xml:id="Sakhawi_Source">
+          <author>al-Sakhawi</author>
+          <title>al-Daw' al-Lami' li-ahl al-qarn al-tasi'</title>
+          <note>Biographical dictionary of the 9th century Hijri.</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>このプロジェクトは、アル＝サハウィーの『輝く光』を構造化し、マムルーク朝期の人物知識グラフを構築することを目的とする。</p>
+        <p>13,000人のエントリーに対し、AIを用いた半自動アノテーションと、専門家による厳密な校閲（Human-in-the-loop）を組み合わせて実施する。</p>
+      </projectDesc>
+      <editorialDecl>
+        <interpretation>
+          <p>人名、地名、親族・師弟関係、および歴史学的な評価を抽出。評価には &lt;desc&gt; タグを用いて原文の根拠を付与する。</p>
+        </interpretation>
+        <segmentation>
+          <p>各人物には独自の内部ID（PID_XXXXX）を付与し、外部データベース（Wikidata, Ghent, PUA等）とのマッピングを行う。</p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+  </teiHeader>
+</TEI>
