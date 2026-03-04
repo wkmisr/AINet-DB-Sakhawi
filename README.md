@@ -1,31 +1,51 @@
 # AINet-DB-Sakhawi
-TEI-based Digital Prosopography for al-Sakhawi's al-Daw' al-Lami' (AINet-DB Project)
-
-Arab-Islam Network DB Project (AINet-DB)
-『輝く光』DB構築プロジェクト
-本リポジトリは、15世紀の歴史家アル＝サハウィーによる人名録『輝く光（al-Daw' al-Lami'）』を構造化し、TEI形式のXMLおよびRDFとして蓄積・公開するための研究基盤です。
-
-📌 プロジェクトの目的
-構造化: 13,000人を超える人物情報をTEI（Text Encoding Initiative）に基づきタグ付け。
-
-相互接続: 外部データベース（Wikidata, Ghent Mamluk Prosopography, PUA等）とID連携し、マムルーク朝期の知識グラフを構築。
-
-AI活用: 高品質な教師データを作成し、機械学習による歴史テキストの自動構造化を推進。
-
-📂 データ構造とディレクトリ構成
-/data : TEI XMLファイル群（PID_XXXXX.xml 形式）
-
-/schema : 本プロジェクト独自のTEIガイドライン（ODD/RNGファイル）
-
-/scripts : RDF変換用およびバリデーション用のPythonスクリプト
-
-/docs : タグ付けマニュアル、作業者向けのプロンプトエンジニアリング指針
-
-🛠 ワークフロー
-Extraction: 生成AIによる初期タグ付け。
-
-Review: テキスト班による歴史学的校閲とdesc（根拠記述）の付与。
-
-Commit: GitHub Desktopを用いたバージョン管理。
-
-Integration: 500〜1,000件単位での機械学習フィードバックとルール更新。
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Arab-Islam Network DB Project (AINet-DB): al-Daw' al-Lami' Digital Edition</title>
+        <author>AINet-DB Project Team</author>
+        <respStmt>
+          <resp>Principal Investigator</resp>
+          <name xml:id="PI_ID">Your Name</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Arab-Islam Network DB Project (AINet-DB)</publisher>
+        <availability status="restricted">
+          <p>Available for research and academic purposes. Distributed under Creative Commons Attribution 4.0 International (CC BY 4.0).</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl xml:id="Sakhawi_Source">
+          <author>al-Sakhawi</author>
+          <title>al-Daw' al-Lami' li-ahl al-qarn al-tasi'</title>
+          <note>Biographical dictionary of the 9th century Hijri.</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>このプロジェクトは、アル＝サハウィーの『輝く光』を構造化し、マムルーク朝期の人物知識グラフを構築することを目的とする。</p>
+        <p>13,000人のエントリーに対し、AIを用いた半自動アノテーションと、専門家による厳密な校閲（Human-in-the-loop）を組み合わせて実施する。</p>
+      </projectDesc>
+      <editorialDecl>
+        <interpretation>
+          <p>人名、地名、親族・師弟関係、および歴史学的な評価を抽出。評価には &lt;desc&gt; タグを用いて原文の根拠を付与する。</p>
+        </interpretation>
+        <segmentation>
+          <p>各人物には独自の内部ID（PID_XXXXX）を付与し、外部データベース（Wikidata, Ghent, PUA等）とのマッピングを行う。</p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2024-05-22" who="#PI_ID">Initial repository structure and TEI schema beta version defined.</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>This repository stores individual &lt;person&gt; elements for the AINet-DB project.</p>
+    </body>
+  </text>
+</TEI>
