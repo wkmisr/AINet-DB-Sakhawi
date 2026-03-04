@@ -1,4 +1,7 @@
 # AINet-DB-Sakhawi
+
+# Project Metadata
+
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
   &lt;teiHeader&gt;
