@@ -33,13 +33,11 @@ with col1:
                     selected_model = 'models/gemini-1.5-flash' if 'models/gemini-1.5-flash' in available_models else available_models[0]
                     model = genai.GenerativeModel(selected_model)
                     
-                    # プロンプトで英語での出力を徹底
                     prompt = f"""
                     Extract biographical data and return ONLY JSON.
-                    Translate ALL metadata (gender, relation) into English.
-                    
-                    Options for Family Relation: Parent, Child, Sibling, Spouse, Cousin, Other
-                    Options for Institution Relation: Founder, Instructor, Student, Other
+                    Translate metadata (gender, relation) into English.
+                    Relations for Family: Parent, Child, Sibling, Spouse, Cousin, Other
+                    Relations for Institutions: Founder, Instructor, Student, Other
                     Gender: Male, Female
                     
                     JSON structure:
@@ -55,7 +53,13 @@ with col1:
                     """
                     response = model.generate_content(prompt)
                     res_text = response.text.strip().replace("```json", "").replace("```", "")
-                    st.session_state.data.update(json.loads(res_text))
+                    new_data = json.loads(res_text)
+                    
+                    # データの型チェックと補完
+                    if not isinstance(new_data.get("death_year"), (int, float)):
+                        new_data["death_year"] = 850
+                        
+                    st.session_state.data.update(new_data)
                     st.success("Extraction Successful!")
                 except Exception as e:
                     st.error(f"Error: {e}")
@@ -72,7 +76,16 @@ with col2:
     d["name"] = st.text_input("Person Name (Arabic)", value=d.get("name", ""))
     
     c_y1, c_y2 = st.columns(2)
-    d["death_year"] = c_y1.number_input("Death (Hijri)", value=int(d.get("death_year", 850)))
+    
+    # 【修正ポイント】death_yearが数字でない場合に備える
+    try:
+        raw_death = d.get("death_year", 850)
+        # もしNoneや空文字ならデフォルト値へ
+        death_val = int(raw_death) if raw_death else 850
+    except (ValueError, TypeError):
+        death_val = 850
+
+    d["death_year"] = c_y1.number_input("Death (Hijri)", value=death_val)
     c_y2.metric("AD Year", f"ca. {int(d['death_year'] * 0.97 + 622)}")
 
     st.divider()
@@ -117,23 +130,16 @@ with col2:
 
     st.divider()
     
-    # Final XML Output (Fully English Attributes)
-   # Final XML Output (TEI-friendly attributes)
+    # XML Preview (TEI-friendly attributes)
     if st.checkbox("Final XML Preview"):
         xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}">
     <persName xml:lang="ar">{d['name']}</persName>
     <death calendar="hijri" when-custom="{d['death_year']}">{d['death_year']}</death>
     <listBibl type="teachers">
-        {" ".join([f'<person sex="{t["gender"][0]}" role="teacher">{t["name"]}</person>' for t in d["teachers"] if t["name"]])}
+        {" ".join([f'<person sex="{t["gender"]}" role="teacher">{t["name"]}</person>' for t in d["teachers"] if t["name"]])}
     </listBibl>
     <listRelation type="family">
-        {" ".join([f'<relation sex="{f["gender"][0]}" name="{f["relation"].lower()}">{f["name"]}</relation>' for f in d["family"] if f["name"]])}
+        {" ".join([f'<relation sex="{f["gender"]}" name="{f["relation"].lower()}">{f["name"]}</relation>' for f in d["family"] if f["name"]])}
     </listRelation>
     <listOrg type="institutions">
-        {" ".join([f'<orgName role="{ins["relation"].lower()}">{ins["name"]}</orgName>' for ins in d["institutions"] if ins["name"]])}
-    </listOrg>
-    <note type="description">
-{d['source_text']}
-    </note>
-</person>"""
-        st.code(xml_output, language="xml")
+        {" ".join(
