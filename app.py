@@ -142,4 +142,10 @@ with col2:
         {" ".join([f'<relation sex="{f["gender"]}" name="{f["relation"].lower()}">{f["name"]}</relation>' for f in d["family"] if f["name"]])}
     </listRelation>
     <listOrg type="institutions">
-        {" ".join(
+        {" ".join([f'<orgName role="{ins["relation"].lower()}">{ins["name"]}</orgName>' for ins in d["institutions"] if ins["name"]])}
+    </listOrg>
+    <note type="description">
+{d['source_text']}
+    </note>
+</person>"""
+        st.code(xml_output, language="xml")
