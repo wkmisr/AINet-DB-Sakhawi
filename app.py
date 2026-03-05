@@ -54,4 +54,12 @@ with col2:
     name = st.text_input("フルネーム (Name)", value=d.get("name", ""))
     death = st.number_input("没年 (Death Year - Hijri)", value=int(d.get("death_year", 850)))
     
-    st.subheader("🎓 抽出された
+    st.subheader("🎓 抽出されたリスト")
+    st.write("**師匠候補:**")
+    st.info(", ".join(d.get("teachers", [])) if d.get("teachers") else "なし")
+    
+    st.write("**家族候補:**")
+    st.info(", ".join(d.get("family", [])) if d.get("family") else "なし")
+    
+    st.divider()
+    st.caption("※AIの抽出は100%ではありません。必要に応じて手動で修正してください。")
