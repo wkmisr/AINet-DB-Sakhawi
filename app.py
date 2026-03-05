@@ -1,75 +1,56 @@
 import streamlit as st
+import google.generativeai as genai
+import json
 
-# ページ設定
-st.set_page_config(page_title="AINet-DB Editor", layout="wide")
+# APIキーの設定
+try:
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+except:
+    st.error("APIキーが設定されていません。Secretsを確認してください。")
 
-st.title("🌙 Arab-Islam Network DB (AINet-DB) Editor")
-st.caption("アル＝サハウィー『輝く光』構造化支援ツール")
+st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
+st.title("🌙 AINet-DB AI-Assisted Editor")
 
-# 画面を左右に分割
+# セッション状態の初期化
+if 'ai_data' not in st.session_state:
+    st.session_state.ai_data = {"name": "", "death_year": 850, "category": [], "teachers": [], "family": []}
+
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.header("1. 原文テキスト (Source Text)")
-    source_text = st.text_area("ここに『輝く光』の原文を貼り付けてください", height=400, 
-                               placeholder="例：إبراهيم بن محمد بن أحمد...")
+    st.header("1. 原文テキスト")
+    source_text = st.text_area("サハウィーのテキストを貼り付け", height=400)
     
     if st.button("✨ AIで項目を自動抽出する"):
-        st.info("（ここにGemini/ClaudeのAPIを連携させ、右側のブランクを自動で埋める機能を実装します）")
+        if source_text:
+            with st.spinner("AIが解析中..."):
+                model = genai.GenerativeModel('gemini-1.5-pro')
+                prompt = f"""
+                以下のテキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
+                {{ "name": "姓名", "death_year": 数字, "category": ["属性1"], "teachers": ["師匠1"], "family": ["親族1"] }}
+                テキスト：{source_text}
+                """
+                response = model.generate_content(prompt)
+                # JSON部分を抽出してパース（簡易版）
+                try:
+                    res_text = response.text.strip().replace("```json", "").replace("```", "")
+                    st.session_state.ai_data = json.loads(res_text)
+                    st.success("抽出成功！")
+                except:
+                    st.error("AIの応答を解析できませんでした。")
 
 with col2:
-    st.header("2. 構造化データ入力 (TEI Fields)")
+    st.header("2. 構造化データ入力")
+    d = st.session_state.ai_data
     
-    # 基本情報
-    with st.expander("👤 基本情報", expanded=True):
-        full_name = st.text_input("フルネーム (Full Name)")
-        death_year = st.number_input("没年 (Hijri)", min_value=800, max_value=950, value=850)
-        category = st.multiselect("属性", ["学者", "政治家", "スーフィー", "軍人", "女性", "その他"])
-
-    # 師弟関係（動的な追加）
-    st.subheader("🎓 師弟関係")
-    if 'teachers' not in st.session_state:
-        st.session_state.teachers = [{"name": "", "type": "師匠"}]
-
-    for i, teacher in enumerate(st.session_state.teachers):
-        c1, c2 = st.columns([3, 1])
-        teacher['name'] = c1.text_input(f"人物名 {i+1}", value=teacher['name'], key=f"t_name_{i}")
-        teacher['type'] = c2.selectbox(f"関係", ["師匠", "弟子"], key=f"t_type_{i}")
-
-    if st.button("➕ 師弟関係を追加"):
-        st.session_state.teachers.append({"name": "", "type": "師匠"})
-        st.rerun()
-
-    # 家族関係（動的な追加）
-    st.subheader("👪 家族関係")
-    if 'family' not in st.session_state:
-        st.session_state.family = [{"name": "", "rel": "父"}]
-
-    for i, member in enumerate(st.session_state.family):
-        c1, c2 = st.columns([3, 1])
-        member['name'] = c1.text_input(f"親族名 {i+1}", value=member['name'], key=f"f_name_{i}")
-        member['rel'] = c2.selectbox(f"続柄", ["父", "母", "息子", "娘", "兄弟", "妻"], key=f"f_rel_{i}")
-
-    if st.button("➕ 家族関係を追加"):
-        st.session_state.family.append({"name": "", "rel": "父"})
-        st.rerun()
-
-    # 関連施設（動的な追加）
-    st.subheader("🕌 関連施設")
-    if 'institutions' not in st.session_state:
-        st.session_state.institutions = [{"name": "", "role": "学習"}]
-
-    for i, inst in enumerate(st.session_state.institutions):
-        c1, c2 = st.columns([3, 1])
-        inst['name'] = c1.text_input(f"施設名 {i+1}", value=inst['name'], key=f"i_name_{i}")
-        inst['role'] = c2.selectbox(f"役割", ["学習", "教授", "居住", "埋葬"], key=f"i_role_{i}")
-
-    if st.button("➕ 施設を追加"):
-        st.session_state.institutions.append({"name": "", "role": "学習"})
-        st.rerun()
-
-# 送信セクション
-st.divider()
-if st.button("🚀 GitHubへ保存 (TEI XML生成)", type="primary"):
-    st.success("GitHubの 'data/ainet_vol1.xml' に追記されました（※シミュレーション）")
-    # ここにXML変換ロジックとGitHub APIへの送信プログラムを書きます
+    # AIの抽出結果をデフォルト値としてフォームを表示
+    name = st.text_input("フルネーム", value=d.get("name", ""))
+    death = st.number_input("没年 (Hijri)", value=int(d.get("death_year", 850)))
+    
+    st.subheader("🎓 抽出された師弟・家族")
+    st.write(f"師匠候補: {', '.join(d.get('teachers', []))}")
+    st.write(f"家族候補: {', '.join(d.get('family', []))}")
+    
+    st.divider()
+    if st.button("🚀 GitHubへ保存 (XML生成)", type="primary"):
+        st.info("次のステップで、この内容をXML化してGitHubへ送る機能を実装します！")
