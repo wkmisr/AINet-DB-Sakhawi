@@ -118,21 +118,22 @@ with col2:
     st.divider()
     
     # Final XML Output (Fully English Attributes)
+   # Final XML Output (TEI-friendly attributes)
     if st.checkbox("Final XML Preview"):
-        xml_output = f"""<person id="{d['aind_id']}" original_id="{d['original_id']}">
-    <name>{d['name']}</name>
-    <death calendar="hijri">{d['death_year']}</death>
-    <teachers>
-        {" ".join([f'<teacher gender="{t["gender"]}">{t["name"]}</teacher>' for t in d["teachers"] if t["name"]])}
-    </teachers>
-    <family>
-        {" ".join([f'<member gender="{f["gender"]}" relation="{f["relation"]}">{f["name"]}</member>' for f in d["family"] if f["name"]])}
-    </family>
-    <institutions>
-        {" ".join([f'<inst relation="{ins["relation"]}">{ins["name"]}</inst>' for ins in d["institutions"] if ins["name"]])}
-    </institutions>
-    <desc>
+        xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}">
+    <persName xml:lang="ar">{d['name']}</persName>
+    <death calendar="hijri" when-custom="{d['death_year']}">{d['death_year']}</death>
+    <listBibl type="teachers">
+        {" ".join([f'<person sex="{t["gender"][0]}" role="teacher">{t["name"]}</person>' for t in d["teachers"] if t["name"]])}
+    </listBibl>
+    <listRelation type="family">
+        {" ".join([f'<relation sex="{f["gender"][0]}" name="{f["relation"].lower()}">{f["name"]}</relation>' for f in d["family"] if f["name"]])}
+    </listRelation>
+    <listOrg type="institutions">
+        {" ".join([f'<orgName role="{ins["relation"].lower()}">{ins["name"]}</orgName>' for ins in d["institutions"] if ins["name"]])}
+    </listOrg>
+    <note type="description">
 {d['source_text']}
-    </desc>
+    </note>
 </person>"""
         st.code(xml_output, language="xml")
