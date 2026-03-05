@@ -9,31 +9,30 @@ if api_key:
 
 st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
 
-# --- CSSによる可読性向上 ---
+# --- CSS لتحسين القراءة ---
 st.markdown("""
     <style>
-    /* テキストエリアの文字サイズと行間を調整 */
     textarea {
-        font-size: 20px !important;
-        line-height: 1.8 !important;
-        font-family: 'Amiri', serif; /* アラビア語に適したフォント */
+        font-size: 22px !important;
+        line-height: 2.0 !important;
+        font-family: 'Amiri', serif;
     }
-    /* 日本語訳の表示スタイル */
     .translation-box {
-        font-size: 18px; /* 約13.5pt相当 */
-        line-height: 1.6;
-        background-color: #f0f2f6;
-        padding: 20px;
-        border-radius: 10px;
-        color: #1f1f1f;
-        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 1.8;
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 5px solid #007bff;
+        color: #2c3e50;
+        margin-bottom: 25px;
     }
     </style>
     """, unsafe_allow_html=True)
 
 st.title("🌙 AINet-DB AI-Assisted Editor")
 
-# 2. セッション状態の管理
+# 2. إدارة الحالة (Session State)
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "", "original_id": "", "name": "", "death_year": 850,
@@ -43,15 +42,15 @@ if 'data' not in st.session_state:
 
 col1, col2 = st.columns([1, 1.2])
 
-# --- 左カラム：AI解析 ---
+# --- العمود الأول: التحليل ---
 with col1:
     st.header("1. Source Text Analysis")
-    source_text = st.text_area("Paste Sakhawi text here", height=400)
+    source_text = st.text_area("Paste Sakhawi text here", height=450)
     
-    if st.button("✨ Extract, Translate & Japanese Translation"):
+    if st.button("✨ Extract, Translate & Generate Data"):
         if source_text:
             st.session_state.data["source_text"] = source_text
-            with st.spinner("AI analyzing and translating..."):
+            with st.spinner("Analyzing text..."):
                 try:
                     available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
                     selected_model = 'models/gemini-1.5-flash' if 'models/gemini-1.5-flash' in available_models else available_models[0]
@@ -59,15 +58,14 @@ with col1:
                     
                     prompt = f"""
                     Extract biographical data and return ONLY JSON.
-                    Also, provide a fluent Japanese translation of the entire text.
-                    
+                    Translate metadata (gender, relation) into English.
                     JSON structure:
                     {{
                       "original_id": "string",
                       "name": "Arabic name",
                       "death_year": number,
                       "teachers": [ {{"name": "name", "gender": "Male/Female"}} ],
-                      "family": [ {{"name": "name", "gender": "Male/Female", "relation": "Child/Parent/etc"}} ],
+                      "family": [ {{"name": "name", "gender": "Male/Female", "relation": "Child/Parent/Sibling/Spouse/Cousin/Other"}} ],
                       "institutions": [ {{"name": "name", "relation": "Founder/Instructor/Student/Other"}} ],
                       "japanese_translation": "全文の日本語訳"
                     }}
@@ -77,7 +75,6 @@ with col1:
                     res_text = response.text.strip().replace("```json", "").replace("```", "")
                     new_data = json.loads(res_text)
                     
-                    # データの型チェック
                     if not isinstance(new_data.get("death_year"), (int, float)):
                         new_data["death_year"] = 850
                     
@@ -87,17 +84,15 @@ with col1:
                 except Exception as e:
                     st.error(f"Error: {e}")
 
-    # 日本語訳の表示セクション
     if st.session_state.data["translation"]:
         st.subheader("🇯🇵 Japanese Translation")
         st.markdown(f'<div class="translation-box">{st.session_state.data["translation"]}</div>', unsafe_allow_html=True)
 
-# --- 右カラム：データ編集 ---
+# --- العمود الثاني: المحرر ---
 with col2:
     st.header("2. Structural Data Editor")
     d = st.session_state.data
     
-    # IDs & Basic Info
     c_id1, c_id2 = st.columns(2)
     d["aind_id"] = c_id1.text_input("AIND ID", value=d.get("aind_id", ""))
     d["original_id"] = c_id2.text_input("Original ID", value=d.get("original_id", ""))
@@ -105,62 +100,40 @@ with col2:
     
     c_y1, c_y2 = st.columns(2)
     try:
-        raw_death = d.get("death_year", 850)
-        death_val = int(raw_death) if raw_death else 850
-    except (ValueError, TypeError):
+        death_val = int(d.get("death_year", 850))
+    except:
         death_val = 850
-
     d["death_year"] = c_y1.number_input("Death (Hijri)", value=death_val)
     c_y2.metric("AD Year", f"ca. {int(d['death_year'] * 0.97 + 622)}")
 
     st.divider()
 
-    # --- 各セクション（Teachers, Family, Institutions） ---
-    # （前回のコードと同様のため省略しますが、フルセットのコードに組み込まれています）
-    # ... (前回の編集用ループ処理) ...
-    # ※ 便宜上、ここには以前と同じループ処理が動くように記述してください
+    # --- القوائم (Teachers, Family, Institutions) ---
+    for section, label, key_prefix, fields in [
+        ("teachers", "🎓 Teachers", "tn", ["name", "gender"]),
+        ("family", "👪 Family", "fn", ["name", "gender", "relation"]),
+        ("institutions", "🕌 Institutions", "in", ["name", "relation"])
+    ]:
+        st.subheader(label)
+        items = d.get(section, [])
+        for i, item in enumerate(items):
+            cols = st.columns([3, 2, 2, 1] if len(fields)==3 else [4, 3, 1])
+            item["name"] = cols[0].text_input(f"Name", value=item.get("name", ""), key=f"{key_prefix}n_{i}")
+            if "gender" in fields:
+                item["gender"] = cols[1].selectbox(f"Sex", ["Male", "Female"], index=0 if item.get("gender")=="Male" else 1, key=f"{key_prefix}g_{i}")
+            if "relation" in fields:
+                opts = ["Parent", "Child", "Sibling", "Spouse", "Cousin", "Other"] if section=="family" else ["Founder", "Instructor", "Student", "Other"]
+                idx = opts.index(item["relation"]) if item.get("relation") in opts else 0
+                item["relation"] = cols[-2].selectbox(f"Role", opts, index=idx, key=f"{key_prefix}r_{i}")
+            if cols[-1].button("❌", key=f"{key_prefix}d_{i}"):
+                items.pop(i); st.rerun()
+        if st.button(f"＋ Add {section.capitalize()}"):
+            new_item = {"name": "", "gender": "Male"} if section=="teachers" else {"name": "", "gender": "Male", "relation": "Other"} if section=="family" else {"name": "", "relation": "Student"}
+            items.append(new_item); st.rerun()
+        st.divider()
     
-    # --- Teachers ---
-    st.subheader("🎓 Teachers")
-    for i, t in enumerate(d.get("teachers", [])):
-        cols = st.columns([3, 2, 1])
-        t["name"] = cols[0].text_input(f"Teacher Name {i}", value=t.get("name", ""), key=f"tn_{i}")
-        t["gender"] = cols[1].selectbox(f"Gender {i}", ["Male", "Female"], index=0 if t.get("gender")=="Male" else 1, key=f"tg_{i}")
-        if cols[2].button("❌", key=f"tdel_{i}"):
-            d["teachers"].pop(i); st.rerun()
-    if st.button("＋ Add Teacher"):
-        d["teachers"].append({"name": "", "gender": "Male"}); st.rerun()
-
-    # --- Family ---
-    st.subheader("👪 Family")
-    rel_f = ["Parent", "Child", "Sibling", "Spouse", "Cousin", "Other"]
-    for i, f in enumerate(d.get("family", [])):
-        cols = st.columns([3, 2, 2, 1])
-        f["name"] = cols[0].text_input(f"Member Name {i}", value=f.get("name", ""), key=f"fn_{i}")
-        f["gender"] = cols[1].selectbox(f"Gender {i}", ["Male", "Female"], index=0 if f.get("gender")=="Male" else 1, key=f"fg_{i}")
-        idx = rel_f.index(f["relation"]) if f.get("relation") in rel_f else 5
-        f["relation"] = cols[2].selectbox(f"Relation {i}", rel_f, index=idx, key=f"fr_{i}")
-        if cols[3].button("❌", key=f"fdel_{i}"):
-            d["family"].pop(i); st.rerun()
-    if st.button("＋ Add Family"):
-        d["family"].append({"name": "", "gender": "Male", "relation": "Other"}); st.rerun()
-
-    # --- Institutions ---
-    st.subheader("🕌 Institutions")
-    rel_i = ["Founder", "Instructor", "Student", "Other"]
-    for i, inst in enumerate(d.get("institutions", [])):
-        cols = st.columns([3, 3, 1])
-        inst["name"] = cols[0].text_input(f"Inst Name {i}", value=inst.get("name", ""), key=f"in_{i}")
-        idx = rel_i.index(inst["relation"]) if inst.get("relation") in rel_i else 3
-        inst["relation"] = cols[1].selectbox(f"Role {i}", rel_i, index=idx, key=f"ir_{i}")
-        if cols[2].button("❌", key=f"idel_{i}"):
-            d["institutions"].pop(i); st.rerun()
-    if st.button("＋ Add Institution"):
-        d["institutions"].append({"name": "", "relation": "Student"}); st.rerun()
-
-    st.divider()
-    
-    if st.checkbox("Final XML Preview"):
+    # مخرجات XML بتنسيق TEI
+    if st.checkbox("Show TEI XML Preview"):
         xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}">
     <persName xml:lang="ar">{d['name']}</persName>
     <death calendar="hijri" when-custom="{d['death_year']}">{d['death_year']}</death>
