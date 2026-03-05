@@ -132,19 +132,19 @@ with col2:
             items.append(new_item); st.rerun()
         st.divider()
     
-    # مخرجات XML بتنسيق TEI
+# Final XML Output (Focusing on Attributes/@)
     if st.checkbox("Show TEI XML Preview"):
         xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}">
-    <persName xml:lang="ar">{d['name']}</persName>
+    <persName xml:lang="ar" type="full">{d['name']}</persName>
     <death calendar="hijri" when-custom="{d['death_year']}">{d['death_year']}</death>
-    <listBibl type="teachers">
-        {" ".join([f'<person sex="{t["gender"]}" role="teacher">{t["name"]}</person>' for t in d["teachers"] if t["name"]])}
+    <listBibl>
+        {" ".join([f'<person sex="{t["gender"]}" role="teacher" name="{t["name"]}"/>' for t in d["teachers"] if t["name"]])}
     </listBibl>
-    <listRelation type="family">
-        {" ".join([f'<relation sex="{f["gender"]}" name="{f["relation"].lower()}">{f["name"]}</relation>' for f in d["family"] if f["name"]])}
+    <listRelation>
+        {" ".join([f'<relation sex="{f["gender"]}" type="{f["relation"].lower()}" name="{f["name"]}"/>' for f in d["family"] if f["name"]])}
     </listRelation>
-    <listOrg type="institutions">
-        {" ".join([f'<orgName role="{ins["relation"].lower()}">{ins["name"]}</orgName>' for ins in d["institutions"] if ins["name"]])}
+    <listOrg>
+        {" ".join([f'<orgName ref="{ins["relation"].lower()}" name="{ins["name"]}"/>' for ins in d["institutions"] if ins["name"]])}
     </listOrg>
     <note type="description">
 {d['source_text']}
