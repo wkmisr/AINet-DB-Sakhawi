@@ -14,111 +14,114 @@ st.title("🌙 AINet-DB AI-Assisted Editor")
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "", "original_id": "", "name": "", "death_year": 850,
-        "teachers": [], "family": [], "institutions": []
+        "teachers": [], "family": [], "institutions": [], "source_text": ""
     }
 
 col1, col2 = st.columns([1, 1.5])
 
 # --- 左カラム：AI解析 ---
 with col1:
-    st.header("1. 原文解析")
-    source_text = st.text_area("サハウィーのテキストを貼り付け", height=400)
+    st.header("1. Source Text Analysis")
+    source_text = st.text_area("Paste Sakhawi text here", height=400)
     
-    if st.button("✨ AIで項目を詳細抽出"):
+    if st.button("✨ Extract & Translate to English"):
         if source_text:
-            with st.spinner("AIが詳細データを解析中..."):
+            st.session_state.data["source_text"] = source_text
+            with st.spinner("AI analyzing and translating..."):
                 try:
                     available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
                     selected_model = 'models/gemini-1.5-flash' if 'models/gemini-1.5-flash' in available_models else available_models[0]
                     model = genai.GenerativeModel(selected_model)
                     
+                    # プロンプトで英語での出力を徹底
                     prompt = f"""
-                    以下のアラビア語テキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
-                    「###$数字$# $」があればoriginal_idとして抽出。
-                    関係性や性別はテキストから推測してください。
+                    Extract biographical data and return ONLY JSON.
+                    Translate ALL metadata (gender, relation) into English.
+                    
+                    Options for Family Relation: Parent, Child, Sibling, Spouse, Cousin, Other
+                    Options for Institution Relation: Founder, Instructor, Student, Other
+                    Gender: Male, Female
+                    
+                    JSON structure:
                     {{
-                      "original_id": "数字",
-                      "name": "姓名",
-                      "death_year": 数字,
-                      "teachers": [ {{"name": "名前", "gender": "男性/女性"}} ],
-                      "family": [ {{"name": "名前", "gender": "男性/女性", "relation": "親/子/兄弟/夫婦/従弟/その他"}} ],
-                      "institutions": [ {{"name": "施設名", "relation": "創設者/教えていた/学んでいた/その他"}} ]
+                      "original_id": "string",
+                      "name": "Arabic name",
+                      "death_year": number,
+                      "teachers": [ {{"name": "name", "gender": "Male/Female"}} ],
+                      "family": [ {{"name": "name", "gender": "Male/Female", "relation": "Child/Parent/etc"}} ],
+                      "institutions": [ {{"name": "name", "relation": "Founder/Instructor/Student/Other"}} ]
                     }}
-                    テキスト：{source_text}
+                    Text: {source_text}
                     """
                     response = model.generate_content(prompt)
                     res_text = response.text.strip().replace("```json", "").replace("```", "")
                     st.session_state.data.update(json.loads(res_text))
-                    st.success("抽出成功！")
+                    st.success("Extraction Successful!")
                 except Exception as e:
-                    st.error(f"解析エラー: {e}")
+                    st.error(f"Error: {e}")
 
 # --- 右カラム：データ編集 ---
 with col2:
-    st.header("2. データ詳細編集")
+    st.header("2. Structural Data Editor")
     d = st.session_state.data
     
-    # ID & 基本情報
+    # IDs & Basic Info
     c_id1, c_id2 = st.columns(2)
     d["aind_id"] = c_id1.text_input("AIND ID", value=d.get("aind_id", ""))
     d["original_id"] = c_id2.text_input("Original ID", value=d.get("original_id", ""))
-    d["name"] = st.text_input("フルネーム", value=d.get("name", ""))
+    d["name"] = st.text_input("Person Name (Arabic)", value=d.get("name", ""))
     
     c_y1, c_y2 = st.columns(2)
-    d["death_year"] = c_y1.number_input("没年 (Hijri)", value=int(d.get("death_year", 850)))
-    c_y2.metric("西暦 (目安)", f"約 {int(d['death_year'] * 0.97 + 622)} 年")
+    d["death_year"] = c_y1.number_input("Death (Hijri)", value=int(d.get("death_year", 850)))
+    c_y2.metric("AD Year", f"ca. {int(d['death_year'] * 0.97 + 622)}")
 
     st.divider()
 
-    # --- 師匠セクション ---
-    st.subheader("🎓 師匠 (Teachers)")
+    # --- Teachers ---
+    st.subheader("🎓 Teachers")
     for i, t in enumerate(d.get("teachers", [])):
         cols = st.columns([3, 2, 1])
-        t["name"] = cols[0].text_input(f"師匠名 {i}", value=t.get("name", ""), key=f"tn_{i}")
-        t["gender"] = cols[1].selectbox(f"性別", ["男性", "女性"], index=0 if t.get("gender")=="男性" else 1, key=f"tg_{i}")
+        t["name"] = cols[0].text_input(f"Teacher Name {i}", value=t.get("name", ""), key=f"tn_{i}")
+        t["gender"] = cols[1].selectbox(f"Gender {i}", ["Male", "Female"], index=0 if t.get("gender")=="Male" else 1, key=f"tg_{i}")
         if cols[2].button("❌", key=f"tdel_{i}"):
             d["teachers"].pop(i); st.rerun()
-    if st.button("＋ 師匠を追加"):
-        d["teachers"].append({"name": "", "gender": "男性"}); st.rerun()
+    if st.button("＋ Add Teacher"):
+        d["teachers"].append({"name": "", "gender": "Male"}); st.rerun()
 
-    st.divider()
-
-    # --- 家族セクション ---
-    st.subheader("👪 家族 (Family)")
-    rel_options = ["親", "子", "兄弟", "夫婦", "従弟", "その他"]
+    # --- Family ---
+    st.subheader("👪 Family")
+    rel_f = ["Parent", "Child", "Sibling", "Spouse", "Cousin", "Other"]
     for i, f in enumerate(d.get("family", [])):
         cols = st.columns([3, 2, 2, 1])
-        f["name"] = cols[0].text_input(f"家族名 {i}", value=f.get("name", ""), key=f"fn_{i}")
-        f["gender"] = cols[1].selectbox(f"性別", ["男性", "女性"], index=0 if f.get("gender")=="男性" else 1, key=f"fg_{i}")
-        idx = rel_options.index(f["relation"]) if f.get("relation") in rel_options else 5
-        f["relation"] = cols[2].selectbox(f"関係", rel_options, index=idx, key=f"fr_{i}")
+        f["name"] = cols[0].text_input(f"Member Name {i}", value=f.get("name", ""), key=f"fn_{i}")
+        f["gender"] = cols[1].selectbox(f"Gender {i}", ["Male", "Female"], index=0 if f.get("gender")=="Male" else 1, key=f"fg_{i}")
+        idx = rel_f.index(f["relation"]) if f.get("relation") in rel_f else 5
+        f["relation"] = cols[2].selectbox(f"Relation {i}", rel_f, index=idx, key=f"fr_{i}")
         if cols[3].button("❌", key=f"fdel_{i}"):
             d["family"].pop(i); st.rerun()
-    if st.button("＋ 家族を追加"):
-        d["family"].append({"name": "", "gender": "男性", "relation": "その他"}); st.rerun()
+    if st.button("＋ Add Family"):
+        d["family"].append({"name": "", "gender": "Male", "relation": "Other"}); st.rerun()
 
-    st.divider()
-
-    # --- 施設セクション ---
-    st.subheader("🕌 関連施設 (Institutions)")
-    inst_rel_options = ["創設者", "教えていた", "学んでいた", "その他"]
+    # --- Institutions ---
+    st.subheader("🕌 Institutions")
+    rel_i = ["Founder", "Instructor", "Student", "Other"]
     for i, inst in enumerate(d.get("institutions", [])):
         cols = st.columns([3, 3, 1])
-        inst["name"] = cols[0].text_input(f"施設名 {i}", value=inst.get("name", ""), key=f"in_{i}")
-        idx = inst_rel_options.index(inst["relation"]) if inst.get("relation") in inst_rel_options else 3
-        inst["relation"] = cols[1].selectbox(f"関係性", inst_rel_options, index=idx, key=f"ir_{i}")
+        inst["name"] = cols[0].text_input(f"Inst Name {i}", value=inst.get("name", ""), key=f"in_{i}")
+        idx = rel_i.index(inst["relation"]) if inst.get("relation") in rel_i else 3
+        inst["relation"] = cols[1].selectbox(f"Role {i}", rel_i, index=idx, key=f"ir_{i}")
         if cols[2].button("❌", key=f"idel_{i}"):
             d["institutions"].pop(i); st.rerun()
-    if st.button("＋ 施設を追加"):
-        d["institutions"].append({"name": "", "relation": "学んでいた"}); st.rerun()
+    if st.button("＋ Add Institution"):
+        d["institutions"].append({"name": "", "relation": "Student"}); st.rerun()
 
     st.divider()
     
-    # XML出力
-    if st.checkbox("XMLプレビューを表示"):
-        st.code(f"""<person id="{d['aind_id']}" original_id="{d['original_id']}">
+    # Final XML Output (Fully English Attributes)
+    if st.checkbox("Final XML Preview"):
+        xml_output = f"""<person id="{d['aind_id']}" original_id="{d['original_id']}">
     <name>{d['name']}</name>
-    <death>{d['death_year']}</death>
+    <death calendar="hijri">{d['death_year']}</death>
     <teachers>
         {" ".join([f'<teacher gender="{t["gender"]}">{t["name"]}</teacher>' for t in d["teachers"] if t["name"]])}
     </teachers>
@@ -128,4 +131,8 @@ with col2:
     <institutions>
         {" ".join([f'<inst relation="{ins["relation"]}">{ins["name"]}</inst>' for ins in d["institutions"] if ins["name"]])}
     </institutions>
-</person>""", language="xml")
+    <desc>
+{d['source_text']}
+    </desc>
+</person>"""
+        st.code(xml_output, language="xml")
