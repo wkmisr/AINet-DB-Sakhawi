@@ -74,4 +74,7 @@ with col2:
     
     st.write("**家族候補:**")
     f_list = d.get("family", [])
-    st.info(", ".join(f
+    st.info(", ".join(f_list) if f_list else "なし")
+    
+    st.divider()
+    st.caption("AI抽出後、手動で修正してください。")
