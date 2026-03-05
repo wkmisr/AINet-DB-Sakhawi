@@ -8,23 +8,47 @@ if api_key:
     genai.configure(api_key=api_key)
 
 st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
+
+# --- CSSによる可読性向上 ---
+st.markdown("""
+    <style>
+    /* テキストエリアの文字サイズと行間を調整 */
+    textarea {
+        font-size: 20px !important;
+        line-height: 1.8 !important;
+        font-family: 'Amiri', serif; /* アラビア語に適したフォント */
+    }
+    /* 日本語訳の表示スタイル */
+    .translation-box {
+        font-size: 18px; /* 約13.5pt相当 */
+        line-height: 1.6;
+        background-color: #f0f2f6;
+        padding: 20px;
+        border-radius: 10px;
+        color: #1f1f1f;
+        margin-bottom: 20px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 st.title("🌙 AINet-DB AI-Assisted Editor")
 
 # 2. セッション状態の管理
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "", "original_id": "", "name": "", "death_year": 850,
-        "teachers": [], "family": [], "institutions": [], "source_text": ""
+        "teachers": [], "family": [], "institutions": [], "source_text": "",
+        "translation": ""
     }
 
-col1, col2 = st.columns([1, 1.5])
+col1, col2 = st.columns([1, 1.2])
 
 # --- 左カラム：AI解析 ---
 with col1:
     st.header("1. Source Text Analysis")
     source_text = st.text_area("Paste Sakhawi text here", height=400)
     
-    if st.button("✨ Extract & Translate to English"):
+    if st.button("✨ Extract, Translate & Japanese Translation"):
         if source_text:
             st.session_state.data["source_text"] = source_text
             with st.spinner("AI analyzing and translating..."):
@@ -35,10 +59,7 @@ with col1:
                     
                     prompt = f"""
                     Extract biographical data and return ONLY JSON.
-                    Translate metadata (gender, relation) into English.
-                    Relations for Family: Parent, Child, Sibling, Spouse, Cousin, Other
-                    Relations for Institutions: Founder, Instructor, Student, Other
-                    Gender: Male, Female
+                    Also, provide a fluent Japanese translation of the entire text.
                     
                     JSON structure:
                     {{
@@ -47,7 +68,8 @@ with col1:
                       "death_year": number,
                       "teachers": [ {{"name": "name", "gender": "Male/Female"}} ],
                       "family": [ {{"name": "name", "gender": "Male/Female", "relation": "Child/Parent/etc"}} ],
-                      "institutions": [ {{"name": "name", "relation": "Founder/Instructor/Student/Other"}} ]
+                      "institutions": [ {{"name": "name", "relation": "Founder/Instructor/Student/Other"}} ],
+                      "japanese_translation": "全文の日本語訳"
                     }}
                     Text: {source_text}
                     """
@@ -55,14 +77,20 @@ with col1:
                     res_text = response.text.strip().replace("```json", "").replace("```", "")
                     new_data = json.loads(res_text)
                     
-                    # データの型チェックと補完
+                    # データの型チェック
                     if not isinstance(new_data.get("death_year"), (int, float)):
                         new_data["death_year"] = 850
-                        
+                    
                     st.session_state.data.update(new_data)
-                    st.success("Extraction Successful!")
+                    st.session_state.data["translation"] = new_data.get("japanese_translation", "")
+                    st.success("Analysis Complete!")
                 except Exception as e:
                     st.error(f"Error: {e}")
+
+    # 日本語訳の表示セクション
+    if st.session_state.data["translation"]:
+        st.subheader("🇯🇵 Japanese Translation")
+        st.markdown(f'<div class="translation-box">{st.session_state.data["translation"]}</div>', unsafe_allow_html=True)
 
 # --- 右カラム：データ編集 ---
 with col2:
@@ -76,11 +104,8 @@ with col2:
     d["name"] = st.text_input("Person Name (Arabic)", value=d.get("name", ""))
     
     c_y1, c_y2 = st.columns(2)
-    
-    # 【修正ポイント】death_yearが数字でない場合に備える
     try:
         raw_death = d.get("death_year", 850)
-        # もしNoneや空文字ならデフォルト値へ
         death_val = int(raw_death) if raw_death else 850
     except (ValueError, TypeError):
         death_val = 850
@@ -90,6 +115,11 @@ with col2:
 
     st.divider()
 
+    # --- 各セクション（Teachers, Family, Institutions） ---
+    # （前回のコードと同様のため省略しますが、フルセットのコードに組み込まれています）
+    # ... (前回の編集用ループ処理) ...
+    # ※ 便宜上、ここには以前と同じループ処理が動くように記述してください
+    
     # --- Teachers ---
     st.subheader("🎓 Teachers")
     for i, t in enumerate(d.get("teachers", [])):
@@ -130,7 +160,6 @@ with col2:
 
     st.divider()
     
-    # XML Preview (TEI-friendly attributes)
     if st.checkbox("Final XML Preview"):
         xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}">
     <persName xml:lang="ar">{d['name']}</persName>
