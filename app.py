@@ -2,19 +2,18 @@ import streamlit as st
 import google.generativeai as genai
 import json
 
-# 1. APIキーの設定（Secretsから取得）
+# 1. APIキーの設定
 api_key = st.secrets.get("GEMINI_API_KEY")
 
 if not api_key:
     st.error("APIキーが見つかりません。Secretsを確認してください。")
 else:
-    # APIの初期化
     genai.configure(api_key=api_key)
 
 st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
 st.title("🌙 AINet-DB AI-Assisted Editor")
 
-# 2. データの初期化（セッション状態）
+# 2. データの初期化
 if 'ai_data' not in st.session_state:
     st.session_state.ai_data = {"name": "", "death_year": 850, "teachers": [], "family": []}
 
@@ -28,19 +27,19 @@ with col1:
         if source_text:
             with st.spinner("AIが解析中..."):
                 try:
-                    # 【重要】モデル名の指定方法を最新の 'gemini-1.5-flash' に戻し、
-                    # かつ安全な呼び出し方に変更しました
-                    model = genai.GenerativeModel('gemini-1.5-flash')
+                    # 【修正ポイント】最新かつ最も安定した呼び出し方に固定
+                    model = genai.GenerativeModel(model_name='gemini-1.5-flash')
                     
                     prompt = f"""
-                    以下のテキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
+                    以下のアラビア語テキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。余計な解説は不要です。
                     {{ "name": "姓名", "death_year": 数字のみ, "teachers": ["師匠1", "師匠2"], "family": ["親族1", "親族2"] }}
                     テキスト：{source_text}
                     """
-                    # AIの応答を取得
+                    
+                    # 呼び出しを実行
                     response = model.generate_content(prompt)
                     
-                    # 応答テキストのクリーニング
+                    # JSONの取り出し処理（より堅牢に）
                     res_text = response.text.strip()
                     if "```json" in res_text:
                         res_text = res_text.split("```json")[1].split("```")[0]
@@ -50,8 +49,8 @@ with col1:
                     st.session_state.ai_data = json.loads(res_text)
                     st.success("抽出成功！")
                 except Exception as e:
-                    # エラーの詳細を表示
-                    st.error(f"解析エラーが発生しました。設定を再確認してください: {e}")
+                    st.error(f"解析エラー: {e}")
+                    st.info("APIキーが正しく、かつ有効化されているか確認してください。")
         else:
             st.warning("テキストを入力してください。")
 
@@ -59,10 +58,8 @@ with col2:
     st.header("2. 構造化データ入力")
     d = st.session_state.ai_data
     
-    # AIの結果を反映
     name = st.text_input("フルネーム", value=d.get("name", ""))
     
-    # 没年の処理
     try:
         val = int(d.get("death_year", 850))
     except:
@@ -70,14 +67,11 @@ with col2:
     death = st.number_input("没年 (Hijri)", value=val)
     
     st.subheader("🎓 抽出されたリスト")
-    
     st.write("**師匠候補:**")
-    t_list = d.get("teachers", [])
-    st.info(", ".join(t_list) if t_list else "なし")
+    st.info(", ".join(d.get("teachers", [])) if d.get("teachers") else "なし")
     
     st.write("**家族候補:**")
-    f_list = d.get("family", [])
-    st.info(", ".join(f_list) if f_list else "なし")
+    st.info(", ".join(d.get("family", [])) if d.get("family") else "なし")
     
     st.divider()
-    st.caption("AIによる抽出結果です。手動で内容を修正して、保存の準備をしてください。")
+    st.caption("AI抽出後、手動で修正してください。")
