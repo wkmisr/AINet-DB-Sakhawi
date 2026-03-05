@@ -8,7 +8,6 @@ api_key = st.secrets.get("GEMINI_API_KEY")
 if not api_key:
     st.error("APIキーが見つかりません。Secretsを確認してください。")
 else:
-    # 内部的にバージョンを固定する設定
     genai.configure(api_key=api_key)
 
 st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
@@ -26,10 +25,23 @@ with col1:
     
     if st.button("✨ AIで項目を自動抽出する"):
         if source_text:
-            with st.spinner("新しいプロジェクト経由でAIが解析中..."):
+            with st.spinner("利用可能なモデルを自動選択して解析中..."):
                 try:
-                    # モデル名をあえて 'models/gemini-1.5-flash' とフルパスで指定
-                    model = genai.GenerativeModel(model_name='models/gemini-1.5-flash')
+                    # 【ここが解決の鍵】
+                    # 404が出る名前を直接使わず、あなたのキーで「今使えるモデル」をリストから探します
+                    available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+                    
+                    # 優先順位をつけてモデルを選択
+                    selected_model = None
+                    for target in ['models/gemini-1.5-flash', 'models/gemini-1.5-pro', 'models/gemini-1.0-pro']:
+                        if target in available_models:
+                            selected_model = target
+                            break
+                    
+                    if not selected_model:
+                        selected_model = available_models[0] # 見つからなければ一番上のものを使う
+                    
+                    model = genai.GenerativeModel(selected_model)
                     
                     prompt = f"""
                     以下のテキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
@@ -37,7 +49,6 @@ with col1:
                     テキスト：{source_text}
                     """
                     
-                    # 呼び出し
                     response = model.generate_content(prompt)
                     
                     # JSON抽出
@@ -48,11 +59,10 @@ with col1:
                         res_text = res_text.split("```")[1].split("```")[0]
                     
                     st.session_state.ai_data = json.loads(res_text)
-                    st.success("抽出成功！")
+                    st.success(f"抽出成功！ (使用モデル: {selected_model})")
                 except Exception as e:
-                    # もしこれでも404が出るなら、キーの権限の問題です
                     st.error(f"解析エラー: {e}")
-                    st.info("新しいプロジェクトで作成したAPIキーであることを確認してください。")
+                    st.info("もしこれが続くなら、Google AI Studio側でAPIキーのステータスが『Active』になっているか再度確認してください。")
         else:
             st.warning("テキストを入力してください。")
 
