@@ -1,14 +1,14 @@
 import streamlit as st
 import google.generativeai as genai
-from google.generativeai.types import RequestOptions
 import json
 
-# 1. APIキーの設定
+# 1. APIキーの設定（Secretsから取得）
 api_key = st.secrets.get("GEMINI_API_KEY")
 
 if not api_key:
     st.error("APIキーが見つかりません。Secretsを確認してください。")
 else:
+    # 最もシンプルな初期化
     genai.configure(api_key=api_key)
 
 st.set_page_config(page_title="AINet-DB AI Editor", layout="wide")
@@ -28,21 +28,19 @@ with col1:
         if source_text:
             with st.spinner("AIが解析中..."):
                 try:
-                    # 【ここが重要】APIバージョンを強制的に「v1」に指定して呼び出す
+                    # モデル名を固定せず、最新の flash を指定
                     model = genai.GenerativeModel('gemini-1.5-flash')
                     
                     prompt = f"""
-                    以下のテキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
+                    以下のアラビア語テキストから人物情報を抽出し、必ず以下のJSON形式のみで返してください。
                     {{ "name": "姓名", "death_year": 数字のみ, "teachers": ["師匠1", "師匠2"], "family": ["親族1", "親族2"] }}
                     テキスト：{source_text}
                     """
                     
-                    # RequestOptionsを使って「v1」を指定
-                    response = model.generate_content(
-                        prompt,
-                        request_options=RequestOptions(api_version='v1')
-                    )
+                    # 最も標準的な呼び出し
+                    response = model.generate_content(prompt)
                     
+                    # 応答からJSONを抽出
                     res_text = response.text.strip()
                     if "```json" in res_text:
                         res_text = res_text.split("```json")[1].split("```")[0]
@@ -60,6 +58,7 @@ with col2:
     st.header("2. 構造化データ入力")
     d = st.session_state.ai_data
     
+    # AIの結果を反映
     name = st.text_input("フルネーム", value=d.get("name", ""))
     
     try:
@@ -73,8 +72,7 @@ with col2:
     st.info(", ".join(d.get("teachers", [])) if d.get("teachers") else "なし")
     
     st.write("**家族候補:**")
-    f_list = d.get("family", [])
-    st.info(", ".join(f_list) if f_list else "なし")
+    st.info(", ".join(d.get("family", [])) if d.get("family") else "なし")
     
     st.divider()
     st.caption("AI抽出後、手動で修正してください。")
