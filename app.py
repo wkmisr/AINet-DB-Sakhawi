@@ -27,7 +27,7 @@ CERT_OPTIONS = ["High", "Medium", "Low", "Unknown"]
 # aind_id の初期値を AIND-S00001 に設定
 if 'data' not in st.session_state:
     st.session_state.data = {
-        "aind_id": "AIND-S00001", "original_id": "", "name": "", "name_cert": "High",
+        "aind_id": "AIND-S00000", "original_id": "", "name": "", "name_cert": "High",
         "death_year": 850, "death_cert": "High",
         "teachers": [], "family": [], "institutions": [], 
         "source_text": "", "translation": ""
