@@ -7,6 +7,9 @@
 * **手法**: 生成AI（Claude/Gemini）による抽出 ＋ 専門家による校閲
 * **目標**: TEI形式による構造化および外部DB（Wikidata等）との連携
 
+## プロジェクトのツール
+* **al-Sakhawi Project Search created by M. Romanov**: https://maximromanov.github.io/sakhawi_project_v1/
+
 ## 技術仕様（TEI Header 定義）
 > [!NOTE]
 > 以下のコードは、本プロジェクトで採用しているデータのメタデータ定義です。
