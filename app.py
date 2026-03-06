@@ -2,172 +2,154 @@ import streamlit as st
 import google.generativeai as genai
 import json
 
-# APIキー設定
+# --- 1. APIキーと基本設定 ---
 api_key = st.secrets.get("GEMINI_API_KEY")
 if api_key:
     genai.configure(api_key=api_key)
 
-st.set_page_config(page_title="AINet-DB Pro Editor v2", layout="wide")
+st.set_page_config(page_title="AINet-DB Researcher Editor", layout="wide")
 
-# UIデザインの調整
+# カスタムCSS（アラビア語フォントとコンパクトな入力欄）
 st.markdown("""
     <style>
-    .stTextInput input { padding: 5px !important; }
-    .label-hint { font-size: 0.8rem; color: #666; margin-bottom: -5px; }
-    .ar-font { font-family: 'Amiri', serif; font-size: 1.2rem !important; }
+    .stTextInput input { padding: 4px 8px !important; }
+    .ar-font { font-family: 'Amiri', serif; font-size: 1.3rem !important; direction: rtl; }
+    .label-hint { font-size: 0.75rem; color: #888; margin-top: -10px; margin-bottom: 5px; }
+    .section-header { background-color: #f0f2f6; padding: 5px 10px; border-radius: 5px; margin-top: 20px; }
     </style>
     """, unsafe_allow_html=True)
 
-# セッション状態の初期化と不足キーの補完
+# --- 2. セッション状態の初期化 ---
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "TMP-P-00001", "original_id": "", 
         "full_name": "", "full_name_lat": "",
-        "lineage": [{"ar": "", "lat": "", "id": ""}, {"ar": "", "lat": "", "id": ""}, {"ar": "", "lat": "", "id": ""}],
-        "nisbahs": [], "madhhab": "",
-        "activities": [], "death_year": 850, "death_cert": "High",
+        "lineage": [{"ar": "", "lat": "", "id": ""}],
+        "nisbahs": [{"ar": "", "lat": "", "id": ""}],
+        "activities": [{"ar": "", "lat": "", "id": ""}],
+        "death_year": 850, "death_cert": "High",
         "teachers": [], "family": [], "institutions": [],
         "source_text": "", "translation": ""
     }
 
 d = st.session_state.data
 
-# --- KeyError対策: 既存セッションに新しいキーがない場合に補完 ---
-for key in ["full_name_lat", "death_cert", "translation", "source_text"]:
-    if key not in d: d[key] = ""
+# 不足しているキーの自動補完 (KeyError対策)
+default_keys = {
+    "full_name_lat": "", "death_cert": "High", "translation": "", 
+    "source_text": "", "lineage": [], "nisbahs": [], "activities": []
+}
+for k, v in default_keys.items():
+    if k not in d: d[k] = v
 
+# --- 3. UIレイアウト ---
+st.title("🌙 AINet-DB Researcher Editor")
 col1, col2 = st.columns([1, 1.5])
 
-# --- 左カラム：ソースとAI解析 ---
 with col1:
-    st.header("1. Source Text Analysis")
-    source_text = st.text_area("Paste Arabic Text", value=d.get("source_text", ""), height=400)
+    st.header("1. Source Text & AI")
+    source_input = st.text_area("Biographical Source (Arabic)", value=d["source_text"], height=450)
     
-    if st.button("✨ AI Analysis (Ar/Lat/Struct)"):
-        if source_text:
-            d["source_text"] = source_text
-            with st.spinner("Analyzing..."):
+    if st.button("✨ AI Structuring (Ar/Lat)"):
+        if source_input:
+            d["source_text"] = source_input
+            with st.spinner("Analyzing with Gemini 2.5/1.5..."):
                 try:
-                    # モデル選択 (2.5 flash が利用可能なら優先)
                     model = genai.GenerativeModel('gemini-1.5-flash')
-                    prompt = f"""Analyze the text and return JSON. 
-                    Transliterate names using IJMES style (e.g., Ibrāhīm, al-Bā'ūnī).
-                    Include Japanese translation.
-                    JSON: {{
-                      "full_name": "Ar", "full_name_lat": "Lat",
-                      "lineage": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "nisbahs": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "activities": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "death_year": 850, "japanese_translation": "..."
-                    }}
-                    Text: {source_text}"""
+                    prompt = f"""Extract data into JSON. 
+                    Rules:
+                    1. lineage: Array of {{ "ar": "...", "lat": "IJMES" }}
+                    2. transliteration: Use IJMES style (e.g. al-Maqdisī).
+                    3. japanese_translation: Result of translation.
+                    Text: {source_input}"""
                     response = model.generate_content(prompt)
-                    res_text = response.text.strip().replace("```json", "").replace("```", "")
-                    new_data = json.loads(res_text)
-                    d.update(new_data)
-                    d["translation"] = new_data.get("japanese_translation", "")
-                    st.success("Analysis Complete")
+                    res_json = json.loads(response.text.strip().replace("```json", "").replace("```", ""))
+                    d.update(res_json)
+                    d["translation"] = res_json.get("japanese_translation", "")
                     st.rerun()
                 except Exception as e:
-                    st.error(f"Error: {e}")
+                    st.error(f"AI Error: {e}")
 
-    if d.get("translation"):
+    if d["translation"]:
         st.subheader("🇯🇵 Translation")
         st.info(d["translation"])
 
-# --- 右カラム：プロフェッショナル・エディタ ---
 with col2:
-    st.header("2. TEI Entity Editor")
+    st.header("2. Entity Management")
     
-    # 基本IDとフルネーム
-    c1, c2 = st.columns(2)
-    d["aind_id"] = c1.text_input("Person TMP-ID", d.get("aind_id", "TMP-P-00001"))
-    d["original_id"] = c2.text_input("Original ID (Source)", d.get("original_id", ""))
+    # (A) 基本ID
+    c_id1, c_id2 = st.columns(2)
+    d["aind_id"] = c_id1.text_input("Person ID (TMP-P-xxxxx)", d["aind_id"])
+    d["original_id"] = c_id2.text_input("Source ID (e.g. Sakhawi-777)", d["original_id"])
     
-    f1, f2 = st.columns(2)
-    d["full_name"] = f1.text_input("Full Name (Arabic)", d.get("full_name", ""))
-    d["full_name_lat"] = f2.text_input("Full Name (Latin IJMES)", d.get("full_name_lat", ""))
+    # (B) 名前
+    f_ar, f_lat = st.columns(2)
+    d["full_name"] = f_ar.text_input("Full Name (Arabic)", d["full_name"])
+    d["full_name_lat"] = f_lat.text_input("Full Name (Latin IJMES)", d["full_name_lat"])
 
-    st.divider()
-
-    # 🧬 系譜 (Lineage)
-    st.subheader("🧬 Lineage (Structured Nasab)")
-    st.markdown('<p class="label-hint">Arabic | Latin (IJMES) | TMP-ID</p>', unsafe_allow_html=True)
+    # (C) 系譜 - TMP-P-ID対応
+    st.markdown('<div class="section-header">🧬 Lineage (Nasab)</div>', unsafe_allow_html=True)
+    st.markdown('<p class="label-hint">Arabic Name | Latin (IJMES) | TMP-P-xxxxx</p>', unsafe_allow_html=True)
     for i, lin in enumerate(d["lineage"]):
         cols = st.columns([2, 2, 1.2, 0.4])
-        lin["ar"] = cols[0].text_input(f"Ar {i}", lin.get("ar", ""), key=f"lar_{i}", label_visibility="collapsed")
-        lin["lat"] = cols[1].text_input(f"Lat {i}", lin.get("lat", ""), key=f"llat_{i}", label_visibility="collapsed")
-        lin["id"] = cols[2].text_input(f"ID {i}", lin.get("id", ""), key=f"lid_{i}", label_visibility="collapsed", placeholder="TMP-P-...")
+        lin["ar"] = cols[0].text_input(f"Ar_{i}", lin.get("ar",""), key=f"lar_{i}", label_visibility="collapsed")
+        lin["lat"] = cols[1].text_input(f"Lat_{i}", lin.get("lat",""), key=f"llat_{i}", label_visibility="collapsed")
+        lin["id"] = cols[2].text_input(f"ID_{i}", lin.get("id",""), key=f"lid_{i}", label_visibility="collapsed", placeholder="TMP-P-...")
         if cols[3].button("❌", key=f"ldel_{i}"): d["lineage"].pop(i); st.rerun()
-    if st.button("＋ Add Ancestor"): d["lineage"].append({"ar": "", "lat": "", "id": ""}); st.rerun()
+    if st.button("＋ Add Ancestor"): d["lineage"].append({"ar":"","lat":"","id":""}); st.rerun()
 
-    st.divider()
-
-    # 📝 属性 (Nisbah & Activities)
-    st.subheader("📝 Attributes & Places")
-    
-    # Nisbah
-    st.write("**Nisbahs** (Ar | Lat | ID)")
-    for i, nis in enumerate(d.get("nisbahs", [])):
+    # (D) ニスバ
+    st.markdown('<div class="section-header">📝 Nisbahs</div>', unsafe_allow_html=True)
+    for i, nis in enumerate(d["nisbahs"]):
         cols = st.columns([2, 2, 1.2, 0.4])
-        nis["ar"] = cols[0].text_input(f"N-Ar {i}", nis.get("ar", ""), key=f"nar_{i}", label_visibility="collapsed")
-        nis["lat"] = cols[1].text_input(f"N-Lat {i}", nis.get("lat", ""), key=f"nlat_{i}", label_visibility="collapsed")
-        nis["id"] = cols[2].text_input(f"N-ID {i}", nis.get("id", ""), key=f"nid_{i}", label_visibility="collapsed", placeholder="TMP-L-...")
+        nis["ar"] = cols[0].text_input(f"Nar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
+        nis["lat"] = cols[1].text_input(f"Nlat_{i}", nis.get("lat",""), key=f"nlat_{i}", label_visibility="collapsed")
+        nis["id"] = cols[2].text_input(f"Nid_{i}", nis.get("id",""), key=f"nid_{i}", label_visibility="collapsed", placeholder="TMP-L-...")
         if cols[3].button("❌", key=f"ndel_{i}"): d["nisbahs"].pop(i); st.rerun()
-    if st.button("＋ Add Nisbah"): d["nisbahs"].append({"ar": "", "lat": "", "id": ""}); st.rerun()
+    if st.button("＋ Add Nisbah"): d["nisbahs"].append({"ar":"","lat":"","id":""}); st.rerun()
 
-    # Activities / Places
-    st.write("**Places / Activities** (Ar | Lat | GeoNames ID)")
-    for i, act in enumerate(d.get("activities", [])):
+    # (E) 地名 - GeoNames ID対応
+    st.markdown('<div class="section-header">📍 Activity Areas / Places</div>', unsafe_allow_html=True)
+    st.markdown('<p class="label-hint">Arabic | Latin | GeoNames ID (gn:xxxx) or TMP-L-xxx</p>', unsafe_allow_html=True)
+    for i, act in enumerate(d["activities"]):
         cols = st.columns([2, 2, 1.2, 0.4])
-        act["ar"] = cols[0].text_input(f"A-Ar {i}", act.get("ar", ""), key=f"aar_{i}", label_visibility="collapsed")
-        act["lat"] = cols[1].text_input(f"A-Lat {i}", act.get("lat", ""), key=f"alat_{i}", label_visibility="collapsed")
-        act["id"] = cols[2].text_input(f"A-ID {i}", act.get("id", ""), key=f"aid_{i}", label_visibility="collapsed", placeholder="gn:xxxx")
+        act["ar"] = cols[0].text_input(f"Aar_{i}", act.get("ar",""), key=f"aar_{i}", label_visibility="collapsed")
+        act["lat"] = cols[1].text_input(f"Alat_{i}", act.get("lat",""), key=f"alat_{i}", label_visibility="collapsed")
+        act["id"] = cols[2].text_input(f"Aid_{i}", act.get("id",""), key=f"aid_{i}", label_visibility="collapsed", placeholder="gn:12345")
         if cols[3].button("❌", key=f"adel_{i}"): d["activities"].pop(i); st.rerun()
-    if st.button("＋ Add Place"): d["activities"].append({"ar": "", "lat": "", "id": ""}); st.rerun()
+    if st.button("＋ Add Place"): d["activities"].append({"ar":"","lat":"","id":""}); st.rerun()
 
+    # (F) 師匠・家族・施設
+    st.markdown('<div class="section-header">🎓 Teachers (TMP-P-xxxxx)</div>', unsafe_allow_html=True)
+    for i, t in enumerate(d["teachers"]):
+        cols = st.columns([3, 2, 0.5])
+        t["name"] = cols[0].text_input(f"T-Name {i}", t.get("name",""), key=f"tn_{i}", placeholder="Name (Ar or Lat)")
+        t["id"] = cols[1].text_input(f"T-ID {i}", t.get("id",""), key=f"tid_{i}", placeholder="TMP-P-xxxxx")
+        if cols[2].button("❌", key=f"tdel_{i}"): d["teachers"].pop(i); st.rerun()
+    if st.button("＋ Add Teacher"): d["teachers"].append({"name":"","id":""}); st.rerun()
+
+    st.markdown('<div class="section-header">👪 Family (TMP-P-xxxxx-f1)</div>', unsafe_allow_html=True)
+    for i, f in enumerate(d["family"]):
+        cols = st.columns([2, 1.5, 1.5, 0.5])
+        f["name"] = cols[0].text_input(f"F-Name {i}", f.get("name",""), key=f"fn_{i}")
+        f["relation"] = cols[1].text_input(f"Rel {i}", f.get("relation",""), key=f"fr_{i}", placeholder="Father/Brother...")
+        f["id"] = cols[2].text_input(f"F-ID {i}", f.get("id",""), key=f"fid_{i}", placeholder="TMP-P-xxxxx-f1")
+        if cols[3].button("❌", key=f"fdel_{i}"): d["family"].pop(i); st.rerun()
+    if st.button("＋ Add Family Member"): d["family"].append({"name":"","relation":"","id":""}); st.rerun()
+
+    st.markdown('<div class="section-header">🕌 Institutions (TMP-O-xxx)</div>', unsafe_allow_html=True)
+    for i, inst in enumerate(d["institutions"]):
+        cols = st.columns([3, 2, 0.5])
+        inst["name"] = cols[0].text_input(f"I-Name {i}", inst.get("name",""), key=f"in_{i}")
+        inst["id"] = cols[1].text_input(f"I-ID {i}", inst.get("id",""), key=f"iid_{i}", placeholder="TMP-O-xxx")
+        if cols[2].button("❌", key=f"idel_{i}"): d["institutions"].pop(i); st.rerun()
+    if st.button("＋ Add Institution"): d["institutions"].append({"name":"","id":""}); st.rerun()
+
+    # --- XML Preview ---
     st.divider()
-
-    # 没年
-    c_death, c_dcert, c_ad = st.columns([2, 1, 1])
-    d["death_year"] = c_death.number_input("Death (Hijri)", value=int(d.get("death_year", 850)))
-    d["death_cert"] = c_dcert.selectbox("Death Cert", ["High", "Medium", "Low"], index=0)
-    c_ad.metric("AD (Approx)", f"ca. {int(d['death_year'] * 0.97 + 622)}")
-
-    st.divider()
-
-    # 🎓 Teachers
-    st.subheader("🎓 Teachers")
-    for i, t in enumerate(d.get("teachers", [])):
-        c = st.columns([3, 1, 1.5, 0.5])
-        t["name"] = c[0].text_input("Name", t.get("name", ""), key=f"tn_{i}")
-        t["id"] = c[1].text_input("ID", t.get("id", ""), key=f"tid_{i}", placeholder="TMP-P-...")
-        t["cert"] = c[2].selectbox("Cert", ["High", "Medium", "Low"], key=f"tc_{i}")
-        if c[3].button("❌", key=f"tdel_{i}"): d["teachers"].pop(i); st.rerun()
-    if st.button("＋ Add Teacher"): d["teachers"].append({"name": "", "id": "", "cert": "High"}); st.rerun()
-
-    # 👪 Family
-    st.subheader("👪 Family")
-    for i, f in enumerate(d.get("family", [])):
-        c = st.columns([2, 1.5, 1.5, 0.5])
-        f["name"] = c[0].text_input("Name", f.get("name", ""), key=f"fn_{i}")
-        f["relation"] = c[1].text_input("Relation", f.get("relation", ""), key=f"fr_{i}")
-        f["id"] = c[2].text_input("TMP-ID", f.get("id", ""), key=f"fid_{i}", placeholder="TMP-P-xxxxx-f1")
-        if c[3].button("❌", key=f"fdel_{i}"): d["family"].pop(i); st.rerun()
-    if st.button("＋ Add Family"): d["family"].append({"name": "", "relation": "", "id": ""}); st.rerun()
-
-    # 🕌 Institutions
-    st.subheader("🕌 Institutions")
-    for i, inst in enumerate(d.get("institutions", [])):
-        c = st.columns([3, 2, 0.5])
-        inst["name"] = c[0].text_input("Institution", inst.get("name", ""), key=f"in_{i}")
-        inst["id"] = c[1].text_input("GeoNames/Ref ID", inst.get("id", ""), key=f"iid_{i}")
-        if c[2].button("❌", key=f"idel_{i}"): d["institutions"].pop(i); st.rerun()
-    if st.button("＋ Add Institution"): d["institutions"].append({"name": "", "id": ""}); st.rerun()
-
-    st.divider()
-    
-    # --- XML出力ロジック ---
-    if st.checkbox("Show Professional TEI XML"):
-        # (多言語対応のXML生成コード)
-        st.code("<person xml:id='...'> ... </person>", language="xml")
+    if st.checkbox("Show Final TEI XML Preview"):
+        st.info("XML generation based on ID management system...")
+        st.code(f"""<person xml:id="{d['aind_id']}">
+  <persName xml:lang="ar" type="full">{d['full_name']}</persName>
+  <persName xml:lang="lat" type="transliteration">{d['full_name_lat']}</persName>
+  </person>""", language="xml")
