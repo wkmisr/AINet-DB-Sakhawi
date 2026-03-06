@@ -15,6 +15,8 @@ st.markdown("""
     textarea { font-size: 22px !important; line-height: 2.0 !important; font-family: 'Amiri', serif; }
     .translation-box { font-size: 18px; line-height: 1.8; background-color: #f8f9fa; padding: 25px; border-left: 5px solid #007bff; border-radius: 10px; margin-bottom: 25px; color: #2c3e50; }
     .stSelectbox label, .stTextInput label, .stNumberInput label { font-weight: bold; color: #4a4a4a; }
+    /* 入力欄の微調整 */
+    .stTextInput input { padding: 5px !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -53,7 +55,6 @@ with col1:
                     
                     prompt = f"""
                     Analyze the Arabic text and return ONLY JSON.
-                    Guidelines:
                     - full_name: Complete name with all nisbahs.
                     - lineage: List from person to ancestors (e.g. ["ism", "father", "grandfather"]).
                     - nisbahs: List of nisbahs.
@@ -102,29 +103,40 @@ with col2:
     d["full_name"] = c_full.text_input("Full Name (Complete)", value=d.get("full_name", ""))
     d["name_cert"] = c_ncert.selectbox("Name Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("name_cert", "High")), key="ncert")
     
-    # 系譜
+    # 系譜 (Lineage) - 1行に複数並べて短く表示
     st.subheader("🧬 Lineage (本人-父-祖父...)")
-    for i, name in enumerate(d.get("lineage", [])):
-        label = "Person (本人)" if i == 0 else "Father (父)" if i == 1 else "Grandfather (祖父)" if i == 2 else f"Ancestor {i}"
-        c = st.columns([5, 1])
-        d["lineage"][i] = c[0].text_input(label, value=name, key=f"lin_{i}")
-        if c[1].button("❌", key=f"lind_{i}"): d["lineage"].pop(i); st.rerun()
-    if st.button("＋ Add Ancestor"): d["lineage"].append(""); st.rerun()
+    lineage_list = d.get("lineage", [])
+    for i in range(0, len(lineage_list), 3):
+        cols = st.columns([1, 1, 1])
+        for j in range(3):
+            idx = i + j
+            if idx < len(lineage_list):
+                label = "Person" if idx == 0 else "Father" if idx == 1 else "G-Father" if idx == 2 else f"Anc {idx}"
+                lineage_list[idx] = cols[j].text_input(label, value=lineage_list[idx], key=f"lin_{idx}")
+    
+    c_l_btn1, c_l_btn2 = st.columns(2)
+    if c_l_btn1.button("＋ Add Ancestor"): d["lineage"].append(""); st.rerun()
+    if len(lineage_list) > 0 and c_l_btn2.button("❌ Remove Last"): d["lineage"].pop(); st.rerun()
 
     st.divider()
 
     # 属性 (Nisbah, Madhhab, Activities)
     st.subheader("📝 Attributes")
     d["madhhab"] = st.text_input("Madhhab", value=d.get("madhhab", ""))
+    
+    # Nisbah
+    st.write("**Nisbahs**")
     for i, nis in enumerate(d.get("nisbahs", [])):
         c = st.columns([5, 1])
         d["nisbahs"][i] = c[0].text_input(f"Nisbah {i+1}", value=nis, key=f"nis_{i}")
         if c[1].button("❌", key=f"nisd_{i}"): d["nisbahs"].pop(i); st.rerun()
     if st.button("＋ Add Nisbah"): d["nisbahs"].append(""); st.rerun()
 
+    # Activities
+    st.write("**Activity Areas**")
     for i, area in enumerate(d.get("activities", [])):
         c = st.columns([5, 1])
-        d["activities"][i] = c[0].text_input(f"Activity Area {i+1}", value=area, key=f"act_{i}")
+        d["activities"][i] = c[0].text_input(f"Area {i+1}", value=area, key=f"act_{i}")
         if c[1].button("❌", key=f"actd_{i}"): d["activities"].pop(i); st.rerun()
     if st.button("＋ Add Activity Area"): d["activities"].append(""); st.rerun()
 
@@ -177,13 +189,17 @@ with col2:
     
     # --- 最終的な TEI XML 出力 ---
     if st.checkbox("Show Final TEI XML Preview"):
+        # 系譜タグ
         lin_tags = ""
-        for i, name in enumerate(d["lineage"]):
+        for idx, name in enumerate(d["lineage"]):
             if name:
-                role = "ism" if i == 0 else "parent" if i == 1 else "grandparent" if i == 2 else "ancestor"
+                role = "ism" if idx == 0 else "parent" if idx == 1 else "grandparent" if idx == 2 else "ancestor"
                 lin_tags += f'\n        <name @type="{role}">{name}</name>'
         struct_name = f'\n    <persName @type="structured">{lin_tags}\n    </persName>' if lin_tags else ""
+        
+        # Nisbah
         nis_tags = "".join([f'\n    <name @type="nisbah">{n}</name>' for n in d.get("nisbahs", []) if n])
+        
         madh_tag = f'\n    <affiliation @type="madhhab">{d["madhhab"]}</affiliation>' if d.get("madhhab") else ""
         act_tags = "".join([f'\n    <residence><region>{a}</region></residence>' for a in d.get("activities", []) if a])
 
