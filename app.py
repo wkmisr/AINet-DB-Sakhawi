@@ -27,7 +27,9 @@ CERT_OPTIONS = ["High", "Medium", "Low", "Unknown"]
 # aind_id の初期値を AIND-S00001 に設定
 if 'data' not in st.session_state:
     st.session_state.data = {
-        "aind_id": "AIND-D00000", "original_id": "", "name": "", "name_cert": "High",
+        "aind_id": "AIND-D00001", "original_id": "", "name": "", "name_cert": "High",
+        "nisbahs": [], "madhhab": "", # 追加
+        "activities": [], # 追加
         "death_year": 850, "death_cert": "High",
         "teachers": [], "family": [], "institutions": [], 
         "source_text": "", "translation": ""
@@ -93,6 +95,20 @@ with col2:
     c_name, c_ncert = st.columns([3, 1])
     d["name"] = c_name.text_input("Full Name (Arabic)", value=d.get("name", ""))
     d["name_cert"] = c_ncert.selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("name_cert", "High")), key="ncert")
+
+　　# --- Nisbah & Madhhab ---
+    st.subheader("📝 Name Details (Nisbah & Madhhab)")
+    d["madhhab"] = st.text_input("Madhhab (School of Law)", value=d.get("madhhab", ""))
+    
+    for i, nis in enumerate(d.get("nisbahs", [])):
+        c = st.columns([5, 1])
+        d["nisbahs"][i] = c[0].text_input(f"Nisbah {i+1}", value=nis, key=f"nis_{i}")
+        if c[1].button("❌", key=f"nisd_{i}"):
+            d["nisbahs"].pop(i); st.rerun()
+    if st.button("＋ Add Nisbah"):
+        d["nisbahs"].append(""); st.rerun()
+
+    st.divider()
     
     # 没年
     c_death, c_dcert, c_ad = st.columns([2, 1, 1])
@@ -101,6 +117,18 @@ with col2:
     d["death_year"] = c_death.number_input("Death (Hijri AH)", value=death_val)
     d["death_cert"] = c_dcert.selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("death_cert", "High")), key="dcert")
     c_ad.metric("AD (Approx)", f"ca. {int(d['death_year'] * 0.97 + 622)}")
+
+    st.divider()
+
+　　# --- Activity Areas ---
+    st.subheader("📍 Activity Areas (Locations)")
+    for i, area in enumerate(d.get("activities", [])):
+        c = st.columns([5, 1])
+        d["activities"][i] = c[0].text_input(f"Area {i+1} (e.g. Cairo, Mecca)", value=area, key=f"act_{i}")
+        if c[1].button("❌", key=f"actd_{i}"):
+            d["activities"].pop(i); st.rerun()
+    if st.button("＋ Add Activity Area"):
+        d["activities"].append(""); st.rerun()
 
     st.divider()
 
@@ -138,10 +166,15 @@ with col2:
     st.divider()
     
     # --- 最終的な TEI XML 出力 ---
-    if st.checkbox("Show Final TEI XML Preview"):
+   if st.checkbox("Show Final TEI XML Preview"):
+        # ニスバ、マズハブ、活動拠点のタグ生成（空ならスキップ）
+        nisbah_tags = "".join([f'\n    <name @type="nisbah">{n}</name>' for n in d["nisbahs"] if n])
+        madhhab_tag = f'\n    <affiliation @type="madhhab">{d["madhhab"]}</affiliation>' if d["madhhab"] else ""
+        activity_tags = "".join([f'\n    <residence><region>{a}</region></residence>' for a in d["activities"] if a])
+
         xml_output = f"""<person @xml:id="{d['aind_id']}" @source="#original_{d['original_id']}" @cert="{d['name_cert'].lower()}">
-    <persName @xml:lang="ar" @type="full">{d['name']}</persName>
-    <death @calendar="hijri" @when-custom="{d['death_year']}" @cert="{d['death_cert'].lower()}">{d['death_year']}</death>
+    <persName @xml:lang="ar" @type="full">{d['name']}</persName>{nisbah_tags}{madhhab_tag}
+    <death @calendar="hijri" @when-custom="{d['death_year']}" @cert="{d['death_cert'].lower()}">{d['death_year']}</death>{activity_tags}
     <listBibl @type="teachers">
         {" ".join([f'<person @sex="{t["gender"][0]}" @role="teacher" @cert="{t.get("cert", "High").lower()}"><persName>{t["name"]}</persName></person>' for t in d["teachers"] if t["name"]])}
     </listBibl>
