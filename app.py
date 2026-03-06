@@ -44,15 +44,14 @@ with col1:
             st.session_state.data["source_text"] = source_text
             with st.spinner("Analyzing and translating..."):
                 try:
-                    # 利用可能なモデルを動的に取得
                     available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
                     selected_model = 'models/gemini-1.5-flash' if 'models/gemini-1.5-flash' in available_models else available_models[0]
                     model = genai.GenerativeModel(selected_model)
                     
+                    # AIへのプロンプト：cert値などの属性情報を抽出
                     prompt = f"""
                     Analyze the Arabic text and return ONLY JSON.
-                    Translate metadata (gender, relation) into English.
-                    Estimate 'cert' (High, Medium, Low) for each field.
+                    Extract metadata and estimate confidence for TEI attributes.
                     
                     JSON Format:
                     {{
@@ -70,7 +69,6 @@ with col1:
                     res_text = response.text.strip().replace("```json", "").replace("```", "")
                     new_data = json.loads(res_text)
                     
-                    # 数値チェック
                     if not isinstance(new_data.get("death_year"), (int, float)):
                         new_data["death_year"] = 850
                     
@@ -89,59 +87,61 @@ with col2:
     st.header("2. TEI Data Editor")
     d = st.session_state.data
     
-    # ID & 姓名
+    # --- 基本情報と属性設定 ---
+    # ここでは @xml:id, @source, @cert の元データを編集します
     c_id_1, c_id_2 = st.columns(2)
-    d["aind_id"] = c_id_1.text_input("AIND ID", value=d.get("aind_id", ""))
-    d["original_id"] = c_id_2.text_input("Original ID (###$ID$#)", value=d.get("original_id", ""))
+    d["aind_id"] = c_id_1.text_input("AIND ID (@xml:id)", value=d.get("aind_id", ""))
+    d["original_id"] = c_id_2.text_input("Original ID (@source)", value=d.get("original_id", ""))
     
     c_name, c_ncert = st.columns([3, 1])
-    d["name"] = c_name.text_input("Full Name (Arabic)", value=d.get("name", ""))
-    d["name_cert"] = c_ncert.selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("name_cert", "High")), key="ncert")
+    d["name"] = c_name.text_input("Full Name (@xml:lang='ar')", value=d.get("name", ""))
+    d["name_cert"] = c_ncert.selectbox("Name Cert (@cert)", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("name_cert", "High")), key="ncert")
     
-    # 没年
+    # --- 没年と属性 ---
+    # @calendar, @when-custom, @cert の設定
     c_death, c_dcert, c_ad = st.columns([2, 1, 1])
     try: death_val = int(d.get("death_year", 850))
     except: death_val = 850
-    d["death_year"] = c_death.number_input("Death (Hijri AH)", value=death_val)
-    d["death_cert"] = c_dcert.selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("death_cert", "High")), key="dcert")
+    d["death_year"] = c_death.number_input("Death (Hijri @when-custom)", value=death_val)
+    d["death_cert"] = c_dcert.selectbox("Death Cert (@cert)", CERT_OPTIONS, index=CERT_OPTIONS.index(d.get("death_cert", "High")), key="dcert")
     c_ad.metric("AD (Approx)", f"ca. {int(d['death_year'] * 0.97 + 622)}")
 
     st.divider()
 
-    # --- 師匠 / Teachers ---
+    # --- 師匠 / Teachers (@role='teacher', @sex, @cert) ---
     st.subheader("🎓 Teachers")
     for i, t in enumerate(d.get("teachers", [])):
         c = st.columns([3, 1.5, 1.5, 0.5])
         t["name"] = c[0].text_input("Name", value=t.get("name", ""), key=f"tn_{i}")
-        t["gender"] = c[1].selectbox("Sex", ["Male", "Female"], index=0 if t.get("gender")=="Male" else 1, key=f"tg_{i}")
-        t["cert"] = c[2].selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(t.get("cert", "High")), key=f"tc_{i}")
+        t["gender"] = c[1].selectbox("Sex (@sex)", ["Male", "Female"], index=0 if t.get("gender")=="Male" else 1, key=f"tg_{i}")
+        t["cert"] = c[2].selectbox("Cert (@cert)", CERT_OPTIONS, index=CERT_OPTIONS.index(t.get("cert", "High")), key=f"tc_{i}")
         if c[3].button("❌", key=f"td_{i}"):
             d["teachers"].pop(i); st.rerun()
     if st.button("＋ Add Teacher"):
         d["teachers"].append({"name": "", "gender": "Male", "cert": "High"}); st.rerun()
 
-    # --- 家族 / Family ---
+    # --- 家族 / Family (@name, @active, @passive, @sex, @cert) ---
     st.subheader("👪 Family")
     rel_f = ["Parent", "Child", "Sibling", "Spouse", "Cousin", "Other"]
     for i, f in enumerate(d.get("family", [])):
         c = st.columns([2.5, 1.5, 1.5, 1.5, 0.5])
         f["name"] = c[0].text_input("Name", value=f.get("name", ""), key=f"fn_{i}")
-        f["gender"] = c[1].selectbox("Sex", ["Male", "Female"], index=0 if f.get("gender")=="Male" else 1, key=f"fg_{i}")
-        f["relation"] = c[2].selectbox("Relation", rel_f, index=rel_f.index(f.get("relation", "Other")) if f.get("relation") in rel_f else 5, key=f"fr_{i}")
-        f["cert"] = c[3].selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(f.get("cert", "High")), key=f"fc_{i}")
+        f["gender"] = c[1].selectbox("Sex (@sex)", ["Male", "Female"], index=0 if f.get("gender")=="Male" else 1, key=f"fg_{i}")
+        f["relation"] = c[2].selectbox("Relation (@name)", rel_f, index=rel_f.index(f.get("relation", "Other")) if f.get("relation") in rel_f else 5, key=f"fr_{i}")
+        f["cert"] = c[3].selectbox("Cert (@cert)", CERT_OPTIONS, index=CERT_OPTIONS.index(f.get("cert", "High")), key=f"fc_{i}")
         if c[4].button("❌", key=f"fd_{i}"):
             d["family"].pop(i); st.rerun()
     if st.button("＋ Add Family"):
         d["family"].append({"name": "", "gender": "Male", "relation": "Other", "cert": "High"}); st.rerun()
 
-    # --- 施設 / Institutions ---
+    # --- 施設 / Institutions (@role, @cert) ---
     st.subheader("🕌 Institutions")
     rel_i = ["Founder", "Instructor", "Student", "Other"]
     for i, inst in enumerate(d.get("institutions", [])):
         c = st.columns([3, 2, 2, 0.5])
         inst["name"] = c[0].text_input("Institution Name", value=inst.get("name", ""), key=f"in_{i}")
-        inst["relation"] = c[1].selectbox("Role", rel_i, index=rel_i.index(inst.get("relation", "Other")) if inst.get("relation") in rel_i else 3, key=f"ir_{i}")
-        inst["cert"] = c[2].selectbox("Cert", CERT_OPTIONS, index=CERT_OPTIONS.index(inst.get("cert", "High")), key=f"ic_{i}")
+        inst["relation"] = c[1].selectbox("Role (@role)", rel_i, index=rel_i.index(inst.get("relation", "Other")) if inst.get("relation") in rel_i else 3, key=f"ir_{i}")
+        inst["cert"] = c[2].selectbox("Cert (@cert)", CERT_OPTIONS, index=CERT_OPTIONS.index(inst.get("cert", "High")), key=f"ic_{i}")
         if c[3].button("❌", key=f"id_{i}"):
             d["institutions"].pop(i); st.rerun()
     if st.button("＋ Add Institution"):
@@ -149,8 +149,9 @@ with col2:
 
     st.divider()
     
-    # XML出力 (TEI属性準拠)
+    # --- XML出力 (TEI属性 @ 準拠) ---
     if st.checkbox("Show Final TEI XML Preview"):
+        # 各要素の属性（@xml:id, @source, @cert等）を構築
         xml_output = f"""<person xml:id="{d['aind_id']}" source="#original_{d['original_id']}" cert="{d['name_cert'].lower()}">
     <persName xml:lang="ar" type="full">{d['name']}</persName>
     <death calendar="hijri" when-custom="{d['death_year']}" cert="{d['death_cert'].lower()}">{d['death_year']}</death>
