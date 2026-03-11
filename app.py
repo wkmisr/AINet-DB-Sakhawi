@@ -139,18 +139,47 @@ with col2:
     ]
 
     for title, key, fields, def_id in sections_config:
-        # --- 師匠・学習内容の入力欄 ---
+# --- 師匠・学習内容の入力欄 (ここは独立して記述) ---
     st.divider()
     st.subheader("🎓 Teachers & Subjects (Triple)")
     for i, item in enumerate(d.get("teachers", [])):
         cols = st.columns([1, 1, 1.5, 0.3])
         item["name"] = cols[0].text_input("師匠名", item.get("name"), key=f"t_name_{i}", label_visibility="collapsed")
         item["id"] = cols[1].text_input("師匠ID", item.get("id", "TMP-P-XXXXX"), key=f"t_id_{i}", label_visibility="collapsed")
-        # ここに「学習内容」の列を追加
         item["subject"] = cols[2].text_input("学習内容", item.get("subject", ""), key=f"t_sub_{i}", placeholder="科目名やテキスト名", label_visibility="collapsed")
-        if cols[3].button("❌", key=f"t_del_{i}"): d["teachers"].pop(i); st.rerun()
-    if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-XXXXX", "subject":""}); st.rerun()
+        if cols[3].button("❌", key=f"t_del_{i}"): 
+            d["teachers"].pop(i)
+            st.rerun()
+    if st.button("＋ 師匠追加"): 
+        d["teachers"].append({"name":"","id":"TMP-P-XXXXX", "subject":""})
+        st.rerun()
 
+    # --- その他の項目（Nisbah, Activities, Family, Institutions）をループで処理 ---
+    sections_to_loop = [
+        ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-0000"),
+        ("📍 Activities (GeoNames)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
+        ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-XXXXX"),
+        ("🕌 Institutions (Wikidata)", "institutions", ["name", "id"], "TMP-O-XXXXX")
+    ]
+
+    for title, key, fields, def_id in sections_to_loop:
+        st.divider()
+        st.subheader(title)
+        for i, item in enumerate(d.get(key, [])):
+            cols = st.columns(len(fields) + 1)
+            for j, f in enumerate(fields):
+                val = item.get(f, def_id if f=="id" else "")
+                item[f] = cols[j].text_input(f"{f}_{key}_{i}", val, key=f"{key}_{f}_{i}", label_visibility="collapsed")
+            if cols[-1].button("❌", key=f"{key}_del_{i}"): 
+                d[key].pop(i)
+                st.rerun()
+        if st.button(f"＋ {title}追加", key=f"add_{key}"): 
+            d[key].append({f: (def_id if f=="id" else "") for f in fields})
+            st.rerun()
+    
+
+
+    
     # --- 5. XML Export (TEI 完全版) ---
     st.divider()
     st.header("3. TEI-XML Export")
