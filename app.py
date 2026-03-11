@@ -10,7 +10,7 @@ if api_key:
 
 st.set_page_config(page_title="AINet-DB Editor Pro", layout="wide")
 
-# --- 2. データ構造の初期化（全項目） ---
+# --- 2. データ構造の完全定義 ---
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "AIND-D0000", "original_id": "", 
@@ -23,7 +23,7 @@ if 'data' not in st.session_state:
 d = st.session_state.data
 
 # --- 3. UI ---
-st.title("🌙 AINet-DB Editor (Gemini 3 Flash Connection)")
+st.title("🌙 AINet-DB Editor (Total Recovery Edition)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
@@ -33,23 +33,25 @@ with col1:
     if st.button("✨ 全項目・精密AI解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("最新APIへ接続中..."):
+            with st.spinner("AI接続を試行中..."):
                 try:
-                    # 2026年現在の環境で最も安定しているモデルIDを指定
-                    # 404が出る場合は 'gemini-1.5-flash-8b' もしくは 'gemini-1.5-pro' を試してください
-                    model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                    # 404エラー対策：モデル名を極限までシンプルにする、または最新の 'gemini-1.5-flash' を使用
+                    # models/ を付けないのが 2026年版の定石です
+                    model = genai.GenerativeModel('gemini-1.5-flash')
                     
                     prompt = f"""
-                    You are a professional researcher. Extract data into JSON.
-                    【Format】
+                    Professional Task: Extract biographical data into JSON.
+                    Text: {source_input}
+
+                    JSON Schema (Strict):
                     {{
                         "original_id": "Number between ### and #",
-                        "full_name": "Arabic full name",
-                        "name_only": "Arabic name only",
-                        "full_name_lat": "IJMES",
-                        "sex": "Male/Female/Unknown",
+                        "full_name": "Full Arabic name",
+                        "name_only": "Name without nisbahs",
+                        "full_name_lat": "IJMES Latin",
+                        "sex": "Male/Female",
                         "certainty": "High/Medium/Low",
-                        "madhhab": {{"ar": "", "lat": "", "id": ""}},
+                        "madhhab": {{"ar": "", "lat": "", "id": "WD ID"}},
                         "nisbahs": [ {{"ar": "", "lat": "", "id": ""}} ],
                         "activities": [ {{"place_ar": "", "place_lat": "", "id": "TMP-L-xxxx"}} ],
                         "family": [ {{"name": "", "relation": "", "id": "TMP-P-xxxx"}} ],
@@ -57,14 +59,13 @@ with col1:
                         "institutions": [ {{"name": "", "id": "TMP-O-xxxx"}} ],
                         "japanese_translation": "Summary"
                     }}
-                    Text: {source_input}
                     """
                     
                     response = model.generate_content(prompt)
-                    # JSON抽出の堅牢化
-                    json_str = re.search(r"\{.*\}", response.text, re.DOTALL).group()
-                    d.update(json.loads(json_str))
-                    st.success("解析完了！全項目を更新しました。")
+                    # JSONの切り出しを強化
+                    json_content = re.search(r"\{.*\}", response.text, re.DOTALL).group()
+                    d.update(json.loads(json_content))
+                    st.success("解析完了！全データを同期しました。")
                     st.rerun()
                 except Exception as e:
                     st.error(f"接続エラー: {e}")
@@ -75,23 +76,23 @@ with col1:
 with col2:
     st.header("2. Entity Management")
     
-    # 属性入力（先生の流儀：@付き）
+    # 属性入力 (@付き)
     c1, c2 = st.columns(2)
     d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
-    d["original_id"] = c2.text_input("@source (Source ID)", d["original_id"])
+    d["original_id"] = c2.text_input("@source", d["original_id"])
     
-    # 名前と属性
+    # 基本情報
     d["full_name"] = st.text_input("persName (Full)", d["full_name"])
-    d["name_only"] = st.text_input("persName (Name Only)", d["name_only"])
+    d["name_only"] = st.text_input("persName (Only)", d["name_only"])
     d["full_name_lat"] = st.text_input("persName (Latin)", d["full_name_lat"])
 
     c3, c4 = st.columns(2)
     d["sex"] = c3.selectbox("@sex", ["Male", "Female", "Unknown"], index=0)
     d["certainty"] = c4.selectbox("@cert", ["High", "Medium", "Low"], index=0)
 
-    # --- 法学派・ニスバ・拠点・家族・師匠・施設 ---
+    # 全項目の管理 UI
     sections = [
-        ("⚖️ Madhhab (affiliation)", "madhhab", ["ar", "lat", "id"]),
+        ("⚖️ Madhhab", "madhhab", ["ar", "lat", "id"]),
         ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"]),
         ("📍 Activities", "activities", ["place_ar", "place_lat", "id"]),
         ("👥 Family", "family", ["name", "relation", "id"]),
@@ -120,10 +121,9 @@ with col2:
         if st.button(f"＋ {title}追加", key=f"add_{key}"):
             d[key].append({f: "" for f in fields}); st.rerun()
 
-    # --- 3. XML Export ---
+    # --- XML Export ---
     st.divider()
     st.header("3. XML Export")
-    # 生成コードは標準的なTEI-XMLに準拠
     xml_str = f"""<person xml:id="{d['aind_id']}" sex="{d['sex']}" cert="{d['certainty']}" source="#source_{d['original_id']}">
     <persName type="full" xml:lang="ar">{d['full_name']}</persName>
     <affiliation type="madhhab" ref="wd:{d['madhhab'].get('id','')}">
