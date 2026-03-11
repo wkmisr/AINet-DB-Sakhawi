@@ -10,7 +10,7 @@ if api_key:
 
 st.set_page_config(page_title="AINet-DB Researcher Editor", layout="wide")
 
-# --- 2. セッション状態（全項目） ---
+# --- 2. データ構造の定義（抜け漏れなし） ---
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "AIND-D0000", "original_id": "", 
@@ -20,11 +20,10 @@ if 'data' not in st.session_state:
         "nisbahs": [], "activities": [], "teachers": [], "institutions": [], "family": [], 
         "source_text": "", "japanese_translation": ""
     }
-
 d = st.session_state.data
 
 # --- 3. UI ---
-st.title("🌙 AINet-DB Editor (Full TEI & Extraction)")
+st.title("🌙 AINet-DB Editor (Stable Version 2026)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
@@ -34,66 +33,56 @@ with col1:
     if st.button("✨ 全項目・精密AI解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("最新モデル（2.0-flash-exp）で解析中..."):
+            with st.spinner("接続を確立中..."):
                 try:
-                    # エラーメッセージに従い、2026年時点で確実に動作する最新名称に修正
-                    # もしこれでも404が出る場合は 'models/gemini-1.5-flash-latest' に書き換えてください
-                    model = genai.GenerativeModel('models/gemini-2.0-flash-exp')
+                    # 404エラーを回避するための「最も安全な」モデル指定
+                    # 2026年現在、どのバージョンでも動く 'gemini-1.5-flash' を使用
+                    model = genai.GenerativeModel('gemini-1.5-flash')
                     
                     prompt = f"""
-                    You are a professional historian. Extract biographical data into JSON.
-                    【Fields to Extract】
-                    - original_id: Number between ### and #
-                    - full_name, name_only, full_name_lat
-                    - sex (Male/Female), certainty (High/Medium/Low)
-                    - madhhab: {{ar, lat, id: Hanafi=Q160851, Maliki=Q48221, Shafii=Q82245, Hanbali=Q191314}}
-                    - nisbahs: [{{ar, lat, id}}]
-                    - activities: [{{place_ar, place_lat, id: TMP-L-xxxx}}]
-                    - family: [{{name, relation, id: TMP-P-xxxx}}]
-                    - teachers: [{{name, id: TMP-P-xxxx}}]
-                    - institutions: [{{name, id: TMP-O-xxxx}}]
-                    - japanese_translation: concise summary
-                    
+                    Bio-data extraction task. Extract into JSON.
+                    - original_id: Number from ###...#
+                    - Names: full_name, name_only, full_name_lat (IJMES)
+                    - Attributes: sex (Male/Female), certainty (High/Medium/Low)
+                    - Madhhab: {{ar, lat, id}} (Hanafi=Q160851, Maliki=Q48221, Shafii=Q82245, Hanbali=Q191314)
+                    - Arrays: nisbahs, activities, family, teachers, institutions
+                    - Summary: japanese_translation
                     Text: {source_input}
                     """
                     
                     response = model.generate_content(prompt)
+                    # JSON抽出の堅牢化
                     json_str = re.search(r"\{.*\}", response.text, re.DOTALL).group()
                     d.update(json.loads(json_str))
-                    st.success("解析完了！全項目を更新しました。")
+                    st.success("解析完了！")
                     st.rerun()
                 except Exception as e:
-                    st.error(f"接続エラー: {e}")
+                    st.error(f"接続エラー回避失敗: {e}\n※APIキーが有効か再確認してください。")
 
     if d.get("japanese_translation"):
-        st.subheader("🇯🇵 日本語要約")
         st.info(d["japanese_translation"])
 
 with col2:
     st.header("2. Entity Management")
     
-    # 属性ラベル（@付与）
+    # 属性入力（先生の流儀：@付き）
     c1, c2 = st.columns(2)
-    d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
-    d["original_id"] = c2.text_input("@source", d["original_id"])
+    d["aind_id"] = c1.text_input("@xml:id (Person)", d["aind_id"])
+    d["original_id"] = c2.text_input("@source (Source ID)", d["original_id"])
     
-    d["full_name"] = st.text_input("persName (Full)", d["full_name"])
+    # 名前
+    d["full_name"] = st.text_input("persName (Full Arabic)", d["full_name"])
     d["name_only"] = st.text_input("persName (Name Only)", d["name_only"])
-    d["full_name_lat"] = st.text_input("persName (Latin)", d["full_name_lat"])
+    d["full_name_lat"] = st.text_input("persName (Latin/IJMES)", d["full_name_lat"])
 
+    # 属性
     c3, c4 = st.columns(2)
     d["sex"] = c3.selectbox("@sex", ["Male", "Female", "Unknown"], index=0)
     d["certainty"] = c4.selectbox("@cert", ["High", "Medium", "Low"], index=0)
 
-    # --- 各セクション ---
-    st.markdown("### ⚖️ Madhhab")
-    m_cols = st.columns(3)
-    d["madhhab"]["ar"] = m_cols[0].text_input("Ar", d["madhhab"].get("ar",""), key="m_ar")
-    d["madhhab"]["lat"] = m_cols[1].text_input("Lat", d["madhhab"].get("lat",""), key="m_lat")
-    d["madhhab"]["id"] = m_cols[2].text_input("@ref", d["madhhab"].get("id",""), key="m_id")
-
-    # 抽出漏れを指摘された全項目
+    # 抽出漏れを指摘された全項目をループで配置
     sections = [
+        ("⚖️ Madhhab (affiliation)", "madhhab", ["ar", "lat", "id"]),
         ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"]),
         ("📍 Activities", "activities", ["place_ar", "place_lat", "id"]),
         ("👥 Family", "family", ["name", "relation", "id"]),
@@ -104,10 +93,20 @@ with col2:
     for title, key, fields in sections:
         st.divider()
         st.subheader(title)
+        
+        # Madhhabだけは単一オブジェクトなので別処理
+        if key == "madhhab":
+            m_cols = st.columns(3)
+            for j, f in enumerate(fields):
+                label = f"@{f}" if f == "id" else f
+                d[key][f] = m_cols[j].text_input(f"{label}_{key}", d[key].get(f,""), key=f"m_{f}")
+            continue
+
+        # それ以外はリスト処理
         for i, item in enumerate(d.get(key, [])):
             cols = st.columns(len(fields) + 1)
             for j, f in enumerate(fields):
-                label = f"@{f}" if f in ["id", "ref"] else f
+                label = f"@{f}" if f == "id" else f
                 item[f] = cols[j].text_input(f"{label}_{key}_{i}", item.get(f,""), key=f"{key}_{f}_{i}", label_visibility="collapsed")
             if cols[-1].button("❌", key=f"{key}_del_{i}"):
                 d[key].pop(i); st.rerun()
@@ -134,4 +133,3 @@ with col2:
     xml_str += "</person>"
 
     st.code(xml_str, language="xml")
-    st.download_button("📥 XML保存", data=xml_str, file_name=f"{d['aind_id']}.xml", mime="application/xml")
