@@ -25,9 +25,17 @@ def convert_h_to_g(h_year):
     except:
         return ""
 
-st.set_page_config(page_title="AINet-DB Pro (ID Optimized)", layout="wide")
+st.set_page_config(page_title="AINet-DB Pro (Complete TEI)", layout="wide")
 
-# --- 2. データ構造の初期化 ---
+# --- 2. 各種データ定義 ---
+MADHHAB_DATA = {
+    "Hanafi (ハナフィー派)": "Q160851",
+    "Maliki (マーリク派)": "Q48221",
+    "Shafi'i (シャーフィイー派)": "Q82245",
+    "Hanbali (ハンバリー派)": "Q191314",
+    "Unknown / Other": ""
+}
+
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "AIND-D0000", "original_id": "", 
@@ -40,44 +48,27 @@ if 'data' not in st.session_state:
     }
 d = st.session_state.data
 
-# --- 3. UI: 史料解析 ---
-st.title("🌙 AINet-DB Editor")
-st.caption("ID Optimization: GeoNames for Places, Wikidata for Institutions")
-
+# --- 3. UI: 史料解析エリア ---
+st.title("🌙 AINet-DB Researcher Pro")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
     st.header("1. Source & AI Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=400)
     
-    if st.button("✨ 精密AI解析 (ID自動検索)"):
+    if st.button("✨ 精密AI解析・全訳・ID自動探索"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("外部データベース(GeoNames/Wikidata)を含め解析中..."):
+            with st.spinner("外部DB(GeoNames/Wikidata)を含め解析中..."):
                 try:
                     model = get_working_model()
                     prompt = f"""
-                    Extract biographical data into JSON. Provide a FULL translation into Japanese.
-                    
-                    【ID Generation Rules】
-                    - activities: Search for GeoNames ID. If not found, use 'TMP-L-XXXXX'.
-                    - institutions: Search for Wikidata ID. If not found, use 'TMP-O-XXXXX'.
-                    - nisbahs: Use 'TMP-N-0000' as a starting pattern if unknown.
-                    - teachers/family: Use 'TMP-P-XXXXX'.
-                    
-                    JSON Schema:
-                    {{
-                        "original_id": "", "full_name": "", "name_only": "[Person]+[Father]+[GF]", "full_name_lat": "",
-                        "sex": "Male/Female", "certainty": "High/Medium/Low",
-                        "birth_h": "", "death_h": "",
-                        "madhhab_name": "Hanafi/Maliki/Shafi'i/Hanbali",
-                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-0000" }}],
-                        "activities": [{{ "place_ar": "", "place_lat": "", "id": "GeoNames_ID_or_TMP-L-XXXXX" }}],
-                        "family": [{{ "name": "", "relation": "", "id": "" }}],
-                        "teachers": [{{ "name": "", "id": "" }}],
-                        "institutions": [{{ "name": "", "id": "Wikidata_ID_or_TMP-O-XXXXX" }}],
-                        "full_translation": ""
-                    }}
+                    Historian mode: Extract biographical data into JSON. Provide a FULL translation.
+                    - name_only: [Person]+[Father]+[Grandfather] (Arabic).
+                    - nisbahs: List all. Default ID is 'TMP-N-0000'.
+                    - activities: Search for GeoNames ID. If unknown, use 'TMP-L-XXXXX'.
+                    - institutions: Search for Wikidata ID. If unknown, use 'TMP-O-XXXXX'.
+                    - teachers/family: Use 'TMP-P-XXXXX' for ID.
                     Text: {source_input}
                     """
                     response = model.generate_content(prompt)
@@ -86,16 +77,23 @@ with col1:
                         res_json = json.loads(json_match.group())
                         res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
                         res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
+                        # 法学派マッピング
+                        m_name = res_json.get("madhhab_name", "")
+                        res_json["madhhab"] = {"lat": "Unknown / Other", "id": ""}
+                        for k, v in MADHHAB_DATA.items():
+                            if m_name and m_name.lower() in k.lower():
+                                res_json["madhhab"] = {"lat": k, "id": v}
                         d.update(res_json)
-                        st.success(f"解析完了 (Model: {model.model_name})")
+                        st.success("解析完了")
                         st.rerun()
                 except Exception as e:
                     st.error(f"解析エラー: {e}")
 
     if d.get("full_translation"):
+        st.subheader("🇯🇵 史料全訳")
         st.info(d["full_translation"])
 
-# --- 4. UI: エンティティ管理 ---
+# --- 4. UI: エンティティ管理エリア ---
 with col2:
     st.header("2. Metadata & ID Editor")
     
@@ -113,40 +111,69 @@ with col2:
     d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
     d["death_g"] = dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]))
 
-    # 各セクション
-    # --- Nisbahs (デフォルト値を TMP-N-0000 に) ---
-    st.divider()
-    st.subheader("📝 Nisbahs")
-    for i, item in enumerate(d.get("nisbahs", [])):
-        cols = st.columns([1, 1, 1, 0.3])
-        item["ar"] = cols[0].text_input("Ar", item.get("ar"), key=f"nis_ar_{i}", label_visibility="collapsed")
-        item["lat"] = cols[1].text_input("Lat", item.get("lat"), key=f"nis_lat_{i}", label_visibility="collapsed")
-        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-N-0000"), key=f"nis_id_{i}", label_visibility="collapsed")
-        if cols[3].button("❌", key=f"nis_del_{i}"): d["nisbahs"].pop(i); st.rerun()
-    if st.button("＋ ニスバ追加"): d["nisbahs"].append({"ar":"","lat":"","id":"TMP-N-0000"}); st.rerun()
+    selected_m = st.selectbox("⚖️ Madhhab", options=list(MADHHAB_DATA.keys()), 
+                              index=list(MADHHAB_DATA.keys()).index(d["madhhab"]["lat"]) if d["madhhab"]["lat"] in MADHHAB_DATA else 4)
+    d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
 
-    # --- Activities / Institutions / etc ---
-    section_config = [
-        ("📍 Activities (GeoNames優先)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
+    # 各リストセクションの定義
+    sections_config = [
+        ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-0000"),
+        ("📍 Activities (GeoNames)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
         ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-XXXXX"),
         ("🎓 Teachers", "teachers", ["name", "id"], "TMP-P-XXXXX"),
-        ("🕌 Institutions (Wikidata優先)", "institutions", ["name", "id"], "TMP-O-XXXXX")
+        ("🕌 Institutions (Wikidata)", "institutions", ["name", "id"], "TMP-O-XXXXX")
     ]
 
-    for title, key, fields, def_id in section_config:
+    for title, key, fields, def_id in sections_config:
         st.divider()
         st.subheader(title)
         for i, item in enumerate(d.get(key, [])):
             cols = st.columns(len(fields) + 1)
             for j, f in enumerate(fields):
-                val = item.get(f, def_id if f == "id" else "")
-                item[f] = cols[j].text_input(f"{f}_{key}_{i}", val, key=f"{key}_{f}_{i}", label_visibility="collapsed")
+                item[f] = cols[j].text_input(f"{f}_{key}_{i}", item.get(f, def_id if f=="id" else ""), key=f"{key}_{f}_{i}", label_visibility="collapsed")
             if cols[-1].button("❌", key=f"{key}_del_{i}"): d[key].pop(i); st.rerun()
         if st.button(f"＋ {title}追加", key=f"add_{key}"): 
-            d[key].append({f: (def_id if f == "id" else "") for f in fields}); st.rerun()
+            d[key].append({f: (def_id if f=="id" else "") for f in fields}); st.rerun()
 
-    # --- 5. XML Export ---
+    # --- 5. XML Export (TEI 完全版) ---
     st.divider()
     st.header("3. TEI-XML Export")
-    # (XML生成ロジックは前回同様に全項目を網羅して出力)
-    # 省略していますが、コード内では全てのID属性を正しくref属性に反映します。
+    
+    # GeoNamesやWikidataなどのIDプレフィックス処理
+    def format_ref(raw_id):
+        if not raw_id: return ""
+        if raw_id.startswith("TMP-"): return f"#{raw_id}"
+        if raw_id.startswith("Q"): return f"wd:{raw_id}"
+        if raw_id.isdigit(): return f"gn:{raw_id}" # GeoNames
+        return raw_id
+
+    xml_str = f"""<person xml:id="{d['aind_id']}" sex="{d['sex']}" cert="{d['certainty']}" source="#source_{d['original_id']}">
+    <persName type="full" xml:lang="ar">{d['full_name']}</persName>
+    <persName type="name_only" xml:lang="ar">{d['name_only']}</persName>
+    <persName type="ijmes" xml:lang="lat">{d['full_name_lat']}</persName>\n"""
+    
+    for n in d.get("nisbahs", []):
+        xml_str += f'    <persName type="nisba" xml:lang="ar" ref="{format_ref(n.get("id"))}">{n.get("ar")}</persName>\n'
+    
+    xml_str += f"""    <birth when-custom="{d['birth_h']}" datingMethod="#islamic" when="{d['birth_g']}"/>
+    <death when-custom="{d['death_h']}" datingMethod="#islamic" when="{d['death_g']}"/>
+    <affiliation type="madhhab" ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
+    <listRelation>\n"""
+    
+    for f in d.get("family", []):
+        xml_str += f'        <relation name="{f.get("relation")}" active="{format_ref(f.get("id"))}" passive="#{d["aind_id"]}"/>\n'
+    for t in d.get("teachers", []):
+        xml_str += f'        <relation name="teacher" active="{format_ref(t.get("id"))}" passive="#{d["aind_id"]}"/>\n'
+    xml_str += "    </listRelation>\n"
+    
+    for a in d.get("activities", []):
+        xml_str += f'    <residence ref="{format_ref(a.get("id"))}">{a.get("place_lat")}</residence>\n'
+    for i in d.get("institutions", []):
+        xml_str += f'    <affiliation type="institution" ref="{format_ref(i.get("id"))}">{i.get("name")}</affiliation>\n'
+    
+    xml_str += f"    <note type='translation' xml:lang='ja'>{d['full_translation']}</note>\n"
+    xml_str += f"    <desc type='original_source' xml:lang='ar'>{d['source_text']}</desc>\n"
+    xml_str += "</person>"
+
+    st.code(xml_str, language="xml")
+    st.download_button("📥 TEI-XMLをダウンロード", data=xml_str, file_name=f"{d['aind_id']}.xml", mime="application/xml")
