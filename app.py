@@ -15,47 +15,48 @@ if 'data' not in st.session_state:
         "aind_id": "AIND-D0000", "original_id": "", 
         "full_name": "", "full_name_lat": "",
         "sex": "Male", "certainty": "High",
-        "madhhab": {"ar": "", "lat": "", "id": ""},
-        "nisbahs": [], "activities": [],
-        "teachers": [], "institutions": [], "family": [],
+        "madhhab": {"ar": "", "lat": ""}, # IDを削除
+        "nisbahs": [], 
+        "activities": [], # 活動拠点を復元
+        "teachers": [], 
+        "institutions": [], 
+        "family": [], # 家族関係を復元
         "source_text": "", "translation": ""
     }
 
 d = st.session_state.data
 
 # --- 3. UIレイアウト ---
-st.title("🌙 AINet-DB Researcher Editor (Complete Edition)")
+st.title("🌙 AINet-DB Researcher Editor (Restored Version)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
     st.header("1. Source & AI Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=480)
     
-    if st.button("✨ 精密AI解析実行"):
+    if st.button("✨ 全項目・精密AI解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("最新世代のGeminiで全項目抽出中..."):
+            with st.spinner("活動拠点・家族・全項目を抽出中..."):
                 try:
-                    # 2026年現在の最新モデル指定
-                    model = genai.GenerativeModel('models/gemini-2.0-flash') # 404が出る場合は 'gemini-1.5-flash' に戻してください
+                    model = genai.GenerativeModel('models/gemini-2.0-flash') # または 1.5-flash
                     
                     prompt = f"""
                     Extract biographical data into JSON.
-                    
                     【Rules】
                     1. Transliteration: IJMES style.
-                    2. IDs: AIND-P-xxxx (Person), AIND-O-xxxx (Institution), AIND-M-xxxx (Madhhab), gn:xxxx (Nisbah/Place).
+                    2. IDs: AIND-P-xxxx (Person), AIND-O-xxxx (Institution), gn:xxxx (Place).
                     3. Fields:
                        - full_name, full_name_lat
                        - sex, certainty
-                       - madhhab: {{"ar": "", "lat": "", "id": ""}}
+                       - madhhab: {{"ar": "", "lat": ""}} (No ID needed)
                        - nisbahs: [{{"ar": "", "lat": "", "id": ""}}]
+                       - activities: [{{"place_ar": "", "place_lat": "", "id": ""}}]
+                       - family: [{{"name": "", "relation": "", "id": ""}}]
                        - teachers: [{{"name": "", "id": ""}}]
                        - institutions: [{{"name": "", "id": ""}}]
                        - japanese_translation: 日本語訳
-                    
-                    Text:
-                    {source_input}
+                    Text: {source_input}
                     """
                     
                     response = model.generate_content(prompt)
@@ -65,7 +66,7 @@ with col1:
                     
                     res_json = json.loads(res_text)
                     d.update(res_json)
-                    st.success("解析成功！")
+                    st.success("解析成功！全項目を復元しました。")
                     st.rerun()
                 except Exception as e:
                     st.error(f"解析エラー: {e}")
@@ -88,30 +89,45 @@ with col2:
     d["full_name"] = f_ar.text_input("氏名 (Arabic)", d["full_name"])
     d["full_name_lat"] = f_lat.text_input("氏名 (IJMES)", d["full_name_lat"])
 
-    # 1. 法学派 (Madhhab)
+    # --- ⚖️ 法学派 (IDなし) ---
     st.markdown("### ⚖️ 法学派 (Madhhab)")
-    m_cols = st.columns([2, 2, 1.2])
-    m_data = d.get("madhhab", {"ar": "", "lat": "", "id": ""})
+    m_cols = st.columns([1, 1])
+    m_data = d.get("madhhab", {"ar": "", "lat": ""})
     m_data["ar"] = m_cols[0].text_input("Madhhab (Ar)", m_data.get("ar", ""), key="m_ar")
     m_data["lat"] = m_cols[1].text_input("Madhhab (Lat)", m_data.get("lat", ""), key="m_lat")
-    m_data["id"] = m_cols[2].text_input("Madhhab ID", m_data.get("id", ""), key="m_id", placeholder="AIND-M-...")
     d["madhhab"] = m_data
 
-    # 2. ニスバ (Nisbahs) - 復活！
+    # --- 📝 ニスバ ---
     st.markdown("### 📝 ニスバ (Nisbahs)")
     for i, nis in enumerate(d.get("nisbahs", [])):
         n_cols = st.columns([2, 2, 1.2, 0.4])
-        nis["ar"] = n_cols[0].text_input(f"Ar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
-        nis["lat"] = n_cols[1].text_input(f"Lat_{i}", nis.get("lat",""), key=f"nlat_{i}", label_visibility="collapsed")
-        nis["id"] = n_cols[2].text_input(f"ID_{i}", nis.get("id",""), key=f"nid_{i}", label_visibility="collapsed", placeholder="gn:xxx")
-        if n_cols[3].button("❌", key=f"ndel_{i}"):
-            d["nisbahs"].pop(i)
-            st.rerun()
-    if st.button("＋ ニスバ追加"):
-        d["nisbahs"].append({"ar":"","lat":"","id":""})
-        st.rerun()
+        nis["ar"] = n_cols[0].text_input(f"N-Ar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
+        nis["lat"] = n_cols[1].text_input(f"N-Lat_{i}", nis.get("lat",""), key=f"nlat_{i}", label_visibility="collapsed")
+        nis["id"] = n_cols[2].text_input(f"N-ID_{i}", nis.get("id",""), key=f"nid_{i}", label_visibility="collapsed", placeholder="gn:xxx")
+        if n_cols[3].button("❌", key=f"ndel_{i}"): d["nisbahs"].pop(i); st.rerun()
+    if st.button("＋ ニスバ追加"): d["nisbahs"].append({"ar":"","lat":"","id":""}); st.rerun()
 
-    # 3. 師匠と施設
+    # --- 📍 活動拠点 (復元) ---
+    st.markdown("### 📍 活動拠点 (Activities)")
+    for i, act in enumerate(d.get("activities", [])):
+        a_cols = st.columns([2, 2, 1.2, 0.4])
+        act["place_ar"] = a_cols[0].text_input(f"A-Ar_{i}", act.get("place_ar",""), key=f"aar_{i}", label_visibility="collapsed")
+        act["place_lat"] = a_cols[1].text_input(f"A-Lat_{i}", act.get("place_lat",""), key=f"alat_{i}", label_visibility="collapsed")
+        act["id"] = a_cols[2].text_input(f"A-ID_{i}", act.get("id",""), key=f"aid_{i}", label_visibility="collapsed", placeholder="gn:xxx")
+        if a_cols[3].button("❌", key=f"adel_{i}"): d["activities"].pop(i); st.rerun()
+    if st.button("＋ 活動拠点追加"): d["activities"].append({"place_ar":"","place_lat":"","id":""}); st.rerun()
+
+    # --- 👥 家族関係 (復元) ---
+    st.markdown("### 👥 家族関係 (Family)")
+    for i, f in enumerate(d.get("family", [])):
+        f_cols = st.columns([2, 1, 1.2, 0.4])
+        f["name"] = f_cols[0].text_input(f"F-Name_{i}", f.get("name",""), key=f"fname_{i}", label_visibility="collapsed")
+        f["relation"] = f_cols[1].text_input(f"Rel_{i}", f.get("relation",""), key=f"frel_{i}", label_visibility="collapsed", placeholder="父、息子など")
+        f["id"] = f_cols[2].text_input(f"F-ID_{i}", f.get("id",""), key=f"fid_{i}", label_visibility="collapsed", placeholder="AIND-P-...")
+        if f_cols[3].button("❌", key=f"fdel_{i}"): d["family"].pop(i); st.rerun()
+    if st.button("＋ 家族追加"): d["family"].append({"name":"","relation":"","id":""}); st.rerun()
+
+    # --- 🎓 師匠・🕌 施設 ---
     st.divider()
     t_col, i_col = st.columns(2)
     with t_col:
@@ -120,7 +136,6 @@ with col2:
             t["name"] = st.text_input(f"T-Name {i}", t.get("name",""), key=f"tn_{i}")
             t["id"] = st.text_input(f"T-ID {i}", t.get("id",""), key=f"tid_{i}")
         if st.button("＋ Teacher追加"): d["teachers"].append({"name":"","id":""}); st.rerun()
-
     with i_col:
         st.subheader("🕌 Institutions")
         for i, inst in enumerate(d.get("institutions", [])):
