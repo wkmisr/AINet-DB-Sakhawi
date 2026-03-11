@@ -62,17 +62,24 @@ with col1:
             with st.spinner("日英翻訳とIDを探索中..."):
                 try:
                     model = get_working_model()
-                    prompt = f"""Extract data into JSON. Provide translation_jp and translation_en. 
-                    - Search for Wikidata IDs for Nisbahs and Institutions.
-                    - Search for GeoNames IDs for Activities.
+                    prompt = f"""Extract data into JSON according to Islamic studies standards.
+                    
+                    【IMPORTANT: Name Extraction】
+                    - name_only: MUST be "[Ism] b. [Father] b. [Grandfather]" (Arabic). DO NOT provide only the person's name.
+                    - full_name: Provide the full sequence including Kunya, Laqab, Ism, etc.
+                    
+                    【IMPORTANT: Latin/Transcription】
+                    - Latin fields MUST contain only IJMES transcription (e.g., al-Shafi'i). 
+                    - NEVER include coordinates (latitude/longitude) in transcription fields.
+                    
                     JSON Structure: {{
                         "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
                         "birth_h": "", "death_h": "", "madhhab_name": "",
-                        "nisbahs": [{{ "ar": "", "lat": "", "id": "Wikidata_ID_or_TMP-N-00000" }}],
-                        "activities": [{{ "ar": "", "id": "GeoNames_ID_or_TMP-L-00000" }}], 
-                        "teachers": [{{ "name": "", "id": "TMP-P-XXXXX", "subject": "", "subject_id": "TMP-S-XXXXX" }}],
-                        "institutions": [{{ "name": "", "id": "Wikidata_ID_or_TMP-O-00000" }}],
-                        "family": [{{ "name": "", "relation": "", "id": "TMP-P-XXXXX" }}],
+                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-00000" }}],
+                        "activities": [{{ "ar": "", "id": "TMP-L-00000" }}], 
+                        "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                        "institutions": [{{ "name": "", "id": "TMP-O-00000" }}],
+                        "family": [{{ "name": "", "relation": "", "id": "TMP-P-00000" }}],
                         "translation_jp": "", "translation_en": ""
                     }}
                     Text: {source_input}"""
@@ -97,9 +104,9 @@ with col2:
     c1, c2 = st.columns(2)
     d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
     d["original_id"] = c2.text_input("@source", d["original_id"])
-    d["full_name"] = st.text_input("persName (Arabic Full)", d["full_name"])
-    d["name_only"] = st.text_input("persName (Ism/Father/GF)", d["name_only"])
-    d["full_name_lat"] = st.text_input("persName (Latin)", d["full_name_lat"])
+    d["full_name"] = st.text_input("persName (Arabic Full / with Laqab, etc.)", d["full_name"])
+    d["name_only"] = st.text_input("persName (Ism + Father + GF)", d["name_only"])
+    d["full_name_lat"] = st.text_input("persName (Latin Transcription)", d["full_name_lat"])
 
     dc1, dc2, dc3, dc4 = st.columns(4)
     d["birth_h"] = dc1.text_input("Birth(H)", d["birth_h"])
@@ -112,7 +119,7 @@ with col2:
     d["madhhab"] = {"lat": sel_m, "id": MADHHAB_DATA[sel_m]}
     m_col2.text_input("Wikidata ID", d["madhhab"]["id"], disabled=True)
 
-    # --- Nisbahs (アラビア語, 転写, ID) ---
+    # --- Nisbahs ---
     st.divider(); st.subheader("📝 Nisbahs")
     for i, item in enumerate(d.get("nisbahs", [])):
         cols = st.columns([1, 1, 1, 0.3])
@@ -122,7 +129,7 @@ with col2:
         if cols[3].button("❌", key=f"n_del_{i}"): d["nisbahs"].pop(i); st.rerun()
     if st.button("＋ Nisbah追加"): d["nisbahs"].append({"ar":"","lat":"","id":"TMP-N-00000"}); st.rerun()
 
-    # --- Activities (アラビア語, ID) ---
+    # --- Activities ---
     st.divider(); st.subheader("📍 Activities")
     for i, item in enumerate(d.get("activities", [])):
         cols = st.columns([1, 1, 0.3])
@@ -131,16 +138,16 @@ with col2:
         if cols[2].button("❌", key=f"a_del_{i}"): d["activities"].pop(i); st.rerun()
     if st.button("＋ Activities追加"): d["activities"].append({"ar":"","id":"TMP-L-00000"}); st.rerun()
 
-    # --- Teachers & Subjects ---
+    # --- Teachers (ID: TMP-P-00000 / 内容ID: TMP-W-00000) ---
     st.divider(); st.subheader("🎓 Teachers")
     for i, item in enumerate(d.get("teachers", [])):
         r = st.columns([1, 1, 1, 1, 0.3])
         item["name"] = r[0].text_input("師", item.get("name"), key=f"t_n_{i}")
-        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-XXXXX"), key=f"t_i_{i}")
+        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-00000"), key=f"t_i_{i}")
         item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"t_s_{i}")
-        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-S-XXXXX"), key=f"t_si_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"t_si_{i}")
         if r[4].button("❌", key=f"t_d_{i}"): d["teachers"].pop(i); st.rerun()
-    if st.button("＋師追加"): d["teachers"].append({"name":"","id":"TMP-P-XXXXX","subject":"","subject_id":"TMP-S-XXXXX"}); st.rerun()
+    if st.button("＋師追加"): d["teachers"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
 
     # --- Family & Institutions ---
     st.divider(); st.subheader("👥 Family")
@@ -148,9 +155,9 @@ with col2:
         cols = st.columns([1, 1, 1, 0.3])
         item["name"] = cols[0].text_input("名前", item.get("name", ""), key=f"f_n_{i}")
         item["relation"] = cols[1].text_input("関係", item.get("relation", ""), key=f"f_r_{i}")
-        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-P-XXXXX"), key=f"f_id_{i}")
+        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-P-00000"), key=f"f_id_{i}")
         if cols[3].button("❌", key=f"f_del_{i}"): d["family"].pop(i); st.rerun()
-    if st.button("＋Family追加"): d["family"].append({"name":"","relation":"","id":"TMP-P-XXXXX"}); st.rerun()
+    if st.button("＋Family追加"): d["family"].append({"name":"","relation":"","id":"TMP-P-00000"}); st.rerun()
 
     st.divider(); st.subheader("🕌 Institutions")
     for i, item in enumerate(d.get("institutions", [])):
@@ -160,7 +167,7 @@ with col2:
         if cols[2].button("❌", key=f"i_del_{i}"): d["institutions"].pop(i); st.rerun()
     if st.button("＋Institutions追加"): d["institutions"].append({"name":"","id":"TMP-O-00000"}); st.rerun()
 
-    # --- 5. XML Export Logic ---
+    # --- 5. XML Export ---
     st.divider(); st.header("3. TEI-XML Export")
     
     def fr(rid):
