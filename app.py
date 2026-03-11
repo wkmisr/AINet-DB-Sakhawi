@@ -24,7 +24,7 @@ if 'data' not in st.session_state:
 d = st.session_state.data
 
 # --- 3. UIレイアウト ---
-st.title("🌙 AINet-DB Researcher Editor")
+st.title("🌙 AINet-DB Researcher Editor (2026 Edition)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
@@ -34,21 +34,22 @@ with col1:
     if st.button("✨ 精密AI解析実行"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("法学派・師匠・施設を抽出中..."):
+            with st.spinner("最新世代のGemini 3.0で解析中..."):
                 try:
-                    model = genai.GenerativeModel('models/gemini-2.0-flash')
+                    # 【重要】2026年3月現在の最新モデル 'gemini-3.0-flash' を指定
+                    # もしこれでも404が出る場合は 'gemini-2.5-flash' に戻してください
+                    model = genai.GenerativeModel('models/gemini-3.0-flash')
                     
-                    # より詳細で厳格なプロンプト
                     prompt = f"""
-                    以下の伝記史料から情報を抽出し、必ず指定のJSON形式で返してください。
+                    Extract biographical data into JSON.
                     
-                    【ルール】
-                    1. 翻字: IJMESスタイル (例: al-Maqdisī)。
-                    2. ID命名規則:
-                       - 人物 (Teachers/Family): AIND-P-xxxx
-                       - 施設 (Institutions): AIND-O-xxxx
-                       - 法学派 (Madhhab): AIND-M-xxxx
-                    3. 項目:
+                    【Rules】
+                    1. Transliteration: IJMES style (e.g., al-Shāfiʿī).
+                    2. IDs must start with:
+                       - Person: AIND-P-xxxx
+                       - Institution: AIND-O-xxxx
+                       - Madhhab: AIND-M-xxxx
+                    3. Fields:
                        - full_name, full_name_lat
                        - sex (Male/Female), certainty (High/Medium/Low)
                        - madhhab: {{"ar": "...", "lat": "...", "id": "..."}}
@@ -56,7 +57,7 @@ with col1:
                        - institutions: [{{"name": "...", "id": "..."}}]
                        - japanese_translation: 日本語訳
                     
-                    テキスト:
+                    Text:
                     {source_input}
                     """
                     
@@ -67,12 +68,13 @@ with col1:
                     
                     res_json = json.loads(res_text)
                     d.update(res_json)
-                    st.success("解析成功！項目を更新しました。")
+                    st.success("解析成功！Gemini 3.0 Flashを使用しました。")
                     st.rerun()
                 except Exception as e:
                     st.error(f"解析エラー: {e}")
+                    st.info("モデル名を 'models/gemini-2.5-flash' に書き換えて試すことも検討してください。")
 
-    if d.get("translation"):
+    if d.get("translation") or d.get("japanese_translation"):
         st.subheader("🇯🇵 日本語訳")
         st.info(d.get("japanese_translation", d.get("translation", "")))
 
@@ -93,19 +95,18 @@ with col2:
     d["full_name"] = f_ar.text_input("氏名 (Arabic)", d["full_name"])
     d["full_name_lat"] = f_lat.text_input("氏名 (IJMES)", d["full_name_lat"])
 
-    # 法学派 (Madhhab) - 新設
+    # 法学派 (Madhhab)
     st.markdown("### ⚖️ 法学派 (Madhhab)")
     m_cols = st.columns([2, 2, 1.2])
     m_data = d.get("madhhab", {"ar": "", "lat": "", "id": ""})
     m_data["ar"] = m_cols[0].text_input("Madhhab (Ar)", m_data.get("ar", ""), key="m_ar")
     m_data["lat"] = m_cols[1].text_input("Madhhab (Lat)", m_data.get("lat", ""), key="m_lat")
-    m_data["id"] = m_cols[2].text_input("Madhhab ID", m_data.get("id", ""), key="m_id", placeholder="AIND-M-...")
+    m_data["id"] = m_cols[2].text_input("Madhhab ID", m_data.get("id", ""), key="m_id")
     d["madhhab"] = m_data
 
     # 師匠と施設
-    st.markdown("---")
+    st.divider()
     t_col, i_col = st.columns(2)
-    
     with t_col:
         st.subheader("🎓 Teachers")
         for i, t in enumerate(d.get("teachers", [])):
@@ -119,15 +120,3 @@ with col2:
             inst["name"] = st.text_input(f"I-Name {i}", inst.get("name",""), key=f"in_{i}")
             inst["id"] = st.text_input(f"I-ID {i}", inst.get("id",""), key=f"iid_{i}")
         if st.button("＋ 施設追加"): d["institutions"].append({"name":"","id":""}); st.rerun()
-
-    # XML プレビュー
-    st.divider()
-    if st.checkbox("Show Final TEI XML Preview"):
-        xml_output = f"""<person xml:id="{d['aind_id']}" sex="{d['sex']}" cert="{d['certainty']}">
-  <persName xml:lang="ar">{d['full_name']}</persName>
-  <persName xml:lang="lat">{d['full_name_lat']}</persName>
-  <trait type="madhhab" ref="{d['madhhab'].get('id','')}">
-    <desc>{d['madhhab'].get('lat','')}</desc>
-  </trait>
-</person>"""
-        st.code(xml_output, language="xml")
