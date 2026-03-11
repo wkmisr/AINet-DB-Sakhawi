@@ -16,20 +16,33 @@ def get_working_model():
     except:
         return genai.GenerativeModel('models/gemini-1.5-flash')
 
+def convert_h_to_g(h_year):
+    try:
+        h_clean = re.sub(r"\D", "", str(h_year))
+        if not h_clean: return ""
+        h = int(h_clean)
+        return int(h * 0.97 + 622)
+    except:
+        return ""
+
 st.set_page_config(page_title="AINet-DB Researcher Pro", layout="wide")
 
-# --- 2. Data State (強制的リセットロジック) ---
-# アプリ起動時、studentsがない場合はsession_stateをクリアして再構築
-if 'data' not in st.session_state or 'students' not in st.session_state.data:
+# --- 2. Data State & Force Cache Reset ---
+# もし 'students' キーがない古いデータ構造が残っていたら、強制的にクリアする
+if 'data' in st.session_state and 'students' not in st.session_state.data:
+    st.session_state.clear()
+    st.rerun()
+
+if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "AIND-D00000", "original_id": "", 
         "full_name": "", "name_only": "", "full_name_lat": "",
         "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
         "madhhab": {"lat": "Unknown / Other", "id": ""}, 
         "nisbahs": [], 
-        "activities": [], # typeが含まれるようになる
+        "activities": [],  # [ar, type, id] を持つ
         "teachers": [], 
-        "students": [],  # これが確実に作成される
+        "students": [],   # [name, id, subject, subject_id] を持つ
         "institutions": [], "family": [], 
         "source_text": "", "translation_jp": "", "translation_en": ""
     }
@@ -47,65 +60,123 @@ with col1:
     if st.button("🚀 精密解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("AI解析中..."):
+            with st.spinner("AIによる精密解析・翻訳・ID検索中..."):
                 try:
                     model = get_working_model()
-                    prompt = f"""Extract data into JSON. 
-                    - activities: include 'type' (study, buried, visit, reside).
-                    - students: list students with name, id, subject, subject_id.
-                    JSON: {{ "full_name":"", "name_only":"", "activities":[{"ar":"", "type":"", "id":""}], "students":[{"name":"","id":"","subject":"","subject_id":""}], ... }}
+                    prompt = f"""Extract biographical data into JSON.
+                    【Rules】
+                    - activities: Extract place names AND activity type (study, buried, visit, reside).
+                    - students: List all disciples with name, person_id, subject, and subject_id.
+                    - translation: Provide BOTH 'translation_jp' and 'translation_en'.
+                    JSON Structure: {{
+                        "full_name": "", "name_only": "", "full_name_lat": "",
+                        "birth_h": "", "death_h": "",
+                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-00000" }}],
+                        "activities": [{{ "ar": "", "type": "", "id": "TMP-L-00000" }}], 
+                        "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                        "students": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                        "institutions": [{{ "name": "", "role": "", "id": "TMP-O-00000" }}],
+                        "family": [{{ "name": "", "relation": "", "id": "TMP-P-00000" }}],
+                        "translation_jp": "", "translation_en": ""
+                    }}
                     Text: {source_input}"""
                     response = model.generate_content(prompt)
                     json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
                     if json_match:
-                        d.update(json.loads(json_match.group()))
+                        res_json = json.loads(json_match.group())
+                        res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
+                        res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
+                        d.update(res_json)
                         st.rerun()
                 except Exception as e: st.error(f"Error: {e}")
+    
+    if d.get("translation_jp"):
+        st.subheader("Bilingual Translation")
+        st.info(f"【日】{d['translation_jp']}")
+        st.info(f"【英】{d['translation_en']}")
 
 # --- 4. UI: Editor ---
 with col2:
     st.header("2. Metadata Editor")
+    
+    # --- Basic Info ---
+    st.subheader("👤 Basic Information")
+    c1, c2 = st.columns(2)
+    d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
+    d["original_id"] = c2.text_input("@source", d["original_id"])
+    d["full_name"] = st.text_input("Full Name (ar)", d["full_name"])
+    d["name_only"] = st.text_input("Name Only (ar)", d["name_only"])
+    d["full_name_lat"] = st.text_input("Latin Name", d["full_name_lat"])
 
-    # --- Activities ---
-    st.subheader("📍 Activities (活動・拠点)")
+    # --- Activities (★ここがタイプ付き) ---
+    st.divider()
+    st.subheader("📍 Activities")
+    st.caption("拠点や埋葬地の地名と、その活動内容（study/buried/reside等）を入力してください")
     for i, item in enumerate(d.get("activities", [])):
-        r = st.columns([1, 1, 1, 0.3])
-        item["ar"] = r[0].text_input("地名", item.get("ar", ""), key=f"a_ar_v3_{i}")
-        item["type"] = r[1].text_input("タイプ", item.get("type", ""), key=f"a_tp_v3_{i}", placeholder="buried / study")
-        item["id"] = r[2].text_input("ID", item.get("id", "TMP-L-00000"), key=f"a_id_v3_{i}")
-        if r[3].button("❌", key=f"a_del_v3_{i}"): d["activities"].pop(i); st.rerun()
+        r = st.columns([1.2, 1, 1, 0.3])
+        item["ar"] = r[0].text_input("地名(ar)", item.get("ar", ""), key=f"act_ar_v4_{i}")
+        item["type"] = r[1].text_input("タイプ", item.get("type", ""), key=f"act_tp_v4_{i}", placeholder="buried / study")
+        item["id"] = r[2].text_input("GeoNames ID", item.get("id", "TMP-L-00000"), key=f"act_id_v4_{i}")
+        if r[3].button("❌", key=f"act_del_v4_{i}"): d["activities"].pop(i); st.rerun()
     if st.button("＋ Activity追加"): d["activities"].append({"ar":"","type":"","id":"TMP-L-00000"}); st.rerun()
 
     # --- Teachers ---
     st.divider()
-    st.subheader("🎓 Teachers (師匠)")
+    st.subheader("🎓 Teachers")
     for i, item in enumerate(d.get("teachers", [])):
         r = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r[0].text_input("師匠名", item.get("name", ""), key=f"t_n_v3_{i}")
-        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-00000"), key=f"t_i_v3_{i}")
-        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"t_s_v3_{i}")
-        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"t_si_v3_{i}")
-        if r[4].button("❌", key=f"t_del_v3_{i}"): d["teachers"].pop(i); st.rerun()
+        item["name"] = r[0].text_input("師匠名", item.get("name", ""), key=f"tea_n_v4_{i}")
+        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-00000"), key=f"tea_i_v4_{i}")
+        item["subject"] = r[2].text_input("科目", item.get("subject", ""), key=f"tea_s_v4_{i}")
+        item["subject_id"] = r[3].text_input("科目ID", item.get("subject_id", "TMP-W-00000"), key=f"tea_si_v4_{i}")
+        if r[4].button("❌", key=f"tea_del_v4_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
 
-    # --- Students (独立セクション) ---
+    # --- Students (★ここが完全独立した入力欄) ---
     st.divider()
-    st.subheader("🧑‍🎓 Students (生徒/弟子)")
+    st.subheader("🧑‍🎓 Students")
     for i, item in enumerate(d.get("students", [])):
         r = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r[0].text_input("弟子名", item.get("name", ""), key=f"s_n_v3_{i}")
-        item["id"] = r[1].text_input("弟子ID", item.get("id", "TMP-P-00000"), key=f"s_i_v3_{i}")
-        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"s_s_v3_{i}")
-        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"s_si_v3_{i}")
-        if r[4].button("❌", key=f"s_del_v3_{i}"): d["students"].pop(i); st.rerun()
+        item["name"] = r[0].text_input("弟子名", item.get("name", ""), key=f"stu_n_v4_{i}")
+        item["id"] = r[1].text_input("弟子ID", item.get("id", "TMP-P-00000"), key=f"stu_i_v4_{i}")
+        item["subject"] = r[2].text_input("科目", item.get("subject", ""), key=f"stu_s_v4_{i}")
+        item["subject_id"] = r[3].text_input("科目ID", item.get("subject_id", "TMP-W-00000"), key=f"stu_si_v4_{i}")
+        if r[4].button("❌", key=f"stu_del_v4_{i}"): d["students"].pop(i); st.rerun()
     if st.button("＋ 弟子追加"): d["students"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
 
     # --- 5. XML Export ---
-    st.divider()
-    st.header("3. TEI-XML Export")
+    st.divider(); st.header("3. TEI-XML Export")
     
-    xml = f'<person @xml:id="{d["aind_id"]}">\n'
+    def fr(rid):
+        if not rid: return ""
+        if rid.startswith("TMP-"): return f"#{rid}"
+        if rid.startswith("Q"): return f"wd:{rid}"
+        if rid.isdigit(): return f"gn:{rid}"
+        return rid
+
+    xml = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
+    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
+    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
+    <persName @type="ijmes" @xml:lang="lat">{d['full_name_lat']}</persName>
+    <birth @when-custom="{d['birth_h']}" @datingMethod="#islamic" @when="{d['birth_g']}"/>
+    <death @when-custom="{d['death_h']}" @datingMethod="#islamic" @when="{d['death_g']}"/>\n"""
+    
+    for a in d.get("activities", []):
+        xml += f'    <residence @xml:lang="ar" @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("ar")}</residence>\n'
+
+    xml += "    <listRelation>\n"
+    for t in d.get("teachers", []):
+        xml += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+        if t.get("subject"): xml += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+        xml += f'        </relation>\n'
     for s in d.get("students", []):
-        xml += f'    <relation @name="student" @active="#{d["aind_id"]}" @passive="#{s.get("id")}"/>\n'
-    xml += '</person>'
+        xml += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
+        if s.get("subject"): xml += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
+        xml += f'        </relation>\n'
+    xml += "    </listRelation>\n"
+    xml += f"    <note @type='translation' @xml:lang='ja'>{d.get('translation_jp', '')}</note>\n"
+    xml += f"    <note @type='translation' @xml:lang='en'>{d.get('translation_en', '')}</note>\n"
+    xml += f"    <desc @type='original_source' @xml:lang='ar'>{d['source_text']}</desc>\n"
+    xml += "</person>"
+
     st.code(xml, language="xml")
