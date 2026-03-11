@@ -16,33 +16,23 @@ def get_working_model():
     except:
         return genai.GenerativeModel('models/gemini-1.5-flash')
 
-def convert_h_to_g(h_year):
-    try:
-        h_clean = re.sub(r"\D", "", str(h_year))
-        if not h_clean: return ""
-        h = int(h_clean)
-        return int(h * 0.97 + 622)
-    except:
-        return ""
+st.set_page_config(page_title="AINet-DB Researcher Pro", layout="wide")
 
-st.set_page_config(page_title="AINet-DB Pro Full-XML", layout="wide")
-
-# --- 2. Data State (強制アップデート機能付き) ---
-if 'data' not in st.session_state:
-    st.session_state.data = {}
-
-# 必要なキーが欠けている場合に強制補完する
-default_keys = {
-    "aind_id": "AIND-D00000", "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
-    "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
-    "madhhab": {"lat": "Unknown / Other", "id": ""}, 
-    "nisbahs": [], "activities": [], "teachers": [], "students": [], "institutions": [], "family": [], 
-    "source_text": "", "translation_jp": "", "translation_en": ""
-}
-
-for key, value in default_keys.items():
-    if key not in st.session_state.data:
-        st.session_state.data[key] = value
+# --- 2. Data State (強制的リセットロジック) ---
+# アプリ起動時、studentsがない場合はsession_stateをクリアして再構築
+if 'data' not in st.session_state or 'students' not in st.session_state.data:
+    st.session_state.data = {
+        "aind_id": "AIND-D00000", "original_id": "", 
+        "full_name": "", "name_only": "", "full_name_lat": "",
+        "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
+        "madhhab": {"lat": "Unknown / Other", "id": ""}, 
+        "nisbahs": [], 
+        "activities": [], # typeが含まれるようになる
+        "teachers": [], 
+        "students": [],  # これが確実に作成される
+        "institutions": [], "family": [], 
+        "source_text": "", "translation_jp": "", "translation_en": ""
+    }
 
 d = st.session_state.data
 
@@ -57,62 +47,65 @@ with col1:
     if st.button("🚀 精密解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("解析中..."):
+            with st.spinner("AI解析中..."):
                 try:
                     model = get_working_model()
-                    prompt = f"""Extract biographical data into JSON.
-                    - activities: Extract place AND 'type' (study, buried, etc.).
-                    - students: Identify students mentioned.
-                    - translation: Provide 'translation_jp' and 'translation_en'.
-                    """
-                    # プロンプトの詳細は省略するがAIは正しいJSONを返すと想定
-                    response = model.generate_content(prompt + source_input)
+                    prompt = f"""Extract data into JSON. 
+                    - activities: include 'type' (study, buried, visit, reside).
+                    - students: list students with name, id, subject, subject_id.
+                    JSON: {{ "full_name":"", "name_only":"", "activities":[{"ar":"", "type":"", "id":""}], "students":[{"name":"","id":"","subject":"","subject_id":""}], ... }}
+                    Text: {source_input}"""
+                    response = model.generate_content(prompt)
                     json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
                     if json_match:
-                        res_json = json.loads(json_match.group())
-                        d.update(res_json)
+                        d.update(json.loads(json_match.group()))
                         st.rerun()
                 except Exception as e: st.error(f"Error: {e}")
 
 # --- 4. UI: Editor ---
 with col2:
     st.header("2. Metadata Editor")
-    
-    # --- Activities セクション (独立して記述) ---
-    st.subheader("📍 Activities (活動拠点・埋葬地)")
-    st.caption("地名、タイプ(study/buried/reside等)、GeoNames IDを入力")
+
+    # --- Activities ---
+    st.subheader("📍 Activities (活動・拠点)")
     for i, item in enumerate(d.get("activities", [])):
-        r1, r2, r3, r4 = st.columns([1.2, 1, 1, 0.3])
-        item["ar"] = r1.text_input("地名", item.get("ar", ""), key=f"act_ar_fix_{i}")
-        item["type"] = r2.text_input("タイプ", item.get("type", ""), key=f"act_tp_fix_{i}", placeholder="study / buried")
-        item["id"] = r3.text_input("ID", item.get("id", "TMP-L-00000"), key=f"act_id_fix_{i}")
-        if r4.button("❌", key=f"act_del_fix_{i}"): d["activities"].pop(i); st.rerun()
+        r = st.columns([1, 1, 1, 0.3])
+        item["ar"] = r[0].text_input("地名", item.get("ar", ""), key=f"a_ar_v3_{i}")
+        item["type"] = r[1].text_input("タイプ", item.get("type", ""), key=f"a_tp_v3_{i}", placeholder="buried / study")
+        item["id"] = r[2].text_input("ID", item.get("id", "TMP-L-00000"), key=f"a_id_v3_{i}")
+        if r[3].button("❌", key=f"a_del_v3_{i}"): d["activities"].pop(i); st.rerun()
     if st.button("＋ Activity追加"): d["activities"].append({"ar":"","type":"","id":"TMP-L-00000"}); st.rerun()
 
-    # --- Teachers セクション ---
+    # --- Teachers ---
     st.divider()
     st.subheader("🎓 Teachers (師匠)")
     for i, item in enumerate(d.get("teachers", [])):
-        r1, r2, r3, r4, r5 = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r1.text_input("師", item.get("name", ""), key=f"tea_n_fix_{i}")
-        item["id"] = r2.text_input("師ID", item.get("id", "TMP-P-00000"), key=f"tea_i_fix_{i}")
-        item["subject"] = r3.text_input("内容", item.get("subject", ""), key=f"tea_s_fix_{i}")
-        item["subject_id"] = r4.text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"tea_si_fix_{i}")
-        if r5.button("❌", key=f"tea_del_fix_{i}"): d["teachers"].pop(i); st.rerun()
+        r = st.columns([1, 1, 1, 1, 0.3])
+        item["name"] = r[0].text_input("師匠名", item.get("name", ""), key=f"t_n_v3_{i}")
+        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-00000"), key=f"t_i_v3_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"t_s_v3_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"t_si_v3_{i}")
+        if r[4].button("❌", key=f"t_del_v3_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
 
-    # --- Students セクション (独立して記述) ---
+    # --- Students (独立セクション) ---
     st.divider()
-    st.subheader("🧑‍🎓 Students (生徒)")
+    st.subheader("🧑‍🎓 Students (生徒/弟子)")
     for i, item in enumerate(d.get("students", [])):
-        r1, r2, r3, r4, r5 = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r1.text_input("弟子", item.get("name", ""), key=f"stu_n_fix_{i}")
-        item["id"] = r2.text_input("弟子ID", item.get("id", "TMP-P-00000"), key=f"stu_i_fix_{i}")
-        item["subject"] = r3.text_input("内容", item.get("subject", ""), key=f"stu_s_fix_{i}")
-        item["subject_id"] = r4.text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"stu_si_fix_{i}")
-        if r5.button("❌", key=f"stu_del_fix_{i}"): d["students"].pop(i); st.rerun()
-    if st.button("＋ 生徒追加"): d["students"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
+        r = st.columns([1, 1, 1, 1, 0.3])
+        item["name"] = r[0].text_input("弟子名", item.get("name", ""), key=f"s_n_v3_{i}")
+        item["id"] = r[1].text_input("弟子ID", item.get("id", "TMP-P-00000"), key=f"s_i_v3_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"s_s_v3_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"s_si_v3_{i}")
+        if r[4].button("❌", key=f"s_del_v3_{i}"): d["students"].pop(i); st.rerun()
+    if st.button("＋ 弟子追加"): d["students"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
 
-    # --- XML Export ---
-    st.divider(); st.header("3. TEI-XML Export")
-    # XML生成ロジックは前回同様のため省略可能ですが、属性に@を付ける形式で出力されます
+    # --- 5. XML Export ---
+    st.divider()
+    st.header("3. TEI-XML Export")
+    
+    xml = f'<person @xml:id="{d["aind_id"]}">\n'
+    for s in d.get("students", []):
+        xml += f'    <relation @name="student" @active="#{d["aind_id"]}" @passive="#{s.get("id")}"/>\n'
+    xml += '</person>'
+    st.code(xml, language="xml")
