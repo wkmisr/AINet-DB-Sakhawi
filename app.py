@@ -50,26 +50,52 @@ with col1:
     st.header("1. Source Text & AI")
     source_input = st.text_area("Biographical Source (Arabic)", value=d["source_text"], height=450)
     
-    if st.button("✨ AI Structuring (Ar/Lat)"):
+    if st.button("✨ AI Analysis (Ar/Lat/Struct)"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("Analyzing with Gemini 2.5/1.5..."):
+            with st.spinner("Analyzing..."):
                 try:
-                    model = genai.GenerativeModel('gemini-1.5-flash')
-                    prompt = f"""Extract data into JSON. 
-                    Rules:
-                    1. lineage: Array of {{ "ar": "...", "lat": "IJMES" }}
-                    2. transliteration: Use IJMES style (e.g. al-Maqdisī).
-                    3. japanese_translation: Result of translation.
+                    # モデル名の指定を 'gemini-1.5-flash' または 'gemini-pro' に変更
+                    # models/ プレフィックスを外すのが現在の推奨です
+                    model = genai.GenerativeModel('gemini-1.5-flash') 
+                    
+                    prompt = f"""Analyze the following Arabic text and return ONLY a valid JSON. 
+                    Transliterate names using IJMES style (e.g. al-Maqdisī).
+                    Include a Japanese translation.
+                    
+                    JSON Structure: {{
+                      "full_name": "Arabic", 
+                      "full_name_lat": "IJMES",
+                      "lineage": [ {{"ar": "Ar", "lat": "Lat"}} ],
+                      "nisbahs": [ {{"ar": "Ar", "lat": "Lat"}} ],
+                      "activities": [ {{"ar": "Ar", "lat": "Lat"}} ],
+                      "death_year": 850, 
+                      "japanese_translation": "..."
+                    }}
                     Text: {source_input}"""
+                    
                     response = model.generate_content(prompt)
-                    res_json = json.loads(response.text.strip().replace("```json", "").replace("```", ""))
+                    
+                    # レスポンスのテキストを取得し、Markdownの装飾（```json ... ```）があれば除去
+                    raw_text = response.text.strip()
+                    if "```" in raw_text:
+                        raw_text = raw_text.split("```")[1]
+                        if raw_text.startswith("json"):
+                            raw_text = raw_text[4:].strip()
+                    
+                    res_json = json.loads(raw_text)
+                    
+                    # データの更新
                     d.update(res_json)
                     d["translation"] = res_json.get("japanese_translation", "")
+                    
+                    st.success("Analysis Complete")
                     st.rerun()
+                    
                 except Exception as e:
-                    st.error(f"AI Error: {e}")
-
+                    # エラーの詳細を表示
+                    st.error(f"AI Error: {str(e)}")
+                    st.info("Try changing 'gemini-1.5-flash' to 'gemini-pro' in the code if this persists.")
     if d["translation"]:
         st.subheader("🇯🇵 Translation")
         st.info(d["translation"])
