@@ -62,24 +62,31 @@ with col1:
             with st.spinner("日英翻訳とIDを探索中..."):
                 try:
                     model = get_working_model()
-                    prompt = f"""Extract biographical data into JSON.
-                    
+                    prompt = f"""Extract biographical data into JSON with HIGH PRECISION for geographic identification.
+
+                    【Step-by-Step for GeoNames/Wikidata】
+                     1. Identify all Place names (Nisbah and Activities) and Institutions in Arabic.
+                     2. Translate them into English/Latin standard names.
+                     3. SEARCH specifically for their GeoNames ID (for places) and Wikidata ID (for institutions/nisbahs).
+                     4. If a specific ID is not found, provide the ID of the parent city or most likely match.
+
                     【Rules】
-                    - name_only: MUST be "[Ism] b. [Father] b. [Grandfather]" in Arabic.
-                    - activities: Extract place names where the person lived or was active.
-                    - institutions: Extract the institution name, its ID, AND the person's 'role' (e.g., teach, learn, visit, stay).
-                    - translation: Provide BOTH 'translation_jp' and 'translation_en'.
-                    
-                    JSON Structure: {{
-                        "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
-                        "birth_h": "", "death_h": "", "madhhab_name": "",
-                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-00000" }}],
-                        "activities": [{{ "ar": "", "id": "TMP-L-00000" }}], 
-                        "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
-                        "institutions": [{{ "name": "", "role": "", "id": "TMP-O-00000" }}],
-                        "family": [{{ "name": "", "relation": "", "id": "TMP-P-00000" }}],
-                        "translation_jp": "", "translation_en": ""
-                    }}
+                     - name_only: MUST be "[Ism] b. [Father] b. [Grandfather]" in Arabic.
+                     - activities: Focus on specific cities or regions where the person held office, taught, or stayed.
+                     - institutions: Extract name, ID, and the person's role (teach, stay, etc.).
+                     - translation: Provide BOTH 'translation_jp' and 'translation_en'.
+                     - Latin fields: IJMES transcription ONLY. NO coordinates.
+
+                     JSON Structure: {{
+                     "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
+                     "birth_h": "", "death_h": "", "madhhab_name": "",
+                     "nisbahs": [{{ "ar": "", "lat": "", "id": "Wikidata_ID_or_TMP-N-00000" }}],
+                     "activities": [{{ "ar": "", "id": "GeoNames_ID_or_TMP-L-00000" }}], 
+                     "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                     "institutions": [{{ "name": "", "role": "", "id": "TMP-O-00000" }}],
+                     "family": [{{ "name": "", "relation": "", "id": "TMP-P-00000" }}],
+                     "translation_jp": "", "translation_en": ""
+                     }}
                     Text: {source_input}"""
                     response = model.generate_content(prompt)
                     json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
