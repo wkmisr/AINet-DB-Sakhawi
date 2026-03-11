@@ -1,24 +1,233 @@
-<person @xml:id="AIND-D00000" @source="#source_932540579843">
-    <persName @type="full" @xml:lang="ar">آدم بن سعد بن عيسى الكيلاني الأصل ثم المكي</persName>
-    <persName @type="name_only" @xml:lang="ar">آدم بن سعد بن عيسى</persName>
-    <persName @type="ijmes" @xml:lang="lat">Ādam b. Saʿd b. ʿĪsā al-Kīlānī al-Aṣl thumma al-Makkī</persName>
+import streamlit as st
+import google.generativeai as genai
+import json
+import re
+
+# --- 1. API & Model Setup ---
+api_key = st.secrets.get("GEMINI_API_KEY")
+if api_key:
+    genai.configure(api_key=api_key)
+
+def get_working_model():
+    try:
+        models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+        flash_models = [m for m in models if 'flash' in m]
+        return genai.GenerativeModel(flash_models[0] if flash_models else models[0])
+    except:
+        return genai.GenerativeModel('models/gemini-1.5-flash')
+
+def convert_h_to_g(h_year):
+    try:
+        h_clean = re.sub(r"\D", "", str(h_year))
+        if not h_clean: return ""
+        h = int(h_clean)
+        return int(h * 0.97 + 622)
+    except:
+        return ""
+
+st.set_page_config(page_title="AINet-DB Pro Full-XML", layout="wide")
+
+# --- 2. Data State ---
+MADHHAB_DATA = {
+    "Hanafi (ハナフィー派)": "Q160851",
+    "Maliki (マーリク派)": "Q48221",
+    "Shafi'i (シャーフィイー派)": "Q82245",
+    "Hanbali (ハンバリー派)": "Q191314",
+    "Unknown / Other": ""
+}
+
+if 'data' not in st.session_state:
+    st.session_state.data = {
+        "aind_id": "AIND-D00000", "original_id": "", 
+        "full_name": "", "name_only": "", "full_name_lat": "",
+        "sex": "Male", "certainty": "High",
+        "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
+        "madhhab": {"lat": "Unknown / Other", "id": ""}, 
+        "nisbahs": [], "activities": [], "teachers": [], "students": [], "institutions": [], "family": [], 
+        "source_text": "", "translation_jp": "", "translation_en": ""
+    }
+d = st.session_state.data
+
+# --- 3. UI: Source Analysis ---
+st.title("🌙 AINet-DB Researcher Pro")
+col1, col2 = st.columns([1, 1.5])
+
+with col1:
+    st.header("1. Source & Analysis")
+    source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=400)
     
-    <persName @type="nisba" @subtype="other" @xml:lang="ar" @ref="#TMP-N-00001">الكيلاني</persName>
-    <persName @type="nisba" @subtype="other" @xml:lang="ar" @ref="#TMP-N-00002">المكي</persName>
+    if st.button("🚀 精密解析"):
+        if source_input:
+            d["source_text"] = source_input
+            with st.spinner("日英翻訳とIDを探索中..."):
+                try:
+                    model = get_working_model()
+                    prompt = f"""Extract biographical data into JSON.
+                    
+                    【Rules】
+                    - name_only: MUST be "[Ism] b. [Father] b. [Grandfather]" in Arabic.
+                    - activities: Extract place names AND 'type' (e.g., study, buried, visit, reside).
+                    - teachers/students: Extract name, person_id, subject, and subject_id.
+                    - institutions: Extract name, ID, and the person's role (teach, stay, etc.).
+                    - translation: Provide BOTH 'translation_jp' and 'translation_en'.
+                    
+                    JSON Structure: {{
+                        "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
+                        "birth_h": "", "death_h": "", "madhhab_name": "",
+                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-00000" }}],
+                        "activities": [{{ "ar": "", "type": "", "id": "TMP-L-00000" }}], 
+                        "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                        "students": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-W-00000" }}],
+                        "institutions": [{{ "name": "", "role": "", "id": "TMP-O-00000" }}],
+                        "family": [{{ "name": "", "relation": "", "id": "TMP-P-00000" }}],
+                        "translation_jp": "", "translation_en": ""
+                    }}
+                    Text: {source_input}"""
+                    response = model.generate_content(prompt)
+                    json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
+                    if json_match:
+                        res_json = json.loads(json_match.group())
+                        res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
+                        res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
+                        d.update(res_json)
+                        st.rerun()
+                except Exception as e:
+                    st.error(f"Error: {e}")
     
-    <birth @when-custom="None" @datingMethod="#islamic" @when=""/>
-    <death @when-custom="867" @datingMethod="#islamic" @when="1462"/>
+    if d.get("translation_jp"):
+        st.subheader("Bilingual Translation")
+        st.info(f"【日】{d['translation_jp']}")
+        st.info(f"【英】{d['translation_en']}")
+
+# --- 4. UI: Editor ---
+with col2:
+    st.header("2. Metadata Editor")
+    c1, c2 = st.columns(2)
+    d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
+    d["original_id"] = c2.text_input("@source", d["original_id"])
+    d["full_name"] = st.text_input("persName (Arabic Full)", d["full_name"])
+    d["name_only"] = st.text_input("persName (Ism + Father + GF)", d["name_only"])
+    d["full_name_lat"] = st.text_input("persName (Latin)", d["full_name_lat"])
+
+    dc1, dc2, dc3, dc4 = st.columns(4)
+    d["birth_h"] = dc1.text_input("Birth(H)", d["birth_h"])
+    d["birth_g"] = dc2.text_input("Birth(G)", value=convert_h_to_g(d["birth_h"]))
+    d["death_h"] = dc3.text_input("Death(H)", d["death_h"])
+    d["death_g"] = dc4.text_input("Death(G)", value=convert_h_to_g(d["death_h"]))
+
+    m_col1, m_col2 = st.columns([2, 1])
+    sel_m = m_col1.selectbox("⚖️ Madhhab", list(MADHHAB_DATA.keys()), index=list(MADHHAB_DATA.keys()).index(d["madhhab"]["lat"]) if d["madhhab"]["lat"] in MADHHAB_DATA else 4)
+    d["madhhab"] = {"lat": sel_m, "id": MADHHAB_DATA[sel_m]}
+    m_col2.text_input("Wikidata ID", d["madhhab"]["id"], disabled=True)
+
+    # --- Nisbahs ---
+    st.divider(); st.subheader("📝 Nisbahs")
+    for i, item in enumerate(d.get("nisbahs", [])):
+        cols = st.columns([1, 1, 1, 0.3])
+        item["ar"] = cols[0].text_input("アラビア語", item.get("ar", ""), key=f"n_ar_{i}")
+        item["lat"] = cols[1].text_input("転写", item.get("lat", ""), key=f"n_lat_{i}")
+        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-N-00000"), key=f"n_id_{i}")
+        if cols[3].button("❌", key=f"n_del_{i}"): d["nisbahs"].pop(i); st.rerun()
+    if st.button("＋ Nisbah追加"): d["nisbahs"].append({"ar":"","lat":"","id":"TMP-N-00000"}); st.rerun()
+
+    # --- Activities (タイプ欄追加) ---
+    st.divider(); st.subheader("📍 Activities")
+    for i, item in enumerate(d.get("activities", [])):
+        cols = st.columns([1, 1, 1, 0.3])
+        item["ar"] = cols[0].text_input("アラビア語(地名)", item.get("ar", ""), key=f"a_ar_{i}")
+        item["type"] = cols[1].text_input("タイプ (study/buried...)", item.get("type", ""), key=f"a_tp_{i}")
+        item["id"] = cols[2].text_input("ID (GeoNames)", item.get("id", "TMP-L-00000"), key=f"a_id_{i}")
+        if cols[3].button("❌", key=f"a_del_{i}"): d["activities"].pop(i); st.rerun()
+    if st.button("＋ Activity追加"): d["activities"].append({"ar":"","type":"","id":"TMP-L-00000"}); st.rerun()
+
+    # --- Teachers & Students (Students欄新設) ---
+    st.divider(); st.subheader("🎓 Teachers")
+    for i, item in enumerate(d.get("teachers", [])):
+        r = st.columns([1, 1, 1, 1, 0.3])
+        item["name"] = r[0].text_input("師", item.get("name"), key=f"t_n_{i}")
+        item["id"] = r[1].text_input("師ID", item.get("id", "TMP-P-00000"), key=f"t_i_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"t_s_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"t_si_{i}")
+        if r[4].button("❌", key=f"t_d_{i}"): d["teachers"].pop(i); st.rerun()
+    if st.button("＋師追加"): d["teachers"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
+
+    st.divider(); st.subheader("🧑‍🎓 Students")
+    for i, item in enumerate(d.get("students", [])):
+        r = st.columns([1, 1, 1, 1, 0.3])
+        item["name"] = r[0].text_input("弟子", item.get("name"), key=f"s_n_{i}")
+        item["id"] = r[1].text_input("弟子ID", item.get("id", "TMP-P-00000"), key=f"s_i_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"s_s_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", "TMP-W-00000"), key=f"s_si_{i}")
+        if r[4].button("❌", key=f"s_d_{i}"): d["students"].pop(i); st.rerun()
+    if st.button("＋弟子追加"): d["students"].append({"name":"","id":"TMP-P-00000","subject":"","subject_id":"TMP-W-00000"}); st.rerun()
+
+    # --- Family & Institutions ---
+    st.divider(); st.subheader("👥 Family")
+    for i, item in enumerate(d.get("family", [])):
+        cols = st.columns([1, 1, 1, 0.3])
+        item["name"] = cols[0].text_input("名前", item.get("name", ""), key=f"f_n_{i}")
+        item["relation"] = cols[1].text_input("関係", item.get("relation", ""), key=f"f_r_{i}")
+        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-P-00000"), key=f"f_id_{i}")
+        if cols[3].button("❌", key=f"f_del_{i}"): d["family"].pop(i); st.rerun()
+    if st.button("＋Family追加"): d["family"].append({"name":"","relation":"","id":"TMP-P-00000"}); st.rerun()
+
+    st.divider(); st.subheader("🕌 Institutions")
+    for i, item in enumerate(d.get("institutions", [])):
+        cols = st.columns([1.5, 1, 1, 0.3])
+        item["name"] = cols[0].text_input("機関名", item.get("name", ""), key=f"i_n_{i}")
+        item["role"] = cols[1].text_input("役割", item.get("role", ""), key=f"i_r_{i}")
+        item["id"] = cols[2].text_input("ID", item.get("id", "TMP-O-00000"), key=f"i_id_{i}")
+        if cols[3].button("❌", key=f"i_del_{i}"): d["institutions"].pop(i); st.rerun()
+    if st.button("＋Institution追加"): d["institutions"].append({"name":"","role":"","id":"TMP-O-00000"}); st.rerun()
+
+    # --- 5. XML Export ---
+    st.divider(); st.header("3. TEI-XML Export")
     
-    <affiliation @type="madhhab" @ref="wd:">Unknown / Other</affiliation>
-    <affiliation @type="institution" @subtype="stay" @ref="#TMP-O-00001">رباط سكر</affiliation>
+    def fr(rid):
+        if not rid: return ""
+        if rid.startswith("TMP-"): return f"#{rid}"
+        if rid.startswith("Q"): return f"wd:{rid}"
+        if rid.isdigit(): return f"gn:{rid}"
+        return rid
+
+    xml = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
+    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
+    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
+    <persName @type="ijmes" @xml:lang="lat">{d['full_name_lat']}</persName>\n"""
     
-    <residence @xml:lang="ar" @ref="gn:104595">مكة</residence>
+    for n in d.get("nisbahs", []):
+        n_id = n.get("id", "")
+        n_type = "place" if n_id.isdigit() or n_id.startswith("Q") else "other"
+        xml += f'    <persName @type="nisba" @subtype="{n_type}" @xml:lang="ar" @ref="{fr(n_id)}">{n.get("ar")}</persName>\n'
     
-    <listRelation>
-        </listRelation>
+    xml += f"""    <birth @when-custom="{d['birth_h']}" @datingMethod="#islamic" @when="{d['birth_g']}"/>
+    <death @when-custom="{d['death_h']}" @datingMethod="#islamic" @when="{d['death_g']}"/>
+    <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>\n"""
+
+    for i in d.get("institutions", []):
+        xml += f'    <affiliation @type="institution" @subtype="{i.get("role")}" @ref="{fr(i.get("id"))}">{i.get("name")}</affiliation>\n'
     
-    <note @type="translation" @xml:lang="ja">アダム・ブン・サアド・ブン・イサ・アル＝キーラーニー・アル＝アースル、その後マッカ出身。彼はそこに約20年間住み、そこで結婚し、最終的にはラバート・スッカルに住んだ。彼は信仰深い人物だった。1067年（ヒジュラ暦）のズー・アル＝カアダ月に死去した。</note>
-    <note @type="translation" @xml:lang="en">Ādam b. Saʿd b. ʿĪsā, originally from Kīlān, then of Mecca. He resided there for about twenty years and married there, and finally resided in Ribāṭ Sukkar. He was a devout person. He died in Dhū al-Qaʿdah in the year 1067 AH.</note>
+    for a in d.get("activities", []):
+        xml += f'    <residence @xml:lang="ar" @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("ar")}</residence>\n'
+
+    xml += "    <listRelation>\n"
+    for f in d.get("family", []):
+        xml += f'        <relation @name="{f.get("relation")}" @active="{fr(f.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
+    for t in d.get("teachers", []):
+        xml += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+        if t.get("subject"):
+            xml += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+        xml += f'        </relation>\n'
+    for s in d.get("students", []):
+        xml += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
+        if s.get("subject"):
+            xml += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
+        xml += f'        </relation>\n'
+    xml += "    </listRelation>\n"
     
-    <desc @type="original_source" @xml:lang="ar">###$932540579843$# $ آدم بن سعد بن عيسى الكيلاني الأصل ثم المكيقطنها نحوا من عشرين سنة وزوج بها واسكن بأخرة رباط سكر وكان معتقدا .مات في ذي القعدة سنة سبع وستين .</desc>
-</person>
+    xml += f"    <note @type='translation' @xml:lang='ja'>{d.get('translation_jp', '')}</note>\n"
+    xml += f"    <note @type='translation' @xml:lang='en'>{d.get('translation_en', '')}</note>\n"
+    xml += f"    <desc @type='original_source' @xml:lang='ar'>{d['source_text']}</desc>\n"
+    xml += "</person>"
+
+    st.code(xml, language="xml")
