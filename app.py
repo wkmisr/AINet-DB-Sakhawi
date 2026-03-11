@@ -3,108 +3,142 @@ import google.generativeai as genai
 import json
 import re
 
-# --- 1. システム強制リセット (キャッシュゾンビ撃退) ---
-# セッション変数名を完全に新しいもの(v10)に変え、古い構造を無視します
-if 'db_v10_final' not in st.session_state:
-    st.session_state.clear() # 既存の古いキャッシュを全消去
-    st.session_state.db_v10_final = {
+# --- 1. システム強制リセット (最新の構造 db_v11 へ) ---
+if 'db_v11' not in st.session_state:
+    st.session_state.clear()
+    st.session_state.db_v11 = {
         "aind_id": "AIND-D00000", "original_id": "", 
-        "full_name": "", "name_only": "", "full_name_lat": "",
+        "full_name": "", "name_only": "", "full_name_lat": "", # 名前項目を復元
+        "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
         "activities": [{"ar": "", "type": "reside", "id": ""}], 
         "teachers": [{"name": "", "id": "", "subject": "", "subject_id": ""}], 
-        "students": [{"name": "", "id": "", "subject": "", "subject_id": ""}], # 確実な初期化
-        "source_text": ""
+        "students": [{"name": "", "id": "", "subject": "", "subject_id": ""}], 
+        "source_text": "", "translation_jp": "", "translation_en": ""
     }
     st.rerun()
 
-d = st.session_state.db_v10_final
+d = st.session_state.db_v11
 
 # --- 2. API & Model Setup ---
 api_key = st.secrets.get("GEMINI_API_KEY")
 if api_key:
     genai.configure(api_key=api_key)
 
-st.set_page_config(page_title="AINet-DB Pro v10", layout="wide")
+st.set_page_config(page_title="AINet-DB Pro v11", layout="wide")
 
 # --- 3. UI: Main Header ---
-st.title("🌙 AINet-DB Researcher Pro v10")
-st.info("右側のエディタに '📍 Activities(タイプあり)' と '🧑‍🎓 Students(弟子)' が表示されているはずです。")
+st.title("🌙 AINet-DB Researcher Pro v11")
 
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
-    st.header("1. Source Text")
-    d["source_text"] = st.text_area("史料テキスト", value=d["source_text"], height=400)
+    st.header("1. Source & Analysis")
+    d["source_text"] = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=400)
     
-    if st.button("🚀 AI精密解析"):
-        # AI解析ロジック（省略せずStudents/Activities対応で記述）
-        with st.spinner("Students/Activitiesを抽出中..."):
+    if st.button("🚀 精密解析"):
+        with st.spinner("詳細データを解析中..."):
             try:
                 model = genai.GenerativeModel('gemini-1.5-flash')
-                prompt = "Extract biographical data to JSON: include activities with 'type' and a 'students' list."
-                response = model.generate_content(prompt + d["source_text"])
+                prompt = f"""Extract biographical data into JSON.
+                - activities: include 'type' (study, buried, visit, reside).
+                - students: list with name, id, subject, subject_id.
+                - names: separate full_name, name_only, and latin (full_name_lat).
+                JSON: {{
+                    "full_name":"", "name_only":"", "full_name_lat":"",
+                    "birth_h":"", "death_h":"",
+                    "activities":[{"ar":"", "type":"", "id":""}],
+                    "students":[{"name":"","id":"","subject":"","subject_id":""}],
+                    "translation_jp":"", "translation_en":""
+                }}
+                Text: {d["source_text"]}"""
+                response = model.generate_content(prompt)
                 json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
                 if json_match:
                     d.update(json.loads(json_match.group()))
                     st.rerun()
-            except: st.error("AI解析エラー。手動入力してください。")
+            except Exception as e: st.error(f"Error: {e}")
+
+    if d.get("translation_jp"):
+        st.subheader("Bilingual Translation")
+        st.info(f"【日】{d['translation_jp']}")
+        st.info(f"【英】{d['translation_en']}")
 
 with col2:
     st.header("2. Metadata Editor")
     
-    # --- Basic Info ---
-    d["full_name"] = st.text_input("氏名 (ar)", d["full_name"], key="v10_fn")
+    # --- Basic Info (復元セクション) ---
+    st.subheader("👤 Basic Information")
+    c1, c2 = st.columns(2)
+    d["aind_id"] = c1.text_input("Person ID (XML:ID)", d["aind_id"], key="v11_id")
+    d["original_id"] = c2.text_input("Original Source ID", d["original_id"], key="v11_oid")
+    
+    d["full_name"] = st.text_input("Full Name (Arabic)", d["full_name"], key="v11_fn")
+    d["name_only"] = st.text_input("Name Only (Arabic)", d["name_only"], key="v11_no")
+    d["full_name_lat"] = st.text_input("Latin Name (Transliteration)", d["full_name_lat"], key="v11_lat")
+
+    c3, c4, c5, c6 = st.columns(4)
+    d["birth_h"] = c3.text_input("Birth (H)", d["birth_h"], key="v11_bh")
+    d["birth_g"] = c4.text_input("Birth (G)", d["birth_g"], key="v11_bg")
+    d["death_h"] = c5.text_input("Death (H)", d["death_h"], key="v11_dh")
+    d["death_g"] = c6.text_input("Death (G)", d["death_g"], key="v11_dg")
 
     st.divider()
 
-    # --- 📍 Activities (タイプ欄を確実に配置) ---
+    # --- 📍 Activities ---
     st.subheader("📍 Activities (活動拠点)")
     for i, item in enumerate(d["activities"]):
         r = st.columns([1.2, 1, 1, 0.3])
-        item["ar"] = r[0].text_input("地名", item.get("ar", ""), key=f"v10_a_ar_{i}")
-        item["type"] = r[1].text_input("タイプ", item.get("type", ""), key=f"v10_a_tp_{i}", placeholder="study/buried")
-        item["id"] = r[2].text_input("ID", item.get("id", ""), key=f"v10_a_id_{i}")
-        if r[3].button("❌", key=f"v10_a_del_{i}"): d["activities"].pop(i); st.rerun()
+        item["ar"] = r[0].text_input("地名", item.get("ar", ""), key=f"v11_a_ar_{i}")
+        item["type"] = r[1].text_input("タイプ", item.get("type", ""), key=f"v11_a_tp_{i}")
+        item["id"] = r[2].text_input("ID", item.get("id", ""), key=f"v11_a_id_{i}")
+        if r[3].button("❌", key=f"v11_a_del_{i}"): d["activities"].pop(i); st.rerun()
     if st.button("＋ Activity追加"): d["activities"].append({"ar":"","type":"","id":""}); st.rerun()
 
     st.divider()
 
-    # --- 🎓 Teachers (師匠) ---
+    # --- 🎓 Teachers ---
     st.subheader("🎓 Teachers (師匠)")
     for i, item in enumerate(d["teachers"]):
         r = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r[0].text_input("師匠名", item.get("name", ""), key=f"v10_t_n_{i}")
-        item["id"] = r[1].text_input("師ID", item.get("id", ""), key=f"v10_t_i_{i}")
-        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"v10_t_s_{i}")
-        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", ""), key=f"v10_t_si_{i}")
-        if r[4].button("❌", key=f"v10_t_del_{i}"): d["teachers"].pop(i); st.rerun()
+        item["name"] = r[0].text_input("師匠名", item.get("name", ""), key=f"v11_t_n_{i}")
+        item["id"] = r[1].text_input("師ID", item.get("id", ""), key=f"v11_t_i_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"v11_t_s_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", ""), key=f"v11_t_si_{i}")
+        if r[4].button("❌", key=f"v11_t_del_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"","subject":"","subject_id":""}); st.rerun()
 
     st.divider()
 
-    # --- 🧑‍🎓 Students (弟子：完全に独立した入力欄) ---
+    # --- 🧑‍🎓 Students ---
     st.subheader("🧑‍🎓 Students (弟子)")
     for i, item in enumerate(d["students"]):
         r = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r[0].text_input("弟子名", item.get("name", ""), key=f"v10_s_n_{i}")
-        item["id"] = r[1].text_input("弟子ID", item.get("id", ""), key=f"v10_s_i_{i}")
-        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"v10_s_s_{i}")
-        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", ""), key=f"v10_s_si_{i}")
-        if r[4].button("❌", key=f"v10_s_del_{i}"): d["students"].pop(i); st.rerun()
+        item["name"] = r[0].text_input("弟子名", item.get("name", ""), key=f"v11_s_n_{i}")
+        item["id"] = r[1].text_input("弟子ID", item.get("id", ""), key=f"v11_s_i_{i}")
+        item["subject"] = r[2].text_input("内容", item.get("subject", ""), key=f"v11_s_s_{i}")
+        item["subject_id"] = r[3].text_input("内容ID", item.get("subject_id", ""), key=f"v11_s_si_{i}")
+        if r[4].button("❌", key=f"v11_s_del_{i}"): d["students"].pop(i); st.rerun()
     if st.button("＋ 弟子追加"): d["students"].append({"name":"","id":"","subject":"","subject_id":""}); st.rerun()
 
-    # --- 5. XML Export (Students & Activities の subtype を反映) ---
+    # --- 5. XML Export ---
     st.divider()
     st.header("3. TEI-XML Export")
     
-    xml = f'<person xml:id="{d["aind_id"]}">\n'
+    xml = f'<person xml:id="{d["aind_id"]}" source="#{d["original_id"]}">\n'
+    xml += f'  <persName type="full" xml:lang="ar">{d["full_name"]}</persName>\n'
+    xml += f'  <persName type="name_only" xml:lang="ar">{d["name_only"]}</persName>\n'
+    xml += f'  <persName type="lat">{d["full_name_lat"]}</persName>\n'
+    xml += f'  <birth when-custom="{d["birth_h"]}" when="{d["birth_g"]}"/>\n'
+    xml += f'  <death when-custom="{d["death_h"]}" when="{d["death_g"]}"/>\n'
+    
     for a in d["activities"]:
         xml += f'  <residence subtype="{a.get("type")}" ref="#{a.get("id")}">{a.get("ar")}</residence>\n'
+    
     xml += '  <listRelation>\n'
     for s in d["students"]:
         xml += f'    <relation name="student" active="#{d["aind_id"]}" passive="#{s.get("id")}">\n'
         if s.get("subject"): xml += f'      <desc ref="#{s.get("subject_id")}">{s.get("subject")}</desc>\n'
         xml += '    </relation>\n'
     xml += '  </listRelation>\n</person>'
+    
     st.code(xml, language="xml")
-
