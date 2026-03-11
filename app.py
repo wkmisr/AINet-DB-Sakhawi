@@ -27,9 +27,7 @@ if api_key:
 st.set_page_config(page_title="AINet-DB Pro v10", layout="wide")
 
 # --- 3. UI: Main Header ---
-st.write("### 現在のバージョン: 2026/03/12-深夜テスト")
 st.title("🌙 AINet-DB Researcher Pro v10")
-st.error("これが表示されたら反映されています")
 st.info("右側のエディタに '📍 Activities(タイプあり)' と '🧑‍🎓 Students(弟子)' が表示されているはずです。")
 
 col1, col2 = st.columns([1, 1.5])
