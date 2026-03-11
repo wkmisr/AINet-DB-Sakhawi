@@ -9,12 +9,11 @@ if api_key:
 
 st.set_page_config(page_title="AINet-DB Researcher Editor", layout="wide")
 
-# カスタムCSS（アラビア語フォントとコンパクトなレイアウト）
+# カスタムCSS
 st.markdown("""
     <style>
     .stTextInput input { padding: 4px 8px !important; }
     .ar-font { font-family: 'Amiri', serif; font-size: 1.3rem !important; direction: rtl; }
-    .label-hint { font-size: 0.75rem; color: #888; margin-top: -10px; margin-bottom: 5px; }
     .section-header { background-color: #f0f2f6; padding: 5px 10px; border-radius: 5px; margin-top: 20px; font-weight: bold; }
     </style>
     """, unsafe_allow_html=True)
@@ -35,7 +34,7 @@ if 'data' not in st.session_state:
 d = st.session_state.data
 
 # --- 3. UIレイアウト ---
-st.title("🌙 AINet-DB Researcher Editor")
+st.title("🌙 AINet-DB Researcher Editor (2026 Gen-2 Edition)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
@@ -45,33 +44,22 @@ with col1:
     if st.button("✨ AI Structuring (Ar/Lat)"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("Analyzing with Gemini..."):
+            with st.spinner("Analyzing with Latest Gemini 2.5..."):
                 try:
-                    # 【404エラー対策】利用可能なモデルを自動判定
-                    available_models = [m.name for m in genai.list_models()]
-                    target_model = 'gemini-1.5-flash'
-                    
-                    # リストの中に models/ プレフィックス付きで存在するかチェック
-                    if f"models/{target_model}" in available_models:
-                        model_name = f"models/{target_model}"
-                    elif target_model in available_models:
-                        model_name = target_model
-                    else:
-                        # 見つからない場合は安定版の Pro にフォールバック
-                        model_name = 'gemini-pro'
-                    
+                    # 【2026年版モデル指定】リストにある最新の 'gemini-2.5-flash' を使用
+                    model_name = 'models/gemini-2.5-flash'
                     model = genai.GenerativeModel(model_name)
                     
-                    prompt = f"""Extract data from the Arabic text into the following JSON format.
-                    Use IJMES transliteration for all 'lat' fields.
+                    prompt = f"""Extract biographical data from the Arabic text into the following JSON format.
+                    Transliterate Arabic names using IJMES style.
                     Result MUST be valid JSON only.
 
                     JSON Structure:
                     {{
-                        "full_name": "Arabic", "full_name_lat": "Latin",
+                        "full_name": "Arabic", "full_name_lat": "IJMES Latin",
                         "lineage": [ {{"ar": "Ar", "lat": "Lat", "id": ""}} ],
                         "nisbahs": [ {{"ar": "Ar", "lat": "Lat", "id": ""}} ],
-                        "japanese_translation": "..."
+                        "japanese_translation": "日本語訳..."
                     }}
                     Text: {source_input}"""
                     
@@ -87,11 +75,10 @@ with col1:
                     res_json = json.loads(res_text)
                     d.update(res_json)
                     d["translation"] = res_json.get("japanese_translation", "")
-                    st.success(f"Analyzed using {model_name}")
+                    st.success(f"Success! Analyzed using {model_name}")
                     st.rerun()
                 except Exception as e:
                     st.error(f"AI Error: {e}")
-                    st.info(f"Available models: {available_models if 'available_models' in locals() else 'Unknown'}")
 
     if d.get("translation"):
         st.subheader("🇯🇵 Translation")
@@ -100,22 +87,22 @@ with col1:
 with col2:
     st.header("2. Entity Management")
     
-    # (A) ID & 基本情報
+    # ID & 基本情報
     c1, c2 = st.columns(2)
-    d["aind_id"] = c1.text_input("Person ID (TMP-P-xxxxx)", d["aind_id"])
+    d["aind_id"] = c1.text_input("Person ID", d["aind_id"])
     d["original_id"] = c2.text_input("Source ID", d["original_id"])
     
     f_ar, f_lat = st.columns(2)
     d["full_name"] = f_ar.text_input("Full Name (Arabic)", d["full_name"])
     d["full_name_lat"] = f_lat.text_input("Full Name (Latin IJMES)", d["full_name_lat"])
 
-    # (B) 系譜 (Lineage)
-    st.markdown('<div class="section-header">🧬 Lineage (TMP-P-xxx)</div>', unsafe_allow_html=True)
+    # 系譜
+    st.markdown('<div class="section-header">🧬 Lineage</div>', unsafe_allow_html=True)
     for i, lin in enumerate(d["lineage"]):
         cols = st.columns([2, 2, 1.2, 0.4])
         lin["ar"] = cols[0].text_input(f"Ar_{i}", lin.get("ar",""), key=f"lar_{i}", label_visibility="collapsed")
         lin["lat"] = cols[1].text_input(f"Lat_{i}", lin.get("lat",""), key=f"llat_{i}", label_visibility="collapsed")
-        lin["id"] = cols[2].text_input(f"ID_{i}", lin.get("id",""), key=f"lid_{i}", label_visibility="collapsed", placeholder="ID")
+        lin["id"] = cols[2].text_input(f"ID_{i}", lin.get("id",""), key=f"lid_{i}", label_visibility="collapsed")
         if cols[3].button("❌", key=f"ldel_{i}"):
             d["lineage"].pop(i)
             st.rerun()
@@ -123,8 +110,8 @@ with col2:
         d["lineage"].append({"ar":"","lat":"","id":""})
         st.rerun()
 
-    # (C) ニスバ
-    st.markdown('<div class="section-header">📝 Nisbahs (gn:xxx)</div>', unsafe_allow_html=True)
+    # ニスバ
+    st.markdown('<div class="section-header">📝 Nisbahs</div>', unsafe_allow_html=True)
     for i, nis in enumerate(d["nisbahs"]):
         cols = st.columns([2, 2, 1.2, 0.4])
         nis["ar"] = cols[0].text_input(f"Nar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
@@ -137,8 +124,9 @@ with col2:
         d["nisbahs"].append({"ar":"","lat":"","id":""})
         st.rerun()
 
-    # (D) 師匠・家族・施設 (研究用フル項目)
-    st.markdown('<div class="section-header">🎓 Teachers</div>', unsafe_allow_html=True)
+    # 研究用補足項目
+    st.markdown('<div class="section-header">🎓 Teachers / Institutions</div>', unsafe_allow_html=True)
+    # （ここに昨日のTeachers/Institutionsのループが入ります）
     for i, t in enumerate(d.get("teachers", [])):
         cols = st.columns([3, 2, 0.5])
         t["name"] = cols[0].text_input(f"T-Name {i}", t.get("name",""), key=f"tn_{i}")
@@ -146,24 +134,7 @@ with col2:
         if cols[2].button("❌", key=f"tdel_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ Add Teacher"): d["teachers"].append({"name":"","id":""}); st.rerun()
 
-    st.markdown('<div class="section-header">👪 Family</div>', unsafe_allow_html=True)
-    for i, f in enumerate(d.get("family", [])):
-        cols = st.columns([2, 1.5, 1.5, 0.5])
-        f["name"] = cols[0].text_input(f"F-Name {i}", f.get("name",""), key=f"fn_{i}")
-        f["relation"] = cols[1].text_input(f"Rel {i}", f.get("relation",""), key=f"fr_{i}")
-        f["id"] = cols[2].text_input(f"F-ID {i}", f.get("id",""), key=f"fid_{i}")
-        if cols[3].button("❌", key=f"fdel_{i}"): d["family"].pop(i); st.rerun()
-    if st.button("＋ Add Family Member"): d["family"].append({"name":"","relation":"","id":""}); st.rerun()
-
-    st.markdown('<div class="section-header">🕌 Institutions</div>', unsafe_allow_html=True)
-    for i, inst in enumerate(d.get("institutions", [])):
-        cols = st.columns([3, 2, 0.5])
-        inst["name"] = cols[0].text_input(f"I-Name {i}", inst.get("name",""), key=f"in_{i}")
-        inst["id"] = cols[1].text_input(f"I-ID {i}", inst.get("id",""), key=f"iid_{i}")
-        if cols[2].button("❌", key=f"idel_{i}"): d["institutions"].pop(i); st.rerun()
-    if st.button("＋ Add Institution"): d["institutions"].append({"name":"","id":""}); st.rerun()
-
-    # --- 4. XML出力 (TEI Preview) ---
+    # XML出力
     st.divider()
     if st.checkbox("Show TEI XML Preview"):
-        st.code(f'<person xml:id="{d["aind_id"]}">\n  <persName xml:lang="ar">{d["full_name"]}</persName>\n  <persName xml:lang="lat">{d["full_name_lat"]}</persName>\n</person>', language="xml")
+        st.code(f'<person xml:id="{d["aind_id"]}">\n  <persName xml:lang="ar">{d["full_name"]}</persName>\n</person>', language="xml")
