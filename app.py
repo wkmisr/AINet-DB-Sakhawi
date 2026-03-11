@@ -79,7 +79,7 @@ with col1:
                         "birth_h": "", "death_h": "", "madhhab_name": "",
                         "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-0000" }}],
                         "activities": [{{ "place_ar": "", "place_lat": "", "id": "GeoNames_ID" }}],
-                        "teachers": [{{ "name": "", "id": "TMP-P-XXXXX", "subject": "", "subject_id": "TMP-S-XXXXX" }}],
+                        "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000" }}],
                         "institutions": [{{ "name": "", "id": "Wikidata_ID" }}],
                         "translation_jp": "", "translation_en": ""
                     }}
@@ -134,17 +134,17 @@ with col2:
     for i, item in enumerate(d.get("teachers", [])):
         r1 = st.columns([1, 1, 1, 1, 0.3])
         item["name"] = r1[0].text_input("師匠名", item.get("name"), key=f"t_n_{i}")
-        item["id"] = r1[1].text_input("師匠ID", item.get("id", "TMP-P-XXXXX"), key=f"t_i_{i}")
+        item["id"] = r1[1].text_input("師匠ID", item.get("id", "TMP-P-00000"), key=f"t_i_{i}")
         item["subject"] = r1[2].text_input("内容", item.get("subject", ""), key=f"t_s_{i}")
-        item["subject_id"] = r1[3].text_input("内容ID", item.get("subject_id", "TMP-S-XXXXX"), key=f"t_si_{i}")
+        item["subject_id"] = r1[3].text_input("内容ID", item.get("subject_id", "TMP-S-00000"), key=f"t_si_{i}")
         if r1[4].button("❌", key=f"t_d_{i}"): d["teachers"].pop(i); st.rerun()
-    if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-XXXXX", "subject":"", "subject_id":"TMP-S-XXXXX"}); st.rerun()
+    if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-00000", "subject":"", "subject_id":"TMP-S-00000"}); st.rerun()
 
     # その他項目
     sections = [("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-0000"),
-                ("📍 Activities", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
-                ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-XXXXX"),
-                ("🕌 Institutions", "institutions", ["name", "id"], "TMP-O-XXXXX")]
+                ("📍 Activities", "activities", ["place_ar", "place_lat", "id"], "TMP-L-00000"),
+                ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-00000"),
+                ("🕌 Institutions", "institutions", ["name", "id"], "TMP-O-00000")]
 
     for title, key, fields, def_id in sections:
         st.divider()
@@ -168,19 +168,19 @@ with col2:
         if rid.isdigit(): return f"gn:{rid}"
         return rid
 
-    xml_str = f"""<person xml:id="{d['aind_id']}" source="#source_{d['original_id']}">
-    <persName type="full" xml:lang="ar">{d['full_name']}</persName>
-    <persName type="name_only" xml:lang="ar">{d['name_only']}</persName>
-    <affiliation type="madhhab" ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
+    xml_str = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
+    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
+    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
+    <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
     <listRelation>\n"""
     for t in d.get("teachers", []):
-        xml_str += f'        <relation name="teacher" active="{fr(t.get("id"))}" passive="#{d["aind_id"]}">\n'
-        xml_str += f'            <desc ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+        xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+        xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
         xml_str += f'        </relation>\n'
     xml_str += '    </listRelation>\n'
     # ... 中略（Nisbah, Activities 等も同様に fr() 関数を通して追加）...
-    xml_str += f"    <note type='translation' xml:lang='ja'>{d['translation_jp']}</note>\n"
-    xml_str += f"    <note type='translation' xml:lang='en'>{d['translation_en']}</note>\n"
+    xml_str += f"    <note @type='translation' @xml:lang='ja'>{d['translation_jp']}</note>\n"
+    xml_str += f"    <note @type='translation' @xml:lang='en'>{d['translation_en']}</note>\n"
     xml_str += "</person>"
 
     st.code(xml_str, language="xml")
