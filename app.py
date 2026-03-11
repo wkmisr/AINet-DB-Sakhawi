@@ -66,28 +66,22 @@ with col1:
                 try:
                     model = get_working_model()
                     prompt = f"""
-                    You are an expert historian of Islamic biography. 
-                    Extract all data into JSON following these strict rules:
-
-                    1. name_only: Extract [Ism] + [Father's name] + [Grandfather's name] in Arabic.
-                    2. dates: Extract only the Hijri year as an integer.
-                    3. nisbahs: List every nisbah. Default ID: 'TMP-N-0000'.
-                    4. activities: Search for GeoNames ID. If unknown: 'TMP-L-00000'.
-                    5. institutions: Search for Wikidata ID. If unknown: 'TMP-O-00000'.
-                    6. teachers/family: Use 'TMP-P-00000' for IDs.
-                    7. full_translation: Provide an accurate, academic Japanese translation.
-
+                    Extract biographical data into JSON. Provide a FULL translation.
+                    
+                    【Rules: Teachers & Subjects】
+                    - In 'teachers', extract NOT ONLY the master's name but also the 'subject' (text name or discipline) if mentioned.
+                    - e.g., "A learned Fiqh from B" -> teacher: B, subject: Fiqh.
+                    - name_only: MUST extract [Ism] + [Father] + [Grandfather] in Arabic.
+                    
                     JSON Structure:
                     {{
                         "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
-                        "sex": "Male/Female", "certainty": "High/Medium/Low",
-                        "birth_h": "", "death_h": "",
-                        "madhhab_name": "Hanafi/Maliki/Shafi'i/Hanbali",
+                        "sex": "Male/Female", "birth_h": "", "death_h": "",
+                        "madhhab_name": "",
                         "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-0000" }}],
-                        "activities": [{{ "place_ar": "", "place_lat": "", "id": "" }}],
-                        "family": [{{ "name": "", "relation": "", "id": "" }}],
-                        "teachers": [{{ "name": "", "id": "" }}],
-                        "institutions": [{{ "name": "", "id": "" }}],
+                        "activities": [{{ "place_ar": "", "place_lat": "", "id": "TMP-L-XXXXX" }}],
+                        "teachers": [{{ "name": "", "id": "TMP-P-XXXXX", "subject": "" }}],
+                        "institutions": [{{ "name": "", "id": "TMP-O-XXXXX" }}],
                         "full_translation": ""
                     }}
                     Text: {source_input}
@@ -145,16 +139,17 @@ with col2:
     ]
 
     for title, key, fields, def_id in sections_config:
-        st.divider()
-        st.subheader(title)
-        for i, item in enumerate(d.get(key, [])):
-            cols = st.columns(len(fields) + 1)
-            for j, f in enumerate(fields):
-                val = item.get(f, def_id if f=="id" else "")
-                item[f] = cols[j].text_input(f"{f}_{key}_{i}", val, key=f"{key}_{f}_{i}", label_visibility="collapsed")
-            if cols[-1].button("❌", key=f"{key}_del_{i}"): d[key].pop(i); st.rerun()
-        if st.button(f"＋ {title}追加", key=f"add_{key}"): 
-            d[key].append({f: (def_id if f=="id" else "") for f in fields}); st.rerun()
+        # --- 師匠・学習内容の入力欄 ---
+    st.divider()
+    st.subheader("🎓 Teachers & Subjects (Triple)")
+    for i, item in enumerate(d.get("teachers", [])):
+        cols = st.columns([1, 1, 1.5, 0.3])
+        item["name"] = cols[0].text_input("師匠名", item.get("name"), key=f"t_name_{i}", label_visibility="collapsed")
+        item["id"] = cols[1].text_input("師匠ID", item.get("id", "TMP-P-XXXXX"), key=f"t_id_{i}", label_visibility="collapsed")
+        # ここに「学習内容」の列を追加
+        item["subject"] = cols[2].text_input("学習内容", item.get("subject", ""), key=f"t_sub_{i}", placeholder="科目名やテキスト名", label_visibility="collapsed")
+        if cols[3].button("❌", key=f"t_del_{i}"): d["teachers"].pop(i); st.rerun()
+    if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":"TMP-P-XXXXX", "subject":""}); st.rerun()
 
     # --- 5. XML Export (TEI 完全版) ---
     st.divider()
@@ -179,9 +174,17 @@ with col2:
     <listRelation>\n"""
     for f in d.get("family", []):
         xml_str += f'        <relation @name="{f.get("relation")}" @active="{format_ref(f.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
+    xml_str += '    <listRelation>\n'
     for t in d.get("teachers", []):
-        xml_str += f'        <relation @name="teacher" @active="{format_ref(t.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
-    xml_str += "    </listRelation>\n"
+        subj = t.get("subject", "")
+        # 学習内容がある場合は <desc> でトリプルとして記述
+        if subj:
+            xml_str += f'        <relation @name="teacher" @active="{format_ref(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+            xml_str += f'            <desc>Subject: {subj}</desc>\n'
+            xml_str += f'        </relation>\n'
+        else:
+            xml_str += f'        <relation @name="teacher" @active="{format_ref(t.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
+    xml_str += '    </listRelation>\n'
     for a in d.get("activities", []):
         xml_str += f'    <residence @ref="{format_ref(a.get("id"))}">{a.get("place_lat")}</residence>\n'
     for i in d.get("institutions", []):
