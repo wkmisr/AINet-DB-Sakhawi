@@ -139,30 +139,36 @@ with col2:
     ]
 
     for title, key, fields, def_id in sections_config:
-# --- 師匠・学習内容の入力欄 (ここは独立して記述) ---
+# --- 4-1. 師匠・学習内容の入力欄 (独立して記述) ---
     st.divider()
     st.subheader("🎓 Teachers & Subjects (Triple)")
     for i, item in enumerate(d.get("teachers", [])):
         cols = st.columns([1, 1, 1.5, 0.3])
+        # 師匠名
         item["name"] = cols[0].text_input("師匠名", item.get("name"), key=f"t_name_{i}", label_visibility="collapsed")
+        # 師匠ID
         item["id"] = cols[1].text_input("師匠ID", item.get("id", "TMP-P-XXXXX"), key=f"t_id_{i}", label_visibility="collapsed")
+        # 学習内容 (ここが追加されたTriple要素)
         item["subject"] = cols[2].text_input("学習内容", item.get("subject", ""), key=f"t_sub_{i}", placeholder="科目名やテキスト名", label_visibility="collapsed")
+        
         if cols[3].button("❌", key=f"t_del_{i}"): 
             d["teachers"].pop(i)
             st.rerun()
+            
     if st.button("＋ 師匠追加"): 
         d["teachers"].append({"name":"","id":"TMP-P-XXXXX", "subject":""})
         st.rerun()
 
-    # --- その他の項目（Nisbah, Activities, Family, Institutions）をループで処理 ---
-    sections_to_loop = [
+    # --- 4-2. その他の項目（ループで一括処理） ---
+    # ここで sections_config を再定義してループを回します
+    sections_to_display = [
         ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-0000"),
         ("📍 Activities (GeoNames)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
         ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-XXXXX"),
         ("🕌 Institutions (Wikidata)", "institutions", ["name", "id"], "TMP-O-XXXXX")
     ]
 
-    for title, key, fields, def_id in sections_to_loop:
+    for title, key, fields, def_id in sections_to_display:
         st.divider()
         st.subheader(title)
         for i, item in enumerate(d.get(key, [])):
@@ -176,9 +182,6 @@ with col2:
         if st.button(f"＋ {title}追加", key=f"add_{key}"): 
             d[key].append({f: (def_id if f=="id" else "") for f in fields})
             st.rerun()
-    
-
-
     
     # --- 5. XML Export (TEI 完全版) ---
     st.divider()
