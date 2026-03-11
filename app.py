@@ -25,35 +25,34 @@ if 'data' not in st.session_state:
         "full_name": "", "full_name_lat": "",
         "sex": "Male", "certainty": "High",
         "nisbahs": [], "activities": [],
-        "death_year": 850, "teachers": [], "family": [], "institutions": [],
+        "teachers": [], "family": [], "institutions": [],
         "source_text": "", "translation": ""
     }
 
 d = st.session_state.data
 
 # --- 3. UIレイアウト ---
-st.title("🌙 AINet-DB Researcher Editor (AIND 2026)")
+st.title("🌙 AINet-DB Researcher Editor")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
-    st.header("1. Source Text & AI Analysis")
+    st.header("1. Source & AI Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=480)
     
-    if st.button("✨ AI解析実行 (最新モデル)"):
+    if st.button("✨ AINDプロジェクト課金枠で解析"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("最新世代のGeminiで解析中..."):
+            with st.spinner("AINDプロジェクトの有料枠を使用中..."):
                 try:
-                    # 【重要】リストにあった現役モデル 'gemini-2.0-flash' を使用
-                    # これで 404 エラーを回避します。
-                    model = genai.GenerativeModel('models/gemini-2.0-flash')
+                    # 2026年現在の最強・最速モデル
+                    model = genai.GenerativeModel('models/gemini-2.5-flash')
                     
-                    prompt = f"""以下のテキストから人物情報を抽出し、JSON形式で返してください。
-                    - ID体系: 全てのIDは AIND- で始めてください。
-                    - 翻字: IJMESスタイル。
-                    - 分離: 'teachers'（個人名）と 'institutions'（施設名）を厳密に区別。
-                    - 属性: 'sex' (Male/Female), 'certainty' (High/Medium/Low)。
-                    - 日本語訳を 'japanese_translation' に含めてください。
+                    prompt = f"""以下の伝記史料からデータを抽出してJSON形式で返してください。
+                    - 全ての新規IDは 'AIND-' で始めてください。
+                    - 翻字は IJMES スタイルを使用。
+                    - 'teachers'（個人名）と 'institutions'（施設名）を厳密に分離。
+                    - 'sex' (Male/Female), 'certainty' (High/Medium/Low) を含める。
+                    - 'japanese_translation' として日本語訳も含める。
                     テキスト: {source_input}"""
                     
                     response = model.generate_content(prompt)
@@ -66,14 +65,10 @@ with col1:
                     res_json = json.loads(res_text)
                     d.update(res_json)
                     d["translation"] = res_json.get("japanese_translation", "")
-                    st.success("解析が完了しました（Gemini 2.0 Flashを使用）")
+                    st.success("解析成功！(AIND 有料枠)")
                     st.rerun()
                 except Exception as e:
-                    if "429" in str(e):
-                        st.error("【制限エラー】APIキーがまだ無料枠扱いです。")
-                        st.info("解決策: 課金設定したプロジェクトで『新しいAPIキー』を再発行してください。")
-                    else:
-                        st.error(f"解析エラー: {e}")
+                    st.error(f"解析エラー: {e}")
 
     if d.get("translation"):
         st.subheader("🇯🇵 日本語訳")
@@ -82,20 +77,20 @@ with col1:
 with col2:
     st.header("2. Entity Management")
     
-    # ID & 性別・確信度
+    # ID / 性別 / 確信度
     c1, c2, c3, c4 = st.columns([1.5, 1, 1, 1])
     d["aind_id"] = c1.text_input("Person ID", d["aind_id"])
     d["original_id"] = c2.text_input("Source ID", d["original_id"])
-    d["sex"] = c3.selectbox("性別", ["Male", "Female", "Unknown"], index=0 if d["sex"]=="Male" else 1)
-    d["certainty"] = c4.selectbox("確信度", ["High", "Medium", "Low"], 
+    d["sex"] = c3.selectbox("Sex", ["Male", "Female", "Unknown"], index=0 if d["sex"]=="Male" else 1)
+    d["certainty"] = c4.selectbox("Certainty", ["High", "Medium", "Low"], 
                                   index=["High", "Medium", "Low"].index(d.get("certainty", "High")))
     
     f_ar, f_lat = st.columns(2)
     d["full_name"] = f_ar.text_input("氏名 (Arabic)", d["full_name"])
-    d["full_name_lat"] = f_lat.text_input("氏名 (Latin IJMES)", d["full_name_lat"])
+    d["full_name_lat"] = f_lat.text_input("氏名 (IJMES)", d["full_name_lat"])
 
     # ニスバ
-    st.markdown('<div class="section-header">📝 Nisbahs</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">📝 ニスバ</div>', unsafe_allow_html=True)
     for i, nis in enumerate(d.get("nisbahs", [])):
         cols = st.columns([2, 2, 1.2, 0.4])
         nis["ar"] = cols[0].text_input(f"Ar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
@@ -104,29 +99,19 @@ with col2:
         if cols[3].button("❌", key=f"ndel_{i}"): d["nisbahs"].pop(i); st.rerun()
     if st.button("＋ ニスバ追加"): d["nisbahs"].append({"ar":"","lat":"","id":""}); st.rerun()
 
-    # 師匠
-    st.markdown('<div class="section-header">🎓 Teachers (AIND-P-xxx)</div>', unsafe_allow_html=True)
+    # 師匠・施設
+    st.markdown('<div class="section-header">🎓 師匠 (AIND-P-...)</div>', unsafe_allow_html=True)
     for i, t in enumerate(d.get("teachers", [])):
         cols = st.columns([3, 2, 0.5])
-        t["name"] = cols[0].text_input(f"氏名 {i}", t.get("name",""), key=f"tn_{i}")
+        t["name"] = cols[0].text_input(f"Name {i}", t.get("name",""), key=f"tn_{i}")
         t["id"] = cols[1].text_input(f"ID {i}", t.get("id",""), key=f"tid_{i}")
         if cols[2].button("❌", key=f"tdel_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ 師匠追加"): d["teachers"].append({"name":"","id":""}); st.rerun()
 
-    # 施設
-    st.markdown('<div class="section-header">🕌 Institutions (AIND-O-xxx)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">🕌 教育機関・施設 (AIND-O-...)</div>', unsafe_allow_html=True)
     for i, inst in enumerate(d.get("institutions", [])):
         cols = st.columns([3, 2, 0.5])
-        inst["name"] = cols[0].text_input(f"施設名 {i}", inst.get("name",""), key=f"in_{i}")
-        inst["id"] = cols[1].text_input(f"施設ID {i}", inst.get("id",""), key=f"iid_{i}")
+        inst["name"] = cols[0].text_input(f"Name {i}", inst.get("name",""), key=f"in_{i}")
+        inst["id"] = cols[1].text_input(f"ID {i}", inst.get("id",""), key=f"iid_{i}")
         if cols[2].button("❌", key=f"idel_{i}"): d["institutions"].pop(i); st.rerun()
     if st.button("＋ 施設追加"): d["institutions"].append({"name":"","id":""}); st.rerun()
-
-    # XML プレビュー
-    st.divider()
-    if st.checkbox("Show TEI XML Preview"):
-        xml_output = f"""<person xml:id="{d['aind_id']}" sex="{d['sex']}" cert="{d['certainty']}">
-  <persName xml:lang="ar">{d['full_name']}</persName>
-  <persName xml:lang="lat">{d['full_name_lat']}</persName>
-</person>"""
-        st.code(xml_output, language="xml")
