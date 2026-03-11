@@ -9,7 +9,7 @@ if api_key:
     genai.configure(api_key=api_key)
 
 def get_working_model():
-    """404エラーを回避するために利用可能なモデルを自動取得"""
+    """利用可能なモデルを自動取得"""
     try:
         models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
         flash_models = [m for m in models if 'flash' in m]
@@ -18,16 +18,19 @@ def get_working_model():
         return genai.GenerativeModel('models/gemini-1.5-flash')
 
 def convert_h_to_g(h_year):
-    """ヒジュラ暦から西暦への簡易換算"""
+    """ヒジュラ暦から西暦への換算ロジック"""
     try:
-        h = int(h_year)
+        # 数字以外の文字（"c." や "?" など）が含まれる場合を除去
+        h_clean = re.sub(r"\D", "", str(h_year))
+        if not h_clean: return ""
+        h = int(h_clean)
         return int(h * 0.97 + 622)
     except:
         return ""
 
 st.set_page_config(page_title="AINet-DB Researcher Pro", layout="wide")
 
-# --- 2. データ定義 ---
+# --- 2. 法学派データ定義 ---
 MADHHAB_DATA = {
     "Hanafi (ハナフィー派)": "Q160851",
     "Maliki (マーリク派)": "Q48221",
@@ -36,6 +39,7 @@ MADHHAB_DATA = {
     "Unknown / Other": ""
 }
 
+# --- 3. セッション状態の初期化 ---
 if 'data' not in st.session_state:
     st.session_state.data = {
         "aind_id": "AIND-D0000", "original_id": "", 
@@ -48,8 +52,8 @@ if 'data' not in st.session_state:
     }
 d = st.session_state.data
 
-# --- 3. UI: 史料解析エリア ---
-st.title("🌙 AINet-DB Researcher Pro (Ultimate Edition)")
+# --- 4. UI: 史料解析エリア ---
+st.title("🌙 AINet-DB Researcher Pro")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
@@ -59,56 +63,69 @@ with col1:
     if st.button("✨ 全項目・精密AI解析 & 全訳"):
         if source_input:
             d["source_text"] = source_input
-            with st.spinner("最新モデルで深層解析中..."):
+            with st.spinner("AI解析中..."):
                 try:
                     model = get_working_model()
                     prompt = f"""
-                    Extract biographical data into JSON. Provide a FULL translation into Japanese.
-                    【Strict Rules】
-                    - name_only: MUST include [Person's name] + [Father's name] + [Grandfather's name].
-                    - dates: Extract Hijri years for birth and death.
-                    - full_translation: Translate the ENTIRE text into academic Japanese.
+                    You are a historian. Extract biographical data into JSON. Provide a FULL translation into Japanese.
+                    
+                    【Rules】
+                    1. Return VALID JSON ONLY.
+                    2. name_only: MUST be [Person's name] + [Father's name] + [Grandfather's name] in Arabic.
+                    3. Extract Hijri years for birth_h and death_h.
+                    4. full_translation: Translate the entire source into academic Japanese.
+
+                    【JSON Schema】
                     {{
-                        "original_id": "Number", "full_name": "Ar", "name_only": "Ar (up to Grandfather)", "full_name_lat": "IJMES",
+                        "original_id": "", "full_name": "", "name_only": "", "full_name_lat": "",
                         "sex": "Male/Female", "certainty": "High/Medium/Low",
-                        "birth_h": "Year", "death_h": "Year",
+                        "birth_h": "", "death_h": "",
                         "madhhab_name": "Hanafi/Maliki/Shafi'i/Hanbali",
                         "nisbahs": [{{ "ar": "", "lat": "", "id": "" }}],
                         "activities": [{{ "place_ar": "", "place_lat": "", "id": "" }}],
                         "family": [{{ "name": "", "relation": "", "id": "" }}],
                         "teachers": [{{ "name": "", "id": "" }}],
                         "institutions": [{{ "name": "", "id": "" }}],
-                        "full_translation": "Full text translation into Japanese"
+                        "full_translation": ""
                     }}
                     Text: {source_input}
                     """
                     response = model.generate_content(prompt)
-                    res_json = json.loads(re.search(r"\{.*\}", response.text, re.DOTALL).group())
                     
-                    # 西暦への自動変換
-                    res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
-                    res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
+                    # --- JSON抽出の堅牢化 ---
+                    raw_text = response.text
+                    json_match = re.search(r"\{.*\}", raw_text, re.DOTALL)
                     
-                    # 法学派マッピング
-                    m_name = res_json.get("madhhab_name", "")
-                    for k in MADHHAB_DATA.keys():
-                        if m_name in k:
-                            res_json["madhhab"] = {"lat": k, "id": MADHHAB_DATA[k]}
-                    
-                    d.update(res_json)
-                    st.success(f"解析成功: {model.model_name}")
-                    st.rerun()
-                except Exception as e: st.error(f"解析エラー: {e}")
+                    if json_match:
+                        res_json = json.loads(json_match.group())
+                        
+                        # 西暦への自動計算
+                        res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
+                        res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
+                        
+                        # 法学派マッピング
+                        m_name = res_json.get("madhhab_name", "")
+                        res_json["madhhab"] = {"lat": "Unknown / Other", "id": ""}
+                        for k, v in MADHHAB_DATA.items():
+                            if m_name and m_name.lower() in k.lower():
+                                res_json["madhhab"] = {"lat": k, "id": v}
+                        
+                        d.update(res_json)
+                        st.success(f"解析成功！ (Model: {model.model_name})")
+                        st.rerun()
+                    else:
+                        st.error("AIの回答からJSONデータが見つかりませんでした。もう一度お試しください。")
+                except Exception as e:
+                    st.error(f"解析エラー: {e}")
 
     if d.get("full_translation"):
         st.subheader("🇯🇵 史料全訳")
-        st.write(d["full_translation"])
+        st.info(d["full_translation"])
 
-# --- 4. UI: エンティティ管理エリア ---
+# --- 5. UI: エンティティ管理エリア ---
 with col2:
     st.header("2. TEI Metadata Editor")
     
-    # 属性入力
     c1, c2 = st.columns(2)
     d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
     d["original_id"] = c2.text_input("@source", d["original_id"])
@@ -117,7 +134,6 @@ with col2:
     d["name_only"] = st.text_input("persName (Name/Father/Grandfather)", d["name_only"])
     d["full_name_lat"] = st.text_input("persName (Latin/IJMES)", d["full_name_lat"])
 
-    # 生没年 (西暦自動計算)
     st.markdown("### 📅 Dates (Birth & Death)")
     dc1, dc2, dc3, dc4 = st.columns(4)
     d["birth_h"] = dc1.text_input("Birth (H)", d["birth_h"])
@@ -125,13 +141,11 @@ with col2:
     d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
     d["death_g"] = dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]))
 
-    # 法学派選択
     st.markdown("### ⚖️ Madhhab")
     selected_m = st.selectbox("法学派を選択", options=list(MADHHAB_DATA.keys()), 
                               index=list(MADHHAB_DATA.keys()).index(d["madhhab"]["lat"]) if d["madhhab"]["lat"] in MADHHAB_DATA else 4)
     d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
 
-    # セクション管理
     for title, key, fields in [("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"]), 
                                ("📍 Activities", "activities", ["place_ar", "place_lat", "id"]),
                                ("👥 Family", "family", ["name", "relation", "id"]),
@@ -146,7 +160,7 @@ with col2:
             if cols[-1].button("❌", key=f"{key}_del_{i}"): d[key].pop(i); st.rerun()
         if st.button(f"＋ {title}追加", key=f"add_{key}"): d[key].append({f: "" for f in fields}); st.rerun()
 
-    # --- 5. XML Export (TEI準拠) ---
+    # --- 6. XML Export (TEI準拠) ---
     st.divider()
     st.header("3. TEI-XML Export")
     
@@ -165,8 +179,7 @@ with col2:
     for a in d.get("activities", []): xml_str += f'    <residence ref="#{a.get("id")}">{a.get("place_lat")}</residence>\n'
     for i in d.get("institutions", []): xml_str += f'    <affiliation type="institution" ref="#{i.get("id")}">{i.get("name")}</affiliation>\n'
     xml_str += f"    <note type='translation' xml:lang='ja'>{d['full_translation']}</note>\n"
-    xml_str += f"    <desc type='original_source'>{d['source_text']}</desc>\n"
+    xml_str += f"    <desc type='original_source' xml:lang='ar'>{d['source_text']}</desc>\n"
     xml_str += "</person>"
 
     st.code(xml_str, language="xml")
-    st.download_button("📥 XML保存", data=xml_str, file_name=f"{d['aind_id']}.xml")
