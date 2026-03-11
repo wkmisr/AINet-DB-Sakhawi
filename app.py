@@ -50,55 +50,48 @@ with col1:
     st.header("1. Source Text & AI")
     source_input = st.text_area("Biographical Source (Arabic)", value=d["source_text"], height=450)
     
-    if st.button("✨ AI Analysis (Ar/Lat/Struct)"):
+   if st.button("✨ AI Analysis (Ar/Lat/Struct)"):
         if source_input:
             d["source_text"] = source_input
             with st.spinner("Analyzing..."):
                 try:
-                    # モデル名の指定を 'gemini-1.5-flash' または 'gemini-pro' に変更
-                    # models/ プレフィックスを外すのが現在の推奨です
-                    model = genai.GenerativeModel('gemini-1.5-flash') 
+                    # モデル名を 'gemini-1.5-flash' に固定
+                    # それでもエラーが出るなら 'gemini-1.5-pro' に書き換えてください
+                    model = genai.GenerativeModel(
+                        model_name='gemini-1.5-flash',
+                        generation_config={"response_mime_type": "application/json"}
+                    )
                     
-                    prompt = f"""Analyze the following Arabic text and return ONLY a valid JSON. 
-                    Transliterate names using IJMES style (e.g. al-Maqdisī).
-                    Include a Japanese translation.
+                    prompt = f"""Extract biographical data into JSON format.
+                    Use IJMES transliteration for 'lat' fields.
+                    Text: {source_input}
                     
-                    JSON Structure: {{
-                      "full_name": "Arabic", 
-                      "full_name_lat": "IJMES",
-                      "lineage": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "nisbahs": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "activities": [ {{"ar": "Ar", "lat": "Lat"}} ],
-                      "death_year": 850, 
-                      "japanese_translation": "..."
-                    }}
-                    Text: {source_input}"""
+                    JSON structure:
+                    {{
+                        "full_name": "string",
+                        "full_name_lat": "string",
+                        "lineage": [ {{"ar": "string", "lat": "string"}} ],
+                        "nisbahs": [ {{"ar": "string", "lat": "string"}} ],
+                        "activities": [ {{"ar": "string", "lat": "string"}} ],
+                        "death_year": integer,
+                        "japanese_translation": "string"
+                    }}"""
                     
                     response = model.generate_content(prompt)
                     
-                    # レスポンスのテキストを取得し、Markdownの装飾（```json ... ```）があれば除去
-                    raw_text = response.text.strip()
-                    if "```" in raw_text:
-                        raw_text = raw_text.split("```")[1]
-                        if raw_text.startswith("json"):
-                            raw_text = raw_text[4:].strip()
+                    # JSONのパース（response_mime_type指定時は text が直接JSONになる）
+                    res_json = json.loads(response.text)
                     
-                    res_json = json.loads(raw_text)
-                    
-                    # データの更新
                     d.update(res_json)
                     d["translation"] = res_json.get("japanese_translation", "")
-                    
-                    st.success("Analysis Complete")
+                    st.success("Analysis Complete!")
                     st.rerun()
                     
                 except Exception as e:
-                    # エラーの詳細を表示
+                    # エラーメッセージを詳細に表示
                     st.error(f"AI Error: {str(e)}")
-                    st.info("Try changing 'gemini-1.5-flash' to 'gemini-pro' in the code if this persists.")
-    if d["translation"]:
-        st.subheader("🇯🇵 Translation")
-        st.info(d["translation"])
+                    if "404" in str(e):
+                        st.warning("モデル名が見つかりません。'gemini-1.5-pro' もしくは 'gemini-pro' を試してください。")
 
 with col2:
     st.header("2. Entity Management")
