@@ -15,7 +15,7 @@ if 'data' not in st.session_state:
         "aind_id": "AIND-D0000", "original_id": "", 
         "full_name": "", "name_only": "", "full_name_lat": "",
         "sex": "Male", "certainty": "High",
-        "madhhab": {"ar": "", "lat": ""}, 
+        "madhhab": {"ar": "", "lat": "", "id": ""}, 
         "nisbahs": [], 
         "activities": [], 
         "teachers": [], 
@@ -27,19 +27,19 @@ if 'data' not in st.session_state:
 d = st.session_state.data
 
 # --- 3. UIレイアウト ---
-st.title("🌙 AINet-DB Researcher Editor")
+st.title("🌙 AINet-DB Researcher Editor (2026.03 Edition)")
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
     st.header("1. Source & AI Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=480)
     
-    if st.button("✨ 全項目・最新AI解析"):
+    if st.button("✨ 全項目・精密AI解析"):
         if source_input:
             d["source_text"] = source_input
             with st.spinner("最新のGeminiで全項目を抽出中..."):
                 try:
-                    # 2026年3月最新モデル
+                    # 最新モデルの指定
                     model = genai.GenerativeModel('models/gemini-2.5-flash')
                     
                     prompt = f"""
@@ -51,9 +51,14 @@ with col1:
                        - Person (Family/Teachers): TMP-P-xxxx
                        - Institution: TMP-O-xxxx
                        - Location/Activity: TMP-L-xxxx
-                    4. Madhhab (Separate from Nisbahs):
-                       - If Maliki, set id 'Q48221'. If Shafii, set id 'Q82245'.
-                    5. Fields: full_name, name_only, full_name_lat, sex, certainty, madhhab(ar, lat, id), 
+                    4. Madhhab (Wikidata IDs):
+                       - If Hanafi (حنفي), set id 'Q160851'.
+                       - If Maliki (مالكي), set id 'Q48221'.
+                       - If Shafi'i (شافعي), set id 'Q82245'.
+                       - If Hanbali (حنبلي), set id 'Q191314'.
+                    5. Output JSON structure: 
+                       full_name, name_only, full_name_lat, sex (Male/Female/Unknown), 
+                       certainty (High/Medium/Low), madhhab(ar, lat, id), 
                        nisbahs(ar, lat, id), activities(place_ar, place_lat, id), 
                        family(name, relation, id), teachers(name, id), institutions(name, id), 
                        japanese_translation.
@@ -67,7 +72,7 @@ with col1:
                     
                     res_json = json.loads(res_text)
                     d.update(res_json)
-                    st.success("解析成功！")
+                    st.success("解析成功！項目を更新しました。")
                     st.rerun()
                 except Exception as e:
                     st.error(f"解析エラー: {e}")
@@ -88,16 +93,26 @@ with col2:
     d["name_only"] = st.text_input("氏名 (Name Only / Without Nisbahs)", d["name_only"])
     d["full_name_lat"] = st.text_input("氏名 (IJMES Latin)", d["full_name_lat"])
 
-    c3, c4 = st.columns(2)
-    d["sex"] = c3.selectbox("Sex", ["Male", "Female", "Unknown"], index=["Male", "Female", "Unknown"].index(d.get("sex", "Male")))
-    d["certainty"] = c4.selectbox("Certainty", ["High", "Medium", "Low"], index=["High", "Medium", "Low"].index(d.get("certainty", "High")))
+    # --- セレクトボックスのエラー対策ガード ---
+    sex_options = ["Male", "Female", "Unknown"]
+    current_sex = d.get("sex", "Male")
+    sex_index = sex_options.index(current_sex) if current_sex in sex_options else 2
 
-    # --- ⚖️ 法学派 (IDなし表示) ---
+    cert_options = ["High", "Medium", "Low"]
+    current_cert = d.get("certainty", "High")
+    cert_index = cert_options.index(current_cert) if current_cert in cert_options else 0
+
+    c3, c4 = st.columns(2)
+    d["sex"] = c3.selectbox("Sex", sex_options, index=sex_index)
+    d["certainty"] = c4.selectbox("Certainty", cert_options, index=cert_index)
+
+    # --- ⚖️ 法学派 (Wikidata ID自動入力対応) ---
     st.markdown("### ⚖️ 法学派 (Madhhab)")
-    m_cols = st.columns([1, 1])
-    m_data = d.get("madhhab", {"ar": "", "lat": ""})
+    m_cols = st.columns([1, 1, 1])
+    m_data = d.get("madhhab", {"ar": "", "lat": "", "id": ""})
     m_data["ar"] = m_cols[0].text_input("Madhhab (Ar)", m_data.get("ar", ""), key="m_ar")
     m_data["lat"] = m_cols[1].text_input("Madhhab (Lat)", m_data.get("lat", ""), key="m_lat")
+    m_data["id"] = m_cols[2].text_input("WD ID (Optional)", m_data.get("id", ""), key="m_id")
     d["madhhab"] = m_data
 
     # --- 📝 ニスバ ---
@@ -106,7 +121,7 @@ with col2:
         n_cols = st.columns([2, 2, 1.2, 0.4])
         nis["ar"] = n_cols[0].text_input(f"N-Ar_{i}", nis.get("ar",""), key=f"nar_{i}", label_visibility="collapsed")
         nis["lat"] = n_cols[1].text_input(f"N-Lat_{i}", nis.get("lat",""), key=f"nlat_{i}", label_visibility="collapsed")
-        nis["id"] = n_cols[2].text_input(f"N-ID_{i}", nis.get("id",""), key=f"nid_{i}", label_visibility="collapsed", placeholder="WD ID")
+        nis["id"] = n_cols[2].text_input(f"N-ID_{i}", nis.get("id",""), key=f"nid_{i}", label_visibility="collapsed", placeholder="Wikidata ID")
         if n_cols[3].button("❌", key=f"ndel_{i}"): d["nisbahs"].pop(i); st.rerun()
     if st.button("＋ ニスバ追加"): d["nisbahs"].append({"ar":"","lat":"","id":""}); st.rerun()
 
@@ -130,7 +145,7 @@ with col2:
         if f_cols[3].button("❌", key=f"fdel_{i}"): d["family"].pop(i); st.rerun()
     if st.button("＋ 家族追加"): d["family"].append({"name":"","relation":"","id":"TMP-P-"}); st.rerun()
 
-    # --- 🎓 Teachers (TMP-P) / 1カラム表示 ---
+    # --- 🎓 Teachers (TMP-P) ---
     st.divider()
     st.subheader("🎓 Teachers")
     for i, t in enumerate(d.get("teachers", [])):
@@ -140,7 +155,7 @@ with col2:
         if t_cols[2].button("❌", key=f"tdel_{i}"): d["teachers"].pop(i); st.rerun()
     if st.button("＋ Teacher追加"): d["teachers"].append({"name":"","id":"TMP-P-"}); st.rerun()
 
-    # --- 🕌 Institutions (TMP-O) / 1カラム表示 ---
+    # --- 🕌 Institutions (TMP-O) ---
     st.divider()
     st.subheader("🕌 Institutions")
     for i, inst in enumerate(d.get("institutions", [])):
