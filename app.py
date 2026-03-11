@@ -38,7 +38,7 @@ MADHHAB_DATA = {
 
 if 'data' not in st.session_state:
     st.session_state.data = {
-        "aind_id": "AIND-D0000", "original_id": "", 
+        "aind_id": "AIND-D00000", "original_id": "", 
         "full_name": "", "name_only": "", "full_name_lat": "",
         "sex": "Male", "certainty": "High",
         "birth_h": "", "birth_g": "", "death_h": "", "death_g": "",
