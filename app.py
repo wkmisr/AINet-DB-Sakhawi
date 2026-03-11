@@ -72,9 +72,9 @@ with col1:
                     1. name_only: Extract [Ism] + [Father's name] + [Grandfather's name] in Arabic.
                     2. dates: Extract only the Hijri year as an integer.
                     3. nisbahs: List every nisbah. Default ID: 'TMP-N-0000'.
-                    4. activities: Search for GeoNames ID. If unknown: 'TMP-L-XXXXX'.
-                    5. institutions: Search for Wikidata ID. If unknown: 'TMP-O-XXXXX'.
-                    6. teachers/family: Use 'TMP-P-XXXXX' for IDs.
+                    4. activities: Search for GeoNames ID. If unknown: 'TMP-L-00000'.
+                    5. institutions: Search for Wikidata ID. If unknown: 'TMP-O-00000'.
+                    6. teachers/family: Use 'TMP-P-00000' for IDs.
                     7. full_translation: Provide an accurate, academic Japanese translation.
 
                     JSON Structure:
@@ -138,10 +138,10 @@ with col2:
     # リスト項目管理
     sections_config = [
         ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-0000"),
-        ("📍 Activities (GeoNames)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-XXXXX"),
-        ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-XXXXX"),
-        ("🎓 Teachers", "teachers", ["name", "id"], "TMP-P-XXXXX"),
-        ("🕌 Institutions (Wikidata)", "institutions", ["name", "id"], "TMP-O-XXXXX")
+        ("📍 Activities (GeoNames)", "activities", ["place_ar", "place_lat", "id"], "TMP-L-00000"),
+        ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-00000"),
+        ("🎓 Teachers", "teachers", ["name", "id"], "TMP-P-00000"),
+        ("🕌 Institutions (Wikidata)", "institutions", ["name", "id"], "TMP-O-00000")
     ]
 
     for title, key, fields, def_id in sections_config:
@@ -167,27 +167,27 @@ with col2:
         if raw_id.isdigit(): return f"gn:{raw_id}"
         return raw_id
 
-    xml_str = f"""<person xml:id="{d['aind_id']}" sex="{d['sex']}" cert="{d['certainty']}" source="#source_{d['original_id']}">
-    <persName type="full" xml:lang="ar">{d['full_name']}</persName>
-    <persName type="name_only" xml:lang="ar">{d['name_only']}</persName>
-    <persName type="ijmes" xml:lang="lat">{d['full_name_lat']}</persName>\n"""
+    xml_str = f"""<person @xml:id="{d['aind_id']}" @sex="{d['sex']}" @cert="{d['certainty']}" @source="#source_{d['original_id']}">
+    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
+    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
+    <persName @type="ijmes" @xml:lang="lat">{d['full_name_lat']}</persName>\n"""
     for n in d.get("nisbahs", []):
-        xml_str += f'    <persName type="nisba" xml:lang="ar" ref="{format_ref(n.get("id"))}">{n.get("ar")}</persName>\n'
-    xml_str += f"""    <birth when-custom="{d['birth_h']}" datingMethod="#islamic" when="{d['birth_g']}"/>
-    <death when-custom="{d['death_h']}" datingMethod="#islamic" when="{d['death_g']}"/>
-    <affiliation type="madhhab" ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
+        xml_str += f'    <persName @type="nisba" @xml:lang="ar" @ref="{format_ref(n.get("id"))}">{n.get("ar")}</persName>\n'
+    xml_str += f"""    <birth @when-custom="{d['birth_h']}" @datingMethod="#islamic" when="{d['birth_g']}"/>
+    <death @when-custom="{d['death_h']}" @datingMethod="#islamic" @when="{d['death_g']}"/>
+    <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
     <listRelation>\n"""
     for f in d.get("family", []):
-        xml_str += f'        <relation name="{f.get("relation")}" active="{format_ref(f.get("id"))}" passive="#{d["aind_id"]}"/>\n'
+        xml_str += f'        <relation @name="{f.get("relation")}" @active="{format_ref(f.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
     for t in d.get("teachers", []):
-        xml_str += f'        <relation name="teacher" active="{format_ref(t.get("id"))}" passive="#{d["aind_id"]}"/>\n'
+        xml_str += f'        <relation @name="teacher" @active="{format_ref(t.get("id"))}" @passive="#{d["aind_id"]}"/>\n'
     xml_str += "    </listRelation>\n"
     for a in d.get("activities", []):
-        xml_str += f'    <residence ref="{format_ref(a.get("id"))}">{a.get("place_lat")}</residence>\n'
+        xml_str += f'    <residence @ref="{format_ref(a.get("id"))}">{a.get("place_lat")}</residence>\n'
     for i in d.get("institutions", []):
-        xml_str += f'    <affiliation type="institution" ref="{format_ref(i.get("id"))}">{i.get("name")}</affiliation>\n'
-    xml_str += f"    <note type='translation' xml:lang='ja'>{d['full_translation']}</note>\n"
-    xml_str += f"    <desc type='original_source' xml:lang='ar'>{d['source_text']}</desc>\n"
+        xml_str += f'    <affiliation @type="institution" @ref="{format_ref(i.get("id"))}">{i.get("name")}</affiliation>\n'
+    xml_str += f"    <note @type='translation' @xml:lang='ja'>{d['full_translation']}</note>\n"
+    xml_str += f"    <desc @type='original_source' @xml:lang='ar'>{d['source_text']}</desc>\n"
     xml_str += "</person>"
 
     st.code(xml_str, language="xml")
