@@ -174,7 +174,7 @@ with col2:
                 val = item.get(f, def_id if f=="id" else "")
                 item[f] = cols[j].text_input(f"{f}_{key}_{i}", val, key=f"{key}_{f}_{i}", label_visibility="collapsed")
             if cols[-1].button("❌", key=f"{key}_del_{i}"): d[key].pop(i); st.rerun()
-        if st.button(f"＋ {title}追加", key=f"add_{key}"): d[key].append({f: (def_id if f=="id" else "") for f in fields}); st.rerun()
+        if st.button(f"＋ add {title}", key=f"add_{key}"): d[key].append({f: (def_id if f=="id" else "") for f in fields}); st.rerun()
 
     # --- 5. XML Export ---
     st.divider()
