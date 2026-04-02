@@ -156,23 +156,23 @@ with col2:
     d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
     m_col2.text_input("Wikidata ID", d["madhhab"]["id"], disabled=True)
 
-    # Teachers
+   # Teachers
     st.divider()
     st.subheader("🎓 Teachers & Subjects")
     for i, item in enumerate(d.get("teachers", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
         
-        # 5つの列を作成し、リスト r に格納
+        # 5つの列を作成
         r = st.columns([1, 1, 1, 1, 0.3])
         
-        # r, r... のようにインデックスを指定する
+        # 各列（r〜r）にそれぞれの入力欄を配置
         item["name"] = r.text_input("n", item.get("name"), key=f"t_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"t_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"t_s_{uid}", label_visibility="collapsed")
         item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"t_si_{uid}", label_visibility="collapsed")
         
-        # 削除ボタンは 5番目（インデックス 4）の列に配置
+        # 5番目の列（r）に削除ボタンを配置
         if r.button("❌", key=f"t_del_{uid}"):
             d["teachers"].pop(i)
             st.rerun()
@@ -186,7 +186,6 @@ with col2:
         
         r = st.columns([1, 1, 1, 1, 0.3])
         
-        # ここも r〜r を指定
         item["name"] = r.text_input("n", item.get("name"), key=f"s_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"s_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"s_s_{uid}", label_visibility="collapsed")
