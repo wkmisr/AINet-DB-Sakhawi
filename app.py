@@ -178,42 +178,45 @@ with col2:
 
     # --- 5. XML Export ---
     st.divider()
-    st.header("3. TEI-XML Export")
-    
-    def fr(rid):
-        if not rid: return ""
-        if rid.startswith("TMP-"): return f"#{rid}"
-        if rid.startswith("Q"): return f"wd:{rid}"
-        if rid.isdigit() or rid.startswith("gn:"): 
-            return f"gn:{rid.replace('gn:', '')}"
-        return rid
+st.header("3. TEI-XML Export")
 
-    xml_str = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
+def fr(rid):
+    if not rid: return ""
+    if rid.startswith("TMP-"): return f"#{rid}"
+    if rid.startswith("Q"): return f"wd:{rid}"
+    if rid.isdigit() or rid.startswith("gn:"): 
+        return f"gn:{rid.replace('gn:', '')}"
+    return rid
+
+# ルート要素の開始 (@を明示的に入れています)
+xml_str = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
     <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
     <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
     <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
     <listRelation>\n"""
+
+# Teachers
+for t in d.get("teachers", []):
+    xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+    if t.get("subject"): 
+        xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+    xml_str += f'        </relation>\n'
+
+# Students (修正箇所: xml += を xml_str += に修正)
+for s in d.get("students", []):
+    xml_str += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
+    if s.get("subject"): 
+        xml_str += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
+    xml_str += f'        </relation>\n' # ← ここを xml_str に修正しました
     
-    # Teachers
-    for t in d.get("teachers", []):
-        xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
-        if t.get("subject"): xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
-        xml_str += f'        </relation>\n'
-    
-    # Students (追加)
-    for s in d.get("students", []):
-        xml_str += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
-        if s.get("subject"): xml_str += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
-        xml += f'        </relation>\n'
-        
-    xml_str += '    </listRelation>\n'
+xml_str += '    </listRelation>\n'
 
-    # Activities (subtype を反映)
-    for a in d.get("activities", []):
-        xml_str += f'    <residence @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
+# Activities
+for a in d.get("activities", []):
+    xml_str += f'    <residence @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
 
-    xml_str += f"    <note type='translation' xml:lang='ja'>{d['translation_jp']}</note>\n"
-    xml_str += f"    <note type='translation' xml:lang='en'>{d['translation_en']}</note>\n"
-    xml_str += "</person>"
+xml_str += f"    <note @type='translation' @xml:lang='ja'>{d['translation_jp']}</note>\n"
+xml_str += f"    <note @type='translation' @xml:lang='en'>{d['translation_en']}</note>\n"
+xml_str += "</person>"
 
-    st.code(xml_str, language="xml")
+st.code(xml_str, language="xml")
