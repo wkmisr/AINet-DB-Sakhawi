@@ -138,7 +138,7 @@ with col2:
     d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
     d["death_g"] = dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]))
 
-    m_col1, m_col2 = st.columns()
+    m_col1, m_col2 = st.columns(2)
     selected_m = m_col1.selectbox("⚖️ Madhhab", options=list(MADHHAB_DATA.keys()), 
                                   index=list(MADHHAB_DATA.keys()).index(d["madhhab"]["lat"]) if d["madhhab"]["lat"] in MADHHAB_DATA else 4)
     d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
