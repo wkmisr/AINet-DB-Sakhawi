@@ -162,15 +162,19 @@ with col2:
     for i, item in enumerate(d.get("teachers", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
+        
+        # 5列作成
         r = st.columns([1, 1, 1, 1, 0.3])
+        
+        # 各カラム〜 を指定して入力欄を作る
         item["name"] = r.text_input("n", item.get("name"), key=f"t_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"t_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"t_s_{uid}", label_visibility="collapsed")
         item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"t_si_{uid}", label_visibility="collapsed")
+        
         if r.button("❌", key=f"t_del_{uid}"):
-            d["teachers"].pop(i); st.rerun()
-    if st.button("＋ add master"):
-        d["teachers"].append({"ui_id": str(uuid.uuid4()), "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000"}); st.rerun()
+            d["teachers"].pop(i)
+            st.rerun()
 
     # Students
     st.divider()
@@ -178,15 +182,19 @@ with col2:
     for i, item in enumerate(d.get("students", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
+        
+        # 5列作成
         r = st.columns([1, 1, 1, 1, 0.3])
+        
+        # 同様に〜 を指定
         item["name"] = r.text_input("n", item.get("name"), key=f"s_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"s_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"s_s_{uid}", label_visibility="collapsed")
         item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"s_si_{uid}", label_visibility="collapsed")
+        
         if r.button("❌", key=f"s_del_{uid}"):
-            d["students"].pop(i); st.rerun()
-    if st.button("＋ add student"):
-        d["students"].append({"ui_id": str(uuid.uuid4()), "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000"}); st.rerun()
+            d["students"].pop(i)
+            st.rerun()
 
     # NISBAHS, ACTIVITIES, FAMILY, INSTITUTIONS
     sections = [
