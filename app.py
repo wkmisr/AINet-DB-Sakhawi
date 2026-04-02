@@ -178,45 +178,60 @@ with col2:
 
     # --- 5. XML Export ---
     st.divider()
-st.header("3. TEI-XML Export")
+    st.header("3. TEI-XML Export")
 
-def fr(rid):
-    if not rid: return ""
-    if rid.startswith("TMP-"): return f"#{rid}"
-    if rid.startswith("Q"): return f"wd:{rid}"
-    if rid.isdigit() or rid.startswith("gn:"): 
-        return f"gn:{rid.replace('gn:', '')}"
-    return rid
+    def fr(rid):
+        if not rid: return ""
+        rid = str(rid).strip()
+        if rid.startswith("TMP-"): return f"#{rid}"
+        if rid.startswith("Q"): return f"wd:{rid}"
+        if "GeoNames_" in rid: return f"gn:{rid.replace('GeoNames_', '')}"
+        if rid.isdigit(): return f"gn:{rid}"
+        return rid
 
-# ルート要素の開始 (@を明示的に入れています)
-xml_str = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
-    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
-    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
-    <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
-    <listRelation>\n"""
-
-# Teachers
-for t in d.get("teachers", []):
-    xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
-    if t.get("subject"): 
-        xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
-    xml_str += f'        </relation>\n'
-
-# Students (修正箇所: xml += を xml_str += に修正)
-for s in d.get("students", []):
-    xml_str += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
-    if s.get("subject"): 
-        xml_str += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
-    xml_str += f'        </relation>\n' # ← ここを xml_str に修正しました
+    # 1. 基本情報
+    xml_str = f'<person @xml:id="{d["aind_id"]}" @source="#source_{d["original_id"]}">\n'
+    xml_str += f'    <persName @type="full" @xml:lang="ar">{d["full_name"]}</persName>\n'
+    xml_str += f'    <persName @type="name_only" @xml:lang="ar">{d["name_only"]}</persName>\n'
     
-xml_str += '    </listRelation>\n'
+    # 2. Nisbahs (追加)
+    for n in d.get("nisbahs", []):
+        if n.get("ar"):
+            xml_str += f'    <persName @type="nisbah" @xml:lang="ar" @ref="{fr(n.get("id"))}">{n.get("ar")}</persName>\n'
 
-# Activities
-for a in d.get("activities", []):
-    xml_str += f'    <residence @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
+    # 3. Affiliation
+    xml_str += f'    <affiliation @type="madhhab" @ref="wd:{d["madhhab"]["id"]}">{d["madhhab"]["lat"]}</affiliation>\n'
+    
+    # 4. Relations (Teachers / Students / Family)
+    xml_str += '    <listRelation>\n'
+    for t in d.get("teachers", []):
+        xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+        if t.get("subject"): xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+        xml_str += '        </relation>\n'
+    
+    for s in d.get("students", []):
+        xml_str += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
+        if s.get("subject"): xml_str += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
+        xml_str += '        </relation>\n'
 
-xml_str += f"    <note @type='translation' @xml:lang='ja'>{d['translation_jp']}</note>\n"
-xml_str += f"    <note @type='translation' @xml:lang='en'>{d['translation_en']}</note>\n"
-xml_str += "</person>"
+    for f in d.get("family", []):
+        xml_str += f'        <relation @name="family" @active="{fr(f.get("id"))}" @passive="#{d["aind_id"]}" @subtype="{f.get("relation")}">{f.get("name")}</relation>\n'
+    xml_str += '    </listRelation>\n'
 
-st.code(xml_str, language="xml")
+    # 5. Activities (重複を避けるために set 等で制御も可能ですが、基本はそのまま出力)
+    # もし重複がひどい場合は、[a["place_ar"] for a in d["activities"]] の重複を確認してください
+    for a in d.get("activities", []):
+        if a.get("place_ar"):
+            xml_str += f'    <residence @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
+
+    # 6. Institutions (追加)
+    for i in d.get("institutions", []):
+        if i.get("name"):
+            xml_str += f'    <affiliation @type="institution" @ref="{fr(i.get("id"))}">{i.get("name")}</affiliation>\n'
+
+    # 7. Notes (Translations)
+    xml_str += f"    <note @type='translation' @xml:lang='ja'>{d['translation_jp']}</note>\n"
+    xml_str += f"    <note @type='translation' @xml:lang='en'>{d['translation_en']}</note>\n"
+    xml_str += "</person>"
+
+    st.code(xml_str, language="xml")
