@@ -188,29 +188,29 @@ with col2:
             return f"gn:{rid.replace('gn:', '')}"
         return rid
 
-    xml_str = f"""<person xml:id="{d['aind_id']}" source="#source_{d['original_id']}">
-    <persName type="full" xml:lang="ar">{d['full_name']}</persName>
-    <persName type="name_only" xml:lang="ar">{d['name_only']}</persName>
-    <affiliation type="madhhab" ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
+    xml_str = f"""<person @xml:id="{d['aind_id']}" @source="#source_{d['original_id']}">
+    <persName @type="full" @xml:lang="ar">{d['full_name']}</persName>
+    <persName @type="name_only" @xml:lang="ar">{d['name_only']}</persName>
+    <affiliation @type="madhhab" @ref="wd:{d['madhhab']['id']}">{d['madhhab']['lat']}</affiliation>
     <listRelation>\n"""
     
     # Teachers
     for t in d.get("teachers", []):
-        xml_str += f'        <relation name="teacher" active="{fr(t.get("id"))}" passive="#{d["aind_id"]}">\n'
-        if t.get("subject"): xml_str += f'            <desc ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
+        xml_str += f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">\n'
+        if t.get("subject"): xml_str += f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>\n'
         xml_str += f'        </relation>\n'
     
     # Students (追加)
     for s in d.get("students", []):
-        xml_str += f'        <relation name="student" active="#{d["aind_id"]}" passive="{fr(s.get("id"))}">\n'
-        if s.get("subject"): xml_str += f'            <desc ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
+        xml_str += f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">\n'
+        if s.get("subject"): xml_str += f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>\n'
         xml += f'        </relation>\n'
         
     xml_str += '    </listRelation>\n'
 
     # Activities (subtype を反映)
     for a in d.get("activities", []):
-        xml_str += f'    <residence subtype="{a.get("type")}" ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
+        xml_str += f'    <residence @subtype="{a.get("type")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>\n'
 
     xml_str += f"    <note type='translation' xml:lang='ja'>{d['translation_jp']}</note>\n"
     xml_str += f"    <note type='translation' xml:lang='en'>{d['translation_en']}</note>\n"
