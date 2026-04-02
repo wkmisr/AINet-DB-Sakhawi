@@ -434,54 +434,54 @@ st.divider()
 st.header("3. TEI-XML Export")
 
 xml_lines = []
-xml_lines.append(f'<person xml:id="{d["aind_id"]}" source="#source_{d["original_id"]}">')
-xml_lines.append(f'    <persName type="full" xml:lang="ar">{d["full_name"]}</persName>')
-xml_lines.append(f'    <persName type="name_only" xml:lang="ar">{d["name_only"]}</persName>')
+xml_lines.append(f'<person @xml:id="{d["aind_id"]}" @source="#source_{d["original_id"]}">')
+xml_lines.append(f'    <persName @type="full" @xml:lang="ar">{d["full_name"]}</persName>')
+xml_lines.append(f'    <persName @type="name_only" @xml:lang="ar">{d["name_only"]}</persName>')
 
 for n in d.get("nisbahs", []):
     if n.get("ar"):
-        xml_lines.append(f'    <persName type="nisbah" xml:lang="ar" ref="{fr(n.get("id"))}">{n.get("ar")}</persName>')
+        xml_lines.append(f'    <persName @type="nisbah" @xml:lang="ar" @ref="{fr(n.get("id"))}">{n.get("ar")}</persName>')
 
 if d["madhhab"]["id"]:
-    xml_lines.append(f'    <affiliation type="madhhab" ref="wd:{d["madhhab"]["id"]}">{d["madhhab"]["lat"]}</affiliation>')
+    xml_lines.append(f'    <affiliation @type="madhhab" @ref="wd:{d["madhhab"]["id"]}">{d["madhhab"]["lat"]}</affiliation>')
 
 if d.get("birth_h") or d.get("birth_g"):
-    xml_lines.append(f'    <birth when-custom="{d["birth_h"]}" when="{convert_h_to_g(d["birth_h"])}"/>')
+    xml_lines.append(f'    <birth @when-custom="{d["birth_h"]}" @when="{convert_h_to_g(d["birth_h"])}"/>')
 
 if d.get("death_h") or d.get("death_g"):
-    xml_lines.append(f'    <death when-custom="{d["death_h"]}" when="{convert_h_to_g(d["death_h"])}"/>')
+    xml_lines.append(f'    <death @when-custom="{d["death_h"]}" @when="{convert_h_to_g(d["death_h"])}"/>')
 
 xml_lines.append('    <listRelation>')
 
 for t in d.get("teachers", []):
-    xml_lines.append(f'        <relation name="teacher" active="{fr(t.get("id"))}" passive="#{d["aind_id"]}">')
+    xml_lines.append(f'        <relation @name="teacher" @active="{fr(t.get("id"))}" @passive="#{d["aind_id"]}">')
     if t.get("subject"):
-        xml_lines.append(f'            <desc ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>')
+        xml_lines.append(f'            <desc @ref="{fr(t.get("subject_id"))}">{t.get("subject")}</desc>')
     xml_lines.append('        </relation>')
 
 for s in d.get("students", []):
-    xml_lines.append(f'        <relation name="student" active="#{d["aind_id"]}" passive="{fr(s.get("id"))}">')
+    xml_lines.append(f'        <relation @name="student" @active="#{d["aind_id"]}" @passive="{fr(s.get("id"))}">')
     if s.get("subject"):
-        xml_lines.append(f'            <desc ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>')
+        xml_lines.append(f'            <desc @ref="{fr(s.get("subject_id"))}">{s.get("subject")}</desc>')
     xml_lines.append('        </relation>')
 
 for fam in d.get("family", []):
-    xml_lines.append(f'        <relation name="family" active="{fr(fam.get("id"))}" passive="#{d["aind_id"]}" subtype="{fam.get("relation", "")}">{fam.get("name", "")}</relation>')
+    xml_lines.append(f'        <relation @name="family" @active="{fr(fam.get("id"))}" @passive="#{d["aind_id"]}" @subtype="{fam.get("relation", "")}">{fam.get("name", "")}</relation>')
 
 xml_lines.append('    </listRelation>')
 
 for a in d.get("activities", []):
     if a.get("place_ar"):
-        xml_lines.append(f'    <residence subtype="{a.get("type", "")}" ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>')
+        xml_lines.append(f'    <residence @subtype="{a.get("type", "")}" @ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>')
 
 for inst in d.get("institutions", []):
     if inst.get("name"):
-        xml_lines.append(f'    <affiliation type="institution" ref="{fr(inst.get("id"))}">{inst.get("name")}</affiliation>')
+        xml_lines.append(f'    <affiliation @type="institution" @ref="{fr(inst.get("id"))}">{inst.get("name")}</affiliation>')
 
 if d.get("translation_jp"):
-    xml_lines.append(f'    <note type="translation" xml:lang="ja">{d["translation_jp"]}</note>')
+    xml_lines.append(f'    <note @type="translation" @xml:lang="ja">{d["translation_jp"]}</note>')
 if d.get("translation_en"):
-    xml_lines.append(f'    <note type="translation" xml:lang="en">{d["translation_en"]}</note>')
+    xml_lines.append(f'    <note @type="translation" @xml:lang="en">{d["translation_en"]}</note>')
 
 xml_lines.append("</person>")
 
