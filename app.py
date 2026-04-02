@@ -135,91 +135,77 @@ with col1:
         with t_tab2: st.info(d["translation_en"])
 
 # --- 4. UI: エディタエリア ---
+# --- 4. UI: エディタエリア ---
 with col2:
     st.header("2. Metadata Editor")
     
+    # 基本情報
     c1, c2 = st.columns(2)
     d["aind_id"] = c1.text_input("@xml:id", d["aind_id"])
     d["original_id"] = c2.text_input("@source", d["original_id"])
     d["full_name"] = st.text_input("persName (Full Arabic)", d["full_name"])
     d["name_only"] = st.text_input("persName (Ism/Father/GF)", d["name_only"])
 
+    # 生没年
     dc1, dc2, dc3, dc4 = st.columns(4)
     d["birth_h"] = dc1.text_input("Birth (H)", d["birth_h"])
     d["birth_g"] = dc2.text_input("Birth (G)", value=convert_h_to_g(d["birth_h"]))
     d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
     d["death_g"] = dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]))
 
-    m_col1, m_col2 = st.columns(2)
+    # Madhhab 連携
+    m_col1, m_col2 = st.columns()
     selected_m = m_col1.selectbox("⚖️ Madhhab", options=list(MADHHAB_DATA.keys()), 
                                   index=list(MADHHAB_DATA.keys()).index(d["madhhab"]["lat"]) if d["madhhab"]["lat"] in MADHHAB_DATA else 4)
     d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
     m_col2.text_input("Wikidata ID", d["madhhab"]["id"], disabled=True)
 
-   # Teachers
+    # --- Teachers セクション ---
     st.divider()
     st.subheader("🎓 Teachers & Subjects")
     for i, item in enumerate(d.get("teachers", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
         
-        r = st.columns([1, 1, 1, 1, 0.3]) # ここで5つの列を作る
+        # カラムを5つ作成し、リスト r に入れる
+        r = st.columns([1, 1, 1, 1, 0.3])
         
-        # ↓ 全て を付けます
-        item["name"] = r.text_input("n", item.get("name"), key=f"t_n_{uid}", label_visibility="collapsed")
-        item["id"] = r.text_input("i", item.get("id"), key=f"t_i_{uid}", label_visibility="collapsed")
-        item["subject"] = r.text_input("s", item.get("subject"), key=f"t_s_{uid}", label_visibility="collapsed")
-        item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"t_si_{uid}", label_visibility="collapsed")
+        # 全て r[インデックス] を指定して呼び出す
+        item["name"] = r.text_input("name", item.get("name"), key=f"t_n_{uid}", label_visibility="collapsed")
+        item["id"] = r.text_input("id", item.get("id"), key=f"t_i_{uid}", label_visibility="collapsed")
+        item["subject"] = r.text_input("sub", item.get("subject"), key=f"t_s_{uid}", label_visibility="collapsed")
+        item["subject_id"] = r.text_input("sid", item.get("subject_id"), key=f"t_si_{uid}", label_visibility="collapsed")
         
         if r.button("❌", key=f"t_del_{uid}"):
             d["teachers"].pop(i)
             st.rerun()
-            
-# Students
+
+    if st.button("＋ add master"):
+        d["teachers"].append({"ui_id": str(uuid.uuid4()), "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000"})
+        st.rerun()
+
+    # --- Students セクション ---
     st.divider()
     st.subheader("🧑‍🎓 Students & Subjects")
     for i, item in enumerate(d.get("students", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
         
-        r = st.columns([1, 1, 1, 1, 0.3])
+        r_std = st.columns([1, 1, 1, 1, 0.3])
         
-        # ↓ こちらも同様に〜 を指定
-        item["name"] = r.text_input("n", item.get("name"), key=f"s_n_{uid}", label_visibility="collapsed")
-        item["id"] = r.text_input("i", item.get("id"), key=f"s_i_{uid}", label_visibility="collapsed")
-        item["subject"] = r.text_input("s", item.get("subject"), key=f"s_s_{uid}", label_visibility="collapsed")
-        item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"s_si_{uid}", label_visibility="collapsed")
+        # 混同を避けるため変数名を r_std にし、すべてに〜 を付与
+        item["name"] = r_std.text_input("name", item.get("name"), key=f"s_n_{uid}", label_visibility="collapsed")
+        item["id"] = r_std.text_input("id", item.get("id"), key=f"s_i_{uid}", label_visibility="collapsed")
+        item["subject"] = r_std.text_input("sub", item.get("subject"), key=f"s_s_{uid}", label_visibility="collapsed")
+        item["subject_id"] = r_std.text_input("sid", item.get("subject_id"), key=f"s_si_{uid}", label_visibility="collapsed")
         
-        if r.button("❌", key=f"s_del_{uid}"):
+        if r_std.button("❌", key=f"s_del_{uid}"):
             d["students"].pop(i)
             st.rerun()
-            
+
     if st.button("＋ add student"):
         d["students"].append({"ui_id": str(uuid.uuid4()), "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000"})
         st.rerun()
-
-    # NISBAHS, ACTIVITIES, FAMILY, INSTITUTIONS
-    sections = [
-        ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-L-00000"),
-        ("📍 Activities", "activities", ["place_ar", "place_lat", "type", "id"], "TMP-L-00000"),
-        ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-00000"),
-        ("🕌 Institutions", "institutions", ["name", "id"], "TMP-O-00000")
-    ]
-    for title, key, fields, def_id in sections:
-        st.divider()
-        st.subheader(title)
-        for i, item in enumerate(d.get(key, [])):
-            if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-            uid = item["ui_id"]
-            cols = st.columns(len(fields) + 1)
-            for j, f in enumerate(fields):
-                val = item.get(f, def_id if f=="id" else "")
-                item[f] = cols[j].text_input(f, val, key=f"{key}_{f}_{uid}", label_visibility="collapsed")
-            if cols[-1].button("❌", key=f"{key}_del_{uid}"):
-                d[key].pop(i); st.rerun()
-        if st.button(f"＋ add {title}", key=f"add_{key}"):
-            d[key].append({"ui_id": str(uuid.uuid4()), **{f: (def_id if f=="id" else "") for f in fields}}); st.rerun()
-
 # --- 5. XML Export ---
 st.divider()
 st.header("3. TEI-XML Export")
