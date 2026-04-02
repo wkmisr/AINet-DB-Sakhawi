@@ -82,7 +82,7 @@ with col1:
                     {{
                         "original_id": "", "full_name": "", "name_only": "", 
                         "birth_h": "", "death_h": "", "madhhab_name": "",
-                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-N-00000" }}],
+                        "nisbahs": [{{ "ar": "", "lat": "", "id": "TMP-L-00000" }}],
                         "activities": [{{ "place_ar": "", "place_lat": "", "type": "study/buried/reside/visit", "id": "GeoNames_ID" }}],
                         "teachers": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000" }}],
                         "students": [{{ "name": "", "id": "TMP-P-00000", "subject": "", "subject_id": "TMP-S-00000" }}],
@@ -159,7 +159,7 @@ with col2:
 
     # 各セクション動的生成 (Activities に type を追加)
     sections = [
-        ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-N-00000"),
+        ("📝 Nisbahs", "nisbahs", ["ar", "lat", "id"], "TMP-L-00000"),
         ("📍 Activities", "activities", ["place_ar", "place_lat", "type", "id"], "TMP-L-00000"),
         ("👥 Family", "family", ["name", "relation", "id"], "TMP-P-00000"),
         ("🕌 Institutions", "institutions", ["name", "id"], "TMP-O-00000")
