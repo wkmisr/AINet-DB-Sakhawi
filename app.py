@@ -11,12 +11,27 @@ if api_key:
 
 def get_working_model():
     try:
-        models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
-        flash_models = [m for m in models if 'flash' in m]
-        return genai.GenerativeModel(flash_models if flash_models else models)
-    except:
-        return genai.GenerativeModel('models/gemini-1.5-flash')
-
+        # 利用可能な全モデルを取得
+        available_models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+        
+        # 1. まず 'gemini-2.0-flash' (最新) を探す
+        next_gen = [m for m in available_models if 'gemini-2.0-flash' in m]
+        if next_gen:
+            return genai.GenerativeModel(next_gen)
+            
+        # 2. 次に 'gemini-1.5-flash' を探す
+        flash_models = [m for m in available_models if 'gemini-1.5-flash' in m]
+        if flash_models:
+            return genai.GenerativeModel(flash_models)
+        
+        # 3. それでもなければ、リストの最初にある利用可能なモデルを使う
+        if available_models:
+            return genai.GenerativeModel(available_models)
+            
+        raise Exception("No suitable Gemini models found in your project.")
+    except Exception as e:
+        # 最終手段として、標準的なモデル名を直接指定（ただし 404 のリスクあり）
+        return genai.GenerativeModel('gemini-1.5-flash')
 def convert_h_to_g(h_year):
     try:
         h_clean = re.sub(r"\D", "", str(h_year))
