@@ -11,36 +11,24 @@ if api_key:
 
 def get_working_model():
     try:
-        # 利用可能なモデルの一覧を取得し、コンテンツ生成が可能なものを抽出
-        available_models = [
-            m.name for m in genai.list_models() 
-            if 'generateContent' in m.supported_generation_methods
-        ]
+        # 1. 利用可能なモデルをリストアップ
+        models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
         
-        # 優先順位をつけてモデルを探す
-        # 1. Gemini 2.0 Flash (最新)
-        # 2. Gemini 1.5 Flash (安定版)
-        # 3. その他 'flash' と名のつくもの
+        # 2. 'flash' が含まれるモデルを優先的に探す
+        flash_models = [m for m in models if 'flash' in m]
         
-        priority_keywords = ['gemini-2.0-flash', 'gemini-1.5-flash', 'flash']
-        
-        for keyword in priority_keywords:
-            target = [m for m in available_models if keyword in m]
-            if target:
-                # 見つかった中から最新（リストの最後の方）を返す
-                return genai.GenerativeModel(target[-1])
-        
-        # 何も見つからなければ、利用可能な最初のモデルを返す
-        if available_models:
-            return genai.GenerativeModel(available_models)
+        if flash_models:
+            # 見つかった中から最新（リストの後ろの方）を返す
+            return genai.GenerativeModel(flash_models[-1])
+        elif models:
+            # flashがなければ最初のモデルを返す
+            return genai.GenerativeModel(models)
             
-        raise Exception("利用可能なGeminiモデルが見つかりませんでした。")
-        
     except Exception as e:
-        # エラー時のフォールバック（以前の指定方法）
-        # ただし、ここで404が出る可能性が高いため、上記リスト取得が重要
+        # 万が一リスト取得に失敗した場合の最終手段
+        # 'models/' プレフィックスを外した名前を試す
         return genai.GenerativeModel('gemini-1.5-flash')
-        
+
 def convert_h_to_g(h_year):
     try:
         h_clean = re.sub(r"\D", "", str(h_year))
