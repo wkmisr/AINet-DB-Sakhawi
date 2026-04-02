@@ -73,13 +73,13 @@ with col1:
     st.header("1. Source & Bilingual Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=400)
     
-    if st.button("🚀 精密解析（日英翻訳・外部ID）"):
+   if st.button("🚀 精密解析（日英翻訳・外部ID）"):
         if source_input:
-            d["source_text"] = source_input
+            st.session_state.data_v14["source_text"] = source_input
             with st.spinner("日英翻訳とIDを探索中..."):
                 try:
                     model = get_working_model()
-                    # プロンプトに Students と Activity type を追加
+                    # ここに元の詳細なプロンプトをすべて保持します
                     prompt = f"""
                     You are a professional historian of Islamic studies. Extract data into JSON.
                     
@@ -104,14 +104,40 @@ with col1:
                     Text: {source_input}
                     """
                     response = model.generate_content(prompt)
-                    json_match = re.search(r"\{.*\}", response.text, re.DOTALL)
-                    if json_match:
-                        res_json = json.loads(json_match.group())
-                        res_json["birth_g"] = convert_h_to_g(res_json.get("birth_h", ""))
-                        res_json["death_g"] = convert_h_to_g(res_json.get("death_h", ""))
-                        d.update(res_json)
+                    
+                    # 変数名を統一し、ボタン押下時のみ定義されるようにします
+                    json_match_obj = re.search(r"\{.*\}", response.text, re.DOTALL)
+                    
+                    if json_match_obj:
+                        res_json = json.loads(json_match_obj.group())
+                        
+                        # --- 重複防止 & UI用ID(ui_id)の付与 ---
+                        # これにより、リストが二重にならず、かつ「❌」ボタンが正常に動作します
+                        list_keys = ["teachers", "students", "activities", "nisbahs", "family", "institutions"]
+                        for k in list_keys:
+                            if k in res_json:
+                                for item in res_json[k]:
+                                    if "ui_id" not in item:
+                                        item["ui_id"] = str(uuid.uuid4())
+                                # 既存のリストをクリアして新しく上書き（重複防止）
+                                d[k] = res_json[k]
+                        
+                        # 日付の自動計算
+                        d["birth_h"] = res_json.get("birth_h", "")
+                        d["death_h"] = res_json.get("death_h", "")
+                        d["birth_g"] = convert_h_to_g(d["birth_h"])
+                        d["death_g"] = convert_h_to_g(d["death_h"])
+                        
+                        # その他の基本フィールドを更新
+                        for field in ["original_id", "full_name", "name_only", "translation_jp", "translation_en"]:
+                            if field in res_json:
+                                d[field] = res_json[field]
+                        
                         st.success("解析完了")
                         st.rerun()
+                    else:
+                        st.error("AIの回答からJSONを抽出できませんでした。再試行してください。")
+                        
                 except Exception as e:
                     st.error(f"解析エラー: {e}")
 
