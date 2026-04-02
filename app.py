@@ -2,6 +2,18 @@ import streamlit as st
 import google.generativeai as genai
 import json
 import re
+import uuid
+
+# 解析ボタンの処理内
+if json_match:
+    res_json = json.loads(json_match.group())
+    # リストを更新する際、各要素に 'ui_id' を付与する
+    for k in ["teachers", "students", "activities", "nisbahs", "family", "institutions"]:
+        if k in res_json:
+            for item in res_json[k]:
+                item["ui_id"] = str(uuid.uuid4()) # 一意なID
+            d[k] = res_json[k]
+
 
 # --- 1. API設定 & モデル自動検知 ---
 api_key = st.secrets.get("GEMINI_API_KEY")
@@ -136,26 +148,62 @@ with col2:
     # Teachers
     st.divider()
     st.subheader("🎓 Teachers & Subjects")
-    for i, item in enumerate(d.get("teachers", [])):
-        r1 = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r1[0].text_input("master's name", item.get("name"), key=f"t_n_{i}")
-        item["id"] = r1[1].text_input("master's ID", item.get("id", "TMP-P-00000"), key=f"t_i_{i}")
-        item["subject"] = r1[2].text_input("subject", item.get("subject", ""), key=f"t_s_{i}")
-        item["subject_id"] = r1[3].text_input("subject ID", item.get("subject_id", "TMP-S-00000"), key=f"t_si_{i}")
-        if r1[4].button("❌", key=f"t_d_{i}"): d["teachers"].pop(i); st.rerun()
-    if st.button("＋ add master"): d["teachers"].append({"name":"","id":"TMP-P-00000", "subject":"", "subject_id":"TMP-S-00000"}); st.rerun()
+    # Teachers の例
+for i, item in enumerate(d.get("teachers", [])):
+    # もし ui_id がなければ付与（古いデータ対策）
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    
+    uid = item["ui_id"] # これを key に使う
+    r1 = st.columns([1, 1, 1, 1, 0.3])
+    item["name"] = r1.text_input("name", item.get("name"), key=f"t_n_{uid}")
+    item["id"] = r1.text_input("ID", item.get("id"), key=f"t_i_{uid}")
+    item["subject"] = r1.text_input("sub", item.get("subject"), key=f"t_s_{uid}")
+    item["subject_id"] = r1.text_input("sid", item.get("subject_id"), key=f"t_si_{uid}")
+    
+    if r1.button("❌", key=f"t_del_{uid}"):
+        d["teachers"].pop(i)
+        st.rerun()
+    if st.button("＋ add master"):
+    d["teachers"].append({
+        "ui_id": str(uuid.uuid4()), # IDを付与
+        "name":"","id":"TMP-P-00000", "subject":"", "subject_id":"TMP-S-00000"
+    })
+    st.rerun()
 
     # Students (追加)
     st.divider()
     st.subheader("🧑‍🎓 Students & Subjects")
-    for i, item in enumerate(d.get("students", [])):
+   # リストのコピーではなく実体を参照
+    students_list = d.get("students", [])
+    
+    for i, item in enumerate(students_list):
+        # 固有IDがなければ付与（削除時にキーがズレるのを防ぐ）
+        if "ui_id" not in item:
+            item["ui_id"] = str(uuid.uuid4())
+        
+        uid = item["ui_id"]
         r2 = st.columns([1, 1, 1, 1, 0.3])
-        item["name"] = r2[0].text_input("student's name", item.get("name"), key=f"s_n_{i}")
-        item["id"] = r2[1].text_input("student's ID", item.get("id", "TMP-P-00000"), key=f"s_i_{i}")
-        item["subject"] = r2[2].text_input("subject", item.get("subject", ""), key=f"s_s_{i}")
-        item["subject_id"] = r2[3].text_input("subject ID", item.get("subject_id", "TMP-S-00000"), key=f"s_si_{i}")
-        if r2[4].button("❌", key=f"s_d_{i}"): d["students"].pop(i); st.rerun()
-    if st.button("＋ add students"): d["students"].append({"name":"","id":"TMP-P-00000", "subject":"", "subject_id":"TMP-S-00000"}); st.rerun()
+        
+        # key に i ではなく uid を使用
+        item["name"] = r2.text_input("student's name", item.get("name"), key=f"s_n_{uid}")
+        item["id"] = r2.text_input("student's ID", item.get("id", "TMP-P-00000"), key=f"s_i_{uid}")
+        item["subject"] = r2.text_input("subject", item.get("subject", ""), key=f"s_s_{uid}")
+        item["subject_id"] = r2.text_input("subject ID", item.get("subject_id", "TMP-S-00000"), key=f"s_si_{uid}")
+        
+        # ❌ ボタンの key も uid を使用
+        if r2.button("❌", key=f"s_d_{uid}"):
+            d["students"].pop(i)
+            st.rerun()
+
+    if st.button("＋ add students"):
+        d["students"].append({
+            "ui_id": str(uuid.uuid4()), # 新規追加時もIDを振る
+            "name": "", 
+            "id": "TMP-P-00000", 
+            "subject": "", 
+            "subject_id": "TMP-S-00000"
+        })
+        st.rerun()
 
     # 各セクション動的生成 (Activities に type を追加)
     sections = [
