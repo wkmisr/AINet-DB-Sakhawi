@@ -146,27 +146,37 @@ with col2:
     m_col2.text_input("Wikidata ID", d["madhhab"]["id"], disabled=True)
 
     # Teachers
-    st.divider()
-    st.subheader("🎓 Teachers & Subjects")
-    # Teachers の例
-for i, item in enumerate(d.get("teachers", [])):
-    # もし ui_id がなければ付与（古いデータ対策）
-    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+st.divider()
+st.subheader("🎓 Teachers & Subjects")
+# ループを回す前にリストを取得
+teachers_list = d.get("teachers", [])
+
+for i, item in enumerate(teachers_list):
+    if "ui_id" not in item:
+        item["ui_id"] = str(uuid.uuid4())
     
-    uid = item["ui_id"] # これを key に使う
+    uid = item["ui_id"]
+    # 5つのカラムを作成 (名前, ID, 科目, 科目ID, 削除ボタン)
     r1 = st.columns([1, 1, 1, 1, 0.3])
-    item["name"] = r1.text_input("name", item.get("name"), key=f"t_n_{uid}")
-    item["id"] = r1.text_input("ID", item.get("id"), key=f"t_i_{uid}")
-    item["subject"] = r1.text_input("sub", item.get("subject"), key=f"t_s_{uid}")
-    item["subject_id"] = r1.text_input("sid", item.get("subject_id"), key=f"t_si_{uid}")
     
+    item["name"] = r1.text_input("master's name", item.get("name"), key=f"t_n_{uid}")
+    item["id"] = r1.text_input("master's ID", item.get("id", "TMP-P-00000"), key=f"t_i_{uid}")
+    item["subject"] = r1.text_input("subject", item.get("subject", ""), key=f"t_s_{uid}")
+    item["subject_id"] = r1.text_input("subject ID", item.get("subject_id", "TMP-S-00000"), key=f"t_si_{uid}")
+    
+    # r1 (5番目のカラム) にボタンを配置
     if r1.button("❌", key=f"t_del_{uid}"):
         d["teachers"].pop(i)
         st.rerun()
-    if st.button("＋ add master"):
+
+# インデントを修正し、ボタンが押されたときのみ append する
+if st.button("＋ add master"):
     d["teachers"].append({
-        "ui_id": str(uuid.uuid4()), # IDを付与
-        "name":"","id":"TMP-P-00000", "subject":"", "subject_id":"TMP-S-00000"
+        "ui_id": str(uuid.uuid4()),
+        "name": "",
+        "id": "TMP-P-00000",
+        "subject": "",
+        "subject_id": "TMP-S-00000"
     })
     st.rerun()
 
