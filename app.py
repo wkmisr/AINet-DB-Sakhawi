@@ -163,30 +163,30 @@ with col2:
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
         
-        # 5列作成
+        # 5つの列を作成し、リスト r に格納
         r = st.columns([1, 1, 1, 1, 0.3])
         
-        # 各カラム〜 を指定して入力欄を作る
+        # r, r... のようにインデックスを指定する
         item["name"] = r.text_input("n", item.get("name"), key=f"t_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"t_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"t_s_{uid}", label_visibility="collapsed")
         item["subject_id"] = r.text_input("si", item.get("subject_id"), key=f"t_si_{uid}", label_visibility="collapsed")
         
+        # 削除ボタンは 5番目（インデックス 4）の列に配置
         if r.button("❌", key=f"t_del_{uid}"):
             d["teachers"].pop(i)
             st.rerun()
 
-    # Students
+   # Students
     st.divider()
     st.subheader("🧑‍🎓 Students & Subjects")
     for i, item in enumerate(d.get("students", [])):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
         
-        # 5列作成
         r = st.columns([1, 1, 1, 1, 0.3])
         
-        # 同様に〜 を指定
+        # ここも r〜r を指定
         item["name"] = r.text_input("n", item.get("name"), key=f"s_n_{uid}", label_visibility="collapsed")
         item["id"] = r.text_input("i", item.get("id"), key=f"s_i_{uid}", label_visibility="collapsed")
         item["subject"] = r.text_input("s", item.get("subject"), key=f"s_s_{uid}", label_visibility="collapsed")
