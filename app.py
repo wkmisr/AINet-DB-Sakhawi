@@ -36,10 +36,10 @@ def convert_h_to_g(h_year):
 
 def fr(rid):
     """IDを適切なプレフィックス付きの参照文字列に変換する。
-    - TMP-X-XXXXX  → #TMP-X-XXXXX  (内部仮ID)
-    - Q数字         → wd:Q数字      (Wikidata)
-    - 数字のみ       → gn:数字      (GeoNames)
-    - その他         → そのまま返す
+    TMP-X-XXXXX → #TMP-X-XXXXX
+    Q数字        → wd:Q数字
+    数字のみ      → gn:数字
+    その他        → そのまま
     """
     if not rid:
         return ""
@@ -54,6 +54,12 @@ def fr(rid):
         return f"gn:{rid}"
     return rid
 
+def move_item(lst, index, direction):
+    """リスト内のアイテムを上下に移動する（-1=上, +1=下）"""
+    new_index = index + direction
+    if 0 <= new_index < len(lst):
+        lst[index], lst[new_index] = lst[new_index], lst[index]
+
 # --- 4. データ定義 ---
 MADHHAB_DATA = {
     "Hanafi (ハナフィー派)": "Q160851",
@@ -63,9 +69,16 @@ MADHHAB_DATA = {
     "Unknown / Other": ""
 }
 
+INSTITUTION_TYPES = [
+    "study", "teach", "reside", "founded", "affiliated",
+    "graduated", "employed", "visit", "other"
+]
+
+ACTIVITY_TYPES = ["study", "buried", "reside", "visit", "born", "died", "other"]
+
 # --- 5. セッション状態の初期化 ---
-if 'data_v15' not in st.session_state:
-    st.session_state.data_v15 = {
+if 'data_v16' not in st.session_state:
+    st.session_state.data_v16 = {
         "aind_id": "AIND-D0000",
         "original_id": "",
         "full_name": "",
@@ -83,13 +96,28 @@ if 'data_v15' not in st.session_state:
         "teachers": [],
         "students": [],
         "institutions": [],
+        "offices": [],
         "family": [],
         "source_text": "",
         "translation_jp": "",
         "translation_en": ""
     }
 
-d = st.session_state.data_v15
+d = st.session_state.data_v16
+
+# ===================================================
+# ヘルパー: 並び替えボタン付きセクションの共通部品
+# ===================================================
+def reorder_buttons(section_key, index, total):
+    """上下移動ボタンを描画し、押されたら移動してrerun"""
+    btn_up   = st.button("▲", key=f"up_{section_key}_{index}",   disabled=(index == 0))
+    btn_down = st.button("▼", key=f"dn_{section_key}_{index}",   disabled=(index == total - 1))
+    if btn_up:
+        move_item(d[section_key], index, -1)
+        st.rerun()
+    if btn_down:
+        move_item(d[section_key], index, +1)
+        st.rerun()
 
 # ===================================================
 # --- 6. メインUI ---
@@ -124,23 +152,33 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 - translation_en: Accurate academic English translation of the full text.
 
 【ID Rules】
-- Places: Use real GeoNames numeric ID if known (e.g. "104515" for Mecca). Otherwise use "TMP-L-00000".
-- Institutions: Use real Wikidata Q-ID if known (e.g. "Q12345"). Otherwise use "TMP-O-00000".
-- Persons (teachers/students): Use Wikidata Q-ID if known. Otherwise use "TMP-P-00000".
+- Places: Use real GeoNames numeric ID if known (e.g. "104515" for Mecca). Otherwise "TMP-L-00000".
+- Institutions: Use real Wikidata Q-ID if known. Otherwise "TMP-I-00000".
+- Offices/Positions: Use Wikidata Q-ID if known. Otherwise "TMP-O-00000".
+- Persons: Use Wikidata Q-ID if known. Otherwise "TMP-P-00000".
 
 【Teachers / Students】
-For each teacher or student:
-- subject: the academic discipline (e.g. "Hadith", "Fiqh", "Arabic").
+- subject: academic discipline (e.g. "Hadith", "Fiqh", "Arabic").
 - subject_id: TMP-S-00000 unless a real ID is known.
-- text_ar: Arabic title of the specific book/text studied or taught, if mentioned in the source. Leave empty if not mentioned.
-- text_lat: Latinized/English title of that book. Leave empty if not mentioned.
+- text_ar / text_lat: specific book title if mentioned; otherwise leave empty.
 
 【Institutions】
-- name_ar: Arabic name (e.g. "المعلاة").
-- name_lat: Latinized or English name (e.g. "al-Ma'lat").
+- Record in the ORDER they appear in the text (seq starts at 1).
+- type: the person's relationship to the institution.
+  Allowed values: study | teach | reside | founded | affiliated | graduated | employed | visit | other
+- name_ar: Arabic name. name_lat: Latinized name.
+
+【Offices】
+- Record offices/positions held, in the ORDER they appear or were held.
+- seq: sequential order number starting from 1.
+- name_ar: Arabic title of the office (e.g. "قاضي القضاة").
+- name_lat: Latinized title (e.g. "Qadi al-Qudat").
 - id: Wikidata Q-ID or TMP-O-00000.
 
-Return ONLY valid JSON with this exact structure, no markdown fences:
+【Activities】
+- Record in the ORDER they appear in the text (seq starts at 1).
+
+Return ONLY valid JSON with NO markdown fences:
 {{
     "original_id": "",
     "full_name": "",
@@ -150,6 +188,7 @@ Return ONLY valid JSON with this exact structure, no markdown fences:
     "madhhab_name": "",
     "nisbahs": [{{"ar": "", "lat": "", "id": "TMP-L-00000"}}],
     "activities": [{{
+        "seq": 1,
         "place_ar": "", "place_lat": "",
         "type": "study",
         "id": ""
@@ -164,14 +203,23 @@ Return ONLY valid JSON with this exact structure, no markdown fences:
         "subject": "", "subject_id": "TMP-S-00000",
         "text_ar": "", "text_lat": ""
     }}],
-    "institutions": [{{"name_ar": "", "name_lat": "", "id": "TMP-O-00000"}}],
+    "institutions": [{{
+        "seq": 1,
+        "name_ar": "", "name_lat": "",
+        "type": "study",
+        "id": "TMP-I-00000"
+    }}],
+    "offices": [{{
+        "seq": 1,
+        "name_ar": "", "name_lat": "",
+        "id": "TMP-O-00000"
+    }}],
     "translation_jp": "",
     "translation_en": ""
 }}
 Text: {source_input}
 """
                     response = model.generate_content(prompt)
-                    # JSON部分を抽出（コードブロックで囲まれている場合も対応）
                     raw = response.text
                     raw = re.sub(r"```json|```", "", raw).strip()
                     json_match_obj = re.search(r"\{.*\}", raw, re.DOTALL)
@@ -179,15 +227,13 @@ Text: {source_input}
                     if json_match_obj:
                         res_json = json.loads(json_match_obj.group())
 
-                        # リスト更新（ui_id付与）
-                        list_keys = ["teachers", "students", "activities", "nisbahs", "family", "institutions"]
+                        list_keys = ["teachers", "students", "activities", "nisbahs", "family", "institutions", "offices"]
                         for k in list_keys:
                             if k in res_json:
                                 for item in res_json[k]:
                                     item["ui_id"] = str(uuid.uuid4())
                                 d[k] = res_json[k]
 
-                        # スカラーフィールド更新
                         scalar_fields = [
                             "original_id", "full_name", "name_only",
                             "birth_h", "death_h",
@@ -203,7 +249,7 @@ Text: {source_input}
                         st.success("解析完了")
                         st.rerun()
                     else:
-                        st.error("JSONの抽出に失敗しました。レスポンス確認:")
+                        st.error("JSONの抽出に失敗しました。")
                         st.text(response.text[:500])
 
                 except Exception as e:
@@ -211,7 +257,6 @@ Text: {source_input}
         else:
             st.warning("テキストを入力してください。")
 
-    # 翻訳表示
     if d.get("translation_jp") or d.get("translation_en"):
         t_tab1, t_tab2 = st.tabs(["🇯🇵 日本語訳", "🇺🇸 English"])
         with t_tab1:
@@ -230,9 +275,8 @@ with col2:
     c1, c2 = st.columns(2)
     d["aind_id"]     = c1.text_input("@xml:id", d["aind_id"])
     d["original_id"] = c2.text_input("@source", d["original_id"])
-
-    d["full_name"] = st.text_input("persName (Full Arabic)", d["full_name"])
-    d["name_only"] = st.text_input("persName (Ism/Father/GF)", d["name_only"])
+    d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
+    d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
 
     # --- 生没年 ---
     dc1, dc2, dc3, dc4 = st.columns(4)
@@ -243,16 +287,15 @@ with col2:
 
     # --- Madhhab ---
     m_col1, m_col2 = st.columns(2)
-    madhhab_keys = list(MADHHAB_DATA.keys())
+    madhhab_keys  = list(MADHHAB_DATA.keys())
     current_madhhab = d["madhhab"]["lat"]
-    default_index = madhhab_keys.index(current_madhhab) if current_madhhab in madhhab_keys else 4
-
+    default_index   = madhhab_keys.index(current_madhhab) if current_madhhab in madhhab_keys else 4
     selected_m = m_col1.selectbox("⚖️ Madhhab", options=madhhab_keys, index=default_index)
     d["madhhab"] = {"lat": selected_m, "id": MADHHAB_DATA[selected_m]}
     m_col2.text_input("Wikidata ID", value=d["madhhab"]["id"], disabled=True)
 
     # ===================================================
-    # --- Teachers セクション ---
+    # --- Teachers ---
     # ===================================================
     st.divider()
     st.subheader("🎓 Teachers & Subjects")
@@ -263,7 +306,6 @@ with col2:
         uid = item["ui_id"]
 
         with st.container():
-            # 1行目: Name / Person ID / Subject / Subject ID / 削除
             r1 = st.columns([1.2, 1, 1, 1, 0.3])
             r1[0].caption("Name")
             r1[1].caption("Person ID")
@@ -277,10 +319,9 @@ with col2:
                 d["teachers"].pop(i)
                 st.rerun()
 
-            # 2行目: テキスト（典籍）入力
             r2 = st.columns([1, 1])
-            r2[0].caption("📖 Text title (Arabic) — 典籍アラビア語タイトル")
-            r2[1].caption("📖 Text title (Latinized)")
+            r2[0].caption("📖 Text (Arabic)")
+            r2[1].caption("📖 Text (Latinized)")
             item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar", ""),  key=f"t_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
             item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat", ""), key=f"t_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
 
@@ -296,7 +337,7 @@ with col2:
         st.rerun()
 
     # ===================================================
-    # --- Students セクション ---
+    # --- Students ---
     # ===================================================
     st.divider()
     st.subheader("🧑‍🎓 Students & Subjects")
@@ -321,8 +362,8 @@ with col2:
                 st.rerun()
 
             r2 = st.columns([1, 1])
-            r2[0].caption("📖 Text title (Arabic)")
-            r2[1].caption("📖 Text title (Latinized)")
+            r2[0].caption("📖 Text (Arabic)")
+            r2[1].caption("📖 Text (Latinized)")
             item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar", ""),  key=f"s_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
             item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat", ""), key=f"s_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
 
@@ -338,7 +379,7 @@ with col2:
         st.rerun()
 
     # ===================================================
-    # --- Nisbahs セクション ---
+    # --- Nisbahs ---
     # ===================================================
     st.divider()
     st.subheader("🏷️ Nisbahs")
@@ -370,81 +411,169 @@ with col2:
         st.rerun()
 
     # ===================================================
-    # --- Activities セクション ---
+    # --- Activities（順序付き・並び替え可） ---
     # ===================================================
     st.divider()
     st.subheader("📍 Activities / Places")
+    st.caption("▲▼ で順番を入れ替えられます。順番は seq 属性として XML に反映されます。")
 
-    h4 = st.columns([1, 1, 1, 1.3, 0.3])
-    h4[0].caption("Place (Arabic)")
-    h4[1].caption("Place (Latin)")
-    h4[2].caption("Type")
-    h4[3].caption("ID: GeoNames数字 / TMP-L-XXXXX / Q数字")
-    h4[4].caption("Del")
+    acts = d.get("activities", [])
+    total_acts = len(acts)
 
-    activity_types = ["study", "buried", "reside", "visit", "born", "died", "other"]
-
-    for i, item in enumerate(d.get("activities", [])):
+    for i, item in enumerate(acts):
         if "ui_id" not in item:
             item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
 
-        r = st.columns([1, 1, 1, 1.3, 0.3])
-        item["place_ar"]  = r[0].text_input("place_ar",  item.get("place_ar", ""),  key=f"a_a_{uid}", label_visibility="collapsed")
-        item["place_lat"] = r[1].text_input("place_lat", item.get("place_lat", ""), key=f"a_l_{uid}", label_visibility="collapsed")
-        current_type = item.get("type", "study")
-        type_index = activity_types.index(current_type) if current_type in activity_types else 0
-        item["type"] = r[2].selectbox("type", activity_types, index=type_index, key=f"a_t_{uid}", label_visibility="collapsed")
-        item["id"]   = r[3].text_input("id", item.get("id", ""), key=f"a_i_{uid}", label_visibility="collapsed", placeholder="例: 104515 / TMP-L-00001 / Q12345")
-        if r[4].button("❌", key=f"a_del_{uid}"):
-            d["activities"].pop(i)
-            st.rerun()
+        # seq を常に現在のリスト位置に同期
+        item["seq"] = i + 1
+
+        with st.container():
+            # ヘッダ行: seq番号 ＋ 並び替えボタン
+            hcol = st.columns([0.15, 0.25, 3])
+            hcol[0].markdown(f"**#{i+1}**")
+            with hcol[1]:
+                if st.button("▲", key=f"act_up_{uid}", disabled=(i == 0)):
+                    move_item(d["activities"], i, -1)
+                    st.rerun()
+                if st.button("▼", key=f"act_dn_{uid}", disabled=(i == total_acts - 1)):
+                    move_item(d["activities"], i, +1)
+                    st.rerun()
+
+            # データ入力行
+            r = st.columns([1, 1, 1, 1.3, 0.3])
+            r[0].caption("Place (Arabic)")
+            r[1].caption("Place (Latin)")
+            r[2].caption("Type")
+            r[3].caption("ID: GeoNames / TMP-L- / Q")
+            item["place_ar"]  = r[0].text_input("place_ar",  item.get("place_ar", ""),  key=f"a_a_{uid}", label_visibility="collapsed")
+            item["place_lat"] = r[1].text_input("place_lat", item.get("place_lat", ""), key=f"a_l_{uid}", label_visibility="collapsed")
+            cur_type    = item.get("type", "study")
+            type_index  = ACTIVITY_TYPES.index(cur_type) if cur_type in ACTIVITY_TYPES else 0
+            item["type"] = r[2].selectbox("type", ACTIVITY_TYPES, index=type_index, key=f"a_t_{uid}", label_visibility="collapsed")
+            item["id"]   = r[3].text_input("id", item.get("id", ""), key=f"a_i_{uid}", label_visibility="collapsed", placeholder="例: 104515 / TMP-L-00001 / Q12345")
+            if r[4].button("❌", key=f"a_del_{uid}"):
+                d["activities"].pop(i)
+                st.rerun()
+
+        st.markdown("---")
 
     if st.button("＋ add activity"):
         d["activities"].append({
             "ui_id": str(uuid.uuid4()),
+            "seq": len(d["activities"]) + 1,
             "place_ar": "", "place_lat": "", "type": "study", "id": ""
         })
         st.rerun()
 
     # ===================================================
-    # --- Institutions セクション ---
+    # --- Institutions（順序付き・並び替え可・Type追加） ---
     # ===================================================
     st.divider()
     st.subheader("🏛️ Institutions")
+    st.caption("▲▼ で順番を入れ替えられます。順番は seq 属性として XML に反映されます。")
 
-    h5 = st.columns([1, 1, 1.2, 0.3])
-    h5[0].caption("Name (Arabic)")
-    h5[1].caption("Name (Latinized)")
-    h5[2].caption("ID: Q数字(Wikidata) / TMP-O-XXXXX / GeoNames数字")
-    h5[3].caption("Del")
+    insts = d.get("institutions", [])
+    total_insts = len(insts)
 
-    for i, item in enumerate(d.get("institutions", [])):
+    for i, item in enumerate(insts):
         if "ui_id" not in item:
             item["ui_id"] = str(uuid.uuid4())
         uid = item["ui_id"]
 
-        # 旧データ互換: "name" キーが残っている場合は name_ar に移行
+        # 旧データ互換
         if "name" in item and "name_ar" not in item:
             item["name_ar"] = item.pop("name")
 
-        r = st.columns([1, 1, 1.2, 0.3])
-        item["name_ar"]  = r[0].text_input("name_ar",  item.get("name_ar", ""),  key=f"i_a_{uid}", label_visibility="collapsed", placeholder="アラビア語名")
-        item["name_lat"] = r[1].text_input("name_lat", item.get("name_lat", ""), key=f"i_l_{uid}", label_visibility="collapsed", placeholder="Latinized name")
-        item["id"]       = r[2].text_input("id",       item.get("id", ""),       key=f"i_i_{uid}", label_visibility="collapsed", placeholder="例: Q12345 / TMP-O-00001 / 104515")
-        if r[3].button("❌", key=f"i_del_{uid}"):
-            d["institutions"].pop(i)
-            st.rerun()
+        item["seq"] = i + 1
+
+        with st.container():
+            hcol = st.columns([0.15, 0.25, 3])
+            hcol[0].markdown(f"**#{i+1}**")
+            with hcol[1]:
+                if st.button("▲", key=f"ins_up_{uid}", disabled=(i == 0)):
+                    move_item(d["institutions"], i, -1)
+                    st.rerun()
+                if st.button("▼", key=f"ins_dn_{uid}", disabled=(i == total_insts - 1)):
+                    move_item(d["institutions"], i, +1)
+                    st.rerun()
+
+            r = st.columns([1, 1, 1, 1.2, 0.3])
+            r[0].caption("Name (Arabic)")
+            r[1].caption("Name (Latin)")
+            r[2].caption("Type")
+            r[3].caption("ID: Q / TMP-I- / GeoNames")
+            item["name_ar"]  = r[0].text_input("name_ar",  item.get("name_ar", ""),  key=f"i_a_{uid}", label_visibility="collapsed", placeholder="アラビア語名")
+            item["name_lat"] = r[1].text_input("name_lat", item.get("name_lat", ""), key=f"i_l_{uid}", label_visibility="collapsed", placeholder="Latinized name")
+            cur_itype   = item.get("type", "study")
+            itype_index = INSTITUTION_TYPES.index(cur_itype) if cur_itype in INSTITUTION_TYPES else 0
+            item["type"] = r[2].selectbox("type", INSTITUTION_TYPES, index=itype_index, key=f"i_t_{uid}", label_visibility="collapsed")
+            item["id"]   = r[3].text_input("id", item.get("id", ""), key=f"i_i_{uid}", label_visibility="collapsed", placeholder="例: Q12345 / TMP-I-00001 / 104515")
+            if r[4].button("❌", key=f"i_del_{uid}"):
+                d["institutions"].pop(i)
+                st.rerun()
+
+        st.markdown("---")
 
     if st.button("＋ add institution"):
         d["institutions"].append({
             "ui_id": str(uuid.uuid4()),
+            "seq": len(d["institutions"]) + 1,
+            "name_ar": "", "name_lat": "", "type": "study", "id": "TMP-I-00000"
+        })
+        st.rerun()
+
+    # ===================================================
+    # --- Offices（官職・順序付き・並び替え可） ---
+    # ===================================================
+    st.divider()
+    st.subheader("🏅 Offices / Positions")
+    st.caption("官職・役職を保有した順に記録します。▲▼ で順番を入れ替えられます。")
+
+    offices = d.get("offices", [])
+    total_offices = len(offices)
+
+    for i, item in enumerate(offices):
+        if "ui_id" not in item:
+            item["ui_id"] = str(uuid.uuid4())
+        uid = item["ui_id"]
+
+        item["seq"] = i + 1
+
+        with st.container():
+            hcol = st.columns([0.15, 0.25, 3])
+            hcol[0].markdown(f"**#{i+1}**")
+            with hcol[1]:
+                if st.button("▲", key=f"off_up_{uid}", disabled=(i == 0)):
+                    move_item(d["offices"], i, -1)
+                    st.rerun()
+                if st.button("▼", key=f"off_dn_{uid}", disabled=(i == total_offices - 1)):
+                    move_item(d["offices"], i, +1)
+                    st.rerun()
+
+            r = st.columns([1.2, 1.2, 1.2, 0.3])
+            r[0].caption("Name (Arabic)")
+            r[1].caption("Name (Latinized)")
+            r[2].caption("ID: Q / TMP-O-")
+            item["name_ar"]  = r[0].text_input("name_ar",  item.get("name_ar", ""),  key=f"o_a_{uid}", label_visibility="collapsed", placeholder="例: قاضي القضاة")
+            item["name_lat"] = r[1].text_input("name_lat", item.get("name_lat", ""), key=f"o_l_{uid}", label_visibility="collapsed", placeholder="例: Qadi al-Qudat")
+            item["id"]       = r[2].text_input("id",       item.get("id", ""),       key=f"o_i_{uid}", label_visibility="collapsed", placeholder="例: Q12345 / TMP-O-00001")
+            if r[3].button("❌", key=f"o_del_{uid}"):
+                d["offices"].pop(i)
+                st.rerun()
+
+        st.markdown("---")
+
+    if st.button("＋ add office"):
+        d["offices"].append({
+            "ui_id": str(uuid.uuid4()),
+            "seq": len(d["offices"]) + 1,
             "name_ar": "", "name_lat": "", "id": "TMP-O-00000"
         })
         st.rerun()
 
     # ===================================================
-    # --- Family セクション ---
+    # --- Family ---
     # ===================================================
     st.divider()
     st.subheader("👨‍👩‍👧 Family Relations")
@@ -487,7 +616,6 @@ xml_lines.append(f'<person xml:id="{d["aind_id"]}" source="#source_{d["original_
 xml_lines.append(f'    <persName type="full" xml:lang="ar">{d["full_name"]}</persName>')
 xml_lines.append(f'    <persName type="name_only" xml:lang="ar">{d["name_only"]}</persName>')
 
-# Nisbahs
 for n in d.get("nisbahs", []):
     if n.get("ar"):
         xml_lines.append(
@@ -495,14 +623,12 @@ for n in d.get("nisbahs", []):
             f'{n.get("ar")}</persName>'
         )
 
-# Madhhab
 if d["madhhab"]["id"]:
     xml_lines.append(
         f'    <affiliation type="madhhab" ref="wd:{d["madhhab"]["id"]}">'
         f'{d["madhhab"]["lat"]}</affiliation>'
     )
 
-# 生没年
 if d.get("birth_h"):
     xml_lines.append(
         f'    <birth when-custom="{d["birth_h"]}" when="{convert_h_to_g(d["birth_h"])}"/>'
@@ -512,7 +638,7 @@ if d.get("death_h"):
         f'    <death when-custom="{d["death_h"]}" when="{convert_h_to_g(d["death_h"])}"/>'
     )
 
-# listRelation
+# listRelation: teachers / students / family
 xml_lines.append('    <listRelation>')
 
 for t in d.get("teachers", []):
@@ -523,7 +649,6 @@ for t in d.get("teachers", []):
         xml_lines.append(
             f'            <desc ref="{fr(t.get("subject_id", ""))}">{t.get("subject")}</desc>'
         )
-    # 典籍タイトル（bibl要素）
     if t.get("text_ar"):
         xml_lines.append(f'            <bibl xml:lang="ar">{t["text_ar"]}</bibl>')
     if t.get("text_lat"):
@@ -553,28 +678,45 @@ for fam in d.get("family", []):
 
 xml_lines.append('    </listRelation>')
 
-# Activities
+# Activities（seq属性付き）
 for a in d.get("activities", []):
     if a.get("place_ar"):
         xml_lines.append(
-            f'    <residence subtype="{a.get("type", "")}" ref="{fr(a.get("id"))}">'
-            f'{a.get("place_ar")}</residence>'
+            f'    <residence seq="{a.get("seq", "")}" subtype="{a.get("type", "")}" '
+            f'ref="{fr(a.get("id"))}">{a.get("place_ar")}</residence>'
         )
 
-# Institutions: name_ar と name_lat を <orgName> で分けて出力
+# Institutions（seq属性・type属性・orgName二言語）
 for inst in d.get("institutions", []):
     name_ar  = inst.get("name_ar",  inst.get("name", ""))
     name_lat = inst.get("name_lat", "")
     inst_ref = fr(inst.get("id", ""))
     if name_ar or name_lat:
-        xml_lines.append(f'    <affiliation type="institution" ref="{inst_ref}">')
+        xml_lines.append(
+            f'    <affiliation type="institution" subtype="{inst.get("type", "")}" '
+            f'seq="{inst.get("seq", "")}" ref="{inst_ref}">'
+        )
         if name_ar:
             xml_lines.append(f'        <orgName xml:lang="ar">{name_ar}</orgName>')
         if name_lat:
             xml_lines.append(f'        <orgName xml:lang="lat">{name_lat}</orgName>')
-        xml_lines.append(f'    </affiliation>')
+        xml_lines.append('    </affiliation>')
 
-# 翻訳ノート
+# Offices（seq属性付き）
+for off in d.get("offices", []):
+    name_ar  = off.get("name_ar", "")
+    name_lat = off.get("name_lat", "")
+    off_ref  = fr(off.get("id", ""))
+    if name_ar or name_lat:
+        xml_lines.append(
+            f'    <state type="office" seq="{off.get("seq", "")}" ref="{off_ref}">'
+        )
+        if name_ar:
+            xml_lines.append(f'        <label xml:lang="ar">{name_ar}</label>')
+        if name_lat:
+            xml_lines.append(f'        <label xml:lang="lat">{name_lat}</label>')
+        xml_lines.append('    </state>')
+
 if d.get("translation_jp"):
     xml_lines.append(f'    <note type="translation" xml:lang="ja">{d["translation_jp"]}</note>')
 if d.get("translation_en"):
@@ -585,7 +727,6 @@ xml_lines.append("</person>")
 xml_str = "\n".join(xml_lines)
 st.code(xml_str, language="xml")
 
-# ダウンロードボタン
 st.download_button(
     label="💾 XMLをダウンロード",
     data=xml_str,
