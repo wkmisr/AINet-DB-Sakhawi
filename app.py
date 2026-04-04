@@ -87,6 +87,29 @@ d = st.session_state.data_v17
 # ===================================================
 # --- 6. メインUI ---
 # ===================================================
+
+# --- スティッキー左カラム用CSS ---
+st.markdown("""
+<style>
+/* Streamlit の左カラムをスティッキー固定 */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"] {
+    position: sticky;
+    top: 3.5rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding-right: 0.75rem;
+}
+/* スクロールバーを細く */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"]::-webkit-scrollbar {
+    width: 4px;
+}
+div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.title("🌙 AINet-DB Researcher Pro")
 col1, col2 = st.columns([1, 1.5])
 
@@ -130,6 +153,8 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 - learn_place_id: GeoNames ID or TMP-L-00000.
 
 【Institutions】
+- Record named institutions (madrasa, mosque, library, etc.) and the person's relationship to them.
+- Do NOT include here mere city/region stays without a named institution (use activities instead).
 - In ORDER they appear. seq starts at 1.
 - type: study|teach|reside|founded|affiliated|graduated|employed|visit|other
 
@@ -139,7 +164,9 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 - inst_name / inst_id: institution if mentioned.
 - appoint_date / retire_date: dates if mentioned.
 
-【Activities】
+【Activities / Places】
+- Record GEOGRAPHIC events only: birth, death, burial, residence, travel.
+- Do NOT include institutional affiliations here (use institutions instead).
 - In ORDER they appear. seq starts at 1.
 
 Return ONLY valid JSON, NO markdown fences:
@@ -368,7 +395,7 @@ with col2:
     # ===================================================
     st.divider()
     st.subheader("📍 Activities / Places")
-    st.caption("▲▼ で順番を入れ替えられます。")
+    st.caption("機関名を伴わない地理的イベント（居住・移動・出生・死亡・埋葬など）を記録します。機関との関わりは Institutions へ。▲▼ で順番を入れ替えられます。")
     acts = d.get("activities", [])
     for i, item in enumerate(acts):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
@@ -400,7 +427,7 @@ with col2:
     # ===================================================
     st.divider()
     st.subheader("🏛️ Institutions")
-    st.caption("▲▼ で順番を入れ替えられます。")
+    st.caption("特定の機関（マドラサ・モスク・図書館など）との関わりを記録します。単純な居住・移動は Activities へ。▲▼ で順番を入れ替えられます。")
     insts = d.get("institutions", [])
     for i, item in enumerate(insts):
         if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
