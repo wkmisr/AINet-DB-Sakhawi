@@ -126,7 +126,7 @@ MADHHAB_DATA = {
     "Hanbali (ハンバリー派)":   "Q191314",
     "Unknown / Other":          ""
 }
-INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","buried","other"]
+INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","other"]
 ACTIVITY_TYPES    = ["study","buried","reside","visit","born","died","other"]
 LAQAB_TYPES       = ["laqab","shuhrah","kunyah"]
 LAQAB_LABELS      = {"laqab":"laqab（号）","shuhrah":"shuhrah（通称）","kunyah":"kunyah（クンヤ）"}
@@ -162,6 +162,7 @@ if 'data_v18' not in st.session_state:
         "activities": [], "teachers": [], "students": [],
         "institutions": [], "offices": [], "family": [],
         "person_notes": "",
+        "editors_notes": "",
         "source_text": "", "translation_jp": "", "translation_en": ""
     }
 
@@ -823,6 +824,20 @@ components.html(copy_js, height=60)
 
 
 # ===================================================
+# --- Editors' Notes ---
+# ===================================================
+st.divider()
+st.subheader("🗒️ Editors' Notes")
+st.caption("判断に困った点・要確認事項・編集上の備考など")
+d["editors_notes"] = st.text_area(
+    "Editors' Notes",
+    value=d.get("editors_notes",""),
+    height=120,
+    placeholder="例: 生年不詳。師匠の名前が複数の読み方が可能。スプレッドシートのIDと要照合。",
+    label_visibility="collapsed"
+)
+
+# ===================================================
 # --- 10. スプレッドシート書き込み ---
 # ===================================================
 st.divider()
@@ -831,7 +846,7 @@ st.header("4. スプレッドシートに保存")
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
 # 列定義（スプレッドシートのヘッダー順）
-# 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab
+# 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
     "担当者",
     "AIND-D-XXXX",
@@ -841,6 +856,7 @@ SHEET_COLUMNS = [
     "Birth (H)",
     "Death (H)",
     "Madhhab",
+    "Editors' Notes",
 ]
 
 def get_gspread_client():
@@ -872,6 +888,7 @@ def build_row(data, assignee):
         data.get("birth_h", ""),           # Birth (H)
         data.get("death_h", ""),           # Death (H)
         madhhab_str,                       # Madhhab
+        data.get("editors_notes", ""),     # Editors' Notes
     ]
 
 def find_row_by_id(worksheet, original_id):
@@ -926,7 +943,7 @@ with col_save:
 
                 if row_num:
                     # 既存行を更新
-                    ws.update(f"A{row_num}:H{row_num}", [row_data])
+                    ws.update(f"A{row_num}:I{row_num}", [row_data])
                     st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
                 else:
                     # 新規行を追加
@@ -939,4 +956,3 @@ with col_save:
                 import traceback
                 st.error(f"保存エラー: {type(e).__name__}: {e}")
                 st.code(traceback.format_exc())
-                
