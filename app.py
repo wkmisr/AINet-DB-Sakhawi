@@ -217,7 +217,7 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 
 【Institutions】
 - Named institutions only (madrasa, mosque, etc.). No mere city stays here.
-- type: study|teach|reside|founded|affiliated|graduated|employed|visit|other
+- type: study|teach|reside|founded|affiliated|graduated|employed|visit|buried|other
 
 【Offices】
 - place_ar/place_lat/place_id, inst_name/inst_id, appoint_date/retire_date if mentioned.
