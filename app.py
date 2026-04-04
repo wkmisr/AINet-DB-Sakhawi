@@ -322,7 +322,7 @@ with col2:
 
     LAQAB_TYPES = ["laqab", "shuhrah", "kunyah"]
     laqab_type_labels = {
-        "laqab": "laqab（号）",
+        "laqab": "laqab（ラカブ）",
         "shuhrah": "shuhrah（通称）",
         "kunyah": "kunyah（クンヤ）"
     }
