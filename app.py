@@ -726,3 +726,120 @@ xml_str = "\n".join(xml_lines)
 st.code(xml_str, language="xml")
 st.download_button(label="💾 XMLをダウンロード", data=xml_str,
                    file_name=f"{d['aind_id']}.xml", mime="application/xml")
+
+
+# ===================================================
+# --- 10. スプレッドシート書き込み ---
+# ===================================================
+st.divider()
+st.header("4. スプレッドシートに保存")
+
+DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
+
+# 列定義（スプレッドシートのヘッダー順）
+# 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab
+SHEET_COLUMNS = [
+    "担当者",
+    "AIND-D-XXXX",
+    "12digitsID",
+    "persName (Full Arabic)",
+    "persName (Ism/Father/GF)",
+    "Birth (H)",
+    "Death (H)",
+    "Madhhab",
+]
+
+def get_gspread_client():
+    """st.secretsのService AccountJSONからgspreadクライアントを生成"""
+    import gspread
+    from google.oauth2.service_account import Credentials
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
+    creds_dict = dict(st.secrets["gcp_service_account"])
+    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+    return gspread.authorize(creds)
+
+def build_row(data, assignee):
+    """現在のデータから書き込み行を生成"""
+    # Madhhab表示文字列
+    if data["madhhab"]["lat"] == "Unknown / Other":
+        madhhab_str = data["madhhab"].get("custom_name", "")
+    else:
+        madhhab_str = data["madhhab"]["lat"]
+
+    return [
+        assignee,                          # 担当者
+        data.get("aind_id", ""),           # AIND-D-XXXX
+        data.get("original_id", ""),       # 12digitsID (@source)
+        data.get("full_name", ""),         # persName (Full Arabic)
+        data.get("name_only", ""),         # persName (Ism/Father/GF)
+        data.get("birth_h", ""),           # Birth (H)
+        data.get("death_h", ""),           # Death (H)
+        madhhab_str,                       # Madhhab
+    ]
+
+def find_row_by_id(worksheet, original_id):
+    """12digitsID列（3列目=index2）でoriginal_idを検索し、行番号を返す（なければNone）"""
+    try:
+        col_values = worksheet.col_values(3)  # 3列目 = 12digitsID
+        for idx, val in enumerate(col_values):
+            if val.strip() == str(original_id).strip():
+                return idx + 1  # gspreadは1-indexed
+        return None
+    except Exception:
+        return None
+
+# --- UI ---
+st.caption(
+    "スプレッドシートに書き込むには、Streamlit Cloud の Secrets に "
+    "`[gcp_service_account]` セクションでService AccountのJSONを登録し、"
+    "スプレッドシートをそのアカウントのメールアドレスに共有してください。"
+)
+
+ASSIGNEE_OPTIONS = ["Ito", "Kumakura", "Miura", "Ota", "Shinoda", "Assistant A", "Assistant B"]
+assignee = st.selectbox("担当者", options=ASSIGNEE_OPTIONS,
+    index=ASSIGNEE_OPTIONS.index(st.session_state.get("assignee", "Kumakura"))
+          if st.session_state.get("assignee") in ASSIGNEE_OPTIONS else 0,
+    key="assignee_input")
+st.session_state["assignee"] = assignee
+
+col_prev, col_save = st.columns([2, 1])
+
+# プレビュー
+with col_prev:
+    st.markdown("**書き込み内容プレビュー**")
+    preview_row = build_row(d, assignee)
+    preview_df  = dict(zip(SHEET_COLUMNS, preview_row))
+    st.table(preview_df)
+
+# 保存ボタン
+with col_save:
+    st.markdown("&nbsp;", unsafe_allow_html=True)  # 縦位置調整
+    if st.button("📤 スプレッドシートに保存", use_container_width=True, type="primary"):
+        if not assignee:
+            st.error("担当者名を入力してください。")
+        elif not d.get("original_id"):
+            st.error("@source (12digitsID) が空です。入力してから保存してください。")
+        else:
+            try:
+                gc        = get_gspread_client()
+                sh        = gc.open_by_key(DATASET_SHEET_ID)
+                ws        = sh.get_worksheet(0)  # 最初のシート
+                row_data  = build_row(d, assignee)
+                row_num   = find_row_by_id(ws, d["original_id"])
+
+                if row_num:
+                    # 既存行を更新
+                    ws.update(f"A{row_num}:H{row_num}", [row_data])
+                    st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
+                else:
+                    # 新規行を追加
+                    ws.append_row(row_data, value_input_option="USER_ENTERED")
+                    st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
+
+            except ImportError:
+                st.error("gspread / google-auth がインストールされていません。requirements.txt に追加してください。")
+            except Exception as e:
+                st.error(f"保存エラー: {e}")
