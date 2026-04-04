@@ -92,6 +92,7 @@ if 'data_v16' not in st.session_state:
         "death_g": "",
         "madhhab": {"lat": "Unknown / Other", "id": ""},
         "nisbahs": [],
+        "laqabs": [],
         "activities": [],
         "teachers": [],
         "students": [],
@@ -138,7 +139,7 @@ with col1:
         height=400
     )
 
-    if st.button("🚀 解析する"):
+    if st.button("🚀 精密解析（日英翻訳・外部ID）"):
         if source_input:
             d["source_text"] = source_input
             with st.spinner("日英翻訳とIDを探索中..."):
@@ -161,6 +162,12 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 - subject: academic discipline (e.g. "Hadith", "Fiqh", "Arabic").
 - subject_id: TMP-S-00000 unless a real ID is known.
 - text_ar / text_lat: specific book title if mentioned; otherwise leave empty.
+
+【Laqab / Shuhrah / Kunyah】
+- laqab: honorific title (e.g. زين الدين).
+- shuhrah: popular name/epithet the person was known by.
+- kunyah: teknonym starting with أبو / أم.
+- Extract all that appear in the text.
 
 【Institutions】
 - Record in the ORDER they appear in the text (seq starts at 1).
@@ -187,6 +194,7 @@ Return ONLY valid JSON with NO markdown fences:
     "death_h": "",
     "madhhab_name": "",
     "nisbahs": [{{"ar": "", "lat": "", "id": "TMP-L-00000"}}],
+    "laqabs": [{{"type": "laqab", "ar": "", "lat": ""}}],
     "activities": [{{
         "seq": 1,
         "place_ar": "", "place_lat": "",
@@ -227,7 +235,7 @@ Text: {source_input}
                     if json_match_obj:
                         res_json = json.loads(json_match_obj.group())
 
-                        list_keys = ["teachers", "students", "activities", "nisbahs", "family", "institutions", "offices"]
+                        list_keys = ["teachers", "students", "activities", "nisbahs", "laqabs", "family", "institutions", "offices"]
                         for k in list_keys:
                             if k in res_json:
                                 for item in res_json[k]:
@@ -305,6 +313,48 @@ with col2:
         d["nisbahs"].append({
             "ui_id": str(uuid.uuid4()),
             "ar": "", "lat": "", "id": "TMP-L-00000"
+        })
+        st.rerun()
+
+    # --- Laqab / Shuhrah / Kunyah ---
+    st.divider()
+    st.subheader("🔤 Laqab / Shuhrah / Kunyah")
+
+    LAQAB_TYPES = ["laqab", "shuhrah", "kunyah"]
+    laqab_type_labels = {
+        "laqab": "laqab（号）",
+        "shuhrah": "shuhrah（通称）",
+        "kunyah": "kunyah（クンヤ）"
+    }
+
+    lq_h = st.columns([1, 1, 1, 0.3])
+    lq_h[0].caption("Type")
+    lq_h[1].caption("Arabic")
+    lq_h[2].caption("Latinized")
+    lq_h[3].caption("Del")
+
+    for i, item in enumerate(d.get("laqabs", [])):
+        if "ui_id" not in item:
+            item["ui_id"] = str(uuid.uuid4())
+        uid = item["ui_id"]
+
+        r = st.columns([1, 1, 1, 0.3])
+        cur_ltype = item.get("type", "laqab")
+        ltype_index = LAQAB_TYPES.index(cur_ltype) if cur_ltype in LAQAB_TYPES else 0
+        item["type"] = r[0].selectbox("type", LAQAB_TYPES,
+                                       format_func=lambda x: laqab_type_labels[x],
+                                       index=ltype_index,
+                                       key=f"lq_t_{uid}", label_visibility="collapsed")
+        item["ar"]  = r[1].text_input("ar",  item.get("ar", ""),  key=f"lq_a_{uid}", label_visibility="collapsed", placeholder="例: زين الدين / أبو بكر")
+        item["lat"] = r[2].text_input("lat", item.get("lat", ""), key=f"lq_l_{uid}", label_visibility="collapsed", placeholder="例: Zayn al-Din / Abu Bakr")
+        if r[3].button("❌", key=f"lq_del_{uid}"):
+            d["laqabs"].pop(i)
+            st.rerun()
+
+    if st.button("＋ add laqab / shuhrah / kunyah"):
+        d["laqabs"].append({
+            "ui_id": str(uuid.uuid4()),
+            "type": "laqab", "ar": "", "lat": ""
         })
         st.rerun()
 
@@ -619,6 +669,13 @@ for n in d.get("nisbahs", []):
         xml_lines.append(
             f'    <persName type="nisbah" xml:lang="ar" ref="{fr(n.get("id"))}">'
             f'{n.get("ar")}</persName>'
+        )
+
+for lq in d.get("laqabs", []):
+    if lq.get("ar"):
+        xml_lines.append(
+            f'    <persName type="{lq.get("type", "laqab")}" xml:lang="ar">'
+            f'{lq.get("ar")}</persName>'
         )
 
 if d["madhhab"]["id"]:
