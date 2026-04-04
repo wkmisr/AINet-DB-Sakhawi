@@ -139,7 +139,7 @@ with col1:
         height=400
     )
 
-    if st.button("🚀 精密解析（日英翻訳・外部ID）"):
+    if st.button("🚀 解析する"):
         if source_input:
             d["source_text"] = source_input
             with st.spinner("日英翻訳とIDを探索中..."):
