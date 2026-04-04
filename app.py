@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import google.generativeai as genai
 import json
 import re
@@ -126,7 +127,7 @@ MADHHAB_DATA = {
     "Unknown / Other":          ""
 }
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","other"]
-ACTIVITY_TYPES    = ["study","buried","reside","visit","marry","born","died","other"]
+ACTIVITY_TYPES    = ["study","buried","reside","visit","born","died","other"]
 LAQAB_TYPES       = ["laqab","shuhrah","kunyah"]
 LAQAB_LABELS      = {"laqab":"laqab（号）","shuhrah":"shuhrah（通称）","kunyah":"kunyah（クンヤ）"}
 
@@ -800,8 +801,25 @@ def build_xml(d):
 
 xml_str = build_xml(d)
 st.code(xml_str, language="xml")
-st.download_button(label="💾 XMLをダウンロード", data=xml_str,
-                   file_name=f"{d['aind_id']}.xml", mime="application/xml")
+
+# クリップボードコピーボタン（JavaScriptで実装）
+copy_js = f"""
+<button onclick="
+    navigator.clipboard.writeText({repr(xml_str)}).then(function() {{
+        this.textContent = '✅ コピーしました';
+        this.style.background = '#28a745';
+        setTimeout(() => {{
+            this.textContent = '📋 XMLをクリップボードにコピー';
+            this.style.background = '#0066cc';
+        }}, 2000);
+    }}.bind(this));
+" style="
+    background:#0066cc; color:white; border:none;
+    padding:0.5rem 1.2rem; border-radius:6px;
+    font-size:1rem; cursor:pointer; margin-top:0.5rem;
+">📋 XMLをクリップボードにコピー</button>
+"""
+components.html(copy_js, height=60)
 
 
 # ===================================================
@@ -921,3 +939,4 @@ with col_save:
                 import traceback
                 st.error(f"保存エラー: {type(e).__name__}: {e}")
                 st.code(traceback.format_exc())
+                
