@@ -138,7 +138,7 @@ with col1:
         height=400
     )
 
-    if st.button("🚀 精密解析（日英翻訳・外部ID）"):
+    if st.button("🚀 解析する"):
         if source_input:
             d["source_text"] = source_input
             with st.spinner("日英翻訳とIDを探索中..."):
@@ -278,6 +278,36 @@ with col2:
     d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
     d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
 
+    # --- Nisbahs ---
+    st.divider()
+    st.subheader("🏷️ Nisbahs")
+
+    h3 = st.columns([1, 1, 1, 0.3])
+    h3[0].caption("Arabic")
+    h3[1].caption("Latinized")
+    h3[2].caption("ID (TMP-L-XXXXX / Q)")
+    h3[3].caption("Del")
+
+    for i, item in enumerate(d.get("nisbahs", [])):
+        if "ui_id" not in item:
+            item["ui_id"] = str(uuid.uuid4())
+        uid = item["ui_id"]
+
+        r = st.columns([1, 1, 1, 0.3])
+        item["ar"]  = r[0].text_input("ar",  item.get("ar", ""),  key=f"n_a_{uid}", label_visibility="collapsed")
+        item["lat"] = r[1].text_input("lat", item.get("lat", ""), key=f"n_l_{uid}", label_visibility="collapsed")
+        item["id"]  = r[2].text_input("id",  item.get("id", ""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-L-00001 または Q数字")
+        if r[3].button("❌", key=f"n_del_{uid}"):
+            d["nisbahs"].pop(i)
+            st.rerun()
+
+    if st.button("＋ add nisbah"):
+        d["nisbahs"].append({
+            "ui_id": str(uuid.uuid4()),
+            "ar": "", "lat": "", "id": "TMP-L-00000"
+        })
+        st.rerun()
+
     # --- 生没年 ---
     dc1, dc2, dc3, dc4 = st.columns(4)
     d["birth_h"] = dc1.text_input("Birth (H)", d["birth_h"])
@@ -375,38 +405,6 @@ with col2:
             "name": "", "id": "TMP-P-00000",
             "subject": "", "subject_id": "TMP-S-00000",
             "text_ar": "", "text_lat": ""
-        })
-        st.rerun()
-
-    # ===================================================
-    # --- Nisbahs ---
-    # ===================================================
-    st.divider()
-    st.subheader("🏷️ Nisbahs")
-
-    h3 = st.columns([1, 1, 1, 0.3])
-    h3[0].caption("Arabic")
-    h3[1].caption("Latinized")
-    h3[2].caption("ID (TMP-L-XXXXX / Q)")
-    h3[3].caption("Del")
-
-    for i, item in enumerate(d.get("nisbahs", [])):
-        if "ui_id" not in item:
-            item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-
-        r = st.columns([1, 1, 1, 0.3])
-        item["ar"]  = r[0].text_input("ar",  item.get("ar", ""),  key=f"n_a_{uid}", label_visibility="collapsed")
-        item["lat"] = r[1].text_input("lat", item.get("lat", ""), key=f"n_l_{uid}", label_visibility="collapsed")
-        item["id"]  = r[2].text_input("id",  item.get("id", ""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-L-00001 または Q数字")
-        if r[3].button("❌", key=f"n_del_{uid}"):
-            d["nisbahs"].pop(i)
-            st.rerun()
-
-    if st.button("＋ add nisbah"):
-        d["nisbahs"].append({
-            "ui_id": str(uuid.uuid4()),
-            "ar": "", "lat": "", "id": "TMP-L-00000"
         })
         st.rerun()
 
