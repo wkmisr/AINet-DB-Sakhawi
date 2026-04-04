@@ -126,7 +126,7 @@ MADHHAB_DATA = {
     "Unknown / Other":          ""
 }
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","other"]
-ACTIVITY_TYPES    = ["study","buried","reside","visit","born","died","other"]
+ACTIVITY_TYPES    = ["study","buried","reside","visit","marry","born","died","other"]
 LAQAB_TYPES       = ["laqab","shuhrah","kunyah"]
 LAQAB_LABELS      = {"laqab":"laqab（号）","shuhrah":"shuhrah（通称）","kunyah":"kunyah（クンヤ）"}
 
