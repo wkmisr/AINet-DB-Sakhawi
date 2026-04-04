@@ -91,17 +91,30 @@ def load_id_master():
         return []
 
 def id_master_to_prompt_text(records):
-    """ID Masterの内容をプロンプト埋め込み用テキストに変換"""
+    """ID Masterの内容をプロンプト埋め込み用テキストに変換
+    列構成: Category | Arabic | Latin | ID | Note
+    """
     if not records:
         return "(ID Master not available)"
     lines = ["Use these known IDs when they match entities in the text:"]
     for r in records:
-        name    = r.get("Name", r.get("name", ""))
-        id_val  = r.get("ID",   r.get("id",   ""))
-        id_type = r.get("Type", r.get("type", ""))
-        note    = r.get("Note", r.get("note", ""))
-        if name and id_val:
-            lines.append(f"  - {name} → {id_val} ({id_type}) {note}".strip())
+        category = r.get("Category", "")
+        arabic   = r.get("Arabic",   "")
+        latin    = r.get("Latin",    "")
+        id_val   = r.get("ID",       "")
+        note     = r.get("Note",     "")
+        if not id_val:
+            continue
+        # 表示名: アラビア語があればそれを優先、なければLatin
+        display  = arabic if arabic else latin
+        label    = f"{display}"
+        if latin and arabic:
+            label += f" ({latin})"
+        if category:
+            label += f" [{category}]"
+        if note:
+            label += f" — {note}"
+        lines.append(f"  - {label} → {id_val}")
     return "\n".join(lines)
 
 # --- 5. 定数 ---
