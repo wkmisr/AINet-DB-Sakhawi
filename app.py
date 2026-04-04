@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import google.generativeai as genai
 import json
 import re
@@ -88,27 +89,37 @@ d = st.session_state.data_v17
 # --- 6. メインUI ---
 # ===================================================
 
-# --- スティッキー左カラム用CSS ---
-st.markdown("""
-<style>
-/* Streamlit の左カラムをスティッキー固定 */
-div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"] {
-    position: sticky;
-    top: 3.5rem;
-    max-height: calc(100vh - 4rem);
-    overflow-y: auto;
-    padding-right: 0.75rem;
-}
-/* スクロールバーを細く */
-div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"]::-webkit-scrollbar {
-    width: 4px;
-}
-div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:first-child > div > div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 2px;
-}
-</style>
-""", unsafe_allow_html=True)
+# --- 左カラム スティッキー固定 (JavaScript via components.html) ---
+components.html("""
+<script>
+(function() {
+    function applySticky() {
+        var blocks = window.parent.document.querySelectorAll(
+            '[data-testid="stHorizontalBlock"]'
+        );
+        blocks.forEach(function(block) {
+            var cols = block.querySelectorAll(
+                '[data-testid="stVerticalBlockBorderWrapper"]'
+            );
+            if (cols.length >= 2) {
+                var leftCol = cols[0];
+                leftCol.style.position  = "sticky";
+                leftCol.style.top       = "3.5rem";
+                leftCol.style.maxHeight = "calc(100vh - 4rem)";
+                leftCol.style.overflowY = "auto";
+                leftCol.style.zIndex    = "10";
+            }
+        });
+    }
+    var tries = 0;
+    var timer = setInterval(function() {
+        applySticky();
+        tries++;
+        if (tries > 40) clearInterval(timer);
+    }, 300);
+})();
+</script>
+""", height=0)
 
 st.title("🌙 AINet-DB Researcher Pro")
 col1, col2 = st.columns([1, 1.5])
