@@ -10,6 +10,7 @@
 ## プロジェクトのツール
 * **al-Sakhawi Project Search created by M. Romanov**: https://maximromanov.github.io/sakhawi_project_v1/
 
+
 # AINet-DB Researcher Pro 使い方ガイド
 
 **対象：** デジタルツールに不慣れな人文学研究者の方へ  
