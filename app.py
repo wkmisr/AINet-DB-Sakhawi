@@ -126,7 +126,7 @@ MADHHAB_DATA = {
     "Hanbali (ハンバリー派)":   "Q191314",
     "Unknown / Other":          ""
 }
-INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","other"]
+INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","buried","other"]
 ACTIVITY_TYPES    = ["study","buried","reside","visit","born","died","other"]
 LAQAB_TYPES       = ["laqab","shuhrah","kunyah"]
 LAQAB_LABELS      = {"laqab":"laqab（号）","shuhrah":"shuhrah（通称）","kunyah":"kunyah（クンヤ）"}
