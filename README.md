@@ -7,9 +7,8 @@
 * **手法**: 生成AI（Claude/Gemini）による抽出 ＋ 専門家による校閲
 * **目標**: TEI形式による構造化および外部DB（Wikidata等）との連携
 
-## プロジェクトのツール
-* **al-Sakhawi Project Search created by M. Romanov**: https://maximromanov.github.io/sakhawi_project_v1/
-
+## プロジェクトのデータセット
+* https://drive.google.com/drive/folders/1rEAbyK3-rEhrNPX30wWJDntCs-hKiyLu?usp=sharing
 
 # AINet-DB Researcher Pro 使い方ガイド
 
