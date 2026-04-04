@@ -1,12 +1,11 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import google.generativeai as genai
 import json
 import re
 import uuid
 
 # --- 1. ページ設定 ---
-st.set_page_config(page_title="AINet-DB Pro (Bilingual Translation)", layout="wide")
+st.set_page_config(page_title="AINet-DB Pro (Bilingual Translation)", layout="wide", initial_sidebar_state="expanded")
 
 # --- 2. API設定 & モデル自動検知 ---
 api_key = st.secrets.get("GEMINI_API_KEY")
@@ -89,45 +88,14 @@ d = st.session_state.data_v17
 # --- 6. メインUI ---
 # ===================================================
 
-# --- 左カラム スティッキー固定 (JavaScript via components.html) ---
-components.html("""
-<script>
-(function() {
-    function applySticky() {
-        var blocks = window.parent.document.querySelectorAll(
-            '[data-testid="stHorizontalBlock"]'
-        );
-        blocks.forEach(function(block) {
-            var cols = block.querySelectorAll(
-                '[data-testid="stVerticalBlockBorderWrapper"]'
-            );
-            if (cols.length >= 2) {
-                var leftCol = cols[0];
-                leftCol.style.position  = "sticky";
-                leftCol.style.top       = "3.5rem";
-                leftCol.style.maxHeight = "calc(100vh - 4rem)";
-                leftCol.style.overflowY = "auto";
-                leftCol.style.zIndex    = "10";
-            }
-        });
-    }
-    var tries = 0;
-    var timer = setInterval(function() {
-        applySticky();
-        tries++;
-        if (tries > 40) clearInterval(timer);
-    }, 300);
-})();
-</script>
-""", height=0)
+
 
 st.title("🌙 AINet-DB Researcher Pro")
-col1, col2 = st.columns([1, 1.5])
 
 # ===================================================
-# --- 左カラム: 史料解析 ---
+# --- サイドバー: 史料解析 ---
 # ===================================================
-with col1:
+with st.sidebar:
     st.header("1. Source & Bilingual Analysis")
     source_input = st.text_area("史料テキスト (Arabic)", value=d["source_text"], height=400)
 
@@ -242,308 +210,307 @@ Text: {source_input}
 
 
 # ===================================================
-# --- 右カラム: メタデータエディタ ---
+# --- メタデータエディタ ---
 # ===================================================
-with col2:
-    st.header("2. Metadata Editor")
+st.header("2. Metadata Editor")
 
-    # --- 基本情報 ---
-    c1, c2 = st.columns(2)
-    d["aind_id"]     = c1.text_input("@xml:id", d["aind_id"])
-    d["original_id"] = c2.text_input("@source", d["original_id"])
-    d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
-    d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
+# --- 基本情報 ---
+c1, c2 = st.columns(2)
+d["aind_id"]     = c1.text_input("@xml:id", d["aind_id"])
+d["original_id"] = c2.text_input("@source", d["original_id"])
+d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
+d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
 
-    # ===================================================
-    # --- Nisbahs ---
-    # ===================================================
-    st.divider()
-    st.subheader("🏷️ Nisbahs")
-    nh = st.columns([1, 1, 1, 0.3])
-    nh[0].caption("Arabic"); nh[1].caption("Latinized"); nh[2].caption("ID (TMP-L- / Q)"); nh[3].caption("Del")
-    for i, item in enumerate(d.get("nisbahs", [])):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        r = st.columns([1, 1, 1, 0.3])
-        item["ar"]  = r[0].text_input("ar",  item.get("ar",""),  key=f"n_a_{uid}", label_visibility="collapsed")
-        item["lat"] = r[1].text_input("lat", item.get("lat",""), key=f"n_l_{uid}", label_visibility="collapsed")
-        item["id"]  = r[2].text_input("id",  item.get("id",""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-L-00001 / Q数字")
-        if r[3].button("❌", key=f"n_del_{uid}"):
-            d["nisbahs"].pop(i); st.rerun()
-    if st.button("＋ add nisbah"):
-        d["nisbahs"].append({"ui_id": str(uuid.uuid4()), "ar": "", "lat": "", "id": "TMP-L-00000"}); st.rerun()
+# ===================================================
+# --- Nisbahs ---
+# ===================================================
+st.divider()
+st.subheader("🏷️ Nisbahs")
+nh = st.columns([1, 1, 1, 0.3])
+nh[0].caption("Arabic"); nh[1].caption("Latinized"); nh[2].caption("ID (TMP-L- / Q)"); nh[3].caption("Del")
+for i, item in enumerate(d.get("nisbahs", [])):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    r = st.columns([1, 1, 1, 0.3])
+    item["ar"]  = r[0].text_input("ar",  item.get("ar",""),  key=f"n_a_{uid}", label_visibility="collapsed")
+    item["lat"] = r[1].text_input("lat", item.get("lat",""), key=f"n_l_{uid}", label_visibility="collapsed")
+    item["id"]  = r[2].text_input("id",  item.get("id",""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-L-00001 / Q数字")
+    if r[3].button("❌", key=f"n_del_{uid}"):
+        d["nisbahs"].pop(i); st.rerun()
+if st.button("＋ add nisbah"):
+    d["nisbahs"].append({"ui_id": str(uuid.uuid4()), "ar": "", "lat": "", "id": "TMP-L-00000"}); st.rerun()
 
-    # ===================================================
-    # --- Laqab / Shuhrah / Kunyah ---
-    # ===================================================
-    st.divider()
-    st.subheader("🔤 Laqab / Shuhrah / Kunyah")
-    lh = st.columns([1, 1, 1, 0.3])
-    lh[0].caption("Type"); lh[1].caption("Arabic"); lh[2].caption("Latinized"); lh[3].caption("Del")
-    for i, item in enumerate(d.get("laqabs", [])):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        r = st.columns([1, 1, 1, 0.3])
-        cur = item.get("type","laqab")
-        item["type"] = r[0].selectbox("type", LAQAB_TYPES, format_func=lambda x: LAQAB_LABELS[x],
-                                       index=LAQAB_TYPES.index(cur) if cur in LAQAB_TYPES else 0,
-                                       key=f"lq_t_{uid}", label_visibility="collapsed")
-        item["ar"]  = r[1].text_input("ar",  item.get("ar",""),  key=f"lq_a_{uid}", label_visibility="collapsed", placeholder="例: زين الدين / أبو بكر")
-        item["lat"] = r[2].text_input("lat", item.get("lat",""), key=f"lq_l_{uid}", label_visibility="collapsed", placeholder="例: Zayn al-Din / Abu Bakr")
-        if r[3].button("❌", key=f"lq_del_{uid}"):
-            d["laqabs"].pop(i); st.rerun()
-    if st.button("＋ add laqab / shuhrah / kunyah"):
-        d["laqabs"].append({"ui_id": str(uuid.uuid4()), "type": "laqab", "ar": "", "lat": ""}); st.rerun()
+# ===================================================
+# --- Laqab / Shuhrah / Kunyah ---
+# ===================================================
+st.divider()
+st.subheader("🔤 Laqab / Shuhrah / Kunyah")
+lh = st.columns([1, 1, 1, 0.3])
+lh[0].caption("Type"); lh[1].caption("Arabic"); lh[2].caption("Latinized"); lh[3].caption("Del")
+for i, item in enumerate(d.get("laqabs", [])):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    r = st.columns([1, 1, 1, 0.3])
+    cur = item.get("type","laqab")
+    item["type"] = r[0].selectbox("type", LAQAB_TYPES, format_func=lambda x: LAQAB_LABELS[x],
+                                   index=LAQAB_TYPES.index(cur) if cur in LAQAB_TYPES else 0,
+                                   key=f"lq_t_{uid}", label_visibility="collapsed")
+    item["ar"]  = r[1].text_input("ar",  item.get("ar",""),  key=f"lq_a_{uid}", label_visibility="collapsed", placeholder="例: زين الدين / أبو بكر")
+    item["lat"] = r[2].text_input("lat", item.get("lat",""), key=f"lq_l_{uid}", label_visibility="collapsed", placeholder="例: Zayn al-Din / Abu Bakr")
+    if r[3].button("❌", key=f"lq_del_{uid}"):
+        d["laqabs"].pop(i); st.rerun()
+if st.button("＋ add laqab / shuhrah / kunyah"):
+    d["laqabs"].append({"ui_id": str(uuid.uuid4()), "type": "laqab", "ar": "", "lat": ""}); st.rerun()
 
-    # --- 生没年 ---
-    st.divider()
-    dc1, dc2, dc3, dc4 = st.columns(4)
-    d["birth_h"] = dc1.text_input("Birth (H)", d["birth_h"])
-    dc2.text_input("Birth (G)", value=convert_h_to_g(d["birth_h"]), disabled=True)
-    d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
-    dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]), disabled=True)
+# --- 生没年 ---
+st.divider()
+dc1, dc2, dc3, dc4 = st.columns(4)
+d["birth_h"] = dc1.text_input("Birth (H)", d["birth_h"])
+dc2.text_input("Birth (G)", value=convert_h_to_g(d["birth_h"]), disabled=True)
+d["death_h"] = dc3.text_input("Death (H)", d["death_h"])
+dc4.text_input("Death (G)", value=convert_h_to_g(d["death_h"]), disabled=True)
 
-    # ===================================================
-    # --- Madhhab ---
-    # ===================================================
-    st.divider()
-    madhhab_keys = list(MADHHAB_DATA.keys())
-    cur_m = d["madhhab"]["lat"]
-    def_idx = madhhab_keys.index(cur_m) if cur_m in madhhab_keys else 4
-    m_col1, m_col2 = st.columns(2)
-    selected_m = m_col1.selectbox("⚖️ Madhhab", options=madhhab_keys, index=def_idx)
-    wikidata_id = MADHHAB_DATA[selected_m]
-    m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True)
+# ===================================================
+# --- Madhhab ---
+# ===================================================
+st.divider()
+madhhab_keys = list(MADHHAB_DATA.keys())
+cur_m = d["madhhab"]["lat"]
+def_idx = madhhab_keys.index(cur_m) if cur_m in madhhab_keys else 4
+m_col1, m_col2 = st.columns(2)
+selected_m = m_col1.selectbox("⚖️ Madhhab", options=madhhab_keys, index=def_idx)
+wikidata_id = MADHHAB_DATA[selected_m]
+m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True)
 
-    if selected_m == "Unknown / Other":
-        uo1, uo2 = st.columns(2)
-        custom_name = uo1.text_input("Madhhab name (free text)", value=d["madhhab"].get("custom_name",""), key="madhhab_custom_name")
-        custom_id   = uo2.text_input("Madhhab ID (TMP- / Q)", value=d["madhhab"].get("custom_id",""), key="madhhab_custom_id")
-        d["madhhab"] = {"lat": selected_m, "id": "", "custom_name": custom_name, "custom_id": custom_id}
-    else:
-        d["madhhab"] = {"lat": selected_m, "id": wikidata_id, "custom_name": "", "custom_id": ""}
+if selected_m == "Unknown / Other":
+    uo1, uo2 = st.columns(2)
+    custom_name = uo1.text_input("Madhhab name (free text)", value=d["madhhab"].get("custom_name",""), key="madhhab_custom_name")
+    custom_id   = uo2.text_input("Madhhab ID (TMP- / Q)", value=d["madhhab"].get("custom_id",""), key="madhhab_custom_id")
+    d["madhhab"] = {"lat": selected_m, "id": "", "custom_name": custom_name, "custom_id": custom_id}
+else:
+    d["madhhab"] = {"lat": selected_m, "id": wikidata_id, "custom_name": "", "custom_id": ""}
 
-    # ===================================================
-    # --- Sufi Order ---
-    # ===================================================
-    st.divider()
-    st.subheader("☪️ Sufi Order")
-    sf1, sf2 = st.columns(2)
-    d["sufi_order"]["name"] = sf1.text_input("Sufi Order (free text)", value=d["sufi_order"].get("name",""), placeholder="例: Qadiriyya / القادرية")
-    d["sufi_order"]["id"]   = sf2.text_input("Sufi Order ID (Q / TMP-)", value=d["sufi_order"].get("id",""),  placeholder="例: Q123456 / TMP-O-00001")
+# ===================================================
+# --- Sufi Order ---
+# ===================================================
+st.divider()
+st.subheader("☪️ Sufi Order")
+sf1, sf2 = st.columns(2)
+d["sufi_order"]["name"] = sf1.text_input("Sufi Order (free text)", value=d["sufi_order"].get("name",""), placeholder="例: Qadiriyya / القادرية")
+d["sufi_order"]["id"]   = sf2.text_input("Sufi Order ID (Q / TMP-)", value=d["sufi_order"].get("id",""),  placeholder="例: Q123456 / TMP-O-00001")
 
-    # ===================================================
-    # --- Teachers ---
-    # ===================================================
-    st.divider()
-    st.subheader("🎓 Teachers & Subjects")
-    for i, item in enumerate(d.get("teachers", [])):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        with st.container():
-            # 行1: Name / Person ID / Subject / Subject ID / Del
-            r1 = st.columns([1.2, 1, 1, 1, 0.3])
-            r1[0].caption("Name"); r1[1].caption("Person ID"); r1[2].caption("Subject"); r1[3].caption("Subject ID")
-            item["name"]       = r1[0].text_input("Name",      item.get("name",""),       key=f"t_n_{uid}",  label_visibility="collapsed")
-            item["id"]         = r1[1].text_input("PID",       item.get("id",""),         key=f"t_i_{uid}",  label_visibility="collapsed")
-            item["subject"]    = r1[2].text_input("Subject",   item.get("subject",""),    key=f"t_s_{uid}",  label_visibility="collapsed")
-            item["subject_id"] = r1[3].text_input("SID",       item.get("subject_id",""), key=f"t_si_{uid}", label_visibility="collapsed")
-            if r1[4].button("❌", key=f"t_del_{uid}"):
-                d["teachers"].pop(i); st.rerun()
-            # 行2: Text (Arabic) / Text (Latinized)
-            r2 = st.columns([1, 1])
-            r2[0].caption("📖 Text (Arabic)"); r2[1].caption("📖 Text (Latinized)")
-            item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar",""),  key=f"t_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
-            item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat",""), key=f"t_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
-            # 行3: Learning Date / Place (Arabic) / Place (Latin) / Place ID
-            r3 = st.columns([1, 1, 1, 1])
-            r3[0].caption("📅 Learning Date"); r3[1].caption("📍 Place (Arabic)"); r3[2].caption("📍 Place (Latin)"); r3[3].caption("Place ID")
-            item["learn_date"]      = r3[0].text_input("ldate", item.get("learn_date",""),      key=f"t_ld_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
-            item["learn_place_ar"]  = r3[1].text_input("lpar",  item.get("learn_place_ar",""),  key=f"t_lpa_{uid}", label_visibility="collapsed")
-            item["learn_place_lat"] = r3[2].text_input("lplat", item.get("learn_place_lat",""), key=f"t_lpl_{uid}", label_visibility="collapsed")
-            item["learn_place_id"]  = r3[3].text_input("lpid",  item.get("learn_place_id",""),  key=f"t_lpi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L-")
-        st.markdown("---")
-    if st.button("＋ add teacher"):
-        d["teachers"].append({"ui_id": str(uuid.uuid4()), "name":"","id":"TMP-P-00000",
-            "subject":"","subject_id":"TMP-S-00000","text_ar":"","text_lat":"",
-            "learn_date":"","learn_place_ar":"","learn_place_lat":"","learn_place_id":""}); st.rerun()
+# ===================================================
+# --- Teachers ---
+# ===================================================
+st.divider()
+st.subheader("🎓 Teachers & Subjects")
+for i, item in enumerate(d.get("teachers", [])):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    with st.container():
+        # 行1: Name / Person ID / Subject / Subject ID / Del
+        r1 = st.columns([1.2, 1, 1, 1, 0.3])
+        r1[0].caption("Name"); r1[1].caption("Person ID"); r1[2].caption("Subject"); r1[3].caption("Subject ID")
+        item["name"]       = r1[0].text_input("Name",      item.get("name",""),       key=f"t_n_{uid}",  label_visibility="collapsed")
+        item["id"]         = r1[1].text_input("PID",       item.get("id",""),         key=f"t_i_{uid}",  label_visibility="collapsed")
+        item["subject"]    = r1[2].text_input("Subject",   item.get("subject",""),    key=f"t_s_{uid}",  label_visibility="collapsed")
+        item["subject_id"] = r1[3].text_input("SID",       item.get("subject_id",""), key=f"t_si_{uid}", label_visibility="collapsed")
+        if r1[4].button("❌", key=f"t_del_{uid}"):
+            d["teachers"].pop(i); st.rerun()
+        # 行2: Text (Arabic) / Text (Latinized)
+        r2 = st.columns([1, 1])
+        r2[0].caption("📖 Text (Arabic)"); r2[1].caption("📖 Text (Latinized)")
+        item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar",""),  key=f"t_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
+        item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat",""), key=f"t_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
+        # 行3: Learning Date / Place (Arabic) / Place (Latin) / Place ID
+        r3 = st.columns([1, 1, 1, 1])
+        r3[0].caption("📅 Learning Date"); r3[1].caption("📍 Place (Arabic)"); r3[2].caption("📍 Place (Latin)"); r3[3].caption("Place ID")
+        item["learn_date"]      = r3[0].text_input("ldate", item.get("learn_date",""),      key=f"t_ld_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
+        item["learn_place_ar"]  = r3[1].text_input("lpar",  item.get("learn_place_ar",""),  key=f"t_lpa_{uid}", label_visibility="collapsed")
+        item["learn_place_lat"] = r3[2].text_input("lplat", item.get("learn_place_lat",""), key=f"t_lpl_{uid}", label_visibility="collapsed")
+        item["learn_place_id"]  = r3[3].text_input("lpid",  item.get("learn_place_id",""),  key=f"t_lpi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L-")
+    st.markdown("---")
+if st.button("＋ add teacher"):
+    d["teachers"].append({"ui_id": str(uuid.uuid4()), "name":"","id":"TMP-P-00000",
+        "subject":"","subject_id":"TMP-S-00000","text_ar":"","text_lat":"",
+        "learn_date":"","learn_place_ar":"","learn_place_lat":"","learn_place_id":""}); st.rerun()
 
-    # ===================================================
-    # --- Students ---
-    # ===================================================
-    st.divider()
-    st.subheader("🧑‍🎓 Students & Subjects")
-    for i, item in enumerate(d.get("students", [])):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        with st.container():
-            r1 = st.columns([1.2, 1, 1, 1, 0.3])
-            r1[0].caption("Name"); r1[1].caption("Person ID"); r1[2].caption("Subject"); r1[3].caption("Subject ID")
-            item["name"]       = r1[0].text_input("Name",    item.get("name",""),       key=f"s_n_{uid}",  label_visibility="collapsed")
-            item["id"]         = r1[1].text_input("PID",     item.get("id",""),         key=f"s_i_{uid}",  label_visibility="collapsed")
-            item["subject"]    = r1[2].text_input("Subject", item.get("subject",""),    key=f"s_s_{uid}",  label_visibility="collapsed")
-            item["subject_id"] = r1[3].text_input("SID",     item.get("subject_id",""), key=f"s_si_{uid}", label_visibility="collapsed")
-            if r1[4].button("❌", key=f"s_del_{uid}"):
-                d["students"].pop(i); st.rerun()
-            r2 = st.columns([1, 1])
-            r2[0].caption("📖 Text (Arabic)"); r2[1].caption("📖 Text (Latinized)")
-            item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar",""),  key=f"s_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
-            item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat",""), key=f"s_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
-            r3 = st.columns([1, 1, 1, 1])
-            r3[0].caption("📅 Teaching Date"); r3[1].caption("📍 Place (Arabic)"); r3[2].caption("📍 Place (Latin)"); r3[3].caption("Place ID")
-            item["teach_date"]      = r3[0].text_input("tdate", item.get("teach_date",""),      key=f"s_td_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
-            item["teach_place_ar"]  = r3[1].text_input("tpar",  item.get("teach_place_ar",""),  key=f"s_tpa_{uid}", label_visibility="collapsed")
-            item["teach_place_lat"] = r3[2].text_input("tplat", item.get("teach_place_lat",""), key=f"s_tpl_{uid}", label_visibility="collapsed")
-            item["teach_place_id"]  = r3[3].text_input("tpid",  item.get("teach_place_id",""),  key=f"s_tpi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L-")
-        st.markdown("---")
-    if st.button("＋ add student"):
-        d["students"].append({"ui_id": str(uuid.uuid4()), "name":"","id":"TMP-P-00000",
-            "subject":"","subject_id":"TMP-S-00000","text_ar":"","text_lat":"",
-            "teach_date":"","teach_place_ar":"","teach_place_lat":"","teach_place_id":""}); st.rerun()
+# ===================================================
+# --- Students ---
+# ===================================================
+st.divider()
+st.subheader("🧑‍🎓 Students & Subjects")
+for i, item in enumerate(d.get("students", [])):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    with st.container():
+        r1 = st.columns([1.2, 1, 1, 1, 0.3])
+        r1[0].caption("Name"); r1[1].caption("Person ID"); r1[2].caption("Subject"); r1[3].caption("Subject ID")
+        item["name"]       = r1[0].text_input("Name",    item.get("name",""),       key=f"s_n_{uid}",  label_visibility="collapsed")
+        item["id"]         = r1[1].text_input("PID",     item.get("id",""),         key=f"s_i_{uid}",  label_visibility="collapsed")
+        item["subject"]    = r1[2].text_input("Subject", item.get("subject",""),    key=f"s_s_{uid}",  label_visibility="collapsed")
+        item["subject_id"] = r1[3].text_input("SID",     item.get("subject_id",""), key=f"s_si_{uid}", label_visibility="collapsed")
+        if r1[4].button("❌", key=f"s_del_{uid}"):
+            d["students"].pop(i); st.rerun()
+        r2 = st.columns([1, 1])
+        r2[0].caption("📖 Text (Arabic)"); r2[1].caption("📖 Text (Latinized)")
+        item["text_ar"]  = r2[0].text_input("text_ar",  item.get("text_ar",""),  key=f"s_ta_{uid}", label_visibility="collapsed", placeholder="例: الصحيح")
+        item["text_lat"] = r2[1].text_input("text_lat", item.get("text_lat",""), key=f"s_tl_{uid}", label_visibility="collapsed", placeholder="例: al-Sahih")
+        r3 = st.columns([1, 1, 1, 1])
+        r3[0].caption("📅 Teaching Date"); r3[1].caption("📍 Place (Arabic)"); r3[2].caption("📍 Place (Latin)"); r3[3].caption("Place ID")
+        item["teach_date"]      = r3[0].text_input("tdate", item.get("teach_date",""),      key=f"s_td_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
+        item["teach_place_ar"]  = r3[1].text_input("tpar",  item.get("teach_place_ar",""),  key=f"s_tpa_{uid}", label_visibility="collapsed")
+        item["teach_place_lat"] = r3[2].text_input("tplat", item.get("teach_place_lat",""), key=f"s_tpl_{uid}", label_visibility="collapsed")
+        item["teach_place_id"]  = r3[3].text_input("tpid",  item.get("teach_place_id",""),  key=f"s_tpi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L-")
+    st.markdown("---")
+if st.button("＋ add student"):
+    d["students"].append({"ui_id": str(uuid.uuid4()), "name":"","id":"TMP-P-00000",
+        "subject":"","subject_id":"TMP-S-00000","text_ar":"","text_lat":"",
+        "teach_date":"","teach_place_ar":"","teach_place_lat":"","teach_place_id":""}); st.rerun()
 
-    # ===================================================
-    # --- Activities ---
-    # ===================================================
-    st.divider()
-    st.subheader("📍 Activities / Places")
-    st.caption("機関名を伴わない地理的イベント（居住・移動・出生・死亡・埋葬など）を記録します。機関との関わりは Institutions へ。▲▼ で順番を入れ替えられます。")
-    acts = d.get("activities", [])
-    for i, item in enumerate(acts):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        item["seq"] = i + 1
-        with st.container():
-            hc = st.columns([0.15, 0.25, 3])
-            hc[0].markdown(f"**#{i+1}**")
-            with hc[1]:
-                if st.button("▲", key=f"act_up_{uid}", disabled=(i==0)):
-                    move_item(d["activities"], i, -1); st.rerun()
-                if st.button("▼", key=f"act_dn_{uid}", disabled=(i==len(acts)-1)):
-                    move_item(d["activities"], i, +1); st.rerun()
-            r = st.columns([1, 1, 1, 1.3, 0.3])
-            r[0].caption("Place (Arabic)"); r[1].caption("Place (Latin)"); r[2].caption("Type"); r[3].caption("ID")
-            item["place_ar"]  = r[0].text_input("par",  item.get("place_ar",""),  key=f"a_a_{uid}", label_visibility="collapsed")
-            item["place_lat"] = r[1].text_input("plat", item.get("place_lat",""), key=f"a_l_{uid}", label_visibility="collapsed")
-            ct = item.get("type","study")
-            item["type"] = r[2].selectbox("type", ACTIVITY_TYPES, index=ACTIVITY_TYPES.index(ct) if ct in ACTIVITY_TYPES else 0, key=f"a_t_{uid}", label_visibility="collapsed")
-            item["id"]   = r[3].text_input("id", item.get("id",""), key=f"a_i_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L- / Q")
-            if r[4].button("❌", key=f"a_del_{uid}"):
-                d["activities"].pop(i); st.rerun()
-        st.markdown("---")
-    if st.button("＋ add activity"):
-        d["activities"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["activities"])+1,"place_ar":"","place_lat":"","type":"study","id":""}); st.rerun()
+# ===================================================
+# --- Activities ---
+# ===================================================
+st.divider()
+st.subheader("📍 Activities / Places")
+st.caption("機関名を伴わない地理的イベント（居住・移動・出生・死亡・埋葬など）を記録します。機関との関わりは Institutions へ。▲▼ で順番を入れ替えられます。")
+acts = d.get("activities", [])
+for i, item in enumerate(acts):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    item["seq"] = i + 1
+    with st.container():
+        hc = st.columns([0.15, 0.25, 3])
+        hc[0].markdown(f"**#{i+1}**")
+        with hc[1]:
+            if st.button("▲", key=f"act_up_{uid}", disabled=(i==0)):
+                move_item(d["activities"], i, -1); st.rerun()
+            if st.button("▼", key=f"act_dn_{uid}", disabled=(i==len(acts)-1)):
+                move_item(d["activities"], i, +1); st.rerun()
+        r = st.columns([1, 1, 1, 1.3, 0.3])
+        r[0].caption("Place (Arabic)"); r[1].caption("Place (Latin)"); r[2].caption("Type"); r[3].caption("ID")
+        item["place_ar"]  = r[0].text_input("par",  item.get("place_ar",""),  key=f"a_a_{uid}", label_visibility="collapsed")
+        item["place_lat"] = r[1].text_input("plat", item.get("place_lat",""), key=f"a_l_{uid}", label_visibility="collapsed")
+        ct = item.get("type","study")
+        item["type"] = r[2].selectbox("type", ACTIVITY_TYPES, index=ACTIVITY_TYPES.index(ct) if ct in ACTIVITY_TYPES else 0, key=f"a_t_{uid}", label_visibility="collapsed")
+        item["id"]   = r[3].text_input("id", item.get("id",""), key=f"a_i_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L- / Q")
+        if r[4].button("❌", key=f"a_del_{uid}"):
+            d["activities"].pop(i); st.rerun()
+    st.markdown("---")
+if st.button("＋ add activity"):
+    d["activities"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["activities"])+1,"place_ar":"","place_lat":"","type":"study","id":""}); st.rerun()
 
-    # ===================================================
-    # --- Institutions ---
-    # ===================================================
-    st.divider()
-    st.subheader("🏛️ Institutions")
-    st.caption("特定の機関（マドラサ・モスク・図書館など）との関わりを記録します。単純な居住・移動は Activities へ。▲▼ で順番を入れ替えられます。")
-    insts = d.get("institutions", [])
-    for i, item in enumerate(insts):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        if "name" in item and "name_ar" not in item: item["name_ar"] = item.pop("name")
-        item["seq"] = i + 1
-        with st.container():
-            hc = st.columns([0.15, 0.25, 3])
-            hc[0].markdown(f"**#{i+1}**")
-            with hc[1]:
-                if st.button("▲", key=f"ins_up_{uid}", disabled=(i==0)):
-                    move_item(d["institutions"], i, -1); st.rerun()
-                if st.button("▼", key=f"ins_dn_{uid}", disabled=(i==len(insts)-1)):
-                    move_item(d["institutions"], i, +1); st.rerun()
-            r = st.columns([1, 1, 1, 1.2, 0.3])
-            r[0].caption("Name (Arabic)"); r[1].caption("Name (Latin)"); r[2].caption("Type"); r[3].caption("ID: Q / TMP-I-")
-            item["name_ar"]  = r[0].text_input("nar",  item.get("name_ar",""),  key=f"i_a_{uid}", label_visibility="collapsed")
-            item["name_lat"] = r[1].text_input("nlat", item.get("name_lat",""), key=f"i_l_{uid}", label_visibility="collapsed")
-            ct = item.get("type","study")
-            item["type"] = r[2].selectbox("type", INSTITUTION_TYPES, index=INSTITUTION_TYPES.index(ct) if ct in INSTITUTION_TYPES else 0, key=f"i_t_{uid}", label_visibility="collapsed")
-            item["id"]   = r[3].text_input("id", item.get("id",""), key=f"i_i_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
-            if r[4].button("❌", key=f"i_del_{uid}"):
-                d["institutions"].pop(i); st.rerun()
-        st.markdown("---")
-    if st.button("＋ add institution"):
-        d["institutions"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["institutions"])+1,"name_ar":"","name_lat":"","type":"study","id":"TMP-I-00000"}); st.rerun()
+# ===================================================
+# --- Institutions ---
+# ===================================================
+st.divider()
+st.subheader("🏛️ Institutions")
+st.caption("特定の機関（マドラサ・モスク・図書館など）との関わりを記録します。単純な居住・移動は Activities へ。▲▼ で順番を入れ替えられます。")
+insts = d.get("institutions", [])
+for i, item in enumerate(insts):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    if "name" in item and "name_ar" not in item: item["name_ar"] = item.pop("name")
+    item["seq"] = i + 1
+    with st.container():
+        hc = st.columns([0.15, 0.25, 3])
+        hc[0].markdown(f"**#{i+1}**")
+        with hc[1]:
+            if st.button("▲", key=f"ins_up_{uid}", disabled=(i==0)):
+                move_item(d["institutions"], i, -1); st.rerun()
+            if st.button("▼", key=f"ins_dn_{uid}", disabled=(i==len(insts)-1)):
+                move_item(d["institutions"], i, +1); st.rerun()
+        r = st.columns([1, 1, 1, 1.2, 0.3])
+        r[0].caption("Name (Arabic)"); r[1].caption("Name (Latin)"); r[2].caption("Type"); r[3].caption("ID: Q / TMP-I-")
+        item["name_ar"]  = r[0].text_input("nar",  item.get("name_ar",""),  key=f"i_a_{uid}", label_visibility="collapsed")
+        item["name_lat"] = r[1].text_input("nlat", item.get("name_lat",""), key=f"i_l_{uid}", label_visibility="collapsed")
+        ct = item.get("type","study")
+        item["type"] = r[2].selectbox("type", INSTITUTION_TYPES, index=INSTITUTION_TYPES.index(ct) if ct in INSTITUTION_TYPES else 0, key=f"i_t_{uid}", label_visibility="collapsed")
+        item["id"]   = r[3].text_input("id", item.get("id",""), key=f"i_i_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
+        if r[4].button("❌", key=f"i_del_{uid}"):
+            d["institutions"].pop(i); st.rerun()
+    st.markdown("---")
+if st.button("＋ add institution"):
+    d["institutions"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["institutions"])+1,"name_ar":"","name_lat":"","type":"study","id":"TMP-I-00000"}); st.rerun()
 
-    # ===================================================
-    # --- Offices ---
-    # ===================================================
-    st.divider()
-    st.subheader("🏅 Offices / Positions")
-    st.caption("保有した順に記録します。▲▼ で順番を入れ替えられます。")
-    offices = d.get("offices", [])
-    for i, item in enumerate(offices):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        item["seq"] = i + 1
-        with st.container():
-            hc = st.columns([0.15, 0.25, 3])
-            hc[0].markdown(f"**#{i+1}**")
-            with hc[1]:
-                if st.button("▲", key=f"off_up_{uid}", disabled=(i==0)):
-                    move_item(d["offices"], i, -1); st.rerun()
-                if st.button("▼", key=f"off_dn_{uid}", disabled=(i==len(offices)-1)):
-                    move_item(d["offices"], i, +1); st.rerun()
-            # 行1: Office name / ID / Del
-            r1 = st.columns([1.5, 1.5, 0.3])
-            r1[0].caption("Office Name (Arabic)"); r1[1].caption("Office Name (Latinized)")
-            item["name_ar"]  = r1[0].text_input("onar",  item.get("name_ar",""),  key=f"o_a_{uid}", label_visibility="collapsed", placeholder="例: قاضي القضاة")
-            item["name_lat"] = r1[1].text_input("onlat", item.get("name_lat",""), key=f"o_l_{uid}", label_visibility="collapsed", placeholder="例: Qadi al-Qudat")
-            if r1[2].button("❌", key=f"o_del_{uid}"):
-                d["offices"].pop(i); st.rerun()
-            # 行2: Office ID / Appointment Date / Retirement Date
-            r2 = st.columns([1, 1, 1])
-            r2[0].caption("Office ID (Q / TMP-O-)"); r2[1].caption("📅 Appointment Date"); r2[2].caption("📅 Retirement Date")
-            item["id"]           = r2[0].text_input("oid",  item.get("id",""),           key=f"o_i_{uid}",  label_visibility="collapsed", placeholder="Q12345 / TMP-O-00001")
-            item["appoint_date"] = r2[1].text_input("apdt", item.get("appoint_date",""), key=f"o_ad_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
-            item["retire_date"]  = r2[2].text_input("rtdt", item.get("retire_date",""),  key=f"o_rd_{uid}", label_visibility="collapsed", placeholder="例: 890H / 1485CE")
-            # 行3: Place (City/Region Arabic) / Latin / Place ID
-            r3 = st.columns([1, 1, 1])
-            r3[0].caption("📍 Place (Arabic)"); r3[1].caption("📍 Place (Latin)"); r3[2].caption("Place ID")
-            item["place_ar"]  = r3[0].text_input("opar",  item.get("place_ar",""),  key=f"o_pa_{uid}", label_visibility="collapsed")
-            item["place_lat"] = r3[1].text_input("oplat", item.get("place_lat",""), key=f"o_pl_{uid}", label_visibility="collapsed")
-            item["place_id"]  = r3[2].text_input("opid",  item.get("place_id",""),  key=f"o_pi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L- / Q")
-            # 行4: Institution / Institution ID
-            r4 = st.columns([1.5, 1.5])
-            r4[0].caption("🏛️ Institution Name"); r4[1].caption("Institution ID")
-            item["inst_name"] = r4[0].text_input("oiname", item.get("inst_name",""), key=f"o_in_{uid}", label_visibility="collapsed")
-            item["inst_id"]   = r4[1].text_input("oiid",   item.get("inst_id",""),   key=f"o_ii_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
-        st.markdown("---")
-    if st.button("＋ add office"):
-        d["offices"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["offices"])+1,
-            "name_ar":"","name_lat":"","id":"TMP-O-00000",
-            "place_ar":"","place_lat":"","place_id":"",
-            "inst_name":"","inst_id":"",
-            "appoint_date":"","retire_date":""}); st.rerun()
+# ===================================================
+# --- Offices ---
+# ===================================================
+st.divider()
+st.subheader("🏅 Offices / Positions")
+st.caption("保有した順に記録します。▲▼ で順番を入れ替えられます。")
+offices = d.get("offices", [])
+for i, item in enumerate(offices):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    item["seq"] = i + 1
+    with st.container():
+        hc = st.columns([0.15, 0.25, 3])
+        hc[0].markdown(f"**#{i+1}**")
+        with hc[1]:
+            if st.button("▲", key=f"off_up_{uid}", disabled=(i==0)):
+                move_item(d["offices"], i, -1); st.rerun()
+            if st.button("▼", key=f"off_dn_{uid}", disabled=(i==len(offices)-1)):
+                move_item(d["offices"], i, +1); st.rerun()
+        # 行1: Office name / ID / Del
+        r1 = st.columns([1.5, 1.5, 0.3])
+        r1[0].caption("Office Name (Arabic)"); r1[1].caption("Office Name (Latinized)")
+        item["name_ar"]  = r1[0].text_input("onar",  item.get("name_ar",""),  key=f"o_a_{uid}", label_visibility="collapsed", placeholder="例: قاضي القضاة")
+        item["name_lat"] = r1[1].text_input("onlat", item.get("name_lat",""), key=f"o_l_{uid}", label_visibility="collapsed", placeholder="例: Qadi al-Qudat")
+        if r1[2].button("❌", key=f"o_del_{uid}"):
+            d["offices"].pop(i); st.rerun()
+        # 行2: Office ID / Appointment Date / Retirement Date
+        r2 = st.columns([1, 1, 1])
+        r2[0].caption("Office ID (Q / TMP-O-)"); r2[1].caption("📅 Appointment Date"); r2[2].caption("📅 Retirement Date")
+        item["id"]           = r2[0].text_input("oid",  item.get("id",""),           key=f"o_i_{uid}",  label_visibility="collapsed", placeholder="Q12345 / TMP-O-00001")
+        item["appoint_date"] = r2[1].text_input("apdt", item.get("appoint_date",""), key=f"o_ad_{uid}", label_visibility="collapsed", placeholder="例: 880H / 1475CE")
+        item["retire_date"]  = r2[2].text_input("rtdt", item.get("retire_date",""),  key=f"o_rd_{uid}", label_visibility="collapsed", placeholder="例: 890H / 1485CE")
+        # 行3: Place (City/Region Arabic) / Latin / Place ID
+        r3 = st.columns([1, 1, 1])
+        r3[0].caption("📍 Place (Arabic)"); r3[1].caption("📍 Place (Latin)"); r3[2].caption("Place ID")
+        item["place_ar"]  = r3[0].text_input("opar",  item.get("place_ar",""),  key=f"o_pa_{uid}", label_visibility="collapsed")
+        item["place_lat"] = r3[1].text_input("oplat", item.get("place_lat",""), key=f"o_pl_{uid}", label_visibility="collapsed")
+        item["place_id"]  = r3[2].text_input("opid",  item.get("place_id",""),  key=f"o_pi_{uid}", label_visibility="collapsed", placeholder="GeoNames / TMP-L- / Q")
+        # 行4: Institution / Institution ID
+        r4 = st.columns([1.5, 1.5])
+        r4[0].caption("🏛️ Institution Name"); r4[1].caption("Institution ID")
+        item["inst_name"] = r4[0].text_input("oiname", item.get("inst_name",""), key=f"o_in_{uid}", label_visibility="collapsed")
+        item["inst_id"]   = r4[1].text_input("oiid",   item.get("inst_id",""),   key=f"o_ii_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
+    st.markdown("---")
+if st.button("＋ add office"):
+    d["offices"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["offices"])+1,
+        "name_ar":"","name_lat":"","id":"TMP-O-00000",
+        "place_ar":"","place_lat":"","place_id":"",
+        "inst_name":"","inst_id":"",
+        "appoint_date":"","retire_date":""}); st.rerun()
 
-    # ===================================================
-    # --- Family ---
-    # ===================================================
-    st.divider()
-    st.subheader("👨‍👩‍👧 Family Relations")
-    fh = st.columns([1, 1, 1, 0.3])
-    fh[0].caption("Name"); fh[1].caption("Relation"); fh[2].caption("Person ID"); fh[3].caption("Del")
-    for i, item in enumerate(d.get("family", [])):
-        if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-        uid = item["ui_id"]
-        r = st.columns([1, 1, 1, 0.3])
-        item["name"]     = r[0].text_input("name",     item.get("name",""),     key=f"f_n_{uid}", label_visibility="collapsed")
-        item["relation"] = r[1].text_input("relation", item.get("relation",""), key=f"f_r_{uid}", label_visibility="collapsed")
-        item["id"]       = r[2].text_input("id",       item.get("id",""),       key=f"f_i_{uid}", label_visibility="collapsed")
-        if r[3].button("❌", key=f"f_del_{uid}"):
-            d["family"].pop(i); st.rerun()
-    if st.button("＋ add family member"):
-        d["family"].append({"ui_id":str(uuid.uuid4()),"name":"","relation":"","id":"TMP-P-00000"}); st.rerun()
+# ===================================================
+# --- Family ---
+# ===================================================
+st.divider()
+st.subheader("👨‍👩‍👧 Family Relations")
+fh = st.columns([1, 1, 1, 0.3])
+fh[0].caption("Name"); fh[1].caption("Relation"); fh[2].caption("Person ID"); fh[3].caption("Del")
+for i, item in enumerate(d.get("family", [])):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    r = st.columns([1, 1, 1, 0.3])
+    item["name"]     = r[0].text_input("name",     item.get("name",""),     key=f"f_n_{uid}", label_visibility="collapsed")
+    item["relation"] = r[1].text_input("relation", item.get("relation",""), key=f"f_r_{uid}", label_visibility="collapsed")
+    item["id"]       = r[2].text_input("id",       item.get("id",""),       key=f"f_i_{uid}", label_visibility="collapsed")
+    if r[3].button("❌", key=f"f_del_{uid}"):
+        d["family"].pop(i); st.rerun()
+if st.button("＋ add family member"):
+    d["family"].append({"ui_id":str(uuid.uuid4()),"name":"","relation":"","id":"TMP-P-00000"}); st.rerun()
 
-    # ===================================================
-    # --- Person Notes ---
-    # ===================================================
-    st.divider()
-    st.subheader("📝 Person Notes")
-    st.caption("性格・評判・特筆すべき成果・日常生活の様子など、人物に関する自由記述")
-    d["person_notes"] = st.text_area("Notes", value=d.get("person_notes",""), height=150,
-                                      placeholder="例: 温厚で寛容な人柄で知られ、多くの学者から尊敬を集めた。生涯を通じて数百名の弟子を育てた。")
+# ===================================================
+# --- Person Notes ---
+# ===================================================
+st.divider()
+st.subheader("📝 Person Notes")
+st.caption("性格・評判・特筆すべき成果・日常生活の様子など、人物に関する自由記述")
+d["person_notes"] = st.text_area("Notes", value=d.get("person_notes",""), height=150,
+                                  placeholder="例: 温厚で寛容な人柄で知られ、多くの学者から尊敬を集めた。生涯を通じて数百名の弟子を育てた。")
 
 
 # ===================================================
