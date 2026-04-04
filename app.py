@@ -126,7 +126,7 @@ MADHHAB_DATA = {
     "Unknown / Other":          ""
 }
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","other"]
-ACTIVITY_TYPES    = ["study","buried","reside","visit","married","born","died","other"]
+ACTIVITY_TYPES    = ["study","buried","reside","visit","born","died","other"]
 LAQAB_TYPES       = ["laqab","shuhrah","kunyah"]
 LAQAB_LABELS      = {"laqab":"laqab（号）","shuhrah":"shuhrah（通称）","kunyah":"kunyah（クンヤ）"}
 
@@ -625,117 +625,180 @@ d["person_notes"] = st.text_area("Notes", value=d.get("person_notes",""), height
 st.divider()
 st.header("3. TEI-XML Export")
 
-xml_lines = []
-xml_lines.append(f'<person xml:id="{d["aind_id"]}" source="#source_{d["original_id"]}">')
-xml_lines.append(f'    <persName type="full" xml:lang="ar">{d["full_name"]}</persName>')
-xml_lines.append(f'    <persName type="name_only" xml:lang="ar">{d["name_only"]}</persName>')
+def build_xml(d):
+    x = []
 
-for n in d.get("nisbahs",[]):
-    if n.get("ar"):
-        xml_lines.append(f'    <persName type="nisbah" xml:lang="ar" ref="{fr(n.get("id"))}">{n["ar"]}</persName>')
+    # --- person要素: @source → @corresp に変更 ---
+    x.append(f'<person xml:id="{d["aind_id"]}" corresp="#source_{d["original_id"]}">')
 
-for lq in d.get("laqabs",[]):
-    if lq.get("ar"):
-        xml_lines.append(f'    <persName type="{lq.get("type","laqab")}" xml:lang="ar">{lq["ar"]}</persName>')
+    # --- persName ---
+    x.append(f'    <persName type="full" xml:lang="ar">{d["full_name"]}</persName>')
+    x.append(f'    <persName type="name_only" xml:lang="ar">{d["name_only"]}</persName>')
 
-# Madhhab
-if d["madhhab"]["lat"] == "Unknown / Other":
-    cn = d["madhhab"].get("custom_name","")
-    ci = d["madhhab"].get("custom_id","")
-    if cn or ci:
-        xml_lines.append(f'    <affiliation type="madhhab" ref="{fr(ci)}">{cn}</affiliation>')
-elif d["madhhab"]["id"]:
-    xml_lines.append(f'    <affiliation type="madhhab" ref="wd:{d["madhhab"]["id"]}">{d["madhhab"]["lat"]}</affiliation>')
+    for n in d.get("nisbahs",[]):
+        if n.get("ar"):
+            x.append(f'    <persName type="nisbah" xml:lang="ar" ref="{fr(n.get("id"))}">{n["ar"]}</persName>')
 
-# Sufi Order
-if d["sufi_order"].get("name"):
-    xml_lines.append(f'    <affiliation type="sufiOrder" ref="{fr(d["sufi_order"].get("id",""))}">{d["sufi_order"]["name"]}</affiliation>')
+    for lq in d.get("laqabs",[]):
+        if lq.get("ar"):
+            x.append(f'    <persName type="{lq.get("type","laqab")}" xml:lang="ar">{lq["ar"]}</persName>')
 
-if d.get("birth_h"):
-    xml_lines.append(f'    <birth when-custom="{d["birth_h"]}" when="{convert_h_to_g(d["birth_h"])}"/>')
-if d.get("death_h"):
-    xml_lines.append(f'    <death when-custom="{d["death_h"]}" when="{convert_h_to_g(d["death_h"])}"/>')
+    # --- affiliation: Madhhab ---
+    if d["madhhab"]["lat"] == "Unknown / Other":
+        cn = d["madhhab"].get("custom_name","")
+        ci = d["madhhab"].get("custom_id","")
+        if cn or ci:
+            x.append(f'    <affiliation type="madhhab" ref="{fr(ci)}">{cn}</affiliation>')
+    elif d["madhhab"]["id"]:
+        x.append(f'    <affiliation type="madhhab" ref="wd:{d["madhhab"]["id"]}">{d["madhhab"]["lat"]}</affiliation>')
 
-xml_lines.append('    <listRelation>')
+    # --- affiliation: Sufi Order ---
+    if d["sufi_order"].get("name"):
+        x.append(f'    <affiliation type="sufiOrder" ref="{fr(d["sufi_order"].get("id",""))}">{d["sufi_order"]["name"]}</affiliation>')
 
-for t in d.get("teachers",[]):
-    xml_lines.append(f'        <relation name="teacher" active="{fr(t.get("id"))}" passive="#{d["aind_id"]}">')
-    if t.get("subject"):
-        xml_lines.append(f'            <desc ref="{fr(t.get("subject_id",""))}">{t["subject"]}</desc>')
-    if t.get("text_ar") or t.get("text_lat"):
-        tid = fr(t.get("text_id",""))
-        ref_attr = f' ref="{tid}"' if tid else ""
-        if t.get("text_ar"):
-            xml_lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{t["text_ar"]}</bibl>')
-        if t.get("text_lat"):
-            xml_lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{t["text_lat"]}</bibl>')
-    if t.get("learn_date") or t.get("learn_place_ar"):
-        da = f' when="{t["learn_date"]}"' if t.get("learn_date") else ""
-        pr = f' ref="{fr(t.get("learn_place_id",""))}"' if t.get("learn_place_id") else ""
-        xml_lines.append(f'            <event type="learning"{da}{pr}>{t.get("learn_place_ar","")}</event>')
-    xml_lines.append('        </relation>')
+    # --- birth / death ---
+    if d.get("birth_h"):
+        x.append(f'    <birth when-custom="{d["birth_h"]}" when="{convert_h_to_g(d["birth_h"])}"/>')
+    if d.get("death_h"):
+        x.append(f'    <death when-custom="{d["death_h"]}" when="{convert_h_to_g(d["death_h"])}"/>')
 
-for s in d.get("students",[]):
-    xml_lines.append(f'        <relation name="student" active="#{d["aind_id"]}" passive="{fr(s.get("id"))}">')
-    if s.get("subject"):
-        xml_lines.append(f'            <desc ref="{fr(s.get("subject_id",""))}">{s["subject"]}</desc>')
-    if s.get("text_ar") or s.get("text_lat"):
-        tid = fr(s.get("text_id",""))
-        ref_attr = f' ref="{tid}"' if tid else ""
-        if s.get("text_ar"):
-            xml_lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{s["text_ar"]}</bibl>')
-        if s.get("text_lat"):
-            xml_lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{s["text_lat"]}</bibl>')
-    if s.get("teach_date") or s.get("teach_place_ar"):
-        da = f' when="{s["teach_date"]}"' if s.get("teach_date") else ""
-        pr = f' ref="{fr(s.get("teach_place_id",""))}"' if s.get("teach_place_id") else ""
-        xml_lines.append(f'            <event type="teaching"{da}{pr}>{s.get("teach_place_ar","")}</event>')
-    xml_lines.append('        </relation>')
+    # --- listRelation: teachers / students / family ---
+    relations = []
 
-for fam in d.get("family",[]):
-    rel = fam.get("relation","other")
-    rel_note = fam.get("relation_note","")
-    subtype = rel_note if (rel == "other" and rel_note) else rel
-    xml_lines.append(f'        <relation name="family" active="{fr(fam.get("id"))}" passive="#{d["aind_id"]}" subtype="{subtype}">{fam.get("name","")}</relation>')
+    for t in d.get("teachers",[]):
+        lines = [f'        <relation type="personal" name="teacher" active="{fr(t.get("id"))}" passive="#{d["aind_id"]}">']
+        if t.get("subject"):
+            lines.append(f'            <desc ref="{fr(t.get("subject_id",""))}">{t["subject"]}</desc>')
+        if t.get("text_ar") or t.get("text_lat"):
+            tid = fr(t.get("text_id",""))
+            ref_attr = f' ref="{tid}"' if tid else ""
+            if t.get("text_ar"):
+                lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{t["text_ar"]}</bibl>')
+            if t.get("text_lat"):
+                lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{t["text_lat"]}</bibl>')
+        # learning event: placeNameで地名を内包
+        if t.get("learn_date") or t.get("learn_place_ar"):
+            da = f' when="{t["learn_date"]}"' if t.get("learn_date") else ""
+            pr = f' where="{fr(t.get("learn_place_id",""))}"' if t.get("learn_place_id") else ""
+            if t.get("learn_place_ar"):
+                lines.append(f'            <event type="learning"{da}{pr}><placeName>{t.get("learn_place_ar","")}</placeName></event>')
+            else:
+                lines.append(f'            <event type="learning"{da}{pr}/>')
+        lines.append('        </relation>')
+        relations.extend(lines)
 
-xml_lines.append('    </listRelation>')
+    for s in d.get("students",[]):
+        lines = [f'        <relation type="personal" name="student" active="#{d["aind_id"]}" passive="{fr(s.get("id"))}">']
+        if s.get("subject"):
+            lines.append(f'            <desc ref="{fr(s.get("subject_id",""))}">{s["subject"]}</desc>')
+        if s.get("text_ar") or s.get("text_lat"):
+            tid = fr(s.get("text_id",""))
+            ref_attr = f' ref="{tid}"' if tid else ""
+            if s.get("text_ar"):
+                lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{s["text_ar"]}</bibl>')
+            if s.get("text_lat"):
+                lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{s["text_lat"]}</bibl>')
+        if s.get("teach_date") or s.get("teach_place_ar"):
+            da = f' when="{s["teach_date"]}"' if s.get("teach_date") else ""
+            pr = f' where="{fr(s.get("teach_place_id",""))}"' if s.get("teach_place_id") else ""
+            if s.get("teach_place_ar"):
+                lines.append(f'            <event type="teaching"{da}{pr}><placeName>{s.get("teach_place_ar","")}</placeName></event>')
+            else:
+                lines.append(f'            <event type="teaching"{da}{pr}/>')
+        lines.append('        </relation>')
+        relations.extend(lines)
 
-for a in d.get("activities",[]):
-    if a.get("place_ar"):
-        xml_lines.append(f'    <residence seq="{a.get("seq","")}" subtype="{a.get("type","")}" ref="{fr(a.get("id"))}">{a["place_ar"]}</residence>')
+    for fam in d.get("family",[]):
+        rel      = fam.get("relation","other")
+        rel_note = fam.get("relation_note","")
+        subtype  = rel_note if (rel == "other" and rel_note) else rel
+        # family: TEI の <relation> は @name ではなく @type を使う
+        fam_ref  = fr(fam.get("id",""))
+        ref_attr = f' ref="{fam_ref}"' if fam_ref else ""
+        relations.append(
+            f'        <relation type="personal" subtype="{subtype}" ' +
+            f'active="{fam_ref}" passive="#{d["aind_id"]}">' +
+            f'<desc>{fam.get("name","")}</desc></relation>'
+        )
 
-for inst in d.get("institutions",[]):
-    na = inst.get("name_ar", inst.get("name",""))
-    nl = inst.get("name_lat","")
-    if na or nl:
-        xml_lines.append(f'    <affiliation type="institution" subtype="{inst.get("type","")}" seq="{inst.get("seq","")}" ref="{fr(inst.get("id",""))}">')
-        if na: xml_lines.append(f'        <orgName xml:lang="ar">{na}</orgName>')
-        if nl: xml_lines.append(f'        <orgName xml:lang="lat">{nl}</orgName>')
-        xml_lines.append('    </affiliation>')
+    if relations:
+        x.append('    <listRelation>')
+        x.extend(relations)
+        x.append('    </listRelation>')
 
-for off in d.get("offices",[]):
-    if off.get("name_ar") or off.get("name_lat"):
-        xml_lines.append(f'    <state type="office" seq="{off.get("seq","")}" ref="{fr(off.get("id",""))}">')
-        if off.get("name_ar"):      xml_lines.append(f'        <label xml:lang="ar">{off["name_ar"]}</label>')
-        if off.get("name_lat"):     xml_lines.append(f'        <label xml:lang="lat">{off["name_lat"]}</label>')
-        if off.get("appoint_date"): xml_lines.append(f'        <date type="appointment">{off["appoint_date"]}</date>')
-        if off.get("retire_date"):  xml_lines.append(f'        <date type="retirement">{off["retire_date"]}</date>')
+    # --- Activities: born/died → birth/death event、その他 → residence ---
+    # TEI: @seq は非標準 → @n を使用
+    # married → <event type="marriage">
+    # born    → <event type="birth"> + <placeName>
+    # died    → <event type="death"> + <placeName>
+    for a in d.get("activities",[]):
+        if not a.get("place_ar"):
+            continue
+        n_attr  = f' n="{a.get("seq","")}"'
+        ref_att = f' ref="{fr(a.get("id"))}"' if a.get("id") else ""
+        atype   = a.get("type","reside")
+
+        if atype == "born":
+            x.append(f'    <event type="birth"{n_attr}><placeName{ref_att}>{a["place_ar"]}</placeName></event>')
+        elif atype == "died":
+            x.append(f'    <event type="death"{n_attr}><placeName{ref_att}>{a["place_ar"]}</placeName></event>')
+        elif atype == "buried":
+            x.append(f'    <event type="burial"{n_attr}><placeName{ref_att}>{a["place_ar"]}</placeName></event>')
+        else:
+            # reside / visit / study / other → <residence>
+            x.append(f'    <residence n="{a.get("seq","")}" type="{atype}"{ref_att}><placeName>{a["place_ar"]}</placeName></residence>')
+
+    # --- Institutions: @seq → @n, @subtype → @type ---
+    for inst in d.get("institutions",[]):
+        na = inst.get("name_ar", inst.get("name",""))
+        nl = inst.get("name_lat","")
+        if not (na or nl):
+            continue
+        inst_ref = fr(inst.get("id",""))
+        ref_att  = f' ref="{inst_ref}"' if inst_ref else ""
+        x.append(f'    <affiliation n="{inst.get("seq","")}" type="{inst.get("type","")}"{ ref_att}>')
+        if na: x.append(f'        <orgName xml:lang="ar">{na}</orgName>')
+        if nl: x.append(f'        <orgName xml:lang="lat">{nl}</orgName>')
+        x.append('    </affiliation>')
+
+    # --- Offices: <state> + 内部要素 ---
+    # TEI <state> は人物の状態・身分を表す要素として適切
+    for off in d.get("offices",[]):
+        if not (off.get("name_ar") or off.get("name_lat")):
+            continue
+        off_ref = fr(off.get("id",""))
+        ref_att = f' ref="{off_ref}"' if off_ref else ""
+        x.append(f'    <state n="{off.get("seq","")}" type="office"{ref_att}>')
+        if off.get("name_ar"):
+            x.append(f'        <label xml:lang="ar">{off["name_ar"]}</label>')
+        if off.get("name_lat"):
+            x.append(f'        <label xml:lang="lat">{off["name_lat"]}</label>')
+        if off.get("appoint_date"):
+            x.append(f'        <date type="appointment" when-custom="{off["appoint_date"]}"/>')
+        if off.get("retire_date"):
+            x.append(f'        <date type="retirement" when-custom="{off["retire_date"]}"/>')
         if off.get("place_ar") or off.get("place_id"):
-            xml_lines.append(f'        <placeName ref="{fr(off.get("place_id",""))}">{off.get("place_ar","")}</placeName>')
+            pr = fr(off.get("place_id",""))
+            ref_p = f' ref="{pr}"' if pr else ""
+            x.append(f'        <placeName{ref_p}>{off.get("place_ar","")}</placeName>')
         if off.get("inst_name") or off.get("inst_id"):
-            xml_lines.append(f'        <orgName ref="{fr(off.get("inst_id",""))}">{off.get("inst_name","")}</orgName>')
-        xml_lines.append('    </state>')
+            ir = fr(off.get("inst_id",""))
+            ref_i = f' ref="{ir}"' if ir else ""
+            x.append(f'        <orgName{ref_i}>{off.get("inst_name","")}</orgName>')
+        x.append('    </state>')
 
-if d.get("person_notes"):
-    xml_lines.append(f'    <note type="personalia">{d["person_notes"]}</note>')
-if d.get("translation_jp"):
-    xml_lines.append(f'    <note type="translation" xml:lang="ja">{d["translation_jp"]}</note>')
-if d.get("translation_en"):
-    xml_lines.append(f'    <note type="translation" xml:lang="en">{d["translation_en"]}</note>')
+    # --- notes ---
+    if d.get("person_notes"):
+        x.append(f'    <note type="personalia" xml:lang="ja">{d["person_notes"]}</note>')
+    if d.get("translation_jp"):
+        x.append(f'    <note type="translation" xml:lang="ja">{d["translation_jp"]}</note>')
+    if d.get("translation_en"):
+        x.append(f'    <note type="translation" xml:lang="en">{d["translation_en"]}</note>')
 
-xml_lines.append("</person>")
+    x.append("</person>")
+    return "\n".join(x)
 
-xml_str = "\n".join(xml_lines)
+xml_str = build_xml(d)
 st.code(xml_str, language="xml")
 st.download_button(label="💾 XMLをダウンロード", data=xml_str,
                    file_name=f"{d['aind_id']}.xml", mime="application/xml")
