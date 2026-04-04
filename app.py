@@ -839,7 +839,9 @@ with col_save:
                     ws.append_row(row_data, value_input_option="USER_ENTERED")
                     st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
 
-            except ImportError:
-                st.error("gspread / google-auth がインストールされていません。requirements.txt に追加してください。")
+            except ImportError as e:
+                st.error(f"ライブラリ不足: {e}\nrequirements.txt に gspread と google-auth を追加してください。")
             except Exception as e:
-                st.error(f"保存エラー: {e}")
+                import traceback
+                st.error(f"保存エラー: {type(e).__name__}: {e}")
+                st.code(traceback.format_exc())
