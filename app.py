@@ -15,15 +15,27 @@ if api_key:
     genai.configure(api_key=api_key)
 
 def get_working_model():
+    PREFERRED_MODELS = [
+        'gemini-2.0-flash',
+        'gemini-1.5-flash',
+        'gemini-1.5-pro',
+    ]
     try:
-        models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
-        flash_models = [m for m in models if 'flash' in m]
-        if flash_models:
-            return genai.GenerativeModel(flash_models[-1])
-        elif models:
-            return genai.GenerativeModel(models[0])
+        available = [
+            m.name for m in genai.list_models()
+            if 'generateContent' in m.supported_generation_methods
+            and 'tts' not in m.name
+            and 'vision' not in m.name
+        ]
+        for preferred in PREFERRED_MODELS:
+            for m in available:
+                if preferred in m:
+                    return genai.GenerativeModel(m)
+        if available:
+            return genai.GenerativeModel(available[0])
     except Exception:
-        return genai.GenerativeModel('gemini-1.5-flash')
+        pass
+    return genai.GenerativeModel('gemini-1.5-flash')
 
 # --- 3. ユーティリティ関数 ---
 def convert_h_to_g(h_year):
