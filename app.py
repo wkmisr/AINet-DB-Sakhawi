@@ -264,10 +264,8 @@ Return ONLY valid JSON, NO markdown:
 }}
 Text: {source_input}
 """
-                    response = model.generate_content(prompt)
+　　　　　　　　　　　　response = model.generate_content(prompt)
                     raw = re.sub(r"```json|```", "", response.text).strip()
-                    # 制御文字を除去（改行・タブ以外の制御文字）
-                    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
                     m = re.search(r"\{.*\}", raw, re.DOTALL)
                     if m:
                         json_str = m.group()
