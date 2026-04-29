@@ -266,9 +266,18 @@ Text: {source_input}
 """
                     response = model.generate_content(prompt)
                     raw = re.sub(r"```json|```", "", response.text).strip()
+                    # 制御文字を除去（改行・タブ以外の制御文字）
+                    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
                     m = re.search(r"\{.*\}", raw, re.DOTALL)
                     if m:
-                        res = json.loads(m.group())
+                        json_str = m.group()
+                        # JSONの文字列値内の生の改行をエスケープ
+                        try:
+                            res = json.loads(json_str)
+                        except json.JSONDecodeError:
+                            json_str = re.sub(r'(?<!\\)\n', '\\n', json_str)
+                            json_str = re.sub(r'(?<!\\)\r', '\\r', json_str)
+                            res = json.loads(json_str)
                         for k in ["teachers","students","activities","nisbahs","laqabs","family","institutions","offices"]:
                             if k in res:
                                 for item in res[k]:
