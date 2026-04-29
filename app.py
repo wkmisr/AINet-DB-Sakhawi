@@ -264,7 +264,7 @@ Return ONLY valid JSON, NO markdown:
 }}
 Text: {source_input}
 """
-　　　　　　　　　　　　response = model.generate_content(prompt)
+                    response = model.generate_content(prompt)
                     raw = re.sub(r"```json|```", "", response.text).strip()
                     m = re.search(r"\{.*\}", raw, re.DOTALL)
                     if m:
