@@ -204,6 +204,12 @@ with st.sidebar:
                     prompt = f"""
 You are a professional historian of Islamic studies. Extract data from the source text into JSON.
 
+【Source Text Format】
+The source text begins with a marker like:
+  ###$ID_NUMBER$# AIND-D00XXX [biographical text]
+- ID_NUMBER (12 digits): the original source ID. Extract as "original_id".
+- AIND-D00XXX: the project's AIND ID. Extract as "aind_id" (keep the "AIND-D" prefix).
+
 【ID Master — use these IDs for matching entities】
 {id_master_text}
 
@@ -241,7 +247,7 @@ You are a professional historian of Islamic studies. Extract data from the sourc
 
 Return ONLY valid JSON, NO markdown:
 {{
-    "original_id":"","full_name":"","name_only":"",
+    "aind_id":"","original_id":"","full_name":"","name_only":"",
     "birth_h":"","death_h":"","madhhab_name":"",
     "nisbahs":[{{"ar":"","lat":"","id":"TMP-L-00000"}}],
     "laqabs":[{{"type":"laqab","ar":"","lat":""}}],
@@ -286,7 +292,7 @@ Text: {source_input}
                                 for item in res[k]:
                                     item["ui_id"] = str(uuid.uuid4())
                                 d[k] = res[k]
-                        for f in ["original_id","full_name","name_only","birth_h","death_h","translation_jp","translation_en"]:
+                        for f in ["aind_id","original_id","full_name","name_only","birth_h","death_h","translation_jp","translation_en"]:
                             if f in res:
                                 d[f] = res[f]
                         d["birth_g"] = convert_h_to_g(d["birth_h"])
