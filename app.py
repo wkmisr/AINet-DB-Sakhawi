@@ -878,6 +878,7 @@ DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 # 列定義（スプレッドシートのヘッダー順）
 # 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
+    "行数", 
     "担当者",
     "AIND-D-XXXX",
     "12digitsID",
@@ -922,9 +923,9 @@ def build_row(data, assignee):
     ]
 
 def find_row_by_id(worksheet, original_id):
-    """12digitsID列（3列目=index2）でoriginal_idを検索し、行番号を返す（なければNone）"""
+    """12digitsID列（4列目）でoriginal_idを検索"""
     try:
-        col_values = worksheet.col_values(3)  # 3列目 = 12digitsID
+        col_values = worksheet.col_values(4)  # 4列目 = 12digitsID（A列に行数追加後）
         for idx, val in enumerate(col_values):
             if val.strip() == str(original_id).strip():
                 return idx + 1  # gspreadは1-indexed
@@ -973,7 +974,7 @@ with col_save:
 
                 if row_num:
                     # 既存行を更新
-                    ws.update(f"A{row_num}:I{row_num}", [row_data])
+                    ws.update(f"B{row_num}:J{row_num}", [row_data])
                     st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
                 else:
                     # 新規行を追加
