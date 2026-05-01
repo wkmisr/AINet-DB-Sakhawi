@@ -940,9 +940,9 @@ st.caption(
     "スプレッドシートをそのアカウントのメールアドレスに共有してください。"
 )
 
-ASSIGNEE_OPTIONS = ["Ito", "Kumakura", "Miura", "Ota", "Shinoda", "Assistant A", "Assistant B"]
+ASSIGNEE_OPTIONS = ["Ito_done", "Kuma_done", "Miura_done", "Ota_done", "Shino_done", "AssistantA_done", "AssistantB_done"]
 assignee = st.selectbox("担当者", options=ASSIGNEE_OPTIONS,
-    index=ASSIGNEE_OPTIONS.index(st.session_state.get("assignee", "Kumakura"))
+    index=ASSIGNEE_OPTIONS.index(st.session_state.get("assignee", "Kuma_done"))
           if st.session_state.get("assignee") in ASSIGNEE_OPTIONS else 0,
     key="assignee_input")
 st.session_state["assignee"] = assignee
