@@ -10,8 +10,6 @@
 
 ## プロジェクトのデータセット
 
-https://drive.google.com/drive/folders/1rEAbyK3-rEhrNPX30wWJDntCs-hKiyLu?usp=sharing
-
 - **DawForAIND.txt** — シャハーウィー著『輝く光（al-Ḍawʾ al-Lāmiʿ）』のデジタルテキスト。解析ツールへの入力にはこちらを使用します。
 - **ID-Master** — 地名・機関・人物・書物などのIDを一元的に蓄積・管理するマスターリストです。解析時にAIが自動参照します。
 - **Sakhawi_PersonList** — 『輝く光』に立項されている人物の一覧です。解析ツールで抽出したデータが自動的に反映されます。
