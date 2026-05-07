@@ -2693,7 +2693,6 @@ DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 # 列定義（スプレッドシートのヘッダー順）
 # 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
-    "行数", 
     "担当者",
     "AIND-D-XXXX",
     "12digitsID",
@@ -2793,7 +2792,8 @@ with col_save:
                     st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
                 else:
                     # 新規行を追加
-                    ws.append_row(row_data, value_input_option="USER_ENTERED")
+                    # A列を空にして、B列以降に書く
+                    ws.append_row([""] + row_data, value_input_option="USER_ENTERED")
                     st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
 
             except ImportError as e:
