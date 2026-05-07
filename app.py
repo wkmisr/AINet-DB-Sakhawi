@@ -9,6 +9,15 @@ import requests
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
 
+st.markdown("""
+<style>
+section[data-testid="stSidebar"] .stTextArea textarea {
+    font-size: 1.25rem !important;
+    line-height: 1.6 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # --- 2. API設定 ---
 api_key = st.secrets.get("GEMINI_API_KEY")
 if api_key:
@@ -581,6 +590,235 @@ def migrate_v18_to_v19(old_data):
     return new_data
 
 
+# === ID 統計・採番ヘルパー(機能 A / C 用) ===
+
+TMP_ID_PREFIXES = {
+    "TMP-P-": ("人物",   6),
+    "TMP-N-": ("ニスバ", 5),
+    "TMP-L-": ("地名",   5),
+    "TMP-I-": ("機関",   5),
+    "TMP-O-": ("役職",   5),
+    "TMP-T-": ("書物",   5),
+    "TMP-S-": ("分野",   5),
+}
+
+
+def get_used_numbers(records, prefix):
+    """ID-Master から指定プレフィックスの使用済み番号を取得"""
+    used = set()
+    for r in records:
+        id_val = (r.get("ID", "") or "").strip()
+        if id_val.startswith(prefix):
+            try:
+                num = int(id_val[len(prefix):])
+                used.add(num)
+            except ValueError:
+                pass
+    return used
+
+
+def get_id_stats_per_category(records):
+    """ID-Master から各 TMP- カテゴリの統計情報を取得
+    Returns: {prefix: {label, max, next, gaps, digits}}
+    """
+    result = {}
+    for prefix, (label, digits) in TMP_ID_PREFIXES.items():
+        used = get_used_numbers(records, prefix)
+        if not used:
+            result[prefix] = {"label": label, "max": 0, "next": 1,
+                              "gaps": [], "digits": digits}
+        else:
+            max_num = max(used)
+            full_range = set(range(1, max_num + 1))
+            gaps = sorted(full_range - used)
+            result[prefix] = {
+                "label": label,
+                "max": max_num,
+                "next": max_num + 1,
+                "gaps": gaps,
+                "digits": digits,
+            }
+    return result
+
+
+def get_next_tmp_number(used_numbers, session_used):
+    """次の番号を返す(欠番優先 → 最大+1)"""
+    all_used = used_numbers | session_used
+    if not all_used:
+        return 1
+    max_used = max(all_used)
+    full_range = set(range(1, max_used + 1))
+    gaps = full_range - all_used
+    if gaps:
+        return min(gaps)
+    return max_used + 1
+
+
+_PLACEHOLDER_RE = re.compile(r"^TMP-[A-Z]-0+$")
+
+
+def is_placeholder_id(id_str):
+    """TMP-X-00000 / TMP-X-000000 のようなプレースホルダーか判定。
+    空文字も「採番されていない」扱いで True を返す。
+    """
+    if not id_str:
+        return True
+    return bool(_PLACEHOLDER_RE.match(str(id_str).strip()))
+
+
+# 自動採番の対象フィールド: (section, field, prefix)
+TMP_FIELDS_BY_PREFIX = [
+    ("nisbahs",          "id",              "TMP-L-"),
+    ("teachers",         "id",              "TMP-P-"),
+    ("teachers",         "text_id",         "TMP-T-"),
+    ("teachers",         "learn_place_id",  "TMP-L-"),
+    ("students",         "id",              "TMP-P-"),
+    ("students",         "text_id",         "TMP-T-"),
+    ("students",         "teach_place_id",  "TMP-L-"),
+    ("activities",       "id",              "TMP-L-"),
+    ("institutions",     "id",              "TMP-I-"),
+    ("offices",          "id",              "TMP-O-"),
+    ("offices",          "place_id",        "TMP-L-"),
+    ("offices",          "inst_id",         "TMP-I-"),
+    ("family",           "id",              "TMP-P-"),
+    ("bio_events",       "place_id",        "TMP-L-"),
+    ("social_relations", "person_id",       "TMP-P-"),
+]
+
+
+def auto_assign_tmp_ids_in_data(d, silent=False):
+    """data 内のプレースホルダー TMP-ID(TMP-X-0...0)を空き番号に置換。
+    欠番優先 → 最大番号+1 の順で採番する。
+    既に確定した ID(TMP-L-00042 や Q12345 など)と空欄は触らない。
+
+    silent=True の場合は st.success/info を出さず、st.rerun も呼ばない
+    (Gemini 解析直後など、呼び出し側の処理が続く場合に使用)。
+    """
+    records = load_id_master()
+
+    session_used = {p: set() for p in TMP_ID_PREFIXES}
+    used_per_prefix = {
+        p: get_used_numbers(records, p) for p in TMP_ID_PREFIXES
+    }
+
+    def assign_id(prefix):
+        digits = TMP_ID_PREFIXES[prefix][1]
+        next_num = get_next_tmp_number(
+            used_per_prefix[prefix], session_used[prefix]
+        )
+        session_used[prefix].add(next_num)
+        return f"{prefix}{next_num:0{digits}d}"
+
+    count = 0
+    for section, field, prefix in TMP_FIELDS_BY_PREFIX:
+        for item in d.get(section, []):
+            current = str(item.get(field, "") or "").strip()
+            # プレースホルダー(TMP-X-0...0)で、かつプレフィックスが一致するときだけ採番。
+            # 空欄は触らない(ユーザーが意図的に未指定にした場合の誤採番を防ぐ)。
+            if current and is_placeholder_id(current) and current.startswith(prefix):
+                item[field] = assign_id(prefix)
+                count += 1
+
+    if not silent:
+        if count > 0:
+            st.success(f"{count} 個の ID を採番しました。")
+        else:
+            st.info("採番すべきプレースホルダーはありません。")
+        st.rerun()
+
+
+# === 翻字一括補完ヘルパー(機能 B 用) ===
+
+LATIN_TRANSLITERATE_PAIRS = [
+    ("nisbahs",      ("ar",             "lat")),
+    ("laqabs",       ("ar",             "lat")),
+    ("teachers",     ("text_ar",        "text_lat")),
+    ("teachers",     ("learn_place_ar", "learn_place_lat")),
+    ("students",     ("text_ar",        "text_lat")),
+    ("students",     ("teach_place_ar", "teach_place_lat")),
+    ("activities",   ("place_ar",       "place_lat")),
+    ("institutions", ("name_ar",        "name_lat")),
+    ("offices",      ("name_ar",        "name_lat")),
+    ("offices",      ("place_ar",       "place_lat")),
+    ("bio_events",   ("place_ar",       "place_lat")),
+]
+
+
+def collect_empty_latin_fields(d):
+    """空のラテン欄に対応するアラビア語を収集
+    Returns: [((section, idx, lat_field), ar_value), ...]
+    """
+    targets = []
+    for section, (ar_field, lat_field) in LATIN_TRANSLITERATE_PAIRS:
+        for i, item in enumerate(d.get(section, [])):
+            ar_val = (item.get(ar_field, "") or "").strip()
+            lat_val = (item.get(lat_field, "") or "").strip()
+            if ar_val and not lat_val:
+                targets.append(((section, i, lat_field), ar_val))
+    return targets
+
+
+def apply_transliterations(d, targets, results):
+    """翻字結果を空欄に書き戻す。再確認込みで既存値は絶対に上書きしない。"""
+    for (path, _), result in zip(targets, results):
+        section, idx, field = path
+        if not isinstance(result, str):
+            continue
+        if not (d[section][idx].get(field, "") or "").strip():
+            d[section][idx][field] = result.strip()
+
+
+def transliterate_empty_latin_fields(d):
+    """メイン関数: 空のラテン欄を IJMES 翻字で一括補完。"""
+    targets = collect_empty_latin_fields(d)
+    if not targets:
+        st.info("補完すべき空欄がありません。")
+        return
+
+    items = [t[1] for t in targets]
+
+    prompt = f"""
+You are an expert Arabic-to-Latin transliterator using IJMES standards.
+
+IJMES rules:
+- ع → ʿ (U+02BF)
+- ء → ʾ (U+02BE)
+- ث = th, ج = j, ذ = dh, ش = sh, غ = gh, خ = kh
+- Long vowels with macrons: ā, ī, ū
+- Emphatic consonants: ḥ, ṣ, ḍ, ṭ, ẓ
+- Definite article always "al-" (do not assimilate to sun letters)
+- Alif maqṣūra (ى) is transliterated as ā (same as regular alif)
+  Examples: موسى → Mūsā, مصطفى → Muṣṭafā, عيسى → ʿĪsā
+- Tā marbūṭa (ة) is dropped at end of word in non-construct state
+- Preserve names and titles in their conventional academic forms
+
+Transliterate each item in the input array. Return ONLY a valid JSON array
+of strings in the same order as input. No markdown fences, no explanation.
+
+Input items:
+{json.dumps(items, ensure_ascii=False)}
+"""
+
+    with st.spinner(f"{len(items)} 項目の翻字を生成中..."):
+        try:
+            model = get_working_model()
+            response = model.generate_content(prompt)
+            raw = re.sub(r"```json|```", "", response.text).strip()
+            results = json.loads(raw)
+
+            if isinstance(results, list) and len(results) == len(items):
+                apply_transliterations(d, targets, results)
+                st.success(f"{len(items)} 項目を補完しました。")
+                st.rerun()
+            else:
+                actual = len(results) if isinstance(results, list) else "不明"
+                st.error(
+                    f"翻字結果の数が合いません(期待 {len(items)}、実際 {actual})"
+                )
+        except Exception as e:
+            st.error(f"翻字エラー: {type(e).__name__}: {e}")
+
+
 def apply_prompt_madhhab(data, madhhab_name):
     """プロンプトの madhhab_name を data.madhhab に展開"""
     name = (madhhab_name or "").strip()
@@ -643,6 +881,9 @@ def apply_prompt_result(data, prompt_result):
                 if isinstance(item, dict) and "ui_id" not in item:
                     item["ui_id"] = str(uuid.uuid4())
             data[f] = items
+
+    # Gemini が返した TMP-X-00000 プレースホルダーを空き番号で採番
+    auto_assign_tmp_ids_in_data(data, silent=True)
 
 
 # --- セッション状態の初期化 ---
@@ -1195,6 +1436,27 @@ Text: {source_input}
         records = load_id_master()
         if records:
             st.success(f"{len(records)} 件読み込み済み")
+
+            # カテゴリ別の最新ID/次ID/欠番
+            st.markdown("**📊 カテゴリ別の最新ID(次に使うべき番号の参考)**")
+            stats = get_id_stats_per_category(records)
+            for prefix, info in stats.items():
+                digits = info["digits"]
+                if info["max"] > 0:
+                    current = f"{prefix}{info['max']:0{digits}d}"
+                else:
+                    current = "(なし)"
+                next_id = f"{prefix}{info['next']:0{digits}d}"
+                st.caption(
+                    f"  {prefix}({info['label']}): 最新 `{current}` → 次は `{next_id}`"
+                )
+                if info["gaps"]:
+                    gaps_display = info["gaps"][:5]
+                    gaps_str = ", ".join(f"{g:0{digits}d}" for g in gaps_display)
+                    if len(info["gaps"]) > 5:
+                        gaps_str += f" 他{len(info['gaps']) - 5}件"
+                    st.caption(f"     欠番(優先): {gaps_str}")
+
             st.dataframe(records, use_container_width=True)
         else:
             st.warning("ID Master を読み込めませんでした。スプレッドシートの共有設定を確認してください。")
@@ -1213,9 +1475,17 @@ Text: {source_input}
 # ===================================================
 st.title("🌙 AINet-DB Researcher Pro")
 
-# === クリアボタン(2段階確認) ===
-clr_c1, clr_c2 = st.columns([0.85, 0.15])
+# === ツールバー(翻字補完 / 採番更新 / クリア) ===
+clr_c1, clr_c2, clr_c3, clr_c4 = st.columns([0.55, 0.15, 0.15, 0.15])
 with clr_c2:
+    if st.button("↗ 翻字を一括補完", use_container_width=True,
+                 help="空のラテン欄を IJMES 翻字で一括補完(既存の入力は保持)"):
+        transliterate_empty_latin_fields(d)
+with clr_c3:
+    if st.button("🔢 採番を更新", use_container_width=True,
+                 help="プレースホルダー(TMP-X-00000)を空き番号で採番"):
+        auto_assign_tmp_ids_in_data(d)
+with clr_c4:
     if st.button("🗑️ 入力をクリア", use_container_width=True,
                  help="入力した全データをクリアします(担当者名は保持)"):
         st.session_state["_show_clear_confirm"] = True
