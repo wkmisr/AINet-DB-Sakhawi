@@ -2030,6 +2030,50 @@ basic_c3.text_input(
     help="スプレッドシート C列「進捗ラベル」から取得(同じ original_id の行があれば表示)。"
          "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
 )
+
+# === 🔧 デバッグ表示(問題解決後に削除) ===
+with st.expander("🔧 進捗ラベル読み込みデバッグ情報", expanded=False):
+    try:
+        _mapping = load_progress_label_mapping()
+        _oid = (d.get("original_id", "") or "").strip()
+        st.write(f"**マッピング辞書のサイズ**: {len(_mapping)} 件")
+        if _mapping:
+            # 先頭5件を表示
+            st.write("**先頭5件**:")
+            for i, (k, v) in enumerate(list(_mapping.items())[:5]):
+                st.write(f"  {i+1}. {k!r} → {v!r}")
+        else:
+            st.warning("マッピング辞書が空です。スプレッドシートのC列(進捗ラベル)とD列(12digitsID)が読み取れていません。")
+
+        if _oid:
+            st.write(f"**現在の original_id**: {_oid!r}")
+            if _oid in _mapping:
+                st.success(f"✓ マッピングに存在: {_mapping[_oid]!r}")
+            else:
+                st.warning(f"✗ マッピングに存在しません: {_oid!r}")
+                # 似た値を探す(空白混入や型違い対策)
+                similar = [k for k in _mapping.keys() if _oid in k or k in _oid]
+                if similar:
+                    st.write(f"**似た値**(部分一致): {similar[:5]}")
+
+        # 直接スプレッドシートを読んで生データを確認
+        st.write("---")
+        st.write("**スプレッドシート直接読み取り(キャッシュ未使用)**:")
+        try:
+            _gc = get_gspread_client()
+            _sh = _gc.open_by_key(DATASET_SHEET_ID)
+            _ws = _sh.get_worksheet(0)
+            _c_vals = _ws.col_values(3)  # C列
+            _d_vals = _ws.col_values(4)  # D列
+            st.write(f"  C列の値(先頭10件、ヘッダー含む): {_c_vals[:10]}")
+            st.write(f"  D列の値(先頭10件、ヘッダー含む): {_d_vals[:10]}")
+            st.write(f"  C列の総行数: {len(_c_vals)}")
+            st.write(f"  D列の総行数: {len(_d_vals)}")
+        except Exception as e:
+            st.error(f"スプレッドシート直接読み取り失敗: {type(e).__name__}: {e}")
+    except Exception as e:
+        st.error(f"デバッグ表示エラー: {type(e).__name__}: {e}")
+
 basic_c4.text_input(
     "xml:id (派生)",
     value=get_xml_id(d) or "",
