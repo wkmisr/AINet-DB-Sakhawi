@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.6"
+APP_VERSION = "v20.0"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -172,10 +172,11 @@ def is_id_format(s):
 
 
 ORIGINAL_ID_PATTERN = re.compile(r"^\d{12}$")
+AIND_ID_PATTERN = re.compile(r"^AIND-D\d{5}$")
 
 
 def validate_original_id(value):
-    """original_id が 12 桁の半角数字かどうか判定。
+    """original_id (12 digits ID) が 12 桁の半角数字かどうか判定。
     空欄、12 桁未満/超、英字混入、全角数字等はすべて False。
     """
     if not isinstance(value, str):
@@ -183,24 +184,30 @@ def validate_original_id(value):
     return bool(ORIGINAL_ID_PATTERN.match(value))
 
 
-def get_xml_id(data):
-    """original_id から xml:id を派生生成する。
-    形式: id_{12桁ID}(NCName 仕様準拠のためアンダースコア接頭辞を使用)
-    12 桁数字でない場合は None。
+def validate_aind_id(value):
+    """aind_id が AIND-D{5桁} 形式かどうか判定。
     """
-    oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
-    if validate_original_id(oid):
-        return f"id_{oid}"
+    if not isinstance(value, str):
+        return False
+    return bool(AIND_ID_PATTERN.match(value))
+
+
+def get_xml_id(data):
+    """xml:id を取得する。
+    形式: AIND-D{5桁}
+    aind_id フィールドにテキストから読み取った値を保持する。
+    フォーマット違反 / 空欄の場合は None。
+    """
+    if not isinstance(data, dict):
+        return None
+    aid = (data.get("aind_id", "") or "").strip()
+    if validate_aind_id(aid):
+        return aid
     return None
 
 
-PROGRESS_LABEL_SHEET_COL = 3  # スプレッドシートでの進捗ラベル列(C列)
-PROGRESS_LABEL_ID_COL = 4     # 12digitsID 列(D列)
-
 
 # === スプレッドシート接続(gspread 基盤) ===
-# load_progress_label_mapping() より前に定義する必要があるため
-# ここに置く(同じ定義はファイル末尾にもあったが、それでは順序的に遅すぎた)。
 
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
@@ -225,70 +232,26 @@ def get_gspread_client():
     return gspread.authorize(creds)
 
 
-@st.cache_data(ttl=60)
-def load_progress_label_mapping():
-    """スプレッドシート(C列「進捗ラベル」、D列「12digitsID」)を読み取り、
-    original_id → progress_label の辞書を返す。
-
-    スプレッドシートが進捗ラベルの正本。
-    アプリは記入されている値を読み取って表示するだけで、新規生成はしない。
-    取得失敗(認証不可、シート不在など)時は空辞書を返す。
-
-    キャッシュ有効期間は 60 秒(他の担当者の更新が比較的早く反映されるように)。
-
-    Returns:
-        dict: { "401914986553": "AIND-D00033", "996411441289": "AIND-D00061", ... }
-    """
-    mapping = {}
-    try:
-        gc = get_gspread_client()
-        sh = gc.open_by_key(DATASET_SHEET_ID)
-        ws = sh.get_worksheet(0)
-        labels = ws.col_values(PROGRESS_LABEL_SHEET_COL)  # C列
-        ids = ws.col_values(PROGRESS_LABEL_ID_COL)        # D列
-        # 1行目はヘッダーなのでスキップ
-        for label, oid in zip(labels[1:], ids[1:]):
-            oid = (oid or "").strip()
-            label = (label or "").strip()
-            if oid and label:
-                mapping[oid] = label
-    except Exception:
-        # 認証エラーやシート未設定の場合は空辞書を返す(進捗ラベル機能は無効化)
-        return {}
-    return mapping
-
-
-def get_progress_label(data):
-    """original_id から進捗ラベルを取得する(派生値)。
-
-    スプレッドシートに記入された値を返す。
-    記入がない場合は空文字列。
-    """
-    if not isinstance(data, dict):
-        return ""
-    oid = data.get("original_id", "")
-    if not isinstance(oid, str) or not oid:
-        return ""
-    mapping = load_progress_label_mapping()
-    return mapping.get(oid.strip(), "")
-
-
 def get_xml_filename(data):
     """XMLファイル名を生成する。
+    形式: {AIND-D ID}_{12桁ID}.xml
+    例:   AIND-D00001_932540579843.xml
 
-    形式: {進捗ラベル}_{12桁ID}.xml
-    例:   AIND-D00061_996411441289.xml
-
-    進捗ラベルがスプレッドシートに記入されていない場合は {12桁ID}.xml のみ。
-    original_id が 12 桁数字でない場合は None。
+    両方とも揃っていない場合は片方だけ、両方とも欠ければ None。
     """
-    oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
-    if not validate_original_id(oid):
+    if not isinstance(data, dict):
         return None
-    progress_label = get_progress_label(data)
-    if progress_label:
-        return f"{progress_label}_{oid}.xml"
-    return f"{oid}.xml"
+    aid = (data.get("aind_id", "") or "").strip()
+    oid = (data.get("original_id", "") or "").strip()
+    aid_ok = validate_aind_id(aid)
+    oid_ok = validate_original_id(oid)
+    if aid_ok and oid_ok:
+        return f"{aid}_{oid}.xml"
+    if aid_ok:
+        return f"{aid}.xml"
+    if oid_ok:
+        return f"{oid}.xml"
+    return None
 
 
 def pad_year_attr(s):
@@ -623,8 +586,9 @@ FIELD_IDS = {
 
 DEFAULT_DATA_V19 = {
     # === 基本識別情報 ===
-    # original_id (12 桁数字) を唯一の正規キーとして保持。
-    # xml:id は get_xml_id() で派生生成し、データ構造には保存しない。
+    # aind_id (AIND-D{5桁}): xml:id として使用、テキストヘッダーから読み取る
+    # original_id (12 digits ID): source 属性として使用、テキストヘッダーから読み取る
+    "aind_id": "",
     "original_id": "",
 
     # === 名前 ===
@@ -774,8 +738,8 @@ def migrate_v18_to_v19(old_data):
     new_data = json.loads(json.dumps(DEFAULT_DATA_V19))  # deep copy
 
     simple_fields = [
-        # aind_id は廃止(v19 では original_id から派生生成)
-        "original_id", "full_name", "name_only", "full_name_lat",
+        # aind_id (AIND-D{5桁}) と original_id (12digit) の両方を保持
+        "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
         "certainty", "birth_h", "birth_g", "death_h", "death_g",
         "madhhab", "sufi_order", "nisbahs", "laqabs",
         "institutions", "offices", "person_notes", "editors_notes",
@@ -1192,7 +1156,7 @@ def apply_prompt_madhhab(data, madhhab_name):
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
     simple_fields = [
-        "original_id", "full_name", "name_only", "full_name_lat",
+        "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
         "translation_jp", "translation_en",
     ]
     for f in simple_fields:
@@ -1204,8 +1168,16 @@ def apply_prompt_result(data, prompt_result):
     oid = (data.get("original_id", "") or "").strip()
     if oid and not validate_original_id(oid):
         st.warning(
-            f"original_id が 12 桁の半角数字ではありません: {oid!r}。"
-            "xml:id は派生生成されないため、入力欄で修正してください。"
+            f"original_id (12 digits ID) が 12 桁の半角数字ではありません: {oid!r}。"
+            "入力欄で修正してください。"
+        )
+
+    # aind_id のバリデーション: AIND-D{5桁} 形式でなければ警告
+    aid = (data.get("aind_id", "") or "").strip()
+    if aid and not validate_aind_id(aid):
+        st.warning(
+            f"aind_id (AIND-D ID) が AIND-DXXXXX 形式ではありません: {aid!r}。"
+            "xml:id として使用されないため、入力欄で修正してください。"
         )
 
     # sex
@@ -1281,12 +1253,13 @@ from the source text into JSON.
 【1. SOURCE TEXT FORMAT】
 ============================================================
 The source text begins with a marker:
-  ###$ID_NUMBER$# {{marker}} [biographical text]
-- ID_NUMBER (12 digits): the original source ID → "original_id".
+  ###$AIND-DXXXXX | NNNNNNNNNNNN$# {{marker}} [biographical text]
+- AIND-DXXXXX (5-digit sequence): the AIND identifier → "aind_id".
+  Return it exactly as it appears (e.g. "AIND-D00001").
+- NNNNNNNNNNNN (12 digits): the original source ID → "original_id".
   Return it as a 12-character string of digits, with no prefix.
+- The two IDs are separated by " | " (pipe with spaces) inside the marker.
 - {{marker}} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
-- Do NOT emit any "aind_id" / "xml_id" / "id_..." value.
-  The application derives the xml:id from original_id at write time.
 
 ============================================================
 【2. ID MASTER — USE THESE IDs FIRST】
@@ -1779,6 +1752,7 @@ and let the human editor resolve it later.
 Return ONLY valid JSON. No markdown fences. No commentary.
 
 {{
+  "aind_id": "",
   "original_id": "",
   "full_name": "",
   "name_only": "",
@@ -2029,55 +2003,46 @@ if st.session_state.get("_show_clear_confirm"):
 st.header("2. Metadata Editor")
 
 # --- 基本情報 ---
-# Source ID と Sex を同じ行に並べる(両方とも幅の狭い入力なので)
-basic_c1, basic_c2, basic_c3, basic_c4 = st.columns([1, 1, 1, 2])
-d["original_id"] = basic_c1.text_input(
-    "12-digit Source ID (@source)",
+# AIND-D ID と 12 digits ID と Sex を同じ行に並べる
+basic_c1, basic_c2, basic_c3 = st.columns([1, 1, 1])
+d["aind_id"] = basic_c1.text_input(
+    "AIND-D ID (xml:id)",
+    d.get("aind_id", ""),
+    placeholder="例: AIND-D00001",
+    help="AIND-D{5桁}形式。テキストヘッダーから自動抽出されます。XMLでは xml:id として使用。",
+)
+d["original_id"] = basic_c2.text_input(
+    "12 digits ID (@source)",
     d.get("original_id", ""),
-    placeholder="例: 401914986553",
-    help="12 桁の半角数字。xml:id は 'id_' + これ で自動生成されます。",
+    placeholder="例: 932540579843",
+    help="12 桁の半角数字。テキストヘッダーから自動抽出されます。XMLでは source 属性として使用。",
 )
 sex_keys   = [s[0] for s in SEX_OPTIONS]
 sex_labels = {s[0]: s[1] for s in SEX_OPTIONS}
 cur_sex = d.get("sex", "M")
 if cur_sex not in sex_keys:
     cur_sex = "M"
-d["sex"] = basic_c2.selectbox(
+d["sex"] = basic_c3.selectbox(
     "Sex",
     sex_keys,
     format_func=lambda x: sex_labels[x],
     index=sex_keys.index(cur_sex),
     key="sex_select",
 )
-with basic_c3:
-    st.markdown("**進捗ラベル**")
-    _pl = get_progress_label(d)
-    st.markdown(
-        f"<div style='padding:0.4rem 0.6rem; background:#f0f2f6; "
-        f"border-radius:4px; color:#262730; font-family:monospace; "
-        f"min-height:1.6rem;'>{_pl if _pl else '<span style=\"color:#aaa;\">(なし)</span>'}</div>",
-        unsafe_allow_html=True,
-    )
-    st.caption(
-        "スプレッドシート C列「進捗ラベル」から取得"
-    )
 
-with basic_c4:
-    st.markdown("**xml:id (派生)**")
-    _xid = get_xml_id(d) or ""
-    st.markdown(
-        f"<div style='padding:0.4rem 0.6rem; background:#f0f2f6; "
-        f"border-radius:4px; color:#262730; font-family:monospace; "
-        f"min-height:1.6rem;'>{_xid if _xid else '<span style=\"color:#aaa;\">(なし)</span>'}</div>",
-        unsafe_allow_html=True,
+# 形式チェック警告
+_warnings = []
+if d.get("aind_id") and not validate_aind_id(d["aind_id"]):
+    _warnings.append(
+        f"AIND-D ID は AIND-DXXXXX 形式である必要があります(現在: {d['aind_id']!r})"
     )
-    st.caption("original_id から派生生成: id_{12桁ID}")
+if d.get("original_id") and not validate_original_id(d["original_id"]):
+    _warnings.append(
+        f"12 digits ID は 12 桁の半角数字である必要があります(現在: {d['original_id']!r})"
+    )
+for w in _warnings:
+    st.warning(w)
 
-if d.get("original_id") and get_xml_id(d) is None:
-    st.warning(
-        "original_id は 12 桁の半角数字である必要があります。"
-        f"現在の値: {d['original_id']!r}"
-    )
 d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
 d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
 
@@ -3384,8 +3349,10 @@ def build_xml(d):
     method_dict, field_dict = build_method_field_dicts()
 
     xml_id = get_xml_id(d) or ""
+    source_id = (d.get("original_id", "") or "").strip()
+    source_attr = f' source="{escape_xml_attr(source_id)}"' if source_id else ""
     x.append(
-        f'<person xml:id="{escape_xml_attr(xml_id)}">'
+        f'<person xml:id="{escape_xml_attr(xml_id)}"{source_attr}>'
     )
 
     build_persnames(x, d)
@@ -3407,8 +3374,8 @@ xml_str = build_xml(d)
 st.code(xml_str, language="xml")
 
 # === ダウンロード / コピー ボタン ===
-# ファイル名は進捗ラベルから生成: AIND-D{5桁}_{12桁}.xml
-# 進捗ラベル未取得時(スプレッドシート未記入 or original_id 不正)は
+# ファイル名は AIND-D ID と 12 digits ID から生成: AIND-D{5桁}_{12桁}.xml
+# どちらか欠けている場合は片方だけ、両方欠ければボタン無効。
 # {12桁}.xml にフォールバック。
 _download_filename = get_xml_filename(d)
 btn_col1, btn_col2 = st.columns([1, 1])
@@ -3422,7 +3389,7 @@ with btn_col1:
             mime="application/xml",
             use_container_width=True,
             help="現在の人物の XML をファイルとしてダウンロードします。"
-                 "ファイル名は スプレッドシート C列「進捗ラベル」+ 12桁ID から生成されます。",
+                 "ファイル名は AIND-D ID + 12桁ID から生成されます。",
         )
     else:
         st.button(
@@ -3479,7 +3446,7 @@ st.header("4. スプレッドシートに保存")
 # === スプレッドシートの実際の列構成 ===
 # A: 行数(触らない / 関数式が入っているかもしれない)
 # B: 担当者(アプリが書き込む)
-# C: 進捗ラベル(触らない / 手動記入領域)
+# C: AIND-D ID(触らない / 手動記入領域)
 # D: 12digitsID(触らない / 手動記入領域・検索キー)
 # E: persName (Full Arabic)(アプリが書き込む)
 # F: persName (Ism/Father/GF)(アプリが書き込む)
@@ -3501,7 +3468,7 @@ SHEET_COLUMNS = [
 
 # 列番号(1-indexed)とプレビュー上の対応
 SHEET_COL_ID12 = 4   # D列: 12digitsID(検索キー)
-SHEET_COL_PROGRESS_LABEL = 3  # C列: 進捗ラベル(触らない)
+SHEET_COL_AIND_ID = 3  # C列: AIND-D ID(触らない)
 SHEET_COL_ASSIGNEE = 2  # B列: 担当者
 
 
@@ -3512,7 +3479,7 @@ def build_row_b(data, assignee):
 
 def build_row_ej(data):
     """E〜J列(persName以降)に書き込む 6セル分のデータを返す。
-    C列(進捗ラベル)と D列(12digitsID)は触らないため含めない。
+    C列(AIND-D ID)と D列(12 digits ID)は触らないため含めない。
     """
     # Madhhab表示文字列
     if data["madhhab"]["lat"] == "Unknown / Other":
@@ -3588,7 +3555,7 @@ with col_prev:
     preview_row = build_preview_row(d, assignee)
     preview_df  = dict(zip(SHEET_COLUMNS, preview_row))
     st.table(preview_df)
-    st.caption("※ C列(進捗ラベル)と D列(12digitsID)は変更されません。")
+    st.caption("※ C列(AIND-D ID)と D列(12 digits ID)は変更されません。")
 
 # 保存ボタン
 with col_save:
@@ -3611,7 +3578,7 @@ with col_save:
 
                 if row_num:
                     # 既存行を更新: B列と E〜J列のみ
-                    # 進捗ラベル(C列)と12digitsID(D列)は触らない
+                    # AIND-D ID(C列)と 12 digits ID(D列)は触らない
                     # RAW にしておくと先頭ゼロや AIND-D 形式の文字列が
                     # 数値に勝手変換されない(これらは触らないが念のため)
                     ws.update(
@@ -3629,18 +3596,13 @@ with col_save:
                         f"(12digitsID: {d['original_id']})"
                     )
                 else:
-                    # 新規行: 12digitsID を D列に書き、B列に担当者、E〜J列にデータ
+                    # 新規行: B列に担当者、E〜J列にデータのみ書き込み
+                    # C列(AIND-D ID)とD列(12 digits ID)は手動記入領域として触らない
                     # 一番下の空き行ではなく、D列が空の最初の行を探す
                     empty_row = find_first_empty_row(ws)
                     if empty_row is None:
                         st.error("空き行を特定できませんでした。シートを確認してください。")
                     else:
-                        # D列に 12digitsID
-                        ws.update(
-                            f"D{empty_row}",
-                            [[d["original_id"]]],
-                            value_input_option="RAW",
-                        )
                         # B列に担当者
                         ws.update(
                             f"B{empty_row}",
@@ -3654,9 +3616,12 @@ with col_save:
                             value_input_option="RAW",
                         )
                         st.success(
-                            f"✅ 新規行(行 {empty_row})に追加しました"
-                            f"(12digitsID: {d['original_id']})。"
-                            f"C列(進捗ラベル)は手動で記入してください。"
+                            f"✅ 新規行(行 {empty_row})の B列・E〜J列に書き込みました。"
+                            f"\n\n"
+                            f"⚠️ **C列(AIND-D ID)と D列(12 digits ID)は触っていません。**"
+                            f"手動で記入してください: "
+                            f"AIND-D ID = `{d.get('aind_id', '')}`、"
+                            f"12 digits ID = `{d.get('original_id', '')}`"
                         )
 
             except ImportError as e:
