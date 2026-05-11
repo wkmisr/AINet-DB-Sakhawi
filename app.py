@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.5.1"
+APP_VERSION = "v19.6"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -2049,22 +2049,29 @@ d["sex"] = basic_c2.selectbox(
     index=sex_keys.index(cur_sex),
     key="sex_select",
 )
-basic_c3.text_input(
-    "進捗ラベル",
-    value=get_progress_label(d),
-    disabled=True,
-    key="progress_label_display",
-    help="スプレッドシート C列「進捗ラベル」から取得(同じ original_id の行があれば表示)。"
-         "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
-)
+with basic_c3:
+    st.markdown("**進捗ラベル**")
+    _pl = get_progress_label(d)
+    st.markdown(
+        f"<div style='padding:0.4rem 0.6rem; background:#f0f2f6; "
+        f"border-radius:4px; color:#262730; font-family:monospace; "
+        f"min-height:1.6rem;'>{_pl if _pl else '<span style=\"color:#aaa;\">(なし)</span>'}</div>",
+        unsafe_allow_html=True,
+    )
+    st.caption(
+        "スプレッドシート C列「進捗ラベル」から取得"
+    )
 
-basic_c4.text_input(
-    "xml:id (派生)",
-    value=get_xml_id(d) or "",
-    disabled=True,
-    key="xml_id_display",
-    help="original_id から派生生成: id_{12桁ID}",
-)
+with basic_c4:
+    st.markdown("**xml:id (派生)**")
+    _xid = get_xml_id(d) or ""
+    st.markdown(
+        f"<div style='padding:0.4rem 0.6rem; background:#f0f2f6; "
+        f"border-radius:4px; color:#262730; font-family:monospace; "
+        f"min-height:1.6rem;'>{_xid if _xid else '<span style=\"color:#aaa;\">(なし)</span>'}</div>",
+        unsafe_allow_html=True,
+    )
+    st.caption("original_id から派生生成: id_{12桁ID}")
 
 if d.get("original_id") and get_xml_id(d) is None:
     st.warning(
