@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.4"
+APP_VERSION = "v19.5"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -185,22 +185,22 @@ def validate_original_id(value):
 
 def get_xml_id(data):
     """original_id から xml:id を派生生成する。
-    v19.4: xml:id は 12 桁数字をそのまま使用(AIND- プレフィックス無し)。
+    形式: id_{12桁ID}(NCName 仕様準拠のためアンダースコア接頭辞を使用)
     12 桁数字でない場合は None。
     """
     oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
     if validate_original_id(oid):
-        return oid
+        return f"id_{oid}"
     return None
 
 
 PROGRESS_LABEL_SHEET_COL = 3  # スプレッドシートでの進捗ラベル列(C列)
-PROGRESS_LABEL_ID_COL = 4     # xml:id 列(D列 = 12桁ID)
+PROGRESS_LABEL_ID_COL = 4     # 12digitsID 列(D列)
 
 
 @st.cache_data(ttl=60)
 def load_progress_label_mapping():
-    """スプレッドシート(C列「進捗ラベル」、D列「xml:id」)を読み取り、
+    """スプレッドシート(C列「進捗ラベル」、D列「12digitsID」)を読み取り、
     original_id → progress_label の辞書を返す。
 
     スプレッドシートが進捗ラベルの正本。
@@ -225,15 +225,9 @@ def load_progress_label_mapping():
             label = (label or "").strip()
             if oid and label:
                 mapping[oid] = label
-    except Exception as e:
-        # デバッグ用: 失敗理由を session_state に保存(UI で表示できるように)
-        st.session_state["_progress_label_load_error"] = (
-            f"{type(e).__name__}: {e}"
-        )
+    except Exception:
+        # 認証エラーやシート未設定の場合は空辞書を返す(進捗ラベル機能は無効化)
         return {}
-    # 成功時はエラー状態をクリア
-    st.session_state.pop("_progress_label_load_error", None)
-    st.session_state["_progress_label_load_count"] = len(mapping)
     return mapping
 
 
@@ -256,7 +250,7 @@ def get_xml_filename(data):
     """XMLファイル名を生成する。
 
     形式: {進捗ラベル}_{12桁ID}.xml
-    例:   AIND-D00009_560145104919.xml
+    例:   AIND-D00061_996411441289.xml
 
     進捗ラベルがスプレッドシートに記入されていない場合は {12桁ID}.xml のみ。
     original_id が 12 桁数字でない場合は None。
@@ -905,7 +899,7 @@ _ARABIC_NORMALIZE_TR = str.maketrans({
     "ئ": "ي",
 })
 # 削除する文字: シャッダ・スクーン・各種ハラカ・タンウィーン
-_ARABIC_DIACRITICS = re.compile(r"[ً-ٰٟ]")
+_ARABIC_DIACRITICS = re.compile(r"[ً-ٰٟ]")
 
 
 def normalize_arabic(s):
@@ -961,7 +955,7 @@ def _build_id_master_index(records):
 
 
 def _is_confirmed_id(id_str):
-    """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, AIND-)かを判定。
+    """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, id_)かを判定。
     プレースホルダー(TMP-X-0...0)や空欄は False。
     """
     s = (id_str or "").strip()
@@ -1264,7 +1258,7 @@ The source text begins with a marker:
 - ID_NUMBER (12 digits): the original source ID → "original_id".
   Return it as a 12-character string of digits, with no prefix.
 - {{marker}} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
-- Do NOT emit any "aind_id" / "xml_id" / "AIND-..." value.
+- Do NOT emit any "aind_id" / "xml_id" / "id_..." value.
   The application derives the xml:id from original_id at write time.
 
 ============================================================
@@ -2008,13 +2002,13 @@ if st.session_state.get("_show_clear_confirm"):
 st.header("2. Metadata Editor")
 
 # --- 基本情報 ---
-# v19.4: xml:id (派生) フィールドを削除。Source ID / Sex / 進捗ラベルの3列構成。
-basic_c1, basic_c2, basic_c3 = st.columns([1, 1, 1.5])
+# Source ID と Sex を同じ行に並べる(両方とも幅の狭い入力なので)
+basic_c1, basic_c2, basic_c3, basic_c4 = st.columns([1, 1, 1, 2])
 d["original_id"] = basic_c1.text_input(
     "12-digit Source ID (@source)",
     d.get("original_id", ""),
     placeholder="例: 401914986553",
-    help="12 桁の半角数字。xml:id にはこの値がそのまま使われます。",
+    help="12 桁の半角数字。xml:id は 'id_' + これ で自動生成されます。",
 )
 sex_keys   = [s[0] for s in SEX_OPTIONS]
 sex_labels = {s[0]: s[1] for s in SEX_OPTIONS}
@@ -2036,25 +2030,13 @@ basic_c3.text_input(
     help="スプレッドシート C列「進捗ラベル」から取得(同じ original_id の行があれば表示)。"
          "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
 )
-
-# 進捗ラベル取得状況のデバッグ表示
-_progress_err = st.session_state.get("_progress_label_load_error")
-_progress_cnt = st.session_state.get("_progress_label_load_count")
-if _progress_err:
-    st.error(f"⚠️ 進捗ラベル読み取り失敗: {_progress_err}")
-elif _progress_cnt is not None:
-    if _progress_cnt == 0:
-        st.warning(
-            "進捗ラベル: 読み取りは成功したが、マッピングが 0 件。"
-            "スプレッドシートの C 列(進捗ラベル) / D 列(xml:id) を確認してください。"
-        )
-    else:
-        oid = (d.get("original_id") or "").strip()
-        if oid and not get_progress_label(d):
-            st.info(
-                f"進捗ラベル: マッピングは {_progress_cnt} 件読み取り済みですが、"
-                f"この xml:id ({oid}) はスプレッドシートに見つかりませんでした。"
-            )
+basic_c4.text_input(
+    "xml:id (派生)",
+    value=get_xml_id(d) or "",
+    disabled=True,
+    key="xml_id_display",
+    help="original_id から派生生成: id_{12桁ID}",
+)
 
 if d.get("original_id") and get_xml_id(d) is None:
     st.warning(
@@ -3164,7 +3146,6 @@ def _build_social_relation(sr, aind_id):
 
 def build_list_relation(x, d, method_dict, field_dict):
     # 関係の active/passive 参照には派生 xml:id を使う。
-    # v19.4: aind_id は AIND- プレフィックス無しの 12 桁数字そのもの。
     # original_id が 12 桁でない場合は空欄(プレビュー時の暫定状態)。
     aind_id = get_xml_id(d) or ""
     relations = []
@@ -3459,20 +3440,34 @@ st.header("4. スプレッドシートに保存")
 
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
-# 列定義(スプレッドシートのヘッダー順 = B〜J列。A列は「行数」でコードからは触らない)
-# v19.4: xml:id と 12digitsID は同一値(12桁数字)になったため、列名を「xml:id」に統一。
-# A=行数 / B=担当者 / C=進捗ラベル / D=xml:id(=12桁) / E=persName(Full) / F=persName(Ism) / G=Birth(H) / H=Death(H) / I=Madhhab / J=Editors' Notes
+# === スプレッドシートの実際の列構成 ===
+# A: 行数(触らない / 関数式が入っているかもしれない)
+# B: 担当者(アプリが書き込む)
+# C: 進捗ラベル(触らない / 手動記入領域)
+# D: 12digitsID(触らない / 手動記入領域・検索キー)
+# E: persName (Full Arabic)(アプリが書き込む)
+# F: persName (Ism/Father/GF)(アプリが書き込む)
+# G: Birth (H)(アプリが書き込む)
+# H: Death (H)(アプリが書き込む)
+# I: Madhhab(アプリが書き込む)
+# J: Editors' Notes(アプリが書き込む)
+
+# 表示用ヘッダー(プレビュー表で使用)
 SHEET_COLUMNS = [
-    "担当者",
-    "進捗ラベル",
-    "xml:id",
-    "persName (Full Arabic)",
-    "persName (Ism/Father/GF)",
-    "Birth (H)",
-    "Death (H)",
-    "Madhhab",
-    "Editors' Notes",
+    "担当者",                       # B列
+    "persName (Full Arabic)",       # E列
+    "persName (Ism/Father/GF)",     # F列
+    "Birth (H)",                    # G列
+    "Death (H)",                    # H列
+    "Madhhab",                      # I列
+    "Editors' Notes",               # J列
 ]
+
+# 列番号(1-indexed)とプレビュー上の対応
+SHEET_COL_ID12 = 4   # D列: 12digitsID(検索キー)
+SHEET_COL_PROGRESS_LABEL = 3  # C列: 進捗ラベル(触らない)
+SHEET_COL_ASSIGNEE = 2  # B列: 担当者
+
 
 def get_gspread_client():
     """st.secretsのService AccountJSONからgspreadクライアントを生成"""
@@ -3493,63 +3488,67 @@ def get_gspread_client():
     creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
     return gspread.authorize(creds)
 
-def build_row_for_update(data, assignee):
-    """既存行更新用: C列(進捗ラベル)を除く 8 項目を返す。
-    C列はスプレッドシート側が正本なので、アプリからは触らない。
 
-    対応列: B / D / E / F / G / H / I / J(連続でないため、3 分割で書き込む)
+def build_row_b(data, assignee):
+    """B列(担当者)に書き込む 1セル分のデータを返す"""
+    return [assignee]
+
+
+def build_row_ej(data):
+    """E〜J列(persName以降)に書き込む 6セル分のデータを返す。
+    C列(進捗ラベル)と D列(12digitsID)は触らないため含めない。
     """
-    if data["madhhab"]["lat"] == "Unknown / Other":
-        madhhab_str = data["madhhab"].get("custom_name", "")
-    else:
-        madhhab_str = data["madhhab"]["lat"]
-
-    return {
-        "B": assignee,                          # 担当者
-        "D": data.get("original_id", ""),       # xml:id (= 12桁ID)
-        "E": data.get("full_name", ""),         # persName (Full Arabic)
-        "F": data.get("name_only", ""),         # persName (Ism/Father/GF)
-        "G": data.get("birth_h", ""),           # Birth (H)
-        "H": data.get("death_h", ""),           # Death (H)
-        "I": madhhab_str,                       # Madhhab
-        "J": data.get("editors_notes", ""),     # Editors' Notes
-    }
-
-
-def build_row(data, assignee):
-    """書き込み内容プレビュー用 & 新規追加用: B〜J 列の 9 項目を返す。
-    新規行追加時には C列(進捗ラベル)に現在取得済みの値を入れる
-    (空でも問題なし。担当者が後で記入する)。
-    """
+    # Madhhab表示文字列
     if data["madhhab"]["lat"] == "Unknown / Other":
         madhhab_str = data["madhhab"].get("custom_name", "")
     else:
         madhhab_str = data["madhhab"]["lat"]
 
     return [
-        assignee,                          # B列: 担当者
-        get_progress_label(data),          # C列: 進捗ラベル(派生)
-        data.get("original_id", ""),       # D列: xml:id (= 12桁ID)
-        data.get("full_name", ""),         # E列: persName (Full Arabic)
-        data.get("name_only", ""),         # F列: persName (Ism/Father/GF)
-        data.get("birth_h", ""),           # G列: Birth (H)
-        data.get("death_h", ""),           # H列: Death (H)
-        madhhab_str,                       # I列: Madhhab
-        data.get("editors_notes", ""),     # J列: Editors' Notes
+        data.get("full_name", ""),         # E: persName (Full Arabic)
+        data.get("name_only", ""),         # F: persName (Ism/Father/GF)
+        data.get("birth_h", ""),           # G: Birth (H)
+        data.get("death_h", ""),           # H: Death (H)
+        madhhab_str,                       # I: Madhhab
+        data.get("editors_notes", ""),     # J: Editors' Notes
     ]
 
+
+def build_preview_row(data, assignee):
+    """プレビュー表示用: B列と E〜J列のデータを1行にまとめる"""
+    return build_row_b(data, assignee) + build_row_ej(data)
+
+
 def find_row_by_id(worksheet, original_id):
-    """xml:id 列(D列 = 4列目)で original_id を検索。
-    A=行数 / B=担当者 / C=進捗ラベル / D=xml:id(= 12桁ID) / E=...
+    """D列(12digitsID)で original_id を検索し、行番号を返す。
+    見つからなければ None。
     """
     try:
-        col_values = worksheet.col_values(4)  # D列 = xml:id (= 12桁ID)
+        col_values = worksheet.col_values(SHEET_COL_ID12)  # D列
         for idx, val in enumerate(col_values):
             if val.strip() == str(original_id).strip():
                 return idx + 1  # gspreadは1-indexed
         return None
     except Exception:
         return None
+
+
+def find_first_empty_row(worksheet):
+    """D列(12digitsID)が空で、かつそれより上のどこかにデータがある行を探して
+    その行番号を返す(=末尾の空行ではなく、最初の空き行)。
+    シート全体が空ならヘッダーの次行(2)を返す。
+    """
+    try:
+        col_values = worksheet.col_values(SHEET_COL_ID12)
+        # 1行目はヘッダー
+        for idx, val in enumerate(col_values[1:], start=2):
+            if not val.strip():
+                return idx
+        # 全行に値があれば、シートの次の行
+        return len(col_values) + 1
+    except Exception:
+        return None
+
 
 # --- UI ---
 st.caption(
@@ -3569,10 +3568,11 @@ col_prev, col_save = st.columns([2, 1])
 
 # プレビュー
 with col_prev:
-    st.markdown("**書き込み内容プレビュー**")
-    preview_row = build_row(d, assignee)
+    st.markdown("**書き込み内容プレビュー(B列 + E〜J列)**")
+    preview_row = build_preview_row(d, assignee)
     preview_df  = dict(zip(SHEET_COLUMNS, preview_row))
     st.table(preview_df)
+    st.caption("※ C列(進捗ラベル)と D列(12digitsID)は変更されません。")
 
 # 保存ボタン
 with col_save:
@@ -3581,44 +3581,67 @@ with col_save:
         if not assignee:
             st.error("担当者名を入力してください。")
         elif not d.get("original_id"):
-            st.error("@source (xml:id / 12桁ID) が空です。入力してから保存してください。")
+            st.error("Source ID (12digitsID) が空です。入力してから保存してください。")
         else:
             try:
-                gc        = get_gspread_client()
-                sh        = gc.open_by_key(DATASET_SHEET_ID)
-                ws        = sh.get_worksheet(0)  # 最初のシート
-                row_data  = build_row(d, assignee)
-                row_num   = find_row_by_id(ws, d["original_id"])
+                gc = get_gspread_client()
+                sh = gc.open_by_key(DATASET_SHEET_ID)
+                ws = sh.get_worksheet(0)  # 最初のシート
+
+                row_b  = build_row_b(d, assignee)   # 担当者(B列)
+                row_ej = build_row_ej(d)            # persName 以降(E〜J列)
+
+                row_num = find_row_by_id(ws, d["original_id"])
 
                 if row_num:
-                    # 既存行を更新(C列「進捗ラベル」はスプレッドシート側が正本なので触らない)
-                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
-                    update_cells = build_row_for_update(d, assignee)
+                    # 既存行を更新: B列と E〜J列のみ
+                    # 進捗ラベル(C列)と12digitsID(D列)は触らない
+                    # RAW にしておくと先頭ゼロや AIND-D 形式の文字列が
+                    # 数値に勝手変換されない(これらは触らないが念のため)
                     ws.update(
                         f"B{row_num}",
-                        [[update_cells["B"]]],
+                        [row_b],
                         value_input_option="RAW",
                     )
                     ws.update(
-                        f"D{row_num}:J{row_num}",
-                        [[
-                            update_cells["D"],
-                            update_cells["E"],
-                            update_cells["F"],
-                            update_cells["G"],
-                            update_cells["H"],
-                            update_cells["I"],
-                            update_cells["J"],
-                        ]],
+                        f"E{row_num}:J{row_num}",
+                        [row_ej],
                         value_input_option="RAW",
                     )
-                    st.success(f"✅ 行 {row_num} を更新しました(xml:id: {d['original_id']})")
+                    st.success(
+                        f"✅ 行 {row_num} を更新しました"
+                        f"(12digitsID: {d['original_id']})"
+                    )
                 else:
-                    # 新規行を追加
-                    # A列(行数)を空にして、B列以降に書く
-                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
-                    ws.append_row([""] + row_data, value_input_option="RAW")
-                    st.success(f"✅ 新規行を追加しました(xml:id: {d['original_id']})")
+                    # 新規行: 12digitsID を D列に書き、B列に担当者、E〜J列にデータ
+                    # 一番下の空き行ではなく、D列が空の最初の行を探す
+                    empty_row = find_first_empty_row(ws)
+                    if empty_row is None:
+                        st.error("空き行を特定できませんでした。シートを確認してください。")
+                    else:
+                        # D列に 12digitsID
+                        ws.update(
+                            f"D{empty_row}",
+                            [[d["original_id"]]],
+                            value_input_option="RAW",
+                        )
+                        # B列に担当者
+                        ws.update(
+                            f"B{empty_row}",
+                            [row_b],
+                            value_input_option="RAW",
+                        )
+                        # E〜J列にデータ
+                        ws.update(
+                            f"E{empty_row}:J{empty_row}",
+                            [row_ej],
+                            value_input_option="RAW",
+                        )
+                        st.success(
+                            f"✅ 新規行(行 {empty_row})に追加しました"
+                            f"(12digitsID: {d['original_id']})。"
+                            f"C列(進捗ラベル)は手動で記入してください。"
+                        )
 
             except ImportError as e:
                 st.error(f"ライブラリ不足: {e}\nrequirements.txt に gspread と google-auth を追加してください。")
