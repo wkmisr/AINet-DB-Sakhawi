@@ -193,69 +193,6 @@ def get_xml_id(data):
     return None
 
 
-PROGRESS_LABEL_TSV_PATH = "step3_id_mapping_v3.tsv"
-
-
-@st.cache_data
-def load_progress_label_mapping():
-    """step3_id_mapping_v3.tsv から original_id → progress_label の辞書を構築。
-
-    マッピングTSVの行順(=本体テキスト内の物理出現順)を進捗ラベル(5桁ゼロパディング)
-    として割り当てる。ファイルが存在しない場合は空辞書を返す(進捗ラベルは未割り当て扱い)。
-
-    Returns:
-        dict: { "401914986553": "00033", "425726050368": "00037", ... }
-    """
-    import csv
-    import os
-    mapping = {}
-    if not os.path.exists(PROGRESS_LABEL_TSV_PATH):
-        return mapping
-    try:
-        with open(PROGRESS_LABEL_TSV_PATH, encoding="utf-8") as f:
-            reader = csv.DictReader(f, delimiter="\t")
-            for seq, row in enumerate(reader, start=1):
-                oid = (row.get("id12") or "").strip()
-                if oid:
-                    mapping[oid] = f"{seq:05d}"
-    except Exception:
-        return {}
-    return mapping
-
-
-def get_progress_label(data):
-    """original_id から進捗ラベルを取得する(派生値)。
-
-    マッピングTSVに登録されていない original_id(例: 新規エントリ)の場合は
-    空文字列を返す。
-    """
-    if not isinstance(data, dict):
-        return ""
-    oid = data.get("original_id", "")
-    if not isinstance(oid, str) or not oid:
-        return ""
-    mapping = load_progress_label_mapping()
-    return mapping.get(oid.strip(), "")
-
-
-def get_xml_filename(data):
-    """XMLファイル名を生成する。
-
-    形式: {進捗ラベル}_AIND-{12桁ID}.xml
-    例:   00061_AIND-996411441289.xml
-
-    進捗ラベルが取得できない場合(マッピング外)は AIND-{12桁ID}.xml のみ。
-    original_id が 12 桁数字でない場合は None。
-    """
-    oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
-    if not validate_original_id(oid):
-        return None
-    progress_label = get_progress_label(data)
-    if progress_label:
-        return f"{progress_label}_AIND-{oid}.xml"
-    return f"AIND-{oid}.xml"
-
-
 def pad_year_attr(s):
     """日付文字列を ISO 8601 風に整形(4桁年・2桁月日のゼロパディング)。
     例: "850" → "0850" / "850-09" → "0850-09" / "850-09-15" → "0850-09-15"
@@ -1995,7 +1932,7 @@ st.header("2. Metadata Editor")
 
 # --- 基本情報 ---
 # Source ID と Sex を同じ行に並べる(両方とも幅の狭い入力なので)
-basic_c1, basic_c2, basic_c3, basic_c4 = st.columns([1, 1, 1, 2])
+basic_c1, basic_c2, _basic_spacer = st.columns([1, 1, 3])
 d["original_id"] = basic_c1.text_input(
     "12-digit Source ID (@source)",
     d.get("original_id", ""),
@@ -2013,20 +1950,6 @@ d["sex"] = basic_c2.selectbox(
     format_func=lambda x: sex_labels[x],
     index=sex_keys.index(cur_sex),
     key="sex_select",
-)
-basic_c3.text_input(
-    "進捗ラベル",
-    value=get_progress_label(d),
-    disabled=True,
-    key="progress_label_display",
-    help="step3_id_mapping_v3.tsv の出現順から派生(5桁ゼロパディング)。XMLには書き込まれません。",
-)
-basic_c4.text_input(
-    "xml:id (派生)",
-    value=get_xml_id(d) or "",
-    disabled=True,
-    key="xml_id_display",
-    help="original_id から派生生成: AIND-{12桁ID}",
 )
 
 if d.get("original_id") and get_xml_id(d) is None:
@@ -3405,11 +3328,10 @@ st.header("4. スプレッドシートに保存")
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
 # 列定義（スプレッドシートのヘッダー順）
-# 担当者 | xml:id | 進捗ラベル | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
+# 担当者 | xml:id | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
     "担当者",
     "xml:id",
-    "進捗ラベル",
     "12digitsID",
     "persName (Full Arabic)",
     "persName (Ism/Father/GF)",
@@ -3449,7 +3371,6 @@ def build_row(data, assignee):
     return [
         assignee,                          # 担当者
         get_xml_id(data) or "",            # xml:id(派生)
-        get_progress_label(data),          # 進捗ラベル(派生)
         data.get("original_id", ""),       # 12digitsID (@source)
         data.get("full_name", ""),         # persName (Full Arabic)
         data.get("name_only", ""),         # persName (Ism/Father/GF)
@@ -3460,9 +3381,9 @@ def build_row(data, assignee):
     ]
 
 def find_row_by_id(worksheet, original_id):
-    """12digitsID列（5列目）でoriginal_idを検索"""
+    """12digitsID列（4列目）でoriginal_idを検索"""
     try:
-        col_values = worksheet.col_values(5)  # 5列目 = 12digitsID（A=担当者, B=xml:id, C=進捗ラベル, D=空, E=12digitsID）
+        col_values = worksheet.col_values(4)  # 4列目 = 12digitsID（A列に行数追加後）
         for idx, val in enumerate(col_values):
             if val.strip() == str(original_id).strip():
                 return idx + 1  # gspreadは1-indexed
@@ -3511,18 +3432,12 @@ with col_save:
 
                 if row_num:
                     # 既存行を更新
-                    # 進捗ラベル(先頭ゼロ)を保持するため RAW を使用
-                    ws.update(
-                        f"B{row_num}:K{row_num}",
-                        [row_data],
-                        value_input_option="RAW",
-                    )
+                    ws.update(f"B{row_num}:J{row_num}", [row_data])
                     st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
                 else:
                     # 新規行を追加
                     # A列を空にして、B列以降に書く
-                    # 進捗ラベル(先頭ゼロ)を保持するため RAW を使用
-                    ws.append_row([""] + row_data, value_input_option="RAW")
+                    ws.append_row([""] + row_data, value_input_option="USER_ENTERED")
                     st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
 
             except ImportError as e:
