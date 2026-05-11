@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.5"
+APP_VERSION = "v19.5.1"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -196,6 +196,33 @@ def get_xml_id(data):
 
 PROGRESS_LABEL_SHEET_COL = 3  # スプレッドシートでの進捗ラベル列(C列)
 PROGRESS_LABEL_ID_COL = 4     # 12digitsID 列(D列)
+
+
+# === スプレッドシート接続(gspread 基盤) ===
+# load_progress_label_mapping() より前に定義する必要があるため
+# ここに置く(同じ定義はファイル末尾にもあったが、それでは順序的に遅すぎた)。
+
+DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
+
+
+def get_gspread_client():
+    """st.secretsのService AccountJSONからgspreadクライアントを生成"""
+    import gspread
+    from google.oauth2.service_account import Credentials
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
+    sa = _safe_get_secret("gcp_service_account")
+    if not sa:
+        raise RuntimeError(
+            "secrets.toml に [gcp_service_account] セクションがありません。"
+            "Streamlit Cloud の Secrets 設定か、ローカルなら "
+            ".streamlit/secrets.toml にサービスアカウント JSON を登録してください。"
+        )
+    creds_dict = dict(sa)
+    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+    return gspread.authorize(creds)
 
 
 @st.cache_data(ttl=60)
@@ -2031,49 +2058,6 @@ basic_c3.text_input(
          "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
 )
 
-# === 🔧 デバッグ表示(問題解決後に削除) ===
-with st.expander("🔧 進捗ラベル読み込みデバッグ情報", expanded=False):
-    try:
-        _mapping = load_progress_label_mapping()
-        _oid = (d.get("original_id", "") or "").strip()
-        st.write(f"**マッピング辞書のサイズ**: {len(_mapping)} 件")
-        if _mapping:
-            # 先頭5件を表示
-            st.write("**先頭5件**:")
-            for i, (k, v) in enumerate(list(_mapping.items())[:5]):
-                st.write(f"  {i+1}. {k!r} → {v!r}")
-        else:
-            st.warning("マッピング辞書が空です。スプレッドシートのC列(進捗ラベル)とD列(12digitsID)が読み取れていません。")
-
-        if _oid:
-            st.write(f"**現在の original_id**: {_oid!r}")
-            if _oid in _mapping:
-                st.success(f"✓ マッピングに存在: {_mapping[_oid]!r}")
-            else:
-                st.warning(f"✗ マッピングに存在しません: {_oid!r}")
-                # 似た値を探す(空白混入や型違い対策)
-                similar = [k for k in _mapping.keys() if _oid in k or k in _oid]
-                if similar:
-                    st.write(f"**似た値**(部分一致): {similar[:5]}")
-
-        # 直接スプレッドシートを読んで生データを確認
-        st.write("---")
-        st.write("**スプレッドシート直接読み取り(キャッシュ未使用)**:")
-        try:
-            _gc = get_gspread_client()
-            _sh = _gc.open_by_key(DATASET_SHEET_ID)
-            _ws = _sh.get_worksheet(0)
-            _c_vals = _ws.col_values(3)  # C列
-            _d_vals = _ws.col_values(4)  # D列
-            st.write(f"  C列の値(先頭10件、ヘッダー含む): {_c_vals[:10]}")
-            st.write(f"  D列の値(先頭10件、ヘッダー含む): {_d_vals[:10]}")
-            st.write(f"  C列の総行数: {len(_c_vals)}")
-            st.write(f"  D列の総行数: {len(_d_vals)}")
-        except Exception as e:
-            st.error(f"スプレッドシート直接読み取り失敗: {type(e).__name__}: {e}")
-    except Exception as e:
-        st.error(f"デバッグ表示エラー: {type(e).__name__}: {e}")
-
 basic_c4.text_input(
     "xml:id (派生)",
     value=get_xml_id(d) or "",
@@ -3482,7 +3466,8 @@ d["editors_notes"] = st.text_area(
 st.divider()
 st.header("4. スプレッドシートに保存")
 
-DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
+# DATASET_SHEET_ID と get_gspread_client は load_progress_label_mapping より前に
+# 定義する必要があるため、ファイル上部に移動済み(行 192 付近)。
 
 # === スプレッドシートの実際の列構成 ===
 # A: 行数(触らない / 関数式が入っているかもしれない)
@@ -3511,26 +3496,6 @@ SHEET_COLUMNS = [
 SHEET_COL_ID12 = 4   # D列: 12digitsID(検索キー)
 SHEET_COL_PROGRESS_LABEL = 3  # C列: 進捗ラベル(触らない)
 SHEET_COL_ASSIGNEE = 2  # B列: 担当者
-
-
-def get_gspread_client():
-    """st.secretsのService AccountJSONからgspreadクライアントを生成"""
-    import gspread
-    from google.oauth2.service_account import Credentials
-    scopes = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive",
-    ]
-    sa = _safe_get_secret("gcp_service_account")
-    if not sa:
-        raise RuntimeError(
-            "secrets.toml に [gcp_service_account] セクションがありません。"
-            "Streamlit Cloud の Secrets 設定か、ローカルなら "
-            ".streamlit/secrets.toml にサービスアカウント JSON を登録してください。"
-        )
-    creds_dict = dict(sa)
-    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
-    return gspread.authorize(creds)
 
 
 def build_row_b(data, assignee):
