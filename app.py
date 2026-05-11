@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.4"
+APP_VERSION = "v19.5"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -3440,20 +3440,34 @@ st.header("4. スプレッドシートに保存")
 
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
-# 列定義（スプレッドシートのヘッダー順）
-# 担当者 | xml:id | 進捗ラベル | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
+# === スプレッドシートの実際の列構成 ===
+# A: 行数(触らない / 関数式が入っているかもしれない)
+# B: 担当者(アプリが書き込む)
+# C: 進捗ラベル(触らない / 手動記入領域)
+# D: 12digitsID(触らない / 手動記入領域・検索キー)
+# E: persName (Full Arabic)(アプリが書き込む)
+# F: persName (Ism/Father/GF)(アプリが書き込む)
+# G: Birth (H)(アプリが書き込む)
+# H: Death (H)(アプリが書き込む)
+# I: Madhhab(アプリが書き込む)
+# J: Editors' Notes(アプリが書き込む)
+
+# 表示用ヘッダー(プレビュー表で使用)
 SHEET_COLUMNS = [
-    "担当者",
-    "xml:id",
-    "進捗ラベル",
-    "12digitsID",
-    "persName (Full Arabic)",
-    "persName (Ism/Father/GF)",
-    "Birth (H)",
-    "Death (H)",
-    "Madhhab",
-    "Editors' Notes",
+    "担当者",                       # B列
+    "persName (Full Arabic)",       # E列
+    "persName (Ism/Father/GF)",     # F列
+    "Birth (H)",                    # G列
+    "Death (H)",                    # H列
+    "Madhhab",                      # I列
+    "Editors' Notes",               # J列
 ]
+
+# 列番号(1-indexed)とプレビュー上の対応
+SHEET_COL_ID12 = 4   # D列: 12digitsID(検索キー)
+SHEET_COL_PROGRESS_LABEL = 3  # C列: 進捗ラベル(触らない)
+SHEET_COL_ASSIGNEE = 2  # B列: 担当者
+
 
 def get_gspread_client():
     """st.secretsのService AccountJSONからgspreadクライアントを生成"""
@@ -3474,8 +3488,16 @@ def get_gspread_client():
     creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
     return gspread.authorize(creds)
 
-def build_row(data, assignee):
-    """現在のデータから書き込み行を生成"""
+
+def build_row_b(data, assignee):
+    """B列(担当者)に書き込む 1セル分のデータを返す"""
+    return [assignee]
+
+
+def build_row_ej(data):
+    """E〜J列(persName以降)に書き込む 6セル分のデータを返す。
+    C列(進捗ラベル)と D列(12digitsID)は触らないため含めない。
+    """
     # Madhhab表示文字列
     if data["madhhab"]["lat"] == "Unknown / Other":
         madhhab_str = data["madhhab"].get("custom_name", "")
@@ -3483,28 +3505,50 @@ def build_row(data, assignee):
         madhhab_str = data["madhhab"]["lat"]
 
     return [
-        assignee,                          # 担当者
-        get_xml_id(data) or "",            # xml:id(派生)
-        get_progress_label(data),          # 進捗ラベル(派生)
-        data.get("original_id", ""),       # 12digitsID (@source)
-        data.get("full_name", ""),         # persName (Full Arabic)
-        data.get("name_only", ""),         # persName (Ism/Father/GF)
-        data.get("birth_h", ""),           # Birth (H)
-        data.get("death_h", ""),           # Death (H)
-        madhhab_str,                       # Madhhab
-        data.get("editors_notes", ""),     # Editors' Notes
+        data.get("full_name", ""),         # E: persName (Full Arabic)
+        data.get("name_only", ""),         # F: persName (Ism/Father/GF)
+        data.get("birth_h", ""),           # G: Birth (H)
+        data.get("death_h", ""),           # H: Death (H)
+        madhhab_str,                       # I: Madhhab
+        data.get("editors_notes", ""),     # J: Editors' Notes
     ]
 
+
+def build_preview_row(data, assignee):
+    """プレビュー表示用: B列と E〜J列のデータを1行にまとめる"""
+    return build_row_b(data, assignee) + build_row_ej(data)
+
+
 def find_row_by_id(worksheet, original_id):
-    """12digitsID列（5列目）でoriginal_idを検索"""
+    """D列(12digitsID)で original_id を検索し、行番号を返す。
+    見つからなければ None。
+    """
     try:
-        col_values = worksheet.col_values(5)  # 5列目 = 12digitsID（A=担当者, B=xml:id, C=進捗ラベル, D=空, E=12digitsID）
+        col_values = worksheet.col_values(SHEET_COL_ID12)  # D列
         for idx, val in enumerate(col_values):
             if val.strip() == str(original_id).strip():
                 return idx + 1  # gspreadは1-indexed
         return None
     except Exception:
         return None
+
+
+def find_first_empty_row(worksheet):
+    """D列(12digitsID)が空で、かつそれより上のどこかにデータがある行を探して
+    その行番号を返す(=末尾の空行ではなく、最初の空き行)。
+    シート全体が空ならヘッダーの次行(2)を返す。
+    """
+    try:
+        col_values = worksheet.col_values(SHEET_COL_ID12)
+        # 1行目はヘッダー
+        for idx, val in enumerate(col_values[1:], start=2):
+            if not val.strip():
+                return idx
+        # 全行に値があれば、シートの次の行
+        return len(col_values) + 1
+    except Exception:
+        return None
+
 
 # --- UI ---
 st.caption(
@@ -3524,10 +3568,11 @@ col_prev, col_save = st.columns([2, 1])
 
 # プレビュー
 with col_prev:
-    st.markdown("**書き込み内容プレビュー**")
-    preview_row = build_row(d, assignee)
+    st.markdown("**書き込み内容プレビュー(B列 + E〜J列)**")
+    preview_row = build_preview_row(d, assignee)
     preview_df  = dict(zip(SHEET_COLUMNS, preview_row))
     st.table(preview_df)
+    st.caption("※ C列(進捗ラベル)と D列(12digitsID)は変更されません。")
 
 # 保存ボタン
 with col_save:
@@ -3536,30 +3581,67 @@ with col_save:
         if not assignee:
             st.error("担当者名を入力してください。")
         elif not d.get("original_id"):
-            st.error("@source (12digitsID) が空です。入力してから保存してください。")
+            st.error("Source ID (12digitsID) が空です。入力してから保存してください。")
         else:
             try:
-                gc        = get_gspread_client()
-                sh        = gc.open_by_key(DATASET_SHEET_ID)
-                ws        = sh.get_worksheet(0)  # 最初のシート
-                row_data  = build_row(d, assignee)
-                row_num   = find_row_by_id(ws, d["original_id"])
+                gc = get_gspread_client()
+                sh = gc.open_by_key(DATASET_SHEET_ID)
+                ws = sh.get_worksheet(0)  # 最初のシート
+
+                row_b  = build_row_b(d, assignee)   # 担当者(B列)
+                row_ej = build_row_ej(d)            # persName 以降(E〜J列)
+
+                row_num = find_row_by_id(ws, d["original_id"])
 
                 if row_num:
-                    # 既存行を更新
-                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
+                    # 既存行を更新: B列と E〜J列のみ
+                    # 進捗ラベル(C列)と12digitsID(D列)は触らない
+                    # RAW にしておくと先頭ゼロや AIND-D 形式の文字列が
+                    # 数値に勝手変換されない(これらは触らないが念のため)
                     ws.update(
-                        f"B{row_num}:K{row_num}",
-                        [row_data],
+                        f"B{row_num}",
+                        [row_b],
                         value_input_option="RAW",
                     )
-                    st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
+                    ws.update(
+                        f"E{row_num}:J{row_num}",
+                        [row_ej],
+                        value_input_option="RAW",
+                    )
+                    st.success(
+                        f"✅ 行 {row_num} を更新しました"
+                        f"(12digitsID: {d['original_id']})"
+                    )
                 else:
-                    # 新規行を追加
-                    # A列を空にして、B列以降に書く
-                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
-                    ws.append_row([""] + row_data, value_input_option="RAW")
-                    st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
+                    # 新規行: 12digitsID を D列に書き、B列に担当者、E〜J列にデータ
+                    # 一番下の空き行ではなく、D列が空の最初の行を探す
+                    empty_row = find_first_empty_row(ws)
+                    if empty_row is None:
+                        st.error("空き行を特定できませんでした。シートを確認してください。")
+                    else:
+                        # D列に 12digitsID
+                        ws.update(
+                            f"D{empty_row}",
+                            [[d["original_id"]]],
+                            value_input_option="RAW",
+                        )
+                        # B列に担当者
+                        ws.update(
+                            f"B{empty_row}",
+                            [row_b],
+                            value_input_option="RAW",
+                        )
+                        # E〜J列にデータ
+                        ws.update(
+                            f"E{empty_row}:J{empty_row}",
+                            [row_ej],
+                            value_input_option="RAW",
+                        )
+                        st.success(
+                            f"✅ 新規行(行 {empty_row})に追加しました"
+                            f"(12digitsID: {d['original_id']})。"
+                            f"C列(進捗ラベル)は手動で記入してください。"
+                        )
 
             except ImportError as e:
                 st.error(f"ライブラリ不足: {e}\nrequirements.txt に gspread と google-auth を追加してください。")
