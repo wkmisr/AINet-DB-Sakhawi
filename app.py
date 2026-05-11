@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.3"
+APP_VERSION = "v19.4"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -185,11 +185,12 @@ def validate_original_id(value):
 
 def get_xml_id(data):
     """original_id から xml:id を派生生成する。
+    形式: id_{12桁ID}(NCName 仕様準拠のためアンダースコア接頭辞を使用)
     12 桁数字でない場合は None。
     """
     oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
     if validate_original_id(oid):
-        return f"AIND-{oid}"
+        return f"id_{oid}"
     return None
 
 
@@ -251,7 +252,7 @@ def get_xml_filename(data):
     形式: {進捗ラベル}_{12桁ID}.xml
     例:   AIND-D00061_996411441289.xml
 
-    進捗ラベルがスプレッドシートに記入されていない場合は AIND-{12桁ID}.xml のみ。
+    進捗ラベルがスプレッドシートに記入されていない場合は {12桁ID}.xml のみ。
     original_id が 12 桁数字でない場合は None。
     """
     oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
@@ -260,7 +261,7 @@ def get_xml_filename(data):
     progress_label = get_progress_label(data)
     if progress_label:
         return f"{progress_label}_{oid}.xml"
-    return f"AIND-{oid}.xml"
+    return f"{oid}.xml"
 
 
 def pad_year_attr(s):
@@ -954,7 +955,7 @@ def _build_id_master_index(records):
 
 
 def _is_confirmed_id(id_str):
-    """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, AIND-)かを判定。
+    """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, id_)かを判定。
     プレースホルダー(TMP-X-0...0)や空欄は False。
     """
     s = (id_str or "").strip()
@@ -1257,7 +1258,7 @@ The source text begins with a marker:
 - ID_NUMBER (12 digits): the original source ID → "original_id".
   Return it as a 12-character string of digits, with no prefix.
 - {{marker}} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
-- Do NOT emit any "aind_id" / "xml_id" / "AIND-..." value.
+- Do NOT emit any "aind_id" / "xml_id" / "id_..." value.
   The application derives the xml:id from original_id at write time.
 
 ============================================================
@@ -2007,7 +2008,7 @@ d["original_id"] = basic_c1.text_input(
     "12-digit Source ID (@source)",
     d.get("original_id", ""),
     placeholder="例: 401914986553",
-    help="12 桁の半角数字。xml:id は 'AIND-' + これ で自動生成されます。",
+    help="12 桁の半角数字。xml:id は 'id_' + これ で自動生成されます。",
 )
 sex_keys   = [s[0] for s in SEX_OPTIONS]
 sex_labels = {s[0]: s[1] for s in SEX_OPTIONS}
@@ -2034,7 +2035,7 @@ basic_c4.text_input(
     value=get_xml_id(d) or "",
     disabled=True,
     key="xml_id_display",
-    help="original_id から派生生成: AIND-{12桁ID}",
+    help="original_id から派生生成: id_{12桁ID}",
 )
 
 if d.get("original_id") and get_xml_id(d) is None:
@@ -3373,7 +3374,7 @@ st.code(xml_str, language="xml")
 # === ダウンロード / コピー ボタン ===
 # ファイル名は進捗ラベルから生成: AIND-D{5桁}_{12桁}.xml
 # 進捗ラベル未取得時(スプレッドシート未記入 or original_id 不正)は
-# AIND-{12桁}.xml にフォールバック。
+# {12桁}.xml にフォールバック。
 _download_filename = get_xml_filename(d)
 btn_col1, btn_col2 = st.columns([1, 1])
 
