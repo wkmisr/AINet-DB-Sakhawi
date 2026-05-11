@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v19.1"
+APP_VERSION = "v19.3"
 APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
@@ -191,6 +191,76 @@ def get_xml_id(data):
     if validate_original_id(oid):
         return f"AIND-{oid}"
     return None
+
+
+PROGRESS_LABEL_SHEET_COL = 3  # スプレッドシートでの進捗ラベル列(C列)
+PROGRESS_LABEL_ID_COL = 4     # 12digitsID 列(D列)
+
+
+@st.cache_data(ttl=60)
+def load_progress_label_mapping():
+    """スプレッドシート(C列「進捗ラベル」、D列「12digitsID」)を読み取り、
+    original_id → progress_label の辞書を返す。
+
+    スプレッドシートが進捗ラベルの正本。
+    アプリは記入されている値を読み取って表示するだけで、新規生成はしない。
+    取得失敗(認証不可、シート不在など)時は空辞書を返す。
+
+    キャッシュ有効期間は 60 秒(他の担当者の更新が比較的早く反映されるように)。
+
+    Returns:
+        dict: { "401914986553": "AIND-D00033", "996411441289": "AIND-D00061", ... }
+    """
+    mapping = {}
+    try:
+        gc = get_gspread_client()
+        sh = gc.open_by_key(DATASET_SHEET_ID)
+        ws = sh.get_worksheet(0)
+        labels = ws.col_values(PROGRESS_LABEL_SHEET_COL)  # C列
+        ids = ws.col_values(PROGRESS_LABEL_ID_COL)        # D列
+        # 1行目はヘッダーなのでスキップ
+        for label, oid in zip(labels[1:], ids[1:]):
+            oid = (oid or "").strip()
+            label = (label or "").strip()
+            if oid and label:
+                mapping[oid] = label
+    except Exception:
+        # 認証エラーやシート未設定の場合は空辞書を返す(進捗ラベル機能は無効化)
+        return {}
+    return mapping
+
+
+def get_progress_label(data):
+    """original_id から進捗ラベルを取得する(派生値)。
+
+    スプレッドシートに記入された値を返す。
+    記入がない場合は空文字列。
+    """
+    if not isinstance(data, dict):
+        return ""
+    oid = data.get("original_id", "")
+    if not isinstance(oid, str) or not oid:
+        return ""
+    mapping = load_progress_label_mapping()
+    return mapping.get(oid.strip(), "")
+
+
+def get_xml_filename(data):
+    """XMLファイル名を生成する。
+
+    形式: {進捗ラベル}_{12桁ID}.xml
+    例:   AIND-D00061_996411441289.xml
+
+    進捗ラベルがスプレッドシートに記入されていない場合は AIND-{12桁ID}.xml のみ。
+    original_id が 12 桁数字でない場合は None。
+    """
+    oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
+    if not validate_original_id(oid):
+        return None
+    progress_label = get_progress_label(data)
+    if progress_label:
+        return f"{progress_label}_{oid}.xml"
+    return f"AIND-{oid}.xml"
 
 
 def pad_year_attr(s):
@@ -1932,7 +2002,7 @@ st.header("2. Metadata Editor")
 
 # --- 基本情報 ---
 # Source ID と Sex を同じ行に並べる(両方とも幅の狭い入力なので)
-basic_c1, basic_c2, _basic_spacer = st.columns([1, 1, 3])
+basic_c1, basic_c2, basic_c3, basic_c4 = st.columns([1, 1, 1, 2])
 d["original_id"] = basic_c1.text_input(
     "12-digit Source ID (@source)",
     d.get("original_id", ""),
@@ -1950,6 +2020,21 @@ d["sex"] = basic_c2.selectbox(
     format_func=lambda x: sex_labels[x],
     index=sex_keys.index(cur_sex),
     key="sex_select",
+)
+basic_c3.text_input(
+    "進捗ラベル",
+    value=get_progress_label(d),
+    disabled=True,
+    key="progress_label_display",
+    help="スプレッドシート C列「進捗ラベル」から取得(同じ original_id の行があれば表示)。"
+         "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
+)
+basic_c4.text_input(
+    "xml:id (派生)",
+    value=get_xml_id(d) or "",
+    disabled=True,
+    key="xml_id_display",
+    help="original_id から派生生成: AIND-{12桁ID}",
 )
 
 if d.get("original_id") and get_xml_id(d) is None:
@@ -3285,24 +3370,51 @@ def build_xml(d):
 xml_str = build_xml(d)
 st.code(xml_str, language="xml")
 
-# クリップボードコピーボタン（JavaScriptで実装）
-copy_js = f"""
-<button onclick="
-    navigator.clipboard.writeText({repr(xml_str)}).then(function() {{
-        this.textContent = '✅ コピーしました';
-        this.style.background = '#28a745';
-        setTimeout(() => {{
-            this.textContent = '📋 XMLをクリップボードにコピー';
-            this.style.background = '#0066cc';
-        }}, 2000);
-    }}.bind(this));
-" style="
-    background:#0066cc; color:white; border:none;
-    padding:0.5rem 1.2rem; border-radius:6px;
-    font-size:1rem; cursor:pointer; margin-top:0.5rem;
-">📋 XMLをクリップボードにコピー</button>
-"""
-components.html(copy_js, height=60)
+# === ダウンロード / コピー ボタン ===
+# ファイル名は進捗ラベルから生成: AIND-D{5桁}_{12桁}.xml
+# 進捗ラベル未取得時(スプレッドシート未記入 or original_id 不正)は
+# AIND-{12桁}.xml にフォールバック。
+_download_filename = get_xml_filename(d)
+btn_col1, btn_col2 = st.columns([1, 1])
+
+with btn_col1:
+    if _download_filename:
+        st.download_button(
+            label=f"📥 XMLをダウンロード ({_download_filename})",
+            data=xml_str,
+            file_name=_download_filename,
+            mime="application/xml",
+            use_container_width=True,
+            help="現在の人物の XML をファイルとしてダウンロードします。"
+                 "ファイル名は スプレッドシート C列「進捗ラベル」+ 12桁ID から生成されます。",
+        )
+    else:
+        st.button(
+            "📥 XMLをダウンロード",
+            use_container_width=True,
+            disabled=True,
+            help="ダウンロードには 12桁の Source ID が必要です。",
+        )
+
+with btn_col2:
+    # クリップボードコピーボタン(JavaScriptで実装)
+    copy_js = f"""
+    <button onclick="
+        navigator.clipboard.writeText({repr(xml_str)}).then(function() {{
+            this.textContent = '✅ コピーしました';
+            this.style.background = '#28a745';
+            setTimeout(() => {{
+                this.textContent = '📋 XMLをクリップボードにコピー';
+                this.style.background = '#0066cc';
+            }}, 2000);
+        }}.bind(this));
+    " style="
+        background:#0066cc; color:white; border:none;
+        padding:0.5rem 1.2rem; border-radius:6px;
+        font-size:1rem; cursor:pointer; width:100%;
+    ">📋 XMLをクリップボードにコピー</button>
+    """
+    components.html(copy_js, height=60)
 
 
 # ===================================================
@@ -3328,10 +3440,11 @@ st.header("4. スプレッドシートに保存")
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
 # 列定義（スプレッドシートのヘッダー順）
-# 担当者 | xml:id | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
+# 担当者 | xml:id | 進捗ラベル | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
     "担当者",
     "xml:id",
+    "進捗ラベル",
     "12digitsID",
     "persName (Full Arabic)",
     "persName (Ism/Father/GF)",
@@ -3371,6 +3484,7 @@ def build_row(data, assignee):
     return [
         assignee,                          # 担当者
         get_xml_id(data) or "",            # xml:id(派生)
+        get_progress_label(data),          # 進捗ラベル(派生)
         data.get("original_id", ""),       # 12digitsID (@source)
         data.get("full_name", ""),         # persName (Full Arabic)
         data.get("name_only", ""),         # persName (Ism/Father/GF)
@@ -3381,9 +3495,9 @@ def build_row(data, assignee):
     ]
 
 def find_row_by_id(worksheet, original_id):
-    """12digitsID列（4列目）でoriginal_idを検索"""
+    """12digitsID列（5列目）でoriginal_idを検索"""
     try:
-        col_values = worksheet.col_values(4)  # 4列目 = 12digitsID（A列に行数追加後）
+        col_values = worksheet.col_values(5)  # 5列目 = 12digitsID（A=担当者, B=xml:id, C=進捗ラベル, D=空, E=12digitsID）
         for idx, val in enumerate(col_values):
             if val.strip() == str(original_id).strip():
                 return idx + 1  # gspreadは1-indexed
@@ -3432,12 +3546,18 @@ with col_save:
 
                 if row_num:
                     # 既存行を更新
-                    ws.update(f"B{row_num}:J{row_num}", [row_data])
+                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
+                    ws.update(
+                        f"B{row_num}:K{row_num}",
+                        [row_data],
+                        value_input_option="RAW",
+                    )
                     st.success(f"✅ 行 {row_num} を更新しました（12digitsID: {d['original_id']}）")
                 else:
                     # 新規行を追加
                     # A列を空にして、B列以降に書く
-                    ws.append_row([""] + row_data, value_input_option="USER_ENTERED")
+                    # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
+                    ws.append_row([""] + row_data, value_input_option="RAW")
                     st.success(f"✅ 新規行を追加しました（12digitsID: {d['original_id']}）")
 
             except ImportError as e:
