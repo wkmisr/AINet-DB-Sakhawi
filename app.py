@@ -5,6 +5,11 @@ import json
 import re
 import uuid
 import requests
+from datetime import date as _date
+
+# アプリのバージョン情報(タイトル横に表示)
+APP_VERSION = "v19.1"
+APP_VERSION_DATE = "2026-05-11"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -19,7 +24,16 @@ section[data-testid="stSidebar"] .stTextArea textarea {
 """, unsafe_allow_html=True)
 
 # --- 2. API設定 ---
-api_key = st.secrets.get("GEMINI_API_KEY")
+def _safe_get_secret(key, default=None):
+    """st.secrets[key] にアクセスする。secrets ファイルが存在しないと
+    Streamlit 1.30+ では例外が投げられるため、防御的に None を返す。"""
+    try:
+        return st.secrets.get(key, default)
+    except Exception:
+        return default
+
+
+api_key = _safe_get_secret("GEMINI_API_KEY")
 if api_key:
     genai.configure(api_key=api_key)
 
@@ -155,6 +169,50 @@ def is_id_format(s):
         return False
     s = str(s).strip()
     return bool(re.match(r"^(TMP-[A-Z]-\d+|Q\d+|gn:\d+|\d+)$", s))
+
+
+ORIGINAL_ID_PATTERN = re.compile(r"^\d{12}$")
+
+
+def validate_original_id(value):
+    """original_id が 12 桁の半角数字かどうか判定。
+    空欄、12 桁未満/超、英字混入、全角数字等はすべて False。
+    """
+    if not isinstance(value, str):
+        return False
+    return bool(ORIGINAL_ID_PATTERN.match(value))
+
+
+def get_xml_id(data):
+    """original_id から xml:id を派生生成する。
+    12 桁数字でない場合は None。
+    """
+    oid = (data.get("original_id", "") or "").strip() if isinstance(data, dict) else ""
+    if validate_original_id(oid):
+        return f"AIND-{oid}"
+    return None
+
+
+def pad_year_attr(s):
+    """日付文字列を ISO 8601 風に整形(4桁年・2桁月日のゼロパディング)。
+    例: "850" → "0850" / "850-09" → "0850-09" / "850-09-15" → "0850-09-15"
+    数値以外のトークンはそのまま残す(防御的)。
+    """
+    if s is None:
+        return ""
+    s = str(s).strip()
+    if not s:
+        return ""
+    parts = s.split("-")
+    out = []
+    for i, p in enumerate(parts):
+        ps = p.strip()
+        if ps.isdigit():
+            width = 4 if i == 0 else 2
+            out.append(f"{int(ps):0{width}d}")
+        else:
+            out.append(p)
+    return "-".join(out)
 
 # --- 4. ID Master シート読み込み ---
 ID_MASTER_URL = "https://docs.google.com/spreadsheets/d/1MSwfebHM1Ak39Qqk7ZMrFhoHhE4COxd9PyQs2tTujuk/export?format=csv"
@@ -311,11 +369,42 @@ MADHHAB_DATA = {
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","buried","other"]
 
 ACTIVITY_TYPES = [
-    "born", "died", "buried",
-    "reside", "visit", "travel", "study",
-    "hajj", "umrah",
+    "buried", "residence", "visit", "travel", "study",
+    "hajj", "umrah", "jāwara", "riḥla",
+    "legacy",  # 死後イベント(遺産・後世への影響)
     "other",
 ]
+
+# UI 入力値 → XML 出力(type, subtype) のマッピング。
+# subtype が None の場合は subtype 属性を出力しない。
+EVENT_TYPE_MAPPING = {
+    "hajj":      ("religious", "hajj"),
+    "umrah":     ("religious", "umrah"),
+    "jāwara":    ("residence", "jāwara"),
+    "riḥla":     ("travel",    "riḥla"),
+    "residence": ("residence", None),
+    "burial":    ("burial",    None),
+    "buried":    ("burial",    None),
+    "visit":     ("visit",     None),
+    "travel":    ("travel",    None),
+    "study":     ("study",     None),
+    "legacy":    ("legacy",    None),
+    "cultural":  ("cultural",  None),
+    "political": ("political", None),
+    "religious": ("religious", None),
+    "other":     ("other",     None),
+}
+
+
+def build_event_attrs(ui_type):
+    """UI 入力値から XML の type / subtype 属性文字列を組み立てる。
+    マッピング未登録の値は ui_type をそのまま type に使う(防御的)。
+    """
+    xml_type, xml_subtype = EVENT_TYPE_MAPPING.get(ui_type, (ui_type, None))
+    attrs = f'type="{xml_type}"'
+    if xml_subtype:
+        attrs += f' subtype="{xml_subtype}"'
+    return attrs
 
 LAQAB_TYPES  = ["laqab", "shuhrah", "kunyah", "honorific"]
 LAQAB_LABELS = {
@@ -371,6 +460,29 @@ BIO_EVENT_TYPES = [
     ("other",      "Other (その他)"),
 ]
 
+# respStmt の役割選択肢
+RESP_ROLE_OPTIONS = [
+    "初版作成",
+    "修正・追記",
+    "校閲",
+    "翻訳",
+    "ID 照合",
+    "その他",
+]
+
+# respStmt の作業者名(プルダウン)
+RESP_PERSON_OPTIONS = [
+    "Takao Ito",
+    "Erina Ota",
+    "Wakako Kumakura",
+    "Tomoaki Shinoda",
+    "Toru Miura",
+    "Assistant 1",
+    "Assistant 2",
+    "Assistant 3",
+    "Assistant 4",
+]
+
 # Social Relations types
 SOCIAL_RELATION_TYPES = [
     ("patron",        "Patron (庇護者)"),
@@ -413,7 +525,8 @@ FIELD_IDS = {
 
 DEFAULT_DATA_V19 = {
     # === 基本識別情報 ===
-    "aind_id": "AIND-D0000",
+    # original_id (12 桁数字) を唯一の正規キーとして保持。
+    # xml:id は get_xml_id() で派生生成し、データ構造には保存しない。
     "original_id": "",
 
     # === 名前 ===
@@ -422,17 +535,19 @@ DEFAULT_DATA_V19 = {
     "full_name_lat": "",
 
     # === 基本属性 ===
-    "sex": "U",
+    "sex": "M",
     "certainty": "High",
 
     # === 生没年 ===
     "birth_h": "",
     "birth_cert": "",
     "birth_note": "",
+    "birth_inference_note": "",
     "birth_g": "",
     "death_h": "",
     "death_cert": "",
     "death_note": "",
+    "death_inference_note": "",
     "death_g": "",
 
     # === 法学派 ===
@@ -465,6 +580,9 @@ DEFAULT_DATA_V19 = {
     # === 新規セクション ===
     "bio_events": [],
     "social_relations": [],
+
+    # === 作業履歴(respStmt 用) ===
+    "resp_stmts": [],
 
     # === メモ・翻訳 ===
     "person_notes": "",
@@ -527,12 +645,22 @@ def migrate_teacher_student(old_item):
     }
 
 
+_ACTIVITY_TYPE_MIGRATION = {
+    "reside": "residence",
+    "born":   "other",   # 生没情報は <birth>/<death> へ。残骸は other で温存
+    "died":   "other",
+}
+
+
 def migrate_activity(old_item):
-    """activities の旧→新変換(date系を追加)"""
+    """activities の旧→新変換(date系を追加 + 旧 type 名のリネーム)"""
     new_item = dict(old_item)
     new_item.setdefault("date_h", "")
     new_item.setdefault("date_cert", "")
     new_item.setdefault("date_note", "")
+    old_type = new_item.get("type", "")
+    if old_type in _ACTIVITY_TYPE_MIGRATION:
+        new_item["type"] = _ACTIVITY_TYPE_MIGRATION[old_type]
     return new_item
 
 
@@ -548,7 +676,8 @@ def migrate_v18_to_v19(old_data):
     new_data = json.loads(json.dumps(DEFAULT_DATA_V19))  # deep copy
 
     simple_fields = [
-        "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
+        # aind_id は廃止(v19 では original_id から派生生成)
+        "original_id", "full_name", "name_only", "full_name_lat",
         "certainty", "birth_h", "birth_g", "death_h", "death_g",
         "madhhab", "sufi_order", "nisbahs", "laqabs",
         "institutions", "offices", "person_notes", "editors_notes",
@@ -668,7 +797,7 @@ def is_placeholder_id(id_str):
 
 # 自動採番の対象フィールド: (section, field, prefix)
 TMP_FIELDS_BY_PREFIX = [
-    ("nisbahs",          "id",              "TMP-L-"),
+    ("nisbahs",          "id",              "TMP-N-"),
     ("teachers",         "id",              "TMP-P-"),
     ("teachers",         "text_id",         "TMP-T-"),
     ("teachers",         "learn_place_id",  "TMP-L-"),
@@ -684,6 +813,127 @@ TMP_FIELDS_BY_PREFIX = [
     ("bio_events",       "place_id",        "TMP-L-"),
     ("social_relations", "person_id",       "TMP-P-"),
 ]
+
+
+# === ID-Master ポストプロセス照合(Task 3-1) ===
+
+# アラビア文字の正規化テーブル(完全一致照合用)。
+# ハムザのバリエーション・ターマールブータ・アリフマクスーラを統一し、
+# 末尾のダイアクリティクス(タンウィーン等)を除去する。
+_ARABIC_NORMALIZE_TR = str.maketrans({
+    "أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا",
+    "ى": "ي",
+    "ة": "ه",
+    "ؤ": "و",
+    "ئ": "ي",
+})
+# 削除する文字: シャッダ・スクーン・各種ハラカ・タンウィーン
+_ARABIC_DIACRITICS = re.compile(r"[ً-ٰٟ]")
+
+
+def normalize_arabic(s):
+    """アラビア語テキストを完全一致照合用に正規化。
+    ハムザ統一、ヤー/タ・マルブータ統一、ダイアクリティクス削除、
+    空白の整理を行う。
+    """
+    if not s:
+        return ""
+    s = str(s).strip()
+    s = s.translate(_ARABIC_NORMALIZE_TR)
+    s = _ARABIC_DIACRITICS.sub("", s)
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+# 照合対象: (section, name_field, id_field, expected_id_master_category)
+# expected_category は ID-Master の Category 列との一致判定に使う。
+# 空文字なら Category チェックを省略(全カテゴリ対象)。
+ID_MATCH_FIELDS = [
+    ("teachers",         "name",           "id",              "Person"),
+    ("teachers",         "text_ar",        "text_id",         "Text"),
+    ("teachers",         "learn_place_ar", "learn_place_id",  "Place"),
+    ("students",         "name",           "id",              "Person"),
+    ("students",         "text_ar",        "text_id",         "Text"),
+    ("students",         "teach_place_ar", "teach_place_id",  "Place"),
+    ("family",           "name",           "id",              "Person"),
+    ("nisbahs",          "ar",             "id",              "Nisbah"),
+    ("activities",       "place_ar",       "id",              "Place"),
+    ("institutions",     "name_ar",        "id",              "Institution"),
+    ("offices",          "name_ar",        "id",              "Office"),
+    ("offices",          "place_ar",       "place_id",        "Place"),
+    ("offices",          "inst_name",      "inst_id",         "Institution"),
+    ("bio_events",       "place_ar",       "place_id",        "Place"),
+    ("social_relations", "person_name",    "person_id",       "Person"),
+]
+
+
+def _build_id_master_index(records):
+    """ID-Master を {(category, normalized_arabic): id_value} の辞書に変換。
+    Category 不明エントリは ("", normalized_arabic) でも引けるよう両方登録。
+    """
+    index = {}
+    for r in records:
+        ar = normalize_arabic(r.get("Arabic", ""))
+        id_val = (r.get("ID", "") or "").strip()
+        cat = (r.get("Category", "") or "").strip()
+        if not ar or not id_val:
+            continue
+        index.setdefault((cat, ar), id_val)
+        index.setdefault(("", ar), id_val)  # Category 不問のフォールバック
+    return index
+
+
+def _is_confirmed_id(id_str):
+    """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, AIND-)かを判定。
+    プレースホルダー(TMP-X-0...0)や空欄は False。
+    """
+    s = (id_str or "").strip()
+    if not s:
+        return False
+    if is_placeholder_id(s):
+        return False
+    return True
+
+
+def apply_id_master_matching(d, silent=False):
+    """ID-Master と完全一致で照合し、未確定の ID 欄に自動で値を入れる。
+
+    対象: 各セクションの (アラビア名, ID) ペア(ID_MATCH_FIELDS 参照)
+    既に確定 ID が入っている欄は触らない。プレースホルダー / 空欄のみ更新。
+    """
+    records = load_id_master()
+    if not records:
+        if not silent:
+            st.warning("ID-Master を読み込めませんでした。")
+        return 0
+
+    index = _build_id_master_index(records)
+    filled = 0
+    skipped = 0
+
+    for section, name_field, id_field, category in ID_MATCH_FIELDS:
+        for item in d.get(section, []) or []:
+            current_id = str(item.get(id_field, "") or "").strip()
+            if _is_confirmed_id(current_id):
+                # 既に確定 ID あり → 触らない
+                continue
+            name_raw = str(item.get(name_field, "") or "").strip()
+            if not name_raw:
+                continue
+            key_norm = normalize_arabic(name_raw)
+            matched_id = index.get((category, key_norm)) or index.get(("", key_norm))
+            if matched_id:
+                item[id_field] = matched_id
+                filled += 1
+            else:
+                skipped += 1
+
+    if not silent:
+        if filled:
+            st.success(f"ID-Master 照合: {filled} 件に ID を自動付与しました(未照合 {skipped} 件)。")
+        else:
+            st.info(f"ID-Master 照合: 自動付与の対象はありませんでした(候補 {skipped} 件)。")
+    return filled
 
 
 def auto_assign_tmp_ids_in_data(d, silent=False):
@@ -844,12 +1094,21 @@ def apply_prompt_madhhab(data, madhhab_name):
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
     simple_fields = [
-        "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
+        "original_id", "full_name", "name_only", "full_name_lat",
         "translation_jp", "translation_en",
     ]
     for f in simple_fields:
         if f in prompt_result:
             data[f] = prompt_result[f]
+
+    # original_id のバリデーション: 12 桁数字でなければ警告を表示。
+    # データ自体は保持(ユーザーが手で修正できるように)。
+    oid = (data.get("original_id", "") or "").strip()
+    if oid and not validate_original_id(oid):
+        st.warning(
+            f"original_id が 12 桁の半角数字ではありません: {oid!r}。"
+            "xml:id は派生生成されないため、入力欄で修正してください。"
+        )
 
     # sex
     sex = prompt_result.get("sex", "U")
@@ -882,7 +1141,9 @@ def apply_prompt_result(data, prompt_result):
                     item["ui_id"] = str(uuid.uuid4())
             data[f] = items
 
-    # Gemini が返した TMP-X-00000 プレースホルダーを空き番号で採番
+    # ID-Master 照合 → TMP- プレースホルダー採番 の順で実行。
+    # 先に確定 ID を当てておくことで、不要な TMP 番号の浪費を防ぐ。
+    apply_id_master_matching(data, silent=True)
     auto_assign_tmp_ids_in_data(data, silent=True)
 
 
@@ -922,9 +1183,12 @@ from the source text into JSON.
 【1. SOURCE TEXT FORMAT】
 ============================================================
 The source text begins with a marker:
-  ###$ID_NUMBER$# AIND-D00XXX [biographical text]
-- ID_NUMBER (12 digits): the original source ID. → "original_id"
-- AIND-D00XXX: the project's AIND ID. → "aind_id" (keep "AIND-D" prefix)
+  ###$ID_NUMBER$# {{marker}} [biographical text]
+- ID_NUMBER (12 digits): the original source ID → "original_id".
+  Return it as a 12-character string of digits, with no prefix.
+- {{marker}} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
+- Do NOT emit any "aind_id" / "xml_id" / "AIND-..." value.
+  The application derives the xml:id from original_id at write time.
 
 ============================================================
 【2. ID MASTER — USE THESE IDs FIRST】
@@ -956,6 +1220,26 @@ use 5-digit format. ID-Master entries with legacy 5-digit person IDs
 - translation_jp: Accurate academic Japanese translation.
 - translation_en: Accurate academic English translation.
 
+== TRANSLATION GUIDELINES ==
+
+When translating "شيخنا" (our shaykh) in al-Sakhāwī's text:
+
+1. DEFAULT INTERPRETATION:
+   - "شيخنا" refers to al-Sakhāwī's primary teacher
+     Ibn Ḥajar al-ʿAsqalānī (Wikidata Q471116).
+   - Translate as: "Our shaykh (Ibn Ḥajar)..." / 「我らがシャイフ(イブン・ハジャル)…」
+
+2. EXCEPTION — when "شيخنا" is IMMEDIATELY followed by a proper name:
+   - It refers to ANOTHER teacher, not Ibn Ḥajar.
+   - Example: "شيخنا الموفق الأبي" → al-Muwaffaq al-Abī (NOT Ibn Ḥajar).
+   - Translate the named teacher; do NOT replace with Ibn Ḥajar.
+
+3. CONTEXT MATTERS:
+   - Always check the next 1-3 words after "شيخنا".
+   - If they form a clear proper name (al-Muwaffaq, al-Sirāj, etc.),
+     use that name.
+   - If only a generic descriptor or no name follows, assume Ibn Ḥajar.
+
 ============================================================
 【5. FULL NAME — IMPORTANT POLICY】
 ============================================================
@@ -986,8 +1270,10 @@ use 5-digit format. ID-Master entries with legacy 5-digit person IDs
 - Geographical, tribal, or family nisbahs only.
 - DO NOT include madhhab-derived nisbahs (الشافعي etc.) here —
   those go in "madhhab_name".
-- Place ID (when nisbah refers to a place): GeoNames numeric ID
-  if known, otherwise "TMP-L-00000".
+- ID: ALWAYS "TMP-N-00000" (5 digits) — even for nisbahs derived from
+  places. Do NOT use TMP-L- or GeoNames here. nisbahs (الأندلسي,
+  الدمشقي, الرومي, etc.) are tracked in the Nisbah authority list,
+  separately from the place itself (which has its own GeoNames entry).
 
 ============================================================
 【9. LAQAB / SHUHRAH / KUNYAH / HONORIFIC】
@@ -999,6 +1285,35 @@ use 5-digit format. ID-Master entries with legacy 5-digit person IDs
 - "honorific" : pure honorific (الشيخ, الإمام, الحافظ, العلامة)
                 — only if used as fixed personal designation,
                 NOT as generic respectful mention.
+
+== EXTRACTION RULE: SUBJECT'S OWN TITLES ONLY ==
+
+CRITICAL: Extract ONLY the subject's OWN titles. NEVER extract titles
+that modify an ancestor, brother, or other relative inside the nasab
+chain. Those titles belong to that ancestor, not to the subject.
+
+The nasab chain pattern is:
+    [subject's name] بن [father] بن [grandfather] بن ...
+
+Any title appearing INSIDE the bin-chain modifies the immediately
+following name, which is an ancestor — not the subject. Titles inside
+the chain therefore MUST NOT enter the subject's laqab list.
+
+EXAMPLES — DO NOT EXTRACT (titles belong to an ancestor):
+- "محمد بن الشيخ أحمد"        → الشيخ is the FATHER's title — skip.
+- "إبراهيم بن الإمام علي"     → الإمام is the FATHER's title — skip.
+- "أحمد بن العلامة محمود"     → العلامة is the FATHER's title — skip.
+- "محمد بن أحمد بن الحافظ علي" → الحافظ is the GRANDFATHER's — skip.
+
+EXTRACT ONLY when the title:
+- appears BEFORE the subject's first name (e.g. "الشيخ محمد بن أحمد"
+  with no bin between الشيخ and محمد), or
+- appears in apposition to the subject AFTER the nasab chain ends
+  (e.g. "محمد بن أحمد بن علي، الحافظ، ..."), or
+- otherwise unambiguously modifies the subject's own name.
+
+When unsure whether a title modifies the subject or an ancestor,
+DO NOT extract it.
 
 ============================================================
 【10. DATES (Birth / Death)】
@@ -1120,18 +1435,22 @@ Geographic events: any event whose primary nature is movement to,
 or presence in, a specific place.
 
 "type" must be one of:
-    born     birth (use with birth date if available)
-    died     death
-    buried   burial
-    reside   long-term residence
-    visit    travel / short visit (default for travel events)
-    travel   journey (use when emphasis is on the journey itself)
-    study    travel for study purposes
-    hajj     pilgrimage to Mecca — USE ONLY when text explicitly
-             says حج / حجّ / حجة
-    umrah    minor pilgrimage — USE ONLY when text explicitly
-             says عمرة
-    other    none of the above
+    buried     burial
+    residence  long-term residence
+    visit      travel / short visit (default for travel events)
+    travel     journey (use when emphasis is on the journey itself)
+    study      travel for study purposes
+    hajj       pilgrimage to Mecca — USE ONLY when text explicitly
+               says حج / حجّ / حجة
+    umrah      minor pilgrimage — USE ONLY when text explicitly
+               says عمرة
+    jāwara     extended stay in Mecca/Medina (مجاورة)
+    riḥla      scholarly travel (الرحلة)
+    legacy     posthumous event (legacy, posthumous influence)
+    other      none of the above
+
+DO NOT use "born" or "died" — birth/death belong in birth_h / death_h
+fields, which generate <birth>/<death> elements directly.
 
 IMPORTANT — Hajj judgment:
 - "ذهب إلى مكة" or similar without حج/حجّ → type = "visit"
@@ -1309,13 +1628,52 @@ DO NOT EXTRACT:
 【18. NEGATIVE INSTRUCTIONS — DO NOT INCLUDE】
 ============================================================
 - Collective nouns: وغيره / جماعة / آخرون / غير واحد / etc.
-  These are vague and should be SKIPPED entirely.
+  These are vague placeholders for "and others"; SKIP entirely.
+  Do NOT emit a relation/teacher/student/family entry for them
+  even with an empty name. They simply do not produce a record.
 - Text coverage qualifiers: من أوله إلى آخره / إلى باب كذا /
   بعضه / etc. Ignore these.
 - Generic honorifics in passing mentions (الشيخ, الإمام) when not
   used as a fixed personal designation.
 - Madhhab as nisbah (الشافعي as nisbah). Always route to madhhab_name.
 - Family relations implied by nasab chain or kunyah (see section 17).
+- Titles of ancestors inside the nasab chain — see section 9.
+
+============================================================
+【18b. FORWARD/BACKWARD REFERENCE MARKERS】
+============================================================
+Words like "الآتي" (= forthcoming / mentioned below) and
+"الماضي" / "المتقدم" (= aforementioned / mentioned above) signal that
+the person referenced has — or will have — their own biographical entry
+elsewhere in al-Sakhāwī's text.
+
+WHEN you see these markers:
+1. Still extract the person normally (name, ID candidate, etc.).
+2. Add a brief note in editors_notes flagging the cross-reference:
+   "Marked الآتي — cross-ref to a later entry."
+   "Marked الماضي — cross-ref to an earlier entry."
+3. The application's ID-Master matching phase will resolve the link
+   to the actual xml:id once both entries exist.
+
+============================================================
+【18c. BOOK / TEXT REFERENCES — WIKIDATA Q-ID PRIORITY】
+============================================================
+For any cited book/text (in teachers.text_*, students.text_*, or
+bio_events.description), ALWAYS prefer a Wikidata Q-ID over a local
+TMP-T- placeholder when the work is well-known.
+
+Common references and their Q-IDs (use these when applicable):
+- al-Dāraquṭnī's Sunan (السنن للدارقطني) → wd:Q12217063
+- al-Bukhārī's Ṣaḥīḥ                     → wd:Q208507
+- Muslim's Ṣaḥīḥ                         → wd:Q193272
+- al-Tirmidhī's Sunan                    → wd:Q1248893
+- Abū Dāwūd's Sunan                      → wd:Q593290
+- al-Nasāʾī's Sunan                      → wd:Q1140365
+- Ibn Mājah's Sunan                      → wd:Q940817
+- Mālik's Muwaṭṭaʾ                       → wd:Q900871
+
+When the title is generic / unrecognized, use TMP-T-00000 (placeholder)
+and let the human editor resolve it later.
 
 ============================================================
 【19. OUTPUT FORMAT】
@@ -1323,7 +1681,6 @@ DO NOT EXTRACT:
 Return ONLY valid JSON. No markdown fences. No commentary.
 
 {{
-  "aind_id": "",
   "original_id": "",
   "full_name": "",
   "name_only": "",
@@ -1332,14 +1689,14 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "death_h": "", "death_cert": "", "death_note": "",
   "madhhab_name": "",
   "nisbahs": [
-    {{"ar": "", "lat": "", "id": "TMP-L-00000"}}
+    {{"ar": "", "lat": "", "id": "TMP-N-00000"}}
   ],
   "laqabs": [
     {{"type": "laqab", "ar": "", "lat": ""}}
   ],
   "activities": [
     {{
-      "seq": 1, "type": "reside",
+      "seq": 1, "type": "residence",
       "place_ar": "", "place_lat": "", "id": "",
       "date_h": "", "date_cert": "", "date_note": ""
     }}
@@ -1431,6 +1788,60 @@ Text: {source_input}
         else:
             st.warning("テキストを入力してください。")
 
+    # ID 候補検索ツール(Task 3-2)
+    with st.expander("🔎 ID 候補検索", expanded=False):
+        st.caption(
+            "アラビア語またはローマ字を入力すると、ID-Master から候補が"
+            "表示されます。表示された ID をコピーして該当の入力欄に貼り付けてください。"
+        )
+        _lookup_records = load_id_master()
+        lookup_q = st.text_input(
+            "検索クエリ(2 文字以上)",
+            value="",
+            key="id_lookup_query",
+            placeholder="例: ابن حجر / Ibn Ḥajar / القاهرة",
+        )
+        _lookup_cat = st.selectbox(
+            "カテゴリで絞り込み(任意)",
+            ["(すべて)", "Person", "Place", "Nisbah", "Institution",
+             "Office", "Text", "Subject"],
+            key="id_lookup_cat",
+        )
+        if lookup_q and len(lookup_q.strip()) >= 2 and _lookup_records:
+            q_norm = normalize_arabic(lookup_q.strip())
+            q_lower = lookup_q.strip().lower()
+            cat_filter = "" if _lookup_cat == "(すべて)" else _lookup_cat
+            matches = []
+            for r in _lookup_records:
+                if cat_filter and (r.get("Category", "") or "").strip() != cat_filter:
+                    continue
+                ar_norm = normalize_arabic(r.get("Arabic", ""))
+                lat = (r.get("Latin", "") or "").lower()
+                if q_norm and q_norm in ar_norm:
+                    matches.append(r)
+                elif q_lower and q_lower in lat:
+                    matches.append(r)
+                if len(matches) >= 20:
+                    break
+            if matches:
+                st.markdown(f"**{len(matches)} 件ヒット(上位 20 件)**")
+                for r in matches:
+                    ar = r.get("Arabic", "")
+                    lat = r.get("Latin", "")
+                    id_val = r.get("ID", "")
+                    cat = r.get("Category", "")
+                    note = r.get("Note", "")
+                    label = f"`{id_val}` — {ar}"
+                    if lat:
+                        label += f" ({lat})"
+                    if cat:
+                        label += f"  [{cat}]"
+                    if note:
+                        label += f" — {note}"
+                    st.markdown(label)
+            else:
+                st.info("該当する候補がありません。")
+
     # ID Master状態表示
     with st.expander("📋 ID Master 状態", expanded=False):
         records = load_id_master()
@@ -1473,19 +1884,32 @@ Text: {source_input}
 # ===================================================
 # --- 8. メインエリア: メタデータエディタ ---
 # ===================================================
-st.title("🌙 AINet-DB Researcher Pro")
+_title_col, _ver_col = st.columns([4, 1])
+_title_col.title("🌙 AINet-DB Researcher Pro")
+_ver_col.markdown(
+    f"<div style='text-align:right; padding-top:1.6rem;'>"
+    f"<span style='font-size:0.9rem; color:#888;'>"
+    f"{APP_VERSION} &nbsp; <span style='color:#aaa;'>{APP_VERSION_DATE}</span>"
+    f"</span></div>",
+    unsafe_allow_html=True,
+)
 
-# === ツールバー(翻字補完 / 採番更新 / クリア) ===
-clr_c1, clr_c2, clr_c3, clr_c4 = st.columns([0.55, 0.15, 0.15, 0.15])
+# === ツールバー(翻字補完 / ID 照合 / 採番更新 / クリア) ===
+clr_c1, clr_c2, clr_c3, clr_c4, clr_c5 = st.columns([0.40, 0.15, 0.15, 0.15, 0.15])
 with clr_c2:
     if st.button("↗ 翻字を一括補完", use_container_width=True,
                  help="空のラテン欄を IJMES 翻字で一括補完(既存の入力は保持)"):
         transliterate_empty_latin_fields(d)
 with clr_c3:
+    if st.button("🔎 ID-Master 照合", use_container_width=True,
+                 help="ID-Master と完全一致照合し、未確定の ID 欄に自動で値を入れる"):
+        apply_id_master_matching(d)
+        st.rerun()
+with clr_c4:
     if st.button("🔢 採番を更新", use_container_width=True,
                  help="プレースホルダー(TMP-X-00000)を空き番号で採番"):
         auto_assign_tmp_ids_in_data(d)
-with clr_c4:
+with clr_c5:
     if st.button("🗑️ 入力をクリア", use_container_width=True,
                  help="入力した全データをクリアします(担当者名は保持)"):
         st.session_state["_show_clear_confirm"] = True
@@ -1507,20 +1931,20 @@ if st.session_state.get("_show_clear_confirm"):
 st.header("2. Metadata Editor")
 
 # --- 基本情報 ---
-c1, c2 = st.columns(2)
-d["aind_id"]     = c1.text_input("@xml:id", d["aind_id"])
-d["original_id"] = c2.text_input("@source", d["original_id"])
-d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
-d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
-
-# === Sex(M/F/U) ===
-sex_col1, _ = st.columns([1, 3])
+# Source ID と Sex を同じ行に並べる(両方とも幅の狭い入力なので)
+basic_c1, basic_c2, _basic_spacer = st.columns([1, 1, 3])
+d["original_id"] = basic_c1.text_input(
+    "12-digit Source ID (@source)",
+    d.get("original_id", ""),
+    placeholder="例: 401914986553",
+    help="12 桁の半角数字。xml:id は 'AIND-' + これ で自動生成されます。",
+)
 sex_keys   = [s[0] for s in SEX_OPTIONS]
 sex_labels = {s[0]: s[1] for s in SEX_OPTIONS}
-cur_sex = d.get("sex", "U")
+cur_sex = d.get("sex", "M")
 if cur_sex not in sex_keys:
-    cur_sex = "U"
-d["sex"] = sex_col1.selectbox(
+    cur_sex = "M"
+d["sex"] = basic_c2.selectbox(
     "Sex",
     sex_keys,
     format_func=lambda x: sex_labels[x],
@@ -1528,24 +1952,32 @@ d["sex"] = sex_col1.selectbox(
     key="sex_select",
 )
 
+if d.get("original_id") and get_xml_id(d) is None:
+    st.warning(
+        "original_id は 12 桁の半角数字である必要があります。"
+        f"現在の値: {d['original_id']!r}"
+    )
+d["full_name"]   = st.text_input("persName (Full Arabic)", d["full_name"])
+d["name_only"]   = st.text_input("persName (Ism/Father/GF)", d["name_only"])
+
 # ===================================================
 # --- Nisbahs ---
 # ===================================================
 st.divider()
 st.subheader("🏷️ Nisbahs")
 nh = st.columns([1,1,1,0.3])
-nh[0].caption("Arabic"); nh[1].caption("Latinized"); nh[2].caption("ID (TMP-L- / GeoNames数字)"); nh[3].caption("Del")
+nh[0].caption("Arabic"); nh[1].caption("Latinized"); nh[2].caption("ID (TMP-N-)"); nh[3].caption("Del")
 for i, item in enumerate(d.get("nisbahs",[])):
     if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
     uid = item["ui_id"]
     r = st.columns([1,1,1,0.3])
     item["ar"]  = r[0].text_input("ar",  item.get("ar",""),  key=f"n_a_{uid}", label_visibility="collapsed")
     item["lat"] = r[1].text_input("lat", item.get("lat",""), key=f"n_l_{uid}", label_visibility="collapsed")
-    item["id"]  = r[2].text_input("id",  item.get("id",""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-L-00001")
+    item["id"]  = r[2].text_input("id",  item.get("id",""),  key=f"n_i_{uid}", label_visibility="collapsed", placeholder="TMP-N-00001")
     if r[3].button("❌", key=f"n_del_{uid}"):
         d["nisbahs"].pop(i); st.rerun()
 if st.button("＋ add nisbah"):
-    d["nisbahs"].append({"ui_id":str(uuid.uuid4()),"ar":"","lat":"","id":"TMP-L-00000"}); st.rerun()
+    d["nisbahs"].append({"ui_id":str(uuid.uuid4()),"ar":"","lat":"","id":"TMP-N-00000"}); st.rerun()
 
 # ===================================================
 # --- Laqab / Shuhrah / Kunyah ---
@@ -1572,7 +2004,7 @@ if st.button("＋ add laqab / shuhrah / kunyah"):
 
 # --- 生没年(cert / note 付き) ---
 st.divider()
-st.markdown("**📅 Birth / Death**")
+st.subheader("📅 Birth / Death")
 
 cert_keys   = [c[0] for c in DATE_CERT_OPTIONS]
 cert_labels = {c[0]: c[1] for c in DATE_CERT_OPTIONS}
@@ -1603,6 +2035,13 @@ with st.container():
         d.get("birth_note", ""),
         placeholder="例: Ca. 850 / before 850 / 異説あり",
     )
+    d["birth_inference_note"] = st.text_input(
+        "Birth Inference Note (推論根拠 / 英語推奨)",
+        d.get("birth_inference_note", ""),
+        placeholder='例: Inferred from "died at 50 in 900H".',
+        help="原文に明示が無く文脈推論で記入した場合、その根拠を英語で記述。"
+             '出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+    )
 
 # Death
 with st.container():
@@ -1629,16 +2068,23 @@ with st.container():
         d.get("death_note", ""),
         placeholder="例: Ca. 902 / 異説あり(901)",
     )
+    d["death_inference_note"] = st.text_input(
+        "Death Inference Note (推論根拠 / 英語推奨)",
+        d.get("death_inference_note", ""),
+        placeholder='例: Inferred from "his son inherited his post in 905H".',
+        help='出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+    )
 
 # ===================================================
 # --- Madhhab ---
 # ===================================================
 st.divider()
+st.subheader("⚖️ Madhhab")
 madhhab_keys = list(MADHHAB_DATA.keys())
 cur_m   = d["madhhab"]["lat"]
 def_idx = madhhab_keys.index(cur_m) if cur_m in madhhab_keys else 4
 m_col1, m_col2 = st.columns(2)
-selected_m  = m_col1.selectbox("⚖️ Madhhab", options=madhhab_keys, index=def_idx)
+selected_m  = m_col1.selectbox("Madhhab", options=madhhab_keys, index=def_idx, label_visibility="collapsed")
 wikidata_id = MADHHAB_DATA[selected_m]
 m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True)
 if selected_m == "Unknown / Other":
@@ -1862,7 +2308,7 @@ for i, item in enumerate(acts):
         r[0].caption("Place (Arabic)"); r[1].caption("Place (Latin)"); r[2].caption("Type"); r[3].caption("ID (GeoNames数字)")
         item["place_ar"]  = r[0].text_input("par",  item.get("place_ar",""),  key=f"a_a_{uid}", label_visibility="collapsed")
         item["place_lat"] = r[1].text_input("plat", item.get("place_lat",""), key=f"a_l_{uid}", label_visibility="collapsed")
-        ct = item.get("type","reside")
+        ct = item.get("type","residence")
         item["type"] = r[2].selectbox("type", ACTIVITY_TYPES,
                                        index=ACTIVITY_TYPES.index(ct) if ct in ACTIVITY_TYPES else 0,
                                        key=f"a_t_{uid}", label_visibility="collapsed")
@@ -1892,11 +2338,19 @@ for i, item in enumerate(acts):
             key=f"a_dn_{uid}", label_visibility="collapsed",
             placeholder="例: Ca. 850 / 異説あり",
         )
+        item["inference_note"] = st.text_input(
+            "Inference Note (推論根拠 / 英語推奨)",
+            item.get("inference_note", ""),
+            key=f"a_inf_{uid}",
+            placeholder='例: Inferred from "تربة أبيهما" within the Khānqāh of Faraj b. Barqūq.',
+            help='出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+        )
     st.markdown("---")
 if st.button("＋ add activity"):
     d["activities"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["activities"])+1,
-        "place_ar":"","place_lat":"","type":"reside","id":"",
-        "date_h":"","date_cert":"","date_note":""}); st.rerun()
+        "place_ar":"","place_lat":"","type":"residence","id":"",
+        "date_h":"","date_cert":"","date_note":"",
+        "inference_note":""}); st.rerun()
 
 # ===================================================
 # --- Institutions ---
@@ -1973,12 +2427,20 @@ for i, item in enumerate(offices):
         r4[0].caption("🏛️ Institution Name"); r4[1].caption("Institution ID (Q / TMP-I-)")
         item["inst_name"] = r4[0].text_input("oiname", item.get("inst_name",""), key=f"o_in_{uid}", label_visibility="collapsed")
         item["inst_id"]   = r4[1].text_input("oiid",   item.get("inst_id",""),   key=f"o_ii_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
+        item["inference_note"] = st.text_input(
+            "Inference Note (推論根拠 / 英語推奨)",
+            item.get("inference_note", ""),
+            key=f"o_inf_{uid}",
+            placeholder="例: Inferred from a colophon referring to him as nāʾib al-qāḍī.",
+            help='出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+        )
     st.markdown("---")
 if st.button("＋ add office"):
     d["offices"].append({"ui_id":str(uuid.uuid4()),"seq":len(d["offices"])+1,
         "name_ar":"","name_lat":"","id":"TMP-O-00000",
         "place_ar":"","place_lat":"","place_id":"",
-        "inst_name":"","inst_id":"","appoint_date":"","retire_date":""}); st.rerun()
+        "inst_name":"","inst_id":"","appoint_date":"","retire_date":"",
+        "inference_note":""}); st.rerun()
 
 # ===================================================
 # --- Family ---
@@ -2015,113 +2477,6 @@ for i, item in enumerate(d.get("family",[])):
     st.markdown("---")
 if st.button("＋ add family member"):
     d["family"].append({"ui_id":str(uuid.uuid4()),"name":"","relation":"father","relation_note":"","id":"TMP-P-00000"}); st.rerun()
-
-# ===================================================
-# --- Biographical Events ---
-# ===================================================
-st.divider()
-st.subheader("📅 Biographical Events")
-st.caption(
-    "地理移動を伴わない人生のイベント(著作・政治事件・宗教的事件など)。"
-    "ハッジは Activities へ。▲▼ で並び替え可。"
-)
-
-bio_events = d.get("bio_events", [])
-be_type_keys   = [t[0] for t in BIO_EVENT_TYPES]
-be_type_labels = {t[0]: t[1] for t in BIO_EVENT_TYPES}
-be_cert_keys   = [c[0] for c in DATE_CERT_OPTIONS]
-be_cert_labels = {c[0]: c[1] for c in DATE_CERT_OPTIONS}
-
-for i, item in enumerate(bio_events):
-    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
-    uid = item["ui_id"]
-    item["seq"] = i + 1
-
-    with st.container():
-        # ヘッダー: 番号 + ▲▼
-        hc = st.columns([0.15, 0.25, 3])
-        hc[0].markdown(f"**#{i+1}**")
-        with hc[1]:
-            if st.button("▲", key=f"be_mvup_{uid}", disabled=(i == 0)):
-                move_item(d["bio_events"], i, -1); st.rerun()
-            if st.button("▼", key=f"be_mvdn_{uid}", disabled=(i == len(bio_events)-1)):
-                move_item(d["bio_events"], i, +1); st.rerun()
-
-        # 1行目: Type / Date / Cert / Date Note / ❌
-        r1 = st.columns([1, 1, 0.7, 1.3, 0.3])
-        r1[0].caption("Type")
-        r1[1].caption("📅 Date (H)")
-        r1[2].caption("Cert")
-        r1[3].caption("Date Note")
-
-        cur_type = item.get("type", "")
-        type_options = [""] + be_type_keys
-        type_labels_with_empty = {"": "— 未選択 —", **be_type_labels}
-        item["type"] = r1[0].selectbox(
-            "type",
-            type_options,
-            format_func=lambda x: type_labels_with_empty[x],
-            index=type_options.index(cur_type) if cur_type in type_options else 0,
-            key=f"be_t_{uid}", label_visibility="collapsed",
-        )
-        item["date_h"] = r1[1].text_input(
-            "bdh", item.get("date_h", ""),
-            key=f"be_dh_{uid}", label_visibility="collapsed",
-            placeholder="例: 880",
-        )
-        cur_dcert = item.get("date_cert", "")
-        item["date_cert"] = r1[2].selectbox(
-            "bdc", be_cert_keys,
-            format_func=lambda x: be_cert_labels[x],
-            index=be_cert_keys.index(cur_dcert) if cur_dcert in be_cert_keys else 0,
-            key=f"be_dc_{uid}", label_visibility="collapsed",
-        )
-        item["date_note"] = r1[3].text_input(
-            "bdn", item.get("date_note", ""),
-            key=f"be_dn_{uid}", label_visibility="collapsed",
-            placeholder="例: Ca. 880",
-        )
-        if r1[4].button("❌", key=f"be_del_{uid}"):
-            d["bio_events"].pop(i); st.rerun()
-
-        # 2行目: Place
-        r2 = st.columns([1, 1, 1])
-        r2[0].caption("📍 Place (Arabic)")
-        r2[1].caption("📍 Place (Latin)")
-        r2[2].caption("Place ID")
-        item["place_ar"]  = r2[0].text_input("bpa", item.get("place_ar",""),
-            key=f"be_pa_{uid}", label_visibility="collapsed")
-        item["place_lat"] = r2[1].text_input("bpl", item.get("place_lat",""),
-            key=f"be_pl_{uid}", label_visibility="collapsed")
-        item["place_id"]  = r2[2].text_input("bpi", item.get("place_id",""),
-            key=f"be_pi_{uid}", label_visibility="collapsed",
-            placeholder="GeoNames数字 / Q-ID")
-
-        # 3行目: Description (REQUIRED)
-        item["description"] = st.text_area(
-            "Description (詳細・著作タイトルなど)",
-            value=item.get("description", ""),
-            height=60,
-            key=f"be_desc_{uid}",
-            placeholder="例: 『الحلاوة السكرية』(千句詩・相続法)を著した",
-        )
-
-    st.markdown("---")
-
-if st.button("＋ add biographical event"):
-    d["bio_events"].append({
-        "ui_id":       str(uuid.uuid4()),
-        "seq":         len(d["bio_events"]) + 1,
-        "type":        "",
-        "date_h":      "",
-        "date_cert":   "",
-        "date_note":   "",
-        "place_ar":    "",
-        "place_lat":   "",
-        "place_id":    "",
-        "description": "",
-    })
-    st.rerun()
 
 # ===================================================
 # --- Social Relations ---
@@ -2213,6 +2568,123 @@ if st.button("＋ add social relation"):
     st.rerun()
 
 # ===================================================
+# --- Biographical Events ---
+# ===================================================
+st.divider()
+st.subheader("📅 Biographical Events")
+st.caption(
+    "地理移動を伴わない人生のイベント(著作・政治事件・宗教的事件など)。"
+    "ハッジは Activities へ。▲▼ で並び替え可。"
+)
+
+bio_events = d.get("bio_events", [])
+be_type_keys   = [t[0] for t in BIO_EVENT_TYPES]
+be_type_labels = {t[0]: t[1] for t in BIO_EVENT_TYPES}
+be_cert_keys   = [c[0] for c in DATE_CERT_OPTIONS]
+be_cert_labels = {c[0]: c[1] for c in DATE_CERT_OPTIONS}
+
+for i, item in enumerate(bio_events):
+    if "ui_id" not in item: item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    item["seq"] = i + 1
+
+    with st.container():
+        # ヘッダー: 番号 + ▲▼
+        hc = st.columns([0.15, 0.25, 3])
+        hc[0].markdown(f"**#{i+1}**")
+        with hc[1]:
+            if st.button("▲", key=f"be_mvup_{uid}", disabled=(i == 0)):
+                move_item(d["bio_events"], i, -1); st.rerun()
+            if st.button("▼", key=f"be_mvdn_{uid}", disabled=(i == len(bio_events)-1)):
+                move_item(d["bio_events"], i, +1); st.rerun()
+
+        # 1行目: Type / Date / Cert / Date Note / ❌
+        r1 = st.columns([1, 1, 0.7, 1.3, 0.3])
+        r1[0].caption("Type")
+        r1[1].caption("📅 Date (H)")
+        r1[2].caption("Cert")
+        r1[3].caption("Date Note")
+
+        cur_type = item.get("type", "")
+        type_options = [""] + be_type_keys
+        type_labels_with_empty = {"": "— 未選択 —", **be_type_labels}
+        item["type"] = r1[0].selectbox(
+            "type",
+            type_options,
+            format_func=lambda x: type_labels_with_empty[x],
+            index=type_options.index(cur_type) if cur_type in type_options else 0,
+            key=f"be_t_{uid}", label_visibility="collapsed",
+        )
+        item["date_h"] = r1[1].text_input(
+            "bdh", item.get("date_h", ""),
+            key=f"be_dh_{uid}", label_visibility="collapsed",
+            placeholder="例: 880",
+        )
+        cur_dcert = item.get("date_cert", "")
+        item["date_cert"] = r1[2].selectbox(
+            "bdc", be_cert_keys,
+            format_func=lambda x: be_cert_labels[x],
+            index=be_cert_keys.index(cur_dcert) if cur_dcert in be_cert_keys else 0,
+            key=f"be_dc_{uid}", label_visibility="collapsed",
+        )
+        item["date_note"] = r1[3].text_input(
+            "bdn", item.get("date_note", ""),
+            key=f"be_dn_{uid}", label_visibility="collapsed",
+            placeholder="例: Ca. 880",
+        )
+        if r1[4].button("❌", key=f"be_del_{uid}"):
+            d["bio_events"].pop(i); st.rerun()
+
+        # 2行目: Place
+        r2 = st.columns([1, 1, 1])
+        r2[0].caption("📍 Place (Arabic)")
+        r2[1].caption("📍 Place (Latin)")
+        r2[2].caption("Place ID")
+        item["place_ar"]  = r2[0].text_input("bpa", item.get("place_ar",""),
+            key=f"be_pa_{uid}", label_visibility="collapsed")
+        item["place_lat"] = r2[1].text_input("bpl", item.get("place_lat",""),
+            key=f"be_pl_{uid}", label_visibility="collapsed")
+        item["place_id"]  = r2[2].text_input("bpi", item.get("place_id",""),
+            key=f"be_pi_{uid}", label_visibility="collapsed",
+            placeholder="GeoNames数字 / Q-ID")
+
+        # 3行目: Description (REQUIRED)
+        item["description"] = st.text_area(
+            "Description (詳細・著作タイトルなど)",
+            value=item.get("description", ""),
+            height=60,
+            key=f"be_desc_{uid}",
+            placeholder="例: 『الحلاوة السكرية』(千句詩・相続法)を著した",
+        )
+
+        # 4行目: Inference Note(推論根拠)
+        item["inference_note"] = st.text_input(
+            "Inference Note (推論根拠 / 英語推奨)",
+            item.get("inference_note", ""),
+            key=f"be_inf_{uid}",
+            placeholder="例: Inferred from cross-reference to his student's biography.",
+            help='出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+        )
+
+    st.markdown("---")
+
+if st.button("＋ add biographical event"):
+    d["bio_events"].append({
+        "ui_id":          str(uuid.uuid4()),
+        "seq":            len(d["bio_events"]) + 1,
+        "type":           "",
+        "date_h":         "",
+        "date_cert":      "",
+        "date_note":      "",
+        "place_ar":       "",
+        "place_lat":      "",
+        "place_id":       "",
+        "description":    "",
+        "inference_note": "",
+    })
+    st.rerun()
+
+# ===================================================
 # --- Person Notes ---
 # ===================================================
 st.divider()
@@ -2220,6 +2692,61 @@ st.subheader("📝 Person Notes")
 st.caption("性格・評判・特筆すべき成果・日常生活の様子など")
 d["person_notes"] = st.text_area("Notes", value=d.get("person_notes",""), height=150,
     placeholder="例: 温厚で寛容な人柄で知られ、多くの学者から尊敬を集めた。")
+
+# ===================================================
+# --- 作業者情報 (respStmt) ---
+# ===================================================
+st.divider()
+st.subheader("🖊️ 作業者情報 (respStmt)")
+st.caption("この person 要素の編集に関わった担当者を記録します。複数の作業履歴を並列で記録可能。")
+
+resp_stmts = d.get("resp_stmts", [])
+for i, item in enumerate(resp_stmts):
+    if "ui_id" not in item:
+        item["ui_id"] = str(uuid.uuid4())
+    uid = item["ui_id"]
+    with st.container():
+        rc = st.columns([1.2, 1.5, 1, 0.3])
+        rc[0].caption("役割")
+        rc[1].caption("作業者名")
+        rc[2].caption("日付 (YYYY-MM-DD)")
+
+        cur_role = item.get("role", "初版作成")
+        if cur_role not in RESP_ROLE_OPTIONS:
+            cur_role = "その他"
+        item["role"] = rc[0].selectbox(
+            "role", RESP_ROLE_OPTIONS,
+            index=RESP_ROLE_OPTIONS.index(cur_role),
+            key=f"rs_role_{uid}", label_visibility="collapsed",
+        )
+        # 既存値が選択肢に無ければ末尾に追加(レガシーデータ保持)
+        cur_name = item.get("name", "")
+        _person_opts = list(RESP_PERSON_OPTIONS)
+        if cur_name and cur_name not in _person_opts:
+            _person_opts.append(cur_name)
+        _idx = _person_opts.index(cur_name) if cur_name in _person_opts else 0
+        item["name"] = rc[1].selectbox(
+            "name", _person_opts,
+            index=_idx,
+            key=f"rs_name_{uid}", label_visibility="collapsed",
+        )
+        item["date"] = rc[2].text_input(
+            "date", item.get("date", _date.today().isoformat()),
+            key=f"rs_date_{uid}", label_visibility="collapsed",
+            placeholder="YYYY-MM-DD",
+        )
+        if rc[3].button("❌", key=f"rs_del_{uid}"):
+            d["resp_stmts"].pop(i); st.rerun()
+    st.markdown("---")
+
+if st.button("＋ add respStmt"):
+    d["resp_stmts"].append({
+        "ui_id": str(uuid.uuid4()),
+        "role":  "初版作成",
+        "name":  RESP_PERSON_OPTIONS[0],
+        "date":  _date.today().isoformat(),
+    })
+    st.rerun()
 
 # ===================================================
 # --- 9. TEI-XML エクスポート ---
@@ -2284,73 +2811,117 @@ def build_madhhab_and_sufi(x, d):
         )
 
 
-def _build_date_event(elem_name, year_h, cert, note):
+def _build_date_event(elem_name, year_h, cert, note, inference_note=""):
     if not year_h:
         return None
-    year_g = convert_h_to_g(year_h)
+    year_h_padded = pad_year_attr(year_h)
+    year_g = convert_h_to_g(year_h)  # convert_h_to_g は既に4桁返す
     cert_attr = f' cert="{cert}"' if cert else ""
     when_g_attr = f' when="{year_g}"' if year_g else ""
+
+    inner_notes = []
     if note:
-        lang = detect_lang(note)
+        inner_notes.append(
+            f'        <note xml:lang="{detect_lang(note)}">{escape_xml(note)}</note>'
+        )
+    if inference_note:
+        inner_notes.append(
+            f'        <note type="inference" xml:lang="{detect_lang(inference_note)}">'
+            f'{escape_xml(inference_note)}</note>'
+        )
+
+    if inner_notes:
         return (
-            f'    <{elem_name} when-custom="{escape_xml_attr(year_h)}"{when_g_attr}{cert_attr}>\n'
-            f'        <note xml:lang="{lang}">{escape_xml(note)}</note>\n'
+            f'    <{elem_name} when-custom="{escape_xml_attr(year_h_padded)}"{when_g_attr}{cert_attr}>\n'
+            + "\n".join(inner_notes) + "\n"
             f'    </{elem_name}>'
         )
-    return f'    <{elem_name} when-custom="{escape_xml_attr(year_h)}"{when_g_attr}{cert_attr}/>'
+    return f'    <{elem_name} when-custom="{escape_xml_attr(year_h_padded)}"{when_g_attr}{cert_attr}/>'
 
 
 def build_birth_death(x, d):
-    b = _build_date_event("birth", d.get("birth_h",""), d.get("birth_cert",""), d.get("birth_note",""))
+    b = _build_date_event(
+        "birth", d.get("birth_h",""), d.get("birth_cert",""),
+        d.get("birth_note",""), d.get("birth_inference_note",""),
+    )
     if b: x.append(b)
-    de = _build_date_event("death", d.get("death_h",""), d.get("death_cert",""), d.get("death_note",""))
+    de = _build_date_event(
+        "death", d.get("death_h",""), d.get("death_cert",""),
+        d.get("death_note",""), d.get("death_inference_note",""),
+    )
     if de: x.append(de)
+
+
+def _method_field_label_lang(entry):
+    """ID-Master エントリから使用するラベルと xml:lang を決定。
+    Arabic があれば ar、なければ Latin → ar-Latn、それも無ければ ja。"""
+    if entry.get("ar"):
+        return entry["ar"], "ar"
+    if entry.get("lat"):
+        return entry["lat"], "ar-Latn"
+    if entry.get("ja"):
+        return entry["ja"], "ja"
+    return "", "ar"
+
+
+_FAMILY_RELATION_SUBTYPES = {
+    "father", "mother", "son", "daughter", "brother", "sister",
+    "spouse", "grandfather", "grandmother",
+    "uncle", "aunt", "cousin", "siblings_child",
+    "ancestor", "descendant",
+}
+
+
+def assign_n_attribute(relation_subtype, idx):
+    """relation の n属性を分野別に振る:
+    - teacher / student: 連番(必ず n を付ける)
+    - 親族関係: n属性なし
+    - 社会的関係: idx が真であれば n を付ける(必要に応じて)
+    """
+    if relation_subtype in ("teacher", "student"):
+        return f' n="{idx}"' if idx else ""
+    if relation_subtype in _FAMILY_RELATION_SUBTYPES:
+        return ""
+    # 社会的関係 / その他
+    return f' n="{idx}"' if idx else ""
 
 
 def _build_method_field_desc(method_id, field_id, method_dict, field_dict):
     lines = []
-    # Method
-    if method_id:
-        if method_id in method_dict:
-            entry = method_dict[method_id]
-            label = entry.get("ar") or entry.get("lat") or method_id
+    for kind, val, dct in [("method", method_id, method_dict),
+                            ("field",  field_id,  field_dict)]:
+        if not val:
+            continue
+        if val in dct:
+            label, lang = _method_field_label_lang(dct[val])
+            if label:
+                lines.append(
+                    f'            <desc type="{kind}" ref="{fr(val)}" xml:lang="{lang}">'
+                    f'{escape_xml(label)}</desc>'
+                )
+            else:
+                # ラベル空 — ref のみの空要素にも xml:lang を付与
+                lines.append(
+                    f'            <desc type="{kind}" ref="{fr(val)}" xml:lang="ar"/>'
+                )
+        elif is_id_format(val):
+            # ID 形式だが辞書に無い(古い ID 等)→ ref のみ・xml:lang="ar"
             lines.append(
-                f'            <desc type="method" ref="{fr(method_id)}">'
-                f'{escape_xml(label)}</desc>'
-            )
-        elif is_id_format(method_id):
-            lines.append(
-                f'            <desc type="method" ref="{fr(method_id)}"/>'
-            )
-        else:
-            lines.append(
-                f'            <desc type="method">{escape_xml(method_id)}</desc>'
-            )
-    # Field
-    if field_id:
-        if field_id in field_dict:
-            entry = field_dict[field_id]
-            label = entry.get("ar") or entry.get("lat") or field_id
-            lines.append(
-                f'            <desc type="field" ref="{fr(field_id)}">'
-                f'{escape_xml(label)}</desc>'
-            )
-        elif is_id_format(field_id):
-            lines.append(
-                f'            <desc type="field" ref="{fr(field_id)}"/>'
+                f'            <desc type="{kind}" ref="{fr(val)}" xml:lang="ar"/>'
             )
         else:
+            # 自由記述 → 言語を推定して付与
             lines.append(
-                f'            <desc type="field">{escape_xml(field_id)}</desc>'
+                f'            <desc type="{kind}" xml:lang="{detect_lang(val)}">'
+                f'{escape_xml(val)}</desc>'
             )
     return lines
 
 
 def _build_teacher_relation(t, aind_id, method_dict, field_dict):
-    seq = t.get("seq", "")
-    n_attr = f' n="{seq}"' if seq else ""
+    n_attr = assign_n_attribute("teacher", t.get("seq", ""))
     lines = [
-        f'        <relation type="personal" name="teacher"{n_attr} '
+        f'        <relation type="personal" subtype="teacher"{n_attr} '
         f'active="{fr(t.get("id",""))}" passive="#{aind_id}">'
     ]
     lines.extend(_build_method_field_desc(
@@ -2363,27 +2934,34 @@ def _build_teacher_relation(t, aind_id, method_dict, field_dict):
         if t.get("text_ar"):
             lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{escape_xml(t["text_ar"])}</bibl>')
         if t.get("text_lat"):
-            lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{escape_xml(t["text_lat"])}</bibl>')
+            lines.append(f'            <bibl xml:lang="ar-Latn"{ref_attr}>{escape_xml(t["text_lat"])}</bibl>')
     if t.get("learn_date") or t.get("learn_place_ar"):
-        da = f' when="{escape_xml_attr(t["learn_date"])}"' if t.get("learn_date") else ""
-        pr = f' where="{fr(t.get("learn_place_id",""))}"' if t.get("learn_place_id") else ""
+        da = f' when="{escape_xml_attr(pad_year_attr(t["learn_date"]))}"' if t.get("learn_date") else ""
+        place_ref = fr(t.get("learn_place_id", ""))
+        place_ref_attr = f' ref="{place_ref}"' if place_ref else ""
         if t.get("learn_place_ar"):
             lines.append(
-                f'            <event type="learning"{da}{pr}>'
-                f'<placeName>{escape_xml(t["learn_place_ar"])}</placeName>'
+                f'            <event type="learning"{da}>'
+                f'<placeName{place_ref_attr}>{escape_xml(t["learn_place_ar"])}</placeName>'
+                f'</event>'
+            )
+        elif place_ref:
+            # 地名表記なし・参照のみ → 空の placeName で ref を保持
+            lines.append(
+                f'            <event type="learning"{da}>'
+                f'<placeName{place_ref_attr}/>'
                 f'</event>'
             )
         else:
-            lines.append(f'            <event type="learning"{da}{pr}/>')
+            lines.append(f'            <event type="learning"{da}/>')
     lines.append('        </relation>')
     return lines
 
 
 def _build_student_relation(s, aind_id, method_dict, field_dict):
-    seq = s.get("seq", "")
-    n_attr = f' n="{seq}"' if seq else ""
+    n_attr = assign_n_attribute("student", s.get("seq", ""))
     lines = [
-        f'        <relation type="personal" name="student"{n_attr} '
+        f'        <relation type="personal" subtype="student"{n_attr} '
         f'active="#{aind_id}" passive="{fr(s.get("id",""))}">'
     ]
     lines.extend(_build_method_field_desc(
@@ -2396,31 +2974,54 @@ def _build_student_relation(s, aind_id, method_dict, field_dict):
         if s.get("text_ar"):
             lines.append(f'            <bibl xml:lang="ar"{ref_attr}>{escape_xml(s["text_ar"])}</bibl>')
         if s.get("text_lat"):
-            lines.append(f'            <bibl xml:lang="lat"{ref_attr}>{escape_xml(s["text_lat"])}</bibl>')
+            lines.append(f'            <bibl xml:lang="ar-Latn"{ref_attr}>{escape_xml(s["text_lat"])}</bibl>')
     if s.get("teach_date") or s.get("teach_place_ar"):
-        da = f' when="{escape_xml_attr(s["teach_date"])}"' if s.get("teach_date") else ""
-        pr = f' where="{fr(s.get("teach_place_id",""))}"' if s.get("teach_place_id") else ""
+        da = f' when="{escape_xml_attr(pad_year_attr(s["teach_date"]))}"' if s.get("teach_date") else ""
+        place_ref = fr(s.get("teach_place_id", ""))
+        place_ref_attr = f' ref="{place_ref}"' if place_ref else ""
         if s.get("teach_place_ar"):
             lines.append(
-                f'            <event type="teaching"{da}{pr}>'
-                f'<placeName>{escape_xml(s["teach_place_ar"])}</placeName>'
+                f'            <event type="teaching"{da}>'
+                f'<placeName{place_ref_attr}>{escape_xml(s["teach_place_ar"])}</placeName>'
+                f'</event>'
+            )
+        elif place_ref:
+            lines.append(
+                f'            <event type="teaching"{da}>'
+                f'<placeName{place_ref_attr}/>'
                 f'</event>'
             )
         else:
-            lines.append(f'            <event type="teaching"{da}{pr}/>')
+            lines.append(f'            <event type="teaching"{da}/>')
     lines.append('        </relation>')
     return lines
 
 
 def _build_family_relation(fam, aind_id):
     rel      = fam.get("relation", "other")
-    rel_note = fam.get("relation_note", "")
-    subtype  = rel_note if (rel == "other" and rel_note) else rel
+    rel_note = (fam.get("relation_note", "") or "").strip()
     fam_ref  = fr(fam.get("id", ""))
+    fam_name = fam.get("name", "")
+    fam_lang = detect_lang(fam_name) if fam_name else "ar"
+
+    # 非標準の家族関係: subtype="other" + <desc type="relationship_type"> 構造
+    # 標準: subtype は relation 値そのまま
+    if rel == "other" and rel_note:
+        inner = (
+            f'<desc type="relationship_type" xml:lang="{detect_lang(rel_note)}">'
+            f'{escape_xml(rel_note)}</desc>'
+            f'<desc xml:lang="{fam_lang}">{escape_xml(fam_name)}</desc>'
+        )
+        subtype_value = "other"
+    else:
+        inner = f'<desc xml:lang="{fam_lang}">{escape_xml(fam_name)}</desc>'
+        subtype_value = rel
+
+    # 親族関係は subtype を問わず n 属性なし(spec 1-12)
     return (
-        f'        <relation type="personal" subtype="{escape_xml_attr(subtype)}" '
+        f'        <relation type="personal" subtype="{escape_xml_attr(subtype_value)}" '
         f'active="{fam_ref}" passive="#{aind_id}">'
-        f'<desc>{escape_xml(fam.get("name",""))}</desc></relation>'
+        f'{inner}</relation>'
     )
 
 
@@ -2437,7 +3038,10 @@ def _build_social_relation(sr, aind_id):
 
     inner_parts = []
     if sr.get("person_name"):
-        inner_parts.append(f'<desc>{escape_xml(sr["person_name"])}</desc>')
+        inner_parts.append(
+            f'<desc xml:lang="{detect_lang(sr["person_name"])}">'
+            f'{escape_xml(sr["person_name"])}</desc>'
+        )
     if sr.get("description"):
         inner_parts.append(
             f'<note xml:lang="{detect_lang(sr["description"])}">'
@@ -2445,8 +3049,9 @@ def _build_social_relation(sr, aind_id):
         )
     if not inner_parts:
         return None
+    n_attr = assign_n_attribute(subtype, sr.get("seq", ""))
     return (
-        f'        <relation type="personal" subtype="{escape_xml_attr(subtype)}" '
+        f'        <relation type="personal" subtype="{escape_xml_attr(subtype)}"{n_attr} '
         f'active="{person_ref}" passive="#{aind_id}">'
         + "".join(inner_parts) +
         f'</relation>'
@@ -2454,7 +3059,9 @@ def _build_social_relation(sr, aind_id):
 
 
 def build_list_relation(x, d, method_dict, field_dict):
-    aind_id = d.get("aind_id", "")
+    # 関係の active/passive 参照には派生 xml:id を使う。
+    # original_id が 12 桁でない場合は空欄(プレビュー時の暫定状態)。
+    aind_id = get_xml_id(d) or ""
     relations = []
     for t in d.get("teachers", []):
         relations.extend(_build_teacher_relation(t, aind_id, method_dict, field_dict))
@@ -2482,7 +3089,7 @@ def _build_activity(a):
     atype    = a.get("type", "reside")
 
     date_h    = a.get("date_h", "")
-    date_attr = f' when-custom="{escape_xml_attr(date_h)}"' if date_h else ""
+    date_attr = f' when-custom="{escape_xml_attr(pad_year_attr(date_h))}"' if date_h else ""
     cert      = a.get("date_cert", "")
     cert_attr = f' cert="{cert}"' if cert else ""
 
@@ -2492,25 +3099,23 @@ def _build_activity(a):
         f'<note xml:lang="{detect_lang(note)}">{escape_xml(note)}</note>'
         if note else ""
     )
+    inf = a.get("inference_note", "")
+    inf_inner = (
+        f'<note type="inference" xml:lang="{detect_lang(inf)}">{escape_xml(inf)}</note>'
+        if inf else ""
+    )
 
-    if atype == "born":
-        return f'    <event type="birth"{n_attr}{date_attr}{cert_attr}>{place_inner}{note_inner}</event>'
-    elif atype == "died":
-        return f'    <event type="death"{n_attr}{date_attr}{cert_attr}>{place_inner}{note_inner}</event>'
-    elif atype == "buried":
-        return f'    <event type="burial"{n_attr}{date_attr}{cert_attr}>{place_inner}{note_inner}</event>'
-    elif atype == "hajj":
-        return f'    <event type="pilgrimage" subtype="hajj"{n_attr}{date_attr}{cert_attr}>{place_inner}{note_inner}</event>'
-    elif atype == "umrah":
-        return f'    <event type="pilgrimage" subtype="umrah"{n_attr}{date_attr}{cert_attr}>{place_inner}{note_inner}</event>'
-    else:
-        # reside / visit / travel / study / other → <residence>
-        return (
-            f'    <residence{n_attr} type="{atype}"{ref_att}{date_attr}{cert_attr}>'
-            f'<placeName>{escape_xml(a["place_ar"])}</placeName>'
-            f'{note_inner}'
-            f'</residence>'
-        )
+    # 生没情報は <birth>/<death> 要素で記録するため、activity の born/died は
+    # 廃止済み(migrate_activity で other に変換)。
+    # 旧 "reside" は migrate_activity で "residence" にリネーム済み。
+    type_attrs = build_event_attrs(atype)
+    return (
+        f'    <event {type_attrs}{n_attr}{date_attr}{cert_attr}>'
+        f'{place_inner}'
+        f'{note_inner}'
+        f'{inf_inner}'
+        f'</event>'
+    )
 
 
 def build_activities(x, d):
@@ -2533,7 +3138,7 @@ def build_institutions(x, d):
             f'    <affiliation{n_attr} type="{escape_xml_attr(inst.get("type",""))}"{ref_att}>'
         )
         if na: x.append(f'        <orgName xml:lang="ar">{escape_xml(na)}</orgName>')
-        if nl: x.append(f'        <orgName xml:lang="lat">{escape_xml(nl)}</orgName>')
+        if nl: x.append(f'        <orgName xml:lang="ar-Latn">{escape_xml(nl)}</orgName>')
         x.append('    </affiliation>')
 
 
@@ -2548,11 +3153,11 @@ def build_offices(x, d):
         if off.get("name_ar"):
             x.append(f'        <label xml:lang="ar">{escape_xml(off["name_ar"])}</label>')
         if off.get("name_lat"):
-            x.append(f'        <label xml:lang="lat">{escape_xml(off["name_lat"])}</label>')
+            x.append(f'        <label xml:lang="ar-Latn">{escape_xml(off["name_lat"])}</label>')
         if off.get("appoint_date"):
-            x.append(f'        <date type="appointment" when-custom="{escape_xml_attr(off["appoint_date"])}"/>')
+            x.append(f'        <date type="appointment" when-custom="{escape_xml_attr(pad_year_attr(off["appoint_date"]))}"/>')
         if off.get("retire_date"):
-            x.append(f'        <date type="retirement" when-custom="{escape_xml_attr(off["retire_date"])}"/>')
+            x.append(f'        <date type="retirement" when-custom="{escape_xml_attr(pad_year_attr(off["retire_date"]))}"/>')
         if off.get("place_ar") or off.get("place_id"):
             pr = fr(off.get("place_id", ""))
             ref_p = f' ref="{pr}"' if pr else ""
@@ -2561,6 +3166,12 @@ def build_offices(x, d):
             ir = fr(off.get("inst_id", ""))
             ref_i = f' ref="{ir}"' if ir else ""
             x.append(f'        <orgName{ref_i}>{escape_xml(off.get("inst_name",""))}</orgName>')
+        if off.get("inference_note"):
+            inf = off["inference_note"]
+            x.append(
+                f'        <note type="inference" xml:lang="{detect_lang(inf)}">'
+                f'{escape_xml(inf)}</note>'
+            )
         x.append('    </state>')
 
 
@@ -2575,7 +3186,7 @@ def build_bio_events(x, d):
         seq       = be.get("seq", "")
         n_attr    = f' n="{seq}"' if seq else ""
         date_h    = be.get("date_h", "")
-        date_attr = f' when-custom="{escape_xml_attr(date_h)}"' if date_h else ""
+        date_attr = f' when-custom="{escape_xml_attr(pad_year_attr(date_h))}"' if date_h else ""
         cert      = be.get("date_cert", "")
         cert_attr = f' cert="{cert}"' if cert else ""
 
@@ -2596,11 +3207,36 @@ def build_bio_events(x, d):
             inner_lines.append(
                 f'        <note xml:lang="{note_lang}">{escape_xml(be["date_note"])}</note>'
             )
+        if be.get("inference_note"):
+            inf = be["inference_note"]
+            inner_lines.append(
+                f'        <note type="inference" xml:lang="{detect_lang(inf)}">'
+                f'{escape_xml(inf)}</note>'
+            )
 
         if inner_lines:
-            x.append(f'    <event type="{escape_xml_attr(be_type)}"{n_attr}{date_attr}{cert_attr}>')
+            type_attrs = build_event_attrs(be_type)
+            x.append(f'    <event {type_attrs}{n_attr}{date_attr}{cert_attr}>')
             x.extend(inner_lines)
             x.append('    </event>')
+
+
+def build_resp_stmts(x, d):
+    """<respStmt> を末尾に並列配置(複数可)。空欄エントリはスキップ。"""
+    for r in d.get("resp_stmts", []):
+        role = (r.get("role", "") or "").strip()
+        name = (r.get("name", "") or "").strip()
+        date_str = (r.get("date", "") or "").strip()
+        if not (role or name or date_str):
+            continue
+        x.append('    <respStmt>')
+        if role:
+            x.append(f'        <resp xml:lang="ja">{escape_xml(role)}</resp>')
+        if name:
+            x.append(f'        <persName>{escape_xml(name)}</persName>')
+        if date_str:
+            x.append(f'        <date when="{escape_xml_attr(date_str)}"/>')
+        x.append('    </respStmt>')
 
 
 def build_notes(x, d):
@@ -2626,9 +3262,9 @@ def build_xml(d):
     x = []
     method_dict, field_dict = build_method_field_dicts()
 
+    xml_id = get_xml_id(d) or ""
     x.append(
-        f'<person xml:id="{escape_xml_attr(d.get("aind_id",""))}" '
-        f'corresp="#source_{escape_xml_attr(d.get("original_id",""))}">'
+        f'<person xml:id="{escape_xml_attr(xml_id)}">'
     )
 
     build_persnames(x, d)
@@ -2641,6 +3277,7 @@ def build_xml(d):
     build_offices(x, d)
     build_bio_events(x, d)
     build_notes(x, d)
+    build_resp_stmts(x, d)
 
     x.append("</person>")
     return "\n".join(x)
@@ -2691,10 +3328,10 @@ st.header("4. スプレッドシートに保存")
 DATASET_SHEET_ID = "1tCoRH0NEwZpgig2DePCVoldU_PSNAdDW9QKkn2KlNp8"
 
 # 列定義（スプレッドシートのヘッダー順）
-# 担当者 | AIND-D-XXXX | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
+# 担当者 | xml:id | 12digitsID | persName(Full Arabic) | persName(Ism/Father/GF) | Birth(H) | Death(H) | Madhhab | Editors' Notes
 SHEET_COLUMNS = [
     "担当者",
-    "AIND-D-XXXX",
+    "xml:id",
     "12digitsID",
     "persName (Full Arabic)",
     "persName (Ism/Father/GF)",
@@ -2712,7 +3349,14 @@ def get_gspread_client():
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive",
     ]
-    creds_dict = dict(st.secrets["gcp_service_account"])
+    sa = _safe_get_secret("gcp_service_account")
+    if not sa:
+        raise RuntimeError(
+            "secrets.toml に [gcp_service_account] セクションがありません。"
+            "Streamlit Cloud の Secrets 設定か、ローカルなら "
+            ".streamlit/secrets.toml にサービスアカウント JSON を登録してください。"
+        )
+    creds_dict = dict(sa)
     creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
     return gspread.authorize(creds)
 
@@ -2726,7 +3370,7 @@ def build_row(data, assignee):
 
     return [
         assignee,                          # 担当者
-        data.get("aind_id", ""),           # AIND-D-XXXX
+        get_xml_id(data) or "",            # xml:id(派生)
         data.get("original_id", ""),       # 12digitsID (@source)
         data.get("full_name", ""),         # persName (Full Arabic)
         data.get("name_only", ""),         # persName (Ism/Father/GF)
