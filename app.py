@@ -200,7 +200,7 @@ PROGRESS_LABEL_ID_COL = 4     # xml:id 列(D列 = 12桁ID)
 
 @st.cache_data(ttl=60)
 def load_progress_label_mapping():
-    """スプレッドシート(C列「進捗ラベル」、D列「12digitsID」)を読み取り、
+    """スプレッドシート(C列「進捗ラベル」、D列「xml:id」)を読み取り、
     original_id → progress_label の辞書を返す。
 
     スプレッドシートが進捗ラベルの正本。
@@ -225,9 +225,15 @@ def load_progress_label_mapping():
             label = (label or "").strip()
             if oid and label:
                 mapping[oid] = label
-    except Exception:
-        # 認証エラーやシート未設定の場合は空辞書を返す(進捗ラベル機能は無効化)
+    except Exception as e:
+        # デバッグ用: 失敗理由を session_state に保存(UI で表示できるように)
+        st.session_state["_progress_label_load_error"] = (
+            f"{type(e).__name__}: {e}"
+        )
         return {}
+    # 成功時はエラー状態をクリア
+    st.session_state.pop("_progress_label_load_error", None)
+    st.session_state["_progress_label_load_count"] = len(mapping)
     return mapping
 
 
@@ -2031,6 +2037,25 @@ basic_c3.text_input(
          "XMLには書き込まれず、ダウンロード時のファイル名に使用されます。",
 )
 
+# 進捗ラベル取得状況のデバッグ表示
+_progress_err = st.session_state.get("_progress_label_load_error")
+_progress_cnt = st.session_state.get("_progress_label_load_count")
+if _progress_err:
+    st.error(f"⚠️ 進捗ラベル読み取り失敗: {_progress_err}")
+elif _progress_cnt is not None:
+    if _progress_cnt == 0:
+        st.warning(
+            "進捗ラベル: 読み取りは成功したが、マッピングが 0 件。"
+            "スプレッドシートの C 列(進捗ラベル) / D 列(xml:id) を確認してください。"
+        )
+    else:
+        oid = (d.get("original_id") or "").strip()
+        if oid and not get_progress_label(d):
+            st.info(
+                f"進捗ラベル: マッピングは {_progress_cnt} 件読み取り済みですが、"
+                f"この xml:id ({oid}) はスプレッドシートに見つかりませんでした。"
+            )
+
 if d.get("original_id") and get_xml_id(d) is None:
     st.warning(
         "original_id は 12 桁の半角数字である必要があります。"
@@ -3468,12 +3493,34 @@ def get_gspread_client():
     creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
     return gspread.authorize(creds)
 
-def build_row(data, assignee):
-    """現在のデータから書き込み行を生成。
-    v19.4: スプレッドシートのB〜J列に対応する 9 項目を返す。
-    xml:id 列は廃止(v19.4 で xml:id = 12桁ID と同一になったため、D列の「12digitsID」が xml:id を兼ねる)。
+def build_row_for_update(data, assignee):
+    """既存行更新用: C列(進捗ラベル)を除く 8 項目を返す。
+    C列はスプレッドシート側が正本なので、アプリからは触らない。
+
+    対応列: B / D / E / F / G / H / I / J(連続でないため、3 分割で書き込む)
     """
-    # Madhhab表示文字列
+    if data["madhhab"]["lat"] == "Unknown / Other":
+        madhhab_str = data["madhhab"].get("custom_name", "")
+    else:
+        madhhab_str = data["madhhab"]["lat"]
+
+    return {
+        "B": assignee,                          # 担当者
+        "D": data.get("original_id", ""),       # xml:id (= 12桁ID)
+        "E": data.get("full_name", ""),         # persName (Full Arabic)
+        "F": data.get("name_only", ""),         # persName (Ism/Father/GF)
+        "G": data.get("birth_h", ""),           # Birth (H)
+        "H": data.get("death_h", ""),           # Death (H)
+        "I": madhhab_str,                       # Madhhab
+        "J": data.get("editors_notes", ""),     # Editors' Notes
+    }
+
+
+def build_row(data, assignee):
+    """書き込み内容プレビュー用 & 新規追加用: B〜J 列の 9 項目を返す。
+    新規行追加時には C列(進捗ラベル)に現在取得済みの値を入れる
+    (空でも問題なし。担当者が後で記入する)。
+    """
     if data["madhhab"]["lat"] == "Unknown / Other":
         madhhab_str = data["madhhab"].get("custom_name", "")
     else:
@@ -3544,11 +3591,25 @@ with col_save:
                 row_num   = find_row_by_id(ws, d["original_id"])
 
                 if row_num:
-                    # 既存行を更新(B列〜J列の9セル = 担当者/進捗ラベル/xml:id/persName×2/Birth/Death/Madhhab/Editors)
+                    # 既存行を更新(C列「進捗ラベル」はスプレッドシート側が正本なので触らない)
                     # 進捗ラベル(AIND-D プレフィックス)を文字列として保持するため RAW を使用
+                    update_cells = build_row_for_update(d, assignee)
                     ws.update(
-                        f"B{row_num}:J{row_num}",
-                        [row_data],
+                        f"B{row_num}",
+                        [[update_cells["B"]]],
+                        value_input_option="RAW",
+                    )
+                    ws.update(
+                        f"D{row_num}:J{row_num}",
+                        [[
+                            update_cells["D"],
+                            update_cells["E"],
+                            update_cells["F"],
+                            update_cells["G"],
+                            update_cells["H"],
+                            update_cells["I"],
+                            update_cells["J"],
+                        ]],
                         value_input_option="RAW",
                     )
                     st.success(f"✅ 行 {row_num} を更新しました(xml:id: {d['original_id']})")
