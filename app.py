@@ -371,7 +371,6 @@ INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated"
 ACTIVITY_TYPES = [
     "buried", "residence", "visit", "travel", "study",
     "hajj", "umrah", "jāwara", "riḥla",
-    "legacy",  # 死後イベント(遺産・後世への影響)
     "other",
 ]
 
@@ -388,7 +387,6 @@ EVENT_TYPE_MAPPING = {
     "visit":     ("visit",     None),
     "travel":    ("travel",    None),
     "study":     ("study",     None),
-    "legacy":    ("legacy",    None),
     "cultural":  ("cultural",  None),
     "political": ("political", None),
     "religious": ("religious", None),
@@ -1446,7 +1444,6 @@ or presence in, a specific place.
                says عمرة
     jāwara     extended stay in Mecca/Medina (مجاورة)
     riḥla      scholarly travel (الرحلة)
-    legacy     posthumous event (legacy, posthumous influence)
     other      none of the above
 
 DO NOT use "born" or "died" — birth/death belong in birth_h / death_h
