@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.4"
+APP_VERSION = "v20.5"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -1241,22 +1241,66 @@ def apply_prompt_result(data, prompt_result):
         if key in prompt_result:
             data[key] = prompt_result[key]
 
-    # === 座標数値の自動クリア(Geminiが時々 _lat 欄に座標を入れるバグ対策) ===
-    # _lat 欄に小数点付き数値(座標形式)が入っていたら、警告して空にする
+    # === _lat 欄の不正値の自動クリア(Gemini が時々座標や ID を入れるバグ対策) ===
+    # 全ての _lat 欄(トップレベル + 配列内)を再帰的にチェック。
+    # 不正パターン: 座標(小数点付き数値)/ Q-ID / 純粋数字 / TMP- / アラビア文字
     import re as _re
-    _coord_pattern = _re.compile(r"^-?\d+\.\d+$")
-    _lat_fields_to_check = [
-        "birth_place_lat", "death_place_lat", "burial_place_lat",
-    ]
-    cleared_coords = []
-    for fld in _lat_fields_to_check:
+    _coord_pattern = _re.compile(r"^-?\d+\.\d+$")              # 21.43, -33.5 等
+    _qid_pattern = _re.compile(r"^Q\d+$")                       # Q42004
+    _tmp_pattern = _re.compile(r"^TMP-")                        # TMP-L-00001 等
+    _digits_only = _re.compile(r"^\d+$")                        # 104515 等
+    _arabic_pattern = _re.compile(r"[\u0600-\u06FF]")           # アラビア文字含む
+
+    def _is_invalid_lat(val):
+        if not val:
+            return False
+        v = val.strip()
+        if not v:
+            return False
+        return bool(
+            _coord_pattern.match(v) or
+            _qid_pattern.match(v) or
+            _tmp_pattern.match(v) or
+            _digits_only.match(v) or
+            _arabic_pattern.search(v)
+        )
+
+    cleared_lats = []
+
+    # トップレベルの _lat 欄
+    for fld in ("birth_place_lat", "death_place_lat", "burial_place_lat",
+                "full_name_lat"):
         val = (data.get(fld, "") or "").strip()
-        if val and _coord_pattern.match(val):
-            cleared_coords.append((fld, val))
+        if _is_invalid_lat(val):
+            cleared_lats.append((fld, val))
             data[fld] = ""
-    if cleared_coords:
-        msg = "座標数値が翻字欄に入っていたため自動クリアしました:\n" + \
-              "\n".join(f"  • {f} = {v!r} → 空欄" for f, v in cleared_coords)
+
+    # 配列内の _lat 欄
+    array_lat_fields = {
+        "teachers":     ["text_lat", "learn_place_lat"],
+        "students":     ["text_lat", "teach_place_lat"],
+        "activities":   ["place_lat"],
+        "institutions": ["name_lat", "place_lat"],
+        "offices":      ["name_lat", "place_lat"],
+        "bio_events":   ["place_lat"],
+        "nisbahs":      ["lat"],
+        "laqabs":       ["lat"],
+    }
+    for section, fields in array_lat_fields.items():
+        for idx, item in enumerate(data.get(section, []) or []):
+            if not isinstance(item, dict):
+                continue
+            for fld in fields:
+                val = (item.get(fld, "") or "").strip()
+                if _is_invalid_lat(val):
+                    cleared_lats.append((f"{section}[{idx}].{fld}", val))
+                    item[fld] = ""
+
+    if cleared_lats:
+        msg = "翻字欄(_lat)に座標/ID/アラビア文字が入っていたため自動クリアしました:\n" + \
+              "\n".join(f"  • {f} = {v!r} → 空欄" for f, v in cleared_lats[:10])
+        if len(cleared_lats) > 10:
+            msg += f"\n  …他 {len(cleared_lats) - 10} 件"
         st.warning(msg)
 
     # 法学派
@@ -1314,6 +1358,45 @@ with st.sidebar:
 You are a professional historian of Islamic studies specializing in
 the Mamluk period and the works of al-Sakhāwī. Extract structured data
 from the source text into JSON.
+
+============================================================
+【⚠️ TOP-PRIORITY RULES — READ BEFORE ANYTHING ELSE ⚠️】
+============================================================
+These rules override every other instruction below. Violating any of
+them is a CRITICAL ERROR.
+
+🔴 RULE A: Any JSON field ending in "_lat" (death_place_lat,
+   burial_place_lat, birth_place_lat, learn_place_lat, name_lat,
+   text_lat, etc.) MUST contain ONLY an IJMES Latin transliteration
+   of the corresponding Arabic word.
+
+   ❌ NEVER put any of the following into a _lat field:
+      • Geographic coordinates (e.g. "21.426667", "39.85", "21.4385")
+      • Latitude/longitude (any numeric decimal)
+      • GeoNames numeric IDs (e.g. "104515")
+      • Wikidata Q-IDs (e.g. "Q42004")
+      • TMP- placeholder IDs
+      • The Arabic word itself
+      • English translation
+
+   ✅ Examples of CORRECT _lat values:
+      مكة     → "Makka"
+      المعلاة → "al-Muʿallā"
+      القاهرة → "al-Qāhira"
+
+   ⚠️ If you don't know the IJMES transliteration → LEAVE THE FIELD EMPTY ("").
+   Returning coordinates instead of a transliteration is WORSE than
+   returning an empty string. ALWAYS prefer "" over a coordinate.
+
+🔴 RULE B: Birth/death/burial places go in dedicated top-level fields
+   (birth_place_*, death_place_*, burial_place_*), NEVER as separate
+   activity entries or bio_events.
+
+🔴 RULE C: Funeral prayers / burial details go in death_note,
+   NEVER as bio_events. Bio_events are for SPECIFIC DATED events only,
+   not for descriptive summaries.
+
+Now proceed with the detailed instructions below.
 
 ============================================================
 【1. SOURCE TEXT FORMAT】
@@ -2470,9 +2553,11 @@ madhhab_keys = list(MADHHAB_DATA.keys())
 cur_m   = d["madhhab"]["lat"]
 def_idx = madhhab_keys.index(cur_m) if cur_m in madhhab_keys else 4
 m_col1, m_col2 = st.columns(2)
+m_col1.caption("Madhhab")
+m_col2.caption("Wikidata ID")
 selected_m  = m_col1.selectbox("Madhhab", options=madhhab_keys, index=def_idx, label_visibility="collapsed")
 wikidata_id = MADHHAB_DATA[selected_m]
-m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True)
+m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True, label_visibility="collapsed")
 if selected_m == "Unknown / Other":
     uo1, uo2 = st.columns(2)
     custom_name = uo1.text_input("Madhhab name (free text)", value=d["madhhab"].get("custom_name",""), key="madhhab_custom_name")
@@ -3734,6 +3819,14 @@ def build_xml(d):
     x.append(
         f'<person xml:id="{escape_xml_attr(xml_id)}"{source_attr}>'
     )
+    # アプリのバージョン情報を XML コメントとして埋め込む
+    # (TEI 仕様を壊さず、データ生成元が追跡可能)
+    from datetime import datetime as _dt, timezone as _tz
+    _generated_at = _dt.now(_tz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    x.append(
+        f'    <!-- generated by AINet-DB Researcher Pro '
+        f'{APP_VERSION} ({APP_VERSION_DATE}) at {_generated_at} -->'
+    )
 
     build_persnames(x, d)
     build_sex(x, d)
@@ -4010,4 +4103,3 @@ with col_save:
                 import traceback
                 st.error(f"保存エラー: {type(e).__name__}: {e}")
                 st.code(traceback.format_exc())
-                
