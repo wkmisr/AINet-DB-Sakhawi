@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.5-debug"
+APP_VERSION = "v20.5-debug2"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -1193,39 +1193,28 @@ def apply_prompt_madhhab(data, madhhab_name):
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
 
-    # === 🔍 デバッグ出力: Gemini の生 JSON を表示 ===
-    # _lat フィールドに何が入っているかを追跡するための一時的な機能。
-    # session_state["debug_show_raw"] = True にすると展開して表示する。
+    # === 🔍 デバッグ用: Gemini の生 JSON を session_state に保存 ===
+    # st.rerun() で画面が再描画されてもデバッグ情報を残すため、
+    # session_state に格納する。表示は別の場所で行う。
     import json as _json
-    with st.expander("🔍 [DEBUG] Gemini の生 JSON を表示", expanded=False):
-        st.caption("Gemini が返した JSON を、座標問題の調査のために表示しています。問題解決後は削除予定です。")
-
-        # _lat 系のフィールドだけ抜粋表示
-        st.markdown("**📍 場所翻字フィールド(_lat)の抜粋:**")
-        lat_summary = {}
-        for fld in ("birth_place_lat", "death_place_lat", "burial_place_lat",
-                    "birth_place_ar", "death_place_ar", "burial_place_ar",
-                    "birth_place_id", "death_place_id", "burial_place_id"):
-            if fld in prompt_result:
-                lat_summary[fld] = prompt_result[fld]
-        for section in ("teachers", "students", "activities", "institutions",
-                        "offices", "bio_events"):
-            items = prompt_result.get(section, [])
-            if isinstance(items, list):
-                for i, item in enumerate(items):
-                    if not isinstance(item, dict):
-                        continue
-                    for key, val in item.items():
-                        if "lat" in key.lower() and val:
-                            lat_summary[f"{section}[{i}].{key}"] = val
-        if lat_summary:
-            st.json(lat_summary)
-        else:
-            st.info("_lat 系フィールドはすべて空でした。")
-
-        # 生JSON全体
-        st.markdown("**全 JSON(Gemini の生出力):**")
-        st.json(prompt_result)
+    lat_summary = {}
+    for fld in ("birth_place_lat", "death_place_lat", "burial_place_lat",
+                "birth_place_ar", "death_place_ar", "burial_place_ar",
+                "birth_place_id", "death_place_id", "burial_place_id"):
+        if fld in prompt_result:
+            lat_summary[fld] = prompt_result[fld]
+    for section in ("teachers", "students", "activities", "institutions",
+                    "offices", "bio_events"):
+        items = prompt_result.get(section, [])
+        if isinstance(items, list):
+            for i, item in enumerate(items):
+                if not isinstance(item, dict):
+                    continue
+                for key, val in item.items():
+                    if "lat" in key.lower() and val:
+                        lat_summary[f"{section}[{i}].{key}"] = val
+    st.session_state["_debug_gemini_raw"] = prompt_result
+    st.session_state["_debug_gemini_lat_summary"] = lat_summary
 
     simple_fields = [
         "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
@@ -1361,15 +1350,13 @@ def apply_prompt_result(data, prompt_result):
     apply_id_master_matching(data, silent=True)
     auto_assign_tmp_ids_in_data(data, silent=True)
 
-    # === 🔍 デバッグ出力: 全処理完了後の data の状態を表示 ===
-    with st.expander("🔍 [DEBUG] 処理後の最終 data 状態", expanded=False):
-        st.caption("apply_prompt_result の全処理(座標クリア、ID-Master 照合、採番)が完了した後の data の状態です。")
-        final_summary = {}
-        for fld in ("birth_place_ar", "birth_place_lat", "birth_place_id",
-                    "death_place_ar", "death_place_lat", "death_place_id",
-                    "burial_place_ar", "burial_place_lat", "burial_place_id"):
-            final_summary[fld] = data.get(fld, "")
-        st.json(final_summary)
+    # === 🔍 デバッグ用: 最終 data の状態を session_state に保存 ===
+    final_summary = {}
+    for fld in ("birth_place_ar", "birth_place_lat", "birth_place_id",
+                "death_place_ar", "death_place_lat", "death_place_id",
+                "burial_place_ar", "burial_place_lat", "burial_place_id"):
+        final_summary[fld] = data.get(fld, "")
+    st.session_state["_debug_final_data"] = final_summary
 
 
 # --- セッション状態の初期化 ---
@@ -2369,6 +2356,36 @@ if st.session_state.get("_show_clear_confirm"):
         st.rerun()
 
 st.header("2. Metadata Editor")
+
+# === 🔍 デバッグ表示 (v20.5-debug) ===
+# session_state に保存された Gemini 生 JSON と最終 data 状態を表示する。
+# 問題解決後は削除予定。
+if "_debug_gemini_raw" in st.session_state or "_debug_final_data" in st.session_state:
+    with st.expander("🔍 [DEBUG] Gemini の生 JSON(_lat フィールド抜粋)", expanded=True):
+        st.caption(
+            "Gemini API が返した JSON のうち、_lat 系フィールド(翻字)だけを抜粋しています。"
+            "座標問題の調査のための一時的な表示機能です。"
+        )
+        lat_summary = st.session_state.get("_debug_gemini_lat_summary", {})
+        if lat_summary:
+            st.json(lat_summary)
+        else:
+            st.info("_lat 系フィールドはすべて空でした。")
+
+    with st.expander("🔍 [DEBUG] Gemini の生 JSON(全体)", expanded=False):
+        raw = st.session_state.get("_debug_gemini_raw", {})
+        st.json(raw)
+
+    with st.expander("🔍 [DEBUG] 全処理完了後の最終 data 状態", expanded=True):
+        st.caption(
+            "apply_prompt_result の全処理(座標クリア → ID-Master 照合 → 採番)が完了した後の "
+            "place 系フィールドの最終値です。これが XML 出力で使われる値です。"
+        )
+        final = st.session_state.get("_debug_final_data", {})
+        if final:
+            st.json(final)
+        else:
+            st.info("まだ解析が実行されていません。")
 
 # --- 基本情報 ---
 # AIND-D ID と 12 digits ID と Sex を同じ行に並べる
