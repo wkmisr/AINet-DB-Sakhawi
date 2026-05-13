@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.1"
+APP_VERSION = "v20.2"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -1435,7 +1435,7 @@ When unsure whether a title modifies the subject or an ancestor,
 DO NOT extract it.
 
 ============================================================
-【10. DATES & PLACES (Birth / Death / Burial)】
+【10. DATES & PLACES (Birth / Death / Burial) — CRITICAL】
 ============================================================
 - "birth_h" / "death_h": Hijri year string. Examples:
     "850"            (year only)
@@ -1451,25 +1451,92 @@ DO NOT extract it.
   Arabic terms / titles / proper nouns may be quoted directly
   (e.g., "according to تاريخ الإسلام"). Do NOT write in Japanese.
 
-== PLACES: Birth / Death / Burial ==
+== PLACES: Birth / Death / Burial — STRICT RULES ==
 
-Record the place of BIRTH, DEATH, and BURIAL in their respective
-fields. DO NOT record these as activity entries.
+The following Arabic phrases indicate WHERE birth/death/burial occurred.
+RECORD them in the dedicated top-level fields, NOT in activities/events.
 
-- "birth_place_ar" / "birth_place_lat" / "birth_place_id":
-  Where the person was born. Phrases like "ولد بـ...", "مولده ...".
-- "death_place_ar" / "death_place_lat" / "death_place_id":
-  Where the person died. Phrases like "مات بـ...", "توفي بـ...".
-  (Do NOT confuse with burial location.)
-- "burial_place_ar" / "burial_place_lat" / "burial_place_id":
-  Where the person was buried. Phrases like "دفن بـ...",
-  "دفن بتربة...", "دفن قرب...". This is often different from death
-  place (e.g., died at home, buried at a known cemetery / turba).
+▶ BIRTH PLACE — record in birth_place_ar / birth_place_lat / birth_place_id:
+    "ولد بـ X" / "مولده بـ X" / "ولد في X" → birth_place_ar = X
+    "ولد بالقاهرة" → birth_place_ar = "القاهرة"
 
-IMPORTANT: Do NOT create activity entries with type="born",
-"died", or "buried". These birth/death/burial places belong in the
-dedicated fields above, which generate <birth>/<death> XML elements
-with embedded <placeName> children.
+▶ DEATH PLACE — record in death_place_ar / death_place_lat / death_place_id:
+    "مات بـ X" / "توفي بـ X" / "المتوفى بـ X" → death_place_ar = X
+    "نزيل X والمتوفى بها" → death_place_ar = X  (← "بها" refers to X)
+    "مات بمكة" → death_place_ar = "مكة"
+
+▶ BURIAL PLACE — record in burial_place_ar / burial_place_lat / burial_place_id:
+    "دفن بـ X" / "دفن بتربة X" / "دفن قرب X" → burial_place_ar = X
+    "ودفن بالمعلاة" → burial_place_ar = "المعلاة"
+
+== ABSOLUTE PROHIBITIONS ==
+
+❌ DO NOT create activity entries with type="born", "died", or "buried".
+   The type "buried" has been REMOVED from the activity vocabulary.
+
+❌ DO NOT create bio_events entries for the following — they belong in
+   <death> as integrated notes, NOT as separate events:
+   - Funeral prayer ("صلى عليه" / "صلي عليه" / صلاة الجنازة)
+   - Burial itself ("دفن")
+   - Death notifications, lamentations following death
+
+✅ If the text mentions funeral prayer or burial details, integrate them
+   into death_note (English summary). Examples:
+     "صلي عليه بالأزهر ودفن بالقرافة"
+     → death_note: "Funeral prayer at al-Azhar; buried at al-Qarāfa."
+       death_place_ar: ""    (death place not mentioned)
+       burial_place_ar: "القرافة"
+
+== WORKED EXAMPLES ==
+
+▶ Example 1: "آدم بن سعيد ... نزيل مكة والمتوفى بها ... مات في
+              ليلة الأربعاء خامس ذي الحجة سنة سبع وثمانين
+              وصلى عليه من الغد ودفن بالمعلاة"
+
+   Correct extraction:
+   {{
+     "death_h": "887-12-05",
+     "death_cert": "high",
+     "death_place_ar": "مكة",
+     "burial_place_ar": "المعلاة",
+     "death_note": "Funeral prayer was held the day after his death.",
+     "activities": [
+       {{"type": "residence", "place_ar": "مكة", ...}}
+     ],
+     "bio_events": []
+   }}
+
+   ❌ DO NOT generate:
+   - activity entries for death / burial / funeral
+   - bio_events entries for funeral prayer
+   - event type="religious" for funeral prayer
+   - event type="burial" (this type no longer exists)
+
+▶ Example 2: "ولد بالقاهرة سنة 772 ومات بها سنة 852 ودفن بتربة باب الوزير"
+
+   Correct extraction:
+   {{
+     "birth_h": "772",
+     "birth_place_ar": "القاهرة",
+     "death_h": "852",
+     "death_place_ar": "القاهرة",
+     "burial_place_ar": "تربة باب الوزير",
+     "activities": [],
+     "bio_events": []
+   }}
+
+▶ Example 3: "ولد بدمشق ... سكن القاهرة ... مات بمكة في حجته ودفن بالمعلاة"
+
+   Correct extraction:
+   {{
+     "birth_place_ar": "دمشق",
+     "death_place_ar": "مكة",
+     "burial_place_ar": "المعلاة",
+     "activities": [
+       {{"type": "residence", "place_ar": "القاهرة", ...}},
+       {{"type": "hajj", "place_ar": "مكة", ...}}
+     ]
+   }}
 
 ============================================================
 【11. TEACHERS / STUDENTS — METHOD × FIELD】
@@ -1645,16 +1712,23 @@ Life events that are NOT primarily about geographic movement.
                - any authorial achievement
 
     religious  religious experiences and acts:
-               - funerals (their location, time, attendees)
                - conversion
                - religious visions / dreams
                - mystical experiences
+               (NOTE: funeral prayers / burials are NOT bio_events.
+                These belong in <death> — see section 10.)
 
     other      events not fitting above categories
                (e.g. plague affliction, natural disasters, illnesses,
                 personal life events outside the above)
 
 The "type" is intentionally broad. Specific details go in "description".
+
+⚠️ DO NOT generate bio_events entries for:
+   - Funeral prayer (صلى عليه / صلي عليه / صلاة الجنازة)
+   - Burial (دفن)
+   - Death itself (مات / توفي)
+   These belong in <death> via death_place_*, burial_place_*, and death_note.
 
 Each event:
     "type"       : political / cultural / religious / other
@@ -1681,8 +1755,8 @@ Examples:
     "نظم الفرائض" →
         type=cultural, description="versified inheritance law"
     "صلي عليه بالجامع الأزهر" →
-        type=religious, place_ar="الأزهر",
-        description="funeral prayer held at al-Azhar Mosque"
+        ❌ DO NOT create bio_event. This is a funeral prayer.
+        ✅ Instead: death_note = "Funeral prayer held at al-Azhar Mosque."
     "أصابه الطاعون" →
         type=other, description="afflicted by the plague"
 
@@ -1815,7 +1889,21 @@ When the title is generic / unrecognized, use TMP-T-00000 (placeholder)
 and let the human editor resolve it later.
 
 ============================================================
-【19. OUTPUT FORMAT】
+【19. FINAL CHECKLIST — verify before returning JSON】
+============================================================
+Before returning the JSON, mentally check each item:
+
+□ If text says "ولد بـ X" / "مولده بـ X" — is birth_place_ar filled?
+□ If text says "مات بـ X" / "توفي بـ X" / "المتوفى بها" — is death_place_ar filled?
+□ If text says "دفن بـ X" / "دفن بتربة X" — is burial_place_ar filled?
+□ Does the activities array contain ZERO entries for death/burial/funeral?
+□ Does the bio_events array contain ZERO entries for funeral prayers?
+□ Is funeral information (if any) integrated into death_note in English?
+
+If ANY of these checks fail, FIX the output before returning.
+
+============================================================
+【20. OUTPUT FORMAT】
 ============================================================
 Return ONLY valid JSON. No markdown fences. No commentary.
 
