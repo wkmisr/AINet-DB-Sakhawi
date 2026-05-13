@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.2"
+APP_VERSION = "v20.4"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -1241,6 +1241,24 @@ def apply_prompt_result(data, prompt_result):
         if key in prompt_result:
             data[key] = prompt_result[key]
 
+    # === 座標数値の自動クリア(Geminiが時々 _lat 欄に座標を入れるバグ対策) ===
+    # _lat 欄に小数点付き数値(座標形式)が入っていたら、警告して空にする
+    import re as _re
+    _coord_pattern = _re.compile(r"^-?\d+\.\d+$")
+    _lat_fields_to_check = [
+        "birth_place_lat", "death_place_lat", "burial_place_lat",
+    ]
+    cleared_coords = []
+    for fld in _lat_fields_to_check:
+        val = (data.get(fld, "") or "").strip()
+        if val and _coord_pattern.match(val):
+            cleared_coords.append((fld, val))
+            data[fld] = ""
+    if cleared_coords:
+        msg = "座標数値が翻字欄に入っていたため自動クリアしました:\n" + \
+              "\n".join(f"  • {f} = {v!r} → 空欄" for f, v in cleared_coords)
+        st.warning(msg)
+
     # 法学派
     apply_prompt_madhhab(data, prompt_result.get("madhhab_name", ""))
 
@@ -1332,6 +1350,45 @@ If no match exists, follow the ID rules in section 3.
 NOTE: Persons use 6-digit TMP-P-XXXXXX. All other TMP- categories
 use 5-digit format. ID-Master entries with legacy 5-digit person IDs
 (TMP-P-XXXXX) remain valid — both lengths are accepted.
+
+============================================================
+【3.5. TRANSLITERATION (ar-Latn) — CRITICAL】
+============================================================
+Any field whose name ends with "_lat" (e.g. "death_place_lat",
+"burial_place_lat", "learn_place_lat", "name_lat") must contain
+ONLY an IJMES Latin-script TRANSLITERATION of the Arabic word.
+
+✅ CORRECT examples:
+    "death_place_lat": "Makka"            (transliteration of مكة)
+    "burial_place_lat": "al-Muʿallā"      (transliteration of المعلاة)
+    "learn_place_lat": "al-Qāhira"        (transliteration of القاهرة)
+
+❌ ABSOLUTELY FORBIDDEN — never put any of these in a _lat field:
+    - Geographic coordinates: "21.389108", "39.857918", "21.43911"
+    - Latitude/longitude pairs: "21.39, 39.86"
+    - GeoNames numeric IDs: "104515"
+    - Wikidata Q-IDs: "Q42004"
+    - TMP- placeholders: "TMP-L-00001"
+    - The Arabic word itself: "مكة" (this goes in _ar, not _lat)
+    - English translations: "Mecca" (transliteration is NOT translation)
+    - Translation in other languages
+
+If you do not know the IJMES transliteration of an Arabic word,
+LEAVE THE _lat FIELD EMPTY ("") — never substitute coordinates,
+IDs, or any other value.
+
+IJMES quick reference for common place names:
+    مكة         → Makka
+    المعلاة     → al-Muʿallā
+    المدينة     → al-Madīna
+    القاهرة     → al-Qāhira
+    دمشق        → Dimashq
+    بغداد       → Baghdād
+    اليمن       → al-Yaman
+    الشام       → al-Shām
+    حلب         → Ḥalab
+    القرافة     → al-Qarāfa
+    تربة باب الوزير → Turbat Bāb al-Wazīr
 
 ============================================================
 【4. TRANSLATION】
@@ -1730,6 +1787,28 @@ The "type" is intentionally broad. Specific details go in "description".
    - Death itself (مات / توفي)
    These belong in <death> via death_place_*, burial_place_*, and death_note.
 
+⚠️ ALSO DO NOT generate bio_events entries for descriptive/summary statements
+   about a person's life. bio_events are for SPECIFIC, DATED events only.
+
+   ❌ Wrong (descriptive — these are NOT events):
+   - "Continuously engaged in study under scholars in Mecca"
+     → Already captured by teachers/students relations. NOT a bio_event.
+   - "Resided in Mecca until his death"
+     → This is residence (an activity), or covered by death_place. NOT a bio_event.
+   - "Recited the Quran in a beautiful manner"
+     → A skill/quality description. NOT a bio_event.
+   - "Was a famous merchant" / "Known for piety"
+     → Personality/profession descriptions go in person_notes if needed.
+
+   ✅ Correct bio_events (specific dated events):
+   - "Composed the book X in 870 H" → cultural
+   - "Was imprisoned in 875 H over a fatwa dispute" → political
+   - "Experienced a vision of the Prophet in his youth" → religious
+   - "Survived the plague of 833 H" → other
+
+   RULE OF THUMB: If you cannot point to a SPECIFIC moment / date / event,
+   it is NOT a bio_event. Skip it.
+
 Each event:
     "type"       : political / cultural / religious / other
     "date_h", "date_cert", "date_note"
@@ -1899,6 +1978,8 @@ Before returning the JSON, mentally check each item:
 □ Does the activities array contain ZERO entries for death/burial/funeral?
 □ Does the bio_events array contain ZERO entries for funeral prayers?
 □ Is funeral information (if any) integrated into death_note in English?
+□ Do all _lat fields contain ONLY IJMES Latin transliteration (NOT coordinates/IDs/Arabic)?
+□ Does bio_events contain ZERO descriptive/summary statements (only specific dated events)?
 
 If ANY of these checks fail, FIX the output before returning.
 
@@ -2294,17 +2375,17 @@ with st.container():
     bpc3.caption("Birth Place ID (GeoNames / TMP-L-)")
     d["birth_place_ar"] = bpc1.text_input(
         "bpar", d.get("birth_place_ar", ""),
-        key="birth_place_ar", label_visibility="collapsed",
+        key="birth_place_ar_input", label_visibility="collapsed",
         placeholder="例: مكة",
     )
     d["birth_place_lat"] = bpc2.text_input(
         "bplat", d.get("birth_place_lat", ""),
-        key="birth_place_lat", label_visibility="collapsed",
+        key="birth_place_lat_input", label_visibility="collapsed",
         placeholder="例: Makka",
     )
     d["birth_place_id"] = bpc3.text_input(
         "bpid", d.get("birth_place_id", ""),
-        key="birth_place_id", label_visibility="collapsed",
+        key="birth_place_id_input", label_visibility="collapsed",
         placeholder="例: 104515 / TMP-L-00001",
     )
 
@@ -2346,17 +2427,17 @@ with st.container():
     dpc3.caption("Death Place ID (GeoNames / TMP-L-)")
     d["death_place_ar"] = dpc1.text_input(
         "dpar", d.get("death_place_ar", ""),
-        key="death_place_ar", label_visibility="collapsed",
+        key="death_place_ar_input", label_visibility="collapsed",
         placeholder="例: القاهرة",
     )
     d["death_place_lat"] = dpc2.text_input(
         "dplat", d.get("death_place_lat", ""),
-        key="death_place_lat", label_visibility="collapsed",
+        key="death_place_lat_input", label_visibility="collapsed",
         placeholder="例: al-Qāhira",
     )
     d["death_place_id"] = dpc3.text_input(
         "dpid", d.get("death_place_id", ""),
-        key="death_place_id", label_visibility="collapsed",
+        key="death_place_id_input", label_visibility="collapsed",
         placeholder="例: 360630 / TMP-L-00001",
     )
     # Burial Place(埋葬地)
@@ -2366,17 +2447,17 @@ with st.container():
     bupc3.caption("Burial Place ID (GeoNames / TMP-L-)")
     d["burial_place_ar"] = bupc1.text_input(
         "bupar", d.get("burial_place_ar", ""),
-        key="burial_place_ar", label_visibility="collapsed",
+        key="burial_place_ar_input", label_visibility="collapsed",
         placeholder="例: تربة باب الوزير",
     )
     d["burial_place_lat"] = bupc2.text_input(
         "buplat", d.get("burial_place_lat", ""),
-        key="burial_place_lat", label_visibility="collapsed",
+        key="burial_place_lat_input", label_visibility="collapsed",
         placeholder="例: Turbat Bāb al-Wazīr",
     )
     d["burial_place_id"] = bupc3.text_input(
         "bupid", d.get("burial_place_id", ""),
-        key="burial_place_id", label_visibility="collapsed",
+        key="burial_place_id_input", label_visibility="collapsed",
         placeholder="例: TMP-L-00001",
     )
 
@@ -3929,3 +4010,4 @@ with col_save:
                 import traceback
                 st.error(f"保存エラー: {type(e).__name__}: {e}")
                 st.code(traceback.format_exc())
+                
