@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.7"
+APP_VERSION = "v20.10"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -622,13 +622,11 @@ DEFAULT_DATA_V19 = {
     "burial_place_lat": "",
     "burial_place_id": "",
 
-    # === 法学派 ===
-    "madhhab": {
-        "lat": "Unknown / Other",
-        "id": "",
-        "custom_name": "",
-        "custom_id": "",
-    },
+    # === 法学派(v20.8 で配列化、複数 madhhab 対応) ===
+    # 旧 "madhhab"(単一オブジェクト)は migrate で "madhhabs"(配列)に変換される。
+    # 各要素: {"seq": 1, "lat": "Shafi'i", "id": "wd:Q82245",
+    #          "custom_name": "", "custom_id": "", "ui_id": "..."}
+    "madhhabs": [],
 
     # === スーフィー教団 ===
     "sufi_order": {"name": "", "id": ""},
@@ -751,13 +749,39 @@ def migrate_v18_to_v19(old_data):
         # aind_id (AIND-D{5桁}) と original_id (12digit) の両方を保持
         "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
         "certainty", "birth_h", "birth_g", "death_h", "death_g",
-        "madhhab", "sufi_order", "nisbahs", "laqabs",
+        "sufi_order", "nisbahs", "laqabs",
         "institutions", "offices", "person_notes", "editors_notes",
         "source_text", "translation_jp", "translation_en",
     ]
     for f in simple_fields:
         if f in old_data:
             new_data[f] = old_data[f]
+
+    # === madhhab → madhhabs(配列)への変換(v20.8 から) ===
+    # 旧データ:
+    #   "madhhab": {"lat": "Shafi'i", "id": "wd:Q82245", ...}
+    # 新データ:
+    #   "madhhabs": [{"seq": 1, "lat": "Shafi'i", "id": "wd:Q82245", ...}]
+    # 旧 "madhhabs"(既に配列形式)があれば優先、なければ単一 "madhhab" から変換
+    if "madhhabs" in old_data and isinstance(old_data["madhhabs"], list):
+        new_data["madhhabs"] = old_data["madhhabs"]
+    elif "madhhab" in old_data and isinstance(old_data["madhhab"], dict):
+        old_m = old_data["madhhab"]
+        # 「Unknown / Other」かつ custom_name も空なら、空配列扱い(=未指定)
+        lat = old_m.get("lat", "")
+        if lat == "Unknown / Other" and not old_m.get("custom_name", "").strip():
+            new_data["madhhabs"] = []
+        else:
+            new_data["madhhabs"] = [{
+                "seq": 1,
+                "lat": lat or "Unknown / Other",
+                "id": old_m.get("id", ""),
+                "custom_name": old_m.get("custom_name", ""),
+                "custom_id": old_m.get("custom_id", ""),
+                "ui_id": str(uuid.uuid4()),
+            }]
+    else:
+        new_data["madhhabs"] = []
 
     # sex の変換
     old_sex = old_data.get("sex", "")
@@ -887,23 +911,27 @@ def is_placeholder_id(id_str):
     return bool(_PLACEHOLDER_RE.match(str(id_str).strip()))
 
 
-# 自動採番の対象フィールド: (section, field, prefix)
+# 自動採番の対象フィールド: (section, field, prefix, pair_name_field)
+# pair_name_field: 採番するか判定するための「名前」フィールド名。
+#                  この名前フィールドが空欄の場合、ID も採番しない
+#                  (Gemini がテンプレートのプレースホルダーを誤って返した場合の防御)。
+#                  None なら名前チェックなし(常に採番)。
 TMP_FIELDS_BY_PREFIX = [
-    ("nisbahs",          "id",              "TMP-N-"),
-    ("teachers",         "id",              "TMP-P-"),
-    ("teachers",         "text_id",         "TMP-T-"),
-    ("teachers",         "learn_place_id",  "TMP-L-"),
-    ("students",         "id",              "TMP-P-"),
-    ("students",         "text_id",         "TMP-T-"),
-    ("students",         "teach_place_id",  "TMP-L-"),
-    ("activities",       "id",              "TMP-L-"),
-    ("institutions",     "id",              "TMP-I-"),
-    ("offices",          "id",              "TMP-O-"),
-    ("offices",          "place_id",        "TMP-L-"),
-    ("offices",          "inst_id",         "TMP-I-"),
-    ("family",           "id",              "TMP-P-"),
-    ("bio_events",       "place_id",        "TMP-L-"),
-    ("social_relations", "person_id",       "TMP-P-"),
+    ("nisbahs",          "id",              "TMP-N-",  "ar"),
+    ("teachers",         "id",              "TMP-P-",  "name"),
+    ("teachers",         "text_id",         "TMP-T-",  "text_ar"),
+    ("teachers",         "learn_place_id",  "TMP-L-",  "learn_place_ar"),
+    ("students",         "id",              "TMP-P-",  "name"),
+    ("students",         "text_id",         "TMP-T-",  "text_ar"),
+    ("students",         "teach_place_id",  "TMP-L-",  "teach_place_ar"),
+    ("activities",       "id",              "TMP-L-",  "place_ar"),
+    ("institutions",     "id",              "TMP-I-",  "name_ar"),
+    ("offices",          "id",              "TMP-O-",  "name_ar"),
+    ("offices",          "place_id",        "TMP-L-",  "place_ar"),
+    ("offices",          "inst_id",         "TMP-I-",  "inst_name"),
+    ("family",           "id",              "TMP-P-",  "name"),
+    ("bio_events",       "place_id",        "TMP-L-",  "place_ar"),
+    ("social_relations", "person_id",       "TMP-P-",  "person_name"),
 ]
 
 
@@ -1052,9 +1080,23 @@ def auto_assign_tmp_ids_in_data(d, silent=False):
         return f"{prefix}{next_num:0{digits}d}"
 
     count = 0
-    for section, field, prefix in TMP_FIELDS_BY_PREFIX:
+    cleared = 0
+    for section, field, prefix, pair_name_field in TMP_FIELDS_BY_PREFIX:
         for item in d.get(section, []):
             current = str(item.get(field, "") or "").strip()
+            # ペア名前フィールドの値を確認(空欄かどうか)
+            pair_value = ""
+            if pair_name_field:
+                pair_value = str(item.get(pair_name_field, "") or "").strip()
+
+            # ペア名前が空欄の場合、ID はプレースホルダーでも空欄でもクリア
+            # (Gemini が誤って TMP-X-00000 を返してきた場合の防御)
+            if pair_name_field and not pair_value:
+                if current and is_placeholder_id(current) and current.startswith(prefix):
+                    item[field] = ""
+                    cleared += 1
+                continue
+
             # プレースホルダー(TMP-X-0...0)で、かつプレフィックスが一致するときだけ採番。
             # 空欄は触らない(ユーザーが意図的に未指定にした場合の誤採番を防ぐ)。
             if current and is_placeholder_id(current) and current.startswith(prefix):
@@ -1062,15 +1104,29 @@ def auto_assign_tmp_ids_in_data(d, silent=False):
                 count += 1
 
     # トップレベルの place_id フィールド(birth/death/burial)
+    # こちらもペア名前(*_place_ar)が空ならクリア
     for field in ("birth_place_id", "death_place_id", "burial_place_id"):
         current = str(d.get(field, "") or "").strip()
+        pair_field = field.replace("_id", "_ar")
+        pair_value = str(d.get(pair_field, "") or "").strip()
+        if not pair_value:
+            # ペア名前空欄 → プレースホルダーならクリア
+            if current and is_placeholder_id(current) and current.startswith("TMP-L-"):
+                d[field] = ""
+                cleared += 1
+            continue
         if current and is_placeholder_id(current) and current.startswith("TMP-L-"):
             d[field] = assign_id("TMP-L-")
             count += 1
 
     if not silent:
+        msgs = []
         if count > 0:
-            st.success(f"{count} 個の ID を採番しました。")
+            msgs.append(f"{count} 個の ID を採番しました。")
+        if cleared > 0:
+            msgs.append(f"{cleared} 個のプレースホルダー ID をクリアしました(名前が空欄のため)。")
+        if msgs:
+            st.success(" / ".join(msgs))
         else:
             st.info("採番すべきプレースホルダーはありません。")
         st.rerun()
@@ -1168,53 +1224,62 @@ Input items:
             st.error(f"翻字エラー: {type(e).__name__}: {e}")
 
 
-def apply_prompt_madhhab(data, madhhab_name):
-    """プロンプトの madhhab_name を data.madhhab に展開"""
-    name = (madhhab_name or "").strip()
-    if not name:
+def apply_prompt_madhhab(data, madhhab_value):
+    """プロンプトの madhhab 値(文字列 or リスト)を data.madhhabs に展開。
+
+    Gemini からの返り値の形式:
+      - 文字列: "Hanafi" → 単一エントリの配列に変換
+      - リスト: ["Shafi'i", "Hanbali"] → 順番付き配列に変換(時系列順)
+      - リスト(辞書): [{"name": "Shafi'i"}, ...] にも対応(柔軟性確保)
+    既存の madhhabs があれば上書き。
+    """
+    # 入力を正規化してリスト of 文字列にする
+    names = []
+    if isinstance(madhhab_value, str):
+        if madhhab_value.strip():
+            names = [madhhab_value.strip()]
+    elif isinstance(madhhab_value, list):
+        for item in madhhab_value:
+            if isinstance(item, str) and item.strip():
+                names.append(item.strip())
+            elif isinstance(item, dict):
+                # {"name": "..."} 形式にも対応
+                n = (item.get("name", "") or item.get("lat", "") or "").strip()
+                if n:
+                    names.append(n)
+
+    if not names:
         return
 
-    for key, qid in MADHHAB_DATA.items():
-        latin_part = key.split(" ")[0]  # 例: "Hanafi"
-        if name.lower() == latin_part.lower():
-            data["madhhab"]["lat"] = key
-            data["madhhab"]["id"] = qid
-            data["madhhab"]["custom_name"] = ""
-            data["madhhab"]["custom_id"] = ""
-            return
+    new_madhhabs = []
+    for i, name in enumerate(names, start=1):
+        entry = {
+            "seq": i,
+            "lat": "Unknown / Other",
+            "id": "",
+            "custom_name": "",
+            "custom_id": "",
+            "ui_id": str(uuid.uuid4()),
+        }
+        # 標準4派にマッチするか確認
+        matched = False
+        for key, qid in MADHHAB_DATA.items():
+            latin_part = key.split(" ")[0]  # 例: "Hanafi"
+            if name.lower() == latin_part.lower() or name == key:
+                entry["lat"] = key
+                entry["id"] = qid
+                matched = True
+                break
+        if not matched:
+            # 標準4派にマッチしない場合は custom 扱い
+            entry["custom_name"] = name
+        new_madhhabs.append(entry)
 
-    # 標準4派にマッチしない場合は custom 扱い
-    data["madhhab"]["lat"] = "Unknown / Other"
-    data["madhhab"]["id"] = ""
-    data["madhhab"]["custom_name"] = name
-    data["madhhab"]["custom_id"] = ""
+    data["madhhabs"] = new_madhhabs
 
 
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
-
-    # === 🔍 デバッグ用: Gemini の生 JSON を session_state に保存 ===
-    # st.rerun() で画面が再描画されてもデバッグ情報を残すため、
-    # session_state に格納する。表示は別の場所で行う。
-    import json as _json
-    lat_summary = {}
-    for fld in ("birth_place_lat", "death_place_lat", "burial_place_lat",
-                "birth_place_ar", "death_place_ar", "burial_place_ar",
-                "birth_place_id", "death_place_id", "burial_place_id"):
-        if fld in prompt_result:
-            lat_summary[fld] = prompt_result[fld]
-    for section in ("teachers", "students", "activities", "institutions",
-                    "offices", "bio_events"):
-        items = prompt_result.get(section, [])
-        if isinstance(items, list):
-            for i, item in enumerate(items):
-                if not isinstance(item, dict):
-                    continue
-                for key, val in item.items():
-                    if "lat" in key.lower() and val:
-                        lat_summary[f"{section}[{i}].{key}"] = val
-    st.session_state["_debug_gemini_raw"] = prompt_result
-    st.session_state["_debug_gemini_lat_summary"] = lat_summary
 
     simple_fields = [
         "aind_id", "original_id", "full_name", "name_only", "full_name_lat",
@@ -1328,7 +1393,12 @@ def apply_prompt_result(data, prompt_result):
         st.warning(msg)
 
     # 法学派
-    apply_prompt_madhhab(data, prompt_result.get("madhhab_name", ""))
+    # 法学派(配列対応 v20.8)
+    # Gemini が "madhhabs"(配列)または "madhhab_name"(文字列、旧仕様互換)を返す
+    if "madhhabs" in prompt_result:
+        apply_prompt_madhhab(data, prompt_result.get("madhhabs"))
+    else:
+        apply_prompt_madhhab(data, prompt_result.get("madhhab_name", ""))
 
     # 配列フィールド(ui_id 自動付与)
     array_fields = [
@@ -1368,14 +1438,6 @@ def apply_prompt_result(data, prompt_result):
     }
     for k, v in ui_keys_to_sync.items():
         st.session_state[k] = v
-
-    # === 🔍 デバッグ用: 最終 data の状態を session_state に保存 ===
-    final_summary = {}
-    for fld in ("birth_place_ar", "birth_place_lat", "birth_place_id",
-                "death_place_ar", "death_place_lat", "death_place_id",
-                "burial_place_ar", "burial_place_lat", "burial_place_id"):
-        final_summary[fld] = data.get(fld, "")
-    st.session_state["_debug_final_data"] = final_summary
 
 
 # --- セッション状態の初期化 ---
@@ -1485,6 +1547,42 @@ NOTE: Persons use 6-digit TMP-P-XXXXXX. All other TMP- categories
 use 5-digit format. ID-Master entries with legacy 5-digit person IDs
 (TMP-P-XXXXX) remain valid — both lengths are accepted.
 
+🔴 CRITICAL — EMPTY NAME → EMPTY ID:
+If the corresponding ARABIC NAME field is empty (i.e., the text does NOT
+mention that entity), the ID field MUST ALSO be empty string "".
+
+❌ NEVER output TMP-X-00000 placeholder ID when the name is empty.
+   This would cause the app to assign an unwanted serial number.
+
+Examples:
+  ✅ Text mentions "السراج معمر بن عبد القوي" (a teacher) → 
+       name = "السراج معمر بن عبد القوي", id = "TMP-P-000000"
+  ✅ Text mentions a teacher but no specific book →
+       name = "السراج معمر...", text_ar = "", text_id = ""  (NOT "TMP-T-00000"!)
+  ✅ Text mentions a teacher but no specific place →
+       name = "...", learn_place_ar = "", learn_place_id = ""
+  ❌ NEVER do this:
+       text_ar = "", text_lat = "", text_id = "TMP-T-00000"  (id without name!)
+       place_ar = "", place_id = "TMP-L-00000"               (id without place!)
+
+This rule applies to EVERY (name, id) pair in the JSON:
+  - (teachers[].name, teachers[].id)
+  - (teachers[].text_ar, teachers[].text_id)
+  - (teachers[].learn_place_ar, teachers[].learn_place_id)
+  - (students[].name, students[].id)
+  - (students[].text_ar, students[].text_id)
+  - (students[].teach_place_ar, students[].teach_place_id)
+  - (activities[].place_ar, activities[].id)
+  - (institutions[].name_ar, institutions[].id)
+  - (offices[].name_ar, offices[].id)
+  - (offices[].place_ar, offices[].place_id)
+  - (offices[].inst_name, offices[].inst_id)
+  - (family[].name, family[].id)
+  - (nisbahs[].ar, nisbahs[].id)
+  - (bio_events[].place_ar, bio_events[].place_id)
+  - (social_relations[].person_name, social_relations[].person_id)
+  - (birth_place_ar, birth_place_id) / (death_place_ar, death_place_id) / (burial_place_ar, burial_place_id)
+
 ============================================================
 【3.5. TRANSLITERATION (ar-Latn) — CRITICAL】
 ============================================================
@@ -1562,10 +1660,23 @@ When translating "شيخنا" (our shaykh) in al-Sakhāwī's text:
 【6. MADHHAB — IMPORTANT POLICY】
 ============================================================
 - If the text contains a madhhab indicator (e.g. الشافعي / الحنفي /
-  المالكي / الحنبلي), record it ONLY in "madhhab_name".
+  المالكي / الحنبلي), record it in "madhhabs" array.
 - DO NOT also record it as a nisbah.
 - Use Latin form: "Hanafi" / "Maliki" / "Shafi'i" / "Hanbali".
-- If the form is ambiguous or the madhhab is unclear, leave empty.
+- If the form is ambiguous or the madhhab is unclear, leave empty array.
+
+== MULTIPLE MADHHABS (transitional / conversion cases) ==
+Most people belong to a single madhhab. However, some historical figures
+converted from one madhhab to another (e.g. Shafi'i → Hanbali).
+
+- "madhhabs" is an ARRAY of strings, in CHRONOLOGICAL ORDER (earliest first).
+- Single madhhab: ["Shafi'i"]
+- Conversion case: ["Shafi'i", "Hanbali"]  (earlier → later)
+- Detection cues for conversion:
+  * "تحول من الشافعية إلى الحنفية" (changed from Shafi'i to Hanafi)
+  * "كان شافعيا ثم انتقل إلى الحنفية" (was Shafi'i, then moved to Hanafi)
+  * "نشأ شافعيا ثم صار حنبليا" (grew up Shafi'i, then became Hanbali)
+- If no clear chronology is given, list in the order mentioned in the text.
 
 ============================================================
 【7. GENDER】
@@ -1579,7 +1690,7 @@ When translating "شيخنا" (our shaykh) in al-Sakhāwī's text:
 ============================================================
 - Geographical, tribal, or family nisbahs only.
 - DO NOT include madhhab-derived nisbahs (الشافعي etc.) here —
-  those go in "madhhab_name".
+  those go in "madhhabs" array.
 - ID: ALWAYS "TMP-N-00000" (5 digits) — even for nisbahs derived from
   places. Do NOT use TMP-L- or GeoNames here. nisbahs (الأندلسي,
   الدمشقي, الرومي, etc.) are tracked in the Nisbah authority list,
@@ -2061,7 +2172,7 @@ DO NOT EXTRACT:
   بعضه / etc. Ignore these.
 - Generic honorifics in passing mentions (الشيخ, الإمام) when not
   used as a fixed personal designation.
-- Madhhab as nisbah (الشافعي as nisbah). Always route to madhhab_name.
+- Madhhab as nisbah (الشافعي as nisbah). Always route to madhhabs array.
 - Family relations implied by nasab chain or kunyah (see section 17).
 - Titles of ancestors inside the nasab chain — see section 9.
 
@@ -2114,6 +2225,7 @@ Before returning the JSON, mentally check each item:
 □ Is funeral information (if any) integrated into death_note in English?
 □ Do all _lat fields contain ONLY IJMES Latin transliteration (NOT coordinates/IDs/Arabic)?
 □ Does bio_events contain ZERO descriptive/summary statements (only specific dated events)?
+□ For EVERY (name, id) pair: if the name (Arabic) is empty, is the id ALSO empty ""? (no orphan IDs like text_id="TMP-T-00000" when text_ar is empty)
 
 If ANY of these checks fail, FIX the output before returning.
 
@@ -2133,9 +2245,9 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "death_h": "", "death_cert": "", "death_note": "",
   "death_place_ar": "", "death_place_lat": "", "death_place_id": "",
   "burial_place_ar": "", "burial_place_lat": "", "burial_place_id": "",
-  "madhhab_name": "",
+  "madhhabs": [],
   "nisbahs": [
-    {{"ar": "", "lat": "", "id": "TMP-N-00000"}}
+    {{"ar": "", "lat": "", "id": ""}}
   ],
   "laqabs": [
     {{"type": "laqab", "ar": "", "lat": ""}}
@@ -2150,10 +2262,10 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "teachers": [
     {{
       "seq": 1,
-      "name": "", "id": "TMP-P-000000",
+      "name": "", "id": "",
       "method_id": "",
       "field_id": "",
-      "text_ar": "", "text_lat": "", "text_id": "TMP-T-00000",
+      "text_ar": "", "text_lat": "", "text_id": "",
       "learn_date": "",
       "learn_place_ar": "", "learn_place_lat": "", "learn_place_id": ""
     }}
@@ -2161,21 +2273,20 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "students": [
     {{
       "seq": 1,
-      "name": "", "id": "TMP-P-000000",
+      "name": "", "id": "",
       "method_id": "",
       "field_id": "",
-      "text_ar": "", "text_lat": "", "text_id": "TMP-T-00000",
+      "text_ar": "", "text_lat": "", "text_id": "",
       "teach_date": "",
       "teach_place_ar": "", "teach_place_lat": "", "teach_place_id": ""
     }}
   ],
   "institutions": [
-    {{"seq": 1, "name_ar": "", "name_lat": "", "type": "study",
-      "id": "TMP-I-00000"}}
+    {{"seq": 1, "name_ar": "", "name_lat": "", "type": "study", "id": ""}}
   ],
   "offices": [
     {{
-      "seq": 1, "name_ar": "", "name_lat": "", "id": "TMP-O-00000",
+      "seq": 1, "name_ar": "", "name_lat": "", "id": "",
       "place_ar": "", "place_lat": "", "place_id": "",
       "inst_name": "", "inst_id": "",
       "appoint_date": "", "retire_date": ""
@@ -2201,7 +2312,7 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "family": [
     {{
       "relation": "father",
-      "name": "", "id": "TMP-P-000000"
+      "name": "", "id": ""
     }}
   ],
   "translation_jp": "",
@@ -2357,17 +2468,14 @@ with clr_c4:
         auto_assign_tmp_ids_in_data(d)
 with clr_c5:
     if st.button("🗑️ 入力をクリア", use_container_width=True,
-                 help="入力した全データをクリアします(担当者名は保持)"):
+                 help="入力した全データをクリアします"):
         st.session_state["_show_clear_confirm"] = True
 
 if st.session_state.get("_show_clear_confirm"):
-    st.warning("⚠️ 全ての入力データがクリアされます(担当者名は保持されます)。本当によろしいですか?")
+    st.warning("⚠️ 全ての入力データがクリアされます。本当によろしいですか?")
     cc1, cc2, cc3 = st.columns([1, 1, 4])
     if cc1.button("✅ クリアする", type="primary"):
-        saved_assignee = st.session_state.get("assignee", "")
         st.session_state.data_v19 = json.loads(json.dumps(DEFAULT_DATA_V19))
-        if saved_assignee:
-            st.session_state["assignee"] = saved_assignee
         # UI 用の session_state キーも空文字列に同期(クリア)
         _ui_keys_to_clear = [
             "birth_place_ar_input", "birth_place_lat_input", "birth_place_id_input",
@@ -2383,36 +2491,6 @@ if st.session_state.get("_show_clear_confirm"):
         st.rerun()
 
 st.header("2. Metadata Editor")
-
-# === 🔍 デバッグ表示 (v20.5-debug) ===
-# session_state に保存された Gemini 生 JSON と最終 data 状態を表示する。
-# 問題解決後は削除予定。
-if "_debug_gemini_raw" in st.session_state or "_debug_final_data" in st.session_state:
-    with st.expander("🔍 [DEBUG] Gemini の生 JSON(_lat フィールド抜粋)", expanded=True):
-        st.caption(
-            "Gemini API が返した JSON のうち、_lat 系フィールド(翻字)だけを抜粋しています。"
-            "座標問題の調査のための一時的な表示機能です。"
-        )
-        lat_summary = st.session_state.get("_debug_gemini_lat_summary", {})
-        if lat_summary:
-            st.json(lat_summary)
-        else:
-            st.info("_lat 系フィールドはすべて空でした。")
-
-    with st.expander("🔍 [DEBUG] Gemini の生 JSON(全体)", expanded=False):
-        raw = st.session_state.get("_debug_gemini_raw", {})
-        st.json(raw)
-
-    with st.expander("🔍 [DEBUG] 全処理完了後の最終 data 状態", expanded=True):
-        st.caption(
-            "apply_prompt_result の全処理(座標クリア → ID-Master 照合 → 採番)が完了した後の "
-            "place 系フィールドの最終値です。これが XML 出力で使われる値です。"
-        )
-        final = st.session_state.get("_debug_final_data", {})
-        if final:
-            st.json(final)
-        else:
-            st.info("まだ解析が実行されていません。")
 
 # --- 基本情報 ---
 # AIND-D ID と 12 digits ID と Sex を同じ行に並べる
@@ -2634,26 +2712,99 @@ with st.container():
     )
 
 # ===================================================
-# --- Madhhab ---
+# --- Madhhab(複数対応 v20.8)---
 # ===================================================
 st.divider()
 st.subheader("⚖️ Madhhab")
+st.caption("法学派を時系列順に記録できます(最大 3 つ、転向した場合などに対応)。")
+
 madhhab_keys = list(MADHHAB_DATA.keys())
-cur_m   = d["madhhab"]["lat"]
-def_idx = madhhab_keys.index(cur_m) if cur_m in madhhab_keys else 4
-m_col1, m_col2 = st.columns(2)
-m_col1.caption("Madhhab")
-m_col2.caption("Wikidata ID")
-selected_m  = m_col1.selectbox("Madhhab", options=madhhab_keys, index=def_idx, label_visibility="collapsed")
-wikidata_id = MADHHAB_DATA[selected_m]
-m_col2.text_input("Wikidata ID", value=wikidata_id, disabled=True, label_visibility="collapsed")
-if selected_m == "Unknown / Other":
-    uo1, uo2 = st.columns(2)
-    custom_name = uo1.text_input("Madhhab name (free text)", value=d["madhhab"].get("custom_name",""), key="madhhab_custom_name")
-    custom_id   = uo2.text_input("Madhhab ID (Q / TMP-)",    value=d["madhhab"].get("custom_id",""),   key="madhhab_custom_id")
-    d["madhhab"] = {"lat": selected_m, "id": "", "custom_name": custom_name, "custom_id": custom_id}
+madhhabs = d.get("madhhabs", [])
+
+# 既存エントリ表示
+for i, mitem in enumerate(madhhabs):
+    if "ui_id" not in mitem:
+        mitem["ui_id"] = str(uuid.uuid4())
+    uid = mitem["ui_id"]
+
+    # 順番セレクト + Madhhab + Wikidata ID + 削除ボタン
+    mc_seq, mc_lat, mc_wid, mc_del = st.columns([1, 3, 3, 1])
+    mc_seq.caption("Seq")
+    mc_lat.caption("Madhhab")
+    mc_wid.caption("Wikidata ID")
+    mc_del.caption(" ")
+
+    cur_seq = mitem.get("seq", i + 1)
+    if cur_seq not in (1, 2, 3):
+        cur_seq = i + 1 if (i + 1) in (1, 2, 3) else 1
+    mitem["seq"] = mc_seq.selectbox(
+        "seq", [1, 2, 3],
+        index=[1, 2, 3].index(cur_seq),
+        key=f"madhhab_seq_{uid}",
+        label_visibility="collapsed",
+    )
+
+    cur_lat = mitem.get("lat", "Unknown / Other")
+    def_idx = madhhab_keys.index(cur_lat) if cur_lat in madhhab_keys else madhhab_keys.index("Unknown / Other")
+    selected_m = mc_lat.selectbox(
+        "Madhhab", options=madhhab_keys, index=def_idx,
+        key=f"madhhab_lat_{uid}", label_visibility="collapsed",
+    )
+    wikidata_id = MADHHAB_DATA[selected_m]
+    mc_wid.text_input(
+        "Wikidata ID", value=wikidata_id, disabled=True,
+        key=f"madhhab_wid_{uid}", label_visibility="collapsed",
+    )
+
+    # 削除ボタン
+    if mc_del.button("❌", key=f"madhhab_del_{uid}"):
+        d["madhhabs"].pop(i)
+        st.rerun()
+
+    # Custom 入力(Unknown / Other のとき)
+    if selected_m == "Unknown / Other":
+        uo1, uo2 = st.columns(2)
+        custom_name = uo1.text_input(
+            "Madhhab name (free text)",
+            value=mitem.get("custom_name", ""),
+            key=f"madhhab_custom_name_{uid}",
+        )
+        custom_id = uo2.text_input(
+            "Madhhab ID (Q / TMP-)",
+            value=mitem.get("custom_id", ""),
+            key=f"madhhab_custom_id_{uid}",
+        )
+        mitem.update({
+            "lat": selected_m, "id": "",
+            "custom_name": custom_name, "custom_id": custom_id,
+        })
+    else:
+        mitem.update({
+            "lat": selected_m, "id": wikidata_id,
+            "custom_name": "", "custom_id": "",
+        })
+
+# 追加ボタン(最大 3 つまで)
+if len(madhhabs) < 3:
+    if st.button("＋ Madhhab を追加", key="add_madhhab"):
+        # 次のseq番号を計算
+        used_seqs = {m.get("seq", 0) for m in d.get("madhhabs", [])}
+        next_seq = 1
+        for n in (1, 2, 3):
+            if n not in used_seqs:
+                next_seq = n
+                break
+        d.setdefault("madhhabs", []).append({
+            "seq": next_seq,
+            "lat": "Unknown / Other",
+            "id": "",
+            "custom_name": "",
+            "custom_id": "",
+            "ui_id": str(uuid.uuid4()),
+        })
+        st.rerun()
 else:
-    d["madhhab"] = {"lat": selected_m, "id": wikidata_id, "custom_name": "", "custom_id": ""}
+    st.caption("(Madhhab は最大 3 つまでです)")
 
 # ===================================================
 # --- Sufi Order ---
@@ -3344,23 +3495,54 @@ def build_sex(x, d):
 
 
 def build_madhhab_and_sufi(x, d):
-    m = d.get("madhhab", {})
-    if m.get("lat") == "Unknown / Other":
-        cn = m.get("custom_name", "")
-        ci = m.get("custom_id", "")
-        if cn or ci:
-            ref_attr = f' ref="{fr(ci)}"' if ci else ""
+    """法学派(複数対応)とスーフィー教団を出力する。
+
+    madhhabs 配列を seq 順にソートして <affiliation type="madhhab" n="..."> を生成。
+    旧 madhhab(単一)もフォールバック対応(migrate 前のデータ用)。
+    """
+    # 新形式: madhhabs(配列)
+    madhhabs = d.get("madhhabs", [])
+    # 旧形式: madhhab(単一)へのフォールバック(migrate 前データ用)
+    if not madhhabs and isinstance(d.get("madhhab"), dict):
+        old_m = d["madhhab"]
+        lat = old_m.get("lat", "")
+        if lat and not (lat == "Unknown / Other" and not old_m.get("custom_name", "").strip()):
+            madhhabs = [{
+                "seq": 1, "lat": lat,
+                "id": old_m.get("id", ""),
+                "custom_name": old_m.get("custom_name", ""),
+                "custom_id": old_m.get("custom_id", ""),
+            }]
+
+    # seq 順にソート
+    sorted_madhhabs = sorted(madhhabs, key=lambda m: m.get("seq", 99))
+
+    for m in sorted_madhhabs:
+        if not isinstance(m, dict):
+            continue
+        lat = m.get("lat", "")
+        seq = m.get("seq", 1)
+        n_attr = f' n="{seq}"' if len(sorted_madhhabs) > 1 else ""
+
+        if lat == "Unknown / Other":
+            cn = m.get("custom_name", "")
+            ci = m.get("custom_id", "")
+            if cn or ci:
+                ref_attr = f' ref="{fr(ci)}"' if ci else ""
+                x.append(
+                    f'    <affiliation type="madhhab"{n_attr}{ref_attr}>'
+                    f'{escape_xml(cn)}</affiliation>'
+                )
+        elif m.get("id"):
+            # "Shafi'i (シャーフィイー派)" → "Shafi'i"(日本語注釈は除去)
+            madhhab_label = lat.split(" (")[0]
+            # id は既に "wd:Q..." 形式 or "Q..." 形式の両方をサポート
+            id_val = m["id"]
+            ref_val = id_val if id_val.startswith("wd:") else f"wd:{id_val}"
             x.append(
-                f'    <affiliation type="madhhab"{ref_attr}>'
-                f'{escape_xml(cn)}</affiliation>'
+                f'    <affiliation type="madhhab"{n_attr} ref="{ref_val}">'
+                f'{escape_xml(madhhab_label)}</affiliation>'
             )
-    elif m.get("id"):
-        # "Shafi'i (シャーフィイー派)" → "Shafi'i"(日本語注釈は除去)
-        madhhab_label = m.get("lat", "").split(" (")[0]
-        x.append(
-            f'    <affiliation type="madhhab" ref="wd:{m["id"]}">'
-            f'{escape_xml(madhhab_label)}</affiliation>'
-        )
 
     sufi = d.get("sufi_order", {})
     if sufi.get("name"):
@@ -4043,11 +4225,29 @@ def build_row_ej(data):
     """E〜J列(persName以降)に書き込む 6セル分のデータを返す。
     C列(AIND-D ID)と D列(12 digits ID)は触らないため含めない。
     """
-    # Madhhab表示文字列
-    if data["madhhab"]["lat"] == "Unknown / Other":
-        madhhab_str = data["madhhab"].get("custom_name", "")
-    else:
-        madhhab_str = data["madhhab"]["lat"]
+    # Madhhab表示文字列(複数 madhhab に対応 v20.8)
+    # 配列 madhhabs を seq 順にソートして "Shafi'i → Hanbali" のように連結
+    madhhab_strs = []
+    madhhabs = data.get("madhhabs", [])
+    # 旧形式 madhhab フォールバック
+    if not madhhabs and isinstance(data.get("madhhab"), dict):
+        old_m = data["madhhab"]
+        if old_m.get("lat") and old_m.get("lat") != "Unknown / Other":
+            madhhabs = [{"seq": 1, "lat": old_m["lat"], "custom_name": old_m.get("custom_name", "")}]
+        elif old_m.get("custom_name", "").strip():
+            madhhabs = [{"seq": 1, "lat": "Unknown / Other", "custom_name": old_m["custom_name"]}]
+
+    for m in sorted(madhhabs, key=lambda x: x.get("seq", 99)):
+        if not isinstance(m, dict):
+            continue
+        if m.get("lat") == "Unknown / Other":
+            name = m.get("custom_name", "")
+        else:
+            # "Shafi'i (シャーフィイー派)" → "Shafi'i"
+            name = (m.get("lat", "") or "").split(" (")[0]
+        if name:
+            madhhab_strs.append(name)
+    madhhab_str = " → ".join(madhhab_strs)  # 時系列順なので "→" で繋ぐ
 
     return [
         data.get("full_name", ""),         # E: persName (Full Arabic)
@@ -4102,12 +4302,34 @@ st.caption(
     "スプレッドシートをそのアカウントのメールアドレスに共有してください。"
 )
 
-ASSIGNEE_OPTIONS = ["Ito_done", "Kuma_done", "Miura_done", "Ota_done", "Shino_done", "AssistantA_done", "AssistantB_done"]
-assignee = st.selectbox("担当者", options=ASSIGNEE_OPTIONS,
-    index=ASSIGNEE_OPTIONS.index(st.session_state.get("assignee", "Kuma_done"))
-          if st.session_state.get("assignee") in ASSIGNEE_OPTIONS else 0,
-    key="assignee_input")
-st.session_state["assignee"] = assignee
+# respStmt の最初のエントリの作業者名を「初版作成者」として使用
+# (B列に書き込む担当者名)
+def get_assignee_from_resp_stmts(data):
+    """resp_stmts の最初のエントリの作業者名(name)を返す。
+    空 or 未設定なら空文字列。
+    """
+    resp_stmts = data.get("resp_stmts", []) or []
+    if not resp_stmts:
+        return ""
+    first = resp_stmts[0]
+    if not isinstance(first, dict):
+        return ""
+    return (first.get("name", "") or "").strip()
+
+assignee = get_assignee_from_resp_stmts(d)
+
+# 担当者の表示(編集不可、respStmt から自動取得)
+if assignee:
+    st.success(
+        f"📌 **担当者(初版作成者): `{assignee}`** "
+        f"(respStmt セクションの最初のエントリより自動取得)"
+    )
+else:
+    st.warning(
+        "⚠️ respStmt セクションが空です。"
+        "スプレッドシート保存には、respStmt セクション(画面下部)で"
+        "「初版作成」の担当者を追加してください。"
+    )
 
 col_prev, col_save = st.columns([2, 1])
 
@@ -4124,7 +4346,10 @@ with col_save:
     st.markdown("&nbsp;", unsafe_allow_html=True)  # 縦位置調整
     if st.button("📤 スプレッドシートに保存", use_container_width=True, type="primary"):
         if not assignee:
-            st.error("担当者名を入力してください。")
+            st.error(
+                "respStmt セクション(画面下部)で担当者(初版作成者)を"
+                "追加してから保存してください。"
+            )
         elif not d.get("original_id"):
             st.error("Source ID (12digitsID) が空です。入力してから保存してください。")
         else:
