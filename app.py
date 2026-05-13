@@ -8,8 +8,8 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.0"
-APP_VERSION_DATE = "2026-05-11"
+APP_VERSION = "v20.1"
+APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -430,11 +430,12 @@ MADHHAB_DATA = {
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","buried","other"]
 
 ACTIVITY_TYPES = [
-    "buried", "residence", "visit", "travel", "study",
+    "residence", "visit", "travel", "study",
     "hajj", "umrah", "jāwara", "riḥla",
     "legacy",  # 死後イベント(遺産・後世への影響)
     "other",
 ]
+# 注: "buried" は v20.1 で廃止。埋葬地は <death> 内の burial_place_* で管理。
 
 # UI 入力値 → XML 出力(type, subtype) のマッピング。
 # subtype が None の場合は subtype 属性を出力しない。
@@ -600,17 +601,26 @@ DEFAULT_DATA_V19 = {
     "sex": "M",
     "certainty": "High",
 
-    # === 生没年 ===
+    # === 生没年・場所 ===
     "birth_h": "",
     "birth_cert": "",
     "birth_note": "",
     "birth_inference_note": "",
     "birth_g": "",
+    "birth_place_ar": "",
+    "birth_place_lat": "",
+    "birth_place_id": "",
     "death_h": "",
     "death_cert": "",
     "death_note": "",
     "death_inference_note": "",
     "death_g": "",
+    "death_place_ar": "",
+    "death_place_lat": "",
+    "death_place_id": "",
+    "burial_place_ar": "",
+    "burial_place_lat": "",
+    "burial_place_id": "",
 
     # === 法学派 ===
     "madhhab": {
@@ -772,6 +782,26 @@ def migrate_v18_to_v19(old_data):
     new_data["family"] = [
         migrate_family(f) for f in old_data.get("family", [])
     ]
+
+    # 旧 activities の "buried" タイプを burial_place_* に救済(初出のみ採用)
+    # 旧データに buried activity があれば、その place_* を death の burial_place に移す。
+    # 移管後、buried activity は activities から削除(重複を避けるため)。
+    remaining_activities = []
+    burial_moved = False
+    for a in new_data["activities"]:
+        if a.get("type") == "buried" and not burial_moved:
+            if not new_data.get("burial_place_ar") and a.get("place_ar"):
+                new_data["burial_place_ar"] = a.get("place_ar", "")
+            if not new_data.get("burial_place_lat") and a.get("place_lat"):
+                new_data["burial_place_lat"] = a.get("place_lat", "")
+            if not new_data.get("burial_place_id") and a.get("id"):
+                new_data["burial_place_id"] = a.get("id", "")
+            burial_moved = True
+            # この buried activity は捨てる(burial_place に移管したため)
+            continue
+        # buried 以外、または 2 つ目以降の buried(レアケース)はそのまま残す
+        remaining_activities.append(a)
+    new_data["activities"] = remaining_activities
 
     # 新規配列はそのままコピー(既存があれば維持)
     for key in ("bio_events", "social_relations"):
@@ -1031,6 +1061,13 @@ def auto_assign_tmp_ids_in_data(d, silent=False):
                 item[field] = assign_id(prefix)
                 count += 1
 
+    # トップレベルの place_id フィールド(birth/death/burial)
+    for field in ("birth_place_id", "death_place_id", "burial_place_id"):
+        current = str(d.get(field, "") or "").strip()
+        if current and is_placeholder_id(current) and current.startswith("TMP-L-"):
+            d[field] = assign_id("TMP-L-")
+            count += 1
+
     if not silent:
         if count > 0:
             st.success(f"{count} 個の ID を採番しました。")
@@ -1184,14 +1221,25 @@ def apply_prompt_result(data, prompt_result):
     sex = prompt_result.get("sex", "U")
     data["sex"] = sex if sex in ("M", "F", "U") else "U"
 
-    # 生没年(年・確実性・注記)
+    # 生没年(年・確実性・注記・場所)
     for prefix in ("birth", "death"):
         for suffix in ("h", "cert", "note"):
             key = f"{prefix}_{suffix}"
             if key in prompt_result:
                 data[key] = prompt_result[key]
+        # 場所(ar / lat / id)
+        for suffix in ("place_ar", "place_lat", "place_id"):
+            key = f"{prefix}_{suffix}"
+            if key in prompt_result:
+                data[key] = prompt_result[key]
         # G暦は H から自動計算
         data[f"{prefix}_g"] = convert_h_to_g(data[f"{prefix}_h"])
+
+    # 埋葬地(ar / lat / id)
+    for suffix in ("place_ar", "place_lat", "place_id"):
+        key = f"burial_{suffix}"
+        if key in prompt_result:
+            data[key] = prompt_result[key]
 
     # 法学派
     apply_prompt_madhhab(data, prompt_result.get("madhhab_name", ""))
@@ -1387,7 +1435,7 @@ When unsure whether a title modifies the subject or an ancestor,
 DO NOT extract it.
 
 ============================================================
-【10. DATES (Birth / Death)】
+【10. DATES & PLACES (Birth / Death / Burial)】
 ============================================================
 - "birth_h" / "death_h": Hijri year string. Examples:
     "850"            (year only)
@@ -1402,6 +1450,26 @@ DO NOT extract it.
   Write in ENGLISH for international database compatibility.
   Arabic terms / titles / proper nouns may be quoted directly
   (e.g., "according to تاريخ الإسلام"). Do NOT write in Japanese.
+
+== PLACES: Birth / Death / Burial ==
+
+Record the place of BIRTH, DEATH, and BURIAL in their respective
+fields. DO NOT record these as activity entries.
+
+- "birth_place_ar" / "birth_place_lat" / "birth_place_id":
+  Where the person was born. Phrases like "ولد بـ...", "مولده ...".
+- "death_place_ar" / "death_place_lat" / "death_place_id":
+  Where the person died. Phrases like "مات بـ...", "توفي بـ...".
+  (Do NOT confuse with burial location.)
+- "burial_place_ar" / "burial_place_lat" / "burial_place_id":
+  Where the person was buried. Phrases like "دفن بـ...",
+  "دفن بتربة...", "دفن قرب...". This is often different from death
+  place (e.g., died at home, buried at a known cemetery / turba).
+
+IMPORTANT: Do NOT create activity entries with type="born",
+"died", or "buried". These birth/death/burial places belong in the
+dedicated fields above, which generate <birth>/<death> XML elements
+with embedded <placeName> children.
 
 ============================================================
 【11. TEACHERS / STUDENTS — METHOD × FIELD】
@@ -1506,7 +1574,6 @@ Geographic events: any event whose primary nature is movement to,
 or presence in, a specific place.
 
 "type" must be one of:
-    buried     burial
     residence  long-term residence
     visit      travel / short visit (default for travel events)
     travel     journey (use when emphasis is on the journey itself)
@@ -1520,8 +1587,9 @@ or presence in, a specific place.
     legacy     posthumous event (legacy, posthumous influence)
     other      none of the above
 
-DO NOT use "born" or "died" — birth/death belong in birth_h / death_h
-fields, which generate <birth>/<death> elements directly.
+DO NOT use "born", "died", or "buried" — birth/death/burial places
+belong in birth_place_*, death_place_*, burial_place_* fields,
+which generate <birth>/<death> elements with <placeName> children.
 
 IMPORTANT — Hajj judgment:
 - "ذهب إلى مكة" or similar without حج/حجّ → type = "visit"
@@ -1758,7 +1826,10 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "name_only": "",
   "sex": "U",
   "birth_h": "", "birth_cert": "", "birth_note": "",
+  "birth_place_ar": "", "birth_place_lat": "", "birth_place_id": "",
   "death_h": "", "death_cert": "", "death_note": "",
+  "death_place_ar": "", "death_place_lat": "", "death_place_id": "",
+  "burial_place_ar": "", "burial_place_lat": "", "burial_place_id": "",
   "madhhab_name": "",
   "nisbahs": [
     {{"ar": "", "lat": "", "id": "TMP-N-00000"}}
@@ -2128,6 +2199,26 @@ with st.container():
         help="原文に明示が無く文脈推論で記入した場合、その根拠を英語で記述。"
              '出力 XML には <note type="inference" xml:lang="en"> として現れる。',
     )
+    # Birth Place
+    bpc1, bpc2, bpc3 = st.columns([1, 1, 1])
+    bpc1.caption("📍 Birth Place (Arabic)")
+    bpc2.caption("Birth Place (Latin)")
+    bpc3.caption("Birth Place ID (GeoNames / TMP-L-)")
+    d["birth_place_ar"] = bpc1.text_input(
+        "bpar", d.get("birth_place_ar", ""),
+        key="birth_place_ar", label_visibility="collapsed",
+        placeholder="例: مكة",
+    )
+    d["birth_place_lat"] = bpc2.text_input(
+        "bplat", d.get("birth_place_lat", ""),
+        key="birth_place_lat", label_visibility="collapsed",
+        placeholder="例: Makka",
+    )
+    d["birth_place_id"] = bpc3.text_input(
+        "bpid", d.get("birth_place_id", ""),
+        key="birth_place_id", label_visibility="collapsed",
+        placeholder="例: 104515 / TMP-L-00001",
+    )
 
 # Death
 with st.container():
@@ -2159,6 +2250,46 @@ with st.container():
         d.get("death_inference_note", ""),
         placeholder='例: Inferred from "his son inherited his post in 905H".',
         help='出力 XML には <note type="inference" xml:lang="en"> として現れる。',
+    )
+    # Death Place(没地)
+    dpc1, dpc2, dpc3 = st.columns([1, 1, 1])
+    dpc1.caption("📍 Death Place (Arabic) — 没地")
+    dpc2.caption("Death Place (Latin)")
+    dpc3.caption("Death Place ID (GeoNames / TMP-L-)")
+    d["death_place_ar"] = dpc1.text_input(
+        "dpar", d.get("death_place_ar", ""),
+        key="death_place_ar", label_visibility="collapsed",
+        placeholder="例: القاهرة",
+    )
+    d["death_place_lat"] = dpc2.text_input(
+        "dplat", d.get("death_place_lat", ""),
+        key="death_place_lat", label_visibility="collapsed",
+        placeholder="例: al-Qāhira",
+    )
+    d["death_place_id"] = dpc3.text_input(
+        "dpid", d.get("death_place_id", ""),
+        key="death_place_id", label_visibility="collapsed",
+        placeholder="例: 360630 / TMP-L-00001",
+    )
+    # Burial Place(埋葬地)
+    bupc1, bupc2, bupc3 = st.columns([1, 1, 1])
+    bupc1.caption("⚰️ Burial Place (Arabic) — 埋葬地")
+    bupc2.caption("Burial Place (Latin)")
+    bupc3.caption("Burial Place ID (GeoNames / TMP-L-)")
+    d["burial_place_ar"] = bupc1.text_input(
+        "bupar", d.get("burial_place_ar", ""),
+        key="burial_place_ar", label_visibility="collapsed",
+        placeholder="例: تربة باب الوزير",
+    )
+    d["burial_place_lat"] = bupc2.text_input(
+        "buplat", d.get("burial_place_lat", ""),
+        key="burial_place_lat", label_visibility="collapsed",
+        placeholder="例: Turbat Bāb al-Wazīr",
+    )
+    d["burial_place_id"] = bupc3.text_input(
+        "bupid", d.get("burial_place_id", ""),
+        key="burial_place_id", label_visibility="collapsed",
+        placeholder="例: TMP-L-00001",
     )
 
 # ===================================================
@@ -2897,45 +3028,125 @@ def build_madhhab_and_sufi(x, d):
         )
 
 
-def _build_date_event(elem_name, year_h, cert, note, inference_note=""):
-    if not year_h:
-        return None
-    year_h_padded = pad_year_attr(year_h)
-    year_g = convert_h_to_g(year_h)  # convert_h_to_g は既に4桁返す
-    cert_attr = f' cert="{cert}"' if cert else ""
-    when_g_attr = f' when="{year_g}"' if year_g else ""
+def _build_placename_lines(place_ar, place_lat, place_id, place_type=None):
+    """<placeName> 行を生成。place_type を指定すると type 属性を付与。
+    地名(ar)・翻字(lat)・ID のいずれかが揃っていれば出力。両方空なら空リスト。
+    """
+    lines = []
+    has_any = bool((place_ar or "").strip() or (place_lat or "").strip() or (place_id or "").strip())
+    if not has_any:
+        return lines
 
-    inner_notes = []
+    type_attr = f' type="{place_type}"' if place_type else ""
+    ref_attr = f' ref="{fr(place_id)}"' if (place_id or "").strip() else ""
+
+    if (place_ar or "").strip():
+        lines.append(
+            f'        <placeName xml:lang="ar"{type_attr}{ref_attr}>'
+            f'{escape_xml(place_ar)}</placeName>'
+        )
+    if (place_lat or "").strip():
+        lines.append(
+            f'        <placeName xml:lang="ar-Latn"{type_attr}{ref_attr}>'
+            f'{escape_xml(place_lat)}</placeName>'
+        )
+    # ar も lat も空で ID だけある場合、空 placeName で ID を保持
+    if not (place_ar or "").strip() and not (place_lat or "").strip() and (place_id or "").strip():
+        lines.append(
+            f'        <placeName{type_attr}{ref_attr}/>'
+        )
+    return lines
+
+
+def _build_date_event(elem_name, year_h, cert, note, inference_note="",
+                     place_ar="", place_lat="", place_id="",
+                     burial_place_ar="", burial_place_lat="", burial_place_id=""):
+    """生没年・場所・埋葬地を一括して <birth>/<death> 要素に出力する。
+    日付がなくても、場所情報があれば要素を出力する。
+    burial_place_* は death の場合のみ意味を持つ。
+    """
+    has_year = bool((year_h or "").strip())
+    has_place = bool((place_ar or "").strip() or (place_lat or "").strip() or (place_id or "").strip())
+    has_burial = bool(
+        (burial_place_ar or "").strip()
+        or (burial_place_lat or "").strip()
+        or (burial_place_id or "").strip()
+    )
+    if not has_year and not has_place and not has_burial:
+        return None
+
+    # 属性: when-custom / when / cert
+    attrs = ""
+    if has_year:
+        year_h_padded = pad_year_attr(year_h)
+        year_g = convert_h_to_g(year_h)
+        attrs += f' when-custom="{escape_xml_attr(year_h_padded)}"'
+        if year_g:
+            attrs += f' when="{year_g}"'
+        if cert:
+            attrs += f' cert="{cert}"'
+
+    # 子要素: placeName(死亡地・出生地) / placeName(埋葬地、type="burial") / note / inference_note
+    inner_lines = []
+
+    # 1. 場所(death の場合は没地、birth の場合は出生地)→ type は付けない(birth/death要素自体で文脈が明確)
+    inner_lines.extend(
+        _build_placename_lines(place_ar, place_lat, place_id, place_type=None)
+    )
+    # 2. 埋葬地(death のみ)
+    if has_burial:
+        inner_lines.extend(
+            _build_placename_lines(
+                burial_place_ar, burial_place_lat, burial_place_id,
+                place_type="burial",
+            )
+        )
+    # 3. note
     if note:
-        inner_notes.append(
+        inner_lines.append(
             f'        <note xml:lang="{detect_lang(note)}">{escape_xml(note)}</note>'
         )
+    # 4. inference_note
     if inference_note:
-        inner_notes.append(
+        inner_lines.append(
             f'        <note type="inference" xml:lang="{detect_lang(inference_note)}">'
             f'{escape_xml(inference_note)}</note>'
         )
 
-    if inner_notes:
+    if inner_lines:
         return (
-            f'    <{elem_name} when-custom="{escape_xml_attr(year_h_padded)}"{when_g_attr}{cert_attr}>\n'
-            + "\n".join(inner_notes) + "\n"
+            f'    <{elem_name}{attrs}>\n'
+            + "\n".join(inner_lines) + "\n"
             f'    </{elem_name}>'
         )
-    return f'    <{elem_name} when-custom="{escape_xml_attr(year_h_padded)}"{when_g_attr}{cert_attr}/>'
+    # 子要素がなく、属性だけある場合は自己閉じタグ
+    return f'    <{elem_name}{attrs}/>'
 
 
 def build_birth_death(x, d):
     b = _build_date_event(
-        "birth", d.get("birth_h",""), d.get("birth_cert",""),
-        d.get("birth_note",""), d.get("birth_inference_note",""),
+        "birth",
+        d.get("birth_h", ""), d.get("birth_cert", ""),
+        d.get("birth_note", ""), d.get("birth_inference_note", ""),
+        place_ar=d.get("birth_place_ar", ""),
+        place_lat=d.get("birth_place_lat", ""),
+        place_id=d.get("birth_place_id", ""),
     )
-    if b: x.append(b)
+    if b:
+        x.append(b)
     de = _build_date_event(
-        "death", d.get("death_h",""), d.get("death_cert",""),
-        d.get("death_note",""), d.get("death_inference_note",""),
+        "death",
+        d.get("death_h", ""), d.get("death_cert", ""),
+        d.get("death_note", ""), d.get("death_inference_note", ""),
+        place_ar=d.get("death_place_ar", ""),
+        place_lat=d.get("death_place_lat", ""),
+        place_id=d.get("death_place_id", ""),
+        burial_place_ar=d.get("burial_place_ar", ""),
+        burial_place_lat=d.get("burial_place_lat", ""),
+        burial_place_id=d.get("burial_place_id", ""),
     )
-    if de: x.append(de)
+    if de:
+        x.append(de)
 
 
 def _method_field_label_lang(entry):
