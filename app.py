@@ -8,7 +8,7 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.5-debug2"
+APP_VERSION = "v20.6"
 APP_VERSION_DATE = "2026-05-13"
 
 # --- 1. ページ設定 ---
@@ -1350,6 +1350,20 @@ def apply_prompt_result(data, prompt_result):
     apply_id_master_matching(data, silent=True)
     auto_assign_tmp_ids_in_data(data, silent=True)
 
+    # === Streamlit session_state の古い値を強制クリア ===
+    # text_input に key を指定している場合、Streamlit は session_state を
+    # 「正」として表示するため、data を更新しただけでは UI に反映されない。
+    # 解析実行のたびに UI 用の session_state キーを削除して、
+    # 新しい data の値が UI に表示されるようにする。
+    ui_keys_to_reset = [
+        "birth_place_ar_input", "birth_place_lat_input", "birth_place_id_input",
+        "death_place_ar_input", "death_place_lat_input", "death_place_id_input",
+        "burial_place_ar_input", "burial_place_lat_input", "burial_place_id_input",
+    ]
+    for k in ui_keys_to_reset:
+        if k in st.session_state:
+            del st.session_state[k]
+
     # === 🔍 デバッグ用: 最終 data の状態を session_state に保存 ===
     final_summary = {}
     for fld in ("birth_place_ar", "birth_place_lat", "birth_place_id",
@@ -2349,6 +2363,15 @@ if st.session_state.get("_show_clear_confirm"):
         st.session_state.data_v19 = json.loads(json.dumps(DEFAULT_DATA_V19))
         if saved_assignee:
             st.session_state["assignee"] = saved_assignee
+        # UI 用の session_state キーも削除(残留した古い値が UI に居続けるのを防ぐ)
+        _ui_keys_to_reset = [
+            "birth_place_ar_input", "birth_place_lat_input", "birth_place_id_input",
+            "death_place_ar_input", "death_place_lat_input", "death_place_id_input",
+            "burial_place_ar_input", "burial_place_lat_input", "burial_place_id_input",
+        ]
+        for _k in _ui_keys_to_reset:
+            if _k in st.session_state:
+                del st.session_state[_k]
         st.session_state["_show_clear_confirm"] = False
         st.rerun()
     if cc2.button("キャンセル"):
