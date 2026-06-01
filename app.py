@@ -539,9 +539,9 @@ RESP_PERSON_OPTIONS = [
     "Wakako Kumakura",
     "Tomoaki Shinoda",
     "Toru Miura",
-    "Assistant 1",
-    "Assistant 2",
-    "Assistant 3",
+    "Rui Nakagawa",
+    "Naoki Umetsu",
+    "Saeri Kato",
     "Assistant 4",
 ]
 
