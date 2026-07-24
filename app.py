@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import google.generativeai as genai
+from google import genai
+from google.genai import errors as genai_errors
 import json
 import re
 import uuid
@@ -8,8 +9,8 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.10"
-APP_VERSION_DATE = "2026-05-13"
+APP_VERSION = "v20.11"
+APP_VERSION_DATE = "2026-07-24"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -34,31 +35,95 @@ def _safe_get_secret(key, default=None):
 
 
 api_key = _safe_get_secret("GEMINI_API_KEY")
-if api_key:
-    genai.configure(api_key=api_key)
 
-def get_working_model():
-    PREFERRED_MODELS = [
-        'gemini-2.5-flash',
-        'gemini-2.0-flash-lite',
-        'gemini-1.5-flash',
-    ]
+# 新SDK(google-genai)は Client オブジェクト経由で呼ぶ。
+# client.models.generate_content(model=..., contents=...) の形式。
+_GENAI_CLIENT = None
+
+
+def get_genai_client():
+    """google-genai の Client をキャッシュして返す。API キーが無ければ None。"""
+    global _GENAI_CLIENT
+    if _GENAI_CLIENT is not None:
+        return _GENAI_CLIENT
+    if not api_key:
+        return None
     try:
-        available = [
-            m.name for m in genai.list_models()
-            if 'generateContent' in m.supported_generation_methods
-            and 'tts' not in m.name
-            and 'vision' not in m.name
-        ]
+        _GENAI_CLIENT = genai.Client(api_key=api_key)
+    except Exception:
+        _GENAI_CLIENT = None
+    return _GENAI_CLIENT
+
+
+# 優先モデル(新しい順)。旧 gemini-2.5-flash / 2.0系 / 1.5系は 2026 年に
+# シャットダウン済み。参考: https://ai.google.dev/gemini-api/docs/deprecations
+PREFERRED_MODELS = [
+    'gemini-3.5-flash',        # GA (2026-05-19) / flash-latest 相当
+    'gemini-3.1-flash-lite',   # GA (2026-05-07) / 低コスト
+    'gemini-flash-latest',     # 最新 flash へのエイリアス(保険)
+]
+
+
+def get_working_model_name():
+    """使用する Gemini モデル名(文字列)を返す。新SDKはモデル名を
+    generate_content に渡す方式なので、GenerativeModel オブジェクトではなく
+    名前を返す。client.models.list() で実在確認し、優先順に選ぶ。"""
+    client = get_genai_client()
+    if client is None:
+        return PREFERRED_MODELS[0]
+    try:
+        available = []
+        for m in client.models.list():
+            name = getattr(m, "name", "") or ""
+            # "models/gemini-3.5-flash" のような形式 → 末尾名で扱う
+            short = name.split("/")[-1]
+            actions = getattr(m, "supported_actions", None) or \
+                getattr(m, "supported_generation_methods", None) or []
+            if actions and "generateContent" not in actions:
+                continue
+            if any(x in short for x in ("tts", "image", "vision", "embedding")):
+                continue
+            available.append(short)
         for preferred in PREFERRED_MODELS:
             for m in available:
                 if preferred in m:
-                    return genai.GenerativeModel(m)
+                    return m
+        for m in available:
+            if "gemini" in m:
+                return m
         if available:
-            return genai.GenerativeModel(available[0])
+            return available[0]
     except Exception:
         pass
-    return genai.GenerativeModel('gemini-1.5-flash')
+    return PREFERRED_MODELS[0]
+
+
+def genai_generate_text(prompt, model_name=None):
+    """新SDK(google-genai)でテキスト生成し、(text, model_name, error) を返す。
+    error は None なら成功。呼び出し側で診断表示・パースを行う。"""
+    client = get_genai_client()
+    if client is None:
+        return None, None, "API キーが未設定です(GEMINI_API_KEY)。"
+    name = model_name or get_working_model_name()
+    try:
+        resp = client.models.generate_content(model=name, contents=prompt)
+    except genai_errors.APIError as e:
+        return None, name, f"API エラー: {type(e).__name__}: {e}"
+    except Exception as e:
+        return None, name, f"{type(e).__name__}: {e}"
+    text = getattr(resp, "text", None)
+    if not text:
+        fr = ""
+        try:
+            fr = str(resp.candidates[0].finish_reason)
+        except Exception:
+            pass
+        return None, name, (
+            "モデルが空の応答を返しました"
+            + (f"(finish_reason={fr})" if fr else "")
+            + "。レート制限・安全フィルタ・モデル名の可能性があります。"
+        )
+    return text, name, None
 
 # --- 3. ユーティリティ関数 ---
 def convert_h_to_g(h_date):
@@ -324,6 +389,43 @@ def id_master_to_prompt_text(records):
         lines.append(f"  - {label} → {id_val}")
     return "\n".join(lines)
 
+
+# 解析プロンプトは外部ファイル prompt_analyze.txt に分離(app.py 本体の肥大回避)。
+# プレースホルダー {{ID_MASTER}} / {{SOURCE_TEXT}} を実データに置換して使う。
+# f-string ではなく明示 replace を使う(プロンプト中の JSON 波括弧を壊さないため)。
+import os as _os
+
+try:
+    _APP_DIR = _os.path.dirname(_os.path.abspath(__file__))
+except NameError:
+    # 一部の実行形態では __file__ が未定義。カレントディレクトリを使う。
+    _APP_DIR = _os.getcwd()
+
+_PROMPT_ANALYZE_PATH = _os.path.join(_APP_DIR, "prompt_analyze.txt")
+
+
+@st.cache_data(ttl=300)
+def _load_analyze_prompt_template():
+    """解析プロンプトのテンプレート本文を読み込む(キャッシュ)。
+    ファイルが無い場合は None を返し、呼び出し側でエラー表示する。"""
+    try:
+        with open(_PROMPT_ANALYZE_PATH, encoding="utf-8") as f:
+            return f.read()
+    except Exception:
+        return None
+
+
+def build_analyze_prompt(id_master_text, source_input):
+    """外部テンプレートにID-Masterと史料テキストを差し込んで解析プロンプトを生成。
+    テンプレート未読込時は None を返す。"""
+    tmpl = _load_analyze_prompt_template()
+    if tmpl is None:
+        return None
+    return (tmpl
+            .replace("{{ID_MASTER}}", id_master_text or "")
+            .replace("{{SOURCE_TEXT}}", source_input or ""))
+
+
 @st.cache_data(ttl=300)
 def build_method_field_dicts():
     """ID-Master から Method/Field 辞書を動的構築"""
@@ -542,7 +644,7 @@ RESP_PERSON_OPTIONS = [
     "Rui Nakagawa",
     "Naoki Umetsu",
     "Saeri Kato",
-    "Sumire Miki",
+    "Assistant 4",
 ]
 
 # Social Relations types
@@ -886,19 +988,6 @@ def get_id_stats_per_category(records):
     return result
 
 
-def get_next_tmp_number(used_numbers, session_used):
-    """次の番号を返す(欠番優先 → 最大+1)"""
-    all_used = used_numbers | session_used
-    if not all_used:
-        return 1
-    max_used = max(all_used)
-    full_range = set(range(1, max_used + 1))
-    gaps = full_range - all_used
-    if gaps:
-        return min(gaps)
-    return max_used + 1
-
-
 _PLACEHOLDER_RE = re.compile(r"^TMP-[A-Z]-0+$")
 
 
@@ -993,19 +1082,29 @@ def _build_id_master_index(records):
     """
     index = {}
     for r in records:
-        ar = normalize_arabic(r.get("Arabic", ""))
         id_val = (r.get("ID", "") or "").strip()
         cat = (r.get("Category", "") or "").strip()
-        if not ar or not id_val:
+        if not id_val:
             continue
-        index.setdefault((cat, ar), id_val)
-        index.setdefault(("", ar), id_val)  # Category 不問のフォールバック
+        # 「الأزهر | جامع الأزهر」「التقي بن فهد| ابن فهد」のような
+        # | 区切りの別名も個別キーとして登録する(v20.11)。
+        # これをしないと別名側の表記で照合失敗→取りこぼし/誤検疫が起きる。
+        for _alt in str(r.get("Arabic", "") or "").split("|"):
+            ar = normalize_arabic(_alt)
+            if not ar:
+                continue
+            index.setdefault((cat, ar), id_val)
+            index.setdefault(("", ar), id_val)  # Category 不問のフォールバック
     return index
 
 
 def _is_confirmed_id(id_str):
     """既に確定した ID(Wikidata Q-ID, GeoNames 数字, 確定 TMP-, id_)かを判定。
     プレースホルダー(TMP-X-0...0)や空欄は False。
+
+    注意: この関数は「形式として確定 ID か」だけを見る。TMP- 番号が
+    ID-Master に実在するか・名前が一致するかは検証しない。生成モデルが
+    埋めた偽 TMP 番号の検疫は verify_and_quarantine_tmp_ids() で別途行う。
     """
     s = (id_str or "").strip()
     if not s:
@@ -1013,6 +1112,468 @@ def _is_confirmed_id(id_str):
     if is_placeholder_id(s):
         return False
     return True
+
+
+# === 幻番号(phantom TMP)検疫 — Task: 幻番号の検出・遮断 ===
+#
+# 背景: 生成モデル(Gemini 等)は、未知の人物・地名などに対して
+# ID-Master に実在する既存 TMP 番号(例 TMP-P-000066)を勝手に流用して
+# 返すことがある。これらは全桁ゼロのプレースホルダーではないため
+# is_placeholder_id() では捕捉できず、_is_confirmed_id() が True を返して
+# しまい、名前照合も再採番もスキップされてそのまま確定 ID として残る。
+# これが校閲工数の最頻出エラー(HANDOVER: phantom number contamination)。
+#
+# 対策: 採番パイプラインの最初に本関数を通し、生成モデルが埋めた TMP 番号を
+#   (a) ID-Master に実在し
+#   (b) 同じ行の名前が正規化一致する
+# ときだけ確定として残す。それ以外(未登録番号・別人流用)は
+# プレースホルダー "TMP-X-000000" に差し戻し、正規の照合→追記採番ルートに
+# 載せる。差し戻した内容は呼び出し側に返し、UI で可視化する。
+
+# TMP プレフィックス → ID-Master の Category 名
+_PREFIX_TO_CATEGORY = {
+    "TMP-P-": "Person",
+    "TMP-N-": "Nisbah",
+    "TMP-L-": "Place",
+    "TMP-I-": "Institution",
+    "TMP-O-": "Office",
+    "TMP-T-": "Text",
+    "TMP-S-": "Subject",
+}
+
+
+def _build_id_to_master_row(records):
+    """ID-Master を {id_value: {"ar_norm": 正規化アラビア名, "raw": 元行}} に変換。
+    同一 ID が複数行にある場合は最初の行を採用。"""
+    idmap = {}
+    for r in records:
+        id_val = (r.get("ID", "") or "").strip()
+        if not id_val:
+            continue
+        if id_val not in idmap:
+            _ar_raw = str(r.get("Arabic", "") or "")
+            _alts = [normalize_arabic(a) for a in _ar_raw.split("|")]
+            _alts = [a for a in _alts if a]
+            idmap[id_val] = {
+                "ar_norm": normalize_arabic(_ar_raw),
+                "ar_norms": _alts,  # | 区切り別名(v20.11)
+                "latin": (r.get("Latin", "") or "").strip(),
+                "category": (r.get("Category", "") or "").strip(),
+            }
+    return idmap
+
+
+def verify_and_quarantine_tmp_ids(d, records=None, silent=False):
+    """生成モデルが埋めた TMP 番号を ID-Master 実在＋名前一致で検証し、
+    不正なものをプレースホルダーに差し戻す。
+
+    Returns: 差し戻した項目のリスト
+        [{"section","field","name","bad_id","reason","master_name"}...]
+    reason は "unregistered"(番号未登録) / "name_mismatch"(別人流用)。
+    """
+    if records is None:
+        records = load_id_master()
+    if not records:
+        return []
+
+    idmap = _build_id_to_master_row(records)
+    quarantined = []
+
+    def check_one(container, name_field, id_field, prefix):
+        current = str(container.get(id_field, "") or "").strip()
+        if not current.startswith(prefix):
+            return
+        if is_placeholder_id(current):
+            return  # 既にプレースホルダー → 正規ルートで処理
+        name_raw = str(container.get(name_field, "") or "").strip()
+        name_norm = normalize_arabic(name_raw)
+        digits = TMP_ID_PREFIXES[prefix][1]
+        placeholder = f"{prefix}{0:0{digits}d}"
+
+        row = idmap.get(current)
+        if row is None:
+            # ID-Master に存在しない番号 → 生成モデルの捏造
+            container[id_field] = placeholder
+            quarantined.append({
+                "section": "", "field": id_field, "name": name_raw,
+                "bad_id": current, "reason": "unregistered", "master_name": "",
+            })
+            return
+        # 番号は実在する。名前が一致するか(正規化完全一致。| 区切り別名も許容)。
+        _alts = row.get("ar_norms") or ([row["ar_norm"]] if row.get("ar_norm") else [])
+        if name_norm and _alts and name_norm not in _alts:
+            container[id_field] = placeholder
+            quarantined.append({
+                "section": "", "field": id_field, "name": name_raw,
+                "bad_id": current, "reason": "name_mismatch",
+                "master_name": row["ar_norm"],
+            })
+        # 名前一致、あるいは名前空欄(照合不能)なら現状維持。
+        # 名前空欄の TMP は後続の auto_assign 側でクリアされる。
+
+    for section, field, prefix, pair_name_field in TMP_FIELDS_BY_PREFIX:
+        for item in d.get(section, []) or []:
+            before = str(item.get(field, "") or "").strip()
+            check_one(item, pair_name_field, field, prefix)
+            if item.get(field, "") != before and quarantined:
+                quarantined[-1]["section"] = section
+
+    # トップレベル birth/death/burial place_id
+    for field in ("birth_place_id", "death_place_id", "burial_place_id"):
+        pair_field = field.replace("_id", "_ar")
+        before = str(d.get(field, "") or "").strip()
+        check_one(d, pair_field, field, "TMP-L-")
+        if str(d.get(field, "") or "").strip() != before and quarantined:
+            quarantined[-1]["section"] = field
+
+    if not silent and quarantined:
+        st.warning(
+            f"⚠️ 生成モデルが返した {len(quarantined)} 件の TMP 番号を検疫しました"
+            "(ID-Master 実在・名前一致の検証で不合格)。下記を確認してください。"
+        )
+        for q in quarantined:
+            reason_ja = {
+                "unregistered": "未登録番号",
+                "name_mismatch": f"別人流用(Master名: {q['master_name']})",
+            }.get(q["reason"], q["reason"])
+            st.caption(
+                f"　• [{q['section']}.{q['field']}] "
+                f"「{q['name'] or '(名前空欄)'}」← {q['bad_id']} を差し戻し（{reason_ja}）"
+            )
+
+    try:
+        st.session_state.setdefault("_last_reports", {})["tmp_quarantine"] = quarantined
+    except Exception:
+        pass
+
+    return quarantined
+
+
+# === wd/gn 毒ID検疫・汎称語フィルタ・立項番号ガード (v20.11 追加) ===
+#
+# 背景(校閲バッチ B14–B19 で確定した生成モデルの系統的エラー):
+#  (1) Wikidata Q-ID の実item別物流用。例: Q208507=The Chemical Brothers を
+#      صحيح البخاري に、Q561280=César-François Cassini(18世紀仏天文学者)を
+#      الأشرف قايتباي に付与。TMP検疫(verify_and_quarantine_tmp_ids)は
+#      wd:/gn: を素通しするため、ここで別途検疫する。
+#  (2) 汎称語の幻person化。「سمع على جماعة منهم فلان」の جماعة(一団)を
+#      person 化して ID-Master の TMP-P-000004(جماعة) 等に照合させてしまう。
+#      ※「ابن جماعة」は実在の家名なので保護する。
+#  (3) 立項番号の誤読。corpus 行頭の裸数字(刊本の立項連番)を没年に転記
+#      (例 B19 D01856「831年没」)・訳文冒頭に混入(833/837)。
+
+# 過去バッチで「実item別物/照合不可」と確定した Q-ID(見たら即検疫)
+WD_GN_DENYLIST = {
+    "Q208507",   # The Chemical Brothers — صحيح البخاري ではない
+    "Q193272",   # ECOWAS(西アフリカ諸国経済共同体) — صحيح مسلم ではない
+    "Q1248893",  # Rhipsalis paradoxa subsp.(サボテン) — جامع الترمذي ではない
+    "Q593290",   # 照合不可 — سنن أبي داود ではない
+    "Q1140365",  # The Calamari Wrestler(映画) — سنن النسائي ではない
+    "Q940817",   # 1988年五輪トーゴ選手団 — سنن ابن ماجه ではない
+    "Q900871",   # 大川藍(タレント) — الموطأ ではない
+    "Q561280",   # César-François Cassini de Thury — قايتباي ではない(B19)
+    "Q259",      # Azerbaijan 非該当(現国家=Q227/歴史地域=Q12836408)(B19)
+    "Q285077",   # Serri(伊の町) — برقوق ではない(B18)
+    "Q470381",   # Heliangelus(ハチドリ) — المؤيد شيخ ではない(B18)
+    "Q287515",   # Neumühle(独) — جقمق ではない(B18)
+    "Q802521",   # B18破棄
+    "Q23975569", # Barsbay madrasa 誤指し
+    "Q6835017",  # ḥājib 照合不可
+}
+
+# 検疫時に校閲者へ提示する「正」候補(自動置換はしない。確認の上で採用)
+WD_GN_SUGGESTIONS = {
+    "Q208507":  "Q1023470 (Ṣaḥīḥ al-Bukhārī)",
+    "Q193272":  "Q886659 (Ṣaḥīḥ Muslim)",
+    "Q1248893": "Q2998769 (Jāmiʿ al-Tirmidhī)",
+    "Q593290":  "Q947278 (Sunan Abī Dāwūd)",
+    "Q1140365": "Q2175237 (Sunan al-Nasāʾī / al-Sunan al-Ṣughrā)",
+    "Q940817":  "Q1187931 (Sunan Ibn Mājah)",
+    "Q900871":  "Q1050556 (al-Muwaṭṭaʾ)",
+    "Q561280":  "Q557847 (Qāytbāy)",
+    "Q259":     "Q12836408 (Azerbaijan region)",
+    "Q285077":  "AIND-D02178 (al-Ẓāhir Barqūq)",
+    "Q470381":  "AIND-D03345 (al-Muʾayyad Shaykh)",
+    "Q287515":  "AIND-D02423 (al-Ẓāhir Jaqmaq)",
+}
+
+# プロジェクトで実item照合済みの Q-ID(handover v13.0 確定リスト+今回照合分)
+WD_ALLOWLIST = {
+    "Q4120128", "Q471116", "Q1023470", "Q886659", "Q2998769", "Q947278",
+    "Q2175237", "Q1187931", "Q1050556", "Q12217063",
+    "Q557847", "Q248996", "Q698037", "Q730299",
+    "Q293604", "Q4664581", "Q4725309", "Q257745", "Q6798541", "Q12198099",
+    "Q486080", "Q428858", "Q8462", "Q12836408",
+    "Q82245", "Q160851", "Q191314", "Q48221",
+    "Q217029", "Q484181", "Q12227702", "Q1817983", "Q1866303", "Q368154",
+}
+
+# 照合済み GeoNames(handover 確定+B19照合分)
+GN_ALLOWLIST = {
+    "360630",   # القاهرة Cairo
+    "109223",   # المدينة Medina
+    "104515",   # مكة Mecca
+    "170063",   # حلب Aleppo
+    "170654",   # دمشق Damascus
+    "358048",   # دمياط Damietta
+    "266826",   # طرابلس Tripoli (Lebanon)
+    "2464915",  # سوسة Sousse
+}
+
+# (名前に含まれる語, gn) の既知誤指しペア(gn自体は実在地名なので全面denyしない)
+GN_PAIR_DENY = [
+    ("سواكن", "105299"),   # Suakin に Jizan の gn を誤付与するパターン
+    ("سوسه",  "2464917"),  # Sousse に別idを誤付与するパターン(正: 2464915)
+]
+
+_WD_ID_FORM_RE = re.compile(r"^(?:wd:)?(Q\d+)$")
+_GN_ID_FORM_RE = re.compile(r"^(?:gn:)?(\d+)$")
+
+
+def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
+    """Wikidata Q-ID / GeoNames ID を検疫する。
+
+    - WD_GN_DENYLIST の Q-ID → NEEDID に差し戻し(過去バッチで実item別物と確定)
+    - ID-Master 登録済みの Q/gn → 登録名(| 区切り別名含む)と不一致なら NEEDID
+    - WD_ALLOWLIST / GN_ALLOWLIST / ID-Master 名前一致 → そのまま(確定扱い)
+    - それ以外の未知 wd/gn → 値は保持し「要 WebSearch 実item照合」として報告のみ
+      (生成モデルが正しい Q-ID を知っている場合を壊さないため破棄しない)
+
+    Returns: (quarantined, review)
+    """
+    if records is None:
+        records = load_id_master()
+    idmap = _build_id_to_master_row(records) if records else {}
+    quarantined = []
+    review = []
+
+    fields = list(ID_MATCH_FIELDS) + [
+        ("(top)", "birth_place_ar",  "birth_place_id",  "Place"),
+        ("(top)", "death_place_ar",  "death_place_id",  "Place"),
+        ("(top)", "burial_place_ar", "burial_place_id", "Place"),
+    ]
+
+    def check(container, section, name_field, id_field):
+        raw = str(container.get(id_field, "") or "").strip()
+        if not raw or raw == NEEDID_MARKER or raw.startswith(("TMP-", "AIND-", "#")):
+            return
+        mq = _WD_ID_FORM_RE.match(raw)
+        mg = _GN_ID_FORM_RE.match(raw) if not mq else None
+        if not mq and not mg:
+            return
+        key = mq.group(1) if mq else mg.group(1)
+        name_raw = str(container.get(name_field, "") or "").strip()
+        name_norm = normalize_arabic(name_raw)
+
+        # (1) 確定毒 Q-ID
+        if mq and key in WD_GN_DENYLIST:
+            container[id_field] = NEEDID_MARKER
+            quarantined.append({
+                "section": section, "field": id_field, "name": name_raw,
+                "bad_id": raw, "reason": "wd実item別物/照合不可(確定毒)",
+                "suggest": WD_GN_SUGGESTIONS.get(key, ""),
+            })
+            return
+        # (2) geonames 既知誤指しペア
+        if mg:
+            for word, bad_gn in GN_PAIR_DENY:
+                if key == bad_gn and word in name_norm:
+                    container[id_field] = NEEDID_MARKER
+                    quarantined.append({
+                        "section": section, "field": id_field, "name": name_raw,
+                        "bad_id": raw, "reason": "geonames 既知の誤指しペア",
+                        "suggest": "",
+                    })
+                    return
+        # (3) ID-Master 登録済み → 登録名との一致検証(| 別名許容)
+        row = idmap.get(key)
+        if row is not None:
+            alts = row.get("ar_norms") or []
+            if name_norm and alts and name_norm not in alts:
+                container[id_field] = NEEDID_MARKER
+                quarantined.append({
+                    "section": section, "field": id_field, "name": name_raw,
+                    "bad_id": raw,
+                    "reason": f"ID-Master 登録名と不一致(登録: {row.get('ar_norm', '')})",
+                    "suggest": "",
+                })
+            return
+        # (4) プロジェクト照合済み → 素通し
+        if (mq and key in WD_ALLOWLIST) or (mg and key in GN_ALLOWLIST):
+            return
+        # (5) 未知 → 保持して要照合レポート
+        review.append({
+            "section": section, "field": id_field, "name": name_raw, "id": raw,
+        })
+
+    for section, name_field, id_field, _cat in fields:
+        if section == "(top)":
+            check(d, section, name_field, id_field)
+        else:
+            for item in d.get(section, []) or []:
+                if isinstance(item, dict):
+                    check(item, section, name_field, id_field)
+
+    try:
+        _r = st.session_state.setdefault("_last_reports", {})
+        _r["wd_quarantine"] = quarantined
+        _r["wd_review"] = review
+    except Exception:
+        pass
+
+    if not silent:
+        if quarantined:
+            st.warning(
+                f"⚠️ Wikidata/GeoNames の毒ID・別item流用 {len(quarantined)} 件を"
+                "検疫しました(NEEDID に差し戻し)。"
+            )
+            for q in quarantined:
+                sug = f" → 候補: {q['suggest']}" if q.get("suggest") else ""
+                st.caption(
+                    f"　• [{q['section']}.{q['field']}] 「{q['name'] or '(名前空欄)'}」"
+                    f"← {q['bad_id']} を差し戻し({q['reason']}){sug}"
+                )
+        if review:
+            st.info(
+                f"ℹ️ 未照合の Wikidata/GeoNames ID が {len(review)} 件あります。"
+                "校閲時に WebSearch で実item名を照合してください(値は保持)。"
+            )
+            for r in review:
+                st.caption(f"　• [{r['section']}.{r['field']}] 「{r['name']}」= {r['id']}(要照合)")
+
+    return quarantined, review
+
+
+# 汎称語(集合名詞)。正規化後の完全一致で判定。
+# 注意: ة→ه 正規化後の綴りで書くこと(جماعة→جماعه)。
+_GENERIC_COLLECTIVE_RE = re.compile(
+    r"^(?:"
+    r"جماعه(?: من .{0,60})?"
+    r"|(?:و)?غيره(?:م|ما|ن)?"
+    r"|(?:و)?اخرون"
+    r"|غير واحد(?:ه)?"
+    r"|جمع(?: من .{0,60})?"
+    r"|خلق(?: كثير)?"
+    r"|الناس"
+    r")$"
+)
+
+
+def drop_generic_collective_entries(d, silent=False):
+    """جماعة/آخرون/غيره 等の集合汎称が person 化されたエントリを除去する。
+
+    プロンプト§18は skip を指示しているが生成モデルは守らないことがある
+    (B19 D02075: جماعة を teacher 化し TMP-P-000004 を付与)。
+    保護: 「ابن جماعة」「... بن جماعة」等の実在家名は名前に بن/ابن を
+    含むため除去対象にしない。
+    """
+    targets = [
+        ("teachers", "name"),
+        ("students", "name"),
+        ("family", "name"),
+        ("social_relations", "person_name"),
+    ]
+    dropped = []
+    for section, name_field in targets:
+        items = d.get(section, []) or []
+        kept = []
+        for it in items:
+            if not isinstance(it, dict):
+                kept.append(it)
+                continue
+            nm = normalize_arabic(str(it.get(name_field, "") or ""))
+            protected = (
+                (" بن " in f" {nm} ") or nm.startswith("ابن ") or nm.startswith("بن ")
+            )
+            if nm and not protected and _GENERIC_COLLECTIVE_RE.match(nm):
+                dropped.append({"section": section, "name": it.get(name_field, "")})
+                continue
+            kept.append(it)
+        d[section] = kept
+
+    try:
+        st.session_state.setdefault("_last_reports", {})["generics"] = dropped
+    except Exception:
+        pass
+
+    if not silent and dropped:
+        st.warning(
+            f"⚠️ 集合汎称(جماعة/غيره 等)が person 化された {len(dropped)} 件を"
+            "除去しました(プロンプト§18違反の是正)。"
+        )
+        for q in dropped:
+            st.caption(f"　• [{q['section']}] 「{q['name']}」を除去")
+
+    return dropped
+
+
+# corpus マーカー「$# $ 831 ...」/「$# $$ 162 ...」の直後の裸数字=刊本の立項連番
+_ENTRY_SERIAL_RE = re.compile(r"\$#\s*\${1,3}\s+(\d{1,4})(?=\s)")
+
+
+def scrub_entry_serial_artifacts(d, silent=False):
+    """刊本の立項連番(行頭裸数字)の誤読アーティファクトを検出・除去する。
+
+    - 訳文(ja/en)冒頭の裸連番 → 除去(訳が裸番号で始まる正当な場合はない)
+    - death_h / birth_h が連番と一致 → 自動削除はせず cert=low 化+note警告
+      (偶然、実際の没年と一致する可能性があるため。最終判断は校閲者)
+    - 訳文冒頭が「<連番>年」「In <連番>」で始まる場合 → 警告のみ
+    """
+    src = str(d.get("source_text", "") or "")
+    m = _ENTRY_SERIAL_RE.search(src)
+    if not m:
+        return []
+    serial = m.group(1)
+    issues = []
+
+    # 訳頭の裸連番(直後が区切り文字のときだけ剥がす。「831年」は剥がさない)
+    _sep = r"[\s　、。,.:：]"
+    strip_re = re.compile(r"^\s*0*" + re.escape(serial) + r"(?![0-9])(?=" + _sep + r")" + _sep + r"+")
+    for fld in ("translation_jp", "translation_en"):
+        t = str(d.get(fld, "") or "")
+        m2 = strip_re.match(t)
+        if m2 and m2.end() < len(t):
+            d[fld] = t[m2.end():]
+            issues.append({"field": fld, "msg": f"訳冒頭の立項番号 {serial} を除去しました"})
+            continue
+        # 「831年…」「In 837, …」型は警告のみ(実年の可能性があるため)
+        if re.match(r"^\s*0*" + re.escape(serial) + r"年", t) or \
+           re.match(r"^\s*In\s+0*" + re.escape(serial) + r"\b", t):
+            issues.append({
+                "field": fld,
+                "msg": f"訳冒頭に立項番号と同値の年({serial})— 原文に年の記載があるか要確認",
+            })
+
+    # 生没年が連番と一致 → 要確認フラグ
+    for fld in ("death_h", "birth_h"):
+        y = str(d.get(fld, "") or "").strip()
+        if y and y.split("-")[0].lstrip("0") == serial.lstrip("0"):
+            note_f = fld.replace("_h", "_note")
+            marker = f"CHECK: {fld}={y} equals the edition's entry serial number {serial}"
+            cur_note = str(d.get(note_f, "") or "")
+            if marker not in cur_note:
+                d[note_f] = (cur_note.strip() + (" " if cur_note.strip() else "") +
+                             "⚠ " + marker +
+                             " — verify the year is actually stated in the source text.").strip()
+            cert_f = fld.replace("_h", "_cert")
+            if (d.get(cert_f, "") or "") in ("", "high", "medium"):
+                d[cert_f] = "low"
+            issues.append({
+                "field": fld,
+                "msg": f"{fld}={y} が立項番号 {serial} と一致(cert=low 化・note に要確認を追記)",
+            })
+
+    try:
+        st.session_state.setdefault("_last_reports", {})["serial"] = issues
+    except Exception:
+        pass
+
+    if not silent and issues:
+        st.warning(f"⚠️ 立項番号アーティファクトを {len(issues)} 件処理しました。")
+        for q in issues:
+            st.caption(f"　• [{q['field']}] {q['msg']}")
+
+    return issues
 
 
 def apply_id_master_matching(d, silent=False):
@@ -1056,80 +1617,90 @@ def apply_id_master_matching(d, silent=False):
     return filled
 
 
-def auto_assign_tmp_ids_in_data(d, silent=False):
-    """data 内のプレースホルダー TMP-ID(TMP-X-0...0)を空き番号に置換。
-    欠番優先 → 最大番号+1 の順で採番する。
-    既に確定した ID(TMP-L-00042 や Q12345 など)と空欄は触らない。
+NEEDID_MARKER = "NEEDID"
 
-    silent=True の場合は st.success/info を出さず、st.rerun も呼ばない
-    (Gemini 解析直後など、呼び出し側の処理が続く場合に使用)。
+
+def mark_unresolved_ids_in_data(d, silent=False):
+    """照合で埋まらなかった ID 欄を扱う。番号は生成しない。
+
+    方針(2026-07-03 Waka 指示):
+    - アプリ側は新規 TMP 番号を一切採番しない。発番は校閲工程(Claude)に一元化。
+    - 「同じ行の名前欄に値があるのに ID が未確定」の欄にだけ NEEDID マーカーを入れ、
+      校閲時に AIND 同定 or 新規 TMP 付与すべき箇所を一目で分かるようにする。
+    - 名前欄が空の欄(原文に当該情報がない = 該当なし)は空欄のまま。マーカーも入れない。
+      生成モデルがそこにプレースホルダーや偽番号を入れていた場合はクリアする。
+
+    「未確定」= 空欄 / プレースホルダー(TMP-X-0...0) / 検疫で差し戻された欄。
+    既に確定した ID(AIND-, Q-ID, GeoNames 数字, ID-Master 実在 TMP 等)は触らない。
+    NEEDID が既に入っている欄も維持する。
     """
-    records = load_id_master()
-
-    session_used = {p: set() for p in TMP_ID_PREFIXES}
-    used_per_prefix = {
-        p: get_used_numbers(records, p) for p in TMP_ID_PREFIXES
-    }
-
-    def assign_id(prefix):
-        digits = TMP_ID_PREFIXES[prefix][1]
-        next_num = get_next_tmp_number(
-            used_per_prefix[prefix], session_used[prefix]
-        )
-        session_used[prefix].add(next_num)
-        return f"{prefix}{next_num:0{digits}d}"
-
-    count = 0
+    marked = 0
     cleared = 0
-    for section, field, prefix, pair_name_field in TMP_FIELDS_BY_PREFIX:
-        for item in d.get(section, []):
-            current = str(item.get(field, "") or "").strip()
-            # ペア名前フィールドの値を確認(空欄かどうか)
-            pair_value = ""
-            if pair_name_field:
-                pair_value = str(item.get(pair_name_field, "") or "").strip()
 
-            # ペア名前が空欄の場合、ID はプレースホルダーでも空欄でもクリア
-            # (Gemini が誤って TMP-X-00000 を返してきた場合の防御)
-            if pair_name_field and not pair_value:
-                if current and is_placeholder_id(current) and current.startswith(prefix):
-                    item[field] = ""
-                    cleared += 1
-                continue
+    def is_unresolved(current, prefix):
+        """current が未確定(空 or プレースホルダー)か。"""
+        if not current:
+            return True
+        if current == NEEDID_MARKER:
+            return True  # 既にマーカー → 未確定扱い(維持)
+        if is_placeholder_id(current) and current.startswith(prefix):
+            return True
+        return False
 
-            # プレースホルダー(TMP-X-0...0)で、かつプレフィックスが一致するときだけ採番。
-            # 空欄は触らない(ユーザーが意図的に未指定にした場合の誤採番を防ぐ)。
-            if current and is_placeholder_id(current) and current.startswith(prefix):
-                item[field] = assign_id(prefix)
-                count += 1
+    def handle(container, name_field, id_field, prefix):
+        nonlocal marked, cleared
+        current = str(container.get(id_field, "") or "").strip()
+        name_val = str(container.get(name_field, "") or "").strip() if name_field else ""
 
-    # トップレベルの place_id フィールド(birth/death/burial)
-    # こちらもペア名前(*_place_ar)が空ならクリア
-    for field in ("birth_place_id", "death_place_id", "burial_place_id"):
-        current = str(d.get(field, "") or "").strip()
-        pair_field = field.replace("_id", "_ar")
-        pair_value = str(d.get(pair_field, "") or "").strip()
-        if not pair_value:
-            # ペア名前空欄 → プレースホルダーならクリア
-            if current and is_placeholder_id(current) and current.startswith("TMP-L-"):
-                d[field] = ""
+        # 名前が空 = 原文に該当情報なし。ID は必ず空欄にする。
+        # (生成モデルが空欄ペアに入れた偽番号・プレースホルダー・NEEDID を除去。
+        #  確定 ID であっても、名前が無ければその ID の根拠が無いのでクリアする。)
+        if name_field and not name_val:
+            if current:
+                container[id_field] = ""
                 cleared += 1
-            continue
-        if current and is_placeholder_id(current) and current.startswith("TMP-L-"):
-            d[field] = assign_id("TMP-L-")
-            count += 1
+            return
+
+        # 名前あり: 確定 ID(NEEDID 以外の実 ID・プレースホルダー以外)はそのまま。
+        if current and current != NEEDID_MARKER and not (
+            is_placeholder_id(current) and current.startswith(prefix)
+        ):
+            return
+
+        # 名前あり & 未確定(空 / プレースホルダー / NEEDID) → NEEDID マーカー付与
+        if is_unresolved(current, prefix):
+            if container.get(id_field, "") != NEEDID_MARKER:
+                container[id_field] = NEEDID_MARKER
+                marked += 1
+
+    for section, field, prefix, pair_name_field in TMP_FIELDS_BY_PREFIX:
+        for item in d.get(section, []) or []:
+            handle(item, pair_name_field, field, prefix)
+
+    # トップレベル birth/death/burial place_id
+    for field in ("birth_place_id", "death_place_id", "burial_place_id"):
+        handle(d, field.replace("_id", "_ar"), field, "TMP-L-")
 
     if not silent:
         msgs = []
-        if count > 0:
-            msgs.append(f"{count} 個の ID を採番しました。")
-        if cleared > 0:
-            msgs.append(f"{cleared} 個のプレースホルダー ID をクリアしました(名前が空欄のため)。")
+        if marked:
+            msgs.append(f"{marked} 個の欄に {NEEDID_MARKER} を付与しました(校閲で ID 付与)。")
+        if cleared:
+            msgs.append(f"{cleared} 個の欄をクリアしました(名前が空欄のため)。")
         if msgs:
             st.success(" / ".join(msgs))
         else:
-            st.info("採番すべきプレースホルダーはありません。")
+            st.info("ID 付与が必要な欄はありません。")
         st.rerun()
+
+    return marked, cleared
+
+
+def auto_assign_tmp_ids_in_data(d, silent=False):
+    """【廃止】旧・自動採番関数。2026-07-03 の方針変更で番号生成を廃止し、
+    mark_unresolved_ids_in_data(NEEDID 付与)に置き換えた。後方互換のため
+    名前だけ残し、新関数へ委譲する。"""
+    return mark_unresolved_ids_in_data(d, silent=silent)
 
 
 # === 翻字一括補完ヘルパー(機能 B 用) ===
@@ -1148,6 +1719,15 @@ LATIN_TRANSLITERATE_PAIRS = [
     ("bio_events",   ("place_ar",       "place_lat")),
 ]
 
+# トップレベル(person 直下、リストでない)翻字欄。
+# (ar_field, lat_field)。full_name は ar 相当の生名から翻字を作る。
+TOP_LEVEL_TRANSLITERATE_PAIRS = [
+    ("full_name",       "full_name_lat"),
+    ("birth_place_ar",  "birth_place_lat"),
+    ("death_place_ar",  "death_place_lat"),
+    ("burial_place_ar", "burial_place_lat"),
+]
+
 
 def collect_empty_latin_fields(d):
     """空のラテン欄に対応するアラビア語を収集
@@ -1160,6 +1740,15 @@ def collect_empty_latin_fields(d):
             lat_val = (item.get(lat_field, "") or "").strip()
             if ar_val and not lat_val:
                 targets.append(((section, i, lat_field), ar_val))
+
+    # トップレベル(リストでない)翻字欄も対象に含める。
+    # path の section を "__top__" とし、idx に None を入れて区別する。
+    for ar_field, lat_field in TOP_LEVEL_TRANSLITERATE_PAIRS:
+        ar_val = (d.get(ar_field, "") or "").strip()
+        lat_val = (d.get(lat_field, "") or "").strip()
+        if ar_val and not lat_val:
+            targets.append((("__top__", None, lat_field), ar_val))
+
     return targets
 
 
@@ -1169,17 +1758,26 @@ def apply_transliterations(d, targets, results):
         section, idx, field = path
         if not isinstance(result, str):
             continue
-        if not (d[section][idx].get(field, "") or "").strip():
-            d[section][idx][field] = result.strip()
+        if section == "__top__":
+            # トップレベル欄
+            if not (d.get(field, "") or "").strip():
+                d[field] = result.strip()
+        else:
+            if not (d[section][idx].get(field, "") or "").strip():
+                d[section][idx][field] = result.strip()
 
 
 def transliterate_empty_latin_fields(d):
     """メイン関数: 空のラテン欄を IJMES 翻字で一括補完。"""
     targets = collect_empty_latin_fields(d)
     if not targets:
-        st.info("補完すべき空欄がありません。")
+        st.info(
+            "補完すべき空欄がありません。"
+            "(アラビア語欄が入力済みで、対応するラテン欄が空の項目が対象です)"
+        )
         return
 
+    st.caption(f"🔧 翻字対象: {len(targets)} 件を検出しました。")
     items = [t[1] for t in targets]
 
     prompt = f"""
@@ -1206,9 +1804,13 @@ Input items:
 
     with st.spinner(f"{len(items)} 項目の翻字を生成中..."):
         try:
-            model = get_working_model()
-            response = model.generate_content(prompt)
-            raw = re.sub(r"```json|```", "", response.text).strip()
+            _raw_text, _model_name, _err = genai_generate_text(prompt)
+            st.caption(f"🔧 使用モデル: {_model_name or '(未取得)'}")
+            if _err:
+                st.error(f"翻字エラー: {_err}")
+                return
+
+            raw = re.sub(r"```json|```", "", _raw_text).strip()
             results = json.loads(raw)
 
             if isinstance(results, list) and len(results) == len(items):
@@ -1220,6 +1822,8 @@ Input items:
                 st.error(
                     f"翻字結果の数が合いません(期待 {len(items)}、実際 {actual})"
                 )
+        except json.JSONDecodeError as e:
+            st.error(f"翻字エラー: 応答をJSONとして解析できません: {e}")
         except Exception as e:
             st.error(f"翻字エラー: {type(e).__name__}: {e}")
 
@@ -1415,10 +2019,25 @@ def apply_prompt_result(data, prompt_result):
                     item["ui_id"] = str(uuid.uuid4())
             data[f] = items
 
-    # ID-Master 照合 → TMP- プレースホルダー採番 の順で実行。
-    # 先に確定 ID を当てておくことで、不要な TMP 番号の浪費を防ぐ。
+    # 幻番号検疫 → ID-Master 照合 → TMP- プレースホルダー採番 の順で実行。
+    # (1) 生成モデルが埋めた偽 TMP 番号をプレースホルダーに差し戻す。
+    #     これをしないと _is_confirmed_id() が偽番号を確定扱いし、
+    #     以降の照合・採番がスキップされてしまう(幻番号汚染の主因)。
+    # (2) 差し戻した欄も含め、名前で ID-Master と正しく再照合。
+    # (3) 残ったプレースホルダーに追記式で採番。
+    # (0) 立項番号アーティファクト(訳頭の裸番号・連番=生没年)を先に処理(v20.11)
+    scrub_entry_serial_artifacts(data, silent=True)
+    # (0.5) جماعة 等の集合汎称エントリを除去(v20.11)
+    drop_generic_collective_entries(data, silent=True)
+    _quar = verify_and_quarantine_tmp_ids(data, silent=True)
+    # (1.5) wd:Q / gn: の毒ID・別item流用を検疫(v20.11)
+    verify_and_quarantine_wd_gn_ids(data, silent=True)
+    try:
+        st.session_state["_last_quarantine"] = _quar
+    except Exception:
+        pass
     apply_id_master_matching(data, silent=True)
-    auto_assign_tmp_ids_in_data(data, silent=True)
+    mark_unresolved_ids_in_data(data, silent=True)
 
     # === Streamlit session_state の同期 ===
     # text_input に key を指定している場合、Streamlit は session_state を
@@ -1466,863 +2085,15 @@ with st.sidebar:
                     id_records  = load_id_master()
                     id_master_text = id_master_to_prompt_text(id_records)
 
-                    model = get_working_model()
-                    prompt = f"""
-You are a professional historian of Islamic studies specializing in
-the Mamluk period and the works of al-Sakhāwī. Extract structured data
-from the source text into JSON.
-
-============================================================
-【⚠️ TOP-PRIORITY RULES — READ BEFORE ANYTHING ELSE ⚠️】
-============================================================
-These rules override every other instruction below. Violating any of
-them is a CRITICAL ERROR.
-
-🔴 RULE A: Any JSON field ending in "_lat" (death_place_lat,
-   burial_place_lat, birth_place_lat, learn_place_lat, name_lat,
-   text_lat, etc.) MUST contain ONLY an IJMES Latin transliteration
-   of the corresponding Arabic word.
-
-   ❌ NEVER put any of the following into a _lat field:
-      • Geographic coordinates (e.g. "21.426667", "39.85", "21.4385")
-      • Latitude/longitude (any numeric decimal)
-      • GeoNames numeric IDs (e.g. "104515")
-      • Wikidata Q-IDs (e.g. "Q42004")
-      • TMP- placeholder IDs
-      • The Arabic word itself
-      • English translation
-
-   ✅ Examples of CORRECT _lat values:
-      مكة     → "Makka"
-      المعلاة → "al-Muʿallā"
-      القاهرة → "al-Qāhira"
-
-   ⚠️ If you don't know the IJMES transliteration → LEAVE THE FIELD EMPTY ("").
-   Returning coordinates instead of a transliteration is WORSE than
-   returning an empty string. ALWAYS prefer "" over a coordinate.
-
-🔴 RULE B: Birth/death/burial places go in dedicated top-level fields
-   (birth_place_*, death_place_*, burial_place_*), NEVER as separate
-   activity entries or bio_events.
-
-🔴 RULE C: Funeral prayers / burial details go in death_note,
-   NEVER as bio_events. Bio_events are for SPECIFIC DATED events only,
-   not for descriptive summaries.
-
-Now proceed with the detailed instructions below.
-
-============================================================
-【1. SOURCE TEXT FORMAT】
-============================================================
-The source text begins with a marker:
-  ###$AIND-DXXXXX | NNNNNNNNNNNN$# {{marker}} [biographical text]
-- AIND-DXXXXX (5-digit sequence): the AIND identifier → "aind_id".
-  Return it exactly as it appears (e.g. "AIND-D00001").
-- NNNNNNNNNNNN (12 digits): the original source ID → "original_id".
-  Return it as a 12-character string of digits, with no prefix.
-- The two IDs are separated by " | " (pipe with spaces) inside the marker.
-- {{marker}} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
-
-============================================================
-【2. ID MASTER — USE THESE IDs FIRST】
-============================================================
-{id_master_text}
-
-When an entity in the text matches an entry above, use that ID.
-If no match exists, follow the ID rules in section 3.
-
-============================================================
-【3. ID RULES (when not in ID Master)】
-============================================================
-- Persons: Wikidata Q-ID if known. Otherwise "TMP-P-000000" (6 digits).
-- Places/geography: GeoNames numeric ID (digits only). Otherwise "TMP-L-00000" (5 digits).
-- Institutions/concepts/orders: Wikidata Q-ID. Otherwise "TMP-I-00000" (5 digits).
-- Texts/books: Wikidata Q-ID if known. Otherwise "TMP-T-00000" (5 digits).
-- Subjects/methods/fields: TMP-S-XXXXX from Method/Field lists below.
-  If no match, "TMP-S-00000".
-- Nisbahs: "TMP-N-00000" (5 digits).
-- Offices: "TMP-O-00000" (5 digits).
-
-NOTE: Persons use 6-digit TMP-P-XXXXXX. All other TMP- categories
-use 5-digit format. ID-Master entries with legacy 5-digit person IDs
-(TMP-P-XXXXX) remain valid — both lengths are accepted.
-
-🔴 CRITICAL — EMPTY NAME → EMPTY ID:
-If the corresponding ARABIC NAME field is empty (i.e., the text does NOT
-mention that entity), the ID field MUST ALSO be empty string "".
-
-❌ NEVER output TMP-X-00000 placeholder ID when the name is empty.
-   This would cause the app to assign an unwanted serial number.
-
-Examples:
-  ✅ Text mentions "السراج معمر بن عبد القوي" (a teacher) → 
-       name = "السراج معمر بن عبد القوي", id = "TMP-P-000000"
-  ✅ Text mentions a teacher but no specific book →
-       name = "السراج معمر...", text_ar = "", text_id = ""  (NOT "TMP-T-00000"!)
-  ✅ Text mentions a teacher but no specific place →
-       name = "...", learn_place_ar = "", learn_place_id = ""
-  ❌ NEVER do this:
-       text_ar = "", text_lat = "", text_id = "TMP-T-00000"  (id without name!)
-       place_ar = "", place_id = "TMP-L-00000"               (id without place!)
-
-This rule applies to EVERY (name, id) pair in the JSON:
-  - (teachers[].name, teachers[].id)
-  - (teachers[].text_ar, teachers[].text_id)
-  - (teachers[].learn_place_ar, teachers[].learn_place_id)
-  - (students[].name, students[].id)
-  - (students[].text_ar, students[].text_id)
-  - (students[].teach_place_ar, students[].teach_place_id)
-  - (activities[].place_ar, activities[].id)
-  - (institutions[].name_ar, institutions[].id)
-  - (offices[].name_ar, offices[].id)
-  - (offices[].place_ar, offices[].place_id)
-  - (offices[].inst_name, offices[].inst_id)
-  - (family[].name, family[].id)
-  - (nisbahs[].ar, nisbahs[].id)
-  - (bio_events[].place_ar, bio_events[].place_id)
-  - (social_relations[].person_name, social_relations[].person_id)
-  - (birth_place_ar, birth_place_id) / (death_place_ar, death_place_id) / (burial_place_ar, burial_place_id)
-
-============================================================
-【3.5. TRANSLITERATION (ar-Latn) — CRITICAL】
-============================================================
-Any field whose name ends with "_lat" (e.g. "death_place_lat",
-"burial_place_lat", "learn_place_lat", "name_lat") must contain
-ONLY an IJMES Latin-script TRANSLITERATION of the Arabic word.
-
-✅ CORRECT examples:
-    "death_place_lat": "Makka"            (transliteration of مكة)
-    "burial_place_lat": "al-Muʿallā"      (transliteration of المعلاة)
-    "learn_place_lat": "al-Qāhira"        (transliteration of القاهرة)
-
-❌ ABSOLUTELY FORBIDDEN — never put any of these in a _lat field:
-    - Geographic coordinates: "21.389108", "39.857918", "21.43911"
-    - Latitude/longitude pairs: "21.39, 39.86"
-    - GeoNames numeric IDs: "104515"
-    - Wikidata Q-IDs: "Q42004"
-    - TMP- placeholders: "TMP-L-00001"
-    - The Arabic word itself: "مكة" (this goes in _ar, not _lat)
-    - English translations: "Mecca" (transliteration is NOT translation)
-    - Translation in other languages
-
-If you do not know the IJMES transliteration of an Arabic word,
-LEAVE THE _lat FIELD EMPTY ("") — never substitute coordinates,
-IDs, or any other value.
-
-IJMES quick reference for common place names:
-    مكة         → Makka
-    المعلاة     → al-Muʿallā
-    المدينة     → al-Madīna
-    القاهرة     → al-Qāhira
-    دمشق        → Dimashq
-    بغداد       → Baghdād
-    اليمن       → al-Yaman
-    الشام       → al-Shām
-    حلب         → Ḥalab
-    القرافة     → al-Qarāfa
-    تربة باب الوزير → Turbat Bāb al-Wazīr
-
-============================================================
-【4. TRANSLATION】
-============================================================
-- translation_jp: Accurate academic Japanese translation.
-- translation_en: Accurate academic English translation.
-
-== TRANSLATION GUIDELINES ==
-
-When translating "شيخنا" (our shaykh) in al-Sakhāwī's text:
-
-1. DEFAULT INTERPRETATION:
-   - "شيخنا" refers to al-Sakhāwī's primary teacher
-     Ibn Ḥajar al-ʿAsqalānī (Wikidata Q471116).
-   - Translate as: "Our shaykh (Ibn Ḥajar)..." / 「我らがシャイフ(イブン・ハジャル)…」
-
-2. EXCEPTION — when "شيخنا" is IMMEDIATELY followed by a proper name:
-   - It refers to ANOTHER teacher, not Ibn Ḥajar.
-   - Example: "شيخنا الموفق الأبي" → al-Muwaffaq al-Abī (NOT Ibn Ḥajar).
-   - Translate the named teacher; do NOT replace with Ibn Ḥajar.
-
-3. CONTEXT MATTERS:
-   - Always check the next 1-3 words after "شيخنا".
-   - If they form a clear proper name (al-Muwaffaq, al-Sirāj, etc.),
-     use that name.
-   - If only a generic descriptor or no name follows, assume Ibn Ḥajar.
-
-============================================================
-【5. FULL NAME — IMPORTANT POLICY】
-============================================================
-- "full_name" must include EVERYTHING up to and including madhhab/nisbah.
-- When in doubt whether to include a token, INCLUDE it (do not delete).
-- Example: محمد بن أحمد الشافعي الدمشقي → keep all tokens.
-- "name_only" = Ism + father + grandfather only (e.g. محمد بن أحمد بن علي).
-
-============================================================
-【6. MADHHAB — IMPORTANT POLICY】
-============================================================
-- If the text contains a madhhab indicator (e.g. الشافعي / الحنفي /
-  المالكي / الحنبلي), record it in "madhhabs" array.
-- DO NOT also record it as a nisbah.
-- Use Latin form: "Hanafi" / "Maliki" / "Shafi'i" / "Hanbali".
-- If the form is ambiguous or the madhhab is unclear, leave empty array.
-
-== MULTIPLE MADHHABS (transitional / conversion cases) ==
-Most people belong to a single madhhab. However, some historical figures
-converted from one madhhab to another (e.g. Shafi'i → Hanbali).
-
-- "madhhabs" is an ARRAY of strings, in CHRONOLOGICAL ORDER (earliest first).
-- Single madhhab: ["Shafi'i"]
-- Conversion case: ["Shafi'i", "Hanbali"]  (earlier → later)
-- Detection cues for conversion:
-  * "تحول من الشافعية إلى الحنفية" (changed from Shafi'i to Hanafi)
-  * "كان شافعيا ثم انتقل إلى الحنفية" (was Shafi'i, then moved to Hanafi)
-  * "نشأ شافعيا ثم صار حنبليا" (grew up Shafi'i, then became Hanbali)
-- If no clear chronology is given, list in the order mentioned in the text.
-
-============================================================
-【7. GENDER】
-============================================================
-- "sex": "M" / "F" / "U" (Male / Female / Unknown).
-- Default to "M" only if the source clearly uses masculine forms
-  AND no female indicators are present. Otherwise "U".
-
-============================================================
-【8. NISBAHS】
-============================================================
-- Geographical, tribal, or family nisbahs only.
-- DO NOT include madhhab-derived nisbahs (الشافعي etc.) here —
-  those go in "madhhabs" array.
-- ID: ALWAYS "TMP-N-00000" (5 digits) — even for nisbahs derived from
-  places. Do NOT use TMP-L- or GeoNames here. nisbahs (الأندلسي,
-  الدمشقي, الرومي, etc.) are tracked in the Nisbah authority list,
-  separately from the place itself (which has its own GeoNames entry).
-
-============================================================
-【9. LAQAB / SHUHRAH / KUNYAH / HONORIFIC】
-============================================================
-"type" must be one of:
-- "laqab"     : honorific epithet (e.g. زين الدين, تقي الدين)
-- "shuhrah"   : popular epithet by which the person is known
-- "kunyah"    : teknonym (أبو / أم + name)
-- "honorific" : pure honorific (الشيخ, الإمام, الحافظ, العلامة)
-                — only if used as fixed personal designation,
-                NOT as generic respectful mention.
-
-== EXTRACTION RULE: SUBJECT'S OWN TITLES ONLY ==
-
-CRITICAL: Extract ONLY the subject's OWN titles. NEVER extract titles
-that modify an ancestor, brother, or other relative inside the nasab
-chain. Those titles belong to that ancestor, not to the subject.
-
-The nasab chain pattern is:
-    [subject's name] بن [father] بن [grandfather] بن ...
-
-Any title appearing INSIDE the bin-chain modifies the immediately
-following name, which is an ancestor — not the subject. Titles inside
-the chain therefore MUST NOT enter the subject's laqab list.
-
-EXAMPLES — DO NOT EXTRACT (titles belong to an ancestor):
-- "محمد بن الشيخ أحمد"        → الشيخ is the FATHER's title — skip.
-- "إبراهيم بن الإمام علي"     → الإمام is the FATHER's title — skip.
-- "أحمد بن العلامة محمود"     → العلامة is the FATHER's title — skip.
-- "محمد بن أحمد بن الحافظ علي" → الحافظ is the GRANDFATHER's — skip.
-
-EXTRACT ONLY when the title:
-- appears BEFORE the subject's first name (e.g. "الشيخ محمد بن أحمد"
-  with no bin between الشيخ and محمد), or
-- appears in apposition to the subject AFTER the nasab chain ends
-  (e.g. "محمد بن أحمد بن علي، الحافظ، ..."), or
-- otherwise unambiguously modifies the subject's own name.
-
-When unsure whether a title modifies the subject or an ancestor,
-DO NOT extract it.
-
-============================================================
-【10. DATES & PLACES (Birth / Death / Burial) — CRITICAL】
-============================================================
-- "birth_h" / "death_h": Hijri year string. Examples:
-    "850"            (year only)
-    "850-09"         (year-month)
-    "850-09-15"      (year-month-day)
-- Approximate forms ("Ca. 850", "before 850", "after 850") and
-  alternative readings should be put in the "_note" field, NOT
-  embedded in the year string.
-- "birth_cert" / "death_cert": "high" / "medium" / "low" / "" (empty).
-- "birth_note" / "death_note": free text for approximations,
-  variant readings, or evidential basis.
-  Write in ENGLISH for international database compatibility.
-  Arabic terms / titles / proper nouns may be quoted directly
-  (e.g., "according to تاريخ الإسلام"). Do NOT write in Japanese.
-
-== PLACES: Birth / Death / Burial — STRICT RULES ==
-
-The following Arabic phrases indicate WHERE birth/death/burial occurred.
-RECORD them in the dedicated top-level fields, NOT in activities/events.
-
-▶ BIRTH PLACE — record in birth_place_ar / birth_place_lat / birth_place_id:
-    "ولد بـ X" / "مولده بـ X" / "ولد في X" → birth_place_ar = X
-    "ولد بالقاهرة" → birth_place_ar = "القاهرة"
-
-▶ DEATH PLACE — record in death_place_ar / death_place_lat / death_place_id:
-    "مات بـ X" / "توفي بـ X" / "المتوفى بـ X" → death_place_ar = X
-    "نزيل X والمتوفى بها" → death_place_ar = X  (← "بها" refers to X)
-    "مات بمكة" → death_place_ar = "مكة"
-
-▶ BURIAL PLACE — record in burial_place_ar / burial_place_lat / burial_place_id:
-    "دفن بـ X" / "دفن بتربة X" / "دفن قرب X" → burial_place_ar = X
-    "ودفن بالمعلاة" → burial_place_ar = "المعلاة"
-
-== ABSOLUTE PROHIBITIONS ==
-
-❌ DO NOT create activity entries with type="born", "died", or "buried".
-   The type "buried" has been REMOVED from the activity vocabulary.
-
-❌ DO NOT create bio_events entries for the following — they belong in
-   <death> as integrated notes, NOT as separate events:
-   - Funeral prayer ("صلى عليه" / "صلي عليه" / صلاة الجنازة)
-   - Burial itself ("دفن")
-   - Death notifications, lamentations following death
-
-✅ If the text mentions funeral prayer or burial details, integrate them
-   into death_note (English summary). Examples:
-     "صلي عليه بالأزهر ودفن بالقرافة"
-     → death_note: "Funeral prayer at al-Azhar; buried at al-Qarāfa."
-       death_place_ar: ""    (death place not mentioned)
-       burial_place_ar: "القرافة"
-
-== WORKED EXAMPLES ==
-
-▶ Example 1: "آدم بن سعيد ... نزيل مكة والمتوفى بها ... مات في
-              ليلة الأربعاء خامس ذي الحجة سنة سبع وثمانين
-              وصلى عليه من الغد ودفن بالمعلاة"
-
-   Correct extraction:
-   {{
-     "death_h": "887-12-05",
-     "death_cert": "high",
-     "death_place_ar": "مكة",
-     "burial_place_ar": "المعلاة",
-     "death_note": "Funeral prayer was held the day after his death.",
-     "activities": [
-       {{"type": "residence", "place_ar": "مكة", ...}}
-     ],
-     "bio_events": []
-   }}
-
-   ❌ DO NOT generate:
-   - activity entries for death / burial / funeral
-   - bio_events entries for funeral prayer
-   - event type="religious" for funeral prayer
-   - event type="burial" (this type no longer exists)
-
-▶ Example 2: "ولد بالقاهرة سنة 772 ومات بها سنة 852 ودفن بتربة باب الوزير"
-
-   Correct extraction:
-   {{
-     "birth_h": "772",
-     "birth_place_ar": "القاهرة",
-     "death_h": "852",
-     "death_place_ar": "القاهرة",
-     "burial_place_ar": "تربة باب الوزير",
-     "activities": [],
-     "bio_events": []
-   }}
-
-▶ Example 3: "ولد بدمشق ... سكن القاهرة ... مات بمكة في حجته ودفن بالمعلاة"
-
-   Correct extraction:
-   {{
-     "birth_place_ar": "دمشق",
-     "death_place_ar": "مكة",
-     "burial_place_ar": "المعلاة",
-     "activities": [
-       {{"type": "residence", "place_ar": "القاهرة", ...}},
-       {{"type": "hajj", "place_ar": "مكة", ...}}
-     ]
-   }}
-
-============================================================
-【11. TEACHERS / STUDENTS — METHOD × FIELD】
-============================================================
-Each teacher/student record has TWO axes: method and field.
-
-(A) "method_id" — HOW the learning happened.
-    Use one of the following TMP-S- IDs:
-
-    TMP-S-00003  samiʿa       (سمع)         listening
-    TMP-S-00004  ajāza/ijāza  (أجاز/إجازة)  granted/received ijaza
-                                              (includes general ijaza)
-    TMP-S-00005  ṣuḥba w/intibāh (صحبة)     companionship & attention
-    TMP-S-00006  ʿaraḍa       (عرض)         presentation
-    TMP-S-00008  akhadha      (أخذ)         took / acquired
-    TMP-S-00009  darasa       (درس)         studied
-    TMP-S-00010  talā         (تلا)         recited (Qurʾān)
-    TMP-S-00011  rawā         (روى)         transmitted
-    TMP-S-00014  lāzama       (لازم)        sustained discipleship
-    TMP-S-00015  al-Istimlāʾ  (الاستملاء)   dictation-taking
-    TMP-S-00016  laqiya       (لقي)         met
-    TMP-S-00025  qaraʾa       (قرأ)         read aloud
-    TMP-S-00026  kataba       (كتب)         wrote / copied
-    TMP-S-00027  ḥafiẓa       (حفظ)         memorized
-    TMP-S-00028  ḥaḍara       (حضر)         attended
-    TMP-S-00029  jamaʿa       (جمع)         compiled
-    TMP-S-00030  ḥaddatha     (حدث)         transmitted ḥadīth
-    TMP-S-00031  ijtamaʿa     (اجتمع)       met
-    TMP-S-00032  tafaqqaha    (تفقه)        studied fiqh
-    TMP-S-00033  baraʿa       (برع)         excelled
-    TMP-S-00034  ṣaḥiba       (صحب)         accompanied
-    TMP-S-00035  takharraja   (تخرج)        graduated
-    TMP-S-00036  mahara       (مهر)         mastered
-    TMP-S-00037  aftā         (أفتى)        issued fatwa
-    TMP-S-00038  amlā         (أملى)        dictated
-    TMP-S-00039  talaqqā      (تلقى)        received
-    TMP-S-00040  anshada      (أنشد)        recited poetry
-    TMP-S-00041  rāfaqa       (رافق)        accompanied
-    TMP-S-00042  ʿallaqa      (علق)         annotated
-    TMP-S-00043  taʾaddaba    (تأدب)        learned literature
-
-    If no ID matches, put the free-text method description in
-    "method_id" itself (it is a single field that accepts either
-    an ID or free text).
-
-    Note: "method_id" describes what THE SUBJECT did. The direction
-    (received vs. granted) is determined by whether the record
-    goes into "teachers" or "students" array.
-
-(B) "field_id" — WHAT was studied.
-    Use one of the following IDs:
-
-    TMP-S-00001  al-ʿArabiyya         (العربية)
-    TMP-S-00002  al-Ḥadīth            (الحديث)
-    TMP-S-00007  al-Ḥisāb             (الحساب)
-    Q484181      al-Fiqh              (الفقه)
-    TMP-S-00012  al-Qirāʾāt al-ʿAshr  (القراءات العشر)
-    TMP-S-00013  al-Qirāʾāt al-Sabʿ   (القراءات السبع)
-    Q1817983     al-Qirāʾāt           (القراءات)
-    Q1866303     al-Naḥw              (النحو)
-    TMP-S-00017  al-Tafsīr            (التفسير)
-    TMP-S-00018  al-Aṣlayn            (الأصلين)
-    TMP-S-00020  al-Ṣarf              (الصرف)
-    TMP-S-00021  Uṣūl al-fiqh         (أصول الفقه)
-    TMP-S-00022  ʿIlm al-Waqt         (علم الوقت)
-    TMP-S-00023  al-Taṣawwuf          (التصوف)
-    TMP-S-00024  al-Farāʾiḍ           (الفرائض)
-    TMP-S-00044  Uṣūl al-Dīn          (أصول الدين)
-    TMP-S-00045  al-Kalām             (الكلام)
-    TMP-S-00046  al-Adab              (الأدب)
-    TMP-S-00047  al-Lugha             (اللغة)
-    TMP-S-00048  al-Balāgha           (البلاغة)
-    TMP-S-00049  al-Maʿānī            (المعاني)
-    TMP-S-00050  al-Bayān             (البيان)
-    TMP-S-00051  al-Badīʿ             (البديع)
-    TMP-S-00052  al-ʿArūḍ             (العروض)
-    TMP-S-00053  al-Qāfiya            (القافية)
-    TMP-S-00054  al-Manṭiq            (المنطق)
-    TMP-S-00055  al-Ṭibb              (الطب)
-    TMP-S-00056  al-Falak             (الفلك)
-    TMP-S-00057  al-Hayʾa             (الهيئة)
-    TMP-S-00058  al-Falsafa           (الفلسفة)
-    TMP-S-00059  al-Handasa           (الهندسة)
-    TMP-S-00060  al-Jabr              (الجبر)
-    TMP-S-00061  al-Muqābala          (المقابلة)
-    TMP-S-00062  al-Sīra              (السيرة)
-    TMP-S-00063  al-Tārīkh            (التاريخ)
-    TMP-S-00064  al-Ansāb             (الأنساب)
-    TMP-S-00065  ʿIlm al-Rijāl        (الرجال)
-    TMP-S-00066  Muṣṭalaḥ al-Ḥadīth   (مصطلح الحديث)
-
-    If no ID matches, put the free-text field name in
-    "field_id" itself (single field accepting ID or free text).
-
-DO NOT record text-coverage info (من أوله إلى آخره / إلى باب كذا /
-بعضه). Ignore range qualifiers entirely.
-
-============================================================
-【12. ACTIVITIES (geographic life events)】
-============================================================
-Geographic events: any event whose primary nature is movement to,
-or presence in, a specific place.
-
-"type" must be one of:
-    residence  long-term residence
-    visit      travel / short visit (default for travel events)
-    travel     journey (use when emphasis is on the journey itself)
-    study      travel for study purposes
-    hajj       pilgrimage to Mecca — USE ONLY when text explicitly
-               says حج / حجّ / حجة
-    umrah      minor pilgrimage — USE ONLY when text explicitly
-               says عمرة
-    jāwara     extended stay in Mecca/Medina (مجاورة)
-    riḥla      scholarly travel (الرحلة)
-    legacy     posthumous event (legacy, posthumous influence)
-    other      none of the above
-
-DO NOT use "born", "died", or "buried" — birth/death/burial places
-belong in birth_place_*, death_place_*, burial_place_* fields,
-which generate <birth>/<death> elements with <placeName> children.
-
-IMPORTANT — Hajj judgment:
-- "ذهب إلى مكة" or similar without حج/حجّ → type = "visit"
-- "حج" or "حجّ سنة كذا" → type = "hajj"
-- When in doubt between hajj and visit, choose "visit".
-
-DO NOT include named institutions here (those → "institutions").
-
-Each activity has:
-    "type"       : one of the above
-    "place_ar", "place_lat", "place_id"
-    "date_h"     : year (or year-month, year-month-day)
-    "date_cert"  : "high" / "medium" / "low" / ""
-    "date_note"  : free text in ENGLISH (e.g. "Ca. 850", "before 850").
-                   Arabic terms may be quoted. Do NOT write in Japanese.
-
-============================================================
-【13. INSTITUTIONS】
-============================================================
-- Named institutions only (madrasa, mosque, khanqah, etc.).
-- "type": study / teach / reside / founded / affiliated /
-          graduated / employed / visit / buried / other
-- A single trip to a city is NOT an institution.
-
-============================================================
-【14. OFFICES】
-============================================================
-- For positions held in MULTIPLE places (e.g. "served as muezzin
-  in both holy cities"), create SEPARATE office entries — one per place.
-- DO NOT combine into "Mecca; Medina" in a single field.
-- Special case: when the source says "الحرمين" (Haramayn) without
-  specifying which two:
-    "Haramayn 1" (Mecca + Medina) → ID per ID Master
-    "Haramayn 2" (Jerusalem + Hebron) → ID per ID Master
-- Fields: name_ar, name_lat, place_ar, place_lat, place_id,
-          inst_name, inst_id, appoint_date, retire_date
-
-============================================================
-【15. BIOGRAPHICAL EVENTS — NEW (provisional)】
-============================================================
-Life events that are NOT primarily about geographic movement.
-
-"type" must be one of FOUR broad categories:
-
-    political  political incidents, accusations, exile, factional
-               disputes, mamluk politics, encounters with rulers
-
-    cultural   intellectual / literary activity:
-               - composing books or poems
-               - writing commentaries
-               - compiling collections
-               - versifying scientific content
-               - any authorial achievement
-
-    religious  religious experiences and acts:
-               - conversion
-               - religious visions / dreams
-               - mystical experiences
-               (NOTE: funeral prayers / burials are NOT bio_events.
-                These belong in <death> — see section 10.)
-
-    other      events not fitting above categories
-               (e.g. plague affliction, natural disasters, illnesses,
-                personal life events outside the above)
-
-The "type" is intentionally broad. Specific details go in "description".
-
-⚠️ DO NOT generate bio_events entries for:
-   - Funeral prayer (صلى عليه / صلي عليه / صلاة الجنازة)
-   - Burial (دفن)
-   - Death itself (مات / توفي)
-   These belong in <death> via death_place_*, burial_place_*, and death_note.
-
-⚠️ ALSO DO NOT generate bio_events entries for descriptive/summary statements
-   about a person's life. bio_events are for SPECIFIC, DATED events only.
-
-   ❌ Wrong (descriptive — these are NOT events):
-   - "Continuously engaged in study under scholars in Mecca"
-     → Already captured by teachers/students relations. NOT a bio_event.
-   - "Resided in Mecca until his death"
-     → This is residence (an activity), or covered by death_place. NOT a bio_event.
-   - "Recited the Quran in a beautiful manner"
-     → A skill/quality description. NOT a bio_event.
-   - "Was a famous merchant" / "Known for piety"
-     → Personality/profession descriptions go in person_notes if needed.
-
-   ✅ Correct bio_events (specific dated events):
-   - "Composed the book X in 870 H" → cultural
-   - "Was imprisoned in 875 H over a fatwa dispute" → political
-   - "Experienced a vision of the Prophet in his youth" → religious
-   - "Survived the plague of 833 H" → other
-
-   RULE OF THUMB: If you cannot point to a SPECIFIC moment / date / event,
-   it is NOT a bio_event. Skip it.
-
-Each event:
-    "type"       : political / cultural / religious / other
-    "date_h", "date_cert", "date_note"
-    "place_ar", "place_lat", "place_id"
-    "description": free text in ENGLISH — REQUIRED.
-                   For international database compatibility, write descriptions
-                   in English. Arabic titles and proper nouns may be quoted
-                   directly (e.g., 『الشاطبية』, names of people, places).
-                   Do NOT write in Japanese.
-                   For cultural events, include the title of the work.
-                   For political events, include the nature of the incident.
-                   For religious events, include the specific practice.
-                   For other, describe what happened.
-    "date_note"  : free text in ENGLISH. Same policy as description.
-
-Examples:
-    "خرج للجهاد سنة 875" →
-        type=political, date_h="875", description="went out to military campaign (jihād)"
-    "ألف الحلاوة السكرية" →
-        type=cultural, description='composed 『الحلاوة السكرية』'
-    "شرح المنهاج" →
-        type=cultural, description='wrote a commentary on 『المنهاج』'
-    "نظم الفرائض" →
-        type=cultural, description="versified inheritance law"
-    "صلي عليه بالجامع الأزهر" →
-        ❌ DO NOT create bio_event. This is a funeral prayer.
-        ✅ Instead: death_note = "Funeral prayer held at al-Azhar Mosque."
-    "أصابه الطاعون" →
-        type=other, description="afflicted by the plague"
-
-============================================================
-【16. SOCIAL RELATIONS — NEW (provisional)】
-============================================================
-Non-family, non-teacher/student social ties.
-
-    "type"        : patron / client / colleague / rival / friend /
-                    correspondent / successor / predecessor / other
-    "type_other"  : if type = "other"
-    "person_name" : name in Arabic
-    "person_id"   : Wikidata Q-ID or TMP-P-000000
-    "description" : free text in ENGLISH. Arabic names / terms may be quoted.
-                    Do NOT write in Japanese.
-
-============================================================
-【17. FAMILY — EXPLICIT MENTIONS ONLY】
-============================================================
-EXTRACT ONLY family relations that are EXPLICITLY stated in the text.
-
-EXTRACT (explicit relational vocabulary present):
-    - "والده فلان" / "أبوه فلان"               → father
-    - "والدته فلانة" / "أمه فلانة"             → mother
-    - "ابنه فلان" / "ولده فلان"                → son
-    - "ابنته فلانة" / "بنته فلانة"             → daughter
-    - "أخوه فلان"                              → brother
-    - "أخته فلانة"                             → sister
-    - "زوجته فلانة" / "زوجها فلان"             → spouse
-    - "جده فلان" / "جدته فلانة"                → grandfather / grandmother
-    - "عمه فلان" / "خاله فلان"                 → uncle
-    - "عمته فلانة" / "خالته فلانة"             → aunt
-    - "ابن عمه" / "ابن خاله" / "ابنة عمه" etc → cousin
-    - "ابن أخيه" / "ابنة أخته" etc             → siblings_child
-    - "صهره" (son-in-law) / "ختنه" etc         → other
-
-DO NOT EXTRACT:
-    - Ancestors implied by the nasab chain (محمد بن أحمد بن علي).
-      Do NOT decompose ابن chains into family entries.
-      The full_name and name_only fields already preserve nasab info.
-    - Sons implied by kunyah (أبو بكر does NOT imply son بكر in family).
-      The kunyah is recorded in laqabs only.
-    - Vague relational terms without named individual
-      (e.g. "أهله", "أقاربه", "ذريته" without specific names).
-
-== relation KEYS (use these exact 14 values) ==
-    father, mother, son, daughter, brother, sister, spouse,
-    grandfather, grandmother,
-    uncle      (paternal/maternal NOT distinguished)
-    aunt       (paternal/maternal NOT distinguished)
-    cousin     (no distinction by line or gender)
-    siblings_child  (nephew/niece, no distinction by line or gender)
-    other      (in-laws, distant relatives, unclear relations)
-
-== EXAMPLES ==
-
-    "والده الشيخ أحمد" →
-        family += [{{"relation":"father", "name":"الشيخ أحمد"}}]
-
-    "أخوه محمد، الفقيه" →
-        family += [{{"relation":"brother", "name":"محمد"}}]
-
-    "ابن عمه علي" →
-        family += [{{"relation":"cousin", "name":"علي"}}]
-
-    "تزوج بفاطمة بنت فلان" →
-        family += [{{"relation":"spouse", "name":"فاطمة بنت فلان"}}]
-
-    "محمد بن أحمد بن علي بن حسن" (NO explicit relational vocabulary) →
-        family += []  ← do NOT extract father/grandfather/etc from nasab.
-                       The names are preserved in full_name/name_only.
-
-== CRITICAL ==
-- Extract ONLY when the text uses an explicit relational word
-  (والد, أم, ابن, ابنة, أخ, أخت, زوج, جد, عم, خال, etc.).
-- If only the nasab chain is given (with بن), extract NOTHING for family.
-- If only a kunyah is given (أبو فلان), extract NOTHING for family.
-- Use empty "name" only when the relation is mentioned but the
-  individual is not named (e.g. "أمه" alone with no name).
-
-============================================================
-【18. NEGATIVE INSTRUCTIONS — DO NOT INCLUDE】
-============================================================
-- Collective nouns: وغيره / جماعة / آخرون / غير واحد / etc.
-  These are vague placeholders for "and others"; SKIP entirely.
-  Do NOT emit a relation/teacher/student/family entry for them
-  even with an empty name. They simply do not produce a record.
-- Text coverage qualifiers: من أوله إلى آخره / إلى باب كذا /
-  بعضه / etc. Ignore these.
-- Generic honorifics in passing mentions (الشيخ, الإمام) when not
-  used as a fixed personal designation.
-- Madhhab as nisbah (الشافعي as nisbah). Always route to madhhabs array.
-- Family relations implied by nasab chain or kunyah (see section 17).
-- Titles of ancestors inside the nasab chain — see section 9.
-
-============================================================
-【18b. FORWARD/BACKWARD REFERENCE MARKERS】
-============================================================
-Words like "الآتي" (= forthcoming / mentioned below) and
-"الماضي" / "المتقدم" (= aforementioned / mentioned above) signal that
-the person referenced has — or will have — their own biographical entry
-elsewhere in al-Sakhāwī's text.
-
-WHEN you see these markers:
-1. Still extract the person normally (name, ID candidate, etc.).
-2. Add a brief note in editors_notes flagging the cross-reference:
-   "Marked الآتي — cross-ref to a later entry."
-   "Marked الماضي — cross-ref to an earlier entry."
-3. The application's ID-Master matching phase will resolve the link
-   to the actual xml:id once both entries exist.
-
-============================================================
-【18c. BOOK / TEXT REFERENCES — WIKIDATA Q-ID PRIORITY】
-============================================================
-For any cited book/text (in teachers.text_*, students.text_*, or
-bio_events.description), ALWAYS prefer a Wikidata Q-ID over a local
-TMP-T- placeholder when the work is well-known.
-
-Common references and their Q-IDs (use these when applicable):
-- al-Dāraquṭnī's Sunan (السنن للدارقطني) → wd:Q12217063
-- al-Bukhārī's Ṣaḥīḥ                     → wd:Q208507
-- Muslim's Ṣaḥīḥ                         → wd:Q193272
-- al-Tirmidhī's Sunan                    → wd:Q1248893
-- Abū Dāwūd's Sunan                      → wd:Q593290
-- al-Nasāʾī's Sunan                      → wd:Q1140365
-- Ibn Mājah's Sunan                      → wd:Q940817
-- Mālik's Muwaṭṭaʾ                       → wd:Q900871
-
-When the title is generic / unrecognized, use TMP-T-00000 (placeholder)
-and let the human editor resolve it later.
-
-============================================================
-【19. FINAL CHECKLIST — verify before returning JSON】
-============================================================
-Before returning the JSON, mentally check each item:
-
-□ If text says "ولد بـ X" / "مولده بـ X" — is birth_place_ar filled?
-□ If text says "مات بـ X" / "توفي بـ X" / "المتوفى بها" — is death_place_ar filled?
-□ If text says "دفن بـ X" / "دفن بتربة X" — is burial_place_ar filled?
-□ Does the activities array contain ZERO entries for death/burial/funeral?
-□ Does the bio_events array contain ZERO entries for funeral prayers?
-□ Is funeral information (if any) integrated into death_note in English?
-□ Do all _lat fields contain ONLY IJMES Latin transliteration (NOT coordinates/IDs/Arabic)?
-□ Does bio_events contain ZERO descriptive/summary statements (only specific dated events)?
-□ For EVERY (name, id) pair: if the name (Arabic) is empty, is the id ALSO empty ""? (no orphan IDs like text_id="TMP-T-00000" when text_ar is empty)
-
-If ANY of these checks fail, FIX the output before returning.
-
-============================================================
-【20. OUTPUT FORMAT】
-============================================================
-Return ONLY valid JSON. No markdown fences. No commentary.
-
-{{
-  "aind_id": "",
-  "original_id": "",
-  "full_name": "",
-  "name_only": "",
-  "sex": "U",
-  "birth_h": "", "birth_cert": "", "birth_note": "",
-  "birth_place_ar": "", "birth_place_lat": "", "birth_place_id": "",
-  "death_h": "", "death_cert": "", "death_note": "",
-  "death_place_ar": "", "death_place_lat": "", "death_place_id": "",
-  "burial_place_ar": "", "burial_place_lat": "", "burial_place_id": "",
-  "madhhabs": [],
-  "nisbahs": [
-    {{"ar": "", "lat": "", "id": ""}}
-  ],
-  "laqabs": [
-    {{"type": "laqab", "ar": "", "lat": ""}}
-  ],
-  "activities": [
-    {{
-      "seq": 1, "type": "residence",
-      "place_ar": "", "place_lat": "", "id": "",
-      "date_h": "", "date_cert": "", "date_note": ""
-    }}
-  ],
-  "teachers": [
-    {{
-      "seq": 1,
-      "name": "", "id": "",
-      "method_id": "",
-      "field_id": "",
-      "text_ar": "", "text_lat": "", "text_id": "",
-      "learn_date": "",
-      "learn_place_ar": "", "learn_place_lat": "", "learn_place_id": ""
-    }}
-  ],
-  "students": [
-    {{
-      "seq": 1,
-      "name": "", "id": "",
-      "method_id": "",
-      "field_id": "",
-      "text_ar": "", "text_lat": "", "text_id": "",
-      "teach_date": "",
-      "teach_place_ar": "", "teach_place_lat": "", "teach_place_id": ""
-    }}
-  ],
-  "institutions": [
-    {{"seq": 1, "name_ar": "", "name_lat": "", "type": "study", "id": ""}}
-  ],
-  "offices": [
-    {{
-      "seq": 1, "name_ar": "", "name_lat": "", "id": "",
-      "place_ar": "", "place_lat": "", "place_id": "",
-      "inst_name": "", "inst_id": "",
-      "appoint_date": "", "retire_date": ""
-    }}
-  ],
-  "bio_events": [
-    {{
-      "seq": 1,
-      "type": "",
-      "date_h": "", "date_cert": "", "date_note": "",
-      "place_ar": "", "place_lat": "", "place_id": "",
-      "description": ""
-    }}
-  ],
-  "social_relations": [
-    {{
-      "seq": 1,
-      "type": "", "type_other": "",
-      "person_name": "", "person_id": "",
-      "description": ""
-    }}
-  ],
-  "family": [
-    {{
-      "relation": "father",
-      "name": "", "id": ""
-    }}
-  ],
-  "translation_jp": "",
-  "translation_en": ""
-}}
-
-Text: {source_input}
-"""
-                    response = model.generate_content(prompt)
-                    raw = re.sub(r"```json|```", "", response.text).strip()
+                    prompt = build_analyze_prompt(id_master_text, source_input)
+                    if prompt is None:
+                        st.error("解析プロンプト(prompt_analyze.txt)を読み込めません。app.py と同じディレクトリに配置してください。")
+                        st.stop()
+                    _resp_text, _model_name, _err = genai_generate_text(prompt)
+                    if _err:
+                        st.error(f"解析エラー: {_err}(モデル: {_model_name or '未取得'})")
+                        st.stop()
+                    raw = re.sub(r"```json|```", "", _resp_text).strip()
                     m = re.search(r"\{.*\}", raw, re.DOTALL)
                     if m:
                         json_str = m.group()
@@ -2335,11 +2106,18 @@ Text: {source_input}
 
                         apply_prompt_result(d, res)
 
+                        _q = st.session_state.get("_last_quarantine", [])
+                        if _q:
+                            st.warning(
+                                f"⚠️ 生成モデルが返した {len(_q)} 件の TMP 番号を"
+                                "検疫しました(ID-Master 未登録または別人流用)。"
+                                "解析結果内で該当欄を確認してください。"
+                            )
                         st.success("解析完了")
                         st.rerun()
                     else:
                         st.error("JSON抽出失敗")
-                        st.text(response.text[:400])
+                        st.text((_resp_text or "")[:400])
                 except Exception as e:
                     st.error(f"エラー: {e}")
         else:
@@ -2452,24 +2230,61 @@ _ver_col.markdown(
 )
 
 # === ツールバー(翻字補完 / ID 照合 / 採番更新 / クリア) ===
-clr_c1, clr_c2, clr_c3, clr_c4, clr_c5 = st.columns([0.40, 0.15, 0.15, 0.15, 0.15])
+clr_c1, clr_c2, clr_c3, clr_c5 = st.columns([0.40, 0.20, 0.20, 0.20])
 with clr_c2:
     if st.button("↗ 翻字を一括補完", use_container_width=True,
                  help="空のラテン欄を IJMES 翻字で一括補完(既存の入力は保持)"):
         transliterate_empty_latin_fields(d)
 with clr_c3:
-    if st.button("🔎 ID-Master 照合", use_container_width=True,
-                 help="ID-Master と完全一致照合し、未確定の ID 欄に自動で値を入れる"):
-        apply_id_master_matching(d)
-        st.rerun()
-with clr_c4:
-    if st.button("🔢 採番を更新", use_container_width=True,
-                 help="プレースホルダー(TMP-X-00000)を空き番号で採番"):
-        auto_assign_tmp_ids_in_data(d)
+    if st.button("🔄 ID再チェック", use_container_width=True,
+                 help="幻番号を検疫 → ID-Master 照合 → 未確定欄(名前あり)に NEEDID 付与。"
+                      "解析後に手でエントリを足したときに実行してください"):
+        scrub_entry_serial_artifacts(d)     # 立項番号の混入を検出(v20.11)
+        drop_generic_collective_entries(d)  # جماعة等の汎称エントリを除去(v20.11)
+        verify_and_quarantine_tmp_ids(d)    # 幻番号を差し戻す
+        verify_and_quarantine_wd_gn_ids(d)  # wd/gn 毒IDを検疫(v20.11)
+        apply_id_master_matching(d)         # 名前一致で既存IDを付与
+        mark_unresolved_ids_in_data(d)      # 残りにNEEDID(末尾でst.rerun)
 with clr_c5:
     if st.button("🗑️ 入力をクリア", use_container_width=True,
                  help="入力した全データをクリアします"):
         st.session_state["_show_clear_confirm"] = True
+
+# === 検疫レポート(直近の解析/ID再チェック。st.rerun 後も session_state から表示) v20.11 ===
+_reports = st.session_state.get("_last_reports") or {}
+_rep_counts = {
+    "立項番号": len(_reports.get("serial") or []),
+    "汎称語除去": len(_reports.get("generics") or []),
+    "TMP検疫": len(_reports.get("tmp_quarantine") or []),
+    "wd/gn検疫": len(_reports.get("wd_quarantine") or []),
+    "wd/gn要照合": len(_reports.get("wd_review") or []),
+}
+if any(_rep_counts.values()):
+    _summary = " / ".join(f"{k}: {v}件" for k, v in _rep_counts.items() if v)
+    with st.expander(f"🛡️ 検疫レポート — {_summary}", expanded=True):
+        for q in _reports.get("serial") or []:
+            st.caption(f"• [立項番号] [{q.get('field')}] {q.get('msg')}")
+        for q in _reports.get("generics") or []:
+            st.caption(f"• [汎称語] [{q.get('section')}] 「{q.get('name')}」を除去")
+        for q in _reports.get("tmp_quarantine") or []:
+            st.caption(
+                f"• [TMP検疫] [{q.get('section')}.{q.get('field')}] "
+                f"「{q.get('name') or '(名前空欄)'}」← {q.get('bad_id')} を NEEDID/プレースホルダーに差し戻し"
+            )
+        for q in _reports.get("wd_quarantine") or []:
+            _sug = f" → 候補: {q.get('suggest')}" if q.get("suggest") else ""
+            st.caption(
+                f"• [wd/gn検疫] [{q.get('section')}.{q.get('field')}] "
+                f"「{q.get('name') or '(名前空欄)'}」← {q.get('bad_id')}({q.get('reason')}){_sug}"
+            )
+        for q in _reports.get("wd_review") or []:
+            st.caption(
+                f"• [要照合] [{q.get('section')}.{q.get('field')}] "
+                f"「{q.get('name')}」= {q.get('id')} — WebSearch で実item名を照合してください"
+            )
+        if st.button("レポートを確認済みにする", key="_dismiss_reports"):
+            st.session_state["_last_reports"] = {}
+            st.rerun()
 
 if st.session_state.get("_show_clear_confirm"):
     st.warning("⚠️ 全ての入力データがクリアされます。本当によろしいですか?")
@@ -4115,6 +3930,15 @@ def build_xml(d):
     return "\n".join(x)
 
 xml_str = build_xml(d)
+
+# NEEDID 残留チェック: 校閲での ID 付与が未完の欄があれば警告。
+_needid_count = xml_str.count(NEEDID_MARKER)
+if _needid_count:
+    st.warning(
+        f"⚠️ この XML には未付与の ID マーカー（{NEEDID_MARKER}）が {_needid_count} 件残っています。"
+        "校閲工程で AIND 同定または新規 TMP 付与を行ってください（`grep NEEDID` で該当箇所を確認できます）。"
+    )
+
 st.code(xml_str, language="xml")
 
 # === ダウンロード / コピー ボタン ===
