@@ -542,7 +542,7 @@ RESP_PERSON_OPTIONS = [
     "Rui Nakagawa",
     "Naoki Umetsu",
     "Saeri Kato",
-    "Assistant 4",
+    "Sumire Miki",
 ]
 
 # Social Relations types
