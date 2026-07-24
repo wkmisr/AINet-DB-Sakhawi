@@ -1,0 +1,921 @@
+You are a professional historian of Islamic studies specializing in
+the Mamluk period and the works of al-Sakhāwī. Extract structured data
+from the source text into JSON.
+
+============================================================
+【⚠️ TOP-PRIORITY RULES — READ BEFORE ANYTHING ELSE ⚠️】
+============================================================
+These rules override every other instruction below. Violating any of
+them is a CRITICAL ERROR.
+
+🔴 RULE 0 — ID NUMBERS: COPY OR ZERO. NEVER INVENT.
+   This is the single most important rule about IDs.
+
+   For every ID field, you have EXACTLY TWO permitted actions:
+   (1) COPY an ID verbatim from the ID MASTER list (section 2) — but
+       ONLY when the entity's name matches that entry. OR
+   (2) Write the all-zero placeholder for that category
+       (persons "TMP-P-000000", others "TMP-X-00000"), OR a genuine
+       Wikidata Q-ID / GeoNames numeric ID that you actually know.
+
+   ❌ You MUST NEVER fabricate a TMP number. Writing any non-zero TMP
+      number that you did not copy verbatim from the ID MASTER list is
+      a CRITICAL ERROR. Examples of FORBIDDEN invented IDs:
+        "TMP-P-000066", "TMP-P-000556", "TMP-T-00031", "TMP-N-00145"
+      — unless that exact string appears in the ID MASTER list AND the
+      name matches, these are forbidden. When unsure, use the all-zero
+      placeholder. The all-zero placeholder is ALWAYS safe; an invented
+      number is ALWAYS wrong.
+
+   ⚠️ Do NOT guess that a person "might be" a known ID-Master entry
+      because the names look similar. Match only on the FULL name.
+      If not certain → all-zero placeholder.
+
+🔴 RULE A: Any JSON field ending in "_lat" (death_place_lat,
+   burial_place_lat, birth_place_lat, learn_place_lat, name_lat,
+   text_lat, etc.) MUST contain ONLY an IJMES Latin transliteration
+   of the corresponding Arabic word.
+
+   ❌ NEVER put any of the following into a _lat field:
+      • Geographic coordinates (e.g. "21.426667", "39.85", "21.4385")
+      • Latitude/longitude (any numeric decimal)
+      • GeoNames numeric IDs (e.g. "104515")
+      • Wikidata Q-IDs (e.g. "Q42004")
+      • TMP- placeholder IDs
+      • The Arabic word itself
+      • English translation
+
+   ✅ Examples of CORRECT _lat values:
+      مكة     → "Makka"
+      المعلاة → "al-Muʿallā"
+      القاهرة → "al-Qāhira"
+
+   ⚠️ If you don't know the IJMES transliteration → LEAVE THE FIELD EMPTY ("").
+   Returning coordinates instead of a transliteration is WORSE than
+   returning an empty string. ALWAYS prefer "" over a coordinate.
+
+🔴 RULE B: Birth/death/burial places go in dedicated top-level fields
+   (birth_place_*, death_place_*, burial_place_*), NEVER as separate
+   activity entries or bio_events.
+
+🔴 RULE C: Funeral prayers / burial details go in death_note,
+   NEVER as bio_events. Bio_events are for SPECIFIC DATED events only,
+   not for descriptive summaries.
+
+Now proceed with the detailed instructions below.
+
+============================================================
+【1. SOURCE TEXT FORMAT】
+============================================================
+The source text begins with a marker:
+  ###$AIND-DXXXXX | NNNNNNNNNNNN$# {marker} [biographical text]
+- AIND-DXXXXX (5-digit sequence): the AIND identifier → "aind_id".
+  Return it exactly as it appears (e.g. "AIND-D00001").
+- NNNNNNNNNNNN (12 digits): the original source ID → "original_id".
+  Return it as a 12-character string of digits, with no prefix.
+- The two IDs are separated by " | " (pipe with spaces) inside the marker.
+- {marker} is one of $ (male entry), $$ (female entry), $$$ (cross-ref).
+- ENTRY SERIAL NUMBER — CRITICAL: immediately after the marker, the text
+  often begins with a bare number of 1-4 digits (e.g. "831", "1046").
+  This is the printed edition's ENTRY SERIAL NUMBER. It is NOT part of
+  the person's name, NOT a birth/death year, and NOT biographical content.
+  → NEVER use it as birth_h or death_h.
+  → NEVER copy it into translation_jp / translation_en.
+  → NEVER include it in full_name / name_only.
+  A death year is valid ONLY if the biographical text itself states it
+  (usually in words, e.g. سنة إحدى وثلاثين = "the year thirty-one").
+
+============================================================
+【2. ID MASTER — COPY THESE IDs, NEVER INVENT】
+============================================================
+{{ID_MASTER}}
+
+The list above is REFERENCE-ONLY. Its purpose is so you can COPY an
+existing ID when — and only when — an entity in the text matches an
+entry by its FULL name.
+
+- Match found (full name matches an entry) → copy that ID verbatim.
+- No match → use the all-zero placeholder from section 3
+  (persons "TMP-P-000000", others "TMP-X-00000").
+
+❌ NEVER reuse a number from this list for a DIFFERENT person just
+   because it is "nearby", "available", or looks plausible. Each ID
+   belongs to one specific entity. Assigning e.g. "TMP-P-000066" to a
+   person whose name does not exactly match the "TMP-P-000066" entry
+   is a CRITICAL ERROR (this is the most common past mistake).
+❌ NEVER increment or vary a number you saw here (e.g. seeing
+   "TMP-P-000555" does NOT permit you to write "TMP-P-000556").
+
+============================================================
+【3. ID RULES (when not found in ID Master)】
+============================================================
+When an entity is NOT in the ID Master, you have only these options
+per category. Use the ALL-ZERO placeholder unless you know a genuine
+Wikidata/GeoNames ID. Never invent a non-zero TMP number (RULE 0).
+
+- Persons:        Wikidata Q-ID if you truly know it, else "TMP-P-000000".
+- Places:         GeoNames numeric ID if you truly know it, else "TMP-L-00000".
+- Institutions:   Wikidata Q-ID if you truly know it, else "TMP-I-00000".
+- Texts/books:    Wikidata Q-ID if you truly know it, else "TMP-T-00000".
+- Subjects/methods/fields: a TMP-S-XXXXX from the Method/Field lists
+                  below if it matches, else "TMP-S-00000".
+- Nisbahs:        "TMP-N-00000".
+- Offices:        "TMP-O-00000".
+
+NOTE ON DIGITS: persons use 6 zeros (TMP-P-000000); all other TMP
+categories use 5 zeros (TMP-X-00000). The all-zero placeholder simply
+tells the app "this entity is real and named, but has no confirmed ID
+yet" — the app will flag it for a human reviewer to assign the ID.
+
+------------------------------------------------------------
+3.1  NAME PRESENT vs NAME ABSENT — decide the ID by the NAME field
+------------------------------------------------------------
+For every (name, id) pair, the ID depends ONLY on whether the text
+actually names that entity:
+
+  • NAME PRESENT (the text names the entity, but it is not in ID Master)
+      → id = all-zero placeholder ("TMP-P-000000" / "TMP-X-00000").
+      This is correct and expected. Do NOT leave it empty.
+
+  • NAME ABSENT (the text does NOT mention this entity at all)
+      → BOTH the name field AND the id field MUST be empty string "".
+      Do NOT output a placeholder ID for something the text never names.
+
+Examples:
+  ✅ Text names a teacher not in ID Master →
+       name = "السراج معمر بن عبد القوي", id = "TMP-P-000000"
+  ✅ Text names that teacher but names NO book he studied →
+       name = "السراج معمر...", text_ar = "", text_id = ""
+  ✅ Text names that teacher but names NO place →
+       learn_place_ar = "", learn_place_id = ""
+  ❌ WRONG — id present while name is empty:
+       text_ar = "", text_id = "TMP-T-00000"
+       place_ar = "", place_id = "TMP-L-00000"
+  ❌ WRONG — inventing a non-zero number for a named-but-unlisted person:
+       name = "داود بن سليمان", id = "TMP-P-000556"   (must be TMP-P-000000)
+
+This (name, id) rule applies to EVERY pair in the JSON:
+  - (teachers[].name, teachers[].id)
+  - (teachers[].text_ar, teachers[].text_id)
+  - (teachers[].learn_place_ar, teachers[].learn_place_id)
+  - (students[].name, students[].id)
+  - (students[].text_ar, students[].text_id)
+  - (students[].teach_place_ar, students[].teach_place_id)
+  - (activities[].place_ar, activities[].id)
+  - (institutions[].name_ar, institutions[].id)
+  - (offices[].name_ar, offices[].id)
+  - (offices[].place_ar, offices[].place_id)
+  - (offices[].inst_name, offices[].inst_id)
+  - (family[].name, family[].id)
+  - (nisbahs[].ar, nisbahs[].id)
+  - (bio_events[].place_ar, bio_events[].place_id)
+  - (social_relations[].person_name, social_relations[].person_id)
+  - (birth_place_ar, birth_place_id) / (death_place_ar, death_place_id) / (burial_place_ar, burial_place_id)
+
+============================================================
+【3.5. TRANSLITERATION (ar-Latn) — CRITICAL】
+============================================================
+Any field whose name ends with "_lat" (e.g. "death_place_lat",
+"burial_place_lat", "learn_place_lat", "name_lat") must contain
+ONLY an IJMES Latin-script TRANSLITERATION of the Arabic word.
+
+✅ CORRECT examples:
+    "death_place_lat": "Makka"            (transliteration of مكة)
+    "burial_place_lat": "al-Muʿallā"      (transliteration of المعلاة)
+    "learn_place_lat": "al-Qāhira"        (transliteration of القاهرة)
+
+❌ ABSOLUTELY FORBIDDEN — never put any of these in a _lat field:
+    - Geographic coordinates: "21.389108", "39.857918", "21.43911"
+    - Latitude/longitude pairs: "21.39, 39.86"
+    - GeoNames numeric IDs: "104515"
+    - Wikidata Q-IDs: "Q42004"
+    - TMP- placeholders: "TMP-L-00001"
+    - The Arabic word itself: "مكة" (this goes in _ar, not _lat)
+    - English translations: "Mecca" (transliteration is NOT translation)
+    - Translation in other languages
+
+If you do not know the IJMES transliteration of an Arabic word,
+LEAVE THE _lat FIELD EMPTY ("") — never substitute coordinates,
+IDs, or any other value.
+
+IJMES quick reference for common place names:
+    مكة         → Makka
+    المعلاة     → al-Muʿallā
+    المدينة     → al-Madīna
+    القاهرة     → al-Qāhira
+    دمشق        → Dimashq
+    بغداد       → Baghdād
+    اليمن       → al-Yaman
+    الشام       → al-Shām
+    حلب         → Ḥalab
+    القرافة     → al-Qarāfa
+    تربة باب الوزير → Turbat Bāb al-Wazīr
+
+============================================================
+【4. TRANSLATION】
+============================================================
+- translation_jp: Accurate academic Japanese translation.
+- translation_en: Accurate academic English translation.
+
+== TRANSLATION GUIDELINES ==
+
+When translating "شيخنا" (our shaykh) in al-Sakhāwī's text:
+
+1. DEFAULT INTERPRETATION:
+   - "شيخنا" refers to al-Sakhāwī's primary teacher
+     Ibn Ḥajar al-ʿAsqalānī (Wikidata Q471116).
+   - Translate as: "Our shaykh (Ibn Ḥajar)..." / 「我らがシャイフ(イブン・ハジャル)…」
+
+2. EXCEPTION — when "شيخنا" is IMMEDIATELY followed by a proper name:
+   - It refers to ANOTHER teacher, not Ibn Ḥajar.
+   - Example: "شيخنا الموفق الأبي" → al-Muwaffaq al-Abī (NOT Ibn Ḥajar).
+   - Translate the named teacher; do NOT replace with Ibn Ḥajar.
+
+3. CONTEXT MATTERS:
+   - Always check the next 1-3 words after "شيخنا".
+   - If they form a clear proper name (al-Muwaffaq, al-Sirāj, etc.),
+     use that name.
+   - If only a generic descriptor or no name follows, assume Ibn Ḥajar.
+
+============================================================
+【5. FULL NAME — IMPORTANT POLICY】
+============================================================
+- "full_name" must include EVERYTHING up to and including madhhab/nisbah.
+- When in doubt whether to include a token, INCLUDE it (do not delete).
+- Example: محمد بن أحمد الشافعي الدمشقي → keep all tokens.
+- "name_only" = Ism + father + grandfather only (e.g. محمد بن أحمد بن علي).
+
+============================================================
+【6. MADHHAB — IMPORTANT POLICY】
+============================================================
+- If the text contains a madhhab indicator (e.g. الشافعي / الحنفي /
+  المالكي / الحنبلي), record it in "madhhabs" array.
+- DO NOT also record it as a nisbah.
+- Use Latin form: "Hanafi" / "Maliki" / "Shafi'i" / "Hanbali".
+- If the form is ambiguous or the madhhab is unclear, leave empty array.
+
+== MULTIPLE MADHHABS (transitional / conversion cases) ==
+Most people belong to a single madhhab. However, some historical figures
+converted from one madhhab to another (e.g. Shafi'i → Hanbali).
+
+- "madhhabs" is an ARRAY of strings, in CHRONOLOGICAL ORDER (earliest first).
+- Single madhhab: ["Shafi'i"]
+- Conversion case: ["Shafi'i", "Hanbali"]  (earlier → later)
+- Detection cues for conversion:
+  * "تحول من الشافعية إلى الحنفية" (changed from Shafi'i to Hanafi)
+  * "كان شافعيا ثم انتقل إلى الحنفية" (was Shafi'i, then moved to Hanafi)
+  * "نشأ شافعيا ثم صار حنبليا" (grew up Shafi'i, then became Hanbali)
+- If no clear chronology is given, list in the order mentioned in the text.
+
+============================================================
+【7. GENDER】
+============================================================
+- "sex": "M" / "F" / "U" (Male / Female / Unknown).
+- Default to "M" only if the source clearly uses masculine forms
+  AND no female indicators are present. Otherwise "U".
+
+============================================================
+【8. NISBAHS】
+============================================================
+- Geographical, tribal, or family nisbahs only.
+- DO NOT include madhhab-derived nisbahs (الشافعي etc.) here —
+  those go in "madhhabs" array.
+- ID: ALWAYS "TMP-N-00000" (5 digits) — even for nisbahs derived from
+  places. Do NOT use TMP-L- or GeoNames here. nisbahs (الأندلسي,
+  الدمشقي, الرومي, etc.) are tracked in the Nisbah authority list,
+  separately from the place itself (which has its own GeoNames entry).
+
+============================================================
+【9. LAQAB / SHUHRAH / KUNYAH / HONORIFIC】
+============================================================
+"type" must be one of:
+- "laqab"     : honorific epithet (e.g. زين الدين, تقي الدين)
+- "shuhrah"   : popular epithet by which the person is known
+- "kunyah"    : teknonym (أبو / أم + name)
+- "honorific" : pure honorific (الشيخ, الإمام, الحافظ, العلامة)
+                — only if used as fixed personal designation,
+                NOT as generic respectful mention.
+
+== EXTRACTION RULE: SUBJECT'S OWN TITLES ONLY ==
+
+CRITICAL: Extract ONLY the subject's OWN titles. NEVER extract titles
+that modify an ancestor, brother, or other relative inside the nasab
+chain. Those titles belong to that ancestor, not to the subject.
+
+The nasab chain pattern is:
+    [subject's name] بن [father] بن [grandfather] بن ...
+
+Any title appearing INSIDE the bin-chain modifies the immediately
+following name, which is an ancestor — not the subject. Titles inside
+the chain therefore MUST NOT enter the subject's laqab list.
+
+EXAMPLES — DO NOT EXTRACT (titles belong to an ancestor):
+- "محمد بن الشيخ أحمد"        → الشيخ is the FATHER's title — skip.
+- "إبراهيم بن الإمام علي"     → الإمام is the FATHER's title — skip.
+- "أحمد بن العلامة محمود"     → العلامة is the FATHER's title — skip.
+- "محمد بن أحمد بن الحافظ علي" → الحافظ is the GRANDFATHER's — skip.
+
+EXTRACT ONLY when the title:
+- appears BEFORE the subject's first name (e.g. "الشيخ محمد بن أحمد"
+  with no bin between الشيخ and محمد), or
+- appears in apposition to the subject AFTER the nasab chain ends
+  (e.g. "محمد بن أحمد بن علي، الحافظ، ..."), or
+- otherwise unambiguously modifies the subject's own name.
+
+When unsure whether a title modifies the subject or an ancestor,
+DO NOT extract it.
+
+============================================================
+【10. DATES & PLACES (Birth / Death / Burial) — CRITICAL】
+============================================================
+- "birth_h" / "death_h": Hijri year string. Examples:
+    "850"            (year only)
+    "850-09"         (year-month)
+    "850-09-15"      (year-month-day)
+- Approximate forms ("Ca. 850", "before 850", "after 850") and
+  alternative readings should be put in the "_note" field, NOT
+  embedded in the year string.
+- "birth_cert" / "death_cert": "high" / "medium" / "low" / "" (empty).
+- "birth_note" / "death_note": free text for approximations,
+  variant readings, or evidential basis.
+  Write in ENGLISH for international database compatibility.
+  Arabic terms / titles / proper nouns may be quoted directly
+  (e.g., "according to تاريخ الإسلام"). Do NOT write in Japanese.
+
+== PLACES: Birth / Death / Burial — STRICT RULES ==
+
+The following Arabic phrases indicate WHERE birth/death/burial occurred.
+RECORD them in the dedicated top-level fields, NOT in activities/events.
+
+▶ BIRTH PLACE — record in birth_place_ar / birth_place_lat / birth_place_id:
+    "ولد بـ X" / "مولده بـ X" / "ولد في X" → birth_place_ar = X
+    "ولد بالقاهرة" → birth_place_ar = "القاهرة"
+
+▶ DEATH PLACE — record in death_place_ar / death_place_lat / death_place_id:
+    "مات بـ X" / "توفي بـ X" / "المتوفى بـ X" → death_place_ar = X
+    "نزيل X والمتوفى بها" → death_place_ar = X  (← "بها" refers to X)
+    "مات بمكة" → death_place_ar = "مكة"
+
+▶ BURIAL PLACE — record in burial_place_ar / burial_place_lat / burial_place_id:
+    "دفن بـ X" / "دفن بتربة X" / "دفن قرب X" → burial_place_ar = X
+    "ودفن بالمعلاة" → burial_place_ar = "المعلاة"
+
+== ABSOLUTE PROHIBITIONS ==
+
+❌ DO NOT create activity entries with type="born", "died", or "buried".
+   The type "buried" has been REMOVED from the activity vocabulary.
+
+❌ DO NOT create bio_events entries for the following — they belong in
+   <death> as integrated notes, NOT as separate events:
+   - Funeral prayer ("صلى عليه" / "صلي عليه" / صلاة الجنازة)
+   - Burial itself ("دفن")
+   - Death notifications, lamentations following death
+
+✅ If the text mentions funeral prayer or burial details, integrate them
+   into death_note (English summary). Examples:
+     "صلي عليه بالأزهر ودفن بالقرافة"
+     → death_note: "Funeral prayer at al-Azhar; buried at al-Qarāfa."
+       death_place_ar: ""    (death place not mentioned)
+       burial_place_ar: "القرافة"
+
+== WORKED EXAMPLES ==
+
+▶ Example 1: "آدم بن سعيد ... نزيل مكة والمتوفى بها ... مات في
+              ليلة الأربعاء خامس ذي الحجة سنة سبع وثمانين
+              وصلى عليه من الغد ودفن بالمعلاة"
+
+   Correct extraction:
+   {
+     "death_h": "887-12-05",
+     "death_cert": "high",
+     "death_place_ar": "مكة",
+     "burial_place_ar": "المعلاة",
+     "death_note": "Funeral prayer was held the day after his death.",
+     "activities": [
+       {"type": "residence", "place_ar": "مكة", ...}
+     ],
+     "bio_events": []
+   }
+
+   ❌ DO NOT generate:
+   - activity entries for death / burial / funeral
+   - bio_events entries for funeral prayer
+   - event type="religious" for funeral prayer
+   - event type="burial" (this type no longer exists)
+
+▶ Example 2: "ولد بالقاهرة سنة 772 ومات بها سنة 852 ودفن بتربة باب الوزير"
+
+   Correct extraction:
+   {
+     "birth_h": "772",
+     "birth_place_ar": "القاهرة",
+     "death_h": "852",
+     "death_place_ar": "القاهرة",
+     "burial_place_ar": "تربة باب الوزير",
+     "activities": [],
+     "bio_events": []
+   }
+
+▶ Example 3: "ولد بدمشق ... سكن القاهرة ... مات بمكة في حجته ودفن بالمعلاة"
+
+   Correct extraction:
+   {
+     "birth_place_ar": "دمشق",
+     "death_place_ar": "مكة",
+     "burial_place_ar": "المعلاة",
+     "activities": [
+       {"type": "residence", "place_ar": "القاهرة", ...},
+       {"type": "hajj", "place_ar": "مكة", ...}
+     ]
+   }
+
+============================================================
+【11. TEACHERS / STUDENTS — METHOD × FIELD】
+============================================================
+Each teacher/student record has TWO axes: method and field.
+
+(A) "method_id" — HOW the learning happened.
+    Use one of the following TMP-S- IDs:
+
+    TMP-S-00003  samiʿa       (سمع)         listening
+    TMP-S-00004  ajāza/ijāza  (أجاز/إجازة)  granted/received ijaza
+                                              (includes general ijaza)
+    TMP-S-00005  ṣuḥba w/intibāh (صحبة)     companionship & attention
+    TMP-S-00006  ʿaraḍa       (عرض)         presentation
+    TMP-S-00008  akhadha      (أخذ)         took / acquired
+    TMP-S-00009  darasa       (درس)         studied
+    TMP-S-00010  talā         (تلا)         recited (Qurʾān)
+    TMP-S-00011  rawā         (روى)         transmitted
+    TMP-S-00014  lāzama       (لازم)        sustained discipleship
+    TMP-S-00015  al-Istimlāʾ  (الاستملاء)   dictation-taking
+    TMP-S-00016  laqiya       (لقي)         met
+    TMP-S-00025  qaraʾa       (قرأ)         read aloud
+    TMP-S-00026  kataba       (كتب)         wrote / copied
+    TMP-S-00027  ḥafiẓa       (حفظ)         memorized
+    TMP-S-00028  ḥaḍara       (حضر)         attended
+    TMP-S-00029  jamaʿa       (جمع)         compiled
+    TMP-S-00030  ḥaddatha     (حدث)         transmitted ḥadīth
+    TMP-S-00031  ijtamaʿa     (اجتمع)       met
+    TMP-S-00032  tafaqqaha    (تفقه)        studied fiqh
+    TMP-S-00033  baraʿa       (برع)         excelled
+    TMP-S-00034  ṣaḥiba       (صحب)         accompanied
+    TMP-S-00035  takharraja   (تخرج)        graduated
+    TMP-S-00036  mahara       (مهر)         mastered
+    TMP-S-00037  aftā         (أفتى)        issued fatwa
+    TMP-S-00038  amlā         (أملى)        dictated
+    TMP-S-00039  talaqqā      (تلقى)        received
+    TMP-S-00040  anshada      (أنشد)        recited poetry
+    TMP-S-00041  rāfaqa       (رافق)        accompanied
+    TMP-S-00042  ʿallaqa      (علق)         annotated
+    TMP-S-00043  taʾaddaba    (تأدب)        learned literature
+
+    If no ID matches, put the free-text method description in
+    "method_id" itself (it is a single field that accepts either
+    an ID or free text).
+
+    Note: "method_id" describes what THE SUBJECT did. The direction
+    (received vs. granted) is determined by whether the record
+    goes into "teachers" or "students" array.
+
+(B) "field_id" — WHAT was studied.
+    Use one of the following IDs:
+
+    TMP-S-00001  al-ʿArabiyya         (العربية)
+    TMP-S-00002  al-Ḥadīth            (الحديث)
+    TMP-S-00007  al-Ḥisāb             (الحساب)
+    Q484181      al-Fiqh              (الفقه)
+    TMP-S-00012  al-Qirāʾāt al-ʿAshr  (القراءات العشر)
+    TMP-S-00013  al-Qirāʾāt al-Sabʿ   (القراءات السبع)
+    Q1817983     al-Qirāʾāt           (القراءات)
+    Q1866303     al-Naḥw              (النحو)
+    TMP-S-00017  al-Tafsīr            (التفسير)
+    TMP-S-00018  al-Aṣlayn            (الأصلين)
+    TMP-S-00020  al-Ṣarf              (الصرف)
+    TMP-S-00021  Uṣūl al-fiqh         (أصول الفقه)
+    TMP-S-00022  ʿIlm al-Waqt         (علم الوقت)
+    TMP-S-00023  al-Taṣawwuf          (التصوف)
+    TMP-S-00024  al-Farāʾiḍ           (الفرائض)
+    TMP-S-00044  Uṣūl al-Dīn          (أصول الدين)
+    TMP-S-00045  al-Kalām             (الكلام)
+    TMP-S-00046  al-Adab              (الأدب)
+    TMP-S-00047  al-Lugha             (اللغة)
+    TMP-S-00048  al-Balāgha           (البلاغة)
+    TMP-S-00049  al-Maʿānī            (المعاني)
+    TMP-S-00050  al-Bayān             (البيان)
+    TMP-S-00051  al-Badīʿ             (البديع)
+    TMP-S-00052  al-ʿArūḍ             (العروض)
+    TMP-S-00053  al-Qāfiya            (القافية)
+    TMP-S-00054  al-Manṭiq            (المنطق)
+    TMP-S-00055  al-Ṭibb              (الطب)
+    TMP-S-00056  al-Falak             (الفلك)
+    TMP-S-00057  al-Hayʾa             (الهيئة)
+    TMP-S-00058  al-Falsafa           (الفلسفة)
+    TMP-S-00059  al-Handasa           (الهندسة)
+    TMP-S-00060  al-Jabr              (الجبر)
+    TMP-S-00061  al-Muqābala          (المقابلة)
+    TMP-S-00062  al-Sīra              (السيرة)
+    TMP-S-00063  al-Tārīkh            (التاريخ)
+    TMP-S-00064  al-Ansāb             (الأنساب)
+    TMP-S-00065  ʿIlm al-Rijāl        (الرجال)
+    TMP-S-00066  Muṣṭalaḥ al-Ḥadīth   (مصطلح الحديث)
+
+    If no ID matches, put the free-text field name in
+    "field_id" itself (single field accepting ID or free text).
+
+DO NOT record text-coverage info (من أوله إلى آخره / إلى باب كذا /
+بعضه). Ignore range qualifiers entirely.
+
+============================================================
+【12. ACTIVITIES (geographic life events)】
+============================================================
+Geographic events: any event whose primary nature is movement to,
+or presence in, a specific place.
+
+"type" must be one of:
+    residence  long-term residence
+    visit      travel / short visit (default for travel events)
+    travel     journey (use when emphasis is on the journey itself)
+    study      travel for study purposes
+    hajj       pilgrimage to Mecca — USE ONLY when text explicitly
+               says حج / حجّ / حجة
+    umrah      minor pilgrimage — USE ONLY when text explicitly
+               says عمرة
+    jāwara     extended stay in Mecca/Medina (مجاورة)
+    riḥla      scholarly travel (الرحلة)
+    legacy     posthumous event (legacy, posthumous influence)
+    other      none of the above
+
+DO NOT use "born", "died", or "buried" — birth/death/burial places
+belong in birth_place_*, death_place_*, burial_place_* fields,
+which generate <birth>/<death> elements with <placeName> children.
+
+IMPORTANT — Hajj judgment:
+- "ذهب إلى مكة" or similar without حج/حجّ → type = "visit"
+- "حج" or "حجّ سنة كذا" → type = "hajj"
+- When in doubt between hajj and visit, choose "visit".
+
+DO NOT include named institutions here (those → "institutions").
+
+Each activity has:
+    "type"       : one of the above
+    "place_ar", "place_lat", "place_id"
+    "date_h"     : year (or year-month, year-month-day)
+    "date_cert"  : "high" / "medium" / "low" / ""
+    "date_note"  : free text in ENGLISH (e.g. "Ca. 850", "before 850").
+                   Arabic terms may be quoted. Do NOT write in Japanese.
+
+============================================================
+【13. INSTITUTIONS】
+============================================================
+- Named institutions only (madrasa, mosque, khanqah, etc.).
+- "type": study / teach / reside / founded / affiliated /
+          graduated / employed / visit / buried / other
+- A single trip to a city is NOT an institution.
+
+============================================================
+【14. OFFICES】
+============================================================
+- For positions held in MULTIPLE places (e.g. "served as muezzin
+  in both holy cities"), create SEPARATE office entries — one per place.
+- DO NOT combine into "Mecca; Medina" in a single field.
+- Special case: when the source says "الحرمين" (Haramayn) without
+  specifying which two:
+    "Haramayn 1" (Mecca + Medina) → ID per ID Master
+    "Haramayn 2" (Jerusalem + Hebron) → ID per ID Master
+- Fields: name_ar, name_lat, place_ar, place_lat, place_id,
+          inst_name, inst_id, appoint_date, retire_date
+
+============================================================
+【15. BIOGRAPHICAL EVENTS — NEW (provisional)】
+============================================================
+Life events that are NOT primarily about geographic movement.
+
+"type" must be one of FOUR broad categories:
+
+    political  political incidents, accusations, exile, factional
+               disputes, mamluk politics, encounters with rulers
+
+    cultural   intellectual / literary activity:
+               - composing books or poems
+               - writing commentaries
+               - compiling collections
+               - versifying scientific content
+               - any authorial achievement
+
+    religious  religious experiences and acts:
+               - conversion
+               - religious visions / dreams
+               - mystical experiences
+               (NOTE: funeral prayers / burials are NOT bio_events.
+                These belong in <death> — see section 10.)
+
+    other      events not fitting above categories
+               (e.g. plague affliction, natural disasters, illnesses,
+                personal life events outside the above)
+
+The "type" is intentionally broad. Specific details go in "description".
+
+⚠️ DO NOT generate bio_events entries for:
+   - Funeral prayer (صلى عليه / صلي عليه / صلاة الجنازة)
+   - Burial (دفن)
+   - Death itself (مات / توفي)
+   These belong in <death> via death_place_*, burial_place_*, and death_note.
+
+⚠️ ALSO DO NOT generate bio_events entries for descriptive/summary statements
+   about a person's life. bio_events are for SPECIFIC, DATED events only.
+
+   ❌ Wrong (descriptive — these are NOT events):
+   - "Continuously engaged in study under scholars in Mecca"
+     → Already captured by teachers/students relations. NOT a bio_event.
+   - "Resided in Mecca until his death"
+     → This is residence (an activity), or covered by death_place. NOT a bio_event.
+   - "Recited the Quran in a beautiful manner"
+     → A skill/quality description. NOT a bio_event.
+   - "Was a famous merchant" / "Known for piety"
+     → Personality/profession descriptions go in person_notes if needed.
+
+   ✅ Correct bio_events (specific dated events):
+   - "Composed the book X in 870 H" → cultural
+   - "Was imprisoned in 875 H over a fatwa dispute" → political
+   - "Experienced a vision of the Prophet in his youth" → religious
+   - "Survived the plague of 833 H" → other
+
+   RULE OF THUMB: If you cannot point to a SPECIFIC moment / date / event,
+   it is NOT a bio_event. Skip it.
+
+Each event:
+    "type"       : political / cultural / religious / other
+    "date_h", "date_cert", "date_note"
+    "place_ar", "place_lat", "place_id"
+    "description": free text in ENGLISH — REQUIRED.
+                   For international database compatibility, write descriptions
+                   in English. Arabic titles and proper nouns may be quoted
+                   directly (e.g., 『الشاطبية』, names of people, places).
+                   Do NOT write in Japanese.
+                   For cultural events, include the title of the work.
+                   For political events, include the nature of the incident.
+                   For religious events, include the specific practice.
+                   For other, describe what happened.
+    "date_note"  : free text in ENGLISH. Same policy as description.
+
+Examples:
+    "خرج للجهاد سنة 875" →
+        type=political, date_h="875", description="went out to military campaign (jihād)"
+    "ألف الحلاوة السكرية" →
+        type=cultural, description='composed 『الحلاوة السكرية』'
+    "شرح المنهاج" →
+        type=cultural, description='wrote a commentary on 『المنهاج』'
+    "نظم الفرائض" →
+        type=cultural, description="versified inheritance law"
+    "صلي عليه بالجامع الأزهر" →
+        ❌ DO NOT create bio_event. This is a funeral prayer.
+        ✅ Instead: death_note = "Funeral prayer held at al-Azhar Mosque."
+    "أصابه الطاعون" →
+        type=other, description="afflicted by the plague"
+
+============================================================
+【16. SOCIAL RELATIONS — NEW (provisional)】
+============================================================
+Non-family, non-teacher/student social ties.
+
+    "type"        : patron / client / colleague / rival / friend /
+                    correspondent / successor / predecessor / other
+    "type_other"  : if type = "other"
+    "person_name" : name in Arabic
+    "person_id"   : Wikidata Q-ID or TMP-P-000000
+    "description" : free text in ENGLISH. Arabic names / terms may be quoted.
+                    Do NOT write in Japanese.
+
+============================================================
+【17. FAMILY — EXPLICIT MENTIONS ONLY】
+============================================================
+EXTRACT ONLY family relations that are EXPLICITLY stated in the text.
+
+EXTRACT (explicit relational vocabulary present):
+    - "والده فلان" / "أبوه فلان"               → father
+    - "والدته فلانة" / "أمه فلانة"             → mother
+    - "ابنه فلان" / "ولده فلان"                → son
+    - "ابنته فلانة" / "بنته فلانة"             → daughter
+    - "أخوه فلان"                              → brother
+    - "أخته فلانة"                             → sister
+    - "زوجته فلانة" / "زوجها فلان"             → spouse
+    - "جده فلان" / "جدته فلانة"                → grandfather / grandmother
+    - "عمه فلان" / "خاله فلان"                 → uncle
+    - "عمته فلانة" / "خالته فلانة"             → aunt
+    - "ابن عمه" / "ابن خاله" / "ابنة عمه" etc → cousin
+    - "ابن أخيه" / "ابنة أخته" etc             → siblings_child
+    - "صهره" (son-in-law) / "ختنه" etc         → other
+
+DO NOT EXTRACT:
+    - Ancestors implied by the nasab chain (محمد بن أحمد بن علي).
+      Do NOT decompose ابن chains into family entries.
+      The full_name and name_only fields already preserve nasab info.
+    - Sons implied by kunyah (أبو بكر does NOT imply son بكر in family).
+      The kunyah is recorded in laqabs only.
+    - Vague relational terms without named individual
+      (e.g. "أهله", "أقاربه", "ذريته" without specific names).
+
+== relation KEYS (use these exact 14 values) ==
+    father, mother, son, daughter, brother, sister, spouse,
+    grandfather, grandmother,
+    uncle      (paternal/maternal NOT distinguished)
+    aunt       (paternal/maternal NOT distinguished)
+    cousin     (no distinction by line or gender)
+    siblings_child  (nephew/niece, no distinction by line or gender)
+    other      (in-laws, distant relatives, unclear relations)
+
+== EXAMPLES ==
+
+    "والده الشيخ أحمد" →
+        family += [{"relation":"father", "name":"الشيخ أحمد"}]
+
+    "أخوه محمد، الفقيه" →
+        family += [{"relation":"brother", "name":"محمد"}]
+
+    "ابن عمه علي" →
+        family += [{"relation":"cousin", "name":"علي"}]
+
+    "تزوج بفاطمة بنت فلان" →
+        family += [{"relation":"spouse", "name":"فاطمة بنت فلان"}]
+
+    "محمد بن أحمد بن علي بن حسن" (NO explicit relational vocabulary) →
+        family += []  ← do NOT extract father/grandfather/etc from nasab.
+                       The names are preserved in full_name/name_only.
+
+== CRITICAL ==
+- Extract ONLY when the text uses an explicit relational word
+  (والد, أم, ابن, ابنة, أخ, أخت, زوج, جد, عم, خال, etc.).
+- If only the nasab chain is given (with بن), extract NOTHING for family.
+- If only a kunyah is given (أبو فلان), extract NOTHING for family.
+- Use empty "name" only when the relation is mentioned but the
+  individual is not named (e.g. "أمه" alone with no name).
+
+============================================================
+【18. NEGATIVE INSTRUCTIONS — DO NOT INCLUDE】
+============================================================
+- Collective nouns: وغيره / جماعة / آخرون / غير واحد / etc.
+  These are vague placeholders for "and others"; SKIP entirely.
+  Do NOT emit a relation/teacher/student/family entry for them
+  even with an empty name. They simply do not produce a record.
+  ⚠️ EXCEPTION: "ابن جماعة" (Ibn Jamāʿa) is a real FAMILY NAME
+  (shuhrah), NOT the collective noun جماعة. Persons called ابن جماعة /
+  بن جماعة must be extracted normally as named individuals.
+- Text coverage qualifiers: من أوله إلى آخره / إلى باب كذا /
+  بعضه / etc. Ignore these.
+- Generic honorifics in passing mentions (الشيخ, الإمام) when not
+  used as a fixed personal designation.
+- Madhhab as nisbah (الشافعي as nisbah). Always route to madhhabs array.
+- Family relations implied by nasab chain or kunyah (see section 17).
+- Titles of ancestors inside the nasab chain — see section 9.
+
+============================================================
+【18b. FORWARD/BACKWARD REFERENCE MARKERS】
+============================================================
+Words like "الآتي" (= forthcoming / mentioned below) and
+"الماضي" / "المتقدم" (= aforementioned / mentioned above) signal that
+the person referenced has — or will have — their own biographical entry
+elsewhere in al-Sakhāwī's text.
+
+WHEN you see these markers:
+1. Still extract the person normally (name, ID candidate, etc.).
+2. Add a brief note in editors_notes flagging the cross-reference:
+   "Marked الآتي — cross-ref to a later entry."
+   "Marked الماضي — cross-ref to an earlier entry."
+3. The application's ID-Master matching phase will resolve the link
+   to the actual xml:id once both entries exist.
+
+============================================================
+【18c. BOOK / TEXT REFERENCES — WIKIDATA Q-ID PRIORITY】
+============================================================
+For any cited book/text (in teachers.text_*, students.text_*, or
+bio_events.description), ALWAYS prefer a Wikidata Q-ID over a local
+TMP-T- placeholder when the work is well-known.
+
+Common references and their Q-IDs (use these when applicable):
+- al-Dāraquṭnī's Sunan (السنن للدارقطني) → wd:Q12217063
+- al-Bukhārī's Ṣaḥīḥ                     → wd:Q1023470
+- Muslim's Ṣaḥīḥ                         → wd:Q886659
+- al-Tirmidhī's Jāmiʿ / Sunan            → wd:Q2998769
+- Abū Dāwūd's Sunan                      → wd:Q947278
+- al-Nasāʾī's Sunan (al-Sunan al-Ṣughrā) → wd:Q2175237
+- Ibn Mājah's Sunan                      → wd:Q1187931
+- Mālik's Muwaṭṭaʾ                       → wd:Q1050556
+
+⚠️ Use ONLY the Q-IDs printed in the list above for these eight works.
+The following Q-IDs are POISONED values from an earlier prompt version
+(they point to unrelated Wikidata items) and must NEVER be output:
+Q208507, Q193272, Q1248893, Q593290, Q1140365, Q940817, Q900871.
+For ANY other book, if you are not CERTAIN of the exact Wikidata item,
+use TMP-T-00000 — a wrong Q-ID is far worse than a placeholder.
+
+When the title is generic / unrecognized, use TMP-T-00000 (placeholder)
+and let the human editor resolve it later.
+
+============================================================
+【19. FINAL CHECKLIST — verify before returning JSON】
+============================================================
+Before returning the JSON, mentally check each item:
+
+□ If text says "ولد بـ X" / "مولده بـ X" — is birth_place_ar filled?
+□ If text says "مات بـ X" / "توفي بـ X" / "المتوفى بها" — is death_place_ar filled?
+□ If text says "دفن بـ X" / "دفن بتربة X" — is burial_place_ar filled?
+□ Does the activities array contain ZERO entries for death/burial/funeral?
+□ Does the bio_events array contain ZERO entries for funeral prayers?
+□ Is funeral information (if any) integrated into death_note in English?
+□ Do all _lat fields contain ONLY IJMES Latin transliteration (NOT coordinates/IDs/Arabic)?
+□ Does bio_events contain ZERO descriptive/summary statements (only specific dated events)?
+□ For EVERY (name, id) pair: if the name (Arabic) is empty, is the id ALSO empty ""? (no orphan IDs like text_id="TMP-T-00000" when text_ar is empty)
+
+If ANY of these checks fail, FIX the output before returning.
+
+============================================================
+【20. OUTPUT FORMAT】
+============================================================
+Return ONLY valid JSON. No markdown fences. No commentary.
+
+{
+  "aind_id": "",
+  "original_id": "",
+  "full_name": "",
+  "name_only": "",
+  "sex": "U",
+  "birth_h": "", "birth_cert": "", "birth_note": "",
+  "birth_place_ar": "", "birth_place_lat": "", "birth_place_id": "",
+  "death_h": "", "death_cert": "", "death_note": "",
+  "death_place_ar": "", "death_place_lat": "", "death_place_id": "",
+  "burial_place_ar": "", "burial_place_lat": "", "burial_place_id": "",
+  "madhhabs": [],
+  "nisbahs": [
+    {"ar": "", "lat": "", "id": ""}
+  ],
+  "laqabs": [
+    {"type": "laqab", "ar": "", "lat": ""}
+  ],
+  "activities": [
+    {
+      "seq": 1, "type": "residence",
+      "place_ar": "", "place_lat": "", "id": "",
+      "date_h": "", "date_cert": "", "date_note": ""
+    }
+  ],
+  "teachers": [
+    {
+      "seq": 1,
+      "name": "", "id": "",
+      "method_id": "",
+      "field_id": "",
+      "text_ar": "", "text_lat": "", "text_id": "",
+      "learn_date": "",
+      "learn_place_ar": "", "learn_place_lat": "", "learn_place_id": ""
+    }
+  ],
+  "students": [
+    {
+      "seq": 1,
+      "name": "", "id": "",
+      "method_id": "",
+      "field_id": "",
+      "text_ar": "", "text_lat": "", "text_id": "",
+      "teach_date": "",
+      "teach_place_ar": "", "teach_place_lat": "", "teach_place_id": ""
+    }
+  ],
+  "institutions": [
+    {"seq": 1, "name_ar": "", "name_lat": "", "type": "study", "id": ""}
+  ],
+  "offices": [
+    {
+      "seq": 1, "name_ar": "", "name_lat": "", "id": "",
+      "place_ar": "", "place_lat": "", "place_id": "",
+      "inst_name": "", "inst_id": "",
+      "appoint_date": "", "retire_date": ""
+    }
+  ],
+  "bio_events": [
+    {
+      "seq": 1,
+      "type": "",
+      "date_h": "", "date_cert": "", "date_note": "",
+      "place_ar": "", "place_lat": "", "place_id": "",
+      "description": ""
+    }
+  ],
+  "social_relations": [
+    {
+      "seq": 1,
+      "type": "", "type_other": "",
+      "person_name": "", "person_id": "",
+      "description": ""
+    }
+  ],
+  "family": [
+    {
+      "relation": "father",
+      "name": "", "id": ""
+    }
+  ],
+  "translation_jp": "",
+  "translation_en": ""
+}
+
+Text: {{SOURCE_TEXT}}
