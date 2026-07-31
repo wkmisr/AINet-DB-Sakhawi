@@ -9,8 +9,8 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.11"
-APP_VERSION_DATE = "2026-07-24"
+APP_VERSION = "v20.11.1"
+APP_VERSION_DATE = "2026-07-31"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -1279,6 +1279,10 @@ WD_GN_DENYLIST = {
     "Q802521",   # B18破棄
     "Q23975569", # Barsbay madrasa 誤指し
     "Q6835017",  # ḥājib 照合不可
+    "Q282218",   # ABC motorcycles — المؤيد شيخ ではない(B28)
+    "Q412004",   # "D7" — الأشرف قايتباي ではない(B28)
+    "Q368154",   # Sigismund Báthory — الأزهر ではない(B26発覚。ID-Master「الأزهر」行が
+                 # 未清掃のため、マスタ照合(step3)より先に必ずここで捕捉する)
 }
 
 # 検疫時に校閲者へ提示する「正」候補(自動置換はしない。確認の上で採用)
@@ -1290,7 +1294,10 @@ WD_GN_SUGGESTIONS = {
     "Q1140365": "Q2175237 (Sunan al-Nasāʾī / al-Sunan al-Ṣughrā)",
     "Q940817":  "Q1187931 (Sunan Ibn Mājah)",
     "Q900871":  "Q1050556 (al-Muwaṭṭaʾ)",
-    "Q561280":  "Q557847 (Qāytbāy)",
+    "Q561280":  "AIND-D06305 + corresp=wd:Q557847 (Qāytbāy。D-3裁定=AIND優先)",
+    "Q282218":  "AIND-D03345 (al-Muʾayyad Shaykh)",
+    "Q412004":  "AIND-D06305 + corresp=wd:Q557847 (al-Ashraf Qāytbāy)",
+    "Q368154":  "Q312342 (al-Azhar)",
     "Q259":     "Q12836408 (Azerbaijan region)",
     "Q285077":  "AIND-D02178 (al-Ẓāhir Barqūq)",
     "Q470381":  "AIND-D03345 (al-Muʾayyad Shaykh)",
@@ -1305,7 +1312,8 @@ WD_ALLOWLIST = {
     "Q293604", "Q4664581", "Q4725309", "Q257745", "Q6798541", "Q12198099",
     "Q486080", "Q428858", "Q8462", "Q12836408",
     "Q82245", "Q160851", "Q191314", "Q48221",
-    "Q217029", "Q484181", "Q12227702", "Q1817983", "Q1866303", "Q368154",
+    "Q217029", "Q484181", "Q12227702", "Q1817983", "Q1866303",
+    # Q368154 は毒(Sigismund Báthory)と判明したため allowlist から denylist へ移動(v20.11.1)
 }
 
 # 照合済み GeoNames(handover 確定+B19照合分)
@@ -1325,6 +1333,15 @@ GN_PAIR_DENY = [
     ("سواكن", "105299"),   # Suakin に Jizan の gn を誤付与するパターン
     ("سوسه",  "2464917"),  # Sousse に別idを誤付与するパターン(正: 2464915)
 ]
+
+# wd で来ても AIND を正とする人物(B28 D-3裁定 2026-07-31: قايتباي)。
+# 検疫時に ID を AIND へ差替え、XML 出力時に corresp="wd:..." を自動付与する。
+WD_TO_AIND_REDIRECT = {
+    "Q557847": "AIND-D06305",   # al-Ashraf Qāytbāy(本伝同定=B28)
+}
+AIND_CORRESP = {
+    "AIND-D06305": "wd:Q557847",
+}
 
 _WD_ID_FORM_RE = re.compile(r"^(?:wd:)?(Q\d+)$")
 _GN_ID_FORM_RE = re.compile(r"^(?:gn:)?(\d+)$")
@@ -1372,6 +1389,14 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
                 "section": section, "field": id_field, "name": name_raw,
                 "bad_id": raw, "reason": "wd実item別物/照合不可(確定毒)",
                 "suggest": WD_GN_SUGGESTIONS.get(key, ""),
+            })
+            return
+        # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は build_xml が付与する
+        if mq and key in WD_TO_AIND_REDIRECT:
+            container[id_field] = WD_TO_AIND_REDIRECT[key]
+            review.append({
+                "section": section, "field": id_field, "name": name_raw,
+                "id": f"{raw} → {WD_TO_AIND_REDIRECT[key]}(+corresp {raw}。D-3裁定による自動差替)",
             })
             return
         # (2) geonames 既知誤指しペア
@@ -3927,7 +3952,15 @@ def build_xml(d):
     build_resp_stmts(x, d)
 
     x.append("</person>")
-    return "\n".join(x)
+    xml_out = "\n".join(x)
+    # D-3裁定(2026-07-31): AIND 優先人物の参照に corresp="wd:..." を自動付与
+    for _aind, _wd in AIND_CORRESP.items():
+        for _attr in ("active", "passive", "ref"):
+            xml_out = xml_out.replace(
+                f'{_attr}="#{_aind}"',
+                f'{_attr}="#{_aind}" corresp="{_wd}"',
+            )
+    return xml_out
 
 xml_str = build_xml(d)
 
