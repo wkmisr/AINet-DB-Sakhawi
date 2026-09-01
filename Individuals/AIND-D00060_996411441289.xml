@@ -24,27 +24,32 @@
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
         </relation>
         <!-- Students -->
-        <relation type="personal" subtype="student" n="1" active="#TMP-P-000034" passive="#AIND-D00060">
+        <relation type="personal" subtype="student" n="1" active="#AIND-D00060" passive="#TMP-P-000034">
             <desc xml:lang="ar">الحافظ ابن موسى</desc>
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="en">Met the subject and requested ijāza on behalf of the Banū Fahd and others (استجازه لبني فهد وغيرهم).</note>
-        </relation>
-        <relation type="personal" subtype="student" n="2" active="#TMP-P-000035" passive="#AIND-D00060">
+        <note xml:lang="ja">原文照合により方向を是正（2026-09-01）。相手方は伝主の弟子であり、伝主が師。旧版は active/passive が逆転していた。</note></relation>
+        <relation type="personal" subtype="student" n="2" active="#AIND-D00060" passive="#TMP-P-000035">
             <desc xml:lang="ar">الموفق الأبي</desc>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <note xml:lang="en">Referred to as "شيخنا" (our shaykh) by al-Sakhāwī — al-Muwaffaq al-Abī, NOT Ibn Ḥajar.</note>
-        </relation>
-        <relation type="personal" subtype="student" n="3" active="#TMP-P-000036" passive="#AIND-D00060">
-            <desc xml:lang="ar">النجم عمر</desc>
-            <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
-            <note xml:lang="en">Mentioned the subject in his own 『Muʿjam』 and in his father's 『Muʿjam』.</note>
-        </relation>
-        <relation type="personal" subtype="student" n="4" active="wd:Q471116" passive="#AIND-D00060">
-            <desc xml:lang="ar">شيخنا (ابن حجر العسقلاني)</desc>
+        <note xml:lang="ja">原文照合により方向を是正（2026-09-01）。相手方は伝主の弟子であり、伝主が師。旧版は active/passive が逆転していた。</note></relation>
+        <relation type="personal" subtype="student" n="3" active="#AIND-D00060" passive="#NEEDID">
+            <desc xml:lang="ar">أولاد شيخنا (ابن حجر العسقلاني)</desc>
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
-            <note xml:lang="en">Ibn Ḥajar al-ʿAsqalānī. Mentioned the subject in the second part of his 『Muʿjam』. The subject granted ijāza to Ibn Ḥajar's children ("أجاز لأولادي").</note>
+            <note xml:lang="ja">原文「أجاز لأولادي」＝イジャーザの受け手はイブン・ハジャル本人ではなくその子供たち。個人が特定できないため #NEEDID。初版はイブン・ハジャル本人を相手方とし、かつ方向も逆転していた（2026-09-01 是正）。</note>
         </relation>
     </listRelation>
+    <event type="cultural" subtype="mention" n="1">
+        <desc xml:lang="ar">أورده النجم عمر في معجمه ومعجم أبيه</desc>
+        <persName ref="#TMP-P-000036">النجم عمر</persName>
+        <note xml:lang="ja">【校閲2026-09-01】原文は「أورده … في معجمه」のみで師弟関係を述べていない＝Pattern A。初版は subtype="student"（のち私が誤って teacher に変更）の personal relation で、方法も「سمع」と誤記していた。relation を廃し mention event に是正。</note>
+    </event>
+    <event type="cultural" subtype="mention" n="2">
+        <desc xml:lang="ar">ذكره شيخنا في القسم الثاني من معجمه</desc>
+        <persName ref="wd:Q471116">شيخنا (ابن حجر العسقلاني)</persName>
+        <note xml:lang="ja">【校閲2026-09-01】「ذكره في معجمه」は Pattern A。同一文中の「أجاز لأولادي」は別事象として listRelation に分離した。</note>
+    </event>
     <event type="residence" n="1">
         <placeName ref="gn:172041">بعلبك</placeName>
     </event>
