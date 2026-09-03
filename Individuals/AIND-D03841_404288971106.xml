@@ -6,9 +6,11 @@
     <persName type="shuhrah" xml:lang="ar">الخليفة شيخ الطائفة السطوحية</persName>
     <sex value="M"/>
     <death when-custom="0803-06" when="1401-01"/>
-    <listRelation>
-        <relation type="personal" subtype="other" n="1" active="#NEEDID" passive="#AIND-D03841"><desc xml:lang="ar">ابن حجر العسقلاني</desc><note xml:lang="en">Mentioned by Ibn Ḥajar (al-Sakhāwī's shaykh) in his history book 『Inbāʾ al-Ghumr』.</note></relation>
-    </listRelation>
+    <event type="cultural" subtype="mention" n="1">
+        <desc xml:lang="ar">ذكره شيخنا في إنبائه</desc>
+        <persName ref="wd:Q471116">ابن حجر العسقلاني</persName>
+        <note xml:lang="ja">初版は subtype="other" の personal relation（Pattern A 違反）で ID も #NEEDID。第三者言及として event 化し、既登録 wd:Q471116 を付与（2026-09-03）。</note>
+    </event>
     <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
     <affiliation n="1" type="reside" ref="#TMP-I-00118">
         <orgName xml:lang="ar">المدرسة الفارسية</orgName>
@@ -26,5 +28,11 @@
         <resp xml:lang="ja">翻訳校正</resp>
         <persName>claude-opus-5</persName>
         <date when="2026-08-22"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">校閲</resp>
+        <note xml:lang="ja">第三者言及「ذكره شيخنا في إنبائه」を Pattern A（mention event）化し wd:Q471116 を付与。</note>
+        <persName>claude-fable-5-1</persName>
+        <date when="2026-09-03"/>
     </respStmt>
 </person>
