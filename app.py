@@ -523,10 +523,10 @@ def render_method_field_input(container, value, options_dict, key, placeholder="
 
 # --- 5. 定数 ---
 MADHHAB_DATA = {
-    "Hanafi (ハナフィー派)":    "Q160851",
+    "Hanafi (ハナフィー派)":    "Q228986",
     "Maliki (マーリク派)":      "Q48221",
     "Shafi'i (シャーフィイー派)": "Q82245",
-    "Hanbali (ハンバリー派)":   "Q191314",
+    "Hanbali (ハンバリー派)":   "Q233387",
     "Unknown / Other":          ""
 }
 INSTITUTION_TYPES = ["study","teach","reside","founded","affiliated","graduated","employed","visit","buried","other"]
@@ -1311,7 +1311,7 @@ WD_ALLOWLIST = {
     "Q557847", "Q248996", "Q698037", "Q730299",
     "Q293604", "Q4664581", "Q4725309", "Q257745", "Q6798541", "Q12198099",
     "Q486080", "Q428858", "Q8462", "Q12836408",
-    "Q82245", "Q160851", "Q191314", "Q48221",
+    "Q82245", "Q228986", "Q233387", "Q48221",
     "Q217029", "Q484181", "Q12227702", "Q1817983", "Q1866303",
     # Q368154 は毒(Sigismund Báthory)と判明したため allowlist から denylist へ移動(v20.11.1)
 }

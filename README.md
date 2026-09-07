@@ -226,7 +226,7 @@ Birth と同じ構成。さらに **Burial Place(埋葬地)** が独立して入
 
 ```xml
 <!-- 単一の場合(n 属性なし) -->
-<affiliation type="madhhab" ref="wd:Q160851">Hanafi</affiliation>
+<affiliation type="madhhab" ref="wd:Q228986">Hanafi</affiliation>
 
 <!-- 複数(時系列順、n 属性付き) -->
 <affiliation type="madhhab" n="1" ref="wd:Q82245">Shafi'i</affiliation>
@@ -335,7 +335,7 @@ Birth と同じ構成。さらに **Burial Place(埋葬地)** が独立して入
 | 種類 | 用途 | 例 |
 |---|---|---|
 | **GeoNames ID**(数字のみ) | 地名 | `104515`(メッカ) |
-| **Wikidata Q-ID**(`Q` 始まり) | 概念・組織・人物・書物 | `Q160851`(ハナフィー派) |
+| **Wikidata Q-ID**(`Q` 始まり) | 概念・組織・人物・書物 | `Q228986`(ハナフィー派) |
 | **TMP-P-**(仮 ID、6 桁) | 外部 ID 未確定の人物 | `TMP-P-000001` |
 | **TMP-N-**(仮 ID、5 桁) | ニスバ | `TMP-N-00001` |
 | **TMP-L-**(仮 ID、5 桁) | 地名 | `TMP-L-00001` |
@@ -359,7 +359,7 @@ XML 内では次のプレフィックスで参照を区別します:
 
 | プレフィックス | 種類 | 例 |
 |---|---|---|
-| `wd:` | Wikidata | `wd:Q160851` |
+| `wd:` | Wikidata | `wd:Q228986` |
 | `gn:` | GeoNames | `gn:104515` |
 | `#` | プロジェクト内参照(TMP-, AIND-D) | `#TMP-P-000001`, `#AIND-D00033` |
 
@@ -390,7 +390,7 @@ Method(学習方法)と Field(学習分野)のプルダウンは ID-Master か�
 
 1. https://www.wikidata.org/ を開く
 2. 名称で検索
-3. ヒットした項目の URL から Q-ID を取得(例: `https://www.wikidata.org/wiki/Q160851` → ID は `Q160851`)
+3. ヒットした項目の URL から Q-ID を取得(例: `https://www.wikidata.org/wiki/Q228986` → ID は `Q228986`)
 4. ID Master スプレッドシートに追加:
    - Category: `Institution` / `Concept` 等
    - ID: `Q` から始まる Wikidata の ID
