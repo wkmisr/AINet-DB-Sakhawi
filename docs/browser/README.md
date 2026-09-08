@@ -1,9 +1,9 @@
 # AINet Browser — 再ビルド手順
 
 Artifact URL（固定・republish で更新）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
-（favicon 📜、タイトル「AINet Browser」。v13 = 2026-09-08 B74-78 反映後、2,073 件）
+（favicon 📜、タイトル「AINet Browser」。v14 = 2026-09-08 XML_Limbo 70件収録後、2,143 件）
 
-XML 2,073 件を JSON にまとめ、単一 HTML（約 7.2 MB）として Artifact に公開する静的ブラウザ。
+XML 2,143 件を JSON にまとめ、単一 HTML（約 7.3 MB）として Artifact に公開する静的ブラウザ。
 チャットを変えても、この 4 ファイルと下の手順があれば同じ URL に再公開できる。
 
 ## 入力
@@ -20,8 +20,9 @@ python3 assemble.py data.json                                      # app_templat
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
 
-## 期待値（2026-09-08 v13、2,073 件）
-self_hit 2057 / person_hit 3049 / place_hit 1332 / org_hit 210 / office_hit 532 / text_hit 397
+## 期待値（2026-09-08 v14、2,143 件）
+self_hit 2127 / person_hit 3049 / place_hit 1332 / org_hit 210 / office_hit 532 / text_hit 397
+（v13・2,073 件: self 2057、他は同じ）
 （v12・1,983 件: self 1967 / person 2880 / place 1273 / org 206 / office 515 / text 374）
 
 ## 備考
