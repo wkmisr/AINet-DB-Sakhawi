@@ -1,0 +1,453 @@
+<title>AINet Browser</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F2F4F2; --panel:#FFFFFF; --panel2:#F8FAF8; --ink:#1C2325; --ink2:#4B5658; --ink3:#7C8789; --line:#D8DEDC; --line2:#E8ECEA;
+  --acc:#2F4FA0; --acc-bg:#E7ECF8;
+  --self:#A8231C; --self-bg:#FBEAE8;
+  --per:#4A3FA8; --per-bg:#ECEAF8;
+  --pla:#2A7A4B; --pla-bg:#E5F2EA;
+  --dat:#1F7A93; --dat-bg:#E3F1F5;
+  --txt:#8F6400; --txt-bg:#F7EFD9;
+  --org:#5A6B7A; --org-bg:#E9EDF0;
+  --off:#7A4E2D; --off-bg:#F3EAE3;
+  --shadow:0 1px 2px rgba(20,30,30,.06),0 6px 20px rgba(20,30,30,.06);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141817; --panel:#1C2120; --panel2:#181D1C; --ink:#E9ECEA; --ink2:#B4BCBA; --ink3:#7F8987; --line:#2E3634; --line2:#262D2B;
+  --acc:#8FA6E8; --acc-bg:#232B40; --self:#F08A80; --self-bg:#3A1F1D; --per:#A99BEF; --per-bg:#262242; --pla:#7DCB9A; --pla-bg:#1B2F24;
+  --dat:#7CC5DC; --dat-bg:#17303A; --txt:#E2B84A; --txt-bg:#332B14; --org:#A9B7C4; --org-bg:#252C31; --off:#D6A07E; --off-bg:#33261D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --bg:#141817; --panel:#1C2120; --panel2:#181D1C; --ink:#E9ECEA; --ink2:#B4BCBA; --ink3:#7F8987; --line:#2E3634; --line2:#262D2B;
+  --acc:#8FA6E8; --acc-bg:#232B40; --self:#F08A80; --self-bg:#3A1F1D; --per:#A99BEF; --per-bg:#262242; --pla:#7DCB9A; --pla-bg:#1B2F24;
+  --dat:#7CC5DC; --dat-bg:#17303A; --txt:#E2B84A; --txt-bg:#332B14; --org:#A9B7C4; --org-bg:#252C31; --off:#D6A07E; --off-bg:#33261D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans","Noto Sans JP",system-ui,sans-serif;font-size:14px;line-height:1.5}
+.ar{font-family:"Amiri","Noto Naskh Arabic","Scheherazade New",serif;direction:rtl;unicode-bidi:isolate}
+.ja{font-family:"Noto Sans JP","IBM Plex Sans",sans-serif}
+button,input,select{font:inherit;color:inherit}
+a{color:var(--acc)}
+.app{display:grid;grid-template-columns:300px minmax(320px,1fr) minmax(480px,1.5fr);grid-template-rows:52px 1fr;height:100vh;overflow:hidden}
+@media (max-width:1100px){.app{grid-template-columns:280px 1fr;grid-template-rows:52px 1fr}.detail{display:none}.detail.open{display:flex;position:fixed;inset:52px 0 0 0;z-index:20}}
+@media (max-width:720px){.app{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block;position:fixed;inset:52px 0 0 0;z-index:30}}
+header{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding:0 18px;background:var(--panel);border-bottom:1px solid var(--line)}
+header h1{font-size:15px;font-weight:600;margin:0;letter-spacing:.01em}
+header h1 span{color:var(--ink3);font-weight:400;margin-left:8px}
+header .stat{margin-left:auto;color:var(--ink2);font-variant-numeric:tabular-nums}
+header .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+header .lang button{border:0;background:transparent;padding:4px 10px;cursor:pointer;color:var(--ink2)}
+header .lang button.on{background:var(--acc-bg);color:var(--acc)}
+.iconbtn{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:4px 10px;cursor:pointer;display:none}
+@media (max-width:720px){.iconbtn{display:inline-block}}
+.filters{overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:14px 16px 40px}
+.filters h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:18px 0 8px;font-weight:600}
+.filters h2:first-child{margin-top:4px}
+.filters .hint{font-size:11.5px;color:var(--ink3);margin:-4px 0 8px}
+.f{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.f label{font-size:12px;color:var(--ink2)}
+.f input,.f select{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel2)}
+.f input:focus,.f select:focus{outline:2px solid var(--acc);outline-offset:0;border-color:transparent}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;margin:4px 0}
+.radio{display:flex;gap:12px;font-size:13px;flex-wrap:wrap}
+.radio label{display:flex;align-items:center;gap:4px}
+.fbtns{display:flex;gap:8px;margin-top:14px;position:sticky;bottom:0;background:var(--panel);padding-top:8px}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:7px 12px;cursor:pointer}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:#fff}
+.results{overflow:auto;background:var(--bg);padding:12px 14px}
+.results .bar{display:flex;align-items:baseline;gap:10px;margin:0 2px 10px;color:var(--ink2);font-size:13px}
+.results .bar b{color:var(--ink);font-variant-numeric:tabular-nums}
+.results .bar select{margin-left:auto;border:1px solid var(--line);border-radius:6px;padding:3px 6px;background:var(--panel)}
+.card{background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:10px 12px;margin-bottom:8px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+.card:hover{border-color:var(--acc)}
+.card.sel{border-color:var(--acc);box-shadow:inset 3px 0 0 var(--acc)}
+.card .nm{font-size:18px;line-height:1.5;grid-column:1/-1}
+.card .nm.ref{color:var(--ink2)}
+.card .lat{color:var(--ink2);font-size:12.5px;grid-column:1/-1}
+.card .meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12px;color:var(--ink3);grid-column:1/-1;font-variant-numeric:tabular-nums}
+.card .id{font-size:11px;color:var(--ink3);letter-spacing:.02em}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;border:1px solid var(--line)}
+.tag.ref{color:var(--self);border-color:var(--self)}
+.detail{overflow:auto;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column}
+.dhead{padding:16px 22px 10px;border-bottom:1px solid var(--line2);display:flex;gap:12px;align-items:flex-start}
+.dhead .t{flex:1;min-width:0}
+.dhead .id{font-size:12px;color:var(--acc);letter-spacing:.03em}
+.dhead .nm{font-size:26px;line-height:1.45;margin:2px 0 0;text-align:right}
+.dhead .sub{color:var(--ink2);font-size:13px;margin-top:2px}
+.dhead .close{border:0;background:transparent;font-size:20px;cursor:pointer;color:var(--ink3);display:none}
+@media (max-width:1100px){.dhead .close{display:block}}
+.dbody{padding:14px 22px 40px;display:flex;flex-direction:column;gap:18px}
+.sec h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin:0 0 8px;font-weight:600;display:flex;align-items:center;gap:10px}
+.sec h3 .n{color:var(--ink2);font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:0;text-transform:none}
+.src{font-size:21px;line-height:2.05;text-align:right;padding:6px 4px}
+.src mark{background:transparent;color:inherit;border-radius:3px;padding:0 1px}
+.src mark.self{color:var(--self);font-weight:700}
+.src mark.person{color:var(--per);background:var(--per-bg)}
+.src mark.place{color:var(--pla);background:var(--pla-bg)}
+.src mark.date{color:var(--dat);background:var(--dat-bg)}
+.src mark.text{color:var(--txt);background:var(--txt-bg)}
+.src mark.org{color:var(--org);background:var(--org-bg)}
+.src mark.office{color:var(--off);background:var(--off-bg)}
+.src .verse{display:flex;gap:6%;justify-content:space-between;direction:rtl;margin:4px 0 4px 8%;padding:2px 10px 2px 0;border-right:2px solid var(--txt);font-style:italic;line-height:1.9}
+.src .verse .hemi{flex:1 1 0;text-align:right}
+.src .verse + .verse{margin-top:0}
+.src .vsep{display:inline-block;width:1.2em}
+.src mark[data-focus]{cursor:pointer;text-decoration:underline dotted;text-underline-offset:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;direction:rtl}
+.chip{font-size:15px;line-height:1.4;padding:2px 10px;border-radius:6px;border:1.5px solid;background:var(--panel);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:default}
+.chip.self{color:var(--self);border-color:var(--self)}
+.chip.person{color:var(--per);border-color:var(--per)}
+.chip.place{color:var(--pla);border-color:var(--pla)}
+.chip.date{color:var(--dat);border-color:var(--dat)}
+.chip.text{color:var(--txt);border-color:var(--txt)}
+.chip.org{color:var(--org);border-color:var(--org)}
+.chip.office{color:var(--off);border-color:var(--off)}
+.chip.miss{border-style:dashed}
+.chip[data-focus]{cursor:pointer}
+.chip[data-focus]:hover{background:var(--acc-bg)}
+.chip .go{display:inline-block;font-size:12px;margin-left:6px;color:var(--acc);border:1px solid var(--acc);border-radius:4px;padding:0 4px;line-height:1.3}
+.chip .go:hover{background:var(--acc);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink2);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:18px;align-items:start}
+.two>div{min-width:0}
+.dbody>*{min-width:0}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.map{background:var(--panel2);border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+.map .cap{font-size:11px;color:var(--ink3);padding:4px 8px;border-top:1px solid var(--line2)}
+table.kv{border-collapse:collapse;width:100%;font-size:13px}
+table.kv th{text-align:left;color:var(--ink3);font-weight:500;padding:5px 10px 5px 0;vertical-align:top;white-space:nowrap;width:1%}
+table.kv td{padding:5px 0;vertical-align:top;border-top:1px solid var(--line2)}
+table.kv tr:first-child td,table.kv tr:first-child th{border-top:0}
+table.kv th{border-top:1px solid var(--line2)}
+table.list{border-collapse:collapse;width:100%;font-size:13px}
+table.list th{text-align:left;font-size:11px;color:var(--ink3);font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 8px 6px 0;border-bottom:1px solid var(--line)}
+table.list td{padding:6px 8px 6px 0;border-bottom:1px solid var(--line2);vertical-align:top}
+table.list td.ar{text-align:right;font-size:16px}
+table.list .pill{font-size:11px;padding:1px 7px;border-radius:10px;background:var(--acc-bg);color:var(--acc);white-space:nowrap}
+.link{color:var(--acc);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.muted{color:var(--ink3)}
+.trans{font-size:14px;line-height:1.75}
+.trans p{margin:0 0 8px}
+.cite{background:var(--panel2);border:1px solid var(--line2);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--ink2)}
+.cite b{color:var(--acc);font-weight:600;display:block;margin-bottom:4px}
+.empty{padding:40px 22px;color:var(--ink3);text-align:center}
+.small{font-size:12px;color:var(--ink3)}
+kbd{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 4px;color:var(--ink2)}
+</style>
+
+<div class="app">
+  <header>
+    <button class="iconbtn" id="tglFilters">検索</button>
+    <h1>AINet Browser <span>al-Ḍawʾ al-lāmiʿ · prosopography</span></h1>
+    <div class="stat" id="stat"></div>
+    <div class="lang" id="uiLang"><button data-l="ja" class="on">日本語</button><button data-l="en">English</button></div>
+  </header>
+
+  <aside class="filters" id="filters">
+    <h2>キーワード</h2>
+    <div class="f"><label>原文・訳文・名前を検索（アラビア文字は綴り揺れを吸収）</label><input id="q" placeholder="例: ابن حجر / メッカ / al-Ḥanafī"></div>
+    <h2>期間（ヒジュラ暦）</h2>
+    <div class="hint" id="hintYear"></div>
+    <div class="row2"><div class="f"><label>没年 From</label><input id="yFrom" type="number" placeholder="600"></div><div class="f"><label>To</label><input id="yTo" type="number" placeholder="902"></div></div>
+    <label class="chk"><input type="checkbox" id="undated"> 没年不明のみ</label>
+    <h2>没月</h2>
+    <div class="hint" id="hintMonth"></div>
+    <div class="f"><select id="month"><option value="">—</option></select></div>
+    <h2>場所</h2>
+    <div class="f"><label>言及される場所（居住・訪問・没地など）</label><select id="place"><option value="">—</option></select></div>
+    <div class="f"><label>没地</label><select id="dplace"><option value="">—</option></select></div>
+    <label class="chk"><input type="checkbox" id="geo"> 座標のある場所を含む項のみ</label>
+    <h2>人物関係</h2>
+    <div class="f"><label>役割</label><select id="role"><option value="">—</option></select></div>
+    <div class="f"><label>相手の名前 / ID</label><input id="pname" placeholder="例: ابن فهد / AIND-D09211"></div>
+    <div class="row2"><div class="f"><label>関係数 From</label><input id="rFrom" type="number" placeholder="0"></div><div class="f"><label>To</label><input id="rTo" type="number" placeholder="50"></div></div>
+    <h2>伝えられたテキスト</h2>
+    <div class="f"><label>書名</label><input id="bibl" placeholder="例: الصحيح / البخاري"></div>
+    <h2>属性</h2>
+    <div class="f"><label>学派</label><select id="madhhab"><option value="">—</option></select></div>
+    <div class="f"><label>職・地位</label><input id="office" placeholder="例: قاضي / مشيخة"></div>
+    <div class="f"><label>ニスバ</label><input id="nisba" placeholder="例: المكي"></div>
+    <div class="f"><label>性別</label><select id="sex"><option value="">—</option><option value="M">男性</option><option value="F">女性</option></select></div>
+    <h2>項の種類</h2>
+    <div class="radio"><label><input type="radio" name="kind" value="" checked> すべて</label><label><input type="radio" name="kind" value="main"> 実項</label><label><input type="radio" name="kind" value="ref"> 転送（REF）</label></div>
+    <label class="chk"><input type="checkbox" id="hasSrc"> 原文ありのみ</label>
+    <label class="chk"><input type="checkbox" id="lowcert"> 没年 cert=low を除く</label>
+    <div class="fbtns"><button class="btn" id="reset">Reset all filters</button><button class="btn primary" id="apply">Search</button></div>
+  </aside>
+
+  <main class="results" id="results">
+    <div class="bar"><span><b id="count">0</b> 項</span><span class="small" id="filtersum"></span>
+      <select id="sort"><option value="id">ID 順</option><option value="death">没年順</option><option value="deathd">没年（降順）</option><option value="rels">関係数順</option></select></div>
+    <div id="list"></div>
+  </main>
+
+  <section class="detail" id="detail"><div class="empty">左の一覧から項を選ぶと、ここに伝記が表示されます。<br><span class="small">原文中の色付き語をクリックすると相手の項へ移動します。</span></div></section>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const R = D.records, byId = Object.fromEntries(R.map(r => [r.id, r]));
+const GN = D.gn, IDM = D.idm || {};
+let UI = 'ja';
+const T = {
+  ja:{died:'没',born:'生',place:'場所',source:'原文（al-Ḍawʾ al-lāmiʿ）',entities:'原文中の同定',relations:'人物関係',events:'出来事',offices:'職・地位・所属',translation:'訳文',resp:'作成・校閲',cite:'引用形式',refnote:'転送先',partner:'相手',role:'役割',method:'方法',field:'分野',text:'テキスト',where:'場所',when:'年',note:'注記',legend:['本人','人物','場所','年月','書名','機関','職'],miss:'（原文中に位置特定できず）',map:'言及される場所',nomap:'座標のある場所なし',entries:'項',
+      kinds:{teacher:'師',student:'弟子',father:'父',son:'子',brother:'兄弟',patron:'庇護者',grandfather:'祖父',uncle:'叔父',colleague:'同僚',successor:'後任',predecessor:'前任',cousin:'従兄弟',spouse:'配偶者',mother:'母',possible_identity:'同一人物の可能性',relative:'親族',maternal_grandfather:'母方祖父','father-in-law':'岳父',siblings_child:'甥・姪',friend:'友人',rival:'対抗者',client:'従属者',sister:'姉妹',daughter:'娘',biographer:'伝記作者','son-in-law':'娘婿','brother-in-law':'義兄弟',met:'面会',companion:'同伴者',mention:'言及',other:'その他'}},
+  en:{died:'d.',born:'b.',place:'place',source:'Source text (al-Ḍawʾ al-lāmiʿ)',entities:'Identified in the text',relations:'Relations',events:'Events',offices:'Offices, status & affiliations',translation:'Translation',resp:'Responsibility',cite:'Cite as',refnote:'Refers to',partner:'Partner',role:'Role',method:'Method',field:'Field',text:'Text',where:'Place',when:'Year',note:'Note',legend:['Subject','Person','Place','Date','Text','Institution','Office'],miss:'(not located in text)',map:'Places mentioned',nomap:'no geolocated place',entries:'entries',kinds:{}}
+};
+const MONTHS_JA = ['','ムハッラム','サファル','ラビーウ第1','ラビーウ第2','ジュマーダー第1','ジュマーダー第2','ラジャブ','シャアバーン','ラマダーン','シャウワール','ズー・アル=カアダ','ズー・アル=ヒッジャ'];
+const MONTHS_EN = ['','Muḥarram','Ṣafar','Rabīʿ I','Rabīʿ II','Jumādā I','Jumādā II','Rajab','Shaʿbān','Ramaḍān','Shawwāl','Dhū al-Qaʿda','Dhū al-Ḥijja'];
+const $ = s => document.querySelector(s);
+const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function norm(s){ return (s||'').replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/ء/g,'').toLowerCase(); }
+const key = ref => (ref||'').replace(/^#/,'').replace(/^wd:/,'');
+function nameOf(ref){ if(!ref) return ''; const r = byId[key(ref)]; if(r) return (r.names.full||[{t:''}])[0].t; return IDM[key(ref)] || ''; }
+function labelOf(ref){ // short canonical label for chips / tables
+  if(!ref) return '';
+  const r = byId[key(ref)];
+  if(r) return (r.names.full||[{t:r.id}])[0].t;
+  const n = IDM[key(ref)] || ''; if(!n) return '';
+  const parts = n.split('|').map(x=>x.trim()).filter(x=>x && x!=='شيخنا' && x!=='صاحبنا');
+  return parts.sort((a,b)=>b.length-a.length)[0] || n;
+}
+function focusPerson(ref){ // list every entry related to this person
+  $('#pname').value = ref; $('#q').value=''; filt(); $('#results').scrollTop = 0;
+  $('#filtersum').innerHTML = `<span class="ar">${esc(labelOf(ref))}</span> <span class="muted">${esc(ref)}</span> と関係する項`;
+}
+function inRepo(ref){ return !!byId[(ref||'').replace(/^#/,'')]; }
+
+// ---------- precompute per record ----------
+const PLACE_NAMES = {};
+R.forEach(r => {
+  const t = [];
+  t.push(...(r.names.full||[]).map(x=>x.t), ...(r.names.shuhrah||[]).map(x=>x.t), ...(r.names.laqab||[]).map(x=>x.t), ...(r.names.kunyah||[]).map(x=>x.t), r.source||'', r.ja||'', r.en||'', r.latin||'', r.id);
+  r._q = norm(t.join(' ¶ '));
+  const places = new Set(); const pnames = {};
+  const addP = p => { if(!p||!p.t) return; const k = p.ref || ('name:'+p.t); places.add(k); PLACE_NAMES[k] = PLACE_NAMES[k] || p.t; };
+  if(r.death&&r.death.place) addP(r.death.place); if(r.birth&&r.birth.place) addP(r.birth.place);
+  r.events.forEach(e => e.places.forEach(addP)); r.states.forEach(s => addP(s.place)); r.affiliations.forEach(a => addP(a.place)); r.relations.forEach(x => addP(x.place));
+  r._places = [...places];
+  r._dplace = r.death && r.death.place ? (r.death.place.ref || 'name:'+r.death.place.t) : '';
+  r._geo = r._places.some(k => GN[k.replace(/^gn:/,'')] && k.startsWith('gn:'));
+  r._roles = new Set(r.relations.map(x => x.subtype));
+  r._partners = norm(r.relations.map(x => (x.partner||'') + ' ' + (x.partner_name||'') + ' ' + (x.desc||'') + ' ' + nameOf(x.partner)).join(' ¶ ') + ' ' + r.events.flatMap(e => e.persons.map(p => p.t + ' ' + (p.ref||''))).join(' ¶ '));
+  r._bibl = norm(r.relations.flatMap(x => x.bibl.map(b => b.t)).concat(r.events.flatMap(e => e.bibl.map(b => b.t))).join(' ¶ '));
+  r._madhhab = r.affiliations.filter(a => a.type==='madhhab').map(a => a.org.split('|')[0].trim());
+  r._office = norm(r.states.map(s => s.label + ' ' + (s.latin||'')).join(' ¶ ') + ' ' + r.affiliations.map(a => a.org).join(' ¶ '));
+  r._nisba = norm((r.names.nisbah||[]).map(x=>x.t).join(' '));
+  r._dy = r.death ? r.death.y : null; r._dm = r.death ? r.death.m : null;
+});
+// facet options
+function fill(sel, items, fmt){ const s = $(sel); items.forEach(([k,n]) => { const o = document.createElement('option'); o.value = k; o.textContent = fmt(k,n); s.appendChild(o); }); }
+const cnt = (arr) => { const m = {}; arr.forEach(k => m[k] = (m[k]||0)+1); return Object.entries(m).sort((a,b)=>b[1]-a[1]); };
+fill('#place', cnt(R.flatMap(r=>r._places)).filter(x=>x[1]>=2), (k,n)=>`${PLACE_NAMES[k]}  (${n})`);
+fill('#dplace', cnt(R.map(r=>r._dplace).filter(Boolean)), (k,n)=>`${PLACE_NAMES[k]}  (${n})`);
+fill('#role', cnt(R.flatMap(r=>[...r._roles])), (k,n)=>`${k}${T.ja.kinds[k]?' · '+T.ja.kinds[k]:''}  (${n})`);
+fill('#madhhab', cnt(R.flatMap(r=>r._madhhab)), (k,n)=>`${k}  (${n})`);
+fill('#month', [1,2,3,4,5,6,7,8,9,10,11,12].map(m=>[m, R.filter(r=>r._dm===m).length]), (k,n)=>`${MONTHS_EN[k]} · ${MONTHS_JA[k]}  (${n})`);
+const nY = R.filter(r=>r._dy).length, nM = R.filter(r=>r._dm).length;
+$('#hintYear').textContent = `${nY} / ${R.length} 項に没年あり`; $('#hintMonth').textContent = `${nM} / ${R.length} 項に没月あり`;
+$('#stat').textContent = `${R.length} entries · ${R.filter(r=>r.ref).length} REF`;
+
+// ---------- filtering ----------
+let CUR = R.slice(), SEL = null;
+function filt(){
+  const q = norm($('#q').value.trim()), yF = +$('#yFrom').value || null, yT = +$('#yTo').value || null, und = $('#undated').checked;
+  const mo = +$('#month').value || null, pl = $('#place').value, dpl = $('#dplace').value, geo = $('#geo').checked;
+  const role = $('#role').value, pn = norm($('#pname').value.trim()), rF = $('#rFrom').value === '' ? null : +$('#rFrom').value, rT = $('#rTo').value === '' ? null : +$('#rTo').value;
+  const bb = norm($('#bibl').value.trim()), md = $('#madhhab').value, of = norm($('#office').value.trim()), ns = norm($('#nisba').value.trim()), sx = $('#sex').value;
+  const kind = document.querySelector('input[name=kind]:checked').value, hs = $('#hasSrc').checked, lc = $('#lowcert').checked;
+  const summ = [];
+  CUR = R.filter(r => {
+    if(q && !r._q.includes(q)) return false;
+    if(und){ if(r._dy) return false; } else { if(yF && !(r._dy && r._dy >= yF)) return false; if(yT && !(r._dy && r._dy <= yT)) return false; }
+    if(mo && r._dm !== mo) return false;
+    if(pl && !r._places.includes(pl)) return false;
+    if(dpl && r._dplace !== dpl) return false;
+    if(geo && !r._geo) return false;
+    if(role && !r._roles.has(role)) return false;
+    if(pn && !r._partners.includes(pn)) return false;
+    if(rF !== null && r.relations.length < rF) return false; if(rT !== null && r.relations.length > rT) return false;
+    if(bb && !r._bibl.includes(bb)) return false;
+    if(md && !r._madhhab.includes(md)) return false;
+    if(of && !r._office.includes(of)) return false;
+    if(ns && !r._nisba.includes(ns)) return false;
+    if(sx && r.sex !== sx) return false;
+    if(kind === 'main' && r.ref) return false; if(kind === 'ref' && !r.ref) return false;
+    if(hs && !r.source) return false;
+    if(lc && r.death && r.death.cert === 'low') return false;
+    return true;
+  });
+  if(q) summ.push(`“${$('#q').value.trim()}”`); if(pn) summ.push(`${labelOf($('#pname').value.trim())||$('#pname').value.trim()} と関係`); if(yF||yT) summ.push(`${yF||''}–${yT||''} H`); if(pl) summ.push(PLACE_NAMES[pl]); if(role) summ.push(role); if(md) summ.push(md);
+  $('#filtersum').textContent = summ.join(' · ');
+  sortList(); render();
+}
+function sortList(){
+  const s = $('#sort').value;
+  const key = s==='rels' ? (r=>-r.relations.length) : s==='death' ? (r=>r._dy||9999) : s==='deathd' ? (r=>-(r._dy||0)) : (r=>r.id);
+  CUR.sort((a,b)=>{ const ka=key(a), kb=key(b); return ka<kb?-1:ka>kb?1:a.id<b.id?-1:1; });
+}
+let LIMIT = 200;
+function render(){
+  $('#count').textContent = CUR.length;
+  const L = $('#list'); L.innerHTML = '';
+  CUR.slice(0, LIMIT).forEach(r => {
+    const d = document.createElement('div'); d.className = 'card' + (SEL===r.id?' sel':''); d.dataset.id = r.id;
+    const dy = r.death ? (r.death.h || '') : '';
+    const meta = [];
+    if(dy) meta.push(`${T[UI].died} ${dy} H${r.death.g?' / '+r.death.g:''}${r.death.cert?' ('+r.death.cert+')':''}`);
+    if(r.death && r.death.place) meta.push(r.death.place.t);
+    if(r.relations.length) meta.push(`${r.relations.length} rel.`);
+    d.innerHTML = `<div class="nm ar${r.ref?' ref':''}">${esc((r.names.full||[{t:r.id}])[0].t)}</div>` +
+      (r.latin?`<div class="lat">${esc(r.latin)}</div>`:'') +
+      `<div class="meta"><span class="id">${r.id}</span>${r.ref?'<span class="tag ref">REF</span>':''}${meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div>`;
+    d.onclick = () => show(r.id); L.appendChild(d);
+  });
+  if(CUR.length > LIMIT){ const b = document.createElement('button'); b.className='btn'; b.textContent = `さらに表示（残り ${CUR.length-LIMIT}）`; b.onclick = () => { LIMIT += 200; render(); }; L.appendChild(b); }
+}
+
+// ---------- detail ----------
+function hDate(d, kind){
+  if(!d) return '';
+  let s = d.h ? d.h.replace(/^0+/, '') + ' H' : (d.nb||d.na ? `${d.nb?'after '+d.nb.replace(/^0+/,''):''}${d.na?' before '+d.na.replace(/^0+/,''):''} H` : '');
+  if(d.g) s += ` / ${d.g.replace(/^0+/, '')} CE`;
+  if(d.cert) s += ` <span class="muted">(cert ${d.cert})</span>`;
+  if(d.place) s += ` · <span class="ar">${esc(d.place.t)}</span>`;
+  return s;
+}
+function markup(r){
+  const src = r.source || ''; const spans = (r.spans || []).slice().sort((a,b)=>a.s-b.s); let i = 0;
+  const sf = r.selfspan;
+  const pieces = [];
+  const cuts = sf ? [sf.s, sf.e] : [];
+  const plain = (a,b) => { let x = a; cuts.forEach(c => { if(c > x && c < b){ pieces.push({s:x, e:c}); x = c; } }); if(b > x) pieces.push({s:x, e:b}); };
+  spans.forEach(sp => { if(sp.s < i) return; plain(i, sp.s); pieces.push({s:sp.s, e:sp.e, sp}); i = sp.e; });
+  plain(i, src.length);
+  const html = p => {
+    const t = esc(src.slice(p.s, p.e));
+    if(!p.sp) return t;
+    const link = p.sp.k==='person' && p.sp.r ? ` data-focus="${esc(p.sp.r)}"` : '';
+    const title = p.sp.k==='person' ? `${labelOf(p.sp.r)} · ${p.sp.sub||''} ${p.sp.r||''}` : (p.sp.r||'');
+    return `<mark class="${p.sp.k}" title="${esc(title.trim())}"${link}>${t}</mark>`;
+  };
+  let s = '';
+  if(sf){
+    let opened = false;
+    pieces.forEach(p => {
+      if(!opened && p.s >= sf.s && p.s < sf.e){ s += '<mark class="self">'; opened = true; }
+      if(opened && p.s >= sf.e){ s += '</mark>'; opened = false; }
+      s += html(p);
+    });
+    if(opened) s += '</mark>';
+  } else pieces.forEach(p => { s += html(p); });
+  s = s.replace(/\n/g, ' ');
+  // poetry: corpus marks hemistichs with %~%  →  render as verse lines (marker removed)
+  s = s.replace(/%~%\s*([^%]*?)\s*%~%\s*([^%]*?)\s*%~%/g, '<span class="verse"><span class="hemi">$1</span><span class="hemi">$2</span></span>');
+  s = s.replace(/%~%/g, '<span class="vsep"></span>');
+  return s;
+}
+function svgMap(keys){
+  const pts = keys.map(k => ({k, name: PLACE_NAMES[k] || k, c: GN[k.replace(/^gn:/,'')]})).filter(p => p.c && p.k.startsWith('gn:'));
+  if(!pts.length) return `<div class="cap">${T[UI].nomap}</div>`;
+  // extent: fixed Mediterranean–Hijaz window unless points fall outside
+  let lon0=-5, lon1=50, lat0=10, lat1=42;
+  pts.forEach(p=>{ lon0=Math.min(lon0,p.c[1]-3); lon1=Math.max(lon1,p.c[1]+3); lat0=Math.min(lat0,p.c[0]-3); lat1=Math.max(lat1,p.c[0]+3); });
+  const W=240, H=Math.round(W*(lat1-lat0)/(lon1-lon0)*1.05);
+  const X = lon => (lon-lon0)/(lon1-lon0)*W, Y = lat => H-(lat-lat0)/(lat1-lat0)*H;
+  let g = '';
+  for(let lo=Math.ceil(lon0/10)*10; lo<=lon1; lo+=10) g += `<line x1="${X(lo)}" y1="0" x2="${X(lo)}" y2="${H}" stroke="var(--line2)"/>`;
+  for(let la=Math.ceil(lat0/10)*10; la<=lat1; la+=10) g += `<line x1="0" y1="${Y(la)}" x2="${W}" y2="${Y(la)}" stroke="var(--line2)"/>`;
+  const refs = [['مكة',21.43,39.83],['القاهرة',30.04,31.24],['دمشق',33.51,36.28],['بغداد',33.31,44.37],['تونس',36.8,10.18],['حلب',36.2,37.13]];
+  refs.forEach(([n,la,lo]) => { if(lo<lon0||lo>lon1||la<lat0||la>lat1) return; g += `<circle cx="${X(lo)}" cy="${Y(la)}" r="1.5" fill="var(--ink3)"/><text x="${X(lo)+4}" y="${Y(la)-3}" font-size="7" fill="var(--ink3)" class="ar" direction="rtl" text-anchor="start">${n}</text>`; });
+  pts.forEach(p => { g += `<circle cx="${X(p.c[1])}" cy="${Y(p.c[0])}" r="5" fill="var(--pla)" fill-opacity=".25" stroke="var(--pla)" stroke-width="1.5"><title>${esc(p.name)}</title></circle>`; });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="map">${g}</svg><div class="cap">${T[UI].map}: ${pts.map(p=>esc(p.name)).join('، ')}</div>`;
+}
+function show(id){
+  const r = byId[id]; if(!r) return; SEL = id; location.hash = id;
+  document.querySelectorAll('.card').forEach(c => c.classList.toggle('sel', c.dataset.id===id));
+  const t = T[UI]; const full = (r.names.full||[{t:r.id}])[0].t;
+  const chips = [];
+  if(r.selfspan) chips.push({k:'self', l:full});
+  (r.spans||[]).forEach(sp => chips.push({k:sp.k, l:sp.l, r:sp.r, sub:sp.sub}));
+  // unlocated persons/places
+  r.relations.forEach(x => { if(x.span===undefined) chips.push({k:'person', l:x.desc || x.partner_name || nameOf(x.partner) || x.partner, r:x.partner, sub:x.subtype, miss:true}); });
+  const seen = new Set(chips.map(c=>c.k+'|'+c.l));
+  r._places.forEach(k => { const n = PLACE_NAMES[k]; if(!seen.has('place|'+n)) chips.push({k:'place', l:n, r:k, miss:true}); });
+  const chipHtml = chips.filter(c=>c.l).map(c => {
+    if(c.k==='person' && c.r){
+      const lab = labelOf(c.r) || c.l;
+      const open = inRepo(c.r) ? `<span class="go" data-link="${c.r.replace('#','')}" title="この項を開く">↗</span>` : '';
+      return `<span class="chip person${c.miss?' miss':''} ar" data-focus="${esc(c.r)}" title="${esc((c.sub||'')+' '+c.r+(lab!==c.l?' · 原文: '+c.l:''))}">${open}${esc(lab)}</span>`;
+    }
+    return `<span class="chip ${c.k}${c.miss?' miss':''} ar" title="${esc(c.r||'')}">${esc(c.l)}</span>`; }).join('');
+  const legend = ['self','person','place','date','text','org','office'].map((k,i)=>`<span><i style="background:var(--${k==='self'?'self':k.slice(0,3)}-bg);border:1px solid var(--${k==='self'?'self':k.slice(0,3)})"></i>${t.legend[i]}</span>`).join('');
+  const rels = r.relations.map(x => {
+    const nm = labelOf(x.partner) || x.desc || x.partner_name || (x.partner ? '' : '（未同定）'); const link = inRepo(x.partner);
+    return `<tr><td><span class="pill">${esc(x.subtype)}</span>${t.kinds[x.subtype]?`<div class="small">${t.kinds[x.subtype]}</div>`:''}</td>
+      <td class="ar">${x.partner?`<span class="link" data-focus="${esc(x.partner)}" title="関係する項を一覧">${esc(nm)}</span>`:esc(nm)}${link?` <span class="go link" data-link="${x.partner.replace('#','')}" title="この項を開く">↗</span>`:''}${x.desc&&x.desc!==nm?`<div class="small">${esc(x.desc)}</div>`:''}</td>
+      <td class="ar">${esc(x.method||'')}${x.field?`<div class="small">${esc(x.field)}</div>`:''}</td>
+      <td class="ar">${x.bibl.map(b=>esc(b.t)).join('، ')}</td>
+      <td>${x.place?`<span class="ar">${esc(x.place.t)}</span>`:''}${x.when?`<div class="small">${x.when} H</div>`:''}</td>
+      <td class="small">${esc(x.partner||'—')}${x.cert?`<div>cert ${x.cert}</div>`:''}</td></tr>`;
+  }).join('');
+  const evs = r.events.map(e => `<tr><td><span class="pill">${esc(e.type)}${e.subtype?' / '+esc(e.subtype):''}</span></td>
+     <td class="ar">${e.places.map(p=>esc(p.t)).concat(e.orgs.map(o=>esc(o.t))).join('، ')}</td>
+     <td class="ar">${e.persons.map(p=>p.ref?`<span class="link" data-focus="${esc(p.ref)}">${esc(labelOf(p.ref)||p.t)}</span>${inRepo(p.ref)?` <span class="go link" data-link="${p.ref.replace('#','')}">↗</span>`:''}`:esc(p.t)).join('، ')}</td>
+     <td class="ar">${e.bibl.map(b=>esc(b.t)).join('، ')}${e.desc?`<div class="small">${esc(e.desc)}</div>`:''}</td>
+     <td>${e.when?e.when+' H':''}${e.cert?`<div class="small">cert ${e.cert}</div>`:''}</td>
+     <td class="small">${e.places.map(p=>p.ref).concat(e.persons.map(p=>p.ref),e.orgs.map(o=>o.ref),e.bibl.map(b=>b.ref)).filter(Boolean).map(esc).join('<br>')}</td></tr>`).join('');
+  const offs = r.states.map(s => `<tr><td><span class="pill">${esc(s.type)}</span></td><td class="ar">${esc(s.label)}${s.latin?`<div class="small" style="direction:ltr;text-align:right">${esc(s.latin)}</div>`:''}</td><td class="ar">${s.org?esc(s.org.t):''}</td><td class="ar">${s.place?esc(s.place.t):''}</td><td>${s.date?esc(s.date)+' H':''}</td><td class="small">${esc(s.ref||'')}${s.org&&s.org.ref?`<div>${esc(s.org.ref)}</div>`:''}</td></tr>`).join('') +
+     r.affiliations.map(a => `<tr><td><span class="pill">${esc(a.type)}</span></td><td class="ar">${esc(a.org)}${a.latin?`<div class="small" style="direction:ltr;text-align:right">${esc(a.latin)}</div>`:''}</td><td></td><td class="ar">${a.place?esc(a.place.t):''}</td><td></td><td class="small">${esc(a.ref||'')}</td></tr>`).join('');
+  const resp = r.resp.map(x => `${esc(x.resp)}: ${esc(x.who)}${x.date?' ('+x.date+')':''}`).join(' · ');
+  const today = new Date().toISOString().slice(0,10);
+  $('#detail').innerHTML = `
+    <div class="dhead"><div class="t"><div class="id">${r.id} · source ${r.src}${r.ref?' · <span class="tag ref">REF</span>':''}</div>
+      <div class="nm ar">${esc(full)}</div>
+      <div class="sub">${r.latin?esc(r.latin)+' · ':''}${r.death?t.died+' '+hDate(r.death):''}${r.birth?' · '+t.born+' '+hDate(r.birth):''}${!r.death&&!r.birth?'<span class="muted">undated</span>':''}</div></div>
+      <button class="close" id="closeD" aria-label="close">×</button></div>
+    <div class="dbody">
+      ${r.reference?`<div class="sec"><h3>${t.refnote}</h3><div>${inRepo(r.reference.target)?`<span class="link" data-link="${r.reference.target.replace('#','')}">${r.reference.target}</span>`:esc(r.reference.target)} <span class="small ja">${esc(r.reference.t)}</span></div></div>`:''}
+      <div class="two"><div>
+        <div class="sec"><h3>${t.source}</h3>${r.source?`<div class="src ar">${markup(r)}</div>`:`<div class="muted">—</div>`}
+        <div class="legend">${legend}</div></div>
+        <div class="sec" style="margin-top:14px"><h3>${t.entities} <span class="n">${chips.length}</span></h3><div class="chips">${chipHtml}</div></div>
+      </div>
+      <div><div class="map">${svgMap(r._places)}</div>
+        <table class="kv" style="margin-top:12px">
+          ${(r.names.nisbah||[]).length?`<tr><th>nisba</th><td class="ar" style="text-align:right">${(r.names.nisbah||[]).map(x=>esc(x.t)).join('، ')}</td></tr>`:''}
+          ${(r.names.laqab||[]).length?`<tr><th>laqab</th><td class="ar" style="text-align:right">${(r.names.laqab||[]).map(x=>esc(x.t)).join('، ')}</td></tr>`:''}
+          ${(r.names.shuhrah||[]).length?`<tr><th>shuhra</th><td class="ar" style="text-align:right">${(r.names.shuhrah||[]).map(x=>esc(x.t)).join('، ')}</td></tr>`:''}
+          ${(r.names.kunyah||[]).length?`<tr><th>kunya</th><td class="ar" style="text-align:right">${(r.names.kunyah||[]).map(x=>esc(x.t)).join('، ')}</td></tr>`:''}
+          ${r._madhhab.length?`<tr><th>madhhab</th><td class="ar" style="text-align:right">${r._madhhab.map(esc).join('، ')}</td></tr>`:''}
+          ${r.personalia?`<tr><th>note</th><td class="ja">${esc(r.personalia)}</td></tr>`:''}
+        </table></div></div>
+      ${rels?`<div class="sec"><h3>${t.relations} <span class="n">${r.relations.length}</span></h3><div style="overflow-x:auto"><table class="list"><thead><tr><th>${t.role}</th><th>${t.partner}</th><th>${t.method}</th><th>${t.text}</th><th>${t.where}</th><th>ID</th></tr></thead><tbody>${rels}</tbody></table></div></div>`:''}
+      ${evs?`<div class="sec"><h3>${t.events} <span class="n">${r.events.length}</span></h3><div style="overflow-x:auto"><table class="list"><thead><tr><th>type</th><th>${t.where}</th><th>${t.partner}</th><th>${t.text}</th><th>${t.when}</th><th>ID</th></tr></thead><tbody>${evs}</tbody></table></div></div>`:''}
+      ${offs?`<div class="sec"><h3>${t.offices}</h3><div style="overflow-x:auto"><table class="list"><thead><tr><th>type</th><th>label</th><th>org</th><th>${t.where}</th><th>${t.when}</th><th>ID</th></tr></thead><tbody>${offs}</tbody></table></div></div>`:''}
+      <div class="sec"><h3>${t.translation}</h3><div class="trans">${UI==='ja'?`<p class="ja">${esc(r.ja||'—')}</p><p class="muted">${esc(r.en||'')}</p>`:`<p>${esc(r.en||'—')}</p><p class="muted ja">${esc(r.ja||'')}</p>`}</div></div>
+      <div class="sec"><h3>${t.resp}</h3><div class="small ja">${resp||'—'}</div></div>
+      <div class="cite"><b>${t.cite}</b>AINet-DB: al-Ḍawʾ al-lāmiʿ prosopography, entry ${r.id} (source no. ${r.src}), ed. Wakako Kumakura et al., https://ainet-db.example/${r.id}, accessed ${today}.</div>
+    </div>`;
+  $('#detail').classList.add('open'); $('#detail').scrollTop = 0;
+  const cb = $('#closeD'); if(cb) cb.onclick = () => $('#detail').classList.remove('open');
+  document.querySelectorAll('#detail [data-link]').forEach(el => el.addEventListener('click', ev => { ev.stopPropagation(); show(el.dataset.link); }));
+  document.querySelectorAll('#detail [data-focus]').forEach(el => el.addEventListener('click', ev => { if(ev.target.dataset.link) return; ev.stopPropagation(); focusPerson(el.dataset.focus); }));
+}
+
+// ---------- wiring ----------
+$('#apply').onclick = filt;
+document.querySelectorAll('.filters input, .filters select').forEach(el => { el.addEventListener('change', filt); if(el.type==='text'||el.type==='number'||el.tagName==='INPUT'&&!el.type.match(/check|radio/)) el.addEventListener('keydown', e => { if(e.key==='Enter') filt(); }); });
+$('#reset').onclick = () => { document.querySelectorAll('.filters input').forEach(i => { if(i.type==='checkbox') i.checked=false; else if(i.type==='radio') i.checked = i.value===''; else i.value=''; }); document.querySelectorAll('.filters select').forEach(s => s.value=''); filt(); };
+$('#sort').onchange = () => { sortList(); render(); };
+$('#tglFilters').onclick = () => $('#filters').classList.toggle('open');
+document.querySelectorAll('#uiLang button').forEach(b => b.onclick = () => { UI = b.dataset.l; document.querySelectorAll('#uiLang button').forEach(x=>x.classList.toggle('on', x===b)); if(SEL) show(SEL); render(); });
+filt();
+const h = location.hash.replace('#',''); if(h && byId[h]) show(h); else show(CUR.filter(r=>r.source&&!r.ref).sort((a,b)=>b.spans.length-a.spans.length)[3].id);
+</script>
