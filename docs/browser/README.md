@@ -1,9 +1,9 @@
 # AINet Browser — 再ビルド手順
 
 Artifact URL（固定・republish で更新）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
-（favicon 📜、タイトル「AINet Browser」。v12 = 2026-09-08 corpus 同期後）
+（favicon 📜、タイトル「AINet Browser」。v13 = 2026-09-08 B74-78 反映後、2,073 件）
 
-XML 1,983 件を JSON にまとめ、単一 HTML（約 6.8 MB）として Artifact に公開する静的ブラウザ。
+XML 2,073 件を JSON にまとめ、単一 HTML（約 7.2 MB）として Artifact に公開する静的ブラウザ。
 チャットを変えても、この 4 ファイルと下の手順があれば同じ URL に再公開できる。
 
 ## 入力
@@ -20,10 +20,12 @@ python3 assemble.py data.json                                      # app_templat
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
 
-## 期待値（2026-09-08、1,983 件）
-self_hit 1967 / person_hit 2880 / place_hit 1273 / org_hit 206 / office_hit 515 / text_hit 374
+## 期待値（2026-09-08 v13、2,073 件）
+self_hit 2057 / person_hit 3049 / place_hit 1332 / org_hit 210 / office_hit 532 / text_hit 397
+（v12・1,983 件: self 1967 / person 2880 / place 1273 / org 206 / office 515 / text 374）
 
 ## 備考
+- ビルドは device 側（`docs/_work/browser_build/`、git 管理外）でも実行できる: idmaster.tsv を置き、`cp ../../browser/*.py ../../browser/app_template.html .` してから上記 3 コマンド。生成した ainet_browser.html を cloud に stage して Artifact に republish（2026-09-08 実績）。
 - 原文は XML の `<note type="source" xml:lang="ar">` から取る。corpus_index は本人見出し（selfspan）照合にのみ使用。
 - `app_template.html` を編集すれば UI を変えられる（`__DATA__` を残すこと）。
 - 原文中の `%~%` は詩の半句区切り → 詩形で表示。
