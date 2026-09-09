@@ -305,6 +305,8 @@ PREFIX_OK = {
     "O": ("TMP-O-", "#TMP-O-", "wd:"),
     "L": ("TMP-L-", "#TMP-L-", "gn:", "wd:"),
     "I": ("TMP-I-", "#TMP-I-", "wd:", "gn:"),
+    # 埋葬地 placeName[@type="burial"]: 墓廟・マドラサ等の施設(TMP-I)も可(規約 2026-09-09、B74-78 §D-12)
+    "LI": ("TMP-L-", "#TMP-L-", "TMP-I-", "#TMP-I-", "gn:", "wd:"),
     "T": ("TMP-T-", "#TMP-T-", "wd:"),
     "S": ("TMP-S-", "#TMP-S-", "wd:"),
 }
@@ -401,6 +403,9 @@ def expected_kind(holder, attr, parent_map):
     if tag == "state":
         return "O"
     if tag == "placeName":
+        parent = parent_map.get(holder)
+        if holder.get("type") == "burial" or (parent is not None and parent.tag in ("death", "event")):
+            return "LI"  # 埋葬地・没地・event(residence/learning 等)の場は施設(I)でも可(2026-09-09)
         return "L"
     if tag == "bibl":
         return "T"
