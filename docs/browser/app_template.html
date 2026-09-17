@@ -240,7 +240,7 @@ R.forEach(r => {
   r._partners = norm(r.relations.map(x => (x.partner||'') + ' ' + (x.partner_name||'') + ' ' + (x.desc||'') + ' ' + nameOf(x.partner)).join(' ¶ ') + ' ' + r.events.flatMap(e => e.persons.map(p => p.t + ' ' + (p.ref||''))).join(' ¶ '));
   r._bibl = norm(r.relations.flatMap(x => x.bibl.map(b => b.t)).concat(r.events.flatMap(e => e.bibl.map(b => b.t))).join(' ¶ '));
   r._madhhab = r.affiliations.filter(a => a.type==='madhhab').map(a => a.org.split('|')[0].trim());
-  r._office = norm(r.states.map(s => s.label + ' ' + (s.latin||'')).join(' ¶ ') + ' ' + r.affiliations.map(a => a.org).join(' ¶ '));
+  r._office = norm(r.states.map(s => s.label + ' ' + (s.latin||'') + ' ' + (s.org?s.org.t:'')).join(' ¶ ') + ' ' + r.affiliations.map(a => a.org).join(' ¶ '));
   r._nisba = norm((r.names.nisbah||[]).map(x=>x.t).join(' '));
   r._dy = r.death ? r.death.y : null; r._dm = r.death ? r.death.m : null;
 });
