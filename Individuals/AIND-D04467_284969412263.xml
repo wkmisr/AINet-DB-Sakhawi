@@ -12,22 +12,16 @@
         <note xml:lang="ar">ومات ببلاد آمد سنة خمس وثلاثين</note>
         <note xml:lang="ja">835年＝1431-09-18 起点（年のみ表記のため年初、グレゴリオ暦）。precheck の「名前不一致」（#TMP-L-00047 登録「آمد」≠ 記載名「Āmid」）は、ラテン翻字の placeName とアラビア語登録名を突き合わせたことによる偽陽性であり、同一地名のため修正不要。</note>
     </death>
-    <listRelation>
-        <relation type="personal" subtype="other" n="1" active="#AIND-D04467" passive="#AIND-D00552" cert="medium">
-            <desc xml:lang="ar">الشهاب الكوراني</desc>
-            <note xml:lang="ar">ونقل عن الشهاب الكوراني أنه قال له حليت على مشايخي مائة وثلاثين تصنيفا</note>
-            <note xml:lang="ja">الشهاب الكوراني ＝ #AIND-D00552（أحمد بن إسماعيل بن عثمان بن أحمد بن رشيد بن إبراهيم شرف الدين ثم دعي شهاب الدين الشهرزوري الهمداني التبريزي الكوراني ثم القاهري عالم بلاد الروم、813年クーラーンの村生・893年没）。corpus の転送見出し「أحمد بن يوسف بن إسماعيل بن عثمان الشهاب الكوراني . مضى بدون يوسف」も D00552 に転送される。マクリーズィーがクーラーニーを情報源とする形は corpus L91333「ذكره المقريزي في عقوده عن الشهاب الكوراني」にも見える。被伝者がクーラーニーに直接語った発言の受け手という関係のため、師弟関係と断定せず subtype="other"（active=発言者＝被伝者、passive=受け手）とし、年代の接点（被伝者835年アーミド没／クーラーニーの東方遍歴期）が推定にとどまるため cert="medium"。初版は #NEEDID かつ統制外 subtype「interlocutor」。</note>
-        </relation>
-    </listRelation>
     <event type="cultural" n="1">
         <desc xml:lang="ar">ممن برع في المعقولات وشارك في علوم أخر</desc>
         <note xml:lang="ja">初版は英語 desc のみだったため、統一規則⑦により原文の言及句に置換。</note>
     </event>
     <event type="cultural" subtype="mention" n="2">
-        <desc xml:lang="ar">ذكره المقريزي في عقوده</desc>
+        <desc xml:lang="ar">ذكره المقريزي في عقوده ونقل عن الشهاب الكوراني أنه قال له حليت على مشايخي مائة وثلاثين تصنيفا</desc>
         <persName ref="wd:Q293604">المقريزي</persName>
+        <persName ref="#AIND-D00552" cert="medium">الشهاب الكوراني</persName>
         <bibl xml:lang="ar" ref="#TMP-T-00122">عقوده</bibl>
-        <note xml:lang="ja">Pattern A。المقريزي ＝ wd:Q293604、عقوده ＝ #TMP-T-00122（عقود المقريزي | درر العقود الفريدة）。初版の統制外 subtype「biographer」relation（#NEEDID）を event 化。</note>
+        <note xml:lang="ja">Pattern A。المقريزي ＝ wd:Q293604、عقوده ＝ #TMP-T-00122（عقود المقريزي | درر العقود الفريدة）。初版の統制外 subtype「biographer」relation（#NEEDID）を event 化。【裁定 2026-09-18（§Db-5）】「ونقل عن الشهاب الكوراني أنه قال له …」は、マクリーズィーの言及の内部に置かれた口頭情報源の明示であって師弟関係の記述ではない（سمع／قرأ／أخذ 等の学統語は無い）。よって校閲時の subtype="other" の relation を除去し、الشهاب الكوراني を本 mention event 内の persName として المقريزي と並置する形に改めた（口頭の情報提供者を mention event 内の persName ref に置く確立した先例: #AIND-D04086「أفادنيه صاحبنا قاضي الركب」、#AIND-D03259「أخبرني بذلك إمامها」）。同定: الشهاب الكوراني ＝ #AIND-D00552（أحمد بن إسماعيل بن عثمان … الشهرزوري … الكوراني ثم القاهري عالم بلاد الروم、813年生・893年没）。corpus 中「الشهاب الكوراني」の指示対象は一貫して D00552 であり（転送見出し「أحمد بن يوسف بن إسماعيل بن عثمان الشهاب الكوراني . مضى بدون يوسف」も D00552 に閉合）、マクリーズィーがディヤール・バクル方面の人物についてクーラーニーを情報源とする同型例が corpus L91333「ذكره المقريزي في عقوده عن الشهاب الكوراني」にも見える。ただし被伝者の没年（835年）時点でクーラーニーは22歳前後で、両者の接触地は corpus から確認できないため cert="medium"。desc は原文の言及句全体に広げた（統一規則7）。</note>
     </event>
     <note type="source" xml:lang="ar">عبد الله بن عبد الرحمن خير الدين الآمدي
 الحنفي . ممن برع في المعقولات وشارك في علوم أخر ومات ببلاد
@@ -52,5 +46,11 @@
         <persName>claude-opus-5-greg</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">death note の西暦をグレゴリオ暦（835 年初＝1431-09-18）に統一。@when="1431" は両暦で同値のため変更なし。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映（2026-09-18）</resp>
+        <persName>claude-opus-5-B86-ruling</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">Waka 裁定 §Db-5 の反映。الشهاب الكوراني を師弟関係ではなくマクリーズィーの言及内部の口頭情報源として符号化し直した。(1) subtype="other" の relation（active=#AIND-D04467 / passive=#AIND-D00552）を除去し、内容の無くなった listRelation 要素も削除。(2) mention event n=2 の desc を原文の言及句全体に広げ、persName ref="#AIND-D00552" cert="medium" を المقريزي と並置（先例 #AIND-D04086・#AIND-D03259）。(3) 同定根拠と cert の理由を event note に集約。</note>
     </respStmt>
 </person>
