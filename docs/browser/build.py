@@ -92,12 +92,67 @@ STOP = set(ntoks('ويعرف يعرف وتعرف تعرف ويدعى يدعى و
                  'أسند وأسند وصيته إليه إليها '
                  'شقيق شقيقه شقيقة نزيل ربيب الأصل بالنسبة الجماعة الزعيم'))
 
+# Descriptive tails carried by registered "names": kinship pointers, ordering pointers
+# ('الماضي' / 'الآتي' = the entry before / after this one), first-person epithets and lexical
+# glosses.  Derived empirically, not guessed: the token frequencies of the candidate pool
+# (every ID-Master row of Category 'Person', plus every relation <desc> in Individuals/) were
+# compared with the token frequencies of the corpus persName elements, and the tokens that are
+# common in the pool and effectively absent from the name zone were read off.  Forms that are
+# ambiguous after normalisation are deliberately excluded -- 'ابنه' (his son) is indistinguishable
+# from 'ابنة' (daughter of), which is a real name element.
+# The kinship pointers are generated from the stems and the pronoun paradigm actually observed
+# ('أبوه' 'أبيهما' 'والدته' ...) rather than typed out one by one, so no inflected form is missed;
+# the bare stems below are the construct-state pointers ('أخو فلان' = 'the brother of X').
+_TAIL_STEM = 'أبو أبي أبا أخو أخي أخا أخت ابنت جد جدت أم عم عمت خال خالت ولد والد والدت زوج زوجت شقيق شقيقت قريب سبط حفيد صهر أستاذ سيد فتا'.split()
+_TAIL_PRON = ('ه', 'ها', 'هما', 'هم', 'هن')
+TAIL = {t for st in _TAIL_STEM for p in _TAIL_PRON for t in ntoks(st + p)}
+TAIL |= set(ntoks('أخو أخي أخت والد جد عم سبط حفيد قريب زوج صهر شيخنا صاحبنا شيخها '
+                  'الماضي الماضية الآتي الآتية قبله بعده قبلها بعدها قريبا '
+                  'ممن الذي التي وهو سلفه سلفهم'))
+# After one of these the rest of the string is a lexical or orthographic gloss, never a name
+# ('الزيادي بالتشديد نسبة لمحلة زياد بالغربية'), so the remainder is discarded outright rather
+# than kept as a lower-priority candidate.
+GLOSS = set(ntoks('نسبة تصغير مصغر بالتشديد بالمهملة بالمعجمة بالموحدة'))
+GLOSS |= {c + t for t in set(GLOSS) for c in ('و', 'ف')}
+TAIL |= GLOSS
+# The corpus writes these with the conjunction attached at least as often as without
+# ('والآتي أبوه' 'وأخوه' 'وجده' 'وشقيقه'), and ntoks does not strip it, so both forms are needed.
+TAIL |= {c + t for t in set(TAIL) for c in ('و', 'ف')}
+STOP |= TAIL
+
+# The sultanic titles.  A one-token window on a bare title is the single worst mis-alignment in
+# the build (audit 類型 A): every ruler's ID-Master description mentions the other rulers'
+# titles, so 'الظاهر' alone matched whichever ruler happened to be tried first.
+TITLE_TOK = set(ntoks('الظاهر الأشرف الناصر المؤيد المنصور'))
+PERSNAME_VOCAB = set()   # filled once the ID-Master and the persName first pass are read
+
 # "... ويعرف بابن الزهري" / "... المعروف بالكلوتاتي": the clause marker, with the attached bi-/ka-.
 KNOWN_AS = re.compile(r'(?<![؀-ۿ])\s*(?:و?يعرف|و?تعرف|و?يدعى|و?يدعي|المعروفة?)'
                       r'\s+(?:قديما\s+|أيضا\s+|كأبيه\s+|كسلفه\s+|كجده\s+)?[بك]')
 SPLIT_RE = re.compile(r'\s*[—–]\s*|\s+-\s+|[|｜]')
 PAREN_RE = re.compile(r'[（(][^）)]*[）)]')
 PAREN_IN = re.compile(r'[（(]([^）)]*)[）)]')
+
+def cut_tail(seg):
+    """split 'name + descriptive tail' at the first TAIL marker; the marker itself is dropped."""
+    for m in re.finditer(r'[؀-ۿ]+', seg):
+        w = norm(m.group(0))
+        if w == 'ابن': w = 'بن'
+        if w in TAIL:
+            head, tail = seg[:m.start()].strip(), seg[m.end():].strip()
+            if w in GLOSS: tail = ''
+            return [x for x in (head, tail) if x]
+    return [seg]
+
+def cut_tail_all(seg):
+    """repeatedly cut; the head keeps its priority, the remainder follows as its own candidate
+    so that a real shuhrah buried in the tail ('... أخو فلان، ويعرف بابن علبك') is not lost."""
+    todo, out = [seg], []
+    while todo:
+        c = cut_tail(todo.pop(0))
+        if len(c) == 1: out.append(c[0])
+        else: todo = c + todo
+    return out
 
 def clean_cands(s):
     """Split one stored name/desc string into name-shaped candidate strings, best first.
@@ -123,9 +178,10 @@ def clean_cands(s):
     parts += [x for x in parens if x]
     out = []
     for x in parts:
-        tk = ntoks(x)
-        if not tk or all(t in STOP for t in tk): continue   # evidently a phrase, not a name
-        if x not in out: out.append(x)
+        for y in cut_tail_all(x):
+            tk = ntoks(y)
+            if not tk or all(t in STOP for t in tk): continue   # evidently a phrase, not a name
+            if y not in out: out.append(y)
     return out
 
 def tokenize_src(text):
@@ -137,17 +193,34 @@ def tokenize_src(text):
         toks.append((n, m.start(), m.end()))
     return toks
 
-def find_seq(stoks, seq, start=0, allow_prefix=True):
+def _noal(w):
+    return w[2:] if w.startswith('ال') else w
+
+def art_eq(a, b, sym=True):
+    """token equality that ignores a definite article on either side (`a` is the source token,
+    `b` the registered one; `sym=False` keeps only the old, source-side direction).
+
+    The clitic table below is only ever consulted for the *source* token, so the article was
+    absorbed in one direction only: text 'الاسكندرية' found the registered 'اسكندرية', but a
+    registered 'الاسكندرية' never found the text's 'اسكندرية'.  139 residual misses
+    (text 62 / org 42 / place 26 / office 9) were exactly this asymmetry."""
+    if a == b: return True
+    if a.startswith('ال') and a[2:] == b: return True
+    if sym and b.startswith('ال') and a == b[2:]: return True
+    return False
+
+def find_seq(stoks, seq, start=0, allow_prefix=True, art_sym=True):
     """find token sequence in source tokens; first token may carry a clitic prefix. returns (i,j) token idx or None"""
     L = len(seq)
     for i in range(start, len(stoks) - L + 1):
         t0 = stoks[i][0]
-        ok = t0 == seq[0]
+        ok = art_eq(t0, seq[0], art_sym)
         if not ok and allow_prefix:
             for p in PREFIXES[1:]:
-                if t0 == p + seq[0] or (seq[0] == 'بن' and t0 == p + 'ابن'): ok = True; break
+                if not t0.startswith(p): continue
+                if art_eq(t0[len(p):], seq[0], art_sym) or (seq[0] == 'بن' and t0[len(p):] == 'ابن'): ok = True; break
         if not ok: continue
-        if all(stoks[i + k][0] == seq[k] for k in range(1, L)):
+        if all(art_eq(stoks[i + k][0], seq[k], art_sym) for k in range(1, L)):
             return i, i + L - 1
     return None
 
@@ -181,7 +254,7 @@ def extend_left(stoks, i, vocab, taken, src, maxsteps=2):
         k -= 1
     return k
 
-def match_name(stoks, name, taken, min_single_len=4, src='', use_stop=True, extend=True):
+def match_name(stoks, name, taken, min_single_len=4, src='', use_stop=True, extend=True, title_guard=True):
     """try to locate a (possibly reconstructed) name in the source text. returns span (s,e) or None"""
     seq = ntoks(name)
     seq = [t for t in seq if t not in ('...',)]
@@ -193,18 +266,44 @@ def match_name(stoks, name, taken, min_single_len=4, src='', use_stop=True, exte
         for a in range(0, n - L + 1):
             sub = seq[a:a + L]
             if use_stop and any(w in STOP for w in sub): continue
+            if title_guard and all(w in TITLE_TOK for w in sub) and a != 0:
+                # A bare title buried inside a description ('برسباي الدقماقي الظاهري برقوق الاشرف
+                # ...' at token 15) is some *other* ruler's title, quoted in this one's biography.
+                # Every one of the title-only spans verified as correct has the title at the head
+                # of a short desc; every wrong one came from deep inside a registry description.
+                continue
             if L > 1 and sub[-1] == 'بن': continue   # no name ends in 'b.' -- that is a mid-phrase window
+            art_sym = True
             if L == 1:
                 w = sub[0]
                 if w in COMMON or len(w) < min_single_len: continue
+                # A one-token window may drop its article only if the bare form would have been
+                # allowed on its own: without this the registered 'الحسن' reaches the text's
+                # 'حسن' (AIND-D02727, where it landed on the brother's name).
+                art_sym = _noal(w) == w or (_noal(w) not in COMMON and len(_noal(w)) >= min_single_len)
             elif L == 2 and all(w in GIVEN for w in sub):
                 continue
             pos = 0
             while True:
-                r = find_seq(stoks, sub, pos)
+                r = find_seq(stoks, sub, pos, art_sym=art_sym)
                 if r is None: break
                 s, e = stoks[r[0]][1], stoks[r[1]][2]
                 if not any(s < te and e > ts for ts, te in taken):
+                    if title_guard and all(w in TITLE_TOK for w in sub):
+                        # the window is a bare title and nothing else ('عبد الظاهر' is a personal
+                        # name, not the sultan, so it is left alone).  Look at the word that follows in the
+                        # text: if it is a personal name the registry knows and it is NOT part of
+                        # this candidate, the title belongs to a different ruler -- refuse this
+                        # position and keep looking.  If it IS part of the candidate, widen the
+                        # span to cover the ruler's name too.  A bare title with no name after it
+                        # (e.g. 'ثم صار خاصكيا عند المؤيد ، وكان ...') is left alone, which is the
+                        # behaviour verified as correct on D01870 / D02043 / D02088.
+                        j = r[1] + 1
+                        nt = stoks[j] if j < len(stoks) else None
+                        if nt is not None and nt[0] in PERSNAME_VOCAB and (not src or src[nt[1]:nt[2]] not in NOEXT_RAW):
+                            if strip_clitic(nt[0], vocab) is None:
+                                pos = r[0] + 1; continue
+                            e = nt[2]; r = (r[0], j)
                     i0 = extend_left(stoks, r[0], vocab, taken, src) if extend else r[0]
                     return (stoks[i0][1], e, L + (r[0] - i0))
                 pos = r[0] + 1
@@ -212,9 +311,45 @@ def match_name(stoks, name, taken, min_single_len=4, src='', use_stop=True, exte
 
 MONTHS = ['المحرم', 'محرم', 'صفر', 'ربيع الأول', 'ربيع الآخر', 'ربيع الثاني', 'جمادى الأولى', 'جمادى الأخرى', 'جمادى الآخرة', 'جمادى الثانية',
           'رجب', 'شعبان', 'رمضان', 'شوال', 'ذي القعدة', 'ذي الحجة', 'ذو القعدة', 'ذو الحجة']
-NUMW = r'(?:ثمانماية|ثمانمائة|تسعمائة|سبعمائة|تسعماية|سبعماية|اثنتين|أربعين|ستمائة|ثمانين|ثلاثين|اربعين|عشرين|تسعين|اثنين|سبعين|خمسين|أربع|احدى|مائة|إحدى|ثمان|ثلاث|اربع|ستين|بضع|نيف|سبع|مئة|أحد|خمس|تسع|عشر|ست)'
-DATE_RE = re.compile(r'سنة\s+(?:' + NUMW + r'(?:\s+(?:و|و\s)?' + NUMW + r'){0,5}(?:\s+و\s*(?:سبعمائة|ثمانمائة|تسعمائة|ستمائة|سبعماية|ثمانماية|تسعماية|مائة|مئة))?)')
-MONTH_RE = re.compile('|'.join(re.escape(m) for m in sorted(MONTHS, key=len, reverse=True)))
+
+def fold(s):
+    """orthographic folding that PRESERVES offsets, so a match on the folded string can be used
+    as a span on the raw one.  The date and month regexes used to run on the raw source, which
+    is why 'سنة إثنتين وثمانين' and 'سنة إحدي وتسعين' were never found at all."""
+    s = re.sub('[أإآٱ]', 'ا', s)
+    return s.replace('ى', 'ي').replace('ؤ', 'و').replace('ئ', 'ي')
+
+# Numeral words, written once and folded programmatically so the alternation cannot be
+# mis-ordered.  'عشرة' and 'اثنتي' are the two additions: without the first, 'سنة ست عشرة' was
+# cut after 'عشر' and the feminine ending fell outside the highlight (109 spans); without the
+# second, 'سنة اثنتي عشرة' was missed outright (11 records).  The trailing look-ahead is what
+# actually stops the mid-word cut.
+# 'ثماني' 'ثنتين' 'اثني' are the remaining spellings the corpus actually uses after 'سنة'
+# (read off every word following 'سنة' in all 2,359 source texts), and were previously missed.
+NUMWORDS = ('ثمانماية ثمانمائة تسعمائة سبعمائة تسعماية سبعماية اثنتين اثنتي ثنتين اثني أربعين '
+            'ستمائة ثمانين ثلاثين اربعين عشرين تسعين اثنين سبعين خمسين أربع احدى مائة إحدى ثمان '
+            'ثماني ثلاث اربع ستين بضع نيف سبع مئة أحد خمس تسع عشرة عشر ست').split()
+NUMW = r'(?:' + '|'.join(sorted({fold(w) for w in NUMWORDS}, key=len, reverse=True)) + r')(?![؀-ۿ])'
+HUND = r'(?:' + '|'.join(sorted({fold(w) for w in 'سبعمائة ثمانمائة تسعمائة ستمائة سبعماية ثمانماية تسعماية مائة مئة'.split()}, key=len, reverse=True)) + r')(?![؀-ۿ])'
+DATE_RE = re.compile(r'سنة\s+(?:' + NUMW + r'(?:\s+(?:و|و\s)?' + NUMW + r'){0,5}(?:\s+و\s*' + HUND + r')?)')
+# The month name may carry the conjunction and/or bi- and/or the article ('بالمحرم', 'وربيع
+# الأول'); it may NOT carry li- or ka-, which in this corpus introduce a person ('لشعبان الآثاري').
+# Both boundaries matter: without them 'رجب' was found inside 'الرجبية' (the Rajab caravan) and
+# 'محرم' inside 'محرما' (in a state of ihram).
+MONTH_RE = re.compile(r'(?<![؀-ۿ])(?:[وف]?ب?(?:ال)?)(?:'
+                      + '|'.join(re.escape(fold(m)) for m in sorted(MONTHS, key=len, reverse=True))
+                      + r')(?![؀-ۿ])')
+# months that double as personal names (audit 類型 D)
+MONTH_AMBIG = set(ntoks('رجب صفر رمضان شعبان محرم'))
+
+# ---------------------------------------------------------------------------------------
+# Audit 類型 B / class 3: a non-paternal relative's span landing inside the subject's own
+# headword.  IMPLEMENTED BUT DISABLED -- the measurement of both settings is recorded in
+# docs/records_B86/ハイライト整列_監査_20260918.md and the decision is the project lead's.
+# `nasab_frag` below only refuses windows of <=4 tokens made entirely of the subject's own name
+# tokens; turning this on generalises that to 'any overlap with the headword span'.
+SUPPRESS_KIN_ON_HEADWORD = False
+# ---------------------------------------------------------------------------------------
 
 def txt(e):
     return (e.text or '').strip() if e is not None else ''
@@ -234,6 +369,19 @@ for f in files:
     pid = t.get(XML_NS + 'id')
     pnames[pid] = {p.get('type'): txt(p) for p in t.findall('persName') if lang(p) == 'ar'}
     pnames[pid]['_alts'] = [txt(p) for p in t.findall('persName') if lang(p) == 'ar' and p.get('type') in ('shuhrah', 'laqab', 'kunyah')]
+
+# Every token the registry knows as part of a person's name.  Consulted only by the
+# sultanic-title guard in match_name, to tell 'الظاهر خشقدم' (a ruler's name follows, so the
+# bare title is not ours) from 'عند المؤيد ، وكان' (no name follows: the title really is the
+# referent).  Built from the ID-Master 'Person' rows and every Arabic persName in the corpus.
+for _k, _v in idm.items():
+    if _v[2] == 'Person':
+        for _part in _v[0].split('|'): PERSNAME_VOCAB |= set(ntoks(_part))
+for _pn in pnames.values():
+    for _kk, _vv in _pn.items():
+        if _kk == '_alts':
+            for _x in _vv: PERSNAME_VOCAB |= set(ntoks(_x))
+        else: PERSNAME_VOCAB |= set(ntoks(_vv))
 
 def partner_names(ref):
     """candidate strings for a referenced person id"""
@@ -369,34 +517,8 @@ for f in files:
         stoks = tokenize_src(src)
         def add(kind, s, e, label, ref, extra=None):
             spans.append({'k': kind, 's': s, 'e': e, 'l': label, 'r': ref}); taken.append((s, e))
-        # headword (self)
-        # dates
-        for dm in DATE_RE.finditer(src):
-            if not any(dm.start() < te and dm.end() > ts for ts, te in taken): add('date', dm.start(), dm.end(), dm.group(0), '')
-        for mm in MONTH_RE.finditer(src):
-            if not any(mm.start() < te and mm.end() > ts for ts, te in taken): add('date', mm.start(), mm.end(), mm.group(0), '')
-        # places: from death/birth/events/states/affiliations/relations
-        placeset = {}
-        for d in (rec.get('death'), rec.get('birth')):
-            if d and d.get('place'): placeset[d['place']['t']] = d['place']['ref']
-        for e in evs:
-            for p in e['places']: placeset[p['t']] = p['ref']
-        for s in sts + affs:
-            if s.get('place'): placeset[s['place']['t']] = s['place']['ref']
-        for r in rels:
-            if r.get('place'): placeset[r['place']['t']] = r['place']['ref']
-        for pt, pr in placeset.items():
-            seq = ntoks(pt)
-            if not seq: continue
-            pos = 0; hit = False
-            while True:
-                rr = find_seq(stoks, seq, pos)
-                if rr is None: break
-                s, e = stoks[rr[0]][1], stoks[rr[1]][2]
-                if not any(s < te and e > ts for ts, te in taken): add('place', s, e, pt, pr); hit = True
-                pos = rr[0] + 1
-            stats['place_hit' if hit else 'place_miss'] += 1
-        # self headword first (soft exclusion for person matching: try outside the headword first)
+        # headword (self).  Computed before the date pass because the month guard below needs
+        # it; the headword is matched against taken=[] so its own result is order-independent.
         hw = names['full'][0]['t'] if names.get('full') else ''
         m = match_name(stoks, hw, [], src=src) if hw else None
         selfspan = {'k': 'self', 's': m[0], 'e': m[1], 'l': hw, 'r': '#' + pid} if m else None
@@ -419,6 +541,53 @@ for f in files:
                 if rr is None: break
                 selfzones.append((stoks[rr[0]][1], stoks[rr[1]][2]))
                 pos = rr[0] + 1
+
+        # dates.  Matched on the folded text so that 'إثنتين' / 'إحدي' are seen; folding keeps
+        # the string length, so the offsets are the raw source's offsets.
+        srcf = fold(src)
+        for dm in DATE_RE.finditer(srcf):
+            if not any(dm.start() < te and dm.end() > ts for ts, te in taken):
+                add('date', dm.start(), dm.end(), src[dm.start():dm.end()], '')
+        for mm in MONTH_RE.finditer(srcf):
+            if any(mm.start() < te and mm.end() > ts for ts, te in taken): continue
+            mt = ntoks(mm.group(0))
+            if len(mt) == 1 and (strip_clitic(mt[0], MONTH_AMBIG) or mt[0]) in MONTH_AMBIG:
+                # 'رجب' 'صفر' 'رمضان' 'شعبان' 'محرم' are also personal names, and the date pass runs
+                # first and takes the position for good, so 'أحمد بن رجب' became a date highlight
+                # and blocked the person match there permanently (audit 類型 D).
+                prev = nxt = None
+                for _t, _a, _b in stoks:
+                    if _b <= mm.start(): prev = _t
+                    if _a >= mm.end(): nxt = _t; break
+                if prev in ('بن', 'ابو', 'ابي', 'ام') or nxt == 'بن': continue
+                if selfspan and mm.start() < selfspan['e'] and mm.end() > selfspan['s']: continue
+            add('date', mm.start(), mm.end(), src[mm.start():mm.end()], '')
+        # places: from death/birth/events/states/affiliations/relations
+        placeset = {}
+        for d in (rec.get('death'), rec.get('birth')):
+            if d and d.get('place'): placeset[d['place']['t']] = d['place']['ref']
+        for e in evs:
+            for p in e['places']: placeset[p['t']] = p['ref']
+        for s in sts + affs:
+            if s.get('place'): placeset[s['place']['t']] = s['place']['ref']
+        for r in rels:
+            if r.get('place'): placeset[r['place']['t']] = r['place']['ref']
+        for pt, pr in placeset.items():
+            seq = ntoks(pt)
+            if not seq: continue
+            pos = 0; hit = False
+            while True:
+                rr = find_seq(stoks, seq, pos)
+                if rr is None: break
+                s, e = stoks[rr[0]][1], stoks[rr[1]][2]
+                if not any(s < te and e > ts for ts, te in taken): add('place', s, e, pt, pr); hit = True
+                pos = rr[0] + 1
+            stats['place_hit' if hit else 'place_miss'] += 1
+        # The subject's OWN name in every registered form -- not just full[0] -- is protected, so a
+        # relative sharing the family nisba can no longer grab the subject's shuhrah (the subject's
+        # own 'ويعرف بابن الزهري' was being tagged as the father).  Every occurrence of one of the
+        # subject's epithets, and of an office/affiliation registered for the subject, joins the
+        # soft exclusion zone that person matching tries to stay out of.
         # persons: relations partners, event mentions
         cands = []
         for r in rels:
@@ -455,8 +624,12 @@ for f in files:
                 for i in range(1, len(stoks)):
                     if stoks[i][0] == 'علي' and stoks[i-1][0] in FIRSTP_VERBS and not any(stoks[i][1] < te and stoks[i][2] > ts for ts, te in taken):
                         found = (stoks[i][1], stoks[i][2], 1); break
-            if found and sub not in ('father', 'grandfather', 'ancestor', 'great-grandfather') and nasab_frag(found[0], found[1]):
-                found = None
+            if found and sub not in ('father', 'grandfather', 'ancestor', 'great-grandfather'):
+                if nasab_frag(found[0], found[1]):
+                    found = None
+                elif (SUPPRESS_KIN_ON_HEADWORD and selfspan and (ref or '').lstrip('#') != pid
+                      and found[0] < selfspan['e'] and found[1] > selfspan['s']):
+                    found = None   # class 3: a non-paternal relative may not sit on the headword
             if found:
                 add('person', found[0], found[1], obj.get('desc') or obj.get('t') or (c[0] if c else ''), ref)
                 spans[-1]['sub'] = sub
