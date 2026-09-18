@@ -83,6 +83,51 @@ COMMON = set(ntoks('محمد أحمد علي عبد الله الرحمن إبر
 
 FIRSTP_VERBS = set(ntoks('سمع وسمع قرأ وقرأ عرض عرضها عرضه عرضهما وعرض أخذ وأخذ اشتغل واشتغل حضر وحضر لازم ولازم كتب وكتب أجاز قرأه فسمع فقرأ فعرض'))
 
+# tokens that are never a name element: "known as" markers, bare kinship descriptors and a few
+# narrative verbs.  Derived empirically from the mis-highlighted person spans of the 2,359-record
+# build (see e.g. AIND-D00420 'ويعرف' and 'وأسند وصيته إليه'), not guessed.
+# A candidate window containing any of these is refused; SPECIAL candidates are exempt, because the
+# al-Sakhawi heuristics deliberately match first-person verb phrases.
+STOP = set(ntoks('ويعرف يعرف وتعرف تعرف ويدعى يدعى ويدعي يدعي '
+                 'أسند وأسند وصيته إليه إليها '
+                 'شقيق شقيقه شقيقة نزيل ربيب الأصل بالنسبة الجماعة الزعيم'))
+
+# "... ويعرف بابن الزهري" / "... المعروف بالكلوتاتي": the clause marker, with the attached bi-/ka-.
+KNOWN_AS = re.compile(r'(?<![؀-ۿ])\s*(?:و?يعرف|و?تعرف|و?يدعى|و?يدعي|المعروفة?)'
+                      r'\s+(?:قديما\s+|أيضا\s+|كأبيه\s+|كسلفه\s+|كجده\s+)?[بك]')
+SPLIT_RE = re.compile(r'\s*[—–]\s*|\s+-\s+|[|｜]')
+PAREN_RE = re.compile(r'[（(][^）)]*[）)]')
+PAREN_IN = re.compile(r'[（(]([^）)]*)[）)]')
+
+def clean_cands(s):
+    """Split one stored name/desc string into name-shaped candidate strings, best first.
+
+    Handles the three shapes that produce phrase-matches: a parenthetical gloss, an
+    explanatory tail after an em dash, and a "known as" clause.  The shuhrah after
+    'ويعرف ب' is kept as its own candidate (it is a real name for that person) but can
+    no longer be reached through the marker token."""
+    if not s: return []
+    parens = [x.strip() for x in PAREN_IN.findall(s)]
+    s = PAREN_RE.sub(' ', s)
+    parts = []
+    for seg in SPLIT_RE.split(s):
+        seg = (seg or '').strip()
+        if not seg: continue
+        m = KNOWN_AS.search(seg)
+        if m:
+            head, tail = seg[:m.start()].strip(), seg[m.end():].strip()
+            if head: parts.append(head)
+            if tail: parts.append(tail)
+        else:
+            parts.append(seg)
+    parts += [x for x in parens if x]
+    out = []
+    for x in parts:
+        tk = ntoks(x)
+        if not tk or all(t in STOP for t in tk): continue   # evidently a phrase, not a name
+        if x not in out: out.append(x)
+    return out
+
 def tokenize_src(text):
     """tokens of source text with char offsets"""
     toks = []
@@ -106,16 +151,49 @@ def find_seq(stoks, seq, start=0, allow_prefix=True):
             return i, i + L - 1
     return None
 
-def match_name(stoks, name, taken, min_single_len=4):
+def strip_clitic(t, vocab):
+    """token as it appears in the source, reduced to a member of `vocab` if a clitic explains it"""
+    if t in vocab: return t
+    for p in PREFIXES[1:]:
+        if t.startswith(p) and t[len(p):] in vocab: return t[len(p):]
+        if t == p + 'ابن' and 'بن' in vocab: return 'بن'
+    return None
+
+# normalisation folds ى into ي, so the preposition على looks like the name علي: never extend over
+# one of these in its raw spelling.
+NOEXT_RAW = set('على عن في من إلى الى مع عند ثم قد بل أو او ما لا ان أن'.split())
+
+def extend_left(stoks, i, vocab, taken, src, maxsteps=2):
+    """Grow a matched window leftwards over tokens that belong to the same name but were not
+    contiguous in the stored form: the text cites 'الشرف بن مفلح' while the register holds
+    'الشرف عبد الله بن مفلح', so the longest contiguous window is only 'بن مفلح'.
+    Never crosses an already-taken span or a sentence break."""
+    k = i
+    for _ in range(maxsteps):
+        if k == 0: break
+        pt, ps, pe = stoks[k - 1]
+        base = strip_clitic(pt, vocab)
+        if base is None or base in ('بن',) or base in STOP: break
+        if src and src[ps:pe] in NOEXT_RAW: break
+        if any(ps < te and pe > ts for ts, te in taken): break
+        gap = src[pe:stoks[k][1]] if src else ''
+        if '.' in gap or '%' in gap: break
+        k -= 1
+    return k
+
+def match_name(stoks, name, taken, min_single_len=4, src='', use_stop=True, extend=True):
     """try to locate a (possibly reconstructed) name in the source text. returns span (s,e) or None"""
     seq = ntoks(name)
     seq = [t for t in seq if t not in ('...',)]
     if not seq: return None
     n = len(seq)
+    vocab = set(seq)
     # windows from longest to shortest, starting at any position
     for L in range(min(n, 8), 0, -1):
         for a in range(0, n - L + 1):
             sub = seq[a:a + L]
+            if use_stop and any(w in STOP for w in sub): continue
+            if L > 1 and sub[-1] == 'بن': continue   # no name ends in 'b.' -- that is a mid-phrase window
             if L == 1:
                 w = sub[0]
                 if w in COMMON or len(w) < min_single_len: continue
@@ -127,7 +205,8 @@ def match_name(stoks, name, taken, min_single_len=4):
                 if r is None: break
                 s, e = stoks[r[0]][1], stoks[r[1]][2]
                 if not any(s < te and e > ts for ts, te in taken):
-                    return (s, e, L)
+                    i0 = extend_left(stoks, r[0], vocab, taken, src) if extend else r[0]
+                    return (stoks[i0][1], e, L + (r[0] - i0))
                 pos = r[0] + 1
     return None
 
@@ -173,7 +252,11 @@ def partner_names(ref):
     if nm:
         for part in nm.split('|'):
             out.append(part.strip())
-    return out
+    cleaned = []
+    for x in out:
+        for y in (clean_cands(x) if x not in SPECIAL.get(ref, []) else [x]):
+            if y not in cleaned: cleaned.append(y)
+    return cleaned
 
 for f in files:
     t = etree.parse(f).getroot()
@@ -315,21 +398,40 @@ for f in files:
             stats['place_hit' if hit else 'place_miss'] += 1
         # self headword first (soft exclusion for person matching: try outside the headword first)
         hw = names['full'][0]['t'] if names.get('full') else ''
-        m = match_name(stoks, hw, []) if hw else None
+        m = match_name(stoks, hw, [], src=src) if hw else None
         selfspan = {'k': 'self', 's': m[0], 'e': m[1], 'l': hw, 'r': '#' + pid} if m else None
         stats['self_hit' if m else 'self_miss'] += 1
+        # The subject's OWN name in every registered form -- not just full[0] -- is protected, so a
+        # relative sharing the family nisba can no longer grab the subject's shuhrah (the subject's
+        # own 'ويعرف بابن الزهري' was being tagged as the father).  Every occurrence of one of the
+        # subject's epithets, and of an office/affiliation registered for the subject, joins the
+        # soft exclusion zone that person matching tries to stay out of.
+        SELF_KEYS = ('full', 'name_only', 'nisbah', 'laqab', 'shuhrah', 'kunyah')
+        selfstrs = [x['t'] for k in SELF_KEYS for x in names.get(k, [])]
+        epithets = [x['t'] for k in ('nisbah', 'laqab', 'shuhrah', 'kunyah') for x in names.get(k, [])]
+        epithets += [st.get('label') for st in sts if st.get('type') == 'office' and st.get('label')]
+        epithets += [af.get('org') for af in affs if af.get('org')]
+        selfzones = [(selfspan['s'], selfspan['e'])] if selfspan else []
+        for sstr in epithets:
+            sq = ntoks(sstr); pos = 0
+            while sq:
+                rr = find_seq(stoks, sq, pos)
+                if rr is None: break
+                selfzones.append((stoks[rr[0]][1], stoks[rr[1]][2]))
+                pos = rr[0] + 1
         # persons: relations partners, event mentions
         cands = []
         for r in rels:
             c = []
-            if r.get('desc'): c.append(r['desc'])
+            if r.get('desc'): c += clean_cands(r['desc'])
             c += partner_names(r['partner'])
             cands.append(('rel', r['subtype'], r['partner'], c, r))
         for e in evs:
             for p in e['persons']:
-                c = [p['t']] + partner_names(p['ref'])
+                c = clean_cands(p['t']) + partner_names(p['ref'])
                 cands.append(('mention', e['subtype'] or e['type'], p['ref'], c, p))
-        selftoks = set(ntoks(hw)) if hw else set()
+        selftoks = set()
+        for sstr in (selfstrs or ([hw] if hw else [])): selftoks |= set(ntoks(sstr))
         def nasab_frag(a, b):
             # a window made only of the subject's own name tokens (e.g. 'بن عبد الوهاب') is the subject's nasab, not a mention
             w = [t[0] for t in stoks if t[1] >= a and t[2] <= b]
@@ -339,13 +441,15 @@ for f in files:
             found = None
             if ref and ref in seen_ref:   # same partner referenced twice: reuse the first location
                 obj['span'] = seen_ref[ref]; stats['person_hit'] += 1; continue
-            taken_self = taken + ([(selfspan['s'], selfspan['e'])] if selfspan else [])
+            taken_self = taken + selfzones
             for nm in c:
-                found = match_name(stoks, nm, taken_self, min_single_len=(2 if nm in SPECIAL.get(ref, []) else 4))
+                sp = nm in SPECIAL.get(ref, [])
+                found = match_name(stoks, nm, taken_self, min_single_len=(2 if sp else 4), src=src, use_stop=not sp)
                 if found: break
             if not found:
                 for nm in c:
-                    found = match_name(stoks, nm, taken, min_single_len=(2 if nm in SPECIAL.get(ref, []) else 4))
+                    sp = nm in SPECIAL.get(ref, [])
+                    found = match_name(stoks, nm, taken, min_single_len=(2 if sp else 4), src=src, use_stop=not sp)
                     if found: break
             if not found and ref == 'wd:Q4120128':
                 for i in range(1, len(stoks)):
@@ -354,7 +458,7 @@ for f in files:
             if found and sub not in ('father', 'grandfather', 'ancestor', 'great-grandfather') and nasab_frag(found[0], found[1]):
                 found = None
             if found:
-                add('person', found[0], found[1], obj.get('desc') or obj.get('t') or c[0], ref)
+                add('person', found[0], found[1], obj.get('desc') or obj.get('t') or (c[0] if c else ''), ref)
                 spans[-1]['sub'] = sub
                 obj['span'] = len(spans) - 1
                 if ref: seen_ref[ref] = len(spans) - 1

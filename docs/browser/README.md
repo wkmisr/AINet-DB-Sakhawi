@@ -20,6 +20,12 @@ python3 assemble.py data.json                                      # app_templat
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
 
+## 期待値（2026-09-18 v15b、2,359 件）— entity alignment 精度修正後
+self_hit 2343 / person_hit 3404 / place_hit 1460 / org_hit 237 / office_hit 596 / text_hit 430
+（build.py の三点修正: (1) 候補文字列のクリーニング（ويعرف بـ 等の「〜として知られる」節の分割・丸括弧/ダッシュ注記の分離）と STOP 語彙による句マッチ抑止、
+(2) selftoks / 除外ゾーンを full[0] だけでなく本人の全 persName 形（nisbah/laqab/shuhrah/kunyah）＋本人の office/affiliation から構築、
+(3) マッチ窓の左方向拡張（'بن مفلح' → 'الشرف بن مفلح'）。person +15 / office +24 / org +8、失われた非 person span は 1 件のみ）
+
 ## 期待値（2026-09-18 v15、2,359 件）
 self_hit 2343 / person_hit 3389 / place_hit 1460 / org_hit 229 / office_hit 572 / text_hit 430
 （B56-58・B84-85 反映後 ＋ affiliation/state 二重記録 67 件（61 ファイル）削除後 ＋ 原文 note 欠落55件補填後 ＋ B86 の20件収録後。idmaster は `docs/_work/idmaster_ext_20260918.tsv`＝9/16版に未貼付TMP 2本を結合したもの を使用）
