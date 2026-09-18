@@ -6,7 +6,7 @@
     <persName type="nisbah" xml:lang="ar" ref="#TMP-N-00395">الزيلعي</persName>
     <persName type="kunyah" xml:lang="ar">أبو العباس</persName>
     <sex value="M"/>
-    <death when-custom="0836-837" when="1500-03" cert="high">
+    <death notBefore-custom="0836" notAfter-custom="0837" notBefore="1432" notAfter="1434" cert="high">
         <note xml:lang="en">Died in the year 836 or 837 AH.</note>
     </death>
     <listRelation>
@@ -38,5 +38,11 @@
         <persName>claude-opus-5-personalia-a</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">personalia注記の和訳(ja)を追補。既存の他言語注記の言い換えではなく、note type=source のアラビア語原文から翻訳した。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（西暦の精度・値の是正・2026-09-18 Waka裁定）</resp>
+        <persName>claude-opus-5-Cgroup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">death の日付表現を範囲形式に変更（2026-09-18 Waka裁定）。原文「مات في سنة ست أو سبع وثلاثين」＝没年は AH 836 または 837 で、ヒジュラ暦の範囲は AH 836-01-01 〜 AH 837-12-29、グレゴリオ暦では 1432-09-06 〜 1434-08-15 にあたり西暦 1432・1433・1434 の3年にまたがる。そのため単一の @when ではどの精度でも偽の断定となるので廃止し、非標準表記 @when-custom="0836-837"（YYYY-MM と誤読されうる）と誤値 @when="1500-03"（約68年のずれ）を、リポジトリ既存の範囲表記の書式に倣い notBefore-custom="0836" notAfter-custom="0837" notBefore="1432" notAfter="1434" に置き換えた。西暦側を年精度としたのはヒジュラ値が年精度であり、年精度の notBefore は当該ヒジュラ年の元日が属する西暦年、notAfter は末日が属する西暦年、という本プロジェクトの規約に従ったためである。なお範囲が2年にわたるため cert="high" の妥当性は別途要検討（今回は裁定範囲外として未変更）。</note>
     </respStmt>
 </person>
