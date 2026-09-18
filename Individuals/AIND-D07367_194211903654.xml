@@ -5,7 +5,10 @@
     <persName type="laqab" xml:lang="ar">بدر الدين</persName>
     <sex value="M"/>
     <death when-custom="0892-10" when="1487-09">
-        <note xml:lang="en">Drowned in the cistern of al-Ḥākim (ṣahrīj al-Ḥākim) in Shawwāl 892 AH. No place name is stated beyond the cistern itself.</note>
+        <placeName xml:lang="ar" ref="wd:Q775838">صهريج الحاكم</placeName>
+        <note xml:lang="ar">غرق بصهريج الحاكم في شوال سنة اثنتين وتسعين</note>
+        <note xml:lang="en">Drowned in the cistern of al-Ḥākim (ṣahrīj al-Ḥākim) in Shawwāl 892 AH.</note>
+        <note xml:lang="ja">裁定 §D-31 を反映。原文「غرق بصهريج الحاكم」に明記された溺死地点を placeName とした。ハーキム・モスクの貯水槽であり、施設としては同モスクに属するため wd:Q775838（جامع الحاكم）を充当し、label に原文の「صهريج الحاكم」を残した（同ファイルの residence event も同じ ref）。貯水槽単独の TMP-I 発行は過剰と判断。統一規則16 は「原文にない地名を補わない」規則であって「原文にある地名を落とす」規則ではない。なお、原文にない没地 القاهرة は復活させない（こちらは規則16 の正しい適用）。</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#AIND-D02921" passive="#AIND-D07367"><desc xml:lang="ar">خليل بن يعقوب</desc><note xml:lang="ja">父=#AIND-D02921（خليل بن يعقوب بن إبراهيم التاجر صهر أخي أبي بكر ووالد أحمد الماضي、没871）。</note></relation>
@@ -34,5 +37,11 @@
         <persName>claude-b87c-review</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">corpus 検索により父 #AIND-D02921・兄弟 #AIND-D00717 を同定して relation を追加、「صهر أخي」を父の項の記述に基づき #AIND-D10729（アブー・バクル）の brother-in-law に確定（重複 relation を統合、親族のため @n なし）。没月の西暦を 1487-09 に是正し、原文にない没地 القاهرة を除去（規則16）。affiliation(reside) と residence event の二重化（規則8）を解消、residence の placeName を جامع الحاكم(wd:Q775838) に変更。「المشاهد」の visit event を除去。state の ref を #TMP-O-00080（واعظ）に、原文にない placeName を除去。原文 note 挿入。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映</resp>
+        <note xml:lang="ja">裁定 §D-31 を反映。death 要素に placeName ref="wd:Q775838"（label「صهريج الحاكم」）を追加し、原文句の note type 無し（ar）と根拠 note（ja）を併記。英語 note の「No place name is stated beyond the cistern itself.」は前提が変わったため削除。統一規則16 の過剰適用（原文に明記された地名の脱落）の是正であり、原文にない没地 القاهرة は復活させていない。corpus 行80917「غرق بصهريج الحاكم في شوال سنة اثنتين وتسعين」で原文を検算済み。</note>
+        <persName>claude-b87-apply</persName>
+        <date when="2026-09-19"/>
     </respStmt>
 </person>

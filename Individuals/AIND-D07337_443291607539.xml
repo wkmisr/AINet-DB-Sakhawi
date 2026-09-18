@@ -41,11 +41,12 @@
         <orgName ref="wd:Q428858">المسجد الحرام</orgName>
         <note xml:lang="ja">聖モスクのハナフィー派マカームにおける تكبير（復唱）職の半分を名義として保持。職ID は مكبر=TMP-O-00149。placeName「مكة」は原文の「بالمسجد」（＝المسجد الحرام）に基づく orgName で代替し付けない（規則16）。初版は #NEEDID。</note>
     </state>
-    <state n="2" type="office" ref="#TMP-O-00184" cert="medium">
+    <state n="2" type="status" ref="#TMP-O-00184" cert="medium">
         <label xml:lang="ar">السبيل الذي أنشأه المؤيد بالمسجد تجاه الحجر الأسود</label>
         <label xml:lang="ar-Latn">al-sabīl alladhī anshaʾahu al-Muʾayyad bi-l-Masjid tujāha al-Ḥajar al-Aswad</label>
         <orgName ref="#TMP-I-00164">سبيل المؤيد بالمسجد الحرام تجاه الحجر الأسود</orgName>
         <note xml:lang="ja">「وباسمه … السبيل الذي أنشأه المؤيد بالمسجد تجاه الحجر الأسود」＝アル＝ムアイヤド（スルターン・シャイフ＝#AIND-D03345）が聖モスクの黒石の正面に設けたサビール（給水所）に係る職（俸給）を名義として保持。職名は原文に明示がないため既存の خادم السبيل=TMP-O-00184 を cert medium で充当（ISSUES §Db-6）。施設は新規 TMP-I-00164。</note>
+        <note xml:lang="ja">裁定 §D-10 により @type を office → status に変更。原文「وباسمه … إلى غير ذلك من مرتبات」は名義上の俸給保持を述べるものであって職掌の遂行ではないため、身分（status）として符号化する。repo 実測の state/@type は office 1,313 件・status 69 件・employed 1 件で、status は確立した選択肢。職ID #TMP-O-00184（خادم السبيل）は原文に職名の明示がないための充当であり cert="medium" のまま維持する。なお state n="1"（مكبر・#TMP-O-00149）は「نصف تكبير」と職名が明示されているため office のまま。</note>
     </state>
     <note type="personalia" xml:lang="ar">وحصل كتبا ، وكان مع ذلك جيد الخط … إلى غير ذلك من مرتبات</note>
     <note type="source" xml:lang="ar">محمد بن حسن بن إلياس الجمال الرومي
@@ -67,5 +68,11 @@
         <note xml:lang="ja">(1) 毒wd: affiliation wd:Q160851 → wd:Q228986（Hanafi）。(2) أبو الوقت المرشدي #NEEDID → #AIND-D03480。父 relation を新規 TMP-P-001124 で追加。(3) 「أرخه ابن فهد」を統制外 subtype「other」relation から Pattern A の mention event（#AIND-D09211・cert low）に。(4) state の #NEEDID を مكبر=TMP-O-00149 に、placeName を除去（規則16）。サビール職の state（TMP-O-00184・medium、新規 TMP-I-00164）を追加。(5) 没月を月精度に、逆算生年（cert low）を追加。(6) 規約A により非親族 relation のみ @n。(7) corpus 原文を note type="source" として挿入。(8) 訳文の「ビン」→「ブン」、「ハナフィー派。」の重複除去、「イリヤース」の表記を維持。</note>
         <persName>claude-b87b-review</persName>
         <date when="2026-09-18"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映</resp>
+        <note xml:lang="ja">裁定 §D-10 を反映。state n="2"（#TMP-O-00184 خادم السبيل）の @type を office → status に変更（「باسمه … من مرتبات」型は俸給受給の身分であり職掌ではない）。#TMP-O-00184 の ref と cert="medium" は維持。state n="1"（#TMP-O-00149 مكبر）は職名明示のため office のまま変更なし。</note>
+        <persName>claude-b87-apply</persName>
+        <date when="2026-09-19"/>
     </respStmt>
 </person>
