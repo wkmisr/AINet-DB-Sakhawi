@@ -25,16 +25,16 @@
         <relation type="personal" subtype="brother" active="#AIND-D03854" passive="#AIND-D04416"><desc xml:lang="ar">عبد الرحيم</desc></relation>
     </listRelation>
     <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
-    <affiliation n="1" type="employed" ref="wd:Q7404512">
-        <orgName xml:lang="ar">الصالحية</orgName>
-        <orgName xml:lang="ar-Latn">al-Ṣāliḥiyya</orgName>
-    </affiliation>
     <state n="1" type="office" ref="#TMP-O-00264">
         <label xml:lang="ar">الرسلية</label>
         <label xml:lang="ar-Latn">al-rusuliyya</label>
         <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="wd:Q7404512">الصالحية</orgName>
     </state>
+    <note type="source" xml:lang="ar">عبد الله بن أحمد بن موسى بن إبراهيم
+الجمال أبو الفضل بن الشهاب الحلبي الأصل القاهري الحنفي أخو عبد
+الرحيم الماضي وشريكه في شيوخه هناك ويعرف بالحلبي . أجاز لي ومات في
+شعبان سنة إحدى وخمسين عن نحو الستين وكان يتصرف بالرسلية في الصالحية .</note>
     <note type="translation" xml:lang="ja">アブドゥッラー・ビン・アフマド・ビン・ムーサー・ビン・イブラーヒーム。アル＝ジャマール、アブー・アル＝ファドル、イブン・アッ＝シハーブ。ハラブ（アレッポ）に起源を持ち、カイロに在住したハナフィー派の学者。先に言及されたアブドゥッラヒームの兄弟であり、カイロにおける彼の師たちの学友、またハラブ（アレッポ）の出身として知られる。私（サハーウィー）にイジャーザ（授権）を与えた。851年シャアバーン（第8月）に約60歳で没した。彼は（カイロの）サーリヒーヤ・マドラサにおいて使者（ラスィル）の職務にあたっていた。</note>
     <note type="translation" xml:lang="en">ʿAbd Allāh b. Aḥmad b. Mūsā b. Ibrāhīm, al-Jamāl Abū al-Faḍl b. al-Shihāb. He was of Aleppo origin, Cairo-based, and of the Hanafi school. He was the brother of the aforementioned ʿAbd al-Raḥīm, and his companion in studying under his teachers there, and was known as al-Ḥalabī. He granted me (al-Sakhāwī) an ijāza. He died in Shaʿbān, the year 851 AH, at around sixty years of age. He used to serve as an envoy (al-rusuliyya) at al-Ṣāliḥiyya.</note>
     <respStmt>
@@ -47,5 +47,11 @@
         <note xml:lang="ja">affiliation madhhab の毒wd Q160851 を無条件で Q228986(Hanafi正)に修正。ijaza relation は原文「أجاز لي」(本項主が私=サハーウィーにイジャーザを与えた)により本項主が授与者(師)側のため subtype を「student」から「teacher」に是正(active/passive方向は不変)。空desc(field, 幻番号TMP-S-00000)を除去。brother「عبد الرحيم」を#AIND-D03854(عبد الرحيم بن أحمد بن موسى بن إبراهيم、同ナサブ一致)に同定。affiliation/state の「الصالحية」はカイロのマドラサとして既存D01002前例によりwd:Q7404512を充当。state「الرسلية」はrepo未登録のためTMP-O-00264を新規発行。</note>
         <persName>claude-b85-review</persName>
         <date when="2026-09-16"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「الصالحية」(wd:Q7404512)の場所情報がaffiliation(n=1, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>

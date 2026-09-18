@@ -1,0 +1,24 @@
+B86 校閲（実項17・REF化3）＋ v13.28 前提作業（affiliation/state 二重記録61ファイル是正・原文note欠落55件補填）
+
+## B86（受領20件）
+- 実項 17 / REF化 3（D04424→#AIND-D04421・D04443→#AIND-D04441・D04445→#AIND-D04579）。重複投入ゼロ、20件すべて corpus に存在。
+- corpus: REF 3件の見出しを `$# $` → `$# $$$`（$$$ 1474 → 1477）。
+- 新規 TMP 9件（P-001110〜001114 / O-00269 / I-00162 / T-00176・00177）。ID-Master 貼付は Waka（docs/records_B86/TMP登録_B86.tsv）。
+- 作業方式: 2チャンク並行（各10件、Opus 5）＋独立検証パス1本（Opus 5）。
+- 独立検証パスの重要検出（修正済み）: D04420 没年の暦違いによる月境界ずれ（1475-12→1475-11）、D04428 の teacher/student の active/passive 逆転。
+
+## ★日付換算規約の判定（独立検証パス）
+- repo の換算ツール h2g.py・v13.26 の記載・学界確定値のいずれからも **ユリウス暦が正**。
+- ただし既存 Individuals は両暦が分岐するペアで ユリウス98 対 グレゴリオ266 と汚染されており、約266件が9日〜1か月ずれている。一括是正の要否は docs/要判断_B86.md §D-V1 で裁定待ち。
+
+## v13.28 が指示していた前提作業
+- affiliation/state 二重記録の一括是正: 67要素・61ファイルの affiliation を削除（state 側は不変）。note を持っていた11件は note 全文を新 respStmt に転記。repo 全体の残件ゼロ。
+- 前セッション（B56-58/84-85）の Opus レビュー: 裁定20項目の反映・裁定分TMP12件・§D-10 の全体適用・毒wd 一掃を確認。検出した要対応3点は docs/records_B86/前提作業_20260918.md と HANDOVER v13.29 §0 に記載。
+- 原文 `<note type="source">` の欠落55件を corpus から補填（Individuals 全2,359件が原文 note を保持）。
+
+## その他
+- AINet Browser を v15（2,359件）に再ビルド。docs/browser/README.md に期待値を更新。
+- Individuals 2,359件（REF 152件）、全件 well-formed。
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01TCyr16ZhxYydqXaoVE5KMM

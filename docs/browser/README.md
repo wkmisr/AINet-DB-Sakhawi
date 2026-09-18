@@ -20,6 +20,11 @@ python3 assemble.py data.json                                      # app_templat
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
 
+## 期待値（2026-09-18 v15、2,359 件）
+self_hit 2343 / person_hit 3389 / place_hit 1460 / org_hit 229 / office_hit 572 / text_hit 430
+（B56-58・B84-85 反映後 ＋ affiliation/state 二重記録 67 件（61 ファイル）削除後 ＋ 原文 note 欠落55件補填後 ＋ B86 の20件収録後。idmaster は `docs/_work/idmaster_ext_20260918.tsv`＝9/16版に未貼付TMP 2本を結合したもの を使用）
+（参考・B86 収録前の中間ビルド 2,339 件: self_hit 2268 / person_hit 3271 / place_hit 1407 / org_hit 222 / office_hit 550 / text_hit 416）
+
 ## 期待値（2026-09-08 v14、2,143 件）
 self_hit 2127 / person_hit 3049 / place_hit 1332 / org_hit 210 / office_hit 532 / text_hit 397
 （v13・2,073 件: self 2057、他は同じ）

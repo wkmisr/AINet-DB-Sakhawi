@@ -15,10 +15,6 @@
         <relation type="personal" subtype="brother" n="1" active="#AIND-D07940" passive="#AIND-D02706"><desc xml:lang="ar">المحب محمد</desc><note xml:lang="en">Al-Muḥibb Muḥammad b. ʿUthmān b. Sulaymān b. Rasūl, Ibn al-Ashqar (AIND-D07940), whose entry explicitly names Ḥusayn as his brother (أخو حسين الماضي).</note></relation>
     </listRelation>
     <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
-    <affiliation n="1" type="employed" ref="#TMP-I-00034">
-        <orgName xml:lang="ar">البيمارستان المنصوري</orgName>
-        <orgName xml:lang="ar-Latn">al-Bīmāristān al-Manṣūrī</orgName>
-    </affiliation>
     <state n="1" type="office" ref="#TMP-O-00148">
         <label xml:lang="ar">نائب ناظر البيمارستان</label>
         <label xml:lang="ar-Latn">nāʾib nāẓir al-Bīmāristān</label>
@@ -42,5 +38,11 @@
         <resp xml:lang="ja">翻訳校正</resp>
         <persName>claude-fable-5</persName>
         <date when="2026-08-11"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「البيمارستان المنصوري」(#TMP-I-00034)の場所情報がaffiliation(n=1, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>

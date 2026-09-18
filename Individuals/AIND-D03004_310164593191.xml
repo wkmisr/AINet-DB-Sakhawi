@@ -9,14 +9,6 @@
         <relation type="personal" subtype="son" active="#AIND-D00734" passive="#AIND-D03004"><desc xml:lang="ar">أحمد</desc><note xml:lang="ja">「والد أحمد الماضي」＝أحمد بن رضوان بن علي بن رضوان شهاب الدين القاهري الشافعي = AIND-D00734。当該項に「ودار مع أبيه في الأسباع ونحوها」とあり本項の「الدوران في الاسباع」と相互閉合。</note></relation>
     </listRelation>
     <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
-    <affiliation n="1" type="employed" ref="#TMP-I-00101">
-        <orgName xml:lang="ar">الخشابية</orgName>
-        <orgName xml:lang="ar-Latn">al-Khashshābiyya</orgName>
-    </affiliation>
-    <affiliation n="2" type="employed" ref="#TMP-I-00068">
-        <orgName xml:lang="ar">الجوق</orgName>
-        <orgName xml:lang="ar-Latn">al-Jawq</orgName>
-    </affiliation>
     <state n="1" type="office" ref="wd:Q3595924">
         <label xml:lang="ar">مقرئ</label>
         <label xml:lang="ar-Latn">muqriʾ</label>
@@ -71,5 +63,11 @@
         <resp xml:lang="ja">校閲</resp>
         <persName>claude-opus-5</persName>
         <date when="2026-08-18"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「الجوق」(#TMP-I-00068)の場所情報がaffiliation(n=2, type=employed)とstate(n=2, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除、「الخشابية」(#TMP-I-00101)の場所情報がaffiliation(n=1, type=employed)とstate(n=4, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>

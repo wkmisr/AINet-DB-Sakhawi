@@ -12,10 +12,6 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-000497" passive="#AIND-D00529"><desc xml:lang="ar">أحمد بن العلامة شهاب الدين الصعيدي القدسي الحنفي</desc></relation>
     </listRelation>
-    <affiliation n="1" type="employed" ref="#TMP-I-00054">
-        <orgName xml:lang="ar">المعظمية</orgName>
-        <orgName xml:lang="ar-Latn">al-Muʿaẓẓamiyya</orgName>
-    </affiliation>
     <state n="1" type="office" ref="#TMP-O-00077">
         <label xml:lang="ar">شيخ المقادسة</label>
         <label xml:lang="ar-Latn">shaykh al-Maqādisa</label>
@@ -48,5 +44,11 @@
         <note xml:lang="ja">日訳を是正。事実是正: 原文「الحنقي」は「الحنفي」の誤記と明示。「مع الفضل」は人名 al-Faḍl ではなく「学識・卓越とともに」の意(英訳の人名解釈を是正)。</note>
         <persName>Claude Opus 4.8</persName>
         <date when="2026-06-27"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「المعظمية」(#TMP-I-00054)の場所情報がaffiliation(n=1, type=employed)とstate(n=2, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>

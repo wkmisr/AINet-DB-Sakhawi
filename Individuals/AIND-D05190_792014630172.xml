@@ -21,10 +21,6 @@
         <persName ref="wd:Q471116">شيخنا</persName>
         <bibl ref="#TMP-T-00034">أنبائه</bibl>
     </event>
-    <affiliation n="1" type="employed" ref="#TMP-I-00036">
-        <orgName xml:lang="ar">تربة الأشرف برسباي</orgName>
-        <orgName xml:lang="ar-Latn">Turbat al-Ashraf Barsbāy</orgName>
-    </affiliation>
     <state n="1" type="office" ref="#TMP-O-00036">
         <label xml:lang="ar">مدرس</label>
         <label xml:lang="ar-Latn">mudarris</label>
@@ -53,5 +49,11 @@
         <note xml:lang="ja">毒 wd:Q160851 → wd:Q228986。「قال شيخنا في أنبائه」の relation(other/#NEEDID) → Pattern A mention（wd:Q471116 + TMP-T-00034）。الأشرف برسباي の patron relation を除去し state 内 note に（任命は relation 化しない）。父 #NEEDID → 仮番号 TMP-P-001065（طيبغا بن حاجي بك）、祖父は #NEEDID 維持。death: 埋葬地 الينبوع → TMP-L-00081、原文 note・換算 note 追加。原文にない visit(cert high) event と state の placeName القاهرة（原文は بالصحراء）を除去。訳: 「ハジュリー暦」等の表現を整え、بالصحراء を補足。</note>
         <persName>claude-fable-5-1</persName>
         <date when="2026-09-09"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「تربة الأشرف برسباي」(#TMP-I-00036)の場所情報がaffiliation(n=1, type=employed)とstate(n=1/n=2, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>

@@ -10,10 +10,6 @@
         <relation type="personal" subtype="father" active="#AIND-D07602" passive="#AIND-D03758"><desc xml:lang="ar">محمد بن عبد الرحمن</desc></relation>
     </listRelation>
     <event type="residence" n="1" when-custom="0889" cert="high"><placeName ref="gn:360630">القاهرة</placeName><note xml:lang="en">Sakhawi saw him in Cairo in this year.</note></event>
-    <affiliation n="1" type="employed" ref="wd:Q312342">
-        <orgName xml:lang="ar">الأزهر</orgName>
-        <orgName xml:lang="ar-Latn">al-Azhar</orgName>
-    </affiliation>
     <state n="1" type="office" ref="#TMP-O-00113">
         <label xml:lang="ar">النظر على أوقاف الأزهر</label>
         <label xml:lang="ar-Latn">al-naẓar ʿalā awqāf al-Azhar</label>
@@ -47,5 +43,11 @@
         <note xml:lang="ja">職 النظر على أوقاف الأزهر を既登録 TMP-O-00113（ناظر الأوقاف）に充当（人物以外の #NEEDID にも TMP を発行（Waka 裁定 §E-3、2026-09-03））。</note>
         <persName>claude-fable-5-1</persName>
         <date when="2026-09-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正(§D-13裁定の一括適用)</resp>
+        <persName>claude-opus-5-affil-state-dedup</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「الأزهر」(wd:Q312342)の場所情報がaffiliation(n=1, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
     </respStmt>
 </person>
