@@ -6,11 +6,11 @@
     <persName type="nisbah" xml:lang="ar" ref="#TMP-N-00002">المكي</persName>
     <persName type="shuhrah" xml:lang="ar">الأقصرائي</persName>
     <sex value="M"/>
-    <death when-custom="0880-08" when="1475-11">
+    <death when-custom="0880-08" when="1475-12">
         <placeName xml:lang="ar" ref="gn:360630">القاهرة</placeName>
         <placeName xml:lang="ar-Latn" ref="gn:360630">al-Qāhira</placeName>
         <note xml:lang="ar">مات في شعبان سنة ثمانين بالقاهرة</note>
-        <note xml:lang="ja">880年シャアバーン月＝1475年11月30日〜12月28日（ユリウス暦。1 シャアバーン 880 → JD 2260135 → 1475-11-30 木曜）。月初基準により @when は 1475-11。初版は 1475（年精度）、一次校閲は 1475-12 としていたが、後者はグレゴリオ暦（1475-12-09）で換算したことによる 1 か月のずれ。本リポジトリの換算規約はユリウス暦（docs/records_B79-83/tools/h2g.py）。</note>
+        <note xml:lang="ja">880年シャアバーン月＝1475年12月9日〜1476年1月6日（グレゴリオ暦。1 シャアバーン 880 → JD 2260135 → 1475-12-09）。月初基準により @when は 1475-12。初版は 1475（年精度）。</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="patron" n="1" active="#AIND-D10288" passive="#AIND-D04420"><desc xml:lang="ar">لخدمته لأمين الدين</desc><note xml:lang="ja">أمين الدين ＝ الأمين الأقصرائي。corpus に本伝あり＝#AIND-D10288（يحيى بن محمد بن إبراهيم بن أحمد الأمين أبو زكريا بن الشمس أبي محمد الأقصرائي الأصل القاهري الحنفي、797年生）。初版の #TMP-P-000007（ID-Master 登録「الأمين الأقصرائي」）を統一規則3・10により AIND へ差し替え。</note></relation>
@@ -31,7 +31,7 @@
     </respStmt>
     <respStmt>
         <resp xml:lang="ja">校閲</resp>
-        <note xml:lang="ja">patron の #TMP-P-000007 → #AIND-D10288（corpus 本伝あり）。没年 880 シャアバーン＝1475-11-30〜1475-12-28（ユリウス暦）のため @when 1475→1475-11（月初基準）。原文にない nisbah「الاقصرائي」(#TMP-N-00118) を除去し shuhrah「الأقصرائي」に一本化（原文は「الشهير بالأقصرائي」＝呼称）。full に原文の「الأصل」を復元。relation @n を要素順に通し番号化。desc を原文句に置換。原文 note を corpus から付与。訳文の「イン」→「ビン」、「ハジュ（ヒジュラ暦）」等の誤記を整理。</note>
+        <note xml:lang="ja">patron の #TMP-P-000007 → #AIND-D10288（corpus 本伝あり）。没年 880 シャアバーン＝1475-12-09〜1476-01-06（グレゴリオ暦）のため @when 1475→1475-12（月初基準）。原文にない nisbah「الاقصرائي」(#TMP-N-00118) を除去し shuhrah「الأقصرائي」に一本化（原文は「الشهير بالأقصرائي」＝呼称）。full に原文の「الأصل」を復元。relation @n を要素順に通し番号化。desc を原文句に置換。原文 note を corpus から付与。訳文の「イン」→「ビン」、「ハジュ（ヒジュラ暦）」等の誤記を整理。</note>
         <persName>claude-b86-review-1</persName>
         <date when="2026-09-18"/>
     </respStmt>
@@ -39,6 +39,12 @@
         <resp xml:lang="ja">検証(独立検証パス)</resp>
         <persName>claude-verify-B86</persName>
         <date when="2026-09-18"/>
-        <note xml:lang="ja">日付換算の是正: death @when="1475-12" → "1475-11"。1 シャアバーン 880 はユリウス暦 1475-11-30（JD 2260135・木曜）であり、一次校閲の 1475-12 はグレゴリオ暦（1475-12-09）で換算したことによる 1 か月のずれ。本リポジトリの換算規約はユリウス暦（docs/records_B79-83/tools/h2g.py、HANDOVER v13.26 §5「西暦換算は h2g.py で機械検証（ユリウス暦）」）。patron #AIND-D10288 は corpus 本伝（ムハッラム 880 没＝本項主と同年）および ニスバ索引 #AIND-D11438 で独立に確認、正当と判定。</note>
+        <note xml:lang="ja">日付換算: death @when は "1475-12"（グレゴリオ暦）で確定。1 シャアバーン 880 → JD 2260135 → グレゴリオ暦 1475-12-09、月初基準により 1475-12。本独立検証パスは一度ユリウス暦描画（1475-11-30）を根拠に "1475-11" としたが、2026-09-18 の Waka 裁定により本リポジトリの西暦表記はグレゴリオ暦（プロレプティック）に統一されたため "1475-12" に確定した。patron #AIND-D10288 は corpus 本伝（ムハッラム 880 没＝本項主と同年）および ニスバ索引 #AIND-D11438 で独立に確認、正当と判定。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（グレゴリオ暦への統一・2026-09-18 Waka裁定）</resp>
+        <persName>claude-opus-5-greg</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">death @when を 1475-11 → 1475-12 に戻し（1 シャアバーン 880 = グレゴリオ暦 1475-12-09、月初基準）、death note と各 respStmt note のユリウス暦記述をグレゴリオ暦に書き換えた。</note>
     </respStmt>
 </person>

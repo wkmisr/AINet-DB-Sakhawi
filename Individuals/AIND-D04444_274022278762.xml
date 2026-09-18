@@ -8,11 +8,11 @@
     <sex value="M"/>
     <birth when-custom="0746" when="1345">
         <note xml:lang="ar">ولد سنة ست وأربعين وسبعمائة</note>
-        <note xml:lang="ja">746年ヒジュラ暦年初＝1345年5月4日（ユリウス暦）。</note>
+        <note xml:lang="ja">746年ヒジュラ暦年初＝1345年5月12日（グレゴリオ暦）。</note>
     </birth>
     <death when-custom="0803-08" when="1401-03">
         <note xml:lang="ar">مات في شعبان سنة ثلاث</note>
-        <note xml:lang="ja">803年シャアバーン月＝1401年3月17日〜4月14日（ユリウス暦）。803年の年初は1400年8月22日だが、シャアバーン月は西暦1401年に入るため @when を 1401-03 に是正（初版 1400 は換算誤り）。</note>
+        <note xml:lang="ja">803年シャアバーン月＝1401年3月26日〜4月23日（グレゴリオ暦）。803年の年初は1400年8月31日だが、シャアバーン月は西暦1401年に入るため @when を 1401-03 に是正（初版 1400 は換算誤り）。</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" n="1" active="#TMP-P-001113" passive="#AIND-D04444">
@@ -41,7 +41,7 @@
     </respStmt>
     <respStmt>
         <resp xml:lang="ja">校閲</resp>
-        <note xml:lang="ja">没年換算の是正（本バッチ最重要）: 803年シャアバーン月＝1401-03-17〜04-14（ユリウス暦）のため @when 1400 → 1401-03。active/passive とも空の spouse relation（原文は「ثم تزوج」のみで配偶者名なし）を削除。父 #NEEDID → #TMP-P-001113（統一規則3）。「قاله شيخنا في إنبائه」を統制外 subtype「source_citation」relation から Pattern A（wd:Q471116＋#TMP-T-00034）へ。full に原文の「بن البصروي」（初版は「البصروي」）を復元。event @n を要素順に。原文 note を corpus から付与。</note>
+        <note xml:lang="ja">没年換算の是正（本バッチ最重要）: 803年シャアバーン月＝1401-03-26〜04-23（グレゴリオ暦）のため @when 1400 → 1401-03。active/passive とも空の spouse relation（原文は「ثم تزوج」のみで配偶者名なし）を削除。父 #NEEDID → #TMP-P-001113（統一規則3）。「قاله شيخنا في إنبائه」を統制外 subtype「source_citation」relation から Pattern A（wd:Q471116＋#TMP-T-00034）へ。full に原文の「بن البصروي」（初版は「البصروي」）を復元。event @n を要素順に。原文 note を corpus から付与。</note>
         <persName>claude-b86-review-1</persName>
         <date when="2026-09-18"/>
     </respStmt>
@@ -49,6 +49,12 @@
         <resp xml:lang="ja">検証(独立検証パス)</resp>
         <persName>claude-verify-B86</persName>
         <date when="2026-09-18"/>
-        <note xml:lang="ja">birth/death note の西暦をユリウス暦（746 年初＝1345-05-04、803 シャアバーン＝1401-03-17〜04-14）に是正。@when="1345" / "1401-03" 自体は正。</note>
+        <note xml:lang="ja">birth/death note の西暦をグレゴリオ暦（746 年初＝1345-05-12、803 シャアバーン＝1401-03-26〜04-23）に統一。@when="1345" / "1401-03" 自体は正。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（グレゴリオ暦への統一・2026-09-18 Waka裁定）</resp>
+        <persName>claude-opus-5-greg</persName>
+        <date when="2026-09-18"/>
+        <note xml:lang="ja">birth/death note および校閲・検証 respStmt note の西暦をグレゴリオ暦（746 年初＝1345-05-12、803 シャアバーン＝1401-03-26〜04-23）に統一。@when="1345" / "1401-03" は変更なし。</note>
     </respStmt>
 </person>

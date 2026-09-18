@@ -8,6 +8,16 @@ from lxml import etree
 XML_NS = '{http://www.w3.org/XML/1998/namespace}'
 def lang(e): return e.get(XML_NS + 'lang') or ''
 
+def notes_split(el, textfn):
+    """Return {'note': <en/neutral>, 'note_ja': <ja>} for an element's <note> children."""
+    out = {}
+    en = [textfn(n) for n in el.findall('note') if textfn(n) and lang(n) not in ('ja',)]
+    ja = [textfn(n) for n in el.findall('note') if textfn(n) and lang(n) == 'ja']
+    if en: out['note'] = ' / '.join(en)
+    if ja: out['note_ja'] = ' / '.join(ja)
+    return out
+
+
 # ---------- ID-Master (Arabic name per ID) ----------
 idm = {}
 for row in csv.reader(open(IDM, encoding='utf-8'), delimiter='\t'):
@@ -186,8 +196,7 @@ for f in files:
             d['m'] = int(m.group(1)) if m else None
             pl = [{'t': txt(p), 'ref': p.get('ref') or ''} for p in e.findall('placeName') if lang(p) != 'ar-Latn' and txt(p)]
             if pl: d['place'] = pl[0]
-            nt = [txt(n) for n in e.findall('note') if txt(n)]
-            if nt: d['note'] = ' / '.join(nt)
+            d.update(notes_split(e, txt))
             rec[tag] = d
     # relations
     rels = []
@@ -208,8 +217,7 @@ for f in files:
             pl = [{'t': txt(p), 'ref': p.get('ref') or ''} for p in ev.findall('placeName') if lang(p) != 'ar-Latn' and txt(p)]
             if pl: d['place'] = pl[0]
             if ev.get('when-custom'): d['when'] = ev.get('when-custom')
-        nts = [txt(n) for n in r.findall('note') if txt(n)]
-        if nts: d['note'] = ' / '.join(nts)
+        d.update(notes_split(r, txt))
         d['partner_name'] = id_name(partner) or (pnames.get(partner.lstrip('#'), {}).get('full', '') if partner else '')
         rels.append(d)
     rec['relations'] = rels
@@ -223,8 +231,7 @@ for f in files:
         d['bibl'] = [{'t': txt(b), 'ref': b.get('ref') or ''} for b in e.findall('bibl') if lang(b) != 'ar-Latn' and txt(b)]
         ds = [txt(x) for x in e.findall('desc') if lang(x) != 'ar-Latn' and txt(x)]
         if ds: d['desc'] = ' | '.join(ds)
-        nts = [txt(n) for n in e.findall('note') if txt(n)]
-        if nts: d['note'] = ' / '.join(nts)
+        d.update(notes_split(e, txt))
         evs.append(d)
     rec['events'] = evs
     # states / offices
@@ -241,8 +248,7 @@ for f in files:
         if og: d['org'] = og[0]
         dt = s.find('date')
         if dt is not None: d['date'] = dt.get('when-custom') or dt.get('when') or txt(dt)
-        nts = [txt(n) for n in s.findall('note') if txt(n)]
-        if nts: d['note'] = ' / '.join(nts)
+        d.update(notes_split(s, txt))
         sts.append(d)
     rec['states'] = sts
     affs = []
@@ -263,7 +269,10 @@ for f in files:
         elif ty == 'translation':
             rec['ja' if lang(n) == 'ja' else 'en'] = txt(n)
         elif ty == 'reference': rec['reference'] = {'target': n.get('target') or '', 't': txt(n)}
-        elif ty == 'personalia': rec['personalia'] = txt(n)
+        elif ty == 'personalia':
+            lg = lang(n)
+            key = 'personalia_ja' if lg == 'ja' else ('personalia_ar' if lg == 'ar' else 'personalia')
+            rec[key] = (rec[key] + ' / ' + txt(n)) if rec.get(key) else txt(n)
     resp = []
     for rs in t.findall('respStmt'):
         resp.append({'resp': ' / '.join(txt(x) for x in rs.findall('resp')), 'who': txt(rs.find('persName')),
