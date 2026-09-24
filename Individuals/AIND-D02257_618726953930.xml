@@ -6,23 +6,22 @@
     <persName type="shuhrah" xml:lang="ar">تاني بك الجركسي</persName>
     <sex value="M"/>
     <death when-custom="0819-02" when="1416-04">
-        <placeName xml:lang="ar" ref="gn:360630">القاهرة</placeName>
-        <placeName xml:lang="ar-Latn" ref="gn:360630">al-Qāhira</placeName>
         <note xml:lang="en">He passed away in Safar 819 AH shortly after returning from leading the Hajj caravan of 818 AH. His biography was recorded by Ibn Hajar al-Asqalani in his work Inba' al-Ghumr.</note>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去（ar-Latn 形も併せて除去）。根拠は〈職 إمرة الحج の本拠（وقدم… مات、地名なし）〉からの補完で原文に地名の明示なし。</note>
     </death>
     <event type="religious" subtype="hajj" n="1" when-custom="0818" cert="high"><placeName ref="gn:104515">مكة</placeName><note xml:lang="en">Commanded the Hajj pilgrimage caravan as Amir al-Hajj.</note></event>
-    <event type="visit" n="2" when-custom="0819" cert="high"><placeName ref="gn:360630">القاهرة</placeName><note xml:lang="en">Returned to Cairo at the beginning of the year 819 AH in a state of physical weakness.</note></event>
+    <event type="visit" n="2" when-custom="0819" cert="high"><note xml:lang="en">Returned to Cairo at the beginning of the year 819 AH in a state of physical weakness.</note><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈職 إمرة الحج の本拠（وقدم في أول التي تليها、地名なし）〉からの補完で原文に地名の明示なし。</note></event>
     <state n="1" type="office" ref="#TMP-O-00131">
         <label xml:lang="ar">شاد الشربخاناة</label>
         <label xml:lang="ar-Latn">shādd al-sharabkhānāh</label>
-        <placeName ref="gn:360630">القاهرة</placeName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈職 شاد الشربخاناة の勤務地（原文に地名なし）〉からの補完で原文に地名の明示なし。</note>
     </state>
     <state n="2" type="office" ref="#TMP-O-00134">
         <label xml:lang="ar">إمرة الحج</label>
         <label xml:lang="ar-Latn">imrat al-ḥajj</label>
         <date type="appointment" when-custom="0818"/>
-        <placeName ref="gn:104515">مكة</placeName>
         <note xml:lang="ja">819年初に帰還後まもなくサファル月に没(在任のまま)のためretirement日付は立てない。</note>
+        <note xml:lang="ja">2026-09-24 Waka 裁定（★3 E5）により placeName مكة（gn:104515）を除去。أمير الحج（إمرة الحج）は巡礼隊を率いる職でマッカに勤務する職ではなく、規則20（حج＝مكة）は hajj イベントに限る。</note>
     </state>
     <event type="cultural" subtype="mention" n="1">
         <desc xml:lang="ar">قاله شيخنا في أنبائه</desc>
@@ -44,5 +43,17 @@
         <resp xml:lang="ja">校閲</resp>
         <persName>claude-fable-5</persName>
         <date when="2026-08-12"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 3件（القاهرة（gn:360630）×3）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">Waka裁定反映</resp>
+        <persName>claude-b88-apply</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">2026-09-24 Waka 裁定（要判断_B88_残件 ★1〜★7）の反映。★3 E5: state n=2（أمير الحج）の placeName مكة を除去。記録 docs/records_B88/Waka裁定反映_20260924.md。</note>
     </respStmt>
 </person>

@@ -20,6 +20,16 @@ python3 assemble.py data.json                                      # app_templat
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
 
+## 期待値（2026-09-25 v17、2,595 件）— B88（159件）＋規則22-1 遡及点検＋Waka 裁定反映後
+self_hit 2574 / person_hit 3907 / place_hit 1651 / org_hit 263 / office_hit 637 / text_hit 496
+（self_miss 21 / person_miss 580 / place_miss 209 / org_miss 652 / office_miss 740 / text_miss 226。place_miss が 336→209 に減ったのは規則22-1 で原文に根拠のない placeName を除去したため。
+idmaster.tsv＝シート実物 9/24（7,682行）＋B87 51件＋B88 105件＋Waka 照合の wd 3件 = 7,841行）
+
+## 期待値（2026-09-21 v16、2,436 件）— B87（77件）収録後
+self_hit 2419 / person_hit 3519 / place_hit 1541 / org_hit 242 / office_hit 613 / text_hit 455
+（self_miss 17 / person_miss 504 / place_miss 336 / org_miss 605 / office_miss 699 / text_miss 207。data.json 8,447,787 bytes / ainet_browser.html 8,487,073 bytes）
+（idmaster は `docs/_work/browser_build/idmaster.tsv`＝シート実物 `docs/_work/idmaster_working_20260918.tsv`（7,681行）に `docs/records_B87/TMP登録_B87.tsv` の51件（取り下げ1行を除く）を結合した 7,732 行。B87 分は Waka 未貼付のため結合が必要）
+
 ## 期待値（2026-09-18 v15b、2,359 件）— entity alignment 精度修正後
 self_hit 2343 / person_hit 3404 / place_hit 1460 / org_hit 237 / office_hit 596 / text_hit 430
 （build.py の三点修正: (1) 候補文字列のクリーニング（ويعرف بـ 等の「〜として知られる」節の分割・丸括弧/ダッシュ注記の分離）と STOP 語彙による句マッチ抑止、

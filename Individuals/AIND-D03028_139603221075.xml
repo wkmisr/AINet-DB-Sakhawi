@@ -9,7 +9,6 @@
     <listRelation>
         <relation type="personal" subtype="patron" n="1" active="#AIND-D06305" corresp="#AIND-D06305" passive="#AIND-D03028"><desc xml:lang="ar">الأشرف قايتباي</desc><note xml:lang="en">The Sultan al-Ashraf Qāytbāy appointed him to the sabil (fountain) he established at the annex of Jāmiʿ Ibn Ṭūlūn.</note></relation>
     </listRelation>
-    <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
     <affiliation n="1" type="employed" ref="#TMP-I-00027">
         <orgName xml:lang="ar">خانقاه شيخو</orgName>
         <orgName xml:lang="ar-Latn">Khānqāh Shaykhū</orgName>
@@ -21,8 +20,8 @@
     <state n="1" type="office" ref="#TMP-O-00184">
         <label xml:lang="ar">خادم السبيل</label>
         <label xml:lang="ar-Latn">khādim al-sabīl</label>
-        <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="#TMP-I-00111">السبيل الذي أنشأه الأشرف قايتباي بزيادة جامع ابن طولون</orgName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 السبيل … بزيادة جامع ابن طولون の所在地〉からの補完で原文に地名の明示なし。</note>
     </state>
     <note type="source" xml:lang="ar">ريحان الزنجي الحلبي . ذكر بالخير والدين ،
 وإنه كان يتعاطى حلق رؤس الأكابر من الأمراء وغيرهم ويسقي الماء بطاسة
@@ -46,5 +45,17 @@
         <persName>claude-opus-5-affil-state-dedup</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「السبيل الذي أنشأه الأشرف قايتباي بزيادة جامع ابن طولون」(#TMP-I-00111)の場所情報がaffiliation(n=2, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。affiliation n=1(#TMP-I-00027, type=employed)・n=3(wd:Q915413, type=affiliated)はstateと重複しない別記録のため変更なし。残存affiliationの@nは削除前の番号(1・3)のまま再採番していない(再採番の要否は要判断)。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 2件（القاهرة（gn:360630）×2）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">Waka裁定反映</resp>
+        <persName>claude-b88-apply</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">2026-09-24 Waka 裁定（要判断_B88_残件 ★1〜★7）の反映。★5: 中身が規則22-1 の除去 note（と placeName の根拠を述べた旧 note）だけの event residence n=1（cert=なし）を削除［規則22-1 で placeName القاهرة（gn:360630） を除去済み（根拠〈施設 خانقاه شيخو／جامع ابن طولون の所在地〉）］。記録 docs/records_B88/Waka裁定反映_20260924.md。</note>
     </respStmt>
 </person>

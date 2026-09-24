@@ -14,7 +14,7 @@
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D04164"><desc xml:lang="ar">عمر</desc><note xml:lang="ja">父 عمر は名のみ → #NEEDID。初版の TMP-P-000664（ティムールの子 عمر）は汚染番号。</note></relation>
         <relation type="personal" subtype="rival" n="1" active="#AIND-D00207" corresp="wd:Q12198099" passive="#AIND-D04164"><desc xml:lang="ar">البقاعي</desc><note xml:lang="en">He was a rival and opponent of al-Biqāʿī (غريم البقاعي).</note></relation>
     </listRelation>
-    <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName><note xml:lang="en">Resided in Cairo at al-Barqūqiyya.</note></event>
+    <event type="residence" n="1"><note xml:lang="en">Resided in Cairo at al-Barqūqiyya.</note><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البرقوقية の所在地／ニスバ القاهري〉からの補完で原文に地名の明示なし。</note></event>
     <affiliation n="1" type="reside" ref="#TMP-I-00029">
         <orgName xml:lang="ar">البرقوقية</orgName>
         <orgName xml:lang="ar-Latn">al-Barqūqiyya</orgName>
@@ -22,8 +22,8 @@
     <state n="1" type="office" ref="wd:Q2892720">
         <label xml:lang="ar">صوفي</label>
         <label xml:lang="ar-Latn">ṣūfī</label>
-        <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="#TMP-I-00029">البرقوقية</orgName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البرقوقية の所在地〉からの補完で原文に地名の明示なし。</note>
     </state>
     <note type="source" xml:lang="ar">عبد القادر بن عمر المارديني الدمشقي الأصل
 القاهري الجوهري نزيل البرقوقية وأحد صوفيتها وغريم البقاعي . مات قريب
@@ -41,5 +41,11 @@
         <note xml:lang="ja">父 عمر（TMP-P-000664 汚染番号＝ティムールの子 عمر の流用）→ #NEEDID（名のみ）。宿敵 البقاعي wd:Q12198099 → #AIND-D00207（corresp で wd 保持、subtype rival は repo 既存）。没年「قريب الثمانين ظنا」に cert low を付与。</note>
         <persName>claude-fable-5-1</persName>
         <date when="2026-09-04"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 2件（القاهرة（gn:360630）×2）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
     </respStmt>
 </person>

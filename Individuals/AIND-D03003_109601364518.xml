@@ -8,24 +8,24 @@
     <persName type="laqab" xml:lang="ar">رشيد الدين</persName>
     <sex value="M"/>
     <listRelation>
-        <relation type="personal" subtype="teacher" n="1" active="#TMP-P-000010" passive="#AIND-D03003">
+        <relation type="personal" subtype="teacher" n="1" active="#TMP-P-000010" passive="#AIND-D03003" cert="low">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <desc xml:lang="ar">سمع على العز بن جماعة جزءا قرأه عليه الشرف أبو الفتح المراغي</desc>
             <bibl xml:lang="ar">جزء</bibl>
             <event type="learning" when-custom="0812"><placeName ref="#TMP-I-00094">مبرك الناقة النبوية من دار أبي أيوب الأنصاري المعروفة بالمدرسة الشهابية</placeName></event>
+            <note xml:lang="ja">⚠実体未確定。「العز بن جماعة」は祖父（العز عبد العزيز بن جماعة、没767、#TMP-P-001145）と孫（#AIND-D07198、العز محمد بن أبي بكر、生749・没819）の2人があり、本箇所（812年マディーナ）はいずれとも確定できない。祖父は没後であり、孫 D07198 は本伝に「ولم يتفق له الحج」＝生涯ハッジをせずマッカ・マディーナ滞在の記録がない。第三の العز بن جماعة は corpus の見出し検索・本文検索でも検出されない。よって裁定 §C-2 の是正では差し替えず、汚染番号 #TMP-P-000010 のまま cert="low" を付して保留する。</note>
             <note xml:lang="ja">師=العز بن جماعة(TMP-P-000010)。読誦者(قارئ)はالشرف أبو الفتح المراغي(#TMP-P-000003)。ジュズウは無名のためbiblにref付与せず。会場=マディーナのدار أبي أيوب الأنصاري=المدرسة الشهابية(TMP-I-00094新規発行)。</note>
         </relation>
     </listRelation>
-    <event type="residence" n="1"><placeName ref="gn:109223">المدينة</placeName></event>
     <state n="1" type="office" ref="#TMP-O-00033">
         <label xml:lang="ar">فراش</label>
         <label xml:lang="ar-Latn">farrāsh</label>
-        <placeName ref="gn:109223">المدينة</placeName>
         <orgName ref="wd:Q486080">الحرم النبوي</orgName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName المدينة（gn:109223）を除去。根拠は〈施設 الحرم النبوي の所在地〉からの補完で原文に地名の明示なし。</note>
     </state>
     <event type="cultural" subtype="mention" n="1">
         <desc xml:lang="ar">ووصفه بالشيخ الصالح الخير</desc>
-        <persName ref="#TMP-P-000003">الشرف أبو الفتح المراغي</persName>
+        <persName ref="#AIND-D07181">الشرف أبو الفتح المراغي</persName>
     </event>
     <note type="source" xml:lang="ar">رشيد بن عبد الله الحاج رشيد الدين الفهدي
 البهائي أحد الفراشين في الحرم النبوي ويعرف . سمع على العز بن جماعة
@@ -44,5 +44,29 @@
         <resp xml:lang="ja">翻訳校正</resp>
         <persName>claude-fable-5</persName>
         <date when="2026-08-12"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映</resp>
+        <note xml:lang="ja">裁定 §C-2 の是正を反映。TMP-P-000010 は祖父 العز عبد العزيز بن جماعة（没767、新規 #TMP-P-001145）と孫 #AIND-D07198（没819）を混ぜた汚染番号であるが、corpus 原文「سمع على العز بن جماعة جزءا قرأه عليه الشرف أبو الفتح المراغي في سنة اثنتي عشرة وثمانمائة بمبرك الناقة النبوية من دار أبي أيوب الأنصاري」＝812年・マディーナ は、祖父（没後45年）にも孫（ハッジ未了でヒジャーズ滞在の記録なし）にも帰せられない。裁定により本箇所のみ #TMP-P-000010 を維持し、teacher relation に cert="low" を付与、relation note に実体未確定の旨を明記した。</note>
+        <persName>claude-b87-apply2</persName>
+        <date when="2026-09-19"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 2件（المدينة（gn:109223）×2）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映</resp>
+        <note xml:lang="ja">名寄せ（要判断_B88 §C-16）: 属性値 #TMP-P-000003（أبو الفتح المراغي）→ #AIND-D07181（1箇所）。根拠: D07181（محمد الشرف أبو الفتح بن أبي بكر بن الحسين المراغي、775生マディーナ・844年からマッカ・859没）。$$$見出し「أبو الفتح المراغي محمد بن أبي بكر بن الحسين」で確定。使用11ファイルの年代（812年マディーナ〜856年マッカ）すべて整合。D03525「ابن خال أبي الفتح المراغي」は D07181 の母＝التقي محمد の姉妹で閉合。ID-Master の TMP-P-000003 の行は「AIND-D07181 に名寄せ済み」と注記すること。</note>
+        <persName>claude-b88-triage</persName>
+        <date when="2026-09-24"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">Waka裁定反映</resp>
+        <persName>claude-b88-apply</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">2026-09-24 Waka 裁定（要判断_B88_残件 ★1〜★7）の反映。★5: 中身が規則22-1 の除去 note（と placeName の根拠を述べた旧 note）だけの event residence n=1（cert=なし）を削除［規則22-1 で placeName المدينة（gn:109223） を除去済み（根拠〈施設 الحرم النبوي の所在地〉）］。記録 docs/records_B88/Waka裁定反映_20260924.md。</note>
     </respStmt>
 </person>

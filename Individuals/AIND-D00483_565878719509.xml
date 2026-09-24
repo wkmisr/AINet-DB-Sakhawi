@@ -13,10 +13,6 @@
         <bibl xml:lang="ar" ref="#TMP-T-00034">أنبائه</bibl>
         <note xml:lang="ja">【全件照合 2026-09-01】原文は「قال شيخنا في أنبائه …」の引用のみで、師弟関係を一切述べていない＝Pattern A。初版は subtype="teacher"／method="rawā" の personal relation にしていたため、mention event に是正した。</note>
     </event>
-    <event type="residence" n="1" cert="low">
-        <placeName ref="gn:170654">دمشق</placeName>
-        <note xml:lang="en">Implied by 'was among the notables of Damascus'</note>
-    </event>
     <state n="1" type="office" ref="#TMP-O-00078">
         <label xml:lang="ar">موقعي الحكم</label>
         <label xml:lang="ar-Latn">Muwaqqiʿī al-Ḥukm</label>
@@ -48,5 +44,17 @@
         <persName>claude-opus-5-B86-ruling</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">Waka 裁定 §Db-4 の反映。state n=1（موقعي الحكم）の @ref を #TMP-O-00058（汎用 موقع）から #TMP-O-00078（توقيع الحكم）に差し替え、経緯を state の note に記録した。D04451 と同一の措置。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 1件（دمشق（gn:170654））を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">Waka裁定反映</resp>
+        <persName>claude-b88-apply</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">2026-09-24 Waka 裁定（要判断_B88_残件 ★1〜★7）の反映。★5: 中身が規則22-1 の除去 note（と placeName の根拠を述べた旧 note）だけの event residence n=1（cert=low）を削除［旧 en note「Implied by 'was among the notables of Damascus'」／規則22-1 で placeName دمشق（gn:170654） を除去済み（根拠〈ニスバ الدمشقي／من أعيان الدماشقة（複数形ニスバ）〉）］。記録 docs/records_B88/Waka裁定反映_20260924.md。</note>
     </respStmt>
 </person>
