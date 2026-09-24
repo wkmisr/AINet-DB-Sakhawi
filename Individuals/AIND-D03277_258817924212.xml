@@ -20,9 +20,8 @@
     <state n="1" type="office" ref="#TMP-O-00032">
         <label xml:lang="ar">نظر البيبرسية</label>
         <label xml:lang="ar-Latn">naẓar al-Baybarsiyya</label>
-        <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="wd:Q6400398">البيبرسية</orgName>
-        <note xml:lang="ja">汎用 ناظر（TMP-O-00032）＋対象施設 orgName で表現。</note>
+        <note xml:lang="ja">汎用 ناظر（TMP-O-00032）＋対象施設 orgName で表現。　規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البيبرسية の所在地〉からの補完で原文に地名の明示なし。</note>
     </state>
     <note type="source" xml:lang="ar">شاهين الحسني الطواشي تقدم في دولة الناصر
 وحج بالناس وولي نظر البيبرسية وغيرها . ذكره العيني وأرخ وفاته سنة خمس عشرة .</note>
@@ -45,5 +44,11 @@
         <persName>claude-opus-5-affil-state-dedup</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「البيبرسية」(wd:Q6400398)の場所情報がaffiliation(n=1, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。情報保全のため、削除したaffiliationに付されていた注記を以下に転記する。[旧affiliation n=1 の注記] البيبرسية = خانقاه بيبرس الجاشنكير（wd:Q6400398、repo 4件で使用）。ID-Master には同一施設と思われる TMP-I-00107（الخانقاه البيبرسية、D05665）も並存 → 要判断（統合）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 1件（القاهرة（gn:360630））を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
     </respStmt>
 </person>

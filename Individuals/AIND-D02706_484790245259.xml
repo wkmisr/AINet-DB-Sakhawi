@@ -14,12 +14,12 @@
     <listRelation>
         <relation type="personal" subtype="brother" active="#AIND-D07940" passive="#AIND-D02706"><desc xml:lang="ar">المحب محمد</desc><note xml:lang="en">Al-Muḥibb Muḥammad b. ʿUthmān b. Sulaymān b. Rasūl, Ibn al-Ashqar (AIND-D07940), whose entry explicitly names Ḥusayn as his brother (أخو حسين الماضي).</note></relation>
     </listRelation>
-    <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
+    <event type="residence" n="1"><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈ニスバ القاهري〉からの補完で原文に地名の明示なし。</note></event>
     <state n="1" type="office" ref="#TMP-O-00148">
         <label xml:lang="ar">نائب ناظر البيمارستان</label>
         <label xml:lang="ar-Latn">nāʾib nāẓir al-Bīmāristān</label>
-        <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="#TMP-I-00034">البيمارستان المنصوري</orgName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البيمارستان の所在地〉からの補完で原文に地名の明示なし。</note>
     </state>
     <note type="source" xml:lang="ar">حسين بن عثمان بن سليمان بن رسول بن أمير
 يوسف بن خليل بن نوح البدر بن الشرف الكرادي الأصل القرمي القاهري
@@ -44,5 +44,11 @@
         <persName>claude-opus-5-affil-state-dedup</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「البيمارستان المنصوري」(#TMP-I-00034)の場所情報がaffiliation(n=1, type=employed)とstate(n=1, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 2件（القاهرة（gn:360630）×2）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
     </respStmt>
 </person>

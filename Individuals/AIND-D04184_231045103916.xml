@@ -17,7 +17,7 @@
         <relation type="personal" subtype="father" active="#TMP-P-000928" passive="#AIND-D04184"><desc xml:lang="ar">الشمس محمد بن الجمال عبد الله بن الشهاب أحمد الفرياني</desc><note xml:lang="ja">父は corpus 本伝なし → 新規 TMP-P-000928。</note></relation>
         <relation type="personal" subtype="maternal_grandfather" active="#AIND-D06479" passive="#AIND-D04184"><desc xml:lang="ar">سبط ابن الخص</desc><note xml:lang="ja">= #AIND-D06479（محمد بن إبراهيم بن أحمد الشمس القاهري الشهير بابن الخص）。「سبط」＝母方の孫。</note></relation>
     </listRelation>
-    <event type="residence" n="1"><placeName ref="gn:360630">القاهرة</placeName></event>
+    <event type="residence" n="1"><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈ニスバ القاهري〉からの補完で原文に地名の明示なし。</note></event>
     <event type="cultural" n="2">
         <desc xml:lang="ar">ممن سمع في البخاري بالظاهرية</desc>
         <bibl xml:lang="ar" ref="wd:Q1023470">البخاري</bibl>
@@ -65,5 +65,11 @@
         <persName>claude-opus-5-affil-state-dedup</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「مجلس التوتة」(#TMP-I-00145)の場所情報がaffiliation(n=2, type=employed)とstate(n=2, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。affiliation n=1(#NEEDID, type=study)はstateと重複しない別記録のため変更なし。情報保全のため、削除したaffiliationに付されていた注記を以下に転記する。[旧affiliation n=2 の注記] المقس 地区の証人詰所（مجلس شهود）。ID-Master 未登録 → 新規 TMP-I-00145。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 1件（القاهرة（gn:360630））を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
     </respStmt>
 </person>

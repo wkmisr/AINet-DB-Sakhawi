@@ -5,7 +5,10 @@
     <persName type="nisbah" xml:lang="ar" ref="#TMP-N-00100">الحضرمي</persName>
     <persName type="shuhrah" xml:lang="ar">العطار</persName>
     <sex value="M"/>
-    <event type="residence" n="1"><placeName ref="gn:104515">مكة</placeName></event>
+    <listRelation>
+        <relation type="personal" subtype="son" active="#AIND-D07595" passive="#AIND-D03767" cert="medium"><desc xml:lang="ar">محمد بن عبد الرحمن بن محمد بن عبد الله الحضرمي</desc><note xml:lang="ja">子＝#AIND-D07595（B88 収録、854年マッカ没）。本項本文は子に言及しないが、D07595 の見出しナサブ（عبد الرحمن بن محمد بن عبد الله الحضرمي）が本項主と3代・ニスバで一致しマッカで閉合するため、統一規則23により cert medium で補う（D07595 側の father relation と同じ cert）。</note></relation>
+    </listRelation>
+    <event type="residence" n="1"><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈職の勤務地（الفراش بالمسجد المكي）から居住を補完〉からの補完で原文に地名の明示なし。</note></event>
     <state n="1" type="office" ref="#TMP-O-00012">
         <label xml:lang="ar">العطار</label>
         <label xml:lang="ar-Latn">al-ʿAṭṭār</label>
@@ -41,5 +44,17 @@
         <note xml:lang="ja">المسجد المكي（=المسجد الحرام）に wd:Q428858 を付与（人物以外の #NEEDID にも TMP を発行（Waka 裁定 §E-3、2026-09-03））。</note>
         <persName>claude-fable-5-1</persName>
         <date when="2026-09-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 1件（مكة（gn:104515））を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">裁定反映</resp>
+        <note xml:lang="ja">逆側補完（要判断_B88 §R-9、ISSUES §De-12）: listRelation を新設し son relation（#AIND-D07595、cert medium）を追加。統一規則23。D07595 側の father relation（cert medium）と対にした。</note>
+        <persName>claude-b88-triage</persName>
+        <date when="2026-09-24"/>
     </respStmt>
 </person>

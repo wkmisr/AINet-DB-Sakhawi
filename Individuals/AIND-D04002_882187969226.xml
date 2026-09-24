@@ -7,7 +7,7 @@
     <listRelation>
         <relation type="personal" subtype="teacher" n="1" active="wd:Q4120128" passive="#AIND-D04002">
             <desc type="method" ref="#TMP-S-00028" xml:lang="ar">حضر | الحضور</desc>
-            <event type="learning"><placeName ref="gn:360630">القاهرة</placeName><orgName ref="#TMP-I-00029">البرقوقية</orgName></event>
+            <event type="learning"><orgName ref="#TMP-I-00029">البرقوقية</orgName><note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البرقوقية の所在地〉からの補完で原文に地名の明示なし。</note></event>
             <note xml:lang="ja">「حضر عندي بالبرقوقية」。</note>
         </relation>
         <relation type="personal" subtype="father" active="#AIND-D08568" passive="#AIND-D04002"><desc xml:lang="ar">محمد بن محمد بن أحمد بن عبد العزيز المحب أبو اليمن ابن الأمانة</desc><note xml:lang="ja">父「الآتي أبوه」= #AIND-D08568（محمد بن محمد بن أحمد بن عبد العزيز بن عثمان المحب أبو اليمن بن البدر … والد عبد العزيز … ويعرف بابن الأمانة）で双方向閉合。初版の TMP-P-000529 は汚染流用。</note></relation>
@@ -17,8 +17,8 @@
     <event type="cultural" n="1">
         <desc xml:lang="ar">أحضر في البخاري في الظاهرية القديمة</desc>
         <bibl xml:lang="ar" ref="wd:Q1023470">البخاري</bibl>
-        <placeName ref="gn:360630">القاهرة</placeName>
         <orgName ref="wd:Q23975647">الظاهرية القديمة</orgName>
+        <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 الظاهرية القديمة の所在地〉からの補完で原文に地名の明示なし。</note>
     </event>
     <event type="religious" subtype="hajj" n="1"><placeName ref="gn:104515">مكة</placeName><desc xml:lang="ar">ولما كبر حج</desc></event>
     <affiliation n="1" type="study" ref="wd:Q23975647">
@@ -52,5 +52,11 @@
         <note xml:lang="ja">汚染番号 TMP-P-000529（父・祖父）を解消し #AIND-D08568 / #AIND-D06691 に同定。同名の叔父 #AIND-D03987 を追加。『البخاري』を bibl 化（wd:Q1023470）。</note>
         <persName>claude-fable-5-1</persName>
         <date when="2026-09-02"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">規則22-1 適用</resp>
+        <persName>claude-rule22-audit</persName>
+        <date when="2026-09-24"/>
+        <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 2件（القاهرة（gn:360630）×2）を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
     </respStmt>
 </person>
