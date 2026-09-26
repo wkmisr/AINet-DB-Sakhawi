@@ -1,0 +1,11 @@
+batch_id	review_date	pipeline_version	n_entries	draft_model	verify_model	aggregator_model	n_assertions_checked	n_assertions_correct	n_assertions_FP	n_assertions_FN	n_assertions_substitution	notes
+B59-63	2026-08-22	v1	94	claude-opus-5	claude(バージョン不特定)				11			[遡及再構成] 定義書2026-09-26制定前のため主張単位の分母なし。total_defects=11(FP/FN/substitution内訳不明、H/M/L分類もなし)を暫定的にFP列に計上。Precision/Recall算出不可
+B64-67	2026-09-02	v2	79	claude-fable-5-1	claude(バージョン不特定)				26			[遡及再構成] H6/M10/L10=26件(重大度のみ既知、FP/FN/substitution区分は元資料になく不可)。主張総数(分母)も不明のためP/R算出不可
+B68	2026-09-04	v2	82	claude-fable-5-1	claude(バージョン不特定)				16			[遡及再構成] H2/M6/L8=16件。同上の理由でP/R算出不可
+B69-73	2026-09-04	v2	95	claude-fable-5-1	claude(バージョン不特定)				29			[遡及再構成] H4/M10/L15=29件。同上
+B74-78	2026-09-08	v2	90	claude-fable-5-1	claude(バージョン不特定)				21			[遡及再構成] H6/M7/L8=21件。同上
+B79-83	2026-09-09	v2	100	claude-fable-5-1	claude(バージョン不特定)				30			[遡及再構成] H1/M11/L18=30件(60件分+40件分のレポート合算)。同上
+B86	2026-09-18	v3	20	claude-opus-5	content=claude-opus-5;mech=claude-opus-5				8			[遡及再構成] 内容検証H2/M3/L3=8、機械検査は「全項目クリア」(違反0)。ユリウス暦/グレゴリオ暦の規約未確定という一過性要因による外れ値
+B87	2026-09-18/21	v3	77	claude-fable-5	content=claude-opus-5;mech=claude-opus-5				13			[遡及再構成] 内容H3/M8=11+機械違反2=13。gitはB88と同一コミット(510bfaa)に記録、AIND番号帯で分離
+B88	2026-09-24	v3	159	claude-fable-5	content=claude-opus-5;mech=claude-opus-5				24			[遡及再構成] 内容H5/M8=13+機械違反11=24
+B89-93	2026-09-25	v3	100	claude-fable-5-1	content=claude-opus-5/fable-5-1;mech=claude-opus-5/fable-5-1	claude-opus-5/fable-5-1			6			[遡及再構成] 内容検証H4件(全件修正済み)+機械違反2=6。別途チャンク内自己申告ISSUES47件(→14件規則解決・7件Waka裁定)は別カテゴリのため計上せず
