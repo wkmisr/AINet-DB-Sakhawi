@@ -361,7 +361,7 @@ def year_of(v):
 
 records = {}
 stats = collections.Counter()
-files = sorted(glob.glob(os.path.join(IND, '*.xml')))
+files = sorted(glob.glob(os.path.join(IND, '**', '*.xml'), recursive=True))  # 2026-09-26: サブフォルダ分割(0000-0999等)に対応し再帰検索化
 # first pass: person names for cross reference
 pnames = {}
 for f in files:
