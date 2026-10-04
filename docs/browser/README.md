@@ -1,7 +1,7 @@
 # AINet Browser — 再ビルド手順
 
-Artifact URL（固定・republish で更新）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
-（favicon 📜、タイトル「AINet Browser」。最新 v18 = 2026-10-04、2,795 件）
+**状態: 構築中・非公開（共有しない）。** Artifact URL（固定・republish で更新。所有者のみ閲覧可）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
+（favicon 📜、タイトル「AINet Browser」。最新 v18 = 2026-10-04、2,795 件。同日 ★2・★3 反映後に再ビルド）
 
 XML 2,143 件を JSON にまとめ、単一 HTML（約 7.3 MB）として Artifact に公開する静的ブラウザ。
 チャットを変えても、この 4 ファイルと下の手順があれば同じ URL に再公開できる。
