@@ -1,7 +1,7 @@
 # AINet Browser — 再ビルド手順
 
-**状態: 構築中・非公開（共有しない）。** Artifact URL（固定・republish で更新。所有者のみ閲覧可）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
-（favicon 📜、タイトル「AINet Browser」。v14 = 2026-09-08 XML_Limbo 70件収録後、2,143 件）
+Artifact URL（固定・republish で更新）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
+（favicon 📜、タイトル「AINet Browser」。最新 v18 = 2026-10-04、2,795 件）
 
 XML 2,143 件を JSON にまとめ、単一 HTML（約 7.3 MB）として Artifact に公開する静的ブラウザ。
 チャットを変えても、この 4 ファイルと下の手順があれば同じ URL に再公開できる。
@@ -19,6 +19,11 @@ python3 assemble.py data.json                                      # app_templat
 ```
 その後 Artifact ツールで `ainet_browser.html` を上記 URL に `url` 指定で republish する
 （別チャットからは先に `action: read` で最新版を読み込んでから publish。favicon は省略）。
+
+## 期待値（2026-10-04 v18、2,795 件）— B89-93（100件）＋B94-98（100件）収録後
+self_hit 2773 / person_hit 4328 / place_hit 1776 / org_hit 283 / office_hit 679 / text_hit 544
+（self_miss 22 / person_miss 664 / place_miss 230 / org_miss 696 / office_miss 780 / text_miss 242。data.json 10,201,015 bytes / ainet_browser.html 10,240,301 bytes。
+idmaster.tsv＝シート実物 2026-10-04（8,000行・ヘッダ含む。B94-98 の77件貼付・★1統合・B89-93持ち越し反映後）= `docs/_work/idmaster_20261004.tsv`。corpus は repo 直下の txt（$$$ 1,509）。ブランチ B94-98-20261003 のIndividualsから生成）
 
 ## 期待値（2026-09-25 v17、2,595 件）— B88（159件）＋規則22-1 遡及点検＋Waka 裁定反映後
 self_hit 2574 / person_hit 3907 / place_hit 1651 / org_hit 263 / office_hit 637 / text_hit 496
