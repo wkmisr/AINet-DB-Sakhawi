@@ -62,7 +62,7 @@
 15. **relation の方向**: 師弟は `active=師`・`passive=学生`（subtype が teacher でも student でも）。親族・社会関係は `active=相手`・`passive=本項主`。前置詞（قرأ عليه／أخذ عنه／سمع مني）で必ず確認。
 16. `state`/`event` の `placeName` も原文にない地名は付けない（→規則22で範囲確定）。
 17. ja 訳の語中の بن は「ブン」。
-18. **西暦はグレゴリオ暦（proleptic Gregorian）**。h2g.py で機械検証。曜日は暦の判別に使えない。年のみ→年初、月のみ→月初、notAfter 年精度→年末。`@when` は西暦のみ（ヒジュラは `when-custom`）。
+18. **西暦はグレゴリオ暦（proleptic Gregorian）**。h2g.py で機械検証。曜日は暦の判別に使えない。年のみ→年初、月のみ→月初、notAfter 年精度→年末。`@when` は西暦のみ（ヒジュラは `when-custom`）。**`@when` の精度は `when-custom` の精度に合わせる（年のみ→`YYYY`、月のみ→`YYYY-MM`、日付があれば日。日を作らない）。**
 19. **`relation/@n` は規約A**: 親族には `@n` を付けない／非親族だけを数えた1起点の連番。初版は旧規約で来ている可能性が高いので必ず直す。
 20. **`حج` イベントの `placeName مكة`（gn:104515）は例外として認める**（語義の展開）。`جاور` には placeName を付けない。
 22. **規則16の適用範囲（2026-09-24 細則確定版）**:
@@ -76,6 +76,9 @@
 24. **精度検証ログの記録義務**（v13.35、`docs/精度検証/精度指標_定義書_20260926.md`）。評価単位は assertion（relation1本・date1件・placeName1件等）。校閲者は、**Gemini 初版に対して自分が加えた修正を1件ずつ** `docs/records/records_B94-98/FIXLOG_<チャンク名>.tsv`（ヘッダなし・列=`batch_id, entry_id, assertion_type, error_category, severity, origin_stage, caught_stage, resolution, description`）に記録する。`assertion_type` は persName/date/relation/placeName/affiliation/event/bibl/id_assignment/wd_ref/gn_ref/other、`error_category` は FP（初版の作り込み＝原文に根拠のない主張）/FN（初版の取りこぼし）/substitution（値誤り）の3区分、`severity` は H/M/L、`origin_stage`=`gemini_draft`、`caught_stage`=`claude_review`、`resolution` は fixed/kept/issue のいずれか。**表記だけの微調整（空白・順序）は記録しない。意味のある修正のみ。**
 ## 仮TMP番号の付け方
 まず ID-Master を grep → 無ければ仮番号 `TMP-P-NEW94-01`, `TMP-L-NEW94-01` …（**チャンク番号を必ず入れる**）で発行し `TMP_NEW_<チャンク名>.tsv` に記録。**実番号は統合時に一括採番**。（参考: 起点 = **P-001272 / N-05517 / L-00294 / I-00186 / O-00293 / T-00199 / S-00076**。欠番 P-001112／001132／001186／001188／001208、T-00193、I-00174、T-00189、L-00291。`TMP-P-001115` は篠田氏の別人に使用中。篠田氏が並行で P-001261〜001271 等を追加しているので、**同一人物の既登録行を必ず grep で探すこと**。）
+
+25. **原文どおり読む（Waka 裁定 2026-10-04）**: 地名・語句・年代は、まず刊本のテキストどおりに読めないかを優先する。「誤植・OCR誤りの可能性」で読み替えて別の ID（TMP-L-00145 など）を充てない。原文から読むと整合しない点（年代・綴り）は note に記録し、後で検証する。未登録の地名は TMP-L を発行する。
+26. **同定は確実な場合にのみ（Waka 裁定 2026-10-04）**: 通称・裸名・「～と推定」「年代・文脈が合う」程度の根拠では既存の AIND に同定しない。確証がなければ仮番号（TMP-P 等）を発行して保持し、候補は note と TSV Note に書く。後に確証を得たら統合する。「الماضي／الآتي」で相手項を指す場合、名が一致する場合は確実とみなしてよい。
 
 ## 既知の毒wd（確認不要・黙って修正）
 - `wd:Q160851` → `wd:Q228986`（Hanafi）／`wd:Q191314` → `wd:Q233387`（Hanbali）。学派の正: Hanafi=Q228986 / Hanbali=Q233387 / Shafiʿi=Q82245 / Maliki=Q48221。（precheck の「要照合wd」10件はいずれも学派 wd。affiliation の `ref` を差し替え、orgName との二重符号化がないか規則8も確認）

@@ -1,6 +1,6 @@
 # AINet Browser — 再ビルド手順
 
-Artifact URL（固定・republish で更新）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
+**状態: 構築中・非公開（共有しない）。** Artifact URL（固定・republish で更新。所有者のみ閲覧可）: https://claude.ai/code/artifact/364e6aac-07cc-46b0-9d5f-7e92190056f4
 （favicon 📜、タイトル「AINet Browser」。v14 = 2026-09-08 XML_Limbo 70件収録後、2,143 件）
 
 XML 2,143 件を JSON にまとめ、単一 HTML（約 7.3 MB）として Artifact に公開する静的ブラウザ。
