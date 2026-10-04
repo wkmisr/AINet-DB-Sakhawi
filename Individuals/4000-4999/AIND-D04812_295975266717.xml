@@ -10,11 +10,11 @@
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D04812"><desc xml:lang="ar">محمود</desc><note xml:lang="ja">裸名のため #NEEDID 維持（規則3）。初版の #TMP-P-000760 は ID-Master 登録実体「محمود（D02751 حسين بن محمود の父）」で別人＝流用。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D04812" passive="#AIND-D05559" cert="medium"><desc xml:lang="ar">بعض الآخذين عنه ممن أخذ عني</desc><note xml:lang="ja">規則23: #AIND-D05559（علي بن محمد بن محمد بن محمد إمام الدين … الكرماني الأصل الفارسي الكازروني）の本文に「لزم صحبة القطب عبيد الله بن محمود الشاشي أربع سنين … وتردد إلي في صحيح مسلم … ولازمني كثيرا وكتب إلي بترجمة آخر شيوخه وبكائنة موت السلطان يعقوب」とあり、本項の「بعض الآخذين عنه ممن أخذ عني」（本項主から学び、かつサハーウィーから学んだ者で、その手で伝記を書いた者）に一致。本項原文は無名のため cert medium。</note></relation>
+        <relation type="personal" subtype="student" n="1" active="#AIND-D04812" passive="#NEEDID"><desc xml:lang="ar">بعض الآخذين عنه ممن أخذ عني</desc><note xml:lang="ja">本項原文は筆者を無名（「بعض الآخذين عنه ممن أخذ عني」）とする。候補は #AIND-D05559（علي بن محمد … الكازروني。本文に本項主への師事・サハーウィーへの伝記書簡の記述あり）だが確証がないため #NEEDID とし、候補を note に留める（Waka 裁定★5）。</note></relation>
     </listRelation>
     <event type="cultural" subtype="mention" n="2">
         <desc xml:lang="ar">وترجمته عندي بخط بعض الآخذين عنه ممن أخذ عني</desc>
-        <persName ref="#AIND-D05559" cert="medium">بعض الآخذين عنه</persName>
+        <persName ref="#NEEDID">بعض الآخذين عنه</persName>
         <note xml:lang="ja">Pattern A（伝記の筆者）。筆者の同定は上記 relation の note を参照。「كما في حوادثها أو في حوادث التي بعدها مع موت يعقوب」の يعقوب は D05559 の「كائنة موت السلطان يعقوب」から السلطان يعقوب（アク・コユンルのヤアクーブ、896年没）と解されるが、本項主との関係は年代記上の併記のみのため relation は立てず（規則14）、初版の統制外 subtype「chronological grouping」relation を削除。</note>
     </event>
     <note type="source" xml:lang="ar">عبيد الله بن محمود الشاشي . مات في سلخ ربيع
@@ -32,5 +32,11 @@
         <note xml:lang="ja">父 محمود の流用番号 #TMP-P-000760（別人）→ #NEEDID（裸名）。統制外 subtype「chronological grouping」の relation（يعقوب）を削除し note に留める。相手側本伝 #AIND-D05559（「لزم صحبة القطب عبيد الله بن محمود الشاشي أربع سنين … وكتب إلي بترجمة آخر شيوخه」）を発見し、規則23により student relation（cert medium）と Pattern A（伝記筆者）を追加。没日を notBefore/notAfter（895-03-30／895-04-01）に精密化し h2g で検証。原文 note を corpus から付与。訳文を逐語で再校正（「ラビーウ・アッ＝ษァーニー」の文字化けを修正）。</note>
         <persName>claude-b95-review</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">Waka裁定反映（★4・★5：確証のない同定はTMPで保持）</resp>
+        <note xml:lang="ja">伝記の筆者を #AIND-D05559 から #NEEDID に変更（原文は無名、確証なし）。候補は note に保持。</note>
+        <persName>claude-b94-98-rulings</persName>
+        <date when="2026-10-04"/>
     </respStmt>
 </person>
