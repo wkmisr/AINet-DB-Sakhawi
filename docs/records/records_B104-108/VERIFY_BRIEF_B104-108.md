@@ -80,3 +80,23 @@ python3 のスクリプトを書いて（`docs/_work/B104-108_incoming/verify/` 
 21. 規則24 の記録: FIXLOG_B10x.tsv の書式（9列・語彙が固定語彙・batch_id=B104-108）と件数。
 22. 「أرخه ابن فهد」の振り分け: source note に「أرخه ابن فهد」を含む全件について、death の when-custom と Pattern A の persName ref（D09211/D05979/D03985）・cert の対応を表にして報告。
 スクリプトは再実行可能な形で残し、報告に保存場所を記すこと。
+
+---
+
+## 【2026-10-06 追記・次バッチから必須】assertion の数え方の定義（分母の固定）
+バッチ間で Precision／Recall を比較できるよう、内容検証の分母（`点検 assertion 概数`）は**次の単位で機械的に数える**（検証者の裁量で増減させない。冒頭の表はこの内訳で書く）。
+| assertion_type | 単位（1件＝） | 数え方 |
+|---|---|---|
+| persName | `<persName>` 要素1つ（type ごと: full／name_only／laqab／kunyah／shuhrah／nisbah／alias…） | 本項主の persName 要素数。relation/desc 内の相手名は数えない |
+| id_assignment | 人物参照 1つ（relation の active/passive、persName/@ref、event 内 persName/@ref） | `#AIND-`／`#TMP-P-`／`wd:` を指す属性の数。#NEEDID も1件 |
+| relation | `<relation>` 要素1つ | subtype・向き・cert をまとめて1件 |
+| date | 日付属性1つ（birth／death／event／relation 内 event の when-custom・when・notBefore・notAfter 各1） | 属性数 |
+| placeName | `<placeName>` 要素1つ | ref の有無を問わず要素数 |
+| affiliation | `<affiliation>` 要素1つ | |
+| event | `<event>` 要素1つ（relation 内 event も含む） | |
+| state | `<state>` 要素1つ | （assertion_type は other でなく **state** を追加して使う） |
+| bibl | `<bibl>` 要素1つ | |
+| wd_ref／gn_ref | `wd:`／`gn:` を値に持つ属性1つ | id_assignment と重複計上しない（人物の wd は id_assignment、地名・書名・機関の wd/gn はこちら） |
+| translation | translation note 1つ（ja・en 各1件） | 訳文の誤りは1 note につき最大1件で数える |
+| ref_target | REF の `<note type="reference">/@target` 1つ | |
+機械検査は従来どおり別集計（項目間で重複計上するため分母に合算しない）。分母は検証者が **スクリプトで数えて** 報告に内訳を載せる（`docs/_work/<batch>_incoming/verify/` に `count_assertions.py` を置き、両内容検証者が同じスクリプトを使う）。`model_accuracy_log.tsv` の `n_assertions_checked` はこの合計、`notes` に内訳を書く。
