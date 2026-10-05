@@ -77,6 +77,7 @@ v4→v5 (2026-07-26, B24成果):
 v3→v4 (2026-07-25, B22成果):
   - watchlist追加: TMP-P-000490/000634/000635/000636(関係専用person・B22で全て別人流用)、
     TMP-O-00098/00099/00100(役職の別item流用)、TMP-T-00035(幻番号)
+  - [2026-10-05] Q3306083 は Menthidae(毒wd)と判明→全面deny、正=Q138136028。Q23975569 は Q12241647 のリダイレクト→正規化
   - Q3306083(الأشرفية قايتباイのマドラサ)を person文脈のみdeny に追加(B22でقايتباي人物に流用→wd:Q557847へ)
 
 v2→v3 (2026-07-25, B21成果):
@@ -151,10 +152,12 @@ WD_GN_DENYLIST = {
     "Q1988240": "実item未照合。B30 D02344でجقمق(未亡人の後夫=جقمق المحمدي)に流用",
     "Q282928": "実item未照合。B30 D02359でالمظفر أحمد治世表現に流用(治世はrelation化しない)",
     "Q310636": "Aichryson(ベンケイソウ科植物属)。B31 D02236でقايتباي治世表現に流用(治世はrelation化しない。人物参照はD-3形式)",
+    "Q3306083": "Menthidae(カニムシの科)。2026-10-05 Waka実照合で毒wd確定。旧ID-Master行616(الأشرفية قايتباي)の値→正=wd:Q138136028",
+    "Q23975569": "wd:Q12241647(Madrasa of al-Ashraf Barsbay)へのリダイレクト。2026-10-05 正規番号へ統一(機関文脈は Q12241647 を使う)",
 }
 WD_PERSON_ONLY_DENY = {
-    "Q23975569": "Madrasa of al-Ashraf Barsbay(機関item)。person文脈への流用のみ毒(B18)。orgName/affiliation文脈は正当(マスタ行251)",
-    "Q3306083": "المدرسة الأشرفية قايتباي(機関item)。person文脈への流用のみ毒(B22 D02340)。orgName/affiliation文脈は正当(マスタ登録あり)",
+    "Q12241647": "Madrasa of al-Ashraf Barsbay(機関item)。person文脈への流用のみ毒。orgName/affiliation文脈は正当(マスタ行250)",
+    "Q138136028": "Sultan al-Ashraf Qaytbay Mosque and Mausoleum(機関item、2026-10-05 Waka実照合)。person文脈への流用のみ毒。orgName/affiliation文脈は正当(マスタ行616)",
 }
 WD_GN_SUGGESTIONS = {
     "Q208507": "wd:Q1023470 (Ṣaḥīḥ al-Bukhārī)",
@@ -170,9 +173,9 @@ WD_GN_SUGGESTIONS = {
     "Q470381": "#AIND-D03345 (al-Muʾayyad Shaykh)",
     "Q287515": "#AIND-D02423 (al-Ẓāhir Jaqmaq)",
     "Q285640": "wd:Q557812 (al-Ashraf Barsbāy)",
-    "Q23975569": "wd:Q557812 (al-Ashraf Barsbāy)※人物を指す場合",
+    "Q23975569": "wd:Q12241647 (機関) / wd:Q557812 (al-Ashraf Barsbāy)※人物を指す場合",
     "Q420040": "wd:Q557847 (al-Ashraf Qāytbāy)",
-    "Q3306083": "wd:Q557847 (Qāytbāy)※人物を指す場合",
+    "Q3306083": "wd:Q138136028 (機関) / wd:Q557847 (Qāytbāy)※人物を指す場合",
     "Q2726390": "wd:Q112671686 (al-Sīra al-Nabawiyya li-Ibn Isḥāq)",
     "Q368154": "wd:Q312342 (Al-Azhar Mosque)",
     "Q282218": "#AIND-D03345 (al-Muʾayyad Shaykh)",
