@@ -12,7 +12,7 @@
         <note xml:lang="ja">「آخر سنة سبع وثلاثين」＝837年末。837 ＝ 1433-08-27〜1434-08-15。校閲者は「آخر سنة」が 1434 側に落ちることから when="1434" としたが、規則18（年のみ→年初、@when の精度は when-custom に合わせる）により集約時に when="1433" に揃えた（機械[4]・内容検証B L-18）。実際の没時期は837年末＝西暦 1434年前半〜8月で、この note に残す。没地 تعز は原文に明記。埋葬地は「حضرت دفنه」（الناشري が埋葬に立ち会った）のみで地名の明記がないため、初版の burial placeName は除去。</note>
     </death>
     <listRelation>
-        <relation type="personal" subtype="father" active="#TMP-P-001398" passive="#AIND-D05923"><desc xml:lang="ar">أبو القسم بن معيبد</desc><note xml:lang="ja">見出しナサブの父。イエメンの宰相家 ابن معيبد（#AIND-D01138 أحمد بن عمر بن معيبد وزير اليمن 没824）。候補 #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」（ナサブに عمر が1代多い）は確証なし → TMP-P-001398（§D107-9）。初版は father relation を欠落。</note></relation>
+        <relation type="personal" subtype="father" active="#AIND-D11082" passive="#AIND-D05923"><desc xml:lang="ar">أبو القسم بن معيبد</desc><note xml:lang="ja">見出しナサブの父。イエメンの宰相家 ابن معيبد（#AIND-D01138 أحمد بن عمر بن معيبد وزير اليمن 没824）。候補 #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」（ナサブに عمر が1代多い）は確証なし → TMP-P-001398（§D107-9）。初版は father relation を欠落。</note></relation>
         <relation type="personal" subtype="cousin" active="#AIND-D05983" passive="#AIND-D05923" cert="medium"><desc xml:lang="ar">عمر بن محمد بن معيبد</desc><note xml:lang="ja">「وأظنه ابن عم عمر بن محمد بن معيبد الآتي」。相手 = #AIND-D05983（عمر بن محمد بن معيبد السراج أبو حفص … الزبيدي … اليماني الشافعي ويعرف بالفتى、801年生）。أظنه のため cert medium。初版の #NEEDID を差し替え。</note></relation>
         <relation type="personal" subtype="met" n="1" active="#AIND-D04864" passive="#AIND-D05923">
             <desc xml:lang="ar">العفيف عثمان الناشري</desc>
@@ -44,7 +44,7 @@
     </event>
     <event type="cultural" n="3">
         <desc xml:lang="ar">وحصل لي منظومة في مشايخ شيخنا ابن الجزري</desc>
-        <persName ref="wd:Q4120093">ابن الجزري</persName>
+        <persName ref="#AIND-D09163">ابن الجزري</persName>
         <note xml:lang="ja">本項主が الناشري のために「我らがシャイフ ابن الجزري の師たちについての韻文（منظومة）」を手に入れた（「حصل لي」）。ابن الجزري ＝ wd:Q4120093（ID-Master に要確認印、repo 先例1件に従う。§D107-10）。شيخنا はここでは الناشري の師（#AIND-D04864 本伝「أخذ القراءات عن ابن الجزري」）。</note>
     </event>
     <event type="religious" n="4">
@@ -79,4 +79,16 @@
         <persName>claude-b104-108-triage</persName>
         <date when="2026-10-05"/>
     </respStmt>
+        <respStmt>
+            <resp xml:lang="ja">裁定反映</resp>
+            <persName>claude-fable-5-1</persName>
+            <date when="2026-10-10"/>
+            <note xml:lang="ja">Waka 裁定（要判断_B104-108、2026-10-10）: 父 TMP-P-001398 أبو القسم بن معيبد → #AIND-D11082（أبو القسم بن عمر بن معيبد、830年没）に同定。D05923 見出しは祖父 عمر を省略した形。TMP-P-001398 は名寄せ</note>
+        </respStmt>
+        <respStmt>
+            <resp xml:lang="ja">名寄せ反映</resp>
+            <persName>claude-fable-5-1</persName>
+            <date when="2026-10-10"/>
+            <note xml:lang="ja">Waka 裁定（要判断_B104-108、2026-10-10）: ابن الجزري の人物参照 wd:Q4120093（1箇所）→ #AIND-D09163（الشمس أبو الخير محمد بن محمد بن محمد بن علي بن يوسف … ويعرف بابن الجزري、本伝あり・未収録）。wd:Q4120093 は Waka 実照合済み（2026-10-10）で D09163 収録時に person/@corresp へ</note>
+        </respStmt>
 </person>
