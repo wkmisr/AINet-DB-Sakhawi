@@ -1,0 +1,29 @@
+典拠台帳(Wikidata/GeoNames)の仕組みを追加し、precheck と連携
+
+- docs/authority/ を新設
+  - update_authority.py: 使用中の wd/gn を全件抽出(Individuals・ID-Master・precheck の拒否/許可リスト)し、
+    Wikidata(wbgetentities＋SPARQL 種別判定)と GeoNames(RDF/API)から取得して台帳 TSV に保存。標準ライブラリのみ
+  - lookup.py: 台帳のローカル検索(番号・アラビア語名・英語名、--flags で自動フラグ一覧)
+  - verified.tsv: 人の判定(OK/毒/付替/保留)。Waka 実照合済み番号(2026-09〜10)を初期登録
+  - review_queue.tsv: 照合用一覧(自動フラグの重い順)
+- precheck_aind_v12.py: 台帳があれば自動で読み込み、台帳:毒/毒疑い/要修正/要確認 を追加報告。
+  要照合wd/gn に実ラベルを併記し、OK 判定済みは要照合から外す。--no-authority で従来どおり
+  (台帳なしでの出力は従来版と同一であることを Individuals 2000-2999・7000-7999 で確認)
+- .gitignore: docs/authority/cache/・__pycache__/
+
+- 毒wd/gn 15番号の是正(2026-10-26 Waka 裁定、16ファイル、各 respStmt に記録)
+  wd: Q11186071→Q4120128(D00002)/Q188206→TMP-P-001581(D00009)/Q35832→TMP-O-00177(D01908)/
+      Q6501349→Q3595924(D01172)/Q28769351→TMP-T-00246(D01691)/Q1140659→TMP-I-00247(D00809)/
+      D01612 師の位置の書名 Q2998769 → @active=Q471116＋bibl
+  gn: 305608→304922(D02048)/2464917→2464915(D00392)/104889→TMP-L-00201(D01078)/
+      105995→TMP-L-00191(D02201)/2516422→TMP-L-00242(D00226)/10594248→TMP-L-00217(D00813)/
+      359146→TMP-L-00360(D02012)/352735→TMP-L-00361(D01277)/2507026→TMP-L-00362(D00945)
+  verified.tsv に判定18行を追記。新規TMP 6行は docs/records/authority/TMP登録_authority_20261026.tsv
+  (ID-Master 未貼付。docs/ID-Master要対応_authority_20261026.md)
+- prompt_analyze.txt: RULE 0b「wd/gn は記憶から書かない」を新設。許可は ID-Master 由来と
+  プロンプト記載の固定番号(分野・ハディース8書・Q471116・Q4120128)のみ
+- app.py v20.12: 未照合の wd/gn を保持せず NEEDID に差し戻して ID-Master と再照合。
+  docs/authority/verified.tsv の OK/毒 判定を検疫に反映
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_017cBisQGRs2U8skTzFfMryQ

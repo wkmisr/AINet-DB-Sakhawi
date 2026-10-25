@@ -15,8 +15,7 @@ them is a CRITICAL ERROR.
    (1) COPY an ID verbatim from the ID MASTER list (section 2) — but
        ONLY when the entity's name matches that entry. OR
    (2) Write the all-zero placeholder for that category
-       (persons "TMP-P-000000", others "TMP-X-00000"), OR a genuine
-       Wikidata Q-ID / GeoNames numeric ID that you actually know.
+       (persons "TMP-P-000000", others "TMP-X-00000").
 
    ❌ You MUST NEVER fabricate a TMP number. Writing any non-zero TMP
       number that you did not copy verbatim from the ID MASTER list is
@@ -30,6 +29,26 @@ them is a CRITICAL ERROR.
    ⚠️ Do NOT guess that a person "might be" a known ID-Master entry
       because the names look similar. Match only on the FULL name.
       If not certain → all-zero placeholder.
+
+🔴 RULE 0b — WIKIDATA / GEONAMES IDs: NEVER FROM MEMORY.
+   Write a Wikidata Q-ID or GeoNames numeric ID ONLY if that exact ID
+   (a) appears in the ID MASTER list (section 2) for an entry whose
+       name matches, OR
+   (b) is printed in this prompt itself: the field list in section 11,
+       the eight hadith books in section 18c, Ibn Ḥajar = Q471116, and
+       al-Sakhāwī himself = Q4120128 (use it when the author speaks in
+       the first person: عني، علي، مني، لي، عندي، أنا).
+   In EVERY other case write the all-zero TMP placeholder — even for a
+   famous person, city, mosque or book, and even if you feel sure of
+   the number. The human editors look the entity up in a verified
+   authority ledger and add the correct Wikidata/GeoNames ID later.
+
+   Why: IDs recalled from memory are very often wrong, and a wrong ID
+   still points to a REAL but unrelated item, so it looks valid.
+   Past outputs gave منى a well in Saudi Arabia, وادياش a village in
+   Spain, باب السلام a village in India, a teacher the "1988 Major
+   League Baseball draft", and مقرئ a "parking area". A placeholder
+   costs the editor one lookup; a wrong ID corrupts the database.
 
 🔴 RULE A: Any JSON field ending in "_lat" (death_place_lat,
    burial_place_lat, birth_place_lat, learn_place_lat, name_lat,
@@ -109,14 +128,14 @@ entry by its FULL name.
 ============================================================
 【3. ID RULES (when not found in ID Master)】
 ============================================================
-When an entity is NOT in the ID Master, you have only these options
-per category. Use the ALL-ZERO placeholder unless you know a genuine
-Wikidata/GeoNames ID. Never invent a non-zero TMP number (RULE 0).
+When an entity is NOT in the ID Master, use the ALL-ZERO placeholder.
+Do NOT write a Wikidata/GeoNames ID from memory (RULE 0b), and never
+invent a non-zero TMP number (RULE 0).
 
-- Persons:        Wikidata Q-ID if you truly know it, else "TMP-P-000000".
-- Places:         GeoNames numeric ID if you truly know it, else "TMP-L-00000".
-- Institutions:   Wikidata Q-ID if you truly know it, else "TMP-I-00000".
-- Texts/books:    Wikidata Q-ID if you truly know it, else "TMP-T-00000".
+- Persons:        "TMP-P-000000".
+- Places:         "TMP-L-00000".
+- Institutions:   "TMP-I-00000".
+- Texts/books:    "TMP-T-00000" (except the eight works listed in 18c).
 - Subjects/methods/fields: a TMP-S-XXXXX from the Method/Field lists
                   below if it matches, else "TMP-S-00000".
 - Nisbahs:        "TMP-N-00000".
@@ -682,7 +701,7 @@ Non-family, non-teacher/student social ties.
                     correspondent / successor / predecessor / other
     "type_other"  : if type = "other"
     "person_name" : name in Arabic
-    "person_id"   : Wikidata Q-ID or TMP-P-000000
+    "person_id"   : an ID copied from the ID MASTER, or TMP-P-000000
     "description" : free text in ENGLISH. Arabic names / terms may be quoted.
                     Do NOT write in Japanese.
 
@@ -785,11 +804,12 @@ WHEN you see these markers:
    to the actual xml:id once both entries exist.
 
 ============================================================
-【18c. BOOK / TEXT REFERENCES — WIKIDATA Q-ID PRIORITY】
+【18c. BOOK / TEXT REFERENCES — FIXED Q-ID LIST ONLY】
 ============================================================
 For any cited book/text (in teachers.text_*, students.text_*, or
-bio_events.description), ALWAYS prefer a Wikidata Q-ID over a local
-TMP-T- placeholder when the work is well-known.
+bio_events.description), use a Wikidata Q-ID ONLY for the eight works
+listed below, or when the ID is in the ID MASTER with a matching title.
+Every other book gets TMP-T-00000 (RULE 0b).
 
 Common references and their Q-IDs (use these when applicable):
 - al-Dāraquṭnī's Sunan (السنن للدارقطني) → wd:Q12217063
@@ -805,8 +825,8 @@ Common references and their Q-IDs (use these when applicable):
 The following Q-IDs are POISONED values from an earlier prompt version
 (they point to unrelated Wikidata items) and must NEVER be output:
 Q208507, Q193272, Q1248893, Q593290, Q1140365, Q940817, Q900871.
-For ANY other book, if you are not CERTAIN of the exact Wikidata item,
-use TMP-T-00000 — a wrong Q-ID is far worse than a placeholder.
+For ANY other book, use TMP-T-00000 — even if you think you know the
+Wikidata item. A wrong Q-ID is far worse than a placeholder.
 
 When the title is generic / unrecognized, use TMP-T-00000 (placeholder)
 and let the human editor resolve it later.
