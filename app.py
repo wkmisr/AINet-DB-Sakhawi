@@ -9,8 +9,8 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.11.1"
-APP_VERSION_DATE = "2026-07-31"
+APP_VERSION = "v20.12"
+APP_VERSION_DATE = "2026-10-26"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -1360,8 +1360,39 @@ _WD_ID_FORM_RE = re.compile(r"^(?:wd:)?(Q\d+)$")
 _GN_ID_FORM_RE = re.compile(r"^(?:gn:)?(\d+)$")
 
 
+def _load_verified_authority():
+    """docs/authority/verified.tsv(人が照合した判定)から OK / 毒 の wd・gn を読む(v20.12)。"""
+    ok, bad = set(), {}
+    path = _os.path.join(_APP_DIR, "docs", "authority", "verified.tsv")
+    try:
+        import csv as _csv
+        with open(path, encoding="utf-8", newline="") as f:
+            for r in _csv.DictReader(f, delimiter="\t"):
+                uri = (r.get("uri") or "").strip()
+                m = re.match(r"^(?:wd|gn):(Q?\d+)$", uri)
+                if not m:
+                    continue
+                v = (r.get("verdict") or "").strip()
+                key = m.group(1)
+                ok.discard(key)
+                bad.pop(key, None)
+                if v == "OK":
+                    ok.add(key)
+                elif v in ("毒", "付替"):
+                    bad[key] = (r.get("note") or r.get("seen_label") or v).strip()
+    except Exception:
+        pass
+    return ok, bad
+
+
 def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
     """Wikidata Q-ID / GeoNames ID を検疫する。
+
+    v20.12(2026-10-26 Waka 裁定): 生成モデルが記憶から書いた wd/gn は残さない。
+    ID-Master 登録済み(名前一致)・WD_ALLOWLIST/GN_ALLOWLIST・典拠台帳 verified.tsv の
+    OK 判定のいずれでもない番号は NEEDID に差し戻し、名前で ID-Master と再照合させる
+    (例: منى に生成された gn は ID-Master の TMP-L-00201 に置き換わる)。
+    正しい wd/gn は校閲時に典拠台帳(docs/authority)で照合して付ける。
 
     - WD_GN_DENYLIST の Q-ID → NEEDID に差し戻し(過去バッチで実item別物と確定)
     - ID-Master 登録済みの Q/gn → 登録名(| 区切り別名含む)と不一致なら NEEDID
@@ -1374,6 +1405,7 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
     if records is None:
         records = load_id_master()
     idmap = _build_id_to_master_row(records) if records else {}
+    verified_ok, verified_bad = _load_verified_authority()
     quarantined = []
     review = []
 
@@ -1402,6 +1434,15 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
                 "section": section, "field": id_field, "name": name_raw,
                 "bad_id": raw, "reason": "wd実item別物/照合不可(確定毒)",
                 "suggest": WD_GN_SUGGESTIONS.get(key, ""),
+            })
+            return
+        # (1.5) 典拠台帳で毒・付替と判定済み(v20.12)
+        if key in verified_bad:
+            container[id_field] = NEEDID_MARKER
+            quarantined.append({
+                "section": section, "field": id_field, "name": name_raw,
+                "bad_id": raw, "reason": f"典拠台帳 verified.tsv で毒判定({verified_bad[key]})",
+                "suggest": "",
             })
             return
         # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は build_xml が付与する
@@ -1437,11 +1478,14 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
                 })
             return
         # (4) プロジェクト照合済み → 素通し
-        if (mq and key in WD_ALLOWLIST) or (mg and key in GN_ALLOWLIST):
+        if (mq and key in WD_ALLOWLIST) or (mg and key in GN_ALLOWLIST) or key in verified_ok:
             return
-        # (5) 未知 → 保持して要照合レポート
-        review.append({
-            "section": section, "field": id_field, "name": name_raw, "id": raw,
+        # (5) 未知 = 生成モデルが記憶から書いた番号 → 残さず NEEDID に差し戻す(v20.12)
+        container[id_field] = NEEDID_MARKER
+        quarantined.append({
+            "section": section, "field": id_field, "name": name_raw,
+            "bad_id": raw, "reason": "未照合の wd/gn(生成モデルの記憶由来。v20.12 方針で不採用、校閲時に典拠台帳で照合)",
+            "suggest": "",
         })
 
     for section, name_field, id_field, _cat in fields:

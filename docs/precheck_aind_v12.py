@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 """precheck_aind_v12.py — 旧版生成XMLバッチの機械検疫(校閲前プリチェック)
 
+v12 + 典拠台帳連携 (2026-10-25):
+  - docs/authority/ の台帳(wd_entities.tsv / gn_entities.tsv / verified.tsv)があれば自動で読み込み、
+    wd/gn 参照ごとに「台帳:毒 / 台帳:毒疑い / 台帳:要修正 / 台帳:要確認」を追加報告する。
+    検出するもの: Wikidata/GeoNames に存在しない番号、リダイレクト(統合済み)、生物分類群、
+    位置と種別の不一致(人物位置に地名・著作 等)、近現代の人物、person/@corresp の没年と P570 の差。
+  - 「要照合wd/gn」に台帳上の実ラベルを併記。verified.tsv で OK 判定済みのものは要照合から外す。
+  - 台帳を使わないときは --no-authority。台帳の更新は docs/authority/update_authority.py(Mac で実行)。
+
 v10→v11 (2026-08-09, B31成果反映):
   - WD_GN_DENYLIST 追加: Q310636(=Aichryson。ベンケイソウ科の植物属! B31 D02236でالأشرف قايتباي治世表現relationに
     流用→relation自体削除。人物参照はD-3形式=#AIND-D06305+corresp)
@@ -421,6 +429,48 @@ def expected_kind(holder, attr, parent_map):
     return None
 
 
+# ===== 典拠台帳(docs/authority)連携 2026-10-25 =====
+AUTH = None
+_AUTH_TAG = {"毒": "台帳:毒", "毒疑い": "台帳:毒疑い", "要修正": "台帳:要修正", "要確認": "台帳:要確認"}
+
+
+def _load_authority(folder):
+    import importlib.util
+    lib = os.path.join(folder, "authority_lib.py")
+    spec = importlib.util.spec_from_file_location("authority_lib", lib)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    a = mod.Authority(folder)
+    return a if a.loaded() else None
+
+
+def _auth_findings(uri, exp, name, loc, raw, key):
+    if AUTH is None:
+        return []
+    v = AUTH.verdict(uri)
+    note = (AUTH.verified.get(uri) or {}).get("note", "")
+    if v == "毒":
+        return [("台帳:毒", f"{loc} = {raw}「{AUTH.label(uri)}」— verified.tsv で毒判定 {note}".rstrip(), key)]
+    if v == "付替":
+        return [("台帳:要修正", f"{loc} = {raw}「{AUTH.label(uri)}」— verified.tsv で付替指示 {note}".rstrip(), key)]
+    out = []
+    kinds = {exp: 1} if exp else {}
+    for sev, msg in AUTH.assess(uri, kinds=kinds, names=[name] if name else []):
+        if sev == "参考" or (v == "OK" and sev == "要確認"):
+            continue
+        out.append((_AUTH_TAG[sev], f"{loc} = {raw}「{AUTH.label(uri)}」— {msg}"
+                    + (f"(記載名: {name})" if name else ""), key))
+    return out
+
+
+def _auth_label(uri):
+    return f" 台帳: {AUTH.label(uri)}" if AUTH is not None else ""
+
+
+def _auth_ok(uri):
+    return AUTH is not None and AUTH.verdict(uri) == "OK"
+
+
 def check_file(path, idmap, corpus_index):
     findings = []
     text = open(path, encoding="utf-8").read()
@@ -469,6 +519,8 @@ def check_file(path, idmap, corpus_index):
                                      f"{loc} = {raw} — この位置の期待種別は {exp}", v))
             elif kind == "WD":
                 q = re.match(r"^(?:wd:)?(Q\d+)$", v).group(1)
+                if q not in WD_GN_DENYLIST and not (q in WD_PERSON_ONLY_DENY and exp == "P"):
+                    findings.extend(_auth_findings("wd:" + q, exp, name, loc, raw, q))
                 if q in WD_PERSON_ONLY_DENY:
                     if exp == "P":
                         sug = WD_GN_SUGGESTIONS.get(q, "")
@@ -486,21 +538,35 @@ def check_file(path, idmap, corpus_index):
                     if alts and norm_ar(name) not in alts:
                         findings.append(("名前不一致",
                                          f"{loc} = {raw}(登録: {idmap[q]['raw_ar']}) ≠ 記載名「{name}」", q))
-                elif q not in WD_ALLOWLIST and q not in idmap:
+                elif q not in WD_ALLOWLIST and q not in idmap and not _auth_ok("wd:" + q):
                     findings.append(("要照合wd", f"{loc} = {raw}"
                                      + (f"(名前: {name})" if name else "")
-                                     + " — WebSearch で実item名を照合", q))
+                                     + " — WebSearch で実item名を照合" + _auth_label("wd:" + q), q))
             elif kind == "GN":
                 g = re.match(r"^(?:gn:)?(\d+)$", v).group(1)
+                findings.extend(_auth_findings("gn:" + g, exp, name, loc, raw, g))
                 hit_pair = False
                 for word, bad in GN_PAIR_DENY:
                     if g == bad and word in norm_ar(name):
                         findings.append(("毒gn", f"{loc} = {raw} — 既知誤指し(名前: {name})", g))
                         hit_pair = True
-                if not hit_pair and g not in GN_ALLOWLIST and g not in idmap:
+                if not hit_pair and g not in GN_ALLOWLIST and g not in idmap and not _auth_ok("gn:" + g):
                     findings.append(("要照合gn", f"{loc} = {raw}"
                                      + (f"(名前: {name})" if name else "")
-                                     + " — 実地名を照合", g))
+                                     + " — 実地名を照合" + _auth_label("gn:" + g), g))
+
+        # (5b) 典拠台帳: 本人の corresp=wd と没年(P570)の照合
+        if AUTH is not None and holder is root and holder.get("corresp"):
+            m_q = re.match(r"^#?(?:wd:)(Q\d+)$", holder.get("corresp").strip())
+            d_el = root.find("death")
+            if m_q and d_el is not None:
+                y_raw = d_el.get("when") or d_el.get("notBefore") or d_el.get("notAfter") or ""
+                m_y = re.match(r"^(\d{3,4})", y_raw)
+                if m_y:
+                    msg = AUTH.person_death_check(m_q.group(1), int(m_y.group(1)))
+                    if msg:
+                        findings.append(("台帳:毒疑い", f"person/@corresp = {holder.get('corresp')}"
+                                         f"「{AUTH.label('wd:' + m_q.group(1))}」— {msg}", m_q.group(1)))
 
         # (6) 汎称語 person 化(relation の desc 名)
         if holder.tag == "relation":
@@ -561,7 +627,13 @@ def main():
     ap.add_argument("--idmaster", required=True)
     ap.add_argument("--corpus", default=None)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--authority", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "authority"),
+                    help="典拠台帳フォルダ(既定 docs/authority。台帳がなければ自動で無効)")
+    ap.add_argument("--no-authority", action="store_true")
     args = ap.parse_args()
+    global AUTH
+    if not args.no_authority and os.path.exists(os.path.join(args.authority, "authority_lib.py")):
+        AUTH = _load_authority(args.authority)
 
     idmap = load_idmaster(args.idmaster)
     corpus_index = build_corpus_index(args.corpus) if args.corpus else {}
@@ -569,6 +641,9 @@ def main():
     files = sorted(glob.glob(os.path.join(args.xml_dir, "*.xml")))
     lines = [f"# プリチェック検疫レポート", "",
              f"- 対象: {args.xml_dir}({len(files)}ファイル) / ID-Master: {os.path.basename(args.idmaster)}",
+             (f"- 典拠台帳: {os.path.relpath(args.authority)}(wd {len(AUTH.wd)} 件 / gn {len(AUTH.gn)} 件 / 判定済み {len(AUTH.verified)} 件。"
+              f"最終取得 {max([r.get('fetched', '') for r in list(AUTH.wd.values()) + list(AUTH.gn.values())] or ['-'])})"
+              if AUTH is not None else "- 典拠台帳: 不使用"),
              f"- 判定基準: v20.11.1同等+v9拡張(v3〜v8+毒wd Q4120025/Q1341072/Q12190807/Q199464・WD_REDIRECT Q647942(جقمق裁定)・watchlist P638/P502/I-00069・gn 361139/358941/361370ペア)", ""]
     total = 0
     counts = {}
@@ -583,7 +658,7 @@ def main():
             total += 1
         lines.append("")
     summary = " / ".join(f"{k}: {v}" for k, v in sorted(counts.items()))
-    lines.insert(4, f"- 検出合計: **{total} 件**({summary})")
+    lines.insert(5, f"- 検出合計: **{total} 件**({summary})")
     report = "\n".join(lines)
     if args.out:
         open(args.out, "w", encoding="utf-8").write(report)
