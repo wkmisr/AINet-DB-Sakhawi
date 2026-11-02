@@ -16,13 +16,12 @@
         <relation type="personal" subtype="teacher" n="1" active="#NEEDID" passive="#AIND-D01723">
             <desc type="method" ref="#TMP-S-00025" xml:lang="ar">قرأ | القراءة</desc>
             <desc type="field" ref="wd:Q1817983" xml:lang="ar">القراءات</desc>
-        <note xml:lang="ja">監査20260907: 本文から相手を一意に特定できず #NEEDID</note></relation>
+        <note xml:lang="ja">原文「قرأ بالروايات」に師の名がない（#NEEDID 維持、規則12）。</note></relation>
         <relation type="personal" subtype="teacher" n="2" active="#NEEDID" passive="#AIND-D01723">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <desc type="field" ref="#TMP-S-00002" xml:lang="ar">الحديث | علم الحديث</desc>
-            <desc xml:lang="ar">من بعض أصحاب الفخر وغيرهم</desc>
-            <event type="learning" when="77X"/>
-        <note xml:lang="ja">監査20260907: 本文から相手を一意に特定できず #NEEDID</note></relation>
+            <event type="learning" notBefore-custom="0770" notBefore="1368"/>
+        <note xml:lang="ja">原文「وسمع الحديث من سنة سبعين من بعض أصحاب الفخر وغيرهم」。師は「الفخر の弟子の一部ほか」としか書かれず名がない（#NEEDID 維持、規則12）。この句は名前ではないので desc から note に移した。event の @when="77X"（不正値）を「770年以降」＝notBefore-custom 0770／notBefore 1368（770年初＝1368-08-24、h2g.py）に改めた。</note></relation>
         <relation type="personal" subtype="grandfather" active="#TMP-P-000591" passive="#AIND-D01723"><desc xml:lang="ar">محمد</desc><note xml:lang="en">Some referred to his grandfather as Muḥammad (وسمى بعضهم جده محمدا) — a variant reported with low certainty.</note></relation>
     </listRelation>
     <event type="cultural" subtype="mention">
@@ -57,5 +56,11 @@
         <persName>claude-b88-apply</persName>
         <date when="2026-09-24"/>
         <note xml:lang="ja">2026-09-24 Waka 裁定（要判断_B88_残件 ★1〜★7）の反映。★5: 中身が規則22-1 の除去 note（と placeName の根拠を述べた旧 note）だけの event residence n=1（cert=low）を削除［旧 en note「Implied as his place of birth and early residence due to nisbah.」／規則22-1 で placeName بانياس（ref なし） を除去済み（根拠〈ニスバ البانياسي〉）］；★5: 中身が規則22-1 の除去 note（と placeName の根拠を述べた旧 note）だけの event residence n=2（cert=low）を削除［旧 en note「Implied as a later residence due to nisbah (then al-Dimashqī).」／規則22-1 で placeName دمشق（gn:170654） を除去済み（根拠〈ニスバ ثم الدمشقي〉）］。記録 docs/records_B88/Waka裁定反映_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">師弟 relation 名前補記</resp>
+        <note xml:lang="ja">師 #NEEDID の注記「本文から相手を一意に特定できず」を「原文に師の名がない」に改めた（2本）。2本目は名前でない句を desc から note に移し、event の不正な @when="77X" を notBefore 770（1368）に是正。</note>
+        <persName>claude-relation-desc</persName>
+        <date when="2026-11-02"/>
     </respStmt>
 </person>
