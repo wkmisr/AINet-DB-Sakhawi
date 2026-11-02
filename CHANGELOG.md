@@ -2393,3 +2393,26 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - 8ファイルとも well-formed。
 - precheck_aind_v12 の検出は修正前（main）と修正後で同一の9件（いずれも既存の名前不一致・汚染注意）。新規の検出なし。
 - 修正後、「名前も理由注記もない #NEEDID relation」は Individuals 全体で 0本。
+
+# 変更ログ: app.py v20.13 — 長文テストで見つかった生成側の不具合4件の修正（2026-11-02）
+
+- ブランチ: `app-fix-20261102`（← origin/main 49eb4e2）
+- 作業者: Claude（Waka 承認 2026-11-02）
+- 発端: 長文伝記（76〜157語）の Gemini 精度テスト（`docs/accuracy/long_entry_test_verification_20261102.md`）。女性4項がすべて sex=M、師弟 relation に名前がない、生没年の西暦が1年ずれる、relation 内 event の @when にヒジュラ年、空の `active=""`。
+
+## 変更
+1. **性別欄が新しい解析結果に追従しない不具合**: `st.selectbox(..., key="sex_select")` の固定 key を外した。固定 key だと Streamlit が session_state の旧値を優先し、同じセッションで前に処理した項の値（M）が残っていた。他の基本項目と同じく key なしにした。
+2. **師弟 relation に相手の名前を出力**: `_build_teacher_relation`・`_build_student_relation` で、`name` があれば `<desc xml:lang="ar">名前</desc>` を method/field の desc より前に出す（親族 relation と同形式）。ID が #NEEDID でも誰のことか XML に残る。
+3. **ヒジュラ暦→西暦の変換**: `convert_h_to_g` を外部ライブラリ convertdate に依存しない tabular Islamic の計算に置き換えた（repo の h2g.py と同一の式、proleptic Gregorian＝2026-09-18 裁定）。旧実装は convertdate が入っていない環境で「年×0.97+622」の概算に落ち、794→1392（正 1391）・765→1364（正 1363）のようにずれ、月日も捨てていた。検算: 794→1391、0815-09→1412-12、865-10-01→1461-07-19、857-05-20→1453-06-07、1-01-01→0622-07-19（h2g.py の自己検証値と一致）。
+4. **師弟 relation 内 event の日付**: `learn_date`／`teach_date`（UI の例「880H」＝ヒジュラ暦）をそのまま @when（西暦用）に書いていたのを、新設の `_hijri_when_attrs` で `when-custom`（ヒジュラ暦）＋`when`（西暦）に分けて出力するようにした。
+5. **空の `active=""`／`passive=""` を出さない**: 師弟・親族・社会的関係で ID が空のとき `#NEEDID` を出す。
+6. `APP_VERSION` を v20.13（2026-11-02）に更新。
+
+## 検証
+- `python3 -m py_compile` 通過。
+- 変更した関数を app から切り出し、上記の換算値・relation 出力（名前あり／なし、日付あり）を確認。
+- 実機確認（Streamlit 上で D13325・D13108 を再生成し、sex=F、師弟 desc、生没年の西暦を確認）は Waka が行う。
+
+## 既存データへの影響
+- 既存の Individuals は書き換えない。師弟 relation の名前は 2026-11-02 の点検（上記「名前のない #NEEDID relation の点検・補記」）で手当て済み。
+- 既存 XML の生没年 @when は校閲時に h2g.py で是正してきたが、未校閲の受領物（XML_Barzakh の束）には旧変換の1年ずれが残っている。校閲で引き続き是正する。

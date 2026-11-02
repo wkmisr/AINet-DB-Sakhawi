@@ -9,8 +9,8 @@ import requests
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
-APP_VERSION = "v20.12"
-APP_VERSION_DATE = "2026-10-26"
+APP_VERSION = "v20.13"
+APP_VERSION_DATE = "2026-11-02"
 
 # --- 1. ページ設定 ---
 st.set_page_config(page_title="AINet-DB Pro", layout="wide", initial_sidebar_state="expanded")
@@ -147,18 +147,28 @@ def convert_h_to_g(h_date):
         h_month = int(parts[1]) if len(parts) > 1 and parts[1].strip() else 1
         h_day   = int(parts[2]) if len(parts) > 2 and parts[2].strip() else 1
 
-        try:
-            from convertdate import islamic
-            gy, gm, gd = islamic.to_gregorian(h_year, h_month, h_day)
-            if len(parts) >= 3:
-                return f"{gy:04d}-{gm:02d}-{gd:02d}"
-            elif len(parts) == 2:
-                return f"{gy:04d}-{gm:02d}"
-            else:
-                return f"{gy:04d}"
-        except ImportError:
-            # フォールバック: 年だけの簡易計算
-            return str(int(h_year * 0.97 + 622))
+        # 2026-11-02 改修: 外部ライブラリ convertdate に依存しない tabular Islamic
+        # 暦の計算に置き換えた(repo の h2g.py と同一の式。西暦は proleptic
+        # Gregorian=2026-09-18 Waka 裁定)。旧実装は convertdate が無い環境で
+        # 「年×0.97+622」の概算に落ち、794→1392(正 1391)のように1年ずれ、
+        # 月日も捨てていた。年のみ→年初(1月1日)の西暦年、年月→月初の年月。
+        jdn = ((11 * h_year + 3) // 30 + 354 * h_year + 30 * h_month
+               - (h_month - 1) // 2 + h_day + 1948440 - 385)
+        a = jdn + 32044
+        b = (4 * a + 3) // 146097
+        c = a - 146097 * b // 4
+        dd = (4 * c + 3) // 1461
+        e = c - 1461 * dd // 4
+        m = (5 * e + 2) // 153
+        gy = 100 * b + dd - 4800 + m // 10
+        gm = m + 3 - 12 * (m // 10)
+        gd = e - (153 * m + 2) // 5 + 1
+        if len(parts) >= 3:
+            return f"{gy:04d}-{gm:02d}-{gd:02d}"
+        elif len(parts) == 2:
+            return f"{gy:04d}-{gm:02d}"
+        else:
+            return f"{gy:04d}"
     except Exception:
         return ""
 
@@ -2418,7 +2428,9 @@ d["sex"] = basic_c3.selectbox(
     sex_keys,
     format_func=lambda x: sex_labels[x],
     index=sex_keys.index(cur_sex),
-    key="sex_select",
+    # 2026-11-02: 固定 key="sex_select" を外した。固定 key だと Streamlit が
+    # session_state の旧値を優先し、新しい解析結果(女性=F)が反映されず
+    # 前の項の値(M)が残っていた。他の基本項目と同じく key なしにする。
 )
 
 # 形式チェック警告
@@ -3641,12 +3653,32 @@ def _build_method_field_desc(method_id, field_id, method_dict, field_dict):
     return lines
 
 
+def _hijri_when_attrs(date_h):
+    """師弟 relation 内 event の日付(ヒジュラ暦。UI の例「880H」)を
+    when-custom(ヒジュラ暦)＋when(西暦)の属性文字列にする。
+    2026-11-02 改修: 旧実装はヒジュラ年をそのまま @when(西暦用)に書いていた。"""
+    if not (date_h or "").strip():
+        return ""
+    h = re.sub(r"[^0-9-]", "", str(date_h)).strip("-")
+    if not h:
+        return ""
+    attrs = f' when-custom="{escape_xml_attr(pad_year_attr(h))}"'
+    g = convert_h_to_g(h)
+    if g:
+        attrs += f' when="{g}"'
+    return attrs
+
+
 def _build_teacher_relation(t, aind_id, method_dict, field_dict):
     n_attr = assign_n_attribute("teacher", t.get("seq", ""))
     lines = [
         f'        <relation type="personal" subtype="teacher"{n_attr} '
-        f'active="{fr(t.get("id",""))}" passive="#{aind_id}">'
+        f'active="{fr(t.get("id","")) or "#NEEDID"}" passive="#{aind_id}">'
     ]
+    # 2026-11-02: 相手の名前を desc で出力(親族 relation と同形式)。
+    # ID が #NEEDID のままでも誰のことか XML に残るようにする。
+    if (t.get("name") or "").strip():
+        lines.append(f'            <desc xml:lang="ar">{escape_xml(t["name"].strip())}</desc>')
     lines.extend(_build_method_field_desc(
         t.get("method_id", ""), t.get("field_id", ""),
         method_dict, field_dict,
@@ -3659,7 +3691,7 @@ def _build_teacher_relation(t, aind_id, method_dict, field_dict):
         if t.get("text_lat"):
             lines.append(f'            <bibl xml:lang="ar-Latn"{ref_attr}>{escape_xml(t["text_lat"])}</bibl>')
     if t.get("learn_date") or t.get("learn_place_ar"):
-        da = f' when="{escape_xml_attr(pad_year_attr(t["learn_date"]))}"' if t.get("learn_date") else ""
+        da = _hijri_when_attrs(t.get("learn_date", ""))
         place_ref = fr(t.get("learn_place_id", ""))
         place_ref_attr = f' ref="{place_ref}"' if place_ref else ""
         if t.get("learn_place_ar"):
@@ -3685,8 +3717,12 @@ def _build_student_relation(s, aind_id, method_dict, field_dict):
     n_attr = assign_n_attribute("student", s.get("seq", ""))
     lines = [
         f'        <relation type="personal" subtype="student"{n_attr} '
-        f'active="#{aind_id}" passive="{fr(s.get("id",""))}">'
+        f'active="#{aind_id}" passive="{fr(s.get("id","")) or "#NEEDID"}">'
     ]
+    # 2026-11-02: 相手の名前を desc で出力(親族 relation と同形式)。
+    # ID が #NEEDID のままでも誰のことか XML に残るようにする。
+    if (s.get("name") or "").strip():
+        lines.append(f'            <desc xml:lang="ar">{escape_xml(s["name"].strip())}</desc>')
     lines.extend(_build_method_field_desc(
         s.get("method_id", ""), s.get("field_id", ""),
         method_dict, field_dict,
@@ -3699,7 +3735,7 @@ def _build_student_relation(s, aind_id, method_dict, field_dict):
         if s.get("text_lat"):
             lines.append(f'            <bibl xml:lang="ar-Latn"{ref_attr}>{escape_xml(s["text_lat"])}</bibl>')
     if s.get("teach_date") or s.get("teach_place_ar"):
-        da = f' when="{escape_xml_attr(pad_year_attr(s["teach_date"]))}"' if s.get("teach_date") else ""
+        da = _hijri_when_attrs(s.get("teach_date", ""))
         place_ref = fr(s.get("teach_place_id", ""))
         place_ref_attr = f' ref="{place_ref}"' if place_ref else ""
         if s.get("teach_place_ar"):
@@ -3723,7 +3759,7 @@ def _build_student_relation(s, aind_id, method_dict, field_dict):
 def _build_family_relation(fam, aind_id):
     rel      = fam.get("relation", "other")
     rel_note = (fam.get("relation_note", "") or "").strip()
-    fam_ref  = fr(fam.get("id", ""))
+    fam_ref  = fr(fam.get("id", "")) or "#NEEDID"  # 2026-11-02: 空の active="" を防ぐ
     fam_name = fam.get("name", "")
     fam_lang = detect_lang(fam_name) if fam_name else "ar"
 
@@ -3757,7 +3793,7 @@ def _build_social_relation(sr, aind_id):
     else:
         subtype = sr_type
     person_id  = sr.get("person_id", "")
-    person_ref = fr(person_id) if person_id else ""
+    person_ref = fr(person_id) if person_id else "#NEEDID"  # 2026-11-02: 空の active="" を防ぐ
 
     inner_parts = []
     if sr.get("person_name"):
