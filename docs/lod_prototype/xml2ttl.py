@@ -17,6 +17,7 @@ AG   = Namespace(BASE + "agent/")
 V    = Namespace(BASE + "vocab#")
 CRM  = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 WD   = Namespace("http://www.wikidata.org/entity/")
+DCT  = Namespace("http://purl.org/dc/terms/")
 XMLNS = "{http://www.w3.org/XML/1998/namespace}"
 
 def ref2uri(ref):
@@ -35,6 +36,15 @@ def lit(el, text=None):
     return Literal(t, lang=lang) if lang else Literal(t)
 
 def slug(s): return re.sub(r"[^A-Za-z0-9_]+", "_", s).strip("_")
+
+ROLE_MAP = [("初版", "drafting"), ("翻訳", "translation_review"), ("英訳", "translation_review"), ("裁定", "adjudication"),
+            ("集約", "aggregation"), ("名寄せ", "merging"), ("統合", "merging"), ("校閲", "review"), ("修正", "correction")]
+def role_slug(t):
+    """Controlled role names for the free-text <resp>; unknown roles keep a stable hash-based name."""
+    for k, v in ROLE_MAP:
+        if k in t: return v
+    import hashlib
+    return "other_" + hashlib.md5(t.encode("utf-8")).hexdigest()[:8]
 
 def timespan(g, node, el):
     attrs = {k: el.get(k) for k in ("when", "notBefore", "notAfter", "when-custom")}
@@ -151,9 +161,17 @@ def convert(g, path):
         g.add((rec, PROV.qualifiedAttribution, q)); g.add((rec, PROV.wasAttributedTo, ag))
         g.add((q, RDF.type, PROV.Attribution)); g.add((q, PROV.agent, ag))
         r = rs.find("resp")
-        if r is not None: g.add((q, PROV.hadRole, lit(r)))
+        if r is not None and (r.text or "").strip():
+            # PROV-O: prov:hadRole takes a prov:Role resource, not a literal
+            role = V["role_" + role_slug(r.text.strip())]
+            g.add((role, RDF.type, PROV.Role)); g.add((role, RDFS.label, lit(r)))
+            g.add((q, PROV.hadRole, role))
         d = rs.find("date")
-        if d is not None and d.get("when"): g.add((q, PROV.atTime, Literal(d.get("when"), datatype=XSD.date)))
+        if d is not None and d.get("when"):
+            w = d.get("when")
+            # prov:atTime requires xsd:dateTime; a bare date is recorded with dcterms:date instead (no invented time of day)
+            if "T" in w: g.add((q, PROV.atTime, Literal(w, datatype=XSD.dateTime)))
+            else: g.add((q, DCT.date, Literal(w, datatype=XSD.date)))
 
 def idmaster(g, tsv):
     """Labels and categories for every identifier registered in the ID-Master export."""
@@ -175,7 +193,7 @@ def main():
     only = set(a for a in sys.argv[3:] if not a.startswith("--idm="))
     g = Graph()
     for pfx, ns in (("aind", AIND), ("rec", REC), ("agent", AG), ("aindv", V), ("crm", CRM),
-                    ("wd", WD), ("prov", PROV), ("owl", OWL), ("rdfs", RDFS)):
+                    ("wd", WD), ("prov", PROV), ("owl", OWL), ("rdfs", RDFS), ("dcterms", DCT)):
         g.bind(pfx, ns)
     g.bind("gn", Namespace("https://sws.geonames.org/"))
     files = sorted(glob.glob(os.path.join(src, "*", "*.xml")))
