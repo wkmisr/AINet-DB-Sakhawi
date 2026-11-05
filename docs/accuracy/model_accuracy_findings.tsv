@@ -6665,3 +6665,587 @@ B149-153	AIND-D08095	state	FN	L	claude_review	verify_mech	declined	[項目27] AI
 B149-153	AIND-D08131	state	FN	L	claude_review	verify_mech	declined	[項目27] AIND-D08131_967454952733.xml -: 本項主の職 「الخواجا」 に対応する state（ID-Master 登録名含む）も event も見当たらない（state: なし） → 修正案: state type="office"（ID-Master Office を語根で grep、規則41・48）【集約 declined（M44）: 「الخواجا」は称号（honorific に符号化済み）で職ではない（M8 と同じ、前バッチ M24・M42 と同じ扱い）】
 B149-153	AIND-D10016	state	FN	L	claude_review	verify_mech	declined	[項目27] AIND-D10016_509473738054.xml -: 本項主の職 「خادم عبيد الكبير الحضرمي」 に対応する state（ID-Master 登録名含む）も event も見当たらない（state: なし） → 修正案: state type="office"（ID-Master Office を語根で grep、規則41・48）【集約 declined（M45）: 「خادم عبيد الكبير الحضرمي」は「仕えた」型＝patron relation（TMP-P-NEW152-02）で表現済み（規則56）。state を重ねると規則8 の二重符号化】
 B149-153	AIND-D08150	relation	substitution	L	claude_review	verify_mech	applied	[項目28] AIND-D08150_183209005572.xml <relation type="personal" subtype="teacher" n="1" active="wd:Q471116" passive="#AIND-D08150">: 規則31（v13.44 (d)）: relation desc に続柄句・職名 ['شيخنا']「شيخنا」（desc は相手の名前のみ）【重大度補正→L: desc「شيخنا」はサハーウィーがイブン・ハジャルを呼ぶ固定呼称（相手は wd:Q471116 で一意）。規則31 どおりなら名「ابن حجر」にして呼称は note へ（B144-148 と同じ扱い）】 → 修正案: desc を相手の名前だけにし、続柄・職は note へ【集約 applied（M46）: desc「شيخنا」→「ابن حجر」、呼称は note に（決定19）】
+B154-158	AIND-D02848	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #AIND-D07721（محمد سمنطح بن عبد الكريم … ابن ظهيرة、見出しナサブ＋呼び名で閉合、cert medium）を追加（規則3・37）
+B154-158	AIND-D02848	id_assignment	substitution	M	gemini_draft	claude_review	fixed	師 العراقي #NEEDID → wd:Q4664581（頻出確定ID）
+B154-158	AIND-D02848	id_assignment	substitution	M	gemini_draft	claude_review	fixed	師 الهيثمي #NEEDID → wd:Q4725309（頻出確定ID）
+B154-158	AIND-D02848	id_assignment	substitution	M	gemini_draft	claude_review	fixed	師 المراغي TMP-P-000356（要同定の保留番号）→ #AIND-D10690 cert medium（D08114 の同年同群「الزين المراغي」、先例 D07201）
+B154-158	AIND-D02848	date	substitution	M	gemini_draft	claude_review	fixed	師弟 event ×5 の @when="0805"（ヒジュラ年を @when に）→ when-custom="0805" when="1402"（規則18）
+B154-158	AIND-D02848	relation	FN	L	gemini_draft	claude_review	fixed	師弟 relation ×5 に相手名 desc が無い → 追加（規則31・本バッチ固有の注意）
+B154-158	AIND-D02850	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（ناصر、裸名）を追加（規則3）
+B154-158	AIND-D02850	persName	substitution	L	gemini_draft	claude_review	fixed	職名「الفراش」を nisbah（#NEEDID）→ state type="office"（TMP-O-00033 既登録）に是正
+B154-158	AIND-D02850	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1477（年精度）→ 1477-07（when-custom 882-04 の月精度に合わせる、規則18）
+B154-158	AIND-D02852	id_assignment	substitution	H	gemini_draft	claude_review	fixed	弟子 المنشاوي #NEEDID → #AIND-D03874（D03874 本文「وتفقه بـ… خير الدين خضر الرومي」で閉合）
+B154-158	AIND-D02852	id_assignment	substitution	H	gemini_draft	claude_review	fixed	弟子 تغرى بردى بن أبي بكر #NEEDID → #AIND-D02261（D02261 本文「خير الدين خضر المقيم بكعب الاحبار والد البرهان الحنفي」で閉合）
+B154-158	AIND-D02852	id_assignment	substitution	M	gemini_draft	claude_review	fixed	子 البرهان الحنفي #NEEDID → 新規 TMP-P-NEW154-01（ラカブ・学派・父で識別、規則12）
+B154-158	AIND-D02852	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（単名の項、規則3）を追加
+B154-158	AIND-D02852	relation	FP	M	gemini_draft	claude_review	fixed	patron الظاهر جقمق（「يكرمه」＝主人でないスルターンの厚遇）→ political event＋persName に置換（規則53）
+B154-158	AIND-D02852	placeName	FP	M	gemini_draft	claude_review	fixed	political event の placeName القاهرة（原文に地名なし）を除去（規則22(1)）
+B154-158	AIND-D02852	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation employed مسجد كعب الأحبار（state と二重符号化）を除去（規則8）
+B154-158	AIND-D02852	id_assignment	substitution	L	gemini_draft	claude_review	fixed	state ref #NEEDID・orgName #NEEDID → TMP-O-NEW154-01／TMP-I-NEW154-01（ID-Master 未登録、新規）
+B154-158	AIND-D02852	date	FN	L	gemini_draft	claude_review	fixed	death に cert medium（弟子の伝聞「قال إنه」）を付与、原文 note を追加
+B154-158	AIND-D02852	event	FN	L	gemini_draft	claude_review	fixed	「وأثنى عليه」（المنشاوي）の Pattern A mention event を追加
+B154-158	AIND-D02852	event	FN	L	gemini_draft	claude_review	fixed	「ودرس」の teaching event を追加
+B154-158	AIND-D02852	other	substitution	M	gemini_draft	claude_review	fixed	ja 訳に見出し名（خضر الزين أو خير الدين الرومي）が欠落 → 全面修正
+B154-158	AIND-D02853	id_assignment	substitution	H	gemini_draft	claude_review	fixed	الشمس البلالي #NEEDID → #AIND-D08056（D08056 本文「بخادمها خضر لقيام تمراز …」で閉合）
+B154-158	AIND-D02853	relation	substitution	M	gemini_draft	claude_review	fixed	無効 subtype「predecessor and successor」→ predecessor（n=1）＋successor（n=2）の2本に分割（規則29）
+B154-158	AIND-D02853	relation	FP	M	gemini_draft	claude_review	fixed	patron تمراز（#NEEDID、「تعصب معه」＝主人でないアミールの肩入れ）→ political event＋persName #AIND-D02288 に置換（規則53）
+B154-158	AIND-D02853	id_assignment	substitution	H	gemini_draft	claude_review	fixed	تمراز #NEEDID → #AIND-D02288（تمراز الناصري نائب السلطنة、الناصر فرج 期、814没で閉合）
+B154-158	AIND-D02853	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（単名の項、規則3）を追加
+B154-158	AIND-D02853	placeName	FP	M	gemini_draft	claude_review	fixed	state・event の placeName القاهرة ×2（施設所在地からの補完、原文に地名なし）を除去（規則22(1)）
+B154-158	AIND-D02853	event	FP	M	gemini_draft	claude_review	fixed	residence event القاهرة（原文に居住の記述なし）を除去（規則22(1)・(6)）
+B154-158	AIND-D02853	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation employed سعيد السعداء（state と二重符号化）を除去（規則8）
+B154-158	AIND-D02853	id_assignment	substitution	M	gemini_draft	claude_review	fixed	state مشيخة の ref #NEEDID → TMP-O-00077（汎用 مشيخة التصوف、repo 慣行）
+B154-158	AIND-D02853	id_assignment	FN	M	gemini_draft	claude_review	fixed	見出しの職「الخادم بسعيد السعداء」の state が無い（shuhrah のみ）→ state office TMP-O-NEW154-02 を追加
+B154-158	AIND-D02853	other	substitution	L	gemini_draft	claude_review	fixed	訳文「狂信的に支持し」（تعصب معه＝肩入れ）・「ティムラーズ」→ 是正、「彼のカラーマ」の指示対象（البلالي）を明示
+B154-158	AIND-D02855	date	substitution	M	gemini_draft	claude_review	fixed	death/@when 1437 → 1438-01（841-07＝1438-01-07 開始、月精度。初版は誤年・年精度）
+B154-158	AIND-D02855	event	FN	L	gemini_draft	claude_review	fixed	直後の項 D02856「ذكرهما ابن فهد」（双数）による Pattern A mention event（#AIND-D09211 cert low）を追加（規則58・60(a)）
+B154-158	AIND-D02856	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #AIND-D09945（مطيرق بن منصور بن راجح …、見出しナサブ6代一致）を追加（規則3・37）
+B154-158	AIND-D02856	event	substitution	L	gemini_draft	claude_review	fixed	「ذكرهما ابن فهد」の mentioned_by relation → Pattern A mention event（#AIND-D09211、cert low は event 側）に置換（規則43・58）
+B154-158	AIND-D02859	date	substitution	M	gemini_draft	claude_review	fixed	death の無効値 when-custom="840s" when="1436" → notBefore-custom 0843／notAfter-custom 0849、notBefore 1439／notAfter 1446（「بضع وأربعين」、規則18・先例）
+B154-158	AIND-D02859	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（سعيد、裸名）を追加（規則3）
+B154-158	AIND-D02863	date	FN	M	gemini_draft	claude_review	fixed	「سنة إحدى」（一の位のみ）の death に cert medium が無い → 付与（2026-09-24 裁定）
+B154-158	AIND-D02863	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1398（年精度）→ 1398-11（801-03 の月精度、規則18）
+B154-158	AIND-D02863	event	substitution	L	gemini_draft	claude_review	fixed	統制外 relation「mentioned in book」（wd:Q471116）→ Pattern A mention event（＋bibl TMP-T-00034）に置換
+B154-158	AIND-D02863	placeName	FP	M	gemini_draft	claude_review	fixed	state ×2 の placeName مصر（ニスバ المصري からの補完、原文に勤務地なし）を除去（規則22(1)）
+B154-158	AIND-D02867	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1453（年精度）→ 1453-03-28（857-03-08 の日精度、規則18）
+B154-158	AIND-D02867	placeName	FN	M	gemini_draft	claude_review	fixed	没地施設 البيمارستان النووي が death の placeName に無い（affiliation other #NEEDID のみ）→ placeName TMP-I-NEW154-02 を追加（規則22(2)）
+B154-158	AIND-D02867	date	FP	M	gemini_draft	claude_review	fixed	jāwara event の無効値 when-custom="before 857" cert="medium"（原文に年なし）を除去（規則18）
+B154-158	AIND-D02867	placeName	FN	M	gemini_draft	claude_review	fixed	jāwara event に原文の施設 جامع دمشق（wd:Q183562）が無い → orgName を追加（規則20・22(2)）
+B154-158	AIND-D02867	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation reside جامع دمشق／other البيمارستان（#NEEDID×2、event・death と二重符号化）を除去（規則8）
+B154-158	AIND-D02867	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（単名の項、規則3）を追加
+B154-158	AIND-D02871	date	substitution	M	gemini_draft	claude_review	fixed	death/@when 1426 → 1425-12-12（829-01-21＝1425-12-12、初版は誤年・年精度）
+B154-158	AIND-D02871	placeName	FP	M	gemini_draft	claude_review	fixed	death の placeName القاهرة（原文に没地なし、ニスバからの補完）を除去（規則22(1)）
+B154-158	AIND-D02871	id_assignment	substitution	M	gemini_draft	claude_review	fixed	埋葬地 الصحراء #NEEDID → TMP-L-00289（頻出確定ID）
+B154-158	AIND-D02871	placeName	FP	M	gemini_draft	claude_review	fixed	birth المغرب・residence المغرب・residence القاهرة（いずれもニスバからの補完）を除去（規則22(1)・(6)）
+B154-158	AIND-D02871	placeName	FP	L	gemini_draft	claude_review	fixed	religious event の placeName القاهرة（原文になし）を除去（規則22(1)）
+B154-158	AIND-D02871	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation affiliated الأزهر → 隠遁 event の orgName（cert medium）に統合（規則8）
+B154-158	AIND-D02871	event	FN	L	gemini_draft	claude_review	fixed	葬礼「صلى عليه بالجامع」の funeral event と「وجد له شيء كثير」の event を追加
+B154-158	AIND-D02871	persName	substitution	L	gemini_draft	claude_review	fixed	honorific「شيخ معتقد」（評価句）→ state type="status" に
+B154-158	AIND-D02871	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（単名の項、規則3）を追加
+B154-158	AIND-D02872	placeName	FP	M	gemini_draft	claude_review	fixed	learning event・residence・state の placeName القاهرة ×3（施設所在地からの補完、原文に地名なし）を除去（規則22(1)）
+B154-158	AIND-D02872	placeName	FN	M	gemini_draft	claude_review	fixed	learning event に原文の施設 الصرغتمشية（TMP-I-00059）が無い → orgName を追加（規則22(2)）
+B154-158	AIND-D02872	id_assignment	substitution	M	gemini_draft	claude_review	fixed	المشهد النفيسي #NEEDID → 新規 TMP-I-NEW154-03（ID-Master 未登録）
+B154-158	AIND-D02872	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation employed المشهد النفيسي／study الصرغتمشية（state・event と二重符号化）を除去（規則8）
+B154-158	AIND-D02872	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1488（年精度）→ 1488-01（893-02 の月精度、規則18）
+B154-158	AIND-D02872	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（単名の項、規則3）を追加
+B154-158	AIND-D02874	id_assignment	substitution	H	gemini_draft	claude_review	fixed	子 الشمس محمد المزور #NEEDID → TMP-P-000342（ابن المنير＝索引 D12770 のナサブ一致・61873行「ابن المنير المزور」・「أرخه ابنه」）
+B154-158	AIND-D02874	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（إبراهيم بن علي、規則3）を追加
+B154-158	AIND-D02874	event	FN	L	gemini_draft	claude_review	fixed	「أرخه ابنه」の Pattern A mention event（persName TMP-P-000342）を追加
+B154-158	AIND-D02874	date	substitution	M	gemini_draft	claude_review	fixed	death/@when 1464 → 1465-02（869-06＝1465-02-07 開始、初版は誤年・年精度）
+B154-158	AIND-D02874	other	FN	L	gemini_draft	claude_review	fixed	「وكان عاميا صالحا」の state status を追加
+B154-158	AIND-D02875	id_assignment	substitution	H	gemini_draft	claude_review	fixed	قاسم بن أحمد بن أحمد بن موسى #NEEDID → #AIND-D06205（D06205 本文「صديق … خليل بن إبراهيم الخياط من أهل بلده」で閉合）
+B154-158	AIND-D02875	relation	substitution	M	gemini_draft	claude_review	fixed	統制外 subtype「mentioned in biography of」→ friend（D06205 の「صديق」、repo 統制語彙）
+B154-158	AIND-D02875	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（إبراهيم、規則3）を追加
+B154-158	AIND-D02875	id_assignment	substitution	L	gemini_draft	claude_review	fixed	state الخياط ref #NEEDID → wd:Q242468（ID-Master الخياطة、repo 先例）
+B154-158	AIND-D02880	id_assignment	substitution	H	gemini_draft	claude_review	fixed	母 بركة TMP-P-000039（汎用・汚染流用）→ #AIND-D12908（بركة ابنة سعد بن أحمد أم خليل … المطرية、女性部で閉合）
+B154-158	AIND-D02880	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 الصلاح الأرموي #NEEDID → #AIND-D04093（本伝あり。ID-Master TMP-P-000738 は名寄せ要）
+B154-158	AIND-D02880	id_assignment	substitution	M	gemini_draft	claude_review	fixed	師 الشرف بن الكويك #NEEDID → #AIND-D08850（ID-Master 既登録）
+B154-158	AIND-D02880	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（أحمد بن حسن、規則3）を追加
+B154-158	AIND-D02880	date	FN	M	gemini_draft	claude_review	fixed	death 欠落 → notBefore-custom 0860 notBefore 1455 cert low（「مات بعد الستين تقريبا」、規則18・先例 D07222）
+B154-158	AIND-D02880	date	FN	L	gemini_draft	claude_review	fixed	birth 801「تقريبا」に cert medium を付与
+B154-158	AIND-D02880	id_assignment	substitution	M	gemini_draft	claude_review	fixed	المطرية #NEEDID ×3 → 新規 TMP-L-NEW154-01（ID-Master 未登録）
+B154-158	AIND-D02880	relation	FP	L	gemini_draft	claude_review	fixed	空の field desc（ref TMP-S-00000）×4 と、サハーウィーが学生の relation の field「الحديث」を除去（規則2）
+B154-158	AIND-D02880	relation	FN	L	gemini_draft	claude_review	fixed	師弟 relation ×4 に相手名 desc が無い → 追加（規則31）
+B154-158	AIND-D02882	other	FN	H	gemini_draft	claude_review	fixed	person 要素の source="300693854466" が欠落 → 補完
+B154-158	AIND-D02882	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → 新規 TMP-P-NEW154-02（الشهاب أحمد بن خليل التروجي السكندري、規則3）
+B154-158	AIND-D02882	relation	FP	M	gemini_draft	claude_review	fixed	空の son relation（active=""・desc 空、息子たちは名なし）を除去し event に（規則14）
+B154-158	AIND-D02882	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1483（年精度）→ 1483-09（888-08 の月精度、規則18）
+B154-158	AIND-D02882	event	FN	L	gemini_draft	claude_review	fixed	「وبنوه الآن سنة سبع وتسعين بمكة」の event（897＝1491）と「كان مليا كثير المعاملة للناس」の state status を追加
+B154-158	AIND-D02887	id_assignment	substitution	H	gemini_draft	claude_review	fixed	兄弟 الشمس محمد TMP-P-000063（汎用・汚染流用）→ #AIND-D07114（「أخو خليل الماضي」で閉合）
+B154-158	AIND-D02887	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → 新規 TMP-P-NEW154-03（إسماعيل بن عمر بن مزروع、兄弟 D07114 と共有、規則3）
+B154-158	AIND-D02887	placeName	FP	M	gemini_draft	claude_review	fixed	residence القاهرة・state の placeName القاهرة（ニスバ「ثم القاهري」からの補完）を除去（規則22(1)・(6)）
+B154-158	AIND-D02887	relation	FP	L	gemini_draft	claude_review	fixed	師 relation の field desc「الحديث」（原文に分野・書名なし）を除去し相手名 desc を追加
+B154-158	AIND-D02889	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #AIND-D10619（「والد خليل وإبرهيم」、ナサブ・ラカブ・家名で閉合、規則3・37）
+B154-158	AIND-D02889	relation	FN	L	gemini_draft	claude_review	fixed	兄弟 #AIND-D00072（相手側「أخو خليل الآتي」、cert medium）を追加（規則23）
+B154-158	AIND-D02889	id_assignment	substitution	M	gemini_draft	claude_review	fixed	affiliation founded الجامع ببركة قرموط（#NEEDID）→ event（orgName 新規 TMP-I-NEW154-04・placeName TMP-L-00342 既登録）
+B154-158	AIND-D02889	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1478（年精度）→ 1478-12（883-09 の月精度、規則18）
+B154-158	AIND-D02891	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #AIND-D02585（حسن بك بن علي بك بن قرا يلوك、ナサブ3代＋「ابنه الأكبر خليل」で閉合、規則3・37）
+B154-158	AIND-D02891	relation	FN	L	gemini_draft	claude_review	fixed	祖父 علي بك → 新規 TMP-P-NEW154-04、曾祖父 قرا يلوك → #AIND-D04868（ancestor）を追加（規則37）
+B154-158	AIND-D02891	persName	substitution	L	gemini_draft	claude_review	fixed	name_only「خليل بن حسن بن علي」→「خليل بن حسن بك بن علي بك」（原文の称号 بك を落とさない）
+B154-158	AIND-D02892	date	substitution	M	gemini_draft	claude_review	fixed	death/@when 1398 → 1399-02（801-06＝1399-02-16 開始、初版は誤年・年精度）、「سنة إحدى」に cert medium を付与
+B154-158	AIND-D02892	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（حسن بن حرز الله、規則3）を追加
+B154-158	AIND-D02892	id_assignment	substitution	M	gemini_draft	claude_review	fixed	state شاهد の ref TMP-O-00044（統合済み・使用不可）→ TMP-O-00050
+B154-158	AIND-D02892	id_assignment	substitution	M	gemini_draft	claude_review	fixed	state قاضي الفلاحين #NEEDID → 新規 TMP-O-NEW154-03（ID-Master 未登録）
+B154-158	AIND-D02892	placeName	FP	L	gemini_draft	claude_review	fixed	state の placeName「بعض المراكز」（#NEEDID、固有地名でない）を除去し desc に
+B154-158	AIND-D02892	event	substitution	L	gemini_draft	claude_review	fixed	relation other（wd:Q471116「ذكره شيخنا في أنبائه」）→ Pattern A mention event（＋bibl TMP-T-00034）
+B154-158	AIND-D02892	relation	FN	L	gemini_draft	claude_review	fixed	師 relation（TMP-P-000275）に相手名 desc が無い → 追加（規則31）
+B154-158	AIND-D02893	relation	FN	M	gemini_draft	claude_review	fixed	父 relation 欠落 → #NEEDID（خضر、規則3）を追加
+B154-158	AIND-D02893	bibl	substitution	L	gemini_draft	claude_review	fixed	bibl TMP-T-00107（重複登録、repo 2件）→ TMP-T-00019（المسلسل、頻出確定ID・repo 77件）×2
+B154-158	AIND-D02893	relation	substitution	L	gemini_draft	claude_review	fixed	師 الميدومي の method「حدث」（本項主自身の伝達行為）→「روى」（「عن الميدومي」）
+B154-158	AIND-D02893	event	FN	M	gemini_draft	claude_review	fixed	「حدث بالخليل سنة أربع وثمانمائة」の teaching event（804＝1401、placeName الخليل）が弟子 relation に無い → 追加
+B154-158	AIND-D02893	event	FP	L	gemini_draft	claude_review	fixed	無効な cert="high" 付き visit event（الخليل 804、teaching event と重複、原文に移動の記述なし）を除去
+B154-158	AIND-D02893	relation	FN	L	gemini_draft	claude_review	fixed	師弟 relation ×2 に相手名 desc が無い → 追加、field「الحديث」（書名あり）×2 を除去
+B154-158	AIND-D02894	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1400 → 1400-09（803-02、月精度）、「سنة ثلاث」に cert medium を付与
+B154-158	AIND-D02894	relation	substitution	M	gemini_draft	claude_review	fixed	father #NEEDID → TMP-P-NEW155-01（دنكز、珍しい名、規則3）
+B154-158	AIND-D02894	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「chronicled by」（العيني #NEEDID）→ Pattern A mention event #AIND-D09832 corresp wd:Q257745
+B154-158	AIND-D02894	id_assignment	FN	M	gemini_draft	claude_review	fixed	state office #NEEDID → TMP-O-00101（أمير عشرة）
+B154-158	AIND-D02894	persName	FP	L	gemini_draft	claude_review	fixed	honorific「أحد الأمراء العشرات」（職名の二重符号化、規則8）を除去
+B154-158	AIND-D02894	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D02897	relation	substitution	H	gemini_draft	claude_review	fixed	son الزين عبد الرحمن #NEEDID → #AIND-D03629（相手側「الماضي أبوه」で閉合）
+B154-158	AIND-D02897	relation	FN	H	gemini_draft	claude_review	fixed	possible_identity #AIND-D02905 cert medium を追加（「لعله الآتي في ابن عبد الله」、D02905 側「أظنه والد شيخنا الزين عبد الرحمن」）
+B154-158	AIND-D02897	relation	FN	M	gemini_draft	claude_review	fixed	father relation を追加（TMP-P-NEW155-02 سلامة بن أحمد بن علي الأذرعي القابوني、規則3）
+B154-158	AIND-D02897	bibl	FN	M	gemini_draft	claude_review	fixed	cultural event に bibl『صحيح ابن خزيمة』（TMP-T-NEW155-01）を追加、英文 desc → 原文 desc
+B154-158	AIND-D02897	persName	substitution	L	gemini_draft	claude_review	fixed	name_only 4世代 → 3世代（規則5）
+B154-158	AIND-D02897	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03100	relation	substitution	H	gemini_draft	claude_review	fixed	teacher محمد بن مبروك #NEEDID → TMP-P-NEW155-03、desc に相手名
+B154-158	AIND-D03100	date	substitution	M	gemini_draft	claude_review	fixed	relation 内 event @when「0866」（ヒジュラ値）→ 1461（when-custom 0866）
+B154-158	AIND-D03100	event	FP	L	gemini_draft	claude_review	fixed	relation 内 event と重複する独立 event（study、cert high）を除去
+B154-158	AIND-D03100	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（أبو بكر بن صالح、規則3）
+B154-158	AIND-D03100	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03101	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1484 → 1484-05（889-04、月精度）
+B154-158	AIND-D03101	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03102	relation	FN	H	gemini_draft	claude_review	fixed	father #AIND-D04615 を追加（ナサブ5代一致、repo 先例 D07827・D04591）
+B154-158	AIND-D03102	relation	FN	H	gemini_draft	claude_review	fixed	son #AIND-D03637 を追加（子の見出しナサブ6代、規則37）
+B154-158	AIND-D03102	relation	substitution	H	gemini_draft	claude_review	fixed	teacher n=4 #NEEDID → wd:Q4664581（العراقي）
+B154-158	AIND-D03102	relation	substitution	H	gemini_draft	claude_review	fixed	teacher n=5 #NEEDID → wd:Q4725309（الهيثمي）
+B154-158	AIND-D03102	relation	FN	M	gemini_draft	claude_review	fixed	teacher ×5 の desc に相手名を付与（ابن صديق・الزين المراغي・عائشة ابنة ابن عبد الهادي・العراقي・الهيثمي）
+B154-158	AIND-D03102	date	substitution	M	gemini_draft	claude_review	fixed	relation 内 event ×5 の @when「0805」（ヒジュラ値）→ 1402、cert medium（一の位のみの年）
+B154-158	AIND-D03102	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1433 → 1433-09（837-02、月精度）
+B154-158	AIND-D03102	placeName	FP	M	gemini_draft	claude_review	fixed	residence event مكة（ニスバ由来、規則22(1)）を除去
+B154-158	AIND-D03102	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03105	relation	substitution	H	gemini_draft	claude_review	fixed	father الشمس بن زبالة #NEEDID → #AIND-D07908（ナサブ・職・通称で閉合）
+B154-158	AIND-D03105	relation	substitution	H	gemini_draft	claude_review	fixed	grandfather #NEEDID（父方と誤読）→ maternal_grandfather #AIND-D07586（فتح الدين بن صالح）
+B154-158	AIND-D03105	relation	FN	M	gemini_draft	claude_review	fixed	mother #AIND-D13881 cert medium を追加（規則23）
+B154-158	AIND-D03105	relation	FN	M	gemini_draft	claude_review	fixed	brother #AIND-D10977 を追加（相手側「أخو سعيد الماضي」）
+B154-158	AIND-D03105	event	FP	L	gemini_draft	claude_review	fixed	relation 内 event と重複する独立 event（study）を除去
+B154-158	AIND-D03105	persName	substitution	L	gemini_draft	claude_review	fixed	name_only 4世代 → 3世代、full に原文の呼称句を復元
+B154-158	AIND-D03105	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03107	relation	FN	H	gemini_draft	claude_review	fixed	son #AIND-D06219（قاسم بن سعيد بن محمد العقباني）を追加（規則37）
+B154-158	AIND-D03107	relation	FN	M	gemini_draft	claude_review	fixed	grandson #AIND-D00221（repo で grandfather #AIND-D03107 として閉合済み）・#AIND-D08446 を追加
+B154-158	AIND-D03107	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（محمد بن محمد、規則3）
+B154-158	AIND-D03107	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03110	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（يوسف、規則3）
+B154-158	AIND-D03110	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03111	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「biographer」（ابن فهد）→ Pattern A mention event #AIND-D09211 cert low（event 側）
+B154-158	AIND-D03111	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1444 → 1444-05（848-02、月精度）
+B154-158	AIND-D03111	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03111	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03115	relation	substitution	H	gemini_draft	claude_review	fixed	patron إبراهيم بن مصلح العراقي #NEEDID → #AIND-D00312（ナサブ1段省略、通称・地・年代で閉合）
+B154-158	AIND-D03115	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1477 → 1477-04（882-01、月精度）
+B154-158	AIND-D03115	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03115	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03116	persName	substitution	L	gemini_draft	claude_review	fixed	「المهلل」nisbah #NEEDID → honorific（呼称）
+B154-158	AIND-D03116	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1459 → 1459-02（863-04、月精度）
+B154-158	AIND-D03116	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03116	other	substitution	L	gemini_draft	claude_review	fixed	ja 訳の文字化け（タイ文字「ษ」）を修正
+B154-158	AIND-D03116	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03117	relation	substitution	H	gemini_draft	claude_review	fixed	student شعبان بن جنيبات passive #NEEDID → #AIND-D03317（相手側「أخذ الفقه عن سعيد الهندي」で閉合）、desc に相手名
+B154-158	AIND-D03117	relation	FP	M	gemini_draft	claude_review	fixed	統制外 relation「unacquainted」（wd:Q4120128、「وما عرفته」）を除去 → note
+B154-158	AIND-D03117	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03117	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03118	placeName	FP	M	gemini_draft	claude_review	fixed	death の placeName بولاق（居住句からの補完、規則22(1)）を除去
+B154-158	AIND-D03118	id_assignment	FN	M	gemini_draft	claude_review	fixed	埋葬地「بعض بساتين الطريق الجديدة」#NEEDID → TMP-L-NEW155-01
+B154-158	AIND-D03118	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1456 → 1456-03（860-04、月精度）
+B154-158	AIND-D03118	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「informant」（المنير TMP-P-000342）→ Pattern A mention event
+B154-158	AIND-D03118	other	substitution	L	gemini_draft	claude_review	fixed	「أحد المعتقدين」note personalia → state status（先例 D04884）
+B154-158	AIND-D03118	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03118	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03119	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1449 → 1450-01（853-12＝1450-01-24〜02-22、年跨ぎ誤り）
+B154-158	AIND-D03119	id_assignment	FN	M	gemini_draft	claude_review	fixed	state office #NEEDID → TMP-O-00095（شيخ عرب）
+B154-158	AIND-D03119	placeName	FP	M	gemini_draft	claude_review	fixed	residence event البحيرة（職の管区からの補完、規則22(1)）を除去
+B154-158	AIND-D03119	event	FP	L	gemini_draft	claude_review	fixed	death と同内容の political event「He was killed」を除去（重複）
+B154-158	AIND-D03119	persName	FP	L	gemini_draft	claude_review	fixed	honorific「شيخ عربان البحيرة」（職名の二重符号化、規則8）を除去
+B154-158	AIND-D03119	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03119	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03120	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03120	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03123	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1469 → 1469-07（874-01、月精度）
+B154-158	AIND-D03123	placeName	FN	M	gemini_draft	claude_review	fixed	搬送先 مكة（type burial、「وحمل إلى مكة」、先例 D10000・D10011）を追加
+B154-158	AIND-D03123	persName	FP	L	gemini_draft	claude_review	fixed	honorific「الشيخ」と shuhrah「الشيخ المبارك」の二重符号化を honorific 1件に統合
+B154-158	AIND-D03123	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（単名の項、規則3）
+B154-158	AIND-D03123	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03124	id_assignment	substitution	H	gemini_draft	claude_review	fixed	転送指示「وسيأتي في الميم」により REF 方式X（type=reference subtype=LIMBO、REF_ リネーム）、転送先 #AIND-D09883 を note で明示
+B154-158	AIND-D03124	relation	FP	M	gemini_draft	claude_review	fixed	father relation #NEEDID を除去（REF、実伝由来要素）
+B154-158	AIND-D03124	date	FP	M	gemini_draft	claude_review	fixed	death（855-07-01、placeName مكة）を除去（REF、実伝由来要素。訳文と reference note に保持）
+B154-158	AIND-D03124	affiliation	FP	M	gemini_draft	claude_review	fixed	state office تاجر（wd:Q215536）を除去（REF）
+B154-158	AIND-D03124	persName	FP	L	gemini_draft	claude_review	fixed	name_only・nisbah・shuhrah を除去（REF）
+B154-158	AIND-D03124	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03128	relation	substitution	H	gemini_draft	claude_review	fixed	brother 汚染番号 TMP-P-000529 → #AIND-D09439（相手側「أخو سلمان الماضي」）
+B154-158	AIND-D03128	relation	substitution	H	gemini_draft	claude_review	fixed	patron القاضي سعد الدين #NEEDID → #AIND-D03090 cert medium（ابن الديري、固定的呼称）
+B154-158	AIND-D03128	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1476 → 1477-01（881-10＝1477-01-26〜02-23、年跨ぎ誤り）
+B154-158	AIND-D03128	persName	FP	L	gemini_draft	claude_review	fixed	nisbah「الحنفي」（wd:Q228986 の流用、affiliation と二重）を除去
+B154-158	AIND-D03128	affiliation	FP	L	gemini_draft	claude_review	fixed	state ×2 の orgName「باب القاضي سعد الدين」#NEEDID（慣用句）を除去
+B154-158	AIND-D03128	relation	FN	M	gemini_draft	claude_review	fixed	father #NEEDID relation を追加（مسلم、規則3）
+B154-158	AIND-D03128	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03131	id_assignment	substitution	H	gemini_draft	claude_review	fixed	teacher 幻番号 TMP-P-000812 → #AIND-D06599（أبو اليمن الطبري、名寄せ済み、規則36）、desc に相手名
+B154-158	AIND-D03131	relation	FP	L	gemini_draft	claude_review	fixed	teacher relation の field「الحديث」（原文になし）を除去
+B154-158	AIND-D03131	placeName	FP	M	gemini_draft	claude_review	fixed	teacher relation 内 event の placeName مكة（原文になし）を除去
+B154-158	AIND-D03131	placeName	FP	M	gemini_draft	claude_review	fixed	death の placeName مكة（ニスバ・埋葬地からの補完）を除去
+B154-158	AIND-D03131	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1407 → 1407-11（810-06、月精度）
+B154-158	AIND-D03131	date	FN	L	gemini_draft	claude_review	fixed	逆算生年 790 頃（cert low、「عن نحو عشرين سنة」）を追加
+B154-158	AIND-D03131	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「mentioned_by」（الفاسي）→ Pattern A mention event #AIND-D06757
+B154-158	AIND-D03131	placeName	FP	M	gemini_draft	claude_review	fixed	visit event の placeName المدينة（原文に地名なし）を除去し travel event に
+B154-158	AIND-D03131	relation	FN	M	gemini_draft	claude_review	fixed	father relation を追加（TMP-P-NEW155-04 أحمد بن سليمان بن راشد السالمي、規則3）
+B154-158	AIND-D03131	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03137	relation	substitution	H	gemini_draft	claude_review	fixed	brother الشرف موسى #NEEDID → #AIND-D10043
+B154-158	AIND-D03137	relation	FN	M	gemini_draft	claude_review	fixed	brother #AIND-D03574（相手側で閉合済み）・#AIND-D00505（「واخوته」）を追加
+B154-158	AIND-D03137	relation	substitution	H	gemini_draft	claude_review	fixed	son الشمس محمد 汚染番号 TMP-P-000063 → #AIND-D07446
+B154-158	AIND-D03137	relation	FN	M	gemini_draft	claude_review	fixed	father relation を追加（TMP-P-NEW155-05 أحمد بن عمر بن غنام البرنكيمي、規則3）
+B154-158	AIND-D03137	id_assignment	FN	M	gemini_draft	claude_review	fixed	state office #NEEDID（تعليم الأبناء）→ TMP-O-00194、placeName القلعة
+B154-158	AIND-D03137	affiliation	FP	M	gemini_draft	claude_review	fixed	affiliation employed「طباق القلعة」#NEEDID（state と二重符号化、規則8）を除去
+B154-158	AIND-D03137	placeName	FP	M	gemini_draft	claude_review	fixed	residence event القلعة（勤務地からの補完、規則22(1)）を除去
+B154-158	AIND-D03137	other	FN	L	gemini_draft	claude_review	fixed	「تنزل في بعض دروس الحنفية」を state status として追加
+B154-158	AIND-D03137	event	substitution	L	gemini_draft	claude_review	fixed	religious event「تحنف」の英文 desc（給費学院の補足）→ 原文 desc
+B154-158	AIND-D03137	date	FN	L	gemini_draft	claude_review	fixed	逆算生年 797〜803（cert low、「عن بضع وأربعين」）を追加
+B154-158	AIND-D03137	relation	substitution	L	gemini_draft	claude_review	fixed	brother desc から称号「العالم」を除去（規則31）
+B154-158	AIND-D03137	persName	substitution	L	gemini_draft	claude_review	fixed	name_only 4世代 → 3世代（規則5）
+B154-158	AIND-D03137	other	FN	L	gemini_draft	claude_review	fixed	note type=source（原文）を挿入
+B154-158	AIND-D03156	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#NEEDID、علي بن أحمد）を追加（規則3）
+B154-158	AIND-D03156	id_assignment	FN	M	gemini_draft	claude_review	fixed	師 ابن شداد #NEEDID → TMP-P-000366 cert medium（規則26 例外2、先例 D00445）
+B154-158	AIND-D03156	relation	FP	L	gemini_draft	claude_review	fixed	師 relation の field「الحديث」（原文になし）を除去
+B154-158	AIND-D03156	event	substitution	M	gemini_draft	claude_review	fixed	イブン・ハジャル『إنباء』の relation（predecessor）→ Pattern A の mention event
+B154-158	AIND-D03156	event	substitution	M	gemini_draft	claude_review	fixed	التقي بن فهد『معجم』の relation（biographer）→ Pattern A の mention event（placeName زبيد を保持）
+B154-158	AIND-D03156	event	FP	M	gemini_draft	claude_review	fixed	residence event عدن（原文に居住の記述なし）を除去
+B154-158	AIND-D03156	event	substitution	H	gemini_draft	claude_review	fixed	「رأيته بها」の一人称をサハーウィーからイブン・ハジャルに訂正（規則59 (f)）し meeting event に；en 訳「I (al-Sakhāwī)」を訂正
+B154-158	AIND-D03156	id_assignment	FN	L	gemini_draft	claude_review	fixed	office قضاء عدن #NEEDID → TMP-O-00223
+B154-158	AIND-D03156	relation	FN	L	gemini_draft	claude_review	fixed	娘 خديجة（TMP-P-001175、D07541）を cert medium で追加（規則23）
+B154-158	AIND-D03158	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#NEEDID）を追加（規則3）
+B154-158	AIND-D03158	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1440 → 1440-08（月精度に揃える、規則18）
+B154-158	AIND-D03159	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（新規 TMP-P-NEW156-01）を追加（規則3）
+B154-158	AIND-D03159	relation	FN	M	gemini_draft	claude_review	fixed	祖父 سليمان بن وهبان（TMP-P-001160）を追加（規則37）
+B154-158	AIND-D03159	relation	FN	M	gemini_draft	claude_review	fixed	父方叔父 #AIND-D07457（「عم سليمان الماضي」）を追加
+B154-158	AIND-D03159	id_assignment	FN	H	gemini_draft	claude_review	fixed	師 التاج عبد الوهاب بن محمد بن صلح #NEEDID → #AIND-D04793
+B154-158	AIND-D03159	id_assignment	FN	H	gemini_draft	claude_review	fixed	師 الشهاب أحمد بن محمد الصبيبي #NEEDID → #AIND-D01349
+B154-158	AIND-D03159	date	substitution	M	gemini_draft	claude_review	fixed	relation 内 event の @when にヒジュラ年「0850」「0847-09」→ 西暦 1446／1444-01
+B154-158	AIND-D03159	relation	FP	L	gemini_draft	claude_review	fixed	師 relation の field（الحديث・السيرة、原文になし）を除去
+B154-158	AIND-D03160	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#NEEDID）を追加（規則3）
+B154-158	AIND-D03160	relation	FP	L	gemini_draft	claude_review	fixed	サハーウィー relation の field「الحديث」を除去（規則2）
+B154-158	AIND-D03160	event	FP	L	gemini_draft	claude_review	fixed	relation 内 event と重複する study event（مكة）を除去
+B154-158	AIND-D03161	other	substitution	H	gemini_draft	claude_review	fixed	転送見出し「مضى قريبا فيمن جده أحمد」を REF 方式X に（type="reference"、target #AIND-D03156、REF_ リネーム）
+B154-158	AIND-D03161	persName	FP	L	gemini_draft	claude_review	fixed	REF 化に伴い name_only・nisbah（#NEEDID の الجنيد を含む）・laqab・shuhrah を除去
+B154-158	AIND-D03164	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#AIND-D06106）を追加（規則37）
+B154-158	AIND-D03164	id_assignment	FN	H	gemini_draft	claude_review	fixed	従兄弟・前任者 يونس بن إسماعيل #NEEDID → #AIND-D10583
+B154-158	AIND-D03164	id_assignment	FN	H	gemini_draft	claude_review	fixed	兄弟・後任者 أحمد #NEEDID → #AIND-D01154（相互閉合）
+B154-158	AIND-D03164	relation	FN	L	gemini_draft	claude_review	fixed	子 داود بن سليمان（TMP-P-000556）を cert medium で追加（規則23）
+B154-158	AIND-D03164	id_assignment	FN	L	gemini_draft	claude_review	fixed	office أمير عرب هوارة #NEEDID → TMP-O-00014＋orgName（D01154 と同型）
+B154-158	AIND-D03164	event	FP	M	gemini_draft	claude_review	fixed	residence event البرج（没地の流用）を除去
+B154-158	AIND-D03164	event	substitution	L	gemini_draft	claude_review	fixed	political event の en 訳 desc → 原文句＋persName ref
+B154-158	AIND-D03169	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（新規 TMP-P-NEW156-02）を追加（規則3）
+B154-158	AIND-D03169	date	substitution	L	gemini_draft	claude_review	fixed	death「في حدود سنة ثمان عشرة」に cert medium を付与
+B154-158	AIND-D03169	event	substitution	M	gemini_draft	claude_review	fixed	العفيف الناشري の relation（biographer）→ Pattern A の mention event
+B154-158	AIND-D03169	other	substitution	L	gemini_draft	claude_review	fixed	en 訳のナサブ重複「b. ʿAbd al-Raḥmān b. ʿAbd al-Raḥmān」を訂正
+B154-158	AIND-D03170	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（TMP-P-000683）を追加（規則3）
+B154-158	AIND-D03170	id_assignment	FN	H	gemini_draft	claude_review	fixed	子・後継者 ملك أصلان #NEEDID → #AIND-D02020
+B154-158	AIND-D03170	relation	FN	M	gemini_draft	claude_review	fixed	子 شاه سوار #AIND-D03198 を見出しナサブで追加（規則37）
+B154-158	AIND-D03170	id_assignment	FN	L	gemini_draft	claude_review	fixed	office نائب الابلستين #NEEDID → TMP-O-00053＋placeName；أمير التركمان #NEEDID → TMP-O-00014
+B154-158	AIND-D03170	date	FP	M	gemini_draft	claude_review	fixed	state ×2 の date type="retirement" 858-09（原文に退任の記述なし）を除去
+B154-158	AIND-D03170	gn_ref	substitution	M	gemini_draft	claude_review	fixed	gn:315003（台帳未取得・未照合）→ 新規 TMP-L-NEW156-01
+B154-158	AIND-D03170	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1454 → 1454-09（月精度）、日付の係りの曖昧さに cert medium
+B154-158	AIND-D03170	placeName	FP	L	gemini_draft	claude_review	fixed	political event の placeName الابلستين（当該文に地名なし）を除去、cert="high" を除去
+B154-158	AIND-D03170	persName	substitution	L	gemini_draft	claude_review	fixed	name_only「سليمان بن محمد」→ 3世代「سليمان بن محمد بن دلغادر」
+B154-158	AIND-D03171	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（新規 TMP-P-NEW156-03）を追加（規則3）
+B154-158	AIND-D03171	id_assignment	FN	L	gemini_draft	claude_review	fixed	office شيخ جبل نابلس #NEEDID → TMP-O-00139；placeName #NEEDID → 新規 TMP-L-NEW156-02
+B154-158	AIND-D03171	date	FP	L	gemini_draft	claude_review	fixed	state の date type="retirement"（原文になし）を除去
+B154-158	AIND-D03171	event	FP	M	gemini_draft	claude_review	fixed	職名由来の residence event جبل نابلس を除去（規則22(1)）
+B154-158	AIND-D03171	event	FP	L	gemini_draft	claude_review	fixed	death と重複する political event（殺害）を除去
+B154-158	AIND-D03171	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1486 → 1486-02（月精度）
+B154-158	AIND-D03172	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（新規 TMP-P-NEW156-04）を追加（規則3）
+B154-158	AIND-D03172	id_assignment	FN	H	gemini_draft	claude_review	fixed	兄弟 حسين #NEEDID → #AIND-D02745
+B154-158	AIND-D03172	persName	substitution	L	gemini_draft	claude_review	fixed	「البناء」を shuhrah から office state（TMP-O-00187）に
+B154-158	AIND-D03173	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（新規 TMP-P-NEW156-05）を追加（規則3）
+B154-158	AIND-D03173	relation	FN	M	gemini_draft	claude_review	fixed	兄弟 داود #AIND-D02957（「أخو سليمان」）を追加
+B154-158	AIND-D03173	id_assignment	FN	H	gemini_draft	claude_review	fixed	甥 راجح #NEEDID → #AIND-D02984；統制外 subtype「nephew and assistant」を除去
+B154-158	AIND-D03173	relation	substitution	M	gemini_draft	claude_review	fixed	student relation の passive #NEEDID → #AIND-D02984
+B154-158	AIND-D03173	relation	FN	H	gemini_draft	claude_review	fixed	サハーウィーからの『شرح الألفية』（TMP-T-00033）伝授（894年）の teacher relation を追加
+B154-158	AIND-D03173	event	FN	L	gemini_draft	claude_review	fixed	「اجتمع بي غير مرة」を meeting event に（規則56）
+B154-158	AIND-D03173	event	substitution	L	gemini_draft	claude_review	fixed	書写の手伝いを cultural event（persName D02984＋bibl）に；en 訳 desc の event を原文句に
+B154-158	AIND-D03175	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（TMP-P-001602）を追加（規則3）
+B154-158	AIND-D03175	relation	FN	M	gemini_draft	claude_review	fixed	子 زهير #AIND-D03045 を見出しナサブで追加（規則37）
+B154-158	AIND-D03175	relation	FP	M	gemini_draft	claude_review	fixed	統制外 relation「captor」（المؤيد شيخ #NEEDID）→ political event＋persName #AIND-D03345（規則53）
+B154-158	AIND-D03175	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1414 → 1415-02（817-12 の換算誤り）
+B154-158	AIND-D03175	event	FP	M	gemini_draft	claude_review	fixed	residence event ×2（المدينة＝職の地、القاهرة＝獄死の地）を除去（規則22(1)）
+B154-158	AIND-D08183	id_assignment	substitution	H	gemini_draft	claude_review	fixed	父の汚染番号 TMP-P-000530 → 新規 TMP-P-NEW156-06
+B154-158	AIND-D08183	id_assignment	FN	H	gemini_draft	claude_review	fixed	兄弟 أحمد #NEEDID → #AIND-D01083
+B154-158	AIND-D08183	relation	FN	M	gemini_draft	claude_review	fixed	兄弟 أبو الخير محمد #AIND-D08184（「أخو الذي قبله」）を追加
+B154-158	AIND-D08183	event	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event ×2（القاهرة・الخانكة）を除去（規則22(1)）
+B154-158	AIND-D08183	event	substitution	L	gemini_draft	claude_review	fixed	cultural event → learning event、desc を原文句に、bibl القرآن（TMP-T-00095）を付加
+B154-158	AIND-D08186	other	substitution	H	gemini_draft	claude_review	fixed	転送見出し「مضى فيمن جده محمد بن أحمد」を REF 方式X に（target #AIND-D08576）
+B154-158	AIND-D08186	relation	FP	L	gemini_draft	claude_review	fixed	REF 化に伴い grandfather relation（#NEEDID）・state مقرئ・name_only・nisbah・laqab・kunyah を除去
+B154-158	AIND-D08187	id_assignment	substitution	H	gemini_draft	claude_review	fixed	父の汚染番号 TMP-P-000530 → #NEEDID（規則3 (c')）
+B154-158	AIND-D08187	relation	FP	M	gemini_draft	claude_review	fixed	空の son relation（active=""）を除去（規則14）
+B154-158	AIND-D08187	relation	FP	L	gemini_draft	claude_review	fixed	イブン・ハジャル relation の field「الحديث」を除去
+B154-158	AIND-D08187	id_assignment	FN	M	gemini_draft	claude_review	fixed	state خادم #NEEDID → 新規 TMP-O-NEW156-01＋施設 TMP-I-NEW156-01＋placeName سوق أمير الجيوش（TMP-L-00216）
+B154-158	AIND-D08187	affiliation	FP	M	gemini_draft	claude_review	fixed	affiliation ×2（state と二重符号化、規則8）を除去
+B154-158	AIND-D08187	placeName	FP	M	gemini_draft	claude_review	fixed	placeName القاهرة ×2（state）と residence event القاهرة（原文になし）を除去
+B154-158	AIND-D08187	event	substitution	L	gemini_draft	claude_review	fixed	state「التعليم」→ teaching event；「تنزل في الجهات」event を追加；orgName البيمارستان に cert medium
+B154-158	AIND-D08187	date	substitution	L	gemini_draft	claude_review	fixed	death「قريب السبعين ظنا」に cert low を付与
+B154-158	AIND-D08190	other	substitution	H	gemini_draft	claude_review	fixed	転送見出し「مضى فيمن جده محمد بن أحمد」を REF 方式X に（target #AIND-D08576）
+B154-158	AIND-D08190	relation	FP	L	gemini_draft	claude_review	fixed	REF 化に伴い grandfather relation（#NEEDID）・name_only・nisbah・laqab を除去
+B154-158	AIND-D08191	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#NEEDID）を追加（規則3）
+B154-158	AIND-D08191	id_assignment	FN	M	gemini_draft	claude_review	fixed	師 الولي الملوي #NEEDID → TMP-P-001358
+B154-158	AIND-D08191	bibl	FP	L	gemini_draft	claude_review	fixed	student relation の bibl「فوائد」（書名ではない）を除去
+B154-158	AIND-D08191	event	substitution	M	gemini_draft	claude_review	fixed	イブン・ハジャル『إنباء』の relation（correspondent）→ Pattern A の mention event
+B154-158	AIND-D08191	event	FP	L	gemini_draft	claude_review	fixed	death と重複する event other（plague）を除去；cultural event の en 訳 desc を原文句に
+B154-158	AIND-D08191	date	substitution	L	gemini_draft	claude_review	fixed	逆算生年 @when 1358 → 1357
+B154-158	AIND-D08193	other	substitution	H	gemini_draft	claude_review	fixed	転送見出し「فيمن جده محمد بن عبد الله」を REF 方式X に（target #AIND-D08591）
+B154-158	AIND-D08193	relation	FP	L	gemini_draft	claude_review	fixed	REF 化に伴い grandfather relation（#NEEDID）・name_only・nisbah を除去；ja 訳のアラビア文字混入を訂正
+B154-158	AIND-D08194	other	substitution	H	gemini_draft	claude_review	fixed	転送見出し「فيمن جده محمد بن محمود」を REF 方式X に（target #AIND-D08175）
+B154-158	AIND-D08194	relation	FP	L	gemini_draft	claude_review	fixed	REF 化に伴い grandfather relation（#NEEDID）・name_only・nisbah を除去
+B154-158	AIND-D08196	relation	FN	M	gemini_draft	claude_review	fixed	父 relation（#NEEDID）を追加（規則3）
+B154-158	AIND-D08196	relation	FN	M	gemini_draft	claude_review	fixed	クンヤ部 #AIND-D11028 への possible_identity（cert medium）を追加（規則10 v13.45 (a)）
+B154-158	AIND-D08199	relation	FP	M	gemini_draft	claude_review	fixed	幻番号 TMP-P-000584（الفتحي）への colleague relation。読み手は師でも同僚でもない（規則33）→ relation 内 event の persName #AIND-D02697 に（規則36）
+B154-158	AIND-D08199	relation	FN	M	gemini_draft	claude_review	fixed	父 التاج علي بن النجم محمود العمري الكيلاني の father relation が欠落（規則3）→ TMP-P-NEW157-01
+B154-158	AIND-D08199	relation	substitution	L	gemini_draft	claude_review	fixed	イブン・ハジャルへの teacher relation を1書1本（4本）で立てていた → سماع／قراءة の2本に統合（規則2）
+B154-158	AIND-D08199	bibl	FN	M	gemini_draft	claude_review	fixed	bibl ref #NEEDID ×4（المبتاينات・شرح ألفية الحديث・الخلاصة للطيبي・أربعي النووي）→ TMP-T-00201・TMP-T-00032・TMP-T-00221・TMP-T-00044
+B154-158	AIND-D08199	relation	FP	L	gemini_draft	claude_review	fixed	原文にない field「الحديث」（TMP-S-00002）を3本の relation に付けていた → 除去
+B154-158	AIND-D08199	event	FN	M	gemini_draft	claude_review	fixed	「ووصفه بالعالم … وشيخه في التبليغ」の Pattern A mention event（wd:Q471116）が欠落
+B154-158	AIND-D08199	other	FP	L	gemini_draft	claude_review	fixed	訳文（ja/en）冒頭の立項連番「570番。」「No. 570.」を除去
+B154-158	AIND-D08199	other	substitution	M	gemini_draft	claude_review	fixed	「وشيخه في التبليغ」を「伝達においてシャイフとして認めた」と誤訳 → 「タブリーグ（聴講記録の書き付け）で彼をシャイフと称した」
+B154-158	AIND-D08200	relation	FN	M	gemini_draft	claude_review	fixed	父 علي بن محمود の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D08200	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1483（年精度）→ 1483-03-06（when-custom 0888-01-17 に合わせ日精度、規則18）
+B154-158	AIND-D08200	placeName	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event（مكة）を除去（規則22(1)）
+B154-158	AIND-D08200	affiliation	FP	M	gemini_draft	claude_review	fixed	affiliation type="buried"（المعلاة）が death の burial placeName と二重符号化 → 除去（規則8）
+B154-158	AIND-D08200	persName	substitution	L	gemini_draft	claude_review	fixed	الكيال を nisbah #NEEDID で立てていた → 職業由来の laqab
+B154-158	AIND-D08207	relation	FN	M	gemini_draft	claude_review	fixed	父 النور علي بن موسى بن عيسى بن عمران المكي المزرق の father relation が欠落（規則3）→ TMP-P-NEW157-02
+B154-158	AIND-D08207	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1430（年精度）→ 1430-03（月精度、規則18）
+B154-158	AIND-D08207	event	FN	M	gemini_draft	claude_review	fixed	次項の「أرخهما ابن فهد」（双数）による Pattern A（#AIND-D09211 cert low）が欠落（規則60(a)）
+B154-158	AIND-D08208	relation	FN	H	gemini_draft	claude_review	fixed	父 علي بن موسى بن قريش の father relation が欠落。corpus 本伝 #AIND-D05661（省略ナサブは D05661 末尾・REF D05663 で確認）
+B154-158	AIND-D08208	relation	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「chronicled by」（#AIND-D09211）→ Pattern A mention event（cert low、event 側。規則43・58）
+B154-158	AIND-D08208	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1448（年精度）→ 1448-04（月精度、規則18）
+B154-158	AIND-D08208	placeName	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event（مكة）を除去（規則22(1)）
+B154-158	AIND-D08208	placeName	substitution	L	gemini_draft	claude_review	fixed	death placeName مكة（「بها」の先行詞がニスバのみ）に cert medium を付加（D08129 裁定）
+B154-158	AIND-D08210	relation	FN	M	gemini_draft	claude_review	fixed	父 علي بن موسى の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D08210	relation	substitution	H	gemini_draft	claude_review	fixed	「من أصحاب السنباطي」を裸名登録 TMP-P-000287 への teacher relation にしていた → corpus 本伝 #AIND-D09191 cert medium の companion relation（規則26 例外2・60(e)）
+B154-158	AIND-D08210	relation	FP	M	gemini_draft	claude_review	fixed	「سمع معي」をサハーウィーとの colleague relation にしていた → 除去（規則55）
+B154-158	AIND-D08210	event	substitution	M	gemini_draft	claude_review	fixed	visit event ×2（مكة・المدينة）と cultural event ×2（英語 desc）に分割していた → 1つの learning event（856、4 placeName、bibl صحيح البخاري）に統合
+B154-158	AIND-D08210	affiliation	FP	M	gemini_draft	claude_review	fixed	affiliation type="study"（الظاهرية القديمة）が event の placeName と二重符号化 → 除去（規則8）
+B154-158	AIND-D08210	placeName	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event（القاهرة）と state كاتب المنسوب の placeName القاهرة を除去（規則22(1)）
+B154-158	AIND-D08210	id_assignment	substitution	M	gemini_draft	claude_review	fixed	「تكسب في الوراقين」の state ref TMP-O-00020（書籍商＝原文にない読み込み）→ #NEEDID
+B154-158	AIND-D08210	placeName	substitution	M	gemini_draft	claude_review	fixed	state の placeName「سوق الوراقين بالقاهرة」#NEEDID → الوراقين TMP-L-00286（既登録）
+B154-158	AIND-D08210	date	FN	L	gemini_draft	claude_review	fixed	death「قريب السبعين ظنا」に cert がなかった → cert low
+B154-158	AIND-D08210	persName	FP	L	gemini_draft	claude_review	fixed	full persName に通称「ابن موسى」を含めていた → 除去（shuhrah に残す、規則5）
+B154-158	AIND-D08212	relation	FN	M	gemini_draft	claude_review	fixed	父 نور الدين علي الموزعي の father relation が欠落（規則3）→ TMP-P-NEW157-03
+B154-158	AIND-D08212	date	FN	L	gemini_draft	claude_review	fixed	death「في حدود العشرين」に cert がなかった → cert medium（先例 D03399）
+B154-158	AIND-D08212	affiliation	FP	M	gemini_draft	claude_review	fixed	称号「الإمام الأصولي」を state office（ref #TMP-O-00000＝存在しない番号）にしていた → 除去
+B154-158	AIND-D08212	event	substitution	L	gemini_draft	claude_review	fixed	event「other」の英語 desc・note「During his lifetime」→ 原文句の ar desc（規則7）
+B154-158	AIND-D08214	id_assignment	FN	H	gemini_draft	claude_review	fixed	転送見出し「فيمن جده أحمد بن هبة الله」を実項として扱っていた → REF 方式X、target=#AIND-D08007
+B154-158	AIND-D08214	relation	FP	M	gemini_draft	claude_review	fixed	REF に grandfather relation（#NEEDID）を置いていた → 除去
+B154-158	AIND-D08215	relation	FN	M	gemini_draft	claude_review	fixed	父 علي بن أبي الوفاء の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D08215	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1459（年精度）→ 1459-04（月精度、規則18）
+B154-158	AIND-D08215	other	FN	L	gemini_draft	claude_review	fixed	訳文（ja/en）に本項主の名が欠けていた → 補った
+B154-158	AIND-D08218	relation	substitution	M	gemini_draft	claude_review	fixed	父に汚染番号 TMP-P-000530（登録=علي、関係専用）を流用 → #NEEDID（規則3 (c')）
+B154-158	AIND-D08218	relation	FP	L	gemini_draft	claude_review	fixed	grandfather #NEEDID（裸クンヤ أبو يحيى のみ）を除去（規則12）
+B154-158	AIND-D08218	persName	FN	L	gemini_draft	claude_review	fixed	full persName からニスバの「ثم」（المغربي ثم البرلسي ثم الأزهري）が落ちていた → 復元
+B154-158	AIND-D08220	relation	FN	M	gemini_draft	claude_review	fixed	父 علي بن يعقوب の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D10044	relation	FN	M	gemini_draft	claude_review	fixed	父 أحمد بن عيسى الحرامي の father relation が欠落（規則3）→ TMP-P-NEW157-04
+B154-158	AIND-D10044	relation	substitution	H	gemini_draft	claude_review	fixed	兄 دريب（brother・predecessor）を #NEEDID にしていた → corpus 本伝 #AIND-D02967（相手側「أخوه موسى الآتى」で閉合）
+B154-158	AIND-D10044	relation	substitution	M	gemini_draft	claude_review	fixed	حسن بن عجلان への統制外 relation「rival」（#NEEDID）→ political event 内 persName #AIND-D02560（規則53）
+B154-158	AIND-D10044	id_assignment	substitution	M	gemini_draft	claude_review	fixed	state の汎用 TMP-O-00014（أمير）→ TMP-O-NEW157-01（أمير حلي、先例 أمير الينبع 等）
+B154-158	AIND-D10044	date	FP	M	gemini_draft	claude_review	fixed	state に原文にない retirement date（819）を置いていた → 除去（規則18）
+B154-158	AIND-D10044	placeName	FP	M	gemini_draft	claude_review	fixed	death の placeName حلي（在職地の継続）・residence event（حلي）を除去（規則22(1)）
+B154-158	AIND-D10044	persName	FP	L	gemini_draft	claude_review	fixed	honorific「أمير」（職であって名の一部ではない）を除去
+B154-158	AIND-D10044	event	FN	M	gemini_draft	claude_review	fixed	「ذكره شيخنا في إنبائه」の Pattern A（wd:Q471116＋TMP-T-00034）が欠落
+B154-158	AIND-D10044	event	substitution	L	gemini_draft	claude_review	fixed	political event ×3 の英語 desc → 原文句の ar desc（規則7）
+B154-158	AIND-D10045	relation	FN	H	gemini_draft	claude_review	fixed	父 أحمد بن محمد الناشري の father relation が欠落。D02778「عمه أحمد بن محمد الناشري」から corpus 本伝 #AIND-D01408 cert medium
+B154-158	AIND-D10045	relation	substitution	H	gemini_draft	claude_review	fixed	従兄弟 حمزة بن عبد الله بن محمد を #NEEDID にしていた → corpus 本伝 #AIND-D02778（「الماضي」＋名の一致）
+B154-158	AIND-D10045	relation	substitution	M	gemini_draft	claude_review	fixed	任官者 يوسف بن يونس المقري への patron relation（#NEEDID）→ political event 内 persName #AIND-D10558（規則53）
+B154-158	AIND-D10045	relation	substitution	M	gemini_draft	claude_review	fixed	対抗相手 ابن عبد السلام を #NEEDID にしていた → corpus 本伝 #AIND-D07655（أحد قضاة زبيد）cert medium
+B154-158	AIND-D10045	id_assignment	FN	M	gemini_draft	claude_review	fixed	state القضاء（بزبيد）の #NEEDID → TMP-O-NEW157-02（قضاء زبيد）
+B154-158	AIND-D10046	relation	substitution	M	gemini_draft	claude_review	fixed	父 #NEEDID（裸名 أحمد）→ TMP-P-NEW157-05（زين العابدين أحمد بن موسى بن أحمد الرداد、ラカブで識別）
+B154-158	AIND-D10046	relation	FN	M	gemini_draft	claude_review	fixed	#AIND-D10091 との possible_identity（cert medium）が欠落（通称・家名・الإرشاد 注釈・時期の一致）
+B154-158	AIND-D10046	date	FP	M	gemini_draft	claude_review	fixed	state تدريس に原文にない appointment date（897）を置いていた → teaching event（日付なし）に（規則18・50）
+B154-158	AIND-D10046	event	substitution	L	gemini_draft	claude_review	fixed	residence event（اليمن、897）→ floruit の event other（「من فقهاء اليمن الأحياء في سنة سبع وتسعين」）に整理
+B154-158	AIND-D10046	bibl	FN	L	gemini_draft	claude_review	fixed	「شرح الإرشاد」の bibl に ref がなかった → TMP-T-00253（الإرشاد لابن المقري）
+B154-158	AIND-D10046	persName	substitution	L	gemini_draft	claude_review	fixed	الرداد を nisbah #NEEDID で立てていた → laqab（D00611 先例）；name_only を3世代に
+B154-158	AIND-D10054	id_assignment	FN	H	gemini_draft	claude_review	fixed	転送見出し「وقد مضى فيمن جده موسى قريبا」を実項として扱っていた → REF 方式X、target=#AIND-D10052
+B154-158	AIND-D10054	relation	FP	M	gemini_draft	claude_review	fixed	REF に grandfather relation（#NEEDID）と統制外 relation「witnessed_ijaza_for」（TMP-P-000238＝裸名登録）を置いていた → 除去（証人行為は editorial note）
+B154-158	AIND-D10054	event	FP	M	gemini_draft	claude_review	fixed	REF に cultural event（834 の証人行為）を置いていた → 除去
+B154-158	AIND-D10055	relation	FN	M	gemini_draft	claude_review	fixed	父 إسماعيل بن أحمد の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D10055	relation	FN	H	gemini_draft	claude_review	fixed	従兄弟 #AIND-D10521（相手側「أظنه ابن عم موسى بن إسماعيل بن أحمد الحنفي الماضي」で名指し）が欠落 → cousin cert medium（規則23）
+B154-158	AIND-D10055	relation	FP	M	gemini_draft	claude_review	fixed	「سمع منه الفضلاء」を student relation（passive=TMP-P-000183「الفضلاء」＝人名でない登録）にしていた → 除去し teaching event に（規則14）
+B154-158	AIND-D10055	date	substitution	M	gemini_draft	claude_review	fixed	birth @when 1365 → 1364（766年の年初は 1364-10-06、規則18）；「تقريبا」の cert medium を付加
+B154-158	AIND-D10055	date	substitution	L	gemini_draft	claude_review	fixed	death @when 1440（年精度）→ 1441-02（月精度、規則18）
+B154-158	AIND-D10055	placeName	FP	M	gemini_draft	claude_review	fixed	death の placeName دمشق（ニスバ・在職地からの補完）と state كاتب المنسوب の placeName دمشق を除去（規則22(1)）
+B154-158	AIND-D10055	bibl	FN	L	gemini_draft	claude_review	fixed	bibl「ثاني الثقفيات」の ref #NEEDID → TMP-T-NEW157-01；原文にない field الحديث を除去
+B154-158	AIND-D10055	id_assignment	FN	M	gemini_draft	claude_review	fixed	state شيخ الكتاب の #NEEDID → TMP-O-NEW157-03
+B154-158	AIND-D10055	placeName	substitution	M	gemini_draft	claude_review	fixed	residence placeName「حارة جامع تنكز」#NEEDID → TMP-L-NEW157-01；affiliation type="reside"（جامع تنكز）の二重符号化を除去（規則8）
+B154-158	AIND-D10056	relation	FN	M	gemini_draft	claude_review	fixed	父 إسماعيل بن محمود の father relation（#NEEDID）が欠落（規則3）
+B154-158	AIND-D10057	relation	substitution	M	gemini_draft	claude_review	fixed	父に汚染番号 TMP-P-000064（汎用 أبو بكر）を流用 → TMP-P-NEW157-06（أبو بكر بن أكبر الشيرازي、珍しい祖父名で識別）
+B154-158	AIND-D10057	relation	FP	L	gemini_draft	claude_review	fixed	grandfather #NEEDID（裸名 أكبر）を除去（規則12）
+B154-158	AIND-D10057	relation	substitution	H	gemini_draft	claude_review	fixed	子 عبد السلام を #NEEDID にしていた → corpus 本伝 #AIND-D03934（ナサブ4代一致、「الماضي」）
+B154-158	AIND-D10057	relation	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「praised_by」（#NEEDID）→ Pattern A mention event、persName #AIND-D01373（المحب أحمد بن ظهيرة）cert medium
+B154-158	AIND-D10057	date	FN	L	gemini_draft	claude_review	fixed	death「سنة تسع عشرة أو قبيلها」に cert がなかった → cert medium
+B154-158	AIND-D10058	relation	FN	H	gemini_draft	claude_review	fixed	父 حسن بن عمر بن عمران の father relation が欠落 → corpus 本伝 #AIND-D02610 cert medium（省略ナサブ）
+B154-158	AIND-D10058	relation	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「chronicler」（#AIND-D09211）→ Pattern A mention event（cert low、event 側）
+B154-158	AIND-D10058	relation	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「associated person」（#NEEDID、البرهاني القاضي）→ patron #AIND-D00196 cert medium（規則56、先例 D05931）
+B154-158	AIND-D10058	event	substitution	H	gemini_draft	claude_review	fixed	「وقدمه في الإعلام بتمييز الجراحات」をイブン・ファハドの書名『الإعلام』での紹介と誤読した event → カーディーによる起用＝state office TMP-O-NEW157-04；訳文も修正
+B154-158	AIND-D10058	affiliation	FN	M	gemini_draft	claude_review	fixed	「وكان متسببا」の state（TMP-O-00355 متسبب）が欠落
+B154-158	AIND-D10058	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1465 → 1466-04（870-09＝1466-04-26〜、規則18）
+B154-158	AIND-D10058	placeName	substitution	L	gemini_draft	claude_review	fixed	death placeName مكة（「بها」の先行詞がニスバのみ）に cert medium を付加（D08129 裁定）；name_only を3世代に
+B154-158	AIND-D10059	relation	substitution	M	gemini_draft	claude_review	fixed	父 الناصر حسن を #NEEDID にしていた → TMP-P-NEW157-07（スルターン、識別要素あり）
+B154-158	AIND-D10059	relation	FP	M	gemini_draft	claude_review	fixed	「أرخه شيخنا في إنبائه」を predecessor relation（active=wd:Q471116）にしていた → Pattern A mention event（TMP-T-00034）
+B154-158	AIND-D10059	date	substitution	M	gemini_draft	claude_review	fixed	death @when 1400 → 1401-01-10（803-05-15、土曜一致）；一の位のみの年（سنة ثلاث）につき cert medium を付加
+B154-158	AIND-D10060	relation	substitution	H	gemini_draft	claude_review	fixed	後任 قاسم شغيتة を #NEEDID にしていた → corpus 本伝 #AIND-D06210
+B154-158	AIND-D10060	relation	substitution	H	gemini_draft	claude_review	fixed	前任 الشرف بن البقري を TMP-P-000768（Note「corpus本伝未特定」）にしていた → corpus 本伝 #AIND-D03500（名寄せ要）
+B154-158	AIND-D10060	id_assignment	FN	M	gemini_draft	claude_review	fixed	state نظر الأحباس والأوقاف の #NEEDID → TMP-O-NEW157-05
+B154-158	AIND-D10060	other	substitution	M	gemini_draft	claude_review	fixed	ja 訳が人名・職名をラテン翻字のままにし「禁制品監督職」と誤訳 → 片仮名表記・「アフバースとワクフの監督職」に
+B154-158	AIND-D10062	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10062	relation	substitution	L	gemini_draft	claude_review	fixed	ابن فهد への student relation に cert low を付加（規則43、没年837≤871）
+B154-158	AIND-D10062	event	FN	L	gemini_draft	claude_review	fixed	「وترجمه」（ابن فهد）の Pattern A mention event を追加（#AIND-D09211、cert low）
+B154-158	AIND-D10062	placeName	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event（الشام・القاهرة）を除去（規則22(1)）
+B154-158	AIND-D10062	date	substitution	M	gemini_draft	claude_review	fixed	death/@when 1433 → 1434-05（837-10、月精度）
+B154-158	AIND-D10063	id_assignment	FN	M	gemini_draft	claude_review	fixed	父 شاهين الترجمان #NEEDID → 新規 TMP-P-NEW158-01（職が識別要素、規則3）
+B154-158	AIND-D10063	id_assignment	FN	H	gemini_draft	claude_review	fixed	前任者 أمير حاج بن أبي الفرج #NEEDID → #AIND-D08839（corpus 本伝、相手側で本項主を名指し）
+B154-158	AIND-D10063	id_assignment	FN	M	gemini_draft	claude_review	fixed	office نقيب الجيش #NEEDID → 新規 TMP-O-NEW158-01
+B154-158	AIND-D10063	date	FN	L	gemini_draft	claude_review	fixed	就任・罷免 date に @when（1484／1485-12）を付加
+B154-158	AIND-D10064	date	substitution	M	gemini_draft	claude_review	fixed	death の「791年の可能性」註（根拠なし）を除去、@when 1486 → 1486-02（月精度）
+B154-158	AIND-D10064	event	FP	L	gemini_draft	claude_review	fixed	death と重複する political event（cert medium）を除去し殺害を death/desc に
+B154-158	AIND-D10065	id_assignment	FN	H	gemini_draft	claude_review	fixed	父 المؤيد شيخ #NEEDID → #AIND-D03345（規則37）
+B154-158	AIND-D10065	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「other」（العيني #NEEDID）→ Pattern A mention event #AIND-D09832 corresp wd:Q257745
+B154-158	AIND-D10065	placeName	substitution	M	gemini_draft	claude_review	fixed	埋葬地の幻番号 TMP-I-00000 → TMP-I-00028（جامع المؤيد、cert medium）
+B154-158	AIND-D10065	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation buried（#NEEDID）＝death/placeName との二重符号化を除去（規則8）
+B154-158	AIND-D10065	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1418 → 1418-11-09（日精度、سلخ رمضان 821）
+B154-158	AIND-D10067	id_assignment	FN	H	gemini_draft	claude_review	fixed	父 عبد السلام #NEEDID → #AIND-D03934（見出しナサブ4代＋ニスバで閉合、規則37）
+B154-158	AIND-D10067	id_assignment	FN	H	gemini_draft	claude_review	fixed	祖父 موسى #NEEDID → #AIND-D10057（規則37）
+B154-158	AIND-D10067	id_assignment	substitution	H	gemini_draft	claude_review	fixed	兄弟 عبد العزيز TMP-P-000813（別人 الكازروني の流用）→ #AIND-D03971（相手側も「الآتي أخوه موسى」）
+B154-158	AIND-D10067	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「historian」（ابن فهد D09211）→ Pattern A mention event #AIND-D05979 cert medium（没年876）
+B154-158	AIND-D10067	placeName	FP	M	gemini_draft	claude_review	fixed	没地からの residence event مكة を除去（規則22(1)）
+B154-158	AIND-D10067	affiliation	FP	M	gemini_draft	claude_review	fixed	affiliation affiliated（سبيل الوتش #NEEDID）は原文に所属の根拠なし→除去
+B154-158	AIND-D10067	id_assignment	FN	M	gemini_draft	claude_review	fixed	state office #NEEDID → TMP-O-00298（المتكلم في الأوقاف）、placeName نخلة #NEEDID → 新規 TMP-L-NEW158-01
+B154-158	AIND-D10067	id_assignment	FN	M	gemini_draft	claude_review	fixed	改修 event に orgName سبيل الوتش・سبيل الست（新規 TMP-I-NEW158-01・02）を追加（規則22(2)）
+B154-158	AIND-D10067	date	FN	L	gemini_draft	claude_review	fixed	改修 event（847）に @when 1443 を付加、death/@when 1471 → 1471-12
+B154-158	AIND-D10070	relation	FN	H	gemini_draft	claude_review	fixed	父 الجمال عبد الله بن جماعة の relation（#AIND-D04576、規則37）を追加
+B154-158	AIND-D10070	id_assignment	FN	H	gemini_draft	claude_review	fixed	兄弟 إبراهيم #NEEDID → #AIND-D00161（同父・ابن الديري 外孫で閉合）
+B154-158	AIND-D10070	id_assignment	substitution	M	gemini_draft	claude_review	fixed	母方祖父 wd:Q107246101 → #AIND-D03090（corpus 本伝、repo 運用）、subtype grandfather → maternal_grandfather
+B154-158	AIND-D10070	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 الكمال بن أبي شريف 幻番号 TMP-P-001077 → #AIND-D08720（名寄せ済み、規則36）
+B154-158	AIND-D10070	relation	substitution	L	gemini_draft	claude_review	fixed	祖父からの聴聞 relation の active wd → #AIND-D03090、原文にない field الحديث を除去
+B154-158	AIND-D10070	id_assignment	FN	L	gemini_draft	claude_review	fixed	office الخطابة #NEEDID → wd:Q932945（خطيب）
+B154-158	AIND-D10070	event	FN	L	gemini_draft	claude_review	fixed	「درس」teaching event を追加
+B154-158	AIND-D10074	date	substitution	H	gemini_draft	claude_review	fixed	没年 774（「または874」）→ 874（百の位省略の通例）、@when 1372 → 1470-03
+B154-158	AIND-D10074	relation	FN	H	gemini_draft	claude_review	fixed	父 علي بن موسى بن قريش の relation（#AIND-D05661、規則37・先例 D04511）を追加
+B154-158	AIND-D10074	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「biographer」（ابن فهد D09211）→ Pattern A mention event #AIND-D05979 cert medium（没年874）
+B154-158	AIND-D10076	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10076	id_assignment	FN	H	gemini_draft	claude_review	fixed	甥 ناصر الدين محمد بن أحمد بن عمران #NEEDID → #AIND-D06779（corpus 本伝）
+B154-158	AIND-D10076	affiliation	FP	M	gemini_draft	claude_review	fixed	「مباشر المدرسة الألجيهية」は甥の職＝本項主の state/affiliation を除去（D06779「مباشر مدرسة الجائي」）
+B154-158	AIND-D10077	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10077	id_assignment	substitution	H	gemini_draft	claude_review	fixed	子 الشمس محمد の汚染番号 TMP-P-000063 → #AIND-D09469（ナサブ7代一致）
+B154-158	AIND-D10077	id_assignment	FN	M	gemini_draft	claude_review	fixed	師 إبراهيم الزيتاوي #NEEDID → TMP-P-000104（ID-Master 既登録、repo 2件）
+B154-158	AIND-D10077	id_assignment	substitution	H	gemini_draft	claude_review	fixed	学生 الكلوتاتي のニスバ番号 TMP-N-00240 → #AIND-D00959 cert medium（カテゴリ不一致）
+B154-158	AIND-D10077	id_assignment	substitution	H	gemini_draft	claude_review	fixed	学生 الشمني のニスバ番号 TMP-N-00127 → #AIND-D01494（カテゴリ不一致）
+B154-158	AIND-D10077	gn_ref	FN	L	gemini_draft	claude_review	fixed	学習地 القدس #NEEDID → gn:281184
+B154-158	AIND-D10077	event	FN	M	gemini_draft	claude_review	fixed	「ذكره شيخنا في إنبائه」Pattern A event（wd:Q471116＋TMP-T-00034）を追加
+B154-158	AIND-D10077	placeName	FP	M	gemini_draft	claude_review	fixed	職由来の residence event（القاهرة）を除去（規則22(1)）
+B154-158	AIND-D10077	date	substitution	L	gemini_draft	claude_review	fixed	death「سنة عشر」に cert medium を付加（一の位のみ）
+B154-158	AIND-D10077	other	substitution	L	gemini_draft	claude_review	fixed	ja 訳の翻字混入（Mūsā b. ʿUmar …）を日本語表記に
+B154-158	AIND-D10078	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 العز بن جماعة の混同番号 TMP-P-000010（新規使用禁止）→ TMP-P-001145（祖父）cert medium
+B154-158	AIND-D10078	id_assignment	substitution	H	gemini_draft	claude_review	fixed	学生 ابن شيخنا の幻番号 TMP-P-000277 → #AIND-D06758（名寄せ済み、規則36）
+B154-158	AIND-D10078	date	substitution	M	gemini_draft	claude_review	fixed	teaching event の @when「0825」（ヒジュラ値）→ when-custom 0825／@when 1422
+B154-158	AIND-D10078	wd_ref	substitution	M	gemini_draft	claude_review	fixed	الكاملية wd:Q25633535（リダイレクト）→ wd:Q12241661
+B154-158	AIND-D10078	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation study（الكاملية）と study event（القاهرة）＝relation 内 learning event との二重符号化を除去
+B154-158	AIND-D10078	relation	FP	L	gemini_draft	claude_review	fixed	識別要素のない祖父 موسى #NEEDID relation を除去（父 desc にナサブとして保持）
+B154-158	AIND-D10078	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「informant」（الزين رضوان）→ Pattern A mention event
+B154-158	AIND-D10078	id_assignment	FN	L	gemini_draft	claude_review	fixed	office الخطيب #NEEDID → wd:Q932945
+B154-158	AIND-D10080	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10080	relation	FN	H	gemini_draft	claude_review	fixed	子 أبو بكر بن موسى بن قاسم الذويد（#AIND-D10886、子の見出しナサブで閉合）の relation を追加
+B154-158	AIND-D10080	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「mentioned_by」（الفاسي）→ Pattern A mention event #AIND-D06757
+B154-158	AIND-D10080	id_assignment	FN	M	gemini_draft	claude_review	fixed	所有地 الهدة #NEEDID → TMP-L-00214（وادي الهدة）
+B154-158	AIND-D10080	placeName	FP	M	gemini_draft	claude_review	fixed	death の没地 مكة（埋葬地からの補完）を除去（規則22(1)）
+B154-158	AIND-D10080	id_assignment	FN	L	gemini_draft	claude_review	fixed	shuhrah الذويد に TMP-N-05528 を付加
+B154-158	AIND-D10080	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1411 → 1411-05（月精度）
+B154-158	AIND-D10081	relation	FN	M	gemini_draft	claude_review	fixed	父 ماخوخ の relation（新規 TMP-P-NEW158-03、珍しい名＝識別要素）を追加（規則3）
+B154-158	AIND-D10081	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 الوهري のニスバ番号 TMP-N-02900（カテゴリ不一致）→ 新規 TMP-P-NEW158-02
+B154-158	AIND-D10081	event	substitution	H	gemini_draft	claude_review	fixed	統制外 relation「biography_provider」（زروق #NEEDID）→ Pattern A mention event #AIND-D00517（corpus 本伝）
+B154-158	AIND-D10081	persName	substitution	L	gemini_draft	claude_review	fixed	full・honorific の職名 المقرئ を除外し state に一本化（規則5・8）
+B154-158	AIND-D10082	relation	FN	H	gemini_draft	claude_review	fixed	父 المتوكل على الله محمد بن أبي بكر の relation（#AIND-D07186、規則37）を追加
+B154-158	AIND-D10082	relation	FN	H	gemini_draft	claude_review	fixed	子 علي（#AIND-D05664「علي بن الشرفي موسى بن المتوكل … الآتي أبوه」）の relation を追加
+B154-158	AIND-D10082	id_assignment	substitution	H	gemini_draft	claude_review	fixed	甥 المتوكل العز عبد العزيز TMP-P-000831 → #AIND-D04022（corpus 本伝）
+B154-158	AIND-D10082	event	FN	M	gemini_draft	claude_review	fixed	「ترجمته في الوفيات」Pattern A（wd:Q4120128＋TMP-T-00207）を追加
+B154-158	AIND-D10082	date	FN	L	gemini_draft	claude_review	fixed	逆算生年 791（cert low、「عن نحو المائة」）を追加
+B154-158	AIND-D10082	date	substitution	L	gemini_draft	claude_review	fixed	death/@when 1486 → 1486-02（月精度）
+B154-158	AIND-D10083	id_assignment	substitution	H	gemini_draft	claude_review	fixed	父の汚染番号 TMP-P-000529（汎用 محمد）→ #AIND-D08062（相手側「والد الشرف موسى الآتي」）
+B154-158	AIND-D10083	id_assignment	FN	H	gemini_draft	claude_review	fixed	子 زين العابدين محمد #NEEDID → #AIND-D09472（ナサブ5代＋ラカブ）
+B154-158	AIND-D10083	id_assignment	substitution	M	gemini_draft	claude_review	fixed	子 شمس الدين محمد の汚染番号 TMP-P-000520 → 新規 TMP-P-NEW158-04
+B154-158	AIND-D10083	id_assignment	substitution	M	gemini_draft	claude_review	fixed	兄弟 حسن の汚染番号 TMP-P-000204 → 新規 TMP-P-NEW158-05
+B154-158	AIND-D10083	id_assignment	substitution	M	gemini_draft	claude_review	fixed	埋葬地の幻番号 TMP-I-00000 → TMP-I-00263（زاوية عدي بن مسافر）＋TMP-L-00167（باب القرافة）
+B154-158	AIND-D10083	persName	FP	L	gemini_draft	claude_review	fixed	shuhrah「ابن الشمس」（父祖のラカブ連鎖、通称ではない）を除去
+B154-158	AIND-D10084	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10084	id_assignment	substitution	H	gemini_draft	claude_review	fixed	統制外 relation「friend」（ابن عزم、合同索引 #AIND-D12540）→ Pattern A mention event #AIND-D08351（規則11）
+B154-158	AIND-D10084	placeName	FP	M	gemini_draft	claude_review	fixed	没地からの residence event مكة を除去（規則22(1)）
+B154-158	AIND-D10086	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10086	id_assignment	substitution	H	gemini_draft	claude_review	fixed	叔父 الخليلي のニスバ番号 TMP-N-00043（カテゴリ不一致）→ 新規 TMP-P-NEW158-06、subtype uncle → maternal_uncle
+B154-158	AIND-D10086	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「mentioned in」（ابن حجر）→ Pattern A mention event（wd:Q471116＋TMP-T-00034）
+B154-158	AIND-D10086	placeName	FP	H	gemini_draft	claude_review	fixed	原文にない没地・職の placeName دمشق（3箇所）を除去（規則22(1)）
+B154-158	AIND-D10086	placeName	FP	M	gemini_draft	claude_review	fixed	residence event الشام（居住の明示なし）を除去し cultural event の placeName に
+B154-158	AIND-D10086	id_assignment	FN	M	gemini_draft	claude_review	fixed	جامع تنكز #NEEDID → 新規 TMP-I-NEW158-03
+B154-158	AIND-D10086	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation employed（جامع تنكز）＝state orgName との二重符号化を除去（規則8）
+B154-158	AIND-D10086	date	substitution	L	gemini_draft	claude_review	fixed	death「سنة سبع」に cert medium、@when 1404 → 1404-07
+B154-158	AIND-D10087	relation	FN	H	gemini_draft	claude_review	fixed	父 محمد بن أبي الفتح … الفاسي の relation（#AIND-D08658、ナサブ6代一致）を追加
+B154-158	AIND-D10087	id_assignment	FN	H	gemini_draft	claude_review	fixed	叔父 عبد اللطيف #NEEDID → #AIND-D04340（السراج عبد اللطيف الفاسي الحنبلي、قاضي الحرمين）、subtype uncle → paternal_uncle
+B154-158	AIND-D10087	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 أبو الفتح المراغي の幻番号 TMP-P-000003 → #AIND-D07181（規則36）
+B154-158	AIND-D10087	id_assignment	FN	M	gemini_draft	claude_review	fixed	生地 كلبرجا #NEEDID → TMP-L-00317、الهند TMP-L-00039 を追加
+B154-158	AIND-D10087	date	substitution	M	gemini_draft	claude_review	fixed	「بعد الثلاثين」「بعد الخمسين」の when-custom cert medium → notBefore-custom 0830／0850（規則18）
+B154-158	AIND-D10087	date	FP	L	gemini_draft	claude_review	fixed	state の統制外 date「after 830」×2 と birth の推定註「820年以前」を除去
+B154-158	AIND-D10089	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10089	id_assignment	FN	H	gemini_draft	claude_review	fixed	師 النور المحلي #NEEDID → #AIND-D05583 cert medium（規則26 例外2、repo 7件）
+B154-158	AIND-D10089	id_assignment	FN	M	gemini_draft	claude_review	fixed	bibl مسند الشافعي #NEEDID → TMP-T-00261
+B154-158	AIND-D10089	id_assignment	substitution	H	gemini_draft	claude_review	fixed	師 الجمال الحنبلي の幻番号 TMP-P-000161 → #AIND-D04509（規則36）
+B154-158	AIND-D10089	event	substitution	M	gemini_draft	claude_review	fixed	統制外 relation「other」（الزين رضوان）→ Pattern A mention event
+B154-158	AIND-D10089	id_assignment	FN	M	gemini_draft	claude_review	fixed	نزيل تربة الناصر بن برقوق: affiliation reside #NEEDID → residence event orgName TMP-I-00202
+B154-158	AIND-D10089	placeName	FP	M	gemini_draft	claude_review	fixed	ニスバ由来の residence event（القاهرة）と学習地 القاهرة（施設所在地からの補完）を除去（規則22(1)）
+B154-158	AIND-D10089	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation study（سعيد السعداء）＝relation 内 learning event との二重符号化を除去（規則8）
+B154-158	AIND-D10090	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10090	relation	FP	M	gemini_draft	claude_review	fixed	統制外 relation「encountered」（サハーウィー）を除去、試問者 event のみに（規則28）
+B154-158	AIND-D10090	date	substitution	L	gemini_draft	claude_review	fixed	「سنة خمس وتسعين」event の cert medium を除去（Waka 裁定 2026-10-12）、@when 1489 を付加
+B154-158	AIND-D10090	placeName	FP	M	gemini_draft	claude_review	fixed	施設所在地からの placeName مصر（state・event）を除去（規則22(1)）
+B154-158	AIND-D10090	affiliation	FP	L	gemini_draft	claude_review	fixed	affiliation employed（جامع عمرو）＝state orgName との二重符号化を除去（規則8）
+B154-158	AIND-D10092	relation	FN	M	gemini_draft	claude_review	fixed	父 #NEEDID relation を追加（規則3）
+B154-158	AIND-D10092	id_assignment	FN	H	gemini_draft	claude_review	fixed	師 الشهاب أحمد الناشري #NEEDID → #AIND-D00602（相手側で本項主を名指し）
+B154-158	AIND-D10092	id_assignment	FN	H	gemini_draft	claude_review	fixed	師 المجد الفيروزابادي #NEEDID → #AIND-D09543
+B154-158	AIND-D10092	event	substitution	H	gemini_draft	claude_review	fixed	統制外 relation「namesake」（موسى الذوالي #NEEDID）→ Pattern A mention event #AIND-D10050＋TMP-T-00184
+B154-158	AIND-D10092	event	FN	M	gemini_draft	claude_review	fixed	「قاله الأهدل」Pattern A（#AIND-D02702）を追加
+B154-158	AIND-D10092	id_assignment	FN	M	gemini_draft	claude_review	fixed	جامع زبيد #NEEDID → 新規 TMP-I-NEW158-04
+B154-158	AIND-D10092	placeName	FN	L	gemini_draft	claude_review	fixed	反イブン・アラビー event に原文明記の اليمن（TMP-L-00037）を付加（規則22(2)）
+B154-158	AIND-D10092	id_assignment	FN	M	gemini_draft	claude_review	fixed	event 内 persName الكرماني に #AIND-D09424（cert medium）を付加
+B154-158	AIND-D10092	other	substitution	M	gemini_draft	claude_review	fixed	ja 訳「ムーサー・アッ＝ザワーリーが彼に教え」（أفاده の主客誤り）→「私に伝え」
+B154-158	AIND-D03173	relation	FP	M	claude_review	verify_content	applied	teacher relation（active=wd:Q4120128, method أخذ, bibl TMP-T-00033, 894）は根拠なし。「وأنه عاونه في كتابة قطعة من شرحي للالفية حين أخذه عني في سنة أربع وتسعين」の أخذه の主語は甥 راجح（D02984「قرأ علي جميع شرحي لألفية الحديث من نسخة حصلها الثلاثة بخطوطهم」、D06215 قاسم「وساعده في كتابة شرحي للألفية」と同型）。本項主は راجح を手伝った側で、サハーウィーとは「اجتمع بي غير مرة」（面会 event）のみ。relation を削除し、894年の取得は D02984 側の事実として note へ。【集約 applied（A1）: teacher relation（wd:Q4120128、894、TMP-T-00033）を除去。書写補助の cultural event n=2 に when-custom 0894・persName #AIND-D02984／wd:Q4120128・bibl を置き、894年の受領は甥の事実として note に（D02984・D06215 を原文で確認、決定2）】
+B154-158	AIND-D03173	translation	substitution	M	claude_review	verify_content	applied	ja/en 訳と cultural event note が役割を逆転（「（甥は）…彼（スライマーン）が私から…を受けた際、その一部の書写を手伝った」／"(the nephew) helped him … when he (Sulaymān) took it from me"）。正: 「彼（スライマーン）は、甥が894年に私から私の『アルフィーヤ註釈』を受けた際、その一部の書写を手伝った」／"he (Sulaymān) helped him (Rājiḥ) copy part of my commentary on the Alfiyya when he (Rājiḥ) took it from me in [8]94"。【集約 applied（A2）: ja「また彼（スライマーン）は、894年に彼（甥）が私から…を受けた際、その一部の書写を手伝った」、en "he (Sulaymān) helped him (Rājiḥ) … when he (Rājiḥ) took it from me"、event note も同じ向きに（決定2）】
+B154-158	AIND-D03131	id_assignment	substitution	M	claude_review	verify_content	applied	父 TMP-P-NEW155-04（أحمد بن سليمان بن راشد السالمي）は規則3 (c') の発行条件を満たさない: 父自身にラカブ・クンヤ・職・珍しい名がなく、本伝のある兄弟項とも共有しない（D02502 حسب الله は父の兄弟、D12336 は本項主の索引）。active="#NEEDID"（desc أحمد بن سليمان بن راشد）にし TMP-P-NEW155-04 を取り下げ。【集約 applied（A3）: father → #NEEDID（desc「أحمد بن سليمان بن راشد」、復元ナサブ・D02502 は note）、TMP-P-NEW155-04 取り下げ（決定3）】
+B154-158	AIND-D03118	persName	FP	M	claude_review	verify_content	applied	persName full を初版「سعيد」から「سعيد أحد المعتقدين المقيمين ببولاق」に拡張＝居住句・評価句を full に入れた（規則5）。full は「سعيد」に戻す（居住は residence event、أحد المعتقدين は state status に既にある）。【集約 applied（A4）: persName full を「سعيد」に（居住句・評価句（居住は residence event、أحد المعتقدين は state status にある）を除去、規則5、決定4）】
+B154-158	AIND-D03119	persName	FP	M	claude_review	verify_content	applied	persName full を初版「سقر」から「سقر أحد مشايخ عربان البحيرة」に拡張＝職名句を full に入れた（規則5、職は state TMP-O-00095 に既にある）。full は「سقر」に戻す。【集約 applied（A5）: persName full を「سقر」に（職名句（state TMP-O-00095 にある）を除去、規則5、決定4）】
+B154-158	AIND-D03111	persName	FP	L	claude_review	verify_content	applied	persName full に職名「القائد」を追加（初版「سعيد البليني المكي」）。state TMP-O-00094 と二重。規則5 に従い full から除く。【集約 applied（A6）: persName full を「سعيد البليني المكي」に（職名 القائد（state TMP-O-00094 と二重）を除去、規則5、決定4）】
+B154-158	AIND-D03124	persName	FP	L	claude_review	verify_content	applied	REF の persName full に職名句「أحد التجار المعتبرين」と「واسمه」を追加（初版「سلطان الكيلاني محمود بن بهاء الدين」）。規則5。初版の形に戻す。【集約 applied（A7）: persName full を「سلطان الكيلاني محمود بن بهاء الدين」に（職名句「أحد التجار المعتبرين」と「واسمه」（REF、初版の形）を除去、規則5、決定4）】
+B154-158	AIND-D03105	persName	FP	L	claude_review	verify_content	applied	persName full に父の職名句「بن قاضي الينبوع الشمس بن زبالة」と「سبط القاضي فتح الدين بن صالح」を追加（規則5「父の述語を入れない」）。父・母方祖父は relation にあるので full は「سعيد بن محمد بن عبد الوهاب بن أحمد الجمال أبو السعادات」程度に。【集約 applied（A8）: persName full を「سعيد بن محمد بن عبد الوهاب بن أحمد الجمال أبو السعادات」に（父の職名句「بن قاضي الينبوع الشمس بن زبالة」と続柄句「سبط القاضي فتح الدين بن صالح」（父・母方祖父は relation にある）を除去、規則5、決定4）】
+B154-158	AIND-D03115	persName	FP	L	claude_review	verify_content	applied	persName full に主人句「عتيق إبراهيم بن مصلح العراقي」を追加（初版「سعيد الحبشي」）。patron relation と二重。規則5 の趣旨（述語句を入れない）で除く。【集約 applied（A9）: persName full を「سعيد الحبشي」に（主人句「عتيق إبراهيم بن مصلح العراقي」（patron relation と二重）を除去、規則5、決定4）】
+B154-158	AIND-D03159	id_assignment	substitution	L	claude_review	verify_content	applied	父 TMP-P-NEW156-01（علي بن سليمان بن وهبان المدني）は規則3 (c') では #NEEDID 相当（父自身に識別要素なし、本伝のある兄弟項と共有しない。D07457 は父の兄弟、TMP-P-001160 は祖父）。発行するなら ISSUES に (c') の例外理由を明記。【集約 applied（A10）: father → #NEEDID（desc「علي بن سليمان بن وهبان」）、TMP-P-NEW156-01 取り下げ（決定3）】
+B154-158	AIND-D03171	id_assignment	substitution	L	claude_review	verify_content	applied	父 TMP-P-NEW156-03（محمد بن سليمان بن عبد القادر）も規則3 (c') では #NEEDID 相当（家名 بنو عبد القادر は規則3 の識別要素に入っていない、兄弟の本伝なし）。§D156-6 と合わせて裁定。【集約 applied（A11）: father → #NEEDID（desc「محمد بن سليمان بن عبد القادر」、候補 D07717 は note）、TMP-P-NEW156-03 取り下げ（決定3、§D156-6）】
+B154-158	AIND-D02897	id_assignment	substitution	L	claude_review	verify_content	applied	父 TMP-P-NEW155-02（سلامة بن أحمد بن علي …）: 子 D03629 の見出しで5代まで復元できるが、父自身にラカブ等がなく兄弟項とも共有しない＝規則3 (c') の字義では #NEEDID。سلامة を「珍しい名」と見るなら発行可＝§D155-7 で裁定。【集約 applied（A12）: father → #NEEDID（desc「سلامة بن أحمد بن علي」、D03629 による5代の復元は note）、TMP-P-NEW155-02 取り下げ（決定3、§D155-7）】
+B154-158	AIND-D03105	relation	FN	L	claude_review	verify_content	applied	brother #AIND-D10977 は相手側本文（「أخو سعيد الماضي」）だけが根拠の関係（本項原文には兄弟の言及なし）＝規則23 で cert="medium" を付ける（B154 D02889→D00072 は cert medium にしている）。§D155-2（二重立項の疑い）は note に留めてよい。【集約 applied（A13）: brother #AIND-D10977 に cert="medium"、二重立項の疑いは note（決定5、§D155-2）】
+B154-158	AIND-D03159	relation	FN	L	claude_review	verify_content	applied	paternal_uncle #AIND-D07457 は相手側「محمد بن سليمان بن وهبان المدني عم سليمان الماضي」のみが根拠＝規則23 で cert="medium" を付ける。【集約 applied（A14）: paternal_uncle #AIND-D07457 に cert="medium"（決定5）】
+B154-158	AIND-D03173	relation	FN	L	claude_review	verify_content	applied	brother #AIND-D02957 は相手側「داود … أخو سليمان ووالد راجح الآتيين」が根拠（本項は「عم راجح」のみ）＝規則23 で cert="medium" を付ける。【集約 applied（A15）: brother #AIND-D02957 に cert="medium"、note に規則23 の根拠（決定5）】
+B154-158	AIND-D02874	id_assignment	substitution	L	claude_review	verify_content	applied	子（الشمس محمد المزور）と Pattern A「أرخه ابنه」の persName を TMP-P-000342 に充てたが、この人物はニスバ索引 #AIND-D12770「ابن المنير محمد بن خليل بن إبرهيم بن علي」（単独人物の索引見出し）と本項見出しナサブで閉合する＝規則11 により #AIND-D12770 を人物IDに使える（先例 D12121）。TMP-P-000342（Note は HOLD・候補 D01354）は D12770 に名寄せ提案（§D154-4 の解決案）。【集約 applied（A16）: ★1-2 に回付（D12770 を主にする内容A 案と TMP-P-000342 の実体を確定する B154 案を並べ、規則57 の閉合点・repo 使用 27 ファイルを記載）。XML は裁定まで TMP-P-000342、son relation の note に D12770 案を記録（決定16）】
+B154-158	AIND-D02871	placeName	FP	L	claude_review	verify_content	applied	葬礼 event の orgName「الجامع」を wd:Q312342（الأزهر）cert medium にした。原文は「وصلى عليه بالجامع」のみで照応代名詞でもない（規則22(1)/26）。ref を外して desc のみにし、読みは note へ（隠遁 event の「انقطع به」は D08129 先例に準じる余地あり＝§D154-3）。【集約 applied（A17）: 葬礼 event の orgName「الجامع」の ref・cert を外し、الأزهر は候補として note に。隠遁 event の「انقطع به」は §D154-3 の自己裁定で cert medium 維持（決定6）】
+B154-158	AIND-D08187	placeName	FP	L	claude_review	verify_content	applied	「باشر في بعض وظائف البيمارستان」の orgName を TMP-I-00034（البيمارستان المنصوري）cert medium にしたが、原文は無限定。規則25・26（推定で同定しない）により ref を外すか #NEEDID にして候補を note に（§D156-12）。【集約 applied（A18）: orgName「البيمارستان」の ref TMP-I-00034・cert を外し、マンスーリー病院は候補として note に（決定6）】
+B154-158	AIND-D02880	translation	substitution	L	claude_review	verify_content	applied	en 訳「He died after the [8]60s, approximately」は「بعد الستين」（60年の後）を60年代の後（＝869年以後）と誤訳。"He died after [8]60, approximately" に（ja は「860年以後」で正しい）。【集約 applied（A19）: en「He died after [8]60, approximately.」に（ja は正しい、決定11）】
+B154-158	AIND-D03156	id_assignment	substitution	L	claude_review	verify_content	applied	師「ابن شداد」を既登録 TMP-P-000366 に cert medium で充てた。規則60(e)「既登録 TMP-P に cert で寄せない」と規則26 例外2（固定呼称は cert medium 可）が衝突する。corpus 用例は D00445「ابن شداد بزبيد」・D10295「علي ابن شداد」の2件のみ。例外2 を適用するなら §D156-1 の名寄せ（000366⇄000996）と合わせて裁定を。【集約 applied（A20）: ★2 に回付（corpus のイエメン文脈の用例: 裸の「ابن شداد」2件（D00445・D03156）、「علي (بن أبي بكر) بن شداد」4件（D03130・D03809・D04312・D10295）、子 أحمد بن علي بن شداد＝#AIND-D01004（D05979 にも）＝候補が2人。推奨は #NEEDID＋候補 note）。000366⇄000996 は ★1-5（決定16・17）】
+B154-158	AIND-D10083	id_assignment	FN	H	claude_review	verify_content	applied	子 شمس الدين محمد に新規 TMP-P-NEW158-04 を発行したが corpus に本伝 #AIND-D09473「محمد الشمس القادري أخو الذين قبله ووالد عبد العزيز الماضي」（D09472 の直後、888没）がある。ニスバ索引 D11908・D04013・D12958・D13027 で閉合。→ active="#AIND-D09473"、TMP_NEW_B158 の NEW158-04 行は取り下げ【集約 applied（B1）: 子 → #AIND-D09473（cert なし）。D09473・D09472・D04013・D12958・D11908 を原文で確認（ラカブ الشمس＋家 القادري＋兄 D09472＋子 عبد العزيز＋娘 حفصة）。TMP-P-NEW158-04 取り下げ（TMP_NEW_all に記録）。repo D04013 の父 #AIND-D09472 は D09473 の誤り＝§6 repo 是正候補（決定1）】
+B154-158	AIND-D10058	id_assignment	FP	M	claude_review	verify_content	applied	父を #AIND-D02610（حسن بن عمر بن محمد بن موسى بن عمران المكي、837没）に cert medium で同定。根拠は中間2代を飛ばした部分ナサブ＋ニスバのみで、ラカブ・職の閉合がなく規則26・57 の下限（2点）未満。→ father は #NEEDID（または TMP-P）とし、D02610 は note・ISSUES の候補に留める【集約 applied（B2）: father → #NEEDID（desc「حسن بن عمر بن عمران」）、D02610 は候補として note（規則57 の下限未満、決定7）】
+B154-158	AIND-D10092	id_assignment	FP	M	claude_review	verify_content	applied	反イブン・アラビー event の persName الكرماني を #AIND-D09424 cert medium に同定。根拠はニスバ＋「イエメンで異端視」の文脈のみで、D09424 の罪状は「عقيدة صاحب القانون في بعث الأرواح」でありイブン・アラビーの書への言及がない＝規則57 の下限未満。→ ref を外し、D09424 は note の候補に【集約 applied（B3）: persName الكرماني の ref・cert を外し、D09424 は候補として note（罪状が別、規則57、決定7）】
+B154-158	AIND-D08212	relation	substitution	L	claude_review	verify_content	applied	父 TMP-P-NEW157-03 の登録名・desc「نور الدين علي الموزعي」は、刊本の見出し「محمد بن علي بن نور الدين」（祖父＝نور الدين）を父のラカブと読み替えたもの（規則25）。→ 登録名・desc を「علي بن نور الدين الموزعي」に（TMP-P のままでよい）。§D157-3 の解決案【集約 applied（B4）: 刊本どおり祖父＝نور الدين と読み desc「علي بن نور الدين」、決定3 の (c') も当てて father → #NEEDID、TMP-P-NEW157-03 取り下げ（父のラカブ説は D03371 の同型とともに note、決定10）】
+B154-158	AIND-D10083	relation	FN	L	claude_review	verify_content	applied	兄弟 حسن「الماضيين」について note が D02627（حسن بن محمد بن عبد القادر بن علي بن محمد بن شرشيق、867没、同じ زاوية عدي بن مسافر）を「別系＝別人」と断定している。シャルシーク家で既出の حسن は D02627 だけで、父名 محمد（ラカブ شمس الدين）も同じ。ナサブ中間が食い違うので同定はしないが、候補として note・ISSUES に記すべき【集約 applied（B5）: 兄弟 حسن の note を「D02627 は唯一の候補（ナサブ中間不一致・索引 D11908 で別系の可能性）」に書き直し、断定を外した。TMP-P-NEW158-05 は維持（決定11）】
+B154-158	AIND-D10078	translation	substitution	L	claude_review	verify_content	applied	ja 訳「我らがシャイフ（イブン・ハジャル）の息子らにイジャーザを与えた」は原文「أجاز لابن شيخنا وغيره」（単数の息子＋その他）と合わない（初版は「息子やその他の者たち」で正しかった）。→「息子その他の者に」【集約 applied（B6）: ja「我らがシャイフ（イブン・ハジャル）の息子その他の者にイジャーザを与えた」（決定11）】
+B154-158	AIND-D10077	translation	substitution	L	gemini_draft	verify_content	applied	ja 訳・event note の「高祖父にちなんで」: عطية は موسى بن عمر بن عوض بن عطية の曾祖父（「جده الأعلى」）。→「曾祖父（遠祖）にちなんで」【集約 applied（B7）: ja 訳と Pattern A event note の「高祖父」→「曾祖父（遠祖）」（決定11）】
+B154-158	AIND-D10086	translation	substitution	L	claude_review	verify_content	applied	ja 訳「（8）7年ムハッラム月に没した」は87年と読める。en は (80)7。→「（80）7年」【集約 applied（B8）: ja「（80）7年」（決定11）】
+B154-158	AIND-D10070	translation	FP	L	claude_review	verify_content	applied	en 訳「heard (ḥadīth) together with us」の (ḥadīth) は原文にない補い（B157 は同じ補いを除去している）。→ 削除【集約 applied（B9）: en の「(ḥadīth)」を削除（B157 の扱いに揃えた、決定11）】
+B154-158	AIND-D10058	relation	substitution	L	claude_review	verify_content	applied	patron の desc「البرهاني القاضي」に職名 القاضي が残っている（規則31）。→ desc「البرهاني」、職名は note へ【集約 applied（B10）: patron desc「البرهاني القاضي」→「البرهاني」、職名は note（決定8）】
+B154-158	AIND-D10086	other	FP	L	claude_review	verify_content	applied	TMP-P-NEW158-06 の登録名「الخليلي (الموقت بدمشق، …)」と XML note「شمس الدين الخليلي（800年頃没）の可能性」は記憶由来。原文には叔父の職もダマスクスも出ない（規則42・59(e)）。→ 登録名を「الخليلي (خال موسى بن محمد بن قبا الموقت)」に、推定は ISSUES のみに【集約 applied（B11）: XML note から記憶由来の「ダマスクスの時刻係・شمس الدين الخليلي（800年頃没）」を削除。TSV の登録名を「الخليلي (خال موسى بن محمد بن قبا الموقت)」に、Note の推定を削除（決定9）】
+B154-158	AIND-D10059	other	FP	L	claude_review	verify_content	applied	父 TMP-P-NEW157-07 の XML note・TSV Note に記憶由来の没年「762没」がある（corpus に該当なし、規則59(e)）。→ 没年を削る【集約 applied（B12）: XML note・TSV Note の「762没」を削除（決定9）】
+B154-158	AIND-D10046	other	substitution	L	claude_review	verify_content	applied	XML note・REVIEW_NOTES・ISSUES §D157-5 が possible_identity の相手 #AIND-D10091 を「（B158）」としているが、D10091 は本バッチ100件にも Individuals にもない（未収録）。→「（未収録）」に訂正。D10091 収録時に鏡像の relation と父 TMP の共用を指示する必要がある【集約 applied（B13）: XML note・TSV Note の「（B158）」を「（未収録）」に訂正、D10289・D01356 の傍証を note に（決定11・18）。REVIEW_NOTES_B157・ISSUES §D157-5 は校閲記録として残し、訂正は本 FINDINGS と集約報告に記録。D10091 収録時の鏡像・父の共用は §6 申し送り】
+B154-158	AIND-D10045	other	FN	L	claude_review	verify_content	applied	「الفقيه يوسف بن يونس المقري رئيس اليمن」を #AIND-D10558 に充てたが、ID-Master 既登録の TMP-P-000960「الفقيه يوسف المقري (رئيس زبيد)」（出現 D00311）が同一人物なのに、名寄せ要の記録がない（規則32）。→ ISSUES に「TMP-P-000960 は #AIND-D10558 と名寄せ要」【集約 applied（B14）: ★1-9 に「TMP-P-000960 → #AIND-D10558」（閉合: 名 يوسف＋通称 المقري＋呼称 الفقيه يوسف＋イエメン（ザビード）の長「رئيسه」⇄「عظيم اليمن كله」、repo 使用 D00311 の1ファイル）を載せ、idmaster_actions §2 に（決定15・16）】
+B154-158	AIND-D10078	wd_ref	substitution	L	claude_review	verify_content	applied	ISSUES_B158「未確認 wd/gn」節が wd:Q12241661（الكاملية）を ID-Master 登録値としているが、ID-Master の الكاملية 行は Q25633535 のままで Q12241661 は未登録（repo の使用もない）。付け替えはブリーフの指示どおりだが、未登録 wd として ISSUES に残し、ID-Master 行の更新を依頼すべき【集約 applied（B15）: XML の wd:Q12241661 はブリーフ指示どおり維持。ID-Master の الكاملية 行（Q25633535）の書換を idmaster_actions §3 と確認依頼に（決定15）。ISSUES_B158 の記載（登録値扱い）は誤りとして報告に記録】
+B154-158	AIND-D03105	persName	FP	M	claude_review	verify_mech	applied	[項目5] AIND-D03105_529577024258.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['القاضي', 'سبط']（repo full 3897件中の出現数 {'القاضي': 29, 'سبط': 3}）「سعيد بن محمد بن عبد الوهاب بن أحمد الجمال أبو السعادات بن قاضي الينبوع الشمس بن زبالة سبط القاضي فتح الدين بن صالح」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 applied（M1）: A8 と同一（D03105 full を「سعيد بن محمد بن عبد الوهاب بن أحمد الجمال أبو السعادات」に、決定4）】
+B154-158	AIND-D08187	date	substitution	L	claude_review	verify_mech	declined	[項目4] AIND-D08187_779183021438.xml <death when-custom="0870">: 「مات قريب السبعين ظنا」: when-custom=0870 の点年で符号化（「قريب／بعد」の概数は notBefore／notAfter の範囲か note が自然） → 修正案: 範囲（notBefore/notAfter-custom）か note に【集約 declined（M2）: 「قريب السبعين ظنا」の点年 when-custom 0870 cert low は CHUNK_BRIEF の先例（B149 D08080「قريب التسعين」＝when-custom 0890 cert low、規則4）どおり（決定13）】
+B154-158	AIND-D08210	date	substitution	L	claude_review	verify_mech	declined	[項目4] AIND-D08210_634466653352.xml <death when-custom="0870">: 「ومات قريب السبعين ظنا」: when-custom=0870 の点年で符号化（「قريب／بعد」の概数は notBefore／notAfter の範囲か note が自然） → 修正案: 範囲（notBefore/notAfter-custom）か note に【集約 declined（M3）: M2 と同じ（D08210、決定13）】
+B154-158	AIND-D02850	persName	FP	L	gemini_draft	verify_mech	declined	[項目5] AIND-D02850_383774628044.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['الفراش']（repo full 3897件中の出現数 {'الفراش': 5}）「خضر بن ناصر الفراش」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 declined（M4）: 初版から full にあった職名ニスバ・呼称「الفراش」は repo 先例どおり維持（決定4。規則5 の対象は校閲が見出しから足した居住句・職名句・述語句で、初版 full の見出し形の語は戻さない。職は state 側にもある）】
+B154-158	AIND-D02853	persName	FP	L	gemini_draft	verify_mech	declined	[項目5] AIND-D02853_759018035409.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['الخادم']（repo full 3897件中の出現数 {'الخادم': 0}）「خضر الخادم」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 declined（M5）: 初版から full にあった職名ニスバ・呼称「الخادم」は repo 先例どおり維持（決定4。規則5 の対象は校閲が見出しから足した居住句・職名句・述語句で、初版 full の見出し形の語は戻さない。職は state 側にもある）】
+B154-158	AIND-D02875	persName	FP	L	gemini_draft	verify_mech	declined	[項目5] AIND-D02875_985539811571.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['الخياط']（repo full 3897件中の出現数 {'الخياط': 5}）「خليل بن إبراهيم العنتابي الخياط」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 declined（M6）: 初版から full にあった職名ニスバ・呼称「الخياط」は repo 先例どおり維持（決定4。規則5 の対象は校閲が見出しから足した居住句・職名句・述語句で、初版 full の見出し形の語は戻さない。職は state 側にもある）】
+B154-158	AIND-D03111	persName	FP	L	claude_review	verify_mech	applied	[項目5] AIND-D03111_669494811398.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['القائد']（repo full 3897件中の出現数 {'القائد': 12}）「سعيد البليني المكي القائد」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 applied（M7）: A6 と同一（D03111 full から القائد を除去、決定4）】
+B154-158	AIND-D03156	persName	FP	L	gemini_draft	verify_mech	declined	[項目5] AIND-D03156_570832198500.xml <persName type="full">: full に居住句・職名句・関係句の疑い ['القاضي']（repo full 3897件中の出現数 {'القاضي': 29}）「سليمان بن علي بن أحمد القاضي نفيس الدين أبو الربيع القرشي اليمني」 → 修正案: 居住句・職名句・父や兄弟の述語を除く（規則5）【集約 declined（M8）: 初版から full にあった職名ニスバ・呼称「القاضي」は repo 先例どおり維持（決定4。規則5 の対象は校閲が見出しから足した居住句・職名句・述語句で、初版 full の見出し形の語は戻さない。職は state 側にもある）】
+B154-158	AIND-D03100	id_assignment	FN	L	claude_review	verify_mech	applied	[項目16] TMP-P-NEW155-03 TMP_NEW_B155.tsv:3: 汎用名（ナサブ連結1・ニスバ等0、識別称号なし）「محمد بن مبروك (شيخ بالمدينة النبوية، أقرأ الشفا سنة 866)」の Note に「⚠汎用名。同名別人への流用禁止」がない → 修正案: Note に明記（規則3）【集約 applied（M9）: TMP-P-NEW155-03 の Note に「⚠汎用名。同名別人への流用禁止。」を追記（決定12）】
+B154-158	AIND-D10044	id_assignment	FN	L	claude_review	verify_mech	applied	[項目16] TMP-P-NEW157-04 TMP_NEW_B157.tsv:4: 汎用名（ナサブ連結1・ニスバ等1、識別称号なし）「أحمد بن عيسى الحرامي (والد دريب وموسى أميري حلي)」の Note に「⚠汎用名。同名別人への流用禁止」がない → 修正案: Note に明記（規則3）【集約 applied（M10）: TMP-P-NEW157-04 の Note に「⚠汎用名。同名別人への流用禁止。」を追記（決定12）】
+B154-158	AIND-D10057	id_assignment	FN	L	claude_review	verify_mech	applied	[項目16] TMP-P-NEW157-06 TMP_NEW_B157.tsv:6: 汎用名（ナサブ連結1・ニスバ等1、識別称号なし）「أبو بكر بن أكبر الشيرازي (والد موسى الزمزمي)」の Note に「⚠汎用名。同名別人への流用禁止」がない → 修正案: Note に明記（規則3）【集約 applied（M11）: TMP-P-NEW157-06 は決定3 の (c') 点検で維持（父名 أكبر が珍しい名、先例 بيبرس بن بقر）。Note に「⚠汎用名。同名別人への流用禁止。」と維持の理由を追記（決定12）】
+B154-158	AIND-D03173	relation	FP	L	claude_review	verify_mech	applied	[項目19] AIND-D03173_455142650788.xml <relation type="personal" subtype="teacher" n="2" active="wd:Q4120128" passive="#AIND-D03173">: 「حين أخذه عني」の主語は甥 راجح（本項主ではない）・「واجتمع بي غير مرة」は面会（規則56 event）＝本項主とサハーウィーの師弟 relation は立てない読みが自然（読みは内容検証で確認）なのに本項主と wd:Q4120128 の relation（teacher）がある → 修正案: 除去し event／note に【集約 applied（M12）: A1 と同一（teacher relation 除去、面会 event n=3 は維持）】
+B154-158	AIND-D10084	id_assignment	FN	L	claude_review	verify_mech	declined	[項目25] AIND-D10084_462556253662.xml <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D10084">: 父 #NEEDID: 点の揺れ吸収で父ナサブ3代が一致する corpus 見出し（本項主ニスバ الجاناتي、一致は候補ごとに[+ニスバ]。本項の note 未言及）: #AIND-D08207「578 محمد بن علي بن موسى بن عيسى بن عمران المكي المعروف بالمزرق . مات بمكة ف」[exact]; #AIND-D08208「579 محمد بن علي بن موسى بن قريش الهاشمي المكي . مات بها في صفر سنة اثنتين و」[exact]; #AIND-D08209「580 محمد بن علي بن موسى أمين الدين بن النور القرافي القاهري الشافعي المقرئ 」[exact]; #AIND-D08210「581 محمد بن علي بن موسى البدر القاهري الماوردي ويعرف بابن موسى . ممن سمع مع」[exact] → 修正案: 相手側原文で父の本伝か確認し、本伝なら AIND を充てる（規則3・10・37・38）【集約 declined（M13）: 候補 D08207〜D08210 を原文で読み、いずれもニスバ الجاناتي・ラカブ・職が閉合しない（ナサブ3代のみ＝規則57 の下限未満）＝#NEEDID 維持、候補は note に記録（決定14）】
+B154-158	AIND-D10089	id_assignment	FN	L	claude_review	verify_mech	declined	[項目25] AIND-D10089_392872087014.xml <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D10089">: 父 #NEEDID: 点の揺れ吸収で父ナサブ2代が一致する corpus 見出し（本項主ニスバ الديسطي、一致は候補ごとに[+ニスバ]。本項の note 未言及）: #AIND-D08931「381 محمد بن محمد بن علي بن عبيد بن شعيب الشمس الديسطي ثم القاهري القلعي الش」[exact+ニスバ]; #AIND-D09152「597 محمد بن محمد بن محمد بن علي بن عبيد بن شعيب المحب الديسطي الأصل القاهري」[exact+ニスバ]【重大度補正→L: 候補 D08931「محمد بن محمد بن علي … الديسطي ثم القاهري القلعي」（80X 生・896 没、「والد المحب محمد」）はナサブ2代＋ニスバ الديسطي が一致するが、子として موسى を挙げない＝別人の可能性も残る（内容検証で年代を確認）】 → 修正案: 相手側原文で父の本伝か確認し、本伝なら AIND を充てる（規則3・10・37・38）【集約 declined（M14）: 候補 D08931（80X 生・896 没、子に موسى なし）は本項主（817 没の الجمال الحنبلي に聴講、852 没の رضوان が没を記録）の父になりえない＝#NEEDID 維持、note に記録（決定14）】
+B154-158	AIND-D08187	relation	substitution	L	claude_review	verify_mech	applied	[項目28] AIND-D08187_779183021438.xml <relation type="personal" subtype="teacher" n="1" active="wd:Q471116" passive="#AIND-D08187">: 規則31（v13.44 (d)）: relation desc に続柄句・職名 ['شيخنا']「شيخنا」（desc は相手の名前のみ）【重大度補正→L: desc「شيخنا」はサハーウィーがイブン・ハジャルを呼ぶ固定呼称（相手は wd:Q471116 で一意）。規則31 どおりなら名「ابن حجر」にして呼称は note へ（前バッチと同じ扱い）】 → 修正案: desc を相手の名前だけにし、続柄・職は note へ【集約 applied（M15）: desc「شيخنا」→「ابن حجر」、呼称は note（前バッチ D08150 と同じ扱い、決定8）】
+B154-158	AIND-D08191	relation	substitution	L	claude_review	verify_mech	applied	[項目28] AIND-D08191_478713915623.xml <relation type="personal" subtype="student" n="2" active="#AIND-D08191" passive="wd:Q471116">: 規則31（v13.44 (d)）: relation desc に続柄句・職名 ['شيخنا']「شيخنا」（desc は相手の名前のみ）【重大度補正→L: 同上（student relation、passive=wd:Q471116）】 → 修正案: desc を相手の名前だけにし、続柄・職は note へ【集約 applied（M16）: desc「شيخنا」→「ابن حجر」、呼称は note（前バッチ D08150 と同じ扱い、決定8）】
+B154-158	AIND-D10058	relation	substitution	L	gemini_draft	verify_mech	applied	[項目28] AIND-D10058_735563500964.xml <relation type="personal" subtype="patron" n="1" active="#AIND-D00196" passive="#AIND-D10058">: 規則31: relation desc に称号 ['القاضي']「البرهاني القاضي」（名の一部として通用する称号なら可。職名なら note へ） → 修正案: 職名なら除き note へ【集約 applied（M17）: B10 と同一（決定8）】
