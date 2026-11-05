@@ -18,10 +18,11 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D03156"><desc xml:lang="ar">علي بن أحمد</desc><note xml:lang="ja">見出しナサブのみ（汎用名、識別要素なし）。「ويعرف بالجنيد أو ابن الجنيد」の الجنيد が父（または祖先）の名・通称である可能性はあるが原文から決まらない。corpus に本伝なし（hw.py「الجنيد」: イエメンの ابن الجنيد 家の本伝は本項以外になし）、ID-Master 未登録 → #NEEDID（規則3 (c')）。初版なし。</note></relation>
         <relation type="personal" subtype="daughter" active="#TMP-P-001175" passive="#AIND-D03156" cert="medium"><desc xml:lang="ar">خديجة</desc><note xml:lang="ja">他項からの補完（規則23、cert medium）。#AIND-D07541「محمد بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … القرشي المكي ، وأمه خديجة ابنة القاضي سليمان بن علي بن الجنيد . درج صغيرا」＝母 خديجة は ID-Master 既登録 TMP-P-001175（Note に「父＝#AIND-D03156」）。「القاضي سليمان بن علي بن الجنيد」は本項主（名・父名・القاضي・ابن الجنيد）に一意。D07541（マッカの ابن ظهيرة 家の幼児）は本項主の外孫＝note のみ。</note></relation>
-        <relation type="personal" subtype="teacher" n="1" active="#TMP-P-000366" passive="#AIND-D03156" cert="medium">
+        <relation type="personal" subtype="teacher" n="1" active="#NEEDID" passive="#AIND-D03156">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <desc xml:lang="ar">ابن شداد</desc>
             <note xml:lang="ja">「أنه سمع على ابن شداد وغيره」（イブン・ハジャルの引用）。イエメン（ザビード）の文脈で「ابن شداد」はサハーウィーが固定的に علي بن أبي بكر بن شداد الزبيدي（8世紀のムスニド、#AIND-D01004 の父）を指す呼称（corpus: D10295「سمع من علي ابن شداد」・D03809「وعلي بن شداد」・D00445「أخذه عن ابن شداد بزبيد」）＝規則26 例外2 により cert medium。repo 先例 D00445 は TMP-P-000366 を使用。ID-Master には同一人物とみられる TMP-P-000366「علي بن أبي بكر بن شداد」と TMP-P-000996「علي بن أبي بكر بن شداد الزبيدي」（D01004 の父）の2行があり名寄せ要（ISSUES §D156-1）。「وغيره」は人物を立てない。初版の #NEEDID・field（الحديث、原文になし）を是正。【集約 2026-11-05】corpus のイエメン文脈の「ابن شداد」は2人を指しうる: 父 علي بن أبي بكر بن شداد（D03130「وعلي بن أبي بكر بن شداد」・D03809「وعلي بن شداد」・D04312「علي ابن أبي بكر بن شداد」・D10295「علي ابن شداد」、ID-Master TMP-P-000366／000996）と子 أحمد بن علي بن أبي بكر بن شداد（#AIND-D01004、756 頃生「وحدث سمع منه الفضلاء」、D05979「ومن زبيد … وأحمد بن علي بن شداد」）。裸の「ابن شداد」は本項と D00445 の2件のみ。規則60(e) と規則26 例外2 の衝突として ★2 に回付（決定17）。裁定まで校閲の TMP-P-000366 cert medium のまま。</note>
+            <note xml:lang="ja">裁定 2026-11-05 ★2 (a): #NEEDID。候補: TMP-P-000996 علي بن أبي بكر بن شداد（父）／#AIND-D01004 أحمد بن علي بن أبي بكر بن شداد（子）。原文は裸の「ابن شداد」で父子どちらとも決められない。上の note の TMP-P-000366 cert medium は旧判断の記録（000366 は ID-Master で 000996 に統合）。</note>
         </relation>
     </listRelation>
     <state n="1" type="office" ref="#TMP-O-00223">
@@ -71,5 +72,11 @@
         <note xml:lang="ja">師「ابن شداد」の TMP-P-000366 cert medium を ★2 に回付（子 #AIND-D01004 も候補になることを note に、決定17）。</note>
         <persName>claude-b154-158-triage</persName>
         <date when="2026-11-05"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">校閲</resp>
+        <persName>claude-b154-158-rulings</persName>
+        <date when="2026-11-05"/>
+        <note xml:lang="ja">B154-158 裁定（Waka 2026-11-05） ★2 (a): teacher n=1 TMP-P-000366（cert medium）→ #NEEDID（cert 除去、候補 TMP-P-000996／#AIND-D01004 を note）。</note>
     </respStmt>
 </person>
