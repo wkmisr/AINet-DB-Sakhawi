@@ -2416,3 +2416,10 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 ## 既存データへの影響
 - 既存の Individuals は書き換えない。師弟 relation の名前は 2026-11-02 の点検（上記「名前のない #NEEDID relation の点検・補記」）で手当て済み。
 - 既存 XML の生没年 @when は校閲時に h2g.py で是正してきたが、未校閲の受領物（XML_Barzakh の束）には旧変換の1年ずれが残っている。校閲で引き続き是正する。
+
+# 変更ログ: B149-153 の統合（2026-11-03）
+
+- ブランチ: `B149-153-20261103`（← origin/main 3ae8af1）
+- corpus: REF 6件（D08121・D08127・D08130・D08140・D08177・D10041）の見出しマーカーを `$` → `$$$`（1,642→1,648）。md5 f554929ec68db363ceab68d9c3e78957 → 86fc172ed79c1fec39c34b431b6d857d。
+- Individuals: 100件を追加（3,795→3,895、REF 317→323）。既存2件を是正（AIND-D01024 brother relation の `#` 欠落、AIND-D01014 placeName の TMP-L-00010→TMP-L-00214）。
+- 詳細: `docs/handover/HANDOVER_20261103_v13_47.md`、`docs/batches/B149-153/`。
