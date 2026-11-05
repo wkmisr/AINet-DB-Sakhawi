@@ -2423,3 +2423,10 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - corpus: REF 6件（D08121・D08127・D08130・D08140・D08177・D10041）の見出しマーカーを `$` → `$$$`（1,642→1,648）。md5 f554929ec68db363ceab68d9c3e78957 → 86fc172ed79c1fec39c34b431b6d857d。
 - Individuals: 100件を追加（3,795→3,895、REF 317→323）。既存2件を是正（AIND-D01024 brother relation の `#` 欠落、AIND-D01014 placeName の TMP-L-00010→TMP-L-00214）。
 - 詳細: `docs/handover/HANDOVER_20261103_v13_47.md`、`docs/batches/B149-153/`。
+
+# 変更ログ: B154-158 の統合（2026-11-05）
+
+- ブランチ: `B154-158-20261105`（← origin/main 551f407）。**今回から作業はクラウドの clone 上**（Mac のマウント越しの git を使わない）。
+- corpus: REF 8件（D03124・D03161・D08186・D08190・D08193・D08194・D08214・D10054）の見出しマーカーを `$` → `$$$`（1,648→1,656）。md5 86fc172ed79c1fec39c34b431b6d857d → 7a96a6079b54cce4bc16c8e4cdb18665。
+- Individuals: 100件を追加（3,895→3,995、REF 323→331）。既存9件を是正: AIND-D04021・D04628（orgName جامع القرويين の TMP-I-00133 → wd:Q12204282、B89-93 の付替え漏れ）、AIND-D04013（father D09472→D09473）、AIND-D10112e（زروق に #AIND-D00517）、AIND-D02745・D03779・D02957・D01083・D03574（father relation を追加）。
+- 詳細: `docs/handover/HANDOVER_20261105_v13_48.md`、`docs/batches/B154-158/`。
