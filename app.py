@@ -6,6 +6,8 @@ import json
 import re
 import uuid
 import requests
+import csv as _csv
+import io as _io
 from datetime import date as _date
 
 # アプリのバージョン情報(タイトル横に表示)
@@ -361,22 +363,44 @@ ID_MASTER_URL = "https://docs.google.com/spreadsheets/d/1MSwfebHM1Ak39Qqk7ZMrFho
 
 @st.cache_data(ttl=300)
 def load_id_master():
-    """GoogleスプレッドシートからID Masterを読み込みCSV→辞書化する"""
+    """GoogleスプレッドシートからID Masterを読み込みCSV→辞書化する。
+
+    CSV は csv モジュールで読む(2026-11-16)。以前は単純な "," 分割だったため、
+    Note にカンマや改行・引用符を含む行で列がずれ、Note より右の列
+    (修正・調整、分類、Status)を正しく読めなかった。
+    """
     try:
         resp = requests.get(ID_MASTER_URL, timeout=10)
         resp.encoding = "utf-8"
-        lines = resp.text.strip().split("\n")
-        records = []
-        if not lines:
+        rows = list(_csv.reader(_io.StringIO(resp.text)))
+        if not rows:
             return []
-        headers = [h.strip() for h in lines[0].split(",")]
-        for line in lines[1:]:
-            vals = [v.strip() for v in line.split(",")]
-            row = dict(zip(headers, vals))
+        headers = [h.strip() for h in rows[0]]
+        records = []
+        for vals in rows[1:]:
+            if not any(v.strip() for v in vals):
+                continue
+            row = dict(zip(headers, (v.strip() for v in vals)))
             records.append(row)
         return records
     except Exception as e:
         return []
+
+
+# ID-Master の「Status」列(2026-11-16 新設)。統合・汎用化・廃止した ID は
+# Status=retired とし、照合・プロンプト・TMP 検疫で「使える ID」として扱わない。
+# 行そのものは参照互換(過去の記録の確認、番号の採番)のため残す。
+RETIRED_STATUSES = {"retired"}
+
+
+def is_retired_id_row(r):
+    """ID-Master の行が使わなくなった ID(Status=retired)なら True。"""
+    return (r.get("Status", "") or "").strip().lower() in RETIRED_STATUSES
+
+
+def active_id_master_records(records):
+    """Status=retired の行を除いた ID-Master の行。"""
+    return [r for r in (records or []) if not is_retired_id_row(r)]
 
 def id_master_to_prompt_text(records):
     """ID Masterの内容をプロンプト埋め込み用テキストに変換
@@ -386,6 +410,9 @@ def id_master_to_prompt_text(records):
         return "(ID Master not available)"
     lines = ["Use these known IDs when they match entities in the text:"]
     for r in records:
+        if is_retired_id_row(r):
+            # 使わなくなった ID は生成モデルに見せない(2026-11-16)
+            continue
         category = r.get("Category", "")
         arabic   = r.get("Arabic",   "")
         latin    = r.get("Latin",    "")
@@ -1116,6 +1143,11 @@ def _build_id_master_index(records):
         cat = (r.get("Category", "") or "").strip()
         if not id_val:
             continue
+        if is_retired_id_row(r):
+            # 統合・汎用化・廃止した ID(Status=retired)は照合に使わない(2026-11-16)。
+            # Note を見ずに全行を照合していたため、使わなくなった ID が新しい
+            # バッチで再び付く恐れがあった(官職 ID 整理 FOLLOWUP 段階1-2)。
+            continue
         # 「الأزهر | جامع الأزهر」「التقي بن فهد| ابن فهد」のような
         # | 区切りの別名も個別キーとして登録する(v20.11)。
         # これをしないと別名側の表記で照合失敗→取りこぼし/誤検疫が起きる。
@@ -1125,6 +1157,52 @@ def _build_id_master_index(records):
                 continue
             index.setdefault((cat, ar), id_val)
             index.setdefault(("", ar), id_val)  # Category 不問のフォールバック
+    return index
+
+
+# 使わなくなった ID の Note から後継 ID を読む(2026-11-16 の官職 ID 整理の書式)。
+#   「【2026-11-16】汎用 TMP-O-00053＋場所・施設（placeName/orgName）に切替。…」
+#   「【2026-11-16】TMP-O-00050 に統合（同じ職）。…」
+_RETIRED_SUCCESSOR_RE = re.compile(
+    r"【\d{4}-\d{2}-\d{2}】(?:汎用\s*(?P<gen>[^\s＋+]+)\s*[＋+]|(?P<mrg>[^\s【】]+?)\s*に統合)"
+)
+
+
+def _retired_successor(note):
+    """Note から (後継 ID, 種別) を返す。種別は "generic"(汎用化)/"merged"(統合)。
+    読めなければ (None, None)。wd: 接頭辞は ID-Master の表記(Q 番号のみ)にそろえる。"""
+    m = None
+    for m in _RETIRED_SUCCESSOR_RE.finditer(note or ""):
+        pass  # 最後の記載を採る
+    if not m:
+        return None, None
+    succ = m.group("gen") or m.group("mrg")
+    kind = "generic" if m.group("gen") else "merged"
+    succ = succ.strip()
+    if succ.startswith("wd:"):
+        succ = succ[3:]
+    return succ, kind
+
+
+def _build_retired_successor_index(records):
+    """使わなくなった ID の名前 → 後継 ID の辞書。
+    {(category, normalized_arabic): (successor_id, kind, retired_id)}
+    現役の行に同じ名前があればそちらを優先するため、照合の最後に引く。"""
+    index = {}
+    for r in records or []:
+        if not is_retired_id_row(r):
+            continue
+        id_val = (r.get("ID", "") or "").strip()
+        succ, kind = _retired_successor(r.get("Note", ""))
+        if not id_val or not succ:
+            continue  # 廃止(後継なし)は照合しない
+        cat = (r.get("Category", "") or "").strip()
+        for _alt in str(r.get("Arabic", "") or "").split("|"):
+            ar = normalize_arabic(_alt)
+            if not ar:
+                continue
+            index.setdefault((cat, ar), (succ, kind, id_val))
+            index.setdefault(("", ar), (succ, kind, id_val))
     return index
 
 
@@ -1189,7 +1267,12 @@ def _build_id_to_master_row(records):
                 "ar_norms": _alts,  # | 区切り別名(v20.11)
                 "latin": (r.get("Latin", "") or "").strip(),
                 "category": (r.get("Category", "") or "").strip(),
+                "retired": is_retired_id_row(r),
+                "note": (r.get("Note", "") or "").strip(),
             }
+        elif not is_retired_id_row(r):
+            # 同じ ID の行が複数あり、そのどれかが現役なら現役として扱う
+            idmap[id_val]["retired"] = False
     return idmap
 
 
@@ -1229,6 +1312,15 @@ def verify_and_quarantine_tmp_ids(d, records=None, silent=False):
                 "bad_id": current, "reason": "unregistered", "master_name": "",
             })
             return
+        if row.get("retired"):
+            # 番号は実在するが、統合・汎用化・廃止した ID(Status=retired)
+            container[id_field] = placeholder
+            quarantined.append({
+                "section": "", "field": id_field, "name": name_raw,
+                "bad_id": current, "reason": "retired",
+                "master_name": row.get("note", "")[-80:],
+            })
+            return
         # 番号は実在する。名前が一致するか(正規化完全一致。| 区切り別名も許容)。
         _alts = row.get("ar_norms") or ([row["ar_norm"]] if row.get("ar_norm") else [])
         if name_norm and _alts and name_norm not in _alts:
@@ -1265,6 +1357,7 @@ def verify_and_quarantine_tmp_ids(d, records=None, silent=False):
             reason_ja = {
                 "unregistered": "未登録番号",
                 "name_mismatch": f"別人流用(Master名: {q['master_name']})",
+                "retired": f"使わなくなった ID(Note: …{q['master_name']})",
             }.get(q["reason"], q["reason"])
             st.caption(
                 f"　• [{q['section']}.{q['field']}] "
@@ -1688,8 +1781,10 @@ def apply_id_master_matching(d, silent=False):
         return 0
 
     index = _build_id_master_index(records)
+    retired_index = _build_retired_successor_index(records)
     filled = 0
     skipped = 0
+    redirected = []  # 使わなくなった ID の名前に当たり、後継 ID を付けたもの
 
     for section, name_field, id_field, category in ID_MATCH_FIELDS:
         for item in d.get(section, []) or []:
@@ -1708,8 +1803,38 @@ def apply_id_master_matching(d, silent=False):
             if matched_id:
                 item[id_field] = matched_id
                 filled += 1
+                continue
+            hit = retired_index.get((category, key_norm)) or retired_index.get(("", key_norm))
+            if hit:
+                succ, kind, old_id = hit
+                item[id_field] = succ
+                filled += 1
+                redirected.append({
+                    "section": section, "field": id_field, "name": name_raw,
+                    "retired_id": old_id, "successor": succ, "kind": kind,
+                })
             else:
                 skipped += 1
+
+    try:
+        st.session_state.setdefault("_last_reports", {})["retired_redirect"] = redirected
+    except Exception:
+        pass
+
+    if not silent and redirected:
+        st.warning(
+            f"⚠️ 使わなくなった ID の名前に {len(redirected)} 件が当たりました。"
+            "後継 ID を付けたので確認してください(規則65)。"
+        )
+        for x in redirected:
+            if x["kind"] == "generic":
+                tip = "汎用 ID に切替。場所・施設を場所欄・施設欄(placeName/orgName)に入れてください"
+            else:
+                tip = "同じ職の ID に統合済み"
+            st.caption(
+                f"　• [{x['section']}.{x['field']}] 「{x['name']}」"
+                f" {x['retired_id']} → {x['successor']}（{tip}）"
+            )
 
     if not silent:
         if filled:
@@ -2322,6 +2447,8 @@ with st.sidebar:
                     cat = r.get("Category", "")
                     note = r.get("Note", "")
                     label = f"`{id_val}` — {ar}"
+                    if is_retired_id_row(r):
+                        label = "~~" + label + "~~ 〔使わなくなった ID〕"
                     if lat:
                         label += f" ({lat})"
                     if cat:
