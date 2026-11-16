@@ -2458,3 +2458,4 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - Individuals 324 ファイル: student→teacher 330、向きの誤りの是正 14（枝番項）、`active="#NEEDID"` の補充 40、親族・社会関係の向きの統一 56（うち符号化の誤り 32・逆関係への書換え 22・relative 化 1・維持 1）。各ファイルに respStmt を追記。
 - app.py（弟子を teacher・active=本項主で出力）、docs/browser（逆関係で役割を表示）。
 - 詳細: `docs/accuracy/relation_unify_20261116/`。
+- 統制外 subtype 7件（Waka 裁定 2026-11-16）: D02046 master→patron、D02512 correspondent の向き、D01824 praise と D02012・D02015 see_also は relation を除去（event／cross-reference note へ）、D02463・D06317 educator_of→社会関係の新設語彙 `educator`。app.py・docs/browser・規則15 に educator を追加。

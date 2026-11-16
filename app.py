@@ -671,6 +671,7 @@ SOCIAL_RELATION_TYPES = [
     ("rival",         "Rival (論敵)"),
     ("friend",        "Friend (友人)"),
     ("correspondent", "Correspondent (書簡相手)"),
+    ("educator",      "Educator (養育者・مربي/لالا)"),  # 2026-11-16 新設。相手が本項主の養育者
     ("successor",     "Successor (後継者)"),
     ("predecessor",   "Predecessor (前任者)"),
     ("other",         "Other (その他)"),

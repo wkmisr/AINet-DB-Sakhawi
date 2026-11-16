@@ -35,6 +35,17 @@ subtype は常に「active が passive の何にあたるか」。
 - `app.py`: 弟子を `subtype="teacher" active=本項主` で出力（従来は student）。
 - `docs/browser/build.py`: 表示用の役割を「本項主が active なら逆関係」で求める（XML の値は `xml_subtype` に保持）。`app_template.html` に逆関係のラベルを追加。
 
-## 対象外（要判断として残す）
-- 統制外 subtype で本項主 active のもの: praise（D01824）・see_also（D02012）・master（D02046）・educator_of（D02463×2・D06317）・correspondent（D02512）
+## 統制外 subtype 7件の処理（Waka 裁定 2026-11-16、`vocab_fix.py`）
+
+| 項 | 旧 | 処置 |
+|---|---|---|
+| D02046 | master（active=本項主） | 規則51 により patron（active=主人 #AIND-D02178） |
+| D02512 | correspondent（active=本項主） | app の社会関係語彙にある対称の関係なので、active=相手 に入替えのみ |
+| D01824 | praise | 人的関係ではないので relation を除去。既存の cultural event に persName（#TMP-P-000666）を付与（先例 D05997） |
+| D02012・D02015 | see_also（対） | 編者の参照指示なので relation を除去し、`note type="cross-reference"`（@target）に |
+| D02463×2・D06317 | educator_of | **社会関係の統制語彙に `educator` を新設**（active=養育者）。学問の伝授ではないので teacher にしない。逆の語は置かず、本項主 active を認める例外（killer と同じ） |
+
+app.py の社会関係の選択肢に educator を追加。ブラウザは本項主が active の educator を「被養育者（ward）」として表示。
+
+## 残る要確認
 - D05634: listRelation の外に自己参照の possible_identity（active=passive=本項主）
