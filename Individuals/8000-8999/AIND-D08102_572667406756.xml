@@ -14,7 +14,7 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-001658" passive="#AIND-D08102"><desc xml:lang="ar">علي بن عبد الرحمن بن علي بن هاشم التفهني</desc><note xml:lang="ja">父 علي بن عبد الرحمن بن علي بن هاشم التفهني。corpus に本伝なし（hw.py「علي بن عبد الرحمن」＋「هاشم」は本項・D03692・D07562 のみ）。兄 #AIND-D03692 の本文「ومات أبوه وكان طحانا وهو صغير」により製粉業者（طحان）と分かり、本伝のある兄弟項と共有する父（規則3 (c')）なので新規 TMP-P-001658 を発行（ID-Master を「بن هاشم」「طحان」「D03692」で grep し未登録）。</note></relation>
         <relation type="personal" subtype="brother" active="#AIND-D03692" passive="#AIND-D08102"><desc xml:lang="ar">الزين عبد الرحمن التفهني</desc><note xml:lang="ja">「أخو قاضي الحنفية الزين عبد الرحمن الماضي」＝ #AIND-D03692「عبد الرحمن بن علي بن عبد الرحمن بن علي بن هاشم الزين أبو هريرة التفهني ثم القاهري الحنفي الآتي أخوه الشمس محمد」（相手側で本項主を「الآتي أخوه الشمس محمد」と名指し、ナサブ一致）。初版 #NEEDID を置換。兄の職「قاضي الحنفية」は本項主の state にしない。甥 #AIND-D07562（محمد بن عبد الرحمن … الشمس بن الزين التفهني）は本項原文に言及がないため relation を立てない。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D08102" passive="#AIND-D07563">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D08102" passive="#AIND-D07563">
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <desc xml:lang="ar">التقي بن وكيل السلطان</desc>
             <note xml:lang="ja">「ممن أخذ عنه التقي بن وكيل السلطان」＝本項主が師（active）。التقي بن وكيل السلطان＝ #AIND-D07563「محمد بن عبد الرحمن بن علي … التقي أبو الفضل الأنصاري … الدمياطي ثم القاهري الشافعي ويعرف كأبيه بابن وكيل السلطان」（相手側本文「وأخذ في الفقه وغيره عن … والشمس التفهني الشافعي أخي القاضي الحنفي」で閉合）。初版の相手名 desc を追加。</note>
@@ -41,5 +41,11 @@
         <note xml:lang="ja">原文 note を挿入。father relation を追加（新規 TMP-P-001658、兄 D03692 と共有）。brother #NEEDID → #AIND-D03692（相手側で名指し）。student relation に相手名 desc を追加、D07563 の申告による没年を cert medium＋mention event に。ニスバ由来の residence event القاهرة を除去（規則22-1）。訳文修正（「ビン」→「ブン」）。</note>
         <persName>claude-b150-review</persName>
         <date when="2026-11-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

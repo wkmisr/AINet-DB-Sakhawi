@@ -604,6 +604,11 @@ FAMILY_RELATIONS = [
     ("spouse",         "Spouse (配偶者)"),
     ("grandfather",    "Grandfather (祖父)"),
     ("grandmother",    "Grandmother (祖母)"),
+    ("grandson",       "Grandson (孫)"),
+    ("son-in-law",     "Son-in-law (娘婿)"),
+    ("father-in-law",  "Father-in-law (岳父・舅)"),
+    ("brother-in-law", "Brother-in-law (義兄弟)"),
+    ("relative",       "Relative (親族・向き不定の姻戚)"),
     ("uncle",          "Uncle (おじ)"),
     ("aunt",           "Aunt (おば)"),
     ("cousin",         "Cousin (いとこ)"),
@@ -671,6 +676,8 @@ SOCIAL_RELATION_TYPES = [
     ("rival",         "Rival (論敵)"),
     ("friend",        "Friend (友人)"),
     ("correspondent", "Correspondent (書簡相手)"),
+    ("educator",      "Educator (養育者・مربي/لالا)"),  # 2026-11-16 新設。相手が本項主の養育者
+    ("ward",          "Ward (被養育者：本項主が養育者)"),  # XML では subtype="educator"・active=本項主 で出力
     ("successor",     "Successor (後継者)"),
     ("predecessor",   "Predecessor (前任者)"),
     ("other",         "Other (その他)"),
@@ -1686,6 +1693,9 @@ def apply_id_master_matching(d, silent=False):
 
     for section, name_field, id_field, category in ID_MATCH_FIELDS:
         for item in d.get(section, []) or []:
+            if item.get("auto_nasab"):
+                # 系譜から自動生成した父（汎用ナサブ）は名前の完全一致で照合しない（2026-11-16）
+                continue
             current_id = str(item.get(id_field, "") or "").strip()
             if _is_confirmed_id(current_id):
                 # 既に確定 ID あり → 触らない
@@ -1974,6 +1984,52 @@ def apply_prompt_madhhab(data, madhhab_value):
     data["madhhabs"] = new_madhhabs
 
 
+_NASAB_SEP = __import__("re").compile(r"\s+(?:بن|ابن|بنت|ابنة)\s+")
+_NOT_FATHER_HEAD = {"أخت", "اخت", "أخي", "اخي", "أخ", "بنت", "ابنة", "أم", "ام", "عم", "خال", "عمة", "خالة"}
+
+
+def derive_father_from_nasab(data):
+    """見出しの系譜（بن の連鎖）から父の relation を規則で生成する（2026-11-16 Waka 裁定）。
+
+    規則3: 父は必ず relation を立てる。Gemini には系譜から父を出させず（解析プロンプト
+    第17節）、ここで機械的に作る。
+    - name_only（イスム＋父＋祖父）から作る。name_only が空なら、full_name に بن が
+      無い単名の項に限り「والد ＋呼称」を作る（系譜のある full_name はラカブ等が混じるので使わない）。
+    - بن の直後が أخت／أم／بنت／عم／خال など父でない語なら作らない。
+    - 最初の بن／ابن／بنت／ابنة の後ろを父の名（＋祖父名）として desc に入れる。
+    - بن が無い単名の項（マムルーク・宦官など）は「والد ＋本項主の呼称」（規則3、B124-128 ★1）。
+    - ID は付けない（active="#NEEDID"）。本伝や TMP-P への同定は校閲で行う。
+    - 本文に明示の父（family の father）が既にあれば何もしない。
+    戻り値: 追加した family 項目（追加しなければ None）
+    """
+    import re as _re
+    fam = data.setdefault("family", [])
+    if any((f.get("relation") == "father") for f in fam if isinstance(f, dict)):
+        return None
+    def _strip_no(s):                          # 立項番号の残り（アラビア数字も）を除く
+        return _re.sub(r"^[\d٠-٩]+\s*", "", (s or "").strip())
+    name_only = _strip_no(data.get("name_only"))
+    full_name = _strip_no(data.get("full_name"))
+    if name_only:
+        parts = _NASAB_SEP.split(name_only, maxsplit=1)
+        if len(parts) == 2 and parts[1].strip():
+            name = parts[1].strip()
+            # 「بن أخت X」「ابن أم مكتوم」「بن بنت الميلق」のように بن の直後が父でない語なら作らない
+            if name.split()[0] in _NOT_FATHER_HEAD:
+                return None
+        else:
+            name = "والد " + (full_name or name_only)   # 単名の項（規則3、B124-128 ★1）
+    elif full_name and not _NASAB_SEP.search(full_name):
+        name = "والد " + full_name
+    else:
+        # name_only が空で full_name に系譜がある場合は、ラカブ・ニスバ・通称が混じるので作らない
+        return None
+    item = {"ui_id": str(uuid.uuid4()), "relation": "father", "relation_note": "",
+            "name": name, "id": "", "auto_nasab": True}
+    fam.insert(0, item)
+    return item
+
+
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
 
@@ -2130,6 +2186,9 @@ def apply_prompt_result(data, prompt_result):
         pass
     apply_id_master_matching(data, silent=True)
     mark_unresolved_ids_in_data(data, silent=True)
+    # 系譜からの父（規則3）。ID 照合の後に足すので、汎用名が ID-Master の別人に
+    # 自動で照合されることはない（id は空 → active="#NEEDID"）。
+    derive_father_from_nasab(data)
 
     # === Streamlit session_state の同期 ===
     # text_input に key を指定している場合、Streamlit は session_state を
@@ -3601,7 +3660,8 @@ def _method_field_label_lang(entry):
 
 _FAMILY_RELATION_SUBTYPES = {
     "father", "mother", "son", "daughter", "brother", "sister",
-    "spouse", "grandfather", "grandmother",
+    "spouse", "grandfather", "grandmother", "grandson",
+    "son-in-law", "father-in-law", "brother-in-law", "relative",
     "uncle", "aunt", "cousin", "siblings_child",
     "ancestor", "descendant",
 }
@@ -3715,8 +3775,10 @@ def _build_teacher_relation(t, aind_id, method_dict, field_dict):
 
 def _build_student_relation(s, aind_id, method_dict, field_dict):
     n_attr = assign_n_attribute("student", s.get("seq", ""))
+    # 2026-11-16: subtype は「active が passive の何にあたるか」で統一（規則15改訂）。
+    # 弟子は本項主＝師（active）・相手＝学生（passive）の teacher relation として出力する。
     lines = [
-        f'        <relation type="personal" subtype="student"{n_attr} '
+        f'        <relation type="personal" subtype="teacher"{n_attr} '
         f'active="#{aind_id}" passive="{fr(s.get("id","")) or "#NEEDID"}">'
     ]
     # 2026-11-02: 相手の名前を desc で出力(親族 relation と同形式)。
@@ -3788,14 +3850,24 @@ def _build_social_relation(sr, aind_id):
     sr_type = sr.get("type", "")
     if not sr_type:
         return None
-    if sr_type == "other" and sr.get("type_other"):
-        subtype = sr["type_other"]
-    else:
-        subtype = sr_type
+    # 2026-11-16: 統制外の語を subtype に入れない（other＋desc type="relationship_type"）。
+    # 以前は type_other をそのまま subtype にしていたため praise・master 等の統制外 subtype が生じた。
+    subtype = sr_type
     person_id  = sr.get("person_id", "")
     person_ref = fr(person_id) if person_id else "#NEEDID"  # 2026-11-02: 空の active="" を防ぐ
+    # 規則15: subtype は「active が passive の何にあたるか」。ward（本項主が養育者）は
+    # 逆の語を置かず educator・active=本項主 で出力する。
+    active_ref, passive_ref = person_ref, f"#{aind_id}"
+    if sr_type == "ward":
+        subtype = "educator"
+        active_ref, passive_ref = f"#{aind_id}", person_ref
 
     inner_parts = []
+    if sr_type == "other" and (sr.get("type_other") or "").strip():
+        rt = sr["type_other"].strip()
+        inner_parts.append(
+            f'<desc type="relationship_type" xml:lang="{detect_lang(rt)}">{escape_xml(rt)}</desc>'
+        )
     if sr.get("person_name"):
         inner_parts.append(
             f'<desc xml:lang="{detect_lang(sr["person_name"])}">'
@@ -3811,7 +3883,7 @@ def _build_social_relation(sr, aind_id):
     n_attr = assign_n_attribute(subtype, sr.get("seq", ""))
     return (
         f'        <relation type="personal" subtype="{escape_xml_attr(subtype)}"{n_attr} '
-        f'active="{person_ref}" passive="#{aind_id}">'
+        f'active="{active_ref}" passive="{passive_ref}">'
         + "".join(inner_parts) +
         f'</relation>'
     )
@@ -3824,8 +3896,13 @@ def build_list_relation(x, d, method_dict, field_dict):
     relations = []
     for t in d.get("teachers", []):
         relations.extend(_build_teacher_relation(t, aind_id, method_dict, field_dict))
+    # 2026-11-16: 弟子も subtype="teacher" で出すので、n は師の後ろに続けて振る（重複させない）
+    n_offset = len(d.get("teachers", []))
     for s in d.get("students", []):
-        relations.extend(_build_student_relation(s, aind_id, method_dict, field_dict))
+        s2 = dict(s)
+        if str(s2.get("seq", "")).strip().isdigit():
+            s2["seq"] = int(s2["seq"]) + n_offset
+        relations.extend(_build_student_relation(s2, aind_id, method_dict, field_dict))
     for fam in d.get("family", []):
         relations.append(_build_family_relation(fam, aind_id))
     for sr in d.get("social_relations", []):

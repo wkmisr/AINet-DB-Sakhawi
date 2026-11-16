@@ -2450,3 +2450,15 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - 新規 TMP 69件（P-001709〜001745／L-00405〜00412／I-00281〜00289／O-00395〜00401／T-00266〜00273）。ID-Master 未貼付。
 - 詳細: `docs/handover/HANDOVER_20261110_v13_50.md`、`docs/batches/B164-168/`。
 - 裁定反映（Waka 2026-11-11、`docs/batches/B164-168/rulings_20261111.md`）: ★1 名寄せで既存 5 ファイルを付け替え（D02779→D11148、D01003→D06740、D01116→D05846、D01693→D10294、D07177→TMP-P-000256）。★2 (c)・★3 (a)・確認依頼は現状どおり。TMP-L-00140（登録＝المهجم）の流用を監査し 7 ファイルを付け替え（منوف→TMP-L-00254、سفح قاسيون→TMP-L-00278、دهلك→gn:340218、新規 TMP-L-00413〜00416）。
+
+# 変更ログ: relation の向きと subtype の統一（2026-11-16）
+
+- ブランチ: `relation-direction-unify-20261116`（← origin/main 69c5297）。Waka 依頼。LLM 抽出評価で正解データの師弟の向きが逆になる例が見つかったことを受けたもの。
+- 規則15 を改訂（`docs/batches/B164-168/CHUNK_BRIEF_B164-168.md`）: subtype は常に「active が passive の何にあたるか」。師弟は常に `teacher`・active=師、親族・社会関係は active=相手、active・passive は省かない。
+- Individuals 324 ファイル: student→teacher 330、向きの誤りの是正 14（枝番項）、`active="#NEEDID"` の補充 40、親族・社会関係の向きの統一 56（うち符号化の誤り 32・逆関係への書換え 22・relative 化 1・維持 1）。各ファイルに respStmt を追記。
+- app.py（弟子を teacher・active=本項主で出力）、docs/browser（逆関係で役割を表示）。
+- 詳細: `docs/accuracy/relation_unify_20261116/`。
+- 統制外 subtype 7件（Waka 裁定 2026-11-16）: D02046 master→patron、D02512 correspondent の向き、D01824 praise と D02012・D02015 see_also は relation を除去（event／cross-reference note へ）、D02463・D06317 educator_of→社会関係の新設語彙 `educator`。app.py・docs/browser・規則15 に educator を追加。
+- 解析プロンプト（prompt_analyze.txt）を統一規則に合わせて改訂: 師弟の向きの判定（前置詞・サハーウィーの一人称・引用中の一人称）、社会関係の type は常に相手の役割（マムルークのニスバ＝主人、educator／ward、relation にしないもの）、親族の逆向き表現（「والد X」→son 等）と grandson。app.py: social の type_other を subtype に入れず `other`＋`desc type="relationship_type"` で出力（統制外 subtype の発生源）、ward を educator・active=本項主で出力、family に grandson。
+- 系譜からの父の自動生成（Waka 裁定 2026-11-16）: app.py に `derive_father_from_nasab` を追加。Gemini の解析結果を反映した後、明示の父が無ければ name_only（無ければ full_name）の最初の بن 以下を desc とする father relation（active="#NEEDID"）を足す。単名の項は「والد ＋呼称」。ID 照合の後に足すので汎用名が別人に照合されない。解析プロンプトにもその旨を明記。
+- 独立校閲（claude-fable-5-2）の指摘を反映: D02097 の師弟の向きを是正、relation 内の旧注記に改訂の旨を追記（18項）、D02015 の注記を復元、父の自動生成・ID 照合・弟子の n・姻戚の選択肢・プロンプトの例を修正。詳細は docs/accuracy/relation_unify_20261116/README.md。

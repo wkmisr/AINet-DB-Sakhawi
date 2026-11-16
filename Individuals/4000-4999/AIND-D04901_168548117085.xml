@@ -7,7 +7,7 @@
     <sex value="M"/>
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-001317" passive="#AIND-D04901"><desc xml:lang="ar">الفقيه حسن الغمري</desc><note xml:lang="ja">見出し「عرفة بن حسن الغمري ثم البلبيسي الفقيه للأبناء ابن الفقيه」から復元（統一規則3。父も فقيه）。学生側 #AIND-D00350 では「الفقيه عرفة بن الفقيه حسن العمري」と綴る。corpus に本伝なし・ID-Master 未登録のため仮番号発行。⚠汎用名（名のみで識別要素がニスバと職のみ）。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D04901" passive="#AIND-D00350">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D04901" passive="#AIND-D00350">
             <desc type="method" ref="#TMP-S-00025" xml:lang="ar">قرأ | القراءة</desc>
             <bibl xml:lang="ar" ref="#TMP-T-00095">القرآن</bibl>
             <bibl xml:lang="ar-Latn" ref="#TMP-T-00095">al-Qurʾān</bibl>
@@ -34,5 +34,11 @@
         <note xml:lang="ja">原文 note を挿入。父 relation を新設（TMP-P-001317）。学生 #NEEDID → #AIND-D00350（相手側本伝が本項主を師として明記）、原文にない field القراءات を除去。「الفقيه للأبناء」を honorific → state office（#TMP-O-00185）。訳文の「ビン」→「ブン」。</note>
         <persName>claude-b97-review</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

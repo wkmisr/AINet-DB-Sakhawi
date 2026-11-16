@@ -8,7 +8,7 @@
     <sex value="M"/>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D10273"><desc xml:lang="ar">علي بن داود</desc><note xml:lang="ja">規則3 (c')。父 علي بن داود بن سليمان は汎用名で識別要素なし、corpus に本伝なし（ニスバ الخفركي は corpus で本項のみ）。初版は father relation なし。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D10273" passive="#AIND-D00900">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D10273" passive="#AIND-D00900">
             <desc xml:lang="ar">الطاووسي</desc>
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
@@ -20,7 +20,7 @@
             <event type="learning" when-custom="0827" when="1423"><placeName ref="#TMP-L-00055">شيراز</placeName></event>
             <note xml:lang="ja">「أخذ عنه الطاووسي … قال وسمعت عليه آداب المريدين وقرأت عليه موضحة الأسرار ومرآة الناظرين في شرح منازل السائرين كلاهما من تصنيفه وكذلك أجوبة أسئلتي الأربعين المسماة طراز الدقائق في إبراز الحقائق وذلك في أيام اعتزاله بشيراز سنة سبع وعشرين」。「قال」以下の一人称は الطاووسي（#AIND-D00900、頻出確定ID）＝聴き・読んだのは الطاووسي で、本項主が師（規則15: active=師＝本項主、規則59(f)）。827年初＝1423-12-14（h2g.py、年精度）。初版は書ごとに4本の relation に分け、event を type「teaching」・@when「0827」（ヒジュラ年）としていた＝1本に統合し when-custom／when に。原文にない field（التصوف）を除去。書名4点は ID-Master 未登録＝ref なし（初版 #NEEDID。うち3点は本項主の著作＝下の event）。</note>
         </relation>
-        <relation type="personal" subtype="student" n="2" active="#AIND-D10273" passive="#AIND-D00900">
+        <relation type="personal" subtype="teacher" n="2" active="#AIND-D10273" passive="#AIND-D00900">
             <desc xml:lang="ar">الطاووسي</desc>
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="ja">「وأجاز لي」＝引用中の一人称は الطاووسي（規則59(f)、ブリーフ）。本項主が الطاووسي にイジャーザを与えた。初版はこれをサハーウィー（wd:Q4120128）へのイジャーザと誤読していた＝是正。</note>
@@ -66,5 +66,11 @@
         <note xml:lang="ja">原文 note を挿入。「قال … وأجاز لي」の一人称は الطاووسي（規則59(f)）: 初版がサハーウィー（wd:Q4120128）へのイジャーザとしていた relation を #AIND-D00900 への إجازة relation に是正。الطاووسي への student relation 4本（書ごと、event の @when にヒジュラ年）→ 1本に統合し when-custom 0827／when 1423、原文にない field を除去、desc に相手名。الطاووسي の Pattern A mention event を追加。「الجمال」を shuhrah → laqab に、persName full に「ثم」を復元。اعتزال の重複 event（residence＋religious、cert high）を1本に。著作 event 3本を1本に（xml:lang の不整合を解消）。father #NEEDID を追加。訳文を改訂。</note>
         <persName>claude-b165-review</persName>
         <date when="2026-11-10"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）2件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

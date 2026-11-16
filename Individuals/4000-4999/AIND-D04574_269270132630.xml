@@ -23,7 +23,7 @@
             <desc type="field" ref="#TMP-S-00007" xml:lang="ar">الحساب</desc>
             <note xml:lang="ja">الشمس الحجاري（المصري）は ID-Master 未登録（الحجاري はニスバ番号 TMP-N-00735 のみ）・corpus に本伝未検出（他項 D06507 محمد بن إبراهيم بن عبد العزيز الحجاري は別人、corpus 45351 行「الشمس الحجاري المصري」、58920 行「على الشمس الحجاري شرح الشواهد للعيني」に師として出現）→ 新規 TMP-P-001227。初版は الفرائض と الحساب を別 relation（#NEEDID×2）に分けていたが同一師の一文なので1件に統合。</note>
         </relation>
-        <relation type="personal" subtype="student" n="4" active="#AIND-D04574" passive="#TMP-P-001228">
+        <relation type="personal" subtype="teacher" n="4" active="#AIND-D04574" passive="#TMP-P-001228">
             <desc xml:lang="ar">الشرف يحيى الدميسي</desc>
             <desc type="method" ref="#TMP-S-00025" xml:lang="ar">قرأ | القراءة</desc>
             <note xml:lang="ja">「وممن قرأ عليه الشرف يحيى الدميسي」。ID-Master 未登録（الدميسي はニスバ番号 TMP-N-03959 のみ）・corpus に本伝未検出 → 新規 TMP-P-001228。初版 #NEEDID を解消。</note>
@@ -52,5 +52,11 @@
         <note xml:lang="ja">原文 note を挿入。子 عمر の TMP-P-000664（ティムールの子・汚染番号）→ #AIND-D05884 に是正。師 الشمس الحجاري（#NEEDID×2 → TMP-P-001227 に統合）・弟子 الشرف يحيى الدميسي（#NEEDID → TMP-P-001228）を新規発行、父 relation（TMP-P-001229）を追加。「أثنى عليه」を Pattern A mention event に。learning event の @when（ヒジュラ暦直入 0851）を when-custom="0851" when="1447" に是正。relation/@n を規約A（非親族のみ連番）に整理。訳文を逐語照合し修正（「アッ＝ラシャフ」→「アッ＝シャラフ」等）。</note>
         <persName>claude-b90-review</persName>
         <date when="2026-09-25"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

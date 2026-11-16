@@ -29,7 +29,7 @@
             <desc type="field" ref="#TMP-S-00013" xml:lang="ar">القراءات السبع</desc>
             <note xml:lang="ja">「وتلا عليه بالسبع」。</note>
         </relation>
-        <relation type="personal" subtype="student" n="3" active="#AIND-D10062" passive="#AIND-D09211" cert="low">
+        <relation type="personal" subtype="teacher" n="3" active="#AIND-D10062" passive="#AIND-D09211" cert="low">
             <desc xml:lang="ar">ابن فهد</desc>
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <note xml:lang="ja">「وممن أخذ عنه ابن فهد」＝本項主が師（規則15）。限定語のない ابن فهد・本項主の没年 837（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（規則43）。</note>
@@ -61,5 +61,11 @@
         <note xml:lang="ja">原文 note を挿入。persName full に「ثم」を復元。父 #NEEDID relation を追加（規則3）。師弟 relation に相手名 desc を追加し、ابن فهد への student relation に cert low を付し（規則43）、「وترجمه」を Pattern A mention event として追加。ニスバ由来の residence event（الشام・القاهرة）を除去（規則22(1)(6)）。relation/@n を規約A（非親族のみ連番）に。death/@when 1433 → 1434-05（月精度、h2g.py）。訳文を逐語に再校正（بن→ブン、「彼のもとで七読誦法によって朗誦した」）。</note>
         <persName>claude-b158-review</persName>
         <date when="2026-11-05"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

@@ -6,6 +6,25 @@ CIX = sys.argv[3] if len(sys.argv)>3 else 'corpus_index.json'
 from lxml import etree
 
 XML_NS = '{http://www.w3.org/XML/1998/namespace}'
+# 本項主が active の relation で、相手の役割を求めるための逆関係（2026-11-16）。
+# 対称な関係はそのまま。表にない subtype は「<subtype> (inverse)」と表示する。
+INVERSE_ROLE = {
+    'teacher': 'student', 'student': 'teacher',
+    'patron': 'client', 'client': 'patron',
+    'predecessor': 'successor', 'successor': 'predecessor',
+    'father-in-law': 'son-in-law', 'son-in-law': 'father-in-law',
+    'father': 'child', 'mother': 'child', 'son': 'parent', 'daughter': 'parent',
+    'grandfather': 'grandchild', 'grandmother': 'grandchild', 'maternal_grandfather': 'grandchild',
+    'grandson': 'grandparent',
+    'uncle': 'siblings_child', 'paternal_uncle': 'siblings_child', 'maternal_uncle': 'siblings_child',
+    'maternal_aunt': 'siblings_child', 'siblings_child': 'uncle_or_aunt',
+    'aunt': 'siblings_child', 'paternal_aunt': 'siblings_child', 'nephew': 'uncle_or_aunt',
+    'ancestor': 'descendant', 'descendant': 'ancestor', 'granddaughter': 'grandparent',
+    'killer': 'victim', 'educator': 'ward', 'employer': 'employee', 'deputy': 'principal',
+    **{s: s for s in ('brother', 'sister', 'cousin', 'spouse', 'colleague', 'friend', 'companion',
+                      'rival', 'relative', 'possible_identity', 'brother-in-law', 'met', 'other', 'neighbor',
+                      'correspondent')},
+}
 def lang(e): return e.get(XML_NS + 'lang') or ''
 
 def notes_split(el, textfn):
@@ -434,7 +453,12 @@ for f in files:
     for r in t.findall('.//relation'):
         act, pas = r.get('active') or '', r.get('passive') or ''
         partner = act if pas == '#' + pid else pas
-        d = {'subtype': r.get('subtype') or '', 'active': act, 'passive': pas, 'partner': partner,
+        # 2026-11-16 規則15改訂: XML の subtype は「active が passive の何にあたるか」。
+        # 表示する 'subtype' は「相手が本項主の何にあたるか」なので、本項主が active の
+        # relation（師弟の弟子側など）は逆の役割に読み替える。XML の値は 'xml_subtype' に残す。
+        xml_st = r.get('subtype') or ''
+        role = xml_st if pas == '#' + pid else INVERSE_ROLE.get(xml_st, xml_st + ' (inverse)')
+        d = {'subtype': role, 'xml_subtype': xml_st, 'active': act, 'passive': pas, 'partner': partner,
              'cert': r.get('cert') or '', 'n': r.get('n') or ''}
         for ds in r.findall('desc'):
             if lang(ds) == 'ar-Latn': continue

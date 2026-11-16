@@ -14,25 +14,25 @@
             <event type="learning" when-custom="0760" when="1358" cert="medium"><desc xml:lang="ar">أحضر في الرابعة</desc><note xml:lang="ja">生年 757 から「في الرابعة」（4歳の年）＝ 760 頃と逆算（cert medium、年初換算）。初版は @when にヒジュラ年「0761」を誤置。</note></event>
             <note xml:lang="ja">البياني ＝ ID-Master 登録 TMP-P-000105。『المستجاد من تاريخ بغداد』は ID-Master 未登録のため TMP-T-00200 を発行。「وغير ذلك」は書名不詳。</note>
         </relation>
-        <relation type="personal" subtype="student" n="2" active="#AIND-D04862" passive="#AIND-D09466">
+        <relation type="personal" subtype="teacher" n="2" active="#AIND-D04862" passive="#AIND-D09466">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <event type="teaching" when-custom="0815" when="1412"><desc xml:lang="ar">لقيه ابن موسى ومعه الأبي في سنة خمس عشرة فسمعا عليه</desc></event>
             <note xml:lang="ja">ابن موسى ＝ #AIND-D09466（الجمال محمد بن موسى المراكشي المكي、ID-Master「ابن موسى」、旧 TMP-P-000034 から名寄せ済み）。初版の幻番号 TMP-P-000034 を差し替え。field（الحديث）は原文に明示がないため除去。</note>
         </relation>
-        <relation type="personal" subtype="student" n="3" active="#AIND-D04862" passive="#AIND-D04932">
+        <relation type="personal" subtype="teacher" n="3" active="#AIND-D04862" passive="#AIND-D04932">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <event type="teaching" when-custom="0815" when="1412"/>
             <note xml:lang="ja">الأبي ＝ #AIND-D04932「علي بن إبراهيم بن علي بن راشد الموفق أبو الحسن الإبي … اليماني ثم المكي」。同項「ارتحل في موسم سنة أربع عشرة رفيقا للجمال بن موسى المراكشي … فسمعا … وبيت المقدس」が本項の「لقيه ابن موسى ومعه الأبي في سنة خمس عشرة」と閉合（集約時に TMP-P-000035 から差し替え。ID-Master の TMP-P-000035「الموفق الابي」は Note が別人 محمد بن خلفة الوشتاني を指しており要是正・名寄せ）。</note>
         </relation>
-        <relation type="personal" subtype="student" n="4" active="#AIND-D04862" passive="#AIND-D09211">
+        <relation type="personal" subtype="teacher" n="4" active="#AIND-D04862" passive="#AIND-D09211">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="ja">原文「وأجاز لجماعة كالتقي بن فهد وولده」。التقي بن فهد ＝ #AIND-D09211。</note>
         </relation>
-        <relation type="personal" subtype="student" n="5" active="#AIND-D04862" passive="#AIND-D05979" cert="medium">
+        <relation type="personal" subtype="teacher" n="5" active="#AIND-D04862" passive="#AIND-D05979" cert="medium">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="ja">「وولده」＝ التقي بن فهد の子。النجم عمر بن فهد（#AIND-D05979、812年生）と解した（cert medium）。初版は TMP-P-000221（رابعة）を誤って充当。</note>
         </relation>
-        <relation type="personal" subtype="student" n="6" active="#AIND-D04862" passive="#TMP-P-000221">
+        <relation type="personal" subtype="teacher" n="6" active="#AIND-D04862" passive="#TMP-P-000221">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="ja">原文「قال شيخنا في معجمه : أجاز لبنتي رابعة」。رابعة ＝ ID-Master 登録 TMP-P-000221（イブン・ハジャルの娘）。</note>
         </relation>
@@ -71,5 +71,11 @@
         <note xml:lang="ja">独立検証（内容B H9・L）を原文で裏取りして適用: 弟子 الأبي TMP-P-000035 → #AIND-D04932（D04932 本文の 814〜815年のイブン・ムーサーとの同行旅行・エルサレム聴聞で閉合）。ja 訳「その子ら」→「その子など」（وولده は単数）。TMP-P-000035 の Note 是正・名寄せは ID-Master要対応・要判断に記載。 日付精度の統一: when-custom が年／月精度の @when を repo 慣行（年のみ→年初の西暦年、月のみ→月初の西暦年月。「原文が月精度なら日を作らない」v13.22、repo 762:7）に合わせて日精度から年／月精度に戻した（0757→1356; 0760→1358; 0815→1412）。値は h2g.py で再計算し一致。</note>
         <persName>claude-b94-98-triage</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）5件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>
