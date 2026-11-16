@@ -2467,5 +2467,5 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 
 - ブランチ: `office-id-audit-20261116`（← origin/main 0b30f47）。Waka 裁定。
 - 方針（規則65）: 職業も office、分類は ID-Master の列で／制度上の官職名は固有 ID、汎用職＋場所・施設は汎用 ID＋placeName/orgName／包括語 TMP-O-00002 廃止／流用の是正。
-- Individuals 191 ファイル: 流用の付け替え 37、重複 ID の統合 40＋表記の統一 7、汎用化 123（場所・施設を補ったもの 14）、新規 TMP-O-00402〜00407。各ファイルに respStmt を追記。
+- Individuals 203 ファイル・211 記録: 流用の付け替え 37、重複 ID の統合 40＋表記の統一 6、汎用化 123（場所・施設を補ったもの 20）、学派の大カーディー職の統一 5、新規 TMP-O-00402〜00407。独立校閲（claude-fable-5-2）の指摘を反映。各ファイルに respStmt を追記。
 - ID-Master への反映（分類列の新設、統合・汎用化・廃止の Note、改名 10、新規 6 行）は未実施。内容は `docs/accuracy/office_audit_20261116/idmaster_office_actions.tsv`。
