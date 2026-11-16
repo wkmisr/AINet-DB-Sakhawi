@@ -49,3 +49,11 @@ app.py の社会関係の選択肢に educator を追加。ブラウザは本項
 
 ## 残る要確認
 - D05634: listRelation の外に自己参照の possible_identity（active=passive=本項主）
+
+## 独立校閲（claude-fable-5-2、2026-11-16）と反映（`review_fix.py`）
+- 結論: データ変更（逆転是正14・親族社会56・統制外7・#NEEDID 40）は原文照合で誤りなし。relabel 330 件は全件照合し、意味が保たれていないのは D02097 の1件（main の時点で既に逆）。
+- 反映: D02097 を是正（「ممن يتردد له الصلاح الطرابلسي ليقرئه」＝الصلاح が師）。relation 内の旧注記（「方向: 親がactive」「subtype=student の慣行」「educator_of」）と新しい向きの矛盾を、18 項の relation に改訂の注記を追記して明示。D02015 の移行で落ちた「Replaces contaminated TMP-P-000066.」を復元。
+- コード: `derive_father_from_nasab` を name_only のみから作るよう変更（系譜のある full_name はラカブ等が混じるので使わない。単名の項のみ「والد＋呼称」）。بن の直後が أخت／أم／بنت／عم／خال 等なら作らない。番号の除去をフォールバックにも適用。自動生成の父は「ID再チェック」の照合対象から外す。弟子の n を師の後ろに続けて振る。family に姻戚（son-in-law・father-in-law・brother-in-law・relative）を追加。ブラウザの逆関係表を補充。
+- プロンプト: educator の例を「لالاه X」に、predecessor の例を「رغب له X عن [職]」に訂正。姻戚の対応（زوج ابنته→son-in-law、صهر（向き不定）→relative 等、規則52）。
+- D05634 は kin_social_changes.tsv で swap と記録されているが、active=passive=本項主のため実際は無変更（要確認として残す）。
+- D03010 は respStmt が2つ（師弟の表記統一と親族の向きの統一、別々の変更の記録）。

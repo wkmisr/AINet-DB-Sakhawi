@@ -18,9 +18,12 @@ INVERSE_ROLE = {
     'grandson': 'grandparent',
     'uncle': 'siblings_child', 'paternal_uncle': 'siblings_child', 'maternal_uncle': 'siblings_child',
     'maternal_aunt': 'siblings_child', 'siblings_child': 'uncle_or_aunt',
+    'aunt': 'siblings_child', 'paternal_aunt': 'siblings_child', 'nephew': 'uncle_or_aunt',
+    'ancestor': 'descendant', 'descendant': 'ancestor', 'granddaughter': 'grandparent',
     'killer': 'victim', 'educator': 'ward', 'employer': 'employee', 'deputy': 'principal',
     **{s: s for s in ('brother', 'sister', 'cousin', 'spouse', 'colleague', 'friend', 'companion',
-                      'rival', 'relative', 'possible_identity', 'brother-in-law', 'met', 'other', 'neighbor')},
+                      'rival', 'relative', 'possible_identity', 'brother-in-law', 'met', 'other', 'neighbor',
+                      'correspondent')},
 }
 def lang(e): return e.get(XML_NS + 'lang') or ''
 

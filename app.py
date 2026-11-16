@@ -605,6 +605,10 @@ FAMILY_RELATIONS = [
     ("grandfather",    "Grandfather (祖父)"),
     ("grandmother",    "Grandmother (祖母)"),
     ("grandson",       "Grandson (孫)"),
+    ("son-in-law",     "Son-in-law (娘婿)"),
+    ("father-in-law",  "Father-in-law (岳父・舅)"),
+    ("brother-in-law", "Brother-in-law (義兄弟)"),
+    ("relative",       "Relative (親族・向き不定の姻戚)"),
     ("uncle",          "Uncle (おじ)"),
     ("aunt",           "Aunt (おば)"),
     ("cousin",         "Cousin (いとこ)"),
@@ -1689,6 +1693,9 @@ def apply_id_master_matching(d, silent=False):
 
     for section, name_field, id_field, category in ID_MATCH_FIELDS:
         for item in d.get(section, []) or []:
+            if item.get("auto_nasab"):
+                # 系譜から自動生成した父（汎用ナサブ）は名前の完全一致で照合しない（2026-11-16）
+                continue
             current_id = str(item.get(id_field, "") or "").strip()
             if _is_confirmed_id(current_id):
                 # 既に確定 ID あり → 触らない
@@ -1978,6 +1985,7 @@ def apply_prompt_madhhab(data, madhhab_value):
 
 
 _NASAB_SEP = __import__("re").compile(r"\s+(?:بن|ابن|بنت|ابنة)\s+")
+_NOT_FATHER_HEAD = {"أخت", "اخت", "أخي", "اخي", "أخ", "بنت", "ابنة", "أم", "ام", "عم", "خال", "عمة", "خالة"}
 
 
 def derive_father_from_nasab(data):
@@ -1985,7 +1993,9 @@ def derive_father_from_nasab(data):
 
     規則3: 父は必ず relation を立てる。Gemini には系譜から父を出させず（解析プロンプト
     第17節）、ここで機械的に作る。
-    - name_only（イスム＋父＋祖父）を優先し、無ければ full_name を使う。
+    - name_only（イスム＋父＋祖父）から作る。name_only が空なら、full_name に بن が
+      無い単名の項に限り「والد ＋呼称」を作る（系譜のある full_name はラカブ等が混じるので使わない）。
+    - بن の直後が أخت／أم／بنت／عم／خال など父でない語なら作らない。
     - 最初の بن／ابن／بنت／ابنة の後ろを父の名（＋祖父名）として desc に入れる。
     - بن が無い単名の項（マムルーク・宦官など）は「والد ＋本項主の呼称」（規則3、B124-128 ★1）。
     - ID は付けない（active="#NEEDID"）。本伝や TMP-P への同定は校閲で行う。
@@ -1996,15 +2006,24 @@ def derive_father_from_nasab(data):
     fam = data.setdefault("family", [])
     if any((f.get("relation") == "father") for f in fam if isinstance(f, dict)):
         return None
-    src = (data.get("name_only") or "").strip() or (data.get("full_name") or "").strip()
-    src = _re.sub(r"^\d+\s*", "", src)          # 立項番号の残りを除く
-    if not src:
-        return None
-    parts = _NASAB_SEP.split(src, maxsplit=1)
-    if len(parts) == 2 and parts[1].strip():
-        name = parts[1].strip()
+    def _strip_no(s):                          # 立項番号の残り（アラビア数字も）を除く
+        return _re.sub(r"^[\d٠-٩]+\s*", "", (s or "").strip())
+    name_only = _strip_no(data.get("name_only"))
+    full_name = _strip_no(data.get("full_name"))
+    if name_only:
+        parts = _NASAB_SEP.split(name_only, maxsplit=1)
+        if len(parts) == 2 and parts[1].strip():
+            name = parts[1].strip()
+            # 「بن أخت X」「ابن أم مكتوم」「بن بنت الميلق」のように بن の直後が父でない語なら作らない
+            if name.split()[0] in _NOT_FATHER_HEAD:
+                return None
+        else:
+            name = "والد " + (full_name or name_only)   # 単名の項（規則3、B124-128 ★1）
+    elif full_name and not _NASAB_SEP.search(full_name):
+        name = "والد " + full_name
     else:
-        name = "والد " + ((data.get("full_name") or "").strip() or src)
+        # name_only が空で full_name に系譜がある場合は、ラカブ・ニスバ・通称が混じるので作らない
+        return None
     item = {"ui_id": str(uuid.uuid4()), "relation": "father", "relation_note": "",
             "name": name, "id": "", "auto_nasab": True}
     fam.insert(0, item)
@@ -3642,6 +3661,7 @@ def _method_field_label_lang(entry):
 _FAMILY_RELATION_SUBTYPES = {
     "father", "mother", "son", "daughter", "brother", "sister",
     "spouse", "grandfather", "grandmother", "grandson",
+    "son-in-law", "father-in-law", "brother-in-law", "relative",
     "uncle", "aunt", "cousin", "siblings_child",
     "ancestor", "descendant",
 }
@@ -3876,8 +3896,13 @@ def build_list_relation(x, d, method_dict, field_dict):
     relations = []
     for t in d.get("teachers", []):
         relations.extend(_build_teacher_relation(t, aind_id, method_dict, field_dict))
+    # 2026-11-16: 弟子も subtype="teacher" で出すので、n は師の後ろに続けて振る（重複させない）
+    n_offset = len(d.get("teachers", []))
     for s in d.get("students", []):
-        relations.extend(_build_student_relation(s, aind_id, method_dict, field_dict))
+        s2 = dict(s)
+        if str(s2.get("seq", "")).strip().isdigit():
+            s2["seq"] = int(s2["seq"]) + n_offset
+        relations.extend(_build_student_relation(s2, aind_id, method_dict, field_dict))
     for fam in d.get("family", []):
         relations.append(_build_family_relation(fam, aind_id))
     for sr in d.get("social_relations", []):

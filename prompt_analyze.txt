@@ -746,10 +746,11 @@ subject — never the subject's own role.
            "جكم الظاهري خشقدم" → patron = خشقدم (NOT father).
     → client (the subject is X's master / patron):
         "وهو أستاذ X" / "قرر X مدرسها" (the subject appointed X)
-    → predecessor: "عوضا عن X" / "بعد X" / "خلف X" / "رغب له عن X"
+    → predecessor: "عوضا عن X" / "بعد X" / "خلف X" /
+                   "رغب له X عن [post]" / "برغبة X له عنها"
     → successor:   "واستقر بعده X" / "وولي بعده X"
     → educator (X raised / was guardian-tutor of the subject):
-        "رباه X" / "مربيه X" / "لالا X"
+        "رباه X" / "مربيه X" / "لالاه X"
     → ward (the SUBJECT raised / was guardian-tutor of X):
         "وهو المربي لولد سيده X" / "عمل لالة X"
         ⚠️ educator / ward are upbringing, NOT scholarly teaching.
@@ -781,13 +782,15 @@ EXTRACT (explicit relational vocabulary present):
     - "عمته فلانة" / "خالته فلانة"             → aunt
     - "ابن عمه" / "ابن خاله" / "ابنة عمه" etc → cousin
     - "ابن أخيه" / "ابنة أخته" etc             → siblings_child
-    - "صهره" (son-in-law) / "ختنه" etc         → other
+    - "زوج ابنته" / "صاهره X على ابنته"         → son-in-law
+    - "والد زوجته" / "صاهر X على ابنته"         → father-in-law
+    - "زوج أخته" / "أخو زوجته"                 → brother-in-law
+    - "صهره X" / "صهر X" (direction unclear)    → relative
 
 ⚠️ "relation" is ALWAYS X's role relative to the subject.
    When the text says what the SUBJECT is to X, reverse it:
     - "والد X" / "وهو والد X" / "أبو X الآتي"       → son / daughter
-    - "والد زوجة X" / "والد زوج X"                 → other (X is the
-                                                      subject's son-in-law)
+    - "والد زوجة X" / "والد زوج X"                 → son-in-law
     - "جد X" / "جد الذي قبله"                      → grandson
     - "عم X" / "خال X" / "وهو عم X"                → siblings_child
     - "أخو X" / "شقيق X" / "أخت X"                 → brother / sister
@@ -807,14 +810,16 @@ DO NOT EXTRACT:
     - Vague relational terms without named individual
       (e.g. "أهله", "أقاربه", "ذريته" without specific names).
 
-== relation KEYS (use these exact 15 values) ==
+== relation KEYS (use these exact 19 values) ==
     father, mother, son, daughter, brother, sister, spouse,
     grandfather, grandmother, grandson,
+    son-in-law, father-in-law, brother-in-law,
+    relative   (in-law or kin whose direction is unclear, e.g. صهر)
     uncle      (paternal/maternal NOT distinguished)
     aunt       (paternal/maternal NOT distinguished)
     cousin     (no distinction by line or gender)
     siblings_child  (nephew/niece, no distinction by line or gender)
-    other      (in-laws, distant relatives, unclear relations)
+    other      (any other tie; put the word in "relation_note")
 
 == EXAMPLES ==
 
@@ -1004,6 +1009,7 @@ Return ONLY valid JSON. No markdown fences. No commentary.
   "family": [
     {
       "relation": "father",
+      "relation_note": "",
       "name": "", "id": ""
     }
   ],
