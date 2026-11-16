@@ -2486,3 +2486,10 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - app.py・prompt_analyze.txt: 官職の「代理」欄（subtype="deputy"）、規則65 の要点をプロンプトに追加。
 - 校閲ブリーフ規則65 に (f) 代理職・(g) 統合の裁定を追記。詳細: `docs/accuracy/office_audit_20261116/FOLLOWUP.md`。
 
+# 変更ログ: 官職 ID 整理 段階2（2026-11-17）
+
+- ブランチ: `office-stage2`（← origin/main a289707）。詳細は `docs/accuracy/office_audit_20261116/FOLLOWUP.md` 段階2。
+- Individuals 34 ファイル: نائب مكة の書き分け（Waka 了承）、欠けていた state の追加（D00524・D06298・D06371）、ref のない state への ID 付与、誤った orgName の ref の訂正、00025・00290 の汎用化、裁判代理官のラベルを原文の語に。
+- ID-Master: 新規 TMP-O-00408・00409、TMP-I-00290・00291。00025・00290 を retired。
+- ラベル対応表を作り直した（`make_label_map.py`）。残る判断は `decisions_stage2.md`（★7〜★9）。
+
