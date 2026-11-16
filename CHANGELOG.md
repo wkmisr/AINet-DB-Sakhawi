@@ -2481,7 +2481,8 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 
 - ブランチ: `office-followup-rulings`（← origin/main c2fb3f8）。官職 ID 整理 FOLLOWUP 段階1-3・1-4、Waka 裁定（★1〜★5 推奨どおり、★6 (b)）。
 - Individuals: 統合し漏れの付け替え 78 ファイル・84 記録、代理職の subtype="deputy" 22 ファイル・22 記録。
-- ID-Master: retired 12 ID を追加（計 102）、統合先に別名、00318 改名、00001 の誤訳訂正。
+- ID-Master: retired 13 ID を追加（計 103）、統合先に別名、00001 の誤訳訂正。
+- 独立校閲（claude-fable-5-2）の反映: 裁判代理官 9 記録を 00053→00096、D06034・D02841 を 00093＋deputy（00318 retired）、D04268・D00801・D02127・D10305・D08912a・D05724（17 ファイル）。アプリの代理チェックの初期値の不具合を修正。
 - app.py・prompt_analyze.txt: 官職の「代理」欄（subtype="deputy"）、規則65 の要点をプロンプトに追加。
 - 校閲ブリーフ規則65 に (f) 代理職・(g) 統合の裁定を追記。詳細: `docs/accuracy/office_audit_20261116/FOLLOWUP.md`。
 

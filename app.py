@@ -1097,6 +1097,13 @@ _ARABIC_NORMALIZE_TR = str.maketrans({
 _ARABIC_DIACRITICS = re.compile(r"[ً-ٰٟ]")
 
 
+def _truthy(v):
+    """JSON 由来の真偽値（true／"true"／"yes"／1）を bool にする。"""
+    if isinstance(v, bool):
+        return v
+    return str(v or "").strip().lower() in ("true", "yes", "1", "y")
+
+
 def normalize_arabic(s):
     """アラビア語テキストを完全一致照合用に正規化。
     ハムザ統一、ヤー/タ・マルブータ統一、ダイアクリティクス削除、
@@ -1813,6 +1820,13 @@ def apply_id_master_matching(d, silent=False):
                 item[id_field] = succ
                 if kind.endswith("+deputy") and section == "offices":
                     item["deputy"] = True
+                    # チェックボックスの状態が session_state に残っていると次の描画で
+                    # 上書きされるので、ウィジェットの値もそろえる
+                    try:
+                        if item.get("ui_id"):
+                            st.session_state[f"o_dep_{item['ui_id']}"] = True
+                    except Exception:
+                        pass
                 filled += 1
                 redirected.append({
                     "section": section, "field": id_field, "name": name_raw,
@@ -3246,7 +3260,7 @@ for i, item in enumerate(offices):
         item["inst_id"]   = r4[1].text_input("oiid",   item.get("inst_id",""),   key=f"o_ii_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
         item["deputy"] = st.checkbox(
             "代理（نائب／نيابة）",
-            value=bool(item.get("deputy", False)),
+            value=_truthy(item.get("deputy", False)),
             key=f"o_dep_{uid}",
             help='代理職は本職の ID のまま、これに印を付ける（XML では <state subtype="deputy">。規則65 (f)）。'
                  'ただし نائب الحكم（TMP-O-00096）と نائب كاتب السر（TMP-O-00244）は固有の ID を使い、印は付けない。',
@@ -4117,13 +4131,6 @@ def build_institutions(x, d):
         if na: x.append(f'        <orgName xml:lang="ar">{escape_xml(na)}</orgName>')
         if nl: x.append(f'        <orgName xml:lang="ar-Latn">{escape_xml(nl)}</orgName>')
         x.append('    </affiliation>')
-
-
-def _truthy(v):
-    """JSON 由来の真偽値（true／"true"／"yes"／1）を bool にする。"""
-    if isinstance(v, bool):
-        return v
-    return str(v or "").strip().lower() in ("true", "yes", "1", "y")
 
 
 def build_offices(x, d):
