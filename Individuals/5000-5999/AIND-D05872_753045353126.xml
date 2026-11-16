@@ -49,11 +49,12 @@
         <relation type="personal" subtype="son" active="#AIND-D04520" passive="#AIND-D05872"><desc xml:lang="ar">عبد الله</desc><note xml:lang="ja">「والد عبد الله الماضي」＝ #AIND-D04520（عبد الله بن عمر بن عبد العزيز بن علي بن أحمد بن عبد العزيز الهاشمي العقيلي النويري الأصل المكي المالكى الآتي أبوه、repo 側の father relation は #AIND-D05872）で双方向に閉合。初版の汚染番号 TMP-P-000490（al-Zuhrī の祖父 عبد الله）を差し替え。</note></relation>
         <relation type="personal" subtype="brother" active="#AIND-D07677" passive="#AIND-D05872" cert="medium"><desc xml:lang="ar">محمد</desc><note xml:lang="ja">#AIND-D07677「محمد (بن) عبد العزيز بن علي بن أحمد بن عبد العزيز الهاشمي النويري … وسافر مع أخويه عمر وعبد الرحمن إلى القاهرة في سنة اثنتين وثلاثين ثم إلى المغرب ثم التكرور」が本項主を兄として一意に明記 → 規則23により cert medium で補う（repo 側に brother relation あり）。本項に記述なし。同父のもう一人の兄弟 عبد الرحمن（#AIND-D03646、الوجيه）と姉妹 زينب（#AIND-D13088）・فاطمة（#AIND-D13436）も corpus にあるが同様に本項に記述がないため relation は立てない。</note></relation>
     </listRelation>
-    <state n="1" type="office" ref="#TMP-O-00306">
+    <state n="1" type="office" ref="wd:Q125482">
         <label xml:lang="ar">إمام مقام المالكية</label>
         <label xml:lang="ar-Latn">imām maqām al-Mālikiyya</label>
         <desc xml:lang="ar">وولي نصف الإمامة بمقام المالكية</desc>
         <note xml:lang="ja">「وولي نصف الإمامة بمقام المالكية」＝マーリキー派のマカームにおけるイマーム職の半分（折半職）に就いた。職名は ID-Master 未登録（類例 TMP-O-00164 إمام مقام الشافعي、TMP-O-00285 نائب إمام مقام الحنفية）→ 新規 TMP-O-00306。初版の placeName مكة（施設所在地からの補完）と affiliation employed（state と二重符号化、文字化け orgName）を除去（規則22(1)・規則8）。初版の ref wd:Q125482（الإمامة 汎用）は特定職名に置き換え。</note>
+        <orgName xml:lang="ar">مقام المالكية</orgName>
     </state>
     <event type="travel" n="1" when-custom="0832" when="1428">
         <placeName ref="gn:104515">مكة</placeName>
@@ -109,5 +110,11 @@
         <persName>claude-b154-158-rulings</persName>
         <date when="2026-11-05"/>
         <note xml:lang="ja">名寄せ監査是正（2026-11-05、Waka 承認）要修正5: teacher n=2（#AIND-D09163）に cert medium。原文は裸の「ابن الجزري」（規則26 例外2。別の ابن الجزري #AIND-D04938 もいる）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID の整理・2026-11-16 Waka 裁定）</resp>
+        <note xml:lang="ja">state「إمام مقام المالكية」の ref TMP-O-00306 → wd:Q125482（汎用化: 「إمام مقام المالكية」→ 汎用職＋場所・施設）。場所・施設を補った</note>
+        <persName>claude-opus-5-5-office-audit</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>
