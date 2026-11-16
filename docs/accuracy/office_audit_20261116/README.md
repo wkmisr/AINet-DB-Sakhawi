@@ -26,7 +26,7 @@ LLM 抽出の評価で、官職の不一致 81 件のうち 31 件が ID の付�
 
 ## ファイル
 - `office_changes_applied.tsv` — 記録ごとの変更明細
-- `idmaster_office_actions.tsv` — ID-Master への反映内容（全 ID の分類、統合・汎用化・廃止の Note、改名、新規 6 行）。**ID-Master への貼付は未実施**
+- `idmaster_office_actions.tsv` — ID-Master への反映内容（全 ID の分類、統合・汎用化・廃止の Note、改名、新規 6 行）。**2026-11-16 に ID-Master へ反映済み**（FOLLOWUP.md 段階1-1）
 - `office_label_map.tsv` — 官職の表記（正規化）→ ID・分類の対応表（機械学習チームの評価用）
 - `office_plan.py`・`office_records.py`・`office_apply.py` — 作成・適用スクリプト
 

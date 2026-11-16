@@ -2469,3 +2469,10 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - 方針（規則65）: 職業も office、分類は ID-Master の列で／制度上の官職名は固有 ID、汎用職＋場所・施設は汎用 ID＋placeName/orgName／包括語 TMP-O-00002 廃止／流用の是正。
 - Individuals 203 ファイル・211 記録: 流用の付け替え 37、重複 ID の統合 40＋表記の統一 6、汎用化 123（場所・施設を補ったもの 20）、学派の大カーディー職の統一 5、新規 TMP-O-00402〜00407。独立校閲（claude-fable-5-2）の指摘を反映。各ファイルに respStmt を追記。
 - ID-Master への反映（分類列の新設、統合・汎用化・廃止の Note、改名 10、新規 6 行）は未実施。内容は `docs/accuracy/office_audit_20261116/idmaster_office_actions.tsv`。
+
+# 変更ログ: ID-Master への官職 ID 整理の反映と、使わなくなった ID の照合除外（2026-11-16）
+
+- ブランチ: `office-idmaster-status`（← origin/main 4e38c2e）。官職 ID 整理の FOLLOWUP 段階1-1・1-2。
+- ID-Master: H 列「分類」・I 列「Status」を新設。retired 90 ID、改名 10、新規 TMP-O-00402〜00407、TMP-O-00157 のカテゴリを Office に訂正。
+- app.py: ID-Master を csv モジュールで読む／Status=retired の行を照合・プロンプトから除外／retired の TMP 番号を検疫／retired の名前には Note の後継 ID を付けて警告。
+- 校閲ブリーフ規則65 に (e) を追記。詳細: `docs/accuracy/office_audit_20261116/FOLLOWUP.md`。
