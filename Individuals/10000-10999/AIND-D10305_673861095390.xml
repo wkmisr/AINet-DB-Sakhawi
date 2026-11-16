@@ -13,11 +13,17 @@
         <relation type="personal" subtype="ancestor" active="#AIND-D04856" passive="#AIND-D10305"><desc xml:lang="ar">الفخر عثمان بن عبد الرحمن بن عثمان</desc><note xml:lang="ja">見出しナサブ末尾の「عثمان بن عبد الرحمن بن عثمان」＝#AIND-D04856「عثمان بن عبد الرحمن بن عثمان الفخر البلبيسي ثم القاهري الشافعي المقرئ ويعرف بالفخر إمام الأزهر . ولد سنة خمس وعشرين وسبعمائة … مات في ثاني ذي القعدة سنة أربع」（repo 未収録）。祖父の項 D05465 が「حفيد شيخ القراء الفخر」とする＝本項主の高祖父（父の曾祖父）。規則37（見出しナサブで特定できる父祖）により ancestor で立てた。「الماضي … جد أبيه」は字義どおりなら曾祖父 أحمد（または محمد）بن عثمان を指すが、その人の本伝は corpus にない（hw.py「بن عثمان＋البلبيسي」・本文検索「بن عثمان بن عبد الرحمن」で該当なし）。同じ句は父の項 D07999 にもあり、そこでは「جد أبيه」が الفخر عثمان に当たる＝本項の句は父の項からの持ち越しとみられる（ISSUES §D166-6）。初版は「أحمد بن عثمان بن عبد الرحمن」を統制外 subtype other・#NEEDID で立てていた＝置換。</note></relation>
         <relation type="personal" subtype="predecessor" n="1" active="#AIND-D07999" passive="#AIND-D10305" cert="medium"><desc xml:lang="ar">المحب محمد</desc><note xml:lang="ja">「وأم نيابة عن أبيه ثم استقلالا」＝父の代理としてイマームを務め、のち単独で。本項は「خلف」の語を使わないが、父の項 D07999「واستقر ابنه يحيى في الإمامة وكان قد ناب عنه في حياته」が継承を明記する＝predecessor（規則29 の型）を cert medium で補った（規則23）。</note></relation>
     </listRelation>
-    <state n="1" type="office" ref="wd:Q125482">
+    <state n="1" type="office" subtype="deputy" ref="wd:Q125482">
         <label xml:lang="ar">الإمامة</label>
         <label xml:lang="ar-Latn">al-imāma</label>
         <orgName ref="wd:Q312342">الأزهر</orgName>
         <note xml:lang="ja">「الأزهري إمامه وابن أئمته … وأم نيابة عن أبيه ثم استقلالا」＝アズハル・モスク（wd:Q312342）のイマーム職（wd:Q125482）。初版の placeName القاهرة は施設の所在地・ニスバからの補完＝除去（規則22(1)）。同じ内容の affiliation（type employed、الأزهر）は二重符号化＝除去（規則8）。</note>
+    </state>
+    <state n="2" type="office" ref="wd:Q125482">
+        <label xml:lang="ar">الإمامة</label>
+        <label xml:lang="ar-Latn">al-imāma</label>
+        <orgName ref="wd:Q312342">الأزهر</orgName>
+        <note xml:lang="ja">「ثم استقلالا」＝父の代理のあと本任（規則65 (f)、代理と本任は state を分ける）。</note>
     </state>
     <event type="learning" n="1">
         <desc xml:lang="ar">حفظ القرآن وجوده</desc>
@@ -53,5 +59,11 @@
         <note xml:lang="ja">persName full に見出しの限定語を復元（「الأصل」。B167・B168 の扱いに統一、決定8）。</note>
         <persName>claude-b164-168-triage</persName>
         <date when="2026-11-10"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID 整理 PR #110 の独立校閲の反映・2026-11-16）</resp>
+        <note xml:lang="ja">state「الإمامة」、subtype="deputy"（「وأم نيابة عن أبيه ثم استقلالا」の前段（代理）。後段の本任を別 state に分けた）</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

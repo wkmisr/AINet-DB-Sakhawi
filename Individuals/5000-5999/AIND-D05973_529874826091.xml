@@ -27,7 +27,7 @@
         <desc xml:lang="ar">ممن استقر به الظاهر خشقدم في نظر قلعة دمشق والأسوار وغيرهما</desc>
         <note xml:lang="ja">城塞監督職 ＝ ID-Master 既登録 TMP-O-00290「نظر القلعة」（先例 D04661 はアレッポ城塞）。قلعة دمشق は ID-Master 未登録（قلعة حلب＝wd:Q206231、قلعة الجبل＝TMP-L-00193 のみ）のため TMP-L-00328 を発行。初版は نظر قلعة دمشق／نظر الأسوار／「غيرهما」の3 state（いずれも #NEEDID）に分けていたが、原文は一つの任命句のため1 state に統合（「غيرهما」は職名ではないので state にしない）。初版の affiliation（employed、قلعة دمشق）は state と二重符号化のため除去（規則8）。</note>
     </state>
-    <state n="2" type="office" ref="#TMP-O-00045">
+    <state n="2" type="office" subtype="deputy" ref="#TMP-O-00045">
         <label xml:lang="ar">نائب نظر الجيش</label>
         <label xml:lang="ar-Latn">nāʾib naẓar al-jaysh</label>
         <desc xml:lang="ar">وناب عن ابن عمه العلاء في نظر الجيش</desc>
@@ -57,5 +57,11 @@
         <note xml:lang="ja">原文 note を挿入。父 #NEEDID → TMP-P-001428（新規）、いとこ #NEEDID → #AIND-D05028（相互閉合）、息子 TMP-P-000095（別人）→ #AIND-D08362、毒 wd:Q327129 → #AIND-D02830（خشقدم）。「ناب عن ابن عمه」の統制外 relation（colleague）を deputy に。state 5件（#NEEDID ×4）を3件に整理: نظر قلعة دمشق والأسوار → TMP-O-00290＋TMP-L-00328、نائب نظر الجيش → TMP-O-00045、تاجر（wd:Q215536）。「غيرهما」の state・affiliation（employed）・ニスバ由来の residence event・原文にない placeName دمشق ×4 を除去（規則8・22）。没年に cert medium（息子の伝聞・تقريبا）。訳文の「ビン」→「ブン」、「ナースィル・アッ＝ディーンの子」等を逐語化。</note>
         <persName>claude-b109-review</persName>
         <date when="2026-10-10"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（代理職の書き方・2026-11-16 Waka 裁定 ★6 (b)）</resp>
+        <note xml:lang="ja">state「نائب نظر الجيش」を代理職として subtype="deputy" を付けた</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

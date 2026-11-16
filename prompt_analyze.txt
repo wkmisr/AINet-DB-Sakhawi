@@ -630,7 +630,31 @@ Each activity has:
     "Haramayn 1" (Mecca + Medina) → ID per ID Master
     "Haramayn 2" (Jerusalem + Hebron) → ID per ID Master
 - Fields: name_ar, name_lat, place_ar, place_lat, place_id,
-          inst_name, inst_id, appoint_date, retire_date
+          inst_name, inst_id, appoint_date, retire_date, deputy
+- Occupations and trades (تاجر, خياط, etc.) are also "offices".
+- GENERIC POST + PLACE/INSTITUTION: when the source names a generic
+  post attached to a place or an institution (نائب صفد, قاضي عدن,
+  خادم قبة العباس, مدرس الجوهرية, مشيخة الخانقاه X, إمام مقام X),
+  give the GENERIC post's ID (from the ID Master) and put the place in
+  place_ar / place_id and the institution in inst_name / inst_id.
+  Do NOT look for or invent an ID for the combined phrase.
+- DEPUTY ("نائب X", "ناب في X", "ناب عن فلان في X", "X نيابة"):
+  give the ID of the post X itself and set "deputy": true.
+  Exceptions — these deputy posts have their own IDs, so use those
+  IDs and leave "deputy" false:
+    نائب الحكم / ناب في الحكم / ناب في القضاء (deputy judge)
+    نائب كاتب السر
+  "نائب" meaning a provincial governor (نائب الشام, نائب صفد) or the
+  commandant of a citadel (نائب القلعة) is NOT a deputy.
+  When someone first acted as deputy and later held the post in his
+  own right ("أم نيابة عن أبيه ثم استقلالا"), make TWO office entries:
+  one with "deputy": true, one without.
+- "أحد النواب" for a jurist means a deputy judge (نائب الحكم).
+- Sufi head: "مشيخة الصوفية بـX" / "مشيخة الخانقاه X" is the generic
+  mashyakha ID with X as the institution; "شيخ الصوفية" with no
+  institution has its own ID in the ID Master.
+- A clerk "موقع" / "كتب التوقيع" at a judge's door or court
+  ("ببابه", "بباب القاضي فلان") is موقع الحكم, not a generic موقع.
 
 ============================================================
 【15. BIOGRAPHICAL EVENTS — NEW (provisional)】
@@ -986,7 +1010,8 @@ Return ONLY valid JSON. No markdown fences. No commentary.
       "seq": 1, "name_ar": "", "name_lat": "", "id": "",
       "place_ar": "", "place_lat": "", "place_id": "",
       "inst_name": "", "inst_id": "",
-      "appoint_date": "", "retire_date": ""
+      "appoint_date": "", "retire_date": "",
+      "deputy": false
     }
   ],
   "bio_events": [

@@ -23,7 +23,7 @@
         <bibl xml:lang="ar" ref="#TMP-T-00034">أنبائه</bibl>
         <note xml:lang="ja">Pattern A（『إنباء الغمر』での言及と人物評の引用）。</note>
     </event>
-    <state n="1" type="office" ref="wd:Q932945">
+    <state n="1" type="office" subtype="deputy" ref="wd:Q932945">
         <label xml:lang="ar">خطيب</label>
         <label xml:lang="ar-Latn">khaṭīb</label>
         <orgName ref="wd:Q312342">جامع الأزهر</orgName>
@@ -50,5 +50,11 @@
         <note xml:lang="ja">(1) 没日の西暦 1440 → 1441-05-27（h2g.py）。(2) 「ذكره شيخنا في أنبائه وقال …」を Pattern A の mention event（wd:Q471116、bibl TMP-T-00034）に。bibl だけの空 teacher relation と統制外 subtype「client」relation を除去し、「نيابة عني」を deputy relation（active=イブン・ハジャル）に。(3) ニスバ由来の residence القاهرة を除去、affiliation（employed الأزهر）と state خطيب の二重符号化を state に統合、原文にない placeName القاهرة を除去。(4) 人物評を status に。(5) persName full に「ثم」を復元。(6) 原文 note（「±±±」は corpus の記号）を挿入、訳文を是正（引用文の逐語化。ニスバ البنبي の母音は未確定のため「バンビー」は暫定）。</note>
         <persName>claude-b101-review</persName>
         <date when="2026-10-04"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID 整理 PR #110 の独立校閲の反映・2026-11-16）</resp>
+        <note xml:lang="ja">state「خطيب」、subtype="deputy"（「خطب في جامع الأزهر مرات نيابة عني」＝サハーウィーの代行（見出しの「الخطيب」は通称））</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>
