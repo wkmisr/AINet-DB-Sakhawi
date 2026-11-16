@@ -14,9 +14,14 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D06298"><desc xml:lang="ar">والد قانم الدهيشة الأشرفي قايتباي</desc><note xml:lang="ja">父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。</note></relation>
         <relation type="personal" subtype="brother" active="#TMP-P-001562" passive="#AIND-D06298"><desc xml:lang="ar">جانم</desc><note xml:lang="ja">「ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب … وليحضر مع أخيه」＝兄弟 جانم（第二ダワーダールに任命された際アレッポにいた）。corpus の جانم 見出しのうち本項主を名指しするものは無く、候補は #AIND-D02395「جانم نائب قلعة حلب كان وقريب سلطان الوقت ممن قدمه ورام أن يزوجه ابنته فمات هو وإياها في سنة سبع وتسعين」（「وهو بحلب」と整合）・#AIND-D02391「جانم الاشرفي قايتباي ابن أخي السلطان」（884年没、شاد الشربخاناه）・#AIND-D06387 كرتباي「قريبه وأخو جانم」の兄 جانم。いずれも第二ダワーダール任命の記載がなく同定の確証がないため規則26により TMP-P-001562 を発行（ISSUES §D130-2）。初版の #NEEDID を是正。</note></relation>
-        <relation type="personal" subtype="deputy" n="1" active="#TMP-P-001562" passive="#AIND-D06298"><desc xml:lang="ar">أخيه جانم</desc><note xml:lang="ja">「ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب」＝兄弟 جانم の代理として第二ダワーダール職を務めた（repo 先例 D05308・D05973 の deputy 型、active＝本務者）。本項主自身の在職ではないため state にしない。</note></relation>
+        <relation type="personal" subtype="deputy" n="1" active="#TMP-P-001562" passive="#AIND-D06298"><desc xml:lang="ar">أخيه جانم</desc><note xml:lang="ja">「ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب」＝兄弟 جانم の代理として第二ダワーダール職を務めた（repo 先例 D05308・D05973 の deputy 型、active＝本務者）。本項主自身の在職ではないため state にしない【2026-11-17 改: 規則65 (f) により本職 ID＋subtype="deputy" の state を立てた】。</note></relation>
         <relation type="personal" subtype="patron" n="2" active="#AIND-D06305" passive="#AIND-D06298"><desc xml:lang="ar">الأشرف قايتباي</desc><note xml:lang="ja">見出し「الأشرفي قايتباي」＝主人は الأشرف قايتباي（#AIND-D06305）。初版の corresp 属性を除去。</note></relation>
     </listRelation>
+    <state n="1" type="office" subtype="deputy" ref="#TMP-O-00063">
+        <label xml:lang="ar">الدوادارية الثانية</label>
+        <label xml:lang="ar-Latn">al-dawādāriyya al-thāniya</label>
+        <note xml:lang="ja">「ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب」＝兄 جانم に任じられた第二ダワーダール職を、兄がアレッポにいる間代理した。本職 دوادار（00063）＋deputy（規則65 (f)）。官職の記録がなかったので追加。</note>
+    </state>
     <event type="political" n="1">
         <desc xml:lang="ar">ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب</desc>
         <placeName ref="gn:170063">حلب</placeName>
@@ -49,5 +54,17 @@
         <note xml:lang="ja">political event n=1 に原文の地名 حلب（gn:170063、جانم の所在）を復元（内容A[3]）。通称 الدهيشة を shuhrah に（内容A[7]）。ja 訳の補われた因果「ので」を除去（内容A[9]）。</note>
         <persName>claude-b129-133-triage</persName>
         <date when="2026-10-25"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID 整理 段階2・2026-11-17）</resp>
+        <note xml:lang="ja">state「الدوادارية الثانية」 ref (新規 state) → TMP-O-00063、subtype="deputy"（官職の記録がなかった）</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-17"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID 整理 段階2 の独立校閲の反映・2026-11-17）</resp>
+        <note xml:lang="ja">state のラベルから「(نيابة عن أخيه جانم)」を外した（subtype="deputy" と重複）／relation の note の「state にしない」に改めた旨を追記</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-17"/>
     </respStmt>
 </person>
