@@ -604,6 +604,7 @@ FAMILY_RELATIONS = [
     ("spouse",         "Spouse (配偶者)"),
     ("grandfather",    "Grandfather (祖父)"),
     ("grandmother",    "Grandmother (祖母)"),
+    ("grandson",       "Grandson (孫)"),
     ("uncle",          "Uncle (おじ)"),
     ("aunt",           "Aunt (おば)"),
     ("cousin",         "Cousin (いとこ)"),
@@ -672,6 +673,7 @@ SOCIAL_RELATION_TYPES = [
     ("friend",        "Friend (友人)"),
     ("correspondent", "Correspondent (書簡相手)"),
     ("educator",      "Educator (養育者・مربي/لالا)"),  # 2026-11-16 新設。相手が本項主の養育者
+    ("ward",          "Ward (被養育者：本項主が養育者)"),  # XML では subtype="educator"・active=本項主 で出力
     ("successor",     "Successor (後継者)"),
     ("predecessor",   "Predecessor (前任者)"),
     ("other",         "Other (その他)"),
@@ -3602,7 +3604,7 @@ def _method_field_label_lang(entry):
 
 _FAMILY_RELATION_SUBTYPES = {
     "father", "mother", "son", "daughter", "brother", "sister",
-    "spouse", "grandfather", "grandmother",
+    "spouse", "grandfather", "grandmother", "grandson",
     "uncle", "aunt", "cousin", "siblings_child",
     "ancestor", "descendant",
 }
@@ -3791,14 +3793,24 @@ def _build_social_relation(sr, aind_id):
     sr_type = sr.get("type", "")
     if not sr_type:
         return None
-    if sr_type == "other" and sr.get("type_other"):
-        subtype = sr["type_other"]
-    else:
-        subtype = sr_type
+    # 2026-11-16: 統制外の語を subtype に入れない（other＋desc type="relationship_type"）。
+    # 以前は type_other をそのまま subtype にしていたため praise・master 等の統制外 subtype が生じた。
+    subtype = sr_type
     person_id  = sr.get("person_id", "")
     person_ref = fr(person_id) if person_id else "#NEEDID"  # 2026-11-02: 空の active="" を防ぐ
+    # 規則15: subtype は「active が passive の何にあたるか」。ward（本項主が養育者）は
+    # 逆の語を置かず educator・active=本項主 で出力する。
+    active_ref, passive_ref = person_ref, f"#{aind_id}"
+    if sr_type == "ward":
+        subtype = "educator"
+        active_ref, passive_ref = f"#{aind_id}", person_ref
 
     inner_parts = []
+    if sr_type == "other" and (sr.get("type_other") or "").strip():
+        rt = sr["type_other"].strip()
+        inner_parts.append(
+            f'<desc type="relationship_type" xml:lang="{detect_lang(rt)}">{escape_xml(rt)}</desc>'
+        )
     if sr.get("person_name"):
         inner_parts.append(
             f'<desc xml:lang="{detect_lang(sr["person_name"])}">'
@@ -3814,7 +3826,7 @@ def _build_social_relation(sr, aind_id):
     n_attr = assign_n_attribute(subtype, sr.get("seq", ""))
     return (
         f'        <relation type="personal" subtype="{escape_xml_attr(subtype)}"{n_attr} '
-        f'active="{person_ref}" passive="#{aind_id}">'
+        f'active="{active_ref}" passive="{passive_ref}">'
         + "".join(inner_parts) +
         f'</relation>'
     )

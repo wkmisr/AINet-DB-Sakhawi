@@ -2459,3 +2459,4 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - app.py（弟子を teacher・active=本項主で出力）、docs/browser（逆関係で役割を表示）。
 - 詳細: `docs/accuracy/relation_unify_20261116/`。
 - 統制外 subtype 7件（Waka 裁定 2026-11-16）: D02046 master→patron、D02512 correspondent の向き、D01824 praise と D02012・D02015 see_also は relation を除去（event／cross-reference note へ）、D02463・D06317 educator_of→社会関係の新設語彙 `educator`。app.py・docs/browser・規則15 に educator を追加。
+- 解析プロンプト（prompt_analyze.txt）を統一規則に合わせて改訂: 師弟の向きの判定（前置詞・サハーウィーの一人称・引用中の一人称）、社会関係の type は常に相手の役割（マムルークのニスバ＝主人、educator／ward、relation にしないもの）、親族の逆向き表現（「والد X」→son 等）と grandson。app.py: social の type_other を subtype に入れず `other`＋`desc type="relationship_type"` で出力（統制外 subtype の発生源）、ward を educator・active=本項主で出力、family に grandson。

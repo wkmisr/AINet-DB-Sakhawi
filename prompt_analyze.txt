@@ -496,6 +496,34 @@ Each teacher/student record has TWO axes: method and field.
     (received vs. granted) is determined by whether the record
     goes into "teachers" or "students" array.
 
+(C) DIRECTION — "teachers" or "students"? (read the preposition)
+    "teachers" = X taught the SUBJECT.  "students" = the SUBJECT taught X.
+
+    → teachers (X is the subject's teacher):
+        سمع على X / سمع من X / قرأ على X / عرض على X / أخذ عن X /
+        تفقه بـX / لازم X / اشتغل على X / اشتغل عند X / حضر دروس X /
+        أجاز له X / تلا على X
+    → students (X is the subject's student):
+        سمع منه X / أخذ عنه X / قرأ عليه X / عرض عليه X / أجاز لـX /
+        استجازه X / كتب عنه X / حدث سمع منه X / مؤدب X (the subject
+        tutored X) / أقرأ X / "في شيوخ X" or "أثبته X في شيوخه" (the
+        subject is listed among X's teachers)
+
+    al-Sakhāwī in the first person (person_id = Q4120128):
+        سمع مني / قرأ علي / عرض علي / أخذ عني / كتب عني / حضر عندي
+            → teachers += al-Sakhāwī
+        قرأت عليه / سمعت منه / كتبت عنه / أجاز لي / أنشدني
+            → students += al-Sakhāwī
+
+    Quoted first person belongs to the quoted author, not to al-Sakhāwī:
+        "قال شيخنا في معجمه … أجاز لأولادي" → the speaker is Ibn Ḥajar
+        (Q471116); his children are the subject's students.
+
+    ❌ "ذكره شيخنا في إنبائه" / "أرخه X" = X mentioned the subject in a
+       book. This is NOT a teacher or student. Do not extract.
+    ❌ "سمع معنا على X" → X is the subject's teacher; al-Sakhāwī is a
+       fellow listener, NOT a teacher or student.
+
 (B) "field_id" — WHAT was studied.
     Use one of the following IDs:
 
@@ -698,12 +726,42 @@ Examples:
 Non-family, non-teacher/student social ties.
 
     "type"        : patron / client / colleague / rival / friend /
-                    correspondent / successor / predecessor / other
+                    correspondent / successor / predecessor /
+                    educator / ward / other
     "type_other"  : if type = "other"
     "person_name" : name in Arabic
     "person_id"   : an ID copied from the ID MASTER, or TMP-P-000000
     "description" : free text in ENGLISH. Arabic names / terms may be quoted.
                     Do NOT write in Japanese.
+
+"type" is ALWAYS the role of the OTHER person (X) relative to the
+subject — never the subject's own role.
+
+    → patron (X is the subject's master / protector / employer):
+        "الظاهري برقوق" / "الأشرفي قايتباي" (Mamluk nisba of the master),
+        "مملوك X" / "مولى X" / "عتيق X" / "فتى X" / "من X" (تغري بردي من
+        قصروه) / "أستاذه X" / "خدم X" / "كان في خدمة X" / "اختص بـX" /
+        "انتمى لـX"
+        ⚠️ A Mamluk nisba names the MASTER, not the father.
+           "جكم الظاهري خشقدم" → patron = خشقدم (NOT father).
+    → client (the subject is X's master / patron):
+        "وهو أستاذ X" / "قرر X مدرسها" (the subject appointed X)
+    → predecessor: "عوضا عن X" / "بعد X" / "خلف X" / "رغب له عن X"
+    → successor:   "واستقر بعده X" / "وولي بعده X"
+    → educator (X raised / was guardian-tutor of the subject):
+        "رباه X" / "مربيه X" / "لالا X"
+    → ward (the SUBJECT raised / was guardian-tutor of X):
+        "وهو المربي لولد سيده X" / "عمل لالة X"
+        ⚠️ educator / ward are upbringing, NOT scholarly teaching.
+           Do not put them in teachers / students.
+
+❌ NOT a social relation (do not extract):
+    - a poem praising X ("امتدح X") → bio_event cultural, with X named
+    - cross-references ("وينظر X", "يأتي في X", "مضى في X")
+    - "في أيام X" / "في دولة X" (dating by a ruler)
+    - "وقف على X" (endowment beneficiary), "شهد في إجازة X" (witness)
+    - "type":"other" is only for a real personal tie that fits none of
+      the types above. Put the relationship word in "type_other".
 
 ============================================================
 【17. FAMILY — EXPLICIT MENTIONS ONLY】
@@ -725,6 +783,18 @@ EXTRACT (explicit relational vocabulary present):
     - "ابن أخيه" / "ابنة أخته" etc             → siblings_child
     - "صهره" (son-in-law) / "ختنه" etc         → other
 
+⚠️ "relation" is ALWAYS X's role relative to the subject.
+   When the text says what the SUBJECT is to X, reverse it:
+    - "والد X" / "وهو والد X" / "أبو X الآتي"       → son / daughter
+    - "والد زوجة X" / "والد زوج X"                 → other (X is the
+                                                      subject's son-in-law)
+    - "جد X" / "جد الذي قبله"                      → grandson
+    - "عم X" / "خال X" / "وهو عم X"                → siblings_child
+    - "أخو X" / "شقيق X" / "أخت X"                 → brother / sister
+    - "ابن أخي X" / "ابن أخت X"                    → uncle (X is the
+                                                      subject's uncle)
+    - "ابن عم الذي قبله"                           → cousin
+
 DO NOT EXTRACT:
     - Ancestors implied by the nasab chain (محمد بن أحمد بن علي).
       Do NOT decompose ابن chains into family entries.
@@ -734,9 +804,9 @@ DO NOT EXTRACT:
     - Vague relational terms without named individual
       (e.g. "أهله", "أقاربه", "ذريته" without specific names).
 
-== relation KEYS (use these exact 14 values) ==
+== relation KEYS (use these exact 15 values) ==
     father, mother, son, daughter, brother, sister, spouse,
-    grandfather, grandmother,
+    grandfather, grandmother, grandson,
     uncle      (paternal/maternal NOT distinguished)
     aunt       (paternal/maternal NOT distinguished)
     cousin     (no distinction by line or gender)
