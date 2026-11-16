@@ -10,13 +10,13 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-001584" passive="#AIND-D08031"><desc xml:lang="ar">علي بن إدريس بن أحمد بن محمد بن عمر العلوي التعزي الزبيدي</desc><note xml:lang="ja">父 علي بن إدريس：見出しナサブ（9代）から祖父 إدريس 以下まで復元でき、العلوي 家（子 #AIND-D08919 の項「نسبة لعلي بن راشد بن بولان」）のイエメン・ザビード／タイッズの学者家系＝識別要素あり。corpus に本伝なし（hw.py「علي بن إدريس」は D05056 الرومي のみ）・ID-Master 未登録 → 新規 TMP-P-001584（規則3）。</note></relation>
         <relation type="personal" subtype="son" active="#AIND-D08919" passive="#AIND-D08031"><desc xml:lang="ar">أبو الطاهر محمد</desc><note xml:lang="ja">「والد أبي الطاهر محمد الآتي」＝#AIND-D08919「محمد بن محمد بن علي بن إدريس بن أحمد بن محمد بن عمر بن علي بن أبي بكر ابن عبد الرحمن المجد أبو الطاهر العلوي … الزبيدي التعزي اليماني الشافعي . ولد … سنة ست وثمانمائة بزبيد … واشتغل على والده في الفقه وغيره وسمع عليه كثيرا … ومات … سنة أربعين … بالبيمارستان المنصوري من القاهرة」（未受領）。見出しナサブが本項主と完全一致（規則37）。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D08031" passive="#AIND-D08919">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D08031" passive="#AIND-D08919">
             <desc type="method" ref="#TMP-S-00070" xml:lang="ar">انتفع به | الانتفاع</desc>
             <desc type="field" ref="wd:Q484181" xml:lang="ar">الفقه</desc>
             <desc xml:lang="ar">انتفع به ولده في الفقه وغيره</desc>
             <note xml:lang="ja">本項主が師（active）、子 أبو الطاهر محمد（#AIND-D08919）が学生。D08919 側も「واشتغل على والده في الفقه وغيره وسمع عليه كثيرا」と記す。初版は passive #NEEDID。</note>
         </relation>
-        <relation type="personal" subtype="student" n="2" active="#AIND-D08031" passive="#AIND-D08919">
+        <relation type="personal" subtype="teacher" n="2" active="#AIND-D08031" passive="#AIND-D08919">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <desc xml:lang="ar">وسمع عليه كثيرا</desc>
         </relation>
@@ -39,5 +39,11 @@
         <note xml:lang="ja">原文 note を挿入。子 أبو الطاهر محمد の #NEEDID → #AIND-D08919（ナサブ完全一致、規則37）、弟子 relation 2本の passive #NEEDID → #AIND-D08919。父 relation（新規 TMP-P-001584）を追加。「ما رأيت ترجمته」の留保を editorial note に。訳文「ビン」→「ブン」。</note>
         <persName>claude-b134-review</persName>
         <date when="2026-10-26"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）2件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

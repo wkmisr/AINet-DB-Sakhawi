@@ -8,7 +8,7 @@
     <persName type="shuhrah" xml:lang="ar">ابن شقير</persName>
     <sex value="M"/>
     <listRelation>
-        <relation type="personal" subtype="teacher" n="1" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="1" active="#NEEDID" passive="#AIND-D08902b">
             <desc xml:lang="ar">ابن قيم الضيائية</desc>
             <note xml:lang="ar">سمع من ابن قيم الضيائية الأول من حديث على بن المفرج الصقلي وغيره</note>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
@@ -22,33 +22,33 @@
             <bibl xml:lang="ar">السمعونيات</bibl>
             <note xml:lang="ja">ابن النجم = TMP-P-000405（ID-Master「どの نجم الدين か特定できず」）。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="3" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="3" active="#NEEDID" passive="#AIND-D08902b">
             <desc xml:lang="ar">محمد بن المحب عبد الله بن عبد الحميد بن عبد الهادي</desc>
             <note xml:lang="ar">ومن محمد بن المحب عبد الله بن عبد الحميد بن عبد الهادي جزء ابن مخيت وغيره</note>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <bibl xml:lang="ar">جزء ابن مخيت</bibl>
             <note xml:lang="ja">محمد بن المحب عبد الله بن عبد الحميد بن عبد الهادي（サーリヒーヤの ابن عبد الهادي 家）。corpus 本伝なし→ref 未付与。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="4" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="4" active="#NEEDID" passive="#AIND-D08902b">
             <desc xml:lang="ar">ست العرب حفيدة الفخر</desc>
             <note xml:lang="ar">ومن ست العرب حفيدة الفخر أول المزكيات وغيره</note>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <bibl xml:lang="ar">المزكيات</bibl>
             <note xml:lang="ja">ست العرب حفيدة الفخر（الفخر ابن البخاري の孫娘）。corpus 本伝なし→ref 未付与。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="5" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="5" active="#NEEDID" passive="#AIND-D08902b">
             <desc xml:lang="ar">عمر بن عثمان بن سالم</desc>
             <note xml:lang="ar">ومن عمر بن عثمان بن سالم في آخرين</note>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <note xml:lang="ja">عمر بن عثمان بن سالم、corpus 本伝なし→ref 未付与。</note>
         </relation>
-        <relation type="personal" subtype="student" n="6" active="#AIND-D09466" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="6" active="#AIND-D08902b" passive="#AIND-D09466">
             <desc xml:lang="ar">ابن موسى</desc>
             <note xml:lang="ar">وحدث سمع منه ابن موسى</note>
             <desc type="method" ref="#TMP-S-00030" xml:lang="ar">حدث | التحديث</desc>
             <note xml:lang="ja">ابن موسى = TMP-P-000034（محمد بن موسى المراكشي الأصل المكي、ID-Master 注記に AIND 付与済とあるが番号未記載→要照合）。</note>
         </relation>
-        <relation type="personal" subtype="student" n="7" active="#AIND-D04932" passive="#AIND-D08902b">
+        <relation type="personal" subtype="teacher" n="7" active="#AIND-D08902b" passive="#AIND-D04932">
             <desc xml:lang="ar">الموفق الأبي</desc>
             <note xml:lang="ar">والموفق الأبي في سنة خمس عشرة بدمشق</note>
             <desc type="method" ref="#TMP-S-00030" xml:lang="ar">حدث | التحديث</desc>
@@ -86,5 +86,11 @@
         <persName>Kumakura</persName>
         <persName>claude-b94-98-integrate</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。向きが逆に符号化されていた弟子 relation 2件を、本項主=師（active）・相手=学生（passive）の teacher relation に是正／active の欠けた relation 4件に active="#NEEDID" を補った。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

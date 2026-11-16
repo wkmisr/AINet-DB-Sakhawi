@@ -33,21 +33,21 @@
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <note xml:lang="ja">الشهاب الطنتدائي = #AIND-D01015（أحمد بن علي بن خلف … الشهاب الطنتدائي ثم القاهري الحسيني）と推定→cert medium（D00831 أحمد بن عبد الرحمن الطنتدائي の可能性も）。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="2" passive="#AIND-D09231b">
+        <relation type="personal" subtype="teacher" n="2" active="#NEEDID" passive="#AIND-D09231b">
             <desc xml:lang="ar">الشرف السبكي</desc>
             <note xml:lang="ar">وانتفع بالشرف السبكي في الفقه</note>
             <desc type="method" ref="#TMP-S-00070" xml:lang="ar">انتفع به | الانتفاع</desc>
             <desc type="field" xml:lang="ar">الفقه</desc>
             <note xml:lang="ja">الشرف السبكي（شرف الدين يحيى بن محمد السبكي、没ca.850）。corpus 本伝未確認→ref 未付与。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="3" passive="#AIND-D09231b">
+        <relation type="personal" subtype="teacher" n="3" active="#NEEDID" passive="#AIND-D09231b">
             <desc xml:lang="ar">أبو الجود</desc>
             <note xml:lang="ar">وبأبي الجود في الفرائض</note>
             <desc type="method" ref="#TMP-S-00070" xml:lang="ar">انتفع به | الانتفاع</desc>
             <desc type="field" ref="#TMP-S-00024" xml:lang="ar">الفرائض</desc>
             <note xml:lang="ja">أبو الجود（相続法の師、イブン・ハジャル門下の الفرضي）。corpus 本伝未確認→ref 未付与。</note>
         </relation>
-        <relation type="personal" subtype="teacher" n="4" passive="#AIND-D09231b">
+        <relation type="personal" subtype="teacher" n="4" active="#NEEDID" passive="#AIND-D09231b">
             <desc xml:lang="ar">شيخنا ابن خضر</desc>
             <note xml:lang="ar">وبشيخنا ابن خضر فيهما وفي العربية في آخرين</note>
             <desc type="method" ref="#TMP-S-00070" xml:lang="ar">انتفع به | الانتفاع</desc>
@@ -65,13 +65,13 @@
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <note xml:lang="ja">الرشيدي = #AIND-D08039（محمد بن علي بن أبي بكر … الشمس الرشيدي الشافعي ويعرف بابن عطاء الله）と推定→cert medium。</note>
         </relation>
-        <relation type="personal" subtype="student" n="7" passive="#AIND-D09231b">
+        <relation type="personal" subtype="teacher" n="7" active="#AIND-D09231b" passive="#NEEDID">
             <desc xml:lang="ar">ولد الشهاب الشطنوفي</desc>
             <note xml:lang="ar">وأقرأ ولد الشهاب الشطنوفي و غيره</note>
             <desc type="method" ref="#TMP-S-00071" xml:lang="ar">أقرأ | الإقراء</desc>
             <note xml:lang="ja">الشهاب الشطنوفي の息子（未特定）。</note>
         </relation>
-        <relation type="personal" subtype="student" n="8" active="wd:Q4120128" passive="#AIND-D09231b">
+        <relation type="personal" subtype="teacher" n="8" active="#AIND-D09231b" passive="wd:Q4120128">
             <desc xml:lang="ar">السخاوي</desc>
             <note xml:lang="ar">كتبت عنه من نظمه أشياء منها قوله</note>
             <desc type="method" ref="#TMP-S-00026" xml:lang="ar">كتب | الكتابة</desc>
@@ -130,5 +130,11 @@
         <persName>claude-opus-5-greg2</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">birth/@when をユリウス暦 1407-10-14 からグレゴリオ暦 1407-10-23 に是正（0810-05-11）、death/@when をユリウス暦 1465-03-10 からグレゴリオ暦 1465-03-19 に是正（0869-07-12）</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。向きが逆に符号化されていた弟子 relation 2件を、本項主=師（active）・相手=学生（passive）の teacher relation に是正／active の欠けた relation 3件に active="#NEEDID" を補った。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

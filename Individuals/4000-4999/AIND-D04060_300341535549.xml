@@ -11,7 +11,7 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-000902" passive="#AIND-D04060"><desc xml:lang="ar">شاكر بن ماجد بن عبد الوهاب بن يعقوب العلم بن الجيعان</desc><note xml:lang="ja">父 = العلم شاكر بن ماجد ابن الجيعان（本項主のナサブ「الفخر بن العلم」から復元。corpus に本伝なし）→ 新規 TMP-P-000902。</note></relation>
         <relation type="personal" subtype="son" active="#AIND-D03270" passive="#AIND-D04060"><desc xml:lang="ar">شاكر (والد شاكر واخوته)</desc><note xml:lang="ja">息子 = العلمي شاكر بن عبد الغني بن شاكر بن ماجد ابن الجيعان（#AIND-D03270、生790頃）。「واخوته」＝その他の息子（إبراهيم=#AIND-D00151、المجد عبد الرحمن=#AIND-D03648 等）は原文に名がないため relation 化しない。</note></relation>
-        <relation type="personal" subtype="grandfather" active="#AIND-D04060" passive="#AIND-D04059"><desc xml:lang="ar">جد الذي قبله</desc><note xml:lang="ja">「الذي قبله」＝直前項 عبد الغني بن شاكر بن عبد الغني بن شاكر بن ماجد（#AIND-D04059、生818）。本項主はその祖父。</note></relation>
+        <relation type="personal" subtype="grandson" active="#AIND-D04059" passive="#AIND-D04060"><desc xml:lang="ar">جد الذي قبله</desc><note xml:lang="ja">「الذي قبله」＝直前項 عبد الغني بن شاكر بن عبد الغني بن شاكر بن ماجد（#AIND-D04059、生818）。本項主はその祖父。</note></relation>
     </listRelation>
     <state n="1" type="office" ref="#TMP-O-00232">
         <label xml:lang="ar">كتابة الجيش</label>
@@ -41,5 +41,11 @@
         <persName>claude-opus-5-greg2</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">death/@when をユリウス暦 1405-11-18 からグレゴリオ暦 1405-11-27 に是正（0808-05-25）</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（relation の向きの統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">親族・社会 relation の向きを統一規則（active=相手・passive=本項主、subtype＝active が passive の何にあたるか）に合わせた。#AIND-D04059: 「本項主が相手の grandfather」→ active=相手・subtype=grandson。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

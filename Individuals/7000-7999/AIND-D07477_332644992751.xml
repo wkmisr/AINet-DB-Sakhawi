@@ -6,7 +6,7 @@
     <persName type="laqab" xml:lang="ar">بدر الدين</persName>
     <sex value="M"/>
     <listRelation>
-        <relation type="personal" subtype="patron" n="1" active="#AIND-D07477" passive="#AIND-D01178"><desc xml:lang="ar">قرر الشهاب البيجوري مدرسها</desc><note xml:lang="en">He appointed al-Shihāb al-Bījūrī as teacher (mudarris) of the madrasa he founded. Al-Shihāb al-Bījūrī = Aḥmad b. Muḥammad b. Ibrāhīm, Abū Zurʿa, grandson of al-Burhān al-Bījūrī (AIND-D01178), whose own entry states that from 861 AH onward he settled in Damietta and "used to go some days of the week to Fāraskūr to teach at a madrasa built by al-Badr b. Shuʿba".</note></relation>
+        <relation type="personal" subtype="client" n="1" active="#AIND-D01178" passive="#AIND-D07477"><desc xml:lang="ar">قرر الشهاب البيجوري مدرسها</desc><note xml:lang="en">He appointed al-Shihāb al-Bījūrī as teacher (mudarris) of the madrasa he founded. Al-Shihāb al-Bījūrī = Aḥmad b. Muḥammad b. Ibrāhīm, Abū Zurʿa, grandson of al-Burhān al-Bījūrī (AIND-D01178), whose own entry states that from 861 AH onward he settled in Damietta and "used to go some days of the week to Fāraskūr to teach at a madrasa built by al-Badr b. Shuʿba".</note></relation>
     </listRelation>
     <event type="residence" n="1" cert="medium"><placeName ref="#TMP-L-00243">فارسكور</placeName><note xml:lang="en">"He built a madrasa in it (fīhā) near his house": the pronoun refers to "that district" (tilka al-nāḥiya), identified as Fāraskūr through the nisba al-Fāriskūrī and the entry on al-Shihāb al-Bījūrī (AIND-D01178).</note></event>
     <affiliation n="1" type="founded" ref="#TMP-I-00169">
@@ -34,5 +34,11 @@
         <persName>claude-b88c-review</persName>
         <date when="2026-09-24"/>
         <note xml:lang="ja">原文 note を付与。الشهاب البيجوري を #AIND-D01178（أحمد بن محمد بن إبراهيم أبو زرعة حفيد البرهان البيجوري。同項に「يتردد أياما من الأسبوع لفارسكور للتدريس بمدرسة ابتناها البدر بن شعبة」と明記）に同定し、relation を patron（active=本項主、passive=被任命者。repo 先例 D03448 の方向）に整理。初版の #NEEDID を解消。マドラサに新規 #TMP-I-00169、「شيخ تلك الناحية」に新規 #TMP-O-00282（既存 O-00273「شيخ الناحية (المنزلة ومنية بدران)」と同型・別地）を発行。state の placeName（ニスバ由来）を除去し、residence event は照応代名詞 فيها により cert="medium" で保持。affiliation と重複する event type="other" を削除。訳文の「ビン」→「ブン」、「مع ما هو فيه」を明示。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（relation の向きの統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">親族・社会 relation の向きを統一規則（active=相手・passive=本項主、subtype＝active が passive の何にあたるか）に合わせた。#AIND-D01178: 「本項主が相手の patron」→ active=相手・subtype=client。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

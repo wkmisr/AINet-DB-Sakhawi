@@ -11,13 +11,13 @@
         <note xml:lang="ja">「بعد الخمسين」により notBefore 850年（850-01-01 = 1446-04-07、グレゴリオ暦）、「في أيام الظاهر جقمق」（ザーヒル・ジャクマク在位842〜857）により notAfter 857年。年精度の notAfter は当該ヒジュラ年が終わる西暦年を採る規則により @notAfter="1454"（857年末 = 1454-01-09、グレゴリオ暦。ヒジュラ857年末が西暦1454年1月に食い込むため）。初版は death 要素そのものを欠いていた。没年齢は「قارب السبعين」＝70歳近く（逆算生年は幅が大きいため birth は立てない）。</note>
     </death>
     <listRelation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D04450" passive="#TMP-P-000634">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D04450" passive="#TMP-P-000634">
             <desc type="method" ref="#TMP-S-00030" xml:lang="ar">حدث | التحديث</desc>
             <desc xml:lang="ar">العز السنباطي</desc>
             <note xml:lang="ar">حدثني به العز السنباطي عنه</note>
             <note xml:lang="ja">العز السنباطي ＝ #TMP-P-000634（ID-Master 登録名「العز السنباطي / al-ʿIzz al-Sunbāṭī」と一致する正用）。precheck の「汚染注意」は ابن قديد（=AIND-D05925）への流用歴（B22）に対する警告であり、本項では登録どおりの用法のため番号を維持。伝達連鎖は「被伝者 → العز السنباطي → サハーウィー」。</note>
         </relation>
-        <relation type="personal" subtype="student" n="2" active="#AIND-D04450" passive="wd:Q4120128" cert="medium">
+        <relation type="personal" subtype="teacher" n="2" active="#AIND-D04450" passive="wd:Q4120128" cert="medium">
             <desc type="method" ref="#TMP-S-00026" xml:lang="ar">كتب | الكتابة</desc>
             <desc xml:lang="ar">السخاوي</desc>
             <note xml:lang="ar">كتبت عنه في ترجمة القاياتي مناما</note>
@@ -63,5 +63,11 @@
         <persName>claude-opus-5-B86-ruling</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">Waka 裁定 §Db-2 の反映。「ترجمة القاياتي」の القاياتي ＝ #AIND-D08179 を維持・確定とし、新規 TMP-P は発行しない。corpus の並行例 D07029（L76979・L76981）により首席カーディーの القاياتي であることが裏づけられたため、mention event 内 persName の @cert を medium → high に引き上げ、根拠を event note に追記した。XML の参照先そのものに変更はない。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）2件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

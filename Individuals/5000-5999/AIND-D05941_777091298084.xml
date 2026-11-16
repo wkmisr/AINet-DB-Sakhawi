@@ -8,7 +8,7 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#AIND-D07201" passive="#AIND-D05941"><desc xml:lang="ar">أبو سعيد محمد بن أبي بكر بن عبد الله بن ظهيرة</desc><note xml:lang="ja">父 ＝ #AIND-D07201（محمد بن أبي بكر بن عبد الله بن ظهيرة بن أحمد عطية بن ظهيرة أبو سعيد القرشي المكي … مات سنة خمس عشرة بزبد）。ナサブ5代＋クンヤ أبو سعيد が一致＝確実。父がザビードで没したことは母「زبيدية」とも整合。初版の #NEEDID を差し替え。</note></relation>
         <relation type="personal" subtype="mother" active="#NEEDID" passive="#AIND-D05941"><desc xml:lang="ar">زبيدية</desc><note xml:lang="ja">「وأمه زبيدية」。名不詳（ザビード出身の女性）→ #NEEDID 維持（規則12）。なお同父 #AIND-D07201 の子 #AIND-D10819「أبو بكر بن أبي سعيد محمد … الماضي أبوه وأمه زبيدية . درج صغيرا」も母を「زبيدية」と記すが、相手側が本項主を名指ししないため規則23の条件を満たさず、校閲時に cert medium で置かれていた brother relation は集約時に除去して記録のみとした（§D108-4。B99-103 §D103-5・本バッチ §D105-10・§D108-5 の同父兄弟の扱いと統一）。</note></relation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D05941" passive="wd:Q4120128">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D05941" passive="wd:Q4120128">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <event type="teaching" when-custom="0836" when="1432"/>
             <note xml:lang="ja">「أجاز لنا في سنة ست وثلاثين جماعة」＝（8）36年に一団とともに我々（サハーウィー、wd:Q4120128）にイジャーザを与えた。836 ＝ 1432-09-06〜1433-08-26、年初 1432（h2g.py）。初版の event when="0836"（ヒジュラ年を @when に誤記）を是正。</note>
@@ -40,5 +40,11 @@
         <note xml:lang="ja">集約時の変更: en 訳の ظ の転写 Ẕ/ẕ（U+1E94）を repo 標準の Ẓ/ẓ に統一、ظهيرة を Ẓuhayra → Ẓahīra（内容検証B L-22）。 同父の #AIND-D10819 への brother relation（cert medium）を除去し note に記録（規則23: 相手側の名指しなし。§D108-4、同型の §D108-5・§D105-10 と統一）。</note>
         <persName>claude-b104-108-triage</persName>
         <date when="2026-10-05"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

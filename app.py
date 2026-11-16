@@ -3715,8 +3715,10 @@ def _build_teacher_relation(t, aind_id, method_dict, field_dict):
 
 def _build_student_relation(s, aind_id, method_dict, field_dict):
     n_attr = assign_n_attribute("student", s.get("seq", ""))
+    # 2026-11-16: subtype は「active が passive の何にあたるか」で統一（規則15改訂）。
+    # 弟子は本項主＝師（active）・相手＝学生（passive）の teacher relation として出力する。
     lines = [
-        f'        <relation type="personal" subtype="student"{n_attr} '
+        f'        <relation type="personal" subtype="teacher"{n_attr} '
         f'active="#{aind_id}" passive="{fr(s.get("id","")) or "#NEEDID"}">'
     ]
     # 2026-11-02: 相手の名前を desc で出力(親族 relation と同形式)。

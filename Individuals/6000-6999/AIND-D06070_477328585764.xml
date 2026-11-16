@@ -10,12 +10,12 @@
         <note xml:lang="ja">「مات سنة ست عشرة」。816 ＝ 1413-04-12〜1414-03-31、年初 1413。没地は明記なし。</note>
     </death>
     <listRelation>
-        <relation type="personal" subtype="student" n="1" active="#AIND-D06070" passive="#AIND-D01379">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D06070" passive="#AIND-D01379">
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <desc xml:lang="ar">أحمد بن محمد القلجاني</desc>
             <note xml:lang="ja">「ممن أخذ عنه أحمد بن محمد القلجاني」＝本項主が師（active）、学生 ＝ #AIND-D01379（أحمد بن محمد بن عبد الله بن محمد أبو العباس القلشاني المغربي المالكي … ممن أخذ عن عيسى الغبريني、チュニスの قاضي الجماعة）。相手側本伝が本項主を名指し。綴り القلجاني／القلشاني は #AIND-D05999「القلشاني بفتح القاف وسكون اللام ثم معجمة أو جيم」のとおり同一ニスバの揺れ（名寄せせず note 留め）。初版の #NEEDID を解消。</note>
         </relation>
-        <relation type="personal" subtype="student" n="2" active="#AIND-D06070" passive="#AIND-D10261">
+        <relation type="personal" subtype="teacher" n="2" active="#AIND-D06070" passive="#AIND-D10261">
             <desc type="method" ref="#TMP-S-00008" xml:lang="ar">أخذ | الأخذ</desc>
             <desc xml:lang="ar">العجيسي</desc>
             <note xml:lang="ja">「وغيره كالعجيسي」。العجيسي ＝ #AIND-D10261（يحيى بن عبد الرحمن … الشرف الكندي العقيلي … البجائي المالكي نزيل القاهرة … ويعرف بالعجيسي、777年頃生。本伝に「وبتونس قاضيها وعالمها أبو مهدي عيسى الغبريني … وعنهما أخذ التفسير والحديث」と明記、ニスバ索引 #AIND-D11837「العجيسي يحيى بن عبد الرحمن」）。初版はニスバ番号 TMP-N-00449 を person 位置に流用していたため人物に差し替え。</note>
@@ -48,5 +48,11 @@
         <note xml:lang="ja">原文 note を挿入。学生 #NEEDID → #AIND-D01379（أحمد القلشاني/القلجاني、相手側本伝で裏取り）、ニスバ番号流用 TMP-N-00449 → #AIND-D10261（يحيى العجيسي、相手側本伝で裏取り）、TMP-N-00550（البرزلي）の colleague relation → Pattern A mention event（#AIND-D11065、bibl 新規 TMP-T-00220）。relation/@n を規約Aの連番（1, 2）に。residence event تونس（職からの補完）を除去。state #NEEDID → 新規 TMP-O-00322（قاضي تونس）。訳文の「ビン」→「ブン」、「（西暦1413/1414年）」の補いを除去。</note>
         <persName>claude-b112-review</persName>
         <date when="2026-10-10"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）2件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

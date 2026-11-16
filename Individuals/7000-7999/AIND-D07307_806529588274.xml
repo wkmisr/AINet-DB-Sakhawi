@@ -20,17 +20,17 @@
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <note xml:lang="ja">أبو الطاهر محمد بن عبد الغني الدريبي。corpus に本伝なし（hw.py「الدريبي」は本項のみ）・ID-Master 未登録（ニスバ الدريبي TMP-N-04540 のみ）→ 新規 TMP-P-001579。</note>
         </relation>
-        <relation type="personal" subtype="student" n="4" active="#AIND-D07307" passive="#AIND-D09466">
+        <relation type="personal" subtype="teacher" n="4" active="#AIND-D07307" passive="#AIND-D09466">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <event type="teaching" when-custom="0815" when="1412"/>
             <note xml:lang="ja">「سمع منه الفضلاء كابن موسى … وكان سماعهما في سنة خمس عشرة」。ابن موسى ＝ #AIND-D09466（محمد بن موسى … المراكشي الأصل المكي … ويعرف بابن موسى、幻番号 TMP-P-000034 の名寄せ先）。815 ＝ 1412-04-22〜1413-04-11、年初 1412。</note>
         </relation>
-        <relation type="personal" subtype="student" n="5" active="#AIND-D07307" passive="#AIND-D04932">
+        <relation type="personal" subtype="teacher" n="5" active="#AIND-D07307" passive="#AIND-D04932">
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <event type="teaching" when-custom="0815" when="1412"/>
             <note xml:lang="ja">「شيخنا الأبي」＝ #AIND-D04932（علي بن إبراهيم بن علي بن راشد الموفق … ويعرف بالإبي、幻番号 TMP-P-000035 の名寄せ先）。直後に固有名があるので「شيخنا」はイブン・ハジャルを指さない。先例 D04862（同じ815年の ابن موسى・الأبي の聴聞）。</note>
         </relation>
-        <relation type="personal" subtype="student" n="6" active="#AIND-D07307" passive="#TMP-P-000221">
+        <relation type="personal" subtype="teacher" n="6" active="#AIND-D07307" passive="#TMP-P-000221">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
             <note xml:lang="ja">「وقال شيخنا في معجمه أجاز في استدعاء ابنتي رابعة」。رابعة ＝ ID-Master 登録 TMP-P-000221（イブン・ハジャルの娘）。先例 D04862。初版の #NEEDID を解消。</note>
         </relation>
@@ -69,5 +69,11 @@
         <note xml:lang="ja">原文 note を挿入。師3本の #NEEDID → TMP-P-001356（بشر）／新規 TMP-P-001578（عمر）／新規 TMP-P-001579（الدريبي）。弟子: 幻番号 TMP-P-000034 → #AIND-D09466、TMP-P-000035 → #AIND-D04932、イブン・ハジャル（wd:Q471116）への student relation（原文はイジャーザの証言のみ）を除去し Pattern A mention event（TMP-T-00104）に、إجازة の #NEEDID → TMP-P-000221（رابعة）。祖父 TMP-P-000530（汚染）relation を除去し父 #NEEDID relation を追加。field（الحديث）除去、relation 内 event の @when「0815」を when-custom＋1412 に。職 #NEEDID → 新規 TMP-O-00354、施設 → 新規 TMP-I-00246、affiliation employed（二重符号化）と職由来の residence بعلبك を除去。「حدث」を cultural event に。訳文「ビン」→「ブン」、「廟」→「ザーウィヤ」、en のラテン文字転写を正規化。</note>
         <persName>claude-b133-review</persName>
         <date when="2026-10-25"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（師弟 relation の表記統一・2026-11-16 Waka 依頼）</resp>
+        <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）3件を subtype="teacher" に変更（向きは不変）。</note>
+        <persName>claude-opus-5-5-relation-unify</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

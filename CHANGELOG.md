@@ -2450,3 +2450,11 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - 新規 TMP 69件（P-001709〜001745／L-00405〜00412／I-00281〜00289／O-00395〜00401／T-00266〜00273）。ID-Master 未貼付。
 - 詳細: `docs/handover/HANDOVER_20261110_v13_50.md`、`docs/batches/B164-168/`。
 - 裁定反映（Waka 2026-11-11、`docs/batches/B164-168/rulings_20261111.md`）: ★1 名寄せで既存 5 ファイルを付け替え（D02779→D11148、D01003→D06740、D01116→D05846、D01693→D10294、D07177→TMP-P-000256）。★2 (c)・★3 (a)・確認依頼は現状どおり。TMP-L-00140（登録＝المهجم）の流用を監査し 7 ファイルを付け替え（منوف→TMP-L-00254、سفح قاسيون→TMP-L-00278、دهلك→gn:340218、新規 TMP-L-00413〜00416）。
+
+# 変更ログ: relation の向きと subtype の統一（2026-11-16）
+
+- ブランチ: `relation-direction-unify-20261116`（← origin/main 69c5297）。Waka 依頼。LLM 抽出評価で正解データの師弟の向きが逆になる例が見つかったことを受けたもの。
+- 規則15 を改訂（`docs/batches/B164-168/CHUNK_BRIEF_B164-168.md`）: subtype は常に「active が passive の何にあたるか」。師弟は常に `teacher`・active=師、親族・社会関係は active=相手、active・passive は省かない。
+- Individuals 324 ファイル: student→teacher 330、向きの誤りの是正 14（枝番項）、`active="#NEEDID"` の補充 40、親族・社会関係の向きの統一 56（うち符号化の誤り 32・逆関係への書換え 22・relative 化 1・維持 1）。各ファイルに respStmt を追記。
+- app.py（弟子を teacher・active=本項主で出力）、docs/browser（逆関係で役割を表示）。
+- 詳細: `docs/accuracy/relation_unify_20261116/`。
