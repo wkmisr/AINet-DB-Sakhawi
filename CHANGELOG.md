@@ -2460,3 +2460,4 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - 詳細: `docs/accuracy/relation_unify_20261116/`。
 - 統制外 subtype 7件（Waka 裁定 2026-11-16）: D02046 master→patron、D02512 correspondent の向き、D01824 praise と D02012・D02015 see_also は relation を除去（event／cross-reference note へ）、D02463・D06317 educator_of→社会関係の新設語彙 `educator`。app.py・docs/browser・規則15 に educator を追加。
 - 解析プロンプト（prompt_analyze.txt）を統一規則に合わせて改訂: 師弟の向きの判定（前置詞・サハーウィーの一人称・引用中の一人称）、社会関係の type は常に相手の役割（マムルークのニスバ＝主人、educator／ward、relation にしないもの）、親族の逆向き表現（「والد X」→son 等）と grandson。app.py: social の type_other を subtype に入れず `other`＋`desc type="relationship_type"` で出力（統制外 subtype の発生源）、ward を educator・active=本項主で出力、family に grandson。
+- 系譜からの父の自動生成（Waka 裁定 2026-11-16）: app.py に `derive_father_from_nasab` を追加。Gemini の解析結果を反映した後、明示の父が無ければ name_only（無ければ full_name）の最初の بن 以下を desc とする father relation（active="#NEEDID"）を足す。単名の項は「والد ＋呼称」。ID 照合の後に足すので汎用名が別人に照合されない。解析プロンプトにもその旨を明記。

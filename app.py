@@ -1977,6 +1977,40 @@ def apply_prompt_madhhab(data, madhhab_value):
     data["madhhabs"] = new_madhhabs
 
 
+_NASAB_SEP = __import__("re").compile(r"\s+(?:بن|ابن|بنت|ابنة)\s+")
+
+
+def derive_father_from_nasab(data):
+    """見出しの系譜（بن の連鎖）から父の relation を規則で生成する（2026-11-16 Waka 裁定）。
+
+    規則3: 父は必ず relation を立てる。Gemini には系譜から父を出させず（解析プロンプト
+    第17節）、ここで機械的に作る。
+    - name_only（イスム＋父＋祖父）を優先し、無ければ full_name を使う。
+    - 最初の بن／ابن／بنت／ابنة の後ろを父の名（＋祖父名）として desc に入れる。
+    - بن が無い単名の項（マムルーク・宦官など）は「والد ＋本項主の呼称」（規則3、B124-128 ★1）。
+    - ID は付けない（active="#NEEDID"）。本伝や TMP-P への同定は校閲で行う。
+    - 本文に明示の父（family の father）が既にあれば何もしない。
+    戻り値: 追加した family 項目（追加しなければ None）
+    """
+    import re as _re
+    fam = data.setdefault("family", [])
+    if any((f.get("relation") == "father") for f in fam if isinstance(f, dict)):
+        return None
+    src = (data.get("name_only") or "").strip() or (data.get("full_name") or "").strip()
+    src = _re.sub(r"^\d+\s*", "", src)          # 立項番号の残りを除く
+    if not src:
+        return None
+    parts = _NASAB_SEP.split(src, maxsplit=1)
+    if len(parts) == 2 and parts[1].strip():
+        name = parts[1].strip()
+    else:
+        name = "والد " + ((data.get("full_name") or "").strip() or src)
+    item = {"ui_id": str(uuid.uuid4()), "relation": "father", "relation_note": "",
+            "name": name, "id": "", "auto_nasab": True}
+    fam.insert(0, item)
+    return item
+
+
 def apply_prompt_result(data, prompt_result):
     """Gemini の返り値を data_v19 に最大限自動反映する。"""
 
@@ -2133,6 +2167,9 @@ def apply_prompt_result(data, prompt_result):
         pass
     apply_id_master_matching(data, silent=True)
     mark_unresolved_ids_in_data(data, silent=True)
+    # 系譜からの父（規則3）。ID 照合の後に足すので、汎用名が ID-Master の別人に
+    # 自動で照合されることはない（id は空 → active="#NEEDID"）。
+    derive_father_from_nasab(data)
 
     # === Streamlit session_state の同期 ===
     # text_input に key を指定している場合、Streamlit は session_state を
