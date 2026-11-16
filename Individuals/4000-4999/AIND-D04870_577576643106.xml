@@ -18,7 +18,7 @@
         <relation type="personal" subtype="son" active="#AIND-D07953" passive="#AIND-D04870" cert="medium"><desc xml:lang="ar">البدر محمد</desc><note xml:lang="ja">#AIND-D07953「محمد بن عثمان بن محمد بن إسحق بن إبراهيم البدر بن الفخر بن التاج السلمي المناوي … أخو البهاء أحمد الماضي」はナサブが本項主と一致し、D00960 も「أخو البدر محمد」と記す（統一規則23、cert medium）。</note></relation>
         <relation type="personal" subtype="brother" active="#AIND-D10815" passive="#AIND-D04870" cert="medium"><desc xml:lang="ar">الشرف أبو بكر بن التاج المناوي</desc><note xml:lang="ja">#AIND-D10815「أبو بكر بن محمد بن إسحق بن إبرهيم بن عبد الرحمن الشرف بن التاج السلمي المناوي الشافعي」（760年以前生・809年没）は父 التاج محمد بن إسحق を共有（ナサブ4代一致）。本項・D10815 のいずれも兄弟関係を明記しないため cert medium（ISSUES §D96-8）。</note></relation>
     </listRelation>
-    <state n="1" type="office" ref="#TMP-O-00036">
+    <state n="1" type="office" ref="wd:Q352842">
         <label xml:lang="ar">مدرس</label>
         <label xml:lang="ar-Latn">mudarris</label>
         <desc xml:lang="ar">درس</desc>
@@ -28,7 +28,7 @@
         <label xml:lang="ar-Latn">muʿīd</label>
         <desc xml:lang="ar">أعاد</desc>
     </state>
-    <state n="3" type="office" ref="#TMP-O-00003">
+    <state n="3" type="office" ref="#TMP-O-00096">
         <label xml:lang="ar">نائب القاضي</label>
         <label xml:lang="ar-Latn">nāʾib al-qāḍī</label>
         <placeName ref="gn:360630">القاهرة</placeName>
@@ -58,5 +58,11 @@
         <note xml:lang="ja">日付精度の統一: when-custom が年／月精度の @when を repo 慣行（年のみ→年初の西暦年、月のみ→月初の西暦年月。「原文が月精度なら日を作らない」v13.22、repo 762:7）に合わせて日精度から年／月精度に戻した（0766→1364; 0807-07→1405-01）。値は h2g.py で再計算し一致。</note>
         <persName>claude-b94-98-triage</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（官職 ID の統合し漏れ・2026-11-16 Waka 裁定）</resp>
+        <note xml:lang="ja">state「مدرس」の ref TMP-O-00036 → wd:Q352842（★2: مدرس＝تدريس）／state「نائب القاضي」の ref TMP-O-00003 → TMP-O-00096（★1: نائب القاضي＝نائب الحكم（2026-07-11 の裁定どおり 00096 に一本化））</note>
+        <persName>claude-office-followup</persName>
+        <date when="2026-11-16"/>
     </respStmt>
 </person>

@@ -1196,6 +1196,9 @@ def _build_retired_successor_index(records):
         succ, kind = _retired_successor(r.get("Note", ""))
         if not id_val or not succ:
             continue  # 廃止(後継なし)は照合しない
+        # 代理専用 ID を本職 ID に統合した行(★6、Note に「subtype=deputy」)
+        if "subtype=deputy" in str(r.get("Note", "")):
+            kind = kind + "+deputy"
         cat = (r.get("Category", "") or "").strip()
         for _alt in str(r.get("Arabic", "") or "").split("|"):
             ar = normalize_arabic(_alt)
@@ -1808,6 +1811,8 @@ def apply_id_master_matching(d, silent=False):
             if hit:
                 succ, kind, old_id = hit
                 item[id_field] = succ
+                if kind.endswith("+deputy") and section == "offices":
+                    item["deputy"] = True
                 filled += 1
                 redirected.append({
                     "section": section, "field": id_field, "name": name_raw,
@@ -1827,10 +1832,12 @@ def apply_id_master_matching(d, silent=False):
             "後継 ID を付けたので確認してください(規則65)。"
         )
         for x in redirected:
-            if x["kind"] == "generic":
+            if x["kind"].startswith("generic"):
                 tip = "汎用 ID に切替。場所・施設を場所欄・施設欄(placeName/orgName)に入れてください"
             else:
                 tip = "同じ職の ID に統合済み"
+            if x["kind"].endswith("+deputy"):
+                tip += "。代理の印を付けました"
             st.caption(
                 f"　• [{x['section']}.{x['field']}] 「{x['name']}」"
                 f" {x['retired_id']} → {x['successor']}（{tip}）"
@@ -3237,6 +3244,13 @@ for i, item in enumerate(offices):
         r4[0].caption("🏛️ Institution Name"); r4[1].caption("Institution ID (Q / TMP-I-)")
         item["inst_name"] = r4[0].text_input("oiname", item.get("inst_name",""), key=f"o_in_{uid}", label_visibility="collapsed")
         item["inst_id"]   = r4[1].text_input("oiid",   item.get("inst_id",""),   key=f"o_ii_{uid}", label_visibility="collapsed", placeholder="Q12345 / TMP-I-00001")
+        item["deputy"] = st.checkbox(
+            "代理（نائب／نيابة）",
+            value=bool(item.get("deputy", False)),
+            key=f"o_dep_{uid}",
+            help='代理職は本職の ID のまま、これに印を付ける（XML では <state subtype="deputy">。規則65 (f)）。'
+                 'ただし نائب الحكم（TMP-O-00096）と نائب كاتب السر（TMP-O-00244）は固有の ID を使い、印は付けない。',
+        )
         item["inference_note"] = st.text_input(
             "Inference Note (推論根拠 / 英語推奨)",
             item.get("inference_note", ""),
@@ -3250,7 +3264,7 @@ if st.button("＋ add office"):
         "name_ar":"","name_lat":"","id":"TMP-O-00000",
         "place_ar":"","place_lat":"","place_id":"",
         "inst_name":"","inst_id":"","appoint_date":"","retire_date":"",
-        "inference_note":""}); st.rerun()
+        "deputy":False,"inference_note":""}); st.rerun()
 
 # ===================================================
 # --- Family ---
@@ -4105,6 +4119,13 @@ def build_institutions(x, d):
         x.append('    </affiliation>')
 
 
+def _truthy(v):
+    """JSON 由来の真偽値（true／"true"／"yes"／1）を bool にする。"""
+    if isinstance(v, bool):
+        return v
+    return str(v or "").strip().lower() in ("true", "yes", "1", "y")
+
+
 def build_offices(x, d):
     for off in d.get("offices", []):
         if not (off.get("name_ar") or off.get("name_lat")):
@@ -4112,7 +4133,9 @@ def build_offices(x, d):
         off_ref = fr(off.get("id", ""))
         ref_att = f' ref="{off_ref}"' if off_ref else ""
         n_attr  = f' n="{off.get("seq","")}"' if off.get("seq") else ""
-        x.append(f'    <state{n_attr} type="office"{ref_att}>')
+        # 代理職は本職 ID＋subtype="deputy"（規則65 (f)、Waka 裁定 2026-11-16）
+        dep_att = ' subtype="deputy"' if _truthy(off.get("deputy")) else ""
+        x.append(f'    <state{n_attr} type="office"{dep_att}{ref_att}>')
         if off.get("name_ar"):
             x.append(f'        <label xml:lang="ar">{escape_xml(off["name_ar"])}</label>')
         if off.get("name_lat"):
