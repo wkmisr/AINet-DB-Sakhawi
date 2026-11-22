@@ -1,6 +1,6 @@
 # 統制語彙外の relation subtype（2026-11-22 洗い出し）
 
-Individuals 4,295 ファイルの relation 18,? 件のうち、統制語彙（app.py の FAMILY_RELATIONS・SOCIAL_RELATION_TYPES に teacher・possible_identity・killer・maternal_*・paternal_uncle を加えたもの）にない subtype は **151 件（140 ファイル）**。明細は `out_of_vocab.tsv`。
+Individuals 4,295 ファイルの relation 7671 件のうち、統制語彙（app.py の FAMILY_RELATIONS・SOCIAL_RELATION_TYPES に teacher・possible_identity・killer・maternal_*・paternal_uncle を加えたもの）にない subtype は **151 件（140 ファイル）**。明細は `out_of_vocab.tsv`。
 
 | 群 | 件数 | 主な subtype | 処置案 |
 |---|---|---|---|
