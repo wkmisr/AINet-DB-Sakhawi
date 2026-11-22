@@ -1,0 +1,54 @@
+schema: aind-yaml/0.1
+id: AIND-D02841
+source:
+  uid: '249200384184'
+sex: M
+name:
+  full: خشكلدي
+  elements:
+  - id: n1
+    type: ism
+    quote: خشكلدي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 886-09
+    cert: medium
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  summary:
+    ar: أصيب في الحريق الكائن بها في رمضان سنة ست وثمانين
+  note:
+    ja: 「أصيب في الحريق الكائن بها في رمضان سنة ست وثمانين」＝886 年ラマダーン月（月初 1481-11-02）にマディーナで起きた火災（預言者モスクの大火）で被災した。「أصيب」は死亡を明記しないため、repo 先例 D03335（同文「أصيب في الحريق الكائن بها … رحمه الله」を死亡と読む）に倣い death を立てつつ cert medium。「بها」＝見出しの المدينة النبوية（gn:109223）。同内容（desc・日付・地）の event type="other" n=1 と二重だったので、desc を death に移して event を削除（集約 2026-10-26、内容B F07）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02841
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  subtype: deputy
+  ref: TMP-O-00093
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: نائب المشيخة
+  note:
+    ja: '「نائب المشيخة بالمدينة النبوية」＝マディーナ（預言者モスクの奉仕者団）のシャイフ職の代理。ID-Master に同職なし（مشيخة 系は O-00011・O-00013・O-00077 等の施設固有職のみ）のため、汎用 نائب（TMP-O-00053）＋ラベル（先例 D05921「نائب قلعة حلب」方式）。初版は #NEEDID、placeName も #NEEDID → gn:109223。初版の date type=retirement（886-09）は原文に退任の記載がないため除去。'
+translation:
+  ja: フシュカルディー、預言者の町マディーナのシャイフ職の代理（ナーイブ・アル＝マシュヤハ）。886年ラマダーン月に同地で起きた火災で被災した（落命したとみられる）。
+  en: Khushkaldī, deputy of the shaykh-ship (nāʾib al-mashyakha) in the Prophet's City (Medina). He was struck down in the fire that broke out there in Ramaḍān of the year 886.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T07:57:10Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

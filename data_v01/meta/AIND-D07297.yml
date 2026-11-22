@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D07297
+source:
+  uid: '509283823061'
+sex: M
+name:
+  full: محمد بن جار الله بن حمزة بن راجح بن أبي نمى الحسني المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: جار الله
+    by: rule
+    ref: TMP-P-000766
+  - id: n5
+    type: nasab
+    quote: حمزة
+    by: rule
+  - id: n6
+    type: nasab
+    quote: راجح
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أبي نمى
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 786
+    cert: low
+  note:
+    ja: 逆算生年：没816年に「عن ثلاثين سنة أو أزيد」（30歳またはそれ以上）→ 786年以前（notAfter 786＝1385-02-19終了、h2g.py）。cert low。
+death:
+  id: d
+  date:
+    ah: 816-11-07
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: wd:Q42004
+    quote: المعلاة
+  note:
+    ja: 「مات في آخر سابع ذي القعدة سنة ست عشرة بمكة ودفن بالمعلاة عن ثلاثين سنة أو أزيد ذكره الفاسي」。816年ズー・アル＝カアダ月7日の末＝1414年2月7日（月曜、h2g.py。初版の @when 1413 は誤り）。没地 مكة・埋葬地 المعلاة はいずれも原文明記。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-000766
+  passive: AIND-D07297
+  quote: null
+  note:
+    ja: '父 ＝ ID-Master TMP-P-000766「جار الله بن حمزة بن راجح」（兄弟 #AIND-D02774 حمزة بن جار الله بن حمزة بن راجح の父として登録済み。Note に「息子 محمد بن جار الله=AIND-D07297 は立項あり」）。corpus に本伝なし（جار الله 見出し D02331〜D02339 に該当なし）。初版は father relation 自体が欠落。'
+states:
+- id: s1
+  type: status
+  label: من أعيان الأشراف ذوي أبي نمى
+  quote: من أعيان الأشراف ذوي أبي نمى
+  note:
+    ja: 「كان من أعيان الأشراف ذوي أبي نمى」＝マッカのシャリーフ、アブー・ヌマイ家（ذوو أبي نمى）の有力者の一人。ID-Master に家門の登録なし（職 رأس أشراف آل أبي نمى TMP-O-00161 は兄弟 D02774 の職＝別）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي
+  note:
+    ja: 'Pattern A。الفاسي ＝ التقي الفاسي #AIND-D06757（幻番号 TMP-P-000603 の名寄せ先）。初版の統制外 mentioned_by relation を置換。'
+  trigger: rule
+notes:
+- text: '兄弟 ＝ #AIND-D02774「حمزة بن جار الله بن حمزة بن راجح بن أبي نمى الحسني المكي . كان رأس أشراف آل أبي نمى بعد أبيه … مات في المحرم سنة ست عشرة بمكة ، ودفن بالمعلاة … قاله الفاسي」（同年816年没。D02774 は本項主を名指ししないため brother relation は立てず、共通の父 TMP-P-000766 で導出、規則23）。初版のニスバ由来 residence event مكة を除去（規則22(1)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・ジャーッラー・ブン・ハムザ・ブン・ラージフ・ブン・アビー・ヌマイ・アル＝ハサニー・アル＝マッキー。アブー・ヌマイ家のシャリーフたちの有力者の一人であった。816年ズー・アル＝カアダ月7日の末にマッカで没し、アル＝マアラー（墓地）に葬られた。30歳かそれ以上であった。アル＝ファースィーが彼に言及している。
+  en: Muḥammad b. Jār Allāh b. Ḥamza b. Rājiḥ b. Abī Numayy al-Ḥasanī al-Makkī. He was one of the notables of the sharīfs of the house of Abū Numayy. He died at the end of 7 Dhū al-Qaʿda 816 in Mecca and was buried at al-Muʿallā, aged thirty or more. Al-Fāsī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T07:44:38Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

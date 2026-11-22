@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D10271
+source:
+  uid: '273279897488'
+sex: M
+name:
+  full: يحيى بن عجلان الأسيوطي الأصل المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00162
+    quote: الأسيوطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00042
+    quote: null
+  - id: n4
+    type: shuhrah
+    quote: ابن الشريفة
+  - id: n5
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عجلان
+    by: rule
+death:
+  id: d
+  date:
+    ah: 873
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  summary:
+    ar: مات بالقاهرة في طاعون سنة ثلاث وسبعين
+  note:
+    ja: 873年初＝1468-07-31（h2g.py、年精度）。873年のペストによる死。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10271
+  quote: طي
+  note:
+    ja: 規則3 (c')。父 عجلان は名のみで祖父名も不明、corpus に本伝なし（hw.py「عجلان|الأسيوطي」は本項のみ）。
+- id: r2
+  type: personal
+  subtype: ancestor
+  active: NEEDID
+  passive: AIND-D10271
+  quote: null
+  note:
+    ja: 「ويقال له الطائي نسبة لجد له اسمه طي」＝طي という名の祖先（جد له＝世代は不明）にちなむニスバ。初版は grandfather（#NEEDID）としていたが、祖父とは限らない＝ancestor に（repo 実勢の subtype）。名のみ＝#NEEDID。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D10271
+  methods:
+  - TMP-S-00003
+  quote: شيخنا
+  note:
+    ja: 「وهو ممن سمع من شيخنا」。شيخنا＝イブン・ハジャル（wd:Q471116、師としての شيخنا）。初版の field（الحديث）は原文にない＝除去、desc に相手名を補った。
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  - ref: TMP-T-00065
+  quote: سمع
+  note:
+    ja: 初版は未符号化。المنهاج＝TMP-T-00065（マッカのシャーフィイー派の暗記書とみた。学派は原文に明記なし）。
+  trigger: rule
+- id: e2
+  type: travel
+  places:
+  - ref: TMP-L-00054
+    quote: الحبشة
+  - ref: TMP-L-00039
+    quote: الهند
+  - ref: gn:360630
+    quote: القاهرة
+  - ref: TMP-L-00002
+    quote: الشام
+  quote: وسافر
+  summary:
+    ar: وسافر إلى الحبشة والهند والقاهرة والشام للاسترزاق ، وكان ينفد ما يدخل عليه أولا فأولا
+  note:
+    ja: '生計を求めての旅（repo 先例 #AIND-D10823a「ودخل غير مرة اليمن للاسترزاق」＝travel）。稼ぎは入るそばから使い果たした。初版は visit event 4本＝1つに統合。'
+  trigger: rule
+translation:
+  ja: ヤフヤー・ブン・アジュラーン、アスユート出自のアル＝マッキー。イブン・アッ＝シャリーファとして知られる。クルアーンと『ミンハージュ』を暗記した者の一人で、生計を求めてハバシャ（エチオピア）、インド、カイロ、シャームへ旅したが、入ってくるものを次から次へと使い果たしていた。彼は我らがシャイフ（イブン・ハジャル）から聴聞した者の一人である。タイイという名の祖先にちなんでアッ＝ターイーとも呼ばれる。（8）73年のペストでカイロにおいて没した。
+  en: Yaḥyā b. ʿAjlān, of Asyūṭī origin, al-Makkī, known as Ibn al-Sharīfa. He was among those who memorized the Qurʾān and the Minhāj, and he travelled to Abyssinia, India, Cairo and Syria to seek a livelihood, but he used to spend whatever came in to him as fast as it came. He is among those who heard from our shaykh (Ibn Ḥajar). He is also called al-Ṭāʾī, a nisba to an ancestor of his named Ṭayy. He died in Cairo in the plague of the year [8]73.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T04:35:59Z'
+  model_requested: gemini-3.5-flash

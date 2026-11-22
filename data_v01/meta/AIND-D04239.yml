@@ -1,0 +1,106 @@
+schema: aind-yaml/0.1
+id: AIND-D04239
+source:
+  uid: '726440879312'
+sex: M
+name:
+  full: عبد الكبير بن محمد بن أحمد العلاء أبو القسم بن الجمال الحرازي المكي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00325
+    quote: الحرازي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: laqab
+    quote: العلاء
+  - id: n4
+    type: kunyah
+    quote: أبو القسم
+  - id: n5
+    type: ism
+    quote: عبد الكبير
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D06881
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: الجمال
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04239
+  methods:
+  - TMP-S-00006
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: حفظ القرآن والكنز وعرضه علي بمكة
+  works:
+  - ref: TMP-T-00095
+  - ref: TMP-T-00144
+  quote: علي
+  note:
+    ja: 'الكنز ＝ TMP-T-00144（كنز الدقائق）。初版は同一の عرض を2 relation に分割し bibl #NEEDID。'
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D06881
+  passive: AIND-D04239
+  quote: null
+  note:
+    ja: '父 الجمال محمد بن أحمد الحرازي ＝ #AIND-D06881（「والد أحمد وعبد الله وأخو عبد القادر الماضيين」、生830）。B69-73（D04102）と同じ同定。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D01222
+  passive: AIND-D04239
+  quote: أخو أحمد
+  note:
+    ja: 兄 أحمد بن محمد بن أحمد الحرازي المكي：父 D06881「والد أحمد وعبد الله」で実在確認。corpus の أحمد 部に本伝の見出しなし（أحمد بن محمد بن أحمد＋الحرازي の AND 検索で該当なし）→ ナサブ復元形で新規 TMP-P-001036（§E-1(a)）。
+- id: r4
+  type: personal
+  subtype: brother
+  active: AIND-D04555
+  passive: AIND-D04239
+  quote: وعبد الله
+  note:
+    ja: 兄 عبد الله بن محمد بن أحمد الحرازي المكي：corpus の عبد الله 部に見出しなし（D04556 は父が التقي أبو اليمن の別家系）。初版の TMP-P-000490（別人 عبد الله）は流用 → ナサブ復元形で新規 TMP-P-001037。
+states:
+- id: s1
+  type: status
+  label: وهو الأصغر
+  quote: وهو الأصغر
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+translation:
+  ja: アブド・アル＝カビール・ブン・ムハンマド・ブン・アフマド、アル＝アラー・アブー・アル＝カースィム・ブン・アル＝ジャマール・アル＝ハラーズィー・アル＝マッキー・アル＝ハナフィー。アフマドとアブド・アッラーの兄弟で、最年少。成長してクルアーンと『アル＝カンズ』を暗記し、マッカで私（サハーウィー）にそれを提示（暗誦）した。
+  en: ʿAbd al-Kabīr b. Muḥammad b. Aḥmad, al-ʿAlāʾ Abū al-Qāsim b. al-Jamāl al-Ḥarāzī al-Makkī al-Ḥanafī, brother of Aḥmad and ʿAbd Allāh, and the youngest of them. He grew up, memorized the Qurʾān and al-Kanz, and presented it to me in Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-19T02:52:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,158 @@
+schema: aind-yaml/0.1
+id: AIND-D07199
+source:
+  uid: '133995445480'
+sex: M
+name:
+  full: محمد بن أبي بكر بن عبد الكريم الشمس المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: shuhrah
+    quote: ابن كريم
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الكريم
+    by: rule
+birth:
+  id: b
+  date:
+    notBefore: 730
+    cert: medium
+  places:
+  - ref: TMP-L-00042
+    quote: غزة
+  note:
+    ja: 「وذكره المقريزي في عقوده وقال أنه ولد بغزة بعد الثلاثين وسبعمائة」。マクリーズィーの伝聞（قال أنه → cert medium）。「بعد الثلاثين وسبعمائة」＝notBefore-custom 730（規則18、repo 先例に従い N の年初＝1329-11-02 → 年精度 1329）。初版の when-custom="0730"（点の年）を是正。
+death:
+  id: d
+  date:
+    ah: 821
+    cert: medium
+  note:
+    ja: 「مات سنة إحدى وعشرين كذا قال」＝マクリーズィーの記述（「كذا قال」はサハーウィーの留保）→ cert medium。821年＝1418-02-17 開始、年精度 1418。イブン・ハジャルの引用「أجاز لأولادي في سنة إحدى وعشرين」も同年。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000173
+  passive: AIND-D07199
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: سمع من الصدر الميدومي مشيخته تخريج الحسيني وأولها المسلسل
+  works:
+  - ref: TMP-T-00240
+  - ref: TMP-T-00019
+  quote: الصدر الميدومي
+  note:
+    ja: الصدر الميدومي＝ID-Master 既登録 TMP-P-000173（عبد الرحمن بن عبد الكريم الميدومي、754没。本項主 730年代生と整合）。『مشيخة الميدومي』（الحسيني 編）は ID-Master 未登録のため TMP-T-00240 を発行。その冒頭が『المسلسل』（TMP-T-00019）。初版の field（الحديث）を除去。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07199
+  passive: TMP-P-000418
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 821
+    summary:
+      ar: أجاز لأولادي في سنة إحدى وعشرين
+  quote: null
+  note:
+    ja: 'イブン・ハジャル『معجم』の引用「أجاز لأولادي」＝本項主がイブン・ハジャルの子らにイジャーザを授与（821年＝1418）。受け手は先例 #AIND-D07001・D00060 どおり ID-Master 既登録 TMP-P-000418「أولاد ابن حجر」。方向: active＝授与者（本項主）。初版の subtype student（逆向き）を是正。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07199
+  quote: null
+  note:
+    ja: '父は見出しのナサブのみ。corpus（クンヤ部 أبو بكر بن عبد الكريم 見出しなし）・ID-Master に該当なし → #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00012
+  places:
+  - ref: gn:281184
+    cert: medium
+  quote: العطار بها
+  note:
+    ja: 薬種商（العطار、TMP-O-00012＝職として実体一致）。「بها」はニスバ المقدسي の指す聖地（بيت المقدس）を受ける照応のため cert medium（規則22(3)）。
+- id: s2
+  type: office
+  ref: TMP-O-00353
+  orgs:
+  - ref: TMP-I-00235
+  - ref: wd:Q12192963
+  quote: خادم قبة المعراج بالمسجد الأقصى
+  note:
+    ja: イブン・ハジャル『معجم』の記述。職「خادم قبة المعراج」・施設「قبة المعراج（アクサー・モスク域内の昇天ドーム）」はともに ID-Master 未登録（語根 خدم では خادم قبة العباس TMP-O-00153 のみ）→ TMP-O-00331／TMP-I-00235 を発行。初版の affiliation employed（المسجد الأقصى）は state と二重のため除去（規則8）。
+- id: s3
+  type: status
+  label: كان عاميا صدوق اللهجة
+  cert: medium
+  quote: كان عاميا صدوق اللهجة
+  note:
+    ja: マクリーズィーの評（قال أنه … → cert medium）。
+events:
+- id: e1
+  type: teaching
+  quote: وحدث
+  note:
+    ja: 「الفضلاء」（不特定の学者たち）は相手が描写されない集合のため relation を立てない（規則14、先例 D04475）。初版の TMP-P-000183 への student relation を除去。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00104
+  quote: وذكره
+  summary:
+    ar: 'قال شيخنا في معجمه : وكان خادم قبة المعراج بالمسجد الأقصى أجاز لأولادي في سنة إحدى وعشرين'
+  note:
+    ja: Pattern A。「في معجمه」＝『المجمع المؤسس』TMP-T-00104。初版の subtype other relation（イブン・ハジャル）を event 化。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: وقال
+  summary:
+    ar: وذكره المقريزي في عقوده وقال أنه ولد بغزة بعد الثلاثين وسبعمائة وكان عاميا صدوق اللهجة . مات سنة إحدى وعشرين كذا قال
+  note:
+    ja: 'Pattern A。المقريزي＝wd:Q293604、عقوده＝TMP-T-00122。初版の #NEEDID relation（other）を event 化。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アビー・バクル・ブン・アブドゥルカリーム、アッ＝シャムス・アル＝マクディスィー、同地（聖地）の薬種商（アッタール）。縮小形でイブン・クライムとして知られる。アッ＝サドル・アル＝マイドゥーミーから、アル＝フサイニー編の同人の『マシュヤハ（師名録）』——その冒頭は『ムサルサル』である——を聴聞し、伝承した。学者たち（フダラー）が彼から聴聞した。我らが師（イブン・ハジャル）は『ムウジャム』で言う。「彼はアクサー・モスクの昇天のドーム（クッバト・アル＝ミウラージュ）の奉仕者（ハーディム）で、（8）21年に私の子らにイジャーザを授けた」。アル＝マクリーズィーは『ウクード』で彼に言及し、730年より後にガザで生まれ、一般人（アーンミー）であったが語り口は誠実であった、と述べている。（8）21年に没した——彼（マクリーズィー）はそう言っている。
+  en: 'Muḥammad b. Abī Bakr b. ʿAbd al-Karīm, al-Shams al-Maqdisī, the druggist (al-ʿaṭṭār) there, known as Ibn Kurayyim in the diminutive. He heard from al-Ṣadr al-Maydūmī the latter''s Mashyakha compiled (takhrīj) by al-Ḥusaynī, the first item of which is al-Musalsal, and he transmitted; the learned heard from him. Our shaykh (Ibn Ḥajar) said in his Muʿjam: "He was the custodian (khādim) of the Dome of the Ascension (Qubbat al-Miʿrāj) in the Aqṣā Mosque; he granted an ijāza to my children in the year (8)21." Al-Maqrīzī mentioned him in his ʿUqūd and said that he was born in Gaza after 730, and that he was a commoner (ʿāmmī) of truthful speech. He died in the year (8)21 — so he (al-Maqrīzī) said.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T00:47:01Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

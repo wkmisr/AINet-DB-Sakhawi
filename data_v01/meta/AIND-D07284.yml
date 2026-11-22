@@ -1,0 +1,115 @@
+schema: aind-yaml/0.1
+id: AIND-D07284
+source:
+  uid: '991671893377'
+sex: M
+name:
+  full: محمد بن بهادر المسعودي الصلاحي الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00968
+    quote: المسعودي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00893
+    quote: الصلاحي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: بهادر
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 721
+  note:
+    ja: 「ولد سنة إحدى وعشرين وسبعمائة」。721年＝1321-02-08〜1322-01-27（年精度→1321）。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 803
+    cert: medium
+  summary:
+    ar: مات في الكائنة العظمى سنة ثلاث
+  note:
+    ja: イブン・ハジャルの言「مات في الكائنة العظمى سنة ثلاث」。「سنة ثلاث」は一の位のみ＝803（cert medium、2026-09-24 規則）。「الكائنة العظمى」（大事件）はティムールによる803年のダマスクス攻略を指すと解されるが、原文に地名の明記はないため placeName を付けない（規則22(1)）。803年＝1400-08-31〜1401-08-19（年精度→1400）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000275
+  passive: AIND-D07284
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00174
+  quote: الحجار
+  note:
+    ja: 「وسمع على الحجار جزء أبي الجهم وغيره」。الحجار ＝ TMP-P-000275（登録実体＝8世紀の مسند الحجار、没730。本項主は721年生で幼少時の聴聞＝年代整合、precheck の汚染注意は実体一致で可）。書名 جزء أبي الجهم ＝ TMP-T-00174（D05282 でも الحجار からの聴聞）。初版の field الحديث を除去。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07284
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00003
+  quote: شيخنا
+  note:
+    ja: 「وحدث سمع عليه شيخنا وغيره」＝本項主が師、イブン・ハジャル（wd:Q471116）が聴聞（規則15、active=師）。初版の student relation（向きは正しいが subtype と field）を是正。
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07284
+  quote: null
+  note:
+    ja: '父。見出しの「بن بهادر」のみ（汎用名）→ #NEEDID（規則3）。'
+events:
+- id: e1
+  type: cultural
+  quote: وحدث
+  note:
+    ja: ハディースを伝承した。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  quote: وقال
+  summary:
+    ar: 'وقال : مات في الكائنة العظمى سنة ثلاث'
+  note:
+    ja: Pattern A。没年の情報源はイブン・ハジャル（「سمع عليه شيخنا … وقال」）。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: null
+  summary:
+    ar: وتبعه المقريزي في عقوده
+  note:
+    ja: Pattern A。المقريزي『درر العقود الفريدة』（TMP-T-00122）がイブン・ハジャルの没年記述に従った。初版の統制外 biographer relation（#NEEDID）を置換。
+translation:
+  ja: ムハンマド・ブン・バハードゥル・アル＝マスウーディー・アッ＝サラーヒー・アッ＝ディマシュキー。721年に生まれ、アル＝ハッジャールから『ジュズウ・アビー・アル＝ジャフム』などを聴聞し、伝承した。我らがシャイフ（イブン・ハジャル）らが彼から聴聞し、（イブン・ハジャルは）「（8）03年の大事件（アル＝カーイナ・アル＝ウズマー）の中で没した」と述べ、アル＝マクリーズィーも『ウクード』でこれに従った。
+  en: 'Muḥammad b. Bahādur al-Masʿūdī al-Ṣalāḥī al-Dimashqī. He was born in 721 and heard the Juzʾ of Abū al-Jahm and other works from al-Ḥajjār; he transmitted, and our shaykh (Ibn Ḥajar) and others heard from him. He (Ibn Ḥajar) said: "He died in the Great Catastrophe (al-kāʾina al-ʿuẓmā) in the year (8)03," and al-Maqrīzī followed him in his ʿUqūd.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T07:11:19Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

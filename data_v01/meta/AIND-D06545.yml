@@ -1,0 +1,106 @@
+schema: aind-yaml/0.1
+id: AIND-D06545
+source:
+  uid: '458215143353'
+sex: M
+name:
+  full: محمد بن إبراهيم بن محمد بن أحمد البصري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00006
+    quote: البصري
+  - id: n2
+    type: shuhrah
+    quote: ابن زقزق
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: AIND-D00253
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D06545
+  passive: AIND-D04492
+  methods:
+  - TMP-S-00008
+  quote: عبد الله البصري
+  note:
+    ja: '「وممن أخذ عنه وعن أبيه عبد الله البصري صاحب البرهاني بن ظهيرة」＝本項主が師（規則15）。عبد الله البصري＝#AIND-D04492「عبد الله بن عبد الواحد … الشيرازي الأصل البصري الشافعي نزيل مكة ويعرف فيها بالشيخ عبد الله البصري … فقرأ القرآن لعاصم على إبراهيم ابن محمد بن أحمد بن زقزق … وعلى محمد بن إبراهيم بن زقزق البصري جانبا من الحاوي ومختصر الملحة … وعكف على البرهاني قاضيها」（本項主を名指し、البرهاني との関係も閉合。repo 未収録）。「صاحب البرهاني بن ظهيرة」は عبد الله の属性＝relation にしない。父 #AIND-D00253 との師弟は父の項で立てる。初版は既登録 TMP-P-000340（登録＝عبد الله البصري、出現 D00253＝父の弟子として登録された同じ人物）への student relation（規則15 で廃止された向き）と、البرهان بن ظهيرة（#AIND-D00196）への統制外 relation「associate of student」。'
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D00253
+  passive: AIND-D06545
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」＝#AIND-D00253「إبراهيم بن محمد بن أحمد برهان الدين البصري الشافعي والد محمد وأخوته ويعرف بابن زقرق」（repo 収録済み。通称は父の項「زقرق」・本項「زقزق」、刊本どおり）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D00006
+  passive: AIND-D06545
+  quote: إبراهيم
+  note:
+    ja: '「الماضي … وأخوه إبراهيم」＝#AIND-D00006「إبراهيم بن إبراهيم بن محمد بن أحمد البصري نزيل مكة والآتي أبوه وأخواه محمد وإسماعيل ويعرف بابن زقزق … وكان أبوه وأخوه محمد من علماء البصرة」（repo 収録済み、相手側も本項主を brother に持つ）。初版は #NEEDID。'
+- id: r4
+  type: personal
+  subtype: brother
+  active: AIND-D01922
+  passive: AIND-D06545
+  quote: إسماعيل
+  note:
+    ja: 「الماضي … وإسماعيل」＝#AIND-D01922「إسماعيل بن إبراهيم بن محمد بن أحمد البصري الماضي أبوه وأخوه إبراهيم … ويعرف بابن زقزق」（repo 収録済み）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: learning
+  places:
+  - ref: gn:388349
+    cert: medium
+  - ref: TMP-L-00002
+    quote: الشام
+  quote: أخذ
+  summary:
+    ar: ممن اشتغل ببلده وبالشام
+  note:
+    ja: '「ببلده」＝所有代名詞付き名詞で、候補はニスバ「البصري」の地一つ＝البصرة（gn:388349）を cert medium で（規則22(3)）。兄弟の項 #AIND-D00006 に「وكان أبوه وأخوه محمد من علماء البصرة」。الشام は原文に明記（TMP-L-00002）。初版は study event 2件（cert なし）。'
+  trigger: rule
+- id: e2
+  type: cultural
+  works:
+  - label: شرح الجواهر
+  quote: وتميز في الفقه والعربية وغيرهما وشرح الجواهر مختصر الملحة شرحا جيدا مختصرا
+  note:
+    ja: '法学・アラビア語学などに秀で、『الجواهر』（『الملحة』の要約）に簡潔で良い注釈を著した。『الجواهر』は #AIND-D04492 の本文によれば「مختصر الملحة المسمى الجواهر للشيخ يوسف الواسطي」＝يوسف الواسطي による『ملحة الإعراب』（TMP-T-00206）の要約。本項主の注釈も『الجواهر』も ID-Master 未登録（「الجواهر」「الملحة」で grep。TMP-T-00053 الجواهر والدرر は別書）＝ref を付けない。'
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アフマド、アル＝バスリー、アッ＝シャーフィイー。父と、兄弟のイブラーヒームおよびイスマーイールは既出。イブン・ズクズクの名で知られる。故郷とシャームで学び、法学・アラビア語学その他に秀で、『ジャワーヒル』（『ムルハ』の要約）に簡潔で良い注釈を著した者の一人。彼と彼の父から学んだ者に、アル＝ブルハーニー・ブン・ズハイラの仲間であるアブドゥッラー・アル＝バスリーがいる。
+  en: Muḥammad b. Ibrāhīm b. Muḥammad b. Aḥmad al-Baṣrī al-Shāfiʿī, whose father and whose brothers Ibrāhīm and Ismāʿīl have been mentioned above; known as Ibn Zuqzuq. He was among those who studied in his home town and in Syria, excelled in jurisprudence, Arabic and other fields, and wrote a good, concise commentary on the Jawāhir, the abridgement of the Mulḥa. Among those who studied under him and under his father was ʿAbd Allāh al-Baṣrī, the companion of al-Burhānī Ibn Ẓahīra.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T16:06:05Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

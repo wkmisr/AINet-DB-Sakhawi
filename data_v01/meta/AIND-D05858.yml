@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D05858
+source:
+  uid: '296537305744'
+sex: M
+name:
+  full: عمر بن عبد الرحمن بن أحمد المقراني اليماني الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02574
+    quote: المقراني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n3
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    ah: 812
+    cert: low
+  note:
+    ja: 没年 888・享年 76 からの逆算（888−76 ＝ 812 頃、cert low）。812 ＝ 1409-05-25〜1410-05-14（h2g.py）。
+death:
+  id: d
+  date:
+    ah: 888
+  note:
+    ja: 「مات سنة ثمان وثمانين عن ست وسبعين سنة」。888 ＝ 1483-02-18〜1484-02-07（h2g.py、年のみ→年初）。享年76。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D05858
+  methods:
+  - TMP-S-00025
+  quote: الأهدل
+  note:
+    ja: '「وأنه قرأ على الأهدل」。الأهدل はイエメンの一族名のみで人物を特定できない → #NEEDID 維持（規則12）。息子 D03945 の本文「ذكر لي أن والده كان فقيها قرأ على الاهدل」が情報源。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D05858
+  passive: AIND-D03945
+  methods:
+  - TMP-S-00009
+  cert: medium
+  quote: عبد الصمد
+  note:
+    ja: '息子 #AIND-D03945 の本文「فاضل اشتغل على أبيه في الفقه وغيره」が本項主を一意に父として明記 → 規則23により cert medium で補う（active ＝ 師 ＝ 本項主）。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D03945
+  passive: AIND-D05858
+  quote: null
+  note:
+    ja: '「والد عبد الصمد الماضي له ذكر فيه」。息子 ＝ #AIND-D03945（عبد الصمد بن عمر بن عبد الرحمن بن أحمد المقراني اليماني الشافعي ويعرف بأبي نبيلة、repo 収録済み・父 relation に #AIND-D05858 を置く）で双方向に閉合。初版 #NEEDID。'
+states:
+- id: s1
+  type: status
+  label: فقيه
+  quote: null
+  note:
+    ja: 「وكان فقيها」。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+translation:
+  ja: ウマル・ブン・アブド・アッ＝ラフマーン・ブン・アフマド・アル＝ムクラーニー・アル＝ヤマーニー・アッ＝シャーフィイー。前述のアブド・アッ＝サマドの父。その（息子の）項に彼への言及があり、彼がアル＝アフダルのもとで学び（読誦し）、法学者であったこと、888年に76歳で没したことが記されている。
+  en: ʿUmar b. ʿAbd al-Raḥmān b. Aḥmad al-Muqrānī al-Yamānī al-Shāfiʿī, the father of ʿAbd al-Ṣamad, mentioned previously. He is mentioned in his son's entry, where it is stated that he read under al-Ahdal, that he was a jurist, and that he died in the year 888 at the age of seventy-six.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T06:31:45Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

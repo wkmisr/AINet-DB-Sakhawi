@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D05733
+source:
+  uid: '549256704432'
+sex: M
+name:
+  full: علي الأسطا الأرزنجاني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01520
+    quote: الأرزنجاني
+  - id: n2
+    type: shuhrah
+    quote: الأسطا
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+death:
+  id: d
+  note:
+    ja: 「وعمر نحو المائة حتى مات」。没年・没地は記載なし。100歳近くまで長命であった。
+relations:
+- id: r1
+  type: personal
+  subtype: son
+  active: AIND-D10383
+  passive: AIND-D05733
+  quote: يعقوب شاه الآتي
+  note:
+    ja: '息子 ＝ #AIND-D10383（يعقوب شاه بن أسطا علي الأرزنجاني ثم التبريزي ثم القاهري المهمندار、810年頃アルズィンジャーン生）。見出し「والد يعقوب شاه الآتي」と相手側見出し「بن أسطا علي الأرزنجاني」で相互閉合。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D08903
+  passive: AIND-D05733
+  quote: اختص بخدمة الناصري بن البارزي
+  note:
+    ja: 'الناصري بن البارزي ＝ #AIND-D08903（محمد بن محمد بن عثمان … ناصر الدين … الجهني الحموي الشافعي … ويعرف كسلفه بابن البارزي、アル＝ムアイヤド・シャイフの كاتب السر、823年没）。ID-Master の TMP-P-001115（篠田氏「ناصر الدين بن البارزي」）は同人＝名寄せ要（ISSUES）。初版は統制外 subtype「client」・#NEEDID。方向: 主人＝active（規則15）。'
+states:
+- id: s1
+  type: status
+  label: تقدم في القوس علما وعملا بحيث عرف بالأسطا
+  quote: تقدم في القوس علما وعملا بحيث عرف بالأسطا
+- id: s2
+  type: status
+  label: كان خيرا من ولده
+  quote: كان خيرا من ولده
+events:
+- id: e1
+  type: travel
+  places:
+  - ref: TMP-L-00038
+    quote: الروم
+  quote: قدم
+  summary:
+    ar: قدم من بلاده إلى الروم
+  note:
+    ja: '「بلاده」はニスバ الأرزنجاني の指すアルズィンジャーン（息子の本伝 #AIND-D10383 に「ولد … بأرزنجان」）。出発地は placeName にせず note に留める。'
+  trigger: rule
+- id: e2
+  type: travel
+  date:
+    ah: 815
+    cert: medium
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+  summary:
+    ar: ثم إلى القاهرة في أول سلطنة المؤيد
+  cert: medium
+  note:
+    ja: 「في أول سلطنة المؤيد」＝アル＝ムアイヤド・シャイフ（#AIND-D03345）の即位（815年シャアバーン月＝1412年11月）直後。年は治世開始からの推定のため cert medium。初版は residence event（cert medium）としていたが、原文は到来（قدم）のみ。
+- id: e3
+  type: political
+  quote: ثم انتقل لبيت السلطان
+  note:
+    ja: 'スルターンの家（宮廷）に移った。スルターンは文脈上アル＝ムアイヤド・シャイフ（#AIND-D03345）と推定されるが、原文に名が無いため relation は立てず note に留める（規則26）。初版の affiliation（employed بيت السلطان #NEEDID）を event に改めた。'
+- id: e4
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  note:
+    ja: 7回巡礼した（規則20により مكة を付す）。
+  trigger: rule
+- id: e5
+  type: residence
+  subtype: jāwara
+  quote: وجاور
+  note:
+    ja: 「جاور」には placeName を付けない（規則20）。初版の placeName مكة を除去。
+  trigger: rule
+translation:
+  ja: アリー・アル＝ウスター・アル＝アルズィンジャーニー、後出のヤアクーブ・シャーの父。自分の国からルーム（アナトリア）へ、次いでアル＝ムアイヤドの治世の初めにカイロへやって来た。アン＝ナースィリー・ブン・アル＝バーリズィーに専属して仕え、次いでスルターンの家（宮廷）に移った。弓術において理論と実践の両面で抜きん出て、それゆえ「アル＝ウスター（親方）」として知られた。7回巡礼し、（マッカに）滞在（ムジャーワラ）し、100歳近くまで長命を保って没した。息子よりも善良な人物であった。
+  en: ʿAlī al-Usṭā al-Arzinjānī, father of Yaʿqūb Shāh (to follow). He came from his homeland to al-Rūm (Anatolia), then to Cairo at the beginning of the sultanate of al-Muʾayyad. He attached himself to the service of al-Nāṣirī b. al-Bārizī, then moved to the household of the sultan. He excelled in archery in both theory and practice, so that he became known as "al-Usṭā" (the master). He performed the pilgrimage seven times and resided as a mujāwir (presumably in Mecca), and lived to about a hundred years before he died. He was a better man than his son.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T06:03:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

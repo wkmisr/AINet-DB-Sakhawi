@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D02889
+source:
+  uid: '114026354965'
+sex: M
+name:
+  full: خليل بن أبي البركات بن موسى صلاح الدين بن سعد الدين ابن أبي الهول
+  elements:
+  - id: n1
+    type: laqab
+    quote: صلاح الدين
+  - id: n2
+    type: shuhrah
+    quote: ابن أبي الهول
+  - id: n3
+    type: ism
+    quote: خليل
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي البركات
+    by: rule
+    ref: AIND-D10619
+  - id: n5
+    type: nasab
+    quote: موسى
+    by: rule
+  - id: n6
+    type: nasab
+    quote: سعد الدين
+    by: rule
+death:
+  id: d
+  date:
+    ah: 883-09
+  note:
+    ar: مات في رمضان سنة ثلاث وثمانين
+    ja: 883-09＝1478-12-05 開始、月精度 1478-12（h2g.py）。初版 @when="1478"（年精度）を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D10619
+  passive: AIND-D02889
+  quote: null
+  note:
+    ja: '規則3・37。父＝ #AIND-D10619「أبو البركات بن موسى بن أبي الهول سعد الدين والد خليل وإبرهيم . ولي كتابة المماليك في أيام الناصر فرج ومات في رجب سنة إحدى وخمسين」（851没、未収録）。見出しナサブ（أبو البركات بن موسى）・ラカブ سعد الدين・家名 ابن أبي الهول・「والد خليل」で閉合。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D00072
+  passive: AIND-D02889
+  cert: medium
+  quote: null
+  note:
+    ja: '兄弟＝ #AIND-D00072「إبراهيم بن أبي البركات بن موسى برهان الدين بن سعد الدين بن أبي الهول أحد كتاب المماليك وأخو خليل الآتي」（未収録）。本項原文に名指しはないが、相手側が「أخو خليل الآتي」と名指しし、父 D10619 も「والد خليل وإبرهيم」と両者を挙げるため cert medium で立てる（規則23）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00028
+  quote: أحد كتاب المماليك
+events:
+- id: e1
+  type: other
+  places:
+  - ref: TMP-L-00342
+    quote: بركة قرموط
+  orgs:
+  - ref: TMP-I-00270
+  quote: null
+  summary:
+    ar: وهو صاحب الجامع الذي ببركة قرموط ، وكان مسجدا قديما فوسعه وعمل فيه خطبة ورتب فيه أرباب وظائف
+  note:
+    ja: بركة قرموط（カイロの街区）＝ID-Master 既登録 TMP-L-00342（خط بركة قرموط）。本項主が拡張してジャーミウにしたモスクは ID-Master 未登録（「قرموط」該当は TMP-L-00342 のみ）→ TMP-I-00270。初版の affiliation founded（#NEEDID）を event に置換。
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  trigger: rule
+translation:
+  ja: ハリール・ブン・アビー・アル＝バラカート・ブン・ムーサー、サラーフ・アッ＝ディーン・ブン・サアド・アッ＝ディーン、先人と同じくイブン・アビー・アル＝ハウルとして知られる。マムルーク登録書記（クッターブ・アル＝ママーリーク）の一人。883年ラマダーン月に没した。彼はビルカト・カルムートにあるジャーミウの主で、それは古いモスクであったが、彼が拡張して金曜説教を設け、職務者を配置した。巡礼を複数回行った。
+  en: Khalīl b. Abī al-Barakāt b. Mūsā, Ṣalāḥ al-Dīn b. Saʿd al-Dīn, known like his forebears as Ibn Abī al-Hawl. One of the scribes of the mamlūks (kuttāb al-mamālīk). He died in Ramaḍān of the year 883. He was the master of the congregational mosque at Birkat Qarmūṭ; it had been an old mosque, which he enlarged, instituting the Friday sermon in it and appointing office-holders. He performed the pilgrimage more than once.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-30T04:10:10Z'
+  model_requested: gemini-3.5-flash

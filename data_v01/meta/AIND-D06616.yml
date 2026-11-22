@@ -1,0 +1,118 @@
+schema: aind-yaml/0.1
+id: AIND-D06616
+source:
+  uid: '377445431346'
+sex: M
+name:
+  full: محمد بن أحمد بن إسماعيل بن أحمد الشرف البدماصي المصري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01206
+    quote: البدماصي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n3
+    type: laqab
+    quote: الشرف
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: إسماعيل
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 808-12
+    cert: medium
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بها في ذي الحجة سنة ثمان
+  note:
+    ja: 「سنة ثمان」＝808（一の位のみ＝80X、cert medium。師 ابن صديق は806年マッカ没、情報源 الفاسي は832年没で整合）。808年ズー・アル＝ヒッジャ月＝1406-05-29〜06-26（h2g.py）、月精度・月初で @when=1406-05（初版は年のみの 1405）。「بها」＝先行の مكة（cert 不要）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06616
+  quote: null
+  note:
+    ja: 規則3 (c')。corpus の見出し（أحمد بن إسماعيل＋البدماصي）に該当なし。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D00271
+  passive: AIND-D06616
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: ابن صديق
+  note:
+    ja: 「وسمع بها من ابن صديق」。ابن صديق＝#AIND-D00271「إبراهيم بن محمد بن صديق … برهان الدين الدمشقي … عرف بابن صديق」（マッカに寄留、806年没）。原文に分野の語はない＝初版の field（الحديث）を除去。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: تكسب بالوثائق
+  note:
+    ja: '「وتكسب بالوثائق ولم يحمد في ذلك」＝証書の作成で生計を立てたが、その仕事ぶりは誉められなかった。ラカブ索引 #AIND-D11138 が本項主を「والبدماصي الشاهد محمد بن أحمد بن اسمعيل」と呼ぶ＝証人（الشاهد、TMP-O-00050）。「الوثائق」という語の Office 登録はない（ISSUES §D172-6）。placeName مكة は「وسمع بها … وتكسب」の等位接続による（規則22(3)）。初版は ref #NEEDID。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: فأقام
+  summary:
+    ar: قدم مكة فأقام بها نحو عشر سنين
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  works:
+  - ref: TMP-T-00037
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي في مكة
+  note:
+    ja: 'Pattern A。الفاسي＝التقي الفاسي #AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037、repo 先例どおり）。初版の統制外 relation「other」を置換。'
+  trigger: rule
+notes:
+- text: 「وقد جاز الأربعين ظنا」＝（没時に）40歳を過ぎていたと思われる。年齢の推測なので生年は立てない（規則59 (d)）。「وكان يذكر أنه من ذرية الصديق رضي الله عنه」＝本人が أبو بكر الصديق の子孫だと称していた（本人の主張。初版の relation「other」・#NEEDID を除去）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・イスマーイール・ブン・アフマド、アッ＝シャラフ・アル＝バドマースィー・アル＝ミスリー。マッカに来て10年ほどそこに滞在し、そこでイブン・スィッディークから聴き、証書の作成で生計を立てたが、その点で誉められなかった。（80）8年ズー・アル＝ヒッジャ月にそこで没し、思うに40歳を過ぎていた。自分はアッ＝スィッディーク（神が彼を嘉したまわんことを）の子孫であると称していた。アル＝ファースィーが『マッカ〔史〕』で彼に言及している。
+  en: Muḥammad b. Aḥmad b. Ismāʿīl b. Aḥmad, al-Sharaf al-Badmāṣī al-Miṣrī. He came to Mecca and stayed there about ten years; he heard there from Ibn Ṣiddīq and earned his living by [drawing up] legal documents, for which he was not praised. He died there in Dhū al-Ḥijja of the year [80]8, having passed forty, as is thought. He used to say that he was of the progeny of al-Ṣiddīq, may God be pleased with him. Al-Fāsī mentioned him in [his history of] Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T06:04:25Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

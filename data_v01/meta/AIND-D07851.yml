@@ -1,0 +1,129 @@
+schema: aind-yaml/0.1
+id: AIND-D07851
+source:
+  uid: '404841550848'
+sex: M
+name:
+  full: محمد بن عبد الله بن يوسف بن حجاج بن قريش الشمس المخزومي القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00088
+    quote: المخزومي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: shuhrah
+    quote: ابن قريش
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: يوسف
+    by: rule
+  - id: n8
+    type: nasab
+    quote: حجاج
+    by: rule
+  - id: n9
+    type: nasab
+    quote: قريش
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    notBefore: 860
+    cert: low
+  note:
+    ja: 「وأظنه مات بعد الستين وقارب السبعين」＝860年以後（repo 先例どおり notBefore-custom は N＝860、年初 1455-12-20、h2g.py）。「أظنه」＝cert low。「وقارب السبعين」は年齢の定型（70歳近くで没した）であって没年ではない（ブリーフ「年齢＝生年逆算 cert low か note」、同型 D07863「وأظنه قارب السبعين」）。生年は没年自体が下限のみなので逆算しない（note 留め）。【集約 2026-10-31】校閲時の notAfter-custom 0869／notAfter 1465（「قارب السبعين」を没年と読んだもの）を除去（内容A M・機械 L、オーケストレーター決定12）。初版の点日付 0860 を改めた。
+relations:
+- id: r1
+  type: personal
+  subtype: patron
+  active: wd:Q471116
+  passive: AIND-D07851
+  quote: شيخنا
+  note:
+    ja: '「خادم شيخنا … ولم ينفك عن المجئ لمجلسه في رمضان بل ولا في كل ليلة لفرش السجادة ونحوها وإصلاح الشمعة」＝イブン・ハジャルに仕えた（「仕えた」型＝patron、規則56。初版の統制外 subtype「servant」を置換）。ニスバ索引 #AIND-D12637「ابن قريش الشمس محمد بن عبد الله بن حجاج خادم شيخنا」も同人。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07851
+  methods:
+  - TMP-S-00014
+  - TMP-S-00026
+  context:
+  - summary:
+      ar: رغب في ملازمة شيخنا في كتابة الاملاء عنه وغيرها من تصانيفه كالمقدمة وبذل الماعون وقابلها مع الجماعة عليه
+  works:
+  - ref: TMP-T-00249
+    cert: medium
+  - ref: TMP-T-00252
+  quote: شيخنا
+  note:
+    ja: イブン・ハジャルに密着し、その口述（الإملاء）と著作（『المقدمة』『بذل الماعون』）を書写し、一同とともに彼のもとで校合した。「المقدمة」はイブン・ハジャルの著作としては『مقدمة فتح الباري（هدي الساري）』＝ID-Master TMP-T-00249 が最も妥当（cert medium、先例 D07409「البخاري ومقدمة شرحه」）。『بذل الماعون في فضل الطاعون』は ID-Master 未登録 → TMP-T-00252。初版の3本の relation（field الحديث・placeName القاهرة＝原文なし）を1本に統合。
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07851
+  quote: null
+  note:
+    ja: '父 عبد الله بن يوسف بن حجاج بن قريش المخزومي は裸の名で corpus に本伝なし（「قريش」「حجاج」で検索、本項と索引 D12637 のみ）→ #NEEDID（規則3 (c'')）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: travel
+  places:
+  - ref: TMP-L-00037
+    quote: بلاد اليمن
+  quote: دخلها
+  summary:
+    ar: وكان ذا خبرة ببلاد اليمن ونحوها فكأنه دخلها
+  cert: low
+  note:
+    ja: 「فكأنه دخلها」＝サハーウィーの推測（イエメンに詳しいので入ったのだろう）→ cert low。
+  trigger: rule
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  cert: low
+  note:
+    ja: 「فكأنه دخلها وحج وطوف」＝推測の文脈に続くので cert low。مكة は حج の語義展開として許容（規則20）。
+  trigger: rule
+notes:
+- text: '「شيخ يقرأ القرآن」はクルアーンを読誦する老師という描写で、職名（مقرئ）ではないので初版の state مقرئ（wd:Q3595924、placeName القاهرة）を除去。「خادم شيخنا」は職ではなく patron relation で表現（初版の state خادم #NEEDID を除去）。初版の residence القاهرة（ニスバ由来）も除去（規則22(1)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・ユースフ・ブン・ハッジャージュ・ブン・クライシュ、アッ＝シャムス・アル＝マフズーミー・アル＝カーヒリー・アッ＝シャーフィイー。我らがシャイフ（イブン・ハジャル）の従者で、イブン・クライシュとして知られる。クルアーンを読誦する老師。我らがシャイフに密着して、彼の口述（イムラー）や、『アル＝ムカッディマ』『バズル・アル＝マーウーン』などその他の著作を書写することを望み、一同とともに彼のもとでそれらを校合した。ラマダーン月には彼の会合に欠かさずやって来たばかりか、毎夜、祈祷用の敷物などを敷き、蝋燭を整えるために通った。イエメン地方などの土地に詳しかったので、おそらくそこに入り、巡礼し、タワーフを行ったのであろう。私の思うところ、彼は（8）60年以後に没し、70に近づいていた。
+  en: Muḥammad b. ʿAbd Allāh b. Yūsuf b. Ḥajjāj b. Quraysh, al-Shams al-Makhzūmī al-Qāhirī al-Shāfiʿī, the servant of our shaykh (Ibn Ḥajar), known as Ibn Quraysh; a shaykh who recited the Qurʾān. He sought to attend closely upon our shaykh in writing down his dictations and his other works, such as al-Muqaddima and Badhl al-māʿūn, and collated them with the group before him. He never failed to come to his session in Ramaḍān, and indeed every night, to spread the prayer rug and the like and to trim the candle. He had knowledge of the lands of Yemen and similar places, so it seems he had entered them, performed the pilgrimage and circumambulated. I think he died after [8]60 and was approaching seventy.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-17T23:56:27Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

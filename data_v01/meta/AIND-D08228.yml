@@ -1,0 +1,63 @@
+schema: aind-yaml/0.1
+id: AIND-D08228
+source:
+  uid: '321773867649'
+sex: M
+name:
+  full: محمد بن علي البدر الحجازي القباني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00169
+    quote: الحجازي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00262
+    quote: القباني
+  - id: n3
+    type: laqab
+    quote: البدر
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 891-08
+  places:
+  - ref: TMP-L-00404
+    quote: بحر النيل
+  note:
+    ja: 「غرق ببحر النيل في شعبان سنة إحدى وتسعين」＝ナイル川で溺死。891-08＝1486-08-11〜1486-09-08（h2g.py、月精度）。原文に明記された溺死地点は placeName にする（先例「غرق بصهريج الحاكم」裁定 §D-31）。ナイル川は ID-Master 未登録（Location grep「النيل」は المقياس TMP-L-00340 のみ）→ 仮番号 TMP-L-00404（corpus「بحر النيل」10件）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08228
+  quote: null
+  note:
+    ja: 裸名。初版の汚染番号 TMP-P-000530（関係専用の علي、別人）を除去（precheck、規則3 (c')）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00034
+  orgs:
+  - ref: TMP-I-00018
+  quote: null
+  note:
+    ja: 「القباني عند سعيد السعداء」＝サイード・アッ＝スアダー（ハーンカー、TMP-I-00018）付きの秤量人。職業ニスバ القباني は repo 先例（D05813・D05080・D04871）に倣い nisbah と state（TMP-O-00034）の両方に。勤務先は原文に明記されているので state 内 orgName に置き、初版の affiliation（二重符号化）は除去（規則8）。
+translation:
+  ja: ムハンマド・ブン・アリー、アル＝バドル・アル＝ヒジャーズィー、サイード・アッ＝スアダーの秤量人（カッバーニー）。891年シャアバーン月にナイル川で溺死した。
+  en: Muḥammad b. ʿAlī, al-Badr al-Ḥijāzī, the weigher (qabbānī) at Saʿīd al-Suʿadāʾ. He drowned in the Nile in Shaʿbān of the year 891.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T14:35:11Z'
+  model_requested: gemini-3.5-flash

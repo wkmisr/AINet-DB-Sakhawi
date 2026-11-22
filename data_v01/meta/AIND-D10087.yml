@@ -1,0 +1,164 @@
+schema: aind-yaml/0.1
+id: AIND-D10087
+source:
+  uid: '547482521060'
+sex: M
+name:
+  full: موسى بن محمد بن أبي الفتح محمد بن أحمد بن أبي عبد الله محمد بن محمد بن عبد الرحمن الشرف الحسني الفاسي الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00108
+    quote: الفاسي
+  - id: n3
+    type: laqab
+    quote: الشرف
+  - id: n4
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D08658
+  - id: n6
+    type: nasab
+    quote: أبي الفتح محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أبي عبد الله محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n10
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+  - id: n11
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+birth:
+  id: b
+  places:
+  - ref: TMP-L-00317
+    quote: بلاد كلبرجا
+  - ref: TMP-L-00039
+    quote: الهند
+  summary:
+    ar: ولد ببلاد كلبرجا من الهند
+  note:
+    ja: '生地 كلبرجا（Gulbarga、デカン）＝ID-Master TMP-L-00317「كلبرجة」（綴り違いは原文どおり保持、規則25）、الهند＝TMP-L-00039。生年は原文になし（「قدم مكة بعد الثلاثين وله من العمر ما يزيد على عشر سنين」から 820 年前後と推定できるが補わない＝note のみ）。初版の #NEEDID を置換。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D08658
+  passive: AIND-D10087
+  quote: null
+  note:
+    ja: 規則37。父＝#AIND-D08658「محمد بن أبي الفتح محمد بن أحمد بن أبي عبد الله محمد بن محمد بن عبد الرحمن الحسني الفاسي الأصل المكي الشافعي قريب التقى الفاسي … مات ببلد كلبرجا من الهند بعد الثلاثين بيسير」。見出しナサブ6代一致、父の没地 كلبرجا が本項主の生地と整合。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: paternal_uncle
+  active: AIND-D04340
+  passive: AIND-D10087
+  quote: عمه
+  note:
+    ja: '「ناب في القضاء والإمامة بمكة عن عمه عبد اللطيف」。叔父＝#AIND-D04340「عبد اللطيف بن محمد بن أحمد بن محمد بن محمد بن عبد الرحمن … السراج أبو المكارم بن الولوي أبي الفتح … الحسني الفاسي الأصل المكي الحنبلي والد المحيوي عبد القادر الماضي」（779生、マッカ初のハンバリー派カーディー、847年から قاضي الحرمين、「كان يستخلف هو من يختاره من أقربائه」）。父 D08658 と同じ أبي الفتح محمد بن أحمد の子＝兄弟で閉合、職（قضاء・إمامة بمكة）も一致。初版は #NEEDID、subtype uncle → paternal_uncle（規則35）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D07181
+  passive: AIND-D10087
+  methods:
+  - TMP-S-00003
+  quote: الفتح المراغي
+  note:
+    ja: '「وسمع من أبي الفتح المراغي」。幻番号 TMP-P-000003 → #AIND-D07181（名寄せ済み、規則36）。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D09211
+  passive: AIND-D10087
+  methods:
+  - TMP-S-00003
+  quote: التقي بن فهد
+  note:
+    ja: '「والتقي بن فهد」＝明示の التقي → #AIND-D09211、cert なし。「وأجاز له جماعة」は名なし＝人物を立てない（規則55）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: ناب
+  note:
+    ja: 「وناب في القضاء … بمكة عن عمه عبد اللطيف」＝叔父（ハンバリー派カーディー）の代理としてマッカでカーディー職を代行。初版の統制外 date「after 830」を除去（原文に代行の年なし）。
+- id: s2
+  type: office
+  subtype: deputy
+  ref: wd:Q125482
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: الإمامة
+  note:
+    ja: 「وناب في … الإمامة بمكة عن عمه عبد اللطيف」＝叔父のイマーム職の代行。叔父の職は D04340 により مقام الحنابلة のイマーム職（既登録 نائب الإمام بالمقام الحنبلي＝TMP-O-00325）と見られるが、本項の原文に مقام 名がないため汎用 الإمامة（wd:Q125482）＋ラベルで表現（規則22(1)）。初版の統制外 date「after 830」を除去。（2026-11 の官職 ID 整理で ref は wd:Q125482 に移った）
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: travel
+  date:
+    notBefore: 830
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: وقدم
+  summary:
+    ar: وقدم مكة بعد الثلاثين وله من العمر ما يزيد على عشر سنين
+  note:
+    ja: 830年以降（「بعد الثلاثين」→ notBefore-custom 0830、規則18。830＝1426-11-11 開始 → notBefore 1426）に10歳余でマッカに来た。初版の when-custom=0830 cert medium を notBefore 形式に是正。
+  trigger: rule
+- id: e2
+  type: travel
+  date:
+    notBefore: 850
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: TMP-L-00039
+    quote: الهند
+  quote: وخرج من مكة بعد الخمسين لبلاد الهند
+  note:
+    ja: 850年以降（「بعد الخمسين」→ notBefore-custom 0850。850＝1446-04-07 開始 → notBefore 1446）にマッカを出てインドへ向かった。初版の when-custom=0850 cert medium を notBefore 形式に是正。
+notes:
+- text: '兄弟 #AIND-D02636「حسن بن محمد بن أبي الفتح محمد بن أحمد … الحسني الفاسي الكلبرجي ثم المكي الحنبلي . ولد ببلاد كلبرجة من الهند وحمل إلى مكة وهو ابن نحو عشر سنين بعد الثلاثين … وسمع بها من التقي بن فهد … ودخل مع عمه عبد اللطيف بلاد العجم」（同父・同じ経歴）は本項主を名指ししないため relation は立てない（規則23、父が AIND なので導出可）。父 D08658 はシャーフィイー派、本項主・叔父はハンバリー派。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムーサー・ブン・ムハンマド・ブン・アビー・アル＝ファトフ・ムハンマド・ブン・アフマド・ブン・アビー・アブドゥッラー・ムハンマド・ブン・ムハンマド・ブン・アブドゥッラフマーン、アッ＝シャラフ、アル＝ハサニー、アル＝ファースィー、アル＝ハンバリー。インドのクルバルジャー地方に生まれ、（8）30年以降、10歳余でマッカに来た。アブー・アル＝ファトフ・アル＝マラーギーとアッ＝タキー・ブン・ファハドから聴聞し、多くの者が彼にイジャーザを与えた。マッカで叔父アブドゥッラティーフの代理としてカーディー職とイマーム職を代行し、（8）50年以降にマッカを出てインド地方へ向かった。
+  en: Mūsā b. Muḥammad b. Abī al-Fatḥ Muḥammad b. Aḥmad b. Abī ʿAbd Allāh Muḥammad b. Muḥammad b. ʿAbd al-Raḥmān, al-Sharaf al-Ḥasanī al-Fāsī al-Ḥanbalī. He was born in the land of Kulbarjā in India and came to Mecca after (8)30, being over ten years old. He heard from Abū al-Fatḥ al-Marāghī and al-Taqī b. Fahd, and a group (of scholars) granted him ijāza. He acted as deputy for his paternal uncle ʿAbd al-Laṭīf in the judgeship and the imamate in Mecca, and he left Mecca after (8)50 for the land of India.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T01:51:16Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,122 @@
+schema: aind-yaml/0.1
+id: AIND-D08233
+source:
+  uid: '537976758015'
+sex: M
+name:
+  full: محمد بن علي الجمال بن الطيب اليماني الزبيدي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00159
+    quote: الزبيدي
+  - id: n3
+    type: laqab
+    quote: الجمال
+  - id: n4
+    type: shuhrah
+    quote: null
+    label: المطيب
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05285
+  - id: n7
+    type: nasab
+    quote: الطيب
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 842-09-10
+  note:
+    ja: 「مات في عاشر رمضان سنة اثنتين وأربعين وهو في عشر السبعين」＝842年ラマダーン月10日＝1439-03-05（h2g.py）。「في عشر السبعين」は年齢（60代＝70歳に至る十年のうち、規則59(d)）。没地は原文に明記なし（「بها」は「رياسة العلم بها」にかかる）。初版の @when 1438 を訂正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05285
+  passive: AIND-D08233
+  cert: medium
+  quote: null
+  note:
+    ja: '見出し「الجمال بن الطيب」＝父 علي のラカブが الطيب（المطيب）。父＝#AIND-D05285「علي بن عثمان أبو الحسن المطيب . قدوة الحنفية باليمن في عصره ووالد محمد الآتي . وولاه الأشرف قضاء مذهبه بزبيد في سنة إحدى وسبعين وسبعمائة ومات في سنة اثنتين」（名 علي・ラカブ المطيب・ザビードのハナフィー派の3点で閉合、規則57）。ただし閉合は二重立項 #AIND-D08133（下記）を介するため cert medium。D05285 の没年「سنة اثنتين」を772と読むと本項主（842年没時60代）の生年と合わない＝原文どおり残し note（規則25）。初版の desc「علي الجمال」（ラカブを父に付けていた）を訂正。'
+- id: r2
+  type: personal
+  subtype: possible_identity
+  active: AIND-D08133
+  passive: AIND-D08233
+  cert: high
+  quote: null
+  note:
+    ja: '二重立項。#AIND-D08133「محمد بن علي بن عثمان الزبيدي المطيب الحنفي . خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد ثم درس في المحالبية … ومات في رمضان سنة اثنتين وأربعين بزبيد」は名 محمد بن علي・ザビード・ハナフィー派・通称 المطيب・没年月（842年ラマダーン）が本項と一致＝同一人物（repo 収録済み、father #AIND-D05285）。本項に転送指示はないので REF 化せず両項とも実項（絶対基準）。D08133 側の鏡像 relation は担当外（ISSUES §D163-2）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00004
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: الإفتاء
+  note:
+    ja: 見出し「عالم زبيد ومفتيه」。初版の date type="retirement"（没日を写したもの）を除去（規則18 v13.44 (e)）。
+- id: s2
+  type: status
+  label: انتهت إليه رياسة العلم بزبيد
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: انتهت إليه رياسة العلم
+  note:
+    ja: '「وانتهت إليه رياسة العلم بها حتى مات」（先例 #AIND-D08133「انتهت إليه رياسة الحنفية بزبيد」＝status）。بها＝زبيد（照応、規則22(3)）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: teaching
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: تصدر
+  summary:
+    ar: تصدر بها للإقراء والإفتاء عدة سنين
+  note:
+    ja: 「الإقراء」はここでは教授（規則50、type="teaching"）。初版はこれを「مقرئ」（wd:Q3595924、クルアーン読誦家）の state と誤読＝除去。ニスバ由来の residence event も除去（規則22(1)）。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  quote: وذكره
+  summary:
+    ar: 'وذكره المقريزي وقال : الفقيه الفاضل المعروف بالمطيب'
+  note:
+    ja: Pattern A。書名は原文に明示なし（bibl を置かない）。初版の統制外 relation「mentioned by」を event に。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー、アル＝ジャマール・ブン・アッ＝タイイブ、アル＝ヤマーニー・アッ＝ザビーディー・アル＝ハナフィー、ザビードの学者にしてそのムフティー。同地で長年にわたり教授とファトワー発行の座に就き、同地における学問の首位は彼に帰し、842年ラマダーン月10日に没するまで（それが続いた）。没時は70歳に至る十年のうち（60代）にあった。彼の後に彼に匹敵する者は残らなかった。マクリーズィーも彼に言及し、「アル＝ムタイヤブとして知られる徳高き法学者」と述べた。
+  en: 'Muḥammad b. ʿAlī, al-Jamāl b. al-Ṭayyib, al-Yamānī al-Zabīdī al-Ḥanafī, the scholar of Zabīd and its muftī. He presided there over teaching and the issuing of fatwās for several years, and the leadership of learning there culminated in him, until he died on the tenth of Ramaḍān of the year [8]42, being in the decade before seventy (his sixties). He left no one like himself after him. Al-Maqrīzī mentioned him and said: "the virtuous jurist known as al-Muṭayyab."'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T15:04:34Z'
+  model_requested: gemini-3.5-flash

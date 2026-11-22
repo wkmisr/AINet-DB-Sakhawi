@@ -1,0 +1,103 @@
+schema: aind-yaml/0.1
+id: AIND-D06228
+source:
+  uid: '721810371962'
+sex: M
+name:
+  full: قاسم بن الخواجا شيخ علي بن محمد بن عبد الكريم الكيلاني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00001
+    quote: الكيلاني
+  - id: n2
+    type: ism
+    quote: قاسم
+    by: rule
+  - id: n3
+    type: nasab
+    quote: الخواجا شيخ علي
+    by: rule
+    ref: AIND-D05451
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الكريم
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 820
+  places:
+  - ref: gn:109223
+    quote: المدينة النبوية
+  note:
+    ja: 「ولد في سنة عشرين وثمانمائة بالمدينة النبوية」。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 852
+    cert: low
+  note:
+    ja: 「وسافر إلى كنباية من بلاد الهند في سنة اثنتين وخمسين ففقد في البحر」＝852年、インドのカンバーヤへの航海中に海上で行方不明。死亡の明記ではないため cert low（repo 先例 D01892「فقد في سنة أربع وعشرين」→ death cert low）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05451
+  passive: AIND-D06228
+  quote: null
+  note:
+    ja: '父＝#AIND-D05451「علي بن محمد بن عبد الكريم بن حسن الخواجا العلاء الكيلاني ثم المكي ويعرف بالشيخ علي」（848年アデンで没、享年103）。ナサブ4代・称号 الخواجا شيخ علي が一致（規則37）。兄弟 #AIND-D01054（أحمد، 生807マッカ「ويعرف أبوه بالخواجا شيخ علي」）・#AIND-D04274（عبد الكريم، 生810マッカ）は本項に言及なしのため note のみ。初版は father relation 欠落。'
+events:
+- id: e1
+  type: residence
+  date:
+    ah: 820
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: فقطنها
+  summary:
+    ar: وانتقل إلى مكة في أثنائها فقطنها
+  note:
+    ja: 生年（820）のうちにマッカへ移り定住。
+  trigger: rule
+- id: e2
+  type: travel
+  date:
+    ah: 852
+  places:
+  - ref: TMP-L-00067
+    quote: كنباية
+  quote: وسافر
+  summary:
+    ar: سافر إلى كنباية من بلاد الهند
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: ذكره
+  summary:
+    ar: ذكره ابن فهد
+  cert: low
+  note:
+    ja: 規則43（852 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外「biographical mention」relation を Pattern A に変換。
+  trigger: rule
+translation:
+  ja: カースィム・ブン・アル＝ハワージャ・シャイフ・アリー・ブン・ムハンマド・ブン・アブドゥルカリーム、アル＝キーラーニー。820年に預言者の町マディーナで生まれ、その年のうちにマッカへ移って定住した。852年にインド地方のカンバーヤへ旅立ったが、海上で行方不明となった。イブン・ファハドが彼に言及している。
+  en: Qāsim b. al-Khawājā Shaykh ʿAlī b. Muḥammad b. ʿAbd al-Karīm al-Kīlānī. He was born in 820 in Medina and moved to Mecca in the course of that year, settling there. In 852 he travelled to Cambay (Kanbāya) in India and was lost at sea. Ibn Fahd mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T08:16:24Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,172 @@
+schema: aind-yaml/0.1
+id: AIND-D03140
+source:
+  uid: '860163676998'
+sex: M
+name:
+  full: سليمان بن جار الله بن زائد السنبسي المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00524
+    quote: السنبسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: سليمان
+    by: rule
+  - id: n4
+    type: nasab
+    quote: جار الله
+    by: rule
+    ref: TMP-P-001746
+  - id: n5
+    type: nasab
+    quote: زائد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 837-10
+  places:
+  - ref: wd:Q42004
+    quote: المعلاة
+  summary:
+    ar: مات في شوال سبع وثلاثين خارج مكة وحمل فدفن بالمعلاة
+  note:
+    ja: '837年シャウワール月＝1434-05-20〜06-17（h2g.py、月精度。初版 @when="1433" は誤り）。死地「خارج مكة」（マッカの外）は地名ではないので placeName にしない（初版は مكة を没地にしていた。先例 #AIND-D10040）。遺体は運ばれて المعلاة（wd:Q42004）に埋葬。'
+  quote: سبع
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001746
+  passive: AIND-D03140
+  quote: null
+  note:
+    ja: '規則3。父 جار الله بن زائد بن يحيى السنبسي は corpus に本伝なし（hw.py「جار الله بن زائد」の見出しはすべて子・孫。#AIND-D02331 جار الله بن أحمد は孫）、ID-Master 未登録。珍しい名で、本伝のある兄弟項 #AIND-D00636（أحمد）・#AIND-D04436（عبد الله）・#AIND-D05100（علي）と共有する父＝仮番号 TMP-P-001746。初版は father relation なし。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D00755
+  passive: AIND-D03140
+  cert: medium
+  quote: null
+  note:
+    ja: '子＝corpus 本伝 #AIND-D00755「أحمد بن سليمان بن جار الله بن زايد السنبسي المكي . ذكره ابن فهد هكذا مجردا」（収録済み）。子の見出しナサブ4代＋ニスバ2つで閉合（規則23・37）。【集約 2026-11-18】本項の原文に子の名は出ず、相手側の見出しだけによる関係なので cert medium（規則23。同バッチ D06553 の子 D01184・D08531 と同じ扱い、機械 L・オーケストレーター決定3）。初版になし。'
+- id: r3
+  type: personal
+  subtype: daughter
+  active: AIND-D13620
+  passive: AIND-D03140
+  cert: medium
+  quote: null
+  note:
+    ja: '娘＝女性部 #AIND-D13620「مصباح ابنة سليمان بن جار الله بن رائد . تزوجها ابن عمها عطية بن أحمد بن جار الله فولدت له . وماتت في ربيع الآخر سنة أربع وستين」（未収録）。見出しナサブ（刊本「رائد」は زائد の点の揺れ）＋夫が「ابن عمها عطية بن أحمد بن جار الله」（＝#AIND-D04906、本項主の兄 أحمد の子）で閉合（規則23・37・38）。【集約 2026-11-18】本項の原文に娘の名は出ない＝cert medium（規則23、機械 L・決定3）。初版になし。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: TMP-P-000191
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: العفيف النشاوري
+  note:
+    ja: '「أجاز له في سنة ثمان وثمانين وسبعمائة العفيف النشاوري وابن حاتم والعراقي والهيثمي وابن عرفة وابن خلدون وغيرهم」（規則55。「وغيرهم」は人物を立てない）。788年初＝1386-02-10（h2g.py、年精度。初版は @when にヒジュラ年 0788）。العفيف النشاوري＝ID-Master 登録 TMP-P-000191（先例 #AIND-D10040）。初版 #NEEDID。'
+- id: r5
+  type: personal
+  subtype: teacher
+  active: TMP-P-000540
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: ابن حاتم
+  note:
+    ja: 'ابن حاتم＝TMP-P-000540（التقي بن حاتم。788年以降のマッカ向けイジャーザ授与者列挙の常連、先例 #AIND-D10040）。初版の TMP-P-000291 は旧番号（2026-11-04 に 000540 へ名寄せ済み、precheck 幻番号）。'
+- id: r6
+  type: personal
+  subtype: teacher
+  active: wd:Q4664581
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: العراقي
+  note:
+    ja: 'العراقي＝الزين العراقي（wd:Q4664581、806年没。頻出確定ID）。初版 #NEEDID。'
+- id: r7
+  type: personal
+  subtype: teacher
+  active: wd:Q4725309
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: الهيثمي
+  note:
+    ja: 'الهيثمي＝نور الدين الهيثمي（wd:Q4725309、807年没。頻出確定ID）。初版 #NEEDID。'
+- id: r8
+  type: personal
+  subtype: teacher
+  active: AIND-D09141
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: ابن عرفة
+  note:
+    ja: 'ابن عرفة＝#AIND-D09141「محمد بن محمد بن محمد بن عرفة أبو عبد الله الورغمي … التونسي المالكي عالم المغرب ويعرف بابن عرفة . ولد سنة ست عشرة وسبعمائة」（頻出確定ID、本文で確認。803年没で788年の授与と合う）。初版 #NEEDID。'
+- id: r9
+  type: personal
+  subtype: teacher
+  active: wd:Q9294
+  passive: AIND-D03140
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 788
+  quote: ابن خلدون
+  note:
+    ja: 'ابن خلدون＝ID-Master 登録「القاضي ابن خلدون」wd:Q9294（repo 先例 #AIND-D00134・#AIND-D08910a）。初版 #NEEDID。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد・本項主の没年 837（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版は death の note に記すのみで event なし。
+  trigger: rule
+notes:
+- text: 'マッカの ابن زائد 家（السنبسي）。兄弟 أحمد＝#AIND-D00636（746年頃生・827年没）、عبد الله＝#AIND-D04436（イジャーザ授与者が重なる: النشاوري・ابن عرفة・العراقي・الهيثمي）、علي＝#AIND-D05100（837年没）、通称索引 #AIND-D12364。いずれも本項に名指しがなく、相手側も本項主に触れないので relation は立てない（規則23。父が TMP-P で共通）。初版の residence event（مكة、ニスバ由来）を除去（規則22(1)・(6)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: スライマーン・ブン・ジャーラッラー・ブン・ザーイド・アッ＝スンブスィー・アル＝マッキー。788年に、アル＝アフィーフ・アン＝ナシャーワリー、イブン・ハーティム、アル＝イラーキー、アル＝ハイサミー、イブン・アラファ、イブン・ハルドゥーンらが彼にイジャーザを与えた。（8）37年シャウワール月にマッカの外で没し、運ばれてアル＝マアラーに葬られた。イブン・ファハドがその没年を記している。
+  en: Sulaymān b. Jār Allāh b. Zāʾid al-Sunbusī al-Makkī. In the year 788 al-ʿAfīf al-Nashāwarī, Ibn Ḥātim, al-ʿIrāqī, al-Haythamī, Ibn ʿArafa, Ibn Khaldūn and others granted him ijāza. He died in Shawwāl [8]37 outside Mecca; he was carried [back] and buried at al-Maʿlāh. Ibn Fahd recorded the date of his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-03T08:07:53Z'
+  model_requested: gemini-3.5-flash

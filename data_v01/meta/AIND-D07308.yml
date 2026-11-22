@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D07308
+source:
+  uid: '424056715325'
+sex: M
+name:
+  full: محمد بن جعفر بن محمد بن خلف الشامي الجدي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00130
+    quote: الشامي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00698
+    quote: الجدي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: جعفر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: خلف
+    by: rule
+death:
+  id: d
+  date:
+    ah: 871
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ja: 「مات بمكة سنة إحدى وسبعين」。871 ＝ 1466-08-22〜1467-08-10、年初 1466。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07308
+  quote: null
+  note:
+    ja: '父 جعفر بن محمد بن خلف：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02141
+  passive: AIND-D07308
+  cert: medium
+  quote: بديد
+  note:
+    ja: '「أحد المتسببين المنتمين لبديد」。بديد ＝ #AIND-D02141（بدير ويسمى أحمد بن سكر شهاب الدين الحسني … マッカの القائد、没869。ID-Master で「بديد بن شكر الحسني المكي القائد」として登録、旧 TMP-P-001062 名寄せ済み）。「المنتمين لـ」＝帰属（先例 D04028「أحد المنتمين لخشقدم الزمام」→ patron）。初版は residence event の placeName #NEEDID「بديد」（地名扱い）としていた＝人物なので是正。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00355
+  quote: null
+  note:
+    ja: 生業に従事する者（小商人）。ID-Master の Office を語根 سبب で grep、該当なし（تاجر wd:Q215536 とは別語）→ 新規 TMP-O-00355。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: '没年 871（≤871）→ 振り分け規則により #AIND-D09211（cert low）。初版の統制外 subtype「chronicler」relation を Pattern A に変換。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・ジャアファル・ブン・ムハンマド・ブン・ハラフ・アッ＝シャーミー・アル＝ジャッディー。ブダイドに属する生業者（ムタサッビブ）の一人。871年にマッカで没した。イブン・ファハドが彼の没年を記録している。
+  en: Muḥammad b. Jaʿfar b. Muḥammad b. Khalaf al-Shāmī al-Jaddī, one of the tradesmen (mutasabbibūn) attached to Budayd. He died in Mecca in the year 871. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T08:10:19Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

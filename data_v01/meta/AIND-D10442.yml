@@ -1,0 +1,128 @@
+schema: aind-yaml/0.1
+id: AIND-D10442
+source:
+  uid: '921140482354'
+sex: M
+name:
+  full: يوسف بن أحمد بن محمد بن محمد بن عبد الكريم بن يوسف الزبيري البصري ثم المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00222
+    quote: الزبيري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00006
+    quote: البصري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n4
+    type: shuhrah
+    quote: دليم
+  - id: n5
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001726
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: عبد الكريم
+    by: rule
+  - id: n10
+    type: nasab
+    quote: يوسف
+    by: rule
+death:
+  id: d
+  date:
+    ah: 854-12
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات في ذي الحجة سنة أربع وخمسين بمكة
+  note:
+    ja: 854年ズー・アル＝ヒッジャ月＝1451-01-14〜02-11（h2g.py）、月精度で @when=1451-01（初版 1450 を訂正）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001726
+  passive: AIND-D10442
+  quote: null
+  note:
+    ja: '父 أحمد は、本伝のある兄弟 #AIND-D00518「أحمد بن أحمد بن محمد بن محمد بن علي بن عبد الكريم بن يوسف بن سالم ابن دليم القرشي الزبيري البصري المكي الآتي ابن أخيه أحمد بن يوسف」と共有する父（規則3 (c'')：兄弟項と共有する父は #NEEDID にしない）。corpus に本伝なし（見出し検索「أحمد بن محمد بن محمد بن علي بن عبد الكريم」＝該当は子孫の項のみ）、ID-Master 未登録（「دليم」該当なし）→ 仮 TMP-P-001726。初版は父 relation なし＝追加。'
+- id: r2
+  type: personal
+  subtype: paternal_uncle
+  active: AIND-D04290
+  passive: AIND-D10442
+  quote: عبد الكريم
+  note:
+    ja: '「الماضي عمه عبد الكريم」＝corpus 本伝 #AIND-D04290「عبد الكريم بن محمد بن محمد بن علي بن عبد الكريم بن يوسف الخواجا جلال الدين أو كريم الدين الزبيري … البصري ثم المكي ويعرف بدليم … مات بمكة في رجب سنة خمس وخمسين . أرخه ابن فهد」（未収録）。名・ナサブ・ニスバ・通称 دليم で閉合（父 أحمد の兄弟、cert なし）。本項見出しは「محمد بن محمد بن عبد الكريم」で、D04290・D00518・D09557・D01704 の「محمد بن محمد بن علي بن عبد الكريم」より「علي」が1代少ない（刊本どおり、規則25）。ブリーフ候補 D04290 を本文で確認。初版 #NEEDID・subtype uncle。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D00518
+  passive: AIND-D10442
+  cert: medium
+  quote: null
+  note:
+    ja: '相手側本伝 #AIND-D00518（上掲、856年没、未収録）が「الآتي ابن أخيه أحمد بن يوسف」＝本項主の子 #AIND-D01704 を甥と呼ぶ＝本項主（يوسف）の兄弟。相手側は本項主を子の父として名指しするのみ＝規則23 により cert medium。'
+- id: r4
+  type: personal
+  subtype: son
+  active: AIND-D09557
+  passive: AIND-D10442
+  quote: null
+  note:
+    ja: '子＝corpus 本伝 #AIND-D09557「محمد بن يوسف بن أحمد بن محمد بن محمد بن علي بن عبد الكريم بن يوسف القرشي الزبيري البصري ويعرف بابن دليم وباقي نسبه في عم أبيه عبد الكريم ابن محمد بن محمد الشهير بالجلال … فمات … في ذي القعدة سنة أربع وأربعين」（未収録）。子の見出しナサブと「عم أبيه عبد الكريم」で閉合（規則37）。'
+- id: r5
+  type: personal
+  subtype: son
+  active: AIND-D01704
+  passive: AIND-D10442
+  quote: null
+  note:
+    ja: '子＝corpus 本伝 #AIND-D01704「أحمد بن يوسف بن أحمد بن محمد بن محمد بن علي بن عبد الكريم بن يوسف بن سالم بن دليم … البصري ثم المكي ابن أخي أحمد الماضي ويعرف بابن دليم . مات في ذي القعدة سنة ست وستين」（repo 収録済み、uncle に #AIND-D00518）。子の見出しナサブで閉合（規則37）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A。限定語のない ابن فهد・本項主の没年 854（≤871）→ #AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 relation「chronicler」を event に変換。'
+  trigger: rule
+notes:
+- text: 'ابن دليم 家（القرشي الزبيري البصري、マッカ）: 甥 علي بن الشهاب أحمد＝#AIND-D04951、従兄弟 علي بن عبد الكريم＝#AIND-D05242、通称索引 #AIND-D12327（合同索引＝relation に不使用、規則11）。初版のニスバ由来 residence event 2件（البصرة・مكة）は原文に居住の記述がないため除去（規則22(1)・(6)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ユースフ・ブン・アフマド・ブン・ムハンマド・ブン・ムハンマド・ブン・アブド・アル＝カリーム・ブン・ユースフ、アッ＝ズバイリー、アル＝バスリー、のちアル＝マッキー。そのおじアブド・アル＝カリームは既出。ドゥライムとして知られる。（8）54年ズー・アル＝ヒッジャ月にマッカで没した。イブン・ファハドがその没年を記している。
+  en: Yūsuf b. Aḥmad b. Muḥammad b. Muḥammad b. ʿAbd al-Karīm b. Yūsuf, al-Zubayrī, al-Baṣrī, then al-Makkī, whose paternal uncle ʿAbd al-Karīm has been mentioned above; known as Dulaym. He died in Dhū al-Ḥijja of the year [8]54 in Mecca. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:19:17Z'
+  model_requested: gemini-3.5-flash

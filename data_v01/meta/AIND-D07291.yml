@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D07291
+source:
+  uid: '217864748436'
+sex: M
+name:
+  full: محمد بن بيلبك الشمس التركي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00232
+    quote: التركي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: بيلبك
+    by: rule
+death:
+  id: d
+  date:
+    ah: 803-02
+    cert: medium
+  note:
+    ja: 「مات في صفر سنة ثلاث」。「سنة ثلاث」は一の位のみ＝803（cert medium、2026-09-24 規則。الظاهر برقوق（没801）の親族・『إنباء الغمر』収録と整合）。803年サファル月＝1400-09-30開始（月精度→1400-09、h2g.py。初版の 1400 を月精度に）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: brother
+  active: TMP-P-001572
+  passive: AIND-D07291
+  quote: أحمد خازندار بيبرس
+  note:
+    ja: '「أخو أحمد خازندار بيبرس」。兄弟 أحمد（بيبرس のハーズィンダール）は corpus に見出しなし（hw.py「أحمد بن بيلبك」「أحمد」＋「خازندار」）・ID-Master 未登録 → TMP-P-001572。خازندار は兄弟の職であり本項主の state にしない。主人 بيبرس は未特定（الظاهر برقوق の甥でアターベクの بيبرس か。corpus の بيبرس 見出し D02230 はシャルキーヤの遊牧民長＝別人）。【集約 2026-10-25】「قريب الظاهر برقوق」は直前の بيبرس を限定する句と読む（下記 editorial note）。主人候補 #AIND-D02232。'
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07291
+  quote: null
+  note:
+    ja: '父。見出しの「بن بيلبك」のみ（corpus に بيلبك の見出しなし、ID-Master 未登録、祖父名・職など他の識別要素なし）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00078
+  quote: موقع الحكم
+  note:
+    ja: '「وكان موقع الحكم」。ID-Master TMP-O-00078（توقيع الحكم | موقع الحكم）。初版の #NEEDID を是正。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。初版の統制外 other relation（wd:Q471116）を置換。
+  trigger: rule
+notes:
+- text: '【集約 2026-10-25】「أخو أحمد خازندار بيبرس قريب الظاهر برقوق」の「قريب الظاهر برقوق」は直前の بيبرس を限定し、どのバイバルスかを示す句と読む（イブン・ハジャルの同型表現 D06270／D06271「قانباي قريب بيبرس ابن أخت الظاهر برقوق」）。該当人物は #AIND-D02232「بيبرس ابن أخت الظاهر برقوق … أتابك」（兄弟 أحمد の主人の候補。他の بيبرس 見出し D02230・D02233〜36 は年代・属性が合わない）。よって校閲時の relative relation（#AIND-D02178 الظاهر برقوق、cert medium）は本項主の関係ではないとして削除した（内容B[6]、§D132-2）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・ビールバク・アッ＝シャムス・アッ＝トゥルキー、アッ＝ザーヒル・バルクークの親族であるバイバルスのハーズィンダール（宝庫管理官）アフマドの兄弟。（8）03年サファル月に没した。判決書記（ムワッキウ・アル＝フクム）であった。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
+  en: Muḥammad b. Bīlbak al-Shams al-Turkī, brother of Aḥmad, the khāzindār of Baybars the relative of al-Ẓāhir Barqūq. He died in Ṣafar of the year (8)03. He was a muwaqqiʿ al-ḥukm (judicial clerk). Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T07:28:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

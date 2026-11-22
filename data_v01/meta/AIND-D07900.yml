@@ -1,0 +1,65 @@
+schema: aind-yaml/0.1
+id: AIND-D07900
+source:
+  uid: '407202279555'
+sex: M
+name:
+  full: محمد أبو حامد
+  elements:
+  - id: n1
+    type: kunyah
+    quote: أبو حامد
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D04733
+  passive: AIND-D07900
+  quote: الذي قبله
+  note:
+    ja: '「أخو الذي قبله」＝直前の項 #AIND-D07899「محمد بن عبد الهادي بن أبي اليمن محمد بن أحمد بن الرضى إبراهيم … الطبري المكي」の兄弟。父祖を直前の項の見出しナサブから復元（規則37）＝父 #AIND-D04733（عبد الهادي بن أبي اليمن محمد … الطبري إمام المقام、未収録）。name_only もナサブから復元。母は原文に記載なし（「أخو」のみで同母か不明）のため立てない。初版なし。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D07899
+  passive: AIND-D07900
+  quote: أخو
+  note:
+    ja: '「أخو الذي قبله」＝直前の項 #AIND-D07899（cert なし、規則37）。初版の #NEEDID を解消。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D09163
+  passive: AIND-D07900
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 823
+  quote: ابن الجزري
+  note:
+    ja: 「سمع من ابن الجزري في سنة ثلاث وعشرين」。ابن الجزري＝#AIND-D09163（頻出確定ID。初版の wd:Q4120093 は人物参照に使わない＝毒wd）。823年＝1420-01-26 開始（年精度 1420）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+  quote: ذكره
+  cert: low
+  note:
+    ja: Pattern A。主語は直前の項 D07899 の「بيض له ابن فهد」を受けた ابن فهد（初版の訳はイブン・ハジャルとしたが誤り）。「بيض له」＝没年を白紙で残した＝言及のみ。没年なし→振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。
+  trigger: rule
+translation:
+  ja: ムハンマド、アブー・ハーミド。前項の者（ムハンマド・アブー・アル＝ヤマン・ブン・アブドゥルハーディー・アッ＝タバリー）の兄弟。823年にイブン・アル＝ジャザリーから聴聞した。彼（イブン・ファハド）は彼にも言及し、同じく（没年を）空白のまま残した。
+  en: Muḥammad Abū Ḥāmid, brother of the preceding. He heard from Ibn al-Jazarī in the year 823. He (Ibn Fahd) mentioned him and likewise left a blank (for his death date).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T02:41:06Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,113 @@
+schema: aind-yaml/0.1
+id: AIND-D06624
+source:
+  uid: '495867410499'
+sex: M
+name:
+  full: محمد بن أحمد بن أبي بكر بن أحمد المحب أبو الوليد بن الشهاب الحموي المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00081
+    quote: الحموي
+  - id: n2
+    type: laqab
+    quote: المحب
+  - id: n3
+    type: kunyah
+    quote: أبو الوليد
+  - id: n4
+    type: shuhrah
+    quote: ابن الرسام
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D00579
+  - id: n7
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: الشهاب
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+death:
+  id: d
+  date:
+    notBefore: 861
+    notAfter: 869
+  places:
+  - ref: gn:170017
+    cert: medium
+  summary:
+    ar: ومات بها سنة بضع وستين
+  note:
+    ja: '「سنة بضع وستين」＝861〜869年（規則4）。861＝1456-12-08 開始、869 の年末＝1465-09-01（h2g.py）＝notBefore 1456・notAfter 1465。初版は when-custom=0865・@when 1461 と一点に置いていた。「بها」＝直前の「ببلده」＝ニスバ الحموي の地 حماة（規則22(3)、cert medium）。兄弟 #AIND-D04097 は「مات بحماة سنة بضع وستين بعد أخيه」＝本項主のほうが先に没した。 / بضع は1〜9として幅で記録（2026-11-22 裁定）'
+  quote: سنة بضع وستين
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D00579
+  passive: AIND-D06624
+  quote: أبيه
+  note:
+    ja: '見出し「بن الشهاب … ويعرف كأبيه بابن الرسام」＝父 #AIND-D00579「أحمد بن أبي بكر بن أحمد بن علي بن إسماعيل الشهاب أبو العباس بن سيف الدين الحموي الأصل الحلبي الحنبلي القادري والد الزين عبد القادر الآتي ويعرف بابن الرسام」（repo 未収録）。ナサブ・ラカブ・通称が一致し、兄弟 #AIND-D04097（「الماضي أبوه … وأخوه المحب محمد」）も同じ父を指す（規則37）。父はハンバリー派、本項主はマーリキー派。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D04097
+  passive: AIND-D06624
+  quote: عبد القادر
+  note:
+    ja: '「أخو عبد القادر الماضي」＝#AIND-D04097「684 عبد القادر بن الشهاب أحمد بن أبي بكر بن أحمد بن علي الزين الحموي الحلبي الماضي أبوه والآتي ابنه أحمد وأخوه المحب محمد ويعرف كهو بابن الرسام」（repo 収録済み、同ファイルは本項 #AIND-D06624 を兄弟としている）。相互に閉合。**初版の #AIND-D04089 は誤り**（عبد القادر بن إبراهيم بن حسن … المناوي الأصل القاهري الشافعي التاجر … ابن عليبة＝別人）。'
+- id: r3
+  type: personal
+  subtype: son
+  active: TMP-P-001755
+  passive: AIND-D06624
+  cert: medium
+  quote: نجم الدين
+  note:
+    ja: '本文は刊本どおり「ووالده نجم الدين الموجود الآن」（「その父ナジュム・アッ＝ディーン、いま存命」）と訳す（誤読と断定しない、Waka 裁定 2026-11-19、B169-173 確認依頼15b）。ただし本項主の父は الشهاب أحمد（#AIND-D00579）で、刊本の読みとは合わない。通称索引 #AIND-D12343「ابن الرسام … وعمه محمد وابنه نجم الدين」が نجم الدين を محمد（本項主）の子と明記する＝この relation は**索引の明記だけを根拠に**立てる（cert medium）。名は不詳、ラカブ＋家名で識別できるので TMP-P-001755。corpus に本伝なし。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00180
+  places:
+  - ref: gn:170017
+    cert: medium
+  quote: قضاء المالكية
+  note:
+    ja: '「ولي قضاء المالكية ببلده مع قصور مرتبته」。マーリキー派カーディー＝TMP-O-00180（学派の قضاء の固有 ID。repo 先例は placeName つき）。「ببلده」＝ニスバ الحموي の地 حماة、cert medium（規則22(3)）。初版は ref #NEEDID・cert なし。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+notes:
+- text: '「وقد جاز الكهولة」＝壮年を過ぎていた（年齢の記述。生年は立てない）。初版の residence event（حماة、ニスバからの補完）を除去した（規則22(1)）。【集約 2026-11-18】後任: #AIND-D06644（B173 の帯の未受領項）に「واستقر في قضاء حماة سنة خمس وستين عوضا عن المحب محمد بن الرسام」とあり、865年にハマーのマーリキー派カーディー職で本項主の後任となった。本項の原文に後任の記述はないので relation は立てず、D06644 の受領時に相手側へ predecessor（active=本項主）を立てる（内容B L6、オーケストレーター決定23）。没年の範囲（861〜869）は変えない。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アビー・バクル・ブン・アフマド、アル＝ムヒッブ・アブー・アル＝ワリード・ブン・アッ＝シハーブ・アル＝ハマウィー・アル＝マーリキー。前出のアブド・アル＝カーディルの兄弟で、その父はいま存命のナジュム・アッ＝ディーン。父と同じくイブン・アッ＝ラッサームとして知られる。力量は及ばなかったが、故郷でマーリキー派のカーディー職に就き、（8）60年余りにそこで没した。すでに壮年を過ぎていた。
+  en: Muḥammad b. Aḥmad b. Abī Bakr b. Aḥmad, al-Muḥibb Abū al-Walīd b. al-Shihāb al-Ḥamawī al-Mālikī, brother of ʿAbd al-Qādir mentioned above, and his father is Najm al-Dīn, who is alive now; known, like his father, as Ibn al-Rassām. He held the Mālikī judgeship in his home town despite the inadequacy of his standing, and he died there in the year [8]60-odd, having passed mature age.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T06:35:32Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

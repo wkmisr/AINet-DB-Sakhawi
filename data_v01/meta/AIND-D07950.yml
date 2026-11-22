@@ -1,0 +1,73 @@
+schema: aind-yaml/0.1
+id: AIND-D07950
+source:
+  uid: '405924801424'
+sex: M
+name:
+  full: محمد بن عثمان بن علي السيلاوي الحنبلي ثم القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-04687
+    quote: السيلاوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07950
+  quote: null
+  note:
+    ja: '父 عثمان بن علي は汎用名で識別要素なし。corpus に本伝なし（hw.py「السيلاوي」は本項のみ）。規則3 (c'') で #NEEDID。初版の grandfather relation（汚染番号 #TMP-P-000530＝関係専用の汎用 علي）は除去。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07950
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بالقاهرة」（規則2）。初版の field الحديث を除去。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+notes:
+- text: 「السيلاوي نسبة للسيلة بلد بنابلس」＝ニスバの由来説明（ナーブルス地方の町 السيلة）。event ではないので placeName を作らない（規則22(2)）。初版の residence event نابلس（ニスバ由来地）・القاهرة（ニスバ「ثم القاهري」）はいずれも補完＝除去（規則22(1)）。السيلة は ID-Master 未登録だが event を立てないため TMP-L は発行しない。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・ウスマーン・ブン・アリー、アッ＝シーラーウィー——ナーブルスの町アッ＝シーラに由来する——、アル＝ハンバリー、のちアル＝カーヒリー。カイロで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿUthmān b. ʿAlī, al-Sīlāwī—after al-Sīla, a town of Nablus—, al-Ḥanbalī, then al-Qāhirī. He is among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T04:11:39Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

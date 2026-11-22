@@ -1,0 +1,111 @@
+schema: aind-yaml/0.1
+id: AIND-D08041
+source:
+  uid: '699311345852'
+sex: M
+name:
+  full: محمد بن علي بن أبي بكر بن إسمعيل المصري المكي الجوخي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00468
+    quote: الجوخي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إسمعيل
+    by: rule
+death:
+  id: d
+  date:
+    ah: 843-12
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في ذي الحجة سنة ثلاث وأربعين
+  note:
+    ja: 843年ズー・アル＝ヒッジャ月＝1440-05-13〜06-10（h2g.py、月精度→1440-05）。初版の @when 1439 は誤り。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08041
+  quote: null
+  note:
+    ja: '父 علي بن أبي بكر：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D04601
+  passive: AIND-D08041
+  quote: null
+  note:
+    ja: '#AIND-D04601「عبد الله بن محمد بن علي بن أبي بكر بن إسماعيل المصري المكي الفراش والمؤذن بالمسجد الحرام والده والقبابي ومؤدب الأطفال هو . سمع في سنة ثمان وعشرين …」（repo 収録）の見出しナサブ（4代）・ニスバ・父の職（الفراش بالمسجد الحرام）が本項主と一致（規則37）。D04601 の father relation は ID-Master 関係専用番号 TMP-P-001238（「محمد بن علي بن أبي بكر بن إسماعيل المصري المكي الفراش والمؤذن بالمسجد الحرام」、Note「本伝なし」）＝本項主 → 名寄せ要（ISSUES §D134-3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00033
+  orgs:
+  - ref: wd:Q428858
+  quote: الفراش
+- id: s2
+  type: office
+  ref: TMP-O-00149
+  orgs:
+  - ref: TMP-I-00248
+  quote: المكبر
+  note:
+    ja: مقام الحنابلة＝マッカ聖モスク内のハンバリー派マカーム。ID-Master 未登録（مقام الحنفية＝TMP-I-00176 の先例に倣う）→ TMP-I-00248。
+- id: s3
+  type: office
+  ref: TMP-O-00149
+  orgs:
+  - ref: wd:Q146038
+  quote: null
+  note:
+    ja: ラマダーン月にはザムザム（の井戸の上）で復唱者を務めた。زمزم ＝ ID-Master Institution「بير زمزم」wd:Q146038（B94-98 ★3 で Waka 実照合済み）。初版の wd:Q36173（台帳未取得・記憶由来の疑い）を置換。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: '没年 843（≤871）→ 振り分け規則により #AIND-D09211（cert low）。初版は統制外 subtype「chronicler」の relation。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アビー・バクル・ブン・イスマーイール・アル＝ミスリー・アル＝マッキー・アル＝ジャウヒー、聖モスクの敷物係（ファッラーシュ）にして、ハンバリー派マカームの復唱者（ムカッビル）、またラマダーン月にはザムザムの復唱者。843年ズー・アル＝ヒッジャ月にマッカで没した。イブン・ファフドが（没年を）記している。
+  en: Muḥammad b. ʿAlī b. Abī Bakr b. Ismāʿīl al-Miṣrī al-Makkī al-Jawkhī, the farrāsh (attendant) at the Sacred Mosque and the mukabbir (repeater of the prayer formulae) at the Ḥanbalī station, and during Ramaḍān at Zamzam. He died in Mecca in Dhū al-Ḥijja of the year forty-three. Ibn Fahd recorded the date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T14:55:44Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

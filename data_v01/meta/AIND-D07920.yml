@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D07920
+source:
+  uid: '652726168121'
+sex: M
+name:
+  full: محمد بن عبد الوهاب بن المحب محمد بن علي بن يوسف الأنصاري الزرندي المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00049
+    quote: الأنصاري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00205
+    quote: الزرندي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الوهاب
+    by: rule
+    ref: AIND-D04791
+  - id: n6
+    type: nasab
+    quote: المحب محمد
+    by: rule
+    ref: TMP-P-001284
+  - id: n7
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n8
+    type: nasab
+    quote: يوسف
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D04791
+  passive: AIND-D07920
+  quote: null
+  note:
+    ja: '父は corpus 本伝 #AIND-D04791「عبد الوهاب بن المحب محمد بن النور علي بن يوسف التاج الزرندي المدني الشافعي كأبيه أخو عمر ومحمد الآتيين . سمع على الزين أبي بكر المراغي」（ナサブ4代・ニスバ一致）。初版は父 relation なし。同じ父をもつ兄弟の本伝: #AIND-D03925（عبد السلام）・#AIND-D04744（عبد الواحد）・#AIND-D09949（معاذ、「سمع على جده لأمه الجمال الكازروني」）。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001284
+  passive: AIND-D07920
+  quote: جده
+  note:
+    ja: '父方祖父。ID-Master 既登録 TMP-P-001284（Note に孫 D07920 を列挙済み。corpus に本伝なし、子 #AIND-D04791・#AIND-D05962・#AIND-D08970）。'
+- id: r3
+  type: personal
+  subtype: maternal_grandfather
+  active: AIND-D06936
+  passive: AIND-D07920
+  quote: الجمال الكازروني
+  note:
+    ja: '「سبط الجمال الكازروني … جده لأمه」＝母方祖父 #AIND-D06936（محمد بن أحمد بن محمد بن محمود … الجمال … الكازروني الأصل المدني الشافعي、マディーナのカーディー、757 生）。初版は subtype grandfather → maternal_grandfather。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D06936
+  passive: AIND-D07920
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: 「سمع على جده لأمه」。聴聞内容は原文に明示なし（初版の field الحديث を除去）。
+notes:
+- text: 'ザランディー家（マディーナ、ニスバ索引 #AIND-D11693）。父方の従兄弟に #AIND-D03499・#AIND-D03795（عبد الباسط・عبد الرحمن بن البهاء محمد بن المحب محمد、いずれも「سبط الجمال الكازروني」）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブド・アル＝ワッハーブ・ブン・アル＝ムヒッブ・ムハンマド・ブン・アリー・ブン・ユースフ、アル＝アンサーリー、アッ＝ザランディー、アル＝マダニー。アル＝ジャマール・アル＝カーザルーニーの外孫（娘の子）。母方の祖父から聴聞した。
+  en: Muḥammad b. ʿAbd al-Wahhāb b. al-Muḥibb Muḥammad b. ʿAlī b. Yūsuf, al-Anṣārī, al-Zarandī, al-Madanī, daughter's son of al-Jamāl al-Kāzarūnī. He heard from his maternal grandfather.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T03:29:40Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

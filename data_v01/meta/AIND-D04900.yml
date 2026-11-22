@@ -1,0 +1,78 @@
+schema: aind-yaml/0.1
+id: AIND-D04900
+source:
+  uid: '308566567514'
+sex: M
+name:
+  full: عرفات بن محمد بن خليل الزين
+  elements:
+  - id: n1
+    type: laqab
+    quote: الزين
+  - id: n2
+    type: ism
+    quote: عرفات
+    by: rule
+  - id: n3
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001316
+  - id: n4
+    type: nasab
+    quote: خليل
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001316
+  passive: AIND-D04900
+  quote: null
+  note:
+    ja: 見出し「عرفات بن محمد بن خليل الزين خطيب منية حمل من الشرقية」から1段ずらして復元（統一規則3）。初版の汚染番号 TMP-P-000529（إبراهيم بن عبد الله ابن جماعة の息子 محمد＝別人）を破棄。corpus に本伝なし・ID-Master の同名3件（القدسي・ابن المنمنم・الكردي）はいずれも別人のため仮番号発行。⚠汎用名（名＋父名のみ）。
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: NEEDID
+  passive: AIND-D04900
+  quote: null
+  note:
+    ja: '祖父。見出し「عرفات بن محمد بن خليل」。裸名のみのため #NEEDID（規則3・12。校閲時に削除した初版の relation を集約時に復元）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04900
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  places:
+  - ref: TMP-L-00300
+    quote: منية حمل
+  - ref: TMP-L-00048
+    quote: الشرقية
+  quote: خطيب
+  note:
+    ja: 「خطيب منية حمل من الشرقية」。منية حمل（シャルキーヤ県の村）は ID-Master 未登録のため、集約時に仮番号 TMP-L-00300 を発行（規則12。§D97-10）。
+notes:
+- text: corpus レコード末尾に転送見出し 1 本（『★عرفات★ . في محمد بن خضر .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
+  lang: ja
+  type: editorial
+translation:
+  ja: アラファート・ブン・ムハンマド・ブン・ハリール、アッ＝ザイン、シャルキーヤ地方のミンヤト・ハマルの説教師（ハティーブ）。カイロで私（サハーウィー）から聴聞した者の一人。
+  en: ʿArafāt b. Muḥammad b. Khalīl, al-Zayn, preacher (khaṭīb) of Minyat Ḥamal in al-Sharqiyya. He was among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-27T20:26:59Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

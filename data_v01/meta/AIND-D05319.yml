@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D05319
+source:
+  uid: '288450686542'
+sex: M
+name:
+  full: علي بن عمر بن محمد بن الشمس لولو الحلبي ثم الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n3
+    type: ism
+    quote: على
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عمر
+    by: rule
+    ref: TMP-P-001528
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: الشمس لولو
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 726
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 801-01
+    cert: medium
+  places:
+  - ref: TMP-L-00271
+    quote: بيت لهيا
+  note:
+    ja: '「مات ببيت لهيا في المحرم سنة إحدى」。一の位のみの年＝801（cert medium）。同内容の #AIND-D05282（علي بن عثمان …）も「المحرم سنة إحدى」。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001528
+  passive: AIND-D05319
+  quote: null
+  note:
+    ja: 父は見出しナサブ「علي بن عمر بن محمد بن الشمس لولو الحلبي ثم الدمشقي」から復元（曾祖父名・家名 الشمس لولو まで判明）。corpus に本伝なし（hw.py「عمر بن محمد بن الشمس لولو」は本項のみ）・ID-Master 未登録 → TMP-P-001528。初版・校閲版とも father relation なし＝集約で追加（規則3、内容B・機械[23] M）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000275
+  passive: AIND-D05319
+  methods:
+  - TMP-S-00028
+  quote: الحجار
+  note:
+    ja: 「وأحضر على الحجار」。TMP-P-000275（الحجار＝8世紀のムスニド ابن الشحنة الحجار、730年没）は実体一致（726年生の本項主が幼時に聴講）。初版の field（الحديث）は原文になく除去。
+- id: r3
+  type: personal
+  subtype: sister
+  active: NEEDID
+  passive: AIND-D05319
+  quote: زينب
+  note:
+    ja: 「أخو زينب」。裸名。corpus 女性部に「زينب … لولو」の見出しなし。
+- id: r4
+  type: personal
+  subtype: possible_identity
+  active: AIND-D05282
+  passive: AIND-D05319
+  cert: low
+  quote: null
+  note:
+    ja: '#AIND-D05282（立項番号871「علي بن عثمان بن محمد بن الشمس لولو الحلبي ثم الدمشقي أخو زينب」、726年生・801年ムハッラム月 بيت لهيا 没、أحضر على الحجار）は父名（عثمان／عمر）のみ異なり、他の全要素（祖父名・لولو・ニスバ・妹 زينب・生年・الحجار・没年月・没地）が一致する。本項末尾「وينظر إن كان في كتابي」（私の書にあるか要検討）はサハーウィー自身の留保。転送指示ではないため二重立項型として両項を実項のまま保持し、possible_identity cert low（ينظر）を記録。D05282 側の逆方向 relation は申し送り（ISSUES §D122-1）。'
+events:
+- id: e1
+  type: cultural
+  quote: وحدث
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: ذكره
+  summary:
+    ar: ذكره المقريزي في عقوده
+  trigger: rule
+translation:
+  ja: アリー・ブン・ウマル・ブン・ムハンマド・ブン・アッ＝シャムス・ルウルウ・アル＝ハラビー、のちにアッ＝ディマシュキー。ザイナブの兄弟。726年に生まれ、アル＝ハッジャールのもとに（幼くして）連れて行かれて聴講し、ハディースを伝えた。801年ムハッラム月にバイト・ラフヤーで没した。アル＝マクリーズィーが『ウクード』で彼に言及している。私の書にあるかどうかは要検討である。
+  en: ʿAlī b. ʿUmar b. Muḥammad b. al-Shams Luʾluʾ al-Ḥalabī, then al-Dimashqī, the brother of Zaynab. He was born in the year 726, was brought (as a child) to attend al-Ḥajjār, and transmitted (ḥadīth). He died in Bayt Lahyā in Muḥarram of the year [8]01. Al-Maqrīzī mentioned him in his ʿUqūd; it should be examined whether he is in my book.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T13:13:43Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D00871
+source:
+  uid: '601098291011'
+sex: M
+name:
+  full: أحمد بن عبد القادر بن محمد بن الشيخ مرتفع الشهاب النيربي الصالحي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01305
+    quote: النيربي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00037
+    quote: الصالحي
+  - id: n3
+    type: laqab
+    quote: الشهاب
+  - id: n4
+    type: ism
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد القادر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: الشيخ مرتفع
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000589
+  passive: AIND-D00871
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00111
+  quote: حفص عمر بن محمد بن أبي بكر الشحطبي
+  note:
+    ja: Gemini既登録衝突番号TMP-P-000513(=ابن الجيعان)破棄→師أبو حفص الشحطبيに新規TMP-P-000589発行(要ID-Master登録)。書名「حديث ابن عيينة」はGemini衝突番号TMP-T-00106(=تاريخ أبي زرعة)破棄→新規TMP-T-00111。「أنابه الفخر وحدث」(الفخرが代理に立て伝承)は師の来歴。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D00871
+  passive: AIND-D09466
+  methods:
+  - TMP-S-00003
+  quote: ابن موسى
+  note:
+    ja: '★要判断: 「سمع منه」の「منه」がD00871かأبو حفص الشحطبيか年代的に曖昧。Gemini解釈(D00871の生徒)を暫定踏襲。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D00871
+  passive: AIND-D04932
+  methods:
+  - TMP-S-00003
+  quote: الأبي
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D00871
+  passive: TMP-P-000221
+  methods:
+  - TMP-S-00004
+  quote: null
+  note:
+    ja: 「وذكره شيخنا في معجمه وأنه أجاز لابنته رابعة」はal-Ḍawʾ頻出の定型句。ابنته=شيخنا(イブン・ハジャル)の娘رابعة=既存TMP-P-000221(cf. D13043「رابعة ابنة شيخنا」・D00112/D00872同型)。D00871が彼女にإجازة授与(師弟関係, active=D00871)。当初の破棄・娘関係化を撤回し復活。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - label: معجم
+  quote: وذكره
+  note:
+    ja: 'Pattern A: 第三者(شيخنا=イブン・ハジャル)による『معجم』での言及。listRelationのteacher/studentではなくperson直下のmention eventに是正。'
+  trigger: rule
+translation:
+  ja: アフマド・ブン・アブドゥルカーディル・ブン・ムハンマド・ブン・アッ＝シャイフ・ムルタファ、アッ＝シハーブ・アン＝ナイラビー・アッ＝サーリヒー。彼はアブー・ハフス・ウマル・ブン・ムハンマド・ブン・アビー・バクル・アッ＝シャフタビーから、イブン・ウヤイナのハディースを、ムハンマド・ブン・アブドゥッラー・ブン・ヤズィード・アル＝ムクリー伝承の副本(تابع)として聴聞した。アル＝ファフルが彼（＝アブー・ハフス）を代理に立て、彼（＝アブー・ハフス）は伝承した。彼からイブン・ムーサーと我らがシャイフ（アル＝アビー）が聴聞した。我らがシャイフ（イブン・ハジャル）は自身の『ムアジャム』で彼に言及し、彼が娘のラービヤにイジャーザを与えたことを記している。
+  en: Aḥmad b. ʿAbd al-Qādir b. Muḥammad, Shihāb al-Nīrabī al-Ṣāliḥī. He heard from Abū Ḥafṣ ʿUmar b. Muḥammad b. Abī Bakr al-Shaḥṭabī, who transmitted the ḥadīth of Ibn ʿUyayna via the narration of Muḥammad b. ʿAbd Allāh b. Yazīd al-Muqrī. Al-Fakhr appointed him as his deputy, and he transmitted. Ibn Mūsā and our shaykh (al-Abī) heard from him. Our shaykh (Ibn Ḥajar) mentioned him in his 『Muʿjam』, and that he granted an ijāza to his daughter Rābiʿa.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.10
+  generated_at: '2026-06-27T10:45:18Z'
+  model_era: gemini-2.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

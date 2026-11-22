@@ -1,0 +1,66 @@
+schema: aind-yaml/0.1
+id: AIND-D10059
+source:
+  uid: '549579672998'
+sex: M
+name:
+  full: موسى بن الناصر حسن بن محمد بن قلاوون
+  elements:
+  - id: n1
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n2
+    type: nasab
+    quote: الناصر حسن
+    by: rule
+    ref: TMP-P-001692
+  - id: n3
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: قلاوون
+    by: rule
+death:
+  id: d
+  date:
+    ah: 803-05-15
+    cert: medium
+  note:
+    ja: 「مات في يوم السبت منتصف جمادى الأولى سنة ثلاث」。一の位だけの年「سنة ثلاث」は 803 と読み cert medium（2026-09-24 Waka。イブン・ハジャル『إنباء』の記録範囲とも整合）。803-05-15＝1401-01-10（土曜、h2g.py で曜日一致＝803 の読みを裏づける）。初版の @when 1400 は年初の値で誤り（規則18）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001692
+  passive: AIND-D10059
+  quote: null
+  note:
+    ja: '父＝スルターン الناصر حسن بن الناصر محمد بن المنصور قلاوون（カラーウーン朝。没年は原文・corpus に記載なし）。corpus に本伝なし（hw.py「قلاوون」の見出しは子孫 #AIND-D02477・D02479・D05178「علي بن شعبان بن الناصر حسن …」・D07322・D08087 等のみ）。ID-Master 未登録（idsearch「الناصر حسن」「قلاوون」は الأشرف شعبان wd:Q286592 ほかのみ）＝TMP-P-001692。wd は未照合（記憶から書かない）。初版の #NEEDID を置換。【集約 2026-11-05】校閲が記した父の没年（762）は記憶由来で corpus に該当がない＝削除（規則59(e)、内容B L、決定9）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation「predecessor」（active=wd:Q471116、史料記録を前任関係に誤変換）を置換。
+  trigger: rule
+translation:
+  ja: ムーサー・ブン・アン＝ナースィル・ハサン・ブン・ムハンマド・ブン・カラーウーン。（8）03年ジュマーダー・アル＝ウーラー月の中日（15日）、土曜日に没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記録している。
+  en: Mūsā b. al-Nāṣir Ḥasan b. Muḥammad b. Qalāwūn. He died on Saturday, the middle of Jumādā al-Ūlā of the year (8)03. Our shaykh (Ibn Ḥajar) recorded his date (of death) in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:34:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

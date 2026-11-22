@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D05335
+source:
+  uid: '428213284453'
+sex: M
+name:
+  full: علي بن فتح بن أوحد النور الخانكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00224
+    quote: الخانكي
+  - id: n2
+    type: laqab
+    quote: النور
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: فتح
+    by: rule
+    ref: TMP-P-001520
+  - id: n5
+    type: nasab
+    quote: أوحد
+    by: rule
+    ref: AIND-D07144
+death:
+  id: d
+  date:
+    ah: 890-04
+  note:
+    ja: 「وتأخر بعده حتى مات في ربيع الثاني سنة تسعين」（890-04＝1485-04-26〜05-24）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001520
+  passive: AIND-D05335
+  quote: null
+  note:
+    ja: '父。見出しナサブから復元（規則3、祖父名 أوحد まで判明）。corpus に本伝なし（「فتح بن أوحد」の見出しなし。子 D08152 の「الماضي أبوه وجده」の「جده」は既出項を指すので فتح ではなく #AIND-D07144 と読む＝下記 grandfather。父 فتح は D07144 の息子か）・ID-Master 未登録 → 新規 TMP-P-001520。初版に father relation なし。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: AIND-D07144
+  passive: AIND-D05335
+  cert: medium
+  quote: null
+  note:
+    ja: '「حفيد شيخ الخانقاه السرياقوسية كان」。【集約】corpus でサルヤークースのハーンカーのシャイフとして記録されるのは #AIND-D07144「محمد ابن أوحد استقر في مشيخة الخانقاه الناصرية بسرياقوس … سنة اثنتي عشرة … إلى أوائل سنة خمس عشرة」のみで、أوحد 本人の記録はない（hw.py「أوحد」）。子 #AIND-D08152「حفيد شيخ الخانقاه الماضي أبوه وجده」の「الماضي … جده」が指しうる既出項も D07144 だけ。見出し「محمد ابن أوحد」の ابن は家名（通称）とみられ、本項主のナサブ「فتح بن أوحد」は「فتح بن (محمد) ابن أوحد」の家名省略と読む。字義（ナサブの祖父 أوحد）との食い違いがあるため cert medium（内容A・内容B M、§D119-4 付記）。校閲時の仮番号 取り下げた仮番号 B122-P08 は取り下げ。初版は #NEEDID で desc に職名のみ。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D08152
+  passive: AIND-D05335
+  quote: والد
+  note:
+    ja: 「ووالد محمد الآتي」。子＝#AIND-D08152（立項番号530「محمد بن علي بن فتح بن أوحد الشمس بن النور الخانكي سبط العز المنوفي وحفيد شيخ الخانقاه الماضي أبوه وجده」）。ナサブ4代一致（規則37）。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة の息子 محمد、別人）を差替え。
+- id: r4
+  type: personal
+  subtype: father-in-law
+  active: TMP-P-001519
+  passive: AIND-D05335
+  quote: عز الدين المنوفي
+  note:
+    ja: '「ناب في القضاء بها عن صهره عز الدين المنوفي」。صهر の語義は婚姻による縁戚で方向が定まらないが、子の項 #AIND-D08152 に「سبط العز المنوفي」（العز المنوفي の娘の子）とあるため、本項主の妻の父＝father-in-law と確定。ハーンカー（الخانكة）のカーディーとみられる（本項主がその代理を務めた）。候補 #AIND-D08835「محمد بن محمد بن عبد السلام … العز … المنوفي ثم القاهري الشافعي … ويعرف بالعز بن عبد السلام … وناب في القضاء في سنة خمس عشرة … واستمر ينوب لمن بعده」（索引 D12062、865没＝本項「وتأخر بعده」・890没と整合、職も代理カーディー）がある（集約で訂正。校閲時の「本伝なし」は誤り、内容B M）。ただし الخانكة での任官は D08835 に記載がなく確証がないため同定せず（規則26）、ID-Master 未登録 → 新規 TMP-P-001519（候補 D08835）。初版は #NEEDID・subtype「brother」（誤読）。'
+- id: r5
+  type: personal
+  subtype: deputy
+  active: TMP-P-001519
+  passive: AIND-D05335
+  quote: null
+  note:
+    ja: 「ناب في القضاء بها عن صهره عز الدين المنوفي」＝義父の代理裁判官を務めた（先例 D05308・D05973 の deputy 型、active＝本務者）。「وتأخر بعده」＝義父の没後も生き延びた。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  places:
+  - ref: TMP-L-00229
+    cert: medium
+    quote: الخانقاه
+  quote: ناب
+  note:
+    ja: 「ناب في القضاء بها」。بها の先行詞は「الخانقاه السرياقوسية」＝カイロ北東の町 الخانكة（TMP-L-00229、ニスバ الخانكي の由来地）と読む（施設 خانقاه سرياقوس TMP-I-00022 ではなく町の裁判なので cert medium、規則22(3)）。初版の placeName「الخانكة」#NEEDID を既登録番号に。
+translation:
+  ja: アリー・ブン・ファトフ・ブン・アウハド、アン＝ヌール・アル＝ハーンキー。かつてのスィルヤークース・ハーンカーのシャイフの孫で、後述するムハンマドの父。そこで姻戚のイッズ・アッ＝ディーン・アル＝マヌーフィーの代理として裁判（カーディー職の代理）を務め、彼の後も生き延びて、890年ラビーウ第2月に没した。
+  en: ʿAlī b. Fatḥ b. Awḥad, al-Nūr al-Khānkī, grandson of the former shaykh of the Siryāqūs khānqāh and father of Muḥammad, who will come below. He served as deputy judge there on behalf of his relative by marriage ʿIzz al-Dīn al-Munūfī, and outlived him until he died in Rabīʿ II of the year 890.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T13:44:12Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

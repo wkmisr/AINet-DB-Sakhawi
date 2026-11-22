@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D06553
+source:
+  uid: '915159398345'
+sex: M
+name:
+  full: محمد العز الطيب بن إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني
+  elements:
+  - id: n1
+    type: laqab
+    quote: العز
+  - id: n2
+    type: laqab
+    quote: الطيب
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00377
+    quote: الحكمي
+  - id: n4
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: TMP-P-001673
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: عيسى
+    by: rule
+  - id: n9
+    type: nasab
+    quote: مطير
+    by: rule
+death:
+  id: d
+  summary:
+    ar: ومات بعد أخيه محمد
+  note:
+    ja: '没年は書かれていない（「兄弟ムハンマドの後に没した」）＝日付属性を置かない。子の本伝 #AIND-D01184 に「ومات بعد أبيه بنحو ثلاث سنين قاله الأهدل」（他項の情報＝note 留め、規則23）。初版は death なし。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001673
+  passive: AIND-D06553
+  quote: null
+  note:
+    ja: '見出しナサブより（規則3）。父＝ID-Master 既登録 TMP-P-001673「ضياء الدين أبو إسحاق إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني」（Note に子として本項主 #AIND-D06553 を明記。repo #AIND-D10037 で使用）。corpus に本人の本伝はない（家の索引 #AIND-D12742「ولمحمد إبرهيم وموسى ولإبرهيم أولهما أحمد والطيب العز محمد وموسى وأبو بكر」）。初版は father relation なし。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D00239
+  passive: AIND-D06553
+  quote: إبراهيم
+  note:
+    ja: '「والد إبراهيم الماضي」＝#AIND-D00239「إبراهيم بن محمد بن إبراهيم بن محمد بن عيسى الحكمي اليماني ثم الخيفي الآتي أبوه العز الطيب ويعرف بابن مطير … مات في المحرم سنة ثمانين بجدة」（相互閉合、repo 収録済み。相手側は本項主を father に持つ）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D01184
+  passive: AIND-D06553
+  cert: medium
+  quote: null
+  note:
+    ja: '本項の原文には出ない子。#AIND-D01184「أحمد بن محمد الطيب بن إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني . تفقه بعمه أحمد وبالأزرق وغيرهما ومات بعد أبيه بنحو ثلاث سنين قاله الأهدل」の見出しナサブが本項主を一意に指す（repo 収録済み、相手側は本項主を father に持つ）。索引 #AIND-D12742「وللطيب أحمد ومحمد وإبرهيم」。他項にのみある関係＝cert medium（規則23）。'
+- id: r4
+  type: personal
+  subtype: son
+  active: AIND-D08531
+  passive: AIND-D06553
+  cert: medium
+  quote: محمد
+  note:
+    ja: '本項の原文には出ない子。#AIND-D08531「محمد بن محمد بن إبرهيم بن محمد بن عيسى بن مطير العز بن الطيب الحكمي اليماني الشافعي أخو أحمد الماضي」（repo 未収録）の見出しナサブと索引 #AIND-D12742「وللطيب أحمد ومحمد وإبرهيم」による。他項にのみある関係＝cert medium（規則23）。'
+- id: r5
+  type: personal
+  subtype: brother
+  active: NEEDID
+  passive: AIND-D06553
+  quote: null
+  note:
+    ja: '「ومات بعد أخيه محمد」の兄弟 محمد。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة 家の محمد、関係専用）を除去。家の索引 #AIND-D12742 が挙げる إبراهيم の子は「أحمد والطيب العز محمد وموسى وأبو بكر」の4人で、本項主のほかに محمد という兄弟は見えない（corpus 見出し「محمد بن إبراهيم بن محمد بن عيسى」も本項のみ）。兄弟の本伝は #AIND-D00452 أحمد（أبو القسم）・#AIND-D10037 موسى（828年没）・#AIND-D10639 أبو بكر。「محمد」がこのいずれか（أحمد の誤り、または أبو بكر の名）を指す可能性はあるが原文からは決まらない＝#NEEDID（ISSUES §D170-11）。'
+events:
+- id: e1
+  type: learning
+  quote: وسمع
+  summary:
+    ar: تفقه وسمع الحديث والتفسير
+  note:
+    ja: '法学を修め、ハディースとタフスィールを聴いた（師の名はない＝relation は立てない）。兄弟の項 #AIND-D10639 も同じ文言「تفقه وسمع الحديث والتفسير」。'
+  trigger: rule
+translation:
+  ja: ムハンマド・アル＝イッズ・アッ＝タイイブ・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イーサー・ブン・ムタイル、アル＝ハカミー、アル＝ヤマーニー。既出のイブラーヒームの父。法学を修め、ハディースとタフスィールを聴いた。兄弟ムハンマドの後に没した。
+  en: Muḥammad al-ʿIzz al-Ṭayyib b. Ibrāhīm b. Muḥammad b. ʿĪsā b. Muṭayr al-Ḥakamī al-Yamānī, father of the Ibrāhīm mentioned above. He studied jurisprudence and heard ḥadīth and tafsīr. He died after his brother Muḥammad.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T16:49:21Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

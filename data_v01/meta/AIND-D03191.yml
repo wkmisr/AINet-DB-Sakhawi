@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D03191
+source:
+  uid: '414799895456'
+sex: M
+name:
+  full: سنقر بن وبير بن نخبار الحسيني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00084
+    quote: الحسيني
+  - id: n2
+    type: ism
+    quote: سنقر
+    by: rule
+  - id: n3
+    type: nasab
+    quote: وبير
+    by: rule
+    ref: AIND-D10188
+  - id: n4
+    type: nasab
+    quote: نخبار
+    by: rule
+death:
+  id: d
+  date:
+    ah: 852
+    cert: low
+  summary:
+    ar: ورأيت من أرخه سنة اثنتين وخمسين فيحرر مع التاريخ المذكور
+  note:
+    ja: '【集約 2026-11-08】異説として記録。「ورأيت من أرخه سنة N」は corpus で没年の異説を言う定型（同じヤンブウのアミール #AIND-D03365「مات سنة ست وأربعين ورأيت من أرخه سنة اثنتين بدل ست」、#AIND-D02468「مات فجأة … سنة احدى وخمسين ، ورأيت من أرخه سنة اثنتين وخمسين」ほか）で、「أرخه」の代名詞は本項主を受ける。本項には没年の記述がなく、855年就任と矛盾する 852年の死亡記録なので、サハーウィー自身が「فيحرر مع التاريخ المذكور」（前記の年と照らして要検証）とする＝cert low。852＝1448-03-16 開始（年精度、h2g.py）。前任の兄 هلمان は #AIND-D10178 によれば 855年に没するまで在職（内容A M、オーケストレーター決定5。ブリーフ・校閲の「就任年の異説」の読みを改めた）。確認依頼。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D10188
+  passive: AIND-D03191
+  quote: null
+  note:
+    ja: '父＝ #AIND-D10188「وبير بن نخبار بن محمد بن عقيل بن راجح بن إدريس بن حسن بن قتادة الحسيني والدهلمان وهجار وسنقر وعقيل . أقام في إمرة الينبوع أكثر من عشرين سنة . وقتل في سنة أربع عشرة」（814没、未収録）。見出しナサブ（وبير بن نخبار＋الحسيني）＋相手側の「والد هلمان وهجار وسنقر وعقيل」で閉合（規則37・57）。初版に父 relation なし。祖父 نخبار・兄弟 هجار（#AIND-D10175）・عقيل（#AIND-D04914）は本項に名指しなし＝note のみ（規則23）。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D10178
+  passive: AIND-D03191
+  quote: أخيه
+  note:
+    ja: '「بعد أخيه هلمان」＝ #AIND-D10178「هلمان بن وبير بن نخبار وقيل بميم بدل النون الحسيني صاحب الينبع وأخو سنقر الماضي … فدام حتى مات في أواخر جمادى الأولى سنة خمس وخمسين」（855没、未収録）。「أخو سنقر الماضي」で双方向に閉合。初版の #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: AIND-D10178
+  passive: AIND-D03191
+  quote: null
+  note:
+    ja: 「وليها في سنة خمس وخمسين بعد أخيه هلمان」＝ヤンブウのアミール職を兄 هلمان の後に継いだ → predecessor（規則29、先例 D04045）。D10178 側「فدام حتى مات في أواخر جمادى الأولى سنة خمس وخمسين」と整合。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00163
+  places:
+  - ref: TMP-L-00081
+    quote: الينبوع
+  dates:
+  - ah: 855
+  quote: أمير
+  note:
+    ja: '見出しの職名。ID-Master 既登録 TMP-O-00182 أمير الينبع（初版 #NEEDID を置換）。الينبوع＝TMP-L-00081（ID-Master「ينبع | الينبوع」、原文の地名）。就任年は本文の 855。【集約 2026-11-08】@when 1451 を補った（855＝1451-02-12 開始、年精度。機械 M）。本文末尾「ورأيت من أرخه سنة اثنتين وخمسين」は就任年ではなく没年の異説（death、cert low）と読むので、就任の cert medium を外した（決定5）。'
+- id: s2
+  type: status
+  label: وشكرت سيرته
+  quote: وشكرت سيرته
+events:
+- id: e1
+  type: political
+  date:
+    ah: 855
+  places:
+  - ref: TMP-L-00081
+    quote: الينبوع
+  quote: وليها
+  summary:
+    ar: وليها في سنة خمس وخمسين بعد أخيه هلمان
+  note:
+    ja: 855＝1451-02-12 開始（年精度、h2g.py。初版は @when なし）。【集約 2026-11-08】「ورأيت من أرخه سنة اثنتين وخمسين فيحرر مع التاريخ المذكور」は就任年ではなく没年の異説（852、855年就任と矛盾するので要検証）と読み、death（cert low）に移した。就任の cert medium は除去（内容A M、決定5）。
+  trigger: rule
+translation:
+  ja: スンクル・ブン・ワビール・ブン・ヌフバール、アル＝フサイニー、ヤンブウのアミール。（8）55年、兄弟ハルマーンの後を受けてその（ヤンブウの）アミール職に就き、その治績は称えられた。彼（の死）を（8）52年とする者も見たので、前記の年代と照らして検証を要する。
+  en: Sunqur b. Wabīr b. Nukhbār al-Ḥusaynī, amir of Yanbūʿ. He took charge of it in the year [8]55 after his brother Halmān, and his conduct was praised. I have seen someone who dated his [death] to the year [8]52, so it should be verified against the date mentioned.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T11:18:25Z'
+  model_requested: gemini-3.5-flash

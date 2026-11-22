@@ -1,0 +1,103 @@
+schema: aind-yaml/0.1
+id: AIND-D10005
+source:
+  uid: '335271710000'
+sex: M
+name:
+  full: ممجق النوروزي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00355
+    quote: النوروزي
+  - id: n2
+    type: ism
+    quote: ممجق
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 844-06-29
+    notAfter: 844-07-01
+  summary:
+    ar: مات في سلخ جمادى الثانية أو مستهل رجب سنة أربع واربعين
+  note:
+    ja: '「سلخ جمادى الثانية أو مستهل رجب」＝844年ジュマーダー2月末日（844-06-29＝1440-12-04 金曜、h2g）または同ラジャブ朔日（844-07-01＝1440-12-05 土曜）の両説 → notBefore/notAfter（先例 #AIND-D04812）。初版の年精度（0844／1440）を精密化。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10005
+  quote: null
+  note:
+    ja: 規則3（単名のマムルーク。原文に父名なし）。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D10152
+  passive: AIND-D10005
+  quote: نوروز الحافظي
+  note:
+    ja: 「النوروزي نسبة لنوروز الحافظي」＝主人ニスバ（規則51）。نوروز الحافظي＝#AIND-D10152（初版の TMP-P-000672 は名寄せ済み番号、規則36）。
+- id: r3
+  type: personal
+  subtype: successor
+  active: AIND-D02275
+  passive: AIND-D10005
+  quote: تغرى برمش الفقيه
+  note:
+    ja: '「استقر بعده في النيابة تغرى برمش الفقيه」＝#AIND-D02275「143 تغرى برمش سيف الدين الجلالي الناصري ثم المؤيدي الحنفي نائب القلعة بالقاهرة ويعرف بالفقيه」（通称 الفقيه・نائب القلعة بالقاهرة で閉合）。初版は #NEEDID。'
+- id: r4
+  type: personal
+  subtype: possible_identity
+  active: AIND-D06312
+  passive: AIND-D10005
+  cert: low
+  quote: null
+  note:
+    ja: '#AIND-D06312「704 قجق النوروزي الجركسي نائب قلعة الجبل . مات سنة أربع وأربعين ويحرر فكأنه ممجق」の鏡像（D06312 側は集約 2026-10-26 で本項への possible_identity cert low を設置済み、「鏡像は D10005 受領時」）。本項末尾「وتسميته قجق سهو」＝「彼を قجق と呼ぶのは誤り」は D06312 の見出し形を指す。両項とも転送指示がないので二重立項型（実項のまま）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00101
+  quote: عشرة
+  note:
+    ja: '「عمله الظاهر جقمق عشرة」＝الظاهر جقمق（#AIND-D02423）が十人長に任じた。任官者は主人ではないので relation にせず（規則53、初版の patron #AIND-D02423 を除去）、下の event に persName で表現。'
+- id: s2
+  type: office
+  ref: TMP-O-00338
+  places:
+  - ref: TMP-L-00193
+    quote: القلعة
+  quote: نيابة
+  note:
+    ja: '「ثم ولاه نيابة القلعة ودام حتى مات」＝没するまで在職。汎用 نائب（TMP-O-00053）＋ラベル（先例 #AIND-D06312）。初版の date type="retirement" when-custom="0844" は原文に退任の記述がない（在職のまま没）ため除去。'
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D02423
+    quote: الظاهر جقمق
+  places:
+  - ref: TMP-L-00193
+    quote: القلعة
+  quote: استقر
+  summary:
+    ar: تنقلت به الأحوال إلى أن عمله الظاهر جقمق عشرة ثم ولاه نيابة القلعة
+  note:
+    ja: 任官（十人長→城塞代官）の主体 الظاهر جقمق を persName で（規則53）。年の記載なし＝日付属性なし（規則18）。初版の2つの political event（en desc のみ）を1つに統合。
+  trigger: rule
+notes:
+- text: 「وكان خيرا دينا ساكنا」は評価句＝訳のみ。「وتسميته قجق سهو」は初版の event type="other" を除去し、possible_identity（#AIND-D06312）の note に記した。
+  lang: ja
+  type: editorial
+translation:
+  ja: マムジク・アン＝ナウルーズィー、ナウルーズ・アル＝ハーフィズィーに帰属するニスバ。境遇は転々と変わり、ついにアッ＝ザーヒル・ジャクマクが彼を十人長とし、次いで城塞の代官職（ニヤーバト・アル＝カルア）に任じた。彼は844年ジュマーダー第二月末日またはラジャブ月朔日に没するまでその職にあった。善良で信仰篤く、物静かな人物であった。彼の後、代官職にはタグリー・ビルミシュ・アル＝ファキーフが就いた。なお、彼を「カジャク」と呼ぶのは誤りである。
+  en: Mamjiq al-Nawrūzī, a nisba referring to Nawrūz al-Ḥāfiẓī. His circumstances shifted until al-Ẓāhir Jaqmaq made him an amīr of ten and then appointed him deputy (nāʾib) of the Citadel, in which he continued until he died on the last day of Jumādā II or the first of Rajab 844. He was good, religious and quiet. After him Taghrī Birmish al-Faqīh was installed in the deputyship. Calling him Qajaq is an error.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T06:29:46Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

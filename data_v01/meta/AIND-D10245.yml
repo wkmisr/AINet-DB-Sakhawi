@@ -1,0 +1,104 @@
+schema: aind-yaml/0.1
+id: AIND-D10245
+source:
+  uid: '670174302047'
+sex: M
+name:
+  full: يحيى بن زكريا بن محمد بن أحمد بن زكريا محيي الدين أبو السعود بن الزيني السنيكي الأصل القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01319
+    quote: السنيكي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: محيي الدين
+  - id: n4
+    type: kunyah
+    quote: أبو السعود
+  - id: n5
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n6
+    type: nasab
+    quote: زكريا
+    by: rule
+    ref: AIND-D03042
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: زكريا
+    by: rule
+  - id: n10
+    type: nasab
+    quote: الزيني
+    by: rule
+  - id: n11
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    ah: 897-07
+  summary:
+    ar: ومات في طاعون سنة سبع وتسعين في رجبها وفجع به أبوه
+  note:
+    ja: 897年ラジャブ月＝1492-05-08 開始（h2g.py）、月精度で @when=1492-05（初版の 1492 を月精度に）。疫病（طاعون）による死。没地の記載なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D03042
+  passive: AIND-D10245
+  quote: أبيه
+  note:
+    ja: 「الماضي أخوه وأبوهما」（規則37）。父＝#AIND-D03042「892 زكريا بن محمد بن أحمد بن زكريا الزين الأنصاري السنبكي القاهري الأزهري الشافعي القاضي」（ナサブ4代・ラカブ الزين（本項「بن الزيني」）で閉合）。
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D07396
+  passive: AIND-D10245
+  quote: أخوه
+  note:
+    ja: 「الماضي أخوه」＝#AIND-D07396「602 محمد بن زكريا بن محمد بن أحمد بن زكريا المحب أبو الفتوح بن الزيني السنيكي الأصل القاهري الشافعي الماضي أبوه الآتي أخوه يحيى」（相手側が本項主を名指し＝cert なし）。初版は active が空。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D03042
+  passive: AIND-D10245
+  methods:
+  - TMP-S-00003
+  quote: أبوه
+  note:
+    ja: 「ممن سمع على أبيه」＝父（#AIND-D03042）に就いて聴いた。直後に人名「أبيه」が来るので「عليّ」とは読まない。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+notes:
+- text: 「السنيكي الأصل القاهري」＝出自ニスバと居住ニスバ。出生・居住の event は原文にない＝placeName を立てない。父の本伝の刊本表記は「السنبكي」、本項と兄弟の項は「السنيكي」（規則25、原文どおり）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・ザカリーヤー・ブン・ムハンマド・ブン・アフマド・ブン・ザカリーヤー、ムフイー・アッ＝ディーン、アブー・アッ＝スウード、アッ＝ザイニーの子、出自はアッ＝スナイキー、アル＝カーヒリー、アッ＝シャーフィイー。彼の兄弟と、二人の父（ザカリーヤー）は既出。父に就いて聴いた者の一人。（8）97年の疫病で、そのラジャブ月に没し、父は彼を失って深く悲しんだ。
+  en: Yaḥyā b. Zakariyyā b. Muḥammad b. Aḥmad b. Zakariyyā, Muḥyī al-Dīn, Abū al-Suʿūd, son of al-Zaynī, al-Sunaykī by origin, al-Qāhirī, al-Shāfiʿī. His brother and their father have been mentioned above. He was one of those who heard (ḥadīth) from his father. He died in the plague of the year [8]97, in its Rajab, and his father was grief-stricken at his loss.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T03:45:41Z'
+  model_requested: gemini-3.5-flash

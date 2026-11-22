@@ -1,0 +1,92 @@
+schema: aind-yaml/0.1
+id: AIND-D05004
+source:
+  uid: '236403567443'
+sex: M
+name:
+  full: علي بن أحمد بن علي بن يوسف الخصوصي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00980
+    quote: الخصوصي
+  - id: n2
+    type: ism
+    quote: علي
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001050
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: يوسف
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001050
+  passive: AIND-D05004
+  quote: أبوه
+  note:
+    ja: 「وأبوه شيخ الخصوص」＝父はアル＝フスース（خصوص عين شمس、カイロ近郊の村。索引 D11624）のシャイフ。ナサブ＋ニスバ＋職名で識別可能だが corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001050。父の職（شيخ الخصوص）は伝主の state にしない。
+- id: r2
+  type: personal
+  subtype: father-in-law
+  active: AIND-D02414
+  passive: AIND-D05004
+  quote: الزين جعفر المقري
+  note:
+    ja: 「زوج ابنة الزين جعفر المقري」。الزين جعفر المقري＝الزين أبو الفتح جعفر بن إبراهيم السنهوري القاهري المقرئ（#AIND-D02414、没894）。D02414 本伝に「تزوج ابنتهما خديجة … الشريف على الخصوصي」とあり、本項主（الشريف علي الخصوصي）との婚姻が相手側でも確認できる。ID-Master「الزين جعفر السنهوري」＝AIND-D02414。
+- id: r3
+  type: personal
+  subtype: spouse
+  active: TMP-P-001051
+  passive: AIND-D05004
+  quote: زوج
+  note:
+    ja: 本項では無名だが、D02414 により名は خديجة ابنة الزين جعفر بن إبراهيم السنهوري と復元できる（名＋父のナサブ）。corpus 女性部に見出しなし・ID-Master 未登録 → 新規 TMP-P-001051。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D05004
+  methods: []
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+    summary:
+      ar: وكان يتردد إلي في مسيرنا راجعين ثم تردد إلي بالقاهرة
+  quote: null
+  note:
+    ja: 「تردد إلي」＝私（サハーウィー）のもとに足しげく通った（巡礼からの帰路、次いでカイロで）。repo 前例 D03557・D04178 の方式（method تردد）。初版の friend relation を置換。
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  date:
+    notBefore: 890
+  places:
+  - ref: gn:104515
+  quote: حج
+  summary:
+    ar: ممن حج بعد التسعين موسميا
+  note:
+    ja: 「بعد التسعين」＝890年（1485年1月18日〜1486年1月6日）より後 → notBefore 方式。「موسميا」＝巡礼季のみの（滞在せず帰る）巡礼。
+  trigger: rule
+translation:
+  ja: アリー・ブン・アフマド・ブン・アリー・ブン・ユースフ・アル＝フスースィー。アッ＝ザイン・ジャアファル・アル＝ムクリの娘の夫。シャリーフ（預言者の後裔）として言及される人物で、その父はアル＝フスースのシャイフであった。890年より後に巡礼季の巡礼を行った者の一人で、我々の帰路の道中に私（サハーウィー）のもとへ足しげく通い、その後カイロでも私のもとへ通った。
+  en: ʿAlī b. Aḥmad b. ʿAlī b. Yūsuf al-Khuṣūṣī, the husband of the daughter of al-Zayn Jaʿfar al-Muqriʾ. He is mentioned as a sharīf, and his father was the shaykh of al-Khuṣūṣ. He was among those who performed the pilgrimage after [8]90 for the season only; he used to frequent me (al-Sakhāwī) during our journey back, and afterwards he frequented me in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-12T10:21:10Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,124 @@
+schema: aind-yaml/0.1
+id: AIND-D07337
+source:
+  uid: '443291607539'
+sex: M
+name:
+  full: محمد بن حسن بن إلياس الجمال الرومي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00016
+    quote: الرومي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: حسن
+    by: rule
+    ref: TMP-P-001124
+  - id: n5
+    type: nasab
+    quote: إلياس
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+birth:
+  id: b
+  date:
+    ah: 820
+    cert: low
+  note:
+    ja: 逆算。860年ラジャブ月に「نحو الأربعين」（40歳前後）で没したことから820年頃（820-01-01＝1417-02-27、グレゴリオ暦）。cert low。
+death:
+  id: d
+  date:
+    ah: 860-07
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ar: مات بمكة في رجب سنة ستين … ومات عن نحو الأربعين
+    ja: 860年ラジャブ月＝1456-06-14 起点（月初、グレゴリオ暦）。初版の when="1456" を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001124
+  passive: AIND-D07337
+  quote: null
+  note:
+    ja: 父。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001124 を発行。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: companion
+  active: AIND-D03480
+  passive: AIND-D07337
+  quote: الوقت المرشدي
+  note:
+    ar: وترافق مع أبي الوقت المرشدي بحيث كان يكاتبه
+    ja: 'أبو الوقت المرشدي＝#AIND-D03480（عبد الأول بن محمد بن إبراهيم … صاحبنا سديد الدين أبو الوقت بن الجمال المرشدي المكي الحنفي、817年マッカ生）。同世代・同地・同学派で一意。初版は #NEEDID（subtype「friend」）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00149
+  orgs:
+  - ref: wd:Q428858
+  quote: نصف تكبير مقام الحنفية
+  note:
+    ja: '聖モスクのハナフィー派マカームにおける تكبير（復唱）職の半分を名義として保持。職ID は مكبر=TMP-O-00149。placeName「مكة」は原文の「بالمسجد」（＝المسجد الحرام）に基づく orgName で代替し付けない（規則16）。初版は #NEEDID。'
+- id: s2
+  type: status
+  ref: TMP-O-00353
+  orgs:
+  - ref: TMP-I-00164
+  cert: medium
+  quote: السبيل الذي أنشأه المؤيد بالمسجد تجاه الحجر الأسود
+  note:
+    ja: '「وباسمه … السبيل الذي أنشأه المؤيد بالمسجد تجاه الحجر الأسود」＝アル＝ムアイヤド（スルターン・シャイフ＝#AIND-D03345）が聖モスクの黒石の正面に設けたサビール（給水所）に係る職（俸給）を名義として保持。職名は原文に明示がないため既存の خادم السبيل=TMP-O-00184 を cert medium で充当（ISSUES §Db-6）。施設は新規 TMP-I-00164。 / 裁定 §D-10 により @type を office → status に変更。原文「وباسمه … إلى غير ذلك من مرتبات」は名義上の俸給保持を述べるものであって職掌の遂行ではないため、身分（status）として符号化する。repo 実測の state/@type は office 1,313 件・status 69 件・employed 1 件で、status は確立した選択肢。職ID #TMP-O-00184（خادم السبيل）は原文に職名の明示がないための充当であり cert="medium" のまま維持する。なお state n="1"（مكبر・#TMP-O-00149）は「نصف تكبير」と職名が明示されているため office のまま。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: study
+  quote: اشتغل
+  summary:
+    ar: وهو ممن اشتغل وتميز في الفقه وغيره
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: كتبا
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A（没年記録）。没年 860（≦871・限定なし）→ 規約により التقي بن فهد ＝ #AIND-D09211、cert low。初版は統制外 subtype「other」の relation。'
+  trigger: rule
+notes:
+- text: وحصل كتبا ، وكان مع ذلك جيد الخط … إلى غير ذلك من مرتبات
+  lang: ar
+  type: personalia
+translation:
+  ja: ムハンマド・ブン・ハサン・ブン・イリヤース、アル＝ジャマール・アッ＝ルーミー・アル＝ハナフィー。860年ラジャブ月にマッカで没した。イブン・ファハドがその没年を記録している。彼は学問に励み法学などで頭角を現した者の一人で、アブー・アル＝ワクト・アル＝ムルシディーと交友し、手紙を交わすほどであった。書物を収集し、それに加えて能書でもあった。彼の名義には、ハナフィー派マカームのタクビール（復唱）職の半分と、アル＝ムアイヤドが（聖）モスク内の黒石の正面に建てたサビール（給水所）の職、そのほかの俸給があった。40歳前後で没した。
+  en: Muḥammad b. Ḥasan b. Ilyās, al-Jamāl al-Rūmī al-Ḥanafī. He died in Mecca in Rajab 860; Ibn Fahd recorded his death date. He was among those who studied and distinguished themselves in jurisprudence and other subjects. He kept company with Abū al-Waqt al-Murshidī, to the point that he corresponded with him, and he acquired books; he was, moreover, a fine calligrapher. Registered in his name were half of the takbīr post at the Ḥanafī maqām, together with the sabīl (public fountain) that al-Muʾayyad had built in the (Sacred) Mosque facing the Black Stone, and other stipends besides. He died at about forty years of age.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-05T06:43:10Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

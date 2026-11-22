@@ -1,0 +1,190 @@
+schema: aind-yaml/0.1
+id: AIND-D10441
+source:
+  uid: '411226362160'
+sex: M
+name:
+  full: يوسف بن أحمد بن محمد بن كمال الدين جمال الدين بن الشهاب بن الشمس الأندجاني الأصل السمرقندي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05188
+    quote: الأندجاني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00344
+    quote: السمرقندي
+  - id: n3
+    type: laqab
+    quote: جمال الدين
+  - id: n4
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001729
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: كمال الدين
+    by: rule
+  - id: n8
+    type: nasab
+    quote: الشهاب
+    by: rule
+  - id: n9
+    type: nasab
+    quote: الشمس
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+birth:
+  id: b
+  date:
+    ah: 825
+  places:
+  - ref: TMP-L-00065
+    quote: سمرقند
+  summary:
+    ar: ولد سنة خمس وعشرين وثمانمائة بسمرقند
+  note:
+    ja: 825年＝1422-01-04 開始（h2g.py、年精度）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001729
+  passive: AIND-D10441
+  quote: null
+  note:
+    ja: 見出し「يوسف بن أحمد بن محمد بن كمال الدين جمال الدين بن الشهاب بن الشمس」＝本項主 جمال الدين、父 الشهاب أحمد、祖父 الشمس محمد بن كمال الدين。父はラカブがあり祖父名まで復元できる（規則3）→ 仮 TMP-P-001729。corpus に本伝なし（全文検索「الأندجاني」＝本項のみ）、ID-Master 未登録。初版は父 relation なし＝追加。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001728
+  passive: AIND-D10441
+  methods:
+  - TMP-S-00009
+  quote: محمود العلماشاني
+  note:
+    ja: '「فاشتغل في العلوم على جماعة أجلهم محمود العلماشاني ومحمد البخاري」。corpus に本伝なし（全文検索「العلماشاني」＝本項のみ）、ID-Master は Nisbah（TMP-N-05189）のみ → 仮 TMP-P-001728。学習地は原文になし（「ولد … بسمرقند ونشأ فاشتغل」に بها がない）＝初版の event placeName سمرقند を除去（規則22(1)）。初版 #NEEDID・desc に相手名なし。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D10441
+  methods:
+  - TMP-S-00009
+  quote: محمد البخاري
+  note:
+    ja: '同上。「محمد البخاري」は名＋ニスバのみだが、825年サマルカンド生まれの本項主の主要な師として特定の人物を指す＝仮 取り下げた仮番号 B167-P05（規則12。⚠汎用名、同名別人への流用禁止）。corpus の العلاء محمد البخاري（#AIND-D09233、「ولد سنة تسع وسبعين وسبعمائة」「ومات … ثالث عشرى رمضان سنة إحدى وأربعين بالمزة」）は本項主の修学期（825年生）と合わず別人とみられる。初版 #NEEDID。【集約 2026-11-10】仮 取り下げた仮番号 B167-P05 を取り下げて #NEEDID に戻した（オーケストレーター決定10、§D167-7）。識別要素はニスバ1点（البخاري）と「本項主の師」という文脈だけで、名 محمد＋ニスバは規則12 の「裸の汎用名」に当たる。同じ師 محمود العلماشاني（TMP-P-001728）はニスバ العلماشاني が corpus でこの項にしか出ない珍しい語なので仮番号を維持。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D10441
+  methods:
+  - TMP-S-00025
+  context:
+  - date:
+      ah: 896
+  works:
+  - ref: wd:Q1023470
+  quote: ولقيني
+  note:
+    ja: '「ولقيني في آخر سنة ست فقرأ علي بدء الوحي من البخاري」＝896年の末（年精度＝896 は 1490-11-23 開始、規則33「آخر سنة N」）。『صحيح البخاري』（wd:Q1023470）の冒頭「بدء الوحي」。場所は原文になし＝初版の placeName مكة を除去（規則22(1)）。初版は event/@when="0896"（ヒジュラ年を @when に）・bibl #NEEDID・field الحديث。'
+- id: r5
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D10441
+  methods:
+  - TMP-S-00004
+  quote: علي
+  note:
+    ja: 「وأجزته」＝サハーウィーが本項主にイジャーザを与えた（性質の異なる伝授は別 relation、規則2）。初版になし＝追加。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: travel
+  places:
+  - ref: TMP-L-00043
+    quote: بغداد
+  quote: وسافر
+  summary:
+    ar: وطاف كثيرا من البلاد كبغداد
+  trigger: rule
+- id: e2
+  type: religious
+  subtype: hajj
+  date:
+    ah: 895
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: وزار
+  summary:
+    ar: وحج في سنة خمس وتسعين
+  note:
+    ja: 895年＝1489-12-04 開始（h2g.py、年精度）。巡礼月（895年ズー・アル＝ヒッジャ）は西暦1490年に当たるが、原文は年のみのため年初換算（規則18）。placeName は حج の語義の展開（規則20）。
+  trigger: rule
+- id: e3
+  type: residence
+  subtype: jāwara
+  date:
+    ah: 896
+  quote: وجاور
+  note:
+    ja: 「التي تليها」＝896年（1490-11-23 開始）。جاور に地名なし＝初版の placeName مكة を除去（規則20）。
+  trigger: rule
+- id: e4
+  type: travel
+  date:
+    ah: 897
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: null
+  summary:
+    ar: وسافر في أول سنة سبع وزار المدينة
+  note:
+    ja: 「سنة سبع」＝直前の 895・896 に続く 897年（1491-11-13 開始、年精度。「أول」は note）。出発とマディーナ参詣を1件にまとめた（初版は visit のみ）。
+- id: e5
+  type: teaching
+  places:
+  - ref: gn:104515
+    quote: مكة
+  works:
+  - ref: TMP-T-00268
+  - ref: TMP-T-00233
+  quote: وأقرأ
+  summary:
+    ar: وأقرأ بمكة المتوسط والطوالع
+  note:
+    ja: 'マッカでの教授（type=teaching、規則50）。年は原文になし＝初版の when-custom「0895-896」cert medium を除去（規則18）。『المتوسط』＝イブン・アル＝ハージブ『الكافية』の中型注釈（corpus #AIND-D02694「في المتوسط على الكافية الحاجبية」）、ID-Master 未登録 → 仮 TMP-T-00268。『الطوالع』＝ID-Master TMP-T-00233（طوالع الأنوار للبيضاوي、別名「الطوالع」登録あり）。'
+  trigger: rule
+notes:
+- text: 「وأندجان من فرغانة」はニスバの由来説明（アンディジャーンはフェルガナの地）＝event ではないので placeName を作らない（規則22(2)）。師 العلماشاني の母音は未確認。
+  lang: ja
+  type: editorial
+translation:
+  ja: ユースフ・ブン・アフマド・ブン・ムハンマド・ブン・カマール・アッ＝ディーン、ジャマール・アッ＝ディーン・ブン・アッ＝シハーブ・ブン・アッ＝シャムス、アンディジャーンの出、アッ＝サマルカンディー、アル＝ハナフィー。アンディジャーンはフェルガナにある。825年にサマルカンドで生まれて育ち、多くの人々について諸学を学んだ。そのうち最も優れた者はマフムード・アル＝イルマーシャーニーとムハンマド・アル＝ブハーリーである。バグダードなど多くの土地を巡り、（8）95年に巡礼を行い、その翌年は寄留し、（8）97年の初めに旅立ってマディーナを参詣した。マッカでは『ムタワッスィト』と『タワーリウ』を講じた。（8）96年の末に私（サハーウィー）に会い、私のもとでブハーリーの「啓示の始まり」を読み、私は彼にイジャーザを与えた。
+  en: Yūsuf b. Aḥmad b. Muḥammad b. Kamāl al-Dīn, Jamāl al-Dīn b. al-Shihāb b. al-Shams, of Andijān origin, al-Samarqandī, al-Ḥanafī; Andijān is in Farghāna. He was born in 825 in Samarqand and grew up; he studied the sciences under a number of people, the most eminent of whom were Maḥmūd al-ʿIlmāshānī and Muḥammad al-Bukhārī. He travelled through many lands, such as Baghdad, performed the pilgrimage in the year [8]95, stayed as a sojourner (jāwara) the following year, set out at the beginning of the year [8]97 and visited Medina. He taught al-Mutawassiṭ and al-Ṭawāliʿ in Mecca. He met me (al-Sakhāwī) at the end of the year [8]96 and read with me the "Beginning of Revelation" from al-Bukhārī, and I granted him an ijāza.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:15:34Z'
+  model_requested: gemini-3.5-flash

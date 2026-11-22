@@ -1,0 +1,104 @@
+schema: aind-yaml/0.1
+id: AIND-D05940
+source:
+  uid: '761786282785'
+sex: M
+name:
+  full: عمر بن محمد بن أبي بكر بن إسماعيل السراج بن الخواجا الشمس بن النحاس الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: laqab
+    quote: السراج
+  - id: n3
+    type: shuhrah
+    quote: null
+    label: ابن النحاس
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001409
+  - id: n6
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إسماعيل
+    by: rule
+  - id: n8
+    type: nasab
+    quote: الخواجا الشمس
+    by: rule
+  - id: n9
+    type: nasab
+    quote: النحاس
+    by: rule
+death:
+  id: d
+  date:
+    ah: 861-05
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: فقدرت وفاته بها في جمادى الأولى سنة إحدى وستين وفجع به أبوه
+  note:
+    ja: 「قُدِّرت وفاته بها」＝「そこで没することが（神により）定められた」の慣用句（corpus に20例。D00812「فقدرت وفاته بها واستجيبت دعوته」、D02180・D04063・D05556 など）であり推定ではないため、校閲時の cert medium を集約時に除去（内容検証B H-5）。بها ＝ 直前の مكة（照応、規則22(3)）。861-05 ＝ 1457-04-05〜05-04、月初 1457-04（h2g.py）。初版の 1457 を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001409
+  passive: AIND-D05940
+  quote: أبوه
+  note:
+    ja: '見出しナサブから復元した父（ダマスクスの商人 الخواجا الشمس）。「وفجع به أبوه」＝父は本項主（861年没）より長生。corpus 見出しに該当なし（#AIND-D06635 محمد بن أحمد بن أبي بكر الدمشقي النحاس はナサブが異なる別人）・ID-Master 未登録 → TMP-P-001409。初版の汚染番号 TMP-P-000529（ابن جماعة の息子 محمد 専用）を差し替え。転送見出し #AIND-D05988「عمر بن الخواجا الشمس محمد الدمشقي ويعرف بابن النحاس . مضى فيمن جده أبو بكر بن إسماعيل」は本項を指す。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q215536
+  quote: ممن
+  note:
+    ja: 「ممن نبغ في التجارة」。勤務地 placeName は付けない（規則22）。
+events:
+- id: e1
+  type: residence
+  subtype: jāwara
+  quote: وجاور
+  summary:
+    ar: وجاور بمكة مرارا بسببها
+  note:
+    ja: 商用（التجارة）でマッカに繰り返し滞在（مجاورة）。規則20により جاور には placeName を付けない。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد、本項主の没年 861（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「biographer」relation を event に変換。
+  trigger: rule
+translation:
+  ja: ウマル・ブン・ムハンマド・ブン・アビー・バクル・ブン・イスマーイール、アッ＝シラージュ・ブン・アル＝ハワージャー・アッ＝シャムス・ブン・アン＝ナッハース、アッ＝ディマシュキー。商業で頭角を現した者の一人で、商売のためにマッカに繰り返し滞在した。（8）61年ジュマーダー・アル＝ウーラー月、そこ（マッカ）で没することとなり、父は彼を失って嘆いた。イブン・ファハドが彼（の没年月）を記録している。
+  en: ʿUmar b. Muḥammad b. Abī Bakr b. Ismāʿīl, al-Sirāj b. al-Khawājā al-Shams b. al-Naḥḥās, al-Dimashqī. He was among those who distinguished themselves in trade, and sojourned in Mecca repeatedly on its account. It was so decreed that he died there in Jumādā al-Ūlā of the year (8)61, and his father was stricken by his loss. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T05:43:20Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

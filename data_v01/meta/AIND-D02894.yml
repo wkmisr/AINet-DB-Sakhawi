@@ -1,0 +1,64 @@
+schema: aind-yaml/0.1
+id: AIND-D02894
+source:
+  uid: '414485322008'
+sex: M
+name:
+  full: خليل بن دنكز
+  elements:
+  - id: n1
+    type: ism
+    quote: خليل
+    by: rule
+  - id: n2
+    type: nasab
+    quote: دنكز
+    by: rule
+    ref: TMP-P-001680
+death:
+  id: d
+  date:
+    ah: 803-02
+    cert: medium
+  summary:
+    ar: مات في صفر سنة ثلاث
+  note:
+    ja: 「سنة ثلاث」＝一の位のみ→803年、cert medium（2026-09-24 Waka 裁定。先例 D07006・D07072 の 801 等）。803年サファル月＝1400-09-30〜1400-10-28（h2g.py）、月精度で @when=1400-09（初版の 1400 は年精度で不一致）。アイニー（没855）の記録と年代は整合。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001680
+  passive: AIND-D02894
+  quote: null
+  note:
+    ja: '父 دنكز は原文に名のみ。珍しいトルコ系の名はそれ自体が識別要素（規則3、例 سكزباي・سونجبغا）として新規 TMP-P-001680 を発行。corpus に見出しなし（hw.py「دنكز」は本項のみ。点の揺れ「تنكز」で引いた見出しはニスバ التنكزي・学院 التنكزية のみで人物の見出しなし）、ID-Master 未登録（idsearch「دنكز」「D02894」該当なし）。初版の #NEEDID を置換。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00101
+  quote: الأمراء العشرات
+  note:
+    ja: '「أحد الأمراء العشرات」＝十人隊アミール＝ID-Master 既登録 TMP-O-00101（أمير عشرة。先例 #AIND-D06309 の label「أحد الأمراء العشرات | أمير عشرة」に揃えた）。初版の ref #NEEDID と、同句を persName honorific に重ねた二重符号化（規則8）を是正。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: أرخه
+  summary:
+    ar: أرخه العيني
+  note:
+    ja: 'Pattern A。初版の統制外 subtype「chronicled by」relation（#NEEDID）を mention event に変換（先例 #AIND-D01890・#AIND-D06193）。'
+  trigger: rule
+translation:
+  ja: ハリール・ブン・ドゥンクズ。十人隊アミール（アミール・アシャラ）の一人。（8）03年サファル月に没した。アル＝アイニーがその没年を記している。
+  en: Khalīl b. Dunkuz, one of the amirs of ten. He died in Ṣafar of the year [8]03. Al-ʿAynī recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-30T03:16:08Z'
+  model_requested: gemini-3.5-flash

@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D05800
+source:
+  uid: '465869746729'
+sex: M
+name:
+  full: عمر بن أحمد بن محمد بن أحمد بن محمد بن عمر بن رضوان الدمشقي الحريري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00026
+    quote: الحريري
+  - id: n3
+    type: shuhrah
+    quote: السلاوي
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D01215
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n10
+    type: nasab
+    quote: رضوان
+    by: rule
+  - id: n11
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D01215
+  passive: AIND-D05800
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」。父 ＝ #AIND-D01215「أحمد بن محمد بن أحمد بن عمر بن رضوان شهاب الدين الدمشقي الشافعي سبط الشمس محمد بن عمر السلاوي ولذا يعرف بالسلاوي وهو والد عمر الآتي」（738年頃生）。相互参照・通称 السلاوي・祖先 رضوان が一致。ただし D01215 の見出しナサブは「أحمد بن محمد بن أحمد بن عمر」で、本項の「أحمد بن محمد بن أحمد بن محمد بن عمر」より1代（محمد）少ない（刊本の揺れとして note に留める、規則25）。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: ancestor
+  active: TMP-P-001371
+  passive: AIND-D05800
+  quote: محمد بن عمر السلاوي
+  note:
+    ja: '「لكون أبيه سبط محمد بن عمر السلاوي」＝ 父 #AIND-D01215 の母方祖父（本項主の曽祖父）。D01215 では「الشمس محمد بن عمر السلاوي」。corpus に本伝なし・ID-Master 未登録（TMP-P-000711・000309 の السلاوي はチュニスの別人）→ 新規 TMP-P-001371。初版の subtype「other」#NEEDID を差し替え。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: TMP-P-001372
+  passive: AIND-D05800
+  cert: medium
+  quote: ابن مزهر
+  note:
+    ja: '「وصفه البقاعي بخادم ابن مزهر」（البقاعي の記述に基づくため cert medium）。【集約】校閲時の #AIND-D10854（الزين أبو بكر بن مزهر、831年生）は年代不整合: 父 #AIND-D01215 は738年頃生・813年没、本項主は البقاعي によれば840年以前にカイロにいた人物で、D10854 はその時期に幼児。同時期の「ابن مزهر」は #AIND-D08653（البدر محمد بن محمد بن أحمد بن مزهر、786年生、828年から كاتب السر、832年没）が有力だが、一族に他の者（D09039 الجلال、D01487 الشهاب）もいるため規則26により新規 TMP-P-001372 を発行し候補を記録。初版の #NEEDID を解消。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  date:
+    notAfter: 840
+    cert: medium
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+  summary:
+    ar: كان بالقاهرة قبل الأربعين أو نحو ذلك
+  cert: medium
+  note:
+    ja: البقاعي の記述。「قبل الأربعين أو نحو ذلك」→ notAfter 840（840 ＝ 〜1437-07-13、年末 1437）、cert medium。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00207
+    quote: البقاعي
+  quote: وصفه
+  summary:
+    ar: وصفه البقاعي بخادم ابن مزهر وأنه كان بالقاهرة قبل الأربعين أو نحو ذلك ولم يذكر فيه شيئا
+  note:
+    ja: 'Pattern A。البقاعي ＝ #AIND-D00207（頻出確定ID）。初版の統制外 subtype「biographer」relation（wd:Q12198099）を event に変換。'
+  trigger: rule
+translation:
+  ja: ウマル・ブン・アフマド・ブン・ムハンマド・ブン・アフマド・ブン・ムハンマド・ブン・ウマル・ブン・リドワーン・アッ＝ディマシュキー・アル＝ハリーリー・アッ＝シャーフィイー。父は前述。父がムハンマド・ブン・ウマル・アッ＝サラーウィーの娘の子であることから、父と同じくアッ＝サラーウィーとして知られる。アル＝ビカーイーは彼をイブン・ムズヒルの従者（ハーディム）と評し、（8）40年頃かそれ以前にカイロにいたとするが、それ以上のことは何も述べていない。
+  en: ʿUmar b. Aḥmad b. Muḥammad b. Aḥmad b. Muḥammad b. ʿUmar b. Riḍwān al-Dimashqī al-Ḥarīrī al-Shāfiʿī; his father was mentioned above. Like his father he is known as al-Salāwī, because his father was the daughter's son of Muḥammad b. ʿUmar al-Salāwī. Al-Biqāʿī described him as a servant of Ibn Muzhir and said that he was in Cairo before the (eight hundred and) forties or thereabouts, but mentioned nothing further about him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T08:06:38Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D10044
+source:
+  uid: '746388999552'
+sex: M
+name:
+  full: موسى بن أحمد بن عيسى الحرامي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01342
+    quote: الحرامي
+  - id: n2
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001689
+  - id: n4
+    type: nasab
+    quote: عيسى
+    by: rule
+death:
+  id: d
+  date:
+    ah: 819
+  note:
+    ja: 「ثم عاد إليها حتى مات في سنة تسع عشرة」。819＝1416-03-10〜1417-02-26（年精度 1416）。没地は明記されない（「عاد إليها حتى مات」から حلي と推定できるが、規則22(1) により在地を没地へ継続させない＝placeName を置かず note に留める）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001689
+  passive: AIND-D10044
+  quote: null
+  note:
+    ja: '見出しナサブから1段ずらして復元（規則3）。本伝のある兄 #AIND-D02967（دريب بن أحمد بن عيسى الحرامى … أمير حلى）と共有する父なので TMP-P を発行。corpus に本伝なし（hw.py「الحرامي」の見出しは D02967 と本項のみ）。ID-Master 未登録（idsearch「الحرامي」は Nisbah TMP-N-01342 のみ）。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D02967
+  passive: AIND-D10044
+  quote: أخيه
+  note:
+    ja: '「بعد أخيه دريب」。دريب ＝ #AIND-D02967「دريب بن أحمد بن عيسى الحرامى بمهملتين أمير حلى … قتل في حرب … سنة ثلاث … واستقر بعده أخوه موسى الآتى قاله شيخنا في أنبائه ، ثم ذكره في حوادث سنة عشر وأرخ قتله فيها وقال أن أخاه موسى كان شريكه في الأمرة ولكن لا كلام له معه فلما قتل استقل موسى」。ナサブ・ニスバ・職（أمير حلي）で閉合し、相手側も本項主を「أخوه موسى الآتى」と名指し。'
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: AIND-D02967
+  passive: AIND-D10044
+  quote: null
+  note:
+    ja: 「انفرد بأمرتها بعد أخيه دريب」＝兄の後に حلي のアミール位を独占（規則29 の型。D02967 側「واستقر بعده أخوه موسى」）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00163
+  places:
+  - ref: TMP-L-00102
+  quote: أمير حلى
+  note:
+    ja: 「أمير حلى」。حلي（マッカとイエメンの間の紅海沿岸の町、D02967「المدينة التى بين مكة واليمن على ساحل البحر」）＝TMP-L-00102。地名限定のアミール職は先例 أمير الينبع（TMP-O-00182）・أمير مكة（TMP-O-00295）・أمير المدينة（TMP-O-00144）に倣い新規 TMP-O（ID-Master の Office「أمير …」に حلي はない）。初版の汎用 TMP-O-00014 と原文にない retirement date（819）を除去。
+events:
+- id: e1
+  type: political
+  places:
+  - ref: TMP-L-00102
+  quote: أخرجه
+  summary:
+    ar: انفرد بأمرتها بعد أخيه دريب
+  trigger: rule
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D02560
+    quote: حسن بن عجلان
+  places:
+  - ref: TMP-L-00102
+  quote: null
+  summary:
+    ar: ثم أخرجه حسن بن عجلان منها
+  note:
+    ja: 'حسن بن عجلان ＝ #AIND-D02560（حسن بن عجلان بن رميثة بن أبي نمى … السيد البدر أبو المعالي الحسني、マッカのシャリーフ）。追放した権力者は patron にせず event 内 persName（規則53）。初版の統制外 relation「rival」を置換。'
+- id: e3
+  type: political
+  places:
+  - ref: TMP-L-00102
+  quote: ثم عاد إليها حتى مات
+- id: e4
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版は欠落。
+  trigger: rule
+notes:
+- text: 初版の honorific「أمير」（職であって名の一部ではない）・residence event（حلي、在職地からの補完）を除去（規則22(1)）。「الحرامي بالمهملتين」はニスバの綴り注記（ḥ・r 無点）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムーサー・ブン・アフマド・ブン・イーサー・アル＝ハラーミー（ハーとラーは無点）。ハリーのアミール。兄弟ドゥライブの後にその統治権を独占したが、ハサン・ブン・アジュラーンによってそこから追放され、のち再びそこへ戻り、819年に没するまで（在位した）。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
+  en: Mūsā b. Aḥmad b. ʿĪsā al-Ḥarāmī (with undotted ḥāʾ and rāʾ), amīr of Ḥalī. He became sole holder of its emirate after his brother Durayb; then Ḥasan b. ʿAjlān expelled him from it; then he returned to it until he died in the year 819. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:16:18Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

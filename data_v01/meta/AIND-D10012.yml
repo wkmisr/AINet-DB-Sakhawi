@@ -1,0 +1,107 @@
+schema: aind-yaml/0.1
+id: AIND-D10012
+source:
+  uid: '340594281783'
+sex: M
+name:
+  full: منصور بن علي بن عثمان الزواوي ثم البجائي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00264
+    quote: الزواوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00039
+    quote: البجائي
+  - id: n3
+    type: ism
+    quote: منصور
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عثمان
+    by: rule
+death:
+  id: d
+  date:
+    ah: 846
+    cert: low
+  places:
+  - ref: gn:2464470
+    quote: تونس
+  summary:
+    ar: ورأيت من قال أنه الزواوي العالم الشهير وأنه مات في سنة ست وأربعين بتونس
+  note:
+    ja: 「رأيت من قال … أنه مات في سنة ست وأربعين بتونس」＝他者の説（伝聞、しかも同一人物かどうかの留保つき）→ cert low。846＝1442-05-21〜1443-05-09（h2g）→ 年精度 @when 1442。تونس＝gn:2464470（ID-Master 登録・repo 使用）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10012
+  quote: null
+  note:
+    ja: 規則3 (c')。父 علي بن عثمان الزواوي は corpus に本伝なし（hw.py「علي بن عثمان」＋الزواوي／البجائي に該当なし）・ID-Master 未登録、名＋父名＋ニスバのみで識別要素なし。
+- id: r2
+  type: personal
+  subtype: other
+  active: AIND-D05226
+  passive: AIND-D10012
+  quote: أبو الحسن علي بن أبي فارس
+  note:
+    ja: '「لما امتنع أبو الحسن علي بن أبي فارس من مبايعة ابن أخيه … قام معه」＝政治的に加担（支持）。相手は #AIND-D05226「818 علي بن عبد العزيز بن أحمد بن محمد بن أبي بكر أبو الحسن بن صاحب المغرب أبي فارس . ولاه ابن أخيه المنتصر … بجاية . فلما مات وخلفه أخوه أبو عمرو عثمان امتنع هذا من مبايعته ورأى أحقيته به وساعده فقيه بجاية منصور بن علي بن عثمان」＝相手側が本項主をナサブ3代＋「فقيه بجاية」で名指しして閉合。加担の型は統制語彙にないため subtype="other"（初版の「colleague」#NEEDID を置換）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00185
+  places:
+  - ref: gn:2505329
+    quote: بجاية
+  quote: قيهها
+  note:
+    ja: 「البجائي فقيهها」＝ビジャーヤの法学者（原文明記。فقيه＝TMP-O-00185、بجاية＝gn:2505329 ID-Master・repo 使用どおり）。
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D05226
+  - ref: AIND-D04873
+  places:
+  - ref: gn:2505329
+    quote: بجاية
+  quote: null
+  summary:
+    ar: لما امتنع أبو الحسن علي بن أبي فارس من مبايعة ابن أخيه أبي عمرو عثمان بن أبي عبد الله محمد بن أبي فارس قام معه وكانت له عصبة وقوة بحيث استبد ببجاية ثم تراجع ودخل بينهما في الصلح
+  note:
+    ja: 'ハフス朝の内紛（規則53: event＋persName）。أبو عمرو عثمان＝#AIND-D04873「479 عثمان بن محمد بن عبد العزيز بن أحمد … المتوكل على الله أبو عمرو … بن أبي عبد الله بن أبي فارس … الحفصي … ولي ملك تونس … في سنة تسع وثلاثين」（D04873 本文「ثار به عمه أبو الحسن صاحب بجاية」とも整合）。初版の「rival」relation（#NEEDID）はこの event に置換。年の記載なし（サハーウィーは「حوادث سنة ثلاث وأربعين」の المقريزي に言及するのみ）＝日付属性なし（初版の when-custom 0843 cert medium を除去、規則18）。'
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  quote: قال
+  summary:
+    ar: فكانت حوادث لم يتحرر لي الآن أمرها وإن أشار إليها المقريزي في حوادث سنة ثلاث وأربعين
+  note:
+    ja: 'Pattern A。المقريزي（wd:Q293604）が843年の事件記事でこれらの出来事に触れた。書名は原文に明記なし（「حوادث سنة ثلاث وأربعين」＝年代記の843年の項）のため bibl を置かない（先例 #AIND-D04812）。'
+  trigger: rule
+notes:
+- text: 「ورأيت من قال أنه الزواوي العالم الشهير」＝本項主を「著名な学者アッ＝ザワーウィー」と同一視する説をサハーウィーが見た、という伝聞。corpus に「الزواوي العالم الشهير」に当たる独立見出しは特定できない（hw.py「الزواوي」の見出し群に該当なし）ため possible_identity は立てず note に留める。原文の「ورأيت من ورأيت من قال」は刊本の重複（原文どおり source に保持）。「وكان عالما」は評価句＝訳のみ。
+  lang: ja
+  type: editorial
+translation:
+  ja: マンスール・ブン・アリー・ブン・ウスマーン・アッ＝ザワーウィー、のちにアル＝ビジャーイー、同地（ビジャーヤ）の法学者。アブー・アル＝ハサン・アリー・ブン・アビー・ファーリスが、その兄弟の子アブー・アムル・ウスマーン・ブン・アビー・アブド・アッラー・ムハンマド・ブン・アビー・ファーリスへの忠誠誓約を拒んだとき、彼はアブー・アル＝ハサンと共に立ち上がった。彼には党派と勢力があり、ビジャーヤを独占支配するほどであったが、その後退いて両者の間に入り和解を図った。そこで諸事件が起こったが、その実態は今の私には確定できていない。もっともマクリーズィーが843年の事件記事でそれに言及している。また、彼が著名な学者アッ＝ザワーウィーその人であり、846年にチュニスで没したと言う者がいるのを目にした。彼は学者であった。
+  en: Manṣūr b. ʿAlī b. ʿUthmān al-Zawāwī, then al-Bijāʾī, the jurist (faqīh) of Bijāya. When Abū al-Ḥasan ʿAlī b. Abī Fāris refused to pledge allegiance to his brother's son Abū ʿAmr ʿUthmān b. Abī ʿAbd Allāh Muḥammad b. Abī Fāris, he rose with him; he had a faction and such strength that he took sole control of Bijāya, then drew back and entered into mediating peace between the two. Events ensued whose course I have not yet been able to establish, although al-Maqrīzī alludes to them in the events of the year 843. I have seen someone say that he is al-Zawāwī the famous scholar, and that he died in the year 846 in Tunis; and he was a scholar.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T06:44:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

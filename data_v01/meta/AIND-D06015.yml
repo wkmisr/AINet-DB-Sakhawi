@@ -1,0 +1,85 @@
+schema: aind-yaml/0.1
+id: AIND-D06015
+source:
+  uid: '804626904004'
+sex: M
+name:
+  full: عمر بن يوسف البالسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00194
+    quote: البالسي
+  - id: n2
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n3
+    type: nasab
+    quote: يوسف
+    by: rule
+death:
+  id: d
+  date:
+    ah: 801-11
+    cert: medium
+  places:
+  - ref: TMP-L-00330
+    quote: وادي الصفراء
+  note:
+    ja: 「مات بوادي الصفراء وهو متوجه إلى مكة في آخر ذي القعدة سنة إحدى」。一の位のみの年「إحدى」＝801（イブン・ハジャル『إنباء』の記事、cert medium）。801年ズー・アル＝カアダ月 ＝ 1399-07-13〜1399-08-11（h2g.py、月のみ→月初。「آخر」＝月末の意図は @when に反映せず規則33）。没地 وادي الصفراء（マディーナ〜マッカ間の巡礼路上の谷）は ID-Master 未登録 → TMP-L-00330。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06015
+  quote: null
+  note:
+    ja: '父は裸名 يوسف のみ → #NEEDID 維持（規則3・12）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q239718
+  quote: المؤذن
+  note:
+    ja: 見出しの「المؤذن」。勤務先の明示はない。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: قال
+  summary:
+    ar: قال شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。引用「اشتغل بالحديث ومهر فيه وسمع الكثير مع الخير والدين」。初版の統制外 subtype「biographer」relation を event に変換。
+  trigger: rule
+- id: e2
+  type: travel
+  date:
+    ah: 801-11
+    cert: medium
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: null
+  summary:
+    ar: وهو متوجه إلى مكة
+  cert: medium
+  note:
+    ja: マッカへ向かう途上で没した（目的地 مكة は原文に明記）。初版の visit event を travel に変更（到着していない）。
+translation:
+  ja: ウマル・ブン・ユースフ・アル＝バーリスィー、ムアッズィン。我らがシャイフ（イブン・ハジャル）は『インバー』で次のように述べている。「ハディースに取り組んでそれに熟達し、善性と信仰心とともに多くを聴聞した。」（8）01年ズー・アル＝カアダ月の末、マッカへ向かう途中、ワーディー・アッ＝サフラーで没した。
+  en: 'ʿUmar b. Yūsuf al-Bālisī, the muezzin. Our shaykh (Ibn Ḥajar) said in his Inbāʾ: "He occupied himself with ḥadīth and excelled in it, and heard a great deal, together with goodness and piety." He died at Wādī al-Ṣafrāʾ while on his way to Mecca, at the end of Dhū al-Qaʿda of the year (8)01.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-29T12:46:19Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

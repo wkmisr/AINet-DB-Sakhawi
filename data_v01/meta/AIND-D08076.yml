@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D08076
+source:
+  uid: '997743142209'
+sex: M
+name:
+  full: محمد بن علي بن زيادة الغمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00134
+    quote: الغمري
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: زيادة
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08076
+  methods:
+  - TMP-S-00028
+  quote: عندي
+  note:
+    ja: 「ووربما حضر عندي」＝時折サハーウィーのもとに出席（先例 D02808・D06462、規則2）。場所は原文に明記なし（初版の learning placeName القاهرة を除去）。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08076
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 علي بن زيادة（الغمري）は裸名で corpus に本伝なし、ID-Master 未登録 → #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00171
+  quote: قرأ
+  note:
+    ja: 「قرأ القرآن وتكسب به في الاجواق」＝合唱朗誦隊（الجوق）でクルアーン朗誦を生業とした（TMP-O-00171 قارئ الجوق）。初版の placeName القاهرة（原文になし）を除去。
+- id: s2
+  type: office
+  ref: TMP-O-00376
+  quote: من قراء القصر
+  note:
+    ja: '「وصار من قراء القصر」。ID-Master の Office を語根 قرأ・قصر で grep: قارئ الجوق TMP-O-00171・قارئ الحديث 等はあるが「قراء القصر」は未登録 → TMP-O-00376。どの قصر かは原文に明示なし（施設は立てない）。初版の placeName القاهرة を除去。'
+- id: s3
+  type: office
+  ref: wd:Q3595924
+  quote: المقرىء
+  note:
+    ja: 見出し「محمد بن علي بن زيادة الغمري المقرىء」の職名。【集約 2026-11-03】full persName から外し state に（規則5、機械 L。ID-Master の مقرئ＝wd:Q3595924、同バッチ D08129 と同じ）。
+events:
+- id: e1
+  type: other
+  places:
+  - ref: TMP-L-00244
+    quote: باب القنطرة
+  - ref: TMP-L-00389
+    quote: الحريريين
+  quote: null
+  summary:
+    ar: وله دكان خارج باب القنطرة في الحريريين
+  note:
+    ja: カイロの باب القنطرة（TMP-L-00244）の外の絹商人街（الحريريين、ID-Master 未登録 → TMP-L-00389）に店をもった。初版の affiliation（#NEEDID「دكان」）を event に置換（店は機関ではない）。
+- id: e2
+  type: religious
+  subtype: hajj
+  date:
+    ah: 889
+  places:
+  - ref: gn:104515
+  quote: وحج
+  summary:
+    ar: وحج في سنة تسع وثمانين
+  note:
+    ja: 889＝1484-02-08 開始、年精度 1484。placeName مكة は حج の語義による例外（規則20）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ズィヤーダ・アル＝ガムリー、クルアーン朗誦者（ムクリ）。クルアーンを朗誦し、それを合唱朗誦隊（アジュワーク）で生業とし、宮殿の朗誦者（クッラー・アル＝カスル）の一人となった。時折私（サハーウィー）のもとに出席した。バーブ・アル＝カンタラの外のハリーリーイーン（絹商人街）に店をもっていた。889年に巡礼した。
+  en: Muḥammad b. ʿAlī b. Ziyāda al-Ghamrī, the Qurʾān reciter. He recited the Qurʾān and earned his living by it in the recitation choirs (ajwāq), and became one of the reciters of the palace. He occasionally attended my (al-Sakhāwī's) sessions. He had a shop outside Bāb al-Qanṭara in al-Ḥarīriyyīn (the silk-merchants' quarter), and he performed the pilgrimage in the year 889.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T16:00:00Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D10449
+source:
+  uid: '699026919741'
+sex: M
+name:
+  full: يوسف بن أحمد الجمال الملكاوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00724
+    quote: الملكاوي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 805-10
+    cert: medium
+  summary:
+    ar: مات في شوال سنة خمس
+  note:
+    ja: 「سنة خمس」＝一の位のみの年 → 805、cert medium（標準規則）。805年シャウワール月＝1403-05-03〜05-31（h2g.py）、月精度で @when=1403-05（初版 1402 を訂正）。没地は原文になし（「بدمشق」は「أحد الفضلاء」にかかる）＝初版の placeName دمشق を除去（規則22(1)：居住地を死地に継続させない）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10449
+  quote: null
+  note:
+    ja: 規則3 (c')。父 أحمد は裸名。corpus の الشهاب أحمد بن راشد بن طرخان الملكاوي（#AIND-D00727、ダマスクス）は同ニスバだが、本項主の父とする根拠は原文にない。
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  quote: null
+  note:
+    ja: 「درس وخطب」の「خطب」。施設・地名は原文になし＝初版の placeName دمشق を除去（規則22(1)）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: null
+  summary:
+    ar: أحد الفضلاء بدمشق
+- id: e2
+  type: teaching
+  quote: درس
+  note:
+    ja: 教授は event type=teaching（規則50）。施設・地名は原文になし。初版の state office「مدرس」（TMP-O-00036、placeName دمشق）を置換。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: قاله
+  summary:
+    ar: قاله شيخنا في إنبائه
+  note:
+    ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版は death の note に記すのみ＝event を追加。
+  trigger: rule
+notes:
+- text: 「وكان يميل إلى اعتقاد الحنابلة مع الدين والخير」＝ハンバル派の信条（アキーダ）への傾きであって法学派の所属ではない＝madhhab affiliation を立てない。刊本「والخير . .」の重複した句点は原文のまま。
+  lang: ja
+  type: editorial
+translation:
+  ja: ユースフ・ブン・アフマド、アル＝ジャマール、アル＝マルカーウィー、ダマスクスの優れた学者の一人。教鞭を執り、説教をした。信仰心と善良さを備え、ハンバル派の信条に傾いていた。（80）5年シャウワール月に没した。我らの師（イブン・ハジャル）が『インバー』でそう述べている。
+  en: Yūsuf b. Aḥmad, al-Jamāl, al-Malkāwī, one of the accomplished scholars in Damascus. He taught and preached, and he inclined to the creed of the Ḥanbalīs, together with piety and goodness. He died in Shawwāl of the year [80]5. Our shaykh (Ibn Ḥajar) said this in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:31:28Z'
+  model_requested: gemini-3.5-flash

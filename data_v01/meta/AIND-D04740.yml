@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D04740
+source:
+  uid: '561332103456'
+sex: M
+name:
+  full: عبد الواحد بن حسن بن محمد الطيبي ثم القاهري الأزهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00330
+    quote: الطيبي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00014
+    quote: الأزهري
+  - id: n4
+    type: ism
+    quote: عبد الواحد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: حسن
+    by: rule
+    ref: TMP-P-001273
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001273
+  passive: AIND-D04740
+  quote: null
+  note:
+    ja: 見出しナサブから復元（統一規則3）。corpus に本伝なし・ID-Master 未登録 → 新規仮番号 TMP-P-001273（⚠汎用名。識別要素はニスバ الطيبي のみ）。
+- id: r2
+  type: personal
+  subtype: brother
+  active: TMP-P-001272
+  passive: AIND-D04740
+  quote: محمد الآتي
+  note:
+    ja: '「شقيق محمد الآتي」＝同父母の兄弟 محمد بن حسن بن محمد الطيبي。ニスバ索引 #AIND-D11822（الطيبي）に「والمكتب محمد بن حسن وشقيقه عبد الواحد」として並記され、職は المكتب（手習い師）。corpus の محمد بن حسن 項（D07329〜D07364）に本伝は見当たらず、ID-Master 未登録 → 新規仮番号 TMP-P-001272。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة の息子 محمد）を差し替え。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D03042
+  passive: AIND-D04740
+  methods:
+  - TMP-S-00014
+  quote: زكريا
+  note:
+    ja: '「واشتغل ولازم زكريا وهو من قدماء جماعته」。زكريا ＝ #AIND-D03042（زكريا بن محمد بن أحمد بن زكريا الزين الأنصاري … القاضي）。本項主はその門下の古参。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: TMP-L-00217
+    quote: باب السلام
+  quote: null
+  note:
+    ja: 「ويجلس شاهدا بباب السلام」。898年のマッカ滞留中に聖モスクの باب السلام で証人（公証人）として着座。初版の TMP-O-00044 は TMP-O-00050 に統合済み（ID-Master 注記）のため差し替え。初版の date type="appointment" は原文に任命の記載がないため除去。
+- id: s2
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+  note:
+    ja: 「وهي حرفته بالقاهرة」＝証人業はカイロでの彼の生業でもある（原文に地名明記）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  date:
+    ah: 898
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: null
+  summary:
+    ar: وكان مجاورا بمكة في سنة ثمان وتسعين
+  note:
+    ja: 原文に「بمكة」と明記（規則22(2)）。898 ＝ 1492-11-01〜1493-10-20、年のみのため年初 1492（h2g.py）。初版の統制外 subtype="jāwara" を除去し desc に原文を置く。
+translation:
+  ja: アブドゥルワーヒド・ブン・ハサン・ブン・ムハンマド、アッ＝タイイビー、のちアル＝カーヒリー、アル＝アズハリー、シャーフィイー派。後述のムハンマドの同父母の兄弟。学業に励み、ザカリヤーに師事し、その門下の古参の一人である。（8）98年にはマッカに滞留（ムジャーワラ）しており、バーブ・アッ＝サラームで証人（シャーヒド）として着座している。それ（証人業）はカイロでの彼の生業である。
+  en: ʿAbd al-Wāḥid b. Ḥasan b. Muḥammad, al-Ṭayyibī, then al-Qāhirī, al-Azharī, al-Shāfiʿī, full brother of Muḥammad who will be mentioned below. He pursued his studies and attached himself to Zakariyyā, being one of the senior members of his circle. In (8)98 he was residing as a mujāwir in Mecca, sitting as a notary witness (shāhid) at Bāb al-Salām, which is his trade in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-26T08:18:44Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,113 @@
+schema: aind-yaml/0.1
+id: AIND-D07858
+source:
+  uid: '524525291118'
+sex: M
+name:
+  full: محمد بن عبد الله التاج بن الجمال القليوبي الخانكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00069
+    quote: القليوبي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00224
+    quote: الخانكي
+  - id: n3
+    type: laqab
+    quote: التاج
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001625
+  - id: n6
+    type: nasab
+    quote: الجمال
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    notBefore: 881
+    notAfter: 889
+  note:
+    ja: 「مات سنة بضع وثمانين」＝881〜889年（881年初 1476-05-05、889年末 1485-01-26、h2g.py）。初版の点日付 0880 を改めた。 / بضع は1〜9として幅で記録（2026-11-22 裁定）
+  quote: سنة بضع وثمانين
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001625
+  passive: AIND-D07858
+  quote: والده
+  note:
+    ja: '父「الجمال عبد الله القليوبي الخانكي」（見出し「التاج بن الجمال」、本文「كوالده وإخوته」）。ラカブ الجمال という識別要素があり、الشمس القليوبي（#AIND-D07761）の娘婿で雄弁な人物として描かれる → 規則3・12 により仮番号 TMP-P-001625 を発行。corpus の عبد الله 部に本伝なし（#AIND-D04638 عبد الله بن محمد الجمال القاهري ثم الخانكي قاضيها「ويعرف بالوفائي」は840年頃生で世代が合わず別人）、ニスバ索引 #AIND-D11948 にも見えない。ID-Master 未登録。初版の汚染番号 TMP-P-000490 を置換。【集約 2026-10-31】候補 #AIND-D04662「عبد الله الجمال الخانكي تربية السالمي . … وقف عليه وعلى ابنين له في جهات بر عقارات بالخانقاه … مات عن سن تزيد على التسعين أو دونها في رجب سنة إحدى وتسعين」（名・ラカブ الجمال・ニスバ الخانكي が一致、子が複数）。ただし D04662 には القليوبي のニスバも الشمس القليوبي との姻戚も出ず（規則57 の閉合はラカブ＋ニスバの見かけ上の一致のみ）、本項主（88X 没）の没後 891 まで生存した計算になるため同定しない＝仮番号維持（内容A M、オーケストレーター決定8、★1 候補）。'
+- id: r2
+  type: personal
+  subtype: maternal_grandfather
+  active: AIND-D07761
+  passive: AIND-D07858
+  quote: الشمس القليوبي
+  note:
+    ja: 「وسبط الشمس القليوبي」＝母方の祖父。الشمس القليوبي＝#AIND-D07761「محمد بن عبد الله بن أبي بكر الشمس الأنصاري القليوبي ثم القاهري الخانكي الشافعي」（738年生・812年没、الخانقاه الناصرية بسرياقوس のシャイフ）。初版の幻番号 TMP-P-000023 は ID-Master で D07761 に名寄せ済み（規則36）。subtype は repo 実勢の maternal_grandfather（35件）。
+- id: r3
+  type: personal
+  subtype: brother
+  active: TMP-P-001626
+  passive: AIND-D07858
+  quote: أخوه
+  note:
+    ja: '「وخلفه في الإمامة أخوه أحمد شريكا لغيره」。兄弟 أحمد بن الجمال عبد الله القليوبي الخانكي は corpus に本伝なし（「أحمد」「القليوبي」で検索、D00937・D01372 は別人）、ID-Master 未登録。الخانقاه الناصرية のイマーム職を継いだという識別要素があるので規則12 により仮番号 TMP-P-001626。初版の #NEEDID を置換。'
+- id: r4
+  type: personal
+  subtype: successor
+  active: TMP-P-001626
+  passive: AIND-D07858
+  quote: أحمد
+  note:
+    ja: 「وخلفه في الإمامة أخوه أحمد شريكا لغيره」＝イマーム職の後任（他者と共同）。規則29 により brother と別 relation。
+states:
+- id: s1
+  type: office
+  ref: wd:Q125482
+  places:
+  - ref: TMP-L-00339
+    quote: سرياقوس
+  orgs:
+  - ref: TMP-I-00022
+  quote: الإمامة
+  note:
+    ja: 「إمام الخانقاه الناصرية بسرياقوس」。機関＝ID-Master TMP-I-00022（خانقاه سرياقوس）、地名 سرياقوس＝TMP-L-00339（原文明記、規則22(2)）。初版の affiliation employed（#NEEDID）は state と二重のため除去（規則8）。
+- id: s2
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: TMP-L-00339
+    cert: medium
+    quote: سرياقوس
+  quote: أحد الشهود
+  note:
+    ja: 「وأحد الشهود بها」。شاهد＝TMP-O-00050（初版の TMP-O-00044 は統合済み・使用不可）。「بها」の先行詞は直前の地名 سرياقوس（الخانقاه の門前町＝الخانكة と同地）と読み cert medium。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー、アッ＝タージュ・ブン・アル＝ジャマール、アル＝カリユービー・アル＝ハーンキー・アッ＝シャーフィイー。スィルヤークースのナースィリーヤ・ハーンカーのイマームで、アッ＝シャムス・アル＝カリユービーの外孫（娘の子）。880年代に没し、兄弟のアフマドが他の者と共同でイマーム職を継いだ。彼は父や兄弟たちと同様に弁舌の立つ人物で、そこの証人（公証人）の一人であり、人々が気を遣って接するたぐいの者であった。
+  en: Muḥammad b. ʿAbd Allāh, al-Tāj b. al-Jamāl, al-Qalyūbī al-Khānkī al-Shāfiʿī, imam of al-Khānqāh al-Nāṣiriyya at Siryāqūs and the daughter's son of al-Shams al-Qalyūbī. He died in the [8]80s, and his brother Aḥmad succeeded him in the imamate, sharing it with another. He was sharp-tongued like his father and his brothers, one of the notarial witnesses there, and one of those whom people humoured.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T00:14:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

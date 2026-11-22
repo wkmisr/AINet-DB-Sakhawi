@@ -1,0 +1,93 @@
+schema: aind-yaml/0.1
+id: AIND-D07317
+source:
+  uid: '877974289800'
+sex: M
+name:
+  full: محمد بن جمعة الهمذاني الخواجا
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00705
+    quote: الهمذاني
+  - id: n2
+    type: honorific
+    quote: الخواجا
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: جمعة
+    by: rule
+death:
+  id: d
+  date:
+    ah: 868-03-02
+  note:
+    ar: مات فجأة في آخر ليلة الاثنين ثاني ربيع الأول سنة ثمان وستين
+    ja: 868年ラビーウ・アル＝アウワル月2日＝1463-11-23（月曜、グレゴリオ暦・独立再計算。曜日一致）。初版の when="1463" を日精度に。没地は原文に明記なし（「نزيل مكة」は居住）のため、初版の死没 placeName「مكة」を除去（規則16）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: other
+  active: AIND-D09097
+  passive: AIND-D07317
+  quote: شيخ الباسطية وإمام الحنفية الشمس البخاري
+  note:
+    ar: عين لمشيخة شيخ الباسطية وإمام الحنفية الشمس البخاري وباشره ثم تعطل بها مدة ولد الواقف
+    ja: الشمس البخاري＝#AIND-D09097（محمد بن محمد بن محمد بن السيد … الشمس أبو المجد … البخاري الحنفي نزيل مكة وإمام مقام الحنفية بها、818年生。「استقر في مشيخة الباسطية المكية في سنة تسع وخمسين … ثم ولي إمامة مقام الحنفية بها في سنة سبع وستين وتدريس درس الخواجا الهمداني بمقام الحنفية وباشره إلى أن انقطع لتعطل أوقافه」）。すなわち本項主（الواقف）が自らのワクフ講座（درس الحنفية بالمسجد الحرام）の担当に البخاري を指名し、البخاري がそれを務めた後、寄進者の息子の代に講座が停止した。初版は本項主が البخاري の後任として الباسطية の مشيخة に就いたと誤読（predecessor relation・state・affiliation を除去）。
+- id: r2
+  type: personal
+  subtype: son
+  active: NEEDID
+  passive: AIND-D07317
+  quote: ولد الواقف
+  note:
+    ja: '「ثم تعطل بها مدة ولد الواقف」＝寄進者（本項主）の息子の代に講座が停止した。名不詳・「ولد الواقف」として人物が描写されているため #NEEDID で保持（規則14）。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+- id: e2
+  type: cultural
+  places:
+  - ref: gn:104515
+    quote: مكة
+  orgs:
+  - ref: wd:Q428858
+  quote: null
+  summary:
+    ar: صاحب الدور بها الموقوفة أوجلها منه على درس الحنفية بالمسجد الحرام
+  note:
+    ja: 'ワクフ設定（マッカ所有の邸宅の大半を聖モスクのハナフィー派講座に寄進）。この講座は #AIND-D09097 本伝に「درس الخواجا الهمداني بمقام الحنفية」として現れる。初版の affiliation 2件（الخانقاه الباسطية=TMP-I-00021 はカイロの施設で誤り／المسجد الحرام）は所属ではないため除去し、本 event に統合。'
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A（没年記録）。没年 868（≦871・限定なし）→ 規約により التقي بن فهد ＝ #AIND-D09211、cert low。初版は統制外 subtype「other」の relation。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・ジュムア・アル＝ハマザーニー、アル＝ハワージャ（大商人）。マッカに定住し、同地に寄進（ワクフ）した邸宅群を所有していた。彼はその大半を聖モスク（マスジド・アル＝ハラーム）におけるハナフィー派の講座のために充てた。その（講座の）主宰者には、バースィティーヤのシャイフでハナフィー派イマームのアッ＝シャムス・アル＝ブハーリーが任ぜられ、彼がそれを務めたが、その後、寄進者の息子の代にしばらく停止した。868年ラビーウ・アル＝アウワル月2日の月曜日の夜の終わりに急死した。イブン・ファハドが彼の没年月日を記録している。
+  en: Muḥammad b. Jumʿa al-Hamadhānī, al-Khawājā. A resident of Mecca and the owner of the endowed houses there, most of which he dedicated to a lesson for the Ḥanafīs in the Sacred Mosque. The shaykh of al-Bāsiṭiyya and imam of the Ḥanafīs, al-Shams al-Bukhārī, was appointed to preside over it, and he exercised it; then it was suspended for a period in the time of the endower's son. He died suddenly at the end of the night of Monday, 2 Rabīʿ al-Awwal 868. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-05T06:09:18Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

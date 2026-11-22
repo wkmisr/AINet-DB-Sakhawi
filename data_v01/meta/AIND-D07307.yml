@@ -1,0 +1,143 @@
+schema: aind-yaml/0.1
+id: AIND-D07307
+source:
+  uid: '806529588274'
+sex: M
+name:
+  full: محمد بن جعفر بن علي البعلي اليونيني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00054
+    quote: البعلي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00555
+    quote: اليونيني
+  - id: n3
+    type: shuhrah
+    quote: ابن الشويخ
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: جعفر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07307
+  quote: null
+  note:
+    ja: '父 جعفر بن علي：汎用名＋ニスバのみで本伝なし → #NEEDID（規則3 (c'')）。初版の grandfather relation（汚染番号 TMP-P-000530＝別人の علي）は除去。corpus の #AIND-D02417「جعفر بن محمد بن جعفر البعلي الحنبلي ويعرف بابن الشويخ」（795年バアルバクで聴聞）は同じ通称の同族とみられるが父名が合わず（جعفر بن محمد）、本項主の父とは同定しない。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001356
+  passive: AIND-D07307
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: '「سمع على بشر وعمر ابني إبراهيم البعلي」。بشر بن إبراهيم البعلي ＝ ID-Master 既登録 TMP-P-001356（بشر بن إبراهيم بن بشر البعلي الفامي、D00354・D03824・D08915 の師）。初版の #NEEDID を解消。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001578
+  passive: AIND-D07307
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: عمر بن إبراهيم البعلي（بشر の兄弟）。corpus に本伝なし・ID-Master 未登録（TMP-P-000415 عمر بن إبراهيم النقبي は別人）→ 新規 TMP-P-001578。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: TMP-P-001579
+  passive: AIND-D07307
+  methods:
+  - TMP-S-00003
+  quote: الطاهر محمد بن عبد الغني الدريبي
+  note:
+    ja: أبو الطاهر محمد بن عبد الغني الدريبي。corpus に本伝なし（hw.py「الدريبي」は本項のみ）・ID-Master 未登録（ニスバ الدريبي TMP-N-04540 のみ）→ 新規 TMP-P-001579。
+- id: r5
+  type: personal
+  subtype: teacher
+  active: AIND-D07307
+  passive: AIND-D09466
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 815
+  quote: ابن موسى
+  note:
+    ja: '「سمع منه الفضلاء كابن موسى … وكان سماعهما في سنة خمس عشرة」。ابن موسى ＝ #AIND-D09466（محمد بن موسى … المراكشي الأصل المكي … ويعرف بابن موسى、幻番号 TMP-P-000034 の名寄せ先）。815 ＝ 1412-04-22〜1413-04-11、年初 1412。'
+- id: r6
+  type: personal
+  subtype: teacher
+  active: AIND-D07307
+  passive: AIND-D04932
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 815
+  quote: الأبي
+  note:
+    ja: '「شيخنا الأبي」＝ #AIND-D04932（علي بن إبراهيم بن علي بن راشد الموفق … ويعرف بالإبي、幻番号 TMP-P-000035 の名寄せ先）。直後に固有名があるので「شيخنا」はイブン・ハジャルを指さない。先例 D04862（同じ815年の ابن موسى・الأبي の聴聞）。'
+- id: r7
+  type: personal
+  subtype: teacher
+  active: AIND-D07307
+  passive: TMP-P-000221
+  methods:
+  - TMP-S-00004
+  quote: null
+  note:
+    ja: '「وقال شيخنا في معجمه أجاز في استدعاء ابنتي رابعة」。رابعة ＝ ID-Master 登録 TMP-P-000221（イブン・ハジャルの娘）。先例 D04862。初版の #NEEDID を解消。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00265
+  places:
+  - ref: gn:277130
+    quote: بعلبك
+  orgs:
+  - ref: TMP-I-00246
+  quote: شيخ زاوية عبد الله اليونيني
+  note:
+    ja: 施設限定 شيخ 職（先例 TMP-O-00265・00274・00334）。ID-Master の Office を語根 شيخ／زاوية で grep、該当なし → 新規 TMP-O-00354。施設 زاوية عبد الله اليونيني（بعلبك）は ID-Master 未登録 → 新規 TMP-I-00246。placeName بعلبك は原文明記（規則22(2)）。初版の affiliation employed（同内容）は規則8により除去。
+events:
+- id: e1
+  type: cultural
+  quote: وحدث
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00104
+  quote: وقال
+  note:
+    ja: Pattern A。شيخنا ＝ ابن حجر（wd:Q471116）、「معجمه」＝ TMP-T-00104。先例 D04862。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・ジャアファル・ブン・アリー・アル＝バアリー・アル＝ユーニーニー、イブン・アッ＝シュワイフとして知られる。ビシュルとウマルのイブラーヒーム・アル＝バアリーの二子、およびアブー・アッ＝ターヒル・ムハンマド・ブン・アブド・アル＝ガニー・アッ＝ドゥライビーから聴聞した。ハディースを伝え、イブン・ムーサーや我らの師アル＝ウッビーら俊秀が彼から聴聞した。二人の聴聞は815年のことであった。我らの師は『ムウジャム』で「彼は私の娘ラービアのための要請書（イスティドアー）においてイジャーザを与えた」と述べている。彼はバアルバクのアブドゥッラー・アル＝ユーニーニーのザーウィヤのシャイフであった。
+  en: 'Muḥammad b. Jaʿfar b. ʿAlī al-Baʿlī al-Yūnīnī, known as Ibn al-Shuwaykh. He heard from Bishr and ʿUmar, the two sons of Ibrāhīm al-Baʿlī, and from Abū al-Ṭāhir Muḥammad b. ʿAbd al-Ghanī al-Duraybī. He transmitted, and eminent scholars such as Ibn Mūsā and our shaykh al-Ubbī heard from him; their hearing was in the year 815. Our shaykh said in his Muʿjam: "He granted an ijāza in the request (istidʿāʾ) for my daughter Rābiʿa." He was the shaykh of the zāwiya of ʿAbd Allāh al-Yūnīnī in Baalbek.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T08:07:31Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

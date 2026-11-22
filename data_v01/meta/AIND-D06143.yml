@@ -1,0 +1,89 @@
+schema: aind-yaml/0.1
+id: AIND-D06143
+source:
+  uid: '430570484938'
+sex: M
+name:
+  full: فارس
+  elements:
+  - id: n1
+    type: ism
+    quote: فارس
+    by: rule
+death:
+  id: d
+  date:
+    ah: 826-01
+  note:
+    ja: 「مات في أوائل المحرم سنة ست وعشرين」＝826年ムハッラム月初旬（月初 1422-12-24）。没地は原文に記載なし（初版の مصر は「أحد المقدمين بمصر」からの補完のため除去、規則22(1)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06143
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、アミール）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D03422
+  passive: AIND-D06143
+  quote: الظاهر ططر
+  note:
+    ja: '「كان دوادار الظاهر ططر في حال إمرته فلما ملك أعطاه طبلخانات」＝アミール時代のタタルのダワーダールで、タタルが即位するとタブルハーナを与えられた。الظاهر ططر＝#AIND-D03422（ططر الظاهري برقوق الملك الظاهر أبو الفتح、824年即位・没）。初版の #NEEDID「client」を解消。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00063
+  quote: دوادار
+  note:
+    ja: 「كان دوادار الظاهر ططر في حال إمرته」＝タタルのアミール時代の（私的）ダワーダール。初版の placeName مصر（原文になし）を除去（規則22(1)）。
+- id: s2
+  type: office
+  ref: TMP-O-00016
+  quote: طبلخانات
+  note:
+    ja: '「فلما ملك أعطاه طبلخانات」＝タタル即位（824年）後にタブルハーナ級アミール職を与えられた。初版の #NEEDID・placeName مصر を是正（ID-Master 既登録 TMP-O-00016）。'
+- id: s3
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: gn:361058
+    quote: إسكندرية
+  quote: نيابة
+  note:
+    ja: 「ثم ولي نيابة إسكندرية ثم انفصل عنها」。アレクサンドリア総督職は ID-Master に単独登録がなく、repo 先例（「نائب اسكندرية」→汎用 نائب TMP-O-00053）に揃えた。地名は原文に明記（gn:361058）。
+- id: s4
+  type: office
+  ref: TMP-O-00083
+  places:
+  - ref: gn:352261
+    quote: مصر
+  quote: null
+  note:
+    ja: 「أحد المقدمين بمصر … وصار مقدما حتى مات」。初版の label「مقدم ألف」の「ألف」は原文になく除去、ID は ID-Master 既登録 المقدم（TMP-O-00083、先例 D01702「أحد المقدمين بمصر」）。初版の date type="retirement"（没月の流用）は除去。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: ذكره
+  summary:
+    ar: ذكره العيني
+  note:
+    ja: Pattern A。初版の統制外 relation「mentioned in history」（#NEEDID）を event に改めた。
+  trigger: rule
+translation:
+  ja: ファーリス。エジプトのムカッダム（軍団長）の一人。ザーヒル・タタルのアミール時代にそのダワーダールであり、タタルが即位すると彼にタブルハーナ（級のアミール職）を与えた。その後アレクサンドリアの総督職（ニヤーバ）に任じられ、ついでそこを離任してムカッダムとなり、826年ムハッラム月初旬に没するまでその地位にあった。善良で謙虚、敬虔な人物であった。アイニーが彼に言及している。
+  en: Fāris, one of the muqaddams in Egypt. He was the dawādār of al-Ẓāhir Ṭaṭar during the latter's amirate, and when Ṭaṭar became ruler he granted him a ṭablkhānāh. He was then appointed to the governorship (niyāba) of Alexandria, was afterwards removed from it and became a muqaddam until he died in early Muḥarram 826. He was good, humble and scrupulous. Al-ʿAynī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-02T13:44:17Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

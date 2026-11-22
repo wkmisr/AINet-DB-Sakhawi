@@ -1,0 +1,148 @@
+schema: aind-yaml/0.1
+id: AIND-D07957
+source:
+  uid: '236793121041'
+sex: M
+name:
+  full: محمد بن عثمان بن موسى بن محمد ناصر الدين أبو عبد الله الإسحاقي الأصل القاهري المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00557
+    quote: الإسحاقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: ناصر الدين
+  - id: n4
+    type: kunyah
+    quote: أبو عبد الله
+  - id: n5
+    type: shuhrah
+    quote: الإسحاقي
+  - id: n6
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n8
+    type: nasab
+    quote: موسى
+    by: rule
+  - id: n9
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+  - id: n11
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+birth:
+  id: b
+  date:
+    notAfter: 720
+    cert: low
+  note:
+    ja: '「مات تقريبا سنة عشر وقد زاد على التسعين」＝810 年頃に90歳超で没 → 720 年以前の生まれ（逆算、cert low）。720 年末＝1321-02-07（h2g.py: 720 -> 1320-02-20 .. 1321-02-07）→ 年精度 1321（規則18）。【集約 2026-10-31 訂正】校閲時の「720 年末＝1320-12」は誤り。初版の placeName محلة إسحق（ニスバ由来地「الإسحاقي الأصل نسبة لمحلة إسحق بالغربية」＝出生地の記載ではない）を除去（規則22(2)）。'
+death:
+  id: d
+  date:
+    ah: 810
+    cert: low
+  note:
+    ja: 「مات تقريبا سنة عشر وقد زاد على التسعين」＝810 年頃（تقريبا＝cert low）。810 年＝1407-06-17 開始 → 年精度 1407。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07957
+  quote: null
+  note:
+    ja: '父 عثمان بن موسى بن محمد は識別要素なし。corpus に本伝なし。規則3 (c'') で #NEEDID。初版なし。'
+- id: r2
+  type: personal
+  subtype: grandson
+  active: AIND-D09139
+  passive: AIND-D07957
+  quote: حفيده
+  note:
+    ja: '「جد الرضي محمد بن محمد صهر الحنبلي … أفاده حفيده」＝corpus 本伝 #AIND-D09139「محمد بن محمد بن محمد بن عثمان بن موسى رضي الدين بن الشمس بن ناصر الدين الإسحاقي الأصل القاهري المالكي الماضي جده ويعرف بابن الإسحاقي」（「الماضي جده」で閉合；ニスバ索引 #AIND-D11427「وحفيده الرضي محمد بن الشمس محمد صهر البدر السعدي قاضي الحنابلة」）。「صهر الحنبلي」は孫の姻戚＝本項主の relation にしない（規則52）。初版は統制外 subtype「other」・#NEEDID。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001648
+  passive: AIND-D07957
+  methods:
+  - TMP-S-00009
+  quote: null
+  note:
+    ja: '「ممن اشتغل عند الشيخ خليل وغيره」。الشيخ خليل＝マーリキー派法学者 خليل بن إسحاق الجندي（『مختصر خليل』TMP-T-00047 の著者、776 没）。corpus に本伝なし（8 世紀没）、ID-Master に人物登録なし（書名 TMP-T-00047 のみ）→ 新規 TMP-P-001648。初版 #NEEDID。'
+- id: r4
+  type: personal
+  subtype: deputy
+  active: AIND-D08204
+  passive: AIND-D07957
+  cert: medium
+  quote: الشمس المدني
+  note:
+    ja: '「بل يقال إن الشمس المدني استخلفه في بعض غيباته」＝マーリキー派大カーディー الشمس المدني が不在時に本項主を代理に立てた（deputy 型、active＝本務者、「يقال」＝cert medium）。الشمس المدني＝corpus 本伝 #AIND-D08204「محمد بن علي بن معبد بن عبد الله الشمس المقدسي المدني ثم القاهري المالكي ويعرف بالمدني … ثم ولي قضاء المالكية بعناية فتح الله كاتب السر في الأيام الناصرية … مات … سنة تسع عشرة」（ラカブ الشمس＋通称 المدني＋マーリキー派カーディー職で閉合、規則57。D08853「عن قاضي مذهبه الشمس المدني」・D08993「الشمس المدني المالكي」も同人）。校閲時の新規 取り下げた仮番号 B147-P12（「corpus に本伝なし」）は集約で本伝に差し替え・取り下げ（内容B H、オーケストレーター決定4）。初版は統制外 subtype「colleague」・#NEEDID、および「المدني」をマディーナ（gn:109223）と誤読した state を除去。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  quote: ناب
+  note:
+    ja: 「وناب في القضاء」＝裁判代理官。カノニカル職 نائب الحكم＝TMP-O-00096（Waka 2026-07-11、「ناب في …」はこれに一本化）。初版は TMP-O-00003 ×2（うち1本は placeName المدينة＝「الشمس المدني」の誤読）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+events:
+- id: e1
+  type: cultural
+  quote: وكتب بخطه الكثير بل جمع كتابا في الأصول
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09139
+  quote: وكتب
+  summary:
+    ar: أفاده حفيده
+  note:
+    ja: Pattern A。情報源は孫 الرضي محمد（#AIND-D09139）。初版は訳のみ。
+  trigger: rule
+notes:
+- text: 「الإسحاقي الأصل نسبة لمحلة إسحق بالغربية」＝ニスバの由来説明（ガルビーヤ県の محلة إسحق）、event にしない（規則22(2)）。初版の residence event القاهرة はニスバからの補完＝除去。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・ウスマーン・ブン・ムーサー・ブン・ムハンマド、ナースィル・アッ＝ディーン、アブー・アブド・アッラー、出自はアル＝イスハーキー——ガルビーヤの町マハッラト・イスハークに由来——、アル＝カーヒリー、アル＝マーリキー。アル＝ハンバリーの姻戚であるアッ＝ラディー・ムハンマド・ブン・ムハンマドの祖父。アル＝イスハーキーとして知られる。シャイフ・ハリールらのもとで学んだ者の一人で、自筆で多くを書写し、さらに法源学の書を一冊編んだ。巡礼し、裁判の代理官を務めた。それどころか、アッ＝シャムス・アル＝マダニーが不在の際に何度か彼を代理に立てたという。（8）10年頃に、90歳を超えて没した。その孫が私に伝えた。
+  en: Muḥammad b. ʿUthmān b. Mūsā b. Muḥammad, Nāṣir al-Dīn, Abū ʿAbd Allāh, al-Isḥāqī by origin—after Maḥallat Isḥāq in al-Gharbiyya—, al-Qāhirī, al-Mālikī; grandfather of al-Raḍī Muḥammad b. Muḥammad, the in-law of al-Ḥanbalī. He is known as al-Isḥāqī. He was among those who studied under al-Shaykh Khalīl and others; he copied much in his own hand and even compiled a book on legal theory. He made the pilgrimage and served as deputy judge; indeed it is said that al-Shams al-Madanī appointed him as his deputy during some of his absences. He died around the year [8]10, aged over ninety. His grandson told me this.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T04:29:27Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,93 @@
+schema: aind-yaml/0.1
+id: AIND-D05403
+source:
+  uid: '217554366190'
+sex: M
+name:
+  full: علي بن محمد بن بركوت الشيبكي المكي العجلاني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-04145
+    quote: الشيبكي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00802
+    quote: العجلاني
+  - id: n4
+    type: ism
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D07160
+  - id: n6
+    type: nasab
+    quote: بركوت
+    by: rule
+death:
+  id: d
+  date:
+    ah: 852-01
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ja: 「مات بمكة في المحرم سنة اثنتين وخمسين」＝852年ムハッラム月（1448-03-16〜04-14、月精度 1448-03）。初版の when="1448" を月精度に是正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D07160
+  passive: AIND-D05403
+  quote: null
+  note:
+    ja: '見出しナサブから、父 ＝ #AIND-D07160（محمد بن بركوت الشبيكي العجلاني القائد . مات بمكة في شوال سنة اثنتين وثلاثين、本バッチ B120）。名・ニスバ العجلاني・職 القائد が一致（規則37）。ニスバの綴りは本項「الشيبكي」（TMP-N-04145）・父項「الشبيكي」（TMP-N-02100）と刊本で揺れるが原文どおりとし（規則25）、同一家系とみなす。初版は父 relation 欠落。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  places:
+  - ref: gn:104515
+    cert: medium
+    quote: مكة
+  quote: null
+  note:
+    ja: 'ID-Master TMP-O-00094（القائد、マッカの隊長）。初版の #NEEDID を解消。「بها」の先行詞は見出しのニスバ المكي のみ＝マッカを指す照応として cert medium（規則22(3)、同型 D05348「المكي واليها」・D07199「المقدسي العطار بها」に揃える。集約、内容B L）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A。没年852（≤871）＝ #AIND-D09211、cert low。初版の統制外 relation「chronicler」を event に改めた。'
+  trigger: rule
+notes:
+- text: 'sister 候補 #AIND-D13268（شمسية ابنة محمد بن بركوت الشبيكي العجلاني）: 本項の原文には無く、#AIND-D13268（شمسية ابنة محمد بن بركوت الشبيكي العجلاني、859没）と父のナサブが一致することによる（規則23、cert medium）。 【集約 2026-10-19】規則23 は相手側本文が本項主を特定して関係を明記する場合に限り relation を補う。本項・相手側のいずれにも言及がなくナサブ一致からの推論にとどまるため、relation を note に移した（内容B L、チャンク間の方針割れ(2)の統一）。父 D07160 側には daughter relation がある（子の見出しナサブが父を特定するため）。'
+  lang: ja
+  type: editorial
+- text: 'brother 候補 #AIND-D04562（عبد الله بن محمد بن بركوت الشبيكي المكي القائد）: 本項の原文には無く、#AIND-D04562（عبد الله بن محمد بن بركوت الشبيكي المكي القائد、847没）と父のナサブ・職が一致することによる（規則23、cert medium）。 【集約 2026-10-19】規則23 は相手側本文が本項主を特定して関係を明記する場合に限り relation を補う。本項・相手側のいずれにも言及がなくナサブ一致からの推論にとどまるため、relation を note に移した（内容B L、チャンク間の方針割れ(2)の統一）。なお同じナサブの #AIND-D02504 حسب الله بن محمد بن بركوت السبكي（父 D07160 側に son relation を追加）も兄弟とみられる。'
+  lang: ja
+  type: editorial
+translation:
+  ja: アリー・ブン・ムハンマド・ブン・バルクート・アッ＝シャイバキー・アル＝マッキー・アル＝アジュラーニー、同地（マッカ）の隊長（カーイド）の一人。852年ムハッラム月にマッカで没した。イブン・ファハドがその没年を記録した。
+  en: ʿAlī b. Muḥammad b. Barkūt al-Shaybakī al-Makkī al-ʿAjlānī, one of the commanders (quwwād) there (in Mecca). He died in Mecca in Muḥarram of the year 852. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-02T14:14:15Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

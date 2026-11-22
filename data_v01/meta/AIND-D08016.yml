@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D08016
+source:
+  uid: '841933190721'
+sex: M
+name:
+  full: محمد بن علي بن أحمد الشمس الشغري الحلبي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00770
+    quote: الشغري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08016
+  quote: null
+  note:
+    ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08016
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: سمع مني بها
+  quote: مني
+  note:
+    ja: 「بها」＝直前の مكة（نزيل مكة）を指す照応（規則22(3)、cert 不要）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+notes:
+- text: '#AIND-D06172「فرج الزنجي فتى محمد بن علي بن أحمد الشغري الآتي . اعتنى به سيده فحفظه عدة مقدمات … وعرض علي وسمع مني بمكة في مجاورتي الثالثة أشياء」＝本項主の奴隷（فتى）の項で、本項主を「الآتي」として名指しし主人とする。本項の原文に言及がないため relation は立てない（規則23）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アフマド、アッ＝シャムス・アッ＝シュグリー・アル＝ハラビー、マッカの寄留者。そこ（マッカ）で私から聴聞した。
+  en: Muḥammad b. ʿAlī b. Aḥmad, al-Shams al-Shughrī al-Ḥalabī, resident of Mecca. He heard from me there.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-04T13:44:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

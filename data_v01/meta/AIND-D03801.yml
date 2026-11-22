@@ -1,0 +1,116 @@
+schema: aind-yaml/0.1
+id: AIND-D03801
+source:
+  uid: '209731985643'
+sex: M
+name:
+  full: عبد الرحمن بن محمد بن محمد بن يحيى الشرف الواسطي ثم السكندري ثم العدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00170
+    quote: الواسطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00123
+    quote: السكندري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00425
+    quote: العدني
+  - id: n4
+    type: laqab
+    quote: الشرف
+  - id: n5
+    type: ism
+    quote: عبد الرحمن
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-000887
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: يحيى
+    by: rule
+death:
+  id: d
+  date:
+    ah: 807
+    cert: medium
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  note:
+    en: According to Ibn Hajar, it was reported to him that Abd al-Rahman died in the year 807 AH.
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D03801
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00040
+  context:
+  - places:
+    - ref: TMP-L-00037
+      quote: اليمن
+  quote: شيخنا
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-000887
+  passive: AIND-D03801
+  quote: أبوه
+  note:
+    ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「محمد بن محمد بن يحيى الواسطي」（「كان أبوه من المحدثين」）。#AIND-D10733 中の「الكمال محمد بن محمد بن يحيى الواسطي」と同一人物の可能性あり。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q215536
+  quote: تاجرا
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في معجمه … ولقيته بها مرارا وكان حسن المفاكهة والنادرة أنشدنا كثيرا لغيره
+  note:
+    ja: 初版は subtype="friend" の personal relation（Pattern A違反）。ابن حجر がイエメンで複数回面会した（لقيته بها مرارا）事実は本 event の desc に保全した。没年は「**وبلغني** أنه مات سنة سبع」＝伝聞につき death に cert="medium"（§9）。「ذكره … في معجمه」は第三者による記録であって交友関係ではない。ابن حجر=wd:Q471116。
+  trigger: rule
+- id: e2
+  type: travel
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  quote: فدخل
+  note:
+    en: He entered Yemen as a merchant.
+  trigger: rule
+- id: e3
+  type: residence
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  quote: فاستوطنها
+  note:
+    en: He settled down in Yemen.
+  trigger: rule
+translation:
+  ja: アブドゥルラフマーン・ブン・ムハンマド・ブン・ムハンマド・ブン・ヤフヤー、アッ＝シャラフ・アル＝ワースィトィー、のちにアッ＝サカンダリー、のちにアル＝アダニー。我らがシャイフ（イブン・ハジャル）はその『ムアジャム』で彼について言及し、次のように述べている。「彼の父親はハディース学者の一人であり、彼自身は商人として育った。イエメンに入ってそこに定住し、私は現地で彼と何度も会った。彼は機知に富んだ対話や逸話に長けており、他人の詩を我々に多く詠んで聞かせてくれた。」彼が（ヒジュラ暦）807年に亡くなったという知らせが私に届いている。
+  en: 'Abd al-Rahman b. Muhammad b. Muhammad b. Yahya al-Sharaf al-Wasiti, later al-Sakandari, later al-Adani. Our shaykh (Ibn Hajar) mentioned him in his Mu''jam, saying: ''His father was one of the scholars of Hadith, and he grew up as a merchant. He entered Yemen and settled there. I met him there several times; he was of good humor and witty anecdotes, and recited to us much poetry of others.'' It reached me that he died in the year 807 AH.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-03T08:37:20Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

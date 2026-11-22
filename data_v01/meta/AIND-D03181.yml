@@ -1,0 +1,74 @@
+schema: aind-yaml/0.1
+id: AIND-D03181
+source:
+  uid: '688998325124'
+sex: M
+name:
+  full: سليم بن عبد الله الصالحي الضرير
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00037
+    quote: الصالحي
+  - id: n2
+    type: ism
+    quote: سليم
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد الله
+    by: rule
+death:
+  id: d
+  date:
+    ah: 815
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  note:
+    ar: مات بدمشق سنة خمس عشرة
+    ja: 815＝1412-04-22 開始（年精度、h2g.py）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D03181
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 عبد الله は裸名のみ、corpus 見出し（hw.py「سليم بن عبد الله」）に本伝なし → #NEEDID。初版の TMP-P-000490（登録＝al-Zuhrī の祖父 عبد الله、関係専用の汚染番号）を除去（precheck 汚染注意）。'
+states:
+- id: s1
+  type: status
+  label: الضرير
+  quote: null
+  note:
+    ja: 見出しの「الضرير」（盲人）。repo 先例（D07176）どおり status state（初版は shuhrah）。
+events:
+- id: e1
+  type: learning
+  quote: اشتغل
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في إنبائه
+  note:
+    ja: Pattern A（イブン・ハジャル『إنباء الغمر』TMP-T-00034）。初版の統制外 subtype「biographical subject」relation を mention event に変換。
+  trigger: rule
+translation:
+  ja: サリーム・ブン・アブドゥッラー、アッ＝サーリヒー、盲人（アッ＝ダリール）。法学に従事し、それに熟達した。（8）15年にダマスクスで没した。我らの師（イブン・ハジャル）が『インバーゥ』に彼の没年を記している。
+  en: Salīm b. ʿAbd Allāh al-Ṣāliḥī al-Ḍarīr (the blind). He occupied himself with jurisprudence and became skilled in it. He died in Damascus in the year [8]15. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T11:13:28Z'
+  model_requested: gemini-3.5-flash

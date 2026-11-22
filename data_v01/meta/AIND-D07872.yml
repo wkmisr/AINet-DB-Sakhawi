@@ -1,0 +1,115 @@
+schema: aind-yaml/0.1
+id: AIND-D07872
+source:
+  uid: '908363581891'
+sex: M
+name:
+  full: محمد بن عبد الله التركماني القبيباتي الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00212
+    quote: التركماني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00752
+    quote: القبيباتي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n4
+    type: shuhrah
+    quote: القواس
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 746
+    cert: low
+  note:
+    ja: 「مات … عن أزيد من مائة فيما قيل … سنة ست وأربعين」（846年没時に100歳余、伝聞）からの逆算＝746年以前。伝聞・逆算につき cert low。
+death:
+  id: d
+  date:
+    ah: 846-11-06
+  places:
+  - ref: TMP-I-00258
+    quote: زاوية غربي المصلى ظاهر دمشق
+  note:
+    ja: 「مات بزاويته عن أزيد من مائة فيما قيل ليلة الجمعة سادس ذي القعدة سنة ست وأربعين」＝846年ズー・アル＝カアダ月6日＝1443-03-17（h2g.py、金曜）。「ليلة الجمعة」は木曜の夜（金曜の前夜）で、6日が金曜にあたる刊本の記述と整合。初版の @when 1442 は誤り。没地は本文で「غربي المصلى ظاهر دمشق」とされる彼のザーウィヤ（TMP-I-00258）。初版の placeName دمشق は施設の所在地からの補完にあたるため除去し、ここに記す（規則22-1）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07872
+  quote: null
+  note:
+    ja: '父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c'')）。初版の #TMP-P-000490（登録実体＝al-Zuhrī の祖父 عبد الله）は汚染番号のため除去。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000742
+  passive: AIND-D07872
+  methods:
+  - TMP-S-00034
+  quote: بكر الموصلي
+  note:
+    ja: 「وكان ممن صاحب أبا بكر الموصلي دهرا وغيره من الأكابر」＝ダマスクスの著名スーフィー أبو بكر الموصلي（没797、既登録 TMP-P-000742、D04088 の祖父）。「وغيره من الأكابر」は人物を立てない。
+affiliations:
+- id: a1
+  type: affiliated
+  ref: TMP-I-00258
+  note:
+    ja: 「له زاوية غربي المصلى ظاهر دمشق」＝本項主所有のザーウィヤ。ID-Master を「زاوية」「المصلى」「القواس」で grep し未登録 → 新規 TMP-I-00258（先例 TMP-I-00200 زاوية علي القلندري、TMP-I-00077「وله زاوية」＝affiliated）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-I-00258
+    quote: زاوية غربي المصلى ظاهر دمشق
+  quote: null
+  summary:
+    ar: له زاوية غربي المصلى ظاهر دمشق مقيم بها
+  note:
+    ja: 本項主のザーウィヤ（ダマスクス郊外、المصلى の西）。所在は本文に明記。初版の placeName دمشق（gn:170654）はザーウィヤの所在地からの補完にあたるため、施設そのもの（新規 TMP-I-00258）に置換。
+- id: e2
+  type: religious
+  places:
+  - ref: wd:Q183562
+    quote: الجامع الأموي
+  quote: null
+  summary:
+    ar: وله أصحاب ومريدون وحلقة ذكر بالجامع الأموي عظيمة مقصود بالزيارة
+  note:
+    ja: ウマイヤ・モスク（ID-Master 登録 wd:Q183562）でのズィクルの会。初版の affiliation（affiliated、wd:Q183562）は所属ではなく活動の場なので event に置換。
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D10669
+    quote: التقي بن قاضي شهبة
+  quote: قال
+  summary:
+    ar: 'قال التقي بن قاضي شهبة : وكان يجيد تعبير الرؤيا عن صلاح لا علم'
+  note:
+    ja: 'Pattern A。التقي بن قاضي شهبة ＝ #AIND-D10669（أبو بكر بن أحمد بن محمد بن عمر … التقي … الأسدي الشهبي الدمشقي الشافعي、没851、ID-Master wd:Q85461758）。初版の relation「other」（active=wd:Q85461758）を mention event に置換（Pattern A は relation を立てない）。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・アッ＝トゥルクマーニー・アル＝クバイバーティー・アッ＝ディマシュキー、アル＝カウワースとして知られる。敬虔・禁欲・篤信のシャイフで、ダマスクス郊外のムサッラーの西にザーウィヤを持ち、そこに住んでいた。彼には仲間と弟子たちがおり、ウマイヤ・モスクで大規模なズィクルの会を持ち、人々の参詣の対象であった。アブー・バクル・アル＝マウスィリーやその他の大人物たちに長年同伴した者の一人であった。アッ＝タキー・ブン・カーディー・シュフバは言う、「彼は学識によってではなく敬虔さによって、夢の解釈に秀でていた」。846年ズー・アル＝カアダ月6日金曜の夜、伝えられるところでは100歳余で自分のザーウィヤにおいて没した。彼に老衰の徴は現れなかった。神が彼を慈しまれんことを。
+  en: 'Muḥammad b. ʿAbd Allāh al-Turkumānī al-Qubaybātī al-Dimashqī, known as al-Qawwās. A righteous, ascetic and devout shaykh who had a zāwiya west of al-Muṣallā outside Damascus, where he resided. He had companions and disciples, and a great dhikr circle at the Umayyad Mosque, and he was sought out for visitation. He was among those who kept company with Abū Bakr al-Mawṣilī for a long time, and with other great men. Al-Taqī b. Qāḍī Shuhba said: "He was skilled in the interpretation of dreams, through piety rather than learning." He died at his zāwiya, aged over a hundred as was said, on the eve of Friday 6 Dhū al-Qaʿda [8]46, and no senility had appeared in him. May God have mercy on him.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T00:56:37Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

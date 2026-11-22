@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D05785
+source:
+  uid: '626167656970'
+sex: M
+name:
+  full: عمر بن أحمد بن إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00377
+    quote: الحكمي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n3
+    type: laqab
+    quote: الفتى
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D00452
+  - id: n6
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: عيسى
+    by: rule
+  - id: n9
+    type: nasab
+    quote: مطير
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: brother
+  active: AIND-D11059
+  passive: AIND-D05785
+  quote: أخو
+  note:
+    ja: '「أخو أبي القسم وغيره」。兄 ＝ #AIND-D11059「أبو القسم بن أحمد بن إبرهيم بن محمد بن عيسى بن مطير بن علي بن عثمان الشرف الحكمي … اليماني الشافعي」（773年生。原文「أخو」は長幼を示さない）。他の兄弟は #AIND-D03548 عبد الرحمن・#AIND-D04383 عبد الله・#AIND-D04949 علي・#AIND-D10647 أبو بكر（いずれも「أخو أبي القسم وغيره」型で本項主を名指ししないため relation は立てない。一族索引 #AIND-D12742「فلأحمد عبد الرحمن وعبد الله وعلي وعمر وأبو بكر وأبو القسم」）。'
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D00452
+  passive: AIND-D05785
+  quote: null
+  note:
+    ja: '見出しナサブから。corpus の أحمد 部 #AIND-D00452「أحمد بن إبراهيم بن محمد بن عيسى بن مطر بن علي بن عثمان شهاب الدين أبو القسم بن ضياء الدين أبي إسحاق … ذكره ابن فهد وأنه أجاز لهم في سنة تسع عشرة」はナサブ6代（… بن علي بن عثمان は #AIND-D11059・D11084 の ابن مطير 家の系譜と一致）・ラカブ الشهاب（孫 #AIND-D01162「الشهاب بن الشرف بن الشهاب بن أبي إسحاق」）が一致するが、刊本の綴りは「مطر」で「مطير」と1字異なる（規則25により両方そのまま記録）。【集約】D00452 のクンヤ「أبو القسم」＝子 D11059 の名、孫 D01162「الشهاب بن الشرف بن الشهاب بن أبي إسحاق」のラカブ連鎖、ナサブ6代がすべて一致し、内容検証B も確定を支持するため cert medium を外す（§D103-3）。D00452 は repo 収録済み（Individuals/0000-0999）。'
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: AIND-D11059
+  passive: AIND-D05785
+  cert: medium
+  quote: أبي القسم
+  note:
+    ja: 「خلف أخاه في الوظيفة」。「أخاه」の先行詞は直前の أبو القسم（#AIND-D11059、「خلف والده في التدريس والإفتاء وانتهت إليه الرياسة ببلده」）と読み cert medium。【集約】本項主が後任なので subtype は predecessor（active=前任者の兄弟。完全同型の先例 D04045「وخلف أخاه في قضاء بلده وخطابتها」→ predecessor）。校閲時の successor は向きが逆に読めるため訂正。الوظيفة は一族の教授・ファトワー職（初版の state「الوظيفة」#NEEDID は職名ではないため除去し、ここに記録）。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D05785
+  passive: AIND-D01162
+  methods:
+  - TMP-S-00009
+  cert: medium
+  quote: null
+  note:
+    ja: '相手側本伝 #AIND-D01162「أحمد بن أبي القسم بن أحمد بن إبراهيم … اشتغل في الفقه على والده وعمه عمر」が本項主（甥）を一意に特定して師弟関係を明記するため、規則23により cert medium で補う。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00185
+  quote: فقيه خير يدرس ويفتي
+  note:
+    ja: 「وهو فقيه خير يدرس ويفتي」。TMP-O-00185（فقيه）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D02702
+    quote: الأهدل
+  quote: قاله
+  summary:
+    ar: قاله الأهدل
+  note:
+    ja: 'Pattern A。الأهدل ＝ #AIND-D02702（البدر حسين بن عبد الرحمن الأهدل、『تحفة الزمن』の著者。repo 先例 5件）。'
+  trigger: rule
+translation:
+  ja: ウマル・ブン・アフマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イーサー・ブン・ムタイル・アル＝ハカミー・アル＝ヤマーニー・アッ＝シャーフィイー。アブー・アル＝カースィムらの兄弟で、アル＝ファター（若者）とあだ名された。兄弟（アブー・アル＝カースィム）の後を継いでその職に就いた。彼は善良な法学者で、教授しファトワーを出した、とアル＝アフダルは述べている。
+  en: ʿUmar b. Aḥmad b. Ibrāhīm b. Muḥammad b. ʿĪsā b. Muṭayr al-Ḥakamī al-Yamānī al-Shāfiʿī, the brother of Abū al-Qāsim and others; he was nicknamed al-Fatā. He succeeded his brother in the post. He was a good jurist who taught and issued fatwās, so said al-Ahdal.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T07:43:57Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

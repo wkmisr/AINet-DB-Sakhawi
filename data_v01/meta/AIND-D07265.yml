@@ -1,0 +1,71 @@
+schema: aind-yaml/0.1
+id: AIND-D07265
+source:
+  uid: '334822915422'
+sex: M
+name:
+  full: محمد بن أبي بكر بن محمد أبو الطيب القابسي الأصل المحلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01153
+    quote: القابسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00109
+    quote: المحلي
+  - id: n3
+    type: kunyah
+    quote: أبو الطيب
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07265
+  quote: null
+  note:
+    ja: '父（初版は欠落）。汎用名で本伝なし → #NEEDID（規則3 (c'')）。甥 #AIND-D07700 によれば「من ذرية موفق الدين عمر بن عبد الوهاب القابسي」の家系。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: TMP-P-001569
+  passive: AIND-D07265
+  cert: medium
+  quote: أخو
+  note:
+    ja: '「أخو نوابها الآن」（本項では兄弟の名なし）。甥の本伝 #AIND-D07700「محمد بن عبد القادر بن أبي بكر البدر أبو السعادات القابسي الأصل المحلى الشافعي … وأبوه ينوب عن قاضي المحلة بل هو نفسه . وقد تقدم عمه أبو الطيب محمد ابن أبي بكر بن محمد」が本項主を名指しで「عم」とするので、その父 عبد القادر（المحلة の代理カーディー）は本項主の兄弟＝「نوابها」の一人。父が #NEEDID のため規則23 但書により cert medium で relation。corpus に عبد القادر 自身の本伝なし、ID-Master 未登録 → 新規 TMP-P-001569（規則12）。他の「نواب」兄弟は名が出ないため relation にしない（規則14）。初版の空 brother relation（active 空）を置換。'
+- id: r3
+  type: personal
+  subtype: siblings_child
+  active: AIND-D07700
+  passive: AIND-D07265
+  cert: medium
+  quote: null
+  note:
+    ja: 本項には言及なし。#AIND-D07700 が「وقد تقدم عمه أبو الطيب محمد ابن أبي بكر بن محمد」と本項主を一意に名指しする（規則23、cert medium）。
+notes:
+- text: 「من بيت بها」＝المحلة の名家の出。居住の明記ではないため residence event を置かない（初版のニスバ由来 residence المحلة を除去、規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド、アブー・アッ＝タイイブ、アル＝カービスィーを出自とし、アル＝マハッリー（マハッラの人）。現在のそこ（マハッラ）の代理カーディーたちの兄弟。同地の名家の出である。
+  en: Muḥammad b. Abī Bakr b. Muḥammad, Abū al-Ṭayyib, of Qābis origin, al-Maḥallī, brother of its (al-Maḥalla's) present deputy judges. He is from a notable house there.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T06:24:31Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

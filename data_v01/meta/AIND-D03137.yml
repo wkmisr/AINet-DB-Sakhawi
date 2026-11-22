@@ -1,0 +1,128 @@
+schema: aind-yaml/0.1
+id: AIND-D03137
+source:
+  uid: '104706612033'
+sex: M
+name:
+  full: سليمان بن أحمد بن عمر بن غانم علم الدين البرنكيمي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01291
+    quote: البرنكيمي
+  - id: n2
+    type: laqab
+    quote: علم الدين
+  - id: n3
+    type: ism
+    quote: سليمان
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001682
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: غانم
+    by: rule
+birth:
+  id: b
+  date:
+    notBefore: 797
+    notAfter: 803
+    cert: low
+  note:
+    ja: 逆算生年。「مات سنة ست وأربعين عن بضع وأربعين」＝846年に40代（43〜49歳）で没 → 797〜803年（797年初＝1394-11-04、803年末＝1401-08-19、h2g.py）。cert low。初版なし。
+death:
+  id: d
+  date:
+    ah: 846
+  summary:
+    ar: ومات سنة ست وأربعين عن بضع وأربعين
+  note:
+    ja: '846年＝1442-05-21〜1443-05-09（h2g.py）、年精度で @when=1442。子 #AIND-D07446 の項「ولد في سنة ست وأربعين وثمانمائة ومات أبوه قبل استكماله شهرين」と整合。没地の記載なし。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001682
+  passive: AIND-D03137
+  quote: null
+  note:
+    ja: '父＝見出しナサブ「أحمد بن عمر بن غانم（غنام）」。corpus に本伝なし（hw.py「أحمد بن عمر بن غنام／غانم」の見出しなし）。4人の兄弟（本項主・#AIND-D03574・#AIND-D10043・#AIND-D00505、ニスバ索引 #AIND-D11483）に共通の父で、D10043「وتحول مع أبيه إلى سنكلوم ثم إلى القاهرة」・D00505「ونقله أبوه وهو في المهد إلى زنكلون ثم وهو طفل إلى القاهرة」にブルンキーム（الشرقية）→ザンカルーン→カイロへの移住が記される＝祖父名まで復元でき、家名・移住で識別できる（規則3・12）→ 新規 TMP-P-001682（ID-Master に「غنام」「غانم」の該当 Person 行なし、Note も「D10043」「D00505」「D07446」「D03137」で該当なし）。兄弟の収録済み項 D03574 には father relation がない（統合時に同番号を充てること）。初版は father なし。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D10043
+  passive: AIND-D03137
+  quote: الشرف موسى
+  note:
+    ja: '「شقيق الشرف موسى العالم」＝#AIND-D10043「موسى بن أحمد بن عمر بن غنام الشرف الأنصاري السنكلومي ثم القاهري الشافعي أخو أحمد الماضي ويعرف بالبرنكيمي . ولد سنة ثلاث وعشرين وثمانمائة ببرنكيم من أعمال الشرقية」（823生、未収録）。ナサブ3代・ラカブ・ニスバで閉合。「العالم」は称号のため desc から除去（規則31）。初版の #NEEDID を置換。シャーフィイー派の弟。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D03574
+  passive: AIND-D03137
+  quote: null
+  note:
+    ja: '「واخوته」＝الشرف موسى の兄弟たち。#AIND-D03574「عبد الرحمن بن أحمد بن عمر بن غانم الزين البرمكيني القاهري . من أهل القرآن توفي قبيل الثلاثين عن بضع وستين وهو شقيق الشرف موسى وأحمد وسليمان」（収録済み。相手側に brother #AIND-D03137 あり＝双方で閉合）。'
+- id: r4
+  type: personal
+  subtype: brother
+  active: AIND-D00505
+  passive: AIND-D03137
+  quote: null
+  note:
+    ja: '「واخوته」＝#AIND-D00505「أحمد بن أحمد بن عمر بن غنام الشهاب البرنكيمي ثم الزنكلوني ثم القاهري الأزهري الشافعي أخو الشرف موسى الآتي」（825頃生、未収録）。D10043「أخو أحمد الماضي」・D03574「شقيق الشرف موسى وأحمد وسليمان」・ニスバ索引 #AIND-D11483「الشرف موسى وأحمد ابنا أحمد بن عمر بن غنام وهما شقيقان ولهما أخوان شقيقان أيضا وأكبر الأربعة سليمان ثم عبد الرحمن ثم موسى ثم أحمد」で4人兄弟（本項主が最年長）と閉合。'
+- id: r5
+  type: personal
+  subtype: son
+  active: AIND-D07446
+  passive: AIND-D03137
+  quote: الشمس محمد
+  note:
+    ja: '「ووالد الشمس محمد أحد نواب الحنفية」＝#AIND-D07446「محمد بن سليمان بن أحمد بن عمر بن غنام الشمس بن العلم البرنكيمي الأصل القاهري الحنفي ابن أخي الشرف موسى وأحد نواب الحنفية بمجلس الواجهة من بولاق . ولد في سنة ست وأربعين وثمانمائة ومات أبوه قبل استكماله شهرين فنشأ في كفالة عمه … وهو الذي أشار بتحنفه لكون والده كان أحد طلبة درس خشقدم بالأزهر」（846生、未収録）。ナサブ4代・父のラカブ العلم・ニスバ・職で閉合。初版の汚染番号 #TMP-P-000063（汎用 الشمس محمد、関係専用）を置換。子の職「أحد نواب الحنفية」は本項主の state にしない。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00194
+  places:
+  - ref: TMP-L-00193
+    quote: القلعة
+  quote: null
+  note:
+    ja: '「حفظ القرآن واشتغل بتعليمه الابناء في طباق القلعة وغيرها」＝城塞の兵舎（الطباق）などで子弟（الأبناء）にクルアーンを教えた。ID-Master 既登録 TMP-O-00194（تعليم المماليك بالطباق、出現 D05635「أقرأ المماليك بالطباق」、D05728・D05884「أقرأ في الطباق」）に最も近いので充てた（対象が المماليك ではなく الأبناء である点は label に残す。TMP-O-00245 معلم الأبناء は町の初等教師で別）。placeName は原文「طباق القلعة」の القلعة（TMP-L-00006、文脈上カイロ城塞）。初版の affiliation employed「طباق القلعة」（#NEEDID）との二重符号化（規則8）、state の ref #NEEDID・orgName #NEEDID を是正。'
+- id: s2
+  type: status
+  label: تنزل في بعض دروس الحنفية
+  quote: تنزل في بعض دروس الحنفية
+  note:
+    ja: 「وتنزل في بعض دروس الحنفية ولأجله تحنف」＝ハナフィー派の講義（学生定員）の給費枝に就き、そのためにハナフィー派に転じた。名義上の給費保持は state status（「باسمه … من مرتبات」型の先例）。子 D07446 の項「لكون والده كان أحد طلبة درس خشقدم بالأزهر」が具体の講義名を伝えるが、他項の情報は補わない（規則23）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: religious
+  quote: ولأجله تحنف
+  note:
+    ja: 学派の転向（تحنف）。給費のためハナフィー派に転じた。affiliation madhhab Hanafi（wd:Q228986）は転向後の学派。初版の英文 desc（「Hanafi madrasas」の補足）を原文 desc に替えた。
+notes:
+- text: '初版の residence event（القلعة）は勤務地からの補完で居住記述がないため除去（規則22(1)）。ニスバ索引 #AIND-D11483 は本項主について「وأكبر الأربعة سليمان … والآخران من أهل القرآن ولأولهما وكان قد تحنف لأجل وظيفة ابن من نواب الحنفية بالواجهة من بولاق اسمه شمس الدين محمد」と記す。'
+  lang: ja
+  type: editorial
+translation:
+  ja: スライマーン・ブン・アフマド・ブン・ウマル・ブン・ガーニム、アラム・アッ＝ディーン・アル＝バルンキーミー。学者アッ＝シャラフ・ムーサーとその兄弟たちの同母兄弟で、ハナフィー派副カーディーの一人アッ＝シャムス・ムハンマドの父。クルアーンを暗記し、城塞の兵舎（ティバーク）などで子弟にそれを教えることに従事した。ハナフィー派のいくつかの講義（の給費枝）に就き、そのためにハナフィー派に転じた。（8）46年に40代で没した。
+  en: Sulaymān b. Aḥmad b. ʿUmar b. Ghānim, ʿAlam al-Dīn al-Barnakīmī, full brother of the scholar al-Sharaf Mūsā and his brothers, and father of al-Shams Muḥammad, one of the Ḥanafī deputy judges. He memorized the Qurʾān and occupied himself with teaching it to boys in the barracks of the Citadel and elsewhere. He obtained stipendiary places in some Ḥanafī classes and for that reason became a Ḥanafī. He died in the year [8]46, aged forty-odd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-04T04:04:54Z'
+  model_requested: gemini-3.5-flash

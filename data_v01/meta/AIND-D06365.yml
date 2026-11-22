@@ -1,0 +1,86 @@
+schema: aind-yaml/0.1
+id: AIND-D06365
+source:
+  uid: '375209866837'
+sex: M
+name:
+  full: قلمطاي الإسحاقي الأشرفي برسباي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00557
+    quote: الإسحاقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00141
+    quote: الأشرفي
+  - id: n3
+    type: ism
+    quote: قلمطاي
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 807
+    cert: low
+  note:
+    ja: 「مات … سنة سبع وسبعين عن نحو السبعين」からの逆算（877−70＝807年頃、1404-07-19 開始）。原文に生年の記載はなく、cert low。
+death:
+  id: d
+  date:
+    ah: 877-01-10
+  note:
+    ja: 「مات ليلة الأربعاء عاشر المحرم سنة سبع وسبعين عن نحو السبعين」。877年ムハッラム10日＝1472-06-26（h2g.py、水曜と検証）。「ليلة الأربعاء」は水曜の前夜。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06365
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+- id: r2
+  type: personal
+  subtype: relative
+  active: AIND-D10460
+  passive: AIND-D06365
+  cert: medium
+  quote: الجمال يوسف بن تغرى بردى
+  note:
+    ja: '【★2 (b) 2026-10-26: 「صهر」の向きが原文から決まらないので subtype を relative に（Waka 裁定）。】「صهر الجمال يوسف بن تغرى بردى」＝史家イブン・タグリービルディー（#AIND-D10460、813年生）。صهر は婿・義兄弟の両義で、本項主（807年頃生）は相手より年長なので姉妹の夫（brother-in-law）の可能性もある。subtype は repo 先例 D02131（「صهر يشبك الفقيه」→ father-in-law cert medium）に揃え、ISSUES §D138-2 に上げた。初版の subtype other #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D02168
+  passive: AIND-D06365
+  quote: برسباي
+  note:
+    ja: 見出しのニスバ「الأشرفي برسباي」＝主人はアル＝アシュラフ・バルスバーイ（#AIND-D02168）。repo 先例どおり patron。「الإسحاقي」は先の帰属ニスバだが原文に名指しなし（relation なし）。初版は relation なし。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00101
+  quote: أمراء العشرات
+  note:
+    ja: '初版の #NEEDID → TMP-O-00101、placeName القاهرة（原文に無い）を除去。'
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: حج
+  note:
+    ja: 2度巡礼した。placeName مكة は規則20の例外として保持。
+  trigger: rule
+translation:
+  ja: カラムターイ・アル＝イスハーキー・アル＝アシュラフィー・バルスバーイ、アル＝ジャマール・ユースフ・ブン・タグリー・ビルディーの姻戚で、十人隊アミールの一人。2度巡礼し、善人として語られる者であった。877年ムハッラム月10日水曜の夜に約70歳で没した。アッラーよ彼を憐れみたまえ。
+  en: Qalamṭāy al-Isḥāqī al-Ashrafī Barsbāy, relative by marriage (ṣihr) of al-Jamāl Yūsuf b. Taghrī Birdī, and one of the amirs of ten. He performed the pilgrimage twice and was among those spoken of with approval. He died on the eve of Wednesday, 10 Muḥarram 877, aged about seventy. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T17:34:28Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

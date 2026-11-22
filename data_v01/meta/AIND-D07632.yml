@@ -1,0 +1,67 @@
+schema: aind-yaml/0.1
+id: AIND-D07632
+source:
+  uid: '917392238484'
+sex: M
+name:
+  full: محمد بن عبد الرحمن الحلبي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n2
+    type: shuhrah
+    quote: ابن أمين الدولة
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000031
+  passive: AIND-D07632
+  methods:
+  - TMP-S-00004
+  quote: الصلاح بن أبي عمر
+  note:
+    ja: الصلاح بن أبي عمر＝#TMP-P-000031（ID-Master 登録済み）。「وغيره」は無名のため relation を立てない。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07632
+  passive: AIND-D06758
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      notBefore: 830
+  quote: ابن شيخنا
+  note:
+    ja: ابن شيخنا＝イブン・ハジャルの息子（TMP-P-000277）。「بعد الثلاثين」＝830年以降（規則4により notBefore。830年初＝1426-11-11 → 1426）。初版の when="after 830" は不正な値のため是正。
+states:
+- id: s1
+  type: office
+  ref: NEEDID
+  quote: قيم مصارع معالج
+  note:
+    ja: '原文「قيم مصارع معالج」を「قيّم مصارعَ」（イダーファ）＝レスリング場（مصارع＝مصرع の複数）の管理人、「معالج」＝施術者（接骨・治療を行う者）と読む（2026-09-24 Waka 裁定 ★7-1、引き継ぎ担当の読み）。3語を無接続で並べた「管理人・格闘家・施術者」の読みは、サハーウィーが職業を列挙するときに接続詞 و を省かないため採らない。語義に不確実さが残り職としての同定はできないため、label は原文どおり、ref は #NEEDID のまま（ISSUES §Df-3）。'
+notes:
+- text: 原文末尾「واسم جده」は目的語を欠いたまま項が終わる（刊本の欠落）。祖父名は不明。
+  lang: ja
+  type: textual
+translation:
+  ja: ムハンマド・ブン・アブドゥッラフマーン・アル＝ハラビー。イブン・アミーン・アッ＝ダウラとして知られる。レスリング場の管理人で、施術（接骨・治療）も行った〔語義に不確実さが残る〕。アッ＝サラーフ・イブン・アビー・ウマルらからのイジャーザを持ち、〔八百〕三十年以降に我らがシャイフ（イブン・ハジャル）の息子らにイジャーザを与えた。彼の祖父の名は〔原文欠〕。
+  en: Muḥammad b. ʿAbd al-Raḥmān al-Ḥalabī, known as Ibn Amīn al-Dawla. Custodian of the wrestling grounds and a practitioner (bone-setter) [reading uncertain]. He held an ijāza from al-Ṣalāḥ b. Abī ʿUmar and others, and he granted an ijāza to the son of our shaykh (Ibn Ḥajar) and others after [the year 8]30. And his grandfather's name [text breaks off].
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T07:33:14Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

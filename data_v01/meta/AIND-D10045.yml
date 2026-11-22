@@ -1,0 +1,101 @@
+schema: aind-yaml/0.1
+id: AIND-D10045
+source:
+  uid: '358873058690'
+sex: M
+name:
+  full: موسى بن أحمد بن محمد الكمال الزبيدي الناشري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00159
+    quote: الزبيدي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00138
+    quote: الناشري
+  - id: n3
+    type: laqab
+    quote: الكمال
+  - id: n4
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D01408
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D01408
+  passive: AIND-D10045
+  cert: medium
+  quote: null
+  note:
+    ja: '父 أحمد بن محمد الناشري。本項主は「ابن عم صاحبنا حمزة بن عبد الله بن محمد الماضي」＝#AIND-D02778（حمزة بن عبد الله بن محمد بن علي بن أبي بكر … الناشري الزبيدي）の従兄弟で、D02778 本文に「وعن عمه أحمد بن محمد الناشري」（حمزة の父方の叔父）が出る。この叔父＝ #AIND-D01408「414 أحمد بن محمد بن علي بن أبي بكر بن علي بن محمد بن أبي بكر … الفقيه العالم المفتي الشهاب … اليماني الناشري … ولد سنة خمس عشرة وثمانمائة … ومات في حياة أبويه سنة سبع وخمسين」（حمزة の祖父 محمد بن علي بن أبي بكر の子）。ナサブ（أحمد بن محمد）・家名 الناشري الزبيدي・「حمزة の従兄弟」の3点で閉合するが、本項主自身の名が D01408 側に出ないため cert medium（規則23・57）。ISSUES §D157 に記録。'
+- id: r2
+  type: personal
+  subtype: cousin
+  active: AIND-D02778
+  passive: AIND-D10045
+  quote: ابن عم
+  note:
+    ja: '「ابن عم صاحبنا حمزة بن عبد الله بن محمد الماضي」＝#AIND-D02778（حمزة بن عبد الله بن محمد بن علي بن أبي بكر التقي أبو العباس … الناشري الزبيدي الشافعي、833生）。名・父・祖父が一致（規則26「الماضي」＋名の一致）。初版の #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: rival
+  active: AIND-D07655
+  passive: AIND-D10045
+  cert: medium
+  quote: ابن عبد السلام
+  note:
+    ja: '「مضادة لابن عبد السلام فصار بزبيد قاضيان」。ابن عبد السلام ＝ #AIND-D07655「74 محمد بن عبد السلام ويسمى أيضا عمر بن أبي بكر بن محمد الجمال أبو عبد الله … الناشري الشافعي أحد قضاة زبيد」（ザビードのカーディーの一人）。父名 عبد السلام＋職（قاضي زبيد）＋家名 الناشري で閉合するが父名のみの呼称なので cert medium。「مضادة」（対抗して）は repo 統制語彙 rival（27件）に合わせた。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q217029
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: القضاء
+  note:
+    ja: 「لمنصب القضاء بزبيد … فصار بزبيد قاضيان」。地名限定のカーディー職は先例 قاضي عدن（TMP-O-00223）・قاضي تعز（TMP-O-00224）・قضاء الينبوع（TMP-O-00346）に倣い新規 TMP-O（ID-Master の Office に زبيد のカーディー職は قضاء الحنفية（TMP-O-00261、ハナフィー派）のみ）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D10558
+    quote: يوسف بن يونس المقري
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: null
+  summary:
+    ar: قدمه الفقيه يوسف بن يونس المقري رئيس اليمن لمنصب القضاء بزبيد مضادة لابن عبد السلام فصار بزبيد قاضيان
+  note:
+    ja: 'يوسف بن يونس المقري ＝ #AIND-D10558「1280 يوسف بن يونس الجبائي التعزي اليماني الشافعي ويعرف بالمقري وبالفقيه يوسف عظيم اليمن كله في الدولة الظاهرية」（名・父名・通称 المقري・「عظيم اليمن」＝「رئيس اليمن」で閉合）。任官者は patron にせず event 内 persName（規則53）＝初版の patron relation を置換。「رئيس اليمن」は يوسف の職で本項主の state にしない。'
+translation:
+  ja: ムーサー・ブン・アフマド・ブン・ムハンマド、アル＝カマール・アッ＝ザビーディー・アン＝ナーシリー・アッ＝シャーフィイー。我らの友人ハムザ・ブン・アブドゥッラー・ブン・ムハンマド（既述）の従兄弟。イエメンの頭領である法学者ユースフ・ブン・ユーヌス・アル＝ムクリーが、イブン・アブド・アッ＝サラームに対抗させてザビードのカーディー職に彼を推したため、ザビードには二人のカーディーが並立することになった。
+  en: Mūsā b. Aḥmad b. Muḥammad, al-Kamāl al-Zabīdī al-Nāshirī al-Shāfiʿī, the paternal cousin of our companion Ḥamza b. ʿAbd Allāh b. Muḥammad (mentioned above). The jurist Yūsuf b. Yūnus al-Muqrī, the chief of Yemen, put him forward for the office of judge in Zabīd in opposition to Ibn ʿAbd al-Salām, so that there came to be two judges in Zabīd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:18:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,131 @@
+schema: aind-yaml/0.1
+id: AIND-D07887
+source:
+  uid: '371406685434'
+sex: M
+name:
+  full: محمد بن عبد الله النفياني ثم القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01904
+    quote: النفياني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد الله
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 829
+    cert: low
+  note:
+    ja: 「وأظنه جاز الستين」（889年没時に60歳を越えていたと思う）からの逆算＝829年以前。推測・逆算につき cert low。
+death:
+  id: d
+  date:
+    ah: 889-08-12
+  note:
+    ja: 「مات في ليلة الجمعة ثاني عشر شعبان سنة تسع وثمانين وصلي عليه من الغد」＝889年シャアバーン月12日＝1484-09-13（h2g.py では土曜。「ليلة الجمعة」は木曜の夜なので、刊本の日付と曜日は1日ずれる＝暦の判別には使えない、規則18）。初版の @when 1484 を日付精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07887
+  quote: null
+  note:
+    ja: 父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c')）。改宗者の兄弟の父であり、名は改宗後の通称の可能性もある。
+- id: r2
+  type: personal
+  subtype: brother
+  active: TMP-P-001629
+  passive: AIND-D07887
+  quote: أحمد
+  note:
+    ja: '「وأخو أحمد وعلى ممن هداهم الله للإسلام」。أحمد بن عبد الله النفياني は corpus に見出しなし・ID-Master 未登録 → 新規 TMP-P-001629（識別要素: ニスバ النفياني・改宗者・جقمق の俸給）。初版 #NEEDID を置換。集約で本伝を引き直した（hw.py「أحمد بن عبد الله」「النفيائي」／「النفياني」、أحمد 部の「أحمد بن عبد الله」見出しで الإسلام・نفيا を含む項）が該当なし。兄弟 #AIND-D05265 の「وأخو أحمد ومحمد」と索引 #AIND-D12087（兄弟5人の列挙、أحمد は 889 年に علي・محمد と同年没）に名が出るのみ＝仮番号維持（オーケストレーター決定2）。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D05265
+  passive: AIND-D07887
+  quote: علي
+  note:
+    ja: '兄弟 علي＝corpus 本伝 #AIND-D05265「856 علي بن عبد الله نور الدين النفيائي القاهري والد أحمد وأخو أحمد ومحمد ممن دخلوا في الإسلام وقرءوا القرآن وحجوا ، وتكسب هذا بالعطر ونحوه وتنزل في سعيد السعداء على خير وستر . مات في ربيع الآخر سنة تسع وثمانين」。名・父名・兄弟（أحمد・محمد＝本項主を名指し）・改宗・سعيد السعداء で閉合し、ニスバ النفيائي／النفياني は ئ/ن の点の揺れ（規則10）。ニスバ索引 #AIND-D12087「النفيائي … الأخوة الأشقاء الخمسة المهتدون للإسلام … محمد ثم أحمد ثم علي بنو عبد الله … ومات علي ثم محمد ثم أحمد الثلاثة في عام واحد」とも一致（cert なし）。D05265 の子 أحمد＝#AIND-D01032「أحمد بن علي بن عبد الله النفياني الأصل القاهري」。初版の汚染番号 TMP-P-000530 → 校閲 取り下げた仮番号 B145-P03 → 集約で本伝に差し替え（機械 H、オーケストレーター決定2。取り下げた仮番号 B145-P03 は取り下げ）。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D08290
+  passive: AIND-D07887
+  methods:
+  - TMP-S-00034
+  cert: medium
+  quote: الغمري
+  note:
+    ja: '「أحد أصحاب الغمري」＝スーフィーの師 الغمري #AIND-D08290（محمد بن عمر بن أحمد الشمس … الغمري ثم المحلي الشافعي ويعرف بالغمري、没849）の弟子（repo 先例 D02808 は同じ句を teacher／صحب で符号化）。初版の subtype「friend」を置換。'
+- id: r5
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07887
+  methods:
+  - TMP-S-00003
+  quote: شيخنا
+  note:
+    ja: 「وسمع الكثير على شيخنا وغيره」。初版の field「الحديث」は原文にないため除去。「وغيره」は人物を立てない。
+- id: r6
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07887
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: حتى سمع علي وبقراءتي أشياء
+  quote: null
+  note:
+    ja: サハーウィーに聴聞し、またサハーウィーの朗読で聴いた（規則2）。初版の field「الحديث」は原文にないため除去。
+affiliations:
+- id: a1
+  type: reside
+  ref: TMP-I-00018
+  note:
+    ja: 「وتنزل في سعيد السعداء وغيرها」＝خانقاه سعيد السعداء（TMP-I-00018）の寄宿者。初版の residence event القاهرة はニスバ「ثم القاهري」由来のため除去（規則22-1）。
+events:
+- id: e1
+  type: religious
+  quote: ممن هداهم الله للإسلام
+  note:
+    ja: 兄弟 أحمد・علي とともにイスラームに導かれた＝改宗者。
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D02423
+    quote: الظاهر جقمق
+  quote: null
+  summary:
+    ar: وأعطاهم الظاهر جقمق رزقة
+  note:
+    ja: 'スルターン الظاهر جقمق #AIND-D02423 が兄弟に俸給（رزقة）を与えた。主人でないスルターンの給与は patron にせず event 内 persName（規則53）。初版の relation「patron」を除去。'
+- id: e3
+  type: cultural
+  quote: وقرأ القرآن
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・アン＝ナフヤーニー、のちアル＝カーヒリー。アル＝ガムリーの仲間（弟子）の一人で、アフマドとアリーの兄弟。彼ら（兄弟）は神がイスラームに導いた者たちであり、アッ＝ザーヒル・ジャクマクが彼らに俸給（リズカ）を与えた。クルアーンを朗誦し、我らがシャイフ（イブン・ハジャル）らに多くを聴聞し、さらに私にも、また私の朗読によっても若干を聴聞した。サイード・アッ＝スアダー（ハーンカー）などに寄宿した。889年シャアバーン月12日金曜の夜に没し、翌日に葬礼の礼拝が行われた。60歳を越えていたと私は思う。神が彼を慈しまれんことを。
+  en: Muḥammad b. ʿAbd Allāh al-Nafyānī, then al-Qāhirī, one of the companions of al-Ghamrī, and brother of Aḥmad and ʿAlī; they were among those whom God guided to Islam, and al-Ẓāhir Jaqmaq granted them a stipend (rizqa). He recited the Qurʾān and heard much from our shaykh (Ibn Ḥajar) and others, so that he even heard from me and, through my reading, some things. He was lodged at Saʿīd al-Suʿadāʾ and elsewhere. He died on the eve of Friday 12 Shaʿbān [8]89, and the funeral prayer was performed over him the next day. I think he had passed sixty. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T01:36:27Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D06135
+source:
+  uid: '247631721660'
+sex: M
+name:
+  full: فارس البكتمري بكتمر السعدي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05505
+    quote: البكتمري
+  - id: n2
+    type: ism
+    quote: فارس
+    by: rule
+death:
+  id: d
+  note:
+    ja: 「ثم تجرد لسوار فقتل هناك」＝سوار（شاه سوار بن سليمان بن دلغادر）討伐の遠征に出て、そこで戦死。年・地の明記なし（カーイトバーイ治世の سوار 遠征は 872〜877年頃）。「هناك」は名指しされない遠征地を指すため placeName を付けない。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06135
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02207
+  passive: AIND-D06135
+  cert: medium
+  quote: بكتمر السعدي
+  note:
+    ja: '見出し「فارس البكتمري بكتمر السعدي」＝ニスバ البكتمري の由来となった最初の主人。【集約 2026-10-19】corpus 本伝 #AIND-D02207「بكتمر بن عبد الله السعدي مملوك سعد الدين بن غراب … مات في ربيع الاول سنة احدى وثلاثين」（hw.py「بكتمر」で出る。校閲時の「本伝なし」は見落とし）。名＋ニスバ一致、没831で本項主（イーナールのアミール時代＝857年以前から仕える）の最初の主人として年代も整合。相手側に本項主の名指しはないため cert medium（規則26）。校閲時の仮番号 取り下げた仮番号 B125-P01 は取り下げ（内容A H）。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D02110
+  passive: AIND-D06135
+  quote: إينال
+  note:
+    ja: '「خدم إينال في إمرته فلما تسلطن عمله من الدوادارية الصغار」＝الأشرف إينال（#AIND-D02110、在位857〜865）にアミール時代から仕え、即位後に小ダワーダールに任じられた。初版の #NEEDID・subtype client を解消。'
+- id: r4
+  type: personal
+  subtype: patron
+  active: AIND-D06305
+  passive: AIND-D06135
+  quote: الأشرف قايتباي
+  note:
+    ja: 「أمره الأشرف قايتباي عشرة」＝カーイトバーイ（#AIND-D06305）が十人長アミールに任じた。初版の corresp 属性（wd:Q557847）を除去し、subtype client → patron。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00063
+  quote: من الدوادارية الصغار
+  note:
+    ja: 小ダワーダール（repo 慣行により دوادار＝TMP-O-00063 に階級語を label で付す。先例「دوادارا صغيرا」）。初版の appointment 857／retirement 865 の date と placeName القاهرة は原文になく除去（規則16・22）。イーナール即位後（857以降）の任命であることは note に留める。
+- id: s2
+  type: office
+  ref: TMP-O-00101
+  quote: إمرته
+  note:
+    ja: 「أمره الأشرف قايتباي عشرة」。原文に地名なし（初版の القاهرة を除去）。
+events:
+- id: e1
+  type: political
+  quote: فقتل
+  note:
+    ja: イーナール（の治世）の後に試練（失脚）に遭い、自宅に籠った。原文に年・地名なし（初版の when-custom 865 と القاهرة を除去）。
+  trigger: rule
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D03198
+    quote: سوار
+  quote: تسلطن
+  summary:
+    ar: ثم تجرد لسوار فقتل هناك
+  note:
+    ja: 'سوار＝ #AIND-D03198（سوار بن سليمان بن ناصر الدين يك بن دلغادر التركماني … شاه سوار、repo 先例 D02359）。遠征先で戦死（death 参照）。'
+  trigger: rule
+translation:
+  ja: ファーリス・アル＝バクタムリー、（主人は）バクタムル・アッ＝サアディー。イーナールにそのアミール時代から仕え、彼がスルタンになると小ダワーダールの一人に任じられた。その後（イーナールの治世の）後に試練（失脚）に遭い、自宅に籠っていたが、やがてアル＝アシュラフ・カーイトバーイが彼を十人長アミールに任じた。その後スワールへの遠征に出て、そこで殺された。伝えられるところでは、礼節と品格の点で悪くない人物であった。神よ彼を憐れみたまえ。
+  en: Fāris al-Baktamarī, (mamlūk of) Baktamur al-Saʿdī. He served Īnāl during his amirate, and when the latter became sultan he made him one of the junior dawādārs. Afterwards he suffered a disgrace and kept to his house, until al-Ashraf Qāytbāy made him an amir of ten; then he went out on the expedition against Suwār and was killed there. He was, it is said, not bad in manners and decorum. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-02T13:14:47Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

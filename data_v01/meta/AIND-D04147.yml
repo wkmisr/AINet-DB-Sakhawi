@@ -1,0 +1,120 @@
+schema: aind-yaml/0.1
+id: AIND-D04147
+source:
+  uid: '893063799819'
+sex: M
+name:
+  full: عبد القادر بن علي بن رمضان بن علي محيي الدين الطوخي القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00210
+    quote: الطوخي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: محيي الدين
+  - id: n4
+    type: shuhrah
+    quote: ابن أخت مهني
+  - id: n5
+    type: ism
+    quote: عبد القادر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05147
+  - id: n7
+    type: nasab
+    quote: رمضان
+    by: rule
+  - id: n8
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04147
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D04147
+  methods:
+  - TMP-S-00034
+  quote: صحب ابن قاضي عجلون وقتا
+  note:
+    ja: ابن قاضي عجلون：التقي أبو بكر（#AIND-D10715）か兄 النجم محمد か限定要素なし → 同定保留（要判断）。
+- id: r3
+  type: personal
+  subtype: father
+  active: AIND-D05147
+  passive: AIND-D04147
+  quote: الآتي أبوه
+  note:
+    ja: '= #AIND-D05147（علي بن رمضان بن علي نور الدين الطوخي القاهري الأزهري الشافعي والد عبد القادر الماضي、閉合）。'
+- id: r4
+  type: personal
+  subtype: relative
+  active: AIND-D10034
+  passive: AIND-D04147
+  cert: medium
+  quote: null
+  note:
+    ja: '父 D05147 が「ابن أخت الشيخ مهنا」＝مهنا は父の母方の伯叔父（本項主から見れば大伯叔父）。通称を父から継承しているため subtype は relative。الشيخ مهنا = #AIND-D10034（مهنا بن علي بن حسين البندراوي ثم الأزهري الشافعي、بندرة は طوخ 近傍）と同定、cert medium。初版はニスバ番号 TMP-N-01350 を人物 ID に流用していた。'
+- id: r5
+  type: personal
+  subtype: patron
+  active: TMP-P-000924
+  passive: AIND-D04147
+  quote: الشهاب الفليحي
+  note:
+    ja: الشهاب الفليحي（証人組合の長か）は corpus に本伝なし → 新規 TMP-P-000924。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: الشهادة
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+translation:
+  ja: アブドゥルカーディル・ブン・アリー・ブン・ラマダーン・ブン・アリー・ムヒュッディーン・アッ＝トゥーヒー・アル＝カーヒリー・アッ＝シャーフィイー（彼の父の伝記は後述される）。『ミフニーの姉妹の息子』として知られる。カイロで私（サハーウィー）からハディースを聴聞し、少し学問に従事した。また、一時期イブン・カーディー・アジュルーンに師事（同伴）した。シハーブ・アル＝ファリーヒーのもとで公証人（シャーヒド）として生計を立てた。
+  en: ʿAbd al-Qādir b. ʿAlī b. Ramaḍān b. ʿAlī Muḥyī al-Dīn al-Ṭūkhī al-Qāhirī al-Shāfiʿī (his father's biography is forthcoming below), known as the son of Mihnī's sister. He heard ḥadīth from me (al-Sakhāwī) in Cairo, engaged briefly in studies, accompanied Ibn Qāḍī ʿAjlūn for a time, and earned his living as a notary witness under al-Shihāb al-Falīḥī.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-08T09:06:53Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

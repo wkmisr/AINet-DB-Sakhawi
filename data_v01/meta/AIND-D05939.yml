@@ -1,0 +1,103 @@
+schema: aind-yaml/0.1
+id: AIND-D05939
+source:
+  uid: '387926995743'
+sex: M
+name:
+  full: عمر بن أبي بكر محمد بن أحمد السكندري ثم القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00123
+    quote: السكندري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي بكر محمد
+    by: rule
+    ref: TMP-P-001412
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 803
+    cert: low
+  note:
+    ja: 逆算。「مات في رجب سنة ثلاث وستين وأظنه جاز الستين」→ 863年没時に60歳超（サハーウィーの推測）＝ 803年以前の生まれ、cert low。803 ＝ 1400-08-31〜1401-08-19、年末 1401（h2g.py）。
+death:
+  id: d
+  date:
+    ah: 863-07
+  summary:
+    ar: مات في رجب سنة ثلاث وستين وأظنه جاز الستين عفا الله عنه
+  note:
+    ja: 863-07 ＝ 1459-05-13〜06-11、月初 1459-05（h2g.py）。没地は原文にない。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001412
+  passive: AIND-D05939
+  quote: null
+  note:
+    ja: '見出し「عمر بن أبي بكر محمد بن أحمد السكندري」＝父は محمد（クンヤ أبو بكر）、祖父 أحمد。祖父名まで復元できるため規則3により仮番号 TMP-P-001412 を発行（⚠汎用名。集約時、内容検証B M-14。校閲時は #NEEDID）。corpus 見出し（hw.py「محمد بن أحمد」「السكندري」）・ID-Master に該当なし。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: wd:Q471116
+  passive: AIND-D05939
+  quote: شيخنا
+  note:
+    ja: 「دوادار شيخنا … ولم يكن شيخنا يحمد خدمته ولذا لم يحصل بعده على طائل」。本項主はイブン・ハジャル（wd:Q471116）の دوادار として奉仕した。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-000071
+  passive: AIND-D05939
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00215
+  quote: الشمس البيجوري
+  note:
+    ja: '「سمع من لفظه على الشمس البيجوري جزء الدمياطي」＝「（شيخنا＝イブン・ハジャルの）読み上げにより الشمس البيجوري から『جزء الدمياطي』を聴聞した」。「سمع من لفظ فلان على فلان」は読み手（قارئ）と師を併記する定型で、イブン・ハジャルは読み手であり師ではないため、校閲時に立てていたイブン・ハジャルからの teacher relation（旧 n="2」）は集約時に削除し、一体の読みに改めた（内容検証B M-11、§D108-3）。الشمس البيجوري ＝ TMP-P-000071（الشمس محمد بن حسن البيجوري、D00450 でも師）。『جزء الدمياطي』は ID-Master 未登録 → TMP-T-00215。初版は active #NEEDID。「وسمع على غيره」の不特定の師は relation を立てない。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D05939
+  passive: wd:Q4120128
+  methods:
+  - TMP-S-00004
+  quote: لنا
+  note:
+    ja: 「أجاز لنا」。本項主がサハーウィー（wd:Q4120128）にイジャーザを与えた（active＝師＝本項主）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00063
+  quote: دوادار شيخنا
+  note:
+    ja: イブン・ハジャルの دوادار（TMP-O-00063）。
+- id: s2
+  type: status
+  quote: null
+translation:
+  ja: ウマル・ブン・アビー・バクル・ムハンマド・ブン・アフマド、アッ＝サカンダリー、のちにアル＝カーヒリー。我らがシャイフ（イブン・ハジャル）のダワーダール（侍従・秘書）。彼（我らがシャイフ）の読み上げによって、アッ＝シャムス・アル＝ビージューリーのもとで『ジュズウ・アッ＝ディムヤーティー』を聴聞し、またほかの者のもとでも聴聞した。我らがシャイフは彼の奉仕ぶりをほめなかったので、彼はシャイフの没後に大したものを得られなかった。彼は一般人（アーンミー）であった。我々にイジャーザを与えた。（8）63年ラジャブ月に没した。60歳を越えていたと私は思う。神が彼を赦されるように。
+  en: ʿUmar b. Abī Bakr Muḥammad b. Aḥmad al-Sakandarī, then al-Qāhirī, the dawādār of our shaykh (Ibn Ḥajar). He heard the Juzʾ al-Dimyāṭī from al-Shams al-Bījūrī as read aloud by him (our shaykh), and heard from others as well. Our shaykh did not praise his service, and therefore he obtained nothing of consequence after him. He was an ordinary layman. He granted us an ijāza. He died in Rajab of the year (8)63; I think he had passed sixty. May God pardon him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T05:39:15Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

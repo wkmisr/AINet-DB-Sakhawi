@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D05467
+source:
+  uid: '363671334794'
+sex: M
+name:
+  full: علي بن محمد بن عثمان البربهاري المكي العمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01931
+    quote: البربهاري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-05474
+    quote: العمري
+  - id: n4
+    type: ism
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001539
+  - id: n6
+    type: nasab
+    quote: عثمان
+    by: rule
+    ref: TMP-P-001017
+death:
+  id: d
+  date:
+    ah: 879-03
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في ربيع الأول سنة تسع وسبعين
+  note:
+    ja: 879年ラビーウ1月＝1474-07-25 開始（月精度 1474-07）。初版の @when 1474 を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001539
+  passive: AIND-D05467
+  quote: null
+  note:
+    ja: '規則3。見出しナサブ「محمد بن عثمان البربهاري」は、本伝のある兄弟 #AIND-D01399（أحمد بن محمد بن عثمان البربهاري المكي الدهان ويعرف بجده、877没）・#AIND-D03772（عبد الرحمن بن محمد بن عثمان وجيه الدين البربهاري الأصل المكي العمري … ويعرف بابن عثمان、882没）と共有 → 仮番号 TMP-P-001539（§D124-2）。父自身の本伝は corpus になし、ID-Master 未登録（祖父 عثمان البربهاري المكي الدهان は TMP-P-001017 として登録済み）。初版は relation なし。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001017
+  passive: AIND-D05467
+  quote: null
+  note:
+    ja: 規則37。祖父 عثمان ＝ ID-Master 既登録 TMP-P-001017（D01399 で「يعرف بجده」として発行）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00155
+  quote: عمل العمر
+  note:
+    ja: ニスバ العمري の由来＝代行ウムラ業（#TMP-O-00155、D03772 と同じ）。初版の placeName مكة（ニスバ由来の補完）を除去（規則22(1)）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: medium
+  note:
+    ja: 'Pattern A（没年記録）。没879（871＜879≤885）→ النجم عمر بن فهد #AIND-D05979 cert medium（規則43）。初版の relation「other」（D09211）を event に置き換え。'
+  trigger: rule
+notes:
+- text: '兄弟（見出しナサブ一致、相手側に本項主の名指しなし＝規則23 により note 留め）: #AIND-D01399 أحمد بن محمد بن عثمان البربهاري المكي الدهان（877没）、#AIND-D03772 عبد الرحمن بن محمد بن عثمان وجيه الدين البربهاري الأصل المكي العمري（882没、同じく العمري）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: アリー・ブン・ムハンマド・ブン・ウスマーン・アル＝バルバハーリー・アル＝マッキー・アル＝ウマリー。「アル＝ウマリー」は代行ウムラ業（アマル・アル＝ウマル）に由来するニスバである。879年ラビーウ・アル＝アウワル月にマッカで没した。イブン・ファハドがその没年を記録している。
+  en: ʿAlī b. Muḥammad b. ʿUthmān al-Barbahārī al-Makkī al-ʿUmarī, the nisba referring to the trade of performing ʿumras on behalf of others (ʿamal al-ʿumar). He died in Mecca in Rabīʿ I of the year 879. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-04T12:50:50Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

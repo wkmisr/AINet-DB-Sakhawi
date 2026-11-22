@@ -1,0 +1,81 @@
+schema: aind-yaml/0.1
+id: AIND-D06541
+source:
+  uid: '371246249908'
+sex: M
+name:
+  full: محمد بن الخواجا إبراهيم بن مباركشاه بن عبد الله الأسعردي الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00444
+    quote: الأسعردي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: الخواجا إبراهيم
+    by: rule
+  - id: n5
+    type: nasab
+    quote: مباركشاه
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+birth:
+  id: b
+  summary:
+    ar: ولد في أوائل القرن أو آخر الذي قبله
+  note:
+    ja: 「世紀（9世紀）の初め、またはその前の世紀の末に生まれた」。年は書かれていない＝日付属性を置かず desc と note だけの birth とする（同バッチの日付のない death、D06525・D06553 と同じ書き方）。【集約 2026-11-18】校閲版の代表値（when-custom 0800／when 1397、cert low）は原文にない年なので外した（検証A A-1、オーケストレーター決定1、ISSUES §D170-8）。初版は birth なし。
+death:
+  id: d
+  date:
+    ah: 851
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  summary:
+    ar: ومات في أوائل سنة إحدى وخمسين بدمشق
+  note:
+    ja: 851年＝1447-03-28 開始（h2g.py、年精度）。「أوائل」（年の初め）は月が書かれていないので年精度のまま。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D00227
+  passive: AIND-D06541
+  quote: الذي قبله
+  note:
+    ja: '見出しナサブ「بن الخواجا إبراهيم بن مباركشاه … الأسعردي」＝#AIND-D00227「إبراهيم بن مباركشاه الأسعردي الخواجا التاجر الشهير صاحب المدرسة بالجسر الأبيض … فمات هذا مطعونا في رجب سنة ست وعشرين ولم يكمل الستين」（名・父名・ニスバ・「الخواجا」で閉合、repo 収録済み。規則37）。826年に60歳未満で没した父と、800年前後生まれの子で年代も合う。初版は #NEEDID。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00207
+    quote: البقاعي
+  quote: قاله
+  summary:
+    ar: قاله البقاعي مجردا
+  note:
+    ja: Pattern A。البقاعي＝#AIND-D00207（إبراهيم بن عمر بن حسن الرباط … البقاعي）。「مجردا」＝それ以上の記述なしに。初版の統制外 subtype「informant」relation を置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アル＝ハワージャー・イブラーヒーム・ブン・ムバーラクシャー・ブン・アブドゥッラー・アル＝アスアルディー・アッ＝ディマシュキー。世紀の初め、あるいはその前の世紀の末に生まれた。51年の初めにダマスクスで没した。アル＝ビカーイーが、それだけを述べた。
+  en: Muḥammad b. al-Khawājā Ibrāhīm b. Mubārakshāh b. ʿAbd Allāh al-Asʿardī al-Dimashqī. He was born at the beginning of the century or at the end of the one before it, and died at the beginning of the year 51 in Damascus. Al-Biqāʿī said this, without anything further.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T15:43:53Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

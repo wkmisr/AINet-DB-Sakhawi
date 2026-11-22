@@ -1,0 +1,115 @@
+schema: aind-yaml/0.1
+id: AIND-D04428
+source:
+  uid: '336945227334'
+sex: M
+name:
+  full: عبد الله بن أبي بكر بن خلد بن موسى بن زهرة الحمصي الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00189
+    quote: الحمصي
+  - id: n2
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: خلد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: موسى
+    by: rule
+  - id: n6
+    type: nasab
+    quote: زهرة بالفتح
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+birth:
+  id: b
+  date:
+    ah: 784
+    cert: medium
+  places:
+  - ref: TMP-L-00062
+    quote: حمص
+  note:
+    ar: ولد تقريبا سنة أربع وثمانين وسبعمائة بحمص
+    ja: 「تقريبا」（およそ）のため cert=medium。784年ヒジュラ暦年初＝1382年3月25日（グレゴリオ暦）。
+  quote: سنة
+death:
+  id: d
+  note:
+    ar: مات قبل دخولي حمص إما بقليل أو كثير
+    ja: 没年・没地とも原文に記載なし（サハーウィーのヒムス入市より前、とだけ言う）。初版が付していた没地 حمص は原文にない付加のため除去。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001110
+  passive: AIND-D04428
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: TMP-L-00062
+      quote: حمص
+  works:
+  - ref: wd:Q1023470
+  quote: بن فرعون
+  note:
+    ja: 'إبراهيم بن فرعون ＝ أبو إسحق إبراهيم بن الحسن بن إبراهيم بن حسن البعلي المعروف بابن فرعون（#AIND-D03750 本文および D04292・D09301 に頻出、الحجار からの البخاري 聴聞で知られる）。corpus に本伝なし・ID-Master 未登録のため新規仮番号 #TMP-P-001110 を発行（初版は #NEEDID）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04428
+  passive: AIND-D05979
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: wd:Q1023470
+  quote: وحدث بها قرأها عليه النجم بن فهد
+  note:
+    ja: '原文が「النجم」と明示するため没年振り分けは適用せず النجم بن فهد ＝ #AIND-D05979（النجم عمر بن محمد بن فهد، 812-885）で確定。本項主が師（伝授者）、朗誦者＝ابن فهد が学生。リポジトリの符号化規約は teacher/student relation では active=師・passive=学生（既存 1296 件の subtype="teacher" はすべて相手=active／本項主=passive、subtype="student" は本項主=active が 219 件）であるため、active=#AIND-D04428／passive=#AIND-D05979 とする。初版および一次校閲はこの向きを取り違えていた（独立検証パスで是正）。 / 2026-11-16 の統一規則で師弟は常に subtype="teacher"（active=師）とした（向きは不変）。上の注記の「subtype=student」の慣行は改訂前のもの。'
+- id: r3
+  type: personal
+  subtype: cousin
+  active: AIND-D03750
+  passive: AIND-D04428
+  quote: ابن عم عبد الرحمن بن محمد الماضي
+  note:
+    ja: 'عبد الرحمن بن محمد الماضي ＝ #AIND-D03750（عبد الرحمن بن محمد بن خالد بن موسى الزين بن الشمس الحمصي الشافعي ويعرف بابن زهرة بالفتح، 777年生・864年没）。ナサブ（خالد/خلد بن موسى）・呼称（ابن زهرة بالفتح）・在地（حمص）が一致。初版は #NEEDID。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00062
+    quote: حمص
+  quote: null
+notes:
+- text: 原文「بن زهرة بالفتح」の「بالفتح」はزهرةの母音表記注（ザ＝ファトハ）であり人名の一部ではない。初版訳が「アルファトフ／al-Fatḥ」を名の一部としていたのは誤りのため是正。
+  lang: ja
+  type: editorial
+translation:
+  ja: アブドゥッラー・ブン・アビー・バクル・ブン・ハラド・ブン・ムーサー・ブン・ザフラ（ザにファトハ）、アル＝ヒムスィー・アル＝ハンバリー。既述のアブドゥッラフマーン・ブン・ムハンマドの従兄弟（イブン・アンム）。784年頃ヒムスに生まれ、同地でイブラーヒーム・ブン・フィルアウンから『サヒーフ』の末尾の一部分を聴聞し、のちにそれを伝授した。アン＝ナジュム・ブン・ファハドが彼にそれを朗誦した。私（サハーウィー）がヒムスに入る前に――少し前か、ずっと前かはわからないが――没した。
+  en: ʿAbd Allāh b. Abī Bakr b. Khalad b. Mūsā b. Zahra (with fatḥa), al-Ḥimṣī al-Ḥanbalī. He was the paternal cousin of ʿAbd al-Raḥmān b. Muḥammad, mentioned earlier. He was born approximately in the year 784 AH at Ḥimṣ, and heard there from Ibrāhīm b. Firʿawn a portion from the end of the Ṣaḥīḥ, which he then transmitted; al-Najm b. Fahd read it back to him. He died before my entry into Ḥimṣ, whether shortly or long before.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T06:29:45Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

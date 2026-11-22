@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D06313
+source:
+  uid: '301809546747'
+sex: M
+name:
+  full: قجماس بن قرقماس
+  elements:
+  - id: n1
+    type: ism
+    quote: قجماس
+    by: rule
+  - id: n2
+    type: nasab
+    quote: قرقماس
+    by: rule
+    ref: AIND-D06339
+death:
+  id: d
+  date:
+    ah: 841-10
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  note:
+    ja: 「مات بالقاهرة في شوال سنة إحدى وأربعين مطعونا」＝841 年シャウワール月（月初 1438-04-06、月精度）にカイロでペストにより没した。初版の @when 1437 を 1438-04 に是正（h2g.py）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D06339
+  passive: AIND-D06313
+  quote: أبوه
+  note:
+    ja: '見出し「قجماس بن قرقماس المعروف أبوه بسيدي الكبير」。父＝#AIND-D06339「قرقماس المدعو سيدي الكبير تمييزا له عن أخيه تغرى بردى فذاك سيدي الصغير . قدما مع أمهما بطلب من عمهما دمرداش المحمدي」（未受領）。通称 سيدي الكبير・兄弟 تغرى بردى・叔父 دمرداش で閉合（規則37）。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: paternal_uncle
+  active: AIND-D02266
+  passive: AIND-D06313
+  quote: تغرى بردى
+  note:
+    ja: 「وعمه تغرى بردى」＝父方の叔父。#AIND-D02266「تغرى بردي الظاهري ويعرف بسيدي صغير . مات قتيلا … سنة ست عشرة … وهو أخو قرقماس الآتي … وهما معا ابنا أخي دمرداش المحمدي الماضي」（repo 収録済）。初版の subtype「uncle」（#NEEDID）を統制語彙 paternal_uncle（規則35）に。
+- id: r3
+  type: personal
+  subtype: granduncle
+  active: AIND-D02972
+  passive: AIND-D06313
+  quote: دمرداش المحمدي
+  note:
+    ja: 「وعمهما دمرداش المحمدي」＝父と叔父の叔父＝本項主の大叔父。#AIND-D02972「دمرداش المحمدي الظاهري برقوق ويعرف بالخاصكي وهو عم تغري بردى وقرقماس … وقتل باسكندرية في المحرم سنة ثمان عشرة」（repo 収録済）。subtype granduncle は先例 D03664・D07220。初版は「other」#NEEDID。
+- id: r4
+  type: personal
+  subtype: friend
+  active: AIND-D10460
+  passive: AIND-D06313
+  quote: الجمالي يوسف بن تغرى بردى
+  note:
+    ja: '「وعظم اختصاصه بالجمالي يوسف بن تغرى بردى」＝歴史家イブン・タグリービルディー（#AIND-D10460「يوسف بن تغرى بردى الجمال أبو المحاسن بن الأتابكي … الماضي أبوه . ولد في شوال … سنة ثلاث عشرة وثمانمائة」、未受領）との親密な交際。「اختص بـ」の repo 先例（D03772・D04784）どおり friend。初版は #NEEDID。本項主が「彼より数か月年長」＝813 年頃の生まれ（他項由来の推定なので birth は立てない）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D10460
+  quote: وقال
+  note:
+    ja: Pattern A。イブン・タグリービルディーが「本項主は自分より数か月年長であった」と述べた（「قال أنه」＝伝聞のため cert medium 相当の内容は note のみ）。
+  trigger: rule
+notes:
+- text: 「كان أعظم من أبيه وعمه تغرى بردى وعمهما دمرداش المحمدي في الشجاعة والكرم إلا أنه لم يعط حظهم」＝勇敢さと気前のよさでは父・叔父・大叔父に勝ったが、彼らほどの幸運（地位）は与えられなかった（人物評）。
+  lang: ja
+  type: editorial
+translation:
+  ja: カジュマース・ブン・カルクマース。父はスィーディー・アル＝カビールとして知られた。彼は勇敢さと気前のよさにおいて、父、叔父のタグリー・ビルディー、そして二人の叔父であるディマルダーシュ・アル＝ムハンマディーに勝っていたが、彼らほどの幸運は与えられなかった。アル＝ジャマーリー・ユースフ・ブン・タグリー・ビルディーとの交際がきわめて親密で、ユースフは、彼（カジュマース）が自分より数か月年長であったと述べている。841年シャウワール月、カイロでペストにより没した。
+  en: Qajmās b. Qurqumās, whose father was known as Sīdī al-Kabīr. He surpassed his father, his paternal uncle Taghrī Birdī, and their uncle Dimirdāsh al-Muḥammadī in bravery and generosity, yet he was not granted their good fortune. He was very closely attached to al-Jamālī Yūsuf b. Taghrī Birdī, who said that he (Qajmās) was older than himself by some months. He died of the plague in Cairo in Shawwāl of the year 841.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T14:03:35Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

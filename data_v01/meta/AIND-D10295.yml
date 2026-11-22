@@ -1,0 +1,127 @@
+schema: aind-yaml/0.1
+id: AIND-D10295
+source:
+  uid: '215151038413'
+sex: M
+name:
+  full: يحيى بن محمد بن حسن بن مرزوق المرزوقي الجبلي اليماني الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02905
+    quote: المرزوقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-01015
+    quote: الجبلي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n4
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: حسن
+    by: rule
+  - id: n7
+    type: nasab
+    quote: مرزوق
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    ah: 734
+    cert: low
+  note:
+    ja: 逆算による生年（頃）。「مات … سنة أربع عشرة وقد بلغ الثمانين」＝814年に80歳に達して没 → 814−80＝734年頃（734年＝1333-09-20 開始、h2g.py）。原文に生年の明記はないので cert low（初版は cert なし）。
+death:
+  id: d
+  date:
+    ah: 814-06
+  note:
+    ar: مات في جمادى الآخرة سنة أربع عشرة وقد بلغ الثمانين
+    ja: 814年ジュマーダー第二月＝1411-09-29 開始（h2g.py、月精度。初版 @when="1411" は年精度）。「بلغ الثمانين」は年齢（規則59(d)）。没地は原文になし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001721
+  passive: AIND-D10295
+  methods:
+  - TMP-S-00032
+  quote: null
+  note:
+    ja: '「تفقه على الرضى بن الرداد」。イエメン（ザビード）の ابن الرداد 家の一人だが、corpus 見出し「الرداد」23件・本文検索「الرضي＋الرداد」に該当者なし（#AIND-D00617 أحمد بن أبي بكر … الشهاب بن السراج … ابن الرداد は748年生でラカブ الشهاب、その父のラカブは السراج）。ID-Master 未登録。ラカブ＋家名で識別できる＝仮番号 TMP-P-001721（規則12）。初版は #NEEDID・相手名 desc なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000996
+  passive: AIND-D10295
+  methods:
+  - TMP-S-00003
+  quote: علي ابن شداد
+  note:
+    ja: '「وسمع من علي ابن شداد」＝ID-Master 既登録 TMP-P-000996「علي بن أبي بكر بن شداد الزبيدي」（#AIND-D01004 أحمد بن علي بن أبي بكر بن شداد … الزبيدي「ولد تقريبا سنة ست وخمسين وسبعمائة وسمع من والده」の父）。B154-158 ★1-5・★2 の裁定は「裸の『ابن شداد』は父（000996）か子（D01004）か決まらないので #NEEDID、本番号に cert で寄せない」だが、本項は名「علي」を明記しており子 أحمد ではありえない＝名＋家名＋イエメン＋年代（本項主は734年頃生）で閉合し、cert なしで充てた（規則57。ISSUES §D166-3 に確認依頼）。初版は #NEEDID、原文にない field（الحديث）つき＝除去。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10295
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 محمد بن حسن بن مرزوق は corpus に本伝なし（hw.py「المرزوقي」＝本項と #AIND-D10298 يحيى بن محمد بن صديق بن يحيى المرزوقي（ナサブが異なる）のみ）、識別要素なし。初版は father relation なし。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: learning
+  quote: وسمع
+  note:
+    ja: 大いに学問に励んだ（科目・師の明記なし）。
+  trigger: rule
+- id: e2
+  type: religious
+  quote: يتعانى السماعات على طريق الصوفية ويجتمع عنده الناس لذلك
+  note:
+    ja: スーフィーの流儀によるサマーゥ（歌舞音曲を伴う聴聞の集い）を事とし、人々がそのために彼のもとに集まった。初版の event は英語 desc のみ＝原文句に置換。
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation（subtype「mentioned in writing」）を置換。
+  trigger: rule
+notes:
+- text: ニスバ「الجبلي بكسر الجيم وسكون الموحدة」＝ジブリー（イエメンの جبلة に由来する読み）。ニスバの読みの注記であり placeName は立てない。初版の residence event（اليمن、ニスバ「اليماني」由来）を除去（規則22(1)・(6)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・ムハンマド・ブン・ハサン・ブン・マルズーク・アル＝マルズーキー・アル＝ジブリー（ジームにカスラ、バーにスクーン）、アル＝ヤマーニー、シャーフィイー派。アッ＝ラディー・ブン・アッ＝ラッダードに法学を学び、アリー・イブン・シャッダードから聴き、大いに学問に励んだ。信心深く敬虔で善良な人で、スーフィーの流儀によるサマーゥを事とし、そのために人々が彼のもとに集まった。814年ジュマーダー第二月に、80歳に達して没した。我らの師（イブン・ハジャル）が『インバー』に彼を記している。
+  en: Yaḥyā b. Muḥammad b. Ḥasan b. Marzūq al-Marzūqī al-Jiblī (with kasra on the jīm and an unvowelled bāʾ), al-Yamānī, the Shāfiʿī. He studied law under al-Raḍī b. al-Raddād and heard from ʿAlī Ibn Shaddād, and studied a great deal. He was a devout, religious and good man who practised samāʿ sessions in the manner of the Sufis, and people would gather at his place for that. He died in Jumādā II 814, having reached eighty. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T05:11:15Z'
+  model_requested: gemini-3.5-flash

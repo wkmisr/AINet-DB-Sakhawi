@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D02819
+source:
+  uid: '419066135954'
+sex: M
+name:
+  full: خجا بردي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-03612
+    quote: شركسي
+  - id: n2
+    type: ism
+    quote: خجا
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 801
+    cert: low
+  note:
+    ja: 「مات عن نحو الثمانين」＝没年881から逆算すると801年頃（1398-09-21 開始）。「نحو（およそ）」のため cert low、逆算を明記。
+death:
+  id: d
+  date:
+    ah: 881-11-26
+  note:
+    ja: 「مات … في سادس عشري ذي القعدة سنة إحدي وثمانين」＝881年ズー・アル＝カアダ月26日＝1477-03-21（h2g.py、水曜）。没地の記載なし。「قاله لي حفيده يونس بن محمد الآتي」＝孫の口頭伝。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D02117
+  passive: AIND-D02819
+  quote: الشيخ اينال
+  note:
+    ja: 「ممن اختص بالشيخ اينال أحد المعتقدين」。الشيخ اينال＝#AIND-D02117「اينال معتقد لكثيرين تسلك به خجا بردي الآتي وكان حنفيا جركسيا من مماليك نوروز نائب الشام … ونزل بزاوية قريبة من مضارب الخيام بالرملة … مات … سنة أربع وستين ودفن بزاوية تلميذه المشار إليه عند مضارب الخيام من الرملة」（864没）。相手側本文が本項主を名指しで弟子（تسلك به・تلميذه）とするため、側近関係（اختص）を師弟（スーフィー修行の師）として teacher に符号化。初版の統制外 subtype「friend」（#NEEDID）を変換。
+- id: r2
+  type: personal
+  subtype: grandson
+  active: AIND-D10593
+  passive: AIND-D02819
+  quote: يونس بن محمد
+  note:
+    ja: '孫 يونس بن محمد ＝ #AIND-D10593「يونس بن محمد بن خجا بردى القاهري القادري المالكي الماضي جده … ونشأ في كنف أبيه وجده بزاويته التي بقرب مضارب الخيم من الرملة」（862年生）。見出しナサブで閉合（規則37）。初版の統制外 subtype「other」（#NEEDID）を変換。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02819
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: status
+  quote: null
+  note:
+    ja: الشيخ اينال のほか他の敬虔者たちとも交際した（相手不特定）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+- id: a2
+  type: affiliated
+  ref: TMP-I-00249
+  note:
+    ja: 本項主のザーウィヤ（先例 D05761「صاحب الزاوية خارج الصحراء」＝affiliation affiliated＋desc）。ID-Master 未登録 → TMP-I-00249（زاوية خجا بردي）。corpus では D02117「زاوية قريبة من مضارب الخيام بالرملة … زاوية تلميذه المشار إليه عند مضارب الخيام من الرملة」・D10593「زاويته التي بقرب مضارب الخيم من الرملة」にも同施設。الرملة は D02117「قدم القاهرة … ونزل بزاوية قريبة من مضارب الخيام بالرملة」によりカイロ市中の地区（天幕張り場 مضارب الخيام のある الرملة）であって、ID-Master 既登録の TMP-L-00059 الرملة（パレスチナ）とは別実体 → TMP-L-00364（ISSUES §D135-5）。初版は TMP-L-00059。【集約 2026-10-26（内容A M-5、オーケストレーター決定10）】ID-Master 既登録 TMP-L-00207「الرميلة」（Note「D03078 カイロ・城塞下の広場」、repo D00450 は wd:Q12246605 ميدان الرميلة）と同一実体の可能性が高い（カイロの「الرملة」は城塞下の رملة القلعة／الرميلة を指すのが通例）。ただし原文の綴りは「الرملة」で、規則25 により原文どおり新規 TMP-L-00364 を維持し、TMP-L-00207 を名寄せ候補とする（Waka 裁定）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D10593
+  quote: قاله
+  summary:
+    ar: قاله لي حفيده يونس بن محمد الآتي
+  note:
+    ja: 没年月日の情報源＝孫（#AIND-D10593）の口頭伝（規則44、mention event の persName）。
+  trigger: rule
+translation:
+  ja: フジャー・バルディー、ラムラの天幕張り場（マダーリブ・アル＝ハーム）の近くにあるザーウィヤの主。チェルケス人、ハナフィー派。信奉された聖者の一人であるシャイフ・イーナールに親しく付き従った者の一人で、他の敬虔者たちとの交際もあった。881年ズー・アル＝カアダ月26日に80歳ほどで没した。後述する彼の孫ユーヌス・ブン・ムハンマドが私にそう語った。
+  en: Khujā Bardī, master of the zāwiya near the tent-pitching ground (maḍārib al-khām) of al-Ramla; a Circassian and a Ḥanafī, one of those closely attached to Shaykh Īnāl, one of the venerated (saints), besides keeping company with other righteous men. He died at about eighty years of age on 26 Dhū al-Qaʿda of the year 881; so his grandson Yūnus b. Muḥammad (mentioned below) told me.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-23T08:36:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

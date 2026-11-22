@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D07019
+source:
+  uid: '143738813269'
+sex: M
+name:
+  full: محمد بن أحمد بن يوسف البدر القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n2
+    type: laqab
+    quote: البدر
+  - id: n3
+    type: shuhrah
+    quote: ابن يوسف
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: يوسف
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    notAfter: 869
+    cert: medium
+  summary:
+    ar: مات شابا قبل السبعين ظنا
+  note:
+    ja: '「قبل السبعين ظنا」＝870年より前（notAfter、cert medium「ظنا」）。repo 先例（「قبل العشرين」→0819／1417、「قبل الخمسين」→0849／1446）どおり N−1 で符号化し notAfter-custom 0869、869年の年末＝1465（h2g: 869＝1464-09-12〜1465-09-01、年精度 notAfter は年末）。初版は death 要素なし。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07019
+  quote: null
+  note:
+    ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D13827
+  passive: AIND-D07019
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: wd:Q1023470
+  quote: أم هانئ الهورينية
+  note:
+    ja: '「ومما سمعه ختم البخاري عند أم هانئ الهورينية ورفقتها」。أم هانئ الهورينية ＝ #AIND-D13827（أم هانئ ابنة … علي بن … عبد الرحمن … الهورينية الأصل المصرية الشافعية、778年生、女性部。repo 先例 #AIND-D04280）。「ورفقتها」（同席の伝承者たち）は個人特定不可。初版は #NEEDID、原文にない field（الحديث）を除去、『ختم البخاري』#NEEDID → wd:Q1023470（صحيح البخاري、repo 先例3件）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q215536
+  places:
+  - ref: TMP-L-00216
+    quote: سوق أمير الجيوش
+  quote: التاجر
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  quote: ممن اشتغل وتميز وسمع الحديث قليلا
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ユースフ、アル＝バドル・アル＝カーヒリー、シャーフィイー派、アミール・アル＝ジュユーシュ市場の商人で、イブン・ユースフとして知られる。学問に励んで頭角を現し、ハディースを少しく聴聞した者の一人で、彼が聴聞したものには、ウンム・ハーニ・アル＝ハウリーニーヤとその同席者たちのもとでの『ブハーリー』読了（ハトム）がある。思慮深く物静かで、身なりがよかった。若くして、おそらく〔8〕70年より前に没した。
+  en: Muḥammad b. Aḥmad b. Yūsuf, al-Badr al-Qāhirī, the Shāfiʿī, the merchant in Sūq Amīr al-Juyūsh, known as Ibn Yūsuf. He was among those who studied and distinguished themselves, and he heard a little ḥadīth; among what he heard was the completion (khatm) of al-Bukhārī with Umm Hāniʾ al-Hawrīniyya and her fellow transmitters. He was sensible, quiet, and well dressed. He died young, before [8]70, I suppose.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T08:31:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

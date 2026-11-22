@@ -1,0 +1,103 @@
+schema: aind-yaml/0.1
+id: AIND-D07171
+source:
+  uid: '136348449965'
+sex: M
+name:
+  full: محمد بن أبي بكر بن أحمد بن النحريري القاهري المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00265
+    quote: النحريري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي بكر
+    by: rule
+    ref: TMP-P-001492
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+death:
+  id: d
+  date:
+    ah: 809-06
+    cert: medium
+  note:
+    ja: 「مات في جمادى الآخرة سنة تسع」＝年は一の位のみ（「سنة تسع」）＝809・cert medium（イブン・ハジャル『إنباء』に立項＝9世紀初頭で整合）。809年ジュマーダー2月＝月初 1406-11-22。没地の明記なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: brother
+  active: AIND-D02860
+  passive: AIND-D07171
+  quote: أخو
+  note:
+    ja: '「أخو خلف الماضي」＝ #AIND-D02860「خلف بن أبي بكر بن أحمد الزين النحريري المصري المالكي نزيل المدينة النبوية」（744年頃生）。ナサブ・ニスバ・学派一致。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001492
+  passive: AIND-D07171
+  quote: null
+  note:
+    ja: '見出しナサブ「أبي بكر بن أحمد بن النحريري」から祖父名まで復元（規則3）。兄 #AIND-D02860 と共通の父。corpus に本伝なし・ID-Master 未登録 → 仮番号 TMP-P-001492。初版は relation なし。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  quote: ناب
+  note:
+    ja: 「ناب في الحكم」（イブン・ハジャルの記述の引用）。TMP-O-00096 はこの語形のカノニカル職（precheck の汚染注意は実体一致＝維持）。
+- id: s2
+  type: office
+  ref: wd:Q352842
+  quote: null
+  note:
+    ja: 「ودرس」。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: 'ذكره شيخنا في إنبائه وقال : ناب في الحكم وتنبه في الفقه ودرس'
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation「mentioned in book」を event に改めた。
+  trigger: rule
+- id: e2
+  type: learning
+  quote: وتنبه في الفقه
+translation:
+  ja: ムハンマド・ブン・アビー・バクル・ブン・アフマド・ブン・アン＝ナフリーリー、アル＝カーヒリー・アル＝マーリキー、前述のハラフの兄弟。我らの師（イブン・ハジャル）は『インバー』で彼に言及し、「裁判の代理を務め、法学で頭角を現し、教授した」と述べた。809年ジュマーダー・アル＝アーヒラ月に没した。
+  en: 'Muḥammad b. Abī Bakr b. Aḥmad b. al-Naḥrīrī, al-Qāhirī al-Mālikī, the brother of Khalaf, mentioned above. Our shaykh mentioned him in his Inbāʾ and said: he acted as deputy judge, became proficient in jurisprudence and taught. He died in Jumādā al-Ākhira of the year [80]9.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T00:02:58Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

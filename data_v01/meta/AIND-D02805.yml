@@ -1,0 +1,126 @@
+schema: aind-yaml/0.1
+id: AIND-D02805
+source:
+  uid: '755331242097'
+sex: M
+name:
+  full: خالد بن جامع بن خالد الزين البساطي ثم القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00121
+    quote: البساطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: الزين
+  - id: n4
+    type: ism
+    quote: خالد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: جامع
+    by: rule
+  - id: n6
+    type: nasab
+    quote: خالد
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+death:
+  id: d
+  date:
+    ah: 840
+    cert: low
+  note:
+    ja: 「مات قريب الأربعين ظنا」＝840年頃（1436-07-25 開始、年精度）、サハーウィーの推定（ظنا）。規則4（قريب＝年表現、cert low）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02805
+  quote: null
+  note:
+    ja: '見出し「خالد بن جامع بن خالد الزين البساطي」の父。父自身に識別要素（ラカブ・職）がなく corpus に本伝なし → #NEEDID（規則3 (c'')）。集約 2026-10-26 で追加（内容A M-1・機械[23]、オーケストレーター決定8）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D01126
+  passive: AIND-D02805
+  methods:
+  - TMP-S-00073
+  cert: medium
+  works:
+  - ref: wd:Q1187931
+  quote: الشهاب الجوهري
+  note:
+    ja: '「وقال انه سمع على الشهاب الجوهري السنن لابن ماجه بفوت」＝الزين رضوان の伝（قال أنه＝cert medium）。الشهاب الجوهري＝#AIND-D01126（أحمد بن عمر بن علي … الشهاب … ويعرف بالجوهري、ID-Master 名寄せ済み）。初版の bibl #NEEDID → wd:Q1187931（ID-Master 登録）、原文にない field（الحديث）を除去。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D04509
+  passive: AIND-D02805
+  methods:
+  - TMP-S-00003
+  cert: medium
+  works:
+  - ref: TMP-T-00006
+  quote: الجمال الحنبلي
+  note:
+    ja: 「وأنه سمع على الجمال الحنبلي بعض ثمانيات النجيب」（الزين رضوان の伝＝cert medium）。الجمال الحنبلي＝サハーウィーが固定的に用いる呼称（corpus 51件、ابن الكويك と並ぶ伝承者）＝#AIND-D04509「عبد الله بن علي بن محمد … الجمال بن العلاء الكناني العسقلاني القاهري الحنبلي」（751年生）、規則26 例外2により cert medium。初版の TMP-P-000161（ID-Master 登録・Note なし、repo 6件使用）は同一人物とみられ名寄せ要（ISSUES §D135-1）。原文にない field（الحديث）を除去。
+- id: r4
+  type: personal
+  subtype: cousin
+  active: AIND-D06729
+  passive: AIND-D02805
+  quote: ابن عم
+  note:
+    ja: '「ابن عم القاضي شمس الدين المالكي」＝見出しのニスバ البساطي と合わせ、マーリキー派大カーディーの الشمس البساطي（#AIND-D06729「محمد بن أحمد بن عثمان بن نعيم … الشمس أبو عبد الله البساطي ثم القاهري المالكي عالم العصر」、842没。ID-Master Person 登録 wd:Q12219083 と同人、先例 D04267 は AIND を使用）。本項主は彼の従兄弟（ابن عم）。初版は #NEEDID。【集約 2026-10-26 補記（内容A L-1）】ナサブは厳密な「ابن عم」（同祖父）にならない（本項主の祖父 خالد、D06729 の祖父 عثمان بن نعيم）。サハーウィーは「ابن عم」を父の従兄弟の関係にも使う（#AIND-D10470「يوسف بن خلد بن نعيم بن مقدم … البساطي … ابن عم الشمس البساطي الشهير」）。本項主の祖父 خالد＝خلد بن نعيم とみれば整合する。同定は維持（原文の名指し「القاضي شمس الدين المالكي」＋ニスバ البساطي で一意）。desc は相手の名に（規則31。原文の「القاضي」は note へ）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D03005
+    quote: الزين رضوان
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا الزين رضوان
+  note:
+    ja: Pattern A。「شيخنا」の直後に固有名があるので イブン・ハジャルではなく الزين رضوان العقبي（#AIND-D03005、ID-Master 登録）。初版の統制外 subtype「mentioned_by」relation を mention event に変換。
+  trigger: rule
+- id: e2
+  type: cultural
+  quote: وأرشد الطلبة إليه
+  note:
+    ja: الزين رضوان が学生たちを本項主のもとへ導いた（聴聞先として推薦した）。相手不特定のため relation は立てない。
+- id: e3
+  type: cultural
+  subtype: meeting
+  persons:
+  - ref: AIND-D00207
+    quote: البقاعي
+  quote: لقيه
+  summary:
+    ar: وأظن البقاعي ممن لقيه
+  cert: medium
+  note:
+    ja: '「أظن … ممن لقيه」＝サハーウィーの推測（cert medium）。البقاعي＝#AIND-D00207。先例 #AIND-D04687「وهو ممن لقيه」（meeting event）に揃え、初版の統制外 subtype「friend」relation（wd:Q12198099）を除去。'
+  trigger: rule
+translation:
+  ja: ハーリド・ブン・ジャーミウ・ブン・ハーリド、アッ＝ザイン・アル＝ビサーティー、のちアル＝カーヒリー。カーディー・シャムス・アッ＝ディーン・アル＝マーリキーの従兄弟。我らの師アッ＝ザイン・リドワーンが彼に言及し、彼がアッ＝シハーブ・アル＝ジャウハリーからイブン・マージャの『スナン』を一部欠落ありで聴聞し、またアル＝ジャマール・アル＝ハンバリーから『サマーニヤート・アン＝ナジーブ』の一部を聴聞したと述べ、学生たちを彼のもとへ導いた。アル＝ビカーイーも彼に会った者の一人だと私は思う。840年頃に没した（推定）。
+  en: Khālid b. Jāmiʿ b. Khālid, al-Zayn al-Bisāṭī, then al-Qāhirī, cousin of the qāḍī Shams al-Dīn al-Mālikī. Our shaykh al-Zayn Riḍwān mentioned him and said that he heard the Sunan of Ibn Māja from al-Shihāb al-Jawharī with some lacunae, and that he heard part of the Thamāniyyāt al-Najīb from al-Jamāl al-Ḥanbalī; and he directed students to him. I think al-Biqāʿī was among those who met him. He died around the year 840, as I suppose.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-23T07:14:22Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,109 @@
+schema: aind-yaml/0.1
+id: AIND-D04437
+source:
+  uid: '733483116116'
+sex: M
+name:
+  full: عبد الله بن حجاج بن أحمد بن موسى البرماوي القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00096
+    quote: البرماوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: shuhrah
+    quote: ابن حجاج
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: حجاج
+    by: rule
+    ref: TMP-P-001111
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: موسى
+    by: rule
+death:
+  id: d
+  date:
+    ah: 850
+    cert: low
+  note:
+    ar: مات قريب الخمسين
+    ja: 「قريب الخمسين」＝850年頃。統一規則4により年表現（when-custom=0850）＋cert low。850年ヒジュラ暦年初＝1446年4月7日（グレゴリオ暦）。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D12121
+  passive: AIND-D04437
+  methods:
+  - TMP-S-00026
+  cert: medium
+  quote: null
+  note:
+    ja: '【裁定 2026-09-18（§Da-3／§D-V6）】الوسيمي の人物ID として corpus の #AIND-D12121「الوسيمي بفتح ثم مهملة مكسورة محمد بن أحمد بن أبي بكر بن محمد بن محمود العمري الكاتب」を採用する。同項はニスバ索引見出しだが単独の人物を特定しており、統一規則11が禁ずる「3人以上を束ねた合同索引」には当たらない（先例: ابن عزم=#AIND-D12540、الخوافي=#AIND-D11632、ابن الأزرق=#AIND-D12143 等が人物ID として使用されている）。当該ナサブでの独立本伝は corpus に存在しないため、この索引見出しが corpus 上で唯一の ID となる。校閲時に発行した #TMP-P-001112 は取り下げ（ID-Master 未貼付のまま欠番として残す）。初版が active に流用していたニスバ番号 #TMP-N-00982（＝الوسيمي のニスバ）は人物位置に不適（precheck カテゴリ不一致）。「فيما قيل」（伝聞）のため cert="medium"。原文に「الخط」の語はないため初版の field desc（الخط）は除去。'
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001111
+  passive: AIND-D04437
+  quote: أبيه
+  note:
+    ja: '見出しナサブから1段ずらして祖父名（أحمد بن موسى）まで復元できるため、統一規則3により新規 TMP-P を発行（初版 #NEEDID）。原文末尾「ورأيت شهادة أبيه على الفخر البلبيسي إمام الأزهر سنة ست وثمانين وسبعمائة ووصفه بشيخنا」＝786年（＝1384年）に父がアズハルのイマーム الفخر البلبيسي について証言し、彼を「我らがシャイフ」と記した、はこの父に関する情報。【裁定 2026-09-18（§Da-4）】الفخر البلبيسي إمام الأزهر ＝ #AIND-D04856（عثمان بن عبد الرحمن بن عثمان الفخر البلبيسي ثم القاهري الشافعي المقرئ ويعرف بالفخر إمام الأزهر、725年ビルバイス生・804年ズー・アルカアダ2日没、享年80）。校閲時の「corpus に本伝なし・801H 以前没のため立項対象外」という判断は誤りで、corpus には長文の実項がある。したがって新規 TMP-P は発行せず（統一規則3・10）、ID は #AIND-D04856 とする。ただしこの証言は本項主ではなく父に関する情報であり、本項主を含まない relation を立てる先例が repo に無い（2,359件中、唯一の例外 D03404 は possible_identity で別型）ため、relation は立てず本 note に ID を明記するに留める。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D07764
+  passive: AIND-D04437
+  quote: البدر محمد الآتي
+  note:
+    ja: 'البدر محمد الآتي ＝ #AIND-D07764（محمد بن عبد الله بن حجاج بدر الدين البرماوي الأصل القاهري الماضي أبوه）。相手項が「الماضي أبوه」で本項を指し閉合。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00269
+  quote: المكتب
+  note:
+    ar: المكتب … وبرع وتصدى لتعليمها
+    ja: 'المكتب＝書法を教える者。ID-Master に該当 Office なし（كاتب المنسوب=O-00218 は能書家、معلم الأبناء=O-00245 は初等教師で別）ため新規仮番号を発行（初版 #NEEDID）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  quote: ووصفه
+  summary:
+    ar: وكتب درجا قرضه له شيخنا وغيره
+  note:
+    ja: Pattern A（تقريظ＝賛辞の付与）。初版は subtype「patron」の relation ＋ 別 event に二重記載していたため統合。
+  trigger: rule
+notes:
+- text: 諸方面の職掌（الجهات）に俸禄口を得たが、私の得た情報では（فيما بلغني＝伝聞）貧しかった。
+  lang: ja
+  type: personalia
+- text: He was given stipendiary posts in the [administrative] departments (al-jihāt), but according to what reached me (fīmā balaghanī) he was poor.
+  lang: en
+  type: personalia
+translation:
+  ja: アブドゥッラー・ブン・ハッジャージュ・ブン・アフマド・ブン・ムーサー・アル＝ビルマーウィー・アル＝カーヒリー、書法教師（アル＝ムクティブ）。後述するアル＝バドル・ムハンマドの父。イブン・ハッジャージュとして知られる。伝えられるところでは、アル＝ワスィーミーらのもとで書を学び、これに秀でて、その教授に専心した。彼が作成した巻物（ダルジュ）には、我らがシャイフ（イブン・ハジャル）らが賛辞（タクリーズ）を寄せた。諸方面の職掌（ジハート）に俸禄口を得たが、私の得た情報では貧しかった。850年頃に没した。また私は、彼の父が786年にアズハルのイマームであるアル＝ファフル・アル＝バルビースィーについて行った証言〔文書〕を目にしたが、そこで彼〔父〕は彼〔アル＝ファフル〕を「我らがシャイフ」と記していた。
+  en: ʿAbd Allāh b. Ḥajjāj b. Aḥmad b. Mūsā al-Birmāwī al-Qāhirī, the writing-master (al-muktib), father of al-Badr Muḥammad, mentioned below, and known as Ibn Ḥajjāj. He wrote, so it is said, under al-Wasīmī and others, excelled at it, and devoted himself to teaching it. He wrote a scroll (darj) for which our shaykh (Ibn Ḥajar) and others wrote commendations (taqrīẓ). He was given stipendiary posts in the [administrative] departments (al-jihāt) but, according to what reached me, he was poor. He died around the year fifty [850 AH]. I also saw a testimony of his father concerning al-Fakhr al-Bilbīsī, imam of al-Azhar, dated 786 AH, in which he described him as "our shaykh".
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T06:55:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

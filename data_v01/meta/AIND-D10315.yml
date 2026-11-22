@@ -1,0 +1,150 @@
+schema: aind-yaml/0.1
+id: AIND-D10315
+source:
+  uid: '949653360620'
+sex: M
+name:
+  full: يحيى بن محمد بن مسعود بن عثمان بن محمد بن أبي فارس
+  elements:
+  - id: n1
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n2
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D07955
+  - id: n3
+    type: nasab
+    quote: مسعود
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي فارس
+    by: rule
+death:
+  id: d
+  note:
+    ar: ثم قتله ابن عمه عبد المؤمن بن إبرهيم بن عثمان واستقر عوضه
+    ja: '従兄弟 عبد المؤمن に殺害された。殺害の年・場所は原文にない＝日付属性・placeName を付けない（規則18(e)・22）。初版の when-custom="0894"・placeName تونس は原文に根拠がない（原文の年は「والفتنة قائمة في سنة بضع وتسعين」＝その後の内乱の時期のみ）＝除去。即位は二重立項 #AIND-D10304 によれば 893年シャウワール月（note 留め、規則23）。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D07955
+  passive: AIND-D10315
+  cert: medium
+  quote: null
+  note:
+    ja: '規則3。見出しは「يحيى بن محمد بن مسعود بن عثمان بن محمد بن أبي فارس」で、字義どおりなら父 محمد・祖父 مسعود・曾祖父 عثمان。しかし (1) 本文は「استقر بعد جده」、(2) 祖父の項 #AIND-D04873 は「عهد لولده مسعود فمات في شعبان سنة ثلاث وتسعين … وعهد ليحيى بن مسعود المذكور」と後継者を مسعود の子 يحيى とし、(3) مسعود は #AIND-D07955「محمد بن عثمان بن محمد بن أبي فارس المسعود بالله」のラカブ＝見出しの「محمد بن مسعود」は「محمد المسعود」の崩れとみられ、父は D07955（二重立項 #AIND-D10304 の父と同じ）。見出しは原文のまま読み（規則25）、同定は cert medium（ISSUES §D166-5）。初版は汚染番号 TMP-P-000529（汎用 محمد、precheck）＝置換。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: AIND-D04873
+  passive: AIND-D10315
+  cert: medium
+  quote: جده
+  note:
+    ja: 「استقر بعد جده」の祖父＝ハフス朝の أبو عمرو عثمان（#AIND-D04873、893年没。相手側本文が يحيى への譲位を記す）。見出しのナサブ「عثمان بن محمد بن أبي فارس」も D04873 に一致。ただし見出しを字義どおり読むと عثمان は曾祖父に当たる＝cert medium（父 relation と同じ理由）。初版は祖父を「مسعود」#NEEDID としていた＝置換。
+- id: r3
+  type: personal
+  subtype: cousin
+  active: TMP-P-001723
+  passive: AIND-D10315
+  quote: ابن عمه
+  note:
+    ja: '「ابن عمه عبد المؤمن بن إبرهيم بن عثمان」＝父方の従兄弟（祖父 عثمان の孫）。corpus に本伝なし（hw.py「عبد المؤمن＋إبراهيم」該当なし。本文では #AIND-D09253「بعد إخراج عبد المؤمن بن إبرهيم ابن عثمان عنها زكريا بن يحيى بن مسعود」に出る）・ID-Master 未登録。ナサブ3代＋事績で識別できる＝仮番号 TMP-P-001723。初版は #NEEDID。'
+- id: r4
+  type: personal
+  subtype: son
+  active: TMP-P-001724
+  passive: AIND-D10315
+  quote: زكريا بن يحيى
+  note:
+    ja: 「زكريا بن يحيى المذكور」＝「上述のヤフヤー（＝本項主）の子ザカリーヤー」。#AIND-D09253 は同じ人物を「زكريا بن يحيى بن مسعود」（チュニスの君主）と呼ぶ＝本項主の子。corpus に本伝なし（hw.py「زكريا بن يحيى」5件に該当なし）・ID-Master 未登録＝仮番号 TMP-P-001724。初版の TMP-P-001079（登録＝「زكريا」、D00456 の師）は別人の番号の流用＝置換。
+- id: r5
+  type: personal
+  subtype: predecessor
+  active: AIND-D04873
+  passive: AIND-D10315
+  cert: medium
+  quote: null
+  note:
+    ja: 「استقر بعد جده」＝祖父が前任者（規則29 の型）。cert は grandfather relation に合わせた。
+- id: r6
+  type: personal
+  subtype: successor
+  active: TMP-P-001723
+  passive: AIND-D10315
+  quote: عبد المؤمن بن إبرهيم بن عثمان
+  note:
+    ja: '「ثم قتله ابن عمه عبد المؤمن … واستقر عوضه」＝殺害者が後任となった。初版は #NEEDID。'
+- id: r7
+  type: personal
+  subtype: possible_identity
+  active: AIND-D10304
+  passive: AIND-D10315
+  cert: high
+  quote: null
+  note:
+    ja: '二重立項。同じチャンクの #AIND-D10304「يحيى بن الأمير محمد الملقب بالمسعود ابن صاحب المغرب أبي عمر وعثمان بن الأمير أبي عبد الله محمد بن أبي فارس ولي المغرب بعد جده في شوال سنة ثلاث وتسعين」と、名・祖父 عثمان بن محمد بن أبي فارس・「祖父の後を継いだ」が一致し、祖父の項 D04873 も後継者を「يحيى بن مسعود」一人とする＝同一人物。両項とも転送指示がないので実項のまま（絶対基準）。校閲者の判断による cert high（先例 D08133⇄D08233。ISSUES §D166-5）。 【集約 2026-11-10】desc から称号・職句（「الأمير」「ابن صاحب المغرب」）を除き名だけにした（規則31、集約の scan）。'
+events:
+- id: e1
+  type: political
+  quote: استقر
+  summary:
+    ar: استقر بعد جده
+  note:
+    ja: 祖父の後を継いで君主となった。本項には国名・年の明記がない＝state の placeName・日付は立てず event に留めた（初版の state「سلطان」＋تونس＋就任 893／退任 894 は原文に根拠なし＝除去。就任 893年シャウワール月・「المغرب」は D10304 に記載）。
+  trigger: rule
+- id: e2
+  type: political
+  persons:
+  - ref: TMP-P-001723
+    quote: عبد المؤمن
+  quote: واستقر
+  summary:
+    ar: ثم قتله ابن عمه عبد المؤمن بن إبرهيم بن عثمان واستقر عوضه
+  note:
+    ja: 従兄弟による殺害と簒奪。年の明記なし。
+  trigger: rule
+- id: e3
+  type: political
+  date:
+    notBefore: 891
+    notAfter: 899
+  persons:
+  - ref: TMP-P-001724
+  - ref: TMP-P-001723
+  places:
+  - ref: gn:2464470
+    quote: تونس
+  - ref: NEEDID
+    quote: الغرب
+  quote: قتله
+  summary:
+    ar: ثم دخل عليه زكريا بن يحيى المذكور خفية بمساعدة أهل تونس ففر عبد المؤمن إلى الغرب فحشدوا معه إلى محاصرة تونس فهزمهم أهلها وكان بينهم مقتلة أكثرها من العرب والفتنة قائمة في سنة بضع وتسعين ثم سكنت
+  note:
+    ja: '本項主の死後の経過: 子 زكريا がチュニスの民の助けでひそかに عبد المؤمن のもとへ入り、عبد المؤمن は西方（الغرب）へ逃れ、彼とともに集まった軍勢がチュニスを包囲したが、チュニスの民に敗れた。死者の多くはアラブ（遊牧民）。「والفتنة قائمة في سنة بضع وتسعين ثم سكنت」＝内乱は89X年に続いており、のち鎮まった。「بضع وتسعين」＝891〜899 の範囲（notBefore 891＝1486-01-16 開始 → 1486、notAfter 899 の年末＝1494-10-10 → 1494、h2g.py。repo 先例「بضع وخمسين＝851〜859」に合わせた。D10304 の即位年 893 から実際は 893 以降）。تونس＝gn:2464470（ID-Master 登録値）。「الغرب」は原文の語のまま（المغرب TMP-L-00040 に読み替えない、規則25）＝#NEEDID。初版の political event（when-custom 0894・cert medium・英語 desc）と residence event（تونس）を置換・除去。'
+  trigger: rule
+notes:
+- text: 'ハフス朝（チュニス）の君主。#AIND-D10304 との二重立項（本項は殺害とその後の内乱、D10304 は即位年月を記す）。父方おじ #AIND-D03978・#AIND-D10741 は名指しがない＝relation を立てない（D10304 と揃えた）。repo 収録済みの父の項 #AIND-D07955 の editorial note は本項を「本項主の子の可能性があるがナサブの段数が合わず relation は立てない」としている＝本バッチの判断（子＝D10304＝D10315）に合わせた見直しを ISSUES §D166-5 に記載。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・ムハンマド・ブン・マスウード・ブン・ウスマーン・ブン・ムハンマド・ブン・アビー・ファーリス。祖父の後を継いだが、のち父方の従兄弟アブド・アル＝ムウミン・ブン・イブラーヒーム・ブン・ウスマーンが彼を殺してその地位に就いた。その後、上述のヤフヤーの子ザカリーヤーがチュニスの民の助けでひそかに彼のもとへ入り込み、アブド・アル＝ムウミンは西方へ逃れた。人々が彼とともに集結してチュニスを包囲したが、チュニスの民がこれを破り、双方の間に多くの死者が出た。その大半はアラブ（遊牧民）であった。内乱は89X年にはなお続いていたが、のち鎮まった。
+  en: Yaḥyā b. Muḥammad b. Masʿūd b. ʿUthmān b. Muḥammad b. Abī Fāris. He succeeded his grandfather; then his paternal cousin ʿAbd al-Muʾmin b. Ibrāhīm b. ʿUthmān killed him and took his place. Thereafter Zakariyyā, son of the aforesaid Yaḥyā, entered upon him secretly with the help of the people of Tunis, and ʿAbd al-Muʾmin fled to the west. Forces gathered with him to besiege Tunis, but its people defeated them, and there was great slaughter between them, most of the dead being Arabs (Bedouin). The strife was still going on in the year ninety-odd, and then it subsided.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T05:33:32Z'
+  model_requested: gemini-3.5-flash

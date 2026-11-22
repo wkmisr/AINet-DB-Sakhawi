@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D06280
+source:
+  uid: '154442675664'
+sex: M
+name:
+  full: قانبك الظاهري برقوق
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00114
+    quote: الظاهري
+  - id: n2
+    type: ism
+    quote: قانبك
+    by: rule
+death:
+  id: d
+  date:
+    ah: 814
+  summary:
+    ar: قبض الناصر عليه وقتله في سنة أربع عشرة
+  note:
+    ja: 814年（1411-05-04 開始、年精度）に الناصر فرج に捕えられ処刑された。地名の明記なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06280
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02178
+  passive: AIND-D06280
+  quote: برقوق
+  note:
+    ja: 見出し「الظاهري برقوق」および「كان من خاصكيته وممن وثب بعده」＝主人は الظاهر برقوق（#AIND-D02178、801年没）。初版の統制外 subtype「client」・#NEEDID を patron・AIND に是正。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+  note:
+    ja: 「كان من خاصكيته」＝バルクークのハーッサキーヤの一員。
+- id: s2
+  type: office
+  ref: TMP-O-00014
+  quote: تأمر
+  note:
+    ja: 「تأمر باليد في أيام تلك الفتن」＝バルクーク没後（801年以降）の内乱期に実力でアミールとなった。位階の明記なし（汎用 أمير TMP-O-00014）。
+- id: s3
+  type: office
+  ref: TMP-O-00083
+  quote: null
+  note:
+    ja: '「حتى صار مقدما」。ID-Master 既登録 المقدم（TMP-O-00083、先例 D06143）。初版の #NEEDID を是正。'
+- id: s4
+  type: office
+  ref: TMP-O-00092
+  quote: رأس نوبة النوب
+  note:
+    ja: '「ثم رأس نوبة النوب فلم تطل مدته」。repo 先例（D02271・D05346・D05580）どおり筆頭ラアス・ナウバ職 TMP-O-00092（登録名 رأس نوبة كبير）に揃えた。初版の #NEEDID を是正。'
+events:
+- id: e1
+  type: political
+  quote: وقتله
+  summary:
+    ar: وممن وثب بعده وتأمر باليد في أيام تلك الفتن واستمر في رواج حتى صار مقدما ثم رأس نوبة النوب فلم تطل مدته
+  note:
+    ja: 「بعده」＝主人バルクークの死（801年）後。初版の when-custom 0801 cert medium は原文に年の明記がないため除去（時期の目安は本 note に留める）。
+  trigger: rule
+- id: e2
+  type: political
+  date:
+    ah: 814
+  persons:
+  - ref: AIND-D06160
+    quote: الناصر
+  quote: وقبض
+  summary:
+    ar: وقبض الناصر عليه وقتله في سنة أربع عشرة
+  note:
+    ja: الناصر＝الناصر فرج（#AIND-D06160、在位801〜815）。バルクークのマムルークで814年に処刑された文脈から一意。初版の rival relation（#NEEDID）を本 event の persName に統合。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: وذكره
+  summary:
+    ar: وذكره العيني باختصار
+  note:
+    ja: Pattern A（第三者言及）。初版の統制外 relation「chronicled_by」（#NEEDID）を本 event に置換。
+  trigger: rule
+translation:
+  ja: カーンバク・アッ＝ザーヒリー・バルクーク。彼（バルクーク）のハーッサキーヤの一人で、その死後に蜂起し、あの内乱の日々に実力でアミールとなった者の一人。順調に進み、ついにムカッダム、次いでラアス・ナウバト・アン＝ヌワブとなったが、その在任は長く続かず、アン＝ナースィルが彼を捕えて814年に殺した。その行状は褒められたものではなかった。アル＝アイニーが彼について簡潔に記している。
+  en: 'Qānbak al-Ẓāhirī Barqūq. He was one of his (Barqūq''s) khāṣṣakiyya and among those who rose up after his death and seized an amirate by force in the days of those disturbances. He went on prospering until he became a muqaddam and then raʾs nawbat al-nuwab, but his tenure was not long: al-Nāṣir seized him and killed him in the year 814. His conduct was not praiseworthy. Al-ʿAynī mentioned him briefly.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-08T08:36:36Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

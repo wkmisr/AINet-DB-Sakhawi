@@ -1,0 +1,81 @@
+schema: aind-yaml/0.1
+id: AIND-D06452
+source:
+  uid: '883278493437'
+sex: M
+name:
+  full: مبارك الحبشي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00214
+    quote: الحبشي
+  - id: n2
+    type: ism
+    quote: مبارك
+    by: rule
+death:
+  id: d
+  date:
+    ah: 844-03
+  note:
+    ar: مات في ربيع الأول سنة أربع وأربعين
+    ja: 844-03＝1440-08-09 開始、月精度 1440-08（h2g.py。初版 @when="1440" は年精度）。没地の記載なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06452
+  quote: صاحب الحجاز
+  note:
+    ja: '規則3（Waka 裁定 2026-10-21 B124-128 ★1）。解放奴隷の項で父名が原文に全く出ないため #NEEDID で立てる。初版は father relation なし。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D06757
+  passive: AIND-D06452
+  quote: التقي الفاسي
+  note:
+    ja: '「عتيق التقي الفاسي」＝主人（規則51、عتيق）。التقي الفاسي ＝ #AIND-D06757（頻出確定ID、832没）。初版の subtype「client」（active＝الفاسي で向きは合うが統制外）を patron に。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: NEEDID
+  passive: AIND-D06452
+  quote: null
+  note:
+    ja: '「واختص بصاحب الحجاز」＝اختص 型（規則56、patron）。相手は職名のみで名がない（規則60(d)：描写があるので #NEEDID で relation を立てる）。本項主の没年 844 当時のヒジャーズの主は بركات بن حسن بن عجلان（#AIND-D02180、829〜859年在位）が候補だが、原文に名がなく通称のみの同定は規則26 に抵触するので充てない。初版の #TMP-P-000000（無効番号）を置換。'
+events:
+- id: e1
+  type: travel
+  places:
+  - ref: TMP-L-00004
+    quote: العجم
+  quote: سافر
+  summary:
+    ar: وهو ممن سافر إلى العجم وأثرى بحيث كان يعامل لما رجع
+  note:
+    ja: ペルシア（العجم、TMP-L-00004）へ旅して富を築き、帰ってからは商取引（يعامل）に携わった。年の記載なし。初版の visit event と other event（同内容の重複）を一つの travel event に統合。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+  quote: null
+  summary:
+    ar: أرخهم ابن فهد
+  cert: medium
+  note:
+    ja: 'Pattern A。根拠は2項後の #AIND-D06453「مبارك عتيق أبا البركات بن الضيا ، مات في المحرم أو صفر سنة خمس وسبعين . أرخهم ابن فهد」の複数「أرخهم」＝情報源の記載のない連続する3項（#AIND-D06451・#AIND-D06452・#AIND-D06453）を指すと読む（規則58・60(a)、先例 D10016・D10017）。3人のうち最も遅い没年＝D06453 の 875（871＜875≤885）で振り分け → النجم عمر بن فهد #AIND-D05979、cert medium（event 側、規則43）。'
+translation:
+  ja: ムバーラク・アル＝ハバシー、アッ＝タキー・アル＝ファースィーの解放奴隷。844年ラビーウ第一月に没した。彼はアジャム（ペルシア）へ旅した者の一人で、富を得て、帰ってからは商取引を行い、ヒジャーズの主の側近となった。
+  en: Mubārak al-Ḥabashī, freedman of al-Taqī al-Fāsī. He died in Rabīʿ I 844. He was among those who travelled to Persia (al-ʿAjam) and grew wealthy, so that on his return he engaged in trade, and he became closely attached to the lord of the Ḥijāz.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T12:20:37Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

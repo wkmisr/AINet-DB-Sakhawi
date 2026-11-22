@@ -1,0 +1,127 @@
+schema: aind-yaml/0.1
+id: AIND-D10443
+source:
+  uid: '915503337778'
+sex: M
+name:
+  full: يوسف بن أحمد بن محمد الجمال الملتاني السجزي الأصل الكجراتي الأحمدابادي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05190
+    quote: الملتاني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-02169
+    quote: السجزي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-02601
+    quote: الكجراتي
+  - id: n4
+    type: nisbah
+    ref: TMP-N-02516
+    quote: الأحمدابادي
+  - id: n5
+    type: laqab
+    quote: الجمال
+  - id: n6
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+birth:
+  id: b
+  date:
+    ah: 849-02
+  places:
+  - ref: TMP-L-00412
+    quote: أحمداباد
+  summary:
+    ar: ولد في صفر سنة تسع وأربعين وثمانمائة بأحمداباد
+  note:
+    ja: '849年サファル月＝1445-05-18〜06-15（h2g.py）、月精度で @when=1445-05（初版 1445 を訂正）。أحمداباد（グジャラートの都アフマダーバード）は ID-Master の Location に未登録（Nisbah الاحمدابادي TMP-N-02516 のみ）→ 仮 TMP-L-00412（初版 #NEEDID）。gn 未照合。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10443
+  quote: null
+  note:
+    ja: 規則3 (c')。父は見出しナサブ「أحمد بن محمد」のみで識別要素なし（ラカブ الجمال は本項主のもの）。初版は父 relation なし＝追加。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001730
+  passive: AIND-D10443
+  methods:
+  - TMP-S-00008
+  works:
+  - ref: TMP-T-00269
+  - ref: TMP-T-00270
+  quote: نظام الدين الملقب غوث الملك
+  note:
+    ja: 「وأخذ عن بلديه نظام الدين الملقب غوث الملك في العقليات كشرح المواقف واللوامع」。同郷（アフマダーバード）の師。corpus に本伝なし（全文検索「غوث الملك」＝本項のみ）、ID-Master 未登録 → 仮 TMP-P-001730。初版は同一の師を書ごとに2本の relation（#NEEDID、相手名なし）に分けていた＝1本に統合。「بلديه」は同郷人の意で学習地の明記ではない＝初版の event placeName أحمداباد を除去（規則22(1)）。『شرح المواقف』（الإيجي『المواقف』TMP-T-00230 の注釈、注釈者は原文に明記なし）・『اللوامع』（特定不能）は ID-Master 未登録 → 仮 TMP-T-00269・03。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00055
+  quote: الحسبة بالممالك
+  note:
+    ja: '「واستقر به السلطان محمود في الحسبة بالممالك ويستخلف من تحت يده」＝王国全土のヒスバ職（配下に代理を置く）。汎用 محتسب＝TMP-O-00055（初版 #NEEDID）。任地の都市名は原文になし＝初版の placeName أحمداباد を除去（規則22(1)）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: learning
+  quote: وأخذ
+  note:
+    ja: 初学（文法・形態論）の師は名なし＝relation を立てない（規則14）。
+  trigger: rule
+- id: e2
+  type: teaching
+  quote: حدثني
+  trigger: rule
+- id: e3
+  type: political
+  persons:
+  - ref: AIND-D09862
+    cert: medium
+    quote: السلطان محمود
+  quote: واستقر
+  summary:
+    ar: واستقر به السلطان محمود في الحسبة بالممالك
+  note:
+    ja: '任官は patron にせず event 内 persName（規則53。初版の patron relation #NEEDID を除去）。年は原文になし。السلطان محمود＝グジャラートのスルターン、corpus 本伝 #AIND-D09862「محمود شاه بن محمد بن أحمد بن محمد بن مظفر … الأحمد أبادي المولد . ولد سنة ثمان وأربعين تقريبا … واستقر أخوهم محمود شاه صاحب الترجمة وذلك في سنة ثلاث وستين … ودام في المملكة إلى الآن」（未収録）。名 محمود・スルターン位・本項主の出身地アフマダーバードの君主である点で閉合するが、原文は「السلطان محمود」のみで国名がない＝cert medium（規則26・57、ISSUES §D167-3）。'
+  trigger: rule
+- id: e4
+  type: cultural
+  subtype: mention
+  quote: حدثني بذلك غير واحد من طلبته ممن أخذ عني
+  cert: medium
+  note:
+    ja: 情報源は本項主の弟子でサハーウィーにも学んだ複数の人物（名なし＝persName なし、伝聞として cert medium）。本項主とサハーウィーの直接の関係ではない。
+translation:
+  ja: ユースフ・ブン・アフマド・ブン・ムハンマド、アル＝ジャマール、アル＝ムルターニー、スィジスターンの出、アル＝クジャラーティー、アル＝アフマダーバーディー、アル＝ハナフィー。849年サファル月にアフマダーバードで生まれた。文法・形態論などの初歩を他の者から学んだのち、同郷のニザーム・アッ＝ディーン（ガウス・アル＝ムルクの称号をもつ）から『シャルフ・アル＝マワーキフ』や『ラワーミウ』などの理性的諸学を学び、神学・論理学・星学・歴史などに秀でた。学生たちに理性的諸学を教えることに専心し、スルターン・マフムードは彼を諸国（王国全土）のヒスバ職に就け、彼は配下の者を代理に立てている。以上は、彼の学生で私（サハーウィー）からも学んだ複数の者が私に語ったことである。
+  en: Yūsuf b. Aḥmad b. Muḥammad, al-Jamāl, al-Multānī, of Sijistānī origin, al-Kujarātī, al-Aḥmadābādī, al-Ḥanafī. He was born in Ṣafar of the year 849 in Aḥmadābād. After studying the elementary subjects, such as grammar and morphology, with others, he studied the rational sciences, such as Sharḥ al-Mawāqif and al-Lawāmiʿ, with his fellow townsman Niẓām al-Dīn, who bears the title Ghawth al-Mulk; he distinguished himself in theology, logic, astronomy, history and other fields. He devoted himself to teaching students the rational sciences, and Sultan Maḥmūd appointed him to the ḥisba throughout the realm, in which he appoints deputies under him. More than one of his students who also studied with me (al-Sakhāwī) told me this.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:21:43Z'
+  model_requested: gemini-3.5-flash

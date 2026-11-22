@@ -1,0 +1,100 @@
+schema: aind-yaml/0.1
+id: AIND-D04957
+source:
+  uid: '367131634396'
+sex: M
+name:
+  full: علي بن أحمد بن أبي بكر النور أبو الحسن المصري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n2
+    type: laqab
+    quote: النور
+  - id: n3
+    type: kunyah
+    quote: أبو الحسن
+  - id: n4
+    type: ism
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001358
+  passive: AIND-D04957
+  methods:
+  - TMP-S-00008
+  quote: الملوي
+  note:
+    ja: 「أخذ عن الملوي」。الملوي ＝ الولي الملوي（ولي الدين الملوي。D04954「تفقه بالولي الملوي」、D05916・D07761 等に頻出するシャーフィイー派の師。D03599 の見出しナサブ「الشيخ ولي الدين محمد بن أحمد بن إبراهيم بن يوسف الملوي」）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001358。初版のニスバ番号 TMP-N-00725（الملوي）の person 位置流用を是正。
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D07989
+  passive: AIND-D04957
+  quote: محمد الآتي
+  note:
+    ja: '「والد محمد الآتي」。息子 ＝ #AIND-D07989「محمد بن علي بن أحمد بن أبي بكر الشمس بن أبي الحسن المصري البندقداري الشافعي الشاذلي الماضي أبوه … ولد … سنة ثلاث وسبعين وسبعمائة بالبندقدارية … وأم بالبندقدارية محل سكنه」（869年没）。汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を差し替え。'
+- id: r3
+  type: personal
+  subtype: possible_identity
+  active: AIND-D04954
+  passive: AIND-D04957
+  cert: high
+  quote: null
+  note:
+    ja: '本項主と #AIND-D04954 は名（علي بن أحمد بن أبي بكر النور أبو الحسن）・ニスバ（المصري）・学派・師（الملوي）が一致する。さらに本項主の息子 #AIND-D07989 の子 #AIND-D03773「عبد الرحمن بن محمد بن علي بن أحمد بن أبي بكر المصري … حفيد النور الأدمي … ويعرف بابن الأدمي」はサハーウィー自身が本項主を「النور الأدمي」と呼んでおり、D04954 の息子 #AIND-D03683「عبد الرحمن بن علي بن أحمد بن أبي بكر … بن النور أبي الحسن الأدمي … ولد … بالبندقدارية」も本項の「نزيل البندقدارية」と一致する。サハーウィーは本項で「رفيقا للادمي」と別人扱いしている（情報源は息子）ため REF 化せず二重立項型として保持し、同一人物の可能性を possible_identity で記録（→ISSUES §D99-1）。Waka 裁定（2026-10-05、要判断_B99-103 ★1(a)）: 同一人物とみて cert high。原文の「رفيقا للادمي الماضي قريبا」は本項主自身を指すことになるため colleague relation（active=#AIND-D04954）は削除し、この note に記録する。D04954 の収録時に鏡像の possible_identity を置く。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00304
+    quote: البندقدارية
+  quote: نزيل
+  summary:
+    ar: نزيل البندقدارية
+  note:
+    ja: البندقدارية ＝ カイロの街区（D07989・D03683「بالبندقدارية من نواحي الصليبة」）。ID-Master にはニスバ البندقداري（TMP-N-02412）のみで地名登録なし → 新規 TMP-L-00304。初版の affiliation type="reside"（#NEEDID）を residence event に変換。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D07989
+    quote: ولده
+  quote: قاله
+  summary:
+    ar: قاله لي ولده
+  note:
+    ja: Pattern A。本項の情報源は息子 محمد（#AIND-D07989）。
+  trigger: rule
+translation:
+  ja: アリー・ブン・アフマド・ブン・アビー・バクル、アン＝ヌール、アブー・アル＝ハサン、アル＝ミスリー、シャーフィイー派。アル＝ブンドゥクダーリーヤの住人で、後述するムハンマドの父。先に述べたばかりのアル＝アダミーの同学としてアル＝マッラウィーに学んだ。敬虔と善行を兼ね備えた、学派における名士の一人であった。彼の息子が私（サハーウィー）にそう語った。
+  en: ʿAlī b. Aḥmad b. Abī Bakr, al-Nūr Abū al-Ḥasan, al-Miṣrī, the Shāfiʿī. He was a resident of al-Bunduqdāriyya and the father of Muḥammad, who is mentioned below. He studied under al-Mallawī as a fellow student of al-Adamī, mentioned just above. He was one of the notables of the madhhab, together with piety and goodness. His son told me this.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-28T17:36:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

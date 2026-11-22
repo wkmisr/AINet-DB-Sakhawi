@@ -1,0 +1,66 @@
+schema: aind-yaml/0.1
+id: AIND-D07189
+source:
+  uid: '731432107216'
+sex: M
+name:
+  full: محمد بن أبي بكر بن سليمان الشمس بن الزين المحلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00109
+    quote: المحلي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: shuhrah
+    quote: ابن السمنودي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أبي بكر
+    by: rule
+    ref: TMP-P-001511
+  - id: n6
+    type: nasab
+    quote: سليمان
+    by: rule
+  - id: n7
+    type: nasab
+    quote: الزين
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07189
+  methods:
+  - TMP-S-00008
+  context:
+  - summary:
+      ar: ممن أخذ عني
+  quote: عني
+  note:
+    ja: 「ممن أخذ عني」＝本項主がサハーウィーから学んだ（規則2 の同型。active=師 wd:Q4120128）。
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001511
+  passive: AIND-D07189
+  quote: null
+  note:
+    ja: 父 الزين أبو بكر بن سليمان المحلي（ابن السمنودي）。corpus の أبو بكر بن سليمان 見出し（#AIND-D10701・D10702・D10703・D10704＝الحلبي／المكي／الداديخي）はいずれもニスバが合わず本伝なし。ID-Master にも該当人物の登録なし（السمنودي で grep）。集約で父の扱いをチャンク間で統一（父自身のラカブ・クンヤ・職が原文にあり祖父名まで復元できる父、または曾祖父名まで復元でき固有のニスバ・家名がある父は TMP-P。規則3・12）し、TMP-P-001511 を発行（内容B M）。
+translation:
+  ja: ムハンマド・ブン・アビー・バクル・ブン・スライマーン、アル＝シャムス・ブン・アル＝ザイン・アル＝マハッリー。イブン・アル＝サマンヌーディーとして知られる。私（サハーウィー）から学んだ者の一人。
+  en: Muḥammad b. Abī Bakr b. Sulaymān, al-Shams b. al-Zayn al-Maḥallī, known as Ibn al-Samannūdī. He is among those who took [knowledge] from me (al-Sakhāwī).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T00:28:37Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

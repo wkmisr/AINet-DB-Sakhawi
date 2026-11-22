@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D04561
+source:
+  uid: '245488428917'
+sex: M
+name:
+  full: عبد الله بن محمد بن إسماعيل الدواخلي ثم القاهري الغمري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01093
+    quote: الدواخلي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00134
+    quote: الغمري
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001220
+  - id: n6
+    type: nasab
+    quote: إسماعيل
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04561
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+    summary:
+      ar: ممن سمع مني بالقاهرة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001220
+  passive: AIND-D04561
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001220 を発行（汎用名、TSV に流用禁止を明記）。
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  orgs:
+  - ref: TMP-I-00072
+  quote: null
+  note:
+    ja: 数日間のみ（أياما）。施設の所在地から補われた placeName القاهرة を除去（規則22(1)）。初版の affiliation（employed、同じ جامع الغمري）は state との二重符号化のため削除（規則8）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  quote: وربما اشتغل
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・ブン・イスマーイール・アッ＝ダワーヒリー、のちにアル＝カーヒリー、アル＝ガムリー、アッ＝シャーフィイー。カイロで私（サハーウィー）から聴聞した者の一人。時に学問に従事し、ガムリー・モスクで数日間フトバを行った。告げ口と争いを好むことで知られている。
+  en: ʿAbd Allāh b. Muḥammad b. Ismāʿīl al-Dawākhilī, then al-Qāhirī, al-Ghamrī, al-Shāfiʿī. He was among those who heard from me (al-Sakhāwī) in Cairo. He occasionally engaged in study and delivered the Friday sermon at the Ghamrī Mosque for some days. He is noted for a fondness for tale-bearing and stirring up strife.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-24T14:02:53Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

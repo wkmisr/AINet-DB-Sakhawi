@@ -1,0 +1,92 @@
+schema: aind-yaml/0.1
+id: AIND-D10477
+source:
+  uid: '279416164730'
+sex: M
+name:
+  full: يوسف بن عبد الله الضياء بن الجمال الهروي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00197
+    quote: الهروي
+  - id: n2
+    type: laqab
+    quote: الضياء
+  - id: n3
+    type: shuhrah
+    quote: با يوسف
+  - id: n4
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n6
+    type: nasab
+    quote: الجمال
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10477
+  quote: null
+  note:
+    ja: 規則3。見出し「الضياء بن الجمال」より父 عبد الله のラカブは الجمال だが、祖父名が復元できない＝#NEEDID。初版は父 relation なし＝追加。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D10477
+  passive: AIND-D00900
+  methods:
+  - TMP-S-00025
+  context:
+  - date:
+      ah: 822
+    places:
+    - ref: TMP-L-00077
+      quote: هراة
+  quote: الطاووسي
+  note:
+    ja: 「وحينئذ قرأ عليه الطاووسي شيئا بالإجازة العامة」＝الطاووسي が本項主のもとで（本項主が全般的イジャーザ الإجازة العامة によって伝える）何がしかを読んだ＝本項主が師（active、規則15）。「حينئذ」＝822年・ヘラート郊外での面会の折（822年＝1419-02-06 開始、年精度）。الطاووسي＝#AIND-D00900（頻出確定ID、أبو الفتوح الطاووسي。ID-Master 登録を確認）。初版は event/@when="0822"（ヒジュラ年を @when に）・相手名の desc なし・空の field desc（TMP-S-00019）。
+events:
+- id: e1
+  type: cultural
+  subtype: meeting
+  date:
+    ah: 822
+  persons:
+  - ref: AIND-D00900
+    quote: الطاووسي
+  places:
+  - ref: TMP-L-00077
+    quote: هراة
+  quote: لقيه
+  summary:
+    ar: لقيه الطاووسي في سنة اثنتين وعشرين وثمانمائة بمنزله في ظاهر هراة
+  note:
+    ja: ヘラート郊外（ظاهر هراة）の本項主の自宅での面会。هراة＝TMP-L-00077。初版の residence event（822、cert high）を面会 event に置換。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00900
+  quote: قالوا
+  summary:
+    ar: واستظهر الطاووسي لذلك
+  note:
+    ja: Pattern A（情報源 الطاووسي）。本項主は الطاووسي に「自分の年齢は300年を7年越えた」と語り（وذكر له أنه زاد سنه على ثلثمائة سنة بسبع سنين）、الطاووسي はその裏づけとして、町の複数の長老が「我々は幼時から今の姿の彼を見ており、父たちも同じことを語った」と述べたことを挙げた。サハーウィーは「والله أعلم」と留保。長寿の自称（معمر）は伝聞＝birth を作らない（ブリーフ）。初版の event type=other（cert high、英語 desc）を置換。
+  trigger: rule
+translation:
+  ja: ユースフ・ブン・アブド・アッラー、アッ＝ディヤー・ブン・アル＝ジャマール、アル＝ハラウィー、バー・ユースフとして知られる。アッ＝ターウースィーが822年にヘラート郊外の彼の自宅で彼に会った。彼はアッ＝ターウースィーに、自分の年齢は300年を7年越えていると語った。アッ＝ターウースィーはその裏づけとして、彼の町の長老たちの何人もが「我々は幼いころから今の姿のままの彼を見てきたし、我々の父たちも同じことを我々に語った」と言ったことを挙げている。そのときアッ＝ターウースィーは、全般的イジャーザによって彼のもとで何がしかを読んだ。神こそが最もよく知り給う。
+  en: 'Yūsuf b. ʿAbd Allāh, al-Ḍiyāʾ b. al-Jamāl, al-Harawī, known as Bā Yūsuf. Al-Ṭāwūsī met him in the year 822 at his house in the outskirts of Herat, and he told him that his age had exceeded three hundred years by seven years. Al-Ṭāwūsī adduced in support of this that a number of the elders of his town said: "We have seen him since our childhood in his present appearance, and our fathers told us the same." On that occasion al-Ṭāwūsī read something with him on the strength of the general ijāza. God knows best.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T09:05:08Z'
+  model_requested: gemini-3.5-flash

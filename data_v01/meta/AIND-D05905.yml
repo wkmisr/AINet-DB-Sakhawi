@@ -1,0 +1,131 @@
+schema: aind-yaml/0.1
+id: AIND-D05905
+source:
+  uid: '835253711586'
+sex: M
+name:
+  full: عمر بن علي بن عمر السراج المناوي ثم القاهري الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00102
+    quote: المناوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: السراج
+  - id: n4
+    type: shuhrah
+    quote: المنيتيني
+  - id: n5
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n7
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 893-05
+  summary:
+    ar: مات في جمادى الأولى سنة ثلاث وتسعين عفا الله عنه
+  note:
+    ja: 893-05 ＝ 1488-04-22〜05-21、月初 1488-04（h2g.py）。初版の when="1488" を月精度に揃えた。没地は原文にない。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D08993
+  passive: AIND-D05905
+  methods:
+  - TMP-S-00014
+  - TMP-S-00025
+  context:
+  - orgs:
+    - ref: TMP-I-00047
+  works:
+  - ref: wd:Q4165175
+  quote: null
+  note:
+    ja: '「ممن لازم سيف الدين وكان قارئ الكشاف عنده في المنصورية」。سيف الدين ＝ #AIND-D08993（محمد سيف الدين الحنفي … ويعرف قديما بابن الحوندار、没881。本伝に「التفسير بقبة المنصورية」「حضر دروسه في الكشاف」とあり一致）。ID-Master の TMP-P-000534「سيف الدين بن الخوندار」は同一人物の関係専用番号＝名寄せ要（§D107-2）。الكشاف（الزمخشري）の wd:Q4165175 は repo 先例 D02961 に従ったが ID-Master 未登録（§D107-3）。初版の #NEEDID 2本（لازم／قرأ）を統合し、bibl の #TMP-I-00047（Institution 番号の誤用）を orgName に移した。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D05905
+  methods:
+  - TMP-S-00003
+  cert: medium
+  quote: أمه
+  note:
+    ja: '「وسمع على أمه وغيرها」。母（名不詳）から聴聞。初版の空の mother relation と #NEEDID の teacher relation を一本化。「أمه」の ه は直前の سيف الدين（#AIND-D08993）を指す可能性もある（D08993 本伝「وسمع على … وأمه في آخرين وكان كثير الاغتباط بسماع المقروء على أمه」＝ سيف الدين の母は伝承者として知られる）。本項主の母か سيف الدين の母かは決められないため集約時に cert medium とし、両読みを訳文にも記す（内容検証B L-17）。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D00143
+  passive: AIND-D05905
+  quote: البرهان الكركي
+  note:
+    ja: '「وأعطاه البرهان الكركي حين أخذه الأشرفية تدريس خشقدم بالأزهر」。البرهان الكركي ＝ #AIND-D00143（إبراهيم بن عبد الرحمن … الكركي … الحنفي إمام السلطان）。D00143 本伝に「ولما مات الاقصرائي استقر عوضه في مشيخة الاشرفية برسباي … وحينئذ أخرج من وظائفه … تدريس خشقدم للسراج عمر المناوي أحد فضلاء النواب」とあり、本項主を名指しで確認（相互閉合）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  quote: ناب
+  note:
+    ja: 「وناب في القضاء وجلس بالقرب من الجانبكية في القربيين」。初版の placeName القاهرة（ニスバ由来）は除去（規則22）。
+- id: s2
+  type: status
+  label: تنزل في بعض الجهات
+  quote: تنزل في بعض الجهات
+  note:
+    ja: いくつかの俸給ポストを得た（「تنزل في بعض الجهات」）。
+- id: s3
+  type: office
+  ref: wd:Q352842
+  orgs:
+  - ref: wd:Q312342
+  quote: تدريس خشقدم
+  note:
+    ja: 'アズハルにおける「خشقدم の教授職」（スルターン خشقدم ＝ #AIND-D02830 が設けた講座）を البرهان الكركي から与えられた。初版の placeName القاهرة（施設所在地からの補完）は除去（規則22）。初版の affiliation teach（二重符号化）と event other（同内容）を本 state に統合。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: other
+  places:
+  - ref: TMP-L-00322
+    quote: القربيين
+  orgs:
+  - ref: TMP-I-00163
+  quote: null
+  summary:
+    ar: جلس بالقرب من الجانبكية في القربيين
+  note:
+    ja: '副カーディーとしての着座場所（ジャーニバキーヤ学院＝TMP-I-00163 の近く、القربيين 地区）。القربيين はカイロの地区名（corpus D02348「المدرسة التي بالشارع عند القربيين خارج باب زويلة」、D03922・D07896「الجانبكية التي بالقربيين」＝バーブ・ズワイラ外の大通り沿い）。ID-Master 未登録のため規則25（未登録の地名は TMP-L）により集約時に仮番号 TMP-L-00322 を発行（校閲時は #NEEDID、§D107-4）。初版の residence event・affiliation reside（الجانبكية）は居住ではないので除去。'
+translation:
+  ja: ウマル・ブン・アリー・ブン・ウマル、アッ＝シラージュ、アル＝ムナーウィー、のちアル＝カーヒリー、ハナフィー派。アル＝ムナイティーニーとして知られる。サイフ・アッ＝ディーンに師事した者の一人で、マンスーリーヤにおいて彼のもとで『カッシャーフ』の朗読者を務めた。彼の母（本項主の母、あるいはサイフ・アッ＝ディーンの母）ほかから聴聞し、多く学んで優秀となり、カーディー代理を務めてクラビイーン地区のジャーニバキーヤ近くに着座した。いくつかの俸給ポストを得、アル＝ブルハーン・アル＝カラキーはアシュラフィーヤ（の職）を得た際、アズハルにおけるフシュカダムの教授職を彼に与えた。議論と歩行を好み、おおらかで、自らを卑しくし、身なりも風体もみすぼらしく、きわめて迂闊で、生来純朴であったため、（さまざまな）逸話が彼に帰せられている。893年ジュマーダー・アル＝ウーラー月に没した。神が彼を赦したまえ。
+  en: 'ʿUmar b. ʿAlī b. ʿUmar, al-Sirāj, al-Munāwī then al-Qāhirī, the Ḥanafī, known as al-Munaytīnī. He was among those who studied closely with Sayf al-Dīn and acted as the reader of the Kashshāf before him at al-Manṣūriyya. He heard from his mother (or: from the mother of Sayf al-Dīn) and others, studied extensively and excelled, served as deputy judge and held his sessions near al-Jānibakiyya in al-Qurabiyyīn. He obtained some stipendiary posts, and al-Burhān al-Karakī, when he took over al-Ashrafiyya, gave him the Khushqadam teaching post at al-Azhar. He was much given to disputation and to walking about, easygoing, self-abasing, shabby in appearance and figure, exceedingly absent-minded and simple by nature, so that various anecdotes are attributed to him. He died in Jumādā al-Ūlā of the year 893; may God pardon him.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T04:30:13Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

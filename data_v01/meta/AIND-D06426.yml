@@ -1,0 +1,65 @@
+schema: aind-yaml/0.1
+id: AIND-D06426
+source:
+  uid: '609864398547'
+sex: M
+name:
+  full: لولو
+  elements:
+  - id: n1
+    type: ism
+    quote: لولو
+    by: rule
+death:
+  id: d
+  date:
+    ah: 803-05
+    cert: medium
+  summary:
+    ar: مات في جمادى الأولى سنة ثلاث
+  note:
+    ja: '「سنة ثلاث」＝一の位のみ → 803年、cert medium（2026-09-24 Waka 基準。先例 #AIND-D02894「صفر سنة ثلاث . أرخه العيني」＝803）。803年ジュマーダー第一月＝1400-12-27〜1401-01-25（h2g.py）、月精度で @when=1400-12（初版の 1400 は年精度で不一致）。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06426
+  quote: ابن يلبغا
+  note:
+    ja: 規則3（単名の項。原文に父名なし）。
+- id: r2
+  type: personal
+  subtype: patron
+  active: NEEDID
+  passive: AIND-D06426
+  quote: null
+  note:
+    ja: '「خادم ابن يلبغا」＝仕えた主人（規則56。خادم＝従者、マムルーク朝では宦官を指すことも多い）。「ابن يلبغا」は名を欠き、corpus の候補 #AIND-D01702「أحمد بن يلبغا شهاب الدين العمري الخاصكي … أستاذ الظاهر برقوق」・#AIND-D09552「محمد بن يلبغا ناصر الدين اليحياوي أحد الأمراء الصغار بدمشق … مات في المحرم سنة إحدى」・#AIND-D00526「أحمد بن أحمد بن يلبغا ويعرف بابن المرضعة」のいずれかに決められない（規則26）→ #NEEDID（候補は ISSUES §D160-4）。初版の幻番号 TMP-P-000000 を置換。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: أرخه
+  summary:
+    ar: أرخه العيني
+  note:
+    ja: 'Pattern A。初版の統制外 subtype「chronicler」relation（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に変換（先例 #AIND-D02894）。'
+  trigger: rule
+notes:
+- text: 見出し「لولو خادم ابن يلبغا」の「خادم ابن يلبغا」は職名句（主人への奉仕）なので persName full から外し patron relation で表す（規則5）。初版の state「خادم」（幻番号 TMP-O-00000）は主従関係の二重符号化のため除去。原文末尾の「| حرف الميم」は章見出し＝source にのみ残す。
+  lang: ja
+  type: editorial
+translation:
+  ja: ルウルウ、イブン・ヤルブガーの従者（ハーディム）。（8）03年ジュマーダー第一月に没した。アル＝アイニーがその没年を記している。
+  en: Luʾluʾ, servant (khādim) of Ibn Yalbughā. He died in Jumādā I of the year [8]03. Al-ʿAynī dated his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T10:18:39Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

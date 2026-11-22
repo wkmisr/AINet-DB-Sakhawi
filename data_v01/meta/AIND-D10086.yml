@@ -1,0 +1,99 @@
+schema: aind-yaml/0.1
+id: AIND-D10086
+source:
+  uid: '133576019425'
+sex: M
+name:
+  full: موسى بن محمد بن قبا الشرف
+  elements:
+  - id: n1
+    type: laqab
+    quote: الشرف
+  - id: n2
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n3
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: قبا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 807-01
+    cert: medium
+  summary:
+    ar: مات في المحرم سنة سبع
+  note:
+    ja: 「سنة سبع」＝一の位のみ → 807、cert medium（2026-09-24 Waka。イブン・ハジャル『إنباء الغمر』に記載がある＝9世紀初頭で整合）。807年ムハッラム月＝1404-07-19〜08-17（h2g.py）、月精度で @when=1404-07。没地は原文に明記なし（初版の دمشق は職の所在地からの補完＝規則22(1) により除去）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10086
+  quote: null
+  note:
+    ja: 規則3 (c')。父 محمد بن قبا は汎用名（祖父名 قبا は珍しいが父自身の識別要素ではない）、corpus に見出しなし（hw.py「قبا」）。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: maternal_uncle
+  active: TMP-P-001697
+  passive: AIND-D10086
+  quote: الخليلي
+  note:
+    ja: '「ابن أخت الخليلي」＝本項主は الخليلي の姉妹の子 → الخليلي は母方の叔父（規則35 maternal_uncle、active＝叔父）。الخليلي は corpus に本伝なし（hw.py「الخليلي」＋「الموقت」「الهيئة」: 該当はエルサレムの ابن الموقت الخليلي 家 D01109・D03977・D04785・D06780 のみで、ダマスクスの天文学者ではない）。ID-Master の Person に該当なし（ニスバ TMP-N-00043 のみ＝初版はこれを人物位置に置いていた＝カテゴリ不一致）。本伝のある甥（本項主）の母方叔父という関係とニスバ الخليلي で識別し新規 TMP-P-001697（関係専用、規則12）。【集約 2026-11-05】校閲が記した叔父の職・居住地・推定の同定（記憶由来で原文・corpus に根拠なし）は削除した（規則42・59(e)、内容B L、決定9）。叔父の職・地は原文に出ない。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q12227702
+  quote: الموقت
+  note:
+    ja: 見出し語「الشرف الموقت」（礼拝時刻計算員、ID-Master wd:Q12227702）。場所は原文に明記なし（初版の placeName دمشق は補完＝除去）。規則5により persName full から職名を除外。
+- id: s2
+  type: office
+  ref: TMP-O-00090
+  orgs:
+  - ref: TMP-I-00274
+  quote: رياسة المؤذنين
+  note:
+    ja: 「وبيده رياسة المؤذنين بجامع تنكز وغيره」。首席ムアッズィン職＝TMP-O-00090（先例 D01750）。جامع تنكز（ダマスクスのタンキズ・モスク）は ID-Master 未登録（エルサレムの المدرسة التنكزية TMP-I-00140 は別施設）、corpus に5回出現 → 新規 TMP-I-00274。初版の placeName دمشق（補完）と affiliation employed（二重符号化、規則8）を除去。
+events:
+- id: e1
+  type: cultural
+  places:
+  - ref: TMP-L-00002
+    quote: الشام
+  quote: null
+  summary:
+    ar: كان أفضل من بقي بالشام في علم الهيئة وله في هذه الصناعة تواليف مفيدة مع أنه لا ينسب نفسه إلى علم لا هذا ولا غيره بل هو خير عنده إنجماع عن الناس وعدم دخول فيما لا يعنيه
+  note:
+    ja: 天文学（علم الهيئة、TMP-S-00057）においてシリアに残る者の中で最も優れ、有益な著作があった（書名なし＝bibl を立てない）。الشام は原文明記の地名として保持（規則22(2)）。初版の residence event（الشام）は居住の明示がないため除去し、本 event に統合。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝Ibn Ḥajar（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）。初版の統制外 relation「mentioned in」を置換。
+  trigger: rule
+translation:
+  ja: ムーサー・ブン・ムハンマド・ブン・カバー、アッ＝シャラフ、礼拝時刻計算員（アル＝ムワッキト）、アル＝ハリーリーの姉妹の子。天文学（イルム・アル＝ハイア）においてシリアに残る者の中で最も優れ、この技術について有益な著作があったが、彼は自分をこの学問にも他のどの学問にも帰属させず、むしろ人々から離れて隠棲し、自分に関わりのないことに立ち入らないことを良しとする善人であった。タンキズ・モスクなどの首席ムアッズィン職を手中にしていた。（80）7年ムハッラム月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
+  en: Mūsā b. Muḥammad b. Qabā, al-Sharaf, the timekeeper (al-muwaqqit), the sister's son of al-Khalīlī. He was the best of those remaining in Syria in the science of astronomy (ʿilm al-hayʾa) and had useful works in this art, although he did not attribute himself to this or any other science; rather he was a good man who preferred withdrawal from people and not entering into what did not concern him. He held the headship of the muezzins at the Mosque of Tankiz and elsewhere. He died in Muḥarram of the year (80)7. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T01:48:53Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

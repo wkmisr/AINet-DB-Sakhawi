@@ -1,0 +1,71 @@
+schema: aind-yaml/0.1
+id: AIND-D05953
+source:
+  uid: '763560473405'
+sex: M
+name:
+  full: عمر بن النجار محمد بن سليمان المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n3
+    type: nasab
+    quote: النجار محمد
+    by: rule
+    ref: TMP-P-001411
+  - id: n4
+    type: nasab
+    quote: سليمان
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001411
+  passive: AIND-D05953
+  quote: null
+  note:
+    ja: 見出し「عمر بن النجار محمد بن سليمان المكي」。父＝マッカの大工（النجار）محمد بن سليمان。corpus 見出し（hw.py「النجار محمد بن سليمان」）・ID-Master に該当なし → TMP-P-001411（⚠汎用名、職 النجار のみが識別要素）。初版は relation なし。
+- id: r2
+  type: personal
+  subtype: uncle
+  active: NEEDID
+  passive: AIND-D05953
+  quote: علي
+  note:
+    ja: '「وله عم اسمه علي」。裸名のみ → #NEEDID（規則3・12）。初版の汚染番号 TMP-P-000530（D04287 の兄弟 علي 専用）を差し替え。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: NEEDID
+  passive: AIND-D05953
+  quote: null
+  note:
+    ja: '「أحد القائمين بخدمة شافعيها」＝マッカのシャーフィイー派カーディーに仕えた。人物名は原文になく時期も不明のため #NEEDID（初版の統制外 subtype「servant」→ patron）。'
+- id: r4
+  type: personal
+  subtype: patron
+  active: NEEDID
+  passive: AIND-D05953
+  quote: null
+  note:
+    ja: '「ثم انقطع ولزم ولده」＝その後奉仕を離れ、その（カーディーの）息子に付き従った。名不詳 → #NEEDID（初版の統制外 subtype「companion」→ patron）。'
+states:
+- id: s1
+  type: status
+  quote: null
+translation:
+  ja: ウマル・ブン・アン＝ナッジャール（大工）・ムハンマド・ブン・スライマーン、アル＝マッキー。マッカのシャーフィイー派（カーディー）に仕える者たちの一人であったが、その後（奉仕を）やめてその（カーディーの）息子に付き従った。彼には機敏さ、すばやさ、行動力がある。アリーという名の父方の叔父がいる。
+  en: ʿUmar b. al-Najjār (the carpenter) Muḥammad b. Sulaymān al-Makkī. He was one of those who served the Shāfiʿī (qāḍī) of Mecca, then withdrew and attached himself to his (the qāḍī's) son. He has cleverness, quickness and energy. He has a paternal uncle named ʿAlī.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T06:13:32Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

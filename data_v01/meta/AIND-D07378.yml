@@ -1,0 +1,102 @@
+schema: aind-yaml/0.1
+id: AIND-D07378
+source:
+  uid: '885001165164'
+sex: M
+name:
+  full: محمد بن داود بن محمد بن أبي القسم الحكمي اليماني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00377
+    quote: الحكمي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: داود
+    by: rule
+    ref: AIND-D02958
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي القسم
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D02958
+  passive: AIND-D07378
+  quote: أبوه
+  note:
+    ja: '父=#AIND-D02958（داود بن محمد بن أبي القسم التزيلي الحكمي اليماني。قرية سعد に زاوية を持つ。「خلف ابنين إبراهيم ومحمد」、没870以後）。相互参照あり。合同索引 #AIND-D11600（الحكمي جماعة）は規則11により使用しない。'
+- id: r2
+  type: personal
+  subtype: predecessor
+  active: AIND-D02958
+  passive: AIND-D07378
+  quote: null
+  note:
+    en: He succeeded his father in running the latter's zāwiya.
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D07378
+  passive: AIND-D07379
+  methods:
+  - TMP-S-00008
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: الذي بعده
+  note:
+    ja: '「أخذ عنه الذي بعده بمكة وغيرها」＝次項 #AIND-D07379（محمد بن داود بن ناجي بن مشرف الجمال الحراري اليماني الشافعي）が本項主からマッカ等で学んだ。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00265
+  orgs:
+  - label: زاوية داود الحكمي
+  quote: القيام بزاويته
+  note:
+    ja: '父 داود الحكمي の زاوية（父の項によれば قرية سعد）の運営を継承。「وهو الآن في الأحياء」＝執筆時点で存命。所在地は本項原文に明示がないため placeName は置かない。ID-Master に該当職名がないため新規 #TMP-O-00274。'
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: حج
+  note:
+    en: '"mimman ḥajja wa-zāra": he performed the pilgrimage and the visitation.'
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D07379
+  quote: وحكى
+  note:
+    ja: Pattern A。語り手は「الذي بعده」＝#AIND-D07379。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・ダーウード・ブン・ムハンマド・ブン・アビー・アル＝カースィム・アル＝ハカミー・アル＝ヤマーニー。彼の父は前述。父の後を継いでそのザーウィヤの運営を善良かつ恵み豊かに担い、現在も存命である。巡礼（ハッジ）と参詣（ズィヤーラ）を行った者の一人で、次項の人物がマッカその他で彼から学んだ。そして（その人物が）私（サハーウィー）に彼の立派な行状を語ってくれた。
+  en: Muḥammad b. Dāwūd b. Muḥammad b. Abī al-Qāsim al-Ḥakamī al-Yamānī. His father was mentioned previously. He succeeded him in running his zāwiya, with goodness and blessing, and he is at present among the living. He was among those who performed the pilgrimage and the visitation, and the person mentioned after him studied under him in Mecca and elsewhere, and related to me (al-Sakhāwī) good accounts of him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-05T07:46:28Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

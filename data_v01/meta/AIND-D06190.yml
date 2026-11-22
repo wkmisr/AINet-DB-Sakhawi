@@ -1,0 +1,108 @@
+schema: aind-yaml/0.1
+id: AIND-D06190
+source:
+  uid: '908318487845'
+sex: M
+name:
+  full: فواز بن عقيل بن مبارك بن رميثة بن أبي نمي الحسني المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: فواز
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عقيل
+    by: rule
+    ref: AIND-D04913
+  - id: n5
+    type: nasab
+    quote: مبارك
+    by: rule
+  - id: n6
+    type: nasab
+    quote: رميثة
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أبي نمي
+    by: rule
+birth:
+  id: b
+  date:
+    notBefore: 790
+    notAfter: 800
+    cert: low
+  note:
+    ja: 「فقتل يومئذ وهو في عشر الثلاثين ظنا」（820年没時に20代、著者の推測）からの逆算＝790〜800年頃（cert low）。790年初＝1388-01-19、800年末＝1398-09-20。
+death:
+  id: d
+  date:
+    ah: 820-09
+  summary:
+    ar: فقتل يومئذ وهو في عشر الثلاثين ظنا
+  note:
+    ja: 820-09-01＝1417-10-21、@when は月精度 1417-10。殺害された場所は「أغار على مكة … فقتل يومئذ」でメッカ襲撃の当日だが、原文は地を明示しないため placeName は event 側（مكة）にのみ置く。年齢「في عشر الثلاثين ظنا」は cert medium 相当（著者の推測 ظنا）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D04913
+  passive: AIND-D06190
+  quote: null
+  note:
+    ja: '見出しナサブから（規則37）。corpus 本伝 #AIND-D04913「عقيل بن مبارك بن رميثة بن أبي نمى الحسني المكي كان من أعيان الأشراف … جعله ابن عمه عنان بن مغامس … شريكا له في إمرة مكة」（【集約 2026-10-19 訂正】repo 収録済み `Individuals/4000-4999/AIND-D04913_402426702455.xml`、既に son relation active=#AIND-D06190 cert medium を持ち双方向で閉合。校閲時の「未収録」は誤り、内容B L・規則42）。同父の兄弟 #AIND-D04498 عبد الله（846没）・#AIND-D10011 منصور（850没）は本項主を名指ししないため note 留め（規則23）。祖父 مبارك بن رميثة は ID-Master TMP-P-001324。'
+events:
+- id: e1
+  type: political
+  date:
+    ah: 820-09
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: فقتل
+  summary:
+    ar: كان ممن أغار على مكة مع بني عمه وغيرهم من الأشراف والقواد في رمضان سنة عشرين فقتل يومئذ
+  note:
+    ja: 「بني عمه」（従兄弟たち）は名が無いため relation にしない（規則14）。
+  trigger: rule
+- id: e2
+  type: other
+  places:
+  - ref: TMP-L-00353
+    quote: قرية المبارك من وادي نخلة
+  quote: null
+  summary:
+    ar: وكان كثير التسلط على أهل قرية المبارك من وادي نخلة والتكليف لهم
+  note:
+    ja: '居住ではなく住民への圧制（تسلط・تكليف）の記述なので residence ではなく other。地名 قرية المبارك（وادي نخلة）は ID-Master 未登録（既登録は سولة من نخلة اليمانية TMP-L-00202 のみ）→ 仮番号 TMP-L-00353。初版のプレースホルダ #TMP-L-00000 を是正。'
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي
+  note:
+    ja: 'Pattern A。初版の biographer relation（幻番号 TMP-P-000603＝名寄せ済み）→ #AIND-D06757（التقي الفاسي、832没）の mention event。'
+  trigger: rule
+translation:
+  ja: ファウワーズ・ブン・アキール・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝ハサニー・アル＝マッキー。（8）20年ラマダーン月に、従兄弟たちやその他のシャリーフやカーイド（隊長）たちとともにマッカを襲撃した者の一人で、その日に殺された。おそらく20代であった。ワーディー・ナフラのアル＝ムバーラク村の人々に対してしばしば横暴をはたらき、負担を課していた。アル＝ファースィーが彼に言及している。
+  en: Fawwāz b. ʿAqīl b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī al-Makkī. He was among those who raided Mecca together with his cousins and other sharīfs and commanders (quwwād) in Ramaḍān of the year [8]20, and he was killed on that day, being, it is thought, in his twenties. He frequently tyrannised the people of the village of al-Mubārak in Wādī Nakhla and imposed burdens on them. Al-Fāsī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-05T16:23:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

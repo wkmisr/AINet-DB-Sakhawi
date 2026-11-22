@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D06639
+source:
+  uid: '419510106216'
+sex: M
+name:
+  full: محمد بن أحمد بن جعفر بن أحمد بن علي الديواني المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01388
+    quote: الديواني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: جعفر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 806
+    notAfter: 807
+    cert: medium
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: ومات بها ظنا في سنة ست أو في التي بعدها
+  note:
+    ja: 「سنة ست أو في التي بعدها」＝806年または807年（一の位のみ＝80X。主人 عنان は805年没、情報源 الفاسي は832年没）。「ظنا」＝推測、cert medium。806＝1403-07-30 開始、807 の年末＝1405-07-07（h2g.py）＝notBefore 1403・notAfter 1405。初版は when-custom=0806 の一点。「بها」＝直前の مكة（「أمراء مكة」、cert 不要）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06639
+  quote: null
+  note:
+    ja: 規則3 (c')。corpus の見出し（أحمد بن جعفر）に該当なし。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D06051
+  passive: AIND-D06639
+  quote: عنان بن مغامس بن رميثة
+  note:
+    ja: '「خدم عنان بن مغامس بن رميثة وغيره من أمراء مكة」＝仕えた型（規則56）。عنان＝#AIND-D06051「464 عنان بن مغامس بن رميثة بن أبي نمي الزين أبو لجام الحسني المكي أميرها ، ولد بها في سنة اثنتين وأربعين وسبعمائة … ومات في يوم الجمعة مستهل ربيع الأول سنة خمس」（repo 未収録）。ナサブ3代が一致。「وغيره من أمراء مكة」は名なし＝立てない。主人の「أمراء مكة」は本項主の state にしない。初版は active #NEEDID。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  works:
+  - ref: TMP-T-00037
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي في مكة
+  note:
+    ja: Pattern A。الفاسي＝#AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037）。初版の統制外 relation「biographer」を置換。
+  trigger: rule
+notes:
+- text: 初版の residence event（مكة、ニスバからの補完）を除去した（規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ジャアファル・ブン・アフマド・ブン・アリー・アッ＝ディーワーニー・アル＝マッキー。イナーン・ブン・ムガーミス・ブン・ルマイサほかマッカのアミールたちに仕え、思うに（80）6年かその翌年にそこで没した。アル＝ファースィーが『マッカ〔史〕』で彼に言及している。
+  en: Muḥammad b. Aḥmad b. Jaʿfar b. Aḥmad b. ʿAlī al-Dīwānī al-Makkī. He served ʿInān b. Mughāmis b. Rumaytha and others of the amirs of Mecca, and he died there, as is thought, in the year [80]6 or the one after it. Al-Fāsī mentioned him in [his history of] Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T07:14:06Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

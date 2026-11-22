@@ -1,0 +1,96 @@
+schema: aind-yaml/0.1
+id: AIND-D08232
+source:
+  uid: '568885144073'
+sex: M
+name:
+  full: محمد بن علي الجمال السوهائي المصري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00772
+    quote: السوهائي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n3
+    type: laqab
+    quote: الجمال
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 823-07
+  note:
+    ja: 「مات في رجب سنة ثلاث وعشرين وقد جاز الخمسين」＝823年ラジャブ月（1420-07-21〜08-19、h2g.py）、月精度（初版の @when 1420 を 1420-07 に）。「وقد جاز الخمسين」は没時の年齢（50歳を超えていた）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08232
+  quote: علي
+  note:
+    ja: 父 علي は裸名で識別要素なし（規則3 (c')）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D06773
+  passive: AIND-D08232
+  methods: []
+  quote: null
+  note:
+    ja: '「كتب المنسوب على شيخنا أبي علي الزفتاوي」（イブン・ハジャル『إنباء الغمر』からの引用中なので「شيخنا」はイブン・ハジャルの師＝規則59(f)）。師＝#AIND-D06773「محمد بن أحمد بن علي أبو علي الزفتاوي ثم المصري المكتب . ولد في سنة خمسين وسبعمائة … وتعانى الكتابة … وصنف في أوضاع الخط كتابا سماه منهاج الإصابة في أوضاع الكتابة … وصار غاية في معرفة الخطوط المنسوبة … وممن تعلم منه الكتابة شيخنا」（クンヤ أبو علي・ニスバ الزفتاوي・マンスーブ体の書法師の3点で閉合、規則57）。初版は #NEEDID、method に TMP-S-00026（كتب＝書写）と field「المنسوب」を置いていたが、「書法を学んだ」の意なので先例 D00790「أذن له بالإفتاء」に倣い method を原文句の desc（ref なし）に。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  places:
+  - ref: gn:352261
+    cert: medium
+  quote: null
+  note:
+    ja: 見出し「المصري أحد عدولها」。「ها」の先行詞は直前のニスバ المصري が指す مصر＝規則22(3) の所有代名詞の場合に準じ cert medium で مصر（gn:352261）。初版の القاهرة（gn:360630）は原文の語ではないので差し替え（規則22(1)「原文の地名を別の地に読み替えない」）。
+- id: s2
+  type: office
+  ref: TMP-O-00218
+  quote: كتب المنسوب
+  note:
+    ja: '「كتب المنسوب على شيخنا أبي علي الزفتاوي وانتفع به الناس في ذلك」＝マンスーブ体の能書（TMP-O-00218 كاتب المنسوب、先例 #AIND-D01608・#AIND-D10055・#AIND-D08210）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版の relation「mentioned by」（統制外 subtype）と英語 desc の cultural event を本 event に統合。
+  trigger: rule
+- id: e2
+  type: teaching
+  quote: وانتفع به الناس في ذلك
+  note:
+    ja: マンスーブ体の書法で人々が彼から益を得た＝教授（規則50、type="teaching"）。相手は名なし＝relation を立てない（規則14）。
+translation:
+  ja: ムハンマド・ブン・アリー、アル＝ジャマール・アッ＝スーハーイー・アル＝ミスリー、ミスルの公証人（ウドゥール）の一人。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及し、「我らがシャイフ、アブー・アリー・アッ＝ザフターウィーのもとでマンスーブ体を書き（習い）、人々はその点で彼から益を得た」と述べた。823年ラジャブ月に、50歳を超えて没した。
+  en: 'Muḥammad b. ʿAlī al-Jamāl al-Sūhāʾī al-Miṣrī, one of the notary-witnesses (ʿudūl) of Miṣr. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: he wrote the proportioned (mansūb) script under our shaykh Abū ʿAlī al-Zaftāwī, and people benefited from him in that. He died in Rajab of the year [8]23, having passed fifty.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T14:49:48Z'
+  model_requested: gemini-3.5-flash

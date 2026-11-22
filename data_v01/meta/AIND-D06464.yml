@@ -1,0 +1,92 @@
+schema: aind-yaml/0.1
+id: AIND-D06464
+source:
+  uid: '274617874199'
+sex: M
+name:
+  full: محمد بن إبراهيم بن أحمد بن أحمد المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: AIND-D00014
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D06464
+  methods:
+  - TMP-S-00006
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: لقيني مع أبيه بمكة في المجاورة الثالثة فعرضها علي
+  quote: ولقيني
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D06464
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: وسمعا مني المسلسل وغيره
+  works:
+  - ref: TMP-T-00019
+  quote: علي
+- id: r3
+  type: personal
+  subtype: father
+  active: AIND-D00014
+  passive: AIND-D06464
+  quote: أبوه
+  note:
+    ja: '規則3・37。「الماضي أبوه」＝ #AIND-D00014「إبراهيم بن أحمد بن أحمد بن محمود بن موسى المقدسي الأصل الدمشقي الحنفي ثم الشافعي أخو الزين عبد الرحمن الهمامي وعبد الرزاق ومحمد الآتي ذكرهم وكذا أبوهم … ولقيتي بمكة أيضا ومعه ولده محمد فعرض محافيظه على … مات … سنة أربع وتسعين بدمشق」（repo 未収録）。見出しナサブ3代＋ニスバ＋相手側本文の「ومعه ولده محمد فعرض محافيظه على」で閉合。初版の #NEEDID を置換。'
+- id: r4
+  type: personal
+  subtype: paternal_uncle
+  active: AIND-D03550
+  passive: AIND-D06464
+  quote: عمه
+  note:
+    ja: '「ابن أخي الهمامي الماضي … عمه」＝父方の叔父（paternal_uncle、規則35）＝ #AIND-D03550「عبد الرحمن بن أحمد بن أحمد بن محمود بن موسى الزين المقدسي الأصل الدمشقي الحنفي نزيل القاهرة ثم مكة ويعرف بالهمامي نسبة لابن الهمام」（repo 未収録。repo #AIND-D07531 が father に使用）。父 D00014 の本文「أخو الزين عبد الرحمن الهمامي」で閉合。初版のニスバ番号 #TMP-N-00746（人物位置に使用不可、precheck）を置換。ID-Master の TMP-P-000040「الزين عبد الرحمن الهمامي」（Note「AIND-D0014の兄弟」）は D03550 と名寄せ要（ISSUES）。'
+events:
+- id: e1
+  type: learning
+  quote: وسمعا
+  note:
+    ja: 書物を暗記した（書名の明記なし）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・アフマド・ブン・アフマド・アル＝マクディスィー、アル＝ハマーミーの甥で、父と叔父は既出。いくつかの書物を暗記し、第3回のマッカ滞在（ムジャーワラ）の際に父とともに私に会ってそれらを私に試問（アルド）し、二人は私から『アル＝ムサルサル』などを聴いた。
+  en: Muḥammad b. Ibrāhīm b. Aḥmad b. Aḥmad al-Maqdisī, nephew of al-Hamāmī; his father and his uncle have been mentioned above. He memorized some books, met me together with his father in Mecca during the third mujāwara, recited them to me, and the two of them heard from me al-Musalsal and other works.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T12:48:34Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

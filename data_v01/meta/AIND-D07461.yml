@@ -1,0 +1,101 @@
+schema: aind-yaml/0.1
+id: AIND-D07461
+source:
+  uid: '367309743608'
+sex: M
+name:
+  full: محمد بن سنقر أبو السعود الجمالي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00143
+    quote: الجمالي
+  - id: n2
+    type: kunyah
+    quote: أبو السعود
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: سنقر
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07461
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00019
+  - ref: TMP-T-00185
+  quote: مني
+  note:
+    ar: سمع مني هو وأبوه المسلسل وحديث زهير العشاري
+    ja: '父 سنقر も同席して聴聞。「حديث زهير العشاري」は ID-Master 未登録（corpus に D01230・D02564・D03192・D04038・D04405 等で同名の伝授対象として頻出）のため新規 TMP-T-00185。初版の bibl #NEEDID を解消。初版は2 relation に分割していたものを同一方法（سماع）として1本に統合。場所は原文に明示なし（「نزيل مكة」は居住）のため初版の learning event（مكة）を除去（規則22-1）。field は規則2により付けない。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07461
+  methods:
+  - TMP-S-00004
+  quote: null
+  note:
+    ar: وكتبت لهما إجازة
+    ja: 本項主と父の二人にイジャーザを書いた。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07461
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: TMP-T-00044
+  quote: null
+  note:
+    ar: بل قرأ علي الأربعين النووية
+- id: r4
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07461
+  quote: null
+  note:
+    ja: '裸名のみのため #NEEDID 維持（規則3）。父も本項主と共にサハーウィーから المسلسل・حديث زهير العشاري を聴聞しイジャーザを受けた（「سمع مني هو وأبوه … وكتبت لهما إجازة」）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00241
+  quote: شاد عمارة السلطان
+  note:
+    ja: 'TMP-O-00241「شاد العمائر السلطانية」（スルターン造営事業の監督官、D03261）に充当。初版は #NEEDID。勤務地はマッカと推定されるが原文に明示なし（「نزيل مكة」は居住）のため placeName を置かない（規則22-1）。'
+- id: s2
+  type: office
+  ref: TMP-O-00055
+  quote: الحسبة
+  note:
+    ja: 初版の placeName مكة（原文に明示なし）を除去（規則22-1）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・スンクル、アブー・アッ＝スウード、アル＝ジャマーリー。マッカの寄寓者で、ヒスバ（市場監督）と併せてスルターンの造営の監督官を務めた。彼とその父は私（サハーウィー）から『ムサルサル』と『ズハイル・アル＝ウシャーリーのハディース』を聴聞し、私は二人のためにイジャーザを書いた。それどころか、彼は私のもとで『ナワウィーの四十ハディース』を朗読した。
+  en: Muḥammad b. Sunqur, Abū al-Suʿūd al-Jamālī, a resident of Mecca, superintendent of the Sultan's building works together with the ḥisba. He and his father heard from me (al-Sakhāwī) al-Musalsal and the ḥadīth of Zuhayr al-ʿUshārī, and I wrote an ijāza for the two of them; indeed, he read al-Arbaʿīn al-Nawawiyya before me.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T02:58:23Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

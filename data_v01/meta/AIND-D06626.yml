@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D06626
+source:
+  uid: '266959075406'
+sex: M
+name:
+  full: محمد بن أحمد بن أبي بكر بن جبير الحلبي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: جبير
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 761
+    cert: medium
+  summary:
+    ar: ذكر ما يدل لأن مولده سنة إحدى وستين وسبعمائة
+  note:
+    ja: 本人の語ったことから761年生まれと分かる、という間接の根拠＝cert medium。761＝1359-12-01 開始（h2g.py）＝年精度で @when 1359（初版の 1360 を是正）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06626
+  quote: null
+  note:
+    ja: '規則3 (c'')。corpus の見出しで「بن جبير」を持つのは本項と欠字の #AIND-D03254 だけ。初版は父 relation なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D00271
+  passive: AIND-D06626
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: wd:Q1023470
+  quote: ابن صديق
+  note:
+    ja: 「وسمع على ابن صديق بعض الصحيح」＝『サヒーフ』の一部。ابن صديق＝#AIND-D00271（その本文「وحلب وكان دخوله لها في سنة ثمانمائة وقرئ عليه البخاري فيها أربع مرار」＝800年にアレッポで『ブハーリー』が読まれた、と合う）。原文に分野の語はない＝初版の field（الحديث）を除去。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D06626
+  passive: AIND-D05979
+  methods:
+  - TMP-S-00003
+  quote: النجم بن فهد
+  note:
+    ja: 「وحدث سمع منه النجم بن فهد」＝本項主が師（active）。النجم بن فهد＝#AIND-D05979「409 عمر بن محمد بن محمد … بن فهد … النجم والسراج أبو القسم … ابن شيخنا التقي」（812年生。ラカブ النجم で一意、cert 不要）。初版は passive が零番号 TMP-P-000000・subtype student（旧規約）・原文にない field つき。
+states:
+- id: s1
+  type: office
+  ref: wd:Q242468
+  quote: الخياط
+  note:
+    ja: 見出しの「الخياط」と本文「البراعة في الخياطة والنصح فيها」＝仕立て職（wd:Q242468、初版どおり）。
+events:
+- id: e1
+  type: teaching
+  quote: وحدث
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+  works:
+  - ref: TMP-T-00138
+  quote: وذكره
+  note:
+    ja: Pattern A。話者は النجم بن فهد（#AIND-D05979）と明示されている＝振り分け規則の対象外、cert 不要。「معجم أبيه」＝父 التقي ابن فهد の『ムウジャム』（TMP-T-00138、ブリーフどおり）。「وغيره」（ほかの著作）は書名なし。初版は mention の符号化なし。
+  trigger: rule
+notes:
+- text: 原文は「مات في .」で終わり、没年が欠けている（規則45。death を立てない）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アビー・バクル・ブン・ジュバイル・アル＝ハラビー、仕立て職人。その生年が761年であることを示すことを語っていた。イブン・スィッディークのもとで『サヒーフ』の一部を聴き、ハディースを伝えた。アン＝ナジュム・ブン・ファハドが彼から聴き、父の『ムウジャム』その他で彼に言及して、その善良さ、敬虔さ、仕立ての腕のよさとその仕事の誠実さを称え、「彼には敬虔な人々の風格がある」と言った。……に没した（以下欠）。
+  en: 'Muḥammad b. Aḥmad b. Abī Bakr b. Jubayr al-Ḥalabī, the tailor. He mentioned something indicating that his birth was in the year 761. He heard part of the Ṣaḥīḥ under Ibn Ṣiddīq and transmitted ḥadīth. Al-Najm b. Fahd heard from him and mentioned him in his father’s Muʿjam and elsewhere, praising him for his goodness, his devotion, his skill in tailoring and his honesty in it; he said: “He bears the mark of the righteous.” He died in … [the text breaks off].'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T06:41:31Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

@@ -1,0 +1,145 @@
+schema: aind-yaml/0.1
+id: AIND-D10042
+source:
+  uid: '498702765429'
+sex: M
+name:
+  full: موسى بن أحمد بن علي بن عجيل الكمال اليماني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n2
+    type: laqab
+    quote: الكمال
+  - id: n3
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عجيل
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 802
+  summary:
+    ar: ولد سنة اثنتين وثمانمائة
+  note:
+    ja: 802年初＝1399-09-11（h2g.py、年精度）。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 879-01-11
+  summary:
+    ar: إلى أن مات في يوم الجمعة حادي عشر المحرم سنة تسع وسبعين
+  note:
+    ja: 879年ムハッラム月11日＝1474-06-06（h2g.py、proleptic Gregorian）。h2g.py の曜日は土曜で原文「يوم الجمعة」と1日ずれる（イエメン側の月初観測差とみられる。規則25 により原文の日付を保持）。死地の明記なし（初版の placeName زبيد は職の所在からの補完のため除去、規則22）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10042
+  quote: null
+  note:
+    ja: 規則3 (c')。父 أحمد بن علي بن عجيل（ابن عجيل 家、イエメン）は識別要素のない名のみで corpus に見出しなし（hw.py「أحمد بن علي」＋「عجيل」）。ID-Master の TMP-P-000329「أحمد بن موسى بن أحمد بن عجيل」は子 أحمد（#AIND-D01660）、TMP-P-000288「محمد بن أحمد العجيل اليماني」は別人。
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D01660
+  passive: AIND-D10042
+  quote: أحمد
+  note:
+    ja: '「والد أحمد وعبد اللطيف الماضيين」。子 أحمد＝#AIND-D01660「أحمد بن موسى بن أحمد بن علي بن عجيل الشهاب اليمني … الآتي أبوه وابنه إسماعيل ويعرف بالمشرع」（879年没、「الآتي أبوه」で閉合）。ID-Master の既登録 TMP-P-000329「أحمد بن موسى بن أحمد بن عجيل」は同一人物＝名寄せ要（§D153-5）。初版の #NEEDID を置換。孫 إسماعيل＝#AIND-D01937。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D04362
+  passive: AIND-D10042
+  quote: عبد اللطيف
+  note:
+    ja: '子 عبد اللطيف＝#AIND-D04362「عبد اللطيف بن موسى بن أحمد بن علي بن عجيل اليماني أخو أحمد الماضي ويعرف بالمشرع أيضا」（見出しナサブで閉合）。初版の #NEEDID を置換。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D06630
+  passive: AIND-D10042
+  methods:
+  - TMP-S-00028
+  context:
+  - summary:
+      ar: وحضر مجالس الجمال الطيب الناشري القاضي وأذن له في الإفتاء
+  quote: الجمال الطيب الناشري
+  note:
+    ja: '「وحضر مجالس الجمال الطيب الناشري القاضي وأذن له في الإفتاء」。الجمال الطيب الناشري القاضي＝#AIND-D06630「محمد الجمال أبو عبد الله الشافعي أخو الذي قبله ووالد العفيف عبد الله الماضي ويعرف هذا بالطيب . ولد في ذي القعدة سنة اثنتين وثمانين وسبعمائة بزبيد … وولي قضاء الأقضية بزبيد بعد موت عمه المشار إليه في سنة أربع وأربعين فدام حتى مات بزبيد في شوال سنة أربع وسبعين」（兄 #AIND-D06629 の見出し「… الجمال … اليماني الزبيدي الناشري الشافعي」で الناشري 家）。ラカブ الجمال・通称 الطيب・カーディー職（ザビードの قضاء الأقضية）の3点が相手側原文で閉合（規則57）。repo 先例 #AIND-D05819「سمع على خاله القاضي الجمال الطيب」・#AIND-D00790 も #AIND-D06630。【集約 2026-11-03】校閲時の #AIND-D03455（الطيب بن محمد بن عبد الله … الناشري اليماني、768生・844没、قضاء الكدرا を務めたがラカブ الجمال も قاضي القضاة の職も見出し・本文にない）は誤り＝差し替え（内容B H、オーケストレーター決定2）。#AIND-D11075「ابن قاضي القضاة الجمال الطيب」も D06630 側を指す。ID-Master TMP-P-000364「الطيب محمد بن أحمد بن أبي بكر …」は D06630 と同人（ISSUES §D104-2 の既出名寄せ要）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00032
+  orgs:
+  - ref: TMP-I-00266
+  quote: نظر المدرسة الحسينية
+  note:
+    ja: 「أضيف إليه نظر المدرسة الحسينية وتدريسها إلى أن مات」。ناظر＝TMP-O-00032（汎用）。المدرسة الحسينية は ID-Master 未登録（「الحسينية」はカイロの街区 TMP-L-00007 とそのモスク TMP-I-00239 のみ）→ 新規 TMP-I-00266。施設の所在地（زبيد）は原文に直接の明記がないため state に placeName を置かない（規則22。文脈は上の event）。初版の affiliation employed（state と二重）を除去（規則8）。
+- id: s2
+  type: office
+  ref: wd:Q352842
+  orgs:
+  - ref: TMP-I-00266
+  quote: تدريسها
+events:
+- id: e1
+  type: teaching
+  quote: ودرس
+  trigger: rule
+- id: e2
+  type: political
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: null
+  summary:
+    ar: ولما ملك بنو طاهر زبيد أضيف إليه نظر المدرسة الحسينية وتدريسها إلى أن مات
+  note:
+    ja: ターヒル朝（بنو طاهر）のザビード領有に際し、المدرسة الحسينية の監督と教授を付与された（下の state）。年は原文になし＝日付属性を置かない（初版の when-custom="0858" cert medium は原文に根拠がなく除去、規則18・42）。placeName زبيد は原文の「ملك بنو طاهر زبيد」。「بنو طاهر」は王朝の集合名のため persName を立てない。
+- id: e3
+  type: cultural
+  persons:
+  - ref: AIND-D05983
+    quote: التقي عمر الفتي
+  works:
+  - ref: TMP-T-00262
+  quote: null
+  summary:
+    ar: وقد كتب تصحيحا على الوجيز استمده من تصحيح التقي عمر الفتي
+  note:
+    ja: '著作: 『الوجيز』（ID-Master 未登録 → 新規 TMP-T-00262）への تصحيح。典拠とした「تصحيح التقي عمر الفتي」の عمر الفتي＝#AIND-D05983「عمر بن محمد بن معيبد السراج أبو حفص … الزبيدي … ويعرف بالفتى」（同本伝に著作「الإبريز في تصحيح الوجيز」あり、索引 #AIND-D11320「الفتى اثنان يمنيان عمر بن محمد بن معيبد فقيه اليمن و…」）＝名＋通称＋著作で閉合。本項のラカブ「التقي」は D05983 の「السراج」と異なる（規則25、原文どおり保持し note）。'
+- id: e4
+  type: cultural
+  works:
+  - ref: TMP-T-00065
+  quote: وقطعة على المنهاج
+  note:
+    ja: '著作: 『منهاج الطالبين』（TMP-T-00065）への部分注釈。'
+translation:
+  ja: ムーサー・ブン・アフマド・ブン・アリー・ブン・ウジャイル、アル＝カマール、アル＝ヤマーニー、前述のアフマドとアブド・アッ＝ラティーフの父。802年に生まれ、学問に励んで法学で頭角を現し、カーディーのアル＝ジャマール・アッ＝タイイブ・アン＝ナーシリーの講義に出席し、彼からファトワー発行の許可を得た。教授しファトワーを発し、ターヒル家（バヌー・ターヒル）がザビードを領有すると、アル＝マドラサ・アル＝フサイニーヤの監督（ナザル）と教授職を付与され、（8）79年ムハッラム月11日金曜日に没するまでその任にあった。彼はアッ＝タキー・ウマル・アル＝ファティーの校訂に拠って『アル＝ワジーズ』の校訂を著し、また『アル＝ミンハージュ』に対する一部（の注釈）を著した。神が彼を慈しみたまわんことを。
+  en: Mūsā b. Aḥmad b. ʿAlī b. ʿUjayl, al-Kamāl, al-Yamānī, father of Aḥmad and ʿAbd al-Laṭīf (mentioned above). He was born in 802, devoted himself to study and distinguished himself in fiqh; he attended the sessions of the qāḍī al-Jamāl al-Ṭayyib al-Nāshirī, who authorised him to give fatwās. He taught and gave fatwās, and when the Banū Ṭāhir took possession of Zabīd, the supervision (naẓar) of al-Madrasa al-Ḥusayniyya and its teaching post were added to him, until he died on Friday 11 Muḥarram of the year [8]79. He wrote a taṣḥīḥ on al-Wajīz, drawing it from the taṣḥīḥ of al-Taqī ʿUmar al-Fatī, and a portion (of commentary) on al-Minhāj; may God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:14:03Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

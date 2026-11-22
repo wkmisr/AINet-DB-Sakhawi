@@ -1,0 +1,60 @@
+schema: aind-yaml/0.1
+id: AIND-D08023
+source:
+  uid: '268334012062'
+sex: M
+name:
+  full: محمد بن علي بن أحمد بن البرلسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00078
+    quote: البرلسي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08023
+  quote: null
+  note:
+    ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D08023
+  passive: AIND-D08670
+  methods:
+  - TMP-S-00006
+  context:
+  - date:
+      notBefore: 850
+    places:
+    - ref: TMP-L-00363
+      quote: أبيار
+    summary:
+      ar: ممن عرض عليه خير الدين بن القصبي بعيد الخمسين بأبيار
+  quote: خير الدين بن القصبي
+  note:
+    ja: '「ممن عرض عليه خير الدين بن القصبي」＝本項主が試問者（師、active）、提示した側＝خير الدين بن القصبي ＝ #AIND-D08670（محمد بن محمد بن أحمد بن موسى بن أبي بكر … خير الدين … أبو الخير بن الشمس السخاوي ثم القاهري ثم المدني المالكي … ويعرف بابن القصبي、842生。先例 D04010・D01418・D08074 と同型、規則28）。「بعيد الخمسين」＝850 の少し後 → notBefore-custom 0850（先例 D04010・D04384）。地名 أبيار（原文明記）は ID-Master 未登録 → TMP-L-00363。初版は passive #NEEDID・@when="after 850"（非ISO）・placeName #NEEDID。'
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アフマド・ブン・アル＝ブルッルスィー。ハイル・アッ＝ディーン・ブン・アル＝カサビーが850年の少し後にアビヤールで（暗誦を）提示した相手の一人。
+  en: Muḥammad b. ʿAlī b. Aḥmad b. al-Burullusī, one of those to whom Khayr al-Dīn b. al-Qaṣabī presented (his memorized texts) shortly after [the year] fifty at Abyār.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-04T14:10:16Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

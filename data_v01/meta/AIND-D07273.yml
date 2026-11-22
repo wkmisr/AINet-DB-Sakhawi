@@ -1,0 +1,89 @@
+schema: aind-yaml/0.1
+id: AIND-D07273
+source:
+  uid: '828609936748'
+sex: M
+name:
+  full: محمد بن أبي بكر الشمس الضبعي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02172
+    quote: الضبعي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D09562
+  passive: AIND-D07273
+  methods:
+  - TMP-S-00008
+  quote: null
+  note:
+    ja: '「أخذ عن الأياسي」。الأياسي ＝ #AIND-D09562「محمد بن يوسف بن بهادر ناصر الدين أبو عبد الله الأياسي … الغزي الحنفي الصوفي」（ガザのハナフィー派学者、ID-Master「ناصر الدين الأياسي」＝AIND-D09562 に名寄せ済み）。初版はニスバ番号 #TMP-N-00451 を人物位置に流用していた（カテゴリ不一致）。D09009「اشتغل على أبيه والأياسي … وولي قضاء غزة بعد الشمس الضبعي」も同じ師。'
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07273
+  quote: null
+  note:
+    ja: 父。原文は見出しの「بن أبي بكر」のみで識別要素なし（規則3 (c')）。
+- id: r3
+  type: personal
+  subtype: successor
+  active: AIND-D09009
+  passive: AIND-D07273
+  cert: medium
+  quote: null
+  note:
+    ja: 'ガザのカーディー職の後任。本項には記載がなく、相手側 #AIND-D09009「محمد بن محمد بن عمر الغزي الحنفي … وولي قضاء غزة بعد الشمس الضبعي فدام أربع عشرة سنة ثم صرف بإبراهيم بن حرارة واستمر حتى مات في أواخر سنة أربع وتسعين」が本項主（الشمس الضبعي＝ニスバ索引 #AIND-D11798「الضبعي بفتحتين ثم مهملة محمد بن أبي بكر الغزي」）を一意に名指しする（規則23、cert medium）。D09009 は未収録。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q217029
+  places:
+  - ref: TMP-L-00042
+    quote: غزة
+  quote: قضاء
+  note:
+    ja: 「وولي قضاء غزة」。地名は原文明記（規則22(2)）。repo 先例 D05713・D08902c と同じく汎用 قضاء（wd:Q217029）＋placeName。
+- id: s2
+  type: office
+  ref: TMP-O-00050
+  quote: الشهادة
+  note:
+    ja: 「ثم رجع إلى الشهادة」＝カーディー職の後に公証人業に戻った（「رجع」から、カーディー就任前にも公証人であったことが含意される）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+notes:
+- text: '「وهو الآن حي」＝執筆時点で存命（death を作らない）。ニスバ索引 #AIND-D11798「الضبعي بفتحتين ثم مهملة محمد بن أبي بكر الغزي」は本項主を指す（単独人物の索引見出し）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブー・バクル・アッ＝シャムス・アッ＝ダバイー・アル＝ハナフィー。アル＝アヤースィーから学び、ガザのカーディー職に就き、その後公証人業（シャハーダ）に戻った。彼は現在存命である。
+  en: Muḥammad b. Abī Bakr al-Shams al-Ḍabaʿī al-Ḥanafī. He studied under al-Ayāsī, held the judgeship (qaḍāʾ) of Gaza, and then returned to notarial work (al-shahāda). He is now alive.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T06:36:01Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

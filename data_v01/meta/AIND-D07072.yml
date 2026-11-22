@@ -1,0 +1,92 @@
+schema: aind-yaml/0.1
+id: AIND-D07072
+source:
+  uid: '730773601226'
+sex: M
+name:
+  full: محمد بن أحمد بن السبع القرشي القاهري الحنفي فخر الدين بن شهاب الدين
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00005
+    quote: القرشي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: null
+    label: فخر الدين
+  - id: n4
+    type: shuhrah
+    quote: null
+    label: ابن السبع
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001453
+  - id: n7
+    type: nasab
+    quote: السبع
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001453
+  passive: AIND-D07072
+  quote: null
+  note:
+    ja: '父 ＝ الشهاب أحمد القرشي القاهري الحنفي、ラカブ「السبع」（「ابن السبع وهو لقب أبيه」「فخر الدين بن شهاب الدين」。孫 D06208 にも「ابن السبع وهو لقب لجده الأعلى الشهاب أحمد」）。corpus の أحمد 部に本伝なし（D01259 は本項主の息子）・ID-Master 未登録 → 新規 TMP-P-001453。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D01259
+  passive: AIND-D07072
+  quote: null
+  note:
+    ja: '息子 ＝ #AIND-D01259（أحمد بن فخر الدين محمد بن الشهاب أحمد القرشي القاهري الحنفي والد قاسم الآتي ويعرف بابن السبع）。本項主の見出し「جد قاسم بن أحمد」とナサブが一致（規則37）。'
+- id: r3
+  type: personal
+  subtype: grandson
+  active: AIND-D06208
+  passive: AIND-D07072
+  quote: قاسم بن أحمد
+  note:
+    ja: '「جد قاسم بن أحمد الماضي」。孫 ＝ #AIND-D06208（قاسم بن أحمد بن فخر الدين محمد بن أحمد القرشي القاهري الحنفي الميقاتي … ويعرف بابن السبع）。初版の統制外 subtype「other」（#NEEDID）を是正。ID-Master の TMP-P-000468（قاسم بن أحمد بن فخر الدين محمد، D01259 で使用）は D06208 と名寄せ要（ISSUES §D117-3）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: cultural
+  subtype: witness
+  date:
+    ah: 801
+  quote: شهد
+  summary:
+    ar: شهد على بعض الحنفية في إجازة سنة إحدى
+  note:
+    ja: 本項主がハナフィー派の某のイジャーザの証人となった（規則28、授与者・受領者は無名）。「سنة إحدى」は一の位のみだが、孫 D06208 の本文「وقد رأيته شهد على بعض الحنفية في إجازة سنة إحدى وثمانمائة」が同じ行為を 801 と明記するため 801 と確定（cert なし）。801 ＝ 1398-09-21〜1399-09-10、年初 1398。初版の英文 desc・@cert="high"・subtype なしを是正（先例 D01491・D06030 の witness 型）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アッ＝サブウ（これは彼の父のラカブである）、アル＝クラシー・アル＝カーヒリー・アル＝ハナフィー、ファフルッディーン・ブン・シハーブッディーン、前述のカースィム・ブン・アフマドの祖父。（8）01年、あるハナフィー派の者たちのイジャーザにおいて証人となった。
+  en: Muḥammad b. Aḥmad b. al-Sabʿ (this being his father's laqab), al-Qurashī al-Qāhirī al-Ḥanafī, Fakhr al-Dīn b. Shihāb al-Dīn, the grandfather of the aforementioned Qāsim b. Aḥmad. He acted as witness for some Ḥanafīs in an ijāza in the year (8)01.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T06:29:05Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

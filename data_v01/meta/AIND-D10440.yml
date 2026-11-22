@@ -1,0 +1,95 @@
+schema: aind-yaml/0.1
+id: AIND-D10440
+source:
+  uid: '358877253936'
+sex: M
+name:
+  full: يوسف بن أحمد بن محمد بن أحمد بن محمد بن حسين بن بشر اليمني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00192
+    quote: اليمني
+  - id: n2
+    type: shuhrah
+    quote: اللقسة
+  - id: n3
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: حسين
+    by: rule
+  - id: n9
+    type: nasab
+    quote: بشر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 849-06
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات في جمادى الثانية سنة تسع وأربعين بمكة
+  note:
+    ja: 849年ジュマーダー・アッ＝サーニヤ月＝1445-09-13〜10-11（h2g.py）、月精度で @when=1445-09（初版 1445 を訂正）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10440
+  quote: null
+  note:
+    ja: 規則3 (c')。父は見出しナサブのみで識別要素（ラカブ・クンヤ・職）なし。corpus に本伝なし（全文検索「بن بشر」＝該当は本項のみ。#AIND-D06847 ほかの「محمد بن بشر … المطري」家は別系）。初版は父 relation なし＝追加。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد・本項主の没年 849（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 relation「chronicler」を event に変換。
+  trigger: rule
+translation:
+  ja: ユースフ・ブン・アフマド・ブン・ムハンマド・ブン・アフマド・ブン・ムハンマド・ブン・フサイン・ブン・ビシュル、アル＝ヤマニー、マッカの寄留者、アル＝ラクサとして知られる。（8）49年ジュマーダー・アッ＝サーニヤ月にマッカで没した。イブン・ファハドがその没年を記している。
+  en: Yūsuf b. Aḥmad b. Muḥammad b. Aḥmad b. Muḥammad b. Ḥusayn b. Bishr, al-Yamanī, resident of Mecca, known as al-Laqsa. He died in Jumādā II of the year [8]49 in Mecca. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:10:17Z'
+  model_requested: gemini-3.5-flash

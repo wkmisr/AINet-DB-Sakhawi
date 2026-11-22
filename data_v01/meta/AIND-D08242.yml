@@ -1,0 +1,67 @@
+schema: aind-yaml/0.1
+id: AIND-D08242
+source:
+  uid: '338574260971'
+sex: M
+name:
+  full: محمد بن علي الشمس السكندري المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00123
+    quote: السكندري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+    ref: TMP-P-001707
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08242
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بالمدينة」＝サハーウィーから聴聞（規則2、active=wd:Q4120128、relation 内 event に原文の地名 المدينة）。初版の独立 event type="study"（同内容の重複）を除去。
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D01102
+  passive: AIND-D08242
+  quote: أحمد
+  note:
+    ja: '「أخو أحمد الماضي」＝#AIND-D01102「أحمد بن علي السكندري المدني أخو محمد الآتي . ممن سمع مني بالمدينة」（名・父名・ニスバ2つが一致し、相手側も「أخو محمد الآتي」で本項主を名指し）。初版 #NEEDID。D01102 側の brother relation は ID-Master 既登録 TMP-P-001002「محمد بن علي السكندري المدني (أخو أحمد)」（Note「本伝未検出」）＝本項主そのもの → 名寄せ要（ISSUES §D163-3）。'
+- id: r3
+  type: personal
+  subtype: father
+  active: TMP-P-001707
+  passive: AIND-D08242
+  quote: null
+  note:
+    ja: '父 علي は本伝のある兄弟 #AIND-D01102 と共有する父（規則3 (c'')：兄弟項と共有する父は #NEEDID にせず仮番号）。corpus に本伝なし（hw.py「السكندري」「المدني」の علي 見出しに該当なし）、ID-Master の Person に未登録（السكندري の登録行に該当なし）→ 新規 TMP-P-001707（⚠汎用名、識別要素はニスバのみ）。初版なし。'
+translation:
+  ja: ムハンマド・ブン・アリー、アッ＝シャムス・アッ＝サカンダリー・アル＝マダニー、先述のアフマドの兄弟。マディーナで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿAlī al-Shams al-Sakandarī al-Madanī, the brother of the aforementioned Aḥmad. He was among those who heard from me (al-Sakhāwī) in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T15:14:56Z'
+  model_requested: gemini-3.5-flash

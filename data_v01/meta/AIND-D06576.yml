@@ -1,0 +1,126 @@
+schema: aind-yaml/0.1
+id: AIND-D06576
+source:
+  uid: '568307234799'
+sex: M
+name:
+  full: محمد بن إبراهيم الشمس أبو عبد الله المقدسي ثم الدمشقي الصالحي الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00037
+    quote: الصالحي
+  - id: n4
+    type: nisbah
+    ref: TMP-N-01546
+    quote: السيلي
+  - id: n5
+    type: laqab
+    quote: الشمس
+  - id: n6
+    type: kunyah
+    quote: أبو عبد الله
+  - id: n7
+    type: shuhrah
+    quote: null
+    label: السيلي
+  - id: n8
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+death:
+  id: d
+  date:
+    ah: 860
+    cert: low
+  summary:
+    ar: مات قريب الستين تقريبا
+  note:
+    ja: '「قريب الستين تقريبا」＝およそ860年近く（規則4、when-custom=860。قريب と تقريبا の二重の留保＝cert low、先例 #AIND-D08025「مات قريب الستين」）。860＝1455-12-20〜1456-12-07（h2g.py）、年精度で @when=1455（初版の 1456 を是正）。二重立項の相手 #AIND-D09482 は「ومات في .」で年が欠けている。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06576
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 إبراهيم は名のみで識別要素なし、corpus に本伝なし。なお二重立項の相手 #AIND-D09482 とニスバ索引 #AIND-D11750 は父名を موسى とする（下の possible_identity）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D06576
+  passive: AIND-D05165
+  methods:
+  - TMP-S-00008
+  quote: العلاء المرداوي
+  note:
+    ja: '「وممن أخذهما عنه العلاء المرداوي」＝本項主が師（active）。العلاء المرداوي＝#AIND-D05165「761 علي بن سليمان بن أحمد بن محمد العلاء المرداوي ثم الدمشقي الصالحي الحنبلي ويعرف بالمرداوي شيخ المذهب」、その本文「والفرائض والوصايا والحساب عن الشمس السيلي الحنبلي خازن الضيائية وانتفع به في ذلك جدا ولازمه فيه أكثر من عشر سنين」で閉合（ラカブ・通称・職の3点）。原文の双数「هما」は先行の3科目（الفرائض・الحساب・الوصايا）と数が合わない。相続分割学と算術の2科目と読んで field に置いた（الوصايا は Subject 未登録。D05165 側は3科目を挙げる）。初版は passive #NEEDID・subtype student（旧規約）で、相手が本文に名指しされているのを取りこぼしていた。'
+- id: r3
+  type: personal
+  subtype: possible_identity
+  active: AIND-D09482
+  passive: AIND-D06576
+  cert: high
+  quote: null
+  note:
+    ja: '二重立項（両項とも転送指示なし＝絶対基準により実項のまま）。#AIND-D09482「215 محمد بن موسى الشمس السیلی ثم الدمشقي الصالحي الحنيلى خازن كتب الضيائية . ممن تقدم في الفرائض والحساب وأخذ عنه الفضلاء . وكان شيخا خيرا ساكنا لقيته بالصالحية . ومات في .」（repo 未収録。corpus の表記は「السیلی」「الحنيلى」で字形が乱れている）は、ラカブ الشمس・ニスバ السيلي ثم الدمشقي الصالحي・ハンバリー派・職「خازن كتب الضيائية」・専門（الفرائض والحساب）・「لقيته بالصالحية」のすべてが本項と一致し、父名だけが إبراهيم／موسى と異なる。ニスバ索引 #AIND-D11750「السيلي بكسر ثم تحتانية نسبة لقرية بالقرب من القدس يقال لها سيلة محمد بن موسى الحنبلي الفرضي وقريبه يوسف بن عمر بن يوسف ممن سمع علي بمكة في سنة سبع وتسعين .」は السيلي として「محمد بن موسى الحنبلي الفرضي」一人（とその親族 يوسف）しか挙げず、محمد بن إبراهيم を挙げない＝同じ人物が父名の異なる2つの見出しで立項されたとみられる。サハーウィー自身の同定の言はなく校閲者の判断（先例 #AIND-D10474⇄#AIND-D10589 に倣い cert high、ISSUES §D171-1）。D09482 側の鏡像は同項の受領時。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00072
+  orgs:
+  - ref: TMP-I-00181
+  quote: خازن كتب
+  note:
+    ja: '「وكان خازن كتب الضيائية」。書庫係＝TMP-O-00072（خازن。先例 #AIND-D07837「خازن الكتب」＋orgName）、الضيائية＝TMP-I-00181（ダマスクス・サーリヒーヤの المدرسة الضيائية。同行の Note がこの句を引く）。初版は ref #NEEDID、同じ内容の affiliation（employed）を重ね（規則8）、placeName にカイロの المدرسة الصالحية（wd:Q7404512）を付けていた＝是正・除去。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: teaching
+  quote: انتفع به في ذلك وأخذ عنه الأئمة بل وقرأ أيضا
+  note:
+    ja: '相続分割学・算術・遺言の分野（「كان إماما في الفرائض والحساب والوصايا」）での教授。「الأئمة」は名なし＝relation を立てない。「بل وقرأ أيضا」は主語・目的語が省かれており、原文のまま訳した（D05165 側は「بل وقرأ عليه المقنع في الفقه بتمامه بحثا」と、本項主のもとでの読書を記す）。他項にのみ出る弟子: #AIND-D10697「وكذا أخذ الفرائض عن الشمس السيلي وغيره」、#AIND-D06871「وأنه قرأ في الحساب على الشمس السيلي الحنبلي」（いずれも repo 未収録。規則23 により本項では note に留める）。'
+- id: e2
+  type: cultural
+  subtype: meeting
+  persons:
+  - ref: wd:Q4120128
+  places:
+  - ref: TMP-L-00003
+    quote: الصالحية
+  quote: لقيته
+  summary:
+    ar: لقيته بالصالحية
+  note:
+    ja: サハーウィーがサーリヒーヤで本項主に会った。学習の明示がないので relation でなく event（規則56）。الصالحية＝ダマスクスのサーリヒーヤ TMP-L-00003（本項主は الدمشقي الصالحي、勤め先 الضيائية も同地）。初版はカイロの المدرسة الصالحية（wd:Q7404512）を充て、統制外 relation「acquaintance」と residence event を立てていた＝是正・除去（居住は原文に明記がなく、ニスバと面会地からの補完になる。規則22(1)）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム、アッ＝シャムス・アブー・アブドゥッラー・アル＝マクディスィー、のちアッ＝ディマシュキー・アッ＝サーリヒー・アル＝ハンバリー。アッ＝スィーリーとして知られる（無点字〔スィーン〕にカスラ、次に下点字〔ヤー〕、その後にラーム）。相続分割学・算術・遺言の分野でイマームであり、その分野で彼から益が得られ、イマームたちが彼に学び、さらには読みもした。この二つを彼から学んだ者の一人にアル＝アラー・アル＝マルダーウィーがいる。ディヤーイーヤの書庫係であった。私はサーリヒーヤで彼に会った。実によい人であった。およそ（8）60年近くに没した。
+  en: Muḥammad b. Ibrāhīm, al-Shams Abū ʿAbd Allāh al-Maqdisī, then al-Dimashqī al-Ṣāliḥī al-Ḥanbalī, known as al-Sīlī (with kasra on the undotted letter [sīn], then a letter dotted below [yāʾ], followed by lām). He was an imām in the law of inheritance shares, arithmetic and bequests; people benefited from him in this, and the imāms learned from him and indeed read as well. Among those who learned the two from him was al-ʿAlāʾ al-Mardāwī. He was the keeper of the books of the Ḍiyāʾiyya. I met him in al-Ṣāliḥiyya, and what an excellent man he was. He died close to the year [8]60, approximately.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T17:31:17Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

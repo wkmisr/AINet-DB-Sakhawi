@@ -1,0 +1,66 @@
+schema: aind-yaml/0.1
+id: AIND-D10448
+source:
+  uid: '107994960188'
+sex: M
+name:
+  full: يوسف بن أحمد بن يوسف
+  elements:
+  - id: n1
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n2
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: يوسف الفراء
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10448
+  quote: null
+  note:
+    ja: 規則3 (c')。父は見出しナサブのみで識別要素なし。初版は父 relation なし＝追加。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00019
+  quote: null
+  note:
+    ja: '見出し語「الفراء」＝毛皮職人（イブン・ハジャルの評「عامي」＝庶民とも合う。corpus では #AIND-D08780「ويعرف بابن الفراء وهي حرفة لأبيه」のように生業）。ID-Master の Office「صناعة الفراء」（TMP-O-00019）を充当。初版は nisbah・ref=#NEEDID としていた＝ニスバではないので除去し、規則5 により persName full からも除外。生業でなく通称・家名の可能性は残る（ISSUES §D167-5）。'
+events:
+- id: e1
+  type: cultural
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  quote: ينظم الزجل جيدا كتب إلي قطعة
+  note:
+    ja: 「كتب إلي قطعة أولها」の一人称は引用元の著者＝イブン・ハジャル（規則59(f)）。本項主がイブン・ハジャルにザジャル詩の一篇（イブン・ハジャルの著作名を詠み込んだ頌詩。冒頭16行が引用される）を書き送った。面識・師弟関係の明示はない＝relation を立てない（初版の統制外 relation「poetic correspondent」を除去）。「وهي طويلة تحتاج لتحرير」（詩は長く、校訂を要する）は引用者の評。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00104
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في معجمه
+  note:
+    ja: Pattern A（イブン・ハジャル『المجمع المؤسس للمعجم المفهرس』＝TMP-T-00104）。評「عامي مطبوع ينظم الزجل جيدا」は引用。初版になし＝追加。
+  trigger: rule
+translation:
+  ja: ユースフ・ブン・アフマド・ブン・ユースフ、毛皮職人。我らの師（イブン・ハジャル）が『ムウジャム』で彼に言及し、こう述べている。「天分に恵まれた庶民で、ザジャルを巧みに詠む。私（イブン・ハジャル）に一篇を書き送ってきた。その冒頭は次のとおりである。（詩、省略）」。それは長く、校訂を要する。
+  en: 'Yūsuf b. Aḥmad b. Yūsuf, the furrier. Our shaykh (Ibn Ḥajar) mentioned him in his Muʿjam and said: "A naturally gifted man of the common people who composes zajal well. He wrote to me a piece which begins: (verses omitted)". It is long and needs editing.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:28:40Z'
+  model_requested: gemini-3.5-flash

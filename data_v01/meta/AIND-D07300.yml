@@ -1,0 +1,91 @@
+schema: aind-yaml/0.1
+id: AIND-D07300
+source:
+  uid: '385561410982'
+sex: M
+name:
+  full: محمد بن جبريل الصفوي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00560
+    quote: الصفوي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: جبريل
+    by: rule
+  - id: n4
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 856-04
+  note:
+    ja: 「مات في ربيع الآخر سنة ست وخمسين رحمه الله」。856年ラビーウ2月＝1452-04-30開始（月精度→1452-04、h2g.py。初版の 1452 を月精度に）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D07903
+  passive: AIND-D07300
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00245
+  quote: ابن الهمام
+  note:
+    ja: '「أحد الفضلاء من جماعة ابن الهمام … سمع بقراءتي على شيخه الأربعين التي خرجتها له」。師（شيخه）＝ابن الهمام ＝ #AIND-D07903「محمد بن عبد الواحد بن عبد الحميد بن مسعود الكمال بن همام الدين … السيواسي الأصل ثم القاهري الحنفي」（没861。同項に「خرجت له من مروياته بالسماع والاجازة أربعين وابتهج بذلك ، وحدث بها سمعها منه الفضلاء」）。読み手（قارئ）はサハーウィー（بقراءتي）＝規則33「سمع من لفظه على X」と同型で、サハーウィーは師ではなく別 relation にしない（repo 慣例 D03417・D05118、初版の colleague relation を除去）。書名「الأربعين التي خرجتها له」＝サハーウィーが ابن الهمام のために編んだ40ハディース集（自伝 D07578 の著作目録「ومن الأربعينيات لكل من … الكمال بن الهمام」）。ID-Master 未登録 → TMP-T-00245。「من جماعة ابن الهمام」＝その門下の一人。初版の #NEEDID・field を是正。'
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07300
+  quote: null
+  note:
+    ja: '父。見出しの「بن جبريل」のみ（識別要素なし）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: status
+  ref: wd:Q2892720
+  orgs:
+  - ref: TMP-I-00027
+  quote: صوفية الشيخونية
+  note:
+    ja: 「وصوفية الشيخونية」＝シャイフー・ハーンカー（TMP-I-00027）のスーフィー（教団員、ID-Master صوفي wd:Q2892720）の一人。初版の affiliation affiliated との二重符号化を解消（規則8）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: teaching
+  quote: وأقرأ
+  note:
+    ja: 一部の学生に教授した。
+  trigger: rule
+- id: e2
+  type: cultural
+  persons:
+  - ref: AIND-D07903
+    quote: شيخه
+  quote: بل يقال إن شيخه أشار إليه بكتابة شرح على مصنفه في الأصول
+  cert: medium
+  note:
+    ja: 「يقال」＝伝聞（cert medium）。師 ابن الهمام が自著の法源学書（مصنفه في الأصول。書名は原文になく特定しない）への注釈執筆を彼に勧めたという。初版の英語 desc を原文 desc に置換（規則7）。
+translation:
+  ja: ムハンマド・ブン・ジブリール・アッ＝サファウィー・アル＝ハナフィー、イブン・アル＝フマームの門下とシャイフーニーヤのスーフィーたちの中の優れた者の一人。彼は、私（サハーウィー）が彼の師（イブン・アル＝フマーム）のために編んだ『四十（ハディース）』を、私の朗読により彼の師から聴聞した。彼は一部の学生に教授し、それどころか、彼の師は彼に自著の法源学（ウスール）書への注釈を書くよう勧めたと言われる。856年ラビーウ・アル＝アーヒル月に没した。アッラーが彼を慈しみ給うように。
+  en: Muḥammad b. Jibrīl al-Ṣafawī al-Ḥanafī, one of the accomplished men among the circle of Ibn al-Humām and the Sufis of al-Shaykhūniyya. He heard from his shaykh (Ibn al-Humām), through my (al-Sakhāwī's) reading, the Forty (ḥadīths) that I had compiled for him; he taught some students, and indeed it is said that his shaykh suggested that he write a commentary on his (the shaykh's) work on uṣūl. He died in Rabīʿ al-Ākhir 856, may God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T07:48:23Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

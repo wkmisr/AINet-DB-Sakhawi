@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ḍawʾ mARkdown Viewer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='9.5 10.5 47 47' > <g stroke='%23F1C400' stroke-width='2' stroke-linecap='round'> <line x1='32' y1='31' x2='15' y2='18'/> <line x1='32' y1='31' x2='49' y2='16'/> <line x1='32' y1='31' x2='20' y2='49'/> <line x1='32' y1='31' x2='47' y2='45'/> <line x1='15' y1='18' x2='20' y2='49'/> <line x1='49' y1='16' x2='47' y2='45'/> </g> <circle cx='32' cy='31' r='6.5' fill='%23F1C400' stroke='%23001E62' stroke-width='0.8'/> <circle cx='15' cy='18' r='4.2' fill='%236F9BFF' stroke='%23001E62' stroke-width='0.8'/> <circle cx='49' cy='16' r='4.2' fill='%236F9BFF' stroke='%23001E62' stroke-width='0.8'/> <circle cx='20' cy='49' r='4.2' fill='%236F9BFF' stroke='%23001E62' stroke-width='0.8'/> <circle cx='47' cy='45' r='4.2' fill='%236F9BFF' stroke='%23001E62' stroke-width='0.8'/> </svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a quiet philologist's workbench — calm, exact, nothing decorative
+   IDEA: a public-service reading tool in the Digital Agency design system; Arabic in Amiri as in OpenITI
+   PICTURE: the tagged biography itself, coloured by entity type, with its mARkdown source below
+   COLOUR and TYPE: DADS tokens (key blue #0017c1, gray-900 text, 4px black + yellow focus); Noto Sans JP + Amiri + Noto Sans Mono
+   LAYOUT: entry list | text + editor | card panel; stacks below 900px */
+:root{color-scheme:light dark;
+/* Digital Agency Design System tokens (@digital-go-jp/design-tokens 2.1.0) */
+--lat:'Noto Sans JP',system-ui,sans-serif;--ar:Amiri,Lateef,"Geeza Pro",serif;--mono:'Noto Sans Mono',Monaco,Consolas,monospace;
+--bg:light-dark(#f2f2f2,#1a1a1a);--paper:light-dark(#ffffff,#262626);--ink:light-dark(#1a1a1a,#f2f2f2);
+--mute:light-dark(#4d4d4d,#cccccc);--line:light-dark(#cccccc,#4d4d4d);--line2:light-dark(#949494,#7f7f7f);--link:light-dark(#0017c1,#9db7f9);--key:#0017c1;--key-h:#00118f;
+--per:light-dark(#0017c1,#9db7f9);--perbg:light-dark(#e8f1fe,#00118f);
+--pla:light-dark(#197a4b,#9bd4b5);--plabg:light-dark(#e6f5ec,#0c472a);
+--ono:light-dark(#5c10be,#ddc2ff);--onobg:light-dark(#f1eafa,#41048e);
+--nas:light-dark(#8b008b,#ffd0ff);--nasbg:light-dark(#f3e5f4,#500050);
+--lqb:light-dark(#006173,#c8f8ff);--lqbbg:light-dark(#e9f7f9,#004c59);
+--shr:light-dark(#806300,#fff0b3);--shrbg:light-dark(#fbf5e0,#604b00);
+--nis:light-dark(#3e5a00,#d0f5a2);--nisbg:light-dark(#ebfad9,#2c4100);
+--oth:light-dark(#4d4d4d,#cccccc);--othbg:light-dark(#f2f2f2,#333333);
+--yr:light-dark(#ac3e00,#ffc199);--yrbg:light-dark(#ffeee2,#6d2700);
+--nid:light-dark(#ec0000,#ff5454);--acc:light-dark(#ce0000,#ff5454);--focus:#ffd43d}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--lat);overflow-x:clip;display:flex;flex-direction:column;height:100vh}
+button,input,select{font:inherit;color:inherit}
+button{min-height:40px;padding:6px 14px;border:1px solid var(--key);color:var(--key);background:var(--paper);border-radius:8px;cursor:pointer;font-weight:700}
+button:hover{background:var(--perbg);text-decoration:underline}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:4px solid #000;outline-offset:2px;box-shadow:0 0 0 2px var(--focus)}
+button:disabled{border-color:var(--line);color:var(--line2);cursor:default;background:var(--paper);text-decoration:none}
+button.pri{background:var(--key);color:#fff;border-color:var(--key)}button.pri:hover{background:var(--key-h)}
+input,select{min-height:48px;padding:8px 12px;border:1px solid var(--line2);border-radius:8px;background:var(--paper);font-size:16px}
+header{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:10px 20px;border-bottom:1px solid var(--line);background:var(--paper)}
+header h1{font-size:20px;margin:0;font-weight:700;display:flex;align-items:center;gap:10px}
+header h1 svg{width:34px;height:34px;flex:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+.sp{flex:1}
+#status{font-size:13px;color:var(--mute)}
+main{display:grid;grid-template-columns:290px minmax(0,1fr) 370px;flex:1;min-height:0}
+#list,#panel{overflow:auto;border-inline-end:1px solid var(--line)}
+#panel{border-inline-end:0;border-inline-start:1px solid var(--line);padding:14px 16px;background:var(--paper)}
+.lhead{position:sticky;top:0;background:var(--bg);padding:10px;display:grid;gap:6px;border-bottom:1px solid var(--line);z-index:1}
+.lhead label{font-size:13px;display:flex;gap:6px;align-items:center}
+.item{display:block;width:100%;text-align:start;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;padding:8px 12px;min-height:48px;color:var(--ink);font-weight:400}
+.item:hover{background:var(--perbg);text-decoration:none}
+.item.on{background:var(--perbg);box-shadow:inset 4px 0 0 var(--key)}
+.item .id{font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:6px}
+.item .nm{font-family:var(--ar);direction:rtl;text-align:right;font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{font-size:12px;padding:0 6px;border-radius:4px;border:1px solid var(--line2);color:var(--mute)}
+.badge.ed{border-color:var(--key);color:var(--link);font-weight:700;letter-spacing:.04em}
+.cand.cur0{border:2px solid var(--key)}
+.badge.v-ok{border-color:#197a4b;color:#197a4b;font-weight:700}.badge.v-hm{border-color:#ac3e00;color:#ac3e00;font-weight:700}.badge.v-ng{border-color:var(--acc);color:var(--acc);font-weight:700}
+ul.rs{margin:4px 0 0;padding-inline-start:1.2em;font-size:14px}
+#warnbar{background:#fdeeee;color:#ce0000;border-bottom:2px solid #ce0000;padding:8px 16px;font-size:15px}
+.fz{color:#ac3e00;font-weight:700}
+.inev{text-decoration:underline 2px dotted #4d4d4d;text-underline-offset:10px}
+.evn{font-size:12px;color:#4d4d4d;font-family:var(--sans,system-ui);margin-inline-end:2px}
+.evhl{outline:3px solid #ffd43d!important;background:#fff6cc!important}
+button.mini{font-size:12px;padding:1px 6px;min-height:0;border-radius:4px}
+.ent.fzt{outline:2px dashed #ac3e00;outline-offset:2px}
+.chk{color:var(--link);font-weight:700;letter-spacing:.04em}
+#center{overflow:auto;padding:18px clamp(14px,3vw,40px)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:14px;color:var(--mute);margin-bottom:10px}
+.meta b{color:var(--ink);font-size:16px}
+#text{font-family:var(--ar);direction:rtl;text-align:justify;font-size:24px;line-height:2.4;background:var(--paper);border:1px solid var(--line2);border-radius:8px;padding:20px 24px;user-select:text}
+.ent{border-radius:4px;padding:2px 3px;cursor:pointer;border-bottom:2px solid currentColor}
+.ent.P{color:var(--per);background:var(--perbg)}.ent.T{color:var(--pla);background:var(--plabg)}
+.ent.O{color:light-dark(#00428c,#9ddcff);background:light-dark(#dcf0ff,#00316a);border-bottom-style:double;border-bottom-width:4px}
+.ent.S{color:var(--oth);background:var(--othbg)}
+.ent.S.s-ism{color:var(--ono);background:var(--onobg)}.ent.S.s-nasab{color:var(--nas);background:var(--nasbg)}
+.ent.S.s-laqab{color:var(--lqb);background:var(--lqbbg)}.ent.S.s-shuhrah{color:var(--shr);background:var(--shrbg)}
+.ent.S.s-nisbah{color:var(--nis);background:var(--nisbg)}
+.ent.Y{color:var(--yr);background:var(--yrbg)}
+.ent.nid{outline:2px dashed var(--nid);outline-offset:1px;border-bottom-color:transparent}
+.ent.sel{outline:3px solid #000;outline-offset:1px;box-shadow:0 0 0 5px var(--focus);position:relative}
+.grip{position:absolute;top:50%;width:12px;height:28px;margin-top:-14px;background:#000;border:2px solid var(--focus);border-radius:4px;cursor:ew-resize;z-index:2}
+.grip.s{right:-12px}.grip.e{left:-12px}
+body.gripping,body.gripping *{cursor:ew-resize!important;user-select:none}
+.tg{display:none;font:11px/1 var(--mono);direction:ltr;unicode-bidi:isolate;color:var(--mute);vertical-align:super;margin-inline:2px}
+body.raw .tg{display:inline}
+.hemi{color:var(--mute)}
+#tip{position:fixed;z-index:20;max-width:400px;pointer-events:none;background:var(--paper);color:var(--ink);border:1px solid var(--line2);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.2);padding:10px 12px;font-size:14px;line-height:1.5;display:none}
+#tip .h{font-weight:700;margin-bottom:4px}
+#tip code{font:12px var(--mono);direction:ltr;unicode-bidi:isolate;background:var(--bg);padding:1px 4px;border-radius:3px}
+#tip .ar{font:18px/1.7 var(--ar);direction:rtl;text-align:right}
+#tip dl{display:grid;grid-template-columns:4.5em minmax(0,1fr);gap:2px 8px;margin:6px 0 0}#tip dt{color:var(--mute)}#tip dd{margin:0;overflow-wrap:anywhere}
+#tbar{position:fixed;display:none;gap:6px;padding:6px;background:var(--paper);border:1px solid var(--line2);border-radius:8px;z-index:9;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+#tbar button{background:var(--bg);min-height:34px}
+.card h2{font-size:15px;margin:0 0 6px}
+.card .big{font-family:var(--ar);direction:rtl;text-align:right;font-size:20px;line-height:1.8}
+.kv{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 8px;font-size:14px;margin:8px 0}
+.kv dt{color:var(--mute)}.kv dd{margin:0;overflow-wrap:anywhere}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.cand{border:1px solid var(--line);border-radius:6px;padding:8px;margin:6px 0;background:var(--bg)}
+.cand .ar{font-family:var(--ar);direction:rtl;text-align:right;font-size:17px}
+.cand .sn{font-family:var(--ar);direction:rtl;text-align:right;font-size:14px;color:var(--mute);line-height:1.8}
+.cand .hd{display:flex;gap:8px;align-items:center;font-size:12px}
+.cand .hd .sp{flex:1}
+.mlist a,.lk{color:var(--link);cursor:pointer;text-decoration:underline}
+.mlist{font-size:14px;max-height:260px;overflow:auto;padding:0;margin:4px 0;list-style:none}
+.mlist li{padding:3px 0;border-bottom:1px solid var(--line)}
+.mlist .ar{font-family:var(--ar)}
+.note{font-size:14px;color:var(--mute)}
+.step{display:inline-flex;align-items:center;gap:6px}
+textarea{width:100%;min-height:160px;font:13px var(--mono);direction:rtl}
+.ed{margin-top:16px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.edbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px}
+.edbar b{font-family:var(--mono);font-size:13px}
+#dirty{color:var(--acc);font-size:13px}
+#md{display:block;border:0;border-radius:0 0 8px 8px;min-height:200px;padding:14px 16px;font:19px/2 var(--ar);background:var(--paper);color:var(--ink);resize:vertical;unicode-bidi:plaintext}
+.trs{margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 20px}
+.trta{width:100%;min-height:110px;font:16px/1.8 var(--lat);direction:ltr;border:1px solid var(--line2);border-radius:8px;padding:8px 12px;margin:2px 0 8px;background:var(--paper);color:var(--ink)}
+.lkb{min-height:28px;padding:0 8px;font-size:13px;font-weight:400}
+.aibox{margin-top:8px}.ai{border:2px solid var(--line2);border-radius:8px;padding:8px 12px;background:var(--paper)}
+.ai.ok{border-color:var(--pla)}.ai.hm{border-color:var(--yr)}.ai.ng{border-color:var(--nid)}
+.ai .aih{font-size:15px}.ai ul{margin:4px 0;padding-inline-start:1.2em;font-size:14px}.ai-wait{font-size:14px;color:var(--mute)}
+.trs h3{font-size:14px;margin:8px 0 2px;color:var(--mute)}.trs p{margin:0 0 6px;font-size:16px;line-height:1.8}
+.js summary{cursor:pointer;padding:10px 12px;list-style-position:inside}
+#jta{display:block;width:100%;border:0;border-top:1px solid var(--line);border-radius:0 0 8px 8px;min-height:360px;padding:12px 16px;font:13px/1.6 var(--mono);direction:ltr;unicode-bidi:plaintext;background:var(--paper);color:var(--ink);resize:vertical}
+.ent.drop,#text [data-w].drop{outline:3px solid #000;outline-offset:1px;box-shadow:0 0 0 5px var(--focus)}
+.mlist li[draggable=true]{cursor:grab}.mlist li[draggable=true]:hover{background:var(--perbg)}
+.js pre{margin:0;padding:12px 16px;max-height:60vh;overflow:auto;font:13px/1.6 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;border-top:1px solid var(--line);unicode-bidi:plaintext}
+#md:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+.bad{text-decoration:wavy underline var(--nid);text-decoration-skip-ink:none}
+.tg{font-family:var(--mono)}
+.load{padding:40px;text-align:center;color:var(--mute)}
+@media(max-width:900px){body{height:auto;display:block}main{grid-template-columns:1fr}#list{max-height:40vh}#panel{border:0;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<header>
+  <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="9.5 10.5 47 47" aria-hidden="true" focusable="false">
+<g stroke="#F1C400" stroke-width="2" stroke-linecap="round">
+<line x1="32" y1="31" x2="15" y2="18"/>
+<line x1="32" y1="31" x2="49" y2="16"/>
+<line x1="32" y1="31" x2="20" y2="49"/>
+<line x1="32" y1="31" x2="47" y2="45"/>
+<line x1="15" y1="18" x2="20" y2="49"/>
+<line x1="49" y1="16" x2="47" y2="45"/>
+</g>
+<circle cx="32" cy="31" r="6.5" fill="#F1C400" stroke="#001E62" stroke-width="0.8"/>
+<circle cx="15" cy="18" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
+<circle cx="49" cy="16" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
+<circle cx="20" cy="49" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
+<circle cx="47" cy="45" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
+</svg><span>al-Ḍawʾ al-Lāmiʿ — mARkdown Viewer</span></h1>
+  <label style="font-size:13px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="raw" style="min-height:0"> タグ記号を表示</label>
+  <span class="sp"></span>
+  <span id="status">読み込み中…</span>
+</header>
+<main>
+  <nav id="list">
+    <div class="lhead">
+      <input id="q" type="search" placeholder="AIND番号・名前で検索" aria-label="検索">
+      <label><input type="checkbox" id="qfull" style="min-height:0"> 本文も検索</label>
+      <select id="flt" aria-label="絞り込み">
+        <option value="all">すべての見出し</option>
+        <option value="x">XMLあり（タグ付き）</option>
+        <option value="nid">未同定タグあり</option>
+        <option value="ed">CHECKED（このビューアーで確認・編集済み）</option>
+        <option value="no">XMLなし（未処理）</option>
+        <option value="oth">その他・転送</option>
+        <option value="rm">取り除いたもの</option>
+      </select>
+      <div class="note" id="cnt"></div>
+    </div>
+    <div id="items"></div>
+  </nav>
+  <section id="center"><div class="load">ダウの全見出しを読み込んでいます（約16MB）…</div></section>
+  <aside id="panel"></aside>
+</main>
+<div id="tip" role="tooltip"></div>
+<script src="js-yaml.min.js"></script>
+<div id="tbar"><button data-t="P">人物</button><button data-t="T">地名</button><button data-t="S">名前要素</button><button data-t="O">官職・職業</button><button data-t="Y">年・月</button></div>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const N=s=>s.replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي');
+const ENT=/^@(P|T|S|O|E|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
+const isTag=w=>ENT.test(w)||YR.test(w)||LM.test(w);
+const MON=['','ムハッラム（1月）','サファル（2月）','ラビーウ・アウワル（3月）','ラビーウ・サーニー（4月）','ジュマーダー・ウーラー（5月）','ジュマーダー・アーヒラ（6月）','ラジャブ（7月）','シャアバーン（8月）','ラマダーン（9月）','シャウワール（10月）','ズー・アルカアダ（11月）','ズー・アルヒッジャ（12月）'];
+const NUMW=new Set('واحد احدى إحدى اثنتين اثنين ثنتين ثلاث ثلاثة أربع اربع أربعة خمس خمسة ست ستة سبع سبعة ثمان ثماني ثمانية تسع تسعة عشر عشرة عشرين ثلاثين أربعين اربعين خمسين ستين سبعين ثمانين تسعين مائة مئة مائتين ثلاثمائة أربعمائة اربعمائة خمسمائة ستمائة سبعمائة ثمانمائة ثمانمئة تسعمائة بضع بضعة'.split(' '));
+const yLabel=m=>m[3]?`${+m[2]}〜${+m[3]}年（おおよそ）`:`${+m[2]}年`, yCE=m=>m[3]?`${Math.round(+m[2]*0.970229+621.5643)}〜${Math.round(+m[3]*0.970229+621.5643)}年ごろ`:`${Math.round(+m[2]*0.970229+621.5643)}年ごろ`;
+const isNum=w=>NUMW.has(w)||(w[0]==='و'&&NUMW.has(w.slice(1)));
+const KIND={M:'男性 $',F:'女性 $$',R:'転送 $$$',O:'その他',X:'取り除いた'};
+let KINDS={};try{KINDS=JSON.parse(localStorage.getItem('dawKinds')||'{}')}catch{}
+const kindOf=e=>KINDS[e.k]?.m||e.m;
+async function setKind(k,m){const e=BY.get(k);
+  const rec=m&&m!==e.m?{m,was:e.m,at:Date.now(),...(uid?{by:uid}:{})}:null;
+  if(rec)KINDS[k]=rec;else delete KINDS[k];
+  if(db){try{rec?await db.doc('kinds/'+k).set(rec):await db.doc('kinds/'+k).delete()}catch(err){warnLocal(err.code)}}else warnLocal();
+  try{localStorage.setItem('dawKinds',JSON.stringify(KINDS))}catch{}
+  status(rec?`${k} を「${KIND[m]}」に振り分けました`:`${k} の振り分けを元に戻しました`);openEntry(k);renderList()}
+const OSUB={'office':'官職・職業','office/deputy':'代理職','status':'身分・地位'};
+let OFFS={},IDMJ={};
+let ABS={};try{ABS=JSON.parse(localStorage.getItem('dawAbsent')||'{}')}catch{}
+const uKey=u=>['u',u.k,u.typ||'',u.id||'',u.lab].join('|'),oKey=o=>['o',o.typ,o.id||'',o.lab].join('|');
+const isAbs=(k,key)=>!!ABS[k]?.[key];
+async function setAbs(k,key,on){const d={...(ABS[k]||{})};if(on)d[key]={at:Date.now(),...(uid?{by:uid}:{})};else delete d[key];
+  if(Object.keys(d).length)ABS[k]=d;else delete ABS[k];
+  if(db){try{Object.keys(d).length?await db.doc('absent/'+k).set({items:d}):await db.doc('absent/'+k).delete()}catch(err){warnLocal(err.code)}}else warnLocal();
+  try{localStorage.setItem('dawAbsent',JSON.stringify(ABS))}catch{}openEntry(k,false)}
+const idmLabel=id=>{const f=IDMJ[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.x?'（廃止）':''):null};
+const ONO={ism:'イスム',nasab:'ナサブ',madhhab:'法学派',nisbah:'ニスバ',laqab:'ラカブ',kunyah:'クンヤ',shuhrah:'シュフラ（通称）',honorific:'敬称'};
+const ROLE_JP={teacher:'師',student:'弟子',father:'父',mother:'母',son:'息子',daughter:'娘',child:'子',brother:'兄弟',sister:'姉妹',grandfather:'祖父',paternal_grandfather:'父方の祖父',maternal_grandfather:'母方の祖父',grandmother:'祖母',grandson:'孫',spouse:'配偶者',uncle:'おじ',paternal_uncle:'父方のおじ',maternal_uncle:'母方のおじ',maternal_aunt:'母方のおば',granduncle:'大おじ',cousin:'いとこ',relative:'親族',siblings_child:'甥・姪',nephew:'甥',ancestor:'祖先','father-in-law':'義父','son-in-law':'婿','brother-in-law':'義兄弟',relative_by_marriage:'姻族',patron:'庇護者',client:'被庇護者',employer:'雇い主',servant:'従者',predecessor:'前任者',successor:'後任者',deputy:'代理',colleague:'同僚',rival:'対立者',friend:'友人',companion:'同行者',neighbor:'隣人',met:'面会',killer:'殺害者',educator:'養育者',ward:'被養育者',biographer:'伝記作者',possible_identity:'同一人物の可能性',mention:'言及',meeting:'会見',witness:'証人',funeral:'葬儀',isnad:'イスナード',political:'政治的事件',cultural:'文化的事件',other:'その他',person:'人物'};
+const METH_AR={samac:'سمع',hudur:'حضر',qiraa:'قرأ',ard:'عرض',ijaza:'أجاز',akhdh:'أخذ',mulazama:'لازم',tafaqquh:'تفقه',tajwid:'جوّد',tilawa:'تلا',tahdith:'حدّث',kitaba:'كتب',libs:'لبس',suhba:'صحب',ishtighal:'اشتغل',dars:'درس',takharruj:'تخرج',bahth:'بحث',riwaya:'روى'};
+const splitRole=r=>{const [a,b]=(r||'').split('/');return{roles:a||'',meths:b?b.split('.'):[]}};
+const methAR=ms=>ms.map(x=>METH_AR[x]||x).join('・');
+const roleJP=r=>{if(!r)return '';const {roles,meths}=splitRole(r);return roles.split('+').map(x=>ROLE_JP[x]||x.replace(/^inv-/,'逆:')).join('・')+(meths.length?'（'+methAR(meths)+'）':'')};
+const nA=x=>(x||'').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا');
+const methMatch=(xr,ms)=>{if(!ms.length)return xr;return xr.filter(r=>!r.m||ms.some(s=>nA(r.m).startsWith(nA(METH_AR[s]||'@@'))))};
+function parseBr(br){if(br==null)return{sub:null,id:null};const m=/^([A-Za-z0-9_+\-\/.]+):(.+)$/.exec(br);if(m&&m[1]!=='wd'&&m[1]!=='gn')return{sub:m[1],id:m[2]};const s=/^([a-z]+(?:\/deputy)?)$/.exec(br);if(s&&(ONO[s[1]]||OSUB[s[1]]))return{sub:s[1],id:null};return{sub:null,id:br}}
+let E=[],BY=new Map(),LAB={},EDITS={},MENT=new Map(),KEYIDS=new Map();
+let lastSel=null,cur=null,sel=null,mode=null,db=null,user=null,dl=null,uid=null;const DRAFTS={};
+const curText=()=>DRAFTS[cur.k]??textOf(cur);
+
+const textOf=e=>EDITS[e.k]?.t??e.t;
+const plain=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
+const offLabel=id=>{const f=OFFS[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.cls?'［'+f.cls+'］':'')+(f.st==='retired'?'（廃止）':''):null};
+const label0=id=>id==='NEEDID'?'（未同定）':(BY.get(id)?.n||offLabel(id)||idmLabel(id)||LAB[id]||'（表示名なし）');
+const label=id=>isMerged(id)?label0(canon(id))+'（'+id+' から統合）':label0(id);
+function idsIn(t){const s=new Set();for(const m of t.matchAll(/@(?:P|T|S|PER|TOP|SOC)\d\d+\[([^\]]+)\]/g)){const id=parseBr(m[1]).id;if(id&&id!=='NEEDID')s.add(canon(id))}return s}
+function reindexAll(){MENT.clear();KEYIDS.clear();for(const e of E)index(e)}
+function index(e){
+  const old=KEYIDS.get(e.k);if(old)for(const id of old)MENT.get(id)?.delete(e.k);
+  const ids=idsIn(textOf(e));KEYIDS.set(e.k,ids);
+  for(const id of ids){if(!MENT.has(id))MENT.set(id,new Set());MENT.get(id).add(e.k)}
+}
+
+// ---------- list
+let lt;
+function renderList(){
+  const q=N($('#q').value.trim()),full=$('#qfull').checked,f=$('#flt').value;
+  const out=[];
+  for(const e of E){
+    const km=kindOf(e);if(km==='X'&&f!=='rm')continue;if(f==='rm'&&km!=='X')continue;if(f==='oth'&&!['O','R'].includes(km))continue;
+    if(f==='x'&&!e.x)continue;if(f==='no'&&e.x)continue;
+    if(f==='ed'&&!EDITS[e.k])continue;
+    if(f==='nid'&&!textOf(e).includes('[NEEDID]'))continue;
+    if(q&&!(e.k.includes(q.toUpperCase())||e.s.includes(q)||N(e.n).includes(q)||(full&&N(plain(textOf(e))).includes(q))))continue;
+    out.push(e);
+  }
+  $('#cnt').textContent=`${out.length.toLocaleString()} 件`+(out.length>400?'（先頭400件を表示）':'');
+  $('#items').innerHTML=out.slice(0,400).map(e=>`<button class="item${cur&&cur.k===e.k?' on':''}" data-k="${e.k}"><span class="id">${e.k.startsWith('AIND')?e.k:'#'+e.k} <span class="badge">${KIND[kindOf(e)]}</span>${e.x?'<span class="badge">XML</span>':''}${EDITS[e.k]?'<span class="badge ed">CHECKED</span>':''}</span><span class="nm">${esc(e.n)}</span></button>`).join('');
+}
+$('#items').addEventListener('click',ev=>{const b=ev.target.closest('.item');if(b)openEntry(b.dataset.k)});
+['input','change'].forEach(t=>{$('#q').addEventListener(t,()=>{clearTimeout(lt);lt=setTimeout(renderList,220)});});
+$('#qfull').addEventListener('change',renderList);$('#flt').addEventListener('change',renderList);
+$('#raw').addEventListener('change',e=>document.body.classList.toggle('raw',e.target.checked));
+
+// ---------- text
+function renderText(){
+  const toks=curText().split(' ');let h='',i=0;
+  while(i<toks.length){
+    const t=toks[i];let m;
+    if((m=ENT.exec(t))&&m[1]==='E'){h+=`<span class="tg">${esc(t)}</span>`;i++;continue}
+    if(m=ENT.exec(t)){
+      const n=+m[3],cls=m[1][0],pb=parseBr(m[4]),id=pb.id??'';const nid=cls!=='S'&&!(cls==='O'&&pb.sub==='status')&&(!id||id==='NEEDID');
+      const ws=[];let j=i+1;while(ws.length<n&&j<toks.length){ws.push(j);j++}
+      h+=`<span class="tg">${esc(t)}</span><span class="ent ${cls}${cls==='S'&&pb.sub?' s-'+pb.sub:''}${nid?' nid':''}" data-tag="${i}">`+ws.map(k=>`<span data-w="${k}">${esc(toks[k])}</span>`).join(' ')+'</span> ';
+      i=j;continue;
+    }
+    if(m=LM.exec(t)){
+      const ws=[];let j=i+1;while(ws.length<+m[1]&&j<toks.length){ws.push(j);j++}
+      h+=`<span class="tg">${esc(t)}</span><span class="ent Y" data-tag="${i}">`+ws.map(k=>`<span data-w="${k}">${esc(toks[k])}</span>`).join(' ')+'</span> ';
+      i=j;continue;
+    }
+    if(m=YR.exec(t)){
+      const ws=[i+1];let j=i+2;if(m[4]){while(ws.length<+m[4]&&j<toks.length){ws.push(j);j++}}else while(j<toks.length&&isNum(toks[j])){ws.push(j);j++}
+      h+=`<span class="tg">${esc(t)}</span><span class="ent Y" data-tag="${i}">`+ws.map(k=>`<span data-w="${k}">${esc(toks[k]??'')}</span>`).join(' ')+'</span> ';
+      i=j;continue;
+    }
+    h+=t==='%~%'?'<span class="hemi">%~%</span> ':t.startsWith('@')?`<span class="tg" style="display:inline">${esc(t)}</span><span class="bad" data-w="${i}" title="不明なタグ">?</span> `:`<span data-w="${i}">${esc(t)}</span> `;i++;
+  }
+  $('#text').innerHTML=h;
+  markFz();markEv();
+}
+function openEntry(k,push=true){
+  const e=BY.get(k);if(!e)return;cur=e;mode=null;
+  const ed=EDITS[k];
+  $('#center').innerHTML=`<div class="meta"><b>${e.k.startsWith('AIND')?e.k:'#'+e.k}</b><span>原典ID ${e.s||'—'}</span><span>${KIND[kindOf(e)]}${KINDS[e.k]?`（元は${KIND[KINDS[e.k].was]}）`:''}</span>${KINDS[e.k]?'<button id="kundo">振り分けを元に戻す</button>':(['O','R'].includes(e.m)?'<button id="krm">取り除く</button><button id="kbm">伝記（男性）として記録</button><button id="kbf">伝記（女性）として記録</button>':'')}${e.x?'':'<span>XMLなし（タグなし）</span>'}${ed?`<span class="chk">CHECKED</span><span>${new Date(ed.at).toLocaleString('ja-JP')}${ed.byName?' · '+esc(ed.byName):''}</span> <button id="rev">${ed.t===e.t?'CHECKED を外す':'元に戻す'}</button>`:(e.x?'<button class="pri" id="chkbtn">CHECKED</button>':'')}</div><div id="text"></div><section class="trs" id="trs"><div class="edbar" style="padding:0;border:0"><b>翻訳</b>${JEDITS[e.k]?.j?.translation?'<span class="note chk">CHECKED</span>':''}<span class="sp"></span><button id="tred">訳を編集</button></div>
+  <div id="trview">${e.tr?.ja?`<h3>日本語訳</h3><p>${esc(e.tr.ja)}</p>`:''}${e.tr?.en?`<h3>English</h3><p lang="en">${esc(e.tr.en)}</p>`:''}${!e.tr?.ja&&!e.tr?.en?'<p class="note">翻訳はまだありません。</p>':''}</div>
+  <div id="trform" hidden><label class="note" for="trja">日本語訳</label><textarea id="trja" class="trta">${esc(e.tr?.ja||'')}</textarea><label class="note" for="tren">English</label><textarea id="tren" class="trta" lang="en">${esc(e.tr?.en||'')}</textarea>
+  <div class="row"><span class="sp"></span><button id="trcx">取り消し</button><button class="pri" id="trsv">訳を保存</button></div></div></section>
+  <details class="ed js" id="jsd"><summary><b>YAML</b> <span class="note">構造化データ（aind-yaml 0.1）${JEDITS[e.k]?' ・<b class="chk">CHECKED</b>':''}</span></summary>
+  <div class="edbar"><span id="jmsg" class="note"></span><span class="sp"></span><button id="jfmt" aria-pressed="false">JSON で表示</button><button id="jcp">コピー</button><button id="jrv" ${JEDITS[e.k]?'':'disabled'}>XMLの値に戻す</button><button class="pri" id="jsv" disabled>保存</button></div>
+  <textarea id="jta" spellcheck="false" aria-label="構造化データの編集">読み込み中…</textarea></details>
+  <div class="ed"><div class="edbar"><b>mARkdown</b><span id="dirty"></span><span class="sp"></span><button id="ds">編集を破棄</button><button class="pri" id="sv">保存（⌘S）</button></div>
+  <textarea id="md" spellcheck="false" aria-label="mARkdown の編集"></textarea></div>`;
+  renderText();showEntryCard();
+  const ta=$('#md');ta.value=isolate(curText());markDirty();
+  ta.addEventListener('blur',()=>{ta.value=isolate(unisolate(ta.value).replace(/\s+/g,' ').trim())});
+  let et;ta.addEventListener('input',()=>{clearTimeout(et);et=setTimeout(()=>{
+    const v=unisolate(ta.value).replace(/\s+/g,' ').trim();
+    if(v===textOf(cur))delete DRAFTS[cur.k];else DRAFTS[cur.k]=v;
+    renderText();if(!mode)showEntryCard();markDirty();
+  },200)});
+  ta.addEventListener('keydown',ev=>{if((ev.metaKey||ev.ctrlKey)&&ev.key==='s'){ev.preventDefault();saveDraft()}});
+  $('#sv').onclick=saveDraft;
+  $('#tred').onclick=()=>{$('#trview').hidden=true;$('#trform').hidden=false;$('#tred').hidden=true;$('#trja').focus()};
+  $('#trcx').onclick=()=>openEntry(e.k,false);
+  $('#trsv').onclick=async()=>{const r=await loadRecords();const jj=JEDITS[e.k]?.j;const base=structuredClone(jj&&jj.schema?jj:(r?.[e.k]??{id:e.k}));
+    const ja=$('#trja').value.trim(),en=$('#tren').value.trim();const t={};if(ja)t.ja=ja;if(en)t.en=en;
+    if(Object.keys(t).length)base.translation=t;else delete base.translation;
+    const rec={j:base,at:Date.now(),base:hash(JSON.stringify(r?.[e.k]||{}))};if(uid)rec.by=uid;JEDITS[e.k]=rec;e.tr=t;await persistJ(e.k,rec);openEntry(e.k,false)};
+  let fmt='yaml';
+  const dump=o=>fmt==='yaml'?jsyaml.dump(o,{lineWidth:-1,noRefs:true,sortKeys:false}):JSON.stringify(o,null,2);
+  const parse=s=>fmt==='yaml'?jsyaml.load(s):JSON.parse(s);
+  $('#jsd').addEventListener('toggle',async ev=>{if(!ev.target.open)return;const r=await loadRecords();const ta=$('#jta');if(!ta)return;
+    const jj=JEDITS[e.k]?.j;let v=jj??(r&&r[e.k])??{id:e.k};
+    if(jj&&!jj.schema){v=structuredClone((r&&r[e.k])||{id:e.k});if(jj.translation)v.translation=jj.translation;$('#jmsg').textContent='旧形式（XML 由来）で保存された編集があります。訳だけを新形式に引き継いで表示しています。'}
+    ta.value=dump(v);ta.dataset.orig=ta.value;$('#jsv').disabled=true;
+    ta.oninput=()=>{let ok=true;try{parse(ta.value)}catch(err){ok=false;$('#jmsg').textContent=(fmt==='yaml'?'YAML':'JSON')+' の書式に誤りがあります：'+String(err.message).split('\n')[0]}if(ok)$('#jmsg').textContent=ta.value!==ta.dataset.orig?'未保存の変更があります':'';$('#jsv').disabled=!ok||ta.value===ta.dataset.orig};});
+  $('#jfmt').onclick=()=>{const ta=$('#jta');let o;try{o=parse(ta.value)}catch{return status('書式の誤りを直してから切り替えてください')}
+    const dirty=ta.value!==ta.dataset.orig;const origObj=parse(ta.dataset.orig);fmt=fmt==='yaml'?'json':'yaml';ta.value=dump(o);ta.dataset.orig=dirty?dump(origObj):ta.value;
+    $('#jfmt').textContent=fmt==='yaml'?'JSON で表示':'YAML で表示';$('#jfmt').setAttribute('aria-pressed',fmt==='json');$('#jsd summary b').textContent=fmt.toUpperCase()};
+  $('#jcp').onclick=()=>{const ta=$('#jta');if(ta)navigator.clipboard.writeText(ta.value).then(()=>status('コピーしました'),()=>{})};
+  $('#jsv').onclick=async()=>{const ta=$('#jta');let j;try{j=parse(ta.value)}catch{return}
+    const r=await loadRecords();const rec={j,at:Date.now(),base:hash(JSON.stringify(r?.[e.k]||{}))};if(uid)rec.by=uid;JEDITS[e.k]=rec;
+    if(j&&j.translation)e.tr=j.translation;await persistJ(e.k,rec);openEntry(e.k,false);$('#jsd').open=true};
+  $('#jrv').onclick=async()=>{delete JEDITS[e.k];const tr0=TR0[e.k];if(tr0)e.tr=tr0;else delete e.tr;await persistJ(e.k,null);openEntry(e.k,false)};
+  $('#ds').onclick=()=>{delete DRAFTS[cur.k];openEntry(cur.k,false)};
+  if(push&&location.hash.slice(1)!==k)history.replaceState(null,'','#'+k);
+  document.querySelectorAll('.item').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+  $('#rev')?.addEventListener('click',()=>revert(k));
+  $('#krm')?.addEventListener('click',()=>setKind(k,'X'));$('#kbm')?.addEventListener('click',()=>setKind(k,'M'));$('#kbf')?.addEventListener('click',()=>setKind(k,'F'));$('#kundo')?.addEventListener('click',()=>setKind(k,null));
+  $('#chkbtn')?.addEventListener('click',()=>save(cur.t,{checkOnly:true}));
+}
+addEventListener('hashchange',()=>{const k=decodeURIComponent(location.hash.slice(1));if(k&&BY.has(k)&&k!==cur?.k)openEntry(k,false)});
+
+const LRI='\u2066',PDI='\u2069';
+const isolate=t=>t.split(' ').map(w=>w.startsWith('@')?LRI+'\u200E'+w+'\u200E'+PDI:w).join(' ');
+const unisolate=t=>t.replace(/[\u2066-\u2069\u200E]/g,'');
+const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16)};
+const JEDITS={},TR0={},MERGES={};
+const canon=id=>{let x=id,seen=0;while(x&&MERGES[x]&&!MERGES[x].undone&&MERGES[x].to&&seen++<8)x=MERGES[x].to;return x};
+const isMerged=id=>!!(id&&MERGES[id]&&!MERGES[id].undone&&MERGES[id].to);
+const applyJTr=k=>{const e=BY.get(k);if(!e)return;const t=JEDITS[k]?.j?.translation;if(t)e.tr=t;else if(TR0[k])e.tr=TR0[k];else delete e.tr};
+let RECS=null;async function loadRecords(){if(RECS)return RECS;try{RECS=await fetch('records.json').then(r=>r.json())}catch{RECS=null}return RECS}
+function markDirty(){const d=$('#dirty');if(!d)return;const on=cur&&DRAFTS[cur.k]!=null;d.textContent=on?'未保存の編集があります':'';$('#sv').disabled=!on;$('#ds').disabled=!on}
+function saveDraft(){if(cur&&DRAFTS[cur.k]!=null)save(DRAFTS[cur.k])}
+// ---------- panel
+function mentionList(id){
+  const ks=[...(MENT.get(id)||[])].filter(k=>k!==cur?.k);
+  if(!ks.length)return '<p class="note">他の見出しでこのIDを付けた箇所はまだありません。</p>';
+  return `<ul class="mlist">${ks.slice(0,200).map(k=>`<li><a data-open="${k}">${k}</a> <span class="ar">${esc(BY.get(k)?.n||'')}</span></li>`).join('')}</ul>`;
+}
+function extLink(id){
+  if(id.startsWith('wd:'))return `<a class="lk" href="https://www.wikidata.org/wiki/${id.slice(3)}">Wikidata ${id.slice(3)}</a>`;
+  if(id.startsWith('gn:'))return `<a class="lk" href="https://www.geonames.org/${id.slice(3)}">GeoNames ${id.slice(3)}</a>`;
+  if(BY.has(id))return `<a class="lk" data-open="${id}">この人物の伝記を開く</a>`;
+  return '';
+}
+function placed(r){return r.o!=='NEEDID'&&idsIn(curText()).has(canon(r.o))}
+const open_=r=>!placed(r)&&!r.nm;
+function relList(){
+  const rs=cur.r||[];if(!rs.length)return '';
+  const ok=rs.filter(placed).length,nm=rs.filter(r=>r.nm&&!placed(r)).length;
+  return `<h2>XMLの関係（${rs.length}件・本文で特定 ${ok}件${nm?`・本文に言及なし ${nm}件`:''}）</h2><ul class="mlist">${rs.map((r,ri)=>`<li${open_(r)&&r.o!=='NEEDID'?` draggable="true" data-dr="${ri}" title="本文のタグ（または語）にドラッグして紐付け"`:''}>${placed(r)?'✓':r.nm?`<span class="note" title="${esc(r.why||'')}">言及なし</span>`:'<span style="color:var(--nid)">未</span>'} <b>${esc(roleJP(r.role))}</b> ${r.o==='NEEDID'?'（未同定）':isMerged(r.o)?`<code>${esc(r.o)}</code> → <a data-open="${esc(canon(r.o))}">${esc(canon(r.o))}</a> <span class="badge">統合</span> <button class="lkb" data-unmerge="${esc(r.o)}">取り消す</button>`:`<a data-open="${esc(r.o)}">${esc(r.o)}</a>`} <span class="ar">${esc(r.txt||label0(r.o))}</span>${r.m?` <span class="note">${esc(r.m)}</span>`:''}</li>`).join('')}</ul>`;
+}
+const EVJP={cultural:'文化',mention:'言及',residence:'居住',jāwara:'ムジャーウィル',political:'政治',other:'その他',visit:'訪問',travel:'旅行',religious:'宗教',hajj:'巡礼',learning:'学習',teaching:'教授',study:'勉学',meeting:'面会',funeral:'葬儀',witness:'目撃',legacy:'遺産',ijaza:'イジャーザ',isnad:'イスナード',burial:'埋葬',economic:'経済'};
+const evJP=e=>[e.type,e.subtype].filter(Boolean).map(x=>EVJP[x]||x).join('・');
+function evRanges(){const toks=curText().split(' '),out=[];
+  toks.forEach((t,i)=>{const m=ENT.exec(t);if(!m||m[1]!=='E')return;const pb=parseBr(m[4]);let n=+m[3],j=i+1;const ws=[];
+    while(ws.length<n&&j<toks.length){if(!isTag(toks[j]))ws.push(j);j++}out.push({i,id:pb.id,ws})});return out}
+function markEv(){for(const r of evRanges())r.ws.forEach((k,x)=>{const el=document.querySelector(`#text [data-w="${k}"]`);if(el){el.classList.add('inev');el.dataset.ev=r.id;if(!x)el.insertAdjacentHTML('beforebegin',`<sup class="evn">${esc((r.id||'').replace('e',''))}</sup>`)}})}
+function evRefs(e){return [...(e.persons||[]),...(e.places||[]),...(e.orgs||[]),...(e.works||[])].map(x=>(x.ref||'').replace(/^#/,'')).filter(Boolean)}
+function hlEv(j,on){document.querySelectorAll('.evhl').forEach(x=>x.classList.remove('evhl'));if(!on)return;
+  const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const ids=new Set(evRefs(e).map(canon));const toks=curText().split(' ');
+  toks.forEach((t,i)=>{const m=ENT.exec(t);if(m&&m[1]!=='E'&&ids.has(canon(parseBr(m[4]).id||'')))document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('evhl')});
+  document.querySelectorAll(`#text [data-ev="e${j+1}"]`).forEach(x=>x.classList.add('evhl'))}
+async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;const R=await loadRecords();if(!cur||cur.k!==k||!$('#evbox'))return;
+  const evs=R?.[k]?.events||[];if(!evs.length){box.innerHTML='';return}
+  const placed=new Set(evRanges().map(r=>r.id));const un=evs.filter((e,j)=>!placed.has('e'+(j+1))).length;
+  const nfz=EDITS[k]?0:evs.filter((e,j)=>placed.has('e'+(j+1))).length;
+  box.innerHTML=`<h2>XMLの出来事（${evs.length}件${nfz?`・推定 ${nfz}件`:''}${un?`・未 ${un}件`:''}）</h2>${un&&sampler?`<div class="row"><button class="pri" id="evai">未の出来事の中心語を AI で推定</button></div><div id="evaibox"></div>`:''}<ul class="mlist">${evs.map((e,j)=>{const id='e'+(j+1),ok=placed.has(id),fz=ok&&!EDITS[k],abs=isAbs(k,'e|'+id);
+    const dd=e.date||{};const date=dd.ah!=null?`${parseInt(dd.ah,10)}年`:dd.notBefore!=null?`${parseInt(dd.notBefore,10)}年以降`:dd.notAfter!=null?`${parseInt(dd.notAfter,10)}年以前`:'';
+    const who=evRefs(e).map(r=>esc(label(r).split(' / ')[0])).join('、');
+    const sm=e.summary?.ja||e.summary?.en||Object.values(e.summary||{})[0]||'';
+    return `<li data-evj="${j}"${abs?'':` draggable="true" data-de="${j}" title="${ok?'別の語にドラッグすると付け替えます':'本文の語にドラッグして付ける'}"`}>${fz?'<span class="fz">推定</span>':ok?'✓':abs?'<span class="note">本文になし</span>':`<button class="mini" data-abse="${j}" data-on="1">本文になし</button> <span style="color:var(--nid)">未</span>`} <b>${id}</b> ${esc(evJP(e))}${date?' · '+date:''}${who?` · <span class="ar" style="font-family:var(--ar)">${who}</span>`:''}${sm?`<div class="note">${esc(sm)}</div>`:''}${abs?` <button class="mini" data-abse="${j}" data-on="0">戻す</button>`:''}${ok?` <button class="mini" data-evdel="${j}">外す</button>`:''}</li>`}).join('')}</ul><p class="note">出来事は、中心になる語（حج・حفظ・ولي など）1語に付けます。「推定」は規則で付けたもので、CHECKED で確定します。未の項目は本文の語にドラッグすると付きます。付いている項目も、別の語にドラッグすれば付け替えられ、「外す」で外せます。項目にカーソルを合わせると、その語と関わる人物・地名のタグが強調されます。</p>`;
+  $('#evai')?.addEventListener('click',()=>evAI(evs.map((e,j)=>({e,j})).filter(x=>!placed.has('e'+(x.j+1))&&!isAbs(k,'e|e'+(x.j+1)))));
+}
+async function evAI(items){const box=$('#evaibox');if(!box||!items.length)return;
+  const toks=curText().split(' ');const words=[];toks.forEach((t,i)=>{if(!isTag(t))words.push(`${i}:${t}`)});
+  const evtxt=items.map(({e,j})=>`e${j+1}: type=${e.type}${e.subtype?'/'+e.subtype:''}${e.date?.ah!=null?' year='+parseInt(e.date.ah,10):''}; participants=${evRefs(e).map(r=>label(r).split(' / ')[0]).join(', ')||'-'}; summary=${Object.values(e.summary||{}).join(' | ')||'-'}`).join('\n');
+  const prompt=`Biography ${cur.k} from al-Sakhāwī's al-Ḍawʾ al-Lāmiʿ. Each word is given as index:word.
+${words.join(' ')}
+
+For each event below, choose the ONE word that is the head (trigger) of the event in the text: normally the verb or verbal noun (e.g. حج، جاور، حفظ، سمع، ولي، قتل، دفن، ذكره، ترجمه) or, for residence, the word that states it (نزيل، سكن، قطن). Pick the word index exactly as given. If the event is not stated in the text at all (e.g. a residence only inferred from a nisba), answer null.
+Events:
+${evtxt}
+
+Reply with one JSON object only: {"e1":{"i":12,"why":"短い理由（日本語）"}, "e2":{"i":null,"why":"…"}}`;
+  box.innerHTML='<p class="ai-wait">Opus が中心語を探しています…</p>';
+  try{const v=await sampler.json(prompt,{model:'claude-opus-5-5',modelTier:'complex'})||{};
+    box.innerHTML=`<ul class="mlist">${items.map(({e,j})=>{const r=v['e'+(j+1)]||{};const i=Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?r.i:null;
+      return `<li><b>e${j+1}</b> ${esc(evJP(e))} → ${i!=null?`<span class="ar" style="font-family:var(--ar)">${esc(toks[i])}</span> <button class="mini" data-evput="${j}" data-i="${i}">付ける</button>`:'<span class="note">本文になし（AI）</span> <button class="mini" data-abse="'+j+'" data-on="1">本文になしにする</button>'}${r.why?`<div class="note">${esc(r.why)}</div>`:''}</li>`}).join('')}</ul>`;
+    const props=items.map(({e,j})=>{const r=v['e'+(j+1)]||{};return Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?{e,j,i:r.i}:null}).filter(Boolean);
+    if(props.length>1)box.insertAdjacentHTML('afterbegin','<div class="row"><button class="pri" id="evall">提案をすべて付ける</button></div>');
+    box.onclick=ev=>{if(ev.target.id==='evall'){const t2=curText().split(' ');for(const p of props.sort((a,b)=>b.i-a.i))t2.splice(p.i,0,`@E01[${(p.e.subtype||p.e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:e${p.j+1}]`);save(t2.join(' '));return}
+      const b=ev.target.closest('[data-evput]');if(b)linkEv(+b.dataset.evput,+b.dataset.i,1)};
+  }catch(err){box.innerHTML=`<p class="note">AI の推定に失敗しました（${esc(err.code||'error')}）。</p>`}}
+function dropEvTag(toks,j){const i=toks.findIndex(t=>{const m=ENT.exec(t);return m&&m[1]==='E'&&parseBr(m[4]).id==='e'+(j+1)});if(i>=0)toks.splice(i,1);return i}
+function linkEv(j,start,n){const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const toks=curText().split(' ');
+  const old=dropEvTag(toks,j);if(old>=0&&old<start)start--;
+  toks.splice(start,0,`@E01[${(e.subtype||e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:e${j+1}]`);save(toks.join(' '))}
+function markFz(){if(EDITS[cur?.k])return;for(const o of cur?.o||[])if(o.ok==='fz'){const i=oTagIdx(o);if(i>=0)document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('fzt')}}
+function oTagIdx(o){const toks=curText().split(' ');
+  for(let i=0;i<toks.length;i++){const m=ENT.exec(toks[i]);if(!m||m[1]!=='O')continue;const pb=parseBr(m[4]);
+    if(o.id?canon(pb.id||'')===canon(o.id):(pb.sub===o.typ&&!pb.id))return i}return -1}
+function offList(){
+  const os=cur.o||[];if(!os.length)return '';
+  const chk=!!EDITS[cur.k];
+  const st=os.map(o=>{const i=oTagIdx(o);return i<0?(isAbs(cur.k,oKey(o))?'na':'un'):(o.ok==='fz'&&!chk)?'fz':'ok'});
+  const nOk=st.filter(x=>x!=='un').length,nFz=st.filter(x=>x==='fz').length;
+  return `<h2>XMLの官職・身分（${os.length}件・本文で特定 ${nOk}件${nFz?`・うち推定 ${nFz}件`:''}）</h2><ul class="mlist">${os.map((o,j)=>st[j]==='na'?`<li><span class="note">本文になし</span> <b>${esc(OSUB[o.typ]||o.typ)}</b> <span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span> <button class="mini" data-abso="${j}" data-on="0">戻す</button></li>`:`<li${st[j]==='un'?` draggable="true" data-do="${j}" title="本文の語（または官職のタグ）にドラッグして付ける"`:` data-ojump="${j}" style="cursor:pointer" title="本文のタグを開く"`}>${st[j]==='ok'?'✓':st[j]==='fz'?'<span class="fz">推定</span>':`<button class="mini" data-abso="${j}" data-on="1" title="本文に出てこない要素として片付ける">本文になし</button> <span style="color:var(--nid)">未</span>`} <b>${esc(OSUB[o.typ]||o.typ)}</b> ${o.id?`<code>${esc(o.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span>${o.id&&OFFS[o.id]?` <span class="note">${esc(offLabel(o.id))}</span>`:''}</li>`).join('')}</ul>${nFz?'<p class="note">「推定」は、XML の語句と本文の語形が違うため、語形を変えて照合して付けたタグです。確かめてください（CHECKED で ✓ になります）。</p>':''}`;
+}
+const UK={T:'地名・施設',S:'名前要素',Y:'年'};
+function uTagIdx(u){const toks=curText().split(' ');
+  for(let i=0;i<toks.length;i++){const t=toks[i];let m;
+    if(u.k==='Y'){if((m=YR.exec(t))&&m[1]===u.typ&&((+m[2]<=+u.lab&&+u.lab<=+(m[3]||m[2]))||(m[3]&&Math.floor(+m[2]/10)===Math.floor(+u.lab/10))))return i;continue}
+    if(!(m=ENT.exec(t))||m[1]!==u.k)continue;const pb=parseBr(m[4]);
+    if(u.k==='S'&&pb.sub!==u.typ)continue;
+    if(u.id){if(canon(pb.id||'')===canon(u.id))return i;continue}
+    const w=toks.slice(i+1,i+1+ +m[3]).join(' ');if(N(w).endsWith(N(u.lab))||N(u.lab).endsWith(N(w).slice(+m[2])))return i}
+  return -1}
+function uList(){
+  const us=cur.u||[];if(!us.length)return '';
+  const st=us.map(u=>uTagIdx(u)>=0?'ok':isAbs(cur.k,uKey(u))?'na':'un');const un=st.filter(x=>x==='un').length,na=st.filter(x=>x==='na').length;
+  if(!un&&!na)return `<h2>XMLのその他の要素（${us.length}件・すべて本文で特定）</h2>`;
+  return `<h2>XMLのその他の要素（${us.length}件${un?`・未 ${un}件`:''}${na?`・本文になし ${na}件`:''}）</h2><ul class="mlist">${us.map((u,j)=>st[j]==='ok'?'':st[j]==='na'?`<li><span class="note">本文になし</span> <b>${UK[u.k]}${u.k==='S'?'：'+esc(ONO[u.typ]||u.typ):u.k==='Y'?'：'+({YD:'没年',YB:'生年'}[u.typ]||''):''}</b> <span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span> <button class="mini" data-absu="${j}" data-on="0">戻す</button></li>`:`<li draggable="true" data-du="${j}" title="本文の語（または同じ種類のタグ）にドラッグして付ける"><button class="mini" data-absu="${j}" data-on="1" title="本文に出てこない要素として片付ける">本文になし</button> <span style="color:var(--nid)">未</span> <b>${UK[u.k]}${u.k==='S'?'：'+esc(ONO[u.typ]||u.typ):u.k==='Y'?'：'+({YD:'没年',YB:'生年'}[u.typ]||''):''}</b> ${u.id?`<code>${esc(u.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span>${u.id?` <span class="note">${esc(label(u.id))}</span>`:''}</li>`).join('')}</ul>${un?'<p class="note">本文で位置を決められなかった要素です。本文の語にドラッグすると付きます（複数語は先に選んでから、その中に落とします）。本文に出てこない要素（ニスバから推した地名など）は「本文になし」で片付けます。</p>':''}`;
+}
+function linkU(u,ti,isTagToken,n=1){
+  const toks=curText().split(' ');
+  const mk=p=>u.k==='Y'?`@${u.typ}${u.lab}[${n}]`:u.k==='S'?`@S${p}${n}[${u.typ}${u.id?':'+u.id:''}]`:`@T${p}${n}[${u.id||'NEEDID'}]`;
+  if(isTagToken){const t=toks[ti],m=ENT.exec(t),y=YR.exec(t);
+    if(u.k==='Y'){if(!y)return status('年は年のタグか本文の語にドラッグしてください');toks[ti]=`@${u.typ}${u.lab}[${spanOf(toks,ti)}]`}
+    else{if(!m||m[1]!==u.k)return status(UK[u.k]+'は同じ種類のタグか本文の語にドラッグしてください');n=+m[3];toks[ti]=mk(m[2])}}
+  else toks.splice(ti,0,mk(guessPrefix(toks[ti])));
+  save(toks.join(' '));
+}
+function linkOff(o,ti,isTagToken,n=1){
+  const toks=curText().split(' '),br=o.typ+(o.id?':'+o.id:(o.typ==='status'?'':':NEEDID'));
+  if(isTagToken){const m=ENT.exec(toks[ti]);if(!m||m[1]!=='O')return status('官職・身分は、官職のタグか本文の語にドラッグしてください');toks[ti]=`@O${m[2]}${m[3]}[${br}]`}
+  else toks.splice(ti,0,`@O${guessPrefix(toks[ti])}${n}[${br}]`);
+  save(toks.join(' '));
+}
+function linkRel(r,ti,isTagToken,n=1){
+  const toks=curText().split(' ');
+  if(isTagToken){
+    const t=toks[ti],m=ENT.exec(t);if(!m)return status('この種類のタグには紐付けられません');
+    const k=m[1][0],pb=parseBr(m[4]);
+    let br;
+    if(k==='S'){if(pb.sub!=='nasab')return status('名前要素はナサブだけ紐付けられます');br='nasab:'+r.o}
+    else if(k==='P'&&/^TMP-P-/.test(r.o)&&pb.id&&/^(AIND-|wd:)/.test(pb.id)){
+      const rec={to:pb.id,at:Date.now(),entry:cur.k,how:'drag',role:r.role||null};if(uid)rec.by=uid;
+      persistMerge(r.o,rec).then(()=>{reindexAll();status(`${r.o} を ${pb.id} に統合しました`);openEntry(cur.k,false)});return}
+    else if(k==='P'){const old=splitRole(pb.sub);const keep=old.meths.length&&old.roles.split('+')[0]===(r.role||'').split('+')[0]?'/'+old.meths.join('.'):'';br=(r.role||'person')+keep+':'+r.o}
+    else return status('地名・年のタグには人物を紐付けられません');
+    toks[ti]=`@${m[1]}${m[2]}${m[3]}[${br}]`;
+  }else{
+    toks.splice(ti,0,`@P${guessPrefix(toks[ti])}${n}[${r.role||'person'}:${r.o}]`);
+  }
+  save(toks.join(' '));
+}
+function showEntryCard(){
+  const tags=curText().split(' ').filter(isTag);
+  const isAind=cur.k.startsWith('AIND');
+  $('#panel').innerHTML=`<div class="card">
+  ${relList()}
+  ${offList()}
+  ${uList()}
+  <div id="evbox"></div>
+  ${isAind?`<h2>この人物に言及している見出し</h2>${mentionList(cur.k)}`:''}
+  </div>`;
+  fillEvents();
+}
+function showTagCard(i){
+  const toks=curText().split(' '),t=toks[i];let m;
+  document.querySelectorAll('.ent.sel').forEach(x=>x.classList.remove('sel'));
+  document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('sel');
+  if(m=LM.exec(t)){
+    const ws=[];for(let j=i+1;ws.length<+m[1]&&j<toks.length;j++)ws.push(toks[j]);
+    $('#panel').innerHTML=`<div class="card"><h2>月</h2><div class="big">${esc(ws.join(' '))}</div><dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>月</dt><dd>${MON[+m[2]]}</dd><dt>語数</dt><dd>${m[1]}</dd></dl><p class="note">EIS1600 と同じ形式（L＋語数＋X＋月番号＋L）。日（ثالث など）にはタグを付けません。</p><div class="row"><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div></div>`;
+  }else if(m=YR.exec(t)){
+    const what={YB:'生年',YD:'没年',YY:'その他の年',YA:'年齢'}[m[1]];
+    $('#panel').innerHTML=`<div class="card"><h2>${what}</h2><dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>ヒジュラ暦</dt><dd>${yLabel(m)}</dd><dt>西暦</dt><dd>${yCE(m)}（年初基準の概算）</dd></dl><div class="row"><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div></div>`;
+  }else{
+    m=ENT.exec(t);const pb=parseBr(m[4]),isS=m[1][0]==='S',id=pb.id||(isS?'':'NEEDID'),type=isS?'名前要素：'+(ONO[pb.sub]||'種類未指定'):m[1][0]==='P'?'人物'+(pb.sub?'：'+roleJP(pb.sub):''):m[1][0]==='T'?'地名':m[1][0]==='O'?'官職・職業'+(pb.sub&&pb.sub!=='office'?'：'+(OSUB[pb.sub]||pb.sub):''):'その他';
+    const xr=(cur.r||[]).filter(r=>id!=='NEEDID'&&canon(r.o)===canon(id));
+    const words=[];for(let j=i+1;words.length<+m[3]&&j<toks.length;j++)words.push(toks[j]);
+    $('#panel').innerHTML=`<div class="card"><h2>${type}</h2><div class="big">${esc(words.join(' '))}</div>
+    <dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>前接辞</dt><dd>${m[2]}字</dd><dt>語数</dt><dd>${m[3]}</dd>${m[1][0]==='P'?`<dt>関係</dt><dd>${pb.sub?esc(roleJP(pb.sub))+` <code>${esc(pb.sub)}</code>`:'（なし）'}</dd>`:''}${xr.length?`<dt>XML</dt><dd>${methMatch(xr,splitRole(pb.sub).meths).map(r=>esc(r.st||r.role)+(r.m?' · '+esc(r.m):'')+(r.c?' · cert '+esc(r.c):'')).join('<br>')}</dd>`:''}<dt>ID</dt><dd>${esc(id||'（IDを持たない要素）')}</dd>${id?`<dt>同定先</dt><dd class="ar" style="font-family:var(--ar)">${esc(label(id))}</dd>`:''}</dl>
+    <div class="row">${extLink(id)}</div>
+    <div class="row"><button class="pri" id="chg">同定先を変える</button><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div>
+    ${id&&id!=='NEEDID'?`<h2>${pb.sub==='nisbah'?'同じニスバを持つ見出し':'同じIDが付いた他の見出し'}</h2>${mentionList(id)}`:''}</div>`;
+    $('#chg').onclick=()=>identify({type:isS?'S':m[1][0]==='T'?'T':m[1][0]==='O'?'O':'P',sub:pb.sub,role:isS||m[1][0]==='O'?null:pb.sub,replace:i,start:i+1,n:+m[3],prefix:+m[2]});
+  }
+  $('#del').parentElement.insertAdjacentHTML('beforebegin',rangeRow(i));wireRange(i);
+  $('#del').onclick=()=>{toks.splice(i,1);save(toks.join(' '))};
+  $('#back').onclick=()=>{document.querySelectorAll('.ent.sel').forEach(x=>x.classList.remove('sel'));showEntryCard()};
+}
+$('#panel').addEventListener('dragstart',ev=>{const le=ev.target.closest('[data-de]');if(le){ev.dataTransfer.setData('text/plain','ev:'+le.dataset.de);ev.dataTransfer.effectAllowed='link';return}const lu=ev.target.closest('[data-du]');if(lu){ev.dataTransfer.setData('text/plain','u:'+lu.dataset.du);ev.dataTransfer.effectAllowed='link';return}const lo=ev.target.closest('[data-do]');if(lo){ev.dataTransfer.setData('text/plain','off:'+lo.dataset.do);ev.dataTransfer.effectAllowed='link';return}const li=ev.target.closest('[data-dr]');if(!li)return;ev.dataTransfer.setData('text/plain','rel:'+li.dataset.dr);ev.dataTransfer.effectAllowed='link'});
+$('#center').addEventListener('dragover',ev=>{const t=ev.target.closest('.ent,[data-w]');if(!t||!$('#text')?.contains(t))return;ev.preventDefault();document.querySelectorAll('.drop').forEach(x=>x.classList.remove('drop'));t.classList.add('drop')});
+$('#center').addEventListener('dragleave',ev=>{const t=ev.target.closest('.drop');if(t&&!t.contains(ev.relatedTarget))t.classList.remove('drop')});
+$('#center').addEventListener('drop',ev=>{const d=ev.dataTransfer.getData('text/plain');document.querySelectorAll('.drop').forEach(x=>x.classList.remove('drop'));
+  if(d.startsWith('ev:')){ev.preventDefault();const w=ev.target.closest('[data-w]');if(!w)return;const wi=+w.dataset.w;
+    linkEv(+d.slice(3),wi,1);lastSel=null;return}
+  if(d.startsWith('u:')){ev.preventDefault();const u=(cur.u||[])[+d.slice(2)];if(!u)return;const ent=ev.target.closest('.ent');
+    if(ent){linkU(u,+ent.dataset.tag,true);return}const w=ev.target.closest('[data-w]');if(!w)return;const wi=+w.dataset.w;
+    if(lastSel&&wi>=lastSel.start&&wi<lastSel.start+lastSel.n)linkU(u,lastSel.start,false,lastSel.n);else linkU(u,wi,false,1);lastSel=null;return}
+  if(d.startsWith('off:')){ev.preventDefault();const o=(cur.o||[])[+d.slice(4)];if(!o)return;const ent=ev.target.closest('.ent');
+    if(ent){linkOff(o,+ent.dataset.tag,true);return}const w=ev.target.closest('[data-w]');if(!w)return;const wi=+w.dataset.w;
+    if(lastSel&&wi>=lastSel.start&&wi<lastSel.start+lastSel.n)linkOff(o,lastSel.start,false,lastSel.n);else linkOff(o,wi,false,1);lastSel=null;return}
+  if(!d.startsWith('rel:'))return;ev.preventDefault();
+  const r=(cur.r||[])[+d.slice(4)];if(!r)return;const ent=ev.target.closest('.ent');
+  if(ent){linkRel(r,+ent.dataset.tag,true);return}
+  const w=ev.target.closest('[data-w]');if(!w)return;const wi=+w.dataset.w;
+  // a word range selected beforehand is used as the span, if the drop falls inside it
+  if(lastSel&&wi>=lastSel.start&&wi<lastSel.start+lastSel.n)linkRel(r,lastSel.start,false,lastSel.n);else linkRel(r,wi,false,1);
+  lastSel=null});
+$('#panel').addEventListener('mouseover',ev=>{const li=ev.target.closest('[data-evj]');hlEv(li?+li.dataset.evj:-1,!!li)});
+$('#panel').addEventListener('mouseleave',()=>hlEv(-1,false));
+$('#panel').addEventListener('click',async ev=>{const xd=ev.target.closest('[data-evdel]');if(xd){ev.stopPropagation();const t2=curText().split(' ');if(dropEvTag(t2,+xd.dataset.evdel)>=0)save(t2.join(' '));return}const ab=ev.target.closest('[data-absu],[data-abso],[data-abse]');if(ab){ev.stopPropagation();const on=ab.dataset.on==='1';if(ab.dataset.abse!=null)setAbs(cur.k,'e|e'+(+ab.dataset.abse+1),on);else if(ab.dataset.absu!=null)setAbs(cur.k,uKey(cur.u[+ab.dataset.absu]),on);else setAbs(cur.k,oKey(cur.o[+ab.dataset.abso]),on);return}const oj=ev.target.closest('[data-ojump]');if(oj){const i=oTagIdx((cur.o||[])[+oj.dataset.ojump]);if(i>=0){document.querySelectorAll('.ent.sel').forEach(x=>x.classList.remove('sel'));document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('sel');showTagCard(i)}return}const u=ev.target.closest('[data-unmerge]');if(u){const f=u.dataset.unmerge;await persistMerge(f,{...MERGES[f],undone:true,undoneAt:Date.now()});reindexAll();openEntry(cur.k,false);status(f+' の統合を取り消しました')}});
+$('#panel').addEventListener('click',ev=>{const a=ev.target.closest('[data-open]');if(a){ev.preventDefault();openEntry(a.dataset.open)}});
+$('#center').addEventListener('click',ev=>{const s=ev.target.closest('.ent');if(s&&!window.getSelection().toString())showTagCard(+s.dataset.tag)});
+
+// ---------- hover tooltip
+function tipHTML(i){
+  const toks=curText().split(' '),t=toks[i];let m;
+  const words=n=>{const w=[];for(let j=i+1;w.length<n&&j<toks.length;j++)w.push(toks[j]);return w.join(' ')};
+  if(m=LM.exec(t))return `<div class="h">月：${MON[+m[2]]}</div><code>${esc(t)}</code><div class="ar">${esc(words(+m[1]))}</div>`;
+  if(m=YR.exec(t)){return `<div class="h">${{YB:'生年',YD:'没年',YY:'年',YA:'年齢'}[m[1]]}：ヒジュラ暦 ${yLabel(m)}（西暦 ${yCE(m)}）</div><code>${esc(t)}</code>`}
+  m=ENT.exec(t);if(!m)return '';
+  const pb=parseBr(m[4]),k=m[1][0],id=pb.id;
+  const kind=k==='S'?'名前要素：'+(ONO[pb.sub]||'?'):k==='P'?'人物':k==='T'?'地名':k==='O'?'官職・職業'+(pb.sub&&pb.sub!=='office'?'：'+(OSUB[pb.sub]||pb.sub):''):'その他';
+  const xr=(cur.r||[]).filter(r=>id&&canon(r.o)===canon(id));
+  const rows=[];
+  if(k==='P')rows.push(['関係',pb.sub?esc(roleJP(pb.sub)):'（なし）']);
+  if(k==='S'&&pb.sub==='nasab'&&xr.length)rows.push(['関係',esc(xr.map(r=>roleJP(r.role)).join('・'))]);
+  const ms=splitRole(pb.sub).meths,xm=methMatch(xr,ms).filter(r=>r.m);
+  if(ms.length)rows.push(['方法',`<span class="ar" style="font-size:16px">${esc(methAR(ms))}</span>`+(xm.length?` <span class="note">（XML: <bdi dir="rtl">${esc(xm.map(r=>r.m).join(' / '))}</bdi>）</span>`:'')]);
+  else if(xr.some(r=>r.m))rows.push(['方法','<bdi dir="rtl">'+esc(xr.filter(r=>r.m).map(r=>r.m).join(' / '))+'</bdi>'+' <span class="note">（この箇所の動詞からは特定できず）</span>']);
+  if(id)rows.push(['ID',`<code>${esc(id)}</code>`]);
+  if(id&&id!=='NEEDID')rows.push(['同定先',`<span class="ar" style="font-size:16px">${esc(label(id))}</span>`]);
+  if(id==='NEEDID')rows.push(['同定','未同定']);
+  rows.push(['前接辞・語数',`${m[2]}字・${m[3]}語`]);
+  return `<div class="h">${kind}</div><code>${esc(t)}</code><dl>${rows.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`;
+}
+const tip=$('#tip');
+$('#center').addEventListener('mouseover',ev=>{
+  const s=ev.target.closest('.ent');if(!s||!$('#text')?.contains(s)){tip.style.display='none';return}
+  const html=tipHTML(+s.dataset.tag);if(!html)return;
+  tip.innerHTML=html;tip.style.display='block';
+  const r=s.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight;
+  let x=Math.min(innerWidth-tw-8,Math.max(8,r.left+r.width/2-tw/2)),y=r.top-th-8;if(y<8)y=r.bottom+8;
+  tip.style.left=x+'px';tip.style.top=y+'px';
+});
+$('#center').addEventListener('mouseout',ev=>{const s=ev.target.closest('.ent');if(s&&!s.contains(ev.relatedTarget))tip.style.display='none'});
+$('#center').addEventListener('scroll',()=>tip.style.display='none',true);
+// ---------- selection -> tag
+function guessPrefix(w){
+  const m=/^([وفبكل]{1,2})ال/.exec(w);if(m)return m[1].length;
+  if(/^[وف]?لل/.test(w))return w.startsWith('لل')?1:2;
+  return 0;
+}
+document.addEventListener('mouseup',ev=>{
+  if(ev.target.closest?.('#tbar'))return;
+  const s=window.getSelection(),tb=$('#tbar');tb.style.display='none';sel=null;
+  if(!s||s.isCollapsed||!cur)return;
+  const el=n=>n?(n.nodeType===1?n:n.parentElement):null;const a=el(s.anchorNode)?.closest('[data-w]'),b=el(s.focusNode)?.closest('[data-w]');
+  if(!a||!b||!$('#text')?.contains(a))return;
+  let i=+a.dataset.w,j=+b.dataset.w;if(i>j)[i,j]=[j,i];
+  const toks=curText().split(' ');
+  for(let k=i;k<=j;k++)if(isTag(toks[k]))return;
+  for(let k=i-1;k>=Math.max(0,i-6);k--){let m=ENT.exec(toks[k])||LM.exec(toks[k]);if(m&&k+ +(m[3]??m[1])>=i)return;m=YR.exec(toks[k]);if(m&&k+(m[4]?+m[4]:2)>=i)return}
+  sel={start:i,n:j-i+1};lastSel={...sel};
+  const r=s.getRangeAt(0).getBoundingClientRect();
+  tb.style.display='flex';tb.style.top=(r.bottom+60>innerHeight?Math.max(8,r.top-56):r.bottom+8)+'px';tb.style.left=Math.max(8,Math.min(innerWidth-300,r.left))+'px';
+});
+$('#tbar').addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||!sel)return;$('#tbar').style.display='none';
+  const toks=curText().split(' ');if(b.dataset.t==='Y'){dateForm({start:sel.start,n:sel.n});window.getSelection().removeAllRanges();return}identify({type:b.dataset.t,start:sel.start,n:sel.n,prefix:guessPrefix(toks[sel.start])});window.getSelection().removeAllRanges()});
+
+// ---------- tag span resizing
+function spanOf(toks,k){let m;const t=toks[k];
+  if(m=ENT.exec(t))return +m[3];if(m=LM.exec(t))return +m[1];
+  if(m=YR.exec(t)){if(m[4])return +m[4];let n=1,j=k+2;while(j<toks.length&&isNum(toks[j])){n++;j++}return n}
+  return 0}
+function retag(t,n,first,firstChanged){let m;
+  if(m=ENT.exec(t))return `@${m[1]}${firstChanged&&m[1]!=='S'?guessPrefix(first):m[2]}${n}${m[4]!=null?'['+m[4]+']':''}`;
+  if(m=LM.exec(t))return `@L${n}X${m[2]}L`;
+  if(m=YR.exec(t))return `@${m[1]}${m[2]}${m[3]?'-'+m[3]:''}[${n}]`;
+  return t}
+async function setSpan(i,s0,e0){
+  const toks=curText().split(' '),n=spanOf(toks,i);if(!n)return;
+  if(s0>e0||s0<0||e0>=toks.length){status('範囲を変えられません');return}
+  const cov=new Set();toks.forEach((t,k)=>{if(k!==i&&isTag(t)){cov.add(k);const c=spanOf(toks,k);for(let j=k+1;j<=k+c;j++)cov.add(j)}});
+  for(let k=s0;k<=e0;k++)if(k!==i&&(cov.has(k)||isTag(toks[k])||toks[k]==='%~%')){status('隣のタグや区切りとは重ねられません');return}
+  const t=toks[i];toks.splice(i,1);const s=s0>i?s0-1:s0,e=e0>i?e0-1:e0;
+  const nt=retag(t,e-s+1,toks[s],s0!==i+1);toks.splice(s,0,nt);
+  await save(toks.join(' '));showTagCard(s);
+}
+function rangeRow(i){const toks=curText().split(' '),n=spanOf(toks,i);
+  return `<div class="row rng" data-i="${i}"><span class="note">範囲</span><button data-rg="s+" title="右（前）の語を含める">→ 右へ広げる</button><button data-rg="s-"${n<2?' disabled':''}>右を縮める</button><button data-rg="e-"${n<2?' disabled':''}>左を縮める</button><button data-rg="e+" title="左（後）の語を含める">左へ広げる ←</button></div><p class="note">枠の両端のつまみを、含めたい語までドラッグしても変えられます。</p>`}
+function wireRange(i){
+  const toks=curText().split(' '),n=spanOf(toks,i),s=i+1,e=i+n;
+  $('#panel .rng')?.addEventListener('click',ev=>{const b=ev.target.closest('[data-rg]');if(!b)return;
+    ({'s+':()=>setSpan(i,i-1,e),'s-':()=>setSpan(i,s+1,e),'e+':()=>setSpan(i,s,e+1),'e-':()=>setSpan(i,s,e-1)})[b.dataset.rg]()});
+  const box=document.querySelector(`.ent[data-tag="${i}"]`);if(!box)return;
+  for(const side of ['s','e']){const g=document.createElement('span');g.className='grip '+side;g.title='ドラッグして範囲を変える';
+    g.addEventListener('mousedown',ev=>{ev.preventDefault();ev.stopPropagation();document.body.classList.add('gripping');
+      const up=u=>{document.removeEventListener('mouseup',up,true);document.body.classList.remove('gripping');u.preventDefault();u.stopPropagation();
+        const w=document.elementFromPoint(u.clientX,u.clientY)?.closest('[data-w]');if(!w)return;const k=+w.dataset.w;
+        side==='s'?setSpan(i,k===i?s:Math.min(k,e),e):setSpan(i,s,Math.max(k,s))};
+      document.addEventListener('mouseup',up,true)});
+    g.addEventListener('click',ev=>ev.stopPropagation());
+    side==='s'?box.prepend(g):box.append(g)}
+}
+// ---------- year / month tagging
+async function dateForm(o){
+  const toks=curText().split(' '),words=toks.slice(o.start,o.start+o.n);
+  const rec=(await loadRecords())?.[cur.k]||{};
+  const nw=words.map(w=>N(w));
+  const guessKind=()=>{const back=toks.slice(Math.max(0,o.start-4),o.start).map(N).join(' ');return /(^| )(و|ف)?(مات|توفي)( |$)/.test(back)?'YD':/(^| )(و)?(ولد|مولده)( |$)/.test(back)?'YB':'YY'};
+  let kind=guessKind();
+  const yOf=x=>{const d=x?.date||{};const v=d.ah??d.notBefore??d.notAfter;return v!=null?parseInt(v,10):null};const xmlY=k=>({YD:yOf(rec.death),YB:yOf(rec.birth)})[k];
+  const approx=()=>nw.some(w=>w==='بضع'||w==='بضعه');
+  const fill=()=>{const y=xmlY(kind);if(!y)return['',''];return approx()&&y%10===0?[y+1,y+9]:[y,'']};
+  const draw=()=>{const [a,b]=kind==='L'?['','']:fill();
+    $('#panel').innerHTML=`<div class="card"><h2>年・月のタグ付け</h2><div class="big">${esc(words.join(' '))}</div>
+    <div class="row"><select id="dk" aria-label="種類">${[['YD','没年'],['YB','生年'],['YY','その他の年'],['YA','年齢'],['L','月']].map(([k,v])=>`<option value="${k}"${k===kind?' selected':''}>${v}</option>`).join('')}</select></div>
+    ${kind==='L'?`<div class="row"><select id="dm" aria-label="月">${MON.slice(1).map((v,i)=>`<option value="${i+1}">${v}</option>`).join('')}</select></div>`
+    :`<div class="row"><label class="note">${kind==='YA'?'年齢':'ヒジュラ暦'} <input id="dy" inputmode="numeric" value="${a}" style="width:7em"></label><label class="note">〜 <input id="dy2" inputmode="numeric" value="${b}" style="width:7em" placeholder="幅があるとき"></label></div>
+    <p class="note">「بضع وعشرين」のように幅がある年は、上限も入れてください（例：821〜829。بضع は1〜9として扱う）。${xmlY(kind)?`XML の値：${xmlY(kind)}${rec[kind==='YD'?'death':'birth']?.date?.cert?'（cert '+esc(rec[kind==='YD'?'death':'birth'].date.cert)+'）':''}`:''}</p>`}
+    <p class="note">選択した ${o.n} 語にタグを付けます。</p>
+    <div class="row"><span class="sp"></span><button id="dback">取り消し</button><button class="pri" id="dok">付ける</button></div></div>`;
+    $('#dk').onchange=e=>{kind=e.target.value;draw()};
+    $('#dback').onclick=()=>openEntry(cur.k);
+    $('#dok').onclick=()=>{let tag;
+      if(kind==='L'){tag=`@L${o.n}X${String($('#dm').value).padStart(2,'0')}L`}
+      else{const y=parseInt($('#dy').value,10),y2=parseInt($('#dy2').value,10);if(!y){$('#dy').focus();return}
+        tag=`@${kind}${y}${y2&&y2>y?'-'+y2:''}[${o.n}]`}
+      toks.splice(o.start,0,tag);save(toks.join(' '))};
+  };
+  draw();
+}
+
+// ---------- candidate search
+let POOL=null;
+function pools(){
+  if(POOL)return POOL;
+  const P=[],T=[],S=[],O=[];
+  for(const [id,f] of Object.entries(OFFS))if(f.st!=='retired'){const nm=[f.ar,f.lat,f.cls].filter(Boolean).join(' / ');O.push({id,nm,nn:N([f.ar,f.lat,...(f.f||[])].join(' '))})}
+  for(const e of E)if(e.k.startsWith('AIND')&&!['R','X'].includes(kindOf(e)))P.push({id:e.k,nm:e.n,nn:N(e.n)});
+  const seenL=new Set();
+  const ents=[...Object.entries(LAB),...Object.entries(IDMJ).filter(([id,f])=>!LAB[id]&&!f.x&&f.cat!=='Office').map(([id,f])=>[id,f.ar])];
+  for(const [id,nm0] of ents){
+    if(BY.has(id)||OFFS[id]||seenL.has(id))continue;seenL.add(id);
+    const f=IDMJ[id];if(f?.x)continue;const nm=f?[f.ar,f.lat].filter(Boolean).join(' / '):nm0;
+    const c={id,nm,nn:N(nm+' '+(LAB[id]||'')),d:f?[f.cat,f.d].filter(Boolean).join(' · '):''};
+    const cat=f?.cat;if(cat==='Person')P.push(c);else if(cat==='Location'||cat==='Institution')T.push(c);else if(cat==='Nisbah')S.push(c);else if(cat==='Text'||cat==='Subject'||cat==='Other');
+    else if(/^TMP-N-/.test(id))S.push(c);else if(/^TMP-P-/.test(id))P.push(c);else if(/^(TMP-[LI]-|gn:)/.test(id))T.push(c);else if(id.startsWith('wd:')){P.push(c);T.push(c)}
+  }
+  return POOL={P,T,S,O};
+}
+function search(type,q){
+  const STOP=new Set(['بن','ابن','بنت','ابو','ابي','ام','عبد','في','من','ال']);
+  const qn=N(q.trim()).replace(/\s+/g,' '),qt=qn.split(' ').map(w=>type==='O'?w.replace(/^ال/,'').replace(/ه$/,''):w).filter(w=>w.length>1&&!STOP.has(w));if(!qt.length)return[];
+  const res=[];
+  for(const c of pools()[type]){
+    let s=0,hit=0;for(const w of qt)if(c.nn.includes(w)){s+=w.length;hit++}
+    if(!hit)continue;
+    if(hit===qt.length)s+=10;if(c.nn.includes(qn))s+=10;
+    s+=Math.log1p(MENT.get(c.id)?.size||0)*0.8;
+    res.push([s-c.nn.length/300,c]);
+  }
+  return res.sort((a,b)=>b[0]-a[0]).slice(0,40).map(r=>r[1]);
+}
+function identify(o){
+  mode=o;const toks=curText().split(' ');
+  const words=toks.slice(o.start,o.start+o.n);
+  const origId=o.replace!=null?(()=>{const m0=ENT.exec(toks[o.replace]);const id0=m0&&parseBr(m0[4]).id;return id0&&id0!=='NEEDID'?id0:null})():null;
+  const draw=()=>{
+    const w0=words[0];let q=[w0.slice(o.prefix),...words.slice(1)].join(' ');
+    if(o.type==='S'&&!o.sub)o.sub='nisbah';if(o.type==='O'&&!o.sub)o.sub='office';
+    const isS=o.type==='S',isO=o.type==='O',needId=!isS||o.sub==='nisbah';
+    $('#panel').innerHTML=`<div class="card"><h2>${isS?'名前要素':isO?'官職・職業':o.type==='P'?'人物':'地名'}の${isS?'タグ付け':'同定'}${o.replace!=null?'（変更）':''}</h2>
+    <div class="big">${esc(words.join(' '))}</div>
+    ${origId?`<div class="cand cur0"><div class="hd"><span class="note">現在の同定</span> <code>${esc(origId)}</code><span class="sp"></span>${extLink(origId)}<button id="keep0">このままにする</button><button class="pri" data-pick="${esc(origId)}" id="chk0">確認する</button></div><div class="ar">${esc(label(origId))}</div><div class="aibox" data-for="${esc(origId)}" hidden></div></div>`:''}
+    <div class="row"><span class="step">前接辞 <button id="pm" aria-label="減らす">−</button><b id="pv">${o.prefix}</b>字 <button id="pp" aria-label="増やす">＋</button></span><span class="note">例：「<bdi>بالمدينة</bdi>」なら <bdi>ب</bdi> の1字</span></div>
+    ${o.type==='P'?`<div class="row"><label class="note">関係 <select id="role" aria-label="関係の種類"><option value="">（なし）</option>${Object.keys(ROLE_JP).map(k=>`<option value="${k}"${k===(o.role||'').split('/')[0]?' selected':''}>${ROLE_JP[k]}（${k}）</option>`).join('')}</select></label></div>
+    ${(cur.r||[]).filter(open_).length?`<h2>この項のXMLの関係（本文で未特定）</h2>${(cur.r||[]).filter(open_).map((r,j)=>`<div class="cand"><div class="hd"><b>${esc(roleJP(r.role))}</b> <code>${esc(r.o)}</code><span class="sp"></span><button class="pri" data-rel="${j}">これにする</button></div><div class="ar">${esc(r.txt||label(r.o))}</div></div>`).join('')}`:''}`:''}
+    ${isO?`<div class="row"><select id="osub" aria-label="種類">${Object.entries(OSUB).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v}（${k}）</option>`).join('')}</select>${o.sub==='status'?'<button id="plain">IDなしで付ける</button>':''}</div><p class="note">汎用職に場所・施設が付くとき（نائب صفد など）は、職は汎用IDで付け、場所・施設は地名として別に付けます。</p>`:''}
+    ${isS?`<div class="row"><select id="sub" aria-label="名前要素の種類">${Object.entries(ONO).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v}</option>`).join('')}</select>${needId?'':'<button class="pri" id="plain">このまま付ける</button>'}</div>`:''}
+    ${needId?`<input id="cq" type="search" value="${esc(q)}" aria-label="候補を検索" style="width:100%">
+    <div class="row"><button class="pri" id="aiall">候補をまとめて確認</button><button id="nid">${isS?'IDなしで付ける':'IDなしで範囲だけ付ける（NEEDID）'}</button></div>
+    <div id="aiallbox" hidden></div>`:''}
+    <div class="row"><input id="mid" placeholder="IDを直接入力（AIND-D… / TMP-… / wd:Q… / gn:…）" style="flex:1"><button id="mok">確認する</button></div>
+    <div class="aibox" data-for="__manual" hidden></div>
+    <div id="cands"></div></div>`;
+    const run=()=>{const cs=search(o.type,$('#cq').value);lastCands=cs;
+      $('#cands').innerHTML=cs.length?cs.map(c=>{const e=BY.get(c.id);const pt=e?plain(textOf(e)):'',cut=pt.indexOf(' . ');const sn=e?pt.slice(cut<0?0:cut+3,(cut<0?0:cut+3)+230):'';
+        return `<div class="cand"><div class="hd"><code>${esc(c.id)}</code>${MENT.get(c.id)?.size?`<span class="badge">${MENT.get(c.id).size}件で言及</span>`:''}<span class="sp"></span>${extLink(c.id)}<button class="pri" data-pick="${esc(c.id)}">確認する</button></div><div class="ar">${esc(c.nm)}</div>${c.d?`<div class="note">${esc(c.d)}</div>`:''}${cs.some(x=>x!==c&&x.id!==c.id&&N(LAB[x.id]||'')===N(LAB[c.id]||'')&&LAB[c.id])?`<div class="note fz">本文での呼び方（${esc(LAB[c.id])}）が同じ別の候補があります。施設・所在地の違いを確かめてください。</div>`:''}${sn?`<div class="sn">${esc(sn)}…</div>`:''}<div class="aibox" data-for="${esc(c.id)}" hidden></div></div>`}).join(''):'<p class="note">候補がありません。検索語を短くするか、ニスバ・ラカブだけで探してください。</p>'};
+    $('#sub')?.addEventListener('change',e=>{o.sub=e.target.value;draw()});
+    $('#osub')?.addEventListener('change',e=>{o.sub=e.target.value;draw()});
+    $('#role')?.addEventListener('change',e=>{o.role=e.target.value||null});
+    $('#panel').querySelectorAll('[data-rel]').forEach(b=>b.onclick=()=>{const r=(cur.r||[]).filter(open_)[+b.dataset.rel];o.role=r.role;apply(r.o)});$('#plain')&&($('#plain').onclick=()=>apply(null));
+    if(!needId){$('#mid').parentElement.remove();$('#cands').remove();$('#pm').onclick=()=>{o.prefix=Math.max(0,o.prefix-1);draw()};$('#pp').onclick=()=>{o.prefix=Math.min(3,o.prefix+1);draw()};return}
+    let t;$('#cq').addEventListener('input',()=>{clearTimeout(t);t=setTimeout(run,200)});run();
+    $('#pm').onclick=()=>{o.prefix=Math.max(0,o.prefix-1);draw()};$('#pp').onclick=()=>{o.prefix=Math.min(3,o.prefix+1);draw()};
+    $('#nid').onclick=()=>apply(isS?null:'NEEDID');
+    $('#mok').onclick=()=>{const v=$('#mid').value.trim().replace(/^#/,'');if(v)aiCheck(v,$('#panel .aibox[data-for="__manual"]'))};
+    $('#aiall').onclick=()=>aiAll();
+    $('#keep0')&&($('#keep0').onclick=()=>{mode=null;showTagCard(o.replace)});
+    $('#chk0')&&($('#chk0').onclick=()=>aiCheck(origId,$('#panel .cur0 .aibox')));
+    $('#cands').onclick=ev=>{const b=ev.target.closest('[data-pick]');if(b)aiCheck(b.dataset.pick,b.closest('.cand').querySelector('.aibox'))};
+  };
+  const apply=async(id,meta)=>{
+    if(o.replace!=null&&o.type==='P'){const m0=ENT.exec(toks[o.replace]);const old=m0&&parseBr(m0[4]).id;
+      if(old&&/^TMP-P-/.test(old)&&id&&/^(AIND-|wd:)/.test(id)&&canon(old)!==canon(id)){
+        const rec={to:id,at:Date.now(),entry:cur.k,how:'replace',role:o.role||null};if(uid)rec.by=uid;if(meta?.ai)rec.ai=meta.ai;
+        await persistMerge(old,rec);reindexAll();status(`${old} を ${id} に統合しました`)}}
+    const br=o.type==='S'||o.type==='O'?(o.sub+(id&&id!=='NEEDID'?':'+id:o.type==='O'&&o.sub!=='status'?':NEEDID':'')):o.type==='P'&&o.role?o.role+':'+id:id;
+    const tag=`@${o.type}${o.prefix}${o.n}[${br}]`;
+    if(o.replace!=null)toks[o.replace]=tag;else toks.splice(o.start,0,tag);
+    save(toks.join(' '),meta);
+  };
+  let aiCtl=null;
+  const aiCheck=async(id,box)=>{
+    document.querySelectorAll('#panel .aibox').forEach(b=>{if(b!==box){b.hidden=true;b.innerHTML=''}});
+    aiCtl?.abort();
+    box.hidden=false;
+    const decideRow=(meta)=>`<div class="row"><span class="sp"></span><button id="aicx">取り消し</button><button class="pri" id="aiok">決定</button></div>`;
+    const wire=meta=>{box.querySelector('#aiok').onclick=()=>apply(id,meta);box.querySelector('#aicx').onclick=()=>{aiCtl?.abort();box.hidden=true;box.innerHTML=''}};
+    if(!sampler){box.innerHTML=`<p class="note">この環境では AI の確認を使えません。内容を確かめてから決定してください。</p>`+decideRow();wire({ai:{status:'unavailable'}});return}
+    box.innerHTML=`<p class="ai-wait">Opus が確認しています…（数十秒かかることがあります）</p><div class="row"><span class="sp"></span><button id="aistop">中止</button></div>`;
+    aiCtl=new AbortController();box.querySelector('#aistop').onclick=()=>aiCtl.abort();
+    try{
+      const res=await sampler.json(aiPrompt(id,o,words,toks),{model:'claude-opus-5-5',modelTier:'complex',signal:aiCtl.signal});
+      const v=res||{};const cls=v.verdict==='妥当'?'ok':v.verdict==='不適切'?'ng':'hm';
+      box.innerHTML=`<div class="ai ${cls}"><div class="aih">AI の判断：<b>${esc(v.verdict||'?')}</b>${v.confidence?`（確度 ${esc(v.confidence)}）`:''}</div>
+        ${Array.isArray(v.reasons)&&v.reasons.length?`<ul>${v.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        ${v.better_candidate?`<p>より適切な候補：<a class="lk" data-open="${esc(v.better_candidate)}">${esc(v.better_candidate)}</a> <span class="ar">${esc(label(v.better_candidate))}</span></p>`:''}
+        ${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">判断は参考です。決定するのは人です。</p>${origId?`<div class="row"><span class="sp"></span><button id="keep1">現在の同定（${esc(origId)}）のままにする</button></div>`:''}</div>`+decideRow();
+      wire({ai:{model:'claude-opus-5-5',verdict:v.verdict||null,confidence:v.confidence||null,better:v.better_candidate||null}});
+    }catch(err){
+      if(err.code==='cancelled'){box.hidden=true;box.innerHTML='';return}
+      const msg={not_granted:'AI の利用が許可されていません。',rate_limited:'利用の上限に達しました。しばらくしてから試してください。',sampling_disabled:'このアカウントでは AI を使えません。',invalid_json:'AI の回答を読み取れませんでした。もう一度お試しください。'}[err.code]||'AI の確認に失敗しました（'+(err.code||'error')+'）。';
+      box.innerHTML=`<p class="note">${msg}</p>`+decideRow();wire({ai:{status:err.code||'error'}});
+    }
+  };
+  const aiAll=async()=>{
+    const box=$('#aiallbox');aiCtl?.abort();
+    document.querySelectorAll('#panel .aibox').forEach(b=>{b.hidden=true;b.innerHTML=''});
+    const seen=new Set(),ids=[];if(origId){seen.add(origId);ids.push(origId)}
+    for(const r of (o.type==='P'?(cur.r||[]).filter(open_):[]))if(r.o&&r.o!=='NEEDID'&&!seen.has(r.o)){seen.add(r.o);ids.push(r.o)}
+    for(const c of lastCands)if(!seen.has(c.id)){seen.add(c.id);ids.push(c.id)}
+    let pool=ids.slice(0,12),full=false;box.hidden=false;
+    if(o.type==='O'&&pool.filter(x=>x!==origId).length<3){full=true;pool=[...new Set([...(origId?[origId]:[]),...pools().O.map(c=>c.id)])]}
+    if(!pool.length){box.innerHTML='<p class="note">確認する候補がありません。</p>';return}
+    if(!sampler){box.innerHTML='<p class="note">この環境では AI の確認を使えません。</p>';return}
+    box.innerHTML=`<p class="ai-wait">Opus が${full?'官職・職業の一覧（'+pool.length+' 件）から候補を探しています':'候補 '+pool.length+' 件をまとめて確認しています'}…（1分ほどかかることがあります）</p><div class="row"><span class="sp"></span><button id="aistop2">中止</button></div>`;
+    aiCtl=new AbortController();box.querySelector('#aistop2').onclick=()=>aiCtl.abort();
+    try{
+      const v=await sampler.json(aiPromptAll(pool,o,words,toks,origId,full),{model:'claude-opus-5-5',modelTier:'complex',signal:aiCtl.signal})||{};
+      const rk=(Array.isArray(v.ranking)?v.ranking:[]).filter(x=>x&&pool.includes(x.id));
+      const rest=pool.filter(id=>!rk.some(x=>x.id===id));
+      const cls=x=>x.verdict==='妥当'?'ok':x.verdict==='不適切'?'ng':'hm';
+      const row=(x,i)=>`<div class="cand"><div class="hd"><b>${i+1}.</b> <code>${esc(x.id)}</code> <span class="badge v-${cls(x)}">${esc(x.verdict||'?')}${x.confidence?' · '+esc(x.confidence):''}</span><span class="sp"></span>${extLink(x.id)}<button class="pri" data-dec="${esc(x.id)}">決定</button></div><div class="ar">${esc(label(x.id))}</div>${Array.isArray(x.reasons)&&x.reasons.length?`<ul class="rs">${x.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}</div>`;
+      box.innerHTML=`<div class="ai ${v.best?'ok':'hm'}"><div class="aih">AI の判断：${v.best?`最も確度が高いのは <b>${esc(v.best)}</b>`:'<b>確実に同定できる候補はありません</b>'}</div>${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">判断は参考です。決定するのは人です。</p></div>
+        ${rk.map(row).join('')}${rest.length&&!full?`<p class="note">判断が返ってこなかった候補：${rest.map(esc).join('、')}</p>`:''}`;
+      box.onclick=ev=>{if(ev.target.id==='keep1'){mode=null;showTagCard(o.replace);return}const b=ev.target.closest('[data-dec]');if(!b)return;const x=rk.find(y=>y.id===b.dataset.dec);
+        const rel=(cur.r||[]).find(r=>r.o===x.id&&open_(r));if(rel&&!o.role)o.role=rel.role;
+        apply(x.id,{ai:{model:'claude-opus-5-5',mode:'batch',verdict:x.verdict||null,confidence:x.confidence||null,rank:rk.indexOf(x)+1,of:pool.length}})};
+    }catch(err){
+      if(err.code==='cancelled'){box.hidden=true;box.innerHTML='';return}
+      box.innerHTML=`<p class="note">${({rate_limited:'利用の上限に達しました。しばらくしてから試してください。',invalid_json:'AI の回答を読み取れませんでした。もう一度お試しください。'})[err.code]||'AI の確認に失敗しました（'+esc(err.code||'error')+'）。'}</p>`;
+    }
+  };
+  draw();
+}
+
+let sampler=null,lastCands=[];
+function aiPrompt(id,o,words,toks){
+  const strip=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
+  const ctx=toks.map((w,i)=>i===o.start?'⟦'+w:(i===o.start+o.n-1?w+'⟧':w));
+  if(o.n===1)ctx[o.start]='⟦'+toks[o.start]+'⟧';
+  const bio=x=>{const e=BY.get(x);return e?strip(textOf(e)).slice(0,1400):''};
+  const alts=lastCands.filter(c=>c.id!==id).slice(0,4).map(c=>`- ${c.id}: ${c.nm}${BY.get(c.id)?' | '+bio(c.id).slice(0,300):''}`).join('\n');
+  const kind=o.type==='T'?'place':o.type==='O'?'office or occupation (an ID from the project office list; a generic office plus a separate place/institution tag is preferred over a place-specific office)':'person';
+  return `You are checking a proposed identification in a prosopographical database of al-Sakhāwī's biographical dictionary al-Ḍawʾ al-Lāmiʿ (9th/15th century).
+Decide whether the marked span in the biography (between ⟦ and ⟧) refers to the proposed ${kind}.
+
+Project rules:
+- Identify only when it is certain. If it is not certain, the span should stay unidentified (NEEDID) or keep a provisional ID; say so.
+- Read the printed text as it stands; do not assume a misreading or emend the text to make a match.
+- "شيخنا" alone means Ibn Ḥajar al-ʿAsqalānī (wd:Q471116). First-person forms (مني، علي، عني، عندي…) mean al-Sakhāwī himself (wd:Q4120128).
+- Check chronology (lifetimes must overlap for teaching, meeting, patronage), place, madhhab, laqab/kunya/nisba consistency, and family links. Homonyms are very common; al-Sakhāwī uses fixed epithets for some people.
+- Relation of the span to the biographee, as tagged: ${o.role||'(none given)'}.
+
+Biography ${cur.k} (Arabic, tags removed, span marked):
+${strip(ctx.join(' '))}
+
+Proposed ${kind}: ${id} — ${label(id)}
+${BY.get(id)?'Its own biography (opening):\n'+bio(id):'(No biography of its own in this dictionary.)'}
+
+Relations recorded for this biography in the reviewed XML (partner ID — name — relation):
+${(cur.r||[]).map(r=>`- ${r.o} — ${r.txt||label(r.o)} — ${r.role}${r.m?' ('+r.m+')':''}`).join('\n')||'(none)'}
+
+Other candidates found by name search:
+${alts||'(none)'}
+
+Reply in Japanese, with only one JSON object:
+{"verdict":"妥当"|"要検討"|"不適切","confidence":"high"|"medium"|"low","reasons":["短い理由（根拠となる語句・年代を挙げる）", "..."],"better_candidate":"ID or null","note":"補足（なければ空）"}`;
+}
+function aiPromptAll(ids,o,words,toks,origId,full){
+  const strip=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
+  const ctx=toks.slice();ctx[o.start]='⟦'+ctx[o.start];ctx[o.start+o.n-1]=ctx[o.start+o.n-1]+'⟧';
+  const bio=(x,n)=>{const e=BY.get(x);return e?strip(textOf(e)).slice(0,n):''};
+  const kind=o.type==='T'?'place':o.type==='O'?'office or occupation (an ID from the project office list; a generic office plus a separate place/institution tag is preferred over a place-specific office)':'person';
+  const open=(cur.r||[]).filter(open_).map(r=>r.o);
+  return `You are identifying a ${kind} in a prosopographical database of al-Sakhāwī's biographical dictionary al-Ḍawʾ al-Lāmiʿ (9th/15th century).
+The marked span (between ⟦ and ⟧) in the biography below refers to someone. Assess EVERY candidate listed and rank them from most to least likely.
+
+Project rules:
+- Identify only when it is certain. If no candidate is certain, set "best" to null.
+- Read the printed text as it stands; do not emend it to make a match.
+- "شيخنا" alone means Ibn Ḥajar al-ʿAsqalānī (wd:Q471116). First-person forms (مني، علي، عني، عندي…) mean al-Sakhāwī himself (wd:Q4120128).
+- Check chronology (lifetimes must overlap for teaching, meeting, patronage), place, madhhab, laqab/kunya/nisba consistency, and family links. Homonyms are very common.
+- The candidate marked [CURRENT] is the identification the span already has (often a provisional TMP ID); keeping it is a valid outcome when nothing better is certain.
+- Candidates marked [XML] are relations already recorded for this biography whose position in the text is not yet fixed; they are strong priors but still must fit the span.
+- Relation of the span to the biographee, as tagged: ${o.role||'(none given)'}.
+
+Biography ${cur.k} (Arabic, tags removed, span marked):
+${strip(ctx.join(' '))}
+
+Relations recorded for this biography in the reviewed XML:
+${(cur.r||[]).map(r=>`- ${r.o} — ${r.txt||label(r.o)} — ${r.role}${r.m?' ('+r.m+')':''}`).join('\n')||'(none)'}
+
+${full?'The name search found no good candidate, so the whole active office list of the project is given below. Pick at most 5 plausible IDs (consider morphology: e.g. الأذان ↔ مؤذن, الخطابة ↔ خطيب) and rank only those.\n':''}Candidates:
+${o.type==='O'?ids.map(id=>{const f=OFFS[id]||{};return `- ${id}${id===origId?' [CURRENT]':''}: ${f.ar||label(id)} / ${f.lat||''} [${f.cls||''}]${f.f&&f.f.length?' forms: '+f.f.slice(0,4).join('، '):''}`}).join('\n'):ids.map(id=>`### ${id}${id===origId?' [CURRENT — the ID the span has now]':''}${open.includes(id)?' [XML]':''} — ${label(id)}\n${BY.get(id)?bio(id,600):'(no biography of its own in this dictionary)'}`).join('\n\n')}
+
+Reply in Japanese, with only one JSON object. ${full?'Include at most 5 candidates in "ranking", best first:':'Include every candidate in "ranking", best first:'}
+{"best":"ID or null","ranking":[{"id":"…","verdict":"妥当"|"要検討"|"不適切","confidence":"high"|"medium"|"low","reasons":["短い理由（根拠の語句・年代）"]}],"note":"補足（なければ空）"}`;
+}
+// ---------- persistence
+async function save(t,meta){
+  const k=cur.k,rec={t,at:Date.now(),base:hash(cur.t)};if(uid)rec.by=uid;delete DRAFTS[k];
+  if(meta?.ai){rec.checks=[...(EDITS[k]?.checks||[]),{...meta.ai,at:Date.now()}].slice(-50)}else if(EDITS[k]?.checks)rec.checks=EDITS[k].checks;
+  if(meta?.checkOnly)rec.checkOnly=true;
+  if(t===cur.t&&!meta?.checkOnly){delete EDITS[k];index(cur);await persistDel(k)}else{EDITS[k]=rec;index(cur);await persist(k,rec);await scanMerges(cur,t)}
+  openEntry(k);renderList();
+}
+async function revert(k){delete EDITS[k];index(BY.get(k));await persistDel(k);openEntry(k);renderList()}
+function warnLocal(why){let b=document.getElementById('warnbar');if(!b){b=document.createElement('div');b.id='warnbar';b.setAttribute('role','alert');document.body.prepend(b)}
+  b.innerHTML=`<b>共有データベースに保存できていません。</b>この画面での編集は、このブラウザの中にだけ保存されています（${esc(why||'閲覧だけの権限か、サインインしていない可能性があります')}）。共有した人に「編集できる」権限をもらってください。`}
+async function persist(k,rec){
+  if(db){try{await db.doc('edits/'+k).set(rec);status('共有DBに保存しました');return}catch(e){status('共有DBに保存できませんでした（'+(e.code||e)+'）。このブラウザに保存します');warnLocal(e.code)}}else warnLocal();
+  try{localStorage.setItem('dawEdits',JSON.stringify(EDITS));status('このブラウザに保存しました')}catch{status('保存できませんでした')}
+}
+async function persistJ(k,rec){
+  if(db){try{rec?await db.doc('jedits/'+k).set(rec):await db.doc('jedits/'+k).delete();status('JSON を共有DBに保存しました');return}catch(e){status('共有DBに保存できませんでした。このブラウザに保存します');warnLocal(e.code)}}else warnLocal();
+  try{localStorage.setItem('dawJEdits',JSON.stringify(JEDITS));status('JSON をこのブラウザに保存しました')}catch{}
+}
+async function persistMerge(from,rec){
+  MERGES[from]=rec;
+  if(db){try{await db.doc('merges/'+from).set(rec)}catch(e){warnLocal(e.code)}}else warnLocal();
+  try{localStorage.setItem('dawMerges',JSON.stringify(MERGES))}catch{}
+}
+const normT=s=>N(s||'').split(' ').map(w=>w.replace(/^(و|ب|ف|ل)(?=ال)/,'')).filter(w=>w.length>1&&!['بن','ابن','بنت','ابي','ابو'].includes(w));
+const baseRole=r=>(r||'').split('/')[0].split('+')[0];
+function mergeCandidate(e,toId,words,role){
+  if(!toId||!/^(AIND-|wd:)/.test(toId))return null;
+  const w=new Set(normT(words.join(' ')));if(!w.size)return null;
+  const cs=(e.r||[]).filter(r=>/^TMP-P-/.test(r.o)&&!r.nm&&!isMerged(r.o)&&!(MERGES[r.o]?.undone)&&canon(r.o)!==canon(toId)&&(!role||!r.role||baseRole(r.role)===baseRole(role)))
+    .map(r=>{const n=normT(r.txt||label0(r.o));const ov=n.filter(x=>w.has(x)).length;return {r,ov,need:Math.min(2,w.size)}}).filter(x=>x.ov>=x.need);
+  if(!cs.length)return null;cs.sort((a,b)=>b.ov-a.ov);
+  if(cs.length>1&&cs[0].ov===cs[1].ov)return null;
+  return cs[0].r;
+}
+async function autoMerge(e,toId,words,role,how){
+  const r=mergeCandidate(e,toId,words,role);if(!r)return null;
+  const rec={to:toId,at:Date.now(),entry:e.k,how,role:r.role||null};if(uid)rec.by=uid;
+  await persistMerge(r.o,rec);reindexAll();status(`${r.o} を ${toId} に統合しました`);return r.o;
+}
+async function scanMerges(e,t){
+  const toks=t.split(' ');let n=0;
+  for(let i=0;i<toks.length;i++){const m=ENT.exec(toks[i]);if(!m||m[1][0]!=='P')continue;const pb=parseBr(m[4]);if(!pb.id)continue;
+    const words=toks.slice(i+1,i+1+(+m[3]));if(await autoMerge(e,pb.id,words,splitRole(pb.sub).roles,'auto'))n++}
+  return n;
+}
+async function persistDel(k){
+  if(db){try{await db.doc('edits/'+k).delete()}catch{}}
+  try{localStorage.setItem('dawEdits',JSON.stringify(EDITS))}catch{}
+}
+const status=s=>$('#status').textContent=s;
+
+// ---------- boot
+(async()=>{
+  try{
+    const [d,l,tr]=await Promise.all([fetch('dau.json').then(r=>r.json()),fetch('labels.json').then(r=>r.json()),fetch('tr.json').then(r=>r.json()).catch(()=>({}))]);
+    fetch('offices.json').then(r=>r.json()).then(o=>{OFFS=o;POOL=null}).catch(()=>{});
+    fetch('idm.json').then(r=>r.json()).then(o=>{IDMJ=o;POOL=null;if(cur&&!mode)openEntry(cur.k,false)}).catch(()=>{});
+    E=d;LAB=l;for(const e of E){BY.set(e.k,e);if(tr[e.k]){e.tr=tr[e.k];TR0[e.k]=tr[e.k]}}
+  }catch(e){$('#center').innerHTML='<div class="load">データを読み込めませんでした。ページを開き直してください。</div>';return}
+  try{Object.assign(EDITS,JSON.parse(localStorage.getItem('dawEdits')||'{}'))}catch{}
+  try{Object.assign(JEDITS,JSON.parse(localStorage.getItem('dawJEdits')||'{}'))}catch{}
+  for(const k in JEDITS)applyJTr(k);
+  try{Object.assign(MERGES,JSON.parse(localStorage.getItem('dawMerges')||'{}'))}catch{}
+  reindexAll();
+  renderList();
+  const k=decodeURIComponent(location.hash.slice(1));openEntry(BY.has(k)?k:'AIND-D06228',false);
+  status(`${E.length.toLocaleString()} 見出し・タグ付き ${E.filter(e=>e.x).length.toLocaleString()} 件（このブラウザに保存）`);
+  try{
+    const c=window.claude;if(!c?.use)return;
+    [db,user,dl,sampler]=await Promise.all([c.use('db'),c.use('user'),c.use('downloads'),c.use('sample')]);
+    if(user){try{uid=await user.id()}catch{}}
+    if(db){
+      const timer=setTimeout(()=>status('共有DBにまだ接続できていません'),10000);
+      db.collection('edits').onSnapshot(snap=>{
+        clearTimeout(timer);
+        for(const ch of snap.docChanges()){
+          const k=ch.doc.id,e=BY.get(k);if(!e)continue;
+          if(ch.type==='removed')delete EDITS[k];else EDITS[k]=ch.doc.data();
+          index(e);
+        }
+        if(cur&&!mode&&DRAFTS[cur.k]==null&&document.activeElement?.id!=='md')openEntry(cur.k,false);renderList();
+        status(`${E.length.toLocaleString()} 見出し・共有DBの編集 ${snap.size} 件`);
+      },err=>{clearTimeout(timer);status('共有DBが使えません（'+err.code+'）。このブラウザに保存します');db=null});
+      let firstM=true;
+      db.collection('merges').onSnapshot(async snap=>{for(const ch of snap.docChanges()){if(ch.type==='removed')delete MERGES[ch.doc.id];else MERGES[ch.doc.id]=ch.doc.data()}
+        reindexAll();if(cur&&!mode&&document.activeElement?.tagName!=='TEXTAREA')openEntry(cur.k,false);
+        if(firstM&&!snap.metadata.fromCache){firstM=false;for(const k in EDITS){const e=BY.get(k);if(e)await scanMerges(e,EDITS[k].t)}}},()=>{});
+      db.collection('absent').onSnapshot(snap=>{for(const ch of snap.docChanges()){if(ch.type==='removed')delete ABS[ch.doc.id];else ABS[ch.doc.id]=ch.doc.data().items||{}}try{localStorage.setItem('dawAbsent',JSON.stringify(ABS))}catch{}if(cur&&!mode&&document.activeElement?.tagName!=='TEXTAREA')openEntry(cur.k,false)},()=>{});
+      db.collection('kinds').onSnapshot(snap=>{for(const ch of snap.docChanges()){if(ch.type==='removed')delete KINDS[ch.doc.id];else KINDS[ch.doc.id]=ch.doc.data()}
+        try{localStorage.setItem('dawKinds',JSON.stringify(KINDS))}catch{}renderList();if(cur&&!mode&&document.activeElement?.tagName!=='TEXTAREA')openEntry(cur.k,false)},()=>{});
+      db.collection('jedits').onSnapshot(snap=>{for(const ch of snap.docChanges()){if(ch.type==='removed')delete JEDITS[ch.doc.id];else JEDITS[ch.doc.id]=ch.doc.data();applyJTr(ch.doc.id)}
+        if(cur&&!mode&&document.activeElement?.tagName!=='TEXTAREA')openEntry(cur.k,false)},()=>{});
+    }
+  }catch{}
+})();
+}
+</script>
+</body>
+</html>

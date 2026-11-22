@@ -1,0 +1,113 @@
+schema: aind-yaml/0.1
+id: AIND-D06705
+source:
+  uid: '688264329460'
+sex: M
+name:
+  full: محمد بن أحمد بن عبد الله بن محمد بن إبراهيم البلقيني الأصل المكي الشاذلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00103
+    quote: البلقيني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-05470
+    quote: الشاذلي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D00908
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: إبراهيم
+    by: rule
+death:
+  id: d
+  date:
+    ah: 867-10
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في شوال سنة سبع وستين
+  note:
+    ja: 867年シャウワール月＝1463-06-28 開始（h2g.py、月精度）。初版の @when 1462 を訂正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D00908
+  passive: AIND-D06705
+  quote: null
+  note:
+    ja: '見出しナサブ（規則37）。父＝corpus 本伝 #AIND-D00908「أحمد بن عبد الله بن محمد بن إبراهيم السخاوي ثم البلقيني نزيل القاهرة ثم مكة ويعرف بالشاذلي . ولد بسخا وقدم مع أبيه إلى بلقينة … ثم تحول إلى مكة فقدمها في سنة إحدى … فقطنها حتى مات في شوال سنة سبع وأربعين ، وكان خيرا يخطب بوادي المبارك من نخله」（ナサブ4代・ニスバ البلقيني・الشاذلي・マッカ・ナフラの谷で閉合。ブリーフに記載なし）。初版は父 relation なし。'
+- id: r2
+  type: personal
+  subtype: relative
+  active: AIND-D04977
+  passive: AIND-D06705
+  cert: medium
+  quote: علي بن الجمال المصري
+  note:
+    ja: '「صهر علي بن الجمال المصري」。「صهر」は婿・舅・義兄弟のいずれか原文から決まらない＝subtype relative（規則52）。相手: corpus の「ابن الجمال المصري」家で علي の名をもつ本伝は #AIND-D04977「علي بن أحمد بن عبد الرحمن بن محمد بن أبي بكر بن علي بن يوسف النور الأنصاري المكي الشافعي … ويعرف كل منهم بابن الجمال المصري . ولد في سنة اثنتين أو ثلاث وثلاثين بمكة」のみ（名＋本文明記の通称＋マッカの3点。الجمال المصري 本人 #AIND-D07214 の子で本伝のあるのは الطاهر・عبد الرحمن・أحمد・عمر・أبو بكر で علي はいない。#AIND-D05408 علي は النجم المرجاني の子で別系）。ただし D04977 は 832〜833年生で、本項主の没年（867）には30代半ば＝「婿」の読みには若く、الجمال المصري の本伝のない子 علي である可能性が残る＝cert medium（ISSUES §D173-5）。初版は subtype other・#NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q125482
+  places:
+  - ref: TMP-L-00202
+    quote: سولة
+  quote: يؤم بقرية
+  note:
+    ja: '「ويؤم بقرية سولة من وادي نخلة」＝汎用 إمام（wd:Q125482）＋placeName（規則65 (b)）。سولة＝ID-Master 既登録 TMP-L-00202「سولة من نخلة اليمانية」（地名 سولة と نخلة の2点が一致）。初版は office・placeName とも #NEEDID。'
+- id: s2
+  type: status
+  label: يتبرك به
+  places:
+  - ref: TMP-L-00202
+    quote: سولة
+  quote: يتبرك به
+  note:
+    ja: 村人が彼に祝福を求め、ザカートなどを施した（「فيها」は سولة を指す、規則22(3)）。職ではないので status。初版は未符号化。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد・本項主の没年 867（871 以前）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版は subtype other の relation。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アブド・アッラー・ブン・ムハンマド・ブン・イブラーヒーム、出自はアル＝ブルキーニー、アル＝マッキー・アッ＝シャーズィリー。アリー・ブン・アル＝ジャマール・アル＝ミスリーの姻戚（スィフル）。クルアーンを暗記していた者の一人で、ワーディー・ナフラのサウラ村でイマームを務め、村では彼に祝福が求められ、それどころか人々はザカートその他を彼に施していた。（8）67年シャウワール月にマッカで没した。イブン・ファハドがその没年を記している。
+  en: Muḥammad b. Aḥmad b. ʿAbd Allāh b. Muḥammad b. Ibrāhīm, al-Bulqīnī by origin, al-Makkī al-Shādhilī, relative by marriage (ṣihr) of ʿAlī b. al-Jamāl al-Miṣrī. One of those who knew the Qurʾān by heart; he led the prayer in the village of Sawla in Wādī Nakhla, where people sought blessing through him and indeed treated him kindly with zakāt and other gifts. He died in Mecca in Shawwāl of the year [8]67. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T09:09:16Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

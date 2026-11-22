@@ -1,0 +1,71 @@
+schema: aind-yaml/0.1
+id: AIND-D06435
+source:
+  uid: '597176628963'
+sex: M
+name:
+  full: ماميه الأشرفي قايتباي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00141
+    quote: الأشرفي
+  - id: n2
+    type: ism
+    quote: ماميه
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06435
+  quote: ابن عثمان
+  note:
+    ja: 規則3（単名のマムルーク。原文に父名なし）。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D06305
+  passive: AIND-D06435
+  quote: قايتباي
+  note:
+    ja: '主人ニスバ「الأشرفي قايتباي」（規則51）。الأشرف قايتباي＝#AIND-D06305（頻出確定ID、先例 #AIND-D06288）。初版にはなし。'
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: AIND-D03257
+  passive: AIND-D06435
+  quote: شاذ بك
+  note:
+    ja: '「وعمل الدوادارية الثانية بعد شاذ بك」＝第二ダワーダール職の前任者。#AIND-D03257「1104 شاذ بك الأشرفي قايتباي ويقال له شاذ بك آخوخ الطويل … فلما عاد من التجريدة سنة أربع وتسعين استقر به دوادارا ثانيا عوضا عن قانصوه الألفي … فصرف عنها بماميه」＝相手側が本項主を後任として名指し（名・職の2点で閉合。corpus の他の شاذ بك（D03255〜D03265）は第二ダワーダールではない）。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00063
+  quote: الدوادارية الثانية
+  note:
+    ja: '汎用 دوادار（TMP-O-00063）に序数付きラベル（repo 先例 #AIND-D02010・#AIND-D03286）。初版は #NEEDID。D03257 によれば就任は894年の遠征帰還後だが、本項の原文に年はないので日付は置かない（規則23）。'
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: NEEDID
+  quote: null
+  summary:
+    ar: سافر بعد الصلح مع ابن عثمان إليه بهدية ثم رجع
+  note:
+    ja: '「ابن عثمان」＝オスマン朝君主（家名による呼称、個人名なし）。corpus のオスマン家の本伝（#AIND-D09429 محمد بن مراد、#AIND-D09893 مراد بك、#AIND-D11124 أبو يزيد بن مراد）はいずれもカーイトバーイ期の講和（890年代）の相手ではなく、該当君主（バーヤズィード2世とみられる）の本伝は corpus にない → #NEEDID。講和・贈物使節の派遣は外交 event で、relation にしない（初版の統制外 subtype「diplomatic contact」relation を除去。先例 #AIND-D05068 は相手の本伝がある場合）。年の記載なし＝日付属性なし。'
+notes:
+- text: 「ويذكر بحذق وعقل」は人物評＝訳文のみ。没年の記載なし＝death を作らない（896年頃まで存命の記述）。
+  lang: ja
+  type: editorial
+translation:
+  ja: マーミヤ・アル＝アシュラフィー・カーイトバーイ。イブン・ウスマーン（オスマン朝君主）との講和の後、贈物を携えて彼のもとへ赴き、帰還した。そしてシャーズ・ベクの後任として第二ダワーダール職を務めた。機敏さと分別で知られる。
+  en: Māmiya al-Ashrafī Qāytbāy. After the peace with Ibn ʿUthmān (the Ottoman ruler) he travelled to him with a gift and then returned, and he held the second dawādārship after Shādh Bak. He is spoken of for his skill and good sense.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T10:39:40Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

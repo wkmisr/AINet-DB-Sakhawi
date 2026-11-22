@@ -1,0 +1,72 @@
+schema: aind-yaml/0.1
+id: AIND-D06248
+source:
+  uid: '896914175382'
+sex: M
+name:
+  full: قاسم بن بهاء الدين الماطي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02731
+    quote: الماطي
+  - id: n2
+    type: ism
+    quote: قاسم
+    by: rule
+  - id: n3
+    type: nasab
+    quote: بهاء الدين
+    by: rule
+death:
+  id: d
+  note:
+    ja: 「مات في المحرم」＝没年の記載なし、ムハッラム月のみ（先例 D05768）。没地の記載もない。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D04081
+  passive: AIND-D06248
+  methods:
+  - TMP-S-00010
+  quote: الزين عبد الغني الهيثمي
+  note:
+    ja: 「ممن تلا القراآت على الزين عبد الغني الهيثمي」。الزين عبد الغني الهيثمي＝#AIND-D04081（عبد الغني بن يوسف بن أحمد بن مرتضى الزين الهيثمي القاهري الشافعي المقرىء、803 頃生。初版の幻番号 TMP-P-000046 の名寄せ先）。初版の relation 内 event の placeName القاهرة（原文になし）を除去（規則22）。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06248
+  quote: null
+  note:
+    ja: '父は見出しの「بهاء الدين」（ラカブのみ、名・祖父名なし）→ #NEEDID（規則3。corpus に「بهاء الدين الماطي」見出しなし、ID-Master にも該当なし）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q3595924
+  quote: المقري
+  note:
+    ja: 見出し「المقري」。
+events:
+- id: e1
+  type: other
+  places:
+  - ref: TMP-L-00357
+    quote: الماطيين
+  orgs:
+  - ref: TMP-I-00028
+  quote: null
+  summary:
+    ar: وتكسب بحانوت في الماطيين بجوار المؤيدية
+  note:
+    ja: 【集約 2026-10-25】原文に明記された施設名 المؤيدية（TMP-I-00028）を event 内の orgName として復元（規則22(2)、内容A[2]。施設＝TMP-I は repo 実勢どおり orgName）。「بجوار」＝隣接であり所属ではない（affiliation にはしない）。D08463「محمد بن قاسم صلاح الدين بن الماطي … وأحد صوفية المؤيدية」は子の候補だが確証なし（規則26、note 留め）。 الماطيين＝المؤيدية（TMP-I-00028、カイロ）に隣接する地区・市場名。ID-Master 未登録 → TMP-L-00357。「بجوار المؤيدية」は位置の説明であり所属ではないため、初版の affiliation（TMP-I-00028）と state「التكسب بحانوت」（#NEEDID、orgName المؤيدية）を除去して event に一本化。
+translation:
+  ja: カースィム・ブン・バハー・アッ＝ディーン・アル＝マーティー、クルアーン朗誦家（アル＝ムクリ）。アッ＝ザイン・アブドゥルガニー・アル＝ハイサミーに諸読誦法（キラーアート）を朗誦（して学習）した者の一人で、アル＝ムアイヤディーヤの隣のアル＝マーティイーンにある店で生計を立てた。ムハッラム月に没した。
+  en: Qāsim b. Bahāʾ al-Dīn al-Māṭī al-Muqriʾ. He was among those who recited the qirāʾāt (Qurʾānic readings) to al-Zayn ʿAbd al-Ghanī al-Haythamī, and he earned his living with a shop in al-Māṭiyyīn next to al-Muʾayyadiyya. He died in Muḥarram.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T09:16:47Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

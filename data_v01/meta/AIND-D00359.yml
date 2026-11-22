@@ -1,0 +1,112 @@
+schema: aind-yaml/0.1
+id: AIND-D00359
+source:
+  uid: '983803364100'
+sex: M
+name:
+  full: إبراهيم سعد الدين بن علم الدين الباسطي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01026
+    quote: الباسطي
+  - id: n2
+    type: laqab
+    quote: سعد الدين
+  - id: n3
+    type: shuhrah
+    quote: الصغير
+  - id: n4
+    type: ism
+    quote: إبراهيم
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علم الدين
+    by: rule
+death:
+  id: d
+  date:
+    ah: 893
+  note:
+    ar: مات في سنة ثلاث وتسعين بعد أن كف ثم رأى
+    ja: 893＝1487-12-26 開始（年精度、h2g.py）。年は明記されているので cert なし（初版の cert medium を除去）。「بعد أن كف ثم رأى」＝失明したのち視力を回復したあとで没した（event n=2）。【集約 2026-11-08】@when を 1488 → 1487 に是正（893年は 1487-12-26 開始、h2g.py。月日がないので年精度＝開始の西暦年、規則18。内容A H・機械 H、決定3）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D00359
+  quote: null
+  note:
+    ja: '規則3 (c'')。父はラカブ「علم الدين」のみで名が出ない。corpus 見出し（hw.py「علم الدين|الباسطي」）に本伝なし、ID-Master 未登録 → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D03484
+  passive: AIND-D00359
+  quote: الزيني عبد الباسط
+  note:
+    ja: '「كاتب لباب ناظر الجيش الزيني عبد الباسط」＝عبد الباسط（ناظر الجيش）の門の書記として仕えた → patron（規則56、active=主人）。عبد الباسط ناظر الجيش＝ #AIND-D03484（頻出確定ID。ニスバ الباسطي もこれに由来）。初版の TMP-P-001418（太田氏「الزيني عبد الباسط」Note「AIND-D00359が仕えた人物」）は D03484 と名寄せ要（ISSUES §D159-3）。初版の統制外 subtype「client」を patron に。相手の職 ناظر الجيش は本項主の state にしない。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D10491
+  passive: AIND-D00359
+  quote: الجمالي ناصر الخاص
+  note:
+    ja: '「ثم خلص وخدم الجمالي ناصر الخاص فمن يعده」（刊本「يعده」＝بعده）＝釈放後 الجمالي ناظر الخاص に仕えた → patron（規則56）。刊本の綴り「ناصر الخاص」は原文どおり（規則25。#AIND-D00588 にも同じ綴り）＝ناظر الخاص。الجمالي ناظر الخاص＝ #AIND-D10491「يوسف بن عبد الكريم بن بركة الجمال … ناظر الخاص ويعرف بابن كاتب جكم」（819生、862没）。repo 先例 #AIND-D05713・#AIND-D02991・#AIND-D06328 と同じく、この称号は 840〜862年に一意なので cert なし（本項主の仕官は842年の محنة 以後＝時期が整合）。「فمن يعده（بعده）」（その後任たち）は名がないので relation を立てない（規則14）。初版の TMP-P-001419（太田氏「الجمالي ناصر الخاص」Note「الجمالي ناظر الخاصと思われる」）は D10491 と名寄せ要（ISSUES §D159-3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00390
+  quote: المباشر
+  note:
+    ja: 見出しの職名「المباشر」（財務・行政の実務官）。ID-Master の Office は مباشر 系が施設・部署限定（TMP-O-00162 الاسطبل・00227 سقاية العباس・00272 جدة・00281 الجوالي・00340 الدولة・00341 المفرد・00375 الأحباس）のみで、汎用の مباشر は未登録 → 新規 TMP-O-00390。初版は未符号化。
+- id: s2
+  type: office
+  ref: TMP-O-00010
+  quote: كاتب لباب ناظر الجيش
+  note:
+    ja: 「كاتب لباب ناظر الجيش الزيني عبد الباسط」。ID-Master に「باب ناظر الجيش」限定の書記職はなく、汎用 كاتب（TMP-O-00010、初版どおり）に原文の label を付す。主人は relation n=1。
+- id: s3
+  type: office
+  ref: TMP-O-00172
+  quote: يكتب وصولات الأضحية الخاصية
+  note:
+    ja: 「وصار يكتب وصولات الأضحية الخاصية ونحو ذلك」。受領証（وصولات）作成の書記職＝ ID-Master 既登録 TMP-O-00172 كاتب الوصولات（先例 D03004「كتب الوصولات بالخشابية」）。初版は訳文のみ。
+- id: s4
+  type: status
+  label: ممن يتلو القرآن وفيه خير
+  quote: ممن يتلو القرآن وفيه خير
+  note:
+    ja: 人物評（クルアーンを読誦する篤信の人）。
+events:
+- id: e1
+  type: political
+  date:
+    ah: 842
+  persons:
+  - ref: AIND-D03484
+  quote: null
+  summary:
+    ar: ممن رسم عليه في محنته سنة اثنتين وأربعين وثمانمائة وبعدها ثم خلص
+  note:
+    ja: عبد الباسط の842年の受難（محنة）に連座して拘束され、のち釈放。842＝1438-07-03 開始（年精度）。初版の cert="high" を除去（原文に明記）。
+- id: e2
+  type: other
+  quote: وعمر دهرا
+- id: e3
+  type: other
+  quote: بعد أن كف ثم رأى
+  note:
+    ja: 失明ののち視力を回復（年なし＝日付属性なし）。
+translation:
+  ja: イブラーヒーム、サアド・アッディーン・ブン・アラム・アッディーン、アル＝バースィティー、実務官（アル＝ムバーシル）。縮小形で「アッ＝サギール（小さい方）」として知られた。軍務監督官（ナーズィル・アル＝ジャイシュ）アッ＝ザイニー・アブドゥルバースィトの門の書記で、842年とその後の彼（アブドゥルバースィト）の受難の際に拘束された者の一人であったが、その後釈放され、ジャマーリー・ナースィル（ナーズィル）・アル＝ハーッス（私領財務監督官）とその後任たちに仕えた。長命を保ち、スルターンの犠牲獣（アドヒヤ・ハーッスィーヤ）の受領証などを書くようになった。893年、失明したのち視力を回復してから没した。クルアーンを読誦する者で、善良な人であった。神よ彼に慈悲を。
+  en: Ibrāhīm Saʿd al-Dīn b. ʿAlam al-Dīn al-Bāsiṭī, the administrator (al-mubāshir), known by the diminutive as al-Ṣaghīr. He was scribe at the gate of the controller of the army (nāẓir al-jaysh) al-Zaynī ʿAbd al-Bāsiṭ and was among those detained during the latter's ordeal in the year 842 and thereafter; he was then released and served al-Jamālī, the controller of the privy purse (nāẕir al-khāṣṣ, printed "nāṣir al-khāṣṣ"), and those who came after him. He lived a long life and came to write the receipts for the sultanic sacrificial animals and the like. He died in the year 893, after having gone blind and then regained his sight. He was one who recited the Qurʾān, and there was goodness in him. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-09T06:25:06Z'
+  model_requested: gemini-3.5-flash

@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D07418
+source:
+  uid: '176305979153'
+sex: M
+name:
+  full: محمد بن الشيخ سعد الشمس الحضرمي المدني
+  elements:
+  - id: n1
+    type: laqab
+    quote: الشمس
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00100
+    quote: الحضرمي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: الشيخ سعد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07418
+  quote: null
+  note:
+    ja: '父は「الشيخ سعد」の裸名のみ、corpus に本伝なし → #NEEDID（規則3）。初版の desc「سعد الشمس」は誤り（الشمس は本項主のラカブ）。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D07182
+  passive: AIND-D07418
+  quote: الفرج المراغي
+  note:
+    ja: 「أخو أبي الفرج المراغي لأمه」＝異父（同母）兄弟。أبو الفرج المراغي＝#AIND-D07182（محمد ناصر الدين أبو الفرج … 806年マディーナ生、頻出確定ID）。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D06936
+  passive: AIND-D07418
+  methods:
+  - TMP-S-00003
+  quote: الجمال الكازروني
+  note:
+    ja: الجمال الكازروني＝#AIND-D06936「محمد بن أحمد بن محمد بن محمود … الجمال المحب والشمس أبو عبد الله … الكازروني الأصل المدني الشافعي」（757年マディーナ生。ID-Master で الجمال الكازروني＝D06936 に名寄せ済み。マッカの D08619 は別人）。初版どおり。原文にない field الحديث を除去。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D07181
+  passive: AIND-D07418
+  methods:
+  - TMP-S-00003
+  quote: الفتح المراغي
+  note:
+    ja: أبو الفتح المراغي＝#AIND-D07181（محمد الشرف أبو الفتح، 775年マディーナ生、頻出確定ID）。初版の幻番号 TMP-P-000003（ID-Master 未登録）を置換。
+- id: r5
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07418
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+    summary:
+      ar: ورافق أخاه المشار إليه في السفر إلى القاهرة فسمع معه على شيخنا أشياء
+  quote: شيخنا
+  note:
+    ja: شيخنا＝イブン・ハジャル。placeName القاهرة は「في السفر إلى القاهرة فسمع」の接続による（規則22(3)）。
+events:
+- id: e1
+  type: travel
+  persons:
+  - ref: AIND-D07182
+    quote: أخاه
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+  summary:
+    ar: ورافق أخاه المشار إليه في السفر إلى القاهرة
+notes:
+- text: 「مات .」＝没年の記載なし（刊本の空白）→ death 要素を立てない（規則45）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アッ＝シャイフ・サアド、アッ＝シャムス・アル＝ハドラミー・アル＝マダニー、アブー・ル＝ファラジュ・アル＝マラーギーの同母兄弟。アル＝ジャマール・アル＝カーザルーニーとアブー・ル＝ファトフ・アル＝マラーギーから聴聞し、前述の兄弟に同行してカイロへ旅し、彼とともに我らがシャイフ（イブン・ハジャル）から若干のものを聴聞した。没した。（没年の記載なし）
+  en: Muḥammad b. al-Shaykh Saʿd, al-Shams al-Ḥaḍramī al-Madanī, the uterine brother of Abū al-Faraj al-Marāghī. He heard from al-Jamāl al-Kāzarūnī and Abū al-Fatḥ al-Marāghī, and accompanied his aforementioned brother on the journey to Cairo, where he heard some things with him from our shaykh (Ibn Ḥajar). He died [date blank].
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-08T20:53:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

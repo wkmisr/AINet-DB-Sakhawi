@@ -1,0 +1,131 @@
+schema: aind-yaml/0.1
+id: AIND-D04950
+source:
+  uid: '577320790732'
+sex: M
+name:
+  full: علي بن أحمد بن إبراهيم نور الدين بن السدار
+  elements:
+  - id: n1
+    type: laqab
+    quote: نور الدين
+  - id: n2
+    type: shuhrah
+    ref: TMP-N-05499
+    quote: null
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001327
+  - id: n5
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n6
+    type: nasab
+    quote: السدار
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 850
+    cert: medium
+  note:
+    ja: 「مات بعد الخمسين تقريبا」。850年（＝1446-04-07〜）以降、「تقريبا」のため cert medium（規則4）。初版の when-custom="0850"（点日付）を notBefore に是正。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001327
+  passive: AIND-D04950
+  quote: null
+  note:
+    ja: '父。見出しナサブから復元（統一規則3）。corpus 見出し（父の名＋ニスバ）・ID-Master を再検索し本伝・既登録なし。集約時に追加（校閲版は父 relation 欠落。B94・B97 と同じ基準に統一）。 索引 #AIND-D12392「ابن السدار علي وعبد الرحمن ابنا أحمد بن إبرهيم」。兄弟 #AIND-D03549 とも共有（D03549 収録時に同番号で統一）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04950
+  passive: AIND-D06769
+  methods: []
+  quote: وخال شمس الدين الشهير
+  note:
+    ja: 弟子＝姉妹の子 شمس الدين（#AIND-D06769、下記）。本項主（active＝師）のもとで「彼の諸技芸（書道・金泥装飾等、#AIND-D06769 の本文「تخرج به في الكتابة والتذهيب」）」を修業した。初版は active=本項主・passive=#NEEDID。
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D03549
+  passive: AIND-D04950
+  quote: عبد الرحمن الماضي
+  note:
+    ja: 'عبد الرحمن الماضي ＝ #AIND-D03549（عبد الرحمن بن أحمد بن إبراهيم الزين بن الاستادار أخو علي الآتي . كان أستاذا في الكتابة والتذهيب …）。ナサブ3代が一致し、相手側も「أخو علي الآتي」と明記。刊本の「ابن الاستادار」は「ابن السدار」の誤り（#AIND-D06769「ويعرف بابن السدار وهي شهرة خاليه علي وعبد الرحمن」）。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: siblings_child
+  active: AIND-D06769
+  passive: AIND-D04950
+  quote: null
+  note:
+    ja: 'شمس الدين الشهير ＝ #AIND-D06769（محمد بن أحمد بن علي الشمس الأبياري ثم القاهري ويعرف بابن السدار وهي شهرة خاليه علي وعبد الرحمن … نشأ يتيما فكلفه خاله النور علي … وتخرج به في الكتابة والتذهيب … مات في جمادى الثانية سنة أربع وثمانين）。相手側が本項主を母方の叔父 النور علي と明記し相互閉合。初版の #NEEDID を解消。'
+states:
+- id: s1
+  type: status
+  label: كان خيرا
+  quote: كان خيرا
+events:
+- id: e1
+  type: cultural
+  quote: null
+  summary:
+    ar: وكتب بخطه الحسن الكثير خصوصا حين مجاوراته بمكة
+  note:
+    ja: 美しい筆跡で多くを書写した（とくにマッカ滞在中）。
+- id: e2
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: مجاوراته
+  summary:
+    ar: حين مجاوراته بمكة
+  note:
+    ja: マッカでの滞在（مجاورة）は複数回。placeName مكة は原文「بمكة」に明示。年の記載なし。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09828
+    quote: مظفر الأمشاطي
+  quote: أثنى
+  summary:
+    ar: أثنى عنه مظفر الأمشاطي
+  note:
+    ja: 'Pattern A。مظفر الأمشاطي ＝ #AIND-D09828（محمود بن أحمد بن حسن … مظفر الدين … ويعرف كهو بابن الأمشاطي。照会項 #AIND-D09948「مظفر الامشاطى . في محمود بن أحمد بن حسن」、repo 先例あり）。初版の統制外 subtype「praised by」relation（#NEEDID）を event に。'
+  trigger: rule
+- id: e4
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D08711
+    quote: القاضي بدر الدين السعدي
+  quote: وحكى
+  summary:
+    ar: وحكى لنا عنه القاضي بدر الدين السعدي شيئا
+  note:
+    ja: 'Pattern A。القاضي بدر الدين السعدي ＝ #AIND-D08711（محمد بن محمد بن أبي بكر بن خلد البدر السدرشي الأصل القاهري الحنبلي سبط القاضي نور الدين البويطي أمه آمنة ويعرف بالسعدي、836年生）。兄弟項 #AIND-D03549 の「أخته آمنة أم القاضي بدر الدين السعدي」とも整合（本項の原文は親族関係を述べないため relation は立てない）。初版の統制外 subtype「narrated by」relation（#NEEDID）を event に。'
+  trigger: rule
+translation:
+  ja: アリー・ブン・アフマド・ブン・イブラーヒーム、ヌールッディーン・イブン・アッ＝サッダール。前述のアブドゥッラフマーンの兄弟で、名高いシャムスッディーンの母方の叔父。その姉妹の子は彼のもとでその諸技芸を修業した。彼は美しい筆跡で多くを書写し、とくにマッカに滞在（ムジャーワラ）していた折にそうした。善良な人物で、ムザッファル・アル＝アムシャーティーが彼を称賛し、カーディーのバドルッディーン・アッ＝サアディーが彼について我々にいくらか語ってくれた。850年を過ぎた頃に没した。
+  en: ʿAlī b. Aḥmad b. Ibrāhīm, Nūr al-Dīn Ibn al-Saddār, brother of the aforementioned ʿAbd al-Raḥmān and maternal uncle of the famous Shams al-Dīn. His sister's son trained under him in his arts. He wrote a great deal in his fine hand, especially during his stays (mujāwara) in Mecca. He was a good man; Muẓaffar al-Amshāṭī praised him, and the qāḍī Badr al-Dīn al-Saʿdī related something to us about him. He died after 850, approximately.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-28T17:19:09Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

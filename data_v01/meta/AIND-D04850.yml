@@ -1,0 +1,162 @@
+schema: aind-yaml/0.1
+id: AIND-D04850
+source:
+  uid: '776017553902'
+sex: M
+name:
+  full: عثمان بن حسن بن على بن منصور الفخر العقبي ثم القاهري الصحراوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00270
+    quote: العقبي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00292
+    quote: الصحراوي
+  - id: n4
+    type: laqab
+    quote: الفخر
+  - id: n5
+    type: ism
+    quote: عثمان
+    by: rule
+  - id: n6
+    type: nasab
+    quote: حسن
+    by: rule
+    ref: TMP-P-001302
+  - id: n7
+    type: nasab
+    quote: على
+    by: rule
+  - id: n8
+    type: nasab
+    quote: منصور
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+birth:
+  id: b
+  date:
+    notBefore: 780
+    cert: low
+  note:
+    en: Born approximately after 780 (wulida taqrīban baʿd al-thamānīn).
+    ja: '「ولد تقريبا بعد الثمانين」を 780 以後と読む（没 882 なら 100 歳前後）。ただし「خال أبيه الزين رضوان」＝ #AIND-D03005 は 769 年生であり、その姉妹の孫が 780 年生とは年代的に考えにくい。師 ابن الكويك（821没）・الزراتيتي（825没）からの聴聞は 800 年代以降の生でも整合するため、刊本の読み（世紀の脱落等）に疑義あり。cert low（集約時に medium から下げ）。'
+death:
+  id: d
+  date:
+    ah: 882-04
+  note:
+    en: Died in Rabīʿ al-Ākhir 882.
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D08850
+  passive: AIND-D04850
+  methods:
+  - TMP-S-00003
+  quote: ابن الكويك
+  note:
+    ja: '原文「وأسمعه خال أبيه الزين رضوان على ابن الكويك والجمال الحنبلي والشمس الزراتيتي في آخرين」。ابن الكويك ＝ #AIND-D08850。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04509
+  passive: AIND-D04850
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: الجمال الحنبلي ＝ ID-Master 登録 TMP-P-000161（repo D02454・D02715・D04578・D07644 と同番号）。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D08576
+  passive: AIND-D04850
+  methods:
+  - TMP-S-00003
+  quote: الزراتيتي
+  note:
+    ja: 'الشمس الزراتيتي ＝ #AIND-D08576「محمد بن علي بن محمد بن أحمد … الشمس أبو عبد الله القاهري الحنفي المقرئ ويعرف بابن الزراتيتي」（転送見出し #AIND-D08186 の転送先）。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D04850
+  passive: wd:Q4120128
+  methods:
+  - TMP-S-00004
+  quote: لي
+  note:
+    ja: 原文「أجاز لي」。本項主が師（active）、サハーウィーが受領者（passive）（規則15。初版の subtype student・向きを是正）。
+- id: r5
+  type: personal
+  subtype: relative
+  active: AIND-D03005
+  passive: AIND-D04850
+  quote: خال أبيه الزين رضوان
+  note:
+    ja: '父の母方の叔父（خال أبيه）。الزين رضوان ＝ #AIND-D03005（رضوان بن محمد … الزين أبو النعيم العقبي ثم القاهري الصحراوي、本項主と同じニスバ）。彼が本項主を上記の師たちに聴聞させた。初版の subtype「other」を relative に是正。'
+- id: r6
+  type: personal
+  subtype: father
+  active: TMP-P-001302
+  passive: AIND-D04850
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001302 を発行。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00293
+  orgs:
+  - ref: wd:Q56284343
+    cert: medium
+  quote: خادم السجادة
+  note:
+    ja: 原文「وكان خادم السجادة بالتربة البرقوقية」。職 خادم السجادة は ID-Master 未登録（خادم 系 O-00153/00184/00200/00213/00225/00279 と同型）のため TMP-O-00293 を発行。التربة البرقوقية は ID-Master の wd:Q56284343（خانقاه فرج بن برقوق | التربة الظاهرية | التربة الظاهرية برقوق、カイロ北墓地）と同一施設とみて cert medium（本項主のニスバ الصحراوي とも整合）。施設所在地からの placeName 補完は規則22(1)により除去。
+events:
+- id: e1
+  type: cultural
+  works:
+  - ref: TMP-T-00095
+  - ref: TMP-T-00110
+  quote: حفظ القرآن والعمدة وعرضها
+  note:
+    ja: 提示（عرض）先の師名は原文に無いため relation を立てない。
+- id: e2
+  type: cultural
+  quote: وأجاز له جماعة
+  note:
+    ja: 授与者の名が無いため relation を立てない。
+- id: e3
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  trigger: rule
+- id: e4
+  type: residence
+  subtype: jāwara
+  quote: وجاور
+  trigger: rule
+translation:
+  ja: ウスマーン・ブン・ハサン・ブン・アリー・ブン・マンスール、アル＝ファフル、アル＝ウクビー、のちアル＝カーヒリー、アッ＝サフラーウィー。780年より後におよそ生まれ、クルアーンと『ウムダ』を暗記して提示した。父の母方の叔父アッ＝ザイン・リドワーンが彼をイブン・アル＝クワイク、アル＝ジャマール・アル＝ハンバリー、アッ＝シャムス・アッ＝ザラーティーティーほかのもとで聴聞させ、一団の人々が彼にイジャーザを与えた。巡礼し、（マッカに）滞在（ムジャーワラ）した。バルクーク廟（アッ＝トゥルバ・アル＝バルクーキーヤ）のサッジャーダ奉仕人であった。私（サハーウィー）にイジャーザを与えた。882年ラビーウ・アル＝アーヒル月に没した。神が彼を憐れみたまえ。
+  en: ʿUthmān b. Ḥasan b. ʿAlī b. Manṣūr, al-Fakhr, al-ʿUqbī, then al-Qāhirī, al-Ṣaḥrāwī. He was born approximately after 780. He memorized the Qurʾān and al-ʿUmda and presented them. His father's maternal uncle al-Zayn Riḍwān had him hear from Ibn al-Kuwayk, al-Jamāl al-Ḥanbalī, al-Shams al-Zarātītī and others, and a group granted him ijāza. He performed the pilgrimage and stayed (as mujāwir). He was the keeper of the sajjāda at the Barqūqiyya tomb-complex. He granted me (al-Sakhāwī) an ijāza. He died in Rabīʿ al-Ākhir 882, may God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-27T18:31:22Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,176 @@
+schema: aind-yaml/0.1
+id: AIND-D10257
+source:
+  uid: '200089292656'
+sex: M
+name:
+  full: يحيى بن عبد الله علم الدين المصري أبوكم
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n2
+    type: laqab
+    quote: علم الدين
+  - id: n3
+    type: shuhrah
+    quote: أبوكم
+  - id: n4
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+death:
+  id: d
+  date:
+    ah: 835-09-22
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  summary:
+    ar: ومات في ثاني عشرى رمضان سنة خمس وثلاثين بالقاهرة وقد جاز السبعين
+  note:
+    ja: 835年ラマダーン月22日＝1432-06-01（h2g.py）。初版の @when 1431（年精度・年も誤り）を是正。「وقد جاز السبعين」は年齢（70歳を越えて）＝生年を作らない（規則59(d)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10257
+  quote: null
+  note:
+    ja: 規則3 (c')。父 عبد الله は名のみ（改宗コプトの家で「بن عبد الله」）。初版は father relation なし。
+- id: r2
+  type: personal
+  subtype: brother
+  active: TMP-P-001190
+  passive: AIND-D10257
+  cert: medium
+  quote: أخيه
+  note:
+    ja: '本項原文に兄弟の記述はない。相手側 #AIND-D07648「محمد بن عبد الرزاق بن عبد الله العلم أبو الخير بن الشمس أخي الصاحب العلم يحيى بن أبي كم … ويعرف بابن أبي كم」（repo 収録済み）と #AIND-D10302「… بن الشمس أخي العلم يحيى أبي كم الماضي قريبا」が本項主を名指しして、その父 الشمس عبد الرزاق を本項主の兄弟とする＝規則23 により cert medium。الشمس عبد الرزاق＝ID-Master 既登録 TMP-P-001190（Note に「宰相 العلم يحيى بن عبد الله أبوكم=#AIND-D10257 の兄弟」）。父が #NEEDID なので兄弟 relation を立てた（規則23 但し書き）。'
+- id: r3
+  type: personal
+  subtype: siblings_child
+  active: AIND-D07648
+  passive: AIND-D10257
+  cert: medium
+  quote: null
+  note:
+    ja: '甥（兄弟の子）。相手側 #AIND-D07648 が本項主を「الصاحب العلم يحيى بن أبي كم」と名指し（repo では uncle relation に #AIND-D10257）＝規則23 により cert medium。その子（本項主の兄弟の孫）が #AIND-D10302「يحيى بن محمد بن عبد الرزاق … ويعرف بابن أبي كم」。'
+- id: r4
+  type: personal
+  subtype: predecessor
+  active: AIND-D06427
+  passive: AIND-D10257
+  quote: الفخر بن غراب
+  note:
+    ja: '「ولي الوزارة في دولة الناصر فرج عوضا عن الفخر بن غراب」＝宰相職の前任。#AIND-D06427「ماجد بن عبد الرزاق فخر الدين القبطي السكندري … أخو سعد الدين إبراهيم … ويعرف بابن غراب … واستقر في الوزارة في ذي الحجة منها（801年）… وكذا ولي نظر الخاص مضافا للوزر」（ラカブ・通称・宰相職・ファラジュ期で閉合。ブリーフ候補を本文で確認）。初版の #NEEDID を置換。'
+- id: r5
+  type: personal
+  subtype: predecessor
+  active: AIND-D00149
+  passive: AIND-D10257
+  quote: سعد الدين بن غراب
+  note:
+    ja: 「ثم الخاص عوضا عن أخيه سعد الدين بن غراب」＝نظر الخاص の前任。「أخيه」の代名詞は直前の الفخر بن غراب を指す（سعد الدين は الفخر の兄弟）＝#AIND-D00149「إبراهيم بن عبد الرزاق بن غراب سعد الدين … أخو الفخر ماجد … ويعرف بابن غراب … ولاه نظر الخاص」。初版は「أخيه」を本項主の兄弟と誤読して brother relation（#NEEDID）を立てていた＝除去。
+- id: r6
+  type: personal
+  subtype: successor
+  active: AIND-D02650
+  passive: AIND-D10257
+  cert: medium
+  quote: البدر بن نصر الله
+  note:
+    ja: '「وكذا ولي أيضا نظر الجيش قبل البدر بن نصر الله」＝本項主は البدر بن نصر الله より前に نظر الجيش に就いた。#AIND-D02650「حسن بن نصر الله بن حسن … الصاحب بدر الدين … ويعرف بابن نصر الله … حتى ولي الحسبة ونظر الجيش بالديار المصرية ثم وزارتها ثم الخاص بها في الدولة الناصرية فرح」（ラカブ・通称・نظر الجيش・ファラジュ期で閉合）。「قبل」は直接の交代とは限らない＝successor に cert medium。初版の #NEEDID を置換。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00399
+  quote: نظر الأسواق
+  note:
+    ja: '「باشر نظر الأسواق」。ID-Master の Office に نظر الأسواق はなく（語根 سوق の登録は معلمية الأسواق TMP-O-00349 のみ＝別職）→ 新規 TMP-O-00399。初版は #NEEDID。'
+- id: s2
+  type: office
+  ref: wd:Q175240
+  quote: الوزارة
+  note:
+    ja: '「ثم ولي الوزارة في دولة الناصر فرج」。وزير＝wd:Q175240（ID-Master 登録）。初版は #NEEDID。'
+- id: s3
+  type: office
+  ref: TMP-O-00085
+  quote: الخاص
+  note:
+    ja: '「ثم الخاص」＝نظر الخاص（ID-Master 既登録 TMP-O-00085 ناظر الخاص）。初版は #NEEDID。'
+- id: s4
+  type: office
+  ref: TMP-O-00045
+  quote: نظر الجيش
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D06160
+    quote: الناصر فرج
+  quote: ولي
+  summary:
+    ar: ثم ولي الوزارة في دولة الناصر فرج عوضا عن الفخر بن غراب ثم الخاص عوضا عن أخيه سعد الدين بن غراب وكذا ولي أيضا نظر الجيش قبل البدر بن نصر الله ثم خمل
+  note:
+    ja: '「في دولة الناصر فرج」＝ファラジュ（#AIND-D06160）の治世における任官。主人ではないので patron relation にせず event 内 persName（規則53。初版の patron relation #NEEDID を置換）。任官の年は原文にない。「ثم خمل」＝のち不遇となった。'
+  trigger: rule
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: وحج
+  trigger: rule
+- id: e3
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: وجاور
+  summary:
+    ar: وجاور بمكة مرة
+  trigger: rule
+- id: e4
+  type: religious
+  quote: null
+  summary:
+    ar: مظهرا التنصل من دين النصرانية مع إكثاره من زيارة الصالحين … وكان إسلامه حسنا
+  note:
+    ja: キリスト教からの離脱を公に示し、聖者の墓・人への参詣（زيارة الصالحين）をさかんに行った。そのイスラームは良好であった（改宗コプト）。初版は en の desc のみ。
+- id: e5
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه باختصار عما هنا
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）。「باختصار عما هنا」＝本項より簡略に。初版は未符号化。
+  trigger: rule
+notes:
+- text: '通称は刊本では「أبوكم」と一語。corpus の他項では「أبي كم」「ابن أبي كم」（#AIND-D07648・#AIND-D10302・通称索引 #AIND-D12691「ابن أبي كم يحيى بن محمد بن عبد الرزاق أخي يحيى أبي كم وأبوه أبو الخير محمد」）＝أبو كم。原文どおり「أبوكم」とした（規則25）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・アブドゥッラー、アラム・アッ＝ディーン・アル＝ミスリー、アブー・クンム。市場監督（ナザル・アル＝アスワーク）を務め、ついでアン＝ナースィル・ファラジュの治世にアル＝ファフル・ブン・グラーブに代わって宰相職に、ついでその兄弟サアド・アッ＝ディーン・ブン・グラーブに代わって（ナザル・）アル＝ハーッスに就き、同じくアル＝バドル・ブン・ナスル・アッラーより前に軍務監督（ナザル・アル＝ジャイシュ）にも就いたが、のち不遇となった。何度も巡礼を行い、一度マッカに滞留（ムジャーワラ）して、キリスト教からの離脱を表明し、義人たちへの参詣をさかんに行った。（8）35年ラマダーン月22日にカイロで没し、70歳を越えていた。そのイスラームは良好であった。我らがシャイフ（イブン・ハジャル）が『インバー』で、ここに記したより簡略に、彼に言及している。
+  en: Yaḥyā b. ʿAbd Allāh, ʿAlam al-Dīn al-Miṣrī, Abū Kumm. He served as supervisor of the markets (naẓar al-aswāq), then was appointed to the vizierate in the reign of al-Nāṣir Faraj in place of al-Fakhr b. Ghurāb, then to the (supervision of the) privy purse (al-khāṣṣ) in place of the latter's brother Saʿd al-Dīn b. Ghurāb; he likewise held the supervision of the army (naẓar al-jaysh) before al-Badr b. Naṣr Allāh; then he fell into obscurity. He performed the pilgrimage more than once and sojourned in Mecca once, making a show of renouncing the Christian religion, and he frequently visited the righteous. He died on 22 Ramaḍān of the year [8]35 in Cairo, having passed seventy, and his Islam was good. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, more briefly than here.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T04:09:21Z'
+  model_requested: gemini-3.5-flash

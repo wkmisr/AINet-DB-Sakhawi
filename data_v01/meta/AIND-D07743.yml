@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D07743
+source:
+  uid: '423635163400'
+sex: M
+name:
+  full: محمد بن عبد الله بن إبراهيم البدر القاهري الأزهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00014
+    quote: الأزهري
+  - id: n3
+    type: laqab
+    quote: البدر
+  - id: n4
+    type: shuhrah
+    quote: المصري
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إبراهيم
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07743
+  quote: null
+  note:
+    ja: '父 عبد الله بن إبراهيم（名＋父名のみ、ニスバ以外の識別要素なし）。corpus に該当する本伝なし → #NEEDID。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D03985
+    quote: العز بن فهد
+  quote: كتب
+  summary:
+    ar: 'كتب عنه العز بن فهد قصيدة من نظمه يمدح بها الفخري بن غلبك أولها: خليلي قد هام الفؤاد بأسره … وعدة مقاطيع'
+  note:
+    ja: Pattern A。العز بن فهد＝عز الدين عبد العزيز بن عمر بن فهد（#AIND-D03985、850年生・922年没）が本項主から自作の詩（الفخري بن غلبك 頌詩と数編の断章）を書き取った。初版は student relation（#NEEDID）＋ bibl「قصيدة」で符号化していたが、repo 先例（D02660「كتب عنه البدري في مجموعه」）に倣い mention event に統一。原文末尾「وكان قد」は刊本の欠落。
+  trigger: rule
+- id: e2
+  type: cultural
+  persons:
+  - ref: AIND-D04835
+    cert: medium
+    quote: الفخري بن غلبك
+  quote: null
+  summary:
+    ar: قصيدة من نظمه يمدح بها الفخري بن غلبك
+  note:
+    ja: 頌詩の対象 الفخري بن غلبك＝#AIND-D04835（項番442 عثمان بن أحمد بن سليمان بن أغلبك فخر الدين أحد أعيان أمراء حلب المتفقهة、881年にカイロ滞在）と推定（cert medium。「الفخري」＝فخر الدين のニスバ形、「غلبك／أغلبك」は同名の異綴。#AIND-D00506 أحمد بن أحمد بن غلبك شهاب الدين الحلبي の一族）。初版は統制外 subtype「praised_by_subject」の relation（#NEEDID）→ event の persName に。
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・イブラーヒーム、アル＝バドル、アル＝カーヒリー・アル＝アズハリー。アル＝ミスリーとして知られる。アル＝イッズ・ブン・ファハドが彼から、彼がアル＝ファフリー・ブン・グルバクを称えて詠んだ自作のカスィーダを書き取った。その冒頭は「わが二人の友よ、心はすっかり恋い焦がれ…」。またいくつかの短詩（マカーティーウ）も（書き取った）。彼は…（原文欠落）。
+  en: Muḥammad b. ʿAbd Allāh b. Ibrāhīm, al-Badr, al-Qāhirī al-Azharī, known as al-Miṣrī. Al-ʿIzz b. Fahd wrote down from him a poem of his own composition in praise of al-Fakhrī b. Ghulbak, beginning "My two friends, the heart is wholly enamoured…", as well as several short pieces (maqāṭīʿ). He had … (the printed text breaks off).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T07:23:34Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

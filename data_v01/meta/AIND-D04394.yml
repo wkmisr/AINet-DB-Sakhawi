@@ -1,0 +1,112 @@
+schema: aind-yaml/0.1
+id: AIND-D04394
+source:
+  uid: '590939694601'
+sex: M
+name:
+  full: عبد الله بن أبي العباس أحمد بن عبد الله بن يحيى التونسي المرجاني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00056
+    quote: التونسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00236
+    quote: المرجاني
+  - id: n3
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي العباس أحمد
+    by: rule
+    ref: TMP-P-001048
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n6
+    type: nasab
+    quote: يحيى
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001145
+  passive: AIND-D04394
+  methods:
+  - TMP-S-00003
+  quote: العز بن جماعة
+  note:
+    ja: العز بن جماعة ＝ TMP-P-000010。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001038
+  passive: AIND-D04394
+  methods:
+  - TMP-S-00003
+  quote: الفخر النويري
+  note:
+    ja: 'الفخر النويري ＝ 本バッチ新規 TMP-P-001038（الفخر عثمان بن أبي بكر النويري、D04257 と同じ定型）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-000414
+  passive: AIND-D04394
+  methods:
+  - TMP-S-00003
+  quote: الكمال بن حبيب
+  note:
+    ja: الكمال بن حبيب ＝ TMP-P-000414（ID-Master 登録済み）。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D04394
+  passive: AIND-D09211
+  methods:
+  - TMP-S-00008
+  quote: التقي بن فهد
+  note:
+    ja: '弟子 التقي بن فهد ＝ #AIND-D09211（原文が التقي を明示）。'
+- id: r5
+  type: personal
+  subtype: father
+  active: TMP-P-001048
+  passive: AIND-D04394
+  quote: null
+  note:
+    ja: 父（クンヤ・ナサブ・ニスバあり）：corpus に本伝なし（D06469「محمد بن إبراهيم بن أبي العباس أحمد بن عبد الله التونسي الأصل المكي」は孫世代）、ID-Master 未登録 → 新規 TMP-P-001048。
+- id: r6
+  type: personal
+  subtype: son
+  active: AIND-D07754
+  passive: AIND-D04394
+  cert: medium
+  quote: null
+  note:
+    ja: 子＝#AIND-D07754（B88 収録。786頃生・810没マッカ）。本項本文は子に言及しないが、D07754 の見出し（名・父名・التونسي・通称 ابن المرجاني・マッカ）が本項主を父として指すため、統一規則23により cert medium で補う（D07754 側の father relation と同じ cert）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+  quote: وقال
+  summary:
+    ar: وأخذ عنه التقي بن فهد وقال أنه كان رجلا صالحا خيرا دينا ، ولم يزد
+  note:
+    ja: Pattern A（التقي بن فهد の評言）。
+  trigger: rule
+translation:
+  ja: アブド・アッラー・ブン・アビー・アル＝アッバース・アフマド・ブン・アブド・アッラー・ブン・ヤフヤー・アッ＝トゥーニスィー・アル＝マルジャーニー。アル＝イッズ・ブン・ジャマーア、アル＝ファフル・アン＝ヌワイリー、アル＝カマール・ブン・ハビーブから聴聞した。アッ＝タキー・ブン・ファフドが彼から学び、彼は敬虔で善良で信心深い人であったと述べ、それ以上は加えなかった。
+  en: ʿAbd Allāh b. Abī al-ʿAbbās Aḥmad b. ʿAbd Allāh b. Yaḥyā al-Tūnisī al-Marjānī. He heard from al-ʿIzz b. Jamāʿa, al-Fakhr al-Nuwayrī and al-Kamāl b. Ḥabīb; al-Taqī b. Fahd studied under him and said that he was a righteous, good and religious man, and added no more.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-19T05:24:33Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

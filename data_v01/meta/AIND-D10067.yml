@@ -1,0 +1,135 @@
+schema: aind-yaml/0.1
+id: AIND-D10067
+source:
+  uid: '474623266232'
+sex: M
+name:
+  full: موسى بن عبد السلام بن موسى بن أبي بكر بن أكبر الشيرازي الأصل المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00015
+    quote: الشيرازي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: shuhrah
+    ref: TMP-N-00213
+    quote: الزمزمي
+  - id: n4
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد السلام
+    by: rule
+    ref: AIND-D03934
+  - id: n6
+    type: nasab
+    quote: موسى
+    by: rule
+    ref: AIND-D10057
+  - id: n7
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أكبر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 876-07
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات في رجب سنة ست وسبعين بمكة
+  note:
+    ja: 876年ラジャブ月＝1471-12-23〜1472-01-21（h2g.py）、月精度で @when=1471-12。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D03934
+  passive: AIND-D10067
+  quote: أبوهما
+  note:
+    ja: '規則37。父＝#AIND-D03934「عبد السلام بن موسى بن أبي بكر بن أكبر الزين أو المحب الشيرازي العجمي المكي والد عبد العزيز الآتي … ويعرف بالزمزمي」（846没）。見出しナサブ4代＋الشيرازي・المكي・الزمزمي が一致。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: AIND-D10057
+  passive: AIND-D10067
+  quote: null
+  note:
+    ja: '規則37。祖父＝#AIND-D10057「موسى بن أبي بكر بن أكبر الشرف الشيرازي المكي الزمزمي والد عبد السلام الماضي」（819年またはその直前没）。原文「وجدهما」（彼ら二人の祖父も前述）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D03971
+  passive: AIND-D10067
+  quote: عبد العزيز
+  note:
+    ja: 「أخو عبد العزيز الماضي」＝#AIND-D03971「عبد العزيز بن عبد السلام بن موسى بن أبي بكر بن أكبر العز الشيرازي الأصل المكي الشافعي الماضي أبوه والآتي أخوه موسى ويعرف بالزمزمي」（892没）。相手側も「الآتي أخوه موسى」と名指し。初版の TMP-P-000813（登録実体＝عبد العزيز بن سالم الكازروني、D03056 の息子）は別人への流用＝除去。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00298
+  places:
+  - ref: TMP-L-00399
+    quote: نخلة
+  quote: null
+  note:
+    ja: '「وكان يتكلم في وقف عليه بنخلة」＝サビールのために設定されたワクフ（ナフラ所在）の管理者。汎用の المتكلم في الأوقاف＝TMP-O-00298。نخلة（マッカ東方のワーディー）は ID-Master に単独登録なし（سولة من نخلة اليمانية TMP-L-00202・قرية المبارك من وادي نخلة TMP-L-00353 のみ）→ 新規 TMP-L-00399。初版の #NEEDID を置換。'
+events:
+- id: e1
+  type: other
+  date:
+    ah: 847
+  places:
+  - ref: TMP-L-00201
+  orgs:
+  - ref: TMP-I-00272
+  - ref: TMP-I-00273
+  quote: null
+  summary:
+    ar: وهو المجدد لسبيل الوتش بطريق مني قريبا من سبيل الست المعروف بابن مزنة في سنة سبع وأربعين وسبل فيه في أيام التشريق
+  note:
+    ja: 847年にミナー街道の سبيل الوتش を改修（تجديد）し、タシュリークの日々にそこで水を施した。847＝1443-05-10〜1444-04-28、年精度 1443（h2g.py）。سبيل الوتش・سبيل الست（ابن مزنة の名で知られる）はいずれも corpus 本項のみの出現・ID-Master 未登録 → 新規 TMP-I-00272・02（先例 D07044「المجدد للجامع المعروف بابن مدين」＝event other）。初版の affiliation（سبيل الوتش、#NEEDID）は原文に所属の根拠がなく除去。
+- id: e2
+  type: other
+  quote: وينسب لحجب الجان بكتابة وغيرها
+  note:
+    ja: 書字などによるジン除け（حجب الجان）で知られた。初版の religious event を言及句のみに。
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: medium
+  note:
+    ja: Pattern A。限定語のない ابن فهد・没年 876（871＜876≤885）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium（event 側、規則43・58）。初版の統制外 relation「historian」（#AIND-D09211）を置換。
+  trigger: rule
+notes:
+- text: 「ويعرف بالزمزمي نسبة لبئر زمزم」＝通称の由来（ザムザムの井戸 wd:Q146038）。D03971 側に「لكون والده سبط على والد إسماعيل أخي إبراهيم الزمزمي」と由来の別説明がある。ニスバの由来説明なので placeName にはしない（規則22(2) 註）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムーサー・ブン・アブドゥッサラーム・ブン・ムーサー・ブン・アビー・バクル・ブン・アクバル、シーラーズ出自、アル＝マッキー。前述のアブドゥルアズィーズの兄弟であり、二人の父と祖父も前述した。ザムザムの井戸にちなみアッ＝ザムザミーとして知られる。（8）76年ラジャブ月にマッカで没した。イブン・ファハドがその没年を記している。彼は（8）47年に、ミナー街道の、イブン・ムズナ（の名）で知られるアッ＝シット（貴婦人）の給水所の近くにあるアル＝ワトシュの給水所を改修した者であり、タシュリークの日々にそこで水を施した。ナフラにあるそのための寄進財（ワクフ）の管理にあたっており、書字などによるジン除けで知られていた。
+  en: Mūsā b. ʿAbd al-Salām b. Mūsā b. Abī Bakr b. Akbar, of Shīrāzī origin, al-Makkī, brother of the aforementioned ʿAbd al-ʿAzīz; their father and grandfather have also been mentioned. He was known as al-Zamzamī, after the Well of Zamzam. He died in Rajab of the year (8)76 in Mecca. Ibn Fahd recorded his death. He was the one who renovated the Sabīl al-Watsh on the road to Minā, near the Sabīl al-Sitt known as (the sabīl of) Ibn Muzna, in the year (8)47, and provided water there during the days of Tashrīq. He administered an endowment (waqf) for it at Nakhla, and he was reputed for warding off jinn by writing (amulets) and other means.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:47:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

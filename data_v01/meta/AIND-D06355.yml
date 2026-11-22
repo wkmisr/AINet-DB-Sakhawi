@@ -1,0 +1,73 @@
+schema: aind-yaml/0.1
+id: AIND-D06355
+source:
+  uid: '866627106372'
+sex: M
+name:
+  full: قطلوبغا حجي البانقوسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02000
+    quote: البانقوسي
+  - id: n2
+    type: ism
+    quote: قطلوبغا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 837-02-25
+  summary:
+    ar: ومات في يوم السبت خامس عشري صفر سنة سبع وثلاثين
+  note:
+    ja: 837年サファル月25日（土曜）＝h2g.py 算出 1433-10-20（算出曜日は日曜で原文の土曜と1日ずれ。曜日は暦判別に使わず算出値を @when とする）。没地の記載なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06355
+  quote: null
+  note:
+    ja: '父の名は原文に無い → #NEEDID（規則3）。見出し「قطلوبغا حجي」の「حجي」は「بن」を伴わないので父名とは読まず（規則25: 原文どおり）、名の一部（複合名）として扱う。初版は「قطلوبغا بن حجي」と بن を補っていた。'
+- id: r2
+  type: personal
+  subtype: son-in-law
+  active: AIND-D03422
+  passive: AIND-D06355
+  quote: الظاهر ططر
+  note:
+    ja: 「حمو الظاهر ططر」＝本項主はアッ＝ザーヒル・タタル（#AIND-D03422、824年在位）の舅（妻の父）＝タタルは本項主の婿。repo 実勢（姻戚は active＝相手・passive＝本項主、subtype は相手の続柄。先例 D05502「صاهره الشهاب الغزي على ابنته」・D01098 の son-in-law）に揃えた（集約 2026-10-26、機械[19][27]、決定3。subtype は repo 実勢のハイフン形 son-in-law（7件）。校閲時は active＝本項主の father-in-law＝repo で少数の D02320 型）。初版の統制外「other」relation（TMP-P-000000）を置換。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00113
+  quote: نظر الأوقاف
+  note:
+    ja: 「في أيام الأشرف برسباي」＝アル＝アシュラフ・バルスバーイ（#AIND-D02168、825〜841年在位）の時代（時代指示＝relation なし。初版の patron relation と、date 要素に文字列「أيام الأشرف برسباي」を入れた無効な when-custom を除去）。「فباشر بعنف شديد ثم لانت عريكته ثم انفصل」＝当初は極めて峻烈に執務したが後に態度が和らぎ、やがて罷免された。年の明記なし。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。初版の統制外「other」relation（wd:Q471116）を mention event に変換（bibl『إنباء الغمر』TMP-T-00034）。
+  trigger: rule
+translation:
+  ja: クトルブガー・ハッジー・アル＝バーンクースィー、アッ＝ザーヒル・タタルの舅。アル＝アシュラフ・バルスバーイの時代にしばらくワクフ監督職（ナザル・アル＝アウカーフ）を務め、極めて峻烈に執務したが、のちに態度が和らぎ、やがて罷免された。837年サファル月25日の土曜に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
+  en: Quṭlūbughā Ḥājjī al-Bānqūsī, father-in-law of al-Ẓāhir Ṭaṭar. He held the supervision of the endowments (naẓar al-awqāf) for a period in the days of al-Ashraf Barsbāy; he administered it with great severity, then his temper softened, and then he was dismissed. He died on Saturday, the 25th of Ṣafar of the year 837. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T16:49:58Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

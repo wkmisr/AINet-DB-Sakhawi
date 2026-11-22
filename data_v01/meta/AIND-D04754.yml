@@ -1,0 +1,99 @@
+schema: aind-yaml/0.1
+id: AIND-D04754
+source:
+  uid: '718509451579'
+sex: M
+name:
+  full: عبد الولي بن محمد بن جمال الدين ولي الدين الواسطي العراقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00170
+    quote: الواسطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00105
+    quote: العراقي
+  - id: n3
+    type: laqab
+    quote: ولي الدين
+  - id: n4
+    type: shuhrah
+    quote: محمد
+  - id: n5
+    type: shuhrah
+    quote: ابن الزيتوني
+  - id: n6
+    type: ism
+    quote: عبد الولي
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 815
+    cert: low
+  note:
+    ja: 「وأظنه زاد على السبعين」（886年没時に70歳超とサハーウィーが推測）からの逆算で 815年頃以前。推測（أظنه）＋逆算のため cert low。815 ＝ 1412-04-22〜1413-04-11、年初 1412（h2g.py）。
+death:
+  id: d
+  date:
+    ah: 886-04
+  note:
+    ja: 「مات في ربيع الآخر سنة ست وثمانين」。没地の記載なし（初版の القاهرة は居住施設の所在地からの補完のため除去、規則22(1)）。886-04 ＝ 1481-06-08〜07-06、月初 1481-06（h2g.py）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001278
+  passive: AIND-D04754
+  quote: null
+  note:
+    ja: 見出しナサブから復元（統一規則3）。corpus に本伝なし・ID-Master 未登録 → 新規仮番号 TMP-P-001278（⚠汎用名。識別要素は父のラカブ جمال الدين とニスバ الواسطي のみ。同名別人への流用禁止）。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة の息子 محمد）を差し替え。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D04754
+  methods:
+  - TMP-S-00016
+  cert: medium
+  quote: شيخنا
+  note:
+    ja: 「كان يذكر أنه لقي شيخنا وغيره」＝本人の談（يذكر أنه）のため cert medium。شيخنا＝Ibn Ḥajar。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04754
+  methods:
+  - TMP-S-00028
+  works:
+  - ref: TMP-T-00030
+  quote: عندي
+  note:
+    ja: 場所の明記なし（初版の learning event placeName القاهرة は補完のため除去、規則22(1)）。
+states:
+- id: s1
+  type: status
+  label: رجل خير فقير يتلو القرآن
+  quote: رجل خير فقير يتلو القرآن
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+  orgs:
+  - ref: TMP-I-00072
+  quote: نزيل جامع الغمري بالقاهرة
+  note:
+    ja: 原文に「بالقاهرة」と明記（規則22(2)）。جامع الغمري＝カイロのガムリー・モスク（TMP-I-00072、ID-Master 注記どおりカイロの実体）。初版の affiliation type="reside" と residence event の二重符号化を解消し、event に統合。
+translation:
+  ja: アブドゥルワリー・ブン・ムハンマド・ブン・ジャマール・アッ＝ディーン、ワリー・アッ＝ディーン。ムハンマドとも名乗るが、アブドゥルワリーの名でより知られる。アル＝ワースィティー・アル＝イラーキー、カイロのジャーミウ・アル＝ガムリーの住人。故郷ではイブン・アッ＝ザイトゥーニーとして知られる。善良で貧しく、クルアーンを読誦する人物であった。彼は我らの師（イブン・ハジャル）らに会ったと語っており、私（サハーウィー）のもとでアマーリーなどに頻繁に出席した。（8）86年ラビーウ・アル＝アーヒル月に没した。70歳を超えていたと私は思う。神が彼に慈悲を垂れたまわんことを。
+  en: ʿAbd al-Walī b. Muḥammad b. Jamāl al-Dīn, Walī al-Dīn; he is also called Muḥammad, but is better known as ʿAbd al-Walī. Al-Wāsiṭī al-ʿIrāqī, resident of the Jāmiʿ al-Ghamrī in Cairo, and known in his homeland as Ibn al-Zaytūnī. A good, poor man who recited the Qurʾān. He used to say that he had met our shaykh (Ibn Ḥajar) and others, and he attended the Amālī and other sessions with me (al-Sakhāwī) frequently. He died in Rabīʿ al-Ākhir (8)86; I think he was over seventy. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-26T08:53:41Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

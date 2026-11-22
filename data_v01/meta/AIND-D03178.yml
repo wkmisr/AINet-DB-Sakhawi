@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D03178
+source:
+  uid: '769423663599'
+sex: M
+name:
+  full: سليمان علم الدين بن برابخ
+  elements:
+  - id: n1
+    type: laqab
+    quote: علم الدين
+  - id: n2
+    type: ism
+    quote: سليمان
+    by: rule
+  - id: n3
+    type: nasab
+    quote: برابخ
+    by: rule
+death:
+  id: d
+  date:
+    ah: 810
+    cert: low
+  note:
+    ar: ومات قبله قريبا من سنة عشر
+    ja: '「قريبا من سنة عشر」＝810年頃 → when-custom 0810（1407-06-17 開始、年精度、h2g.py）、cert low（規則4、ブリーフ指定）。「قبله」＝話者の父 #AIND-D03516（D03516 側「ومات في سنة اثنتي عشرة」＝812没）より前。世紀は D03516 の812年没・#AIND-D12462 の801年の رياسة の記事から 810 と確定。初版は death なし。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D03178
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 برابخ は名のみ（#AIND-D03516 では「سليمان بن رابخ」と綴る）。corpus 見出しに本伝なし、ID-Master 未登録 → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: brother-in-law
+  active: AIND-D03516
+  passive: AIND-D03178
+  cert: medium
+  quote: null
+  note:
+    ja: '「وكان متزوجا أخته」＝本項主は話者の父の姉妹を娶っていた → 父 الشمس عبد الحق は本項主の義兄弟（妻の兄弟）＝ subtype brother-in-law（active が passive の何にあたるか、規則52）。相手＝ #AIND-D03516「عبد الحق بن إبراهيم شمس الدين الطبيب والد الجمال عبد الله . ممن ولي رياسة الطب شريكا لزوج أخته علم الدين سليمان بن رابخ المالكي فيما قال لي ولده … ومات في سنة اثنتي عشرة」（未収録）が「زوج أخته علم الدين سليمان بن رابخ」と本項主を名指し＝双方向で閉合（名・ラカブ・父名・職・学派）。伝聞（قال لي）につき cert medium。'
+- id: r3
+  type: personal
+  subtype: colleague
+  active: AIND-D03516
+  passive: AIND-D03178
+  cert: medium
+  quote: null
+  note:
+    ja: '「ولى الرياسة شريكا لوالدى」＝医師頭職を話者の父 #AIND-D03516 と共同で務めた（D03516 側「ولي رياسة الطب شريكا لزوج أخته علم الدين سليمان」）。初版の #NEEDID「والد ابن عبد الحق」を置換。伝聞につき cert medium。'
+- id: r4
+  type: personal
+  subtype: spouse
+  active: NEEDID
+  passive: AIND-D03178
+  cert: medium
+  quote: null
+  note:
+    ja: '「وكان متزوجا أخته」の妻＝ #AIND-D03516 の姉妹（名なし、女性部に見出しなし）→ #NEEDID（人物が描写されているので relation を立てる、規則60(d)）。伝聞につき cert medium。'
+- id: r5
+  type: personal
+  subtype: spouse
+  active: AIND-D13400
+  passive: AIND-D03178
+  cert: medium
+  quote: null
+  note:
+    ja: '女性部 #AIND-D13400「فاطمة الصغرى اخت التي قبلها . تزوجها ابن برابخ وتكررت خصومته مع ابن عمها ناصر الدين محمد بن عمر」（姉 #AIND-D13399「فاطمة الكبرى ابنة أمير علي بن الناصري محمد بن الجمال عبد الله بن بكتمر الحاجب」）が本項主を「ابن برابخ」として名指し。ابن برابخ は corpus で本項主（ラカブ部 #AIND-D12179「ابن برابخ … علم الدين سليمان」）以外にいない珍しい名＝相手側の名指しによる relation（規則23 → cert medium）。本項の原文には出ないので属性は補わない。'
+- id: r6
+  type: personal
+  subtype: possible_identity
+  active: AIND-D12179
+  passive: AIND-D03178
+  cert: high
+  quote: null
+  note:
+    ja: 'ラカブ部の二重立項 #AIND-D12179「ابن برابخ بفتح أوله وكسر رابعه ثم معجمة علم الدين سليمان بلغني أنه كان مالكي المذهب وأظنه الذي كان رئيس الأطباء في أيام الناصر بن الظاهر …」（未収録）。名・ラカブ・父名・学派・医師頭が一致＝同一人物（cert high）。転送指示がないので両項とも実項（二重立項型、絶対基準）。D12179 側への逆方向 relation は申し送り（ISSUES §D159-7）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00314
+  cert: medium
+  quote: الرياسة
+  note:
+    ja: '「ممن تقدم في الطب بحيث ولى الرياسة شريكا لوالدى」＝医師頭（رياسة الطب）。ID-Master 既登録 TMP-O-00314（رياسة الطب | رئيس الأطباء、repo 先例 #AIND-D05976・#AIND-D07912）。初版の #NEEDID を解消。伝聞につき cert medium。#AIND-D12462（ابن صغير 索引）によれば801年に الكمال عبد الرحمن بن صغير が「شريكا لشمس الدين عبد الحق」で医師頭に就いており、本項主の共同在任はそれ以前または別時期（D03516 側もイブン・ハジャルの異説を併記）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+  cert: medium
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D04458
+    quote: ابن عبد الحق
+  quote: قال
+  summary:
+    ar: قال لي ابن عبد الحق انه كان مالكى المذهب ممن تقدم في الطب
+  note:
+    ja: '口頭情報源「قال لي X」＝ relation でなく mention event の persName（規則44、B86 ⑥）。ابن عبد الحق ＝ #AIND-D04458「عبد الله بن عبد الحق بن إبراهيم … رئيس الجرائحية جمال الدين بن رئيس الأطباء شمس الدين القاهري ويعرف بابن عبد الحق … مات في ربيع الأول سنة إحدى وتسعين」（未収録）。#AIND-D03516「والد الجمال عبد الله … فيما قال لي ولده」が同じ情報を「息子」の談として記すので、話者＝الجمال عبد الله（D04458）で閉合（通称＋父＋職）。初版の統制外 subtype「informant」relation（#NEEDID）を置換。'
+  trigger: rule
+notes:
+- text: '本文全体が「قال لي ابن عبد الحق انه …」の伝聞なので、学派・職・姻戚・没年はすべて cert medium 以下。引用中の一人称「والدي」は話者 ابن عبد الحق の父（規則59(f)）＝ #AIND-D03516。ラカブ部の二重立項 #AIND-D12179「ابن برابخ بفتح أوله وكسر رابعه ثم معجمة علم الدين سليمان بلغني أنه كان مالكي المذهب وأظنه الذي كان رئيس الأطباء في أيام الناصر بن الظاهر وبنى القصر المعروف به في بولاق …」は同一人物（possible_identity）。D12179 側の情報（الناصر فرج 期の رئيس الأطباء、ブーラークの宮殿、ハレムでの逸話）は他項の情報なので属性にしない（規則23）。'
+  lang: ja
+translation:
+  ja: スライマーン、アラム・アッディーン・ブン・バラービフ。イブン・アブドゥルハックが私に語ったところでは、彼はマーリク派で、医学に秀でていたため、（イブン・アブドゥルハックの）父と共同で（医師の）長職に就いた。彼（スライマーン）は彼（父）の姉妹を娶っており、彼（父）より先に、810年頃に没した。
+  en: Sulaymān ʿAlam al-Dīn b. Barābikh. Ibn ʿAbd al-Ḥaqq told me that he was Mālikī in madhhab and one of those who excelled in medicine, so that he held the headship [of the physicians] jointly with my [i.e. Ibn ʿAbd al-Ḥaqq's] father; he was married to his [the father's] sister, and he died before him, around the year [8]10.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T10:22:09Z'
+  model_requested: gemini-3.5-flash

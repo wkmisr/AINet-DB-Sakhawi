@@ -1,0 +1,73 @@
+schema: aind-yaml/0.1
+id: AIND-D07791
+source:
+  uid: '840152108645'
+sex: M
+name:
+  full: محمد بن عبد الله بن عبد الكريم
+  elements:
+  - id: n1
+    type: shuhrah
+    quote: تشن
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001210
+  - id: n4
+    type: nasab
+    quote: عبد الكريم البناء
+    by: rule
+death:
+  id: d
+  date:
+    ah: 860-04
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ja: 「مات بمكة في ربيع الآخر سنة ستين ، أرخه ابن فهد」。860-04 ＝ 1456-03-18〜04-15（h2g.py）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001210
+  passive: AIND-D07791
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名。識別要素は「تشن البناء の父」のみ）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00187
+  quote: null
+  note:
+    ja: 「البناء」（建築工・左官）は職業名でありニスバではないため、初版の persName type="nisbah"（職名番号 TMP-O-00187 を persName 位置に流用＝カテゴリ不一致）を state office に是正（B87d の الخواص 処理と同型。TMP-O-00187 は ID-Master 登録「البناء / D03080 建築工」）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    cert: low
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  note:
+    ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 860（≦871）→ ブリーフの振り分けにより التقي بن فهد ＝ #AIND-D09211、cert low。初版の統制外 subtype「chronicler」relation を event に変換。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・アブド・アル＝カリーム、建築工（アル＝バンナー）で、タシャンの名で知られる。（8）60年ラビーウ・アル＝アーヒル月にマッカで没した。イブン・ファハドがその没年月を記録している。
+  en: Muḥammad b. ʿAbd Allāh b. ʿAbd al-Karīm, the builder (al-bannāʾ), well known as Tashan. He died in Mecca in Rabīʿ II (8)60; Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T08:43:08Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

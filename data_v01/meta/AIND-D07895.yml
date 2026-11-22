@@ -1,0 +1,127 @@
+schema: aind-yaml/0.1
+id: AIND-D07895
+source:
+  uid: '297381028523'
+sex: M
+name:
+  full: محمد بن عبد المنعم بن داود بن سليمان البدر أبو عبد الله بن الشرف أبي المكارم البغدادي الأصل القاهري الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00112
+    quote: البغدادي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: البدر
+  - id: n4
+    type: kunyah
+    quote: أبو عبد الله
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد المنعم
+    by: rule
+    ref: AIND-D04715
+  - id: n7
+    type: nasab
+    quote: داود
+    by: rule
+  - id: n8
+    type: nasab
+    quote: سليمان
+    by: rule
+  - id: n9
+    type: nasab
+    quote: الشرف أبي المكارم
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D04715
+  passive: AIND-D07895
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」＝#AIND-D04715「عبد المنعم بن داود بن سليمان الشرف أبو المكارم البغدادي ثم القاهري الحنبلي الآتي ولده وحفيده وولده … ولى إفتاء دار العدل والتدريس بالمنصورية وبأم السلطان وبالحسينية وبالصالح … ومات في يوم السبت ثامن عشر شوال سنة سبع」（未収録。ナサブ・ラカブ・クンヤが一致、規則37）。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D08893
+  passive: AIND-D07895
+  quote: محمد
+  note:
+    ja: 「والآتي ولده البدر محمد」＝#AIND-D08893「محمد بن محمد بن عبد المنعم بن داود بن سليمان البدر أبو المحاسن بن البدر أبي عبد الله بن الشرف أبي المكارم البغدادي الأصل القاهري الحنبلي الماضي أبوه وجده … ولد بالقاهرة في جمادى الأولى سنة إحدى وثمانمائة … وولى قضاء العسكر وإفتاء دار العدل وتدريس الفقه بالصالح بعد أبيه」（未収録。ナサブ5代一致）。初版の汚染番号 TMP-P-000529（汎用 محمد）を置換。
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: AIND-D04715
+  passive: AIND-D07895
+  quote: والده
+  note:
+    ja: 「خلف والده في تدريس الحسنية وأم السلطان والصالح وغيرها وفي إفتاء دار العدل وقضاء العسكر」＝父の教授職・ファトワー職・軍カーディー職を継いだ（前任者＝父、規則29、先例 D04045・D07378）。
+states:
+- id: s1
+  type: office
+  ref: wd:Q352842
+  orgs:
+  - ref: TMP-I-00030
+  quote: تدريس
+  note:
+    ja: 「خلف والده في تدريس الحسنية」。الحسنية＝スルターン・ハサンのマドラサ（الناصرية الحسنية）＝ID-Master TMP-I-00030（父 D04715 側では「بالحسينية」と綴る）。初版の placeName القاهرة は原文になし→除去（規則22(1)）。
+- id: s2
+  type: office
+  ref: wd:Q352842
+  orgs:
+  - ref: TMP-I-00031
+  quote: null
+  note:
+    ja: 「وأم السلطان」＝مدرسة أم السلطان（TMP-I-00031）。
+- id: s3
+  type: office
+  ref: wd:Q352842
+  orgs:
+  - ref: wd:Q7404512
+  quote: null
+  note:
+    ja: '「والصالح وغيرها」＝المدرسة الصالحية（サーリフ・ナジュムッディーン建立、カイロ）＝wd:Q7404512（Waka 照合 2026-09-24）。子 D08893 側「تدريس الفقه بالصالح بعد أبيه」。初版の #NEEDID を解消。「وغيرها」は立てない。'
+- id: s4
+  type: office
+  ref: TMP-O-00005
+  quote: إفتاء دار العدل
+  note:
+    ja: 「وفي إفتاء دار العدل」＝TMP-O-00005。placeName القاهرة（原文になし）を除去。
+- id: s5
+  type: office
+  ref: TMP-O-00041
+  quote: قضاء العسكر
+  note:
+    ja: '「وقضاء العسكر فلم تطل مدته」＝軍カーディー職＝ID-Master TMP-O-00041（قاضي العسكر）。在職は短かった。初版の #NEEDID を解消。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+notes:
+- text: 「ومات .」＝没年の記載なし（刊本の欠落）。death 要素は立てない（規則45）。父 D04715 の没年は 807（「سنة سبع」）、子 D08893 は 801 生＝本項主の在職・没は 807 以後まもなく、と推定できるが他項情報のため note 留め（規則23）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブドゥルムンイム・ブン・ダーウード・ブン・スライマーン、アル＝バドル・アブー・アブドゥッラー・ブン・アッ＝シャラフ・アビー・アル＝マカーリム、バグダード出自、カイロ在住、ハンバル派。その父は既述、その息子アル＝バドル・ムハンマドは後述。彼はアル＝ハサニーヤ、ウンム・アッ＝スルターン、アッ＝サーリフ（学院）などの教授職、ならびにダール・アル＝アドルでのファトワー職と軍カーディー職において父の後を継いだが、その在職期間は長くなかった。そして彼は没した（年不明）。
+  en: Muḥammad b. ʿAbd al-Munʿim b. Dāwūd b. Sulaymān, al-Badr Abū ʿAbd Allāh b. al-Sharaf Abī al-Makārim, of Baghdādī origin, the Cairene, the Ḥanbalī. His father was mentioned above and his son al-Badr Muḥammad comes below. He succeeded his father in the teaching posts of al-Ḥasaniyya, Umm al-Sulṭān, al-Ṣāliḥ and others, and in the muftīship of Dār al-ʿAdl and the judgeship of the army, but his tenure was not long. He died (date not given).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T01:56:49Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

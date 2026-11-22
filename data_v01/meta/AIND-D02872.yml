@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D02872
+source:
+  uid: '957412808947'
+sex: M
+name:
+  full: خليفة الضرير
+  elements:
+  - id: n1
+    type: shuhrah
+    quote: الضرير
+  - id: n2
+    type: ism
+    quote: خليفة
+    by: rule
+death:
+  id: d
+  date:
+    ah: 893-02
+  note:
+    ar: مات في صفر سنة ثلاث وتسعين
+    ja: 893-02＝1488-01-25 開始、月精度 1488-01（h2g.py）。初版 @when="1488"（年精度）を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02872
+  quote: null
+  note:
+    ja: '規則3（単名の項）。父の名は原文に出ない → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D02872
+  methods:
+  - TMP-S-00028
+  context:
+  - orgs:
+    - ref: TMP-I-00059
+    summary:
+      ar: ممن يحضر عندي في الصرغتمشية
+  quote: عندي
+  note:
+    ja: 「ممن يحضر عندي في الصرغتمشية」＝サハーウィー（wd:Q4120128）が師（規則2 の同型、先例 D02815・D04603）。学習の場 الصرغتمشية＝TMP-I-00059 を orgName に（初版は affiliation study で二重）。初版の placeName القاهرة（施設所在地の補完、原文になし）を除去（規則22(1)）。規則60(g) により desc に相手名は書かない。
+states:
+- id: s1
+  type: office
+  ref: wd:Q125482
+  orgs:
+  - ref: TMP-I-00269
+  quote: إمامه
+  note:
+    ja: 初版の placeName القاهرة（施設所在地の補完）を除去（規則22(1)）。
+events:
+- id: e1
+  type: residence
+  orgs:
+  - ref: TMP-I-00269
+  quote: نزيل
+  note:
+    ja: '「نزيل المشهد النفيسي」＝居住の場は施設 المشهد النفيسي（カイロのサイイダ・ナフィーサ廟）。ID-Master 未登録（「مشهد」「النفيسي」で grep: المشهد الحسيني TMP-I-00247 のみ）→ TMP-I-00269。初版の placeName القاهرة（施設所在地の補完）を除去し、affiliation employed（#NEEDID、state と二重）を除去。'
+  trigger: rule
+- id: e2
+  type: cultural
+  quote: وله إلمام بما يشبه الوعظ بدون إتقان ولا ضبط
+translation:
+  ja: ハリーファ・アッ＝ダリール（盲目の）。マシュハド・アン＝ナフィーシー（ナフィーサ廟）の住人でそのイマーム。サルガトミシーヤ（学院）で私のもとに出席していた者の一人。説教に類することに多少の知識があったが、精密さも正確さもなかった。893年サファル月に没した。
+  en: Khalīfa al-Ḍarīr (the blind). Resident of al-Mashhad al-Nafīsī and its imām. He was among those who attended my sessions at al-Ṣarghatmashiyya. He had some acquaintance with something resembling preaching, but without mastery or accuracy. He died in Ṣafar of the year 893.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-28T08:08:14Z'
+  model_requested: gemini-3.5-flash

@@ -1,0 +1,75 @@
+schema: aind-yaml/0.1
+id: AIND-D07037
+source:
+  uid: '877515520899'
+sex: M
+name:
+  full: محمد بن أحمد الجمال الزبيدي القمقام
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00159
+    quote: الزبيدي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: shuhrah
+    quote: القمقام
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07037
+  quote: null
+  note:
+    ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
+- id: r2
+  type: personal
+  subtype: possible_identity
+  active: AIND-D07081
+  passive: AIND-D07037
+  cert: medium
+  quote: null
+  note:
+    ja: '#AIND-D07081「محمد بن أحمد القمقام .」（名のみの項、B117）は名・父名・通称 القمقام が一致し同一人物の可能性が高いが、転送指示がなく記述も乏しいため二重立項型として双方向 possible_identity cert medium（ブリーフ指定。B117 側は D07081 に逆方向を立てる）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q239718
+  quote: null
+  note:
+    ja: 見出し「المؤذن」。勤務先・地は原文にない。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: التقى بن فهد
+  works:
+  - ref: TMP-T-00138
+  quote: ذكره
+  summary:
+    ar: ذكره التقى بن فهد في معجمه هكذا
+  note:
+    ja: 'Pattern A。「في معجمه」の原文明示＝ #AIND-D09211、معجم ابن فهد ＝ TMP-T-00138。初版の subtype="other" relation を event 化。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・アル＝ジャマール・アッ＝ザビーディー、ムアッズィン、アル＝カムカーム。アッ＝タキー・ブン・ファハドがその『ムウジャム』で彼をこのように挙げている。
+  en: Muḥammad b. Aḥmad al-Jamāl al-Zabīdī, the muezzin, al-Qamqām. Al-Taqī b. Fahd mentioned him thus in his Muʿjam.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T22:59:29Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

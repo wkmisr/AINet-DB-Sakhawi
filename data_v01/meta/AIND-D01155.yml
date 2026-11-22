@@ -1,0 +1,82 @@
+schema: aind-yaml/0.1
+id: AIND-D01155
+source:
+  uid: '690755733942'
+sex: M
+name:
+  full: أحمد بن الشرف عيسى القيمري الخليلي الغزي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00779
+    quote: القيمري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00043
+    quote: الخليلي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00021
+    quote: الغزي
+  - id: n4
+    type: ism
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: الشرف عيسى
+    by: rule
+    ref: TMP-P-000562
+birth:
+  id: b
+  date:
+    ah: 756
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D01155
+  passive: wd:Q4120128
+  methods:
+  - TMP-S-00004
+  quote: لنا
+  note:
+    ja: 原文「أجاز لنا」=（本項人物が）我々（サハーウィー）にイジャーザを与えた。イジャーザ授与側が師（active=本項D01155）、al-Sakhāwī(Q4120128)が弟子(passive)。物理方向・subtype妥当（§4-8）。
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-000562
+  passive: AIND-D01155
+  quote: null
+  note:
+    ja: '父。Gemini付与の #TMP-P-000066 は幻番号（複数人物に流用の連番幻番号。D01175でも父に同番号使用＝衝突）→破棄。corpusに本伝headword無し（عيسى القيمري الخليلي の独立立項未確認）→新規 #TMP-P-000562 を発行。'
+events:
+- id: e1
+  type: cultural
+  quote: وسمع
+  summary:
+    ar: سمع الكثير وحدث وروى وأجاز لنا
+    en: He listened much, transmitted and narrated ḥadīth, and granted ijāza to al-Sakhāwī.
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D01457
+    quote: ابن أبي عذيبة
+  quote: قاله
+  summary:
+    ar: قاله ابن أبي عذيبة
+  note:
+    ja: '情報源の言及（Pattern A）。「قاله ابن أبي عذيبة」=イブン・アビー・ウザイバがこれを述べた。ابن أبي عذيبة は本文中に頻出する情報提供者だが独立本伝を一意特定できず、新規 #TMP-P-000561 を発行（ID-Master照合推奨）。'
+  trigger: rule
+translation:
+  ja: アフマド・ブン・アッ＝シャラフ・イーサー・アル＝カイマリー・アル＝ハリーリー・アル＝ガッズィー。756年生まれ。多くを聴聞し、ハディースを伝え・語り、そして我々（＝サハーウィー）にイジャーザを与えた。イブン・アビー・ウザイバがこれを述べた。
+  en: Aḥmad b. al-Sharaf ʿĪsā al-Qaymarī al-Khalīlī al-Ghazzī. Born in 756 AH. He listened much, transmitted and narrated ḥadīth, and granted us (al-Sakhāwī) ijāza. Ibn Abī ʿUdhayba said this.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.10
+  generated_at: '2026-06-29T11:12:13Z'
+  model_era: gemini-2.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

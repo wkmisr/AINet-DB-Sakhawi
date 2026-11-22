@@ -1,0 +1,109 @@
+schema: aind-yaml/0.1
+id: AIND-D05903
+source:
+  uid: '538708030172'
+sex: M
+name:
+  full: عمر بن علي بن عثمان الزين بن العلاء الحواري المقدسي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01036
+    quote: الحواري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n3
+    type: laqab
+    quote: الزين
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05283
+  - id: n6
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n7
+    type: nasab
+    quote: العلاء
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    ah: 803
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 874-03-20
+  summary:
+    ar: مات في يوم الأربعاء عشري ربيع الأول سنة أربع وسبعين
+  note:
+    ja: 874-03-20 ＝ 1469-10-06（h2g.py、水曜日と整合）。初版の 1469（年のみ）を日付精度に揃えた。没地は原文にない。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05283
+  passive: AIND-D05903
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」。父 = #AIND-D05283（علي بن عثمان العلاء الحواري الخليلي والد عمر الآتي、没833）。ニスバ索引項 #AIND-D11611「الحواري … والعلاء علي بن عثمان وابنه الزين عمر」でも閉合。初版の #NEEDID を差し替え。'
+- id: r2
+  type: personal
+  subtype: predecessor
+  active: AIND-D05283
+  passive: AIND-D05903
+  quote: أبيه
+  note:
+    ja: 「واستقر في جميع وظائف أبيه كالهكارية والبدرية واللؤلؤية والإعادة بالصلاحية」＝父の全職を継いだ（規則29、先例 D04045）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00243
+  orgs:
+  - ref: TMP-I-00177
+  quote: الإعادة
+  note:
+    ja: 復習教師職（معيد／إعادة = TMP-O-00243）。「الصلاحية」はエルサレムの المدرسة الصلاحية（#TMP-I-00177。ID-Master には同一実体とみられる「الصلاحية بالقدس」wd:Q4702696 も登録されており二重登録＝統合は Waka の wd 照合後、ID-Master要対応に記載。内容検証B L-25）。父の本伝「وأعاد في الصلاحية」と一致。初版の wd:Q7404512（カイロの المدرسة الصالحية、サーリフ・ナジュムッディーン建立）は別実体のため差し替え（2026-09-24 Waka 裁定 ★6-2 と同じ）。初版の affiliation n=4（الصلاحية、二重符号化）は除去（規則8）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+- id: a2
+  type: employed
+  ref: TMP-I-00204
+  note:
+    ja: '父 #AIND-D05283 の本伝「درس بدار الحديث الهكارية وبالبدرية واللؤلؤية」から、エルサレム（بيت المقدس）の دار الحديث الهكارية。ID-Master 未登録 → TMP-I-00204。'
+- id: a3
+  type: employed
+  ref: TMP-I-00205
+  note:
+    ja: 'エルサレムのマドラサ（父 #AIND-D05283 の本伝参照）。ID-Master 未登録 → TMP-I-00205。'
+- id: a4
+  type: employed
+  ref: TMP-I-00206
+  note:
+    ja: 'エルサレムのマドラサ（父 #AIND-D05283 の本伝参照）。ID-Master 未登録 → TMP-I-00206。'
+translation:
+  ja: ウマル・ブン・アリー・ブン・ウスマーン、アッ＝ザイン・ブン・アル＝アラー、アル＝ハワーリー・アル＝マクディスィー・アッ＝シャーフィイー。父は前述。803年に生まれ、ハッカーリーヤ、バドリーヤ、ルウルウイーヤ（の職）およびサラーヒーヤの復習教師職（イアーダ）など、父のすべての職に就いた。874年ラビーウ・アル＝アウワル月20日水曜日に没した。
+  en: ʿUmar b. ʿAlī b. ʿUthmān, al-Zayn b. al-ʿAlāʾ, al-Ḥawārī al-Maqdisī al-Shāfiʿī; his father was mentioned above. He was born in the year 803 and was installed in all of his father's posts, such as those at al-Hakkāriyya, al-Badriyya and al-Luʾluʾiyya, and the post of repetitor (iʿāda) at al-Ṣalāḥiyya. He died on Wednesday, 20 Rabīʿ al-Awwal 874.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T04:24:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

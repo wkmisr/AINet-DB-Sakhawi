@@ -1,0 +1,71 @@
+schema: aind-yaml/0.1
+id: AIND-D02814
+source:
+  uid: '456893929606'
+sex: M
+name:
+  full: خالد المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: ism
+    quote: خالد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 873
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  summary:
+    ar: مات في طاعون سنة ثلاث وسبعين بالقاهرة
+  note:
+    ja: 873年（1468-07-31 開始、年精度）のペストでカイロにて没。「قاله ابن فهد」＝イブン・ファハドの伝。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02814
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  subtype: deputy
+  ref: wd:Q125482
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نائب إمام الحنابلة
+  note:
+    ja: 見出し「نائب إمام الحنابلة بمكة」＝マッカ（聖モスク）のハンバリー派イマーム代理。ID-Master の先例 TMP-O-00325「نائب الإمام بالمقام الحنبلي」（D07038、corpus D00687 も同職）に同定。placeName مكة は原文明記。学派（ハンバリー派）は職から推定されるが原文に明記がないため affiliation は立てない。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+    quote: ابن فهد
+  quote: قاله
+  summary:
+    ar: قاله ابن فهد
+  cert: medium
+  note:
+    ja: 'Pattern A。ابن فهد 振り分け規則（没年 873＝871〈没年≤885）により #AIND-D05979（cert medium、規則43）。初版の統制外 subtype「source」relation（D09211）を変換。'
+  trigger: rule
+translation:
+  ja: ハーリド・アル＝マクディスィー、マッカのハンバリー派イマーム代理。873年のペストでカイロにて没した。イブン・ファハドがそう述べている。
+  en: Khālid al-Maqdisī, deputy imam of the Ḥanbalīs at Mecca. He died in the plague of the year 873 in Cairo; so said Ibn Fahd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-23T08:03:57Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

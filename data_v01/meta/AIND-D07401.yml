@@ -1,0 +1,67 @@
+schema: aind-yaml/0.1
+id: AIND-D07401
+source:
+  uid: '188531922833'
+sex: M
+name:
+  full: محمد بن زيان المغربي المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00058
+    quote: المغربي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: زيان
+    by: rule
+  - id: n4
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07401
+  quote: null
+  note:
+    ja: '父は裸名のみ、corpus に本伝なし → #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07401
+  passive: AIND-D10314
+  methods:
+  - TMP-S-00025
+  context:
+  - summary:
+      ar: قرأ عليه في العربية قليلا يحيى البكري
+  quote: null
+  note:
+    ja: '本項主が師、学生は يحيى البكري＝#AIND-D10314「يحيى بن محمد بن محمد بن محمد بن سليمان … الشرف بن المحب البكري القاهري الشافعي … ويعرف بيحيى البكري」。相手側本文「وقرأ يسيرا في النحو على محمد بن زيان المغربي المالكي نزيل المؤيدية」で閉合。初版は passive #NEEDID、relation 内 event の placeName القاهرة（原文になし）を除去。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+- id: a2
+  type: reside
+  ref: TMP-I-00028
+notes:
+- text: 没年・生年の記載なし（death を立てない）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・ズィヤーン・アル＝マグリビー・アル＝マーリキー、アル＝ムアイヤディーヤの寄寓者。ヤフヤー・アル＝バクリーが彼のもとでアラビア語学を少し読んだ。
+  en: Muḥammad b. Ziyān al-Maghribī al-Mālikī, resident of al-Muʾayyadiyya. Yaḥyā al-Bakrī read a little Arabic grammar with him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T06:24:33Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

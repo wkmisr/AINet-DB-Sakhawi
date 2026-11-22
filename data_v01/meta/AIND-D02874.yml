@@ -1,0 +1,80 @@
+schema: aind-yaml/0.1
+id: AIND-D02874
+source:
+  uid: '486405052661'
+sex: M
+name:
+  full: خليل بن إبراهيم بن علي المالقي القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00067
+    quote: المالقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: خليل
+    by: rule
+  - id: n4
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 869-06
+  note:
+    ar: مات في جمادى الثانية سنة تسع وستين
+    ja: 869-06＝1465-02-07 開始、月精度 1465-02（h2g.py）。初版 @when="1464"（年精度・誤年）を是正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02874
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 إبراهيم بن علي المالقي は corpus に本伝なし（hw.py「إبراهيم بن علي|المالقي」該当は本項のみ）、ID-Master 未登録、識別要素なし → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D12770
+  passive: AIND-D02874
+  quote: الشمس محمد المزور لقبور الصالحين
+  note:
+    ja: '「والد الشمس محمد المزور لقبور الصالحين الآتي」。子＝ ابن المنير المزور。根拠: (1) ニスバ索引 #AIND-D12770「ابن المنير محمد بن خليل بن إبرهيم بن علي」が本項見出しナサブ（خليل بن إبراهيم بن علي）と一致、(2) corpus 61873 行（#AIND-D05649 の末尾）「أخذ عنه بعض من لا يحسن كابن المنير المزور」が ابن المنير を المزور と呼ぶ、(3) 本項末尾「أرخه ابنه」＝この子が没年を記録する人物であり、repo で「أرخه المنير／ابن المنير」として27件以上 Pattern A 参照される ID-Master 既登録 TMP-P-000342「المنير | ابن المنير」（カイロのザーウィヤ・シャイフや معتقدين の没年記録者）と役割が一致。よって TMP-P-000342 を充てる（ナサブ・通称・職の3点、規則57）。「الآتي」が指す محمد بن خليل بن إبراهيم بن علي المالقي の本伝は corpus の محمد بن خليل 見出し（hw.py 29件）に無い（欠落）。同ナサブの別索引 #AIND-D12769「ابن المنمنم محمد بن خليل بن إبرهيم بن علي وابنه التقي محمد」（الحراني、#AIND-D08774 の父＝TMP-P-000931）との関係は ISSUES。【集約 2026-11-05】子＝ニスバ索引 #AIND-D12770「ابن المنير محمد بن خليل بن إبرهيم بن علي .」（単独人物の索引見出し、規則11）でナサブ4代＋家名 ابن المنير が閉合する。この子を #AIND-D12770 で表し TMP-P-000342 を D12770 に名寄せする案（内容A L）と、TMP-P-000342 の実体をこの子に確定する案（校閲 §D154-4）を ★1-2 に並べた（決定16）。裁定まで TMP-P-000342 のまま。 / 裁定
+      2026-11-05 ★1-2: 子＝#AIND-D12770（ニスバ索引「ابن المنير محمد بن خليل بن إبرهيم بن علي」。本項見出しナサブと4代一致）。TMP-P-000342 は裸の「المنير」の用例に限って残す。'
+states:
+- id: s1
+  type: status
+  label: عامي صالح
+  quote: null
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D12770
+    quote: ابنه
+  quote: أرخه
+  summary:
+    ar: أرخه ابنه
+  note:
+    ja: Pattern A。没年の記録者は子 الشمس محمد المزور（＝ابن المنير、TMP-P-000342）。
+  trigger: rule
+translation:
+  ja: ハリール・ブン・イブラーヒーム・ブン・アリー、アル＝マーラキー、アル＝カーヒリー。後述の、聖者たちの墓の参詣案内人（ムザウウィル）アッ＝シャムス・ムハンマドの父。869年ジュマーダー・アッ＝サーニヤ月に没した。敬虔な一般人であった。彼の息子が没年を記している。
+  en: Khalīl b. Ibrāhīm b. ʿAlī al-Mālaqī al-Qāhirī, father of al-Shams Muḥammad, the guide to the tombs of the righteous (al-muzawwir), who follows. He died in Jumādā II of the year 869; he was a pious layman. His son recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-28T08:12:00Z'
+  model_requested: gemini-3.5-flash

@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D04484
+source:
+  uid: '985703392983'
+sex: M
+name:
+  full: عبد الله بن عبد الله الدكاري المغربي ثم المدني المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-03946
+    quote: الدكاري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00058
+    quote: المغربي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+death:
+  id: d
+  date:
+    ah: 806
+  summary:
+    ar: مات في سنة ست سامحه الله
+  note:
+    ja: '原文は「سنة ست」（一の位のみ）だが、2026-09-21 の Waka 裁定（§D-1）により 806 年で確定。『إنباء الغمر』の該当年で確認を要するという留保、および 806・816・826・836・846 の5択という記述は撤回する。確実性は repo 慣行（death 要素 1,255 件中 1,137 件＝90.6% が cert 無記載＝確実。cert="high" の明示は17件のみ）に従い cert 無記載で表現する。西暦は h2g.py で再計算: AH 806-01-01＝1403-07-30（proleptic Gregorian）、年精度のため when="1403"。'
+    en: The text gives only "the year six"; the year is established as 806 AH by Waka's ruling of 2026-09-21 (§D-1). The earlier reservation (806/816/826/836/846) is withdrawn. Certainty is expressed by the absence of @cert, following repository practice. AH 806 began on 1403-07-30 (proleptic Gregorian).
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D04484
+  quote: null
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00096
+  quote: ناب
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:109223
+  quote: null
+  summary:
+    ar: ثم المدني … أقرأ بها ودرس وأفاد
+  note:
+    ja: 「أقرأ بها」の بها は原文中の照応代名詞であり、先行詞はニスバ المدني（マディーナ、gn:109223）。統一規則22（2026-09-21 Waka 裁定・同日再確認）により、照応代名詞が受ける地名は先行詞がニスバのみであっても placeName にしてよい（代名詞 ها が女性単数の先行詞を要求する以上、地の指示は著者自身の行為であり、ニスバからの推定とは区別される）。代名詞を伴わない純粋なニスバ補完は引き続き不可。
+- id: e2
+  type: cultural
+  quote: null
+  summary:
+    ar: أقرأ بها ودرس وأفاد وناب في الحكم في بعض القضايا وكان يتجرأ على العلماء
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: قاله
+  summary:
+    ar: قاله شيخنا في إنبائه
+  note:
+    ja: Pattern A。初版は統制外 subtype「biographer」の relation にしていた。
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・アブドゥッラー、アッ＝ダカーリー、アル＝マグリビー、のちにアル＝マダニー、アル＝マーリキー。同地（マディーナ）で読誦を教え、教授し、人々を益し、いくつかの訴訟で裁判代理を務めたが、学者たちに対して不遜であった。（八百）六年に没した。神が彼を赦したまわんことを。我らがシャイフ（イブン・ハジャル）が『インバー』の中でそう述べている。
+  en: ʿAbd Allāh b. ʿAbd Allāh al-Dakārī al-Maghribī, then al-Madanī, al-Mālikī. He taught recitation there (in Medina), lectured and benefited others, and acted as deputy judge in some cases; but he was insolent toward the scholars. He died in the year six (806), may God pardon him. So says our shaykh (Ibn Ḥajar) in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T12:26:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,118 @@
+schema: aind-yaml/0.1
+id: AIND-D06109
+source:
+  uid: '604952867968'
+sex: M
+name:
+  full: عيسى الأنصاري المصري الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00049
+    quote: الأنصاري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n3
+    type: ism
+    quote: عيسى
+    by: rule
+  - id: n4
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 807
+    cert: medium
+  places:
+  - ref: gn:352261
+    quote: مصر
+  summary:
+    ar: مات شابا بمصر في سنة سبع
+  note:
+    ja: 「سنة سبع」＝一の位のみ → 807（cert medium、2026-09-24 裁定）。師 ابن صديق（806年没）・أبو اليمن الطبري（809年没）との整合からも 807。807年＝1404-07-19〜1405-07-07（年精度 → 1404）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D00271
+  passive: AIND-D06109
+  methods:
+  - TMP-S-00003
+  quote: ابن صديق
+  note:
+    ja: 'ابن صديق ＝ #AIND-D00271（إبراهيم بن محمد بن صديق … المجاور بالحرمين、806年没）。初版の幻番号 TMP-P-000131（名寄せ済み）を AIND に差し替え（規則36）。原文に分野の明示なし（初版 field 除去）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D06599
+  passive: AIND-D06109
+  methods:
+  - TMP-S-00003
+  quote: اليمن الطبري
+  note:
+    ja: 'أبو اليمن الطبري ＝ #AIND-D06599（محمد بن أحمد بن الرضي إبراهيم … الزين أبو اليمن … الطبري المكي、730年生・809年没、マッカのムスニド、未受領）。807年没のマッカ寄留者の師として年代が整合。初版の TMP-P-000812（ID-Master「أبو اليمن الطبري」、D03056 の師）は同一人物と見られ名寄せ要（§D114-1）。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06109
+  cert: medium
+  quote: سليمان بن عبد الله
+  note:
+    ja: '父名は「ذكره التقي بن فهد في معجمه وسمى أباه سليمان بن عبد الله」＝ابن فهد の伝える情報（cert medium）。見出しには父名がない。裸名＋父名のみで識別要素なし → #NEEDID 維持。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00269
+  quote: المكتب
+  note:
+    ja: 見出しの「المكتب」＝書法教師（TMP-O-00269、先例 D04437）。「تعانى الكتابة فبرع فيها وتصدى لذلك احتسابا」と整合。初版の「تعليم الكتابة」（#NEEDID、placeName مكة）を差し替え。教授地は原文に明示がないため placeName を付けない（「أهل مكة」は受益者の記述、規則22(1)）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+- id: e2
+  type: teaching
+  quote: وتصدى
+  summary:
+    ar: تعانى الكتابة فبرع فيها وتصدى لذلك احتسابا فانتفع به جمع كثير من أهل مكة
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: التقي بن فهد
+  works:
+  - ref: TMP-T-00138
+  quote: ذكره
+  summary:
+    ar: ذكره التقي بن فهد في معجمه وسمى أباه سليمان بن عبد الله
+  note:
+    ja: Pattern A。「في معجمه」＝التقي بن فهد（#AIND-D09211）の『معجم』。初版の統制外 relation（other）を mention event に変更。
+  trigger: rule
+translation:
+  ja: イーサー・アル＝アンサーリー・アル＝ミスリー・アル＝ハナフィー、書法教師、マッカの寄留者。イブン・スィッディークとアブー・アル＝ヤマン・アッ＝タバリーらから聴聞した。信仰篤く善良な人物で、書法に励んでこれに秀で、神のために無償でこれ（の教授）に当たったので、マッカの人々の多くが彼から益を得た。若くして〔8〕07年にミスルで没した。アッ＝タキー・ブン・ファハドがその『ムウジャム』で彼に言及し、父の名をスライマーン・ブン・アブドゥッラーとしている。
+  en: ʿĪsā al-Anṣārī al-Miṣrī al-Ḥanafī, the writing teacher, resident of Mecca. He heard from Ibn Ṣiddīq, Abū al-Yaman al-Ṭabarī, and others. He was a religious, good man who practised calligraphy and excelled in it, and devoted himself to it (teaching it) for God's sake without pay, so that a great many of the people of Mecca benefited from him. He died young in Miṣr in the year [8]07. Al-Taqī b. Fahd mentioned him in his Muʿjam and gave his father's name as Sulaymān b. ʿAbd Allāh.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T09:10:58Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

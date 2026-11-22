@@ -1,0 +1,88 @@
+schema: aind-yaml/0.1
+id: AIND-D07700
+source:
+  uid: '817063683590'
+sex: M
+name:
+  full: محمد بن عبد القادر بن أبي بكر البدر أبو السعادات القابسي الأصل المحلى الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01153
+    quote: القابسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00109
+    quote: المحلى
+  - id: n3
+    type: laqab
+    quote: البدر
+  - id: n4
+    type: kunyah
+    quote: أبو السعادات
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد القادر
+    by: rule
+    ref: TMP-P-001569
+  - id: n7
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07700
+  methods:
+  - TMP-S-00006
+  quote: علي
+  note:
+    ja: 「ممن عرض علي」＝本項主がサハーウィーに暗誦を提示した（規則2）。
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001569
+  passive: AIND-D07700
+  quote: أبوه
+  note:
+    ja: '父＝ID-Master 既登録 TMP-P-001569「عبد القادر بن أبي بكر بن محمد القابسي المحلي (نائب قاضي المحلة، أخو أبي الطيب محمد)」（出現 D07265・D07700）。「وأبوه ينوب عن قاضي المحلة بل هو نفسه」＝父はマハッラのカーディーの代理を務める、いやカーディーその人である（父の職＝本項主の state にしない。§D141-2）。 集約 2026-10-26（§D141-2 自己裁定）: 語順「وأبوه ينوب … بل هو نفسه」から (a)「父自身が（カーディー）」の読みを維持し本項主の state は立てない。ただし叔父 D07265「أخو نوابها الآن」（代理裁判官たちの兄弟＝複数形）は同家に父以外の代理もいたことを示し、(b)「本項主も代理」の可能性は残る（内容A の付記）。'
+- id: r3
+  type: personal
+  subtype: paternal_uncle
+  active: AIND-D07265
+  passive: AIND-D07700
+  quote: عمه
+  note:
+    ja: 「وقد تقدم عمه أبو الطيب محمد ابن أبي بكر بن محمد」＝#AIND-D07265「محمد بن أبي بكر بن محمد أبو الطيب القابسي الأصل المحلي أخو نوابها الآن . من بيت بها」（repo 収録。名・クンヤ・ナサブ・ニスバが一致。D07265 側の brother TMP-P-001569＝本項主の父）。初版の subtype uncle・#NEEDID を是正。
+- id: r4
+  type: personal
+  subtype: ancestor
+  active: TMP-P-001616
+  passive: AIND-D07700
+  quote: موفق الدين عمر بن عبد الوهاب القابسي
+  note:
+    ja: 「من ذرية موفق الدين عمر بن عبد الوهاب القابسي」＝先祖（世代不明、統制語彙 ancestor）。#AIND-D08853「سبط الموفق القابسي أحد من يقصد ضريحه بالزيارة في المحلة」で廟がマハッラにある聖者と分かる。corpus に本伝なし（8世紀以前の人物）、ID-Master 未登録 → 新規 TMP-P-001616。初版の subtype other・#NEEDID を是正。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+translation:
+  ja: ムハンマド・ブン・アブド・アル＝カーディル・ブン・アビー・バクル、アル＝バドル、アブー・アッ＝サアーダート、カービス出自でマハッラの人、シャーフィイー派。ムワッファク・アッ＝ディーン・ウマル・ブン・アブド・アル＝ワッハーブ・アル＝カービスィーの子孫。私（サハーウィー）に〔暗誦を〕提示した者の一人。彼の父はマハッラのカーディーの代理を務めている——いや、彼自身が〔カーディー〕である。彼の父方の叔父アブー・アッ＝タイイブ・ムハンマド・イブン・アビー・バクル・ブン・ムハンマドは既述した。
+  en: Muḥammad b. ʿAbd al-Qādir b. Abī Bakr, al-Badr Abū al-Saʿādāt, of Qābis origin, of al-Maḥalla, Shāfiʿī, a descendant of Muwaffaq al-Dīn ʿUmar b. ʿAbd al-Wahhāb al-Qābisī. He is among those who presented (their memorised texts) to me (al-Sakhāwī). His father serves as deputy of the qāḍī of al-Maḥalla—nay, he is (the qāḍī) himself. His paternal uncle Abū al-Ṭayyib Muḥammad b. Abī Bakr b. Muḥammad has been mentioned above.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-13T07:30:27Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

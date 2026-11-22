@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D06396
+source:
+  uid: '100155799182'
+sex: M
+name:
+  full: كزل الناصري الظاهري برقوق
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00065
+    quote: الناصري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00114
+    quote: الظاهري
+  - id: n3
+    type: ism
+    quote: كزل
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 821
+    notAfter: 829
+  summary:
+    ar: ولزم داره حتى مات في سنة نيف وعشرين
+  note:
+    ja: 「سنة نيف وعشرين」＝820年代（821〜829）→ repo 先例（「نيف وثلاثين」→ notBefore 0831／notAfter 0839）に倣い notBefore 821（1418-02-17→1418）／notAfter 829（1426-11-10 終了→1426）、h2g.py。初版の非ISO 値（when-custom="82x" when="701"）を是正。没地は原文に無い（「لزم داره」の家の所在は書かれない）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06396
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02178
+  passive: AIND-D06396
+  quote: برقوق
+  note:
+    ja: '主人ニスバ「الظاهري برقوق」＝スルターン・アッ＝ザーヒル・バルクーク（#AIND-D02178）（規則51）。初版 #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00117
+  quote: null
+  note:
+    ja: 槍術の教授・実技の第一人者（ID-Master 既登録 TMP-O-00117 معلم الرمح、先例 D02452）。
+- id: s2
+  type: office
+  ref: TMP-O-00083
+  quote: null
+  note:
+    ja: 'アル＝ムアイヤド（・シャイフ、#AIND-D03345、815〜824在位）の時代に一時 مقدم（ألف）となり、のち辞職。ID-Master 既登録 TMP-O-00083 المقدم（初版 #NEEDID）。年は原文に無い。'
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D03345
+    quote: المؤيد
+  quote: null
+  summary:
+    ar: ترقى في الدول حتى صار في أيام المؤيد مقدما مدة ثم استعفى ولزم داره
+  note:
+    ja: 時代指示。主人でないスルターンは relation にせず event 内 persName（規則53）。初版の統制外 subtype「ruler」relation は汚染番号 TMP-P-000844（登録＝زينب D05685 の師「المؤيد」＝別人）を流用していたため除去。
+notes:
+- text: '「الناصري نسبة لتاجره الخواجا ناصر الدين」＝ニスバ الناصري は彼を売った奴隷商人ホワージャ・ナースィルッディーンに由来する。奴隷商人は主人（patron）ではなく、repo に「تاجره」の relation 先例は無い（D06197 も note のみ）ので relation を立てない（初版の patron #NEEDID を除去）。corpus にこの商人の本伝は見当たらない（hw.py「الخواجا」「ناصر الدين」）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: クズル・アン＝ナースィリー——（このニスバは）彼の（奴隷）商人ホワージャ・ナースィルッディーンにちなむ——アッ＝ザーヒリー・バルクーク。槍術の教授とその技において第一人者であった。諸政権のもとで昇進を重ね、アル＝ムアイヤドの時代には一時ムカッダムとなったが、辞職して自邸に籠り、820年代のある年に没した。アッラーの慈悲あれ。
+  en: Kuzul al-Nāṣirī, the nisba being after his (slave-)merchant al-Khawājā Nāṣir al-Dīn, al-Ẓāhirī Barqūq. He was a leading master in the teaching and practice of the lance. He rose under successive regimes until, in the days of al-Muʾayyad, he became a muqaddam for a time; then he resigned and kept to his house until he died in one of the years of the 820s. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-17T18:51:05Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

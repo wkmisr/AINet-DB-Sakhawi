@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D06386
+source:
+  uid: '714386454145'
+sex: M
+name:
+  full: كرتباي الأشرفي برسباي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00141
+    quote: الأشرفي
+  - id: n2
+    type: ism
+    quote: كرتباي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 872
+  summary:
+    ar: إلى أن قتل في الوقعة السوارية سنة اثنتين وسبعين
+  note:
+    ja: 872年（1467-08-11 開始、年精度、h2g.py）、الوقعة السوارية（シャーフ・スワール（ドゥルカディル朝）との戦闘）で戦死。戦闘地は原文に無い（placeName なし。先例 D06353）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06386
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02168
+  passive: AIND-D06386
+  quote: برسباي
+  note:
+    ja: '主人ニスバ「الأشرفي برسباي」＝スルターン・アル＝アシュラフ・バルスバーイ（#AIND-D02168、841没）（規則51）。初版 #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00101
+  quote: عشرة
+  note:
+    ja: 「تأمر عشرة في أيام الظاهر خشقدم」＝アッ＝ザーヒル・フシュカダム（#AIND-D02830、865〜872年在位）の時代に十人長となった。時代指示であり年は原文に無い（日付属性なし）。
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D02830
+    quote: الظاهر خشقدم
+  quote: تأمر
+  summary:
+    ar: تأمر عشرة في أيام الظاهر خشقدم ثم نفاه
+  note:
+    ja: フシュカダムが彼を追放した。主人でないスルターンによる昇進・追放は patron にせず event 内 persName で表現（規則53）。初版の patron relation（#NEEDID）を除去。
+  trigger: rule
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D02830
+  places:
+  - ref: gn:266826
+    quote: طرابلس
+  quote: قتل
+  summary:
+    ar: ثم أعطاه إقطاعا بطرابلس
+  note:
+    ja: （フシュカダムが）次いでトリポリ（シリア、gn:266826）にイクターを与えた。原文に年は無い。初版の重複する residence event（طرابلس）を本 event に統合。
+  trigger: rule
+translation:
+  ja: クルトバーイ・アル＝アシュラフィー・バルスバーイ。アッ＝ザーヒル・フシュカダムの時代に十人長となったが、次いで彼（フシュカダム）は彼を追放し、次いでトリポリにイクターを与えた。そして872年、スワール（との）戦役で戦死した。横暴な人物であった。
+  en: Kurtbāy al-Ashrafī Barsbāy. He became an amir of ten in the days of al-Ẓāhir Khushqadam, who then exiled him and then gave him an iqṭāʿ in Tripoli, until he was killed in the Suwār campaign (al-waqʿa al-Suwāriyya) in the year 872. He was a tyrannical man.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-17T18:08:00Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

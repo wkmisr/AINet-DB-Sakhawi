@@ -1,0 +1,118 @@
+schema: aind-yaml/0.1
+id: AIND-D04454
+source:
+  uid: '592466421379'
+sex: M
+name:
+  full: عبد الله بن شيرين الجمال الهندي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00165
+    quote: الهندي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n4
+    type: nasab
+    quote: شيرين
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 809
+  note:
+    ar: مات سنة تسع
+    ja: 「سنة تسع」＝809年（809-01-01 = 1406-06-27、グレゴリオ暦。年のみ表記のため年初）。没地は原文に明示がないため初版の placeName（القاهرة）を除去（「نزيل القاهرة」「خطب بالبرقوقية إلى أن مات」は居住・職務の記述であって没地の陳述ではない）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001114
+  passive: AIND-D04454
+  methods:
+  - TMP-S-00003
+  cert: medium
+  quote: ابن عبد الهادي
+  note:
+    ar: سمع من ابن عبد الهادي
+    ja: '【裁定 2026-09-18（§Db-3）】師「ابن عبد الهادي」＝ #TMP-P-001114 を、汎用の一族シュフラ番号ではなく أبو الفرج عبد الرحمن بن عبد الهادي（『صحيح مسلم』の伝承者。ダマスクス出身、エジプトでも聴聞を受けた）の番号として実体化する。cert="medium"。根拠: (a) corpus で裸形の「ابن عبد الهادي」が現れるのは『صحيح مسلم』聴聞の文脈に集中し（L19597「سمع من ابن عبد الهادي صحيح مسلم」、L55720「صحيح مسلم على ابن عبد الهادي」、L57134＝D05217「سمع صحيح مسلم على ابن عبد الهادي」〔813年没〕）、その完全形は L12043・13592・33998・95803・97197・97879・97888・101050・118839 の「أبي الفرج بن عبد الهادي」である。(b) L42330 は彼からの聴聞地を「وبمصر ابن عبد الهادي」＝エジプトと記し、カイロ居住・809年没の本項主が「سمع من ابن عبد الهادي」と記されることと年代・場所の双方で整合する。(c) D12909（بركة ابنة سليمان）の「سمعت على عبد الرحمن ابن عبد الهادي」により、この人物のイスムが عبد الرحمن であることが corpus 内で確認できる。(d) 801H 以前の没のため al-Ḍawʾ に独立立項がなく、corpus にも本伝が無い（ع 部の見出し走査で確認）ため AIND は充てられず、TMP-P が正当。⚠この番号を一族の他の男性に流用してはならない: 索引項 #AIND-D12516「ابن عبد الهادي أحمد بن حسن ابن عبد الهادي وابنه حسن الملقب بالمبرد وابنه يوسف وجماعة」の系統、أحمد بن عبد الحميد ابن عبد الهادي（L17746）、العماد أبو بكر بن أحمد ابن عبد الهادي（L88357・89900）、女性の
+      عائشة ابنة ابن عبد الهادي（#TMP-P-000158）およびその姉妹たちは、いずれも本番号とは別実体である（TMP-P-000529 型の汎用番号化を避けるための明示的警告）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  orgs:
+  - ref: TMP-I-00029
+  quote: null
+  note:
+    ar: وخطب بالبرقوقية إلى أن مات
+    ja: '統一規則⑧により、同一施設（المدرسة البرقوقية = #TMP-I-00029）の affiliation type="employed" と state の二重符号化を解消し、職名を持つ state 側に一本化（初版の affiliation 要素を除去）。初版が state に付していた date type="retirement" when-custom="0809" は原文にない解釈（「إلى أن مات」＝終身在職）のため除去。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: نزيل
+  summary:
+    ar: نزيل القاهرة
+  trigger: rule
+- id: e2
+  type: cultural
+  quote: null
+  summary:
+    ar: وحدث وكان يحدث عن الهند بعجائب الله أعلم بصحتها
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: قاله
+  summary:
+    ar: قاله شيخنا في إنبائه
+  note:
+    ja: Pattern A。初版の統制外 subtype「mentioned by」relation を event 化。
+  trigger: rule
+- id: e4
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: null
+  summary:
+    ar: وتبعه المقريزي في عقوده
+  note:
+    ja: 'Pattern A。المقريزي ＝ wd:Q293604、عقوده ＝ #TMP-T-00122（عقود المقريزي | درر العقود الفريدة）。初版の統制外 subtype「followed by」relation（#NEEDID）を event 化。'
+notes:
+- text: '原文末尾の「وليس هو بأب لمحمود بن شيرين فذاك محمود بن مسعود بن يوسف كما سيأتي」は、サハーウィーによる同名混同への注意書き。ここでいう الكمال محمود ابن شيرين は #AIND-D09881（محمود بن يوسف بن مسعود الكمال العجمي الأصل القاهري الحنفي والد أحمد ويعرف بابن شيرين، 875年ズー・アルカアダ没）であり、本項主の子ではない。corpus 本文は「محمود بن مسعود بن يوسف」と父祖名を転倒させているが、転送見出し「محمود بن شيرين في ابن يوسف بن مسعود」および D09881 本伝の綴りにより同一人物と確定できる。初版は「محمود بن شيرين」と「محمود بن مسعود بن يوسف」を別人として統制外 subtype「genealogical distinction」の relation 2件に分けていたが、両者は同一人物であり、かつ「〜ではない」という否定的言明であるため relation 化せず本 note に統合した。'
+  lang: ja
+translation:
+  ja: アブドゥッラー・ブン・シーリーン、アル＝ジャマール・アル＝ヒンディー・アル＝ハナフィー。カイロの居留者。イブン・アブドゥルハーディーから聴聞し、（ハディースを）伝えた。また没するまでアル＝バルクーキーヤで説教（フトバ）を行った。彼はインドについて驚異の話を伝えたが、その真偽はアッラーが最もよく知りたもう。809年に没した。我らがシャイフ（イブン・ハジャル）が『インバー』でそう述べ、アル＝マクリーズィーも『ウクード』でこれに従っている。なお彼はマフムード・ブン・シーリーンの父ではない。その者は、後述するとおりマフムード・ブン・マスウード・ブン・ユースフである。
+  en: ʿAbd Allāh b. Shīrīn, al-Jamāl al-Hindī al-Ḥanafī, a resident of Cairo. He heard from Ibn ʿAbd al-Hādī and transmitted [ḥadīth], and he preached (khaṭaba) at al-Barqūqiyya until he died. He used to relate marvels about India, whose soundness God knows best. He died in the year 809. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ, and al-Maqrīzī followed him in his ʿUqūd. He was not the father of Maḥmūd b. Shīrīn; that one is Maḥmūd b. Masʿūd b. Yūsuf, as will follow.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T08:08:56Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

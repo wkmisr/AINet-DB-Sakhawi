@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D06649
+source:
+  uid: '335309453446'
+sex: M
+name:
+  full: محمد بن أحمد بن حسن بن محمد بن محمد بن زكريا بن يحيى بن مسعود بن غنيمة ابن عمر السويداوي القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00219
+    quote: السويداوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D00670
+  - id: n5
+    type: nasab
+    quote: حسن
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: زكريا
+    by: rule
+  - id: n9
+    type: nasab
+    quote: يحيى
+    by: rule
+  - id: n10
+    type: nasab
+    quote: مسعود
+    by: rule
+  - id: n11
+    type: nasab
+    quote: غنيمة
+    by: rule
+  - id: n12
+    type: nasab
+    quote: عمر
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D00670
+  passive: AIND-D06649
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」＝corpus 本伝 #AIND-D00670「أحمد بن الحسن بن محمد بن محمد بن زكريا بن محمد بن يحيى بن مسعود بن غنيمة بن عمر الشهاب أبو العباس بن المحدث البدر أبي محمد القدسي السويداوي الأصل القاهري المولد والدار الشافعي ويعرف بالسويداوي … مات … سنة أربع」（ナサブ・ニスバで閉合、ブリーフの番号を本文で確認。規則37＝cert なし）。相手側は「بن زكريا بن محمد بن يحيى」と1段多い（本項は「بن زكريا بن يحيى」）。初版の幻番号 TMP-P-000000 を置換。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04442
+  passive: AIND-D06649
+  methods:
+  - TMP-S-00008
+  quote: الجمال المارداني
+  note:
+    ja: '「ممن أخذ الميقات وغيره عن الجمال المارداني」。الجمال المارداني＝corpus 本伝 #AIND-D04442「عبد الله بن خليل بن يوسف بن عبد الله الجمال المارداني نسبة لجامع المارداني القاهري الحاسب … انتهت إليه رياسة علم الميقات في زمانه … مات في جمادى الآخرة سنة تسع」（ラカブ・ニスバ・専門 الميقات の3点で閉合、規則57。孫 D06510 の見出しも「حفيد الجمال الشهير」）。初版の幻番号 TMP-P-000000 を置換。'
+events:
+- id: e1
+  type: cultural
+  works:
+  - ref: TMP-T-00276
+  quote: وله مؤلف سماه إرشاد البشر إلى العمل بالكواكب والقمر
+  note:
+    ja: 本項主の著作。ID-Master 未登録（「إرشاد البشر」で grep）→ 仮 TMP-T-00276。初版は英語 desc のみで bibl なし。
+notes:
+- text: 原文は「مات」で途切れている（没年月の記載を欠く）＝death 要素は作らない（規則45）。父 D00670 は804年没・師 D04442 は809年没なので、本項主は9世紀前半の人。初版の residence event（القاهرة、ニスバからの補完）は除去（規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ハサン・ブン・ムハンマド・ブン・ムハンマド・ブン・ザカリーヤー・ブン・ヤフヤー・ブン・マスウード・ブン・グナイマ・ブン・ウマル、アッ＝スワイダーウィー・アル＝カーヒリー。父は前出。アル＝ジャマール・アル＝マーリダーニーからミーカート（礼拝時刻学）その他を学んだ者の一人で、『イルシャード・アル＝バシャル・イラー・アル＝アマル・ビル＝カワーキブ・ワル＝カマル』と名づけた著作がある。没した（以下欠）。
+  en: Muḥammad b. Aḥmad b. Ḥasan b. Muḥammad b. Muḥammad b. Zakariyyā b. Yaḥyā b. Masʿūd b. Ghunayma b. ʿUmar, al-Suwaydāwī al-Qāhirī, whose father has been mentioned above. One of those who learned timekeeping (al-mīqāt) and other things from al-Jamāl al-Māridānī; he has a work which he named Irshād al-bashar ilā al-ʿamal bi-l-kawākib wa-l-qamar. He died [the text breaks off here].
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T07:37:50Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

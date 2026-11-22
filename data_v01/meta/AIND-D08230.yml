@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D08230
+source:
+  uid: '169299468882'
+sex: M
+name:
+  full: محمد بن علي الشيخ جمال الدين الحداد
+  elements:
+  - id: n1
+    type: honorific
+    quote: الشيخ
+  - id: n2
+    type: laqab
+    quote: جمال الدين
+  - id: n3
+    type: nisbah
+    quote: الحداد
+  - id: n4
+    type: shuhrah
+    quote: صاحب الدراع
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 891-10
+  note:
+    ja: 「مات في أثناء شوال سنة إحدى وتسعين」＝891年シャウワール月（1486-10-09〜11-06、h2g.py）、月精度。没地は原文に明記なし（「كتب إلي بذلك من اليمن」はイエメンから書簡が届いたという記述で、没地の明示ではない）＝初版の placeName اليمن を除去（規則22(1)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08230
+  quote: null
+  note:
+    ja: 父 علي は裸名で識別要素なし（規則3 (c')）。
+events:
+- id: e1
+  type: political
+  orgs:
+  - ref: TMP-I-00280
+  quote: كانت له وجاهة عند الملوك من بني طاهر وله عندهم تمكن زائد بحيث تقضي بواسطته أشياء كثيرة وينفع ويضر
+  note:
+    ja: イエメンのターヒル朝（بنو طاهر）の君主たちのもとでの威望・影響力。王朝は ID-Master 未登録（ニスバ الطاهري TMP-N-00836 のみ）→ 先例 دولة بني مرين（TMP-I-00241）に倣い新規 TMP-I-00280。場所は原文に明記なし＝初版の placeName اليمن（political・residence event）を除去（規則22(1)）。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D10050
+    cert: medium
+    quote: الجمال موسى الدؤالي
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  quote: كتب
+  summary:
+    ar: كتب إلي بذلك من اليمن الجمال موسى الدؤالي
+  note:
+    ja: 情報提供者（Pattern A）。「الجمال موسى الدؤالي」＝#AIND-D10050「موسى بن أحمد بن موسى بن محمد الكمال أبو عمران بن الشهاب الدؤالي الصريفيني اليماني الزبيدي الشافعي … ويعرف بالمكشكش … وأفادني كثيرا من متأخر التراجم والوفيات والحوادث اليمنية وكتب بخطه لي كراريس في ذلك」と同一人物と判断（名 موسى・ニスバ الدؤالي・「イエメンの訃報をサハーウィーに書き送る」役割の3点で閉合、規則57）。ただし本項のラカブは「الجمال」、D10050 は「الكمال」（ج／ك の一字差）＝食い違いを残すため cert medium（規則25・26）。corpus の موسى＋الدؤالي／الذوالي 見出しは D10050 のみ（hw.py）。初版の relation（subtype other、#NEEDID）を Pattern A の event に置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー、シャイフ・ジャマール・アッ＝ディーン・アル＝ハッダード、サーヒブ・アッ＝ディラーウとして知られる。891年シャウワール月のうちに没した。バヌー・ターヒル（ターヒル朝）の君主たちのもとで威望があり、彼らのもとで並外れた権勢を有していたため、彼の仲介によって多くの事柄が処理され、人に益を与えもし害を与えもした。アッラーが彼を赦されますように。このことはジャマール・ムーサー・アッ＝ドゥアーリーがイエメンから私（サハーウィー）に書き送ってきた。
+  en: Muḥammad b. ʿAlī, al-Shaykh Jamāl al-Dīn al-Ḥaddād, known as Ṣāḥib al-Dirāʿ. He died in the course of Shawwāl of the year [8]91. He enjoyed prestige with the kings of the Banū Ṭāhir and had such excessive influence with them that many matters were settled through his mediation, and he brought both benefit and harm. May God pardon him. Al-Jamāl Mūsā al-Duʾālī wrote to me (al-Sakhāwī) about this from Yemen.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T14:43:18Z'
+  model_requested: gemini-3.5-flash

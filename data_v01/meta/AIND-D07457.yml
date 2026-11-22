@@ -1,0 +1,65 @@
+schema: aind-yaml/0.1
+id: AIND-D07457
+source:
+  uid: '480646854066'
+sex: M
+name:
+  full: محمد بن سليمان بن وهبان المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: سليمان
+    by: rule
+    ref: TMP-P-001160
+  - id: n4
+    type: nasab
+    quote: وهبان
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D10690
+  passive: AIND-D07457
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 815
+  quote: الزين المراغي
+  note:
+    ja: الزين المراغي＝#AIND-D10690（الزين أبو بكر المراغي、マディーナのハディース学者、没816）。815年の聴聞は存命期間に合致。初版の event @when="0815"（ヒジュラ年混入）を when-custom="0815" when="1412" に是正。
+- id: r2
+  type: personal
+  subtype: siblings_child
+  active: AIND-D03159
+  passive: AIND-D07457
+  quote: سليمان الماضي
+  note:
+    ar: عم سليمان الماضي
+    ja: '本項主は「先述の سليمان」の父方の叔父。سليمان＝#AIND-D03159（سليمان بن علي بن سليمان بن وهبان المدني）＝ナサブ上、本項主の兄弟 علي بن سليمان بن وهبان の息子で整合。初版 #NEEDID を是正。兄弟 علي 本人への relation は本項原文に記述がないため立てない。'
+- id: r3
+  type: personal
+  subtype: father
+  active: TMP-P-001160
+  passive: AIND-D07457
+  quote: null
+  note:
+    ja: 見出しナサブ「محمد بن سليمان بن وهبان المدني」から1段ずらして復元（規則3）。#AIND-D03159 の祖父でもある。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001160。初版は father relation なし。
+translation:
+  ja: ムハンマド・ブン・スライマーン・ブン・ワフバーン・アル＝マダニー。先述のスライマーンの（父方の）叔父。815年にアッ＝ザイン・アル＝マラーギーのもとで聴聞した。
+  en: Muḥammad b. Sulaymān b. Wahbān al-Madanī, the paternal uncle of the aforementioned Sulaymān. He heard from al-Zayn al-Marāghī in the year 815.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T02:48:33Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

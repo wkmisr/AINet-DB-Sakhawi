@@ -1,0 +1,74 @@
+schema: aind-yaml/0.1
+id: AIND-D06050
+source:
+  uid: '740210783230'
+sex: M
+name:
+  full: عنان بن قنيد بن مثقال القائد الحسني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: honorific
+    quote: القائد
+  - id: n3
+    type: ism
+    quote: عنان
+    by: rule
+  - id: n4
+    type: nasab
+    quote: قنيد
+    by: rule
+    ref: AIND-D06371
+  - id: n5
+    type: nasab
+    quote: مثقال
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D06371
+  passive: AIND-D06050
+  quote: أبوه
+  note:
+    ja: '「الآتي أبوه」。父 ＝ #AIND-D06371（قنيد بن مثقال القائد الحسني مولى السيد حسن بن عجلان نائب مكة ووالد مسعود وعنان、865年没）。相手側本伝で「والد مسعود وعنان」と名指し。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D09921
+  passive: AIND-D06050
+  quote: مسعود
+  note:
+    ja: '「وأخوه مسعود」（الآتي）。兄弟 ＝ #AIND-D09921（مسعود بن قنيد بن مثقال الحسني … وزير مكة وابن وزيرها）。ナサブ一致。初版の #NEEDID を解消。'
+states:
+- id: s1
+  type: office
+  subtype: deputy
+  ref: TMP-O-00053
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نيابة
+  note:
+    ja: 「ممن ناب عن أخيه في نيابة مكة」＝兄弟 مسعود の代理としてマッカの نيابة を務めた。ref は汎用 نائب（TMP-O-00053。precheck の[名前不一致]は見かけ上）。 兄 مسعود が持つナーイブ職の代理なので subtype="deputy"（2026-11-17 Waka 了承）。
+- id: s2
+  type: office
+  ref: TMP-O-00069
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: null
+  note:
+    ja: 「بل هو واليها」。ref は汎用 والي（TMP-O-00069）。
+translation:
+  ja: アナーン・ブン・クナイド・ブン・ミスカール、アル＝カーイド、アル＝ハサニー。その父と兄弟マスウードは後述。兄弟の代理としてマッカの副知事職（ニヤーバ）を務めた者の一人で、むしろ彼こそがその知事（ワーリー）であり、兄弟より圧政が軽かった。
+  en: ʿAnān b. Qunayd b. Mithqāl, al-Qāʾid, al-Ḥasanī; his father and his brother Masʿūd are mentioned below. He was among those who deputized for his brother in the deputy-governorship (niyāba) of Mecca; indeed he was its governor (wālī), and was lighter-handed than his brother.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T12:52:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

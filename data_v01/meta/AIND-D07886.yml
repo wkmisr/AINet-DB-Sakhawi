@@ -1,0 +1,82 @@
+schema: aind-yaml/0.1
+id: AIND-D07886
+source:
+  uid: '535211568797'
+sex: M
+name:
+  full: محمد بن عبد الله المقري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00137
+    quote: المقري
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد الله
+    by: rule
+death:
+  id: d
+  date:
+    ah: 839
+  note:
+    ja: 「مات سنة تسع وثلاثين」＝839年＝1435-08-05 開始（h2g.py）、年精度。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07886
+  quote: null
+  note:
+    ja: 父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c')）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001628
+  passive: AIND-D07886
+  methods:
+  - TMP-S-00032
+  quote: الجمال محمد بن أبي القسم الضراسي
+  note:
+    ja: '「وكان عارفا بالفرائض والحساب ممن تفقه فيه بالجمال محمد بن أبي القسم الضراسي」。「فيه」（単数）は直前の الفرائض（والحساب を一体の学科として）を受ける＝field は الفرائض（TMP-S-00024）（集約 2026-10-31、初版以来の field「الفقه」wd:Q484181 は係り先の読み違い。内容A L）。corpus に見出しなし（hw.py「الضراسي」: D01168 أحمد بن أبي القسم الضراسي ثم اليمني المكي الشافعي（785年生）は同じ父名・ニスバで兄弟の可能性、D10558 の師「الشهاب الضراسي」も同人物か）。ID-Master 未登録 → 新規 TMP-P-001628。初版 #NEEDID を置換。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00004
+  places:
+  - ref: TMP-L-00050
+    quote: تعز
+  quote: أحد المفتين
+  note:
+    ja: 「أحد المفتين بتعز」。初版の residence event تعز は職の勤務地からの補完にあたるため除去（規則22-1、地名は state 側に保持）。
+events:
+- id: e1
+  type: cultural
+  quote: وكان عارفا بالفرائض والحساب
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D04864
+    quote: العفيف
+  quote: ذكره
+  summary:
+    ar: ذكره العفيف
+  cert: medium
+  note:
+    ja: 'Pattern A。「العفيف」＝イエメン人物の項でサハーウィーが定型的に引く伝記作者 العفيف الناشري #AIND-D04864（عثمان بن عمر … العفيف الناشري المقري الشافعي、『البستان الزاهر』の著者）。corpus に「ذكره العفيف الناشري」12例・「ذكره العفيف」35例、repo 先例（D04864 cert medium）に従い cert medium（規則26 例外2）。初版の統制外 relation「mentioned_by」（#TMP-P-000391）を置換。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・アル＝ムクリー、タイッズのムフティーの一人。相続分割法と算術に通じ、それ（相続分割法）をアル＝ジャマール・ムハンマド・ブン・アビー・アル＝カースィム・アッ＝ディラースィーのもとで修めた者の一人。839年に没した。アル＝アフィーフが彼に言及している。
+  en: Muḥammad b. ʿAbd Allāh al-Muqrī, one of the muftīs of Taʿizz. He was knowledgeable in the law of inheritance and arithmetic, and was among those who studied it (the law of inheritance) under al-Jamāl Muḥammad b. Abī al-Qāsim al-Ḍirāsī. He died in [8]39. Al-ʿAfīf mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T01:34:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

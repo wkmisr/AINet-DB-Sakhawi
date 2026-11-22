@@ -1,0 +1,78 @@
+schema: aind-yaml/0.1
+id: AIND-D04975
+source:
+  uid: '599533824782'
+sex: M
+name:
+  full: علي بن أحمد بن شقير المصري الأصل البديوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-01184
+    quote: البديوي
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001362
+  - id: n5
+    type: nasab
+    quote: شقير
+    by: rule
+death:
+  id: d
+  date:
+    ah: 832-01-30
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ja: 「مات بمكة في ليلة سلخ المحرم سنة اثنتين وثلاثين」。سلخ المحرم ＝ ムハッラム月末日（表暦では30日）の夜。832-01-30 ＝ 1428-11-18（h2g.py、火曜）。その「夜」は前日夕刻から始まるため厳密には 1428-11-17 の夜。初版の 832-01-29／1429 を訂正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001362
+  passive: AIND-D04975
+  quote: والده
+  note:
+    ja: 「الحمصاني والده」＝父がアル＝ヒムサーニー（ニスバは父に係り本項主のものではない）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001362（⚠汎用名。識別要素はニスバ الحمصاني と父名 شقير のみ）。初版の TMP-P-000000 を差し替え。
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: NEEDID
+  passive: AIND-D04975
+  quote: null
+  note:
+    ja: '祖父 شقير は裸名のみで #NEEDID（規則3）。「ويعرف بجده」＝祖父の名（ابن شقير）で知られるが、通称の綴りが原文にないため shuhrah は立てず desc に記録（repo 先例 D04083）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    cert: low
+  quote: null
+  summary:
+    ar: أرخهما ابن فهد
+  cert: medium
+  note:
+    ja: '次項 #AIND-D04976 末尾の「أرخهما ابن فهد」（双数）は本項と次項の2人を指すと読み、本項にも cert medium で付す（他項由来、規則23 に準じる）。限定語のない ابن فهد、没年 832（≤871）→ #AIND-D09211、cert low。'
+translation:
+  ja: アリー・ブン・アフマド・ブン・シュカイル、エジプト出自のアル＝バディーウィー。父はアル＝ヒムサーニーで、本人は祖父の名で知られる。（8）32年ムハッラム月末日の夜にマッカで没した。
+  en: ʿAlī b. Aḥmad b. Shuqayr, of Egyptian origin, al-Badīwī. His father was al-Ḥimṣānī, and he was known by his grandfather's name. He died in Mecca on the night of the last day of Muḥarram (8)32.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-28T18:45:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

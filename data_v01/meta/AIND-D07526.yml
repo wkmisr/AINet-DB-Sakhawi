@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D07526
+source:
+  uid: '447339314677'
+sex: M
+name:
+  full: محمد بن عبد الخالق بن رمضان بن مرهف الدمياطي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00062
+    quote: الدمياطي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد الخالق
+    by: rule
+  - id: n4
+    type: nasab
+    quote: رمضان
+    by: rule
+  - id: n5
+    type: nasab
+    quote: مرهف
+    by: rule
+death:
+  id: d
+  date:
+    notAfter: 839
+    cert: low
+  note:
+    ar: وكأنه مات قبل الأربعين
+    ja: 「قبل الأربعين」＝統一規則4により notAfter（840年より前＝839年末まで）。839年末＝1436-07-24 → notAfter="1436"（年精度→年末）。「كأنه」のため cert low。初版は死亡要素なし。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D08850
+  passive: AIND-D07526
+  methods:
+  - TMP-S-00003
+  quote: ابن الكويك
+  note:
+    ja: 'ابن الكويك＝#AIND-D08850（الشرف أبو الطاهر بن الكويك、ID-Master 統合済）。「على ابن الكويك」は聴聞の同席を意味するため method は سمع（同学 #AIND-D07363 の本伝「سمع بها … على الشرف بن الكويك」と整合）。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: colleague
+  active: AIND-D07363
+  passive: AIND-D07526
+  quote: رفيق أبي الطيب بن البدراني
+  note:
+    ja: 'أبو الطيب بن البدراني＝#AIND-D07363（محمد الشمس أبو الطيب … ويعرف بابن الفقيه حسن、782年生・منية بدران 出身・ダミエッタ定住、「سمع بها … على الشرف بن الكويك」）。父 #AIND-D02582「حسن بن علي … البدراني والد المحمدين الثلاثة」の三子のうち أبو الطيب を名乗るのは同項のみ。本項主も الدمياطي で整合。初版の #NEEDID を解消。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D03005
+    quote: الزين رضوان
+  quote: null
+  summary:
+    ar: أثبته الزين رضوان فيمن يؤخذ عنه
+  note:
+    ja: Pattern A（第三者による記載）。初版の統制外 subtype="certifier" relation を event に変換。الزين رضوان＝#AIND-D03005（رضوان بن محمد بن يوسف … الزين … العقبي）。
+translation:
+  ja: ムハンマド・ブン・アブドゥルハーリク・ブン・ラマダーン・ブン・ムルヒフ・アッ＝ディムヤーティー。イブン・アル＝クワイクのもとでアブー・アッ＝タイイブ・イブン・アル＝バドラーニーの同学であった。アッ＝ザイン・リドワーンは彼を「伝承を受けるべき人々」の中に記載している。840年より前に没したようである。
+  en: Muḥammad b. ʿAbd al-Khāliq b. Ramaḍān b. Murhif al-Dimyāṭī, companion of Abū al-Ṭayyib b. al-Badrānī in study under Ibn al-Kuwayk. Al-Zayn Riḍwān recorded him among those from whom transmission may be received. He seems to have died before 840.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T05:11:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

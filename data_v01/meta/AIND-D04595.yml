@@ -1,0 +1,88 @@
+schema: aind-yaml/0.1
+id: AIND-D04595
+source:
+  uid: '315923376072'
+sex: M
+name:
+  full: عبد الله بن محمد بن قوام الدين عبد الله الركن الخنجي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00788
+    quote: الخنجي
+  - id: n2
+    type: laqab
+    quote: الركن
+  - id: n3
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001231
+  - id: n5
+    type: nasab
+    quote: قوام الدين عبد الله
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-001232
+  passive: AIND-D04595
+  methods:
+  - TMP-S-00011
+  quote: عمه الزين علي
+  note:
+    ja: 「روى عن عمه الزين علي الراوي عن إمام الدين علي المعروف بخواجة شيخ عن علاء الدولة السمناني」。叔父 الزين علي الخنجي は corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001232。候補は corpus D00294「زين الشريعة علي بن محمد بن علي بن كلاه الخنجي」・27414 行「الزين علي بن كلاه الخنجي」（同時代のフンジ出身の伝承者、الطاووسي の師の列挙に並ぶ）だが、そのナサブ（父 محمد بن علي بن كلاه）は本項主の祖父名 قوام الدين عبد الله と合わないため同定は note に留める（ISSUES §D90-3）。以下の伝承系統（إمام الدين علي ＝ خواجة شيخ ← علاء الدولة السمناني）は叔父の師であり本項主の直接の師ではないため relation を立てない。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04595
+  passive: AIND-D00900
+  methods:
+  - TMP-S-00011
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 819-08
+  quote: الطاووسي
+  note:
+    ja: '「روى عنه الطاووسي وأجاز له وذلك في شعبان سنة تسع عشرة」＝الطاووسي（أبو الفتوح＝#AIND-D00900）が本項主から伝承し、本項主が彼にイジャーザを与えた（819年シャアバーン月＝1416-10-03〜31）。初版の passive はニスバ番号 TMP-N-00266（カテゴリ不一致）→ #AIND-D00900 に是正。'
+- id: r3
+  type: personal
+  subtype: uncle
+  active: TMP-P-001232
+  passive: AIND-D04595
+  quote: null
+  note:
+    ja: 「عمه الزين علي」（父方の叔父）。teacher relation n=1 と同一人物。
+- id: r4
+  type: personal
+  subtype: father
+  active: TMP-P-001231
+  passive: AIND-D04595
+  quote: null
+  note:
+    ja: 見出しナサブから復元（統一規則3）。祖父 قوام الدين عبد الله までが識別要素。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001231。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00900
+  quote: ووصفه
+  note:
+    ja: Pattern A。الطاووسي（#AIND-D00900）による評言。
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・ブン・カワーム・アッ＝ディーン・アブドゥッラー、アッ＝ルクン・アル＝フンジー。叔父のアッ＝ザイン・アリーから伝承した。この叔父はハワージャ・シャイフとして知られるイマーム・アッ＝ディーン・アリーから伝承し、そのイマーム・アッ＝ディーンはアラー・アッ＝ダウラ・アッ＝スィムナーニーから伝承した。アッ＝ターウースィーが彼から伝承し、彼はアッ＝ターウースィーにイジャーザを与えた。それは（8）19年シャアバーン月のことである。アッ＝ターウースィーは彼を「学識あり、徳高く、卓越し、禁欲的で、精妙な構成と驚くべき技巧の持ち主」と評した。
+  en: ʿAbd Allāh b. Muḥammad b. Qawām al-Dīn ʿAbd Allāh, al-Rukn al-Khunjī. He transmitted from his paternal uncle al-Zayn ʿAlī, who transmitted from Imām al-Dīn ʿAlī, known as Khwāja Shaykh, from ʿAlāʾ al-Dawla al-Simnānī. Al-Ṭāwūsī transmitted from him, and he granted him an ijāza, in Shaʿbān (8)19; al-Ṭāwūsī described him as a learned, virtuous, brilliant and ascetic scholar, possessed of marvellous compositions and wondrous crafts.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-24T15:41:03Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

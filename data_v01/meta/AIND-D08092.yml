@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D08092
+source:
+  uid: '945472595840'
+sex: M
+name:
+  full: محمد بن علي بن صبيح المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: صبيح
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08092
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+    summary:
+      ar: ممن سمع مني بالمدينة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بالمدينة」（規則2）。初版の field الحديث を除去。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08092
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 علي بن صبيح（المدني）は裸名で corpus に本伝なし（hw.py「صبيح」: D03753 عبد الرحمن بن محمد بن صبيح المدني は別人）、ID-Master 未登録 → #NEEDID。兄 D01024 と共有。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D01024
+  passive: AIND-D08092
+  quote: أحمد
+  note:
+    ja: '「وأخو أحمد الماضي」＝ #AIND-D01024「أحمد بن علي بن صبيح المدني أحد فراشيها وأخو محمد الآتي . ممن سمع مني بالمدينة」（収録済み。相手側も「أخو محمد الآتي」で本項主を参照。⚠ D01024 側の brother relation の active が「 AIND-D08092」（# 欠落）＝ISSUES に記載）。初版の #NEEDID を置換。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00033
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: أحد فراشيها
+  note:
+    ja: 「أحد فراشيها」の「ها」は見出しの المدني＝المدينة（照応、兄 D01024 と同じ符号化）。施設（預言者モスク）は原文に明示なし＝初版の orgName الحرم النبوي・affiliation（TMP-I-00120）を除去（規則22(1)）。
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・サビーフ、アル＝マダニー、そこ（マディーナ）のファッラーシュ（奉仕員）の一人で、前述のアフマドの兄弟。マディーナで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿAlī b. Ṣabīḥ al-Madanī, one of its (Medina's) farrāshes (attendants), and brother of Aḥmad, mentioned above. One of those who heard from me (al-Sakhāwī) in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T11:12:52Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,107 @@
+schema: aind-yaml/0.1
+id: AIND-D04574
+source:
+  uid: '269270132630'
+sex: M
+name:
+  full: عبد الله بن محمد بن سليمان الجمال الدمياطي ثم الصحراوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00062
+    quote: الدمياطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00292
+    quote: الصحراوي
+  - id: n3
+    type: laqab
+    quote: الجمال
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001229
+  - id: n6
+    type: nasab
+    quote: سليمان
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000494
+  passive: AIND-D04574
+  methods:
+  - TMP-S-00034
+  quote: ناصر الدين الطبناوي
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D04574
+  methods:
+  - TMP-S-00025
+  context:
+  - date:
+      ah: 851
+  quote: شيخنا
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001227
+  passive: AIND-D04574
+  methods:
+  - TMP-S-00008
+  quote: الشمس الحجاري
+  note:
+    ja: الشمس الحجاري（المصري）は ID-Master 未登録（الحجاري はニスバ番号 TMP-N-00735 のみ）・corpus に本伝未検出（他項 D06507 محمد بن إبراهيم بن عبد العزيز الحجاري は別人、corpus 45351 行「الشمس الحجاري المصري」、58920 行「على الشمس الحجاري شرح الشواهد للعيني」に師として出現）→ 新規 TMP-P-001227。初版は الفرائض と الحساب を別 relation（#NEEDID×2）に分けていたが同一師の一文なので1件に統合。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D04574
+  passive: TMP-P-001228
+  methods:
+  - TMP-S-00025
+  quote: الشرف يحيى الدميسي
+  note:
+    ja: '「وممن قرأ عليه الشرف يحيى الدميسي」。ID-Master 未登録（الدميسي はニスバ番号 TMP-N-03959 のみ）・corpus に本伝未検出 → 新規 TMP-P-001228。初版 #NEEDID を解消。'
+- id: r5
+  type: personal
+  subtype: father
+  active: TMP-P-001229
+  passive: AIND-D04574
+  quote: null
+  note:
+    ja: 見出しナサブから復元（統一規則3）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001229（⚠汎用名。識別要素はニスバ الدمياطي と子 عبد الله＝本項主・孫 عمر＝#AIND-D05884 のみ）。
+- id: r6
+  type: personal
+  subtype: son
+  active: AIND-D05884
+  passive: AIND-D04574
+  quote: عمر الآتي
+  note:
+    ja: 「والد عمر الآتي」。#AIND-D05884（刊本 عمر 部 320 番「عمر بن عبد الله بن محمد بن سليمان السراج بن الجمال الدمياطي ثم القاهري الشافعي … الماضي أبوه」、897年ペスト没）とナサブ4代・ラカブ（الجمال）・ニスバが一致。初版の TMP-P-000664（ティムールの子 عمر＝別人）の流用を解消。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: TMP-P-001228
+  quote: وأثنى
+  note:
+    ja: Pattern A。「وممن قرأ عليه الشرف يحيى الدميسي وأثنى عليه」＝弟子 الدميسي が本項主を称賛した。
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・ブン・スライマーン、アル＝ジャマール・アッ＝ディムヤーティー、のちにアッ＝サフラーウィー。後述のウマルの父。ナースィル・アッ＝ディーン・アッ＝タブナーウィーに師事（同伴）し、（8）51年に我らがシャイフ（イブン・ハジャル）のもとで朗誦し、アッ＝シャムス・アル＝ハッジャーリーから相続法と算術を学んだ。頭角を現し、学生たちに教授した。彼のもとで朗誦した者のひとりにアッ＝シャラフ・ヤフヤー・アッ＝ドゥマイスィーがおり、彼（アッ＝ドゥマイスィー）は彼を称賛した。没した……〔没年月の記載なし〕。
+  en: ʿAbd Allāh b. Muḥammad b. Sulaymān, al-Jamāl al-Dimyāṭī, later al-Ṣaḥrāwī, the father of ʿUmar, who is mentioned below. He kept the company of Nāṣir al-Dīn al-Ṭabnāwī, read under our shaykh (Ibn Ḥajar) in (8)51, and studied the law of inheritance and arithmetic under al-Shams al-Ḥajjārī. He distinguished himself and taught students; among those who read under him was al-Sharaf Yaḥyā al-Dumaysī, who praised him. He died … [the date is left blank].
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-24T14:53:03Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

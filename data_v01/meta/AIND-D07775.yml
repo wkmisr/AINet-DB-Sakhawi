@@ -1,0 +1,65 @@
+schema: aind-yaml/0.1
+id: AIND-D07775
+source:
+  uid: '785633390286'
+sex: M
+name:
+  full: محمد بن عبد الله بن سعيد الشمس الكلبشاوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01505
+    quote: الكلبشاوي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001206
+  - id: n5
+    type: nasab
+    quote: سعيد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001206
+  passive: AIND-D07775
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。ID-Master の TMP-P-000871（التاج محمد الكلبشاوي قاضي كلبشا وخطيبها、#AIND-D04045 の父）はカルバシャーのハティーブ家だが名が異なるため充当しない。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07775
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  quote: الخطيب
+  note:
+    ja: 見出し末尾の「الخطيب」を職として state 化（B87a 先例）。勤務地は原文に明示がないため placeName を付けない（初版のニスバ由来 كلبشا は規則22により除去）。
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・サイード、アッ＝シャムス・アル＝カルバシャーウィー、ハティーブ（説教師）。カイロで私（サハーウィー）から聴聞した一人。
+  en: Muḥammad b. ʿAbd Allāh b. Saʿīd, al-Shams al-Kalbashāwī, the preacher (khaṭīb), among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T08:24:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

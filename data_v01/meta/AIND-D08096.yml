@@ -1,0 +1,80 @@
+schema: aind-yaml/0.1
+id: AIND-D08096
+source:
+  uid: '105220833384'
+sex: M
+name:
+  full: محمد بن علي بن عادل ناصر الدين الوفائي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00349
+    quote: الوفائي
+  - id: n2
+    type: laqab
+    quote: ناصر الدين
+  - id: n3
+    type: kunyah
+    quote: null
+    label: أبو الفوز
+  - id: n4
+    type: shuhrah
+    quote: ابن البريدي
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n7
+    type: nasab
+    quote: عادل
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08096
+  quote: null
+  note:
+    ja: 父 علي بن عادل は名＋父名のみで識別要素がなく、corpus に本伝なし・ID-Master 未登録（規則3 (c')）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08096
+  methods:
+  - TMP-S-00025
+  context:
+  - summary:
+      ar: قرأ علي بمجلس يشبك الفقيه في السيرة النبوية للدمياطي
+  works:
+  - ref: TMP-T-00259
+  quote: علي
+  note:
+    ja: 「قرأ علي بمجلس يشبك الفقيه في السيرة النبوية للدمياطي」＝本項主がサハーウィーに読誦（規則2・15、active=サハーウィー）。場は يشبك الفقيه＝#AIND-D10358（يشبك من سلمان شاه المؤيدي الفقيه、没878。D10358 本文「وكاتبه فقرأ على بعض البخاري … بل وسمع من لفظي قديما القول البديع」＝サハーウィーが同人の邸で読誦した）の学問の集まり（مجلس）であり、場所・所属ではないので初版の affiliation（study「مجلس يشبك الفقيه」）と colleague relation（#NEEDID يشبك الفقيه）を除去し event 内 persName に。書名『السيرة النبوية للدمياطي』は ID-Master 未登録 → 新規 TMP-T-00259（corpus D03799 に「سيرة الدمياطي」）。初版の field「السيرة」（TMP-S-00062）は書名の重複なので除去。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+notes:
+- text: 「وكان فهما لا بأس به فيما أرى」＝サハーウィーの評価（まずまずの理解力）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アーディル、ナースィル・アッ＝ディーン・アル＝ワファーイー・アル＝ハナフィー。アブー・アル＝ファウズ・イブン・アル＝バリーディーとして知られる。ヤシュバク・アル＝ファキーフの集会で、私にアッ＝ディムヤーティーの『預言者伝』を読誦した。私の見るところ、まずまずの理解力があった。
+  en: Muḥammad b. ʿAlī b. ʿĀdil, Nāṣir al-Dīn al-Wafāʾī al-Ḥanafī, known as Abū al-Fawz Ibn al-Barīdī. He read to me al-Dimyāṭī's Sīra of the Prophet at the assembly of Yashbak al-Faqīh. He had a tolerable understanding, as far as I could see.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T11:27:16Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

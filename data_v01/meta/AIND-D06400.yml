@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D06400
+source:
+  uid: '572283434645'
+sex: M
+name:
+  full: كسباي المؤيدي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00187
+    quote: المؤيدي
+  - id: n2
+    type: ism
+    quote: كسباي
+    by: rule
+death:
+  id: d
+  places:
+  - ref: gn:361058
+    quote: إسكندرية
+  note:
+    ar: ثم ولاه نيابة إسكندرية فطالت أيامه فيها ومات
+    ja: 「فطالت أيامه فيها ومات」の فيها＝直前の إسكندرية（照応、cert 不要、規則22(3)）。年なし＝日付属性なし。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06400
+  quote: null
+  note:
+    ja: '規則3（単名のマムルーク。Waka 裁定 2026-10-21 B124-128 ★1）。父の名は原文に出ない → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D03345
+  passive: AIND-D06400
+  quote: null
+  note:
+    ja: 主人ニスバ「المؤيدي」＝المؤيد شيخ（#AIND-D03345、824没）のマムルーク（規則51・53、ブリーフ「المؤيدي＝#AIND-D03345」）。初版の patron「الأشرف برسباي」（#NEEDID）は主人ではなく任官者＝ event に移した。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00338
+  places:
+  - ref: TMP-L-00193
+    quote: قلعة الجبل
+  quote: نيابة
+  note:
+    ja: 'カイロ城塞（TMP-L-00193）の副官（城代）。repo 慣行（نائب القلعة 4件・نائب قلعة الجبل 1件が汎用 نائب TMP-O-00053＋placeName。TMP-O-00338 はダマスクス城塞限定）に揃える。初版 #NEEDID を置換。'
+- id: s2
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: gn:361058
+    quote: إسكندرية
+  quote: نيابة
+  note:
+    ja: 'アレクサンドリア副官（知事）。repo 慣行（نائب إسكندرية 8件＝TMP-O-00053＋placeName gn:361058）。初版 #NEEDID を置換。'
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D02168
+    quote: الأشرف برسباي
+  quote: تأمر
+  summary:
+    ar: تأمر في آخر دولة الأشرف برسباي
+  note:
+    ja: 'バルスバーイ（#AIND-D02168、841没）治世末期にアミールとなった（規則53: 主人でないスルターンの下での昇進は patron にせず event＋persName）。年なし。位階の記載がないので state は立てない。'
+  trigger: rule
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D02168
+  places:
+  - ref: TMP-L-00193
+    quote: قلعة الجبل
+  quote: null
+  summary:
+    ar: ثم ولاه نيابة قلعة الجبل لا لرفع منزلته بل لسمنه وعجزه عن الحركة بحيث لم يكن يستطيع الثبات على الفرس لسمنه
+  note:
+    ja: 「ولاه」の主語は直前の الأشرف برسباي（規則53）。城塞副官への任命は昇進ではなく肥満のため、という判断句は desc に原文どおり保持。
+- id: e3
+  type: political
+  persons:
+  - ref: AIND-D02168
+  places:
+  - ref: gn:361058
+    quote: إسكندرية
+  quote: null
+  summary:
+    ar: ثم ولاه نيابة إسكندرية فطالت أيامه فيها
+  note:
+    ja: 「ولاه」の主語は同じく الأشرف برسباي と読む（連続する「ثم ولاه」）。
+translation:
+  ja: カスバーイ・アル＝ムアイヤディー。アシュラフ・バルスバーイ治世の末期にアミールとなり、次いで彼（バルスバーイ）は彼を城塞（カルアト・アル＝ジャバル）副官に任じたが、それは地位を高めるためではなく、肥満のため身動きができず、肥満ゆえに馬上に身を保つこともできなかったからである。次いで彼をアレクサンドリア副官に任じ、彼はそこで長く日を重ねて没した。
+  en: Kasbāy al-Muʾayyadī. He became an amir at the end of the reign of al-Ashraf Barsbāy, who then appointed him deputy of the Citadel of the Mountain (Qalʿat al-Jabal), not to raise his rank but because of his obesity and his inability to move, so that he could not keep his seat on a horse because of his corpulence. He then appointed him deputy of Alexandria, where his days were prolonged, and he died.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T08:48:06Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

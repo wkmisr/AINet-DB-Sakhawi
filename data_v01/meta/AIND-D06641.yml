@@ -1,0 +1,128 @@
+schema: aind-yaml/0.1
+id: AIND-D06641
+source:
+  uid: '987943155820'
+sex: M
+name:
+  full: محمد بن أحمد بن حبيب الشمس الغانمي المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01041
+    quote: الغانمي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: shuhrah
+    quote: ابن دامس
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: حبيب
+    by: rule
+birth:
+  id: b
+  date:
+    notBefore: 770
+    notAfter: 779
+  summary:
+    ar: ومولده في عشر الثمانين وسبعمائة
+  note:
+    ja: 「في عشر الثمانين وسبعمائة」＝780年に至る十年のうち。【集約 2026-11-18】repo の先例では「عشر الثمانين」を70代（70〜79）としている（#AIND-D05340「وهو في أثناء عشر الثمانين」→70代で逆算、#AIND-D06100「في عشر السبعين」→70代。「عشر X」の始まりはどの先例も X−10）。これに揃えて 770〜779年とした（オーケストレーター決定11。校閲版は 771〜780）。770年初＝1368-08-24、779年末＝1378-05-07（h2g.py、年精度）。初版は when-custom="0780"（単年）。
+death:
+  id: d
+  date:
+    ah: 860
+    cert: low
+  summary:
+    ar: ومات قريب الستين تقريبا
+  note:
+    ja: 「قريب الستين تقريبا」＝860年頃（規則4、cert low）。860年初＝1455-12-20（h2g.py、年精度）。初版の @when 1456 を訂正。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06641
+  quote: null
+  note:
+    ja: 父 أحمد بن حبيب は汎用名で識別要素なし、corpus に本伝なし（hw.py「أحمد بن حبيب」「دامس」は本項のみ）＝#NEEDID（規則3 (c')）。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D00716
+  passive: AIND-D06641
+  methods:
+  - TMP-S-00003
+  cert: medium
+  quote: الخير بن العلائي
+  note:
+    ja: '「وأخبرت أنه سمع على أبي الخير بن العلائي والشمس القلقشندي وغيرهما」＝伝聞（أخبرت أنه）なので cert medium。أبو الخير بن العلائي＝corpus 本伝 #AIND-D00716「أحمد بن خليل بن كيكلدي الشهاب أبو الخير بن الحافظ الصلاح أبي سعيد العلائي الدمشقي ثم المقدسي الشافعي خال الشمس محمد بن التقي إسماعيل القلقشندي … مات في ربيع الأول سنة اثنتين」（クンヤ・家名・エルサレムで閉合。ブリーフの番号を本文で確認）。初版の TMP-P-000094（ID-Master 登録「أبو الخير بن العلائي」、Note 空）は本伝のある人物＝AIND を充てた（ISSUES §D173-1）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D07109
+  passive: AIND-D06641
+  methods:
+  - TMP-S-00003
+  cert: medium
+  quote: الشمس القلقشندي
+  note:
+    ja: '同上の伝聞（cert medium）。الشمس القلقشندي＝corpus 本伝 #AIND-D07109「محمد بن إسماعيل بن علي … الشمس أبو عبد الله بن التقي أبي الفدا القلقشندي المصري الأصل المقدسي الشافعي سبط الحافظ الصلاح العلائي … مات في بكرة يوم الجمعة ثاني عشر رجب سنة تسع」（ラカブ・ニスバ・エルサレム・العلائي の甥〔D00716「ابن أخته الشمس القلقشندي」〕で閉合、ニスバ索引 #AIND-D11945 の筆頭）。初版の TMP-P-000791（登録「الشمس القلقشندي」、Note「corpus本伝未特定」）は本伝のある人物＝AIND を充てた（ISSUES §D173-1）。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D06641
+  passive: wd:Q4120128
+  methods:
+  - TMP-S-00025
+  context:
+  - places:
+    - ref: gn:281184
+      quote: بيت المقدس
+    summary:
+      ar: لقيته ببيت المقدس … وقرأت عليه بعض الأجزاء
+  quote: null
+  note:
+    ja: サハーウィーがエルサレムで本項主に会い、いくつかの جزء を読んだ（本項主が師）。初版は subtype="student"（旧規約）＝規則15 により teacher・active=本項主に統一。
+states:
+- id: s1
+  type: office
+  ref: wd:Q2892720
+  places:
+  - ref: gn:281184
+    quote: بيت المقدس
+  orgs:
+  - ref: TMP-I-00293
+  quote: null
+  note:
+    ja: '「وكان صوفيا بالصلاحية هناك」。「هناك」は先行する بيت المقدس を指す照応副詞（規則22(3)）。الصلاحية はスーフィーの在籍先＝エルサレムの الخانقاه الصلاحية（wd:Q4702696。ID-Master の Note「裸の الصلاحية は職種で振り分け（مشيخة التصوف→ここ、إعادة/تدريس→TMP-I-00177）」、先例 #AIND-D00438）。ブリーフは TMP-I-00177 とするが、スーフィーの文脈なので初版の Q4702696 を維持した（ISSUES §D173-2）。'
+- id: s2
+  type: office
+  ref: TMP-O-00072
+  orgs:
+  - ref: wd:Q12192963
+  quote: خازن الكتب
+  note:
+    ja: '「وخازن الكتب بالأقصى」＝アクサー・モスクの書庫係。汎用 خازن（TMP-O-00072。先例「خزن كتب مدرسة أم السلطان」）＋orgName المسجد الأقصى（wd:Q12192963）。初版は ref #NEEDID、placeName بيت المقدس（この句に地名はない）を付けていた＝除去。'
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ハビーブ、アッ＝シャムス・アル＝ガーニミー・アル＝マクディスィー。イブン・ダーミスとして知られる。クルアーンの徒である良きシャイフ。私はエルサレムで彼に会い、彼がアブー・アル＝ハイル・ブン・アル＝アラーイーやアッ＝シャムス・アル＝カルカシャンディーらに聴聞したと知らされた。私は彼にいくつかのジュズウを読んだ。彼はかの地のサラーヒーヤのスーフィーであり、アクサーの書庫係であった。生まれは（7）80年に至る十年のうち。（8）60年近く、おおよそその頃に没した。
+  en: Muḥammad b. Aḥmad b. Ḥabīb, al-Shams al-Ghānimī al-Maqdisī, known as Ibn Dāmis. A good shaykh, one of the people of the Qurʾān. I met him in Jerusalem and was told that he had heard from Abū al-Khayr b. al-ʿAlāʾī, al-Shams al-Qalqashandī and others; and I read some juzʾs to him. He was a Sufi at the Ṣalāḥiyya there and keeper of the books at al-Aqṣā. His birth was in the decade leading up to the year 780. He died near the year [8]60, approximately.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T07:18:57Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

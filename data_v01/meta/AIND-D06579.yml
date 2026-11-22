@@ -1,0 +1,75 @@
+schema: aind-yaml/0.1
+id: AIND-D06579
+source:
+  uid: '208641472495'
+sex: M
+name:
+  full: محمد بن إبراهيم صفي الدين القصار المروستي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-04369
+    quote: المروستي
+  - id: n2
+    type: laqab
+    quote: صفي الدين
+  - id: n3
+    type: shuhrah
+    quote: القصار
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: إبراهيم
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 716
+    cert: low
+  note:
+    ja: 逆算生年。「وهو يومئذ ابن مائة وسبع عشرة سنة」＝833年に117歳（الطاووسي の伝える年齢）→ 833−117＝716年頃。716＝1316-04-03〜1317-03-23（h2g.py）、年精度 1316。伝聞の高齢からの逆算なので cert low。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06579
+  quote: null
+  note:
+    ja: 規則3 (c')。父 إبراهيم は名のみで識別要素なし。corpus 全文で「المروستي」は本項のみ。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D06579
+  passive: AIND-D00900
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 833
+  quote: الطاووسي
+  note:
+    ja: '「لقيه الطاووسي في سنة ثلاث وثلاثين بمزار … فاستجازه」＝الطاووسي が本項主に会い、イジャーザを求めた。本項主が授ける側（active）、الطاووسي＝#AIND-D00900（أبو الفتوح الطاوسي、790年頃生・871年頃没。同型の先例 #AIND-D02705・#AIND-D02707「لقيه الطاووسي … فاستجازه」）。「سنة ثلاث وثلاثين」＝833（الطاووسي の活動年代）＝1429-10-09〜1430-09-27（h2g.py）、年精度 1429。「بمزار」は地名とも普通名詞（参詣所・聖廟）とも読める。【集約 2026-11-18】普通名詞の可能性を排せないので placeName は立てない（オーケストレーター決定8、ISSUES §D171-3）。校閲者の仮番号 取り下げた仮番号 B171-L01 は取り下げた。初版は subtype student（旧規約）、event の @when にヒジュラ年「0833」を入れ、placeName は #NEEDID、同じ内容の cultural event を重ねていた＝是正・統合。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00410
+  quote: null
+  note:
+    ja: 【集約 2026-11-18】見出しの「القصار」（布晒し職人）。職業・生業も state（規則65(a)）。見出し位置にだけ出る職業語を state にする repo の多数（49件対40件）と、本バッチの D06596 النجار・D06605・D06619・D06638・D06661 に揃えた（オーケストレーター決定2）。ID-Master の Office に「قصار」の登録がない（語根 قصر で grep）＝仮番号 TMP-O-00410。本人の生業か家の呼び名かは原文から決まらない（確認依頼）。
+notes:
+- text: '「القصار」（布晒し職人）は名の一部としてのみ現れ、本人の生業か家の呼び名かは原文から決まらない。persName（shuhrah、先例 #AIND-D01328）に残し、【集約 2026-11-18】職の state も立てた（上記、決定2）。初版は nisbah（ref #NEEDID）。本項の情報は الطاووسي の『مشيخة』によるとみられるが、原文に「ذكره」等の言及句がないので Pattern A の mention event は置かない（先例 #AIND-D02705 も同じ扱い）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム、サフィー・アッディーン・アル＝カッサール・アル＝マルワスティー。霊的開示（ムカーシャファート）の持ち主の一人であった。アッ＝ターウースィーが（8）33年にマザール（「参詣所」の意とも読める）で彼に会い、そのとき彼は117歳であった。そこで彼にイジャーザを求めた。
+  en: 'Muḥammad b. Ibrāhīm, Ṣafī al-Dīn al-Qaṣṣār al-Marwastī. He was one of those endowed with spiritual unveilings (mukāshafāt). Al-Ṭāwūsī met him in the year [8]33 at Mazār (or: at a shrine, mazār), when he was a hundred and seventeen years old, and asked him for an ijāza.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T17:38:44Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

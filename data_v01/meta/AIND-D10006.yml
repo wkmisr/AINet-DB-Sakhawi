@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D10006
+source:
+  uid: '413868772655'
+sex: M
+name:
+  full: منصور بن أبي بكر بن منصور بن أبي بكر الجناني الأزهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01242
+    quote: الجناني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00014
+    quote: الأزهري
+  - id: n3
+    type: ism
+    quote: منصور
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: منصور
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    ah: 861-05-01
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: wd:Q42004
+    quote: المعلاة
+  summary:
+    ar: مات بها في مستهل جمادى الأولى سنة إحدى وستين ودفن بالمعلاة
+  note:
+    ja: 「مستهل جمادى الأولى سنة إحدى وستين」＝861-05-01＝1457-04-05（日曜、h2g）。初版の年精度 @when 1457 を日精度に。「مات بها」の بها＝直前の مكة（照応、cert 不要、規則22(3)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10006
+  quote: null
+  note:
+    ja: 規則3 (c')。父 أبو بكر بن منصور الجناني は corpus に本伝なし（hw.py「أبو بكر بن منصور」該当なし）・ID-Master 未登録、クンヤ名＋父名＋ニスバのみで識別要素なし。الشيخ سليم（#AIND-D03180）の娘婿にあたる（本項主が「سبط الشيخ سليم」）。
+- id: r2
+  type: personal
+  subtype: maternal_grandfather
+  active: AIND-D03180
+  passive: AIND-D10006
+  quote: الشيخ سليم
+  note:
+    ja: '「سبط الشيخ سليم」＝#AIND-D03180「1027 سليم ككبير بن عبد الرحمن بن سليم العسقلاني الأصل الجناني … القاهري الأزهري」（没840）。ニスバ索引 #AIND-D11576「الجناني … سليم بن عبد الرحمن بن سليم وابن ابنته منصور بن أبي بكر」が本項主を「その娘の子 منصور بن أبي بكر」と名指しして閉合。初版は grandfather #NEEDID。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D07181
+  passive: AIND-D10006
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: الفتح المراغي
+  note:
+    ja: 「وكان بها في مجاورتي الأولى فسمع بقراءتي على أبي الفتح المراغي」＝サハーウィーの最初のマッカ滞在（مجاورتي الأولى）中、サハーウィーの読み上げで أبو الفتح المراغي（#AIND-D07181。初版の TMP-P-000003 は名寄せ済み番号、規則36）から聴講。読み手サハーウィーは師ではないので relation を立てない（規則55「سمع معنا」と同じ。初版の colleague relation wd:Q4120128 を除去）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: قطن
+  summary:
+    ar: قطن مكة مدة
+  trigger: rule
+translation:
+  ja: マンスール・ブン・アビー・バクル・ブン・マンスール・ブン・アビー・バクル・アル＝ジャナーニー・アル＝アズハリー・アッ＝シャーフィイー、シャイフ・サリームの娘の子（スィブト）。しばらくマッカに住み、私（サハーウィー）の最初の（マッカ）滞在のときそこにいて、私の読み上げによりアブー・アル＝ファトフ・アル＝マラーギーから聴講した。861年ジュマーダー第一月朔日にそこ（マッカ）で没し、アル＝マアラーに埋葬された。
+  en: Manṣūr b. Abī Bakr b. Manṣūr b. Abī Bakr al-Janānī al-Azharī al-Shāfiʿī, daughter's son of Shaykh Salīm. He resided in Mecca for a time and was there during my first sojourn (mujāwara), when he heard from Abū al-Fatḥ al-Marāghī through my reading. He died there on the first of Jumādā I 861 and was buried at al-Muʿallā.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T06:33:14Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

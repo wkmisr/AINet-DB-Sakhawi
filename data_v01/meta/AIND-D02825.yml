@@ -1,0 +1,85 @@
+schema: aind-yaml/0.1
+id: AIND-D02825
+source:
+  uid: '439319795865'
+sex: M
+name:
+  full: خشقدم الارنبغاوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-03613
+    quote: الارنبغاوي
+  - id: n2
+    type: ism
+    quote: خشقدم
+    by: rule
+death:
+  id: d
+  date:
+    ah: 864-05
+  note:
+    ja: 「ولم يلبث أن مات في جمادى الأولى سنة أربع وستين」＝864年ジュマーダー第1月（1460-03-03〜04-01、月精度）。没地の記載なし（トリポリのハージブ在任中だが、在職地を没地に継続させない＝規則22(1)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: patron
+  active: TMP-P-001593
+  passive: AIND-D02825
+  quote: null
+  note:
+    ja: '「أصله لارنبغا نائب قلعة صفد」＝もとの主人（ニスバ الارنبغاوي の由来）。corpus の أرنبغا 3項（D01865 المكي الباني・D01866 الظاهري برقوق（801没）・D01867 اليونسي الناصري فرج（マッカの مقدم））はいずれも「نائب قلعة صفد」でなく同定不能、ID-Master 未登録 → TMP-P-001593。初版は #NEEDID。「نائب قلعة صفد」は أرنبغا の職（本項主の state にしない）。'
+- id: r2
+  type: personal
+  subtype: employer
+  active: AIND-D06265
+  passive: AIND-D02825
+  quote: قانباي الحمزاوي
+  note:
+    ja: '「ثم اتصل بخدمة نائب الشام قانباي الحمزاوي وصار دواداره فلما مات …」。قانباي الحمزاوي＝#AIND-D06265「قانباي الحمزاوي . أصله لتنم الحسني نائب الشام … ثم نقله الأشرف إينال إلى نيابة دمشق حتى مات في ربيع الآخر سنة ثلاث وستين」（863没＝本項「فلما مات」と整合）。奉仕関係（خدمة）なので repo 先例 D01259 に合わせ employer（初版は patron #NEEDID）。「نائب الشام」は قانباي の職。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02825
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00063
+  quote: null
+  note:
+    ja: 「وصار دواداره」＝قانباي الحمزاوي（#AIND-D06265）のダワーダール。時期・地名の明記なし（初版の placeName الشام は雇主の職名からの補完のため除去、規則22）。
+- id: s2
+  type: office
+  ref: TMP-O-00065
+  places:
+  - ref: gn:266826
+    quote: طرابلس
+  quote: حجوبية
+  note:
+    ja: '「فلما مات استقر في حجوبية طرابلس بمال كثير ولم يلبث أن مات」＝قانباي の死（863年ラビーウ第2月）後に多額の金でトリポリのハージブ職に就き、間もなく没（864-05）。就任時期の明記なし（初版の退任日 864 を除去）。就任はしているので state（規則47）。ID-Master の حاجب（TMP-O-00065、初版 #NEEDID）。'
+events:
+- id: e1
+  type: political
+  places:
+  - ref: gn:266826
+    quote: طرابلس
+  quote: استقر
+  summary:
+    ar: استقر في حجوبية طرابلس بمال كثير
+  note:
+    ja: 多額の金（بمال كثير）による就任。初版の when-custom 0864 cert high は原文に就任年がないため除去。
+  trigger: rule
+translation:
+  ja: フシュカダム・アル＝アルナブガーウィー。もとはサファド城塞の副官（ナーイブ）アルナブガーの所有（マムルーク）であったが、その後シャームの総督（ナーイブ）カーンバーイ・アル＝ハムザーウィーに仕えてそのダワーダールとなった。彼（カーンバーイ）が没すると、多額の金でトリポリのハージブ職に就いたが、間もなく864年ジュマーダー第1月に没した。
+  en: 'Khushqadam al-Arnabghāwī. He originally belonged to Arnabghā, the deputy of the citadel of Ṣafad; then he entered the service of the viceroy of Syria Qānbāy al-Ḥamzāwī and became his dawādār. When the latter died, he obtained the chamberlainship (ḥujūbiyya) of Tripoli for a large sum of money, but did not last long: he died in Jumādā I of the year 864.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T06:43:35Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D04450
+source:
+  uid: '598049039993'
+sex: M
+name:
+  full: عبد الله بن سليمان جمال الدين السبكي القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00116
+    quote: السبكي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: جمال الدين
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: سليمان
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 850
+    notAfter: 857
+  note:
+    ar: ومات في أيام الظاهر جقمق بعد الخمسين وقد قارب السبعين
+    ja: 「بعد الخمسين」により notBefore 850年（850-01-01 = 1446-04-07、グレゴリオ暦）、「في أيام الظاهر جقمق」（ザーヒル・ジャクマク在位842〜857）により notAfter 857年。年精度の notAfter は当該ヒジュラ年が終わる西暦年を採る規則により @notAfter="1454"（857年末 = 1454-01-09、グレゴリオ暦。ヒジュラ857年末が西暦1454年1月に食い込むため）。初版は death 要素そのものを欠いていた。没年齢は「قارب السبعين」＝70歳近く（逆算生年は幅が大きいため birth は立てない）。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D04450
+  passive: TMP-P-000634
+  methods:
+  - TMP-S-00030
+  quote: العز السنباطي
+  note:
+    ar: حدثني به العز السنباطي عنه
+    ja: 'العز السنباطي ＝ #TMP-P-000634（ID-Master 登録名「العز السنباطي / al-ʿIzz al-Sunbāṭī」と一致する正用）。precheck の「汚染注意」は ابن قديد（=AIND-D05925）への流用歴（B22）に対する警告であり、本項では登録どおりの用法のため番号を維持。伝達連鎖は「被伝者 → العز السنباطي → サハーウィー」。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04450
+  passive: wd:Q4120128
+  methods:
+  - TMP-S-00026
+  cert: medium
+  quote: null
+  note:
+    ar: كتبت عنه في ترجمة القاياتي مناما
+    ja: サハーウィーの「كتبت عنه」は العز السنباطي を介した間接伝達（「حدثني به العز السنباطي عنه」）であるため cert="medium"。
+events:
+- id: e1
+  type: study
+  quote: اشتغل
+  note:
+    ja: 初版は placeName（gn:360630 القاهرة）を付していたが、原文は学習地を明示しない（「القاهري」はニスバであり学習地の陳述ではない）ため除去。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q4120128
+  - ref: TMP-P-000634
+  - ref: AIND-D08179
+    cert: high
+    quote: القاياتي
+  quote: ترجمة
+  summary:
+    ar: كتبت عنه في ترجمة القاياتي مناما حدثني به العز السنباطي عنه
+  note:
+    ja: 'Pattern A。「ترجمة القاياتي」の القاياتي は #AIND-D08179（محمد بن علي بن محمد بن يعقوب بن محمد الشمس أبو عبد الله بن النور القاياتي القاهري الشافعي ابن أخت الفخر القاياتي、785年頃生・850年ムハッラム没、首席カーディー）と同定。【裁定 2026-09-18（§Db-2）】この同定を確定とし、cert を medium → high に引き上げた。決め手は corpus の並行例 #AIND-D07029（محمد بن أحمد البهاء المحلي）の本文 L76979「ألزم نفسه بعدم دخول القاهرة ما دام القاياتي قاضيا فلم يلبث إلا نحو شهرين ومات」・L76981「ورأى بعد صرفه مناما أثبته في ترجمة القاياتي」で、(a) そこでの القاياتي は在職約2か月で没した首席カーディー＝D08179（850年ムハッラム没）と明示され、(b) サハーウィーが「ترجمة القاياتي」に منام を書き留めたという本項と全く同型の言い回しが確認できる。さらに D08179 本伝の「وقد بسطت ترجمته في ذيل القضاة والمعجم والحوادث」（別著で長大な伝記を敷衍）とも整合する。対立候補 #TMP-P-000308（الفخر القاياتي）は8世紀末〜9世紀初の伝承者で、850年代の منام 記事の対象として年代が合わず排除される。新規 TMP-P は発行しない（統一規則10）。初版はニスバ番号 #TMP-N-00113（=القاياتي のニスバ）を person 位置（relation/@active）に流用していた（precheck カテゴリ不一致）。'
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・スライマーン、ジャマール・アッ＝ディーン・アッ＝スブキー・アル＝カーヒリー。学問に励み、講義に出席した。850年より後、アッ＝ザーヒル・ジャクマクの治世に、70歳近くで没した。私は彼から聞いた夢の話を、アル＝カーヤーティーの伝記の中に書き留めた。それはアル＝イッズ・アッ＝スンバーティーが彼から伝えて私に語ったものである。
+  en: ʿAbd Allāh b. Sulaymān, Jamāl al-Dīn al-Subkī al-Qāhirī. He occupied himself with study and attended lessons. He died after the [year] fifty [i.e. 850], in the days of al-Ẓāhir Jaqmaq, having come close to seventy. I recorded from him, in the biography of al-Qāyātī, a dream which al-ʿIzz al-Sunbāṭī related to me on his authority.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T07:55:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

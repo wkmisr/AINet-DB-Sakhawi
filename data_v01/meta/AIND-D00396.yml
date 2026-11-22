@@ -1,0 +1,105 @@
+schema: aind-yaml/0.1
+id: AIND-D00396
+source:
+  uid: '821630600027'
+sex: M
+name:
+  full: إبراهيم السلماسي الصوفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01165
+    quote: السلماسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00157
+    quote: الصوفي
+  - id: n3
+    type: laqab
+    quote: null
+    label: برهان الدين
+  - id: n4
+    type: shuhrah
+    quote: ابن البقال
+  - id: n5
+    type: ism
+    quote: إبراهيم
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D00396
+  quote: null
+  note:
+    ja: '規則3 (c'')。父は通称「ابن البقال」の「البقال」（食料品商）としてしか現れず名が出ない → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D00396
+  passive: AIND-D08910a
+  methods:
+  - TMP-S-00070
+  quote: ابن الشماع
+  note:
+    ja: '「ممن انتفع به في التصوف ابن الشماع」＝本項主が師（active）、規則15。ابن الشماع ＝ #AIND-D08910a「محمد بن محمد بن علي … الشمس المجاهدي الأيوبي … الحموي ثم الحلبي الشافعي الصوفي ويعرف بابن الشماع . ولد في مستهل سنة إحدي وتسعين وسبعمائة بحماة … وصحب البرهان السلماسي الشهير بابن البقال بالقاهرة وأخذ عنه طريق القوم وذلك في رمضان سنة ثلاث وثمانمائة وقال انه أخذ بتبريز في سنة ثلاث وأربعين وسبعمائة عن الجمال عبد الله العجمي … الذي قيل انه عمر مائة سنة … وأن أول شيء دخل جوفه ريق الشيخ عبد القادر الكيلاني」（863没、repo 収録済み。D08910a 側は本項主を teacher n=8 として #AIND-D00396 に既に結んでいる）。ニスバ・通称・スーフィー伝授・عبد الله العجمي→عبد القادر الجيلي の系譜の一致で閉合（規則57）。ブリーフの候補 #AIND-D06812（ابن الشماع القاهري الحنفي القادري）は別人（規則60(h) で本文を確認）。もう一人の #AIND-D08524（الدمشقي ابن الشماع）も別人。初版の TMP-P-001425（太田氏「ابن الشماع」）を置換＝名寄せ要（ISSUES §D159-6）。伝授の場所（القاهرة）・年（803年ラマダーン）は D08910a 側の情報なので属性にしない（規則23）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001426
+  passive: AIND-D00396
+  methods:
+  - TMP-S-00008
+  cert: low
+  quote: المحقق عماد الدين إسماعيل
+  note:
+    ja: 「وقال أنه أخذ عن المحقق عماد الدين إسماعيل عن … عن النجم الكبرى انتهى . ويحتاج إلى تحرير」＝ ابن الشماع の伝えるスーフィー系譜（直接の師は عماد الدين إسماعيل のみ、以下の系譜は event n=1）。「قال أنه」＋「يحتاج إلى تحرير」→ cert low。ID-Master 既登録 TMP-P-001426（太田氏「عماد الدين إسماعيل」Note「AIND-D00396の師」）。corpus 見出しに該当なし（8世紀の人物）。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: TMP-P-001427
+  passive: AIND-D00396
+  methods:
+  - TMP-S-00008
+  cert: low
+  quote: الشيخ عبد الله العجمي
+  note:
+    ja: 「وقال أيضا أن صاحب الترجمة أخذ عن الشيخ عبد الله العجمي الذي عمر مائة سنة وهو عن الشيخ عبد القادر الجيلي وهذا شيء لا يعتمده أهل الحديث」＝ ابن الشماع の伝聞、サハーウィーは系譜を信用しない → cert low。ID-Master 既登録 TMP-P-001427（「عبد الله العجمي」Note「AIND-D00396の師」）。D08910a 側は「الجمال عبد الله العجمي شيخ الشهاب بن الناصح」とし、本項主が743年にタブリーズで彼から取得したと伝える（他項の情報＝属性にしない。D08910a の校閲 note はこの「قال انه أخذ بتبريز」を ابن الشماع 自身の取得と読んで退けているが、本項の「قال أيضا أن صاحب الترجمة أخذ عن الشيخ عبد الله العجمي」と照らせば本項主の取得＝ISSUES §D159-6）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D08910a
+  quote: وقال
+  note:
+    ja: Pattern A（ابن الشماع による称賛・描写）。
+  trigger: rule
+- id: e2
+  type: religious
+  quote: null
+  summary:
+    ar: وقال أنه أخذ عن المحقق عماد الدين إسماعيل عن الإمام الرفيع المقام عبد الرحمن بن إسماعيل عن العارف أبي العباس أحمد الكوربار عن الشيخ لالا والمجد البغدادي عن النجم الكبرى انتهى . ويحتاج إلى تحرير
+  cert: low
+  note:
+    ja: 'ابن الشماع の伝えるスーフィー系譜（クブラウィー系: عماد الدين إسماعيل ← عبد الرحمن بن إسماعيل ← أبو العباس أحمد الكوربار ← الشيخ لالا・المجد البغدادي ← النجم الكبرى）。直接の師以外は relation にせず desc に保持。「ويحتاج إلى تحرير」＝サハーウィーの保留 → cert low。النجم الكبرى（Najm al-Dīn Kubrā）等の wd は ID-Master 未登録＝未確認（ISSUES §D159-6）。'
+- id: e3
+  type: religious
+  quote: null
+  summary:
+    ar: وقال أيضا أن صاحب الترجمة أخذ عن الشيخ عبد الله العجمي الذي عمر مائة سنة وهو عن الشيخ عبد القادر الجيلي وهذا شيء لا يعتمده أهل الحديث
+  cert: low
+  note:
+    ja: '第2の系譜（カーディリー系: عبد الله العجمي ← عبد القادر الجيلي）。「لا يعتمده أهل الحديث」＝サハーウィーの不信 → cert low。عبد القادر الجيلي（الجيلاني）の wd は ID-Master 未登録＝未確認。'
+notes:
+- text: 'ラカブ「برهان الدين」は本文中の ابن الشماع の呼称「برهان الملة والدين」による（#AIND-D08910a も「البرهان السلماسي الشهير بابن البقال」）。転送見出し #AIND-D00365「إبراهيم بن البقال . يأتي قريبا في إبراهيم السلماسي」は本項を指す。'
+  lang: ja
+translation:
+  ja: イブラーヒーム・アッ＝サルマースィー、スーフィー。イブン・アル＝バッカールとして知られる。スーフィズムにおいて彼から益を得た者の中にイブン・アッ＝シャンマーウがおり、彼を大いに崇め、「わが主、わが導師、被造物の導き手、真理の父、シャイフ、イマーム、完全なる模範、信仰と宗教の証（ブルハーン・アル＝ミッラ・ワ・ッディーン）」と形容した。また彼（イブン・アッ＝シャンマーウ）は、彼（イブラーヒーム）が精査者イマード・アッディーン・イスマーイールから、彼は高位のイマーム、アブドゥッラフマーン・ブン・イスマーイールから、彼は神秘家アブー・アル＝アッバース・アフマド・アル＝クールバールから、彼はシャイフ・ラーラーとマジュド・アル＝バグダーディーから、彼はナジュム・アル＝クブラーから受けたと述べた。以上。これには精査が必要である。彼はまた、本項の人物が百歳まで生きたシャイフ・アブドゥッラー・アル＝アジャミーから受け、彼はシャイフ・アブドゥルカーディル・アル＝ジーリーから受けたとも述べたが、これはハディース学者の依拠しないものである。
+  en: Ibrāhīm al-Salmāsī al-Ṣūfī, known as Ibn al-Baqqāl. Among those who benefited from him in Sufism was Ibn al-Shammāʿ, who revered him greatly and described him as "my master and my guide, the guide of creation, the father of truth, the shaykh, the imam, the perfect exemplar, the proof of the faith and the religion (Burhān al-Milla wa-l-Dīn)." He said that he (Ibrāhīm) took from the verifier ʿImād al-Dīn Ismāʿīl, from the imam of lofty rank ʿAbd al-Raḥmān b. Ismāʿīl, from the gnostic Abū al-ʿAbbās Aḥmad al-Kūrbār, from al-Shaykh Lālā and al-Majd al-Baghdādī, from al-Najm al-Kubrā. End [of quotation]. This requires verification. He also said that the subject of this entry took from al-Shaykh ʿAbd Allāh al-ʿAjamī, who lived a hundred years, and he from al-Shaykh ʿAbd al-Qādir al-Jīlī, which is something that the scholars of ḥadīth do not rely upon.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-09T08:22:57Z'
+  model_requested: gemini-3.5-flash

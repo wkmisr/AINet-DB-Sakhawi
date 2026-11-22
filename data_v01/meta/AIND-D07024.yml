@@ -1,0 +1,103 @@
+schema: aind-yaml/0.1
+id: AIND-D07024
+source:
+  uid: '217051052899'
+sex: M
+name:
+  full: محمد بن أحمد بن يونس الجمال المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: shuhrah
+    quote: الكركي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: يونس
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 759
+    cert: low
+  note:
+    ja: '逆算: 没時（809）「قد بلغ الخمسين أو قاربها」→ 759 頃、cert low。759 ＝ 1357-12-22〜1358-12-10、年初 1357（h2g.py）。'
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 809-10
+    cert: medium
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  summary:
+    ar: مات في العشر الأخير من شوال سنة تسع بالقاهرة وقد بلغ الخمسين أو قاربها
+  note:
+    ja: 「سنة تسع」は一の位のみ → 809（cert medium、ファースィー（832没）の言及と整合）。シャウワール809（下旬）＝ 1407-03-20 開始、月精度で 1407-03（h2g.py）。没地 القاهرة は原文明記。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07024
+  quote: null
+  note:
+    ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07024
+  passive: AIND-D06757
+  methods:
+  - TMP-S-00026
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: كتبت عنه بمكة دعاء
+  quote: الفاسي
+  note:
+    ja: 「وقال كتبت عنه بمكة دعاء」＝ファースィー（#AIND-D06757、التقي محمد الفاسي）が本項主からマッカで祈願文を書き取った → 本項主＝師（規則15）。初版の student（passive=幻番号 TMP-P-000603）と colleague の2本を本 relation に統合。祈願文の由来「على ما بلغه من شيخ اليمن علما وعملا وأحمد بن العجيل」は伝聞（بلغه）であり、أحمد بن العجيل（ID-Master の TMP-P-000288「محمد بن أحمد العجيل اليماني」とは別名）との直接の師弟関係は原文にないため relation を立てない。
+states:
+- id: s1
+  type: status
+  label: كان عاقلا خيرا ذا مروءة وصيانة وأخلاق حسنة
+  quote: كان عاقلا خيرا ذا مروءة وصيانة وأخلاق حسنة
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+  works:
+  - ref: TMP-T-00037
+  quote: قاله
+  summary:
+    ar: قاله الفاسي في تاريخه
+  note:
+    ja: 'Pattern A。الفاسي ＝ #AIND-D06757（幻番号 TMP-P-000603 は名寄せ済み）、「تاريخه」＝ TMP-T-00037（تاريخ مكة (الفاسي)、repo 先例 D00446・D02412）。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ユーヌス・アル＝ジャマール・アル＝マッキー、アル＝カラキーとして知られる。思慮深く善良で、男気と節操と良い品性を備えていた。ファースィーがその歴史書でそう述べ、また言う。「私はマッカで彼から祈願文を書き取った。彼が私に語ったところでは、それは敵から守る効き目があり、学問と実践においてイエメンのシャイフ〔である〕アフマド・ブン・アル＝ウジャイルから彼に伝わったものによるとのことで、朝と夕に三度唱える。それは、『神よ、母の産道の狭さから新生児を救い出す方よ、毒刺されの者をその激しい熱と毒から癒す方よ、その知によって万物に全能なる方よ、私はムハンマドとその御名にかけてあなたに願う、あらゆる不義の者の不義から私を守りたまえ』である」。〔80〕9年シャウワール月の下旬にカイロで没し、五十歳に達していたか、それに近かった。
+  en: 'Muḥammad b. Aḥmad b. Yūnus al-Jamāl al-Makkī, known as al-Karakī. He was sensible and good, possessing manliness, probity and fine character. So said al-Fāsī in his history, and he said: "I wrote down from him in Mecca a supplication which, he told me, is effective against enemies, according to what had reached him from the shaykh of Yemen in learning and practice, Aḥmad b. al-ʿUjayl; it is said three times in the morning and in the evening, and it is: ''O God, O Deliverer of the newborn from the narrowness of its mother''s labour, O Healer of the stung from the severity of its fever and venom, O You who are capable of all things by Your knowledge, I ask You by Muḥammad and by his name to protect me from every wrongdoer in his wrongdoing.''" He died in the last ten days of Shawwāl of the year [80]9 in Cairo, having reached fifty or nearly so.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T22:47:01Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

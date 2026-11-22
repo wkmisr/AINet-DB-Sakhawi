@@ -1,0 +1,70 @@
+schema: aind-yaml/0.1
+id: AIND-D05856
+source:
+  uid: '384831599246'
+sex: M
+name:
+  full: عمر بن طرخان بن شهري
+  elements:
+  - id: n1
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n2
+    type: nasab
+    quote: طرخان
+    by: rule
+    ref: TMP-P-001384
+  - id: n3
+    type: nasab
+    quote: شهري الحاجب الكبير بحلب
+    by: rule
+death:
+  id: d
+  date:
+    ah: 830-07
+  note:
+    ja: 「مات في رجب سنة ثلاثين」。830年ラジャブ月 ＝ 1427-05-07〜1427-06-05（h2g.py、月のみ→月初）。没地の記載なし（初版の حلب は在職地からの補完 → 除去、規則22(1)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001384
+  passive: AIND-D05856
+  quote: null
+  note:
+    ja: '父 طرخان、祖父 شهري。見出しから祖父名まで復元できるため規則3により仮番号 TMP-P-001384 を発行（集約時、内容検証A M-5。校閲時は #NEEDID）。corpus（hw.py「طرخان」「شهري」）・ID-Master に該当なし。初版は father relation なし。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00066
+  places:
+  - ref: gn:170063
+  quote: null
+  note:
+    ja: 「الحاجب الكبير بحلب」。原文に明記された地名のため placeName を保持（規則22(2)、B94-98 ★2 の裁定「الحاجب بحلب は伝記主の職」）。職名「الحاجب الكبير」は ID-Master 未登録（既登録は حاجب O-00065・حاجب الحجاب O-00066・حاجب ثاني O-00120・الحاجب الصغير O-00133）→ 規則25により原文どおり新規 TMP-O-00305。حاجب الحجاب（O-00066）との統合は Waka 判断（§D105-4）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في أنبائه
+  note:
+    ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、أنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の teacher relation（原文に師弟関係なし）を event に変換。
+  trigger: rule
+translation:
+  ja: ウマル・ブン・タルハーン・ブン・シャフリー、ハラブの大ハージブ（アル＝ハージブ・アル＝カビール）。830年ラジャブ月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記している。
+  en: ʿUmar b. Ṭarkhān b. Shahrī, the grand chamberlain (al-ḥājib al-kabīr) of Aleppo. He died in Rajab of the year 830. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T06:28:39Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

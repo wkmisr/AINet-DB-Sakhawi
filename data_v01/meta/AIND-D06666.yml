@@ -1,0 +1,99 @@
+schema: aind-yaml/0.1
+id: AIND-D06666
+source:
+  uid: '664990136487'
+sex: M
+name:
+  full: محمد بن أحمد بن سالم بن حسن الجمال بن القاضي شهاب الدين الجدي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00698
+    quote: الجدي
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: shuhrah
+    quote: ابن أبي العيون
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: AIND-D00738
+  - id: n6
+    type: nasab
+    quote: سالم
+    by: rule
+  - id: n7
+    type: nasab
+    quote: حسن
+    by: rule
+  - id: n8
+    type: nasab
+    quote: القاضي شهاب الدين
+    by: rule
+death:
+  id: d
+  date:
+    ah: 875-07
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في رجب سنة خمس وسبعين
+  note:
+    ja: 875年ラジャブ月＝1471-01-02 開始（h2g.py、月精度）。初版の @when 1470 を訂正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D00738
+  passive: AIND-D06666
+  quote: والده
+  note:
+    ja: '見出しナサブ「بن القاضي شهاب الدين الجدي」（規則37）。父＝corpus 本伝 #AIND-D00738「أحمد بن سالم بن حسن شهاب الدين الجدي نزيل مكة وقاضي جدة ويعرف بابن أبي العيون … وكان يذكر أنه من ربيعة الفرس . مات بمكة في أوائل ربيع الآخر سنة سبع وعشرين」（ナサブ・ラカブ・職 قاضي・通称・「ربيعة الفرس」で閉合、ブリーフの番号を本文で確認）。初版 #NEEDID。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D10690
+  passive: AIND-D06666
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: wd:Q1023470
+  quote: الزين المراغي
+  note:
+    ja: '「وسمع هو من الزين المراغي الصحيح」。الزين المراغي＝#AIND-D10690（أبو بكر بن الحسين … الزين أبو محمد … المراغي المصري الشافعي نزيل المدينة النبوية、頻出確定ID・本文で確認）。初版 #NEEDID。「الصحيح」は ID-Master 登録どおり صحيح البخاري（wd:Q1023470）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+    quote: ابن فهد
+  quote: ذكره
+  summary:
+    ar: ذكره ابن فهد
+  cert: medium
+  note:
+    ja: Pattern A。限定語のない ابن فهد・本項主の没年 875（871 より後・885 以前）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium（event 側、規則43・58）。初版は subtype other の relation（#AIND-D09211）。
+  trigger: rule
+notes:
+- text: 「كان والده يذكر أنه من ربيعة الفرس」＝父（#AIND-D00738）が自家の出自をラビーア・アル＝ファラスと称していた（父の本伝にも同じ句）。自称の伝聞なので属性・ニスバにはしない。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・サーリム・ブン・ハサン、アル＝ジャマール、カーディーのシハーブ・アッ＝ディーン・アル＝ジュッディーの子。イブン・アビー・アル＝ウユーンとして知られる。父は、自分はラビーア・アル＝ファラスの出であると語っていた。彼自身はアッ＝ザイン・アル＝マラーギーから『サヒーフ』を聴聞した。（8）75年ラジャブ月にマッカで没した。イブン・ファハドが彼に言及している。
+  en: Muḥammad b. Aḥmad b. Sālim b. Ḥasan, al-Jamāl, son of the qāḍī Shihāb al-Dīn al-Juddī, known as Ibn Abī al-ʿUyūn. His father used to say that he was of Rabīʿat al-Faras. He himself heard the Ṣaḥīḥ from al-Zayn al-Marāghī. He died in Mecca in Rajab of the year [8]75. Ibn Fahd mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T08:27:29Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

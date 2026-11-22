@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D07798
+source:
+  uid: '801509596728'
+sex: M
+name:
+  full: محمد بن عبد الله بن علي ناصر الدين النطوبسي الأزهري المادح
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00885
+    quote: النطوبسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00014
+    quote: الأزهري
+  - id: n3
+    type: laqab
+    quote: ناصر الدين
+  - id: n4
+    type: shuhrah
+    quote: المادح
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: علي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07798
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بالقاهرة」（規則2）。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07798
+  quote: null
+  note:
+    ja: '見出しナサブのみ（識別要素なし）。corpus に該当見出しなし → #NEEDID（規則3）。初版なし。'
+affiliations:
+- id: a1
+  type: affiliated
+  ref: wd:Q312342
+  note:
+    ja: ニスバ الأزهري による（repo 先例 D04308・D04373・D04807 に従い初版どおり保持）。
+notes:
+- text: 「المادح」（頌詩詠唱者）は repo 先例どおり shuhrah として保持（ID-Master の職 مادح الحرم TMP-O-00286 はマディーナの預言者モスクの職で本項と異なるため state にしない）。初版の visit event القاهرة は teacher relation 内の learning event と重複するため除去。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブド・アッラー・ブン・アリー、ナースィル・アッ＝ディーン、アン＝ナトゥーブスィー、アル＝アズハリー、アル＝マーディフ（頌詩詠唱者）。カイロで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿAbd Allāh b. ʿAlī, Nāṣir al-Dīn, al-Naṭūbisī, al-Azharī, al-Mādiḥ (the panegyrist). He is among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-17T22:06:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

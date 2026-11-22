@@ -1,0 +1,80 @@
+schema: aind-yaml/0.1
+id: AIND-D08030
+source:
+  uid: '920758655892'
+sex: M
+name:
+  full: محمد بن علي بن أحمد النجاري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02134
+    quote: النجاري
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08030
+  quote: null
+  note:
+    ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: other
+  active: AIND-D01456
+  passive: AIND-D08030
+  quote: العباس بن الغمري
+  note:
+    ja: '「أحد جماعة أبي العباس بن الغمري」＝門人・同志の一人。أبو العباس بن الغمري ＝ #AIND-D01456（أحمد بن محمد بن عمر الشهاب أبو العباس بن الشمس أبي عبد الله الغمري الأصل المحلي الشافعي ويعرف بأبي العباس الغمري）。統制内に「門人」がないため other（repo 先例 D05030・D01056 が同人を other で参照）。初版は associate・#NEEDID。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08030
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: سمع مني في الإملاء وغيره
+  quote: مني
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  quote: قرأ
+  trigger: rule
+- id: e2
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: TMP-L-00033
+    quote: الحرمين
+  quote: وجاور
+  summary:
+    ar: جاور بالحرمين مدة
+  note:
+    ja: '「بالحرمين」は原文明記（規則22(2)）。الحرمين（مكة والمدينة）＝TMP-L-00033（repo 4件で使用。ID-Master には同実体の TMP-L-00197 も登録されており重複）。初版は #NEEDID。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アフマド・アン＝ナッジャーリー、アブー・アル＝アッバース・ブン・アル＝ガムリーの門人集団の一人。クルアーンを読み、いくつかの講義を修め、私（サハーウィー）から口述（イムラー）その他を聴聞し、両聖地にしばらく隣住（ムジャーワラ）した。
+  en: Muḥammad b. ʿAlī b. Aḥmad al-Najjārī, one of the circle of Abū al-ʿAbbās b. al-Ghamrī. He read the Qurʾān, acquired some lessons, heard from me at the dictation sessions and elsewhere, and sojourned in the two sanctuaries (Mecca and Medina) for a period.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T14:30:29Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

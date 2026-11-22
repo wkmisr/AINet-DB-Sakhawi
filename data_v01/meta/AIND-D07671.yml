@@ -1,0 +1,76 @@
+schema: aind-yaml/0.1
+id: AIND-D07671
+source:
+  uid: '813147567137'
+sex: M
+name:
+  full: محمد بن عبد العزيز بن أحمد ناصر الدين المدني الحنفي الخواص
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n2
+    type: laqab
+    quote: ناصر الدين
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد العزيز
+    by: rule
+    ref: TMP-P-001140
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07671
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+    summary:
+      ar: سمع مني بالمدينة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001140
+  passive: AIND-D07671
+  quote: null
+  note:
+    ja: '初版の #TMP-P-000813 は ID-Master 登録「عبد العزيز بن سالم الكازروني（D03056 の息子）」で別人（本項の父は عبد العزيز بن أحمد）＝流用。見出しナサブから祖父名まで復元できるため統一規則3により仮番号 TMP-P-001140 を発行。corpus に本伝なし。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00276
+  quote: null
+  note:
+    ja: 見出し末尾の「الخواص」（ナツメヤシ葉細工職）は職業名であってニスバではない（ID-Master のニスバは الخواصي=TMP-N-02940 のみ）。repo の「الخياط」処理（state type="office"）に倣い state 化、仮番号 TMP-O-00276。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+translation:
+  ja: ムハンマド・ブン・アブドゥルアズィーズ・ブン・アフマド、ナースィル・アッ＝ディーン・アル＝マダニー・アル＝ハナフィー・アル＝ハウワース。マディーナで私（サハーウィー）から聴聞した。
+  en: Muḥammad b. ʿAbd al-ʿAzīz b. Aḥmad, Nāṣir al-Dīn al-Madanī al-Ḥanafī al-Khawwāṣ. He heard from me (al-Sakhāwī) in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-12T22:44:52Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

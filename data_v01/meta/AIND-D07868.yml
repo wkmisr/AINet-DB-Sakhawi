@@ -1,0 +1,175 @@
+schema: aind-yaml/0.1
+id: AIND-D07868
+source:
+  uid: '314621753099'
+sex: M
+name:
+  full: محمد بن عبد الله ناصر الدين المحلى الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00109
+    quote: المحلى
+  - id: n2
+    type: laqab
+    quote: ناصر الدين
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    ah: 750
+    cert: low
+  note:
+    ja: 「وأظنه بلغ السبعين」（820年没時に70歳に達していた、と الفاسي の推測）からの逆算＝750年頃（1349-03-30〜、h2g.py）、cert low。
+death:
+  id: d
+  date:
+    ah: 820
+  places:
+  - ref: wd:Q42004
+    quote: المعلاة
+  note:
+    ja: 「وذلك في أحد الربيعين سنة عشرين」＝820年ラビーウ1月または2月（1417-04-27〜1417-06-25、h2g.py）。月が不定なので年精度（1417）。マッカからワーディー・アッ＝ターイフへ向かう途中で駱駝から落ち、マッカへ運ばれる途上で没した（「فمات قبل وصوله إليها」）＝没地は原文に地名として明記されないので初版の placeName「بين مكة والطائف」（#NEEDID）を除去（規則22(1)）。埋葬 المعلاة＝wd:Q42004（原文明記）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: deputy
+  active: AIND-D03961
+  passive: AIND-D07868
+  quote: العز بن سليم
+  note:
+    ja: '「وناب في بعض أعمال المحلة الكبرى عن قاضيها صهره العز بن سليم」＝العز بن سليم の代理（deputy、active＝本務者、先例 D05335「ناب في القضاء بها عن صهره」）。العز بن سليم＝#AIND-D03961「عبد العزيز بن أحمد العز المحلي الشافعي ويعرف بابن سليم . ولي قضاء المحلة سنين … مات بها（مكة）… ذكره الفاسي」（索引 #AIND-D12405「ابن سليم عبد العزيز بن أحمد المحلي」）。初版の統制外 relation「other」（#NEEDID）を置換。'
+- id: r2
+  type: personal
+  subtype: relative
+  active: AIND-D03961
+  passive: AIND-D07868
+  quote: null
+  note:
+    ja: 「صهره」＝姻戚。婿・舅・義兄弟のいずれかは原文から決まらないので subtype="relative"（規則52 ★2 (b)）。初版訳の「義父」は補い。
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07868
+  quote: null
+  note:
+    ja: '父 عبد الله は裸名で本伝・識別要素なし → #NEEDID（規則3 (c'')）。初版の汚染番号 TMP-P-000490 を除去。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  quote: الشهادة والوثائق
+  note:
+    ja: '「وعانى الشهادة والوثائق」＝証人（公証）業と証書作成。شاهد＝TMP-O-00050。証書作成（الوثائق）は ID-Master に該当職なく証人業の一部として同一 state に（初版の state الوثائق #NEEDID を統合）。'
+- id: s2
+  type: office
+  ref: TMP-O-00096
+  places:
+  - ref: TMP-L-00044
+    quote: المحلة الكبرى
+  quote: ناب في بعض أعمال
+  note:
+    ja: 「وناب في بعض أعمال المحلة الكبرى عن قاضيها」＝カーディー代理。المحلة الكبرى＝ID-Master TMP-L-00044（المحلة）。
+- id: s3
+  type: office
+  ref: wd:Q215536
+  quote: عانى التجارة
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نزيل
+  summary:
+    ar: نزيل مكة
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  works:
+  - ref: TMP-T-00065
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي وقال أظنه حفظ المنهاج الفرعي فقد كان يذاكر بمسائل منه
+  note:
+    ja: Pattern A。الفاسي＝#AIND-D06757（التقي الفاسي）。本項の記述は الفاسي の伝による。『المنهاج الفرعي』＝منهاج الطالبين TMP-T-00065（repo 先例）。「أظنه حفظ」は الفاسي の推測なので暗記を event にしない。初版の統制外 relation「mentioned by」を event に置換。
+  trigger: rule
+- id: e3
+  type: visit
+  places:
+  - ref: TMP-L-00049
+    quote: عدن
+  quote: null
+  summary:
+    ar: وتردد لأجلها مرات إلى عدن
+- id: e4
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: وجاور
+  trigger: rule
+- id: e5
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: وبالمدينة أشهرا
+- id: e6
+  type: travel
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: TMP-L-00056
+    quote: وادي الطائف
+  quote: وتوجه
+  summary:
+    ar: وتوجه من مكة قاصدا وادي الطائف فسقط من البعير الذي كان عليه راكبا فحمل إلى مكة فمات قبل وصوله إليها
+  note:
+    ja: '最後の旅と事故。وادي الطائف＝الطائف TMP-L-00056（原文明記）。初版の event「other」（when-custom 0820 cert high、placeName #NEEDID「بين مكة والطائف」）を置換。年は death にあるので event には付けない。'
+  trigger: rule
+- id: e7
+  type: religious
+  subtype: funeral
+  places:
+  - ref: TMP-L-00378
+    quote: الأبطح
+  quote: ودفن
+  summary:
+    ar: وغسل بالأبطح ودفن بالمعلاة
+  note:
+    ja: 湯灌の地 الأبطح（マッカ東郊の المحصب）は ID-Master 未登録 → TMP-L-00378（原文明記、規則22(2)）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー、ナースィルッディーン・アル＝マハッリー・アッ＝シャーフィイー、マッカ在住。アル＝ファースィーが彼に言及して言う。「思うに彼は『ミンハージュ』（法学）を暗記していた。というのも彼はその中の諸問題を論じ合っていたからである。証人業と証書作成に携わり、アル＝マハッラ・アル＝クブラーのいくつかの管区で、そのカーディーで彼の姻戚であるアル＝イッズ・ブン・スライムの代理を務めた。同様に商業にも携わり、そのために何度もアデンへ往来した。マッカに長年、マディーナに数か月滞在（ジャーワラ）した。マッカからワーディー・アッ＝ターイフを目指して出発したが、乗っていた駱駝から落ち、マッカへ運ばれたものの到着する前に没した。アル＝アブタフで湯灌され、アル＝マアラーに埋葬された。それは（8）20年の二つのラビーウ月のいずれかのことで、思うに彼は70歳に達していた。彼には信仰心と善良さがあった。」
+  en: 'Muḥammad b. ʿAbd Allāh, Nāṣir al-Dīn al-Maḥallī al-Shāfiʿī, resident of Mecca. Al-Fāsī mentioned him and said: I think he had memorized the Minhāj (of law), for he used to discuss questions from it. He practised notarial witnessing and the drawing up of documents, and acted as deputy in some of the districts of al-Maḥalla al-Kubrā for its qāḍī, his relative by marriage al-ʿIzz b. Sulaym. He likewise engaged in trade and travelled to Aden several times for it. He sojourned in Mecca for many years and in Medina for some months. He set out from Mecca for Wādī al-Ṭāʾif, fell from the camel he was riding, and was carried back to Mecca but died before reaching it. He was washed at al-Abṭaḥ and buried at al-Maʿlā; that was in one of the two Rabīʿ months of the year [8]20, and I think he had reached seventy. He had piety and goodness.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T00:43:28Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

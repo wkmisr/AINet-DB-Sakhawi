@@ -1,0 +1,81 @@
+schema: aind-yaml/0.1
+id: AIND-D08079
+source:
+  uid: '653838664549'
+sex: M
+name:
+  full: محمد بن علي بن سالم الغزي الجلجولي القادري الصوفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00021
+    quote: الغزي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-01368
+    quote: الجلجولي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00156
+    quote: القادري
+  - id: n4
+    type: nisbah
+    ref: TMP-N-00157
+    quote: الصوفي
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n7
+    type: nasab
+    quote: سالم
+    by: rule
+birth:
+  id: b
+  places:
+  - ref: TMP-L-00390
+    quote: جلجوليا
+  note:
+    ar: ولد بجلجوليا
+    ja: 生年は原文になし。جلجوليا（パレスチナ、ナーブルス〜ラムラ間の町）は ID-Master 未登録（Nisbah الجلجولي TMP-N-01368 のみ）→ TMP-L-00390。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08079
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 علي بن سالم（الغزي الجلجولي）は裸名で corpus に本伝なし、ID-Master 未登録 → #NEEDID。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00390
+    quote: جلجوليا
+  quote: وأقام
+  note:
+    ja: 「بها」＝直前の جلجوليا（照応）。
+  trigger: rule
+- id: e2
+  type: other
+  date:
+    ah: 890
+    cert: low
+  quote: وهو حي قريب التسعين
+  cert: low
+  note:
+    ja: '執筆時点で存命、「قريب التسعين」＝890年頃（規則4: when-custom=890、cert low。890＝1485-01-27 開始、年精度 1485）。没年は作らない（規則18、ブリーフ）。【集約 2026-11-03】「وهو حي قريب التسعين」は (a)「（8）90年頃に存命」（年。D08080「سمع علي قريب التسعين」型）と (b)「存命で90歳近い」（年齢。規則59(d)「قارب السبعين」型の状態描写）の両読みがある。event は (a) で cert low のまま保持し、(b) なら生年は 800 年前後（執筆時からの逆算、cert low）となる。訳にも両読みを示した（内容A L、オーケストレーター決定18）。'
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・サーリム、アル＝ガッズィー、アル＝ジュルジューリー、アル＝カーディリー、アッ＝スーフィー。ジュルジューリヤーに生まれ、そこに住んだ。（8）90年近くの時点で存命である〔または「存命で90歳近い」とも読める〕。
+  en: 'Muḥammad b. ʿAlī b. Sālim al-Ghazzī al-Juljūlī al-Qādirī al-Ṣūfī. He was born in Juljūliyā and lived there; he was still alive around the year (8)90 [or: he is alive, nearly ninety years old].'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T16:04:29Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,101 @@
+schema: aind-yaml/0.1
+id: AIND-D08134
+source:
+  uid: '762562444540'
+sex: M
+name:
+  full: محمد بن علي بن عطاء أمين الدين الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: laqab
+    quote: أمين الدين
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عطاء
+    by: rule
+    ref: TMP-P-001663
+death:
+  id: d
+  date:
+    ah: 801-12
+    cert: medium
+  note:
+    ja: 「مات في ذي الحجة سنة إحدى」＝一の位のみの年＝801（規則「80X・cert medium」）、801年ズー・アル＝ヒッジャ月＝1399-08-12 開始（h2g.py、月精度）。初版の @when 1398 を 1399-08 に修正。イブン・ハジャル『إنباء』の 801 年の記事に拠る（mention event）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08134
+  quote: null
+  note:
+    ja: 父 علي بن عطاء は識別要素のない汎用名、corpus に本伝なし（規則3 (c')）。
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001663
+  passive: AIND-D08134
+  quote: null
+  note:
+    ja: '「وقف جده الصاحب شهاب الدين بن تقي الدين」＝祖父（父方の祖父は見出しでは عطاء なので母方の祖父か、あるいは عطاء の称号・ラカブか、原文からは決まらない）。称号 الصاحب（宰相）・ラカブ・父のラカブをもつ識別可能な人物で corpus に見出しなし（grep「الصاحب شهاب الدين」「شهاب الدين بن تقي الدين」は本項のみ）、ID-Master の「الصاحب」Person 行に該当なし → 新規 TMP-P-001663（規則12）。初版 #NEEDID を置換。称号「الصاحب」は desc から除き note に（規則31）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00377
+  quote: يسجل على القضاة
+  note:
+    ja: 'カーディーたちのもとで判決文書（سجل）を作成・登録する職。ID-Master の Office を語根 سجل で grep し未登録 → 新規 TMP-O-00377。初版 #NEEDID を置換。'
+- id: s2
+  type: office
+  ref: TMP-O-00032
+  quote: النظر على وقف جده الصاحب شهاب الدين بن تقي الدين
+  note:
+    ja: '祖父のワクフの監督（ناظر）。汎用 ناظر TMP-O-00032 を充当（TMP-O-00113 ناظر الأوقاف は官職としてのワクフ総監督＝別）。初版 #NEEDID を置換。'
+events:
+- id: e1
+  type: teaching
+  places:
+  - ref: TMP-I-00265
+    quote: الأسدية
+  quote: درس
+  summary:
+    ar: درس بالأسدية
+  note:
+    ja: 「درس بالأسدية」＝アサディーヤ学院で教授（規則50、初版の affiliation「teach」#NEEDID を event に置換）。corpus の「الأسدية」はタイッズ（L51174）・アレッポ（L112024）・ダマスクス（L109994・L114380）の各学院があり、本項主が الدمشقي であることからダマスクスのものとみられるが原文に所在の明記はない。ID-Master Institution 未登録 → 新規 TMP-I-00265。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation「biographer」を置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アター、アミーン・アッ＝ディーン・アッ＝ディマシュキー。優れて卓越し、スーフィズムと理性諸学に通じていた。アサディーヤ（学院）で教授し、カーディーたちのもとで判決文書を作成しており、祖父アッ＝サーヒブ・シハーブ・アッ＝ディーン・ブン・タキー・アッ＝ディーンのワクフの監督は彼に属した。801年ズー・アル＝ヒッジャ月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記している。
+  en: Muḥammad b. ʿAlī b. ʿAṭāʾ, Amīn al-Dīn al-Dimashqī. He was excellent and accomplished, versed in Sufism and the rational sciences; he taught at the Asadiyya, drew up court records for the judges, and the supervision of the waqf of his grandfather al-Ṣāḥib Shihāb al-Dīn b. Taqī al-Dīn belonged to him. He died in Dhū al-Ḥijja [80]1; our shaykh dated him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T06:34:54Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

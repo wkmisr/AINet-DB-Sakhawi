@@ -1,0 +1,111 @@
+schema: aind-yaml/0.1
+id: AIND-D04820
+source:
+  uid: '175586159025'
+sex: M
+name:
+  full: عبيد بن عمر بن محمد القرشي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00005
+    quote: القرشي
+  - id: n2
+    type: ism
+    quote: عبيد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عمر
+    by: rule
+    ref: TMP-P-001291
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 767
+    cert: low
+  summary:
+    ar: وقد زاد على المائة بمقتضي ما كان يقوله
+  note:
+    ja: 没年 867 に「百歳を超えていた（本人の言による）」から逆算した生年上限（≤767、767年末＝1366-09-14）。逆算・伝聞につき cert low。
+death:
+  id: d
+  date:
+    ah: 867-03
+  summary:
+    ar: مات في ربيع الأول سنة سبع وستين وقد زاد على المائة بمقتضي ما كان يقوله رحمه الله
+  note:
+    ja: 867年ラビーウ1月初＝1462-12-03（h2g 検証）、@when 1462-12。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001291
+  passive: AIND-D04820
+  quote: null
+  note:
+    ja: '父。見出しナサブから復元（統一規則3）。corpus 見出し（父の名＋ニスバ）・ID-Master を再検索し本伝・既登録なし。集約時に追加（校閲版は父 relation 欠落。B94・B97 と同じ基準に統一）。 子 #AIND-D03677「عبد الرحمن بن عبيد بن عمر بن محمد … القرشي بلدا」の見出しとも一致（D05955 عمر بن محمد بن عبد الكريم القرشي は 882 年に存命の別人）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001328
+  passive: AIND-D04820
+  methods:
+  - TMP-S-00008
+  cert: medium
+  quote: الزاهد
+  note:
+    ja: '「كان فيما بلغني ممن أخذ عن الزاهد وابن النقاش」（伝聞につき cert medium）。「الزاهد」は通称のみ。候補は #AIND-D01325（أحمد بن محمد بن سليمان الشهاب … ويعرف بالزاهد、819没、説教者）と #AIND-D00582（أحمد بن أبي بكر بن أحمد الزاهد）、ID-Master の TMP-P-000454（D01928 の師）だが、確証がないため仮番号 TMP-P-001328 で保持（Waka 裁定★5）。確証を得たら統合。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-000765
+  passive: AIND-D04820
+  methods:
+  - TMP-S-00008
+  cert: low
+  quote: ابن النقاش
+  note:
+    ja: 'ابن النقاش＝ID-Master TMP-P-000765（個体未特定の ابن النقاش 家）を初版どおり保持するが、合同索引項 #AIND-D12790（規則11により直接充当不可）の家系のいずれかで個体は確定できないため cert low。候補は説教者 الزين أبو هريرة عبد الرحمن（#AIND-D03778、747年生）とその子 أبو أمامة محمد（#AIND-D07598、845没、「خطب نيابة عن أبيه بجامع طولون」）。本項主（767年頃生の説教者）の師としては年代上いずれも可（§D95-4、要判断・非ブロッキング）。'
+- id: r4
+  type: personal
+  subtype: son
+  active: AIND-D03677
+  passive: AIND-D04820
+  quote: عبد الرحمن
+  note:
+    ja: 「والد عبد الرحمن الماضي」＝#AIND-D03677（عبد الرحمن بن عبيد بن عمر بن محمد التقي أبو عبد الله بن الزين المعمر أبي عمر القرشي بلدا الشافعي الآتي أبوه وبه يعرف）。相手側に父のラカブ الزين・クンヤ أبو عمر・形容 المعمر が記されるが、規則23により属性は補わず note に留める。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00080
+  quote: null
+  note:
+    ja: 説教の場所は原文に無いため初版の placeName（القرشية）を除去（規則22(1)）。
+events:
+- id: e1
+  type: other
+  places:
+  - ref: TMP-L-00296
+    quote: لقرشية
+  - ref: TMP-L-00046
+    quote: الغربية
+  quote: null
+  summary:
+    ar: نسبة للقرشية من الغربية
+  note:
+    ja: ニスバ القرشي の由来地（ガルビーヤ県の村 القرشية）。原文に明記された地名のため placeName を保持（規則22(2)）が、居住を述べた句ではないので residence ではなく other とする。القرشية は ID-Master 未登録のため TMP-L-00296 を発行（→ISSUES）。
+translation:
+  ja: ウバイド・ブン・ウマル・ブン・ムハンマド・アル＝クラシー――ガルビーヤ県のアル＝クラシーヤに因むニスバである――、前出のアブドゥッラフマーンの父。私の聞いたところでは、アッ＝ザーヒドとイブン・アン＝ナッカーシュから学んだ者の一人であった。彼は読み書きができなかったが説教をし、並外れた聡明さを示すことを語った。〔8〕67年ラビーウ・アル＝アウワル月に没した。本人が語っていたところによれば、百歳を超えていた。神が彼を憐れみたまわんことを。
+  en: ʿUbayd b. ʿUmar b. Muḥammad al-Qurashī – the nisba refers to al-Qurashiyya in al-Gharbiyya – father of ʿAbd al-Raḥmān, mentioned above. According to what reached me, he was among those who studied under al-Zāhid and Ibn al-Naqqāsh. He was illiterate, yet he used to preach, producing things that showed exceptional intelligence. He died in Rabīʿ al-Awwal of the year [8]67, having passed one hundred years of age according to what he used to say, may God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-27T16:51:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

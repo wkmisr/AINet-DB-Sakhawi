@@ -1,0 +1,131 @@
+schema: aind-yaml/0.1
+id: AIND-D04841
+source:
+  uid: '309690640868'
+sex: M
+name:
+  full: عثمان بن أحمد بن عثمان الفخر الصهرجتي ثم القاهري الأزهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02112
+    quote: الصهرجتي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00014
+    quote: الأزهري
+  - id: n4
+    type: laqab
+    quote: الفخر
+  - id: n5
+    type: ism
+    quote: عثمان
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001298
+  - id: n7
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  note:
+    ja: 原文「مات .」のみで没年月日の記載なし。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D10313
+  passive: AIND-D04841
+  methods:
+  - TMP-S-00014
+  cert: medium
+  quote: المناوي
+  note:
+    ja: 'المناوي ＝ #AIND-D10313（الشرف يحيى بن محمد المناوي、ID-Master 登録「المناوي」）。同名の #AIND-D10815（الشرف أبو بكر بن التاج المناوي、809年没）は الجوجري（889年没）に続けて師事した本項主の年代に合わないため除外。初版の幻番号 TMP-P-000321 を差し替え（cert medium）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D07896
+  passive: AIND-D04841
+  methods:
+  - TMP-S-00014
+  - TMP-S-00025
+  cert: medium
+  works:
+  - ref: wd:Q1023470
+  quote: الجوجري
+  note:
+    ja: '原文「ثم الجوجري وقرأ عنده البخاري」。الجوجري ＝ #AIND-D07896（الشمس الجوجري）。初版のプレースホルダ TMP-P-000000 を差し替え、同一師への لازم と قرأ の2 relation を1本に統合。'
+- id: r3
+  type: personal
+  subtype: spouse
+  active: NEEDID
+  passive: AIND-D04841
+  quote: null
+  note:
+    ja: 名不詳（الديمي の娘）。「وله منها أولاد」の子らは相手が描写されないため relation を立てない（規則14）。
+- id: r4
+  type: personal
+  subtype: father-in-law
+  active: AIND-D04876
+  passive: AIND-D04841
+  quote: الديمي
+  note:
+    ja: '原文「وصاهر الديمي على ابنته」。الديمي ＝ #AIND-D04876（عثمان بن محمد بن عثمان بن ناصر الفخر الديمي）。初版の幻番号 TMP-P-000215・subtype「other」を是正。'
+- id: r5
+  type: personal
+  subtype: father
+  active: TMP-P-001298
+  passive: AIND-D04841
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001298 を発行（汎用名、TSV に流用禁止を明記）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  orgs:
+  - ref: TMP-I-00187
+  quote: الشهادة
+  note:
+    ja: 原文「وتكسب بالشهادة في جامع الصالح」。جامع الصالح（カイロ、サーリフ・タラーイウ・モスク）は ID-Master 未登録のため TMP-I-00187 を発行（wd は要照合）。施設所在地からの placeName 補完は規則22(1)により除去。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  places:
+  - ref: wd:Q23975647
+    cert: medium
+    quote: الظاهرية
+  works:
+  - ref: wd:Q1023470
+  quote: null
+  summary:
+    ar: بل هو ممن سمع فيه بالظاهرية
+  note:
+    ja: '裸形「الظاهرية」はイブン・ハジャルの『صحيح البخاري』定例聴聞会場としての الظاهرية القديمة（wd:Q23975647）と解した（repo 先例 #AIND-D07583 等、B87 §D-26 裁定）。カイロには البرقوقية（#TMP-I-00029）もあるため cert medium。本項は師名を記さないため teacher relation（初版 active 空欄）は立てず event のみとした。'
+translation:
+  ja: ウスマーン・ブン・アフマド・ブン・ウスマーン、アル＝ファフル、アッ＝サフラジュティー、のちアル＝カーヒリー、アル＝アズハリー、アッ＝シャーフィイー。アル＝ムナーウィー、ついでアル＝ジャウジャリーに師事（密着）した者の一人で、後者のもとで『ブハーリー』を読誦し、さらには同書をアッ＝ザーヒリーヤで聴聞した者の一人でもある。ジャーミウ・アッ＝サーリフで証人業（シャハーダ）により生計を立て、アッ＝ディーミーの娘を娶ってその婿となり、彼女との間に子らをもうけた。没した。
+  en: ʿUthmān b. Aḥmad b. ʿUthmān, al-Fakhr, al-Ṣahrajtī, then al-Qāhirī, al-Azharī, al-Shāfiʿī. He was among those who attended al-Munāwī and then al-Jawjarī, under whom he read al-Bukhārī; indeed he was among those who heard it at al-Ẓāhiriyya. He earned his living as a notary witness at the Mosque of al-Ṣāliḥ, married the daughter of al-Daymī and had children by her. He died.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-27T17:29:17Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

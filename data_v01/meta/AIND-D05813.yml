@@ -1,0 +1,96 @@
+schema: aind-yaml/0.1
+id: AIND-D05813
+source:
+  uid: '772737610303'
+sex: M
+name:
+  full: عمر بن الزكي أبي بكر بن عبد الرحمن المصري القباني العطار
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00031
+    quote: المصري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00262
+    quote: القباني
+  - id: n3
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: الزكي أبي بكر
+    by: rule
+    ref: TMP-P-000809
+  - id: n5
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D05813
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بمكة」（規則2。原文にない field（الحديث）を除去）。
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-000809
+  passive: AIND-D05813
+  quote: null
+  note:
+    ja: '見出しナサブから。ID-Master 既登録 TMP-P-000809「الزكي أبو بكر بن عبد الرحمن المصري ثم المكي القباني العطار」（Note に子 علي D05080・إبراهيم D00075・أحمد D00594・عمر D05813）。corpus に本伝なし。兄弟 #AIND-D05080・甥 #AIND-D04871 の先例と同じ充当。初版に父 relation なし。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D00075
+  passive: AIND-D05813
+  quote: إبراهيم
+  note:
+    ja: '兄弟 إبراهيم ＝ #AIND-D00075「إبراهيم بن الزكي أبي بكر بن عبد الرحمن المصري القباني العطار بمكة أخو أحمد وعلي وعمر المذكورين في محالهم」。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: brother
+  active: AIND-D00594
+  passive: AIND-D05813
+  quote: أحمد
+  note:
+    ja: '兄弟 أحمد ＝ #AIND-D00594「أحمد بن الزكي أبي بكر بن عبد الرحمن المصري أخو إبراهيم وعلي وعمر ، ممن أخذ عني بمكة」（repo 収録済で本項主 #AIND-D05813 を brother として参照）。初版の #NEEDID を解消。'
+- id: r5
+  type: personal
+  subtype: brother
+  active: AIND-D05080
+  passive: AIND-D05813
+  quote: علي
+  note:
+    ja: '兄弟 علي ＝ #AIND-D05080「علي بن الزكي أبي بكر بن عبد الرحمن المصري ثم المكي القباني العطار أخو إبراهيم وأحمد وعمر」（repo 収録済で本項主を brother として参照）。初版の汚染番号 TMP-P-000530（登録実体は D04287 の兄弟 علي）を差し替え。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00034
+  quote: null
+  note:
+    ja: '兄弟 #AIND-D05080・甥 #AIND-D04871 の先例に揃え、職業的ニスバ القباني（秤量人）を state にも符号化。'
+- id: s2
+  type: office
+  ref: TMP-O-00012
+  quote: null
+translation:
+  ja: ウマル・ブン・アッ＝ザキー・アビー・バクル・ブン・アブド・アッ＝ラフマーン・アル＝ミスリー・アル＝カッバーニー・アル＝アッタール、イブラーヒーム・アフマド・アリーの兄弟。マッカで私から聴聞した者の一人。
+  en: ʿUmar b. al-Zakī Abī Bakr b. ʿAbd al-Raḥmān al-Miṣrī al-Qabbānī al-ʿAṭṭār, the brother of Ibrāhīm, Aḥmad and ʿAlī. He was among those who heard from me in Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T05:07:08Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

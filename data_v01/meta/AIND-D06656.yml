@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D06656
+source:
+  uid: '366355691661'
+sex: M
+name:
+  full: محمد بن أحمد بن حمزة السمنودي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00277
+    quote: السمنودي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: حمزة
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    ah: 843-08
+    cert: medium
+  places:
+  - ref: TMP-L-00226
+    quote: سمنود
+  summary:
+    ar: وقال لي إنه مات في شعبان سنة ثلاث وأربعين بسمنود
+  note:
+    ja: '甥 الجلال の口頭の申告による没年月（「قال لي إنه」＝cert medium、先例 #AIND-D08102・#AIND-D06003）。843年シャアバーン月＝1440-01-16 開始（h2g.py、月精度）。初版の @when 1439 を訂正。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06656
+  quote: null
+  note:
+    ja: 父 أحمد بن حمزة は汎用名で識別要素なし、corpus に本伝なし（hw.py「أحمد بن حمزة」の7件はマッカのハサン家・ハドウィー家ほかで別人）＝#NEEDID（規則3 (c')）。初版は父 relation なし。
+- id: r2
+  type: personal
+  subtype: siblings_child
+  active: AIND-D06755
+  passive: AIND-D06656
+  quote: الجلال
+  note:
+    ja: '「خال صاحبنا الجلال الآتي」＝本項主は الجلال の母方のおじ（active=相手＝姉妹の子、規則15）。الجلال＝corpus 本伝 #AIND-D06755「محمد بن أحمد بن علي بن محمد بن علي … الجلال بن الولوى المحلى ثم السمنودى الشافعي الرفاعي ويعرف بابن المحلى . ولد … سنة خمس وعشرين وثمانمائة بسمنود … وأخذ الفقه عن خاله الشمس محمد بن أحمد بن حمزة الماضي」（相手側が本項主を名指し＝閉合。手がかりはブリーフの D04000「ابن عم الجلال محمد بن أحمد الآتي」）。相手側は本項主のラカブを「الشمس」とするが本項にはない＝属性は補わない（規則23）。初版は #NEEDID。ID-Master の TMP-P-000852「الجلال السمنودي الميقاتي」（D03713 の弟子、Note「立項なし」）は同じ人物とみられる＝名寄せ要（ISSUES §D173-1）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D06656
+  passive: AIND-D06755
+  methods:
+  - TMP-S-00008
+  quote: null
+  note:
+    ja: '「أخذ عنه ابن أخته الفقه」＝甥が本項主から法学を学んだ（本項主が師）。初版は subtype student・passive #NEEDID。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06755
+  quote: وقال
+  summary:
+    ar: وقال لي إنه مات في شعبان سنة ثلاث وأربعين بسمنود
+  note:
+    ja: Pattern A。没年月・没地の情報源＝甥 الجلال（#AIND-D06755）がサハーウィーに口頭で伝えた（規則44）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ハムザ・アッ＝サマンヌーディー、シャーフィイー派。後出の私たちの仲間アル＝ジャラールの母方のおじ。その姉妹の子（アル＝ジャラール）が彼から法学を学び、彼が（8）43年シャアバーン月にサマンヌードで没したと私に語った。
+  en: Muḥammad b. Aḥmad b. Ḥamza al-Samannūdī, the Shāfiʿī, maternal uncle of our companion al-Jalāl, who will come below. His sister's son learned jurisprudence from him, and told me that he died in Shaʿbān of the year [8]43 in Samannūd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T07:46:17Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

@@ -1,0 +1,99 @@
+schema: aind-yaml/0.1
+id: AIND-D07025
+source:
+  uid: '518676036452'
+sex: M
+name:
+  full: محمد بن أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء الأنصاري الأخميمي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00049
+    quote: null
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00245
+    quote: الأخميمي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001448
+  - id: n5
+    type: nasab
+    quote: الشيخ البهاء الأنصاي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001448
+  passive: AIND-D07025
+  quote: null
+  note:
+    ja: '父名 أحمد は見出し。祖父以下は本文「فجده محمد بن محمد بن عبد الوهاب بن البهاء」と転送見出し #AIND-D06915「محمد بن أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء الأنصاري الأخميمي الماضي ولده وحفيده . يأتي في أواخر محمد بن أحمد فيمن لم يسم جده بل وصف بالشيخ」（＝本項を指す）から復元。corpus に本伝なし → TMP-P-001448。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001449
+  passive: AIND-D07025
+  quote: محمد بن محمد بن عبد الوهاب بن البهاء
+  note:
+    ja: 「وحينئذ فجده محمد بن محمد بن عبد الوهاب بن البهاء」（原文明記）。corpus に本伝なし（hw.py「محمد بن محمد بن عبد الوهاب」）→ TMP-P-001449。
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D01241
+  passive: AIND-D07025
+  quote: null
+  note:
+    ja: '規則37: 転送見出し D06915「الماضي ولده وحفيده」と #AIND-D01241（أحمد بن محمد بن أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء الشهاب ابن العدل الشمس … الأخميمي … الحنفي، 863没、「والد الناصري محمد وعلي الآتيين」）のナサブ一致により息子を同定。'
+- id: r4
+  type: personal
+  subtype: grandson
+  active: AIND-D06838
+  passive: AIND-D07025
+  quote: null
+  note:
+    ja: '「وهو جد قاضي الحنفية الآن ناصر الدين محمد بن أحمد」。ناصر الدين الأخميمي ＝ #AIND-D06838（محمد بن أحمد بن محمد بن أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء القاضي ناصر الدين … الأخميمي … الحنفي、837生。ID-Master 登録済み）。ナサブ2代上が本項主と一致。初版は subtype="other"・#NEEDID。'
+- id: r5
+  type: personal
+  subtype: possible_identity
+  active: AIND-D06675
+  passive: AIND-D07025
+  cert: high
+  quote: null
+  note:
+    ja: '#AIND-D06675「محمد بن أحمد بن الشيخ البهاء الأنصاري الأخميمي . ذكره النجم بن فهد في معجم أبيه التقى هكذا مجردا」は見出し・言及元（ابن فهد の معجم）とも本項と一致＝同一人物の二重立項。転送指示がないため REF 化せず二重立項型（Waka 裁定 2026-09-08）、cert high。D06675 側の逆方向 relation は申し送り（§D115-3）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: التقي بن فهد
+  works:
+  - ref: TMP-T-00138
+  quote: ذكره
+  summary:
+    ar: ذكره التقي بن فهد في معجمه هكذا مجردا
+  note:
+    ja: 'Pattern A。「في معجمه」の原文明示＝ #AIND-D09211（التقي بن فهد）、معجم ابن فهد ＝ TMP-T-00138。初版の統制外 subtype「mentioned by」relation を event 化。'
+  trigger: rule
+notes:
+- text: '見出しは「محمد بن أحمد بن الشيخ البهاء」（ابن فهد の記載どおり）だが、サハーウィーは本文で祖父を「محمد بن محمد بن عبد الوهاب بن البهاء」と訂正・補足している。persName full はこれと転送見出し #AIND-D06915（本項を指す REF）により復元した。孫 ناصر الدين（#AIND-D06838）の弟 علي（#AIND-D05023、D01241「والد الناصري محمد وعلي」）も本項主の孫だが本項の原文にはないため relation は立てない（規則23）。ニスバ索引 #AIND-D11416（الاخميمي）にも ناصر الدين の系譜が列挙されている。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アッ＝シャイフ・アル＝バハー・アル＝アンサーリー・アル＝アフミーミー。アッ＝タキー・ブン・ファハドがその『ムウジャム』で、このように〔名のみを〕裸で挙げている。彼は現在のハナフィー派カーディー、ナースィル・アッ＝ディーン・ムハンマド・ブン・アフマドの祖父であり、したがって彼〔本項主〕の祖父はムハンマド・ブン・ムハンマド・ブン・アブド・アル＝ワッハーブ・ブン・アル＝バハーである。
+  en: Muḥammad b. Aḥmad b. al-Shaykh al-Bahāʾ al-Anṣārī al-Akhmīmī. Al-Taqī b. Fahd mentioned him in his Muʿjam thus, bare [of any detail]. He is the grandfather of the present Ḥanafī qāḍī Nāṣir al-Dīn Muḥammad b. Aḥmad, and accordingly his [own] grandfather is Muḥammad b. Muḥammad b. ʿAbd al-Wahhāb b. al-Bahāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T08:45:28Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

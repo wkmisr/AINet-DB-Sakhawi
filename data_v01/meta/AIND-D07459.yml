@@ -1,0 +1,64 @@
+schema: aind-yaml/0.1
+id: AIND-D07459
+source:
+  uid: '852695848167'
+sex: M
+name:
+  full: محمد بن سليمان الفيومي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00057
+    quote: الفيومي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: سليمان
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07459
+  quote: null
+  note:
+    ja: '裸名のみのため #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00116
+  places:
+  - ref: gn:104515
+    quote: مكة
+  orgs:
+  - ref: TMP-I-00167
+  quote: بواب
+  note:
+    ja: الزمامية＝マッカの施設（corpus D02583「الخانقاه الزمامية بمكة」、D00548「المدرسة الزمامية」、D00486「مشيخة الزمامية」）。ID-Master 未登録（Office زمام/زمام دار・Institution وقف الزمام は別実体）のため新規 TMP-I-00167。placeName مكة は原文「بمكة」による（規則22-2）。初版の重複 affiliation（employed、#NEEDID）と、ニスバ・職の所在地由来の residence event（مكة）を除去（規則8・22-1）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: ذكره
+  summary:
+    ar: ذكره ابن فهد مجردا
+  cert: low
+  note:
+    ja: Pattern A。「في معجمه」の明示なし・没年不明 → 規約により التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「mentioned_by」relation を event に置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・スライマーン・アル＝ファイユーミー、マッカのザマーミーヤ（学院）の門番。イブン・ファハドが（詳細なしに）名のみを挙げている。
+  en: Muḥammad b. Sulaymān al-Fayyūmī, the doorkeeper of al-Zamāmiyya in Mecca. Ibn Fahd mentioned him with the bare name only.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T02:54:32Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

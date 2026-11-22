@@ -1,0 +1,121 @@
+schema: aind-yaml/0.1
+id: AIND-D10455
+source:
+  uid: '884268355910'
+sex: M
+name:
+  full: يوسف بن بابا بن عمر بن محمود بن رستم الجمال الكدواني الكردي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05198
+    quote: الكدواني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00164
+    quote: الكردي
+  - id: n3
+    type: laqab
+    quote: الجمال
+  - id: n4
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n5
+    type: nasab
+    quote: بابا
+    by: rule
+    ref: TMP-P-001731
+  - id: n6
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمود
+    by: rule
+  - id: n8
+    type: nasab
+    quote: رستم
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001731
+  passive: AIND-D10455
+  quote: null
+  note:
+    ja: 父 بابا は珍しい名（それ自体が識別要素、規則3）で、見出しナサブから祖父以上（عمر بن محمود بن رستم）まで復元できる → 仮 TMP-P-001731。corpus に本伝なし（見出し検索「بابا」「الكدواني」）、ID-Master 未登録。初版は父 relation なし＝追加。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D10455
+  methods:
+  - TMP-S-00014
+  - TMP-S-00008
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    - ref: gn:109223
+      quote: المدينة
+  quote: لازمني
+  note:
+    ja: 「لازمني بمكة والمدينة فأخذ عني أشياء دراية ورواية」（規則2 の「ممن لازمني」「أخذ عني」型）。地名は原文明記（規則22(2)）。初版は地ごとに2本の relation に分けていた＝1本に統合。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D10455
+  methods:
+  - TMP-S-00004
+  works:
+  - ref: TMP-T-00271
+  quote: عني
+  note:
+    ja: '「وكتبت له إجازة عينت شيئا منها في الكبير」＝サハーウィーがイジャーザを書き、その一部を自著『الكبير』に記した。『الكبير』＝サハーウィーの『التاريخ الكبير』（corpus「في الكبير」16箇所、「التاريخ الكبير／تاريخي الكبير」63箇所）。ID-Master 未登録 → 仮 TMP-T-00271（先例 D02815「أثبت بعضها في تاريخ المدينة」と同じく、収録先を bibl に置く）。初版 #NEEDID。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: residence
+  date:
+    ah: 899
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: null
+  summary:
+    ar: وهو الآن سنة تسع وتسعين بالمدينة على خير كبير وتجرع فاقة
+  note:
+    ja: 執筆時点（899年＝1493-10-21 開始、年精度）でマディーナ在住。初版の cert="high" を除去。
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: ويحج منها كل سنة
+  note:
+    ja: 毎年マディーナから巡礼に出る。placeName は حج の語義の展開（規則20）。
+notes:
+- text: 「الكدواني بضم الكاف ثم دال مهملة نسبة لقبيلة من الأكراد」はニスバの読みと由来（クルドの一部族）の説明＝event ではない。初版の visit event（مكة、「Accompanied the author in Mecca」）は師弟 relation の event と重複するため除去。
+  lang: ja
+  type: editorial
+translation:
+  ja: ユースフ・ブン・バーバー・ブン・ウマル・ブン・マフムード・ブン・ルスタム、アル＝ジャマール、アル＝クドワーニー（カーフにダンマ、ついで点のないダール。クルドの一部族への帰属）、アル＝クルディー、アッ＝シャーフィイー。善良な人物で、マッカとマディーナで私（サハーウィー）に師事し、私からいくつかのものを理解（ディラーヤ）と伝承（リワーヤ）の両面で学んだ。私は彼にイジャーザを書き与え、その一部を『大（史）』に記した。現在、（8）99年、彼はマディーナにあって、大いなる徳を保ち、困窮に耐えており、毎年そこから巡礼に出ている。
+  en: Yūsuf b. Bābā b. ʿUmar b. Maḥmūd b. Rustam, al-Jamāl, al-Kudwānī (with ḍamma on the kāf, then an undotted dāl; a nisba to a tribe of the Kurds), al-Kurdī, al-Shāfiʿī. A good man who attached himself to me (al-Sakhāwī) in Mecca and Medina and took from me a number of things, both by way of understanding (dirāya) and transmission (riwāya). I wrote an ijāza for him, part of which I specified in al-Kabīr. He is now, in the year [8]99, in Medina, in great goodness and enduring poverty, and he performs the pilgrimage from there every year.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:39:44Z'
+  model_requested: gemini-3.5-flash

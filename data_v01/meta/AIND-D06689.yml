@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D06689
+source:
+  uid: '924852435155'
+sex: M
+name:
+  full: محمد بن أحمد بن عبد الرحمن الشمس الزرندي المدني الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00205
+    quote: الزرندي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001760
+  - id: n6
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001760
+  passive: AIND-D06689
+  quote: null
+  note:
+    ja: '父 أحمد بن عبد الرحمن は corpus に本伝なし（hw.py「أحمد بن عبد الرحمن」＋「الزرندي」は本項と兄弟項の2件のみ）。本伝のある兄弟 #AIND-D03563 と共有する父＝仮 TMP-P-001760（規則3 (c'')、先例 TMP-P-001733）。初版は父 relation なし。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D03563
+  passive: AIND-D06689
+  cert: medium
+  quote: null
+  note:
+    ja: '本項の原文は兄弟に触れないが、相手側 #AIND-D03563「عبد الرحمن بن أحمد بن عبد الرحمن الزين الزرندي المدني الحنفي أخو محمد الآتي . ممن سمع مني بالمدينة」（repo 収録済み）が本項主を「أخو محمد الآتي」と名指しし、ナサブ・ニスバ・学派が一致＝規則23 により cert medium で補った（D03563 側には本項への brother relation が既にある）。ブリーフに記載なし。'
+- id: r3
+  type: personal
+  subtype: maternal_uncle
+  active: NEEDID
+  passive: AIND-D06689
+  quote: null
+  note:
+    ja: '「ابن أخت القاضي」＝本項主は「カーディー」の姉妹の子（カーディーが母方のおじ）。カーディーの名は挙がらない＝#NEEDID（規則12、desc は続柄＋本項主の呼称）。候補: マディーナのハナフィー派カーディーを出した同じ الزرندي 家の #AIND-D05162（علي بن سعيد … قاضيها الحنفي）・#AIND-D03092（سعد بن محمد … قاضيها الحنفي）。#AIND-D11153「ابن أخي قاضيها الحنفي ممن سمع مني بها」も同じ言い方だが、どのカーディーかは原文から決まらない（規則26）。初版は subtype uncle・desc「القاضي」。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D06689
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+    summary:
+      ar: ممن سمع مني بالمدينة
+  quote: مني
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アブド・アッ＝ラフマーン、アッ＝シャムス・アッ＝ザランディー・アル＝マダニー、ハナフィー派。カーディーの姉妹の子。マディーナで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. Aḥmad b. ʿAbd al-Raḥmān, al-Shams al-Zarandī al-Madanī, the Ḥanafī, son of the qāḍī's sister. One of those who heard from me in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T08:50:25Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

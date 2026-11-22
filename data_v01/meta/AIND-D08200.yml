@@ -1,0 +1,75 @@
+schema: aind-yaml/0.1
+id: AIND-D08200
+source:
+  uid: '911871170059'
+sex: M
+name:
+  full: محمد بن علي بن محمود المكي الكيال
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: laqab
+    quote: الكيال
+  - id: n3
+    type: shuhrah
+    quote: المجنون
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمود
+    by: rule
+death:
+  id: d
+  date:
+    ah: 888-01-17
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: wd:Q42004
+    quote: المعلاة
+  note:
+    ja: 「مات بها في يوم الثلاثاء سابع عشر المحرم سنة ثمان وثمانين ودفن بالمعلاة」。「بها」は直前の مكة（規則22(3)、cert 不要）。888-01-17＝1483-03-06（火曜、h2g.py で曜日一致）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08200
+  quote: null
+  note:
+    ja: 規則3 (c')。父 علي بن محمود المكي は裸の汎用名で識別要素なし。hw.py「علي بن محمود」の該当（#AIND-D05640〜D05645 ほか）にマッカの الكيال 家はない。ID-Master 未登録。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08200
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: مني
+notes:
+- text: '通称索引 #AIND-D11354「المجنون الكيال بمكة محمد بن علي بن محمود」は本項主を指す索引見出し。「الكيال」（計量人）は職業由来の呼称なので laqab とした（初版は nisbah #NEEDID）。初版のニスバ由来 residence event（مكة）と、death の埋葬地と二重になる affiliation type="buried"（المعلاة）を除去（規則22(1)・規則8）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・マフムード・アル＝マッキー・アル＝カイヤール（計量人）。アル＝マジュヌーンとして知られる。マッカで私（サハーウィー）から聴聞した者の一人。888年ムハッラム月17日火曜日に同地（マッカ）で没し、マアラー墓地に葬られた。
+  en: Muḥammad b. ʿAlī b. Maḥmūd al-Makkī al-Kayyāl (the measurer), known as al-Majnūn. He was among those who heard from me (al-Sakhāwī) in Mecca. He died there on Tuesday, 17 Muḥarram 888, and was buried at al-Muʿallā.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-01T12:26:01Z'
+  model_requested: gemini-3.5-flash

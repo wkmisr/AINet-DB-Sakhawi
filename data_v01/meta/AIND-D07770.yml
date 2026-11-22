@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D07770
+source:
+  uid: '859041392765'
+sex: M
+name:
+  full: محمد بن عبد الله بن حسين الشمس النويري ثم القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00098
+    quote: النويري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001205
+  - id: n6
+    type: nasab
+    quote: حسين
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    ah: 760
+    cert: low
+  note:
+    ja: 没年 860 と「عن نحو المائة فالله أعلم」からの逆算（760 頃）。サハーウィー自身が留保（فالله أعلم）を付す。cert low。760-01-01 ＝ 1358-12-11（初版の 1359 を是正）。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 860
+  note:
+    ja: 「ومات في سنة ستين عن نحو المائة فالله أعلم」。860-01-01 ＝ 1455-12-20（h2g.py、初版の 1456 を是正）。没地の記載なし。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001205
+  passive: AIND-D07770
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。
+- id: r2
+  type: personal
+  subtype: grandson
+  active: AIND-D09108
+  passive: AIND-D07770
+  quote: جد البدر النويري لأمه
+  note:
+    ja: '母方の孫（سبط）。البدر النويري ＝ #AIND-D09108「محمد بن محمد بن محمد بن عبد الرحيم بن إبراهيم البدر أبو الفضل بن التقي أبي الخير بن الشمس الحنفي سبط الشمس محمد بن عبد الله بن حسين النويري أحد قراء السبع من الشافعية ولذا اشتهر هذا بالنويري」（835 生）。転送見出し #AIND-D09260・無番号索引「محمد البدر النويري الحنفي . مضى في ابن محمد بن محمد بن محمد بن عبد الرحيم بن إبرهيم」も同人を指す。本項主の名・ナサブ・ラカブ・七読誦・シャーフィイー派が D09108 の記述と完全に一致。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09108
+    quote: سبطه
+  quote: ذكر
+  summary:
+    ar: ذكر لي سبطه أنه حفظ الشاطبية والتنبيه وغيرهما وأنه تلا بالسبع
+  note:
+    ja: Pattern A（情報源は孫 البدر النويري、聞き手はサハーウィー）。
+  trigger: rule
+- id: e2
+  type: cultural
+  works:
+  - ref: TMP-T-00015
+  - ref: wd:Q108806953
+  quote: حفظ الشاطبية والتنبيه وغيرهما
+  note:
+    ja: 師の記載がないため初版の active 空欄 teacher relation 2件を暗記の cultural event に変換。التنبيه はブリーフの確定ID wd:Q108806953（ID-Master の TMP-T-00161 は同書＝要統合）。
+- id: e3
+  type: cultural
+  quote: وأنه تلا بالسبع
+  note:
+    ja: 七読誦法による朗誦（TMP-S-00013 القراءات السبع）。師の記載がないため relation にしない。
+- id: e4
+  type: teaching
+  quote: وكان متميزا يقرئ القراآت والفقه
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・フサイン、アッ＝シャムス・アン＝ヌワイリー、のちにアル＝カーヒリー、シャーフィイー派。アル＝バドル・アン＝ヌワイリーの母方の祖父。その外孫が私に語ったところでは、彼は『シャーティビーヤ』や『タンビーフ』などを暗記し、七読誦法で朗誦した。彼は傑出しており、クルアーン読誦学と法学を教授していた。（8）60年に100歳前後で没した――アッラーが最もよく知りたもう。
+  en: Muḥammad b. ʿAbd Allāh b. Ḥusayn, al-Shams al-Nuwayrī, then al-Qāhirī, the Shāfiʿī, maternal grandfather of al-Badr al-Nuwayrī. His grandson told me that he memorised al-Shāṭibiyya, al-Tanbīh and other works, and that he recited according to the seven readings. He was distinguished and taught the Qurʾānic readings and jurisprudence. He died in (8)60 at about a hundred years of age, but God knows best.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T08:19:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

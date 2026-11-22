@@ -1,0 +1,91 @@
+schema: aind-yaml/0.1
+id: AIND-D06367
+source:
+  uid: '137254418007'
+sex: M
+name:
+  full: قمش
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00114
+    quote: null
+  - id: n2
+    type: ism
+    quote: قمش
+    by: rule
+death:
+  id: d
+  date:
+    ah: 817
+  note:
+    ja: 「ممن قتله المؤيد سنة سبع عشرة」＝アル＝ムアイヤド・シャイフに殺された。817年＝1414-04-01 開始（h2g.py、年精度）。没地の記載なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06367
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02178
+  passive: AIND-D06367
+  quote: برقوق
+  note:
+    ja: 「أحد الأمراء المقدمين من الظاهرية برقوق」＝الظاهر برقوق（#AIND-D02178）のマムルーク（ニスバ الظاهري）。repo 先例どおり主人 patron。初版は relation なし。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00083
+  quote: null
+  note:
+    ja: 「أحد الأمراء المقدمين」＝مقدم ألف（規則48）。初版の state「أمير」（O-00014）と「مقدم」（#NEEDID）の2本を1本に統合。
+- id: s2
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: gn:266826
+    quote: طرابلس
+  quote: نائب
+  note:
+    ja: ref は汎用 نائب（TMP-O-00053、repo 先例「نائب طرابلس」）。
+events:
+- id: e1
+  type: political
+  date:
+    ah: 817
+  persons:
+  - ref: AIND-D03345
+    quote: المؤيد
+  quote: قتله
+  summary:
+    ar: ممن قتله المؤيد سنة سبع عشرة
+  note:
+    ja: 'المؤيد＝アル＝ムアイヤド・シャイフ（#AIND-D03345、在位815–824）。初版の「rival」relation（汚染番号 #TMP-P-000844）を event の persName に変換（規則14・31）。'
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: أرخه
+  summary:
+    ar: أرخه العيني
+  note:
+    ja: 'Pattern A。初版の統制外 relation（chronicler #NEEDID）を変換。'
+  trigger: rule
+translation:
+  ja: クムシュ、アッ＝ザーヒル・バルクークのマムルーク出身の千人隊アミール（ムカッダム）の一人で、トリポリの副王。817年にアル＝ムアイヤドに殺された者の一人。アル＝アイニーが没年を記している。
+  en: Qumush, one of the commanders of a thousand (muqaddam) from among the mamlūks of al-Ẓāhir Barqūq, and viceroy of Tripoli. He was among those whom al-Muʾayyad had killed in the year 817. Al-ʿAynī recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T17:41:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

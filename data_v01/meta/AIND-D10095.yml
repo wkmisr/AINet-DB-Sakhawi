@@ -1,0 +1,107 @@
+schema: aind-yaml/0.1
+id: AIND-D10095
+source:
+  uid: '730689719797'
+sex: M
+name:
+  full: موسى بن محمد بن يوسف الشرف المخزومي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00088
+    quote: المخزومي
+  - id: n2
+    type: laqab
+    quote: الشرف
+  - id: n3
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: يوسف
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10095
+  quote: null
+  note:
+    ja: 父 محمد بن يوسف المخزومي は汎用名で識別要素なし（規則3 (c')）。corpus に本伝なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D10095
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: 「وسمع مع الجماعة علي」＝「عليّ（私に）」＝サハーウィーから一団とともに聴聞（規則2・ブリーフ）。場所・年は原文にこの句に明記なし（直前の「جاور سنتين بعدها」から推せるが規則22(1) により補完しない）＝初版の relation 内 event（when 0892・placeName مكة）と field desc（الحديث）を除去。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D04999
+  passive: AIND-D10095
+  methods:
+  - TMP-S-00003
+  quote: ابن الشوائطي
+  note:
+    ja: '「ومع ابن جرباش على ابن الشوائطي」。ابن الشوائطي＝#AIND-D04999「علي بن أحمد بن علي بن عمر … نور الدين ابن الشهاب أبي العباس الكلاعي الحميري اليماني المكي مولدا الشافعي الماضي أبوه والآتي أخوه محمد ويعرف بابن الشوائطي … المقرئ . ولد … سنة عشرين وثمانمائة بمكة … بل حدث في سنة ثلاث وتسعين ونسخ فيها وفي التي تليها أشياء من تصانيفي」（通称「ابن الشوائطي」の明示・マッカ・893年に伝授活動＝本項主のマッカ滞在892〜894年と一致、3点で閉合、規則57）。兄 #AIND-D06752 الجمال محمد は84X年カイロ没で除外、父 #AIND-D01037 الشهاب الشوايطي は863年没で除外。初版 #NEEDID、初版の field desc（الحديث）と placeName مكة（この句に地名なし）を除去。'
+- id: r4
+  type: personal
+  subtype: colleague
+  active: AIND-D07301
+  passive: AIND-D10095
+  quote: ابن جرباش
+  note:
+    ja: '「ومع ابن جرباش على ابن الشوائطي」＝ابن جرباش とともに聴聞（同学者）。ابن جرباش＝#AIND-D07301「محمد بن جرباش محب الدين المحمدي الأشرفي الحنفي … وحج في موسم سنة اثنتين وتسعين وجاور التي بعدها ، ولازمني … وكذا قرأ على المحب الطبري الإمام وغيره رواية」（通称 ابن جرباش・892年の巡礼・翌年のマッカ滞在が本項主と一致＝閉合、規則57）。初版 #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00394
+  quote: المعامل بالطباق السلطانية
+  note:
+    ja: '見出し「المعامل بالطباق السلطانية」＝スルターンの兵舎（الطباق）で（マムルークと）取引・金融を営む者。ID-Master の Office を語根 عمل・طبق で grep: 該当なし（تعليم المماليك بالطباق TMP-O-00194・مقدم الطباق TMP-O-00360 は別職）→ 新規 TMP-O-00394。先例（D05635・D02817）どおり الطباق は orgName にせず label に含める＝初版の orgName #NEEDID と placeName القاهرة（原文になし）を除去。'
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  date:
+    ah: 892
+  places:
+  - ref: gn:104515
+  quote: حج
+  note:
+    ja: 「حج في موسم سنة اثنتين وتسعين」＝892年（1487-01-06〜12-25、h2g.py、年精度）。placeName مكة は規則20 の例外。初版の cert="high" を除去（原文に不確定要素なし）。
+  trigger: rule
+- id: e2
+  type: residence
+  subtype: jāwara
+  date:
+    notBefore: 893
+    notAfter: 894
+    cert: medium
+  quote: وجاور
+  cert: medium
+  note:
+    ja: '「وجاور سنتين بعدها」＝892年の巡礼の後2年滞在（جاور）＝893〜894年と読む（先例 #AIND-D00020「巡礼翌年を جاور の年とする、cert medium」）。893＝1487-12-26 開始、894 の年末＝1489-12-03（h2g.py）。規則20 により جاور には placeName を付けない（初版の مكة を除去）。初版の when-custom 0892・cert high を置換。'
+  trigger: rule
+- id: e3
+  type: religious
+  quote: وكان يكثر الطواف والصدقة وحضور المواعيد ويذكر في الجملة بخير بالنسبة لطائفته
+translation:
+  ja: ムーサー・ブン・ムハンマド・ブン・ユースフ、アッ＝シャラフ・アル＝マフズーミー、スルターンの兵舎（ティバーク）で取引を営む者。892年の巡礼期に巡礼し、その後2年間滞在（ジャーワラ）した。一団とともに私（サハーウィー）から聴聞し、またイブン・ジャルバーシュとともにイブン・アッ＝シャワーイティーから聴聞した。タワーフと施しと説教の集会への出席を多く行い、その同業の人々と比べれば概して善く語られている。
+  en: Mūsā b. Muḥammad b. Yūsuf, al-Sharaf al-Makhzūmī, the dealer (muʿāmil) at the sultan's barracks (al-ṭibāq al-sulṭāniyya). He performed the pilgrimage in the season of the year [8]92 and stayed on (jāwara) for two years after it. He heard, together with the group, from me (al-Sakhāwī), and together with Ibn Jarbāsh from Ibn al-Shawāʾiṭī. He performed the circumambulation and gave alms frequently and attended the preaching sessions, and on the whole he is spoken of well, relative to his class of people.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T02:04:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

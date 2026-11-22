@@ -1,0 +1,168 @@
+schema: aind-yaml/0.1
+id: AIND-D05933
+source:
+  uid: '739204150038'
+sex: M
+name:
+  full: عمر بن محمد بن أحمد بن علي بن الحسن بن جامع السراج بن الشمس أبا المعالي الدمشقي المقري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00137
+    quote: المقري
+  - id: n3
+    type: laqab
+    quote: السراج
+  - id: n4
+    type: shuhrah
+    quote: ابن اللبان
+  - id: n5
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001408
+  - id: n7
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n9
+    type: nasab
+    quote: الحسن
+    by: rule
+  - id: n10
+    type: nasab
+    quote: جامع
+    by: rule
+  - id: n11
+    type: nasab
+    quote: الشمس أبا المعالي
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 750
+    cert: low
+  note:
+    ja: 逆算。「مات في شعبان سنة ثلاثين عن نحو ثمانين سنة」→ 830 − 約80 ＝ 750 頃（cert low）。750 ＝ 1349-03-30〜1350-03-18、年初 1349（h2g.py）。
+death:
+  id: d
+  date:
+    ah: 830-08
+  summary:
+    ar: مات في شعبان سنة ثلاثين عن نحو ثمانين سنة
+  note:
+    ja: 830-08 ＝ 1427-06-06〜07-04、月初 1427-06（h2g.py）。没地は原文にない。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001408
+  passive: AIND-D05933
+  quote: والده
+  note:
+    ja: '見出し「السراج بن الشمس أبا المعالي」。クンヤ أبو المعالي は父のもの（ニスバ索引 #AIND-D12696「ابن اللبان عمر بن أبي المعالي محمد بن أحمد بن علي بن الحسن المقري ابن المقري」）。父もダマスクスの قارئ。corpus に本伝なし（D00886 أحمد بن عبد الله … ابن اللبان は別人）・ID-Master 未登録 → TMP-P-001408。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001408
+  passive: AIND-D05933
+  methods:
+  - TMP-S-00008
+  quote: null
+  note:
+    ja: 「أخذ القراءات عن والده」。師＝父（TMP-P-001408）。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-000297
+  passive: AIND-D05933
+  methods:
+  - TMP-S-00010
+  quote: الشمس العسقلاني
+  note:
+    ja: 「وتلا بالعشر على الشمس العسقلاني فيما أفاده ابن الجزري」。الشمس العسقلاني ＝ TMP-P-000297（ID-Master 登録名一致）。イブン・アル＝ジャザリーの伝聞による（mention event 参照）。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: TMP-P-000674
+  passive: AIND-D05933
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: wd:Q886659
+  quote: أحمد بن عبد الكريم البعلي
+  note:
+    ja: 「وقال أنه سمع صحيح مسلم على أحمد بن عبد الكريم البعلي」（イブン・ハジャル『معجم』の記載による）。أحمد بن عبد الكريم البعلي ＝ TMP-P-000674（D02525 でも同書の師）。末尾の「أجاز لنا」はイブン・ハジャルの معجم からの引用文中の語（本項主は830年没、サハーウィーは831年生で、サハーウィーへの إجازة は不可能）。校閲時は البعلي → イブン・ハジャルと読んだが、イブン・ハジャル『المعجم المفهرس』の各項は収録理由として「（本項主が）我々にイジャーザを与えた」と記すのが定型であり、البعلي の活動は770年代（D03720「سنة اثنتين وسبعين وسبعمائة」）で773年生のイブン・ハジャルへの授与者としては不自然なため、集約時に本項主 → イブン・ハジャルの إجازة と読み替え、student relation n="5" を追加した（内容検証B M-10、§D108-2）。初版の field（الحديث）は原文になく除去。
+- id: r5
+  type: personal
+  subtype: teacher
+  active: AIND-D05933
+  passive: AIND-D06012
+  methods:
+  - TMP-S-00008
+  cert: medium
+  quote: null
+  note:
+    ja: 規則23。#AIND-D06012「عمر بن يعقوب بن أحمد أبو حفص الطيبي ثم الدمشقي المقرئ الضرير أخذ القراءات عن الزين عمر بن اللبان الماضي بأخذه لها عن أبيه」。「الماضي」のあるダマスクスの ابن اللبان 家の عمر で「父から諸読誦法を取得」した点が本項と一致するが、相手側のラカブは الزين（本項は السراج）→ cert medium。なお「الماضي」が指しうる عمر بن اللبان は corpus で本項のみ（内容検証B M-15）。ID-Master の TMP-P-000458「الزين بن اللبان」（D00420 の師、ダマスクス）・TMP-P-000363「ابن اللبان」（D00730 の師）は本項主と同一人物の候補（ラカブ الزين／السراج の揺れ）＝名寄せ候補として ID-Master要対応に記載。
+- id: r6
+  type: personal
+  subtype: teacher
+  active: AIND-D05933
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00004
+  quote: شيخنا
+  note:
+    ja: 「أجاز لنا」（イブン・ハジャル『معجم』引用末尾）。『المعجم المفهرس』の定型により本項主がイブン・ハジャル（我々）にイジャーザを与えたと読む（集約時に追加、内容検証B M-10）。別読み（البعلي → イブン・ハジャル）は n="3" の note を参照。
+events:
+- id: e1
+  type: cultural
+  quote: وتصدر للإقراء وكان ساكنا سليم الباطن عالية في الشطرنج
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09163
+    quote: ابن الجزري
+  quote: ذكره
+  summary:
+    ar: فيما أفاده ابن الجزري
+  note:
+    ja: Pattern A。ابن الجزري ＝ الشمس محمد بن محمد الجزري（wd:Q4120093、repo 先例多数。ID-Master では TMP-P-000069 と要名寄せ印）。初版の統制外 subtype「other」relation を event に変換。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00034
+  - ref: TMP-T-00104
+  quote: وقال
+  summary:
+    ar: ذكره شيخنا في إنبائه وأورده في معجمه باختصار
+  note:
+    ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034、معجمه ＝ TMP-T-00104『المعجم المفهرس』。初版の統制外 subtype「other」relation を event に変換。
+  trigger: rule
+translation:
+  ja: ウマル・ブン・ムハンマド・ブン・アフマド・ブン・アリー・ブン・アル＝ハサン・ブン・ジャーミウ、アッ＝シラージュ・ブン・アッ＝シャムス・アブー・アル＝マアーリー、アッ＝ディマシュキー、クルアーン読誦家。イブン・アッ＝ラッバーンとして知られる。父から諸読誦法を取得し、イブン・アル＝ジャザリーが伝えるところでは、アッ＝シャムス・アル＝アスカラーニーのもとで十読誦法により朗誦した。読誦教授の座に就き、穏やかで心の清い人で、チェス（シャトランジ）に長じていた。（8）30年シャアバーン月に約80歳で没した。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及し、『ムウジャム』にも簡略に収めて、彼がアフマド・ブン・アブドゥルカリーム・アル＝バアリーのもとで『サヒーフ・ムスリム』を聴聞したと述べている。彼（本項主）は我々にイジャーザを与えた。
+  en: ʿUmar b. Muḥammad b. Aḥmad b. ʿAlī b. al-Ḥasan b. Jāmiʿ, al-Sirāj b. al-Shams Abū al-Maʿālī, al-Dimashqī, the Qurʾān reciter, known as Ibn al-Labbān. He took the readings from his father and recited according to the ten readings to al-Shams al-ʿAsqalānī, as Ibn al-Jazarī reports. He presided over the teaching of recitation; he was calm and pure of heart, and excelled at chess. He died in Shaʿbān of the year (8)30, aged about eighty. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and included him briefly in his Muʿjam, saying that he heard Ṣaḥīḥ Muslim from Aḥmad b. ʿAbd al-Karīm al-Baʿlī. He granted us (Ibn Ḥajar) an ijāza.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T05:29:15Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

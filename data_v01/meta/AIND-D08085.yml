@@ -1,0 +1,96 @@
+schema: aind-yaml/0.1
+id: AIND-D08085
+source:
+  uid: '162763343275'
+sex: M
+name:
+  full: محمد بن علي بن سنان بن عبد الله بن عمر بن مسعود العمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05474
+    quote: العمري
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05170
+  - id: n4
+    type: nasab
+    quote: سنان
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: مسعود
+    by: rule
+death:
+  id: d
+  date:
+    ah: 843-07
+  places:
+  - ref: gn:104515
+    quote: خارج مكة
+  - ref: wd:Q42004
+  note:
+    ar: مات في رجب سنة ثلاث وأربعين خارج مكة وحمل فدفن بمعلاتها
+    ja: '843-07＝1439-12-17 開始、月精度 1439-12。「خارج مكة」（マッカの外）は repo 慣行（D01681・D02328・D02926）どおり gn:104515 を付して原文句のまま置く（初版は #NEEDID）。遺体はマッカに運ばれ المعلاة に葬られた。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05170
+  passive: AIND-D08085
+  quote: null
+  note:
+    ja: '規則37。父 ＝ #AIND-D05170「علي بن سنان بن عبد الله بن عمر بن مسعود العمري المكي . كان أحد القواد العمرة وزيرا لأحمد بن عجلان . مات سنة خمس أو قريبا منها」（805頃没、収録済み）。見出しナサブ5代（علي بن سنان بن عبد الله بن عمر بن مسعود العمري）が完全一致。祖父 سنان ＝ 既登録 TMP-P-001603。兄弟候補 #AIND-D03186（سنان بن علي بن سنان … 853没）・#AIND-D04271（عبد الكريم بن علي بن سنان … 820没）は相手側に名指しがなく、父が AIND なので relation を立てない（規則23）。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D06132
+  passive: AIND-D08085
+  quote: null
+  note:
+    ja: '子 ＝ #AIND-D06132「فارس بن محمد بن علي بن سنان العمري أحد القواد . مات … سنة ست وسبعين ببعض بلاد اليمن … عن أربع وسبعين」（876没、収録済み。repo 側が本項主を父として参照済み（規則37、corpus で「محمد بن علي بن سنان」の見出しは本項のみ））。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: القائد
+  note:
+    ja: 見出しの「القائد」（マッカの القواد العمرة 家）＝TMP-O-00094。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A。没年 843（≤871）＝ابن فهد 振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の chronicler relation を置換。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・スィナーン・ブン・アブドゥッラー・ブン・ウマル・ブン・マスウード・アル＝ウマリー、隊長（カーイド）。843年ラジャブ月にマッカの外で没し、運ばれてマッカのアル＝マアラーに葬られた。イブン・ファハドが没年を記している。
+  en: Muḥammad b. ʿAlī b. Sinān b. ʿAbd Allāh b. ʿUmar b. Masʿūd al-ʿUmarī, the qāʾid (commander). He died in Rajab of the year 843 outside Mecca and was carried (there) and buried in its al-Muʿallā cemetery. Ibn Fahd recorded his date of death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T16:20:54Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

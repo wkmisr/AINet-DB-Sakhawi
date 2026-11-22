@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D05362
+source:
+  uid: '977981681299'
+sex: M
+name:
+  full: علي بن محمد بن إبراهيم النور الحريري الوراق المقري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00026
+    quote: الحريري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-05523
+    quote: الوراق
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00137
+    quote: المقري
+  - id: n4
+    type: laqab
+    quote: النور
+  - id: n5
+    type: shuhrah
+    quote: ابن المؤذن
+  - id: n6
+    type: ism
+    quote: علي
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: إبراهيم
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05362
+  quote: null
+  note:
+    ja: 見出しナサブのみ（規則3）。「ابن المؤذن」の通称から父（または祖先）がムアッズィンであった可能性があるが原文に明記なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D05362
+  passive: TMP-P-000297
+  methods:
+  - TMP-S-00008
+  cert: medium
+  context:
+  - summary:
+      ar: أخذ عنه العسقلاني السبع
+  quote: العسقلاني
+  note:
+    ja: '「أخذ عنه العسقلاني السبع」＝本項主が師、العسقلاني が七読誦法を学んだ学生（規則15。初版は向きが逆で学生を #NEEDID としていた）。「العسقلاني」は裸のニスバだが、corpus で読誦法の師として「العسقلاني」単独で現れるのは الشمس العسقلاني المقري（إمام جامع ابن طولون、「تلا للسبع … على العسقلاني」「قرأ الشاطبية على العسقلاني امام جامع ابن طولون」等）であり ID-Master の TMP-P-000297（D00134・D04925・D05933 で読誦の師）に当たると判断、cert medium（§D123-1）。初版訳の「アル＝アスカラーニー（イブン・ハジャル）」は根拠がない（サハーウィーはイブン・ハジャルを「شيخنا」と呼ぶ）。'
+- id: r3
+  type: personal
+  subtype: met
+  active: AIND-D03005
+  passive: AIND-D05362
+  methods:
+  - TMP-S-00016
+  quote: الزين رضوان
+  note:
+    ja: '「ولقيه الزين رضوان」＝ #AIND-D03005（رضوان بن محمد بن يوسف … الزين العقبي、769生・852没）が本項主に面会した。初版の student relation（向き逆）を met に改めた。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D05362
+  passive: AIND-D00540
+  methods:
+  - TMP-S-00008
+  cert: medium
+  context:
+  - summary:
+      ar: بل قال ابن أسد أنه أخذ عنه
+  quote: ابن أسد
+  note:
+    ja: '「بل قال ابن أسد أنه أخذ عنه」＝ ابن أسد（#AIND-D00540 أحمد بن أسد … الشهاب الأميوطي السكندري القاهري المقرئ、808生）が本項主から学んだと自ら述べた。「قال أنه」＝cert medium。幻番号 TMP-P-000360 は #AIND-D00540 に名寄せ済み（規則36）。初版の向き（student/active=本項主）を是正。'
+translation:
+  ja: アリー・ブン・ムハンマド・ブン・イブラーヒーム、アン＝ヌール・アル＝ハリーリー・アル＝ワッラーク・アル＝ムクリー。イブン・アル＝ムアッズィンとして知られる。アル＝アスカラーニーが彼から七読誦法を学んだ。アッ＝ザイン・リドワーンが彼に面会した。それどころかイブン・アサドは、自分が彼から学んだと述べた。
+  en: ʿAlī b. Muḥammad b. Ibrāhīm, al-Nūr al-Ḥarīrī al-Warrāq al-Muqrī, known as Ibn al-Muʾadhdhin. Al-ʿAsqalānī took the seven readings from him, and al-Zayn Riḍwān met him; indeed, Ibn Asad said that he had studied under him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T14:54:48Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

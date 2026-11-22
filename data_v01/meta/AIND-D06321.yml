@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D06321
+source:
+  uid: '405052339722'
+sex: M
+name:
+  full: قرا تنبك
+  elements:
+  - id: n1
+    type: ism
+    quote: قرا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 813-10
+  summary:
+    ar: مات في شوال سنة ثلاث عشرة
+  note:
+    ja: 813年シャウワール月（1411-02-05 開始、月精度）。没地の記載なし（初版の placeName الديار المصرية は職の勤務地からの補完のため除去、規則22(1)）。「ثلاث عشرة」は十の位つきなので 813（cert 不要）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06321
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00016
+  places:
+  - ref: TMP-L-00238
+    quote: الديار المصرية
+  quote: أحد الطبلخانات
+  note:
+    ja: 「أحد الطبلخانات وأحد الحجاب بالديار المصرية」。地名は原文明記（両職にかかる）。
+- id: s2
+  type: office
+  ref: TMP-O-00065
+  places:
+  - ref: TMP-L-00238
+    quote: الديار المصرية
+  quote: أحد الحجاب
+events:
+- id: e1
+  type: political
+  quote: وكان عين لإمرة الحج فمات قبل أن يخرج
+  note:
+    ja: ハッジ隊指揮官（أمير الحج、TMP-O-00134）に内定したが出発前に没した＝在職なし（規則47「内定のみの職は state でなく event」）。初版の state n=3（appointment/retirement 0813・placeName）を除去。内定の年月は原文になく、没年からの推定になるため日付属性は付けない（没年は death の 813年シャウワール。集約 2026-10-26、内容B F10）。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في أنبائه
+  note:
+    ja: Pattern A。初版の統制外 subtype「historian」relation を mention event に変換。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: null
+  summary:
+    ar: ذكره … العيني
+  note:
+    ja: Pattern A。العيني＝#AIND-D09832（corresp wd:Q257745、B59-63 §D-12 形）。初版は wd:Q257745 単独の historian relation。
+translation:
+  ja: カラー・タンバク。エジプト（ディヤール・ミスリーヤ）におけるタブラハーナのアミールの一人であり、ハージブ（侍従）の一人。813年シャウワール月に没した。ハッジ（巡礼）隊の指揮官に内定していたが、出発する前に没した。我らがシャイフ（イブン・ハジャル）が『インバー』において彼に言及しており、アル＝アイニーも言及している。
+  en: Qarā Tanbak, one of the amirs of ṭablkhānāh and one of the chamberlains (ḥujjāb) in the Egyptian lands. He died in Shawwāl of the year 813. He had been designated as commander of the pilgrimage (amīr al-ḥajj), but died before setting out. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, as did al-ʿAynī.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T14:53:37Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

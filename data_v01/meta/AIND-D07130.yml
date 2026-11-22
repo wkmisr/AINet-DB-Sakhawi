@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D07130
+source:
+  uid: '109987249218'
+sex: M
+name:
+  full: محمد بن إسماعيل الشمس الحسني القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: إسماعيل
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 804
+    cert: low
+  note:
+    ja: 「مات عن أزيد من ثمانين سنة فيما قيل في ربيع الثاني سنة أربع وثمانين」＝884年没時に80歳余（伝聞）→ 逆算で 804年以前の生（cert low、逆算・伝聞のため）。804年末＝1402-08-09、年精度 1402。
+death:
+  id: d
+  date:
+    ah: 884-04
+  note:
+    ja: 「مات … فيما قيل في ربيع الثاني سنة أربع وثمانين」＝884年ラビーウ・アッ＝サーニー月＝1479-07-01〜07-29、月精度 1479-07。初版の when 1479（年精度）を是正。「فيما قيل」は語順上「أزيد من ثمانين سنة」（年齢）に係る読みが自然で、訳文もそう訳すため death には cert を付けない（年齢由来の birth は cert low）。【集約】校閲時の death cert medium を除去（内容B L）。没地は原文に明記なし（初版の placeName القاهرة を除去、規則22(1)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07130
+  methods:
+  - TMP-S-00003
+  context:
+  - orgs:
+    - ref: TMP-I-00017
+    summary:
+      ar: ممن سمع بقراءتي بالقرا سنقرية الشمائل وغيرها
+  works:
+  - ref: TMP-T-00093
+  quote: بقراءتي
+  note:
+    ja: 「ممن سمع بقراءتي بالقراسنقرية الشمائل وغيرها」＝サハーウィーの朗読によって『الشمائل』等を聴聞（規則2「سمع بقراءتي」型）。『الشمائل』（الترمذي）は ID-Master に TMP-T-00093「بعض الشمائل للترمذي」しかなく、repo 先例に従い同番号（§D118-4）。原文の「القرا سنقرية」は「القراسنقرية」（TMP-I-00017）の分かち書き。初版の field（الحديث）と施設由来の placeName القاهرة を除去。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07130
+  quote: null
+  note:
+    ja: '父は裸名 إسماعيل のみ → #NEEDID 維持（規則3・12）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q2892720
+  orgs:
+  - ref: TMP-I-00018
+  quote: أحد صوفية الخانقاه
+  note:
+    ja: 「وأحد صوفية الخانقاه」＝直前の سعيد السعداء のハーンカー（TMP-I-00018）。初版の affiliation affiliated（同施設）との二重符号化を解消（規則8）、施設所在地由来の placeName القاهرة を除去（規則22(1)）。
+- id: s2
+  type: status
+  label: ويذكر باعتقاد ابن عربي وبإدخاله غير الصوفية في التربة طمعا في ما يصل إليه
+  quote: ويذكر باعتقاد ابن عربي وبإدخاله غير الصوفية في التربة طمعا في ما يصل إليه
+  note:
+    ja: イブン・アラビー（638/1240没、AIND 対象外。初版の wd:Q244335 は ID-Master 未登録＝未確認、§D118-5）の信条を奉じたこと、スーフィー以外の者を廟に入れて収入を得ようとしたことが語られる。信条への言及であり師弟関係ではないため、初版の統制外 relation「spiritual follower」を除去し status に。
+affiliations:
+- id: a1
+  type: reside
+  ref: TMP-I-00037
+  note:
+    ja: 「نزيل تربة سعيد السعداء بل تربتها」（刊本のまま）。ハーンカー（TMP-I-00018）とは別登録の廟 TMP-I-00037 を充てた。
+translation:
+  ja: ムハンマド・ブン・イスマーイール、アッ＝シャムス・アル＝ハサニー・アル＝カーヒリー。サイード・アッ＝スアダーの廟（トゥルバ）——というよりその廟——の寄寓者で、同ハーンカーのスーフィーの一人。アル＝カラースンクリーヤで私（サハーウィー）の朗読によって『シャマーイル』などを聴聞した者の一人。伝えられるところでは80歳余りで、884年ラビーウ・アッ＝サーニー月に没した。イブン・アラビーの信条を奉じていたこと、また自分に入る利得を求めてスーフィー以外の者を廟に入れたことが語られる。アッラーが彼を赦したまわんことを。
+  en: Muḥammad b. Ismāʿīl, al-Shams al-Ḥasanī al-Qāhirī, resident of the turba of Saʿīd al-Suʿadāʾ — rather, of its turba — and one of the Sufis of the khānqāh. He was among those who heard, through my reading, al-Shamāʾil and other works at al-Qarāsunqurīya. He died, aged over eighty as was said, in Rabīʿ al-Thānī 884. He is spoken of for holding the beliefs of Ibn ʿArabī and for admitting non-Sufis into the turba out of desire for what would come to him from it. May God pardon him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T08:05:36Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

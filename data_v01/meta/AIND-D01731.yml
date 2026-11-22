@@ -1,0 +1,81 @@
+schema: aind-yaml/0.1
+id: AIND-D01731
+source:
+  uid: '722544365200'
+sex: M
+name:
+  full: أحمد بن شمس الأئمة السرائي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00099
+    quote: السرائي
+  - id: n2
+    type: shuhrah
+    quote: الواعظ
+  - id: n3
+    type: shuhrah
+    quote: null
+    label: ملك الكلام الفارسي والتركي والعربي
+  - id: n4
+    type: ism
+    quote: أحمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: شمس الأئمة
+    by: rule
+    ref: TMP-P-000593
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-000593
+  passive: AIND-D01731
+  quote: null
+  note:
+    en: Father, Shams al-Aʾimma (al-Sarāʾī). Corrects Gemini's poisoned TMP-P-000087 (= Ibn Fahd / AIND-D09211).
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D01731
+  passive: AIND-D01367
+  methods:
+  - TMP-S-00008
+  context:
+  - places:
+    - ref: TMP-L-00096
+      quote: خوارزم
+  quote: ابن عربشاه
+  note:
+    en: Ibn ʿArabshāh (= AIND-D01367) met the subject in Khwārazm and took (knowledge) from him (فأخذ عنه); the subject is therefore the teacher and Ibn ʿArabshāh the pupil. Corrects Gemini's bogus student-relation to poisoned TMP-P-000066 and the direction, and resolves Ibn ʿArabshāh from poisoned TMP-P-000127 (= Ibn Fahd / AIND-D09211) to AIND-D01367.
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00080
+  quote: null
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00096
+    quote: خوارزم
+  quote: null
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D01367
+  quote: وقال
+  summary:
+    ar: قال ابن عربشاه إنه كان يقال له ملك الكلام الفارسي والتركي والعربي
+  trigger: rule
+translation:
+  ja: アフマド・ブン・シャムス・アル=アインマ・アッ=サラーイー・アル=ワーイズ（説教師）。イブン・アラブシャーがホラズムで彼に会い、彼から（知識を）学んだ。そしてイブン・アラブシャーは、彼が「ペルシア語・トルコ語・アラビア語の言葉の王」と呼ばれていたと述べた。
+  en: Aḥmad b. Shams al-Aʾimma al-Sarāʾī al-Wāʿiẓ (the Preacher). Ibn ʿArabshāh met him in Khwārazm and took (knowledge) from him, and said that he was called the 'King of Persian, Turkish, and Arabic speech'.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.10
+  generated_at: '2026-07-03T04:05:54Z'
+  model_era: gemini-2.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

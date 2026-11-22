@@ -1,0 +1,78 @@
+schema: aind-yaml/0.1
+id: AIND-D10277
+source:
+  uid: '903167889314'
+sex: M
+name:
+  full: يحيى بن علي بن محمد بن يعقوب الطهطاوي الأصل المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00696
+    quote: الطهطاوي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05591
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: يعقوب
+    by: rule
+death:
+  id: d
+  date:
+    ah: 897-02
+  places:
+  - ref: gn:104515
+    cert: medium
+  note:
+    ar: مات بها في صفر سنة سبع وتسعين بعد مرض طويل
+    ja: '897年サファル月＝1491-12-13 開始（h2g.py、月精度。初版 @when="1492" は年精度で、しかも月初は1491年）。「بها」の先行詞は地名ではなくニスバ「المكي」のみ＝規則22(3) に準じ مكة を cert medium で保持（先例 #AIND-D08129、ISSUES §D166-7）。長患いの末の死。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05591
+  passive: AIND-D10277
+  quote: null
+  note:
+    ja: '規則3・37。父＝corpus 本伝 #AIND-D05591「علي بن محمد بن يعقوب الخواجا نور الدين الطهطاوي المكي والد أبي بكر وأخوته ، وكان ذا ملاءة وتوجه للتجارة وله دور متعددة بمكة . مات بها في المحرم سنة إحدى وثمانين . أرخه ابن فهد」（repo 収録済み）。見出しナサブ3代＋ニスバ2つで閉合し、ニスバ索引 #AIND-D11817「الطهطاوي … ومحمد بن يعقوب وابنه علي وابنه يحيى وأخوه كل منهما」が علي の子 يحيى を挙げる。初版は father relation なし（中身の空な son relation のみ）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q215536
+  quote: التاجر
+  note:
+    ja: '見出しの「التاجر」。汎用 تاجر＝wd:Q215536（ID-Master 登録値。初版は #NEEDID）。初版の placeName مكة はニスバからの補完＝除去（規則22(1)）。'
+events:
+- id: e1
+  type: other
+  quote: وخلف تركة من عقار وغيره وبنين
+  note:
+    ja: 不動産などの遺産と息子たちを残した。息子は名も数も記されない＝relation は立てない（規則14。初版の active 空・desc 空の son relation を除去）。
+notes:
+- text: 'マッカの商家 الطهطاوي。父方おじ #AIND-D02641「حسن بن محمد بن يعقوب الطهطاوي المكي أخو علي الآتي . مات بمكة في المحرم سنة اثنتين وثمانين」、兄弟とみられる أبو بكر（父の項「والد أبي بكر وأخوته」、ID-Master TMP-P-000904）は本項に名指しがないので relation は立てない（規則23。父が AIND で共通）。初版の residence event（مكة、ニスバ由来）を除去（規則22(1)・(6)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・アリー・ブン・ムハンマド・ブン・ヤアクーブ、タフター出身の家系でマッカの人、商人。長患いの末、897年サファル月に同地で没し、不動産その他の遺産と息子たちを残した。
+  en: Yaḥyā b. ʿAlī b. Muḥammad b. Yaʿqūb, of Ṭahṭā origin, the Meccan, the merchant. He died there in Ṣafar 897 after a long illness, leaving an estate of real property and other things, and sons.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T04:45:07Z'
+  model_requested: gemini-3.5-flash

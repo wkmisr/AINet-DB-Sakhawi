@@ -1,0 +1,93 @@
+schema: aind-yaml/0.1
+id: AIND-D10078
+source:
+  uid: '187233750472'
+sex: M
+name:
+  full: موسى بن عمر بن موسى الشرف
+  elements:
+  - id: n1
+    type: laqab
+    quote: الشرف
+  - id: n2
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: موسى
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10078
+  quote: العز بن جماعة
+  note:
+    ja: '規則3 (c'')。父 عمر بن موسى は汎用名で識別要素なし。初版の grandfather relation（موسى、#NEEDID）は父 desc にナサブとして含めるにとどめ除去（識別要素のない #NEEDID の祖父は立てない）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D10078
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+    orgs:
+    - ref: wd:Q12241661
+  works:
+  - ref: wd:Q1023470
+  quote: null
+  note:
+    ja: '「وذكر الزين رضوان أنه سمع على العز بن جماعة مجالس من البخاري بالكاملية وغيرها من القاهرة」。العز بن جماعة は祖父 العز عبد العزيز（没767、TMP-P-001145）と孫 العز محمد（749–819、#AIND-D07198）の二人がいる（規則34）。本項主は 825 年にイブン・ハジャルの子へイジャーザを与えた高齢の伝承者で、カイロの الكاملية（ハディース学院）での『ブハーリー』聴聞という文脈は祖父に合うと判断し TMP-P-001145、cert medium（先例 D05963。§D158-4）。初版の TMP-P-000010（祖父と孫の混同番号、新規使用禁止）を置換。الكاملية＝wd:Q12241661（旧 Q25633535 はリダイレクト）。【集約 2026-11-05】規則60(e)（既登録 TMP-P に cert で寄せない）との関係を ★3 に回付。ID-Master TMP-P-001145 の Note は「マッカ・754年以前の聴聞・مناسك／تساعيات 関連は本番号、カイロ・معقولات・810年代は D07198」とし、本項の「بالكاملية وغيرها من القاهرة」はカイロの文脈。先例 D05963（cert medium で 001145）は本項主の 804 年没・790 年代の面会という年代の根拠があったが、本項にはない（825 年にイジャーザを与えたことのみ）。裁定まで校閲のまま。 / 裁定 2026-11-05 ★3 (c): #NEEDID。候補: TMP-P-001145（祖父 العز عبد العزيز بن جماعة、没767）／#AIND-D07198（孫 العز محمد بن أبي بكر بن جماعة、749–819）。ID-Master TMP-P-001145 の Note は「カイロ・معقولات・810年代は D07198」とし、本項の「بالكاملية وغيرها من القاهرة」はカイロの文脈。原文は裸の「العز بن جماعة」で年代の根拠もなく、どちらとも決められない。上の note の
+      TMP-P-001145 cert medium は旧判断の記録。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D10078
+  passive: AIND-D06758
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 825
+  quote: ابن شيخنا
+  note:
+    ja: '「أجاز لابن شيخنا وغيره في سنة خمس وعشرين」＝イブン・ハジャルの息子 البدر محمد（#AIND-D06758、815生）にイジャーザ。825＝1422-01-04〜12-23、年精度 1422（h2g.py）。初版の幻番号 TMP-P-000277 → #AIND-D06758（名寄せ済み、規則36）、@when のヒジュラ値「0825」を when-custom に是正。「وغيره」は人物を立てない。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  quote: الخطيب
+  note:
+    ja: '見出し語「الشرف الخطيب」。説教師（خطيب＝wd:Q932945）。場所は原文に明記なし。規則5により persName full から職名を除外。初版の #NEEDID を置換。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D03005
+    quote: الزين رضوان
+  quote: وذكر
+  summary:
+    ar: وذكر الزين رضوان أنه سمع على العز بن جماعة مجالس من البخاري بالكاملية وغيرها من القاهرة
+  note:
+    ja: Pattern A（情報源としての言及）。الزين رضوان＝#AIND-D03005（رضوان بن محمد العقبي、852没）。初版の統制外 relation「informant」を event に変換。
+  trigger: rule
+translation:
+  ja: ムーサー・ブン・ウマル・ブン・ムーサー、アッ＝シャラフ、説教師（アル＝ハティーブ）。（8）25年に我らがシャイフ（イブン・ハジャル）の息子その他の者にイジャーザを与えた。アッ＝ザイン・リドワーンは、彼がカイロのアル＝カーミリーヤなどでアル＝イッズ・ブン・ジャマーアから『ブハーリー』の数回の講席を聴聞したと述べている。
+  en: Mūsā b. ʿUmar b. Mūsā, al-Sharaf, the preacher (al-khaṭīb). He granted an ijāza to the son of our shaykh (Ibn Ḥajar) and others in the year (8)25. Al-Zayn Riḍwān mentioned that he had heard several sessions of (Ṣaḥīḥ) al-Bukhārī from al-ʿIzz b. Jamāʿa at al-Kāmiliyya and elsewhere in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T01:34:50Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

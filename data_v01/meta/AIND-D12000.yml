@@ -1,0 +1,63 @@
+schema: aind-yaml/0.1
+id: AIND-D12000
+source:
+  uid: '688889291231'
+sex: M
+name:
+  full: الماوردي المقري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01048
+    quote: الماوردي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00137
+    quote: المقري
+death:
+  id: d
+  date:
+    ah: 842-10
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في شوال سنة اثنتين وأربعين
+  note:
+    ja: 842年シャウワール月＝1439-03-26〜04-23（h2g.py）、月精度で @when=1439-03（初版の 1438 は誤り）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D12000
+  quote: null
+  note:
+    ja: 規則3（父の名が原文に全く出ない項）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد・没年 842（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 relation「chronicler」を置換。
+  trigger: rule
+notes:
+- text: 通称索引帯（D12000〜）に置かれているが、転送指示のない独立の実項（イスムのない人物）。persName は原文の呼称「الماوردي المقري」のみで、イスムは補わない（name_only も同じ呼称。初版の name_only「الماوردي」はニスバ1語）。初版の residence event（مكة）は「مات بمكة」からの作り込みで除去。
+  lang: ja
+  type: editorial
+translation:
+  ja: アル＝マーワルディー・アル＝ムクリー。（8）42年シャウワール月にマッカで没した。イブン・ファハドがその没年を記している。
+  en: Al-Māwardī al-Muqrī. He died in Mecca in Shawwāl of the year [8]42. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-07T11:18:33Z'
+  model_requested: gemini-3.5-flash

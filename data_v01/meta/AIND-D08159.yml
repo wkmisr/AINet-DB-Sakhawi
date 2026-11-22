@@ -1,0 +1,123 @@
+schema: aind-yaml/0.1
+id: AIND-D08159
+source:
+  uid: '670345348635'
+sex: M
+name:
+  full: محمد بن علي بن محمد بن عيسى القطبي الضرير
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00849
+    quote: القطبي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05527
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عيسى
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 817
+  note:
+    ja: 「ولدا في بطن سنة سبع عشرة وثمانمائة」＝兄 إبراهيم と双子。817年＝1414-04-01 開始（年精度 → 1414）。兄の項 D00195 では「في المحرم سنة سبع عشرة」（月精度）だが本項は年のみ（規則23＝他項の精度を補わない）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05527
+  passive: AIND-D08159
+  quote: null
+  note:
+    ja: '父＝#AIND-D05527「علي بن محمد بن عيسى العلاء الدمشقي ثم المحلي النمراوي … الشافعي والد إبراهيم وأخيه ويعرف بالقطبي نسبة لشيخه قطب الدين الأصفهبندي」（未収録）。見出しナサブ3代＋ニスバ القطبي＋「والد إبراهيم وأخيه」で閉合（規則37）。ニスバ索引 #AIND-D11937「القطبي … نسبة لقطب الدين علي بن محمد بن عيسى وابناه إبرهيم ومحمد وهما في بطن دفعة ضريران」も一致。兄の項 D00195「الآتي أبوه … ومات والدهما سنة إحدى وثلاثين」。初版なし。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D00195
+  passive: AIND-D08159
+  quote: أخو
+  note:
+    ja: '「أخو إبراهيم الماضي . ولدا في بطن」＝双子の兄弟 #AIND-D00195「إبراهيم بن علي بن محمد بن عيسى البرهان بن العلاء الشامي الأصل القاهري الصحراوي الشافعي الآتي أبوه ويعرف بالقطبي … ولد تقريبا هو وأخوه محمد في بطن في المحرم سنة سبع عشرة وثمانمائة」（未収録。相互に名指し）。初版の #NEEDID を解消。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D03922
+  passive: AIND-D08159
+  methods:
+  - TMP-S-00008
+  context:
+  - summary:
+      ar: وأخذ مع أخيه عن العز عبد السلام البغدادي كما هناك
+  quote: العز عبد السلام البغدادي
+  note:
+    ja: 'العز عبد السلام البغدادي＝#AIND-D03922「عبد السلام بن أحمد بن عبد المنعم … العز المجد أبو محمد … القيلوي … البغدادي ثم القاهري الحنبلي ثم الحنفي」（repo で D03853・D04814 等に同人として使用）。「كما هناك」＝兄の項 D00195（「قرأ على العز عبد السلام البغدادي في الملحة والعمدة」）を参照。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08159
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: وتردد إلي للسماع وغيره مع أخيه وبانفراده
+  quote: null
+  note:
+    ja: 「تردد إلي للسماع」＝学習を伴う通学（規則56）＝サハーウィーの teacher relation。初版の relation 内 placeName القاهرة（原文に地名なし）を除去（規則22(1)）。
+states:
+- id: s1
+  type: office
+  ref: wd:Q2892720
+  orgs:
+  - ref: TMP-I-00018
+  quote: صوفية
+  note:
+    ja: '先例 #AIND-D07958・D05050 どおり state に一本化。初版の affiliation employed TMP-I-00018（state と二重符号化、規則8）と placeName القاهرة（施設所在地の補完、規則22(1)）を除去。'
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  quote: وأخذ
+  trigger: rule
+- id: e2
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  note:
+    ja: 年なし。placeName مكة は規則20 の例外。
+  trigger: rule
+- id: e3
+  type: teaching
+  quote: وأقرأ
+  note:
+    ja: '子供たちに（クルアーンを）教えた。先例 #AIND-D07863「ممن أقرأ الأبناء」どおり teaching event（初版の state TMP-O-00029 تأديب الأطفال を置換）。'
+  trigger: rule
+notes:
+- text: 「الضرير」（盲目）は見出しの呼称として full persName に残す（索引 D11937「ضريران」＝双子とも盲目）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・イーサー・アル＝クトゥビー、盲目の人、既述のイブラーヒームの兄弟。二人は817年に双子として生まれた。クルアーンを読み、兄弟とともにアル＝イッズ・アブドゥッサラーム・アル＝バグダーディーから学んだ——あちら（兄の項）に述べたとおりである。巡礼し、子供たちに（クルアーンを）教え、サイード・アッ＝スアダーのスーフィーの職を得た。兄弟とともに、また単独で、聴聞などのために私のもとに通った。
+  en: Muḥammad b. ʿAlī b. Muḥammad b. ʿĪsā al-Quṭbī, the blind, the brother of the aforementioned Ibrāhīm. The two were born as twins in the year 817. He read the Qurʾān and, together with his brother, studied under al-ʿIzz ʿAbd al-Salām al-Baghdādī, as (stated) there. He performed the pilgrimage, taught children (the Qurʾān), obtained a Sufi post at Saʿīd al-Suʿadāʾ, and frequented me for audition (of ḥadīth) and other things, both with his brother and on his own.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T07:31:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

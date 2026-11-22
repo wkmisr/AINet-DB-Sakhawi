@@ -1,0 +1,90 @@
+schema: aind-yaml/0.1
+id: AIND-D08183
+source:
+  uid: '605009421156'
+sex: M
+name:
+  full: محمد بن علي بن محمد البدر القاهري ثم الخانكي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00224
+    quote: الخانكي
+  - id: n3
+    type: laqab
+    quote: البدر
+  - id: n4
+    type: shuhrah
+    quote: ابن التاجر
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+    ref: TMP-P-001686
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001686
+  passive: AIND-D08183
+  quote: أبيه
+  note:
+    ja: '見出しナサブ＋「ويعرف بابن التاجر لكون أبيه كان تاجرا」（父の職＝識別要素、規則3）。ハーンカー（الخانقاه／الخانكة）の ابن التاجر 兄弟3人（本項主・#AIND-D01083 أحمد・#AIND-D08184 أبو الخير محمد、ニスバ索引 #AIND-D12206「ابن التاجر إخوة أشقاء من أهل خانقاه سرياقوس وهم البدر محمد وأبو الخير محمد فاضل وأحمد بنو علي بن محمد」）の父。corpus に本伝なし（hw.py「ابن التاجر」「الخانكي」）、ID-Master 未登録（TMP-P-001200 عبد الله بن أحمد الخانكي「ابن التاجر」は #AIND-D07756 の父で別人）→ 新規 TMP-P-001686。初版の TMP-P-000530（登録＝علي、関係専用の汚染番号、precheck）を除去。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D01083
+  passive: AIND-D08183
+  quote: أحمد
+  note:
+    ja: '「ويليه أحمد الماضي」＝#AIND-D01083「أحمد بن علي بن محمد الخانكي شقيق أبي الخير محمد الآتي وسبط النور الرشيدي ويعرف بابن التاجر . ولد سنة ثلاث وثلاثين بالخانقاه」（repo 収録済み。ナサブ・ニスバ・通称一致）。初版の #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D08184
+  passive: AIND-D08183
+  quote: null
+  note:
+    ja: '「وهو أسن الثلاثة」の三人目。相手側 #AIND-D08184「محمد أبو الخير البلبيسي الأصل الخانكي الشافعي ويعرف بابن التاجر أخو الذي قبله وهو بكنيته أشهر . ولد سنة ست وثلاثين وثمانمائة بالخانقاه」が本項主を「أخو الذي قبله」と名指し（規則23）。初版なし。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  quote: حفظ
+  summary:
+    ar: ممن حفظ القرآن
+  trigger: rule
+notes:
+- text: 「وهو أسن الثلاثة ويليه أحمد الماضي」＝三兄弟の最年長（أحمد 833年生、أبو الخير 836年生）。D01083 の「سبط النور الرشيدي」（母方祖父 TMP-P-000955）は D12206 が三人を أشقاء とするので本項主にも及ぶが、本項原文に言及がないため note に留める（規則23）。#AIND-D07756「محمد بن عبد الله بن أحمد الخانكي البلبيسي الأصل ويعرف بابن التاجر」は同じ通称・出自の別人（続柄不明）。初版の residence event ×2（القاهرة・الخانكة）はニスバ「القاهري ثم الخانكي」からの補完のため除去（規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ムハンマド、アル＝バドル・アル＝カーヒリー、のちアル＝ハーンキー、アッ＝シャーフィイー。父が商人であったことからイブン・アッ＝タージル（商人の息子）として知られる。クルアーンを暗記した者の一人で、三人（兄弟）の最年長であり、先述のアフマドがこれに次ぐ。
+  en: Muḥammad b. ʿAlī b. Muḥammad, al-Badr al-Qāhirī, then al-Khānkī, al-Shāfiʿī, known as Ibn al-Tājir because his father was a merchant. He was among those who memorized the Qurʾān; he was the eldest of the three (brothers), followed by the aforementioned Aḥmad.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-01T11:31:43Z'
+  model_requested: gemini-3.5-flash

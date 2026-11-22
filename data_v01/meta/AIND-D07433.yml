@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D07433
+source:
+  uid: '114982478250'
+sex: M
+name:
+  full: محمد بن سعيد جبروه الحبشي جمال الدين
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00214
+    quote: الحبشي
+  - id: n2
+    type: laqab
+    quote: جمال الدين
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: سعيد جبروه
+    by: rule
+    ref: AIND-D03112
+death:
+  id: d
+  date:
+    ah: 837-10
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بها في شوال سنة سبع وثلاثين
+  note:
+    ja: 「بها」＝直前の مكة（نائب مكة）を指す（規則22(3)）。837年シャウワール月＝1434-05-20〜06-17（h2g.py、月精度→1434-05）。初版の @when 1433 は誤り。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D03112
+  passive: AIND-D07433
+  quote: null
+  note:
+    ja: '父＝#AIND-D03112「سعيد جبروه العجلاني القائد والد محمد الآتي . مات بمكة في جمادى الآخرة سنة تسع وثلاثين … ناب في إمرة مكة وقبض المواريث عن ابن سيده حسن بن عجلان」（未収録）。「والد محمد الآتي」で閉合（規則37）。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D05433
+  passive: AIND-D07433
+  quote: null
+  note:
+    ja: 子＝#AIND-D05433「علي بن محمد بن سعيد جبروه القائد . مات بمكة في شوال سنة ست وستين」（未収録）。見出しナサブ「محمد بن سعيد جبروه」が一致（規則37）。
+- id: r3
+  type: personal
+  subtype: deputy
+  active: AIND-D02180
+  passive: AIND-D07433
+  quote: السيد بركات
+  note:
+    ja: 「نائب مكة عن السيد بركات」＝マッカ首長 السيد بركات の代理（先例 D05308・D04883 の deputy 型、active＝本務者）。السيد بركات＝#AIND-D02180「بركات بن حسن بن عجلان بن رميثة السيد زين الدين أبو زهير … الحسني المكي」（マッカ首長、801生）。初版の subtype client・#NEEDID を是正。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: القائد
+- id: s2
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: نائب
+  note:
+    ja: ' 「نائب مكة عن السيد بركات」＝シャリーフ بركات の下のナーイブ（常設の職、00053＋مكة。2026-11-17 Waka 了承）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: 'أرخه ابن فهد وقال : كان شكلا حسنا'
+  cert: low
+  note:
+    ja: '没年 837（≤871）→ 振り分け規則により #AIND-D09211（cert low）。初版は subtype other の relation。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・サイード・ジャブルーフ・アル＝ハバシー、ジャマール・アッ＝ディーン、カーイド（隊長）、サイイド・バラカートの代理としてのマッカの副官。837年シャウワール月に同地で没した。イブン・ファハドがその没年を記し、「容姿の良い人であった」と述べた。
+  en: 'Muḥammad b. Saʿīd Jabrūh al-Ḥabashī, Jamāl al-Dīn, the qāʾid, deputy of Mecca on behalf of al-Sayyid Barakāt. He died there in Shawwāl 837. Ibn Fahd recorded his death date and said: he was of handsome appearance.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-08T21:24:36Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

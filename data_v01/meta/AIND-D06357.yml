@@ -1,0 +1,125 @@
+schema: aind-yaml/0.1
+id: AIND-D06357
+source:
+  uid: '508999775815'
+sex: M
+name:
+  full: قطلوبغا العلاء التنمي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01338
+    quote: التنمي
+  - id: n2
+    type: laqab
+    quote: العلاء
+  - id: n3
+    type: ism
+    quote: قطلوبغا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 826-03
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  note:
+    ja: 「أقام بدمشق بطالا حتى مات بها في ربيع الأول سنة ست وعشرين」。بها＝直前の دمشق（規則22(3)）。826年ラビーウ・アル＝アウワル＝1423-02-21〜03-22（h2g.py、月精度）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06357
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+- id: r2
+  type: personal
+  subtype: father-in-law
+  active: AIND-D02315
+  passive: AIND-D06357
+  quote: تنم الحسني
+  note:
+    ja: '「لكونه كان زوجا لابنة تنم بعد موته」＝تنم の死後にその娘の夫であった。تنم الحسني نائب الشام ＝ #AIND-D02315（تنم سيف الدين الحسني الظاهري برقوق、نيابة دمشق、802年に殺害）。D02322「تنم وسمى تنبك نائب دمشق . مات سنة اثنتين وثمانمائة وأظنه الماضي قريبا」は同一人物の二重立項。向きは repo 先例（D01882・D02131: active＝妻の父）に合わせた。初版の subtype="other" #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: spouse
+  active: TMP-P-001597
+  passive: AIND-D06357
+  quote: null
+  note:
+    ja: '「كان زوجا لابنة تنم」。名不詳だが父（#AIND-D02315）で特定される人物として仮番号を発行（先例 TMP-P-000685「ابنة تغري بردي」）。初版は #NEEDID。'
+- id: r4
+  type: personal
+  subtype: patron
+  active: AIND-D02315
+  passive: AIND-D06357
+  quote: null
+  note:
+    ja: 見出しのニスバ「التنمي تنم الحسني نائب الشام」＝主人（أستاذ）は تنم الحسني（#AIND-D02315）。原文が主人を名指すので patron を立てた（ブリーフ「主人がスルターン以外のアミール」細則）。初版は relation なし。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00083
+  quote: null
+  note:
+    ja: '「حتى جعله مقدما」（المؤيد による）。ref は既登録 المقدم（TMP-O-00083、規則48「مقدم（ألف）」）。初版の #NEEDID を置換。'
+- id: s2
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: gn:293100
+    quote: صفد
+  dates:
+  - ah: 822-10
+  quote: نائب
+  note:
+    ja: 「أعطاه نيابة صفد في شوال سنة اثنتين وعشرين واستمر إلى أن قدم على ططر فخلع عليه باستمراره فيها ثم صرف」。822年シャウワール＝1419-10-30〜11-27（h2g.py、月精度）。ططر のもとで留任の後に罷免（時期の記載なし）。
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D03345
+    quote: المؤيد
+  quote: null
+  summary:
+    ar: رقاه المؤيد لكونه كان زوجا لابنة تنم بعد موته حتى جعله مقدما ثم أعطاه نيابة صفد
+  note:
+    ja: アル＝ムアイヤド・シャイフ（#AIND-D03345、没824）による昇進と任官（年月は state n=2 の 822年シャウワール）。主人ではないスルターンによる任官・昇進は patron にせず event 内 persName で表す（B136 D06311・B137 D06349 方式、集約 2026-10-26 オーケストレーター決定4）。校閲時の patron n=2 をこの event に移した。
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D03422
+    quote: ططر
+  quote: null
+  summary:
+    ar: قدم على ططر فخلع عليه باستمراره فيها ثم صرف
+  note:
+    ja: 初版の when-custom="0824" cert="medium" は原文に無い年（ططر の在シリア期からの推定）のため除去。校閲時の patron n=3（ططر）は留任の名誉衣の授与のみで主従関係ではないため削除し、本 event の persName に一本化（集約 2026-10-26、内容B F03・決定4）。
+- id: e3
+  type: residence
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: وأقام
+  summary:
+    ar: وأقام بدمشق بطالا
+  note:
+    ja: 罷免後にダマスクスで無任のまま居住し、同地で没した。初版の when-custom="824/826"（原文に無い）を除去。
+  trigger: rule
+notes:
+- text: 見出しの「نائب الشام」は主人 تنم الحسني（#AIND-D02315、نيابة دمشق）の職であって本項主の職ではない（本文に本項主のシャーム副王職の記載はなく、サファド副知事のみ）。初版の state「نائب الشام」は他人の職の誤作り込みにつき除去。
+  lang: ja
+  type: editorial
+translation:
+  ja: クトルブガー・アル＝アラー・アッ＝タナミー、（主人は）シャームの副王タナム・アル＝ハサニー。アル＝ムアイヤドは、彼がタナムの死後にその娘の夫であったことから彼を引き立て、ついにはムカッダム（千人隊アミール）とし、次いで822年シャウワール月にサファドの副知事職を与えた。彼はタタルのもとに参上するまでその職にとどまり、タタルは彼に留任の名誉衣を授けた。その後罷免され、ダマスクスで無任のまま過ごし、826年ラビーウ・アル＝アウワル月に同地で没した。
+  en: Quṭlūbughā al-ʿAlāʾ al-Tanamī, (mamlūk of) Tanam al-Ḥasanī, viceroy of Syria. Al-Muʾayyad promoted him, because he had been the husband of Tanam's daughter after the latter's death, until he made him a muqaddam (commander of a thousand), and then gave him the deputy governorship of Ṣafad in Shawwāl 822. He remained in it until he presented himself before Ṭaṭar, who bestowed on him a robe of honour confirming him in the post. He was then dismissed and lived in Damascus without office until he died there in Rabīʿ al-Awwal 826.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T16:59:32Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,127 @@
+schema: aind-yaml/0.1
+id: AIND-D06542
+source:
+  uid: '824201721780'
+sex: M
+name:
+  full: محمد بن إبراهيم بن محمد بن إبراهيم بن أحمد أبو الفتح بن البرهان المقدسي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: kunyah
+    quote: أبو الفتح
+  - id: n3
+    type: shuhrah
+    quote: ابن الخص
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: AIND-D00232
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D06479
+  - id: n7
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: البرهان
+    by: rule
+  - id: n10
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D06542
+  methods:
+  - TMP-S-00028
+  quote: عندي
+  note:
+    ja: 「وحضر عندي قليلا」（規則2 の同型。「قليلا」＝少しだけ）。
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D00232
+  passive: AIND-D06542
+  quote: أبوه
+  note:
+    ja: '「الماضي أبوه」＝#AIND-D00232「إبراهيم بن محمد بن إبراهيم بن أحمد برهان الدين بن شمس الدين القاهري المقسي الشافعي الخطيب … ويعرف كأبيه بابن الخص … وتنزل في صوفية البيبرسية … خطب بجامع ساروجا … وتكسب بالشهادة كأبيه」（ナサブ4代・ラカブ البرهان・通称 ابن الخص で閉合、repo 未収録）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: grandfather
+  active: AIND-D06479
+  passive: AIND-D06542
+  quote: جده
+  note:
+    ja: '「الماضي … وجده」＝#AIND-D06479「محمد بن إبراهيم بن أحمد الشمس القاهري الشهير بابن الخص والد إبراهيم وإخوته」（repo 収録済み、子 D00232 を son に持つ）。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  quote: الشهادة
+  note:
+    ja: 「وتكسب بالشهادة」。
+- id: s2
+  type: office
+  ref: wd:Q932945
+  quote: null
+  note:
+    ja: 「وخطب」。場所は原文にない。
+- id: s3
+  type: office
+  ref: wd:Q2892720
+  orgs:
+  - ref: wd:Q6400398
+  quote: صوفية
+  note:
+    ja: '「وتنزل في صوفية البيبرسية」。البيبرسية＝خانقاه بيبرس الجاشنكير（wd:Q6400398、ID-Master 登録）。初版の orgName は #NEEDID。同じ内容の affiliation（affiliated）は二重符号化のため除去（規則8）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: learning
+  orgs:
+  - ref: wd:Q23975647
+  works:
+  - ref: wd:Q1023470
+  quote: سمع
+  summary:
+    ar: ممن سمع مع أبيه ختم البخاري بالظاهرية
+  note:
+    ja: 父とともにザーヒリーヤで『ブハーリー』の読了（ختم）を聴いた（読み手・師は原文になし＝relation は立てない）。الظاهرية＝wd:Q23975647（الظاهرية القديمة）は repo 先例（#AIND-D10434「ممن سمع في البخاري بالظاهرية」、#AIND-D08086「سمع ختم البخاري في الظاهرية القديمة」）に合わせた。原文は「الظاهرية」のみ。初版の affiliation（study、#NEEDID）を event に置換。
+  trigger: rule
+notes:
+- text: 'ニスバ「المقدسي」は刊本どおり（規則25）。父 #AIND-D00232 の見出しは「القاهري المقسي」（المقس＝カイロの地区）で、本項の「المقدسي」は「المقسي」の誤りの可能性がある（家は祖父 #AIND-D06479 以来カイロの人）。ニスバの ref は刊本の綴りどおり TMP-N-00008 のまま。ابن الخص 家の索引は #AIND-D12295「ابن الخص بضم ثم مهملة مشددة محمد بن إبرهيم بن أحمد وبنوه إبراهيم ومحمد وبهاء الدين」。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム・ブン・アフマド、アブー・アル＝ファトフ・ブン・アル＝ブルハーン、アル＝マクディスィー、アッ＝シャーフィイー。父と祖父は既出。先祖と同じくイブン・アル＝フッスの名で知られる。父とともにザーヒリーヤで『ブハーリー』の読了を聴いた者の一人で、私のもとにも少し出席した。証人業で生計を立て、説教（フトバ）を行い、バイバルスィーヤのスーフィーの席を得た。
+  en: Muḥammad b. Ibrāhīm b. Muḥammad b. Ibrāhīm b. Aḥmad, Abū al-Fatḥ b. al-Burhān, al-Maqdisī al-Shāfiʿī, whose father and grandfather have been mentioned above; known, like his forebears, as Ibn al-Khuṣṣ. He was among those who heard, together with his father, the completion (khatm) of al-Bukhārī at the Ẓāhiriyya, and he attended my sessions a little. He earned his living as a notary witness, delivered the Friday sermon, and was given a place among the Sufis of the Baybarsiyya.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T15:49:01Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

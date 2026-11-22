@@ -1,0 +1,80 @@
+schema: aind-yaml/0.1
+id: AIND-D07996
+source:
+  uid: '439898783147'
+sex: M
+name:
+  full: محمد بن علي بن أحمد بن عبد المجيب
+  elements:
+  - id: n1
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n2
+    type: nasab
+    quote: علي
+    by: rule
+    ref: TMP-P-001653
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبد المجيب
+    by: rule
+death:
+  id: d
+  date:
+    ah: 842
+  note:
+    ar: حتى مات في سنة اثنتين وأربعين
+    ja: 842＝1438-07-03 開始、年精度 1438。没地は原文に明記なし（初版の طنتدا は職の所在地からの補完＝規則22(1) により除去）。「خلفه … وهو صغير جدا حتى مات」の主語は本項主（父の後を継ぎ、842年に没するまで職にあった）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001653
+  passive: AIND-D07996
+  quote: أبوه
+  note:
+    ja: 規則3。父 علي بن أحمد بن عبد المجيب（「الماضي أبوه」、本項主の前任の خليفة المقام الأحمدي بطنتدا）は corpus の見出しに本伝なし（hw.py「عبد المجيب」「علي بن أحمد」+「المقام」「طنتدا」「الأحمدي」「عبد المجيد」いずれも該当なし。「الماضي」に対応する ع 部の項は corpus に見当たらない）、ID-Master 未登録（「عبد المجيب」は TMP-P-001259＝曾祖父 عبد المجيب أحد خدام سيدي أحمد のみ）。職と祖父名で識別できるので新規 TMP-P-001653。
+- id: r2
+  type: personal
+  subtype: predecessor
+  active: TMP-P-001653
+  passive: AIND-D07996
+  quote: null
+  note:
+    ja: 「خلفه في المقام الأحمدي بطنتدا」＝父の後任として المقام الأحمدي の職を継いだ（規則29、先例 D04045）。
+- id: r3
+  type: personal
+  subtype: grandson
+  active: AIND-D04275
+  passive: AIND-D07996
+  cert: medium
+  quote: null
+  note:
+    ja: 規則23（他項の情報による補完＝cert medium）。#AIND-D04275「عبد الكريم بن علي بن محمد بن علي بن أحمد بن عبد المجيد خليفة المقام الأحمدي بطنتدا ويقال إن جده عبد المجيب أحد خدام سيدي أحمد . قتل … سنة اثنتين وستين」（862年殺害、未収録）の見出しナサブ「علي بن محمد بن علي بن أحمد بن عبد المجيد」と同職・同地により、本項主はその祖父。綴りは عبد المجيد⇄عبد المجيب と揺れる（規則25、原文どおり）。D04275 の「عمه الشهاب أحمد ابن محمد」は本項主の子（本項の原文に名指しなし＝relation を立てない）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00179
+  places:
+  - ref: TMP-L-00204
+    quote: طنتدا
+  orgs:
+  - ref: TMP-I-00103
+  quote: null
+  note:
+    ja: 「خلفه في المقام الأحمدي بطنتدا وهو صغير جدا حتى مات」。先例 D03061・D03870（state のみ、affiliation との二重符号化は除去＝規則8）。初版の date type="retirement" when-custom="0842"（没年の写し）は除去（規則18）。
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アフマド・ブン・アブドゥルムジーブ。父は前述。ごく幼いうちにタンタダー（タンター）のアル＝マカーム・アル＝アフマディーの職で父の後を継ぎ、842年に没するまで（その職にあった）。
+  en: Muḥammad b. ʿAlī b. Aḥmad b. ʿAbd al-Mujīb; his father was mentioned above. He succeeded him at al-Maqām al-Aḥmadī in Ṭanṭadā while still very young, (and remained so) until he died in the year 842.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T06:16:49Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

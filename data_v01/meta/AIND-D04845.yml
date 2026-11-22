@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D04845
+source:
+  uid: '521184225769'
+sex: M
+name:
+  full: عثمان بن أيوب بن أحمد بن عبد الله بن عفان بن رمضان الفيومي الأصل المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00057
+    quote: الفيومي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: عثمان
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أيوب
+    by: rule
+    ref: TMP-P-001301
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: عفان
+    by: rule
+  - id: n8
+    type: nasab
+    quote: رمضان
+    by: rule
+death:
+  id: d
+  date:
+    ah: 847-02
+  places:
+  - ref: gn:104515
+  note:
+    en: He died there in Safar 847 H.
+    ja: 「مات بها」の照応先は見出しのニスバ المكي（規則22(3)。照応代名詞は先行詞がニスバのみでも cert 不要＝B89-93 裁定。集約時に cert medium を除去）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001301
+  passive: AIND-D04845
+  quote: أبوه
+  note:
+    ja: 見出しナサブから1段ずらして復元（統一規則3）。原文「السقطي أبوه」により السقطي は父の属性（本項主のニスバから除外）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001301 を発行（#AIND-D00567・#AIND-D10682 の父でもある）。
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D00567
+  passive: AIND-D04845
+  cert: medium
+  quote: null
+  note:
+    ja: '#AIND-D00567「أحمد بن أيوب بن أحمد بن عبد الله بن عفان بن رمضان الفيومي الأصل أخو أبي بكر وعمر وعثمان」がナサブ一致で本項主を兄弟として明記（統一規則23、cert medium）。D00567 側の兄弟 عثمان は ID-Master の TMP-P-000506 で登録されており、本項主への名寄せが必要（ISSUES §D96-3）。'
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D10682
+  passive: AIND-D04845
+  cert: medium
+  quote: null
+  note:
+    ja: '#AIND-D10682 は見出しナサブが本項主と完全一致し、D00567 が兄弟 أبو بكر を明記（統一規則23、cert medium）。ID-Master の TMP-P-000504（أبو بكر بن أيوب الفيومي）は D10682 への名寄せが必要。'
+- id: r4
+  type: personal
+  subtype: brother
+  active: TMP-P-000505
+  passive: AIND-D04845
+  cert: medium
+  quote: null
+  note:
+    ja: D00567 が明記する兄弟 عمر（ID-Master 登録 TMP-P-000505、corpus に本伝なし）。統一規則23により cert medium。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A（初版は統制外 subtype「chronicler」の relation）。没年 847 ≦ 871 → ブリーフの振り分けにより التقي بن فهد ＝ #AIND-D09211、cert low。'
+  trigger: rule
+translation:
+  ja: ウスマーン・ブン・アイユーブ・ブン・アフマド・ブン・アブドゥッラー・ブン・アッファーン・ブン・ラマダーン、ファイユーム出自、アル＝マッキー。その父はアッ＝サカティー（と呼ばれた）。847年サファル月に同地（マッカ）で没した。イブン・ファハドが彼の没年を記録している。
+  en: ʿUthmān b. Ayyūb b. Aḥmad b. ʿAbd Allāh b. ʿAffān b. Ramaḍān, of Fayyūmī origin, al-Makkī; his father was al-Saqaṭī. He died there (in Mecca) in Safar 847. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-27T17:43:44Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

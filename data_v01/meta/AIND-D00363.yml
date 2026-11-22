@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D00363
+source:
+  uid: '310873424653'
+sex: M
+name:
+  full: إبراهيم بن الأصبهاني الخياط
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00326
+    quote: null
+  - id: n2
+    type: ism
+    quote: إبراهيم
+    by: rule
+  - id: n3
+    type: nasab
+    quote: الأصبهاني الخياط
+    by: rule
+death:
+  id: d
+  date:
+    ah: 894-08
+  note:
+    ar: مات في شعبان سنة أربع وتسعين
+    ja: 894年シャアバーン＝1489-07-09〜08-06（月精度、h2g.py）。初版の @when="1489"（年精度）・cert="high" を是正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D00363
+  quote: null
+  note:
+    ja: '規則3 (c'')。父は「الأصبهاني」の呼称のみで名が出ない。corpus 見出しの الأصبهاني（#AIND-D00539 الجلال الأصبهاني الخانكي・#AIND-D02666・#AIND-D02750・#AIND-D03965 等）に仕立屋の家の人物はなく、ID-Master 未登録 → #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q242468
+  quote: null
+  note:
+    ja: '見出しの職名。ID-Master「الخياطة」wd:Q242468（先例 #AIND-D02875）。初版の nisbah「الخياط」（同じ wd、state と二重）を除去し、state 内の placeName الخشابين（職の勤務地ではなく仕事場の位置）を event n=2 に移した。'
+- id: s2
+  type: status
+  label: أحد المعتبرين في صنعته مع خير وعصبية ومحافظة على الصلوات واعتقادا للعلماء والصالحين
+  quote: أحد المعتبرين في صنعته مع خير وعصبية ومحافظة على الصلوات واعتقادا للعلماء والصالحين
+  note:
+    ja: 人物評（その手仕事で信頼される者の一人。善良、身内への義理堅さ、礼拝の厳守、学者・義人への信心）。
+events:
+- id: e1
+  type: other
+  quote: بعد أن عرض له في رجليه ما اقتضى عدم مشيه إلا اليسير معتمدا على العصا
+  note:
+    ja: 没前に脚を患い、杖に頼ってわずかしか歩けなくなった（年なし）。
+- id: e2
+  type: other
+  persons:
+  - ref: AIND-D02273
+    quote: الاستادار تغري بردي
+  places:
+  - ref: TMP-L-00400
+    quote: الخشابين
+  orgs:
+  - ref: TMP-I-00276
+  quote: null
+  summary:
+    ar: وكانت ورشته تجاه المسجد الذي جدده الاستادار تغري بردي من الخشابين
+  note:
+    ja: '仕事場（ورشة）の位置。الخشابين（カイロの街区・市場。corpus では「جامع الخشابين」「عمارته في البندقانيين والخشابين」等）は ID-Master 未登録（「خشاب」該当は TMP-I-00101 الخشابية＝別の機関）→ TMP-L-00400。モスク＝「المسجد الذي جدده الاستادار تغري بردي」は #AIND-D02273「تغرى بردي من يلباي الظاهري القادري الحنفي الخازنداري بل الاستادار … وجدد أشياء أو كملها من المساجد والجوامع كجامع الخشابين والمسجد المقارب له」の「المسجد المقارب له」＝ ID-Master 未登録 → TMP-I-00276（#AIND-D09158 にも「أسكنه الاستادار في المسجد الذي جدده بالخشابين وجعل له إمامته」）。改修者 الاستادار تغري بردي＝ #AIND-D02273（名・職・الخشابين の改修で閉合、repo 先例 #AIND-D04013・#AIND-D04838）。本項主との関係ではないので persName のみ（relation なし）。初版の personalia note（ja）を本 event に統合。'
+translation:
+  ja: イブラーヒーム・ブン・アル＝アスバハーニー、仕立屋（アル＝ハイヤート）。その手仕事において信頼される者の一人で、善良さ、身内への義理堅さ、礼拝の厳守、学者と義人への信心を備えていた。894年シャアバーン月に没した。それ以前に両脚を患い、杖に頼ってわずかしか歩けなくなっていた。彼の仕事場はハッシャービーンにある、ウスターダール・タグリー・ビルディーが改修したモスクの向かいにあった。神よ彼に慈悲を。
+  en: Ibrāhīm b. al-Aṣbahānī al-Khayyāṭ (the tailor), one of the respected men of his craft, with goodness, loyalty to his kin, strict observance of the prayers, and belief in the scholars and the righteous. He died in Shaʿbān of the year 894, after an ailment had befallen his legs that left him unable to walk except a little, leaning on a stick. His workshop was opposite the mosque in al-Khashshābīn that the ustādār Taghrī Birdī had renovated. May God have mercy on him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-09T07:40:17Z'
+  model_requested: gemini-3.5-flash

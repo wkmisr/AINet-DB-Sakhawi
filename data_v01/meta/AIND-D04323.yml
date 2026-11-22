@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D04323
+source:
+  uid: '681012372862'
+sex: M
+name:
+  full: عبد اللطيف بن عبد القادر بن علي بن زايد المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: ism
+    quote: عبد اللطيف
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد القادر
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: زايد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04323
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: ممن سمع مني بمكة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D10981
+  passive: AIND-D04323
+  quote: أبي سعد الآتي
+  note:
+    ja: '= #AIND-D10981（أبو سعد بن عبد القادر بن علي بن زايد المكي أخو عبد اللطيف）。相互に閉合。'
+states:
+- id: s1
+  type: status
+  label: وهو مبارك
+  quote: وهو مبارك
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  quote: سمع
+  note:
+    ja: クルアーンと諸書の暗記・提示（提示の相手は原文に明記なし → teacher relation にしない）。初版は active 空の teacher relation 2件、bibl に Subject 番号 TMP-S-00026 を流用。
+  trigger: rule
+- id: e2
+  type: visit
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: وزار
+  summary:
+    ar: وزار المدينة
+  trigger: rule
+translation:
+  ja: アブド・アッ＝ラティーフ・ブン・アブド・アル＝カーディル・ブン・アリー・ブン・ザーイド・アル＝マッキー。後述のアブー・サアドの兄弟。マッカで私（サハーウィー）から聴聞した者の一人で、クルアーンと諸書を暗記して提示（暗誦）し、マディーナを参詣した。祝福された人物である。
+  en: ʿAbd al-Laṭīf b. ʿAbd al-Qādir b. ʿAlī b. Zāyid al-Makkī, brother of Abū Saʿd (mentioned below). He was among those who heard from me in Mecca; he memorized the Qurʾān and books which he recited (for examination), and visited Medina. He is a blessed man.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-18T04:37:15Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

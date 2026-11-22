@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D03185
+source:
+  uid: '425470204811'
+sex: M
+name:
+  full: سنان بن علي بن جسار العمري القائد
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05474
+    quote: العمري
+  - id: n2
+    type: ism
+    quote: سنان
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05102
+  - id: n4
+    type: nasab
+    quote: جسار
+    by: rule
+    ref: TMP-P-001699
+death:
+  id: d
+  date:
+    ah: 866-01
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ar: مات بمكة في المحرم سنة ست وستين
+    ja: 866年ムハッラム＝1461-10-15〜11-13（月精度、h2g.py）。初版の @when="1462" は誤年・年精度。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05102
+  passive: AIND-D03185
+  quote: null
+  note:
+    ja: '父＝ #AIND-D05102「علي بن جسار بن عبد الله بن عمر بن مسعود العمري المكي كان من أعيان القواد العمرة … مقدما عند صاحب مكة أحمد بن عجلان لكونه أخاه لأمه … مات في شوال سنة عشرين … وخلف عدة أولاد نجباء」（820没、未収録）。見出しナサブ（علي بن جسار＋العمري＋القائد）で閉合（規則37・57）。初版の TMP-P-000530（登録＝علي、関係専用の汚染番号）を除去。兄弟 #AIND-D03301「شربش بن عبد الله بن علي بن جسار」は甥、#AIND-D09995「مقدم بن عبد الله بن علي بن جسار」も甥＝本項に名指しなし（note のみ）。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001699
+  passive: AIND-D03185
+  quote: null
+  note:
+    ja: '祖父 جسار بن عبد الله بن عمر بن مسعود العمري（父 D05102 の見出しナサブで復元）。corpus 見出しに本伝なし（جسار 見出し D02965 دبيس بن جسار بن سنان بن زاجح は別系統）、ID-Master の جسار は TMP-P-001556（الحسني）・TMP-P-001576（الحميضي）・TMP-P-001222（محمد بن جسار）で別人 → 新規 TMP-P-001699（初版 #NEEDID。ナサブ4代で識別できるので規則12）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: null
+  note:
+    ja: 見出しの職名。ID-Master TMP-O-00094（メッカの القواد）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A。没年 866（≤871）→ ابن فهد 振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の統制外 subtype「chronicler」relation を mention event に変換。'
+  trigger: rule
+translation:
+  ja: スィナーン・ブン・アリー・ブン・ジャッサール、アル＝ウマリー、カーイド（隊長）。（8）66年ムハッラム月にマッカで没した。イブン・ファハドがその没年を記している。
+  en: Sinān b. ʿAlī b. Jassār al-ʿUmarī, the qāʾid. He died in Mecca in Muḥarram of the year [8]66. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T10:52:09Z'
+  model_requested: gemini-3.5-flash

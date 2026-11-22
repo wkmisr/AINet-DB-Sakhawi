@@ -1,0 +1,186 @@
+schema: aind-yaml/0.1
+id: AIND-D07409
+source:
+  uid: '502592039254'
+sex: M
+name:
+  full: محمد بن سالم بن محمد الشمس الرحبي الحلبي
+  elements:
+  - id: n1
+    type: laqab
+    quote: الشمس
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00353
+    quote: الرحبي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: سالم
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07409
+  quote: null
+  note:
+    ja: '父は汎用名のみで識別要素なし、corpus に本伝なし → #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07409
+  methods:
+  - TMP-S-00014
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+    summary:
+      ar: ارتحل إلى القاهرة فلازم شيخنا في البخاري ومقدمة شرحه وغير ذلك
+  works:
+  - ref: wd:Q1023470
+  - ref: TMP-T-00249
+  quote: شيخنا
+  note:
+    ja: 'شيخنا＝イブン・ハジャル。「البخاري」＝صحيح البخاري（wd:Q1023470）、「مقدمة شرحه」＝『فتح الباري』の序『هدي الساري』（ID-Master 未登録 → TMP-T-00249）。placeName القاهرة は「ارتحل إلى القاهرة فلازم」の接続による（規則22(3)）。初版の bibl #NEEDID・原文にない field الحديث を修正。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001608
+  passive: AIND-D07409
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 859
+    places:
+    - ref: gn:170063
+      quote: حلب
+    summary:
+      ar: ثم سمع معنا في سنة تسع وخمسين بحلب على ابن مقبل
+  quote: null
+  note:
+    ja: 'ابن مقبل＝ニスバ索引 #AIND-D12755「ابن مقبل محمد مسند حلب بأخرة وشيخ القراء بحمص هو أبو بكر بن أحمد ابن مقبل」の前者（アレッポの musnid محمد بن مقبل。corpus に本伝なし、D04379・D10646 でも「سمع معنا بحلب في سنة تسع وخمسين على ابن مقبل」）。ホムスの ابن مقبل #AIND-D10675 とは別人 → TMP-P-001608（索引は2人合同のため人物 ID に使わない、規則11）。「سمع معنا」＝サハーウィーと同席（規則55、サハーウィーとの関係は立てない）。859年＝1454-12-31 開始（年精度 1454）。初版 #NEEDID。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D12962
+  passive: AIND-D07409
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 859
+    places:
+    - ref: gn:170063
+      quote: حلب
+  quote: null
+  note:
+    ja: 'حليمة ابنة الشهاب الحسيني＝女性部 #AIND-D12962「حليمة ابنة أحمد بن محمد بن علي … أم عبد الله ابنة الشهاب … الحسيني الاسحاقي الحلبي … نقيب الأشراف بحلب」（770年頃生、アレッポ）。初版 #NEEDID。'
+- id: r5
+  type: personal
+  subtype: teacher
+  active: AIND-D04741
+  passive: AIND-D07409
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 859
+    places:
+    - ref: gn:170063
+      quote: حلب
+  quote: null
+  note:
+    ja: 'عبد الواحد بن صدقة＝#AIND-D04741「عبد الواحد بن صدقة بن الشرف أبي بكر … الزين الحراني الأصل الحلبي الشافعي حفيد مسند حلب」（771年アレッポ生）。D04379 でも同じ 859 年の聴聞で並記。初版 #NEEDID。'
+- id: r6
+  type: personal
+  subtype: patron
+  active: AIND-D06293
+  passive: AIND-D07409
+  quote: قانصوه اليحياوي
+  note:
+    ja: '「إمام قانصوه اليحياوي … اختص بقانصوه المشار إليه وكان عنده بمكان حين نيابته بحلب ثم بالشام ثم كان معه ببيت المقدس حين إقامته به بطالا … وفر من أميره」。قانصوه اليحياوي＝#AIND-D06293（repo 先例 D04119 も patron）。「أميره」＝仕えたアミール＝庇護者。初版 #NEEDID。 「仕えた・重用された」型（名指しされた個人への奉仕・帰属）は repo 先例（D06170「اختص ببرسباي قرا」、D05189「تقدم عند مخدومه」）どおり subtype="patron" に統一。規則53（任官・追放した主人でない君主＝event）とは別型（本人が仕えた相手）（集約 2026-10-26、オーケストレーター決定5）。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q125482
+  quote: إمام
+- id: s2
+  type: office
+  ref: TMP-O-00080
+  quote: الواعظ
+- id: s3
+  type: status
+  quote: null
+events:
+- id: e1
+  type: travel
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: ارتحل
+  summary:
+    ar: ارتحل إلى القاهرة
+  trigger: rule
+- id: e2
+  type: cultural
+  quote: ثم بلغنا بعد أنه تكلم على العامة
+  cert: medium
+  note:
+    ja: 「بلغنا」＝伝聞のため cert medium。
+- id: e3
+  type: other
+  persons:
+  - ref: AIND-D06293
+    quote: قانصوه
+  quote: null
+  summary:
+    ar: وإنه اختص بقانصوه المشار إليه وكان عنده بمكان حين نيابته بحلب ثم بالشام
+  note:
+    ja: حلب・الشام は قانصوه の総督在任地であり本項主の所在として明記されていないため placeName を付けない（規則22(1)、初版の residence حلب・الشام を除去）。
+- id: e4
+  type: residence
+  persons:
+  - ref: AIND-D06293
+  places:
+  - ref: gn:281184
+    quote: بيت المقدس
+  quote: إقامته
+  summary:
+    ar: ثم كان معه ببيت المقدس حين إقامته به بطالا
+  trigger: rule
+- id: e5
+  type: other
+  persons:
+  - ref: AIND-D06293
+  quote: null
+  summary:
+    ar: وتكلموا فيه كثيرا وفر من أميره لعظم جرمه
+notes:
+- text: 没年・生年の記載なし（death を立てない）。「في آخرين」の他の師は人物を立てない（規則55）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・サーリム・ブン・ムハンマド、アッ＝シャムス・アッ＝ラフビー・アル＝ハラビー、説教師、カーニスーフ・アル＝ヤフヤーウィーのイマーム。カイロへ赴き、我らがシャイフ（イブン・ハジャル）に『ブハーリー』とその注釈の序その他で密着して師事した。次いで859年にアレッポで我々とともにイブン・ムクビル、ハリーマ・イブナ・アッ＝シハーブ・アル＝フサイニー、アブドゥルワーヒド・ブン・サダカら（他にもいる）から聴聞した。我々は彼を精査と正確さに欠ける者として知っていた。その後、彼が民衆に向けて語る（説教する）ようになったこと、そして前述のカーニスーフに特別に近侍し、彼がアレッポ次いでシリアの総督であった時に彼のもとで重んじられ、さらに彼が解任されてバイト・アル＝マクディス（エルサレム）に滞在した時も彼とともにいたことが我々に伝わった。人々は彼について大いに非難し、彼は罪の重さゆえに自分のアミールのもとから逃亡した。
+  en: Muḥammad b. Sālim b. Muḥammad, al-Shams al-Raḥbī al-Ḥalabī, the preacher, imām of Qāniṣawh al-Yaḥyāwī. He travelled to Cairo and attended our shaykh (Ibn Ḥajar) closely for al-Bukhārī, the introduction to his commentary on it, and other things. Then in the year [8]59 he heard with us in Aleppo from Ibn Muqbil, Ḥalīma bint al-Shihāb al-Ḥusaynī, and ʿAbd al-Wāḥid b. Ṣadaqa, among others. We knew him for his lack of care and accuracy. We later learned that he had taken to addressing the common people, that he became closely attached to the aforementioned Qāniṣawh and held a position with him during his governorship of Aleppo and then of Syria, and that he was then with him in Jerusalem when he resided there out of office. People spoke much against him, and he fled from his amīr because of the enormity of his offence.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T06:41:36Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

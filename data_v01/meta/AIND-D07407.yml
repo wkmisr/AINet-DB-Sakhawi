@@ -1,0 +1,84 @@
+schema: aind-yaml/0.1
+id: AIND-D07407
+source:
+  uid: '247216219751'
+sex: M
+name:
+  full: محمد بن سالم بن ذاكر المكي الصائغ
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: سالم
+    by: rule
+    ref: AIND-D03056
+  - id: n4
+    type: nasab
+    quote: ذاكر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 882-05
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في جمادى الأولى سنة اثنتين وثمانين
+  note:
+    ja: 882年ジュマーダー・アル＝ウーラー月＝1477-08-20〜09-18（月精度 1477-08）。初版の @when 1477 を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D03056
+  passive: AIND-D07407
+  quote: null
+  note:
+    ja: 父＝#AIND-D03056「سالم بن ذاكر بن محمد بن عبد المؤمن … الكازروني الأصل المكي المؤذن الصائغ والد محمد وعلي وعبد العزيز」（見出しナサブ一致、相手側「والد محمد」で閉合。職 الصائغ も共通）。初版は father relation なし。
+- id: r2
+  type: personal
+  subtype: relative
+  active: TMP-P-000863
+  passive: AIND-D07407
+  quote: محمد بن أبي الخير
+  note:
+    ja: '「قريب الرئيس محمد بن أبي الخير」。الرئيس＝マスジド・ハラームのムアッズィン長 محمد بن أبي الخير محمد بن علي … الكازروني المكي（TMP-P-000863、既登録。corpus 索引 #AIND-D11238「رئيس المؤذنين محمد بن أبي الخير محمد بن علي بن عبد الله …」、子 #AIND-D03929・#AIND-D10946。本伝なし）。本項主の父 #AIND-D03056 と同じカーザルーン系 ذاكر 家。名の形「محمد بن أبي الخير」は TMP-P-000863 に一致するが、本項主の没年 882 当時のムアッズィン長はその子 #AIND-D10946「أبو الخير ويسمى محمد بن محمد بن أبي الخير」であり、ID-Master Note（D05155「قريب رئيس المؤذنين بمكة」882年）と同じ両義がある（§D140-3）。初版 #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00178
+  quote: null
+  note:
+    ja: 初版は persName nisbah 位置に職番号 TMP-O-00178 を置いていた（カテゴリ不一致）→ state office に。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: medium
+  note:
+    ja: 'Pattern A。没年 882（871＜N≤885）→ 規則43 により #AIND-D05979（النجم عمر بن فهد）cert medium（cert は event 側、規則43。集約 2026-10-26 で note の人名誤記「عبد العزيز بن فهد」を訂正）。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・サーリム・ブン・ザーキル・アル＝マッキー、金細工師、ライース（ムアッズィン長）ムハンマド・ブン・アビー・ル＝ハイルの親族。882年ジュマーダー・アル＝ウーラー月にマッカで没した。イブン・ファハドがその没年を記録した。
+  en: Muḥammad b. Sālim b. Dhākir al-Makkī, the goldsmith, a relative of al-Raʾīs Muḥammad b. Abī al-Khayr. He died in Mecca in Jumādā al-Ūlā of the year [8]82. Ibn Fahd recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T06:36:59Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

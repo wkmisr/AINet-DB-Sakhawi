@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D02892
+source:
+  uid: '590679644442'
+sex: M
+name:
+  full: خليل بن حسن بن حرز الله
+  elements:
+  - id: n1
+    type: shuhrah
+    quote: قاضي الفلاحين
+  - id: n2
+    type: ism
+    quote: خليل
+    by: rule
+  - id: n3
+    type: nasab
+    quote: حسن
+    by: rule
+  - id: n4
+    type: nasab
+    quote: حرز الله
+    by: rule
+death:
+  id: d
+  date:
+    ah: 801-06
+    cert: medium
+  note:
+    ar: مات في جمادى الآخرة سنة إحدى
+    ja: 「سنة إحدى」＝一の位のみ → 801 cert medium（2026-09-24 Waka 裁定、先例 D07006・D07072）。801-06＝1399-02-16 開始、月精度 1399-02（h2g.py）。初版 @when="1398"（年精度・誤年）を是正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02892
+  quote: null
+  note:
+    ja: '規則3 (c'')。父 حسن بن حرز الله は corpus に本伝なし（hw.py「حرز الله」の他3件 D04448・D08628・D09117 は別家系）、ID-Master 未登録、識別要素なし → #NEEDID。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000275
+  passive: AIND-D02892
+  methods:
+  - TMP-S-00028
+  quote: الحجار
+  note:
+    ja: 「وقد حضر على الحجار وغيره」。الحجار＝ID-Master 既登録 TMP-P-000275（8世紀のムスニド ابن الشحنة الحجار、730没。repo 12件で同じ実体に使用、先例 D05282「أحضر على الحجار」）。801年没の本項主が幼時に聴講したことと整合＝実体一致で保持（precheck の汚染注意は D03749 の逆向き流用についてのもの）。「وغيره」は人物を立てない。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00382
+  quote: null
+  note:
+    ja: '見出しの呼称「قاضي الفلاحين」（農民たちが農事の裁定を仰いだ）。ID-Master の Office（قاضي 系 14行）に該当なし → 新規 TMP-O-00382。初版 #NEEDID を置換。'
+- id: s2
+  type: office
+  ref: TMP-O-00050
+  quote: null
+  note:
+    ja: 初版の ref TMP-O-00044（統合済み・使用不可）→ TMP-O-00050（الشاهد）。「بعض المراكز」は固有の地名ではないので placeName（#NEEDID）を除去し desc に。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في أنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の relation（subtype other）を置換。
+  trigger: rule
+translation:
+  ja: ハリール・ブン・ハサン・ブン・ヒルズッラー、農民たちのカーディー。人々は農事の諸事で彼に裁定を仰いだ。いくつかの中心地（マラーキズ）で証人（シャーヒド）を務め、アル＝ハッジャールらのもとで（幼時に）聴講した。（8）01年ジュマーダー・アル＝アーヒラ月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
+  en: Khalīl b. Ḥasan b. Ḥirz Allāh, the qāḍī of the peasants. They used to refer to him in matters of farming. He served as a notary-witness in some of the district centres (marākiz) and had attended the sessions of al-Ḥajjār and others. He died in Jumādā II of the year [8]01. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-30T03:23:00Z'
+  model_requested: gemini-3.5-flash

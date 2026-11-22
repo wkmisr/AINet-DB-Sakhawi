@@ -1,0 +1,78 @@
+schema: aind-yaml/0.1
+id: AIND-D10287
+source:
+  uid: '707214200761'
+sex: M
+name:
+  full: يحيى بن غريب شاه
+  elements:
+  - id: n1
+    type: laqab
+    quote: خان جهان
+  - id: n2
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n3
+    type: nasab
+    quote: غريب شاه ويلقب
+    by: rule
+    ref: TMP-P-001720
+death:
+  id: d
+  date:
+    ah: 814
+  note:
+    ar: قتل في سنة أربع عشرة
+    ja: 814年に殺害された。814年＝1411-05-04 開始（h2g.py、年精度）。殺害者・場所は原文になし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001720
+  passive: AIND-D10287
+  quote: null
+  note:
+    ja: '規則3。父 غريب شاه は corpus に本伝なし（hw.py「غريب شاه」＝本項のみ）・ID-Master 未登録。珍しい名はそれ自体が識別要素（先例 D10029 の فيروز شاه）＝仮番号 TMP-P-001720。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02021
+  passive: AIND-D10287
+  quote: أعظم شاه بن إسكندر شاه
+  note:
+    ja: 「وزير صاحب الهند الغياث أبي المظفر أعظم شاه بن إسكندر شاه」＝仕えた君主（規則56、patron）＝#AIND-D02021「أعظم شاه بن اسكندر شاه بن شمس الدين غياث الدين أبو المظفر السجستاني الأصل صاحب منجالة من بلاد الهند … مات في سنة أربع عشرة أو التي تليها . ترجمه الفاسي في مكة مطولا وكذا المقريزي في عقوده」（ブリーフ候補。名＋父名＋ラカブ الغياث＋クンヤ أبو المظفر で閉合。repo 未収録）。君主の称号「صاحب الهند」は相手の職＝本項主の state にしない。初版は統制外 subtype「client」・#NEEDID。
+states:
+- id: s1
+  type: office
+  ref: wd:Q175240
+  places:
+  - ref: TMP-L-00039
+    quote: الهند
+  quote: وزير
+  note:
+    ja: 「وزير صاحب الهند」。وزير＝wd:Q175240（ID-Master 登録値）。地は原文の「الهند」（TMP-L-00039）のまま。君主の項 D02021 は「صاحب منجالة من بلاد الهند」（ベンガル）とするが、本項にない地名は補わない（規則23）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation（subtype chronicled_by）を置換。
+  trigger: rule
+translation:
+  ja: ヤフヤー・ブン・ガリーブ・シャー、ハーン・ジャハーンとあだ名される。インドの君主アル＝ギヤース・アブー・アル＝ムザッファル・アアザム・シャー・ブン・イスカンダル・シャーの宰相。814年に殺害された。我らの師（イブン・ハジャル）が『インバー』にその没年を記録した。
+  en: Yaḥyā b. Gharīb Shāh, who bore the title Khān Jahān, vizier of the ruler of India, al-Ghiyāth Abū al-Muẓaffar Aʿẓam Shāh b. Iskandar Shāh. He was killed in the year 814. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T05:00:53Z'
+  model_requested: gemini-3.5-flash

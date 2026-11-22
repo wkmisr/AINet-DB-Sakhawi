@@ -1,0 +1,95 @@
+schema: aind-yaml/0.1
+id: AIND-D10112a
+source:
+  uid: '617390481296'
+sex: M
+name:
+  full: ميلب بن علي بن مبارك بن رميئة بن أبي نمي الحسني
+  elements:
+  - id: n1
+    type: nisbah
+    quote: الحسني
+  - id: n2
+    type: ism
+    quote: ميلب
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05354
+  - id: n4
+    type: nasab
+    quote: مبارك
+    by: rule
+  - id: n5
+    type: nasab
+    quote: رميئة
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أبي نمي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 839-07-26
+  places:
+  - label: خليص
+  - label: Khulayṣ
+  - label: الحجون
+  - label: al-Ḥajūn
+  note:
+    ar: مات بخليص في ليلة الجمعة ساد عشرى رجب سنة تسع وثلاثين وحمل إلى مكة فدفن بالحجون بالقرب من قبر خاله وأمه
+    ja: 「ساد عشرى رجب」を26日と読んだ場合、表計算暦では1436年2月14日（火曜）で原文の الجمعة と3日ずれる。「سادس عشر」（16日＝839-07-16＝1436-02-04 土曜）の可能性もあり（曜日は16日読みに近い）→要判断。خليص・الحجون は ID-Master 未登録→ref 未付与。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05354
+  passive: AIND-D10112a
+  quote: null
+  note:
+    ja: '父 = #AIND-D05354（علي بن مبارك بن رميثة بن أبي نمي الحسني المكي、没815 カイロの城塞で拘禁中）。'
+- id: r2
+  type: personal
+  subtype: mother
+  active: TMP-P-000950
+  passive: AIND-D10112a
+  quote: سعدانة ابنة عجلان بن رميثة
+  note:
+    ar: وأمه سعدانة ابنة عجلان بن رميثة
+    ja: 母 سعدانة ابنة عجلان بن رميثة（#AIND-D02560 حسن بن عجلان の姉妹）。corpus 女性部に本伝未確認→TMP-P-000950 新規。
+- id: r3
+  type: personal
+  subtype: uncle
+  active: AIND-D02560
+  passive: AIND-D10112a
+  cert: medium
+  quote: خاله
+  note:
+    ar: فدفن بالحجون بالقرب من قبر خاله
+    ja: 母方叔父（خاله）= 母 سعدانة ابنة عجلان の兄弟。حسن بن عجلان（#AIND-D02560、没829、マッカ埋葬）と推定→cert medium（عجلان の他の子の可能性あり）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  note:
+    ja: Pattern A。
+  trigger: rule
+notes:
+- text: '原文「رميئة」は「رميثة」の誤写（父 #AIND-D05354 علي بن مبارك بن رميثة）。name_only は訂正形。'
+  lang: ja
+translation:
+  ja: マイラブ・ブン・アリー・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝ハサニー。839年ラジャブ月26日金曜の夜にフライスで没し、マッカに運ばれてハジューンの母方叔父の墓の近くに葬られた。母はサアダーナ・ビント・アジュラーン・ブン・ルマイサ。イブン・ファフドが没年を記録した。
+  en: Maylab b. ʿAlī b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī. He died at Khulayṣ on the night of Friday 26 Rajab 839 and was carried to Mecca and buried at al-Ḥajūn near the grave of his maternal uncle. His mother was Saʿdāna bt. ʿAjlān b. Rumaytha. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  created_by: claude-fable-5-1

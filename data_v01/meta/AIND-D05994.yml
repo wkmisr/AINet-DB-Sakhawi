@@ -1,0 +1,143 @@
+schema: aind-yaml/0.1
+id: AIND-D05994
+source:
+  uid: '961393210261'
+sex: M
+name:
+  full: عمر بن محمد النجم النعماني البغدادي ثم الدمشقي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00397
+    quote: النعماني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00112
+    quote: البغدادي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n4
+    type: laqab
+    quote: النجم
+  - id: n5
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 850-02-04
+  places:
+  - ref: TMP-I-00215
+  note:
+    ja: 「فلم يلبث أن مات في رابع صفر منها」（منها ＝ 850年）＝850年サファル月4日 ＝ 1446-05-10（h2g.py）。没地は原文に明記なし（カイロ到着直後の死と読めるが照応代名詞がないため placeName は付けず、規則22）。埋葬「ودفن بتربة التقي المذكور من القرافة الصغرى」＝ 前出の التقي رجب العجمي の墓廟（ID-Master 未登録 → TMP-I-00215。所在 القرافة الصغرى ＝ TMP-L-00221）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05994
+  quote: محمد
+  note:
+    ja: '父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。'
+- id: r2
+  type: personal
+  subtype: funeral_attendee
+  active: AIND-D02423
+  passive: AIND-D05994
+  quote: السلطان
+  note:
+    ja: 「فأسف السلطان عليه وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه」。850年のスルターン ＝ الظاهر جقمق（#AIND-D02423、在位842–857、規則30 で年代確認）。先例 D02098（subtype funeral_attendee、الناصر فرج）。
+- id: r3
+  type: personal
+  subtype: relative
+  active: AIND-D06830
+  passive: AIND-D05994
+  cert: low
+  quote: null
+  note:
+    ja: '「وينظر أهو قريب حميد الدين محمد بن تاج الدين القاضي」＝サハーウィー自身が親族か否かを要検討としている（ينظر → cert low）。相手 ＝ #AIND-D06830「محمد بن أحمد … حميد الدين أبو المعالي بن التاج النعماني نسبة للإمام أبي حنيفة النعمان البغدادي الأصل الفرغاني الدمشقي الحنفي」（805年生、父 ＝ #AIND-D01217 القاضي تاج الدين النعماني）。同じ النعماني（アブー・ハニーファ裔）・البغدادي・الدمشقي・الحنفي の属性を共有する。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00055
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: حسبة
+  note:
+    ja: 「قدم القاهرة في سنة خمسين وبيده حسبة دمشق ووكالة بيت المال وعدة وظائف」＝850年のカイロ到着時に在任。任命年は不明（初版の date appointment 850 を除去）。
+- id: s2
+  type: office
+  ref: TMP-O-00046
+  quote: وكالة بيت المال
+  note:
+    ja: 同上。原文は「حسبة دمشق ووكالة بيت المال」で、وكالة بيت المال に دمشق は直接かからない（ダマスクスの職と推定されるが placeName は付けない、規則22）。「وعدة وظائف」（ほか数職）は特定不能のため state を立てない（初版の「غيرها」state を除去）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: visit
+  date:
+    ah: 850
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: قدم
+  summary:
+    ar: قدم القاهرة في سنة خمسين
+  note:
+    ja: 850年＝1446-04-07〜（年のみ→年初、h2g.py）。
+  trigger: rule
+- id: e2
+  type: residence
+  date:
+    ah: 850
+  places:
+  - ref: TMP-I-00214
+    quote: زاوية التقي رجب العجمي
+  quote: فنزل
+  summary:
+    ar: فنزل في زاوية التقي رجب العجمي تحت قلعة الجبل
+  note:
+    ja: カイロ城塞（قلعة الجبل）の下にある التقي رجب العجمي のザーウィヤに宿った。ID-Master 未登録 → TMP-I-00214（施設を placeName に用いる先例 B20・B69-73）。初版の affiliation reside（#NEEDID）を本 event に統合。
+  trigger: rule
+- id: e3
+  type: religious
+  subtype: funeral
+  date:
+    ah: 850-02
+  persons:
+  - ref: AIND-D02423
+  places:
+  - ref: TMP-L-00151
+    quote: مصلى المؤمني
+  quote: ودفن
+  summary:
+    ar: وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه
+  note:
+    ja: スルターン（الظاهر جقمق）の命により مصلى المؤمني（TMP-L-00151）で葬礼が行われ、スルターン自ら下って礼拝した。先例 D02098。
+  trigger: rule
+translation:
+  ja: ウマル・ブン・ムハンマド・アン＝ナジュム・アン＝ヌウマーニー——イマーム・アブー・ハニーファ・アン＝ヌウマーンにちなむ——アル＝バグダーディー、のちアッ＝ディマシュキー、アル＝ハナフィー。（8）50年に、ダマスクスのヒスバ（市場監督職）と国庫代理職（ワカーラト・バイト・アル＝マール）およびいくつかの職を手にしたままカイロに来て、城塞の下にあるアッ＝タキー・ラジャブ・アル＝アジャミーのザーウィヤに宿ったが、間もなく同年サファル月4日に没した。スルターンは彼の死を惜しみ、人々にムサッラー・アル＝ムウミニーで彼のための葬礼を行うよう命じ、自ら下って礼拝した。前述のアッ＝タキーの墓廟（小カラーファ）に葬られた。神が彼を赦したまわんことを。彼がカーディーのハミード・アッ＝ディーン・ムハンマド・ブン・タージュ・アッ＝ディーンの親族であるかどうかは検討を要する。
+  en: ʿUmar b. Muḥammad al-Najm al-Nuʿmānī—after the Imam Abū Ḥanīfa al-Nuʿmān—al-Baghdādī, then al-Dimashqī, al-Ḥanafī. He came to Cairo in the year (8)50 holding the ḥisba of Damascus, the agency of the treasury (wakālat bayt al-māl) and several other offices, and lodged in the zāwiya of al-Taqī Rajab al-ʿAjamī below the Citadel; but before long he died, on the fourth of Ṣafar of that year. The sultan grieved for him, ordered them to pray over him at the Muṣallā al-Muʾminī, and came down and prayed over him himself. He was buried in the tomb of the aforementioned al-Taqī in the Lesser Qarāfa; may God pardon him. It remains to be examined whether he was a relative of the judge Ḥamīd al-Dīn Muḥammad b. Tāj al-Dīn.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T07:37:49Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

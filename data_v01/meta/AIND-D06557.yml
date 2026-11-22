@@ -1,0 +1,133 @@
+schema: aind-yaml/0.1
+id: AIND-D06557
+source:
+  uid: '591547873230'
+sex: M
+name:
+  full: محمد بن إبراهيم بن محمد بن يحيى بن محمد بن إبراهيم قوام الدين بن غياث الدين الحسيني الكازروني
+  elements:
+  - id: n1
+    type: laqab
+    quote: قوام الدين
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00084
+    quote: الحسيني
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00120
+    quote: الكازروني
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: TMP-P-001751
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: يحيى
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n10
+    type: nasab
+    quote: غياث الدين
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 743-11
+  places:
+  - ref: TMP-L-00042
+    cert: low
+    quote: غزة
+  summary:
+    ar: ولد في غزة في ذي القعدة سنة ثلاث وأربعين وسبعمائة
+  note:
+    ja: '743年ズー・アル＝カアダ月＝1343-04-05 開始（h2g.py、月精度）。初版の @when 1342（年精度、743年の年初の年）を月精度 1343-04 に。出生地「غزة」は刊本どおり（規則25）だが、同一人物とみられる二重立項 #AIND-D09254 は「ولد في غرة ذي القعدة سنة ثلاث وأربعين وسبعمائة بكازرون」（同月の朔日、カーザルーンで）と書く＝本項の「في غزة في」は「في غرة」（朔日に）の誤りである可能性が高い。原文の地名を落とさず cert low とし、判断を ISSUES §D170-3 に上げた。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001751
+  passive: AIND-D06557
+  quote: null
+  note:
+    ja: '見出し「قوام الدين بن غياث الدين」＝父はラカブ غياث الدين を持ち、祖父名以上（محمد بن يحيى بن محمد بن إبراهيم）まで復元できる＝識別要素あり（規則3）。corpus に本伝なし（全文「غياث الدين」＋「الكازروني」6件: 本項・#AIND-D09254 のほかは別人）、ID-Master 未登録（「غياث الدين」「الكازروني」「D06557」）→ 新規 TMP-P-001751。二重立項 #AIND-D09254 の見出しは父の名を「محمد」とする（「محمد بن محمد بن محمد بن يحيى」）＝名の異伝を TSV Note に。初版は father relation なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001752
+  passive: AIND-D06557
+  methods:
+  - TMP-S-00008
+  quote: الأمين محمد البلياني
+  note:
+    ja: 「وأخذ عن الأمين محمد البلياني」。corpus 全文「البلياني」11件に الأمين محمد の本伝・他の言及なし、ID-Master 未登録（「البلياني」「أمين الدين」）→ 新規 TMP-P-001752（ラカブ＋名＋ニスバ＝識別要素あり、規則12）。初版は幻番号 TMP-P-000000。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-001753
+  passive: AIND-D06557
+  methods:
+  - TMP-S-00011
+  quote: سعيد الدين الكازروني
+  note:
+    ja: '「وروى عن سعيد الدين الكازروني」。二重立項 #AIND-D09254 では「وسمع … من العفيف الكازروني ثم من ولده سعيد الدين المقتفي في مولد المصطفى له」＝『المقتفي في مولد المصطفى』の著者 سعيد الدين。corpus に本伝なし。#AIND-D09320「محمد بن محمد المدعو سعيد بن مسعود … العفيف أبو المحامد ابن سعيد الدين أبي محمد بن الضياء البلياني النيسابوري ثم الكازروني」（727年生）の父 سعيد الدين が候補だが、D09254 は سعيد الدين を العفيف の「ولده」（子）と書いており親子の向きが食い違う＝同定は保留し、新規 TMP-P-001753 を発行（規則26）。#AIND-D03094 の「الفخر أبي القسم … العبادي وابنه سعيد الدين الكازروني」は9世紀の人で別人。初版は幻番号 TMP-P-000000。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D06557
+  passive: AIND-D00900
+  methods:
+  - TMP-S-00004
+  context:
+  - date:
+      ah: 829
+  quote: الطاووسي
+  note:
+    ja: '「قال الطاووسي : أجاز لي في سنة تسع وعشرين」＝一人称は引用元の الطاووسي（規則59 (f)）。本項主が الطاووسي（#AIND-D00900 أحمد بن عبد الله … أبو الفتوح … الطاوسي）にイジャーザを与えた＝本項主が師（規則15）。829年＝1425-11-22 開始（h2g.py、年精度）。本項主は743年生＝829年には86歳。初版は subtype="student"、event の @when に ヒジュラ暦年「0829」。'
+- id: r5
+  type: personal
+  subtype: possible_identity
+  active: AIND-D09254
+  passive: AIND-D06557
+  cert: high
+  quote: null
+  note:
+    ja: '二重立項（どちらにも転送指示なし＝両項とも実項）。#AIND-D09254「محمد بن محمد بن محمد بن يحيى بن محمد بن إبرهيم السيد قوام الدين بن غياث الدين العلوي الحسيني الموسوي الكازروني القاضي . ولد في غرة ذي القعدة سنة ثلاث وأربعين وسبعمائة بكازرون وسمع من الموفق الزرندي الصحيح ومن العفيف الكازروني ثم من ولده سعيد الدين المقتفي في مولد المصطفى له وولي قضاء كازرون . وممن روى عنه التقي بن فهد وذكره في معجمه」（repo 未収録）。ラカブ قوام الدين・父のラカブ غياث الدين・祖父以上のナサブ（محمد بن يحيى بن محمد بن إبراهيم）・ニスバ الحسيني الكازروني・生年月（743年ズー・アル＝カアダ月）・師 سعيد الدين が一致し、相違は父の名（إبراهيم／محمد）のみ。サハーウィー自身の同定の言はないが一致点が多い＝cert high（先例 #AIND-D10247⇄#AIND-D12832。ISSUES §D170-3）。鏡像は D09254 受領時。カーディー職・生地 كازرون・師 الموفق الزرندي・ابن فهد は相手側にのみある属性＝本項には立てない（規則23）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00900
+  quote: قال
+  summary:
+    ar: 'قال الطاووسي : أجاز لي في سنة تسع وعشرين'
+  note:
+    ja: Pattern A。情報源は الطاووسي（#AIND-D00900）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・ヤフヤー・ブン・ムハンマド・ブン・イブラーヒーム、カワーム・アッ＝ディーン・ブン・ギヤース・アッ＝ディーン、アル＝フサイニー、アル＝カーザルーニー。743年ズー・アル＝カアダ月にガザで生まれ、アル＝アミーン・ムハンマド・アル＝バルヤーニーに学び、サイード・アッ＝ディーン・アル＝カーザルーニーから伝えた。アッ＝ターウースィーは「29年に彼は私にイジャーザを与えた」と述べている。
+  en: 'Muḥammad b. Ibrāhīm b. Muḥammad b. Yaḥyā b. Muḥammad b. Ibrāhīm, Qawām al-Dīn b. Ghiyāth al-Dīn, al-Ḥusaynī al-Kāzarūnī. He was born in Gaza in Dhū al-Qaʿda of the year 743, studied under al-Amīn Muḥammad al-Balyānī and transmitted from Saʿīd al-Dīn al-Kāzarūnī. Al-Ṭāwūsī said: "He gave me an ijāza in the year 29."'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T17:05:09Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

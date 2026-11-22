@@ -1,0 +1,136 @@
+schema: aind-yaml/0.1
+id: AIND-D05923
+source:
+  uid: '741389382410'
+sex: M
+name:
+  full: عمر بن أبي القسم بن معيبد القاضي تقي الدين اليمني التعزي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00192
+    quote: اليمني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00503
+    quote: التعزي
+  - id: n3
+    type: laqab
+    quote: تقي الدين
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أبي القسم
+    by: rule
+    ref: AIND-D11082
+  - id: n6
+    type: nasab
+    quote: معيبد القاضي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 837
+  places:
+  - ref: TMP-L-00050
+    quote: تعز
+  summary:
+    ar: وتوفي بمدينة تعز آخر سنة سبع وثلاثين وحضرت دفنه
+  note:
+    ja: 「آخر سنة سبع وثلاثين」＝837年末。837 ＝ 1433-08-27〜1434-08-15。校閲者は「آخر سنة」が 1434 側に落ちることから when="1434" としたが、規則18（年のみ→年初、@when の精度は when-custom に合わせる）により集約時に when="1433" に揃えた（機械[4]・内容検証B L-18）。実際の没時期は837年末＝西暦 1434年前半〜8月で、この note に残す。没地 تعز は原文に明記。埋葬地は「حضرت دفنه」（الناشري が埋葬に立ち会った）のみで地名の明記がないため、初版の burial placeName は除去。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D11082
+  passive: AIND-D05923
+  cert: medium
+  quote: null
+  note:
+    ja: '見出しナサブの父。イエメンの宰相家 ابن معيبد（#AIND-D01138 أحمد بن عمر بن معيبد وزير اليمن 没824）。候補 #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」（ナサブに عمر が1代多い）は確証なし → TMP-P-001398（§D107-9）。初版は father relation を欠落。 / 名寄せ監査 cert 補完（2026-11-05）: #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」はナサブが1代ずれ、ابن معيبد 家は家名で世代を省く（叔父・従兄弟の可能性を排除できない）ので cert medium で保持する。上の note の「確証なし → TMP-P-001398」は統合前の判断の記録。'
+- id: r2
+  type: personal
+  subtype: cousin
+  active: AIND-D05983
+  passive: AIND-D05923
+  cert: medium
+  quote: عمر بن محمد بن معيبد
+  note:
+    ja: '「وأظنه ابن عم عمر بن محمد بن معيبد الآتي」。相手 = #AIND-D05983（عمر بن محمد بن معيبد السراج أبو حفص … الزبيدي … اليماني الشافعي ويعرف بالفتى、801年生）。أظنه のため cert medium。初版の #NEEDID を差し替え。'
+- id: r3
+  type: personal
+  subtype: met
+  active: AIND-D04864
+  passive: AIND-D05923
+  context:
+  - date:
+      ah: 828
+    places:
+    - ref: TMP-L-00041
+      quote: زبيد
+  quote: العفيف عثمان الناشري
+  note:
+    ja: '「قال : وكنت اجتمعت به في سنة ثمان وعشرين بزبيد وحصل لي منظومة في مشايخ شيخنا ابن الجزري」。العفيف عثمان الناشري ＝ #AIND-D04864（عثمان بن عمر … العفيف الناشري المقري الشافعي、『البستان الزاهر』の著者、ابن الجزري の弟子）。828 ＝ 1424-12-02〜1425-11-21、年初 1424。初版の subtype「friend」・#NEEDID を是正。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q217029
+  quote: null
+  note:
+    ja: 見出しの称号「القاضي تقي الدين」から。任地は原文にないため初版の placeName اليمن（ニスバ由来）を除去（規則22）。
+- id: s2
+  type: office
+  ref: wd:Q175240
+  quote: وزر
+  note:
+    ja: '「الدولة الظاهرية」＝ラスール朝のアッ＝ザーヒル・ヤフヤー（在位831〜842）の治世と解されるが、原文は人名を記さないため ref は付さない（初版の orgName #NEEDID と placeName اليمن、同内容の political event を除去）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D04864
+  quote: ذكره
+  summary:
+    ar: ذكره العفيف عثمان الناشري في أثناء كلام وقال أنه صاحب الفضل الشهير والأدب الكثير
+  note:
+    ja: Pattern A。以下「كتب إلى عمي … انتهى」までは الناشري の言葉の引用で、「عمي」「دروسي」「فكتبت إليه」の一人称は الناشري。初版訳の「私の叔父に私の講義を称賛する手紙を送ってきたため、私は彼に詩を送った」の「私」はサハーウィーではなく الناشري。
+  trigger: rule
+- id: e2
+  type: cultural
+  persons:
+  - ref: AIND-D04864
+  places:
+  - ref: TMP-L-00050
+    quote: تعز
+  quote: null
+  summary:
+    ar: 'كتب إلى عمي يثني على دروسي لما وردت عليه تعز فكتبت إليه : ألم تر أن الكون والصمت طبعه يقول أين عثمان من عمر / وأين السها يا صاحبي في غموضه من الزهرة الزهراء والشمس والقمر'
+  note:
+    ja: الناشري が تعز で本項主のもとに到ったとき、本項主が الناشري の叔父に الناشري の講義を称える手紙を書き、الناشري が返詩を送った。تعز は原文に明記（「وردت عليه تعز」）。
+- id: e3
+  type: cultural
+  persons:
+  - ref: AIND-D09163
+    quote: ابن الجزري
+  quote: null
+  summary:
+    ar: وحصل لي منظومة في مشايخ شيخنا ابن الجزري
+  note:
+    ja: 本項主が الناشري のために「我らがシャイフ ابن الجزري の師たちについての韻文（منظومة）」を手に入れた（「حصل لي」）。ابن الجزري ＝ wd:Q4120093（ID-Master に要確認印、repo 先例1件に従う。§D107-10）。شيخنا はここでは الناشري の師（#AIND-D04864 本伝「أخذ القراءات عن ابن الجزري」）。
+- id: e4
+  type: religious
+  quote: وكان مع ذلك يكابد العبادات ولا يفتر من الطاعات
+translation:
+  ja: ウマル・ブン・アビー・アル＝カースィム・ブン・ムアイビド、カーディー・タキー・アッ＝ディーン、アル＝ヤマニー・アッ＝タイッズィー。アル＝アフィーフ・ウスマーン・アン＝ナーシリーが話の途中で彼に言及し、「彼は名高い徳と豊かな文才の人で、私がタイッズで彼のもとに到った際、私の叔父に私の講義を称える手紙を書いた。そこで私は彼にこう書き送った。『存在と沈黙がその本性であるものが、ウスマーンはウマルに比べてどこにいようか、と言うのを見ないのか。友よ、その幽かさにおいてスハー星は、輝くヴィーナスと太陽と月に比べてどこにいようか。』」と述べた。彼（ナーシリー）はさらに言う。「私は（8）28年にザビードで彼に会い、彼は我らがシャイフ・イブン・アル＝ジャザリーの師たちについての韻文を私のために手に入れてくれた。彼はザーヒル朝において宰相を務め、それでいて礼拝修行に骨身を削り、服従行為を怠らなかった。（8）37年末にタイッズの町で没し、私はその埋葬に立ち会った。」以上。思うに彼は後述のウマル・ブン・ムハンマド・ブン・ムアイビドの父方の従兄弟である。
+  en: 'ʿUmar b. Abī al-Qāsim b. Muʿaybid, the qāḍī Taqī al-Dīn al-Yamanī al-Taʿizzī. Al-ʿAfīf ʿUthmān al-Nāshirī mentioned him in the course of a discussion and said that he was a man of celebrated merit and abundant literary culture: "He wrote to my uncle praising my lessons when I came to him at Taʿizz, so I wrote to him: ''Do you not see that existence, whose nature is silence, says: where is ʿUthmān beside ʿUmar? And where, my friend, is al-Suhā in its faintness beside the radiant Venus, the sun and the moon?''" He (al-Nāshirī) said: "I had met him in the year (8)28 at Zabīd, and he obtained for me a versified work on the teachers of our shaykh Ibn al-Jazarī. He served as vizier under the Ẓāhirī regime, and withal he toiled in acts of worship and never slackened in acts of obedience. He died in the city of Taʿizz at the end of the year (8)37, and I attended his burial." End of quotation. I think he is the paternal cousin of ʿUmar b. Muḥammad b. Muʿaybid, mentioned below.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T05:03:20Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

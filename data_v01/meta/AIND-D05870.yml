@@ -1,0 +1,126 @@
+schema: aind-yaml/0.1
+id: AIND-D05870
+source:
+  uid: '106438865570'
+sex: M
+name:
+  full: عمر بن عبد العزيز بن عبد السلام السراج الأنصاري الزرندي المدني الشافعي
+  elements:
+  - id: n1
+    type: laqab
+    quote: السراج
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00049
+    quote: الأنصاري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00205
+    quote: الزرندي
+  - id: n4
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n5
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد العزيز
+    by: rule
+    ref: AIND-D03969
+  - id: n7
+    type: nasab
+    quote: عبد السلام
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+birth:
+  id: b
+  date:
+    notBefore: 863-02
+    cert: medium
+  note:
+    ja: 「مات أبوه في صفر سنة ثلاث وستين فولد ابنه هذا بعده」＝父が863年サファル月に没し、この息子はその後に生まれた（遺腹の子）。生年は 863年サファル月以降（notBefore、cert medium）。863-02 ＝ 1458-12-17〜1459-01-14（h2g.py）。初版の when-custom=0863（確定年）を notBefore に改めた。生地の明記はない。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D09916
+  passive: AIND-D05870
+  methods:
+  - TMP-S-00009
+  cert: medium
+  quote: مسعود المغربي
+  note:
+    ja: '「واشتغل يسيرا في العربية عند مسعود المغربي」。مسعود المغربي ＝ #AIND-D09916（مسعود بن علي بن أحمد بن عبد الرحمن الركراكي ثم المصمودي المغربي المالكي نزيل المدينة）に repo 先例 D07666 と同じく cert medium で同定。初版 #NEEDID。「وفي غيرها عند غيره」の無名の師は relation を立てない。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D05870
+  methods:
+  - TMP-S-00014
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+  works:
+  - ref: TMP-T-00209
+  quote: ولازمني
+  note:
+    ja: 「ولازمني في المدينة وحصل نسخة من المقاصد الحسنة بعد أن سمعه」（規則2、「ممن لازمني」型）。المقاصد الحسنة ＝ サハーウィー自著、ID-Master 未登録 → 新規 TMP-T-00209。原文にない field（الحديث）は付けない。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D05870
+  methods:
+  - TMP-S-00004
+  quote: null
+  note:
+    ja: 「وكتبت له إجازة」。性質の異なる伝授（سماع と إجازة）は別 relation（規則2）。
+- id: r4
+  type: personal
+  subtype: father
+  active: AIND-D03969
+  passive: AIND-D05870
+  quote: أبوه
+  note:
+    ja: '父 ＝ #AIND-D03969（عبد العزيز بن عبد السلام بن أبي الفرج الزرندي المدني والد عمر الآتي . مات في صفر سنة ثلاث وستين）で双方向に閉合（repo 収録済み）。初版 #NEEDID。'
+- id: r5
+  type: personal
+  subtype: associate
+  active: NEEDID
+  passive: AIND-D05870
+  cert: medium
+  quote: شاهين
+  note:
+    ja: '「وأظنه خالط شاهين أو غيره فلم تحمد عاقبته」。「أظنه」＝ cert medium。شاهين は裸名のみで特定不能 → #NEEDID 維持（規則12）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: other
+  date:
+    ah: 894
+  quote: null
+  summary:
+    ar: ثم رأيته في موسم سنة أربع وتسعين وهو باق على تودده ولكنه انحل عن اشتغاله
+  note:
+    ja: 894年の巡礼期（موسم）にサハーウィーが本項主と再会。本項主自身の حج は明記されず場所も書かれないため religious/hajj ではなく other、placeName は付けない（初版の hajj event・placeName مكة を置換、規則22(1)）。894 ＝ 1488-12-14〜1489-12-03（h2g.py、年のみ→年初）。
+translation:
+  ja: ウマル・ブン・アブド・アル＝アズィーズ・ブン・アブド・アッ＝サラーム、アッ＝シラージュ・アル＝アンサーリー・アッ＝ザランディー・アル＝マダニー・アッ＝シャーフィイー。父は863年サファル月に没し、この息子はその後に生まれた。マスウード・アル＝マグリビーのもとでアラビア語を、他の者のもとでその他を少し学んだ。マディーナで私（サハーウィー）に師事し、『アル＝マカースィド・アル＝ハサナ』を聴聞したうえでその写本を手に入れ、私は彼にイジャーザを書いた。その後894年の巡礼期に彼に会ったが、親しみは変わらないものの学問からは離れてしまっており、思うに彼はシャーヒーンか誰かと交わって、その行く末は褒められたものではなかった。
+  en: 'ʿUmar b. ʿAbd al-ʿAzīz b. ʿAbd al-Salām, al-Sirāj al-Anṣārī al-Zarandī al-Madanī al-Shāfiʿī. His father died in Ṣafar of the year 863 and this son of his was born after that. He studied a little Arabic grammar under Masʿūd al-Maghribī and other subjects under others. He attended me (al-Sakhāwī) closely in Medina, obtained a copy of al-Maqāṣid al-ḥasana after hearing it, and I wrote him an ijāza. Then I saw him in the pilgrimage season of the year 894: he remained as affectionate as before, but had drifted away from his studies, and I think he had fallen in with Shāhīn or someone like him, so that his end was not praiseworthy.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T06:49:32Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

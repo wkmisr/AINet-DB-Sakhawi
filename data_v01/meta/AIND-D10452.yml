@@ -1,0 +1,91 @@
+schema: aind-yaml/0.1
+id: AIND-D10452
+source:
+  uid: '425994506562'
+sex: M
+name:
+  full: يوسف بن أحمد الأندلسي التونسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00101
+    quote: الأندلسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00056
+    quote: التونسي
+  - id: n3
+    type: ism
+    quote: يوسف
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+birth:
+  id: b
+  date:
+    notAfter: 830
+    cert: low
+  note:
+    ja: 「وهو الآن في سنة تسعين حي زاد على الستين」＝890年時点で存命・60歳を越えていた → 逆算で 830年以前の生まれ（概数・cert low）。830年の年末＝1427-10-30（h2g.py の year end）→ notAfter=1427（年精度）。初版は when-custom=0830／when=1427（確定年扱い）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10452
+  quote: أحمد
+  note:
+    ja: 規則3 (c')。父 أحمد は裸名。初版は父 relation なし＝追加。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D05999
+  passive: AIND-D10452
+  methods:
+  - TMP-S-00008
+  quote: null
+  note:
+    ja: '「أخذ عن عمر وأحمد القلجانيين」。عمر＝corpus 本伝 #AIND-D05999「عمر بن محمد القلشاني بفتح القاف وسكون اللام ثم معجمة أو جيم المغربي التونسي … والد قاضي الجماعة محمد الآتي وأخو أحمد الماضي … وولي قضاء الجماعة بتونس … حتى مات سنة ثمان وأربعين」（未収録）。サハーウィー自身が「معجمة أو جيم」と両形（القلشاني／القلجاني）を示す。名・ニスバ・兄弟 أحمد との並記で閉合（規則57）。初版 #NEEDID・相手名なし。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D01379
+  passive: AIND-D10452
+  methods:
+  - TMP-S-00008
+  quote: null
+  note:
+    ja: 'أحمد＝corpus 本伝 #AIND-D01379「أحمد بن محمد بن عبد الله بن محمد أبو العباس القلشاني المغربي المالكي أخو عمر الآتي … ولي قضاء الجماعة بتونس … حتى مات بعد الستين」（未収録）。名・ニスバ・兄弟 عمر との並記で閉合。初版 #NEEDID・相手名なし。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D08475
+  passive: AIND-D10452
+  methods:
+  - TMP-S-00008
+  quote: محمد بن أبي القاسم المشدالي
+  note:
+    ja: 'corpus 本伝 #AIND-D08475「محمد بن أبي القسم بن محمد بن عبد الصمد … أبو عبد الله … المشدالي … الزواوي البجائي المغربي المالكي والد أبي الفضل محمد وأخيه أبي عبد الله … ذا وجاهة عند صاحب تونس」（未収録）。名・父のクンヤ名・ニスバで閉合（子の #AIND-D09017・#AIND-D09018 は محمد بن محمد＝別人）。「وغيرهم」は人物を立てない。初版 #NEEDID・相手名なし。'
+events:
+- id: e1
+  type: cultural
+  quote: وبرع في أصول الدين وشارك في الفقه وأصوله والعربية وغيرها
+- id: e2
+  type: other
+  date:
+    ah: 890
+  quote: null
+  summary:
+    ar: وهو الآن في سنة تسعين حي زاد على الستين
+  note:
+    ja: 執筆時点（890年＝1485-01-27 開始、年精度）で存命、60歳を越えていた（年齢、規則59(d)）。初版の cert="high" を除去。
+translation:
+  ja: ユースフ・ブン・アフマド、アル＝アンダルスィー、アッ＝トゥーニスィー。ウマルとアフマドの両カルジャーニー、ムハンマド・ブン・アビー・アル＝カースィム・アル＝マシャッダーリーらに学び、神学（ウスール・アッ＝ディーン）に秀で、法学とその法源学、アラビア語学などにも通じた。現在、（8）90年に存命で、60歳を越えている。
+  en: Yūsuf b. Aḥmad, al-Andalusī, al-Tūnisī. He studied under ʿUmar and Aḥmad, the two Qaljānīs, Muḥammad b. Abī al-Qāsim al-Mashaddālī and others; he excelled in the principles of religion and was versed in jurisprudence and its principles, Arabic and other subjects. He is alive now, in the year [8]90, having passed sixty.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T08:36:58Z'
+  model_requested: gemini-3.5-flash

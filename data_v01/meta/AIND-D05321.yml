@@ -1,0 +1,77 @@
+schema: aind-yaml/0.1
+id: AIND-D05321
+source:
+  uid: '170267782734'
+sex: M
+name:
+  full: علي بن عمر بن محمد الفقيه الأجل الصالح شمس الدين الأهدل
+  elements:
+  - id: n1
+    type: laqab
+    quote: شمس الدين
+  - id: n2
+    type: shuhrah
+    quote: الأهدل
+  - id: n3
+    type: honorific
+    quote: الفقيه الأجل الصالح
+  - id: n4
+    type: ism
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05321
+  quote: null
+  note:
+    ja: '父。見出しナサブから復元（規則3、祖父名 محمد まで判明）。原文「كانا كأبيهما من الصلحاء」。corpus に本伝なし（「عمر بن محمد … الأهدل」の見出しは D02702 のナサブ中の遠祖のみで別人）・ID-Master 未登録 → 新規 TMP-P-001515。初版の TMP-P-000664（登録＝ティムールの子 عمر、別人）は汚染流用のため差替え。 【裁定反映 2026-10-19 ★4-1(c''): 父自身に識別要素（ラカブ・クンヤ・職）がなく「名＋父名＋ニスバ」のみの汎用名で、本伝のある兄弟項とも共有しないため、#NEEDID に変更（TMP-P-001515 は取り下げ・欠番）。】'
+- id: r2
+  type: personal
+  subtype: brother
+  active: TMP-P-001516
+  passive: AIND-D05321
+  quote: أخو
+  note:
+    ja: '「أخو عبد المجيد」。corpus に「عبد المجيد بن عمر … الأهدل」の見出しなし（عبد المجيد 部の見出しは الناشري・القسطلاني 等で別人）・ID-Master 未登録 → 新規 TMP-P-001516（規則12、父名・祖父名・一族名が識別要素）。初版は #NEEDID。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00345
+    quote: المراوغة
+  quote: null
+  note:
+    ja: 「أفضل موجود في المراوغة من سهم」。المراوغة は corpus で本項と D02702（「فانتقل إلى المراوغة」、イエメン）に出現、ID-Master 未登録 → 新規 TMP-L-00345。「من سهم」はイエメン・ティハーマの سهام（既登録 TMP-L-00338）を指すとみられるが、原文どおり「سهم」のまま読み ID は充てない（規則25）。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D04864
+    quote: العفيف
+  quote: ذكره
+  summary:
+    ar: ذكره العفيف
+  cert: medium
+  note:
+    ja: Pattern A。イエメン（الأهدل 家・المراوغة）文脈の「العفيف」＝العفيف الناشري（#AIND-D04864、عثمان بن عمر الناشري、804/5年生・840年以降没、『البستان الزاهر في طبقات علماء بني ناشر』の著者で「استطرد فيه لغيرهم」）と判断（先例 D04285・D03383）。クンヤのみのため cert medium。初版の統制外 relation「biographical mention」（TMP-P-000391「العفيف」裸名行）を置換（→ ISSUES §D122-2）。
+  trigger: rule
+translation:
+  ja: アリー・ブン・ウマル・ブン・ムハンマド、最も高貴で敬虔な法学者シャムス・アッ＝ディーン・アル＝アフダル。アブド・アル＝マジードの兄弟。二人は父と同様に敬虔な人々のうちにあり、スィハムのアル＝マラーウィガにおける最も優れた者であった。アル＝アフィーフが彼に言及している。
+  en: ʿAlī b. ʿUmar b. Muḥammad, the most eminent and righteous jurist Shams al-Dīn al-Ahdal, the brother of ʿAbd al-Majīd. The two of them, like their father, were among the righteous, the best to be found in al-Marāwigha of Sihm. Al-ʿAfīf mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T13:21:47Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

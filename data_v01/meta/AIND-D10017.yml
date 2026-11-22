@@ -1,0 +1,82 @@
+schema: aind-yaml/0.1
+id: AIND-D10017
+source:
+  uid: '907659988296'
+sex: M
+name:
+  full: منصور بن ناصر الحسني المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00079
+    quote: الحسني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: ism
+    quote: منصور
+    by: rule
+  - id: n4
+    type: nasab
+    quote: ناصر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 855-05
+  summary:
+    ar: مات في جمادى الأولى سنة خمس وخمسين
+  note:
+    ja: 855年ジュマーダー1月＝1451-06-10〜07-09（h2g）→ @when は月精度 1451-06（初版の年精度 1451 を修正）。没地の記載なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10017
+  quote: null
+  note:
+    ja: 規則3 (c')。父 ناصر は裸名で識別要素なし。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02560
+  passive: AIND-D10017
+  quote: السيد حسن بن عجلان
+  note:
+    ja: '「مولى السيد حسن بن عجلان」＝主人（規則51、مولى）。حسن بن عجلان＝#AIND-D02560（ID-Master Note「シャリーフ حسن بن عجلان=AIND-D02560」、マッカのアミール）。ニスバ「الحسني」は主人 حسن بن عجلان への帰属ニスバ（先例 #AIND-D02141「الحسني نسبة لحسن بن عجلان لكون والده عتيقه」）。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: أحد القواد
+  note:
+    ja: '「وأحد القواد」＝マッカの قائد（TMP-O-00094）。初版は #NEEDID、かつ原文にない placeName مكة を state に付けていたので除去（規則22(1)）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D05979
+  quote: null
+  summary:
+    ar: أرخهم ثلاثتهم ابن فهد
+  cert: medium
+  note:
+    ja: 'Pattern A。根拠は #AIND-D10018「منصور بن ناصر القائد . مات في ربيع الآخر سنة ثمانين بمكة . أرخهم ثلاثتهم ابن فهد」の「ثلاثتهم（この3人）」＝#AIND-D10016・#AIND-D10017・#AIND-D10018。3人の没年を記した ابن فهد は一人で、3人目 D10018 が 880 没のため التقي بن فهد（#AIND-D09211、871年ربيع الأول没＝corpus「مات … سابع ربيع الأول سنة إحدى وسبعين」）には記録できない＝النجم عمر بن فهد #AIND-D05979、cert medium（event 側、規則43）。本項主の没年（855）だけで振り分けると D09211 low になるが、ここでは記録者が D10018 と共通である点を優先する。【集約 2026-11-03】校閲時の D09211 cert low（ブリーフ規則58 の指示）を差し替え（内容B M、オーケストレーター決定3）。'
+notes:
+- text: '次項 #AIND-D10018「منصور بن ناصر القائد . مات في ربيع الآخر سنة ثمانين بمكة」は同名（منصور بن ناصر）・同職（القائد）だが没年が異なり（855／880）、サハーウィーは別人として立項し転送指示もないので同一視しない。'
+  lang: ja
+  type: editorial
+translation:
+  ja: マンスール・ブン・ナースィル・アル＝ハサニー・アル＝マッキー、サイイド・ハサン・ブン・アジュラーンのマウラー（従属民）で、カーイド（隊長）たちの一人。855年ジュマーダー第一月に没した。
+  en: Manṣūr b. Nāṣir al-Ḥasanī al-Makkī, mawlā of al-Sayyid Ḥasan b. ʿAjlān and one of the qāʾids. He died in Jumādā I 855.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T06:52:45Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

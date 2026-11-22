@@ -1,0 +1,75 @@
+schema: aind-yaml/0.1
+id: AIND-D07432
+source:
+  uid: '618436448870'
+sex: M
+name:
+  full: محمد بن سعيد التونسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00056
+    quote: التونسي
+  - id: n2
+    type: shuhrah
+    ref: TMP-N-02036
+    quote: الغافقي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: سعيد
+    by: rule
+death:
+  id: d
+  date:
+    notBefore: 860
+  summary:
+    ar: مات بعد الستين
+  note:
+    ja: 「مات بعد الستين」＝860年以後（repo 先例 D07222「مات بعد الثمانمائة」と同じく notBefore-custom を N＝0860 とし、860年初＝1455-12-20 → 年精度 1455）。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D10407
+  passive: AIND-D07432
+  methods:
+  - TMP-S-00008
+  cert: medium
+  quote: يعقوب الزغبي
+  note:
+    ja: '原文は「يعقوب الزغبي」。corpus に「الزغبي」の見出しはなく、点の揺れ（غ/ع）で #AIND-D10407「يعقوب الزعبي . مات سنة اثنتين وثلاثين」（ニスバ索引 D11695「الزعبي قاضي الجماعة بتونس يعقوب」、D08471「يعقوب الزعبي تلميذ ابن عرفة」、repo では D01837・D04086 の師として使用）に同定（規則10 点の揺れ、規則25 により綴りは原文のまま、cert medium）。チュニスの法学者という文脈も一致。'
+- id: r2
+  type: personal
+  subtype: colleague
+  active: AIND-D11102
+  passive: AIND-D07432
+  cert: medium
+  quote: القسم القسنطيني
+  note:
+    ja: '「من نظرا أبي القسم القسنطيني ترافقا في الأخذ عن يعقوب الزغبي وغيره」＝同輩として共に学んだ。候補 #AIND-D11102「أبو القسم الوشتاتي … القسنطيني وهو محمد بن محمد بن أحمد قاضي الجماعة بتونس … مات مقتولا … سنة ست وأربعين」（チュニスの大カーディー、846没。その子 D08471 も「أخذ عن يعقوب الزعبي」）。corpus でクンヤ أبو القسم＋القسنطيني の本伝はこれのみで年代・チュニスの法学という文脈も合うが、クンヤ＋ニスバのみの呼称のため cert medium（ISSUES §D141-1）。ID-Master の TMP-P-001010「أبو القسم القسنطيني (والد أحمد)」（D01169 の父、実体未確定）と同一人物の可能性あり。'
+- id: r3
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07432
+  quote: null
+  note:
+    ja: '父 سعيد：汎用名のみ、祖父名なし → #NEEDID（規則3 (c'')）。'
+events:
+- id: e1
+  type: teaching
+  quote: ودرس
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・サイード・アッ＝トゥーニスィー、アル＝ガーフィキーとして知られる。アブー・アル＝カースィム・アル＝クサンティーニーの同輩の一人で、二人はヤアクーブ・アッ＝ズグビーをはじめ法学に秀でた人々から共に学んだ。教授し、ファトワーを発し、人々は彼から益を得た。860年以後に没した。
+  en: Muḥammad b. Saʿīd al-Tūnisī, known as al-Ghāfiqī, one of the peers of Abū al-Qāsim al-Qusanṭīnī; the two of them studied together under Yaʿqūb al-Zughbī and others who were advanced in jurisprudence (fiqh). He taught, issued fatwas, and people benefited from him. He died after 860.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-08T21:22:45Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

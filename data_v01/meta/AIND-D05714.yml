@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D05714
+source:
+  uid: '388866519431'
+sex: M
+name:
+  full: علي العلاء بن مفلح الدمشقي الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: laqab
+    quote: العلاء
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: مفلح
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+death:
+  id: d
+  date:
+    ah: 803-08
+    cert: medium
+  places:
+  - ref: TMP-L-00306
+    quote: ديماس
+  note:
+    ja: 「مات بقرية ديماس من قرى دمشق في شعبان سنة ثلاث من أثر كي كواه له تمرلنك على ظهره ، قاله العيني」。「سنة ثلاث」は一の位のみ → 803 と読み cert medium（ティムールのダマスクス占領 803年初と整合）。803-08 ＝ 1401-03-26〜04-23、月初 1401-03（h2g.py）。ديماس はダマスクス近郊の村（ID-Master にはニスバ الديماسي TMP-N-04754 のみ → 新規 TMP-L-00306）。死因はティムールが背に施した焼灼の後遺症。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05714
+  quote: null
+  note:
+    ja: '「بن مفلح」はダマスクスのハンバリー派 ابن مفلح 家の家名で、父の名は不明（原文末尾「قلت وهو ابن .」でサハーウィーが系譜を補おうとした箇所は刊本で途切れている）→ #NEEDID。規則26により ابن مفلح 家の既出項への同定はしない。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q217029
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: قاضيها
+  note:
+    ja: 「الدمشقي الحنبلي قاضيها」＝ダマスクスの（ハンバリー派）法官。「ها」＝ دمشق（照応）。初版の date type="retirement"（原文に根拠なし）は除去。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: wd:Q8462
+    quote: تمرلنك
+  quote: null
+  summary:
+    ar: كي كواه له تمرلنك على ظهره
+  note:
+    ja: ティムール（تمرلنك ＝ wd:Q8462、ID-Master 登録）が本項主の背に焼灼を施し、その後遺症で没した。場所は原文に明記なし。初版の統制外 subtype「captor / executioner」relation を event に変換。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: قاله
+  summary:
+    ar: قاله العيني
+  note:
+    ja: Pattern A。العيني ＝ بدر الدين العيني（wd:Q257745）。初版の統制外 subtype「historian / chronicler」relation（#NEEDID）を event に変換。
+  trigger: rule
+translation:
+  ja: アリー、アル＝アラー・ブン・ムフリフ・アッ＝ディマシュキー・アル＝ハンバリー、同地（ダマスクス）の法官。善良で清廉、人々に受け入れられていた。ティムールが彼の背に施した焼灼の後遺症により、（80）3年シャアバーン月にダマスクスの村の一つディーマース村で没した。アル＝アイニーがそう述べている。私（サハーウィー）は言う、彼は……の子である（原文はここで途切れている）。
+  en: 'ʿAlī, al-ʿAlāʾ b. Mufliḥ al-Dimashqī al-Ḥanbalī, its (Damascus''s) judge. He was good, upright and well accepted among the people. He died in the village of Daymās, one of the villages of Damascus, in Shaʿbān (80)3, from the effects of a cauterization that Timur (Tamerlane) had inflicted on his back; so said al-ʿAynī. I (al-Sakhāwī) say: he is the son of ... (the text breaks off here).'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T05:21:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

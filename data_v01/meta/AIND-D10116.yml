@@ -1,0 +1,138 @@
+schema: aind-yaml/0.1
+id: AIND-D10116
+source:
+  uid: '382109503020'
+sex: M
+name:
+  full: ناصر بن محمد بن أحمد بن الرضى إبرهيم بن محمد بن إبرهيم ناصر الدين ابن أبي اليمن الطبري المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00124
+    quote: الطبري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: laqab
+    quote: ناصر الدين
+  - id: n4
+    type: ism
+    quote: ناصر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D06599
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: الرضى إبرهيم
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: إبرهيم
+    by: rule
+  - id: n10
+    type: nasab
+    quote: أبي اليمن
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 781
+    cert: low
+  note:
+    ja: 逆算生年（「مات … سنة إحدى عن عشرين سنة أو زيادة」＝801−20＝781 年頃かそれ以前）。頃・cert low。781年初＝1379-04-27（h2g.py）→ @when 1379。初版は birth なし。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 801-08-01
+    cert: medium
+  summary:
+    ar: مات في مستهل شعبان سنة إحدى عن عشرين سنة أو زيادة
+  note:
+    ja: '一の位だけの年「سنة إحدى」＝801、cert medium（2026-09-24 Waka）。801年シャアバーン月朔日＝1399-04-16（h2g.py。初版の @when 1398 を是正）。世紀の裏付け: 父 #AIND-D06599 は730年生・「مات في صفر سنة تسع بمكة」（809）、情報源 التقي الفاسي（#AIND-D06757）は本伝によれば775年生・「مات … في شوال سنة اثنتين وثلاثين」（832）＝没年 801／811／821／831 のうち、20歳余で没し النشاوري（#AIND-D12978 に788年以降の授与者として出る）の免状を得ていることから 801 が最も合う。没地は原文にない＝初版の placeName（مكة）を除去（規則22(1)：ニスバ المكي からの補完）。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D06599
+  passive: AIND-D10116
+  quote: أبيه
+  note:
+    ja: '見出しナサブ（規則37）。父＝#AIND-D06599「962 محمد بن أحمد بن الرضي إبراهيم بن محمد بن إبراهيم بن أبي بكر … الأمين وقال المقريزي : الزين أبو اليمن بن الشهاب أبي المكارم … الطبري المكي الشافعي」（ナサブ5代・クンヤ أبو اليمن・الطبري المكي で閉合、頻出確定ID）。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: mother
+  active: NEEDID
+  passive: AIND-D10116
+  quote: null
+  note:
+    ja: 「أمه فتاة لأبيه حبشية」＝母は父の所有するアビシニア人の女奴隷。名不詳＝#NEEDID（desc は「أم＋本項主の呼称」書式、規則31）。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D06599
+  passive: AIND-D10116
+  methods:
+  - TMP-S-00003
+  quote: أبيه
+  note:
+    ja: '「سمع من أبيه」＝父（#AIND-D06599）から聴いた。初版は #NEEDID、原文にない field（الحديث）を付していた＝除去。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: TMP-P-000191
+  passive: AIND-D10116
+  methods:
+  - TMP-S-00004
+  quote: النشاوري
+  note:
+    ja: '「وأجازه النشاوري وابن حاتم وغيرهما」（規則55。「وغيرهما」は人物を立てない）。النشاوري＝ID-Master 既登録 TMP-P-000191（先例 #AIND-D10040）。'
+- id: r5
+  type: personal
+  subtype: teacher
+  active: TMP-P-000540
+  passive: AIND-D10116
+  methods:
+  - TMP-S-00004
+  quote: ابن حاتم
+  note:
+    ja: 'ابن حاتم＝既登録 TMP-P-000540（التقي بن حاتم。先例 #AIND-D10040）。初版の TMP-P-000291 は ID-Master 上「旧TMP-P-000291（名寄せ 2026-11-04）」として TMP-P-000540 に統合済みの番号（規則36）。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي
+  note:
+    ja: Pattern A。الفاسي＝التقي الفاسي（#AIND-D06757、頻出確定ID。マッカ史の著者）。書名は原文にない＝bibl なし。初版の統制外 subtype「mentioned」relation を event に変換。
+  trigger: rule
+notes:
+- text: '女性部 #AIND-D13611「764 مريم ابنة أبي المين محمد بن أحمد بن الرضى إبراهيم بن محمد بن إبراهيم الطبرى المكية ، أمها حبشية لأبيها」は同じ父の娘（母も「حبشية لأبيها」）＝本項主の姉妹。相手側は本項主を名指ししない（規則23）ので relation は立てず、共通の父 #AIND-D06599 で導出できる。初版の shuhrah「ابن أبي اليمن」（「ويعرف بـ」のない父称）と residence event（مكة、ニスバからの補完）は除去。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ナースィル・ブン・ムハンマド・ブン・アフマド・ブン・アッ＝ラディー・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム、ナースィル・アッ＝ディーン、イブン・アビー・アル＝ユムン、アッ＝タバリー・アル＝マッキー。母は父の所有するアビシニア人の女奴隷であった。父から聴き、アン＝ナシャーウィリー、イブン・ハーティムその他から免状（イジャーザ）を受けた。（80）1年シャアバーン月朔日に、20歳かそれ以上で没した。アル＝ファースィーが彼に言及している。
+  en: Nāṣir b. Muḥammad b. Aḥmad b. al-Raḍī Ibrāhīm b. Muḥammad b. Ibrāhīm, Nāṣir al-Dīn, Ibn Abī al-Yumn, al-Ṭabarī al-Makkī. His mother was an Abyssinian slave girl of his father. He heard (ḥadīth) from his father, and al-Nashāwirī, Ibn Ḥātim and others granted him ijāzas. He died on the first of Shaʿbān of the year [80]1, aged twenty or more. Al-Fāsī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T02:44:13Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

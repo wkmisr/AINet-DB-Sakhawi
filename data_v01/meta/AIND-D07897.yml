@@ -1,0 +1,89 @@
+schema: aind-yaml/0.1
+id: AIND-D07897
+source:
+  uid: '861913541104'
+sex: M
+name:
+  full: محمد بن عبد المهدي بن علي بن جعفر المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد المهدي
+    by: rule
+    ref: TMP-P-001636
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: جعفر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 812
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  note:
+    ja: 「مات في سنة اثنتي عشرة ببعض بلاد اليمن」＝812年（1409-05-25 開始、年精度 1409）、イエメンのある町で没。原文は「بعض بلاد اليمن」（イエメンのどこかの町）で特定の町は不明＝placeName は اليمن（TMP-L-00037）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001636
+  passive: AIND-D07897
+  quote: null
+  note:
+    ja: '父 عبد المهدي بن علي بن جعفر المشعري المكي：corpus に本伝なし（hw.py「عبد المهدي」は子・孫の項のみ）。本伝のある兄弟 #AIND-D00948「أحمد بن عبد المهدي بن علي بن جعفر المشعري . مات بمكة … سنة سبع وأربعين」と共有する父（甥 #AIND-D04721・#AIND-D10659 の祖父）＝規則3 (c'') の例外（兄弟項と共有）→ 仮 TMP-P-001636。ID-Master 未登録。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02560
+  passive: AIND-D07897
+  quote: حسن بن عجلان
+  note:
+    ja: 「كان من مشارفي ديوان حسن بن عجلان في بعض ولايته على مكة」＝マッカのシャリーフ حسن بن عجلان（#AIND-D02560、ID-Master 名寄せ Note で確認）のディーワーンの監督官の一人＝仕えた型（規則56、patron）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00367
+  quote: null
+  note:
+    ja: '「من مشارفي ديوان حسن بن عجلان」＝ディーワーン監督官（مشارف）。ID-Master の Office を語根 شرف で grep（مشرف・مشارف・إشراف）したが該当なし（Nisbah مشارفي TMP-N-04678 のみ）→ 仮 TMP-O-00367。حسن بن عجلان の統治期間（بعض ولايته على مكة）の一部。初版の placeName مكة（ディーワーンの所在地は原文に明記なし、「ولايته على مكة」は حسن の統治範囲）と orgName #NEEDID「ديوان حسن بن عجلان」を除去し、雇主は patron relation で表現。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي
+  note:
+    ja: 'Pattern A。الفاسي＝التقي الفاسي #AIND-D06757。初版の統制外 relation「biographer」を event に変換。'
+  trigger: rule
+notes:
+- text: '兄弟＝#AIND-D00948「أحمد بن عبد المهدي بن علي بن جعفر المشعري」（847没、収録済み）。相手側が本項主を名指ししないため brother relation は立てず note に留める（規則23。父は TMP-P で共有）。同家 المشعري（マッカ）: 甥 #AIND-D04721・#AIND-D10659、#AIND-D02415。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブドゥルマフディー・ブン・アリー・ブン・ジャアファル・アル＝マッキー。ハサン・ブン・アジュラーンのマッカ統治期間の一時期、彼のディーワーンの監督官の一人であった。812年にイエメンのある町で没した。アル＝ファースィーが彼に言及している。
+  en: Muḥammad b. ʿAbd al-Mahdī b. ʿAlī b. Jaʿfar al-Makkī. He was one of the supervisors (mushārif) of the dīwān of Ḥasan b. ʿAjlān during part of the latter's rule over Mecca. He died in the year 812 in some town of Yemen. Al-Fāsī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T02:33:09Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

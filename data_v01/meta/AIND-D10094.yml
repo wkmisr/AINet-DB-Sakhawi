@@ -1,0 +1,117 @@
+schema: aind-yaml/0.1
+id: AIND-D10094
+source:
+  uid: '702361390572'
+sex: M
+name:
+  full: موسى بن محمد بن الهمام الشرف بن النجم المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: laqab
+    quote: الشرف
+  - id: n3
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001708
+  - id: n5
+    type: nasab
+    quote: الهمام
+    by: rule
+  - id: n6
+    type: nasab
+    quote: النجم
+    by: rule
+death:
+  id: d
+  date:
+    ah: 821-07
+  summary:
+    ar: ومات بعد ذلك بيسير في رجب سنة إحدى وعشرين
+  note:
+    ja: 「ومات بعد ذلك بيسير في رجب سنة إحدى وعشرين」＝イブン・ハジャル（の子ら）へのイジャーザの少し後、821年ラジャブ月（1418-08-13〜09-11、h2g.py）、月精度（初版の @when 1418 を 1418-08 に）。没地は原文に明記なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001708
+  passive: AIND-D10094
+  quote: null
+  note:
+    ja: '見出し「موسى بن محمد بن الهمام الشرف بن النجم المقدسي」から父＝النجم محمد بن الهمام المقدسي（ラカブ النجم・珍しい祖父名 الهمام＝識別要素あり、規則3）。corpus に本伝なし（hw.py「الهمام」「محمد بن الهمام」「النجم」「المقدسي」: 該当は本項と索引 #AIND-D12799「ابن الهمام محمد بن عبد الواحد بن عبد الحميد وموسى بن محمد بن الهمام المقدسي」のみ。ハナフィー派の الكمال بن الهمام #AIND-D07903 の家系（السيواسي）とは別）、ID-Master 未登録 → 新規 TMP-P-001708。初版なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000173
+  passive: AIND-D10094
+  methods:
+  - TMP-S-00003
+  works:
+  - ref: TMP-T-00019
+  - ref: TMP-T-00003
+  - ref: TMP-T-00020
+  - ref: TMP-T-00094
+  quote: الميدومي
+  note:
+    ja: '「سمع على الميدومي المسلسل وجزءا بن عرفة والبطاقة ونسخة إبرهيم بن سعد وغيرها」。الميدومي＝ID-Master 既登録 TMP-P-000173（الصدر الميدومي、repo で D00094・D00429・D00639・D00887・D02612・D02893 ほかが師として使用。同じ4書の組合せは #AIND-D02648「سمع علي الزفتاوي المسلسل وجزء ابن عرفة وجزء البطاقة ونسخة إبراهيم بن سعد」にも）。初版の4本の relation（書ごと）を1本に統合し desc に相手名を追加。「وغيرها」は bibl にしない。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D10094
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00004
+  quote: شيخنا
+  note:
+    ja: '「ذكره شيخنا في معجمه وقال : أجاز لي في استدعاء أولادي」＝イブン・ハジャルの引用中の一人称（規則59(f)）＝本項主（師）がイブン・ハジャルに、彼の子らのための استدعاء（イジャーザ申請書）においてイジャーザを与えた。初版の passive #NEEDID を wd:Q471116 に。'
+events:
+- id: e1
+  type: cultural
+  quote: وحدث سمع منه الفضلاء
+  note:
+    ja: 'ハディースの伝授（حدث）。聴講者「الفضلاء」は名なし＝relation を立てない（規則14）。初版の student relation（passive=TMP-P-000183「الفضلاء」＝人名でない登録の流用、先例 #AIND-D10055 で除去済み）を除去。'
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00104
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في معجمه
+  note:
+    ja: Pattern A（イブン・ハジャル『المجمع المؤسس للمعجم المفهرس』＝TMP-T-00104）。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: وقال
+  summary:
+    ar: وتبعه المقريزي في عقوده
+  note:
+    ja: Pattern A（المقريزي『درر العقود الفريدة』＝TMP-T-00122）。「تبعه」＝イブン・ハジャルの記述に従った。初版の統制外 relation「chronicler」を event に。
+  trigger: rule
+translation:
+  ja: ムーサー・ブン・ムハンマド・ブン・アル＝フマーム、アッ＝シャラフ・ブン・アン＝ナジュム・アル＝マクディスィー。アル＝マイドゥーミーのもとで『アル＝ムサルサル』、『ジュズウ・イブン・アラファ』、『（ジュズウ・）アル＝ビターカ』、『ヌスハ・イブラーヒーム・ブン・サアド』などを聴聞し、（ハディースを）伝え、学識者たちが彼から聴聞した。我らがシャイフ（イブン・ハジャル）は『ムウジャム』で彼に言及し、「私の子らのための（イジャーザ）申請書において私にイジャーザを与えた」と述べた。その後ほどなく、821年ラジャブ月に没した。マクリーズィーも『ウクード』でこれ（イブン・ハジャルの記述）に従った。
+  en: 'Mūsā b. Muḥammad b. al-Humām, al-Sharaf b. al-Najm al-Maqdisī. He heard from al-Maydūmī al-Musalsal, Juzʾ Ibn ʿArafa, (Juzʾ) al-Biṭāqa, Nuskhat Ibrāhīm b. Saʿd and other works; he transmitted (ḥadīth), and men of learning heard from him. Our shaykh (Ibn Ḥajar) mentioned him in his Muʿjam and said: "He granted me an ijāza in the request (istidʿāʾ) for my children." He died shortly after that, in Rajab of the year [8]21, and al-Maqrīzī followed him in his ʿUqūd.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T02:03:09Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

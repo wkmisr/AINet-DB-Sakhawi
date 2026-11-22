@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D06410
+source:
+  uid: '316850321066'
+sex: M
+name:
+  full: كمشبغا طولو
+  elements:
+  - id: n1
+    type: ism
+    quote: كمشبغا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 840
+    cert: medium
+  summary:
+    ar: مات في حدود الأربعين
+  note:
+    ja: '「في حدود الأربعين」＝840年頃 → when-custom=840、cert medium（規則4、先例 #AIND-D08212・#AIND-D00101「في حدود (سنة) أربعين/العشرين」）。840年＝1436-07-25〜1437-07-13（h2g.py）、年精度で @when=1436。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06410
+  quote: null
+  note:
+    ja: 規則3（単名のマムルーク。原文に父名なし）。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D03448
+  passive: AIND-D06410
+  quote: طولو بن علي باشا الظاهري
+  note:
+    ja: '「أصله من مماليك طولو بن علي باشا الظاهري」＝主人（規則51）。corpus 本伝 #AIND-D03448「48 طولو بن علي باشا الظاهري برقوق . كان من أعيان خاصكيته … ولي نيابة غزة ثم نيابة اسكندرية … نيابة صفد إلى أن قتل … في ذي الحجة منها（808）」（ナサブ3代・主人ニスバが一致）。見出しの「طولو」はこの主人名の付加。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: predecessor
+  active: TMP-P-001700
+  passive: AIND-D06410
+  quote: صرغتمش يابو
+  note:
+    ja: '「ولي نيابة قلعة دمشق بعد صرغتمش يابو」＝ダマスクス城塞代官職の前任者。corpus に見出し・本文とも本項のみ（hw.py「صرغتمش」「يابو」、全文 grep）、ID-Master 未登録（idsearch「صرغتمش」「يابو」）。名＋付加名 يابو＋職（نائب قلعة دمشق）を識別要素として新規 TMP-P-001700（規則12）。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00016
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: الطبلخاناة
+  note:
+    ja: '「صار من أمراء الطبلخاناة بدمشق」＝ID-Master 既登録 TMP-O-00016（طبلخاناة、規則48）。placeName は原文の「بدمشق」。初版は #NEEDID。'
+- id: s2
+  type: office
+  ref: TMP-O-00120
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: null
+  note:
+    ja: 「وحاجبا ثانيا」＝ID-Master 既登録 TMP-O-00120。同じ述語「صار … بدمشق وحاجبا ثانيا」の等位接続なので「بدمشق」は本職にも及ぶ（規則22(3)）。
+- id: s3
+  type: office
+  ref: TMP-O-00338
+  places:
+  - ref: TMP-L-00328
+    quote: قلعة دمشق
+  quote: نيابة
+  note:
+    ja: '「ثم ولي نيابة قلعة دمشق بعد صرغتمش يابو」＝汎用 نائب（TMP-O-00053）＋ラベル、施設 قلعة دمشق（TMP-L-00328）を placeName に（先例 #AIND-D05921・#AIND-D06142）。初版の ref #NEEDID、施設名からの placeName دمشق と orgName を除去。'
+notes:
+- text: 「تنقل بعده」＝主人 طولو の死（808）後に転任を重ねた。「وأثرى وعمر الأملاك … وخلف مالا كثيرا」（蓄財・不動産建設・多額の遺産）は訳文のみ。初版の residence event دمشق は職の勤務地からの補完のため除去（規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: クムシュブガー・トゥールー。もとはトゥールー・ブン・アリー・バーシャー・アッ＝ザーヒリーのマムルークの一人。彼（トゥールー）の死後に転任を重ね、ダマスクスのタブルハーナ級アミールの一人、次いで第二ハージブとなり、次いでサルグトミシュ・ヤーブーの後任としてダマスクス城塞の代官（ナーイブ）に就いた。富を蓄え、不動産を建て、840年頃に没し、多額の財産を残した。
+  en: Kumushbughā Ṭūlū. He was originally one of the mamlūks of Ṭūlū b. ʿAlī Bāshā al-Ẓāhirī. After him he moved from post to post until he became one of the amirs of ṭablkhānāh in Damascus and second chamberlain (ḥājib thānī); then he held the deputyship (niyāba) of the Citadel of Damascus after Ṣarghitmish Yābū. He grew rich and built up properties, died around the year 840, and left behind much wealth.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T09:25:38Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

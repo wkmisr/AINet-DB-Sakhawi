@@ -1,0 +1,62 @@
+schema: aind-yaml/0.1
+id: AIND-D07395
+source:
+  uid: '119474882743'
+sex: M
+name:
+  full: محمد بن الزبير المقدسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00008
+    quote: المقدسي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: الزبير
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07395
+  quote: null
+  note:
+    ja: '父 الزبير は名のみで識別要素が無い（hw.py「الزبير」「المقدسي」で本伝なし）→ #NEEDID（規則3）。初版は father relation なし。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00012
+  places:
+  - ref: gn:281184
+  quote: العطار بها
+  note:
+    ja: 「العطار بها」の「ها」はニスバ المقدسي の地（エルサレム、gn:281184）を指す照応（規則22(3)、先例 D04959「ها＝مكة（ニスバ المكي の照応）」）。職は ID-Master 既登録 TMP-O-00012 العطار（薬種商、実体一致）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: التقي بن فهد
+  works:
+  - ref: TMP-T-00138
+  quote: ذكره
+  summary:
+    ar: ذكره التقي بن فهد في معجمه هكذا
+  note:
+    ja: Pattern A。「التقي بن فهد في معجمه」＝#AIND-D09211 の『معجم』（TMP-T-00138、規則49）。初版の統制外 subtype「other」relation を mention event に置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アッ＝ズバイル・アル＝マクディスィー、そこ（エルサレム）の薬種商。アッ＝タキー・ブン・ファハドが『ムウジャム』でこのように彼に言及している。
+  en: Muḥammad b. al-Zubayr al-Maqdisī, the druggist (ʿaṭṭār) there (in Jerusalem). Al-Taqī b. Fahd mentioned him thus in his Muʿjam.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-06T06:06:13Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

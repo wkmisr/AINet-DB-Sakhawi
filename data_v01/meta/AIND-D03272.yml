@@ -1,0 +1,138 @@
+schema: aind-yaml/0.1
+id: AIND-D03272
+source:
+  uid: '378850516082'
+sex: M
+name:
+  full: شاه رخ القان معين الدين سلطان بن تيمور
+  elements:
+  - id: n1
+    type: laqab
+    quote: معين الدين
+  - id: n2
+    type: honorific
+    quote: القان
+  - id: n3
+    type: ism
+    quote: شاه
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: wd:Q8462
+  passive: AIND-D03272
+  quote: تيمور
+  note:
+    ja: تيمور（ティムール）= wd:Q8462（ID-Master 登録 تمرلنك、D02072 と同一運用）。
+- id: r2
+  type: personal
+  subtype: possible_identity
+  active: AIND-D03298
+  passive: AIND-D03272
+  cert: high
+  quote: null
+  note:
+    ja: corpus に同一人物の第2見出し AIND-D03298（شاه رخ بن تيمور … ملك الشرق على الاطلاق）がある。本項は『عقود』参照のみの短項で D03298 が本伝。要判断（重複見出しの統合方針）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00177
+  places:
+  - ref: TMP-L-00249
+    quote: الشرق
+  quote: ملك
+  note:
+    ja: ملك = 登録済み TMP-O-00177。「الشرق」（東方＝ティムール朝領域の総称）は ID-Master 未登録（بلاد الشرق TMP-L-00203 はメッカ東方の特定地で別）→ 新規 TMP-L-00249。
+- id: s2
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00122
+    quote: ما وراء النهر
+  quote: سلطان
+  note:
+    ja: 汎用の君主称号 سلطان は ID-Master 未登録（repo では D00558=wd:Q175240、D03461=wd:Q43292 と不統一）→ 新規 TMP-O-00242 を発行し、以下 state 2〜9 で共用。要判断（wd への統一）。
+- id: s3
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00076
+    quote: خراسان
+  quote: null
+- id: s4
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00096
+    quote: خوارزم
+  quote: null
+- id: s5
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00250
+    quote: عراق العجم
+  quote: null
+  note:
+    ja: عراق العجم（ペルシア・イラク）は ID-Master 未登録（العراق L-00053・بلاد العجم L-00004 は別）→ 新規 TMP-L-00250。
+- id: s6
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00251
+    quote: مازندران
+  quote: null
+  note:
+    ja: مازندران は ID-Master 未登録 → 新規 TMP-L-00251。
+- id: s7
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: gn:1273294
+    quote: دلي
+  quote: null
+  note:
+    ja: دلي = デリー（gn:1273294）。الهند は TMP-L-00039 登録済みだが本文の対象は「مملكة دلي」。
+- id: s8
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: TMP-L-00205
+    quote: كرمان
+  quote: null
+  note:
+    ja: كرمان = 登録済み TMP-L-00205。
+- id: s9
+  type: office
+  ref: wd:Q43292
+  places:
+  - ref: wd:Q12836408
+    quote: أذربيجان
+  quote: null
+  note:
+    ja: أذربيجان は repo 既存の wd:Q12836408（イラン・アゼルバイジャン地方）を踏襲。ID-Master 未登録のため登録要（要判断で確認依頼）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: ذكره
+  summary:
+    ar: ذكره المقريزي في عقوده مطولا
+  note:
+    ja: Pattern A（言及）。初版は統制外 subtype「biographer」の relation にしていた。المقريزي = wd:Q293604、『العقود』= TMP-T-00122（登録済み）。
+  trigger: rule
+translation:
+  ja: シャー・ルフ・アル＝カーン、ムイーン・アッ＝ディーン、スルターン、ティムールの子。東方の王であり、マー・ワラー・アン＝ナフル、ホラーサーン、ホラズム、ペルシア・イラク（イラーク・アル＝アジャム）、マーザンダラーン、インドのデリー王国、キルマーン、アゼルバイジャンのスルターン。アル＝マクリーズィーが『ウクード』において彼について詳しく言及している。
+  en: Shāh Rukh al-Qān Muʿīn al-Dīn, Sultan, son of Tīmūr. King of the East, and Sultan of Transoxiana, Khurāsān, Khwārazm, ʿIrāq al-ʿAjam, Māzandarān, the kingdom of Delhi in India, Kirmān, and Azerbaijan. Al-Maqrīzī mentioned him at length in his ʿUqūd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-10T10:17:40Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

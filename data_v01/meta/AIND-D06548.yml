@@ -1,0 +1,125 @@
+schema: aind-yaml/0.1
+id: AIND-D06548
+source:
+  uid: '698108360639'
+sex: M
+name:
+  full: محمد بن إبراهيم بن محمد بن عبد الله بن إبراهيم بن محمد الأرموي ثم الصالحي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00278
+    quote: الأرموي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00037
+    quote: الصالحي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 804
+    cert: medium
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  summary:
+    ar: ومات بدمشق سنة أربع
+  note:
+    ja: 「سنة أربع」は一の位のみ＝804（cert medium。イブン・ハジャルが聴き『إنباء الغمر』に載せる＝9世紀初頭）。804年＝1401-08-20 開始（h2g.py、年精度）。初版は cert なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06548
+  quote: فاطمة ابنة العز
+  note:
+    ja: 規則3 (c')。父 إبراهيم بن محمد بن عبد الله（الأرموي）は汎用名で識別要素なし。corpus 見出しに本伝なし、ID-Master も「الأرموي」「D06548」で該当なし（TMP-P-000545 محمد بن أحمد الصالحي・#AIND-D04093 عبد القادر الأرموي は別人）。初版は father relation なし。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: NEEDID
+  passive: AIND-D06548
+  methods:
+  - TMP-S-00003
+  quote: null
+  note:
+    ja: '「سمع من فاطمة ابنة العز وغيرها」。候補は二人いて原文からは決まらない（規則26・61 (c)）: (a) 既登録 TMP-P-000543「فاطمة ابنة العز إبراهيم」（#AIND-D01198「وفاطمة ابنة العز إبراهيم」で登録。corpus #AIND-D04093「حبيبة ابنة العز إبراهيم بن عبد الله بن أبي عمر وأسمع على أختها فاطمة ابنة العز」・#AIND-D03134「فاطمة ابنة العز إبراهيم بن أبي عمر」の8世紀のムスニダ）／(b) 女性部 #AIND-D13481「فاطمة ابنة محمد بن أحمد بن محمد بن عثمان بن المنجا أم الحسن ابنة العز التنوخية الدمشقية , ولدت سنة اثنتي عشرة وسبعمائة تقريبا」（見出しに「ابنة العز」を持つダマスクスの女性伝承者）。サハーウィーの裸の「فاطمة ابنة العز」は corpus の他の用例（#AIND-D01059・#AIND-D03754・#AIND-D04875・#AIND-D08561・#AIND-D13479）では8世紀前半〜半ばの師で (a) とみられるが、本項は聴講の年代が書かれていない＝#NEEDID のまま候補を記す（ISSUES §D170-6）。「وغيرها」は人物を立てない。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D06548
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00003
+  quote: شيخنا
+  note:
+    ja: '「سمع منه شيخنا وآخرون」＝本項主が師、イブン・ハジャル（wd:Q471116）が学生（規則15: 師弟は常に teacher、active=師）。初版は subtype="student"。「وآخرون」は人物を立てない。【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。'
+events:
+- id: e1
+  type: teaching
+  quote: وحدث
+  summary:
+    ar: وحدث سمع منه شيخنا وآخرون
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00104
+  quote: ذكره
+  note:
+    ja: Pattern A。「ذكره في المعجم والأنباء」の主語は直前の شيخنا＝イブン・ハジャル（wd:Q471116）。『المجمع المؤسس للمعجم المفهرس』（TMP-T-00104）。
+  trigger: rule
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00034
+  quote: null
+  summary:
+    ar: ذكره في … الأنباء
+  note:
+    ja: Pattern A。『إنباء الغمر』（TMP-T-00034）。初版は ref のない cultural event 1件（英語 desc）。
+notes:
+- text: '本項を指す転送見出し: #AIND-D06562「محمد بن إبراهيم ابن محمد بن الأرموي ثم الصالحي . مضى فيمن جده محمد بن عبد الله بن إبراهيم بن محمد」（同チャンクで REF 化）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アブドゥッラー・ブン・イブラーヒーム・ブン・ムハンマド、アル＝ウルマウィー、のちアッ＝サーリヒー。ファーティマ・ビント・アル＝イッズらから聴き、ハディースを伝えた。我らの師（イブン・ハジャル）らが彼から聴いた。（80）4年にダマスクスで没した。（我らの師は）彼を『ムウジャム』と『インバー』で挙げている。
+  en: Muḥammad b. Ibrāhīm b. Muḥammad b. ʿAbd Allāh b. Ibrāhīm b. Muḥammad al-Urmawī, then al-Ṣāliḥī. He heard from Fāṭima bt. al-ʿIzz and others, and transmitted ḥadīth; our shaykh (Ibn Ḥajar) and others heard from him. He died in Damascus in the year [80]4. He (our shaykh) mentioned him in the Muʿjam and the Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T16:45:13Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

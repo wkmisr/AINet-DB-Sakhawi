@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D07022
+source:
+  uid: '692844510045'
+sex: M
+name:
+  full: محمد بن أحمد بن يوسف
+  elements:
+  - id: n1
+    type: shuhrah
+    quote: null
+    label: أبو إبراهيم
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: يوسف البزاز بقيسارية الطرحي
+    by: rule
+death:
+  id: d
+  date:
+    notAfter: 869
+  summary:
+    ar: مات قبيل السبعين
+  note:
+    ja: '「مات قبيل السبعين」＝870年の少し前 → notAfter（規則4：قبل 型は notAfter）。repo 先例（「قبل العشرين」→0819、「قبل الخمسين」→0849）どおり N−1 で notAfter-custom 0869、869年の年末＝1465（h2g: 869＝1464-09-12〜1465-09-01）。【集約】B114 D07019「قبل السبعين」と符号化を統一（校閲時 0870／1466）。初版の when-custom=0870 の断定を是正。没地は原文にない。'
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07022
+  quote: صهري
+  note:
+    ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
+- id: r2
+  type: personal
+  subtype: colleague
+  active: NEEDID
+  passive: AIND-D07022
+  quote: null
+  note:
+    ja: '「شريك صهري」＝サハーウィー（wd:Q4120128）の姻戚（صهر）の共同経営者。姻戚の名は原文になく特定不能 → #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00206
+  orgs:
+  - ref: TMP-I-00224
+  quote: null
+  note:
+    ja: 布商（登録済み بزاز TMP-O-00206）、勤務先はカイロの قيسارية الطرحي（ID-Master 未登録 → TMP-I-00224。corpus D00724「شاهد الطرحي」も同施設）。初版は「الطرحي」を本項主のニスバ（TMP-N-01109）としていたが、施設名の一部であり本項主のニスバではない → 除去。
+- id: s2
+  type: status
+  label: كان أصلح حالا من كثيرين
+  quote: كان أصلح حالا من كثيرين
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: حج
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・ユースフ、カイサーリーヤ・アッ＝タルヒーの布商（バッザーズ）で、私の姻戚の共同経営者、アブー・イブラーヒームとして知られる。巡礼し、多くの者より行状が真っ当であった。870年の少し前に没した。
+  en: Muḥammad b. Aḥmad b. Yūsuf, the cloth merchant (al-bazzāz) at Qaysāriyyat al-Ṭarḥī and the partner of my in-law (ṣihrī), known as Abū Ibrāhīm. He performed the pilgrimage and was sounder in his condition than many. He died shortly before [the year] 870.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T08:39:22Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,97 @@
+schema: aind-yaml/0.1
+id: AIND-D05908
+source:
+  uid: '681649910511'
+sex: M
+name:
+  full: عمر بن علي بن عمر العبادي ثم الغمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00091
+    quote: العبادي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00134
+    quote: الغمري
+  - id: n3
+    type: shuhrah
+    quote: البواب
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+    ref: TMP-P-001404
+  - id: n6
+    type: nasab
+    quote: عمر
+    by: rule
+death:
+  id: d
+  date:
+    ah: 890
+    cert: low
+  summary:
+    ar: مات بعيد التسعين أو قبيلها
+  note:
+    ja: 「بعيد التسعين أو قبيلها」＝890年の少し後か少し前 → 890 頃、cert low（規則4）。890 ＝ 1485-01-27〜1486-01-15、年初 1485（h2g.py）。没地は原文にない。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001404
+  passive: AIND-D05908
+  quote: null
+  note:
+    ja: '父 علي بن عمر العبادي。見出しから祖父名 عمر まで復元できるため規則3により仮番号 TMP-P-001404 を発行（⚠汎用名。集約時、内容検証B M-13。校閲時は #NEEDID）。corpus 見出し・ID-Master（TMP-P-000085「العبادي」は裸のニスバ）に該当なし。初版の汚染番号 TMP-P-000530（登録=علي、D04287 の兄弟）を除去。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D08290
+  passive: AIND-D05908
+  quote: الشيخ الغمري
+  note:
+    ja: '「ممن نشأ في خدمة الشيخ الغمري」。الشيخ الغمري ＝ #AIND-D08290（محمد بن عمر بن أحمد الشمس أبو عبد الله … الغمري ثم المحلي … ويعرف بالغمري、ジャーミウ・ガムリーの主）。奉仕関係＝patron（active=主人）。初版の #NEEDID teacher（method صحبة）を差し替え。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D01456
+  passive: AIND-D05908
+  quote: null
+  note:
+    ja: '「ثم ولده أبي العباس وقطن معه في القاهرة」。أبو العباس ＝ #AIND-D01456（أحمد بن محمد بن عمر الشهاب أبو العباس بن الشمس … الغمري、D08290 の息子）。初版の幻番号 TMP-P-000707（ID-Master 未登録、旧番号→#AIND-D01456 に名寄せ済み）を AIND に差し替え。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D05908
+  methods:
+  - TMP-S-00028
+  quote: عندي
+  note:
+    ja: 「وكان يحضر عندي في الإملاء مع تقلله وفاقته」＝サハーウィーの口述（إملاء）の席に出席。初版の placeName القاهرة は إملاء の場所として原文に明記がないため除去（規則22）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: وقطن
+  summary:
+    ar: قطن معه في القاهرة وتردد لغيرها
+  note:
+    ja: أبو العباس الغمري とともにカイロに住んだ（原文に明記）。
+  trigger: rule
+translation:
+  ja: ウマル・ブン・アリー・ブン・ウマル・アル＝イバーディー、のちアル＝ガムリー。アル＝バウワーブ（門番）として知られる。シャイフ・アル＝ガムリー、次いでその息子アブー・アル＝アッバースに仕えて育った者の一人で、彼とともにカイロに住み、ほかの地にも往来し、一時期結婚した。乏しく窮していながらも、私の口述（イムラー）の席に出席していた。（8）90年の少し後か少し前に没した。
+  en: ʿUmar b. ʿAlī b. ʿUmar al-ʿIbādī then al-Ghamrī, known as al-Bawwāb (the doorkeeper). He was among those who grew up in the service of the Shaykh al-Ghamrī and then of his son Abū al-ʿAbbās; he lived with him in Cairo, travelled to other places, and was married for a time. He used to attend my dictation sessions despite his poverty and want. He died shortly after (8)90 or shortly before it.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T04:34:15Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

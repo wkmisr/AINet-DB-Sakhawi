@@ -1,0 +1,60 @@
+schema: aind-yaml/0.1
+id: AIND-D06324
+source:
+  uid: '491907986960'
+sex: M
+name:
+  full: قراجا الجانبكي الجداوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02464
+    quote: الجانبكي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00562
+    quote: الجداوي
+  - id: n3
+    type: ism
+    quote: قراجا
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06324
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02369
+  passive: AIND-D06324
+  quote: null
+  note:
+    ja: '「باشر نيابة جدة عن أستاذه」＋見出しのニスバ「الجانبكي الجداوي」＝主人は جانبك الجداوي＝corpus 本伝 #AIND-D02369「جانبك الظاهري جقمق الجركسي الدوادار شاد جدة … حتى قيل له نائب جدة」（#AIND-D02785 でも「الدوادار الكبير جانبك الجداوي」）。ID-Master に関係専用行 TMP-P-000783「جانبك نائب جدة」（D02938 の主人、候補 D02369 と注記）があるが、本伝があるので AIND を優先（名寄せは ISSUES）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00053
+  places:
+  - ref: TMP-L-00036
+    quote: جدة
+  quote: نيابة
+  note:
+    ja: 'まず主人 جانبك الجداوي の代理として、主人の死（867年）後は独立してジッダのナーイブ職を執った。ジッダ代官職は ID-Master に単独登録がなく、repo 先例（نائب اسكندرية → 汎用 نائب TMP-O-00053＋原文明記の地名）に揃える。初版の #NEEDID を置換。'
+notes:
+- text: 原文末尾は「مات .」のみで没年・没地の記載なし（原文の途切れ）→ 規則45により death 要素は作らない。「وكان فاتكا ظالما」（凶暴で圧政的）は人物評。
+  lang: ja
+  type: editorial
+translation:
+  ja: カラージャー・アル＝ジャーンバキー・アル＝ジッダーウィー。主人（ジャーンバク・アル＝ジッダーウィー）の代理としてジッダのナーイブ職を執り、その（主人の）後は独立して務めた。凶暴で圧政的であった。没した。
+  en: Qarājā al-Jānbakī al-Jiddāwī. He administered the governorship (niyāba) of Jidda on behalf of his master, and after him independently. He was violent and oppressive. He died.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T15:07:12Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

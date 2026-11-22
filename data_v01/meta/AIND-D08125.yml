@@ -1,0 +1,62 @@
+schema: aind-yaml/0.1
+id: AIND-D08125
+source:
+  uid: '193222189964'
+sex: M
+name:
+  full: محمد بن الشيخ علي بن عبد الله القبيباتي الشامي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00752
+    quote: القبيباتي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00130
+    quote: الشامي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: الشيخ علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08125
+  quote: null
+  note:
+    ja: '父「الشيخ علي بن عبد الله القبيباتي」。「الشيخ」は敬称で識別要素としては弱く、名＋父名＋ニスバのみ。corpus に本伝なし（hw.py「القبيباتي」の見出しに علي بن عبد الله なし）、ID-Master 未登録のため #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D08125
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: ممن سمع مني بمكة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بمكة」（規則2）。初版の独立 event「study」مكة は relation 内 event と二重なので除去。
+translation:
+  ja: ムハンマド・ブン・アッ＝シャイフ・アリー・ブン・アブドゥッラー・アル＝クバイバーティー・アッ＝シャーミー。マッカで私から聴聞した者の一人。
+  en: Muḥammad b. al-Shaykh ʿAlī b. ʿAbd Allāh al-Qubaybātī al-Shāmī. He was among those who heard from me in Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T12:06:47Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

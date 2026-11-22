@@ -1,0 +1,96 @@
+schema: aind-yaml/0.1
+id: AIND-D02929
+source:
+  uid: '910608570751'
+sex: M
+name:
+  full: خير بك الأشرفي برسباي البهلوان
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00141
+    quote: الأشرفي
+  - id: n2
+    type: laqab
+    quote: البهلوان
+  - id: n3
+    type: ism
+    quote: خير
+    by: rule
+death:
+  id: d
+  date:
+    ah: 873-10
+  note:
+    en: Killed in the Battle of Suwar (Sawar) against Shahsuwar of Dulkadir in Shawwal 873 H, being in his fifties.
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: patron
+  active: AIND-D02168
+  passive: AIND-D02929
+  quote: برسباي
+  note:
+    en: His ustādh (the sultan who purchased and manumitted him), hence the nisbah al-Ashrafī Barsbāy.
+    ja: D-3形式（#AIND-D02168 + corresp=wd:Q557812）。ustādhであるためrelation化する。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: s2
+  type: office
+  ref: TMP-O-00083
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: null
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: null
+  note:
+    en: Settled in Damascus after his exile by Khushqadam.
+- id: e2
+  type: political
+  persons:
+  - ref: AIND-D02830
+    quote: الظاهر خشقدم
+  places:
+  - ref: TMP-L-00196
+    quote: البلاد الشامية
+  quote: تأمر
+  summary:
+    ar: ثم نفاه الظاهر خشقدم إلى البلاد الشامية
+  note:
+    ja: '初版は خشقدم を subtype="rival" のrelationにしていたが、非ustādhスルターンによる処分はrelation化せずevent内 persName で表現する（D02116方式）。خشقدم = #AIND-D02830。'
+  trigger: rule
+- id: e3
+  type: political
+  quote: null
+  summary:
+    ar: تأمر عشرة في دولة إينال
+  note:
+    ja: '初版は إينال を subtype="patron" のrelationにしていたが、「في دولة إينال」は治世を示す時間表現でありpatron関係の根拠にならない（本人のニスバは الأشرفي برسباي）。relationを破棄しeventのnoteに留める。الأشرف إينال = #AIND-D02110（+corresp wd:Q286532）。'
+- id: e4
+  type: political
+  date:
+    ah: 873-10
+    cert: high
+  quote: null
+  summary:
+    en: Killed in the Battle of Suwar (Sawar) against Shahsuwar of Dulkadir.
+  cert: high
+translation:
+  ja: ハイル・ベク・アル＝アシュラフィー・バルスバーイ・アル＝バフラワーン。イーナールの治世下で10人長（アミール・アシャラ）に任じられ、その後、アッ＝ザーヒル・ホシュカダムによってシリア地方（シャーム）へ追放されたが、のちにダマスクスの有力指揮官（ムカッダム）の一人となった。873年シャウワール月のスワール（シャースワール）の戦いにおいて、50代で戦死した。
+  en: Khayr Bak al-Ashrafī Barsbāy al-Bahlawān. He was appointed as an Amir of Ten during the reign of Īnāl, and was subsequently exiled by al-Ẓāhir Khushqadam to the Syrian lands, where he later became one of the commanders (muqaddams) of Damascus. He was killed in the battle of Suwar (Sawar) in Shawwāl, the year 873 H, being in his fifties.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-03T12:09:14Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

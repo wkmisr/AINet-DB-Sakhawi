@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D04814
+source:
+  uid: '649919998368'
+sex: M
+name:
+  full: عبيد الله بن يوسف التبريزي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00195
+    quote: التبريزي
+  - id: n2
+    type: laqab
+    quote: برهان الدين
+  - id: n3
+    type: ism
+    quote: عبيد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D04814
+  methods:
+  - TMP-S-00008
+  quote: شيخنا
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D04814
+  quote: يوسف
+  note:
+    ja: '裸名のため #NEEDID 維持。イブン・ハジャルの形容「برهان الدين بن الإمام عز الدين」により父のラカブは عز الدين と知られるが、識別要素として不十分。'
+- id: r3
+  type: personal
+  subtype: colleague
+  active: AIND-D03922
+  passive: AIND-D04814
+  quote: رفيقا للعز عبد السلام البغدادي
+  note:
+    ja: イブン・ハジャルの下での同学（رفيق）。العز عبد السلام البغدادي＝#AIND-D03922（عبد السلام بن أحمد بن عبد المنعم … العز … البغدادي ثم القاهري الحنبلي ثم الحنفي。repo 先例 D03853 と同じ同定）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: نزيل
+  summary:
+    ar: نزيل القاهرة
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  quote: ووصفه
+  summary:
+    ar: ووصفه شيخنا بالإمام العلامة الأوحد المحقق المفنن برهان الدين بن الإمام عز الدين
+  note:
+    ja: Pattern A（وصفه）。初版では訳文のみで未符号化。
+  trigger: rule
+notes:
+- text: corpus レコード末尾に転送見出し1本（『عبيد الله الأردبيلي . في ابن عوض .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ウバイドゥッラー・ブン・ユースフ・アッ＝タブリーズィー、カイロの寓居者。我らが師（イブン・ハジャル）から学んだ者の一人で、アル＝イッズ・アブドゥッサラーム・アル＝バグダーディーの同学であった。我らが師は彼を「イマーム、大学者、当代無比の人、精査者、諸学に通じた人、ブルハーン・アッ＝ディーン・ブン・アル＝イマーム・イッズ・アッ＝ディーン」と形容した。
+  en: ʿUbayd Allāh b. Yūsuf al-Tabrīzī, resident of Cairo. He was among those who studied under our shaykh (Ibn Ḥajar), as a fellow student of al-ʿIzz ʿAbd al-Salām al-Baghdādī. Our shaykh described him as "the imām, the most learned, the unique, the verifier, the master of many disciplines, Burhān al-Dīn, son of the imām ʿIzz al-Dīn".
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-26T19:28:00Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

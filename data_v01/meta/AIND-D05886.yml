@@ -1,0 +1,82 @@
+schema: aind-yaml/0.1
+id: AIND-D05886
+source:
+  uid: '365483274942'
+sex: M
+name:
+  full: عمر بن عبد الله السراج الهندي الفافا
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00165
+    quote: الهندي
+  - id: n2
+    type: laqab
+    quote: السراج
+  - id: n3
+    type: laqab
+    quote: الفافا
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 745
+    cert: low
+  note:
+    ja: 没年 815・享年「عن سبعين سنة」からの逆算（815−70＝745頃）。原文に生年の明記はないため cert low。745 ＝ 1344-05-23〜1345-05-11、年初 1344。
+death:
+  id: d
+  date:
+    ah: 815-12
+  note:
+    ja: 「ومات في ذي الحجة سنة خمس عشرة عن سبعين سنة」。没地は原文に明記なし（直前の「أقام بمكة … يفيد الناس فيها」は居住の記述で、مات に بها は付かない）→ 初版の placeName مكة を除去。815-12 ＝ 1413-03-13〜04-11、月初 1413-03（初版の 1412 を修正）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05886
+  quote: null
+  note:
+    ja: '父は裸名 عبد الله のみで識別要素なし → #NEEDID 維持（規則3）。初版の汚染番号 TMP-P-000490（登録実体＝al-Zuhrī の祖父）を差し替え。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: قال
+  summary:
+    ar: 'قال شيخنا في إنبائه : كان كثير النطق بالفاء فلقب بذلك ، وكان عارفا بالفقه وأصوله والعربية'
+  note:
+    ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の統制外 subtype「other」relation（wd:Q471116）を event に変換。通称 الفافا（فاءين）はファーの音を多用したことに由来する綽名（原文「فلقب بذلك」）のため laqab とし、初版の shuhrah を改めた。
+  trigger: rule
+- id: e2
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: أقام
+  summary:
+    ar: أقام بمكة أزيد من أربعين سنة يفيد الناس فيها
+  trigger: rule
+translation:
+  ja: ウマル・ブン・アブドゥッラー・アッ＝シラージュ・アル＝ヒンディー、アル＝ファーファー（ファーを二つ重ねる）。我らがシャイフは『インバー』で「彼はファーの音をしきりに発したので、そう綽名された。法学とその法源学、アラビア語に精通していた」と述べている。マッカに40年以上住んで同地で人々に益を与え、（8）15年ズー・ル＝ヒッジャ月に70歳で没した。
+  en: 'ʿUmar b. ʿAbd Allāh al-Sirāj al-Hindī al-Fāfā (with two fāʾs). Our shaykh said in his Inbāʾ: he pronounced the letter fāʾ a great deal and was therefore so nicknamed; he was learned in jurisprudence, its principles, and Arabic. He lived in Mecca for more than forty years, benefiting people there, and died in Dhū al-Ḥijja (8)15 at the age of seventy.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T07:34:26Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

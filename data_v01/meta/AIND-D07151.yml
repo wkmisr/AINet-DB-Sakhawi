@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D07151
+source:
+  uid: '311896849519'
+sex: M
+name:
+  full: محمد بن بدل بن محمد الشمس بن البدر الأردبيلي التبريزي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00311
+    quote: الأردبيلي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00195
+    quote: التبريزي
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: بدل
+    by: rule
+    ref: TMP-P-001482
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: البدر
+    by: rule
+  - id: n8
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001482
+  passive: AIND-D07151
+  quote: null
+  note:
+    ja: '見出し「الشمس بن البدر」＝父のラカブ البدر、ナサブ بدل بن محمد（規則3）。corpus 本伝なし・ID-Master 未登録 → TMP-P-001482。初版の #NEEDID を差し替え。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07151
+  methods:
+  - TMP-S-00006
+  context:
+  - date:
+      ah: 843-09
+    summary:
+      ar: وعرضها على جماعة كشيخنا في رمضان سنة ثلاث وأربعين
+  works:
+  - ref: TMP-T-00095
+  - ref: TMP-T-00015
+  - ref: TMP-T-00181
+  - ref: wd:Q109260836
+  - ref: TMP-T-00112
+  - ref: TMP-T-00233
+  - ref: TMP-T-00055
+  - ref: TMP-T-00234
+  quote: شيخنا
+  note:
+    ja: 「حفظ القرآن والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر ، وعرضها على جماعة كشيخنا في رمضان سنة ثلاث وأربعين」＝暗記した諸書をイブン・ハジャルら一団に試問提示。843年ラマダーン月＝1440-02-14〜03-14。『المنهاج』は「كلاهما للبيضاوي」と明記＝البيضاوي『منهاج الوصول إلى علم الأصول』（TMP-T-00232。初版の wd:Q6806081 はムスリム注釈＝毒）、『الطوالع』＝『طوالع الأنوار』（TMP-T-00233）、『التلخيص』＝『تلخيص المفتاح』（TMP-T-00055）、「شرحه المختصر」＝التفتازاني『المختصر』（TMP-T-00234）。初版は書ごとに relation を分割（分野「القراءات」「الفقه」は原文になく除去）。
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D07151
+  methods:
+  - TMP-S-00025
+  context:
+  - summary:
+      ar: بل وقرأ عليه قطعة جيدة من أول البخاري
+  works:
+  - ref: wd:Q1023470
+  quote: null
+  note:
+    ja: '「بل وقرأ عليه قطعة جيدة من أول البخاري」＝イブン・ハジャルのもとで『ブハーリー』冒頭のかなりの部分を読んだ。صحيح البخاري ＝ wd:Q1023470（初版 #NEEDID）。日付は原文になし（初版の 843-09 を除去）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  quote: حفظ القرآن والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر
+  note:
+    ja: 暗記（書名 ID は relation n=1 の bibl と同じ）。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  quote: وقال
+  summary:
+    ar: ووصفه بالشيخ الفاضل الحفظة الكامل العالم الباهر الماهر مفخر أهل مصره وغرة نجوم عصره وقال أعانه الله على الإنتفاع بما حفظه وأوزعه شكر نعمته لما أودعه واستحفظه
+  note:
+    ja: Pattern A。イブン・ハジャルによる評語（「مصره」＝彼の町。エジプトではない）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・バダル・ブン・ムハンマド、アッ＝シャムス・ブン・アル＝バドル・アル＝アルダビーリー・アッ＝タブリーズィー、シャーフィイー派。クルアーン、『シャーティビーヤ』、バガウィーの『マサービーフ』、『ハーウィー・サギール』、ともにバイダーウィーの『ミンハージュ』と『タワーリウ』、『タルヒース』とその注釈『ムフタサル』を暗記し、843年ラマダーン月にそれらを我らがシャイフ（イブン・ハジャル）ら一団に提示（暗誦試問）した。それどころか彼（イブン・ハジャル）のもとで『ブハーリー』の冒頭のかなりの部分を読み、彼（イブン・ハジャル）は彼を「徳高きシャイフ、完全なる記憶者、傑出して熟達した学者、その町の人々の誇り、その時代の星々の輝き」と評し、「神が彼に、暗記したものを活かす助けを与え、神が彼に託し保持させたものについて神の恩恵への感謝を授けたまわんことを」と述べた。
+  en: 'Muḥammad b. Badal b. Muḥammad, al-Shams b. al-Badr al-Ardabīlī al-Tabrīzī, the Shāfiʿī. He memorised the Qurʾān, al-Shāṭibiyya, al-Baghawī''s al-Maṣābīḥ, al-Ḥāwī al-Ṣaghīr, al-Minhāj and al-Ṭawāliʿ (both by al-Bayḍāwī), al-Talkhīṣ and its commentary al-Mukhtaṣar, and presented them to a group including our shaykh (Ibn Ḥajar) in Ramaḍān 843; indeed he also read with him a good portion of the beginning of al-Bukhārī. He (Ibn Ḥajar) described him as "the excellent shaykh, the perfect memoriser, the brilliant and skilled scholar, the pride of the people of his town and the brightest of the stars of his age", and said: "May God help him to profit from what he has memorised, and inspire him to give thanks for His favour in what He has entrusted to him and had him preserve."'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T23:12:45Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

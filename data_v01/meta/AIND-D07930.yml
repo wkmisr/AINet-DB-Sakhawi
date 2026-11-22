@@ -1,0 +1,83 @@
+schema: aind-yaml/0.1
+id: AIND-D07930
+source:
+  uid: '932555491731'
+sex: M
+name:
+  full: محمد بن عبيد بن عمر الشمس الحسيني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00084
+    quote: الحسيني
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عبيد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07930
+  quote: null
+  note:
+    ja: '父 عبيد بن عمر は名＋父名のみで識別要素なし。corpus の #AIND-D04820「عبيد بن عمر بن محمد القرشي نسبة للقرشية من الغربية والد عبد الرحمن الماضي」はニスバ・子が異なり同定根拠なし。規則3 (c'') で #NEEDID。初版なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07930
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+  note:
+    ja: 「ممن سمع مني بالقاهرة」（規則2）。初版の field الحديث を除去。
+states:
+- id: s1
+  type: office
+  ref: wd:Q242468
+  places:
+  - ref: TMP-L-00007
+    quote: الحسينية
+  orgs:
+  - ref: TMP-I-00239
+  quote: الخياط
+  note:
+    ja: '「الخياط على باب جامع كمال من الحسينية」。職 الخياطة＝wd:Q242468（ID-Master）、جامع كمال＝TMP-I-00239（ID-Master、Note に D07930 を列挙済み）。初版は ref #NEEDID ×2。初版の affiliation「affiliated」（جامع كمال）は原文の根拠なし（モスクの門前で仕立屋を営んだだけ）＝除去。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00007
+    quote: الحسينية
+  quote: سكنا
+  summary:
+    ar: الحسيني سكنا
+  note:
+    ja: ニスバ＋限定語「سكنا」（規則22(4)）、かつ仕立屋の店「على باب جامع كمال من الحسينية」で地名が明示。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・ウバイド・ブン・ウマル、アッ＝シャムス、アル＝フサイニー（居住地による）。アル＝フサイニーヤ地区のカマール・モスクの門前の仕立屋。カイロで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿUbayd b. ʿUmar, al-Shams, al-Ḥusaynī by residence, the tailor at the gate of the Kamāl Mosque in al-Ḥusayniyya. He is among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-20T03:43:09Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

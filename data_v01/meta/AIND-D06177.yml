@@ -1,0 +1,63 @@
+schema: aind-yaml/0.1
+id: AIND-D06177
+source:
+  uid: '772989269254'
+sex: M
+name:
+  full: فروخ الشيرازي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00015
+    quote: الشيرازي
+  - id: n2
+    type: ism
+    quote: فروخ
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06177
+  quote: null
+  note:
+    ja: '父の名は原文に無い → #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D06177
+  methods:
+  - TMP-S-00008
+  context:
+  - summary:
+      ar: فأخذ عن شيخنا وأظهر تبجحا بلقيه واغتباطا
+  quote: شيخنا
+  note:
+    ja: 「قدم قريب الخمسين فأخذ عن شيخنا」＝イブン・ハジャル（wd:Q471116）に学んだ。初版の `when="ca. 850"`（不正な値）を除去し、来着年は travel event に置く。
+states:
+- id: s1
+  type: status
+  label: شيخ مسن جدا
+  quote: شيخ مسن جدا
+events:
+- id: e1
+  type: travel
+  date:
+    ah: 850
+    cert: medium
+  quote: قدم
+  cert: medium
+  note:
+    ja: 「قريب الخمسين」＝850年頃。規則4により when-custom=0850（850年初＝1446-04-07）、cert medium（先例「ممن سمع مني قريب التسعين」→ 0890 cert medium）。行先の地名は原文に無いため placeName を立てない。
+  trigger: rule
+translation:
+  ja: ファッルーフ・アッ＝シーラーズィー。非常に高齢のシャイフ。（8）50年近くに来着し、われらがシャイフ（イブン・ハジャル）から学び、彼に会えたことに誇りと喜びをあらわにした。
+  en: Farrūkh al-Shīrāzī. A very aged shaykh. He arrived around the year [8]50 and studied under our shaykh (Ibn Ḥajar), displaying pride and delight at having met him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T17:36:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

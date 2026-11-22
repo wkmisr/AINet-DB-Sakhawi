@@ -1,0 +1,71 @@
+schema: aind-yaml/0.1
+id: AIND-D02836
+source:
+  uid: '281643325610'
+sex: M
+name:
+  full: خشكلدي العلمي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05525
+    quote: العلمي
+  - id: n2
+    type: honorific
+    quote: null
+    label: الأمير
+  - id: n3
+    type: ism
+    quote: خشكلدي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D02836
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: wd:Q1023470
+  quote: شيخنا
+  note:
+    ja: 「قرأ الصحيح أو بعضه على شيخنا」＝イブン・ハジャル（wd:Q471116）のもとで『サヒーフ』（ID-Master 登録 الصحيح | صحيح البخاري＝wd:Q1023470）の全部または一部を読んだ。「أو بعضه」（あるいはその一部）の留保は訳文に残す。初版の desc field（الحديث）は repo 先例どおり付けない。
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D02836
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00014
+  quote: الأمير
+  note:
+    ja: 「ووصفه بالأمير」＝イブン・ハジャルが（読了記録で）彼を「アミール」と記した。称号に基づくアミール位（TMP-O-00014）。初版の orgName المؤيدية（施設は写本の所在であって職の所属ではない）を除去。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  orgs:
+  - ref: TMP-I-00028
+  quote: ووصفه
+  summary:
+    ar: كما رأيته في البلاغات بخطه بنسخة بالمؤيدية ووصفه بالأمير
+  note:
+    ja: Pattern A。イブン・ハジャル自筆の読了記録（البلاغات）がアル＝ムアイヤディーヤ（TMP-I-00028）所蔵の写本にあり、サハーウィーがそれを見た。施設名 المؤيدية は原文明記のため event の orgName として保持（規則22(2)、先例 D06248）。初版の affiliation study（المدرسة المؤيدية）は本項主がそこで学んだという原文にない主張のため除去。
+  trigger: rule
+translation:
+  ja: フシュカルディー・アル＝アラミー。我らがシャイフ（イブン・ハジャル）のもとで『サヒーフ』の全部あるいはその一部を読んだ。それは私がアル＝ムアイヤディーヤにある写本中の、シャイフ自筆の読了記録（バラーガート）で見たとおりであり、シャイフは彼を「アミール」と記していた。
+  en: Khushkaldī al-ʿAlamī. He read the Ṣaḥīḥ, or part of it, before our shaykh (Ibn Ḥajar), as I saw in the reading-completion notes (balāghāt) in his (Ibn Ḥajar's) hand in a copy kept at al-Muʾayyadiyya, where he described him as "the amīr".
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-24T07:29:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

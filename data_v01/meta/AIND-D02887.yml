@@ -1,0 +1,95 @@
+schema: aind-yaml/0.1
+id: AIND-D02887
+source:
+  uid: '749622794509'
+sex: M
+name:
+  full: خليل بن إسماعيل بن عمر العمريطي ثم القاهري الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01352
+    quote: العمريطي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: خليل
+    by: rule
+  - id: n4
+    type: nasab
+    quote: إسماعيل
+    by: rule
+    ref: TMP-P-001678
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001678
+  passive: AIND-D02887
+  quote: null
+  note:
+    ja: '規則3。父 إسماعيل بن عمر بن مزروع العمريطي は、本伝のある兄弟 #AIND-D07114（「محمد بن إسماعيل بن عمر بن مزروع الشمس العمريطي … أخو خليل الماضي وابن أخي الشيخ رمضان」）と共有し、祖父名 عمر بن مزروع と父の兄弟 الشيخ رمضان بن عمر بن مزروع（#AIND-D03010）まで復元できる（識別要素あり）。D07114「ومات … سنة أربع وستين في حياة أبويه」＝864年時点で父は存命。corpus の「إسماعيل بن عمر」見出し（D01969〜D01971）に該当なし、ID-Master 未登録（「مزروع」該当なし）→ 新規 TMP-P-001678。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D07114
+  passive: AIND-D02887
+  quote: الشمس محمد
+  note:
+    ja: '「أخو الشمس محمد الآتي」＝ #AIND-D07114「محمد بن إسماعيل بن عمر بن مزروع الشمس العمريطي ثم القاهري الشافعي أخو خليل الماضي」（820年以後生、864没、未収録）。ナサブ3代・ニスバ・「أخو خليل الماضي」で閉合。初版の TMP-P-000063（汎用 الشمس محمد、汚染流用）を置換。ニスバ索引 #AIND-D11866「العمريطي محمد وخليل ابنا اسمعيل ابن عمر」も両者を兄弟として列挙。叔父 الشيخ رمضان（#AIND-D03010）は本項原文に名指しなし＝note。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D09211
+  passive: AIND-D02887
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:104515
+    summary:
+      ar: وقد حج وسمع هناك على التقي بن فهد
+  quote: التقي بن فهد
+  note:
+    ja: 'التقي بن فهد＝ #AIND-D09211（明示、cert なし）。「هناك」＝巡礼先のマッカ（照応副詞、規則22(3)）。初版の field desc「الحديث」（原文に書名・分野なし）を除去。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00050
+  quote: الشاهد
+  note:
+    ja: 初版の placeName القاهرة（ニスバ「ثم القاهري」からの補完、原文に勤務地なし）を除去（規則22(1)）。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: حج
+  summary:
+    ar: وقد حج
+  trigger: rule
+translation:
+  ja: ハリール・ブン・イスマーイール・ブン・ウマル、アル＝アムリーティー、のちアル＝カーヒリー、シャーフィイー派、証人（シャーヒド）、後述のアッ＝シャムス・ムハンマドの兄弟。証人業で生計を立て、その道で抜きん出て、書も巧みであったが堅実さには欠け、礼節と慎みを備えていた。巡礼を行い、そこでアッ＝タキー・ブン・ファハドから聴聞した。
+  en: Khalīl b. Ismāʿīl b. ʿUmar al-ʿAmrīṭī, then al-Qāhirī, the Shāfiʿī, the notary-witness (shāhid), brother of al-Shams Muḥammad who follows. He earned his living as a notary and excelled in it, with fine handwriting, though he was not solid; he had good manners and modesty. He performed the pilgrimage and heard there from al-Taqī b. Fahd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-30T02:44:41Z'
+  model_requested: gemini-3.5-flash

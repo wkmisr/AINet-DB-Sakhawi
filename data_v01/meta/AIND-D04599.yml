@@ -1,0 +1,89 @@
+schema: aind-yaml/0.1
+id: AIND-D04599
+source:
+  uid: '433556826068'
+sex: M
+name:
+  full: عبد الله بن محمد بن عبد الوهاب الغزي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00021
+    quote: الغزي
+  - id: n2
+    type: shuhrah
+    quote: ابن سيف
+  - id: n3
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001233
+  - id: n5
+    type: nasab
+    quote: عبد الوهاب
+    by: rule
+    ref: TMP-P-001234
+  - id: n6
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04599
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:360630
+      quote: القاهرة
+  quote: مني
+  note:
+    ja: '「ممن سمع مني بالقاهرة」（統一規則2: field は付けない）。'
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001233
+  passive: AIND-D04599
+  quote: أبيه
+  note:
+    ja: 見出しナサブの父。「الخطيب بجامعها الكبير كأبيه وجده」により父もガザ大モスクのハティーブ。corpus に本伝なし・ID-Master 未登録（الغزي 家の登録者はいずれも別人）→ 新規 TMP-P-001233。初版の汚染番号 TMP-P-000529（ابن جماعة の子 محمد）を解消。
+- id: r3
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001234
+  passive: AIND-D04599
+  quote: جده
+  note:
+    ja: '「كأبيه وجده」により祖父もガザ大モスクのハティーブ（識別要素あり）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001234。初版 #NEEDID を解消。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q932945
+  places:
+  - ref: TMP-L-00042
+  orgs:
+  - ref: TMP-I-00178
+  quote: الخطيب بجامعها الكبير
+  note:
+    ja: 「الخطيب بجامعها الكبير كأبيه وجده」。「ها」の候補はニスバ الغزي の地 غزة 一つに定まるため placeName を cert medium で保持（規則22(3)）。ガザの大モスクは ID-Master 未登録（TMP-I-00032「الجامع الكبير」は repo D07357 でハラブの大モスクに使用済みの汎用名）→ 新規 TMP-I-00178。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥルワッハーブ、アル＝ガッズィー・アッ＝シャーフィイー。父・祖父と同じく同地（ガザ）の大モスクのハティーブ（説教師）で、イブン・サイフとして知られる。カイロで私（サハーウィー）から聴聞した者の一人。
+  en: ʿAbd Allāh b. Muḥammad b. ʿAbd al-Wahhāb, al-Ghazzī al-Shāfiʿī, preacher (khaṭīb) at its (Gaza's) Great Mosque, like his father and grandfather; he is known as Ibn Sayf. He was among those who heard from me (al-Sakhāwī) in Cairo.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-24T15:47:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

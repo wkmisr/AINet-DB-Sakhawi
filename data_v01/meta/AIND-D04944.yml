@@ -1,0 +1,120 @@
+schema: aind-yaml/0.1
+id: AIND-D04944
+source:
+  uid: '118749145795'
+sex: M
+name:
+  full: علي بن إبراهيم بن يوسف الفاقوسي الأصل البلبيسي الشافعي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00238
+    quote: الفاقوسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00145
+    quote: البلبيسي
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: إبراهيم
+    by: rule
+    ref: AIND-D00350
+  - id: n5
+    type: nasab
+    quote: يوسف
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04944
+  methods:
+  - TMP-S-00025
+  context:
+  - summary:
+      ar: وقرأ على جل الصحيح في سنين
+  works:
+  - ref: wd:Q1023470
+  quote: null
+  note:
+    ja: 「قرأ على」の直後に人名が来ないため「عليّ」（私＝サハーウィーに）と読む。『الصحيح』＝『صحيح البخاري』（wd:Q1023470）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D04876
+  passive: AIND-D04944
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: wd:Q1023470
+  quote: الديمي
+  note:
+    ja: 'الديمي ＝ #AIND-D04876（عثمان بن محمد الفخر الديمي、本バッチ B97。ID-Master で旧 TMP-P-000215 から統合済み）。初版の #TMP-P-000215（幻番号）を是正。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D07210
+  passive: AIND-D04944
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: wd:Q1023470
+  quote: البهاء المشهدي
+  note:
+    ja: 'البهاء المشهدي ＝ #AIND-D07210（محمد بن أبي بكر بن علي بن عبد الله … البهاء أبو الفتح ابن الزين المشهدي القاهري الأزهري الشافعي、811年生。索引 #AIND-D12033「المشهدي … وابنه البهاء محمد」）。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: father
+  active: AIND-D00350
+  passive: AIND-D04944
+  quote: الماضي أبوه
+  note:
+    ja: '父 ＝ #AIND-D00350（إبراهيم بن يوسف بن إبراهيم بن أحمد بن يوسف بن أبي الفتح البرهان الفاقوسي ثم البلبيسي الشافعي الرفاعي والد علي الآتي）。相手側が「والد علي الآتي」と明記し相互閉合。初版の #NEEDID を解消。'
+states:
+- id: s1
+  type: status
+  label: إنسان خير سليم الفطرة جدا زائد الفاقة ونعم الرجل
+  quote: إنسان خير سليم الفطرة جدا زائد الفاقة
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: learning
+  works:
+  - ref: TMP-T-00095
+  quote: قرأ
+  trigger: rule
+- id: e2
+  type: teaching
+  places:
+  - ref: TMP-L-00087
+    cert: medium
+    quote: بلده
+  works:
+  - ref: wd:Q1023470
+  quote: null
+  summary:
+    ar: بل قرأه على العامة في بلده ولهم فيه اعتقاد
+  note:
+    ja: 「بلده」＝ニスバ البلبيسي の地 بلبيس（TMP-L-00087）。الفاقوسي は「الأصل」限定のため候補はニスバの地一つに定まる（規則22(3)、所有代名詞付き名詞は一律 cert medium）。
+translation:
+  ja: アリー・ブン・イブラーヒーム・ブン・ユースフ、ファークース出身で、アル＝ビルビースィー、シャーフィイー派。父は前述。善良で、きわめて純朴な性質の、ひどく困窮した人物。クルアーンを読誦し、アラビア語学などを少し学び、何年もかけて私（サハーウィー）のもとで『サヒーフ』の大部分を読誦した。同様にアッ＝ダイミーとアル＝バハー・アル＝マシュハディーのもとでも読誦し、それどころか自分の町では一般の人々に向けてそれを読み上げ、彼らは彼を篤く信頼していた。実に立派な人物である。
+  en: ʿAlī b. Ibrāhīm b. Yūsuf, of Fāqūsī origin, al-Bilbīsī al-Shāfiʿī; his father has been mentioned above. A good man, of a very sound and simple nature, and extremely poor. He recited the Qurʾān and studied Arabic and other subjects a little, and read most of the Ṣaḥīḥ under me over several years. He likewise read it under al-Daymī and al-Bahāʾ al-Mashhadī; indeed he read it to the common people in his town, and they held him in great esteem. What a fine man he was.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-28T17:00:37Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

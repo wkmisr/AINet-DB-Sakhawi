@@ -1,0 +1,95 @@
+schema: aind-yaml/0.1
+id: AIND-D00610
+source:
+  uid: '923069842728'
+sex: M
+name:
+  full: |-
+    أحمد بن أبي بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر
+            الناشري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00138
+    quote: الناشري
+  - id: n2
+    type: ism
+    quote: أحمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أبي بكر
+    by: rule
+    ref: AIND-D10822
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n7
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n8
+    type: nasab
+    quote: أبي بكر
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D00610
+  methods:
+  - TMP-S-00014
+  context:
+  - places:
+    - ref: gn:104515
+  quote: ولازمني
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D10822
+  passive: AIND-D00610
+  quote: أبوه
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  places:
+  - ref: gn:104515
+  quote: وحج
+  cert: low
+  note:
+    en: with his father
+  trigger: rule
+- id: e2
+  type: residence
+  subtype: jāwara
+  date:
+    ah: 880s
+    cert: medium
+  quote: وجاور
+  cert: medium
+  note:
+    en: |-
+      Resided in Mecca for two years. This was his third jāwara, occurring
+                  after 880 H (المجاورة الثالثة بعد الثمانين).
+    ja: 規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。
+  trigger: rule
+translation:
+  ja: アフマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アリー・ブン・ムハンマド・ブン・アビー・バクル・アル＝ナーシリー。彼の父と祖父（後述）と共にハッジを行い、2年間メッカに滞在した。彼は（シャイフである）私（サハーウィー）の聴聞講義にも参加し、特に80年代（ヒジュラ暦880年代）後半の3度目のメッカ滞在中、その2年間私に師事した。
+  en: Aḥmad b. Abī Bakr b. Muḥammad b. Abī Bakr b. ʿAlī b. Muḥammad b. Abī Bakr al-Nāshirī. His father and grandfather (forthcoming) performed Hajj with him and resided in Mecca for two years. He also accompanied me (al-Sakhāwī) in listening (to lectures) there during those two years, specifically during his third residency in Mecca after the eighties (880s AH).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.10
+  generated_at: '2026-06-10T08:17:22Z'
+  model_era: gemini-2.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

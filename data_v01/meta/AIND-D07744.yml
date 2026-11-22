@@ -1,0 +1,119 @@
+schema: aind-yaml/0.1
+id: AIND-D07744
+source:
+  uid: '736883696311'
+sex: M
+name:
+  full: محمد بن عبد الله بن إبراهيم الشمس المسوفي ثم المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01251
+    quote: المسوفي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001198
+  - id: n6
+    type: nasab
+    quote: إبراهيم
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 827
+  summary:
+    ar: ولد في سنة سبع وعشرين وثمانمائة
+  note:
+    ja: 827＝1423-12-14〜1424-12-01 → 年初の 1423（初版 1424 は誤り）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07744
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+  quote: مني
+  note:
+    ja: 「هناك」＝المدينة（照応、規則22-3）。
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001198
+  passive: AIND-D07744
+  quote: أبيه
+  note:
+    ja: '父 عبد الله بن إبراهيم المسوفي（本項主が2〜3歳の頃＝829／830年頃にマディーナへ移住）。corpus に本伝なし・ID-Master 未登録。名＋父名＋ニスバのみだが、マディーナ移住という識別要素があるため TMP-P-001198 を新規発行（規則3 但書、⚠汎用名）。初版は #NEEDID。'
+- id: r3
+  type: personal
+  subtype: son
+  active: AIND-D08856
+  passive: AIND-D07744
+  quote: الآتي ولده محمد
+  note:
+    ja: 子＝#AIND-D08856（項番300 محمد بن محمد بن عبد الله بن إبراهيم الشمس بن الشمس المسوفي الأصل المدني المالكي الماضي أبوه、859年マディーナ生）。「الماضي أبوه」が本項に対応。初版の TMP-P-000529（ابن جماعة 家の محمد 専用番号）は汚染流用のため破棄。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00286
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  orgs:
+  - ref: TMP-I-00120
+  quote: مادح الحرم
+  note:
+    ja: 預言者モスク（الحرم النبوي＝TMP-I-00120）の頌詩詠唱者。ID-Master に該当 Office なし → TMP-O-00286 を新規発行。placeName المدينة は「بحرمها」の照応による（規則22-3）。
+events:
+- id: e1
+  type: residence
+  date:
+    notBefore: 829
+    notAfter: 830
+    cert: medium
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: null
+  summary:
+    ar: وقدم مع أبيه المدينة وهو ابن سنتين أو ثلاث
+  cert: medium
+  note:
+    ja: 827年生・2〜3歳時の移住＝829〜830年頃（cert medium）。以後マディーナ在住（مادح الحرم）。
+- id: e2
+  type: cultural
+  works:
+  - ref: TMP-T-00095
+  quote: فقرأ القرآن
+- id: e3
+  type: cultural
+  quote: وكتب لي من نظم ولده قصيدة
+  note:
+    ja: 子 محمد（#AIND-D08856）作の頌詩をサハーウィーのために書き写した。
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・イブラーヒーム、アッ＝シャムス、アル＝マスーフィー、のちにアル＝マダニー。マディーナの聖域（ハラム）の頌詩詠唱者で、その子ムハンマドは後述する。ヒジュラ暦827年に生まれ、2歳か3歳のときに父と共にマディーナに来て、クルアーンを読誦（学習）し、落ち着きと善良さを備えたハラムの頌詩詠唱者となった。私（サハーウィー）がそこにいたとき、彼は私から聴聞し、その子の作った一篇のカスィーダを私のために書いてくれた。
+  en: Muḥammad b. ʿAbd Allāh b. Ibrāhīm, al-Shams, al-Masūfī, then al-Madanī, the panegyrist (mādiḥ) at its Sanctuary, whose son Muḥammad is mentioned below. He was born in the year 827 and came with his father to Medina when he was two or three years old; he learned to recite the Qurʾān and became the panegyrist of the Sanctuary, with composure and goodness. When I (al-Sakhāwī) was there he heard from me and wrote out for me a qaṣīda composed by his son.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T07:25:50Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

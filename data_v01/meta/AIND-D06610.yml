@@ -1,0 +1,101 @@
+schema: aind-yaml/0.1
+id: AIND-D06610
+source:
+  uid: '410299414570'
+sex: M
+name:
+  full: محمد بن أحمد بن أحمد بن محمد الجمال بن الشهاب البوني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01052
+    quote: البوني
+  - id: n2
+    type: laqab
+    quote: الجمال
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: أحمد
+    by: rule
+    ref: TMP-P-001215
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: الشهاب
+    by: rule
+birth:
+  id: b
+  date:
+    notBefore: 840
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: ولد بعيد الأربعين بمكة
+  note:
+    ja: 「بعيد الأربعين」＝（8）40年の少し後。「بعد N」の型に準じ notBefore-custom=0840（規則18）。840＝1436-07-25 開始（h2g.py）＝notBefore 1436。初版は when-custom=0840（840年ちょうど）としていた。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001215
+  passive: AIND-D06610
+  quote: أبيه
+  note:
+    ja: '見出し「الجمال بن الشهاب البوني」。父の本伝は corpus にない（女性部 #AIND-D13375 は「أخت محمد الماضي وأبوهما」と言うが、أحمد بن أحمد の見出し群に البوني はいない）。ID-Master 既登録 TMP-P-001215「الشهاب أحمد بن أحمد بن محمد البوني المكي」（Note に本項と D13375 の父と明記）＝初版どおり。ニスバ索引 #AIND-D11521「البوني نسبة لبونة بالمغرب من أعمال تونس هو الجمال محمد بن الشهاب أحمد بن أحمد قدم جده من المغرب وهو فقير جدا فقطن الحجاز وترقى ابنه بخدمة الشريف بركات … وخلفه ابنه في الترقي وله أخوة」。'
+- id: r2
+  type: personal
+  subtype: sister
+  active: AIND-D13375
+  passive: AIND-D06610
+  cert: medium
+  quote: null
+  note:
+    ja: '規則23（相手側の名指し）。女性部 #AIND-D13375「531 فاطمة ابنة أحمد بن أحمد بن محمد البوني المكي أخت محمد الماضي وأبوهما . ماتت بمكة في رجب سنة ست وسبعين ، أرخها ابن فهد」（repo 未収録）。本項の原文に姉妹への言及はない＝cert medium（ブリーフ ★、本文で確認）。'
+- id: r3
+  type: personal
+  subtype: spouse
+  active: AIND-D13555
+  passive: AIND-D06610
+  cert: medium
+  quote: null
+  note:
+    ja: '規則23。女性部 #AIND-D13555「708 قندولة ابنة أبي الخير محمد بن ريحان المريسى زوج الجمال محمد بن الشهاب أحمد البونى أحد أعيان الدولة بمكة . ماتت في يوم السبت ثاني عشر جمادى الثانية سنة ثلاث وتسعين」（repo 未収録）がラカブ・父のラカブ・ニスバで本項主を一意に指す。本項の原文に妻への言及はない＝cert medium。ブリーフに記載のなかった相手。'
+- id: r4
+  type: personal
+  subtype: patron
+  active: NEEDID
+  passive: AIND-D06610
+  quote: صاحب مكة
+  note:
+    ja: '「ونشأ كأبيه في خدمة صاحب مكة」＝父と同じくマッカの領主に仕えた（規則56）。領主の名は原文にない＝#NEEDID（ブリーフどおり ref を付けない）。父の主人はニスバ索引 #AIND-D11521 によれば الشريف بركات。本項主（840年以後の生まれ）の時代の領主は特定しない。初版は統制外の向きの subtype="client"・零番号 TMP-P-000000。'
+events:
+- id: e1
+  type: other
+  quote: وتمول بالعقارات وغيرها
+  note:
+    ja: 不動産などで財を成した。原文に地名はない＝初版の placeName（مكة）を除去（規則22(1)）。
+notes:
+- text: '「في خدمة صاحب مكة في الترك وغيرها」の「في الترك」は、マッカの領主に仕えて「トルコ人（マムルーク朝の官人）に関わること」に当たったと読んだ（語義は確定しない。訳文は逐語）。初版の residence event（مكة）は原文に居住の明記がないので除去（出生地は birth に置いた）。父の異父兄弟 #AIND-D04542（عبد الله بن مبارك … أخو أحمد البوني لأمه）は本項に出ない＝note のみ。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・アフマド・ブン・ムハンマド、アル＝ジャマール・ブン・アッ＝シハーブ・アル＝ブーニー。（8）40年の少し後にマッカで生まれ、父と同じくマッカの領主に仕えて、トルコ人のことやその他のことに当たりながら育ち、不動産などで財を成した。
+  en: Muḥammad b. Aḥmad b. Aḥmad b. Muḥammad, al-Jamāl b. al-Shihāb al-Būnī. He was born shortly after [8]40 in Mecca and grew up, like his father, in the service of the lord of Mecca, in [the affairs of] the Turks and other matters, and he grew rich through real estate and other things.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T05:53:17Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

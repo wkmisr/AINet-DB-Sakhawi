@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D06318
+source:
+  uid: '748762969606'
+sex: M
+name:
+  full: قرابغا الأسنبغاوي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-04327
+    quote: الأسنبغاوي
+  - id: n2
+    type: ism
+    quote: قرابغا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 802-03-16
+    cert: medium
+  note:
+    ja: 「مات في يوم الأحد سادس عشر ربيع الأول سنة اثنتين لجراحات حصلت فيه في وقعة أيتمش」＝一の位のみの年は 80X＝802 年ラビーウ第一月 16 日日曜（1399-11-24＝日曜、h2g.py で曜日一致）、cert medium（標準規則。وقعة أيتمش＝802 と整合）。アイタミシュの戦いで負った傷がもとで没した。没地は本文に明記されない（初版の placeName القاهرة は「قال غيره … قتل في وقعة إيتمش بالقاهرة」＝戦いの地であり、死亡の地としては明記されないため除去し、下記 event に残す）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06318
+  quote: null
+  note:
+    ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。ニスバ「الأسنبغاوي」は主人（أسنبغا）の名指しではないため patron relation は立てない。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00133
+  places:
+  - ref: gn:352261
+    quote: مصر
+  quote: الحاجب الصغير
+  note:
+    ja: 見出し「الحاجب الصغير بمصر」（TMP-O-00133、placeName は原文明記）。
+- id: s2
+  type: office
+  ref: TMP-O-00083
+  quote: null
+  note:
+    ja: '「وقال غيره : أحد المقدمين في دولة الظاهر برقوق」＝別の典拠（名なし）によればアッ＝ザーヒル・バルクーク（#AIND-D02178）の治世のムカッダムの一人。ID-Master 登録 المقدم（TMP-O-00083）。初版の #NEEDID、date「في دولة الظاهر برقوق」（日付でない文字列）、placeName مصر（この句に地名なし）を除去。初版の patron relation（برقوق #NEEDID）は治世の時期表現であって主人の名指しではないため除去し、ここに記す。'
+events:
+- id: e1
+  type: political
+  places:
+  - ref: gn:360630
+    cert: medium
+    quote: القاهرة
+  quote: قتل
+  summary:
+    ar: لجراحات حصلت فيه في وقعة أيتمش | قال غيره … قتل في وقعة إيتمش بالقاهرة
+  note:
+    ja: アイタミシュの戦い（802 年）で負傷し（本文）、別典拠では同戦いでカイロで殺されたとする。placeName القاهرة は「قال غيره」の伝える戦いの地のため cert medium。初版の cert="high" と en desc を原文に置換。戦いの年月は原文に書かれず、没日（802年ラビーウ第一月16日）の月を流用していたため日付属性を外した（集約 2026-10-26、内容B F10）。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: ذكره
+  summary:
+    ar: ذكره العيني
+  note:
+    ja: Pattern A。العيني＝#AIND-D09832（corresp wd:Q257745）。「وقال غيره」の「غيره」は人物を立てない。初版の統制外 subtype「mentioned by」relation（wd:Q257745 単独）を event に。
+  trigger: rule
+notes:
+- text: 「كان تركيا أو تركمانيا」＝トルコ人かトルクメン人であった（出自の記述、要素化せず）。
+  lang: ja
+  type: editorial
+translation:
+  ja: カラーブガー・アル＝アスナブガーウィー、エジプトの小ハージブ。トルコ人かトルクメン人であった。（8）02年ラビーウ第一月16日の日曜日、アイタミシュの戦いで負った傷がもとで没した。アル＝アイニーが彼に言及しており、別の者は「アッ＝ザーヒル・バルクークの治世のムカッダムの一人で、カイロでのアイタミシュの戦いで殺された」と述べている。
+  en: 'Qarābughā al-Asanbughāwī, the lesser chamberlain (al-ḥājib al-ṣaghīr) in Egypt. He was a Turk or a Turkmen. He died on Sunday the 16th of Rabīʿ I of the year [80]2 from wounds he sustained in the battle of Aytamish. Al-ʿAynī mentioned him, and someone else said: one of the muqaddams in the reign of al-Ẓāhir Barqūq, killed in the battle of Aytamish in Cairo.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-16T14:37:41Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

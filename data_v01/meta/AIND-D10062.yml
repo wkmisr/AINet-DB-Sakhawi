@@ -1,0 +1,125 @@
+schema: aind-yaml/0.1
+id: AIND-D10062
+source:
+  uid: '200743603632'
+sex: M
+name:
+  full: موسى بن سليمان بن عبد الكريم الشرف الشامي ثم القاهري الشافعي الكتبي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00130
+    quote: الشامي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00072
+    quote: الكتبي
+  - id: n4
+    type: laqab
+    quote: الشرف
+  - id: n5
+    type: shuhrah
+    quote: ابن عبد الكريم
+  - id: n6
+    type: ism
+    quote: موسى
+    by: rule
+  - id: n7
+    type: nasab
+    quote: سليمان
+    by: rule
+  - id: n8
+    type: nasab
+    quote: عبد الكريم
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الشافعي
+    by: rule
+    ref: wd:Q82245
+death:
+  id: d
+  date:
+    ah: 837-10
+  summary:
+    ar: مات في شوال سنة سبع وثلاثين
+  note:
+    ja: 837年シャウワール月＝1434-05-20〜06-17（h2g.py）、月精度で @when=1434-05。初版の 1433 を訂正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D10062
+  quote: null
+  note:
+    ja: 規則3 (c')。父 سليمان بن عبد الكريم は汎用名で識別要素がなく、corpus に見出しなし（hw.py「سليمان بن عبد الكريم」）。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000297
+  passive: AIND-D10062
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: TMP-T-00015
+  quote: الشمس العسقلاني
+  note:
+    ja: '「قرأ الشاطبية من حفظه على الشمس العسقلاني」。الشمس العسقلاني＝TMP-P-000297（ID-Master 登録名一致。repo で D00134・D04925・D05249・D05362・D05933 が同番号を القراءات の師として使用）。corpus に本伝なし（hw.py「العسقلاني」「المقري」: 本伝候補 D06748 はハンバリー派のハディース伝承者＝別人）。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: TMP-P-000297
+  passive: AIND-D10062
+  methods:
+  - TMP-S-00010
+  quote: null
+  note:
+    ja: 「وتلا عليه بالسبع」。
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D10062
+  passive: AIND-D09211
+  methods:
+  - TMP-S-00008
+  cert: low
+  quote: ابن فهد
+  note:
+    ja: 「وممن أخذ عنه ابن فهد」＝本項主が師（規則15）。限定語のない ابن فهد・本項主の没年 837（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（規則43）。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00020
+  quote: تكسب
+  note:
+    ja: 「وتكسب في الكتب وبرع في ذلك جدا」。見出しのニスバ الكتبي と同じ生業。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q82245
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+  quote: وترجمه
+  cert: low
+  note:
+    ja: 'Pattern A（「ممن أخذ عنه ابن فهد وترجمه」＝ابن فهد が彼の伝記を書いた）。没年 837 ≤871 → #AIND-D09211、cert low（event 側、規則43・58）。'
+  trigger: rule
+translation:
+  ja: ムーサー・ブン・スライマーン・ブン・アブドゥルカリーム、アッ＝シャラフ、アッ＝シャーミー、のちアル＝カーヒリー、アッ＝シャーフィイー、アル＝クトゥビー（書籍商）。イブン・アブドゥルカリームとして知られる。『アッ＝シャーティビーヤ』を暗記によってアッ＝シャムス・アル＝アスカラーニーの前で読み、彼のもとで七読誦法によって朗誦した。書籍（の売買）で生計を立て、その分野で非常に卓越していた。（8）37年シャウワール月に没した。彼から学んだ者の中にイブン・ファハドがおり、彼の伝記を書いている。
+  en: Mūsā b. Sulaymān b. ʿAbd al-Karīm, al-Sharaf al-Shāmī, then al-Qāhirī, al-Shāfiʿī, al-Kutubī (the bookseller), known as Ibn ʿAbd al-Karīm. He read al-Shāṭibiyya from memory before al-Shams al-ʿAsqalānī and recited (the Qurʾān) to him according to the seven readings. He made his living in the book trade and excelled greatly in it. He died in Shawwāl of the year (8)37. Among those who studied under him was Ibn Fahd, who wrote his biography.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-21T08:38:34Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,64 @@
+schema: aind-yaml/0.1
+id: AIND-D07762
+source:
+  uid: '113234677050'
+sex: M
+name:
+  full: محمد بن عبد الله بن بلال
+  elements:
+  - id: n1
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n2
+    type: nasab
+    quote: عبد الله
+    by: rule
+    ref: TMP-P-001202
+  - id: n3
+    type: nasab
+    quote: بلال الفراش بالمسجد الحرام
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001202
+  passive: AIND-D07762
+  quote: null
+  note:
+    ja: 見出しナサブから復元（統一規則3）。#AIND-D00889（أحمد）・#AIND-D01899（إسحاق）の父でもある。corpus に本伝なし・ID-Master 未登録（一族祖 بلال は TMP-P-000958 として登録済み）。兄弟2件の既存ファイルには父 relation がないため、統合時に同番号で補うことを ISSUES に申し送り。
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D00889
+  passive: AIND-D07762
+  quote: أخو أحمد
+  note:
+    ja: 兄弟＝#AIND-D00889「أحمد بن عبد الله بن بلال الفراش والوقاد بالحرم المكي وأخو محمد وإسحاق」。既存ファイルは active=#AIND-D07762 で本項を参照済み（双方向閉合）。
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D01899
+  passive: AIND-D07762
+  quote: وإسحق
+  note:
+    ja: 兄弟＝#AIND-D01899「إسحاق بن عبد الله بن بلال الفراش بمكة أخو أحمد الماضي ومحمد」。既存ファイルは active=#AIND-D07762 で本項を参照済み。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00033
+  orgs:
+  - ref: wd:Q428858
+  quote: null
+  note:
+    ja: 「الفراش بالمسجد الحرام」。職 فراش ＝ TMP-O-00033（兄弟 D00889・D01899 と同一）。施設所在地からの placeName（مكة）は規則22により付けない。
+translation:
+  ja: ムハンマド・ブン・アブドゥッラー・ブン・ビラール。マスジド・ハラーム（マッカの聖モスク）のファッラーシュ（敷物係）で、アフマドとイスハークの兄弟。
+  en: Muḥammad b. ʿAbd Allāh b. Bilāl, the farrāsh (attendant in charge of furnishings) at the Sacred Mosque (al-Masjid al-Ḥarām), and the brother of Aḥmad and Isḥāq.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-15T08:05:02Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

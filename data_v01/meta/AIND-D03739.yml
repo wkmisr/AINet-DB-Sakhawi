@@ -1,0 +1,89 @@
+schema: aind-yaml/0.1
+id: AIND-D03739
+source:
+  uid: '851884122242'
+sex: M
+name:
+  full: عبد الرحمن بن محمد بن أبي بكر بن الحسين وجيه الدين بن الشيخ ناصر الدين أبي الفرج بن الزين المراغي المدني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00107
+    quote: المراغي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n3
+    type: ism
+    quote: عبد الرحمن
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: AIND-D07182
+  - id: n5
+    type: nasab
+    quote: أبي بكر
+    by: rule
+    ref: AIND-D10690
+  - id: n6
+    type: nasab
+    quote: الحسين وجيه الدين
+    by: rule
+  - id: n7
+    type: nasab
+    quote: الشيخ ناصر الدين أبي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D03739
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: father
+  active: AIND-D07182
+  passive: AIND-D03739
+  quote: null
+  note:
+    ja: 「وجيه الدين」は**伝主本人**のラカブ（類型6-2 ラカブ連鎖）。父のラカブは「ناصر الدين أبو الفرج」、祖父は「الزين」。#AIND-D07182「محمد ناصر الدين أبو الفرج … ووالد الشمس محمد الآتي」で確定。
+- id: r3
+  type: personal
+  subtype: grandfather
+  active: AIND-D10690
+  passive: AIND-D03739
+  quote: null
+- id: r4
+  type: personal
+  subtype: brother
+  active: TMP-P-000874
+  passive: AIND-D03739
+  quote: محمد
+  note:
+    ja: 'TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。「أخو محمد الآتي」＝الشمس محمد بن ناصر الدين أبي الفرج المراغي（#AIND-D07182「ووالد الشمس محمد الآتي」、#AIND-D09061 の父「الشمس … الماضي أبوه」、#AIND-D10818「أخو محمد」）。م 部に本人の見出しを特定できず、TMP-P で発行。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:109223
+    quote: المدينة
+  quote: null
+translation:
+  ja: アブド・アッラフマーン・ブン・ムハンマド・ブン・アビー・バクル・ブン・アル＝フサイン、ワジーフ・アッディーン（・ブン・アッ＝シャイフ・ナースィル・アッディーン・アビー・アル＝ファラジュ・ブン・アッ＝ザイン・アル＝マラーギー・アル＝アスル・アル＝マダニー）、後述のムハンマドの兄弟。マディーナにて私（＝サハーウィー）から聴聞した。
+  en: Abd al-Rahman b. Muhammad b. Abi Bakr b. al-Husayn, Wajih al-Din (b. al-Shaykh Nasir al-Din Abi al-Faraj b. al-Zayn al-Maraghi al-Asl al-Madani), the brother of Muhammad who is mentioned below. He heard from me (al-Sakhawi) in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-03T07:32:12Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

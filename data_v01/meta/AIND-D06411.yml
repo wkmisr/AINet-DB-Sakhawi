@@ -1,0 +1,88 @@
+schema: aind-yaml/0.1
+id: AIND-D06411
+source:
+  uid: '108632487596'
+sex: M
+name:
+  full: كمشبغا الظاهري برقوق
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00114
+    quote: الظاهري
+  - id: n2
+    type: shuhrah
+    quote: null
+    label: أمير عشرة
+  - id: n3
+    type: ism
+    quote: كمشبغا
+    by: rule
+death:
+  id: d
+  date:
+    ah: 840-01
+  summary:
+    ar: قتل في المحرم سنة أربعين
+  note:
+    ja: 840年ムハッラム月＝1436-07-25〜08-23（h2g.py）、月精度で @when=1436-07（初版の 1436 は年精度で不一致）。殺害（قتل）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06411
+  quote: null
+  note:
+    ja: 規則3（単名のマムルーク。原文に父名なし）。
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D02178
+  passive: AIND-D06411
+  quote: برقوق
+  note:
+    ja: 主人ニスバ「الظاهري برقوق」（規則51）。الظاهر برقوق＝#AIND-D02178（頻出確定ID）。初版にはなし。
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D02364
+  passive: AIND-D06411
+  quote: جانبك الصوفي
+  note:
+    ja: '「انتمى للأتابك جانبك الصوفي وقام معه」＝アターベク・ジャーンバク・アッ＝スーフィーの一党に身を寄せ、共に蜂起した。「انتمى لـ」は「仕えた・一党に属した」型＝patron（規則56、先例 #AIND-D03936「فانتمى لتمراز」）。corpus 本伝 #AIND-D02364「230 جانبك الصوفي الظاهري برقوق أحد المقدمين وصاحب تلك الوقائع والحروب … مات في منتصف ربيع الآخر سنة إحدى وأربعين」（通称・أتابك としての動乱・年代で閉合）。初版は #NEEDID。「الأتابك」は相手の職＝state にしない。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00014
+  places:
+  - ref: gn:170063
+    quote: حلب
+  quote: أمير
+  note:
+    ja: '「أحد أمراء حلب」＝アレッポのアミールの一人（汎用 أمير TMP-O-00014＋原文ラベル）。placeName は原文の「أمراء حلب」。【集約 2026-11-08】校閲の state「أمير عشرة」（TMP-O-00101、十人長）は除去: 「المعروف بأمير عشرة」の「المعروف بـ」は通称の標識で、本人はその後も「تنقل في الإمرة والولايات」と昇進を重ねており十人長の位階ではない＝通称として persName shuhrah に移した（内容A M、オーケストレーター決定10）。'
+events:
+- id: e1
+  type: political
+  persons:
+  - ref: AIND-D02364
+  quote: قتل
+  summary:
+    ar: تنقل في الإمرة والولايات إلى أن انتمى للأتابك جانبك الصوفي وقام معه ثم قتل
+  note:
+    ja: 蜂起の年は原文に明記がなく（殺害は840年ムハッラム＝death）、初版の when-custom 0840-01 cert high を除去（規則18）。初版の en desc を原文 desc に。
+  trigger: rule
+notes:
+- text: 「وكان كثير الشر محبا للفتن」は人物評＝訳文のみ。初版の residence event حلب は職（أمراء حلب）からの補完のため除去（規則22(1)）。
+  lang: ja
+  type: editorial
+translation:
+  ja: クムシュブガー・アッ＝ザーヒリー・バルクーク。アレッポのアミールの一人で、「アミール・アシャラ（十人長）」の通称で知られた。アミール職や地方の官職を転々とし、ついにアターベクのジャーンバク・アッ＝スーフィーの一党に身を寄せて共に蜂起し、840年ムハッラム月に殺害された。悪事が多く、騒乱（フィトナ）を好む人物であった。
+  en: Kumushbughā al-Ẓāhirī Barqūq. One of the amirs of Aleppo, known by the nickname "Amīr ʿAshara" (amir of ten). He moved through amirates and governorships until he attached himself to the atābak Jānbak al-Ṣūfī and rose with him; then he was killed in Muḥarram of the year 840. He was much given to evil and fond of strife.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-12T09:30:09Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

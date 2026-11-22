@@ -1,0 +1,74 @@
+schema: aind-yaml/0.1
+id: AIND-D05859
+source:
+  uid: '979122533009'
+sex: M
+name:
+  full: عمر بن عبد الرحمن بن أبي بكر بن أبي بكر التقي بن الوجيه الزوقري اليماني
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01363
+    quote: الزوقري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n3
+    type: laqab
+    quote: التقي
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+    ref: AIND-D03606
+  - id: n6
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: أبي بكر
+    by: rule
+  - id: n8
+    type: nasab
+    quote: الوجيه
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D03606
+  passive: AIND-D05859
+  cert: medium
+  quote: والده
+  note:
+    ja: '父。ラカブ連鎖「التقي بن الوجيه」から父のラカブは الوجيه。corpus の عبد الرحمن 部に #AIND-D03606「عبد الرحمن بن أبي بكر بن عبد الله وجيه الدين أبو محمد الزوقري الركني الشافعي」（744年生・810年没、タイッズの学者。末尾「ورأيت من سمي جده يحيى فالله أعلم」）があり、名・父名・ラカブ・ニスバは一致するが祖父名（本項 أبي بكر／D03606 عبد الله または يحيى）が合わないため規則26により同定せず、新規 TMP-P-001381 を発行して候補を note に留める（§D105-5）。ابن فهد は父を「العلامة」と評した。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: التقي بن فهد
+  works:
+  - ref: TMP-T-00138
+  quote: ذكره
+  summary:
+    ar: ذكره التقي بن فهد في معجمه ووصفه بالإمام المفنن ووالده بالعلامة وبيض
+  note:
+    ja: 'Pattern A。「في معجمه」→ ابن فهد 振り分け規則により التقي بن فهد ＝ #AIND-D09211、معجمه ＝ TMP-T-00138『معجم ابن فهد』。「وبيض」＝（没年等を）空欄のまま残した。初版の統制外 subtype「mentioned_by」relation（note 内の TMP-T-0138 は桁誤り）を event に変換。初版の honorific「الإمام」は ابن فهد の評語であり名の一部ではないため除去。'
+  trigger: rule
+translation:
+  ja: ウマル・ブン・アブド・アッ＝ラフマーン・ブン・アビー・バクル・ブン・アビー・バクル、アッ＝タキー・ブン・アル＝ワジーフ、アッ＝ザウカリー・アル＝ヤマーニー。アッ＝タキー・ブン・ファハドがその『ムウジャム』で彼に言及し、彼を「多芸なイマーム」、その父を「大学者（アッラーマ）」と評し、（没年などは）空欄のままにした。
+  en: ʿUmar b. ʿAbd al-Raḥmān b. Abī Bakr b. Abī Bakr, al-Taqī b. al-Wajīh, al-Zawqarī al-Yamānī. Al-Taqī b. Fahd mentioned him in his Muʿjam, describing him as "the versatile imām" and his father as "the eminent scholar (al-ʿallāma)", and left the rest blank.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-23T06:36:38Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

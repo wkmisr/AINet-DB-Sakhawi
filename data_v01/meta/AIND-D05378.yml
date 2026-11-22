@@ -1,0 +1,88 @@
+schema: aind-yaml/0.1
+id: AIND-D05378
+source:
+  uid: '951788252846'
+sex: M
+name:
+  full: علي بن محمد بن أحمد بن علي المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n2
+    type: shuhrah
+    quote: الحجاري
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: علي
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05378
+  quote: null
+  note:
+    ja: '見出しナサブのみ・ニスバ المكي のみで識別要素が乏しいため #NEEDID（規則3）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-000017
+  passive: AIND-D05378
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 837
+    summary:
+      ar: سمع في سنة سبع وثلاثين مع ابن فهد على ابن الطحان وغيره
+  quote: ابن الطحان
+  note:
+    ja: ابن الطحان ＝ ID-Master TMP-P-000017（ダマスクスの伝承者。corpus では ابن ناظر الصاحبة・ابن بردس と並んで聴聞先として頻出、「أحضر ابن ناظر الصاحبة وابن الطحان وابن بردس من الشام إلى مصر فأسمعوا」。repo D00449・D07009・D07748 で同番号）。同時聴聞者「ابن فهد」（837年）は التقي بن فهد（#AIND-D09211、787生）か النجم عمر بن فهد（#AIND-D05979、812生、830年代にエジプト・シャームへ遊学）か確定できないため relation を立てず note に留める（規則26、§D123-3）。初版の colleague relation（#AIND-D09211）を除去。「وغيره」の他の師は不特定。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00012
+  quote: العطار
+  note:
+    ja: 見出しの「المكي العطار」＝薬種商（職業呼称）。TMP-O-00012（Office العطار）と実体一致。
+events:
+- id: e1
+  type: visit
+  places:
+  - ref: gn:352261
+    quote: مصر
+  quote: null
+  summary:
+    ar: وتكرر دخوله لمصر والشام وغيرهما
+- id: e2
+  type: visit
+  places:
+  - ref: TMP-L-00002
+    quote: الشام
+  quote: null
+  summary:
+    ar: وتكرر دخوله لمصر والشام وغيرهما
+translation:
+  ja: アリー・ブン・ムハンマド・ブン・アフマド・ブン・アリー・アル＝マッキー・アル＝アッタール。アル＝ヒジャーリーとして知られる。837年にイブン・ファハドとともにイブン・アッ＝タッハーンらから聴聞した。ミスルやシャームなどに繰り返し入った。
+  en: ʿAlī b. Muḥammad b. Aḥmad b. ʿAlī al-Makkī al-ʿAṭṭār, known as al-Ḥijārī. In the year 837 he heard from Ibn al-Ṭaḥḥān and others together with Ibn Fahd, and he repeatedly entered Egypt, Syria and elsewhere.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-02T13:28:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

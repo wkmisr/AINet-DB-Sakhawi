@@ -1,0 +1,137 @@
+schema: aind-yaml/0.1
+id: AIND-D07038
+source:
+  uid: '173832944515'
+sex: M
+name:
+  full: محمد بن أحمد الجمال الكيلاني المكي الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00001
+    quote: الكيلاني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n3
+    type: laqab
+    quote: الجمال
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+  - id: n7
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07038
+  quote: null
+  note:
+    ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D03736
+  passive: AIND-D07038
+  quote: عبد الرحمن
+  note:
+    ja: '「والد عبد الرحمن الماضي」＝ #AIND-D03736（عبد الرحمن بن الجمال محمد بن أحمد العجمي الكيلاني الأصل المكي الحنبلي . ممن سمع مني بمكة وسافر للهند …、収録済み）。父のラカブ الجمال・ニスバ・学派・インド渡航が一致。規則37。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07038
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 886
+    places:
+    - ref: gn:104515
+      quote: مكة
+    summary:
+      ar: سمع مني بمكة في سنة ست وثمانين يسيرا
+  quote: مني
+  note:
+    ja: 規則2。886 ＝ 1481-03-11 開始、年初 1481（h2g.py）。初版の field الحديث（原文になし）と @when="0886"（ヒジュラ年を @when に記載）を是正。
+states:
+- id: s1
+  type: office
+  subtype: deputy
+  ref: wd:Q125482
+  orgs:
+  - ref: TMP-I-00225
+  quote: نائب الإمام بالمقام
+  note:
+    ja: 見出し「نائب الإمام بالمقام الحنبلي」。ID-Master の先例 نائب إمام مقام الحنفية（TMP-O-00285）・مقام الحنفية (بالمسجد الحرام)（TMP-I-00176）に倣い、ハンバリー派用に TMP-O-00325・TMP-I-00225 を発行。初版の placeName مكة（ニスバからの補完）と affiliation employed（#NEEDID）の二重符号化を解消（規則8・22）。
+- id: s2
+  type: status
+  label: إنسان خير ساكن
+  quote: إنسان خير ساكن
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: visit
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  quote: دخل
+  summary:
+    ar: قدم القاهرة
+  trigger: rule
+- id: e2
+  type: travel
+  date:
+    ah: 894
+  places:
+  - ref: TMP-L-00039
+    quote: الهند
+  quote: وسافر
+  summary:
+    ar: سافر في أثناء سنة أربع وتسعين إلى الهند للاسترزاق وكتبت معه ما أرجو انتفاعه به وعاد مجبورا
+  note:
+    ja: 894年の途中（894 ＝ 1488-12-14 開始、年初 1488）。それ以前にも一度インドへ渡航（「بعد أن كان سافر إليها قبل ذلك」、年不明＝別 event にしない）。初版の cert medium は根拠がないため除去。
+  trigger: rule
+- id: e3
+  type: visit
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  - ref: gn:170654
+    quote: دمشق
+  quote: قدم
+  summary:
+    ar: ثم دخل أيضا القاهرة ودمشق
+  trigger: rule
+notes:
+- text: ID-Master の TMP-P-000246「محمد الكيلاني」（D00687「زوج ابنة الشمس محمد الكيلاني نائب الإمام بمقام الحنبلي」の岳父）は、同じ職「نائب الإمام بالمقام الحنبلي」のキーラーニー家の人物で本項主と同一の可能性があるが、ラカブが الشمس⇄الجمال で食い違うため名寄せせず §D115-6 に記録。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アフマド・アル＝ジャマール・アル＝キーラーニー・アル＝マッキー・アル＝ハンバリー、ハンバリー派のマカームにおけるイマーム代理で、前述のアブド・アッ＝ラフマーンの父。善良で物静かな人物。カイロに来訪し、886年にマッカで私から少しばかり聴聞し、894年の途中に生計を求めてインドへ旅立った。私は彼が役立てることを願うものを書いて持たせた。彼は〔損失を〕埋め合わせて帰還したが、それ以前にも一度そこへ旅していた。その後さらにカイロとダマスクスにも入った。
+  en: Muḥammad b. Aḥmad al-Jamāl al-Kīlānī al-Makkī al-Ḥanbalī, deputy of the imam at the Ḥanbalī station (al-Maqām al-Ḥanbalī) and the father of ʿAbd al-Raḥmān, mentioned above. A good, quiet man. He came to Cairo, and heard a little from me in Mecca in the year 886. In the course of the year 894 he travelled to India in search of a livelihood, and I wrote for him to take along something I hoped would be of use to him. He returned with his losses made good, having travelled there once before that; then he also entered Cairo and Damascus.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T23:04:46Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

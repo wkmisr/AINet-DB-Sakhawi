@@ -1,0 +1,98 @@
+schema: aind-yaml/0.1
+id: AIND-D03186
+source:
+  uid: '551836195733'
+sex: M
+name:
+  full: سنان بن علي بن سنان بن عبد الله بن عمر بن مسعود العمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05474
+    quote: العمري
+  - id: n2
+    type: ism
+    quote: سنان
+    by: rule
+  - id: n3
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05170
+  - id: n4
+    type: nasab
+    quote: سنان
+    by: rule
+    ref: TMP-P-001603
+  - id: n5
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n7
+    type: nasab
+    quote: مسعود
+    by: rule
+death:
+  id: d
+  date:
+    ah: 853-01
+  places:
+  - ref: TMP-L-00401
+    quote: الغد
+  - ref: gn:104515
+    quote: مكة
+  - ref: wd:Q42004
+  note:
+    ar: مات بالغد في المحرم سنة ثلاث وخمسين وحمل إلى مكة فدفن بمعلاتها
+    ja: '853年ムハッラム＝1449-03-05〜04-03（月精度、h2g.py。初版の @when="1449" は年精度）。「بالغد」は「翌日」ではなく地名: corpus 他所に「مات … بالغد خارج مكة」（6743行 #AIND-D00490、7233行）、「مات خارجها بالغد في المحرم」（35197行）とあり、本項も「وحمل إلى مكة」（マッカへ運ばれた＝マッカ外で没）と続く。父 #AIND-D05102（D03185 の父）の項では「بالعد من منازل بني حسن」と綴る（غ／ع の揺れ）。ID-Master 未登録 → TMP-L-00401（規則22(2)・25、ISSUES §D159-8）。搬送先 مكة は「حمل إلى مكة」の目的地＝埋葬地 المعلاة（wd:Q42004、「معلاتها」の ها＝مكة）で表す（規則60(g)）。【集約 2026-11-08】原文に「إلى مكة」と明記があるので搬送先 مكة（gn:104515、type burial）も立てた（規則60(g)「搬送先・埋葬地の placeName は立てる」、先例 #AIND-D03123・#AIND-D10000。機械 L、オーケストレーター決定12）。初版の en note「died on the morrow」を是正。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05170
+  passive: AIND-D03186
+  quote: null
+  note:
+    ja: '父＝ #AIND-D05170「علي بن سنان بن عبد الله بن عمر بن مسعود العمري المكي . كان أحد القواد العمرة وزيرا لأحمد بن عجلان . مات سنة خمس أو قريبا منها ذكره الفاسي」（805頃没、未収録）。見出しナサブ5代が完全一致（規則37）。初版に父 relation なし（規則3）。兄弟 #AIND-D04271「عبد الكريم بن علي بن سنان بن عبد الله بن عمر بن مسعود العمري」は本項に名指しなし＝note のみ（規則23）。'
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: TMP-P-001603
+  passive: AIND-D03186
+  quote: null
+  note:
+    ja: 祖父＝ ID-Master 既登録 TMP-P-001603「سنان بن عبد الله بن عمر بن مسعود العمري المكي (والد علي وكبيش، من القواد العمرة)」（Note に D05170 を父とする記載あり）。見出しナサブで閉合。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: القائد
+  note:
+    ja: 見出しの職名。ID-Master TMP-O-00094。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد أيضا
+  cert: low
+  note:
+    ja: 'Pattern A。没年 853（≤871）→ #AIND-D09211（التقي）cert low（event 側、規則43・58）。「أيضا」は直前の D03185 と同じく ابن فهد が記録した意。初版の統制外 subtype「other」relation を mention event に変換。'
+  trigger: rule
+translation:
+  ja: スィナーン・ブン・アリー・ブン・スィナーン・ブン・アブドゥッラー・ブン・ウマル・ブン・マスウード、アル＝ウマリー、カーイド（隊長）。（8）53年ムハッラム月にアル＝ガッド（マッカ郊外）で没し、マッカへ運ばれてそのマアラー墓地に葬られた。イブン・ファハドも彼の没年を記している。
+  en: Sinān b. ʿAlī b. Sinān b. ʿAbd Allāh b. ʿUmar b. Masʿūd al-ʿUmarī, the qāʾid. He died at al-Ghadd in Muḥarram of the year [8]53 and was carried to Mecca and buried in its Muʿallā cemetery. Ibn Fahd also recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-06T10:57:09Z'
+  model_requested: gemini-3.5-flash

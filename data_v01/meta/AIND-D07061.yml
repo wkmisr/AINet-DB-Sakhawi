@@ -1,0 +1,72 @@
+schema: aind-yaml/0.1
+id: AIND-D07061
+source:
+  uid: '315382315957'
+sex: M
+name:
+  full: محمد بن أحمد أبو عبد القادر النابتي الغمري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00851
+    quote: النابتي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00134
+    quote: الغمري
+  - id: n3
+    type: kunyah
+    quote: أبو عبد القادر
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07061
+  quote: null
+  note:
+    ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07061
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 895
+  quote: null
+  note:
+    ja: 「ممن سمع على في سنة خمس وتسعين」＝「سمع عليّ（私に）」（على の直後に人名が来ない＝サハーウィーから聴聞、標準規則）。895年＝1489-12-04〜1490-11-22（h2g.py）→ @when は年初の 1489（規則18）。場所の記述なし。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  orgs:
+  - ref: TMP-I-00072
+  quote: نزيل
+  summary:
+    ar: نزيل جامعه بالقاهرة
+  note:
+    ja: 「جامعه」＝ニスバ الغمري の由来となる محمد الغمري のモスク＝カイロの جامع الغمري（TMP-I-00072）。القاهرة は原文「بالقاهرة」に明記。初版の affiliation type="reside"（同モスク）は residence event との二重符号化のため除去（規則8）。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・アブー・アブド・アル＝カーディル・アン＝ナービティー・アル＝ガムリー、カイロの彼（アル＝ガムリー）のモスクの寄留者。（8）95年に私から聴聞した者の一人。
+  en: Muḥammad b. Aḥmad Abū ʿAbd al-Qādir al-Nābitī al-Ghamrī, resident of his (al-Ghamrī's) mosque in Cairo. He was among those who heard from me in the year (8)95.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T05:59:23Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

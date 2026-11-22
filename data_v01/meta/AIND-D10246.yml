@@ -1,0 +1,145 @@
+schema: aind-yaml/0.1
+id: AIND-D10246
+source:
+  uid: '677476585312'
+sex: M
+name:
+  full: يحيى بن زيان بن عمر بن زيان أبو زكريا الوطاسي المريني اللمتوني الفاسي الأزرق
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01788
+    quote: الوطاسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00593
+    quote: المريني
+  - id: n3
+    type: nisbah
+    ref: TMP-N-02904
+    quote: اللمتوني
+  - id: n4
+    type: nisbah
+    ref: TMP-N-00108
+    quote: الفاسي
+  - id: n5
+    type: kunyah
+    quote: أبو زكريا
+  - id: n6
+    type: shuhrah
+    quote: الأزرق
+  - id: n7
+    type: ism
+    quote: يحيى
+    by: rule
+  - id: n8
+    type: nasab
+    quote: زيان
+    by: rule
+    ref: TMP-P-001717
+  - id: n9
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n10
+    type: nasab
+    quote: زيان
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 801
+    cert: low
+  note:
+    ja: 逆算。المقريزي の引用「كان أبوه زيان … حتى مات سنة ثمان وعمر ابنه هذا نحو سبع سنين」＝父の没年（一の位のみ＝808、cert medium）に約7歳 → 801年頃生（801年初＝1398-09-21、h2g.py、年精度）。原文に生年の明記はない。
+death:
+  id: d
+  date:
+    ah: 853-04-02
+  summary:
+    ar: مات مقتولا ظلما في ثاني ربيع الآخر سنة ثلاث وخمسين
+  note:
+    ja: 853年ラビーウ第二月2日＝1449-06-03（h2g.py）。初版の @when 1449（年精度）を日精度に。不当に殺害された。没地の明記なし。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001717
+  passive: AIND-D10246
+  quote: أبوه
+  note:
+    ja: '規則3。父 زيان は المقريزي の引用で「كان أبوه زيان من عظماء شيوخ بني مرين حتى مات سنة ثمان」（マリーン族の長老の重鎮、808年没＝一の位のみ）と描写され、見出しナサブで祖父 عمر・曾祖父 زيان まで復元できる＝識別要素あり。corpus に本伝なし（hw.py「زيان」11件中に該当なし）、ID-Master 未登録（「زيان」「الوطاس」は ニスバ行のみ）→ 新規 TMP-P-001717。المقريزي は同じ父を「أبي زيان بن أبي محمد بن الوزير بن أبي حسون عمر بن حمامة」と呼ぶ（クンヤ形）。初版は #NEEDID。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D10333
+  passive: AIND-D10246
+  quote: يحيى
+  note:
+    ja: '「ووالد يحيى الآتي」＝corpus 本伝 #AIND-D10333「يحيى بن أبي زكريا يحيى بن زيان بن عمر بن زيان بن الأزرق الوطاسي المغربي المريني الفاسي الوزير الماضي أبوه . ذبح هو وابن عمه محمد بن أبي حسون الماضي في يوم الأربعاء مستهل المحرم سنة ست وستين」（ナサブ5代＋「الماضي أبوه」で相互閉合、未収録）。初版の汚染番号 TMP-P-000596（登録＝D01585 の兄 يحيى）を置換。ブリーフは「見出し検索で未発見」としていたが hw.py「يحيى|زيان」で発見。'
+- id: r3
+  type: personal
+  subtype: relative
+  active: AIND-D05689
+  passive: AIND-D10246
+  quote: حسون علي بن يوسف بن زيان
+  note:
+    ja: 「قريبه أبو حسون علي بن يوسف بن زيان الماضي」＝#AIND-D05689「علي بن يوسف بن زيان أبو حسون المغربي الوزير . مات فجأة في ثامن رمضان سنة خمس وستين」（名・ナサブ・クンヤ・宰相職で閉合、repo 収録済み）。続柄は「قريبه」のみ＝relative。#AIND-D08221（أبو حسون の子 محمد）は本項主の子 يحيى を「ابن عم」と呼ぶ。
+- id: r4
+  type: personal
+  subtype: successor
+  active: AIND-D05689
+  passive: AIND-D10246
+  quote: null
+  note:
+    ja: '「واستقر بعده قريبه أبو حسون علي بن يوسف بن زيان الماضي」＝後任（宰相職）。初版の #NEEDID を置換。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q175240
+  places:
+  - ref: TMP-L-00288
+    quote: المغرب الأقصى
+  quote: زير
+- id: s2
+  type: office
+  ref: TMP-O-00163
+  places:
+  - ref: TMP-L-00051
+    quote: فاس
+  quote: صاحب
+  note:
+    ja: '見出し「وصاحب فاس」。ID-Master 既登録 TMP-O-00151（صاحب فاس）。初版は #NEEDID。المقريزي の「القائم بالأمر في مدينة فاس」は同じ地位の言い換えなので別 state を立てず、下の mention event の desc に含めた（初版の state 3 を統合）。'
+events:
+- id: e1
+  type: cultural
+  quote: كان عادلا بحيث أفردت ترجمته بالتأليف
+  note:
+    ja: 公正な人物で、その伝記が単独の著作として編まれた（著者・書名の明記なし）。
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: قال
+  summary:
+    ar: وهو في عقود المقريزي قال يحيى بن أبي زيان بن أبي محمد بن الوزير بن أبي حسون عمر بن حمامة الوطاسي المعروف بالأزرق لزرقة عينيه والقائم بالأمر في مدينة فاس ، كان أبوه زيان من عظماء شيوخ بني مرين حتى مات سنة ثمان وعمر ابنه هذا نحو سبع سنين فتنقلت به الأحوال ، ثم بيض
+  note:
+    ja: Pattern A。المقريزي（wd:Q293604）『درر العقود الفريدة』（TMP-T-00122）。المقريزي の伝えるナサブ（يحيى بن أبي زيان بن أبي محمد بن الوزير بن أبي حسون عمر بن حمامة）は見出しのナサブ（يحيى بن زيان بن عمر بن زيان）と異なる＝原文のまま。通称 الأزرق は目の青さによる。父 زيان の没年「سنة ثمان」は一の位のみ＝808（cert medium 相当。853年没の本項主が808年に約7歳なら享年は52前後で、808 と読んで矛盾しない）。「ثم بيض」＝المقريزي はその後を空白のまま残した。初版は父の死を本項主の event（when-custom 0808 cert high）としていた＝除去。
+  trigger: rule
+notes:
+- text: 'ワッタース家（بنو وطاس）: 子 يحيى＝#AIND-D10333（866年ムハッラム月朔日、従兄弟 محمد بن أبي حسون #AIND-D08221 とともに عبد الحق المريني に殺害された）。#AIND-D08221「محمد بن علي بن يوسف بن زيان الوطاسي المغربي ابن عم يحيى الآتي … وكان كل منهما استقر في الوزارة فهذا بعد والده فأقام يسيرا ثم استقر يحيي فدام سبعين ليلة」。初版の residence event（فاس）はニスバ「الفاسي」と職の地からの補完のため除去（規則22(1)）。nisbah「الفاسي」の ref TMP-N-00108 はニスバ位置での正しい使用（precheck の「汚染注意」は人物位置での流用に対する警告で、本項は該当しない）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ヤフヤー・ブン・ザイヤーン・ブン・ウマル・ブン・ザイヤーン、アブー・ザカリーヤー、アル＝ワッタースィー・アル＝マリーニー・アッ＝ラムトゥーニー・アル＝ファースィー、アル＝アズラク。極西マグリブ（アル＝マグリブ・アル＝アクサー）の宰相で、後出のヤフヤーの父、ファースの主。公正な人物で、そのため彼の伝記は単独の著作として編まれたほどである。（8）53年ラビーウ第二月2日に不当に殺害されて没し、彼の後は、既出の親族アブー・ハッスーン・アリー・ブン・ユースフ・ブン・ザイヤーンがその地位に就いた。彼はマクリーズィーの『ウクード』に載っており、そこでは次のように言われている。「ヤフヤー・ブン・アビー・ザイヤーン・ブン・アビー・ムハンマド・ブン・アル＝ワズィール・ブン・アビー・ハッスーン・ウマル・ブン・ハマーマ・アル＝ワッタースィー。目が青いためアル＝アズラクとして知られ、ファースの町で政務を執る者。父ザイヤーンは、8年に没するまで、マリーン族の長老たちの重鎮の一人であった。そのときこの息子は7歳ほどで、境遇はさまざまに移り変わった」。その後は（マクリーズィーは）空白のままにしている。
+  en: 'Yaḥyā b. Zayyān b. ʿUmar b. Zayyān, Abū Zakariyyāʾ, al-Waṭṭāsī al-Marīnī al-Lamtūnī al-Fāsī, al-Azraq, vizier of the Farthest Maghrib (al-Maghrib al-Aqṣā), father of the Yaḥyā who comes later, and lord of Fez. He was just, so much so that his biography was made the subject of a separate work. He died murdered unjustly on 2 Rabīʿ II of the year [8]53, and after him his relative Abū Ḥassūn ʿAlī b. Yūsuf b. Zayyān, mentioned earlier, took his place. He is in al-Maqrīzī''s ʿUqūd, where he says: "Yaḥyā b. Abī Zayyān b. Abī Muḥammad b. al-Wazīr b. Abī Ḥassūn ʿUmar b. Ḥamāma al-Waṭṭāsī, known as al-Azraq because of the blueness of his eyes, and the one in charge of affairs in the city of Fez. His father Zayyān was one of the great shaykhs of the Banū Marīn until he died in the year eight, when this son of his was about seven years old, and circumstances carried him from one state to another"; then he left a blank.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-02T03:47:51Z'
+  model_requested: gemini-3.5-flash

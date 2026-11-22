@@ -1,0 +1,92 @@
+schema: aind-yaml/0.1
+id: AIND-D05712
+source:
+  uid: '248583827842'
+sex: M
+name:
+  full: علي بن العنبري الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: ism
+    quote: علي
+    by: rule
+  - id: n3
+    type: nasab
+    quote: العنبري
+    by: rule
+death:
+  id: d
+  date:
+    ah: 842-03-01
+  places:
+  - ref: NEEDID
+    quote: المقبرة التي تجاه مسجده
+  note:
+    ja: 「مات في مستهل ربيع الأول سنة اثنتين وأربعين ودفن بالمقبرة التي تجاه مسجده」。842-03-01 ＝ 1438-08-31（h2g.py）。没地は原文に明記なし（初版の دمشق は除去。墓地は彼のモスク＝سويقة صاروجا 西方の向かい）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D05712
+  quote: null
+  note:
+    ja: '父は一族名「العنبري」のみで名不詳 → #NEEDID 維持（規則3）。初版のニスバ番号 TMP-N-00840 の person 位置流用を是正。'
+affiliations:
+- id: a1
+  type: founded
+  ref: TMP-I-00195
+  note:
+    ja: 「بنى … مسجدا」＝創建者（repo 先例 type="founded"）。ID-Master 未登録 → 新規 TMP-I-00195。
+events:
+- id: e1
+  type: other
+  places:
+  - ref: gn:170654
+  - ref: TMP-L-00305
+    quote: سويقة صاروجا
+  - ref: TMP-L-00003
+    quote: الصالحية
+  quote: null
+  summary:
+    ar: بنى بها غربي سويقة صاروجا على بستان المتوجه إلى الصالحية مسجدا وعمل فيه مع صغره خطبة
+  note:
+    ja: モスク建立。「بها」＝ دمشق（ニスバ الدمشقي の照応、規則22(3)）。سويقة صاروجا はダマスクスの市場街区（ID-Master 未登録 → 新規 TMP-L-00305）。الصالحية はダマスクスのサーリヒーヤ（TMP-L-00003。カイロの المدرسة الصالحية wd:Q7404512 ではない）。「عمل فيه خطبة」はモスクに金曜説教を設けたことで、本項主自身が خطيب であったとは書かれていない（初版の state خطيب は除去）。
+- id: e2
+  type: other
+  persons:
+  - ref: AIND-D02168
+    quote: برسباي
+  places:
+  - ref: TMP-I-00196
+  quote: null
+  summary:
+    ar: فلما بنى برسباي جامعه الشهير بالسويقة المذكورة بطلت الخطبة منه
+  note:
+    ja: スルターン الأشرف برسباي（#AIND-D02168）が同じ سويقة صاروجا に有名なモスク（ジャーミウ）を建てたため、本項主のモスクの金曜説教は廃止された。ジャーミウは ID-Master 未登録 → 新規 TMP-I-00196。初版の affiliation type="other"（#NEEDID）を event に変換。
+- id: e3
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D00710
+    quote: ابن اللبودي
+  quote: ذكره
+  summary:
+    ar: ذكره ابن اللبودي
+  note:
+    ja: 'Pattern A。ابن اللبودي ＝ #AIND-D00710（أحمد بن خليل … الشهاب الدمشقي الصالحي ويعرف بابن اللبودي、索引 D12697。repo の D04762・D05176・D05600 と同じ充当）。初版の統制外 subtype「biographer」relation（#NEEDID）を event に変換。'
+  trigger: rule
+translation:
+  ja: アリー・ブン・アル＝アンバリー・アッ＝ディマシュキー。同地（ダマスクス）のスワイカ・サールージャーの西、アッ＝サーリヒーヤへ向かう（道の）果樹園の上にモスクを建て、小さいながらもそこに金曜説教を設けた。バルスバーイが同スワイカにその有名なジャーミウを建てると、彼のモスクの説教は廃止された。（8）42年ラビーウ・アル＝アウワル月朔日に没し、彼のモスクの向かいの墓地に葬られた。イブン・アル＝ラブーディーが彼に言及している。
+  en: ʿAlī b. al-ʿAnbarī al-Dimashqī. He built there (in Damascus), to the west of Suwayqat Ṣārūjā, on the orchard on the way to al-Ṣāliḥiyya, a mosque, and despite its small size established a Friday sermon (khuṭba) in it. When Barsbāy built his famous congregational mosque in the said Suwayqa, the sermon in his mosque was discontinued. He died on the first of Rabīʿ al-Awwal (8)42 and was buried in the cemetery opposite his mosque. Ibn al-Labūdī mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T05:18:04Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

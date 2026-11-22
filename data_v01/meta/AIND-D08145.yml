@@ -1,0 +1,123 @@
+schema: aind-yaml/0.1
+id: AIND-D08145
+source:
+  uid: '157266176919'
+sex: M
+name:
+  full: محمد بن علي بن عمر الشمس البغدادي الحنبلي الزعيم
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00112
+    quote: البغدادي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+birth:
+  id: b
+  date:
+    notBefore: 751
+    notAfter: 759
+  places:
+  - ref: TMP-L-00043
+    quote: بغداد
+  note:
+    ja: 「ولد سنة بضع وخمسين وسبعمائة ببغداد」＝751〜759 の範囲（notBefore 751＝1350-03-19 開始 → 1350、notAfter 759 の年末＝1358-12-10 → 1358）。 / بضع は1〜9として幅で記録（2026-11-22 裁定）
+  quote: سنة بضع وخمسين وسبعمائة
+death:
+  id: d
+  date:
+    ah: 814-12
+  places:
+  - ref: gn:360630
+    cert: medium
+    quote: القاهرة
+  note:
+    ja: 「ومات بها في ذي الحجة سنة أربع عشرة」。814年ズー・アル＝ヒッジャ月＝1412-03-24 開始（月精度 → 1412-03。初版の @when 1411 は誤り）。「بها」の先行詞は直前に列挙された「… والحجاز والقاهرة」の最後の القاهرة と読む（見出しの「نزيل دمشق」の دمشق の可能性も残るため cert medium、規則22(3)）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08145
+  quote: null
+  note:
+    ja: '見出しナサブのみ（汎用名、識別要素なし）、corpus に本伝なし → #NEEDID（規則3 (c'')）。初版なし。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:170654
+    quote: دمشق
+  quote: نزيل
+  summary:
+    ar: نزيل دمشق
+  trigger: rule
+- id: e2
+  type: other
+  quote: وكف بصره
+- id: e3
+  type: travel
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  - ref: TMP-L-00039
+    quote: الهند
+  - ref: gn:109600
+    quote: الحجاز
+  - ref: gn:360630
+    quote: القاهرة
+  quote: null
+  summary:
+    ar: وجال في البلاد كاليمن والهند والحجاز والقاهرة
+  note:
+    ja: 初版の visit event ×4 を原文句つきの travel event 1件に統合（地名はすべて原文どおり、ID-Master 登録済）。
+- id: e4
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q293604
+    quote: المقريزي
+  works:
+  - ref: TMP-T-00122
+  quote: ذكره
+  summary:
+    ar: ذكره المقريزي في عقوده وحكي عنه حكاية
+  note:
+    ja: Pattern A。المقريزي＝wd:Q293604、『درر العقود الفريدة』＝TMP-T-00122。初版の colleague relation を言及 event に改めた。
+  trigger: rule
+notes:
+- text: 見出しの「الزعيم」は呼称（称号か通称か不明）のため full persName にのみ残し、別要素にしない。「وكانت لديه فضائل」は人物評（訳のみ）。
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ウマル、アッ＝シャムス・アル＝バグダーディー・アル＝ハンバリー・アッ＝ザイーム、ダマスクス在住。750年代（7）5X年にバグダードで生まれ、失明し、イエメン・インド・ヒジャーズ・カイロなどの諸国を遍歴した。そこ（カイロ）で（8）14年ズー・アル＝ヒッジャ月に没した。彼には美点があった。アル＝マクリーズィーが『ウクード』で彼に言及し、彼から一つの逸話を伝えている。
+  en: Muḥammad b. ʿAlī b. ʿUmar, al-Shams al-Baghdādī al-Ḥanbalī al-Zaʿīm, resident of Damascus. He was born in the 750s (seven hundred fifty-odd) in Baghdad; he lost his sight and travelled through the lands, such as Yemen, India, the Hijaz and Cairo. He died there (in Cairo) in Dhū al-Ḥijja of the year [8]14, and he had merits. Al-Maqrīzī mentioned him in his ʿUqūd and related an anecdote on his authority.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T06:49:04Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

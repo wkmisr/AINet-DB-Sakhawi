@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D06193
+source:
+  uid: '100508120361'
+sex: M
+name:
+  full: فياض زين الدين
+  elements:
+  - id: n1
+    type: laqab
+    quote: زين الدين
+  - id: n2
+    type: ism
+    quote: فياض
+    by: rule
+death:
+  id: d
+  date:
+    ah: 809
+    cert: medium
+  places:
+  - ref: TMP-L-00047
+    quote: آمد
+  summary:
+    ar: قتل في وقعة جكم على آمد سنة تسع
+  note:
+    ja: '「سنة تسع」＝一の位のみ→809（cert medium。文脈: جكم من عوض #AIND-D02428 のアーミド攻撃＝809年で確実。先例 #AIND-D07483「قتل في وقعة آمد مع جكم سنة تسع」→ 0809／1406）。809年初＝1406-06-27。死地はアーミド（会戦地）。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06193
+  quote: null
+  note:
+    ja: '父の名は原文に無い → #NEEDID（規則3）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00065
+  places:
+  - ref: TMP-L-00068
+    quote: ماردين
+  quote: حاجب صاحب
+  note:
+    ja: 「حاجب صاحب ماردين」＝マールディーン君主の侍従。主君（صاحب ماردين）は名が無いため relation にしない。placeName ماردين は原文に明示。
+events:
+- id: e1
+  type: political
+  date:
+    ah: 809
+    cert: medium
+  persons:
+  - ref: AIND-D02428
+    quote: جكم
+  places:
+  - ref: TMP-L-00047
+    quote: آمد
+  quote: قتل
+  summary:
+    ar: قتل في وقعة جكم على آمد سنة تسع
+  cert: medium
+  note:
+    ja: جكم＝جكم أبو الفرج الظاهري برقوق（جكم من عوض、#AIND-D02428。ID-Master で「جكم من عوض」→ AIND-D02428 に名寄せ済み）。本項主がどちらの陣営であったかは原文に無い。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: أرخه
+  summary:
+    ar: أرخه العيني
+  note:
+    ja: Pattern A。初版の非統制 relation（subtype「chronicled by」）を mention event に変更。
+  trigger: rule
+translation:
+  ja: ファイヤード、ザイン・アッ＝ディーン。マールディーン君主の侍従（ハージブ）。（8）09年のジャカムによるアーミドの戦いで殺された。アル＝アイニーが彼の没年を記している。
+  en: Fayyāḍ, Zayn al-Dīn, chamberlain (ḥājib) of the lord of Mārdīn. He was killed in Jakam's battle at Āmid in the year [8]09. Al-ʿAynī recorded his death date.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-05T16:29:44Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

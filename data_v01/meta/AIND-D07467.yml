@@ -1,0 +1,81 @@
+schema: aind-yaml/0.1
+id: AIND-D07467
+source:
+  uid: '359673857759'
+sex: M
+name:
+  full: محمد بن سيف بن محمد بن عمر بن بشارة
+  elements:
+  - id: n1
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n2
+    type: nasab
+    quote: سيف
+    by: rule
+    ref: TMP-P-001162
+  - id: n3
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: بشارة
+    by: rule
+death:
+  id: d
+  date:
+    ah: 819-12
+  places:
+  - ref: gn:360630
+    quote: القاهرة
+  note:
+    ar: مات مقتولا بالقاهرة وحشي جلده تبنا وحمل إلى صفد في ذي الحجة سنة تسع عشرة
+    ja: 819年ズー・アル＝ヒッジャ月＝1417-01（月初 1417-01-29、グレゴリオ暦・独立再計算）。カイロで殺害され、皮に藁を詰めてサファドへ運ばれた。صفد は埋葬地として記されていない（「حمل إلى」＝晒しのための移送）ため、初版の type="burial" placeName を除去し other event に移した。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001162
+  passive: AIND-D07467
+  quote: null
+  note:
+    ja: 見出しナサブから1段ずらして復元（規則3）。بنو بشارة はサファド方面の عشير（部族民）の長の一族（corpus D02119「نجم الدين بن البدر بن ناصر الدين بن بشارة مقدم العشير ببلاد صيدا」、D12189「ابن بشارة أحد مشايخ العشير」）。corpus に父の本伝なし・ID-Master 未登録のため新規 TMP-P-001162。初版は father relation なし。
+events:
+- id: e1
+  type: other
+  date:
+    ah: 819-12
+  places:
+  - ref: gn:293100
+    quote: صفد
+  quote: null
+  summary:
+    ar: وحشي جلده تبنا وحمل إلى صفد
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا أيضا
+  note:
+    ja: Pattern A。「أيضا」は直前項（D07466「ذكره شيخنا في أنبائه」）を受けるが、本項原文に書名の明示がないため bibl は付けない。初版の統制外 subtype「mentioned_by」relation を event に置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・サイフ・ブン・ムハンマド・ブン・ウマル・ブン・ビシャーラ。カイロで殺害され、その皮に藁が詰められ、819年ズー・アル＝ヒッジャ月にサファドへ運ばれた。我らがシャイフ（イブン・ハジャル）も彼に言及している。
+  en: Muḥammad b. Sayf b. Muḥammad b. ʿUmar b. Bishāra. He was killed in Cairo; his skin was stuffed with straw and carried to Ṣafad, in Dhū al-Ḥijja of the year 819. Our shaykh (Ibn Ḥajar) also mentioned him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T03:32:34Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

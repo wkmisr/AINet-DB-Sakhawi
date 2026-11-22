@@ -1,0 +1,136 @@
+schema: aind-yaml/0.1
+id: AIND-D04552
+source:
+  uid: '636586305366'
+sex: M
+name:
+  full: عبد الله بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطى الأنصاري الخزرجي المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00049
+    quote: الأنصاري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00218
+    quote: الخزرجي
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n4
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n5
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001217
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: عبد الله
+    by: rule
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: عبد المعطى
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 753
+    cert: low
+  note:
+    ja: '逆算生年（cert low）: 803年に「بلغ الخمسين أو جازها ظنا」（推定50歳前後かそれ以上）から 803−50＝753頃。原文に生年の記載はない。'
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 803
+    cert: medium
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  note:
+    en: He died in Yemen at the beginning of the year "three" (read as 803), having reached the age of fifty or, conjecturally, somewhat more.
+    ja: 「سنة ثلاث」は一の位のみの表記 → 803、cert medium（2026-09-24 Waka 裁定）。没地「بها」＝直前の「رجع إليها」の إليها ＝ اليمن（「عاد لمكة ثم رجع إليها」の先行詞は文脈上 اليمن。照応、規則22(3)）。
+relations:
+- id: r1
+  type: personal
+  subtype: brother
+  active: TMP-P-001218
+  passive: AIND-D04552
+  quote: القطب محمد
+  note:
+    ja: 'القطب محمد بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الأنصاري الخزرجي المكي。corpus の同父の子として #AIND-D08564「محمد بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي … الجمال أبو الفضل بن الجمال أبي عبد الله」（812年没）・#AIND-D11055「أبو الفضل بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الكمال … ويعرف بابن الصفي」（814年ザビード没）があるが、いずれもラカブが القطب ではなく同定できないため仮番号 TMP-P-001218 を発行（規則12、ISSUES §D89-3）。初版の #NEEDID を解消。'
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001217
+  passive: AIND-D04552
+  quote: ويعرف أبوهما بابن الصفى
+  note:
+    ja: '父 ＝ الجمال أبو عبد الله محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الأنصاري الخزرجي المكي، ويعرف بابن الصفي（#AIND-D08564・#AIND-D11055 の父としても現れ、#AIND-D00844 の師「محمد بن أحمد بن عبد المعطي」も同一人物とみられる。801年以前没のため本伝なし）。初版の TMP-P-000373「ابن الصفى」は #AIND-D01359（アレクサンドリアの ابن شافع の師）で発行された注記なしの別文脈の番号であり、マッカのこの人物とは同定できないため仮番号 TMP-P-001217 を新規発行（ISSUES §D89-3）。'
+- id: r3
+  type: personal
+  subtype: ancestor
+  active: TMP-P-001219
+  passive: AIND-D04552
+  quote: null
+  note:
+    ja: 父の母方祖父（本項主の曾祖父）。初版の subtype="grandfather" は誤り（祖父ではない）のため ancestor に修正。الصفي الطبري（マッカの الطبري 家、corpus では「ابن الصفي الطبري」「عثمان بن الصفي الطبري」として子が現れる。8世紀前半の人物で本伝なし）に仮番号 TMP-P-001219 を発行。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  quote: وسكن
+  summary:
+    ar: سكن اليمن سنين
+  trigger: rule
+- id: e2
+  type: visit
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: null
+  summary:
+    ar: ثم عاد لمكة
+- id: e3
+  type: visit
+  places:
+  - ref: TMP-L-00037
+    quote: اليمن
+  quote: ثم رجع إليها وبها توفي
+  note:
+    ja: 「إليها」＝اليمن（照応、規則22(3)）。
+- id: e4
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: القاسي
+  quote: قاله
+  summary:
+    ar: قاله القاسي في مكة
+  note:
+    ja: Pattern A。「القاسي」は「الفاسي」の OCR 誤読（التقي الفاسي＝#AIND-D06757、マッカ史『العقد الثمين』の著者。「في مكة」＝マッカ史における記載）。
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・ブン・アフマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・アブド・アル＝ムウティー・アル＝アンサーリー・アル＝ハズラジー・アル＝マッキー。アル＝クトゥブ・ムハンマドの兄弟で、彼ら二人の父は、その母方の祖父アッ＝サフィー・アッ＝タバリーにちなんでイブン・アッ＝サフィーとして知られていた。聴聞し、イエメンに数年住んだのち、マッカに戻り、さらにイエメンへ帰ってそこで（八百）三年の初めに没した。推定では50歳に達していたか、それを超えていた。アル＝ファースィーがマッカ（史）でそう述べている。
+  en: ʿAbd Allāh b. Muḥammad b. Aḥmad b. ʿAbd Allāh b. Muḥammad b. ʿAbd al-Muʿṭī al-Anṣārī al-Khazrajī al-Makkī, brother of al-Quṭb Muḥammad; their father was known as Ibn al-Ṣafī after his maternal grandfather al-Ṣafī al-Ṭabarī. He heard (ḥadīth), lived in Yemen for some years, then returned to Mecca, then went back to Yemen and died there at the beginning of the year (80)3, having reached the age of fifty or, conjecturally, passed it. Al-Fāsī said so in (his history of) Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-22T15:06:57Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

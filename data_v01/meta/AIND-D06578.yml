@@ -1,0 +1,80 @@
+schema: aind-yaml/0.1
+id: AIND-D06578
+source:
+  uid: '223732578293'
+sex: M
+name:
+  full: محمد بن عبد الرحمن بن إبراهيم الشمس القبطي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00033
+    quote: القبطي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: shuhrah
+    quote: ابن الهيصم
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد الرحمن
+    by: rule
+  - id: n6
+    type: nasab
+    quote: إبراهيم
+    by: rule
+death:
+  id: d
+  date:
+    ah: 850-05
+  places:
+  - ref: TMP-L-00211
+    quote: باب النصر
+  summary:
+    ar: مات في جمادى الأولى سنة خمسين ودفن بتربة ظاهر باب النصر
+  note:
+    ja: '850年ジュマーダー・アル＝ウーラー月＝1446-08-03〜09-01（h2g.py）、月精度で @when=1446-08（初版は年のみの 1446）。埋葬地は「バーブ・アン＝ナスル外の（ある）墓所」。固有名のない「تربة」には番号を付けず、原文に明記された باب النصر（TMP-L-00211）を埋葬地の placeName にした（先例 #AIND-D10025「ودفن بتربته في الصحراء」）。初版は句全体「تربة ظاهر باب النصر」を #NEEDID の placeName にしていた。'
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001754
+  passive: AIND-D06578
+  quote: null
+  note:
+    ja: '父＝سعد الدين إبراهيم（ابن الهيصم）。通称索引 #AIND-D12803「ابن الهيصم التاج عبد الرزاق والمجد عبد الغني والشمس محمد بنو سعد الدين إبرهيم فأولهم جد ناظر الخاص الجمال يوسف وأخيه إبرهيم لأمهما وثانيهم والد أمين الدين إبرهيم」が3兄弟を「بنو سعد الدين إبرهيم」と明記し、兄 #AIND-D03895 の見出しも「عبد الرزاق بن إبراهيم تاج الدين بن سعد الدين القبطي المصري」「ويعرف كأبيه بابن الهيصم」。本伝のある兄弟2人と共有する父で、ラカブ سعد الدين・家名を持つ（規則3）。corpus に本伝なし（hwm.py「الهيصم」）、ID-Master の既登録は別人の TMP-P-000531「أمين الدين الهيصم」のみ＝新規仮番号 TMP-P-001754。本項の見出しは「محمد بن عبد الرحمن بن إبراهيم」で、父を عبد الرحمن とする形になっており、兄弟2人（بن إبراهيم）・索引・corpus 上の配列（محمد بن إبراهيم の項群の中、الشمس التروجي と صفي الدين の間）と食い違う。persName は刊本どおりとし（規則25）、食い違いはこの note に留める。【集約 2026-11-18】索引 #AIND-D12803 が本項主を名指しし、兄 #AIND-D03895 も「وأخو محمد الآتي」と書く＝父は確定とみて cert を外した（オーケストレーター決定7、検証A §4、ISSUES §D171-2）。初版は父 relation なし。'
+- id: r2
+  type: personal
+  subtype: brother
+  active: AIND-D03895
+  passive: AIND-D06578
+  quote: التاج عبد الرزاق
+  note:
+    ja: 「أخو التاج عبد الرزاق」。#AIND-D03895「485 عبد الرزاق بن إبراهيم تاج الدين بن سعد الدين القبطي المصري عم الأمين إبراهيم بن الهيصم الماضي … وأخو محمد الآتي ويعرف كأبيه بابن الهيصم」（834年没、repo 未収録）。相手側も本項主を「أخو محمد الآتي」と名指しする。初版は零番号 TMP-P-000000。
+- id: r3
+  type: personal
+  subtype: brother
+  active: AIND-D04050
+  passive: AIND-D06578
+  quote: عبد الغني
+  note:
+    ja: 「وعبد الغني والد إبراهيم」。#AIND-D04050「638 عبد الغني بن إبراهيم المجد بن الهيصم القبطي المصري أخو عبد الرزاق ووالد الأمين إبراهيم الماضيين」（813年没、repo 未収録）。初版は零番号 TMP-P-000000。
+notes:
+- text: '「أخو التاج عبد الرزاق وعبد الغني والد إبراهيم الماضي ذكرهم」の「والد إبراهيم」は直前の عبد الغني にかかる（規則63(b)）。複数形「ذكرهم」は عبد الرزاق・عبد الغني・إبراهيم の3人を指し、相手側 #AIND-D04050 が「ووالد الأمين إبراهيم」、索引 #AIND-D12803 が「وثانيهم والد أمين الدين إبرهيم」と記すのと一致する。إبراهيم＝#AIND-D00150「إبراهيم بن عبد الغني بن إبراهيم أمين الدين بن مجدالدين القبطي المصري ويعرف بابن الهيصم」（本項主の甥）。本項主の子としての إبراهيم の本伝は corpus にない。初版は إبراهيم を本項主の子（son relation、零番号）としていた＝除去。甥との関係は兄弟 relation から導けるので relation は立てない。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・イブラーヒーム、アッ＝シャムス・アル＝キブティー。アッ＝タージュ・アブドゥッラッザーク、およびイブラーヒームの父アブドゥルガニーの兄弟で、彼らのことは既述。イブン・アル＝ハイサムとして知られる。（8）50年ジュマーダー・アル＝ウーラー月に没し、バーブ・アン＝ナスル外の墓所に葬られた。
+  en: Muḥammad b. ʿAbd al-Raḥmān b. Ibrāhīm, al-Shams al-Qibṭī, brother of al-Tāj ʿAbd al-Razzāq and of ʿAbd al-Ghanī the father of Ibrāhīm, all of whom have been mentioned above. He was known as Ibn al-Hayṣam. He died in Jumādā I of the year [8]50 and was buried in a tomb outside Bāb al-Naṣr.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T17:36:08Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

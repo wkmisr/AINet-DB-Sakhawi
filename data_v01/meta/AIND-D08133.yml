@@ -1,0 +1,114 @@
+schema: aind-yaml/0.1
+id: AIND-D08133
+source:
+  uid: '762853408240'
+sex: M
+name:
+  full: محمد بن علي بن عثمان الزبيدي المطيب الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00159
+    quote: الزبيدي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-05513
+    quote: المطيب
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+    ref: AIND-D05285
+  - id: n5
+    type: nasab
+    quote: عثمان
+    by: rule
+  - id: n6
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+death:
+  id: d
+  date:
+    ah: 842-09
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  note:
+    ja: 「ومات في رمضان سنة اثنتين وأربعين بزبيد」＝842年ラマダーン月＝1439-02-24 開始（h2g.py、月精度）。初版の @when 1438 を 1439-02 に修正。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D05285
+  passive: AIND-D08133
+  quote: والده
+  note:
+    ja: '父＝ #AIND-D05285「علي بن عثمان أبو الحسن المطيب . قدوة الحنفية باليمن في عصره ووالد محمد الآتي . وولاه الأشرف قضاء مذهبه بزبيد في سنة إحدى وسبعين وسبعمائة ومات في سنة اثنتين」（相手側で「والد محمد الآتي」と名指し、repo で son #AIND-D08133 として収録済み）。初版 #NEEDID を置換。'
+- id: r2
+  type: personal
+  subtype: predecessor
+  active: AIND-D05285
+  passive: AIND-D08133
+  context:
+  - places:
+    - ref: TMP-L-00037
+      quote: اليمن
+    summary:
+      ar: خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد
+  quote: null
+  note:
+    ja: '「خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد」＝父を継いだ（規則29、active=前任者＝父 #AIND-D05285）。初版の predecessor relation 2本（#NEEDID、同一の父を2回）を1本に統合。'
+- id: r3
+  type: personal
+  subtype: possible_identity
+  active: AIND-D08233
+  passive: AIND-D08133
+  cert: high
+  quote: null
+  note:
+    ja: 二重立項。#AIND-D08233（B159-163 で収録）は名 محمد بن علي・ザビード・ハナフィー派・通称 المطيب・没年月（842年ラマダーン）が本項と一致＝同一人物。両項とも転送指示がないので実項のまま（絶対基準）。
+states:
+- id: s1
+  type: status
+  label: انتهت إليه رياسة الحنفية بزبيد
+  places:
+  - ref: TMP-L-00041
+    quote: زبيد
+  quote: انتهت إليه
+  note:
+    ja: 'ザビードのハナフィー派の首位が彼に帰した（先例 #AIND-D07779「انتهت إليه الرياسة في مذهبه ببلده」＝status）。初版の office state「رياسة الحنفية」#NEEDID を status に（ID-Master の Office を「رياسة」「رئيس」「الحنفية」で grep し該当なし。قضاء الحنفية TMP-O-00261 は父の職で別）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: teaching
+  persons:
+  - ref: TMP-P-001662
+    quote: لشهاب أحمد بن إبراهيم المحالبي
+  places:
+  - ref: TMP-I-00264
+    quote: المحالبية
+  quote: درس
+  summary:
+    ar: ثم درس في المحالبية للشهاب أحمد بن إبراهيم المحالبي
+  note:
+    ja: '「درس في المحالبية للشهاب أحمد بن إبراهيم المحالبي」＝ザビードのマハーリビーヤ学院で教授した（درّس＝教授、規則50）。初版は「学んだ」（teacher relation #NEEDID・affiliation study）と誤読＝除去。「للشهاب …」はマハーリビーヤの創建者（名の由来）とも、同人の代理としての教授とも読めるため relation を立てず persName のみ（新規 TMP-P-001662、corpus に本伝なし）。المحالبية は ID-Master の Institution 未登録（Location TMP-L-00228 المحالب の Note に「ザビードの مدرسة المحالبية（D04863/D07115/D08133）」とあるのみ）→ 新規 TMP-I-00264。'
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ウスマーン・アッ＝ザビーディー・アル＝ムタイヤブ・アル＝ハナフィー。イエメンで法学の優秀さにおいて父の後を継ぎ、父の後、ザビードにおけるハナフィー派の首位は彼に帰した。その後、アッ＝シハーブ・アフマド・ブン・イブラーヒーム・アル＝マハーリビーのマハーリビーヤ（学院）で教授した。842年ラマダーン月にザビードで没した。
+  en: Muḥammad b. ʿAlī b. ʿUthmān al-Zabīdī al-Muṭayyab al-Ḥanafī. He succeeded his father in Yemen in excellence in jurisprudence, and after him the leadership of the Ḥanafīs in Zabīd passed to him; then he taught in the Maḥālibiyya of al-Shihāb Aḥmad b. Ibrāhīm al-Maḥālibī. He died in Ramaḍān [8]42 in Zabīd.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T06:28:25Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

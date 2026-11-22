@@ -1,0 +1,108 @@
+schema: aind-yaml/0.1
+id: AIND-D07137
+source:
+  uid: '778055990355'
+sex: M
+name:
+  full: محمد بن الطنبغا ناصر الدين القرشي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00005
+    quote: القرشي
+  - id: n2
+    type: laqab
+    quote: ناصر الدين
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: الطنبغا
+    by: rule
+    ref: AIND-D02054
+death:
+  id: d
+  date:
+    ah: 822-07-10
+  places:
+  - ref: TMP-I-00230
+    quote: تربة بكتمر الساقي
+  - ref: wd:Q2066414
+    quote: القرافة
+  note:
+    ja: 「أرخه شيخنا من سنة ثلاث وعشرين من أنبائه والصواب أنه مات في يوم الخميس عاشر رجب من التي قبلها كما أرخه العيني」＝イブン・ハジャルは『إنباء』で823年に置くが、サハーウィーはアル＝アイニーに従い822年ラジャブ月10日（木）を正とする → 822-07-10 ＝ 1419-08-11（h2g、グレゴリオ暦は水曜。曜日は暦判別に用いない）。初版の when 1419（年精度）を日精度に是正。死因「مات مسلولا」（労咳）、「ويقال إنه سقي السم」（毒を盛られたとも言われる）。埋葬はアル＝アイニーの記述「دفن عند تربة بكتمر الساقي بالقرافة」（初版の幻番号 TMP-I-00000 → TMP-I-00230 新規）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D02054
+  passive: AIND-D07137
+  cert: medium
+  quote: التي قبلها
+  note:
+    ja: '「الأمير الكبير والده」＝父は大アミール（أمير كبير）。822年当時（المؤيد شيخ 治世）の أمير كبير は corpus #AIND-D02054「الطنبغا سيف الدين القرمشي الظاهري برقوق …（المؤيد が）ولاه أميرا كبيرا ثم أتابك مصر … قتل في جمادى الأولى سنة أربع وعشرين」のみ。本項の見出しは「القرشي」で D02054 の「القرمشي」とは م 1字の差（転送見出し D02063「الطنبغا القرمشي」も参照）。地位・年代（822年存命）・主君（المؤيد）の一致により D02054 に同定（cert medium、Waka 裁定 2026-10-19 ★1(a)。綴りは原文どおり残す）。「وأسف عليه أبوه جدا」。暫定の TMP-P-001468 は取り下げ（欠番）。'
+- id: r2
+  type: personal
+  subtype: patron
+  active: AIND-D03345
+  passive: AIND-D07137
+  quote: المؤيد
+  note:
+    ja: アル＝アイニー引用「خصيصا بالمؤيد ولذا كان القائم بمهم تزويجه ويقال أنه غرم عليه قريبا من عشرة آلاف دينار」＝スルタン المؤيد شيخ（#AIND-D03345、824没。822年の没と整合）の寵臣。初版の汚染番号 TMP-P-000844（登録＝D05685 زينب の師「المؤيد」）と統制外 subtype「client」を是正。
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00016
+  places:
+  - ref: gn:352261
+    quote: مصر
+  quote: الأمير
+  note:
+    ja: '「وكان أحد الطبلخاناة بمصر」（アル＝アイニー）＝ TMP-O-00016（طبلخاناة、ID-Master 既登録）。初版の #NEEDID を差し替え。'
+- id: s2
+  type: status
+  label: كان شابا حسنا شهما شجاعا
+  quote: كان شابا حسنا شهما شجاعا
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا من سنة ثلاث وعشرين من أنبائه
+  note:
+    ja: Pattern A。イブン・ハジャルは『إنباء الغمر』823年の項に置く（サハーウィーは誤りとし822年とする）。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09832
+    quote: العيني
+  quote: أرخه
+  summary:
+    ar: كما أرخه العيني وقال إنه دفن عند تربة بكتمر الساقي بالقرافة . قال وكان أحد الطبلخاناة بمصر شابا طريا خصيصا بالمؤيد
+  note:
+    ja: Pattern A。没日（822-07-10）・埋葬地・職・المؤيد との関係・婚礼の費用はアル＝アイニーの記述。
+  trigger: rule
+- id: e3
+  type: other
+  quote: كان القائم بمهم تزويجه ويقال أنه غرم عليه قريبا من عشرة آلاف دينار
+  note:
+    ja: المؤيد が本項主の婚礼の世話をし、1万ディナール近くを費やしたと言われる（アル＝アイニー）。相手は不記載＝relation なし（規則14）。初版の英語 desc・placeName مصر（原文の「بمصر」は職にかかる）を是正。
+translation:
+  ja: ムハンマド・ブン・アッ＝トゥンブガー、ナースィル・アッ＝ディーン・アル＝クラシー。その父は大アミール（アミール・カビール）である。端正で、気概があり、勇敢な青年であった。労咳で没したが、毒を盛られたとも言われ、父は彼の死を深く悲しんだ。我らがシャイフ（イブン・ハジャル）は『インバー』の823年の項で彼の死を記したが、正しくは、アル＝アイニーが記すとおり、その前年（822年）のラジャブ月10日木曜日に没したのである。アル＝アイニーは、彼がカラーファのバクタムル・アッ＝サーキー廟のそばに埋葬されたと言い、また言う。彼はミスル（エジプト）のタブルハーナー（級アミール）の一人で、若く瑞々しく、アル＝ムアイヤドに殊のほか寵愛されており、そのためアル＝ムアイヤドが彼の婚礼の用を自ら執り行い、それに1万ディナール近くを費やしたと言われる、と。
+  en: 'Muḥammad b. al-Ṭunbughā, Nāṣir al-Dīn al-Qurashī; his father was the Great Amīr (al-amīr al-kabīr). He was a handsome, high-minded and brave young man. He died of consumption, and it is said that he was given poison; his father grieved for him greatly. Our shaykh (Ibn Ḥajar) dated him under the year 823 in his Inbāʾ, but the correct date is that he died on Thursday 10 Rajab of the year before (822), as al-ʿAynī dated it, who said that he was buried by the turba of Baktamur al-Sāqī in al-Qarāfa. He (al-ʿAynī) said: he was one of the ṭablkhānāh (amīrs) in Egypt, a fresh youth, a special favourite of al-Muʾayyad, who therefore himself took charge of the business of his marriage and, it is said, spent nearly ten thousand dinars on it.'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T08:24:03Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

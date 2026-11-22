@@ -1,0 +1,111 @@
+schema: aind-yaml/0.1
+id: AIND-D08151
+source:
+  uid: '339013907851'
+sex: M
+name:
+  full: محمد بن علي بن عيسى الشمس البغدادي ثم القاهري الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00112
+    quote: البغدادي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: عيسى
+    by: rule
+  - id: n7
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+death:
+  id: d
+  date:
+    notBefore: 851
+    notAfter: 859
+    cert: medium
+  note:
+    ja: 「مات ظنا سنة بضع وخمسين」＝850年代（851〜859）の推定（ظنا → cert medium）。notBefore 851＝1447-03-28 開始 → 1447、notAfter 859 の年末＝1455-12-19 → 1455。初版の when-custom="850s" when="1446" を範囲属性に改めた。 / بضع は1〜9として幅で記録（2026-11-22 裁定）
+  quote: سنة بضع وخمسين
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08151
+  quote: null
+  note:
+    ja: '見出しナサブのみ（汎用名、識別要素なし）、corpus に本伝なし → #NEEDID（規則3 (c'')）。初版なし。'
+- id: r2
+  type: personal
+  subtype: brother-in-law
+  active: AIND-D07009
+  passive: AIND-D08151
+  quote: null
+  note:
+    ja: '「صهر موفق الدين بن المحب بن نصر الله ، كان الموفق زوج أخته」＝الموفق は本項主の姉妹の夫 → brother-in-law（active=الموفق、規則52）。الموفق＝#AIND-D07009「محمد بن أحمد بن نصر الله بن أحمد بن محمد بن عمر موفق الدين بن المحب البغدادي الأصل الحنبلي … وصاهر الشمس محمد بن علي بن عيسى البغدادي على أخته」（収録済み。D07009 側に brother-in-law #AIND-D08151 が立っており相互に閉合）。初版の subtype other・#NEEDID を解消。'
+- id: r3
+  type: personal
+  subtype: sister
+  active: AIND-D13072
+  passive: AIND-D08151
+  quote: null
+  note:
+    ja: '「وهو أخو زينب وزليخا ابنتي إبراهيم الشنويهي لأمهما」＝母を同じくする（異父）姉妹。زينب＝女性部 #AIND-D13072「زينب ابنة إبراهيم بن محمد بن أحمد أم الخير ابنة البرهان الشنويهى القاهري الشافعي أخت زليخا وأم عبد المغيث بن عبد الرحيم بن الفرات … ماتت في ربيع الآخر سنة تسع وسبعين」（未収録。父名・ニスバ・姉妹名が一致、規則38）。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: sister
+  active: AIND-D13063
+  passive: AIND-D08151
+  quote: null
+  note:
+    ja: '同上。زليخا＝女性部 #AIND-D13063「زليخا ابنة إبراهيم بن محمد بن أحمد أم الفضل وأم إبراهيم ابنة البرهان الشنويهى … وأخت زينب الآتية وأمهما هي عائشة ابنة عبد الرحمن ابن امام البيرسية … ماتت في أحد الربيعين سنة سبع وستين」（未収録）。異父姉妹（لأمهما）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+- id: a2
+  type: reside
+  ref: TMP-I-00017
+  note:
+    ja: 「يسكن القراسنقرية」。継父 D00254・同名の D00077 も同マドラサ住まい。
+events:
+- id: e1
+  type: teaching
+  persons:
+  - ref: AIND-D07940
+    quote: المحب بن الأشقر
+  quote: null
+  summary:
+    ar: ويقرئ في بيت المحب بن الأشقر
+  note:
+    ja: 'المحب بن الأشقر の家で（クルアーンを）教授した。المحب بن الأشقر＝#AIND-D07940「محمد بن عثمان بن سليمان بن رسول … المحب بن الشرف الكرادي الأصل … القاهري الحنفي … ويعرف بابن الأشقر」（كاتب السر、863没。ニスバ索引 D12151「ابن الأشقر المحب محمد وحسين …」で المحب は一人＝ラカブ＋家名の2点で閉合）。初版の affiliation teach #NEEDID・state مقرئ（orgName #NEEDID・placeName القاهرة）・patron relation #NEEDID を本 event に一本化（規則8・22(1)。原文は「仕えた」とは言わないので patron にしない）。'
+notes:
+- text: '母: 姉妹 D13063 の本文「وأمهما هي عائشة ابنة عبد الرحمن ابن امام البيرسية الرجل الصالح الياس العجمى」により本項主の母も同人とみられるが、他項のみの情報のため note に留める（規則23）。異父姉妹 زينب・زليخا の父 البرهان إبراهيم بن محمد بن أحمد الشنويهي＝#AIND-D00254（「إبراهيم بن محمد بن أحمد البرهان الشنويهي القاهري الشافعي … بالقراسنقرية」、本項主には触れない）は、原文では姉妹を特定する名として出るだけで、本項主の母の前夫か後夫かも原文から決まらない＝relation を立てない。【集約 2026-11-03】校閲時の relation subtype other（「継父」、cert medium）を除去しここに記す（内容A M、オーケストレーター決定9）。「وكان خيرا」「ونعم الرجل」は人物評（訳のみ）。初版の residence event القاهرة はニスバ由来＝除去（規則22(1)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・イーサー、アッ＝シャムス・アル＝バグダーディー、のちアル＝カーヒリー、アル＝ハンバリー。ムワッファク・アッ＝ディーン・ブン・アル＝ムヒッブ・ブン・ナスルッラーの姻戚で、アル＝ムワッファクは彼の姉妹の夫であった。善良な人で、アル＝カラースンクリーヤに住み、アル＝ムヒッブ・ブン・アル＝アシュカルの家で（クルアーンを）教えていた。彼はイブラーヒーム・アッ＝シャヌワイヒーの二人の娘ザイナブとズライハーの同母の兄弟である。思うに（8）50年代に没した。立派な人であった。
+  en: Muḥammad b. ʿAlī b. ʿĪsā, al-Shams al-Baghdādī, then al-Qāhirī, al-Ḥanbalī, the in-law of Muwaffaq al-Dīn b. al-Muḥibb b. Naṣr Allāh—al-Muwaffaq was the husband of his sister. He was a good man who lived in al-Qarāsunqurīya and taught (the Qurʾān) in the house of al-Muḥibb b. al-Ashqar; he is the brother, on their mother's side, of Zaynab and Zulaykhā, the two daughters of Ibrāhīm al-Shanwayhī. He died, I think, in the [8]50s. What a fine man he was.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T07:06:21Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,110 @@
+schema: aind-yaml/0.1
+id: AIND-D06535
+source:
+  uid: '733411817386'
+sex: M
+name:
+  full: محمد بن إبراهيم بن علي اليافعي اليماني الأصل المكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00167
+    quote: اليافعي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00036
+    quote: اليماني
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00002
+    quote: المكي
+  - id: n4
+    type: nisbah
+    ref: TMP-N-01280
+    quote: البطيني
+  - id: n5
+    type: shuhrah
+    quote: null
+    label: البطيني
+  - id: n6
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إبراهيم
+    by: rule
+  - id: n8
+    type: nasab
+    quote: علي
+    by: rule
+death:
+  id: d
+  date:
+    ah: 871
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بمكة في سنة إحدى وسبعين
+  note:
+    ja: 871年初＝1466-08-22（h2g.py、年精度）。初版の属性値は正しいが、訳文は ja・en とも「831年」と誤っていた。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06535
+  quote: null
+  note:
+    ja: '規則3 (c'')。父は見出しナサブのみで識別要素なし。ニスバ索引 #AIND-D11500「البطيني … محمد بن إبرهيم بن علي وابنه إبرهيم والد أحمد」も本項主から始まる。初版は father relation なし。'
+- id: r2
+  type: personal
+  subtype: son
+  active: AIND-D00236
+  passive: AIND-D06535
+  quote: إبراهيم
+  note:
+    ja: '「والد إبراهيم الماضي」。子＝corpus 本伝 #AIND-D00236「إبراهيم بن محمد بن إبراهيم بن علي برهان الدين بن اليافعي اليماني الأصل المكي الشافعي ويعرف بالبطيني بالضم لقب لأبيه ولد في جمادى الثانية أو رجب سنة تسع وأربعين وثمانمائة بمكة」（未収録）。ナサブ3代・ニスバ・「البطيني … لقب لأبيه」・「الماضي」・索引 D11500 で閉合（ブリーフ候補を本文で確認。cert なし）。初版は #NEEDID。'
+states:
+- id: s1
+  type: office
+  ref: wd:Q215536
+  quote: كان
+  note:
+    ja: 「ممن كان يتجر」＝商いに従事（職業・生業も state type="office"、規則65 (a)。تاجر＝wd:Q215536、ID-Master 登録値）。「مكة」は次の「يسكن」の目的語なので state の placeName にしない（初版の placeName مكة を除去、規則22(1)）。
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: null
+  summary:
+    ar: ويسكن مكة
+- id: e2
+  type: other
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: TMP-L-00201
+    quote: منى
+  quote: null
+  summary:
+    ar: وله بها وبمنى دار
+  note:
+    ja: '「بها」＝直前の مكة（照応、規則22(3)）。マッカとミナーに家を持っていた＝家屋の所有であり、ミナーでの居住は明記されないので residence にしない（初版は منى を residence event にしていた。先例 #AIND-D04193「له بجدة دار وصهريج」・#AIND-D07934「بل له دار بها」は event type="other"）。منى＝TMP-L-00201。'
+notes:
+- text: '「البطيني」は子の項 D00236 によれば本項主のラカブ（「بالضم لقب لأبيه」）で、ニスバ索引 #AIND-D11500 にも「البطيني بضم مصغر」として立つ＝初版どおり nisbah（TMP-N-01280）と shuhrah の両方に保持。孫 #AIND-D00448「أحمد بن إبراهيم بن محمد بن إبراهيم البسطيني الماضي أبوه والآتي جده」（収録済み、本項主への grandfather relation あり。刊本の「البسطيني」は البطيني の異綴）は本項に名指しなし＝relation は相手側の1本で足りる。本項主を指す転送見出し #AIND-D06583「محمد بن إبراهيم البطيني . مضى فيمن جده علي」（本バッチ B171）。persName full に限定語「الأصل」を復元（規則66 (e)）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・イブラーヒーム・ブン・アリー・アル＝ヤーフィイー、イエメン出身の家系でマッカの人。前述のイブラーヒームの父で、アル＝ブタイニーとして知られる。商いを営みマッカに住んだ者の一人で、マッカとミナーに家を持っていた。（8）71年にマッカで没した。
+  en: Muḥammad b. Ibrāhīm b. ʿAlī al-Yāfiʿī, of Yemeni origin, the Meccan, father of the aforementioned Ibrāhīm, known as al-Buṭaynī. He was among those who engaged in trade and lived in Mecca; he had a house there and one in Minā. He died in Mecca in the year [8]71.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-21T15:16:02Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D05625
+source:
+  uid: '454016643249'
+sex: M
+name:
+  full: علي بن محمد الحبشي البليني القائد
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00214
+    quote: الحبشي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-01116
+    quote: البليني
+  - id: n3
+    type: ism
+    quote: علي
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+    ref: TMP-P-001367
+death:
+  id: d
+  date:
+    ah: 861-12
+  note:
+    ja: 「مات في ذي الحجة سنة إحدى وستين」。没地は原文に明記なし。861-12 ＝ 1457-10-29〜11-27、月初 1457-10（h2g.py）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001367
+  passive: AIND-D05625
+  cert: medium
+  quote: null
+  note:
+    ja: '父。【集約】祖父名「بن مفلح」は他項 #AIND-D05581 に由来するため規則23 により cert medium（内容検証B L-8）。本項では名 محمد とニスバのみ（規則3 ただし書き）。同一人物とみられる #AIND-D05581「علي بن محمد بن مفلح البليني القائد」により父は محمد بن مفلح البليني（#AIND-D03108 سعيد بن محمد بن مفلح البليني حفيد مولى بقية بن رميثة の父でもある）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001367。初版の汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を差し替え。'
+- id: r2
+  type: personal
+  subtype: possible_identity
+  active: AIND-D05581
+  passive: AIND-D05625
+  cert: high
+  quote: null
+  note:
+    ja: '#AIND-D05581「علي بن محمد بن مفلح البليني القائد . مات بمكة في حادي عشري ذي الحجة سنة إحدى وستين . أرخه ابن فهد」は名・父名・ニスバ البليني・職 القائد・没年月（861年ズー・アル＝ヒッジャ月）・記録者がすべて一致し、同一人物の二重立項とみられる（本項は「بن مفلح」を欠き الحبشي を加える）。転送指示がないため両項を実項のまま保持し、possible_identity（cert high）を記録。D05581（Individuals 収録済み）側の逆方向 relation と没地・没日の補完は統合時に（→ISSUES §D100-4）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00094
+  quote: null
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: Pattern A。限定語のない ابن فهد、本項主の没年 861（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「chronicler」relation を event に変換。
+  trigger: rule
+translation:
+  ja: アリー・ブン・ムハンマド・アル＝ハバシー・アル＝ブルヤニー、隊長（カーイド）。（8）61年ズー・アル＝ヒッジャ月に没した。イブン・ファハドがその没年月を記録している。
+  en: ʿAlī b. Muḥammad al-Ḥabashī al-Bulyanī, the qāʾid. He died in Dhū al-Ḥijja (8)61. Ibn Fahd recorded his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-21T06:21:21Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

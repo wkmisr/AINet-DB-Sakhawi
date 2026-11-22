@@ -1,0 +1,108 @@
+schema: aind-yaml/0.1
+id: AIND-D06107
+source:
+  uid: '811010634874'
+sex: M
+name:
+  full: عيسى بن يوسف بن محمد الخواجا العماد بن الجمال بن الشمس القرشي البكري البهنسي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00005
+    quote: القرشي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00125
+    quote: البكري
+  - id: n3
+    type: nisbah
+    ref: TMP-N-00409
+    quote: البهنسي
+  - id: n4
+    type: laqab
+    quote: العماد
+  - id: n5
+    type: shuhrah
+    quote: الخواجا
+  - id: n6
+    type: ism
+    quote: عيسى
+    by: rule
+  - id: n7
+    type: nasab
+    quote: يوسف
+    by: rule
+    ref: TMP-P-001440
+  - id: n8
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n9
+    type: nasab
+    quote: الجمال
+    by: rule
+  - id: n10
+    type: nasab
+    quote: الشمس
+    by: rule
+death:
+  id: d
+  date:
+    ah: 865-07
+  places:
+  - ref: gn:104515
+    quote: مكة
+  note:
+    ja: 「مات بها في رجب سنة خمس وستين」。بها は直前の「نزيل مكة … الدار بها」の مكة（規則22(3)）。865年ラジャブ月＝1461-04-21〜05-20（h2g.py、月精度）。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001440
+  passive: AIND-D06107
+  quote: null
+  note:
+    ja: 見出し「عيسى بن يوسف بن محمد … العماد بن الجمال بن الشمس」から復元（規則3）。corpus に本伝なし（D10526 يوسف بن محمد بن حسن بن صالح البهنسي は「ممن سمع مني بمكة」の同時代人で、祖父名が異なり別人）。ID-Master 未登録のため仮番号を発行。
+- id: r2
+  type: personal
+  subtype: grandfather
+  active: NEEDID
+  passive: AIND-D06107
+  quote: null
+  note:
+    ja: '初版の TMP-P-000529（登録実体＝ابن جماعة の息子 محمد、汚染番号）を除去。祖父は裸名＋ラカブのみ → #NEEDID（規則3・12）。'
+events:
+- id: e1
+  type: residence
+  places:
+  - ref: gn:104515
+    quote: مكة
+  - ref: TMP-L-00333
+    quote: باب الدريبة
+  quote: نزيل
+  note:
+    ja: '「نزيل مكة وصاحب الدار بها التي صارت للجمال محمد بن الطاهر بباب الدريبة」＝マッカに居住し、バーブ・アッ＝ドゥライバに家を所有していた。その家は後に الجمال محمد بن الطاهر（#TMP-P-001091 محمد بن حسن بن محمد بن قاسم اليمني المكي、ニスバ索引 #AIND-D12476「ابن الطاهر الجمال محمد وعلي ابنا حسن بن محمد بن قاسم」）の所有となった（家の所有権移転は relation にせず note に留める）。باب الدريبة は ID-Master 未登録のため仮番号 TMP-L-00333 を発行。'
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D09211
+    quote: ابن فهد
+  quote: أرخه
+  summary:
+    ar: أرخه ابن فهد
+  cert: low
+  note:
+    ja: 'Pattern A。没年865（≤871）のため ابن فهد 振り分け規則により التقي بن فهد（#AIND-D09211）を cert low で充てる（النجم عمر بن فهد #AIND-D05979 の可能性もある）。初版の統制外 relation（biographer）を mention event に変更。'
+  trigger: rule
+translation:
+  ja: イーサー・ブン・ユースフ・ブン・ムハンマド、アル＝ハワージャ・アル＝イマード・ブン・アル＝ジャマール・ブン・アッ＝シャムス、アル＝クラシー・アル＝バクリー・アル＝バフナシー、マッカの寄留者で、バーブ・アッ＝ドゥライバにある、のちにアル＝ジャマール・ムハンマド・ブン・アッ＝ターヒルのものとなった家の持ち主。865年ラジャブ月に同地（マッカ）で没した。イブン・ファハドがその没年を記した。
+  en: ʿĪsā b. Yūsuf b. Muḥammad, al-Khawājā al-ʿImād b. al-Jamāl b. al-Shams al-Qurashī al-Bakrī al-Bahnasī, resident of Mecca and owner of the house there at Bāb al-Durayba that later passed to al-Jamāl Muḥammad b. al-Ṭāhir. He died there (in Mecca) in Rajab 865. Ibn Fahd recorded the date of his death.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-31T09:00:46Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

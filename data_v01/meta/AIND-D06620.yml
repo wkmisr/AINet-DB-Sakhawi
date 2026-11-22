@@ -1,0 +1,106 @@
+schema: aind-yaml/0.1
+id: AIND-D06620
+source:
+  uid: '458944952382'
+sex: M
+name:
+  full: محمد بن أحمد بن إسماعيل الشمس الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: shuhrah
+    quote: ابن الصعيدي
+  - id: n4
+    type: shuhrah
+    quote: الأحدب
+  - id: n5
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n7
+    type: nasab
+    quote: إسماعيل
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 759
+    cert: low
+  note:
+    ja: 逆算生年。「مات … سنة تسع وقد بلغ الخمسين أو قاربها」＝809年に50歳、あるいはそれに近かった → 809−50＝759年頃（cert low）。759＝1357-12-22 開始（h2g.py）＝@when 1357（初版の 1358 を是正）。
+  quote: سنة
+death:
+  id: d
+  date:
+    ah: 809-05
+    cert: medium
+  places:
+  - ref: gn:104515
+    quote: مكة
+  summary:
+    ar: مات بها في جمادى الأولى سنة تسع
+  note:
+    ja: 「سنة تسع」＝809（一の位のみ＝80X、cert medium。情報源 الفاسي は832年没）。809年ジュマーダー第一月＝1406-10-23〜11-21（h2g.py）、月精度で @when=1406-10（初版は年のみの 1406）。「بها」＝先行の مكة（cert 不要）。
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D06620
+  quote: null
+  note:
+    ja: 規則3 (c')。通称「ابن الصعيدي」から父祖が الصعيدي と呼ばれたことは分かるが、名＋父名のみで本伝は corpus にない（「بابن الصعيدي」は全文で本項のみ）。初版は父 relation なし。
+states:
+- id: s1
+  type: office
+  ref: wd:Q3595924
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: المقري
+  note:
+    ja: 見出しの「المقري」と本文「جاور بمكة سنين وانتصب للإقراء」＝マッカでクルアーン読誦の教授に当たった（等位接続、規則22(3)）。
+events:
+- id: e1
+  type: residence
+  subtype: jāwara
+  places:
+  - ref: gn:104515
+    quote: مكة
+  quote: جاور
+  summary:
+    ar: جاور بمكة سنين
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D06757
+    quote: الفاسي
+  works:
+  - ref: TMP-T-00037
+  quote: ذكره
+  summary:
+    ar: ذكره الفاسي في مكة
+  note:
+    ja: Pattern A。الفاسي＝#AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037）。初版の統制外 relation「chronicler / biographer」を置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アフマド・ブン・イスマーイール、アッ＝シャムス・アッ＝ディマシュキー、クルアーン読誦の師。イブン・アッ＝サイーディー、またアル＝アフダブとして知られる。数年のあいだマッカに寄留し、読誦の教授に当たった。善良で祝福された人であった。（80）9年ジュマーダー第一月にそこで没し、50歳に達していたか、それに近かった。アル＝ファースィーが『マッカ〔史〕』で彼に言及している。
+  en: Muḥammad b. Aḥmad b. Ismāʿīl, al-Shams al-Dimashqī, the Qurʾān reciter, known as Ibn al-Ṣaʿīdī and as al-Aḥdab. He sojourned in Mecca for some years and set himself up to teach recitation; he was a good and blessed man. He died there in Jumādā I of the year [80]9, having reached fifty or come close to it. Al-Fāsī mentioned him in [his history of] Mecca.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-22T06:09:10Z'
+  model_requested: gemini-3.5-flash
+  model_resolved: gemini-3.6-flash

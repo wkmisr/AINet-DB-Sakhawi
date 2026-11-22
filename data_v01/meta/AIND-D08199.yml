@@ -1,0 +1,109 @@
+schema: aind-yaml/0.1
+id: AIND-D08199
+source:
+  uid: '413752648651'
+sex: M
+name:
+  full: محمد بن علي بن محمود الشمس بن التاج بن النجم العمري الكيلاني الحنبلي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05474
+    quote: العمري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00001
+    quote: الكيلاني
+  - id: n3
+    type: laqab
+    quote: الشمس
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+    ref: TMP-P-001687
+  - id: n6
+    type: nasab
+    quote: محمود
+    by: rule
+  - id: n7
+    type: nasab
+    quote: التاج
+    by: rule
+  - id: n8
+    type: nasab
+    quote: النجم
+    by: rule
+  - id: n9
+    type: madhhab
+    quote: الحنبلي
+    by: rule
+    ref: wd:Q233387
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: TMP-P-001687
+  passive: AIND-D08199
+  quote: null
+  note:
+    ja: '見出しナサブ「محمد بن علي بن محمود الشمس بن التاج بن النجم العمري الكيلاني الحنبلي」から1段ずらして復元（規則3）。父はラカブ التاج・祖父 النجم محمود まで復元でき識別要素があるので TMP-P を発行。corpus に本伝なし（hw.py「علي بن محمود」＋「الكيلاني」の該当は #AIND-D05644 علي بن محمود بن محمد بن أحمد بن قاوان … الكيلاني＝ابن قاوان 家で別人）。ID-Master 未登録（idsearch「علي بن محمود」「النجم محمود」該当なし）。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D08199
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: ممن سمع على شيخنا المبتاينات بقراءة الفتحي
+  works:
+  - ref: TMP-T-00201
+  - ref: TMP-T-00032
+  quote: شيخنا
+- id: r3
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D08199
+  methods:
+  - TMP-S-00025
+  works:
+  - ref: TMP-T-00221
+  - ref: TMP-T-00044
+  quote: null
+  note:
+    ja: 「بل قرأ عليه الخلاصة للطيبي بحثا وأربعي النووي」。سماع（n=1）と قراءة（n=2）を別 relation に分けた（規則2）。初版の field「الحديث」は原文にないので除去。
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q233387
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  quote: ووصفه
+  summary:
+    ar: ووصفه بالعالم … وشيخه في التبليغ
+  note:
+    ja: 'Pattern A。イブン・ハジャルが本項主を「العالم」と評し、タブリーグ（聴講記録の認証書き付け）で「シャイフ」と称した（「وشيَّخه في التبليغ」＝動詞 شيَّخ「シャイフと称する」。同型の先例: #AIND-D03882「وكان يصفه في التبليغ بالشيخ الإمام」・#AIND-D03872「وقال في التبليغ له نفع الله به」）。初版は「伝達においてシャイフとして認めた」と訳していた。'
+  trigger: rule
+notes:
+- text: '同名・同ラカブの「الشمس محمد الكيلاني نائب الإمام بمقام الحنبلي」（#AIND-D00687 の妻の父、ID-Master では TMP-P-000246）が corpus にあるが、本項にはナサブ以外の識別要素（マッカ・職）がなく、ラカブ＋ニスバ＋学派の一致だけでは規則57 の下限に達しないため同定しない（候補として ISSUES に記録）。ハンバリー派のキーラーニー家の別人 #AIND-D07038（الجمال محمد بن أحمد الكيلاني المكي الحنبلي نائب الإمام بالمقام الحنبلي）は父名・ラカブが異なる。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・マフムード、アッ＝シャムス・ブン・アッ＝タージュ・ブン・アン＝ナジュム、アル＝ウマリー・アル＝キーラーニー・アル＝ハンバリー。我らがシャイフ（イブン・ハジャル）のもとで、アル＝ファトヒーの朗読により『アル＝ムタバーイナート』（刊本の綴りはアル＝ムブターイナート）を聴聞した者の一人で、彼（イブン・ハジャル）は彼を「学者（アル＝アーリム）」と評した。同じく彼のもとで研究（バハス）形式で『ハディースのアルフィーヤ注釈』の多くを聴聞し、彼（イブン・ハジャル）はタブリーグ（聴講記録への書き付け）において彼を「シャイフ」と称した。さらに彼のもとでアッ＝ティービーの『フラーサ』を研究形式で講読し、またナワウィーの『四十ハディース』を講読した。
+  en: Muḥammad b. ʿAlī b. Maḥmūd, al-Shams b. al-Tāj b. al-Najm, al-ʿUmarī al-Kīlānī al-Ḥanbalī. He was among those who heard al-Mutabāyināt (spelled al-Mubtāyināt in the edition) from our shaykh (Ibn Ḥajar) through the recitation of al-Fatḥī, and he (Ibn Ḥajar) described him as "the scholar (al-ʿālim)". He likewise heard from him, in study sessions (baḥth), much of the commentary on the Alfiyyat al-Ḥadīth, and he (Ibn Ḥajar) styled him "shaykh" in the tablīgh (the attestation note); indeed he read before him al-Khulāṣa of al-Ṭībī in study, and the Forty of al-Nawawī.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-01T12:21:26Z'
+  model_requested: gemini-3.5-flash

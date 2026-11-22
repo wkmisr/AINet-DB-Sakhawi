@@ -1,0 +1,91 @@
+schema: aind-yaml/0.1
+id: AIND-D07292
+source:
+  uid: '308423966103'
+sex: M
+name:
+  full: محمد بن التاج الهندي المحمودا بادي الحنفي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00165
+    quote: الهندي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-05502
+    quote: المحمودا بادي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: التاج
+    by: rule
+  - id: n5
+    type: madhhab
+    quote: الحنفي
+    by: rule
+    ref: wd:Q228986
+birth:
+  id: b
+  date:
+    ah: 854
+    cert: low
+  note:
+    ja: 逆算生年（頃）：「قال لي في سنة أربع وتسعين أنه حي ابن نحو أربعين سنة」＝894年に約40歳 → 854頃（1450-02-23〜1451-02-11、年精度→1450）。cert low。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D07292
+  passive: AIND-D02984
+  methods:
+  - TMP-S-00071
+  quote: راجح
+  note:
+    ja: '「ممن أقرأ الفضلاء الهيئة والكلام كراجح」＝本項主が師、راجح が弟子（規則15）。راجح ＝ #AIND-D02984「راجح بن داود بن محمد بن عيسى بن أحمد الهندي الاحمداباي الحنفي」（生871、未収録）。D02984 本文「وعلى محمد بن التاج الحنفي الهيئة والكلام」で閉合（名・科目が一致）。初版は2本の student relation（向き逆、#NEEDID）に分割していた。'
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D07292
+  quote: null
+  note:
+    ja: '父。見出しの「بن التاج」（ラカブのみ）→ #NEEDID（規則3）。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q228986
+events:
+- id: e1
+  type: teaching
+  quote: أقرأ
+  summary:
+    ar: ممن أقرأ الفضلاء الهيئة والكلام
+  note:
+    ja: 天文学（الهيئة）と神学（الكلام）を優秀な学徒たちに教授した。
+  trigger: rule
+- id: e2
+  type: cultural
+  subtype: mention
+  date:
+    ah: 894
+  persons:
+  - ref: AIND-D02984
+    cert: medium
+  quote: وقال
+  summary:
+    ar: وقال لي في سنة أربع وتسعين أنه حي ابن نحو أربعين سنة
+  note:
+    ja: 894年（1488-12-14〜1489-12-03、年精度→1488）にサハーウィーが聞いた存命記録（口頭情報源＝mention event、relation にしない）。【集約 2026-10-25】「كراجح ، وقال لي … أنه حي」の話者は直前に名の出た راجح（#AIND-D02984）と読むのが自然で、本項主が自分の存命を告げたとは断定しない（規則44・B86⑥、内容B[7][8]）。persName を校閲時の wd:Q4120128（السخاوي＝聞き手）から情報提供者の候補 راجح（cert medium）に改めた。D02984 によれば راجح 一行は894年初頭にマッカでサハーウィーに会っており、同じ機会と考えられる（推定、note のみ）。death は作らない。初版の統制外 correspondent relation を置換。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アッ＝タージュ・アル＝ヒンディー・アル＝マフムーダーバーディー・アル＝ハナフィー。ラージフのような優秀な者たちに天文学（ハイア）と神学（カラーム）を教授した者の一人。（8）94年に（ある者が）私に、彼は存命で40歳ほどであると語った。
+  en: Muḥammad b. al-Tāj al-Hindī al-Maḥmūdābādī al-Ḥanafī. One of those who taught astronomy (hayʾa) and theology (kalām) to accomplished scholars such as Rājiḥ. In the year (8)94 I was told that he was alive and about forty years old.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-03T07:31:31Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

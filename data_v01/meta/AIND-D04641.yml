@@ -1,0 +1,87 @@
+schema: aind-yaml/0.1
+id: AIND-D04641
+source:
+  uid: '355576326176'
+sex: M
+name:
+  full: عبد الله بن محمد البطيني القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-01280
+    quote: البطيني
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: ism
+    quote: عبد الله
+    by: rule
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D04641
+  methods:
+  - TMP-S-00003
+  context:
+  - summary:
+      ar: ممن سمع مني
+  quote: مني
+- id: r2
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D04641
+  quote: null
+  note:
+    ja: '裸名のみのため #NEEDID（規則3・12）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00029
+  orgs:
+  - ref: TMP-I-00002
+  quote: مؤدب الأبناء
+  note:
+    ja: '「مؤدب الأبناء بالمنكوتمرية」。職は ID-Master 既存の المؤدب | مؤدب（#TMP-O-00111、先例「مؤدب الأبناء」3件）、施設は #TMP-I-00002（المدرسة المنكوتمرية）。所在地（カイロ）は原文になく、ニスバからの補完は不可（規則22-1）。'
+events:
+- id: e1
+  type: religious
+  subtype: hajj
+  date:
+    ah: 896
+  places:
+  - ref: gn:104515
+  quote: وحج
+  summary:
+    ar: وحج وجاور سنة ست وتسعين
+  note:
+    ja: 896年初＝1490-11-23（h2g.py）。حج の placeName مكة は規則20の例外。
+  trigger: rule
+- id: e2
+  type: residence
+  subtype: jāwara
+  date:
+    ah: 896
+  quote: وجاور
+  summary:
+    ar: وجاور سنة ست وتسعين
+  note:
+    ja: جاور には placeName を付けない（規則20）。
+  trigger: rule
+translation:
+  ja: アブドゥッラー・ブン・ムハンマド・アル＝ブタイニー、のちアル＝カーヒリー。マンクータムリーヤの子弟教師（ムアッディブ）。私（サハーウィー）から聴聞した者の一人で、896年に巡礼し、（マッカに）滞在した。
+  en: ʿAbd Allāh b. Muḥammad al-Buṭaynī, then al-Qāhirī, tutor of the boys at al-Mankūtamuriyya. He is among those who heard from me; he performed the pilgrimage and stayed as a mujāwir in the year 896.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-25T14:32:14Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

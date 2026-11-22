@@ -1,0 +1,66 @@
+schema: aind-yaml/0.1
+id: AIND-D01276
+source:
+  uid: '787103091360'
+sex: M
+name:
+  full: أحمد بن محمد بن أحمد المالكي
+  elements:
+  - id: n1
+    type: ism
+    quote: أحمد
+    by: rule
+  - id: n2
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أحمد
+    by: rule
+  - id: n4
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: AIND-D01276
+  passive: AIND-D09211
+  methods:
+  - TMP-S-00006
+  context:
+  - places:
+    - ref: gn:104515
+      quote: مكة
+  quote: ابن فهد
+  note:
+    en: '"Ibn Fahd presented (ʿaraḍa) to him ... and he granted him ijāza": Ibn Fahd (#AIND-D09211) is the student who did the ʿarḍ; the subject is the teacher. Project convention (subtype=student, active=teacher/passive=student) → active=subject, passive=Ibn Fahd.'
+    ja: 2026-11-16 の統一規則で師弟は常に subtype="teacher"（active=師）とした（向きは不変）。上の注記の「subtype=student」の慣行は改訂前のもの。
+- id: r2
+  type: personal
+  subtype: teacher
+  active: AIND-D01276
+  passive: AIND-D09211
+  methods:
+  - TMP-S-00004
+  quote: null
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+notes:
+- text: '校閲: 原文「عرض عليه ابن فهد ... وأجازه」より、ابن فهد（#AIND-D09211، التقي محمد بن فهد المكي）が عرض を行った学習者、本項が إجازة を与えた師。プロジェクト慣行（subtype=student は active=師/passive=弟子の物理方向を保持、D01440先例）に従い、relation1（عرض, n=1）は active=本項(師)/passive=ابن فهد・event を teaching に、relation2（أجاز, n=2）は subtype=teacher・active=本項 に是正。Gemini初版は relation2 の subtype が student で誤り（relation1 の物理方向は元から正）。'
+  lang: ja
+  type: editorial
+translation:
+  ja: 295 アフマド・ブン・ムハンマド・ブン・アフマド・アル＝マーリキー。 イブン・ファハドは822年のハッジの季節にマッカで彼に（自分の）暗記したテクストの一部を提示し、彼は（イブン・ファハドに）イジャーザを与えた。彼はイブン・ファハドのシャイフの一覧に記載されているが、イブン・ファハドは彼をよく知らなかったと述べ、先日言及したイブン・アル＝ヌスカであろうと推測している。
+  en: 295 Aḥmad b. Muḥammad b. Aḥmad al-Mālikī. Ibn Fahd presented some of his memorized texts to him during the pilgrimage season of the year 822 H in Mecca, and he (Aḥmad b. Muḥammad) granted him ijāza. He is listed among Ibn Fahd's shaykhs, and Ibn Fahd stated that he did not know him well and presumed him to be the son of al-Nuskha mentioned previously (الماضي قريبا).
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.10
+  generated_at: '2026-06-27T10:17:49Z'
+  model_era: gemini-2.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,68 @@
+schema: aind-yaml/0.1
+id: AIND-D04030
+source:
+  uid: '113128776461'
+sex: M
+name:
+  full: عبد العزيز الشريف المغربي المالكي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-05472
+    quote: الشريف
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00058
+    quote: المغربي
+  - id: n3
+    type: ism
+    quote: عبد العزيز
+    by: rule
+  - id: n4
+    type: madhhab
+    quote: المالكي
+    by: rule
+    ref: wd:Q48221
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q471116
+  passive: AIND-D04030
+  methods:
+  - TMP-S-00003
+  context:
+  - date:
+      ah: 844
+  works:
+  - ref: TMP-T-00127
+  - ref: TMP-T-00147
+  quote: شيخنا
+  note:
+    ja: '「سمع على شيخنا」= ابن حجر（wd:Q471116）。初版は #NEEDID の relation を書名ごとに2件生成し、@when にヒジュラ暦を入れていた → 1件に統合し when-custom へ。『الخصال المكفرة』（ابن حجر 著）= TMP-T-00127。『جزء الجمعة』（للنسائي。corpus D02697/D02879/D03354/D04379 にも出現）は未登録 → 新規 TMP-T-00147。'
+affiliations:
+- id: a1
+  type: madhhab
+  ref: wd:Q48221
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D02697
+    quote: الفتحي
+  quote: ووصفه
+  summary:
+    ar: ووصفه الفتحي والسماع معه بالعالم
+  note:
+    ja: Pattern A（初版は subtype="informant" の personal relation）。الفتحي = TMP-P-000584（ID-Master 登録・سماع 記録の書き手）。「العالم」と評した。
+  trigger: rule
+translation:
+  ja: アブドゥルアズィーズ・アッ＝シャリーフ・アル＝マグリビー・アル＝マーリキー。844年に我らがシャイフ（イブン・ハジャル）から『アル＝ヒサール・アル＝ムカッフィラ』と『ジュズウ・アル＝ジュムア』を聴聞した。アル＝ファトヒーは彼を、また彼と共に聴聞したことを「学者（アーリム）」と記している。
+  en: ʿAbd al-ʿAzīz al-Sharīf al-Maghribī al-Mālikī. He heard from our shaykh (Ibn Ḥajar) in 844 AH al-Khiṣāl al-mukaffira and Juzʾ al-jumuʿa, and al-Fatḥī described him—and the audition together with him—with the term "the scholar (al-ʿālim)".
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-08T06:18:07Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

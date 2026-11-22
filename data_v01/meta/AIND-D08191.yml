@@ -1,0 +1,107 @@
+schema: aind-yaml/0.1
+id: AIND-D08191
+source:
+  uid: '478713915623'
+sex: M
+name:
+  full: محمد بن علي بن محمد الشمس المشهدي ابن القطان
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00339
+    quote: المشهدي
+  - id: n2
+    type: laqab
+    quote: الشمس
+  - id: n3
+    type: shuhrah
+    quote: ابن القطان
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 759
+    cert: low
+  note:
+    ja: 逆算生年（「ومات في الطاعون سنة تسع عشرة عن نحو الستين」＝819−60≒759、cert low。759年初＝1357-12-22、h2g.py）。初版の @when 1358 を 1357 に。
+death:
+  id: d
+  date:
+    ah: 819
+  summary:
+    ar: ومات في الطاعون سنة تسع عشرة عن نحو الستين
+  note:
+    ja: 819年初＝1416-03-10（h2g.py、年精度）。疫病死。初版の重複する event（other「plague」）を除去し death に一本化。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08191
+  quote: null
+  note:
+    ja: '見出しナサブのみ（汎用名。「ابن القطان」は家名、المشهدي はカイロのマシュハド・アル＝フサイン地区のニスバ）。corpus に本伝なし、ID-Master 未登録 → #NEEDID（規則3 (c'')）。初版なし。'
+- id: r2
+  type: personal
+  subtype: teacher
+  active: TMP-P-001358
+  passive: AIND-D08191
+  methods:
+  - TMP-S-00008
+  quote: الولي الملوي
+  note:
+    ja: '「أخذ عن الولي الملوي ونحوه」（イブン・ハジャルの引用）。الولي الملوي＝ID-Master 既登録 TMP-P-001358「ولي الدين الملوي (الولي الملوي) | محمد بن أحمد بن إبراهيم بن يوسف الملوي الشافعي」（Note に本項 D08191 を列挙。8世紀没、corpus に本伝なし）。「ونحوه」は人物を立てない。初版の #NEEDID を置換。'
+- id: r3
+  type: personal
+  subtype: teacher
+  active: AIND-D08191
+  passive: wd:Q471116
+  methods:
+  - TMP-S-00003
+  quote: شيخنا
+  note:
+    ja: 「سمعت فوائده」＝引用中の一人称はイブン・ハジャル（規則59 (f)）＝イブン・ハジャルが本項主から（その فوائد を）聴いた（active＝師＝本項主、規則15）。「فوائده」は書名ではなく本項主の伝えた有益な伝承・知見＝初版の bibl「فوائد」（#NEEDID）を除去し note に。【集約 2026-11-05】desc は相手の名「ابن حجر」とし、サハーウィーの呼称「شيخنا」は本 note に（規則31、機械 L、決定8）。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+  works:
+  - ref: TMP-T-00034
+  quote: ذكره
+  summary:
+    ar: ذكره شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。「قال :」以下は引用。初版の relation（subtype correspondent）を mention event に置換。
+  trigger: rule
+- id: e2
+  type: cultural
+  quote: واعتنى بالعلوم العقلية . واشتغل كثيرا حتى تنبه
+- id: e3
+  type: cultural
+  quote: وكان يدري الطب ولكن ليست له معرفة بالعلاج
+notes:
+- text: '同名異人に注意: カイロの ابن القطان 家の الشمس محمد بن علي بن محمد（بن عمر بن عيسى）السمنودي المصري＝#AIND-D08574（المحمدان البهاء والمحب の父）は別人。ニスバ索引 #AIND-D12646「ابن القطان الشمس محمد بن علي بن محمد بن عمر بن عيسى وابناه … وقد شارك الشمس آخر في اسمه واسم أبيه وجده وهو محمد بن علي بن محمد بن القطان المشهدي」がサハーウィー自身の区別。したがって #AIND-D03794（عبد الرحمن بن المحب محمد بن الشمس محمد … ابن القطان）らの祖父は D08574 であり本項主ではない。'
+  lang: ja
+  type: editorial
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ムハンマド、アッ＝シャムス・アル＝マシュハディー、イブン・アル＝カッターン。我らがシャイフ（イブン・ハジャル）が『インバーゥ』で彼に言及して言う。「アル＝ワリー・アル＝マッラウィーやその同類から学び、理性的諸学に注力した。大いに研鑽して頭角を現した。医学を知っていたが、治療の心得はなかった。私（イブン・ハジャル）は彼のファワーイド（有益な伝承）を聴いた。（8）19年の疫病で、60歳前後で没した。」
+  en: 'Muḥammad b. ʿAlī b. Muḥammad, al-Shams al-Mashhadī, Ibn al-Qaṭṭān. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, saying: "He studied under al-Walī al-Mallawī and the like, and devoted himself to the rational sciences. He worked hard until he became accomplished. He knew medicine but had no competence in treatment. I (Ibn Ḥajar) heard his fawāʾid (useful traditions). He died in the plague of the year [8]19, aged about sixty."'
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-10-01T11:51:52Z'
+  model_requested: gemini-3.5-flash

@@ -1,0 +1,67 @@
+schema: aind-yaml/0.1
+id: AIND-D07661
+source:
+  uid: '843049734920'
+sex: M
+name:
+  full: محمد بن عبد السلام بن محمد بن عبد العزيز المدني سبط علي البواب
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00055
+    quote: المدني
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: عبد السلام
+    by: rule
+    ref: TMP-P-001192
+  - id: n4
+    type: nasab
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عبد العزيز
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: wd:Q4120128
+  passive: AIND-D07661
+  methods:
+  - TMP-S-00003
+  context:
+  - places:
+    - ref: gn:109223
+      quote: المدينة
+  quote: مني
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001192
+  passive: AIND-D07661
+  quote: null
+  note:
+    ja: 父 عبد السلام بن محمد بن عبد العزيز المدني。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録 → TMP-P-001192 を新規発行（⚠汎用名）。
+- id: r3
+  type: personal
+  subtype: maternal_grandfather
+  active: NEEDID
+  passive: AIND-D07661
+  quote: علي البواب
+  note:
+    ja: 'سبط＝娘方の孫。母方の祖父 علي البواب（裸名＋職名のみ。corpus に他の言及なし・ID-Master 未登録）→ #NEEDID。初版の subtype="grandfather" を maternal_grandfather に是正。'
+translation:
+  ja: ムハンマド・ブン・アブドゥッサラーム・ブン・ムハンマド・ブン・アブドゥルアズィーズ・アル＝マダニー。アリー・アル＝バウワーブの娘方の孫。マディーナで私（サハーウィー）から聴聞した者の一人。
+  en: Muḥammad b. ʿAbd al-Salām b. Muḥammad b. ʿAbd al-ʿAzīz al-Madanī, the daughter's son of ʿAlī al-Bawwāb. He was among those who heard from me (al-Sakhāwī) in Medina.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-10T08:23:10Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

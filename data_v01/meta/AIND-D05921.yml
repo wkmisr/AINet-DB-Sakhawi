@@ -1,0 +1,78 @@
+schema: aind-yaml/0.1
+id: AIND-D05921
+source:
+  uid: '837036290817'
+sex: M
+name:
+  full: عمر بن قاسم بن جمعة الأمير زين الدين القساسي الحلبي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-02716
+    quote: القساسي
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00022
+    quote: الحلبي
+  - id: n3
+    type: laqab
+    quote: زين الدين
+  - id: n4
+    type: ism
+    quote: عمر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: قاسم
+    by: rule
+    ref: AIND-D06214
+  - id: n6
+    type: nasab
+    quote: جمعة الأمير
+    by: rule
+death:
+  id: d
+  date:
+    ah: 864-08
+  places:
+  - ref: gn:170063
+  summary:
+    ar: مات بها في شعبان سنة أربع وستين
+  note:
+    ja: 「مات بها」の بها ＝ 直前の「قلعتها」の ها が指す حلب（照応、規則22(3)）。864-08 ＝ 1460-05-31〜06-28、月初 1460-05（h2g.py）。初版の when="1460" を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: AIND-D06214
+  passive: AIND-D05921
+  quote: أبوه
+  note:
+    ja: '「والآتي أبوه」。父 = #AIND-D06214（قاسم بن جمعة الزين القساسي الحلبي نائب قلعتها وأتابكها من قبل … مات بها في رمضان سنة ثلاث وستين）。初版の #NEEDID を差し替え。'
+- id: r2
+  type: personal
+  subtype: successor
+  active: TMP-P-001394
+  passive: AIND-D05921
+  quote: ابن جبارة نائب البيرة
+  note:
+    ja: '「واستقر بعده في النيابة ابن جبارة نائب البيرة」＝アレッポ城塞代官職の後任。ابن جبارة は通称＋職（البيرة の代官）で識別できるため TMP-P-001394 を発行（規則12）。corpus に本伝なし・ID-Master 未登録。初版の #NEEDID を差し替え。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00338
+  places:
+  - ref: wd:Q206231
+  quote: نائب قلعتها
+  note:
+    ja: 「نائب قلعتها」＝アレッポ城塞（wd:Q206231、ID-Master では Location）の代官。汎用 نائب（TMP-O-00053）＋ラベル（نائب قلعة دمشق の先例）。没時まで在職（後任は ابن جبارة）。初版の affiliation employed（同施設、二重符号化）と placeName حلب（施設所在地）、「أمير」の別 state（الأمير は称号＝persName に含む）を除去。
+translation:
+  ja: ウマル・ブン・カースィム・ブン・ジュムア、アミール・ザイン・アッ＝ディーン、アル＝カッサースィー・アル＝ハラビー、アレッポ城塞の代官（ナーイブ）。父は後述。864年シャアバーン月にそこ（アレッポ）で没し、彼の後にはアル＝ビーラの代官イブン・ジュバーラが代官職に就いた。
+  en: ʿUmar b. Qāsim b. Jumʿa, the amīr Zayn al-Dīn al-Qassāsī al-Ḥalabī, deputy (nāʾib) of the citadel of Aleppo; his father is mentioned below. He died there in Shaʿbān of the year 864, and after him Ibn Jubāra, the deputy of al-Bīra, was installed in the deputyship.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-08-30T04:56:04Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

@@ -1,0 +1,88 @@
+schema: aind-yaml/0.1
+id: AIND-D07175
+source:
+  uid: '342938893489'
+sex: M
+name:
+  full: محمد بن أبي بكر بن جعفر بن الحريري الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n3
+    type: nasab
+    quote: أبي بكر
+    by: rule
+    ref: TMP-P-001494
+  - id: n4
+    type: nasab
+    quote: جعفر
+    by: rule
+  - id: n5
+    type: nasab
+    quote: الحريري
+    by: rule
+birth:
+  id: b
+  date:
+    ah: 766-09-07
+  note:
+    ja: 「ولد في سابع رمضان سنة ست وستين وسبعمائة」＝766年ラマダーン7日＝1365-06-05。出生地の明記なし。
+  quote: سنة
+death:
+  id: d
+  date:
+    notBefore: 850
+    cert: low
+  note:
+    ja: 「وزعم ابن أبي عذيبة … أنه عاش إلى بعد الخمسين」＝850年より後まで生きた（زعم＝cert low）。規則18 により notBefore-custom 850（1446-04-07 開始、年精度 1446）。
+relations:
+- id: r1
+  type: personal
+  subtype: teacher
+  active: TMP-P-000125
+  passive: AIND-D07175
+  methods:
+  - TMP-S-00003
+  cert: low
+  works:
+  - ref: wd:Q947278
+  - ref: wd:Q2998769
+  - ref: wd:Q2175237
+  quote: ابن أميلة
+  note:
+    ja: '「زعم ابن أبي عذيبة أنه سمع من ابن أميلة أبا داود والترمذي والنسائي」＝ابن أبي عذيبة の主張（زعم）による＝cert low。ابن أميلة＝TMP-P-000125（既登録、8世紀ダマスクスの مسند、D00127・D00203 等と同じ）。初版の3本の relation を1本に統合し、原文にない field（الحديث）を除去、書名 #NEEDID を wd:Q947278（السنن لأبي داود）・wd:Q2175237（سنن النسائي）に。'
+- id: r2
+  type: personal
+  subtype: father
+  active: TMP-P-001494
+  passive: AIND-D07175
+  quote: null
+  note:
+    ja: 見出しナサブ「أبي بكر بن جعفر بن الحريري الدمشقي」から祖父名・シュフラまで復元（規則3）。corpus に本伝なし・ID-Master 未登録 → 仮番号 TMP-P-001494。初版は relation なし。
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: AIND-D01457
+    quote: ابن أبي عذيبة
+  quote: null
+  summary:
+    ar: وزعم ابن أبي عذيبة أنه سمع من ابن أميلة أبا داود والترمذي والنسائي وأنه عاش إلى بعد الخمسين
+  note:
+    ja: 'Pattern A。ابن أبي عذيبة＝#AIND-D01457「أحمد بن محمد بن عمر الشهاب المقدسي الشافعي ويعرف بابن أبي عذيبة . ولد في سنة تسع عشرة وثمانمائة ببيت المقدس」（ニスバ索引 #AIND-D12531「ابن أبي عذيبة … أحمد بن محمد بن عمر المقدسي」が単独人物として指す、規則11。集約で TMP-P-000561 から差し替え、000561 は名寄せ提案）。サハーウィーは「زعم」で伝聞の信頼度を留保している。初版の統制外 relation「biographer」を event に改めた。'
+translation:
+  ja: ムハンマド・ブン・アビー・バクル・ブン・ジャアファル・ブン・アル＝ハリーリー・アッ＝ディマシュキー。766年ラマダーン月7日に生まれた。イブン・アビー・ウザイバは、彼がイブン・ウマイラから『アブー・ダーウード』『ティルミズィー』『ナサーイー』を聴聞し、850年より後まで生きたと主張した。
+  en: Muḥammad b. Abī Bakr b. Jaʿfar b. al-Ḥarīrī al-Dimashqī. He was born on 7 Ramaḍān 766. Ibn Abī ʿUdhayba claimed that he heard Abū Dāwūd, al-Tirmidhī and al-Nasāʾī from Ibn Umayla, and that he lived until after [8]50.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-01T00:08:51Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

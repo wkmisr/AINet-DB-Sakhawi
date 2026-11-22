@@ -1,0 +1,94 @@
+schema: aind-yaml/0.1
+id: AIND-D08021
+source:
+  uid: '295960875794'
+sex: M
+name:
+  full: محمد بن علي بن أحمد ناصر الدين الخطيري ثم القاهري
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00633
+    quote: الخطيري
+  - id: n2
+    type: nisbah
+    ref: TMP-N-00010
+    quote: القاهري
+  - id: n3
+    type: laqab
+    quote: ناصر الدين
+  - id: n4
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n5
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n6
+    type: nasab
+    quote: أحمد
+    by: rule
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08021
+  quote: ابنه محمد
+  note:
+    ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
+- id: r2
+  type: personal
+  subtype: son
+  active: NEEDID
+  passive: AIND-D08021
+  quote: null
+  note:
+    ja: '「وكان معه ابنه محمد」＝名のみ。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة の息子 محمد）を除去し #NEEDID（規則3・12）。corpus に「محمد بن محمد بن علي بن أحمد الخطيري」の本伝なし。'
+- id: r3
+  type: personal
+  subtype: patron
+  active: AIND-D08893
+  passive: AIND-D08021
+  quote: البدر البغدادي
+  note:
+    ja: '「ممن خدم البدر البغدادي」。البدر البغدادي ＝ #AIND-D08893「محمد بن محمد بن عبد المنعم بن داود بن سليمان البدر أبو المحاسن … البغدادي الأصل القاهري الحنبلي」（ハンバリー派カーディー、repo 先例 D07009・D07777 が同じ呼称で D08893 を充当）。初版の #NEEDID を解消。'
+- id: r4
+  type: personal
+  subtype: teacher
+  active: AIND-D13827
+  passive: AIND-D08021
+  methods:
+  - TMP-S-00003
+  quote: أم هانئ الهورينية
+  note:
+    ja: '「ممن سمع الحديث على جماعة منهم أم هانئ الهورينية ومن أحضرناه معها」。أم هانئ الهورينية ＝ #AIND-D13827（女性部、repo 先例 D01268・D01553・D04908・D07019）。「ومن أحضرناه معها」（彼女と共に我々が同席させた他の師）は無名＝relation なし。初版の #NEEDID と field（الحديث）を是正（الحديث は原文「سمع الحديث」にあるが repo 慣行で method のみ）。'
+states:
+- id: s1
+  type: office
+  ref: TMP-O-00390
+  orgs:
+  - label: أوقاف الحنابلة
+  quote: باشر
+  note:
+    ja: 'ハンバリー派ワクフの管理職。ID-Master の Office を語根 وقف で grep：عمالة أوقاف الحنفية TMP-O-00047（ハナフィー派）・ناظر الأوقاف TMP-O-00113・المتكلم في الأوقاف TMP-O-00298 はいずれも別対象 → 先例 O-00047 の学派別方式で新規 TMP-O-00356。初版の #NEEDID を解消。'
+affiliations:
+- id: a1
+  type: reside
+  ref: wd:Q7404512
+  note:
+    ja: 「نزيل الصالحية」。ID-Master の الصالحية ＝ wd:Q7404512（カイロの المدرسة الصالحية、Waka 照合 2026-09-24）。初版の residence event（#NEEDID）を affiliation reside に（先例 D08005 جامع الغمري 等の施設寄留）。ニスバ由来の residence القاهرة は除去（規則22(1)）。
+events:
+- id: e1
+  type: religious
+  quote: وهو خير كثير التلاوة
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・アフマド、ナースィル・アッ＝ディーン・アル＝ハティーリー、のちアル＝カーヒリー、サーリヒーヤの寄留者。アル＝バドル・アル＝バグダーディーに仕えた者の一人で、諸々の職位に就き、ハンバリー派のワクフなどを管理した。善良で、クルアーンの読誦に励む人であり、ウンム・ハーニ・アル＝ハウリーニーヤと、我々が彼女と共に同席させた者たちをはじめとする一団からハディースを聴聞した者の一人である。息子のムハンマドが彼と一緒であった。
+  en: Muḥammad b. ʿAlī b. Aḥmad, Nāṣir al-Dīn al-Khaṭīrī, then al-Qāhirī, resident of al-Ṣāliḥiyya. He is among those who served al-Badr al-Baghdādī; he was installed in various posts and administered the endowments of the Ḥanbalīs and others. He was a good man, much given to recitation, and among those who heard ḥadīth from a group including Umm Hāniʾ al-Hūrīniyya and those whom we brought to attend with her; his son Muḥammad was with him.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-04T13:59:44Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定

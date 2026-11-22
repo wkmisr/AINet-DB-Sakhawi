@@ -1,0 +1,79 @@
+schema: aind-yaml/0.1
+id: AIND-D08142
+source:
+  uid: '104233045007'
+sex: M
+name:
+  full: محمد بن علي بن عمر بن محمد الدمشقي
+  elements:
+  - id: n1
+    type: nisbah
+    ref: TMP-N-00012
+    quote: الدمشقي
+  - id: n2
+    type: shuhrah
+    quote: ابن الإربلي
+  - id: n3
+    type: ism
+    quote: محمد
+    by: rule
+  - id: n4
+    type: nasab
+    quote: علي
+    by: rule
+  - id: n5
+    type: nasab
+    quote: عمر
+    by: rule
+  - id: n6
+    type: nasab
+    quote: محمد
+    by: rule
+death:
+  id: d
+  date:
+    ah: 814-01
+  note:
+    ja: 「مات في المحرم سنة أربع عشرة」。814年ムハッラム月＝1411-05-04 開始（月精度 → 1411-05）。初版の @when 1411（年精度）を月精度に。
+  quote: سنة
+relations:
+- id: r1
+  type: personal
+  subtype: father
+  active: NEEDID
+  passive: AIND-D08142
+  quote: null
+  note:
+    ja: '見出しナサブのみ（汎用名、識別要素なし）。corpus の「علي بن عمر بن محمد」見出し（D05315〜D05323）に本項主の父に当たる人物なし → #NEEDID（規則3 (c'')）。初版なし。'
+- id: r2
+  type: personal
+  subtype: maternal_grandfather
+  active: TMP-P-001668
+  passive: AIND-D08142
+  quote: ابن الشريشي
+  note:
+    ja: '「سبط ابن الشريشي」＝母方祖父。corpus で「ابن الشريشي」は8世紀末ダマスクスのシャーフィイー派法学者 الشرف ابن الشريشي を指す用例が多い（#AIND-D03826「الشرف بن الشريشي」・#AIND-D10093「ابن الشريشي والزهري」・#AIND-D02724「الشرف ابن الشريشي」）が、同家の الجمال محمود بن الشريشي（#AIND-D01925 等）もいて通称だけでは決まらない → 新規 TMP-P-001668（ابن الشريشي、本項主の母方祖父）。候補: 既登録 TMP-P-001473「الشريشي (شيخ محمد بن أيوب الحسباني بدمشق)」（候補＝الشرف ابن الشريشي、AIND 本伝なし、repo active 参照 D07146）。【集約 2026-11-03】校閲時の TMP-P-001473 cert low を差し替え（既存番号に cert low で充てると統合時に同一人物として扱われる。規則26、内容A M、オーケストレーター決定10）。初版の grandfather #NEEDID は校閲で maternal_grandfather に。'
+events:
+- id: e1
+  type: cultural
+  subtype: mention
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  summary:
+    ar: أرخه شيخنا في إنبائه
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の relation（subtype other）を言及 event に統合。
+  trigger: rule
+translation:
+  ja: ムハンマド・ブン・アリー・ブン・ウマル・ブン・ムハンマド・アッ＝ディマシュキー、イブン・アッ＝シャリーシーの娘の子（外孫）で、イブン・アル＝イルビリーとして知られる。（8）14年ムハッラム月に没した。我らがシャイフ（イブン・ハジャル）が『インバーゥ』にその没年を記している。
+  en: Muḥammad b. ʿAlī b. ʿUmar b. Muḥammad al-Dimashqī, the daughter's son of Ibn al-Shurayshī, known as Ibn al-Irbilī. He died in Muḥarram of the year [8]14. Our shaykh (Ibn Ḥajar) recorded his death date in his Inbāʾ.
+provenance:
+  converted_from: TEI (tag tei-final)
+  app: AINet-DB Researcher Pro 20.11.1
+  generated_at: '2026-09-18T06:43:41Z'
+  model_era: gemini-3.5-flash 系（推定）
+  model_era_basis: 生成日時と app.py の履歴（2026-07-24 に切替）からの推定
