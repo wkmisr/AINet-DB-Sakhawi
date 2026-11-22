@@ -24,12 +24,20 @@ death:
     ah: 854-04-13
   places:
   - ref: TMP-I-00029
+    role: burial
     quote: البرقوقية
   - ref: TMP-L-00275
+    role: burial
     quote: بين القصرين
+  - ref: TMP-L-00193
+    role: funeral
+    quote: القلعة
+  persons:
+  - ref: AIND-D02423
+    role: funeral_prayer
   note:
-    ar: مات في يوم الاثنين ثالث عشر ربيع الآخر سنة أربع وخمسين ولم يكمل عشرة أشهر وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة
-    ja: 854年ラビーウ・アル＝アーヒル月13日＝1450-06-04（グレゴリオ暦、tabular では火曜。原文「月曜」は±1日の範囲内）。初版の when="1450" を日精度に。没地は原文に明記なし（城塞での葬礼は父の礼拝場所であって没地ではない）ため、初版の死没 placeName「القلعة」は除去し funeral event に移した。
+    ar: مات في يوم الاثنين ثالث عشر ربيع الآخر سنة أربع وخمسين ولم يكمل عشرة أشهر وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة / وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة
+    ja: 854年ラビーウ・アル＝アーヒル月13日＝1450-06-04（グレゴリオ暦、tabular では火曜。原文「月曜」は±1日の範囲内）。初版の when="1450" を日精度に。没地は原文に明記なし（城塞での葬礼は父の礼拝場所であって没地ではない）ため、初版の死没 placeName「القلعة」は除去し funeral event に移した。 / 葬礼（父スルターン・ジャクマクによる城塞での礼拝→有力者による葬送→バルクーキーヤ埋葬、ズワイラ門の二門から棺を入れた）。القلعة＝TMP-L-00006（文脈上カイロ城塞）。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
   quote: سنة
 relations:
 - id: r1
@@ -104,23 +112,6 @@ relations:
   quote: null
   note:
     ja: '#AIND-D07312（محمد رابع الثلاثة قبله من أم ولد أيضا、853年没）。異母兄弟。'
-events:
-- id: e1
-  type: religious
-  subtype: funeral
-  date:
-    ah: 854-04-13
-  persons:
-  - ref: AIND-D02423
-  places:
-  - ref: TMP-L-00193
-    quote: القلعة
-  quote: دفن
-  summary:
-    ar: وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة
-  note:
-    ja: 葬礼（父スルターン・ジャクマクによる城塞での礼拝→有力者による葬送→バルクーキーヤ埋葬、ズワイラ門の二門から棺を入れた）。القلعة＝TMP-L-00006（文脈上カイロ城塞）。
-  trigger: rule
 translation:
   ja: ムハンマド。前の4人に続く5人目（の兄弟）。854年ラビーウ・アル＝アーヒル月13日月曜日に、生後10か月に満たないまま没した。父が城塞（アル＝カルア）で彼の葬礼の礼拝を行い、次いでアミールや官吏をはじめとする有力者たちが葬列に付き添い、バイナ・アル＝カスライン（両宮殿の間）のバルクーキーヤに埋葬された。これは、彼の母がアミール・スィラーフ（武器長官）ジャルバーシュ・アル＝カリーミーの娘フワンドであり、その母がアッ＝ザーヒル・バルクークの縁者カーニバーイの娘であったためである。人々は彼の棺をズワイラ門の二つの門から（市内へ）入れた。
   en: Muḥammad, the fifth after the four preceding him. He died on Monday, 13 Rabīʿ al-Ākhir 854, not having completed ten months of age. His father led the funeral prayer over him at the Citadel, and then the notables among the amirs, the administrators and others accompanied his bier until he was buried at al-Barqūqiyya in Bayn al-Qaṣrayn, because his mother was Khawand, the daughter of the Amīr Silāḥ Jarbāsh al-Karīmī, whose own mother was the daughter of Qānibāy, a relative of al-Ẓāhir Barqūq. They brought his bier in through the two gates of Bāb Zuwayla.

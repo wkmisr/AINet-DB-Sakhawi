@@ -59,9 +59,18 @@ death:
     ah: 830-03-02
   places:
   - ref: TMP-I-00027
+    role: burial
     quote: الخانقاه الشيخونية
+  - ref: TMP-L-00207
+    role: funeral
+    quote: الرميلة
+  persons:
+  - ref: AIND-D09832
+    role: funeral_prayer
   note:
     en: Buried in the Shaykhūniyya khānqāh beside Akmal al-Dīn.
+    ar: وتقدم العيني الناس في الصلاة عليه / ونزل السلطان من القلعة فصلى عليه بالرميلة
+    ja: スルターンが城塞から降りてきて、ルマイラで彼のための礼拝を行った。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
   quote: سنة
 relations:
 - id: r1
@@ -102,38 +111,16 @@ events:
     en: Resided as a Sufi in the qāʿa built by Akmal al-Dīn at the Shaykhūniyya for more than thirty years.
   trigger: rule
 - id: e4
-  type: religious
-  subtype: funeral
-  date:
-    ah: 830-03-02
-  persons:
-  - ref: AIND-D09832
-    quote: العيني
-  quote: فدفن
-  trigger: rule
-- id: e5
-  type: religious
-  subtype: funeral
-  date:
-    ah: 830-03-02
-  places:
-  - ref: TMP-L-00207
-    quote: الرميلة
-  quote: فصلى
-  summary:
-    ar: ونزل السلطان من القلعة فصلى عليه بالرميلة
-    ja: スルターンが城塞から降りてきて、ルマイラで彼のための礼拝を行った。
-  trigger: rule
-- id: e6
   type: cultural
   subtype: mention
   persons:
   - ref: AIND-D09832
+    quote: العيني
   quote: ذكره
   summary:
     ar: قال العيني وثبت بالتواتر أنه أقام أكثر من عشرين سنة لا يشرب الماء أصلا وكان يقضي أيامه بالصيام ولياليه بالقيام
   trigger: rule
-- id: e7
+- id: e5
   type: cultural
   subtype: mention
   persons:
@@ -143,7 +130,7 @@ events:
   summary:
     ar: قال شيخنا ومن عجائب أمره أنه لما مات كان الجمع في جنازته موفورا... وعد هذا من كراماته
   trigger: rule
-- id: e8
+- id: e6
   type: cultural
   subtype: mention
   persons:

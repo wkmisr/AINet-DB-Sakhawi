@@ -69,6 +69,7 @@ def refs(lst, kind):
         if r: seen.add(r)
         o = {'ref': r} if r else {}
         if p.get('role'): o['role'] = p['role']
+        elif p.get('type') in ('burial', 'funeral'): o['role'] = p['type']     # place of burial / funeral prayer
         if p.get('cert'): o['cert'] = p['cert']
         if p.get('text') and not r: o['label'] = p['text']   # no ID: keep the given name as a label
         out.append(o)
@@ -148,19 +149,6 @@ def convert(k, r):
     meta['name'] = {'full': full} if full else {}
     if names: meta['name']['elements'] = names
 
-    for kind in ('birth', 'death'):
-        x = r.get(kind)
-        if not x: continue
-        it = {'id': kind[0]}
-        d = ah_date(x)
-        if d: it['date'] = d
-        pl = refs(x.get('places'), 'place')
-        if pl: it['places'] = pl
-        if x.get('descs'): it['summary'] = {d_.get('lang', 'en'): d_['text'] for d_ in x['descs'] if d_.get('text')}
-        nt = notes_of(x)
-        if nt: it['note'] = nt
-        meta[kind] = it
-
     persons = []                                    # people the text names (or implies) but no ID identifies
     def local_person(label, why):
         pid = f'p{len(persons) + 1}'
@@ -169,6 +157,24 @@ def convert(k, r):
         o['for'] = why
         persons.append(o)
         return f'{k}#{pid}'
+
+    for kind in ('birth', 'death'):
+        x = r.get(kind)
+        if not x: continue
+        it = {'id': kind[0]}
+        d = ah_date(x)
+        if d: it['date'] = d
+        pl = refs(x.get('places'), 'place') or []
+        pl += refs(x.get('orgs'), 'org') or []
+        if pl: it['places'] = pl
+        ps = refs(x.get('names'), 'person')               # funeral prayer, buried near (role)
+        for pp in ps or []:
+            if not pp.get('ref'): pp['ref'] = local_person(pp.pop('label', None), kind[0]); STAT['local_person_bd'] += 1
+        if ps: it['persons'] = ps
+        if x.get('descs'): it['summary'] = {d_.get('lang', 'en'): d_['text'] for d_ in x['descs'] if d_.get('text')}
+        nt = notes_of(x)
+        if nt: it['note'] = nt
+        meta[kind] = it
 
     rels = []
     for lr in r.get('listRelation') or []:
@@ -253,8 +259,10 @@ def convert(k, r):
             if v: it[kk] = v
         q = None
         sm = {}
+        meths = [norm_id(d_.get('ref')) for d_ in ev.get('descs') or [] if d_.get('type') == 'method' and d_.get('ref')]
+        if meths: it['methods'] = meths
         for d_ in ev.get('descs') or []:
-            if not d_.get('text'): continue
+            if not d_.get('text') or d_.get('type') in ('method', 'field'): continue
             if d_.get('lang') == 'ar' and d_['text'] in text.replace('  ', ' '):
                 q = d_['text']                               # an Arabic desc that is verbatim in the text
             else:
@@ -292,11 +300,7 @@ def convert(k, r):
             it = meta.get('death') if code == 'YD' else meta.get('birth') if code == 'YB' else None
             if it is not None and 'quote' not in it:
                 it['quote'] = q; STAT['linked_Y'] += 1
-            if it is not None and m.group(3):          # بضع range: 1-9 (ruling 2026-11-22)
-                c = (it.get('date') or {}).get('cert')
-                it['date'] = {'notBefore': int(m.group(2)), 'notAfter': int(m.group(3)), **({'cert': c} if c else {})}
-                it.setdefault('note', {})['ja'] = ((it.get('note') or {}).get('ja', '') + ' / ' if (it.get('note') or {}).get('ja') else '') + 'بضع は1〜9として幅で記録（2026-11-22 裁定）'
-                STAT['bid_range'] += 1
+            # بضع ranges (1-9, ruling 2026-11-22) are now written in the TEI itself; the TEI date is kept as is
             continue
         code, p = m.group(1), int(m.group(2))
         sub, rid = parse_br(m.group(4))

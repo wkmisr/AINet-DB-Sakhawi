@@ -83,10 +83,14 @@ death:
   id: d
   date:
     ah: 880-11
+  places:
+  - ref: wd:Q312342
+    role: funeral
   summary:
     ar: مات في ذي القعدة سنة ثمانين عن ثلاث وخمسين فأكثر
   note:
-    ja: 880-11 ＝ 1476-03-06〜04-04、月初 1476-03（h2g.py。初版は年精度 1475、誤り）。没地の明示はない（葬礼がアズハルで行われたことから初版が補った placeName القاهرة を除去、規則22(1)）。
+    ja: 880-11 ＝ 1476-03-06〜04-04、月初 1476-03（h2g.py。初版は年精度 1475、誤り）。没地の明示はない（葬礼がアズハルで行われたことから初版が補った placeName القاهرة を除去、規則22(1)）。 / 葬礼 event（先例 D04677）。الأزهر ＝ wd:Q312342。初版の affiliation（affiliated、جامع الأزهر）は所属ではないため除去。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
+    ar: وصلي عليه في الأزهر
   quote: سنة
 relations:
 - id: r1
@@ -122,7 +126,7 @@ relations:
   - TMP-S-00003
   quote: شيخنا
   note:
-    ja: 「وهو ممن سمع على شيخنا」。شيخنا ＝ ابن حجر（wd:Q471116）。原文にない field（الحديث）を除去（規則7）。
+    ja: 原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「وهو ممن سمع على شيخنا」。شيخنا ＝ ابن حجر（wd:Q471116）。原文にない field（الحديث）を除去（規則7）。
 states:
 - id: s1
   type: office
@@ -144,18 +148,6 @@ affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
-events:
-- id: e1
-  type: religious
-  subtype: funeral
-  date:
-    ah: 880-11
-  orgs:
-  - ref: wd:Q312342
-  quote: وصلي
-  note:
-    ja: 葬礼 event（先例 D04677）。الأزهر ＝ wd:Q312342。初版の affiliation（affiliated、جامع الأزهر）は所属ではないため除去。
-  trigger: rule
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・ムーサー・ブン・ウマル・ブン・アワド・ブン・アティーヤ・ブン・アフマド・ブン・ムハンマド・ブン・アブド・アッ＝ラフマーン、アッ＝シラージュ・ブン・アッ＝シャムス・ブン・アッ＝シャラフ、アッ＝ラカーニー、のちアル＝カーヒリー、アル＝アズハリー、アル＝マーリキー。父と祖父は後述。（8）80年ズー・アル＝カアダ月に53歳余りで没し、アズハルで葬礼が行われた。生涯の大半はアズハル近くのマカーリーヤの店で公証の仕事で生計を立てていたが、親族である既述のアル＝ブルハーンがマーリク派カーディー職に就いた当初の1か月だけは、その下で代理としてナキーブ職を執った。その後、それを禁じる命令が来て、元の状態に戻った。我らの師（イブン・ハジャル）のもとで聴聞した者の一人であるが、称賛される人ではなかった。神が彼と我々を赦したまわんことを。
   en: ʿUmar b. Muḥammad b. Mūsā b. ʿUmar b. ʿAwaḍ b. ʿAṭiyya b. Aḥmad b. Muḥammad b. ʿAbd al-Raḥmān, al-Sirāj b. al-Shams b. al-Sharaf al-Laqānī, then al-Qāhirī al-Azharī al-Mālikī; his father and grandfather come below. He died in Dhū al-Qaʿda (8)80 aged fifty-three or more, and the funeral prayer was performed over him at al-Azhar. For most of his life he earned his living as a notary witness in a shop at al-Makāriyya near al-Azhar, except for one month at the beginning of the tenure of his relative al-Burhān, mentioned above, as qāḍī of the Mālikīs, when he exercised the office of naqīb as deputy under him; then the order came to bar him from it and he returned to his former state. He was among those who heard from our shaykh, but he was not praiseworthy; may God pardon him and us.

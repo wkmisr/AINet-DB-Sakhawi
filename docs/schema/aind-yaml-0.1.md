@@ -24,12 +24,12 @@
 | `id` / `source.uid` / `sex` | 見出しの ID、原典の12桁 ID、性別 | |
 | `name.full` | 見出しの名前（本文どおり） | |
 | `name.elements[]` | 名前要素：`type`（ism・nasab・nisbah・laqab・kunyah・shuhrah・honorific・madhhab）、`ref`、`quote`。規則で付けたものは `by: rule` | `n1`… |
-| `birth` / `death` | `date`（`ah`・`notBefore`・`notAfter`・`cert`）、`places[]`、`quote`、`note` | `b` / `d` |
+| `birth` / `death` | `date`（`ah`・`notBefore`・`notAfter`・`cert`）、`places[]`（埋葬地は `role: burial`、葬儀の礼拝の場所は `role: funeral`）、`persons[]`（`role: funeral_prayer`・`funeral_attendee`・`buried_near`）、`quote`、`note` | `b` / `d` |
 | `persons[]` | 本文に出てくる（または含意される）が ID で同定できない人物：`label`（TEI の desc）、`for`（その人物が現れる項目）、`name_element`（名のない父・祖父は見出しの1番目・2番目の nasab、`by: rule`）。参照は `<レコードID>#pN` | `p1`… |
 | `relations[]` | `type`（subtype から機械的に決める：kin・scholarly＝teacher・identity＝possible_identity・social）・`subtype`・`active`・`passive`（規則15：subtype は「active が passive の何にあたるか」。本項主かどうかは関係しない）、`methods[]`（TMP-S）、`context[]`（日付・場所）、`works[]`、`cert`、`quote`、`note` | `r1`… |
 | `states[]` | 官職・身分：`type`（office・status…）、`subtype`（deputy）、`ref`（なければ `label`）、`places[]`・`orgs[]`・`dates[]`、`cert`、`quote`、`note` | `s1`… |
 | `affiliations[]` | 所属：`type`、`ref`（なければ `label`）、`cert`、`note` | `a1`… |
-| `events[]` | 出来事：`type`・`subtype`、`date`、`persons[]`・`places[]`・`orgs[]`・`works[]`、`quote`（出来事の**中心語1語**）、`summary`（英語などの言い換え）、`cert`、`note`。規則で中心語を付けたものは `trigger: rule` | `e1`… |
+| `events[]` | 出来事：`type`・`subtype`、`date`、`methods[]`（学習の方法 TMP-S、relation と同じ）、`persons[]`・`places[]`・`orgs[]`・`works[]`、`quote`（出来事の**中心語1語**）、`summary`（英語などの言い換え）、`cert`、`note`。規則で中心語を付けたものは `trigger: rule` | `e1`… |
 | `notes[]` | 項目に属さない注記 | |
 | `translation` | `ja`・`en` | |
 | `provenance` | `app`・`generated_at`・`model_requested`・`model_resolved`（記録がなければ `model_era` と推定の根拠）・`created_by` | |
@@ -69,7 +69,7 @@ YAML はそのままではトリプルではないが、欠けなく機械的に
 ## 日付の規則
 - 幅のある年は `notBefore`・`notAfter` で書く（単一の年に cert low を付ける書き方はしない）。
 - **「بضع」は1〜9として扱う**（Waka 裁定 2026-11-22。辞書の定義の揺れ（3〜9／1〜9）に対して、真の値を外さない安全側を採る）。「بضع وعشرين」＝821〜829、「بضع عشرة」＝811〜819（百の位は文脈から）。
-  - XML の30件（3〜9 型20件、1〜9 型6件、820＋cert low 4件：D00003・D01780・D05686・D10176b）は変換時にこの幅にそろえ、note に裁定を記録。
+  - TEI の側を直した（PR #118、2026-11-22）：X3〜X9 と書いた幅は X1〜X9 に、単一の年＋cert low の4件（D00003・D01780・D05686・D10176b）は幅に。変換は TEI の値をそのまま使う（以前は変換時に幅を上書きしていたが、百の位を誤る場合があった：D07146 の生年）。
 
 ## mARkdown のタグ
 - 既存の形に `|識別子` を足す：`@P12[father:AIND-D00280|r1] بابن سابق`、`@O01[office:wd:Q125482|s3] إمامتها`、`@S01[nisbah:TMP-N-00010|n1] القاهري`
