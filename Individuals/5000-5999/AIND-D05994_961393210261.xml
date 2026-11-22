@@ -12,10 +12,11 @@
         <placeName xml:lang="ar" type="burial" ref="#TMP-I-00215">تربة التقي رجب العجمي من القرافة الصغرى</placeName>
         <placeName xml:lang="ar-Latn" type="burial" ref="#TMP-I-00215">Turbat al-Taqī Rajab al-ʿAjamī (al-Qarāfa al-Ṣughrā)</placeName>
         <note xml:lang="ja">「فلم يلبث أن مات في رابع صفر منها」（منها ＝ 850年）＝850年サファル月4日 ＝ 1446-05-10（h2g.py）。没地は原文に明記なし（カイロ到着直後の死と読めるが照応代名詞がないため placeName は付けず、規則22）。埋葬「ودفن بتربة التقي المذكور من القرافة الصغرى」＝ 前出の التقي رجب العجمي の墓廟（ID-Master 未登録 → TMP-I-00215。所在 القرافة الصغرى ＝ TMP-L-00221）。</note>
+        <persName ref="#AIND-D02423" role="funeral_prayer">السلطان</persName>
+        <note xml:lang="ja">「فأسف السلطان عليه وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه」。850年のスルターン ＝ الظاهر جقمق（#AIND-D02423、在位842–857、規則30 で年代確認）。先例 D02098（subtype funeral_attendee、الناصر فرج）。</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D05994"><desc xml:lang="ar">محمد</desc><note xml:lang="ja">父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。</note></relation>
-        <relation type="personal" subtype="funeral_attendee" n="1" active="#AIND-D02423" passive="#AIND-D05994"><desc xml:lang="ar">السلطان</desc><note xml:lang="ja">「فأسف السلطان عليه وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه」。850年のスルターン ＝ الظاهر جقمق（#AIND-D02423、在位842–857、規則30 で年代確認）。先例 D02098（subtype funeral_attendee、الناصر فرج）。</note></relation>
         <relation type="personal" subtype="relative" active="#AIND-D06830" passive="#AIND-D05994" cert="low"><desc xml:lang="ar">حميد الدين محمد بن تاج الدين القاضي</desc><note xml:lang="ja">「وينظر أهو قريب حميد الدين محمد بن تاج الدين القاضي」＝サハーウィー自身が親族か否かを要検討としている（ينظر → cert low）。相手 ＝ #AIND-D06830「محمد بن أحمد … حميد الدين أبو المعالي بن التاج النعماني نسبة للإمام أبي حنيفة النعمان البغدادي الأصل الفرغاني الدمشقي الحنفي」（805年生、父 ＝ #AIND-D01217 القاضي تاج الدين النعماني）。同じ النعماني（アブー・ハニーファ裔）・البغدادي・الدمشقي・الحنفي の属性を共有する。</note></relation>
     </listRelation>
     <state n="1" type="office" ref="#TMP-O-00055">
@@ -70,5 +71,11 @@
         <note xml:lang="ja">葬礼 event の type other → religious（repo 慣行・D05985 と統一、内容A L-17）。</note>
         <persName>claude-b109-113-triage</persName>
         <date when="2026-10-10"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「funeral_attendee」は葬儀・埋葬の記述なので除去し、&lt;death&gt; の persName（role=funeral_prayer）に移した（葬儀は bio_event にしない規則）。</note>
     </respStmt>
 </person>

@@ -11,11 +11,6 @@
     </birth>
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-001283" passive="#AIND-D04776"><desc xml:lang="ar">عبد الله بن جمال بن غنايم بن سليم البطناوي الدمشقي</desc><note xml:lang="ja">見出しナサブの父。corpus に本伝なし・ID-Master 未登録。祖父名（جمال）以上まで4代のナサブと一族の通称 ابن الجمال・ニスバ البطناوي（corpus では本項のみ）が識別要素になるため、規則3・12 により集約時に #NEEDID から仮番号 TMP-P-001283 に差し替え（§D94-5）。校閲時の判断: ナサブは長いが祖父以上が裸名（جمال بن غنايم بن سليم）で通称 ابن الجمال 以外の識別要素がなく、ニスバ البطناوي は本項主にしか corpus で出現しないため #NEEDID 維持（TMP-P 発行の要否は要判断、ISSUES §D94-5）。</note></relation>
-        <relation type="personal" subtype="met" n="1" active="#TMP-P-000135" passive="#AIND-D04776" cert="medium">
-            <desc xml:lang="ar">أبو هريرة بن الذهبي</desc>
-            <desc xml:lang="ar">وأخبر أنه صلى وراء أبي هريرة بن الذهبي ولكن لا يستحضر سماعا عليه ولا إجازة</desc>
-            <note xml:lang="ja">本人の談（أخبر أنه）で、礼拝で後ろに立っただけで聴聞・イジャーザの記憶はないと明言するため、teacher ではなく met とし cert medium。أبو هريرة بن الذهبي ＝ TMP-P-000135（ID-Master 登録済み、799年没）。</note>
-        </relation>
         <relation type="personal" subtype="teacher" n="2" active="#AIND-D04776" passive="#AIND-D00207" cert="medium">
             <desc xml:lang="ar">البقاعي</desc>
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
@@ -27,6 +22,8 @@
         <desc xml:lang="ar">وكان حيا في سنة تسع وخمسين</desc>
         <note xml:lang="ja">859年に存命。859 ＝ 1454-12-31〜1455-12-19、年初 1454（h2g.py）。</note>
     </event>
+    <event type="cultural" subtype="meeting" n="2" cert="medium"><persName ref="#TMP-P-000135">أبو هريرة بن الذهبي</persName><note xml:lang="ja">本人の談（أخبر أنه）で、礼拝で後ろに立っただけで聴聞・イジャーザの記憶はないと明言するため、teacher ではなく met とし cert medium。أبو هريرة بن الذهبي ＝ TMP-P-000135（ID-Master 登録済み、799年没）。</note>
+        </event>
     <note type="source" xml:lang="ar">عبد الوهاب بن عبد الله بن جمال بن غنايم بن
 سليم البطناوي الدمشقي ويعرف بابن الجمال . ولد بعد سنة خمس وثمانين
 وسبعمائة وأخبر أنه صلى وراء أبي هريرة بن الذهبي ولكن لا يستحضر سماعا
@@ -50,5 +47,11 @@
         <note xml:lang="ja">§D94-5: 父 عبد الله بن جمال بن غنايم بن سليم البطناوي を #NEEDID → TMP-P-001283（規則3「祖父名まで復元できれば TMP-P」を機械的に適用）。</note>
         <persName>claude-b94-98-triage</persName>
         <date when="2026-10-03"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「met」(#TMP-P-000135) を cultural/meeting event の persName に移した。学習を伴わない面会は event（2026-10-27 裁定）。</note>
     </respStmt>
 </person>

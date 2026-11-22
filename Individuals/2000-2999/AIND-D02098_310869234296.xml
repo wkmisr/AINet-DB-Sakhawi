@@ -6,10 +6,9 @@
     <sex value="M"/>
     <death when-custom="0809-11-06" when="1407-04-23">
         <note xml:lang="en">Died on the night of Friday, 6 Dhū al-Qaʿda 809 H; buried the following day.</note>
+        <persName ref="#AIND-D06160" role="funeral_prayer">الناصر</persName>
+        <note xml:lang="en">al-Nāṣir (Faraj b. Barqūq) attended his funeral prayer.</note>
     </death>
-    <listRelation>
-        <relation type="personal" subtype="funeral_attendee" n="1" active="#AIND-D06160" passive="#AIND-D02098"><desc xml:lang="ar">الناصر</desc><note xml:lang="en">al-Nāṣir (Faraj b. Barqūq) attended his funeral prayer.</note></relation>
-    </listRelation>
     <event type="other" n="1" subtype="funeral">
         <placeName xml:lang="ar" ref="#TMP-L-00151">مصلى المومني</placeName>
         <placeName xml:lang="ar-Latn" ref="#TMP-L-00151">Muṣallā al-Muʾminī</placeName>
@@ -43,5 +42,11 @@
         <resp xml:lang="ja">翻訳校正</resp>
         <persName>Claude Opus 4.8</persName>
         <date when="2026-07-17"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「funeral_attendee」は葬儀・埋葬の記述なので除去し、&lt;death&gt; の persName（role=funeral_prayer）に移した（葬儀は bio_event にしない規則）。</note>
     </respStmt>
 </person>

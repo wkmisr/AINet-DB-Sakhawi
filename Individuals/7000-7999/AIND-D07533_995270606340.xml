@@ -19,7 +19,7 @@
         <relation type="personal" subtype="grandfather" active="#AIND-D00657" passive="#AIND-D07533"><desc xml:lang="ar">أحمد بن حسين بن داود الماضي جده</desc><note xml:lang="ja">祖父＝#AIND-D00657（أحمد بن حسن بن داود بن سالم بن معالي الشهاب العباسي الحموي الحنبلي、795年生、825年からハマーのカーディー）。</note></relation>
     </listRelation>
     <event type="travel" n="1">
-        <placeName ref="gn:360630">القاهرة</placeName>
+        <placeName ref="gn:360630" role="origin">القاهرة</placeName>
         <desc xml:lang="ar">حين رجوعه من القاهرة إلى بلده</desc>
         <note xml:lang="ja">カイロからの帰途にダマスカスで没した（没地は death 側）。初版の visit event（دمشق）は death と二重のため除去、residence event（حماة＝職の所在）も除去（統一規則8・22）。</note>
     </event>
@@ -47,5 +47,11 @@
         <note xml:lang="ja">没年・就任年の世紀誤り（初版 782／778 → 882／878）を父 #AIND-D03553・祖父 #AIND-D00657 の本伝で確定して是正、西暦を h2g.py で再計算（1477）。父・祖父 #NEEDID を AIND に閉合。office ref → wd:Q217029、原文にない retirement を除去。visit(دمشق)・residence(حماة) event を除去し、カイロからの帰途を travel event に。原文 note を挿入、訳文（「〜の息子」連鎖・「アッバース朝の末裔」等）を逐語に書き直し。</note>
         <persName>claude-b88d-review</persName>
         <date when="2026-09-24"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">★6：「رجوعه من القاهرة إلى بلده」の القاهرة を role=origin に。「بلده」は地名でないので note のまま（規則25、2026-11-22 裁定）。</note>
     </respStmt>
 </person>

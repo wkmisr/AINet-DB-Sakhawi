@@ -6,9 +6,6 @@
     <death when-custom="0803" when="1400">
         <note xml:lang="en">The year 'three' refers to 803 AH, inferred from the context of Timur's fitna (803 AH).</note>
     </death>
-    <listRelation>
-        <relation type="personal" subtype="captor" n="1" active="wd:Q8462" passive="#AIND-D01788"><desc xml:lang="ar">اللنك</desc><note xml:lang="en">Taken captive by Timur (al-Lank, wd:Q8462) during his invasion and brought to his lands.</note></relation>
-    </listRelation>
     <event type="cultural" subtype="mention" n="1">
         <desc xml:lang="ar">قال شيخنا في أنبائه</desc>
         <desc xml:lang="en">The whole notice is drawn from Ibn Ḥajar (shaykhunā) in his Inbāʾ al-Ghumr.</desc>
@@ -17,6 +14,7 @@
     </event>
     <event type="residence" n="1" when-custom="0803" cert="high"><placeName>بلاده</placeName><note xml:lang="en">Taken by Timur to his lands during the fitna of Timur (803 AH).</note></event>
     <event type="visit" n="2" when-custom="0803" cert="medium"><placeName ref="gn:170654">دمشق</placeName><note xml:lang="en">Arrived after his release from Timur's captivity, in the year of his death.</note></event>
+    <event type="political" n="3"><persName ref="wd:Q8462" role="captor">اللنك</persName><note xml:lang="en">Taken captive by Timur (al-Lank, wd:Q8462) during his invasion and brought to his lands.</note></event>
     <state n="1" type="office" ref="#TMP-O-00019">
         <label xml:lang="ar">صناعة الفرى</label>
         <label xml:lang="ar-Latn">ṣināʿat al-farā</label>
@@ -58,5 +56,11 @@
         <persName>claude-opus-5-affil-state-dedup</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">§D-13のWaka裁定(案1)の同型適用: 「ديوان السلطان」(#TMP-I-00050)の場所情報がaffiliation(n=1, type=employed)とstate(n=2, type=office)に二重記録されていたため、affiliation側(場所のみの重複分)を削除。職名・場所とも保持するstate側は一切変更していない。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「captor」(wd:Q8462) を political event の persName（role=captor） に移した。出来事にあたる記述は relation でなく event の persName（2026-11-22 裁定）。</note>
     </respStmt>
 </person>

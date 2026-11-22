@@ -13,8 +13,7 @@
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-000600" passive="#AIND-D01702"><desc xml:lang="ar">يلبغا</desc></relation>
-        <relation type="personal" subtype="advisor/tutor" n="1" active="#AIND-D02178" passive="#AIND-D01702"><desc xml:lang="ar">الظاهر برقوق</desc><note xml:lang="en">Was ustādh (master/tutor) of Sultan al-Ẓāhir Barqūq.</note></relation>
-        <relation type="personal" subtype="killed together with" n="2" active="#AIND-D02089" passive="#AIND-D01702"><desc xml:lang="ar">أيتمش</desc><note xml:lang="en">Slaughtered together with Aytamish in 802 H.</note></relation>
+        <relation type="personal" subtype="client" n="1" active="#AIND-D02178" passive="#AIND-D01702"><desc xml:lang="ar">الظاهر برقوق</desc><note xml:lang="en">Was ustādh (master/tutor) of Sultan al-Ẓāhir Barqūq.</note></relation>
     </listRelation>
     <event type="travel" n="1"><placeName ref="#TMP-L-00002">الشام</placeName><note xml:lang="en">Exiled to Syria.</note></event>
     <event type="residence" n="2"><placeName ref="gn:266826">طرابلس</placeName><note xml:lang="en">Resided unemployed (bāṭil) in Tripoli.</note></event>
@@ -30,7 +29,7 @@
     </state>
     <event type="political" n="1" when-custom="0802-08-04" cert="high">
         <desc xml:lang="en">Killed together with Aytamish on the 4th of Shaʿbān 802 H. Killing location not stated in the source; Aytamish was executed at the Citadel of Damascus (external sources).</desc>
-    </event>
+    <persName ref="#AIND-D02089" role="co-victim">أيتمش</persName></event>
     <note type="source" xml:lang="ar">أحمد بن يلبغا شهاب الدين العمري الخاصكي
 الحسني صاحب الكيس وأستاذ الظاهر برقوق . كان معظما في الدولة أحد
 المقدمين بمصر في أيامه ثم أمير مجلس ثم نفاه إلى الشام وأقام بطالا في
@@ -64,5 +63,11 @@
         <persName>claude-b159-163-rulings</persName>
         <date when="2026-11-09"/>
         <note xml:lang="ja">B159-163 ★1-13（Waka 裁定 2026-11-09）: أيتمش の TMP-P-000601 を本伝 #AIND-D02089 أيتمش البجاسي に名寄せ（corpus の أيتمش 系見出しはこの1件、802年ダマスクスで殺害）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation subtype「advisor/tutor」→「client」。本項主は「أستاذ الظاهر برقوق」（バルクークの主人）＝バルクークは本項主の client（規則51・規則15）。 relation「killed together with」(#AIND-D02089 أيتمش) を除去し、殺害の political event の persName（role=co-victim）に移した（★9）。</note>
     </respStmt>
 </person>

@@ -14,11 +14,6 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#AIND-D11082" passive="#AIND-D05923" cert="medium"><desc xml:lang="ar">أبو القسم بن معيبد</desc><note xml:lang="ja">見出しナサブの父。イエメンの宰相家 ابن معيبد（#AIND-D01138 أحمد بن عمر بن معيبد وزير اليمن 没824）。候補 #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」（ナサブに عمر が1代多い）は確証なし → TMP-P-001398（§D107-9）。初版は father relation を欠落。</note><note xml:lang="ja">名寄せ監査 cert 補完（2026-11-05）: #AIND-D11082「أبو القسم بن عمر بن معيبد شرف الدين مات سنة ثلاثين」はナサブが1代ずれ、ابن معيبد 家は家名で世代を省く（叔父・従兄弟の可能性を排除できない）ので cert medium で保持する。上の note の「確証なし → TMP-P-001398」は統合前の判断の記録。</note></relation>
         <relation type="personal" subtype="cousin" active="#AIND-D05983" passive="#AIND-D05923" cert="medium"><desc xml:lang="ar">عمر بن محمد بن معيبد</desc><note xml:lang="ja">「وأظنه ابن عم عمر بن محمد بن معيبد الآتي」。相手 = #AIND-D05983（عمر بن محمد بن معيبد السراج أبو حفص … الزبيدي … اليماني الشافعي ويعرف بالفتى、801年生）。أظنه のため cert medium。初版の #NEEDID を差し替え。</note></relation>
-        <relation type="personal" subtype="met" n="1" active="#AIND-D04864" passive="#AIND-D05923">
-            <desc xml:lang="ar">العفيف عثمان الناشري</desc>
-            <event type="meeting" when-custom="0828" when="1424"><placeName ref="#TMP-L-00041">زبيد</placeName></event>
-            <note xml:lang="ja">「قال : وكنت اجتمعت به في سنة ثمان وعشرين بزبيد وحصل لي منظومة في مشايخ شيخنا ابن الجزري」。العفيف عثمان الناشري ＝ #AIND-D04864（عثمان بن عمر … العفيف الناشري المقري الشافعي、『البستان الزاهر』の著者、ابن الجزري の弟子）。828 ＝ 1424-12-02〜1425-11-21、年初 1424。初版の subtype「friend」・#NEEDID を是正。</note>
-        </relation>
     </listRelation>
     <state n="1" type="office" ref="wd:Q217029">
         <label xml:lang="ar">القاضي</label>
@@ -50,6 +45,8 @@
     <event type="religious" n="4">
         <desc xml:lang="ar">وكان مع ذلك يكابد العبادات ولا يفتر من الطاعات</desc>
     </event>
+    <event type="cultural" subtype="meeting" n="5"><persName ref="#AIND-D04864">العفيف عثمان الناشري</persName><note xml:lang="ja">「قال : وكنت اجتمعت به في سنة ثمان وعشرين بزبيد وحصل لي منظومة في مشايخ شيخنا ابن الجزري」。العفيف عثمان الناشري ＝ #AIND-D04864（عثمان بن عمر … العفيف الناشري المقري الشافعي、『البستان الزاهر』の著者、ابن الجزري の弟子）。828 ＝ 1424-12-02〜1425-11-21、年初 1424。初版の subtype「friend」・#NEEDID を是正。</note>
+        </event>
     <note type="source" xml:lang="ar">357 عمر بن أبي القسم بن معيبد القاضي تقي الدين
 اليمني التعزي . ذكره العفيف عثمان الناشري في أثناء كلام وقال أنه
 صاحب الفضل الشهير والأدب الكثير كتب إلى عمي يثني على دروسي لما وردت
@@ -96,5 +93,11 @@
         <persName>claude-b154-158-rulings</persName>
         <date when="2026-11-05"/>
         <note xml:lang="ja">名寄せ監査 cert 補完（2026-11-05、Waka 承認、監査 row 8137）: relation father active（#AIND-D11082）に cert medium。原文は裸の呼称「أبي القسم بن معيبد（見出し）」。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「met」(#AIND-D04864) を cultural/meeting event の persName に移した。学習を伴わない面会は event（2026-10-27 裁定）。</note>
     </respStmt>
 </person>
