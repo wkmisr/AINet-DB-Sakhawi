@@ -14,23 +14,33 @@ name:
     type: ism
     quote: فتح
     by: rule
+persons:
+- id: p1
+  label: عبد الله بن نصر الله الهرموزي
+  for: r1
+- id: p2
+  label: نصر الله الهرموزي
+  for: r2
+- id: p3
+  label: الهرموزية
+  for: r4
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06149#p1
   passive: AIND-D06149
   quote: الهرموزية
   note:
     ja: '父 عبد الله は見出しナサブのみの汎用名（マウラーの慣用的父名の可能性もある）。corpus の الهرموزي 見出し（D00235・D07321・D07854・D10128・D10544）に本伝なし → 規則3により #NEEDID。初版の #TMP-P-000490（登録実体＝al-Zuhrī の祖父 عبد الله）は別人の流用のため解除。'
 - id: r2
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D06149#p2
   passive: AIND-D06149
   quote: null
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D06149
@@ -44,9 +54,9 @@ relations:
       ar: ممن سمع مني بمكة
   quote: مني
 - id: r4
-  type: personal
+  type: social
   subtype: patron
-  active: NEEDID
+  active: AIND-D06149#p3
   passive: AIND-D06149
   quote: null
   note:

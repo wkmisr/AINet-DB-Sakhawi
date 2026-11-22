@@ -45,17 +45,32 @@ name:
     type: nasab
     quote: هاشم
     by: rule
+persons:
+- id: p1
+  label: محمد بن موسى بن علي بن محمد بن علي بن هاشم الضجاعي
+  for: r1
+  name_element: n5
+  by: rule
+- id: p2
+  label: علي بن هاشم
+  for: e1
+- id: p3
+  label: الكرماني
+  for: e2
+- id: p4
+  label: ابن عربي
+  for: e2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10092#p1
   passive: AIND-D10092
   quote: ابن عربي
   note:
     ja: 規則3 (c')。父 محمد بن موسى … الضجاعي は汎用名で識別要素なし、corpus に見出しなし（hw.py「الضجاعي」「بن هاشم」）。初版は父 relation なし。
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D00602
   passive: AIND-D10092
@@ -65,7 +80,7 @@ relations:
   note:
     ja: '「أخذ الفقه عن الشهاب أحمد الناشري」。師＝#AIND-D00602「أحمد بن أبي بكر بن علي … الشهاب أبو العباس بن الرضي بن الموفق الناشري … الزبيدي الشافعي」（742生）。相手側に「وممن أخذ عنه … والكمال موسى بن محمد الضجاعي」と本項主が名指しされ閉合（名＋ラカブ＋ニスバ）。初版は #NEEDID。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D09543
   passive: AIND-D10092
@@ -112,7 +127,7 @@ events:
   persons:
   - ref: AIND-D10050
     quote: موسى الذوالي
-  - label: علي بن هاشم
+  - ref: AIND-D10092#p2
   works:
   - ref: TMP-T-00184
   quote: ترجمة
@@ -124,8 +139,8 @@ events:
 - id: e2
   type: religious
   persons:
-  - label: الكرماني
-  - label: ابن عربي
+  - ref: AIND-D10092#p3
+  - ref: AIND-D10092#p4
   places:
   - ref: TMP-L-00037
     quote: اليمن

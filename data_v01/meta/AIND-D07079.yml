@@ -22,17 +22,26 @@ name:
     type: nasab
     quote: الفرات
     by: rule
+persons:
+- id: p1
+  label: أحمد
+  for: r1
+  name_element: n3
+  by: rule
+- id: p2
+  label: أبو عبد القادر
+  for: e1
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07079#p1
   passive: AIND-D07079
   quote: null
   note:
     ja: '父は裸名 أحمد のみ（ابن الفرات は一族の通称）→ #NEEDID 維持（規則3・12）。'
 - id: r2
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D06889
   passive: AIND-D07079
@@ -50,8 +59,8 @@ events:
   - ref: AIND-D03412
     role: grantor
     quote: الزين طاهر المالكي
-  - ref: NEEDID
-    role: recipient
+  - role: recipient
+    ref: AIND-D07079#p2
   quote: شهد
   summary:
     ar: شهد على الزين طاهر المالكي في إجازته لأبي عبد القادر سنة ثلاث وثلاثين

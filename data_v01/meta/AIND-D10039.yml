@@ -29,17 +29,23 @@ name:
     type: nasab
     quote: البرهان
     by: rule
+persons:
+- id: p1
+  label: إبراهيم
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10039#p1
   passive: AIND-D10039
   quote: null
   note:
     ja: '規則3。父 إبراهيم（ラカブ البرهان、通称 ابن البرهان 家）は祖父名が原文・相手側（子の本伝 D03816・D09459、孫 D04012、通称索引 D12186）のいずれにもなく復元できないため #NEEDID。corpus に見出しなし（hw.py「ابن البرهان」の إبراهيم 系は別家）。'
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D09459
   passive: AIND-D10039
@@ -47,7 +53,7 @@ relations:
   note:
     ja: '「والد البدر محمد وعبد الرحمن」。子 البدر محمد＝corpus 本伝 #AIND-D09459「محمد بن موسى نب[=بن] إبرهيم البدر بن الشرف بن البرهان أخو عبد الرحمن ووالد عبد العزيز الماضيين . مات في .」（repo D03816 でも brother として同定済み）。初版の汚染番号 TMP-P-000529（汎用 محمد）を置換。'
 - id: r3
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D03816
   passive: AIND-D10039
@@ -55,7 +61,7 @@ relations:
   note:
     ja: '子 عبد الرحمن＝corpus 本伝 #AIND-D03816「عبد الرحمن بن موسى بن إبراهيم الزين بن الشرف بن البرهان أخو محمد الآتي وأبوهما ويعرف بابن البرهان … مات في أحد الربيعين سنة إحدى وتسعين」（repo 収録済み、father relation に #AIND-D10039 を使用）。初版の #NEEDID を置換。孫 عبد العزيز＝#AIND-D04012（البدر محمد の子）。'
 - id: r4
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D03484
   passive: AIND-D10039

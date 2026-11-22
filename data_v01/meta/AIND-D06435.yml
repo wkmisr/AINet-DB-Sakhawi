@@ -14,17 +14,24 @@ name:
     type: ism
     quote: ماميه
     by: rule
+persons:
+- id: p1
+  label: والد ماميه الأشرفي قايتباي
+  for: r1
+- id: p2
+  label: ابن عثمان
+  for: e1
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06435#p1
   passive: AIND-D06435
   quote: ابن عثمان
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06305
   passive: AIND-D06435
@@ -32,7 +39,7 @@ relations:
   note:
     ja: '主人ニスバ「الأشرفي قايتباي」（規則51）。الأشرف قايتباي＝#AIND-D06305（頻出確定ID、先例 #AIND-D06288）。初版にはなし。'
 - id: r3
-  type: personal
+  type: social
   subtype: predecessor
   active: AIND-D03257
   passive: AIND-D06435
@@ -50,7 +57,7 @@ events:
 - id: e1
   type: political
   persons:
-  - ref: NEEDID
+  - ref: AIND-D06435#p2
   quote: null
   summary:
     ar: سافر بعد الصلح مع ابن عثمان إليه بهدية ثم رجع

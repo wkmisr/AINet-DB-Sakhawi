@@ -45,17 +45,23 @@ death:
   note:
     ar: مات بعد الستين تقريبا
     ja: 「بعد الستين تقريبا」＝860年以後（repo 先例「مات بعد الثمانمائة」→ notBefore-custom 0800、規則18）。860＝1455-12-20 開始。「تقريبا」のため cert low。没年は作らない。
+persons:
+- id: p1
+  label: أحمد بن حسن
+  for: r1
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D02880#p1
   passive: AIND-D02880
   quote: null
   note:
     ja: '規則3 (c'')。父 أحمد بن حسن المطري は corpus に本伝なし（hw.py「أحمد بن حسن|المطري」該当は本項のみ）、ID-Master 未登録、識別要素なし → #NEEDID。'
 - id: r2
-  type: personal
+  type: kin
   subtype: mother
   active: AIND-D12908
   passive: AIND-D02880
@@ -63,7 +69,7 @@ relations:
   note:
     ja: '「وهو ابن بركة الآتية في معجم النسائي」＝女性部 #AIND-D12908「بركة ابنة سعد بن أحمد أم خليل العقيبية ثم المطرية ابنة أخت شيخنا الزين رضوان لابيه … أجاز لها باستدعاء خالها عائشة ابنة ابن عبد الهادي … أجازت لي」（760年頃生、837年以後没、未収録）。クンヤ أم خليل・ニスバ المطرية・同じ授与者 عائشة ابنة ابن عبد الهادي で閉合（規則57）。初版の TMP-P-000039（汎用 بركة、ID-Master の Note は D00074 の姉妹＝#AIND-D12907 を指す）は汚染流用＝置換。母が الزين رضوان（#AIND-D03005）の姉妹の娘であることは本項原文になし＝note。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D13339
   passive: AIND-D02880
@@ -73,7 +79,7 @@ relations:
   note:
     ja: 'عائشة ابنة ابن عبد الهادي＝ #AIND-D13339（名寄せ済み）。初版の空の field desc（TMP-S-00000）を除去。「غير واحد منهم …」の列挙は名指しの師ごとに relation（規則55）。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D10690
   passive: AIND-D02880
@@ -83,7 +89,7 @@ relations:
   note:
     ja: 'الزين أبو بكر المراغي＝ #AIND-D10690（頻出確定ID）。'
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D04093
   passive: AIND-D02880
@@ -93,7 +99,7 @@ relations:
   note:
     ja: 'الصلاح الأرموي＝ #AIND-D04093「عبد القادر الباني بن إبراهيم بن محمد بن إبراهيم بن عبد الله بن يوسف الصلاح بن الزكي الارموي الأصل الدمشقي الصالحي … ولد في سنة خمس وثلاثين وسبعمائة … وحدث بالكثير … وتفرد . مات في شوال سنة أربع وعشرين」（未収録。repo D05600 が師として使用済み）。ラカブ・ニスバ・800年代の授与者としての役割で閉合。ID-Master 既登録 TMP-P-000738「عبد القادر الأرموي」（Note「独立立項なし」は誤り）は D04093 と名寄せ要（ISSUES）。初版 #NEEDID を置換。'
 - id: r6
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D08850
   passive: AIND-D02880
@@ -103,7 +109,7 @@ relations:
   note:
     ja: 'الشرف بن الكويك＝ #AIND-D08850（ID-Master「الشرف أبو الطاهر بن الكويك」）。初版 #NEEDID を置換。'
 - id: r7
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D02880
   passive: wd:Q4120128

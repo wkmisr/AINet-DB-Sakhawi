@@ -50,9 +50,16 @@ name:
     type: nasab
     quote: أبي سعيد
     by: rule
+persons:
+- id: p1
+  label: أخو أبي عبد الله محمد بن أبي سعيد المريني
+  for: r2
+- id: p2
+  label: أخو أبي عبد الله محمد بن أبي سعيد المريني
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D04834
   passive: AIND-D07933
@@ -60,17 +67,17 @@ relations:
   note:
     ja: '「الماضي أبوه」＝corpus 本伝 #AIND-D04834「عثمان بن أحمد بن إبراهيم بن علي بن عثمان بن يعقوب بن عبد الحق أبو سعيد ملك الغرب وصاحب فاس … والد أبي عبد الله محمد أقام على سلطنة فاس وما والاها نحو ثلاث وعشرين سنة وثلاثة أشهر ثم قتله وزيره عبد العزيز اللبابي الماضي في سنة ثلاث وعشرين وأقام عوضه ولده」（ナサブ7代一致、子 أبو عبد الله محمد を名指し、未受領）。初版は #NEEDID。'
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
-  active: NEEDID
+  active: AIND-D07933#p1
   passive: AIND-D07933
   quote: null
   note:
     ja: '「بعد قتل أخيه في سنة ثلاث وعشرين كما تقدم」＝823 年に殺された兄弟（名は原文になし）。ただし「كما تقدم」の指す父の本伝 #AIND-D04834 では 823 年に殺されたのは父 أبو سعيد عثمان 自身で「وأقام عوضه ولده」（宰相 عبد العزيز اللبابي #AIND-D04015 による）。原文どおり「أخيه」で立て（規則25）、矛盾は ISSUES §D147-2 に。初版は active・desc とも空。'
 - id: r3
-  type: personal
+  type: social
   subtype: predecessor
-  active: NEEDID
+  active: AIND-D07933#p2
   passive: AIND-D07933
   quote: null
   note:

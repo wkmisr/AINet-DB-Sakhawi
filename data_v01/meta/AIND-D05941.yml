@@ -42,9 +42,13 @@ name:
     type: nasab
     quote: عطية
     by: rule
+persons:
+- id: p1
+  label: زبيدية
+  for: r2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D07201
   passive: AIND-D05941
@@ -52,15 +56,15 @@ relations:
   note:
     ja: '父 ＝ #AIND-D07201（محمد بن أبي بكر بن عبد الله بن ظهيرة بن أحمد عطية بن ظهيرة أبو سعيد القرشي المكي … مات سنة خمس عشرة بزبد）。ナサブ5代＋クンヤ أبو سعيد が一致＝確実。父がザビードで没したことは母「زبيدية」とも整合。初版の #NEEDID を差し替え。'
 - id: r2
-  type: personal
+  type: kin
   subtype: mother
-  active: NEEDID
+  active: AIND-D05941#p1
   passive: AIND-D05941
   quote: زبيدية
   note:
     ja: '「وأمه زبيدية」。名不詳（ザビード出身の女性）→ #NEEDID 維持（規則12）。なお同父 #AIND-D07201 の子 #AIND-D10819「أبو بكر بن أبي سعيد محمد … الماضي أبوه وأمه زبيدية . درج صغيرا」も母を「زبيدية」と記すが、相手側が本項主を名指ししないため規則23の条件を満たさず、校閲時に cert medium で置かれていた brother relation は集約時に除去して記録のみとした（§D108-4。B99-103 §D103-5・本バッチ §D105-10・§D108-5 の同父兄弟の扱いと統一）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D05941
   passive: wd:Q4120128

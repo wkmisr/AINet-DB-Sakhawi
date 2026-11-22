@@ -54,17 +54,23 @@ death:
     ar: مات قريب الستين تقريبا
   note:
     ja: '「قريب الستين تقريبا」＝およそ860年近く（規則4、when-custom=860。قريب と تقريبا の二重の留保＝cert low、先例 #AIND-D08025「مات قريب الستين」）。860＝1455-12-20〜1456-12-07（h2g.py）、年精度で @when=1455（初版の 1456 を是正）。二重立項の相手 #AIND-D09482 は「ومات في .」で年が欠けている。'
+persons:
+- id: p1
+  label: إبراهيم
+  for: r1
+  name_element: n9
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06576#p1
   passive: AIND-D06576
   quote: null
   note:
     ja: '規則3 (c'')。父 إبراهيم は名のみで識別要素なし、corpus に本伝なし。なお二重立項の相手 #AIND-D09482 とニスバ索引 #AIND-D11750 は父名を موسى とする（下の possible_identity）。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06576
   passive: AIND-D05165
@@ -74,7 +80,7 @@ relations:
   note:
     ja: '「وممن أخذهما عنه العلاء المرداوي」＝本項主が師（active）。العلاء المرداوي＝#AIND-D05165「761 علي بن سليمان بن أحمد بن محمد العلاء المرداوي ثم الدمشقي الصالحي الحنبلي ويعرف بالمرداوي شيخ المذهب」、その本文「والفرائض والوصايا والحساب عن الشمس السيلي الحنبلي خازن الضيائية وانتفع به في ذلك جدا ولازمه فيه أكثر من عشر سنين」で閉合（ラカブ・通称・職の3点）。原文の双数「هما」は先行の3科目（الفرائض・الحساب・الوصايا）と数が合わない。相続分割学と算術の2科目と読んで field に置いた（الوصايا は Subject 未登録。D05165 側は3科目を挙げる）。初版は passive #NEEDID・subtype student（旧規約）で、相手が本文に名指しされているのを取りこぼしていた。'
 - id: r3
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D09482
   passive: AIND-D06576

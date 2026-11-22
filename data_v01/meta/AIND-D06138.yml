@@ -18,17 +18,24 @@ name:
     type: ism
     quote: فارس
     by: rule
+persons:
+- id: p1
+  label: والد فارس المحمدي الركني فيروز
+  for: r1
+- id: p2
+  label: رأس نوبة خوند الكبرى
+  for: r6
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06138#p1
   passive: AIND-D06138
   quote: رأس نوبة خوند الكبرى
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06199
   passive: AIND-D06138
@@ -36,7 +43,7 @@ relations:
   note:
     ja: '見出し「فارس المحمدي الركني فيروز نائب المقدم」＝ニスバ الركني の由来となった主人 فيروز الركني＝ #AIND-D06199（فيروز الرومي الركني … ولاه الأشرف برسباي في رجب سنة ثلاث وثلاثين نيابة التقدمة、848/849年没。D02468「نيابة تقدمة المماليك بعد فيروز الركني」）。初版は name_only を「فارس فيروز」とし主人を名の一部としていた。'
 - id: r3
-  type: personal
+  type: social
   subtype: predecessor
   active: AIND-D05410
   passive: AIND-D06138
@@ -45,7 +52,7 @@ relations:
   note:
     ja: 「استقر في الوزر في صفر سنة أربع وستين بعد اختفاء ابني الأهناسي」＝الأهناسي の二子（العلاء علي＝#AIND-D05410（本文「وولاه بعد ذلك الوزر أيضا」）・البدر محمد＝#AIND-D08728「باشر نظر الدولة」）の逃亡後に宰相職に就いた。宰相職の前任は العلاء علي（D05410、複数回 الوزر を帯びた）と見て cert medium。初版の無効値「#NEEDED」を置換。
 - id: r4
-  type: personal
+  type: social
   subtype: successor
   active: AIND-D10009
   passive: AIND-D06138
@@ -54,7 +61,7 @@ relations:
   note:
     ja: '「فأقام ثلاثة أيام ثم صرف بمنصور ابن صفي」＝3日で منصور ابن صفي に交代。corpus の同名見出しは #AIND-D10009「منصور بن الصفي القطي」（コプト系の書記官僚、870年処刑）のみで年代・経歴が整合するが、名のみの同定のため cert medium（規則26）。初版の無効値「#NEEDED」を置換。'
 - id: r5
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06305
   passive: AIND-D06138
@@ -62,9 +69,9 @@ relations:
   note:
     ja: 「وتقرب من الأشرف قايتباي」。初版の統制外 subtype「political associate」と corresp 属性（wd:Q557847）を改めた。
 - id: r6
-  type: personal
+  type: kin
   subtype: spouse
-  active: NEEDID
+  active: AIND-D06138#p2
   passive: AIND-D06138
   quote: null
   note:

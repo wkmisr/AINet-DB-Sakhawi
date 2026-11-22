@@ -57,17 +57,23 @@ death:
     ar: مات بصالحية دمشق بعد الثلاثين
   note:
     ja: '「بعد الثلاثين」＝830年より後。repo 先例（規則18「بعد N」、同形の death notBefore-custom="0830" notBefore="1426"）どおり notBefore-custom=0830・年初 1426-11-11（h2g.py、年精度）。初版は when-custom="0830" when="1427"（確定年の扱い・西暦も年末側）。没地 صالحية دمشق＝ID-Master 登録 TMP-L-00003（初版 #NEEDID）。'
+persons:
+- id: p1
+  label: إبراهيم بن عثمان
+  for: r1
+  name_element: n7
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06521#p1
   passive: AIND-D06521
   quote: null
   note:
     ja: 規則3 (c')。父は見出しナサブのみで識別要素なし。corpus 見出しの「السفطرش…」は本項・子 D05359・別家系の D06737・索引 D11721 のみ（hq.py）。初版は father relation なし。
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D05359
   passive: AIND-D06521
@@ -75,7 +81,7 @@ relations:
   note:
     ja: '「والد علي الماضي」。子＝corpus 本伝 #AIND-D05359「علي بن محمد بن إبراهيم بن عثمان نور الدين أبو الحسن بن الشمس أبي عبد الله السفطرشيني ثم المصري الشافعي الشاذلي سبط النور الأدمي والآتي أبوه . ولد في عاشر ذي الحجة سنة إحدى وتسعين وسبعمائة بمصر … مات في ذي الحجة سنة ستين」（未収録）。ナサブ・父のラカブとクンヤ・ニスバ・「الآتي أبوه」で相互に閉合（ブリーフ候補を本文で確認。cert なし）。初版は汚染番号 TMP-P-000530（登録＝علي、関係専用。precheck）。'
 - id: r3
-  type: personal
+  type: kin
   subtype: father-in-law
   active: AIND-D04954
   passive: AIND-D06521
@@ -83,7 +89,7 @@ relations:
   note:
     ja: 「صاهر النور الأدمي」＝本項主が الأدمي の娘を娶った（規則52。子 D05359 が「سبط النور الأدمي」「جده لأمه」＝الأدمي の外孫であることで向きが確定）。النور الأدمي＝#AIND-D04954「علي بن أحمد بن أبي بكر … النور أبو الحسن الادمي ثم المصري الشافعي … مات في يوم الثلاثاء رابع شعبان سنة ثلاث عشرة」（未収録。ID-Master「النور الأدمى」＝AIND-D04954）。D05359 本文「ولما صاهر أبوه الأدمي جعله شافعيا」で閉合（ブリーフ候補を本文で確認）。初版は subtype other。
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D04954
   passive: AIND-D06521
@@ -93,7 +99,7 @@ relations:
   note:
     ja: 「وأخذ عنه」の「ه」＝直前の النور الأدمي（#AIND-D04954）。
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4664581
   passive: AIND-D06521

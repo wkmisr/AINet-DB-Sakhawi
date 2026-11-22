@@ -10,17 +10,24 @@ name:
     type: ism
     quote: ملج
     by: rule
+persons:
+- id: p1
+  label: والد ملج
+  for: r1
+- id: p2
+  label: ابنة ملج
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10002#p1
   passive: AIND-D10002
   quote: null
   note:
     ja: 規則3（単名の項。原文に父名なし）。
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
   active: AIND-D02423
   passive: AIND-D10002
@@ -29,16 +36,16 @@ relations:
   note:
     ja: 「قيل أنه أخ للظاهر جقمق … فيحرر」＝伝聞（قيل）＋要確認（فيحرر）→ cert low。الظاهر جقمق＝#AIND-D02423。D02423 の本文に兄弟 ملج の言及はない（D02423 が名指しする兄弟は جركس القاسمي المصارع）。
 - id: r3
-  type: personal
+  type: kin
   subtype: daughter
-  active: NEEDID
+  active: AIND-D10002#p2
   passive: AIND-D10002
   cert: low
   quote: null
   note:
     ja: 「وأنه والد زوجته أزبك الخازندار」＝アズバク・アル＝ハーズィンダールの妻の父、と読んだ場合の娘（名不詳）。読みと cert は下の son-in-law relation の note を参照。
 - id: r4
-  type: personal
+  type: kin
   subtype: son-in-law
   active: AIND-D01869
   passive: AIND-D10002

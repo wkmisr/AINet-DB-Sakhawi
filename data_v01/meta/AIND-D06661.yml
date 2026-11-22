@@ -36,17 +36,23 @@ death:
   note:
     ja: '一の位のみの年＝807年（80X、2026-09-24 Waka 裁定）、かつ「فيما أحسب」（サハーウィーの推定）＝cert medium。世紀の確認: 聴聞者 التقي الفاسي（#AIND-D06757）とイブン・ハジャルの活動期、師 الخلاطي は760年代のカイロの伝承者。807年初＝1404-07-19（h2g.py、年精度）。'
   quote: سنة
+persons:
+- id: p1
+  label: أحمد بن خواجا
+  for: r1
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06661#p1
   passive: AIND-D06661
   quote: null
   note:
     ja: 父 أحمد بن خواجا は corpus に本伝なし（hw.py「أحمد بن خواجا」は本項のみ）、識別要素なし＝#NEEDID（規則3 (c')）。初版は父 relation なし。
 - id: r2
-  type: personal
+  type: social
   subtype: other
   active: TMP-P-001756
   passive: AIND-D06661
@@ -54,7 +60,7 @@ relations:
   note:
     ja: '「ربيب الخلاطي」＝本項主は الخلاطي の継子（الخلاطي が継父）。継父の統制語彙がないので subtype other（先例 #AIND-D07339「ربيب الشمس السمرقندي العطار」）。الخلاطي: corpus に本伝なし。corpus の裸の「الخلاطي」は760年代のカイロの伝承者「المحب أبو العباس الخلاطي」を指す（#AIND-D00844「المحب أبي العباس الخلاطي」、#AIND-D00582「سمع بالقاهرة سنة ست وستين على المحب الخلاطي السنن للدارقطني」、#AIND-D00669・#AIND-D05146「سمع من／على الخلاطي سنن الدارقطني」ほか）＝本項の継父・師も同人と読み、ID-Master に Person 登録がないので仮 TMP-P-001756 を発行。初版はニスバ番号 TMP-N-00435 を人物位置に置いていた（precheck カテゴリ不一致）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001756
   passive: AIND-D06661
@@ -64,7 +70,7 @@ relations:
   note:
     ja: 「سمع عليه」＝継父 الخلاطي に聴聞した。初版はこの師弟関係を落としていた（訳文も「彼から聴聞がなされ」と向きが逆）。
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06661
   passive: AIND-D06757
@@ -74,7 +80,7 @@ relations:
   note:
     ja: 「وحدث سمع منه التقي الفاسي وشيخنا」＝本項主が師。初版は subtype student＝teacher に統一（規則15）。
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06661
   passive: wd:Q471116

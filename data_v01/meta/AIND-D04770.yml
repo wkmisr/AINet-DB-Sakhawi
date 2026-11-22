@@ -29,17 +29,23 @@ death:
   note:
     ja: '「ومات سنة خمس وثلاثين」。835 ＝ 1431-09-18〜1432-09-05、年のみのため年初 1431（h2g.py）。子 #AIND-D07912 の項「ولد سنة أربع وثلاثين وثمانمائة ومات أبوه في التي تليها」と整合。'
   quote: سنة
+persons:
+- id: p1
+  label: صدقة
+  for: r1
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D04770#p1
   passive: AIND-D04770
   quote: null
   note:
     ja: '見出しナサブの父。裸名のみで識別要素がないため #NEEDID（規則3・12）。'
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D07912
   passive: AIND-D04770
@@ -47,7 +53,7 @@ relations:
   note:
     ja: '「والد الرئيس الشمس محمد」＝#AIND-D07912「محمد بن عبد الوهاب بن صدقة الشمس القوصوني الطبيب ابن الطبيب الماضي أبوه … ولد سنة أربع وثلاثين وثمانمائة ومات أبوه في التي تليها … ثم ترقى إلى الرياسة」（ニスバ索引 #AIND-D11953「القوصوني … محمد بن عبد الوهاب بن صدقة الريس … مات في جمادى الأولى سنة خمس وتسعين」）。初版の汚染番号 TMP-P-000063（登録＝AIND-D0031 の兄弟 الشمس محمد）を差し替え。'
 - id: r3
-  type: personal
+  type: kin
   subtype: relative
   active: AIND-D05596
   passive: AIND-D04770
@@ -55,7 +61,7 @@ relations:
   note:
     ja: '「قريبه العلاء علي بن فتح الدين ابن قجاجق」＝#AIND-D05596「علي بن محمد بن يوسف العلاء بن فتح الدين بن جمال الدين القجاجقي … ابن قجاجق الجوهري الطبيب تدرب في الطب بعمه التاج عبد الوهاب القوصوني الماضي」（890年没）。相手側は本項主を「عمه」（父方叔父）と明記するが、本項の語は「قريبه」のため relative とし、叔父関係は note に留める。クンヤ索引 #AIND-D12625「ابن قجاجق العلاء علي ابن محمد بن يوسف」とも整合。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D04770
   passive: AIND-D05596

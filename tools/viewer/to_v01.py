@@ -25,6 +25,17 @@ def norm_id(x):
     return x or None
 
 
+UNK = (None, 'NEEDID')          # '#NEEDID' in the TEI = not identified (workflow marker)
+
+# relation type is derived from the subtype (the TEI @type is 'personal' almost everywhere)
+KIN = {'father', 'mother', 'son', 'daughter', 'brother', 'sister', 'grandfather', 'grandmother', 'grandson',
+       'granddaughter', 'maternal_grandfather', 'uncle', 'paternal_uncle', 'maternal_uncle', 'maternal_aunt',
+       'paternal_aunt', 'aunt', 'cousin', 'siblings_child', 'spouse', 'father-in-law', 'son-in-law',
+       'brother-in-law', 'daughter-in-law', 'mother-in-law', 'relative', 'ancestor', 'descendant'}
+REL_TYPE = lambda st: ('kin' if st in KIN else 'scholarly' if st == 'teacher'
+                       else 'identity' if st == 'possible_identity' else 'social')
+
+
 def ar_texts(lst):
     return [d.get('text') for d in (lst or []) if d.get('text') and d.get('lang', 'ar') == 'ar']
 
@@ -53,6 +64,7 @@ def refs(lst, kind):
     out = []; seen = set()
     for p in lst or []:
         r = norm_id(p.get('ref'))
+        if r == 'NEEDID': r = None
         if r and r in seen: continue
         if r: seen.add(r)
         o = {'ref': r} if r else {}
@@ -129,7 +141,7 @@ def convert(k, r):
     for n in r.get('names', []):
         if n.get('type') in ('full', 'name_only'): continue
         ni += 1; it = {'id': f'n{ni}', 'type': n.get('type')}
-        if n.get('ref'): it['ref'] = norm_id(n['ref'])
+        if norm_id(n.get('ref')) not in UNK: it['ref'] = norm_id(n['ref'])
         it['quote'] = None; it['_label'] = n.get('text')
         if n.get('cert'): it['cert'] = n['cert']
         names.append(it)
@@ -149,11 +161,27 @@ def convert(k, r):
         if nt: it['note'] = nt
         meta[kind] = it
 
+    persons = []                                    # people the text names (or implies) but no ID identifies
+    def local_person(label, why):
+        pid = f'p{len(persons) + 1}'
+        o = {'id': pid}
+        if label: o['label'] = label
+        o['for'] = why
+        persons.append(o)
+        return f'{k}#{pid}'
+
     rels = []
     for lr in r.get('listRelation') or []:
         for rel in lr.get('relations') or []:
-            it = {'id': f'r{len(rels) + 1}', 'type': rel.get('type'), 'subtype': rel.get('subtype'),
+            rid_ = f'r{len(rels) + 1}'
+            it = {'id': rid_, 'type': REL_TYPE(rel.get('subtype')), 'subtype': rel.get('subtype'),
                   'active': norm_id(rel.get('active')), 'passive': norm_id(rel.get('passive'))}
+            lab = next((d.get('text') for d in rel.get('descs') or []
+                        if not d.get('type') and d.get('text') and d.get('lang', 'ar') == 'ar'), None)
+            orig = (it['active'], it['passive'])
+            for side in ('active', 'passive'):
+                if it[side] in UNK:
+                    it[side] = local_person(lab, rid_); STAT['local_person_rel'] += 1
             meths = [norm_id(d.get('ref')) for d in rel.get('descs') or [] if d.get('type') == 'method']
             if meths: it['methods'] = [m for m in meths if m]
             if rel.get('cert'): it['cert'] = rel['cert']
@@ -174,7 +202,7 @@ def convert(k, r):
             it['quote'] = None
             nt = notes_of(rel)
             if nt: it['note'] = nt
-            partner = it['passive'] if it['active'] == k else it['active']
+            partner = orig[1] if orig[0] == k else orig[0]          # as written in the TEI / text tags
             it['_partner'] = partner
             rels.append(it)
     if rels: meta['relations'] = rels
@@ -183,7 +211,7 @@ def convert(k, r):
     for st in r.get('states') or []:
         it = {'id': f's{len(states) + 1}', 'type': st.get('type')}
         if st.get('subtype'): it['subtype'] = st['subtype']
-        if st.get('ref'): it['ref'] = norm_id(st['ref'])
+        if norm_id(st.get('ref')) not in UNK: it['ref'] = norm_id(st['ref'])
         else:
             lab = next(iter(ar_texts(st.get('labels'))), None)
             if lab: it['label'] = lab               # no ID: the label is the only value
@@ -202,7 +230,7 @@ def convert(k, r):
     affs = []
     for a in r.get('affiliations') or []:
         it = {'id': f'a{len(affs) + 1}', 'type': a.get('type')}
-        if a.get('ref'): it['ref'] = norm_id(a['ref'])
+        if norm_id(a.get('ref')) not in UNK: it['ref'] = norm_id(a['ref'])
         elif a.get('text'): it['label'] = a['text']
         if a.get('cert'): it['cert'] = a['cert']
         nt = notes_of(a)
@@ -218,6 +246,10 @@ def convert(k, r):
         if d: it['date'] = d
         for f, kk in (('names', 'persons'), ('places', 'places'), ('orgs', 'orgs'), ('bibls', 'works')):
             v = refs(ev.get(f), f)
+            if v and kk == 'persons':
+                for pp in v:
+                    if not pp.get('ref'):
+                        pp['ref'] = local_person(pp.pop('label', None), it['id']); STAT['local_person_ev'] += 1
             if v: it[kk] = v
         q = None
         sm = {}
@@ -268,6 +300,7 @@ def convert(k, r):
             continue
         code, p = m.group(1), int(m.group(2))
         sub, rid = parse_br(m.group(4))
+        if code != 'P' and rid == 'NEEDID': rid = None      # non-person NEEDID: no ID, match by type
         if code == 'E':
             j = int(rid[1:]) - 1 if rid and rid.startswith('e') else -1
             if 0 <= j < len(evs):
@@ -289,7 +322,9 @@ def convert(k, r):
                     if any(pp.get('ref') == rid for pp in ev.get('persons') or []):
                         it = ev if ev['id'] not in used else None; break
         elif code == 'O':
-            it = take(lambda x: rid and x.get('ref') == rid, states) or take(lambda x: not rid and x['type'] == sub, states)
+            it = (take(lambda x: rid and x.get('ref') == rid, states)
+                  or take(lambda x: not rid and not x.get('ref') and x['type'] == sub.split('/')[0], states)
+                  or take(lambda x: not rid and x['type'] == sub, states))
         elif code == 'T':
             # a place may serve several items; link to none, quote goes onto every place ref with that id
             for holder in [meta.get('birth'), meta.get('death'), *states, *evs, *[c for r_ in rels for c in r_.get('context', [])]]:
@@ -315,6 +350,22 @@ def convert(k, r):
             if it.get('quote') is None:
                 it['quote'] = None; STAT['noquote_' + it['id'][0]] += 1
                 if lab and not it.get('ref'): it['label'] = lab
+
+    # an unnamed father / grandfather is the 1st / 2nd nasab of the heading (by rule)
+    nas = re.findall(r'\[nasab[^\]|]*\|(n\d+)\]', ' '.join(new))
+    for st_, pos in (('father', 0), ('grandfather', 1)):
+        cand = [rl for rl in rels if rl['subtype'] == st_ and rl['passive'] == k and '#p' in str(rl['active'])]
+        if len(cand) == 1 and len(nas) > pos:
+            pid = cand[0]['active'].split('#')[1]
+            pe = next(x for x in persons if x['id'] == pid)
+            pe['name_element'] = nas[pos]; pe['by'] = 'rule'; STAT['local_person_nasab'] += 1
+    if persons:
+        out = {}
+        for kk, vv in meta.items():
+            if kk == 'relations': out['persons'] = persons
+            out[kk] = vv
+        if 'persons' not in out: out['persons'] = persons
+        meta.clear(); meta.update(out)
 
     tr = TR.get(k)
     if tr: meta['translation'] = tr

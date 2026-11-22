@@ -31,17 +31,23 @@ death:
   note:
     ja: 「مات بها في رجب سنة خمس وستين」。بها は直前の「نائب مكة」の مكة（本項で唯一の地名、規則22(3)）。865年ラジャブ＝1461-04-21〜05-20（h2g.py、月精度）。
   quote: سنة
+persons:
+- id: p1
+  label: مثقال
+  for: r1
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06371#p1
   passive: AIND-D06371
   quote: null
   note:
     ja: '父 مثقال は名のみで識別要素がなく（corpus の مثقال 見出し D06456〜D06458 はいずれも宦官で別人）、ID-Master 未登録 → #NEEDID（規則3）。子2人の本伝（#AIND-D09921・#AIND-D06050）のナサブ「بن قنيد بن مثقال」と一致。初版は father relation なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D09921
   passive: AIND-D06371
@@ -49,7 +55,7 @@ relations:
   note:
     ja: '「والد مسعود وعنان」。مسعود ＝ #AIND-D09921（مسعود بن قنيد بن مثقال الحسني … وزير مكة وابن وزيرها）。ナサブ一致。初版の #NEEDID を置換。'
 - id: r3
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D06050
   passive: AIND-D06371
@@ -57,7 +63,7 @@ relations:
   note:
     ja: 'عنان ＝ #AIND-D06050（عنان بن قنيد بن مثقال القائد الحسني الآتي أبوه وأخوه مسعود）。相手側は「الآتي أبوه」で閉合。初版の #NEEDID を置換。'
 - id: r4
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D02560
   passive: AIND-D06371

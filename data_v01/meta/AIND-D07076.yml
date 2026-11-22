@@ -18,17 +18,26 @@ name:
     type: nasab
     quote: أحمد
     by: rule
+persons:
+- id: p1
+  label: أحمد
+  for: r1
+  name_element: n3
+  by: rule
+- id: p2
+  label: أبو عبد القادر
+  for: e1
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07076#p1
   passive: AIND-D07076
   quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D06917
   passive: AIND-D07076
@@ -46,8 +55,8 @@ events:
   - ref: AIND-D03412
     role: grantor
     quote: الزين طاهر
-  - ref: NEEDID
-    role: recipient
+  - role: recipient
+    ref: AIND-D07076#p2
   - ref: wd:Q4120128
     role: observer
   quote: null

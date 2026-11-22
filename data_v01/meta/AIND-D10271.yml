@@ -41,25 +41,34 @@ death:
   note:
     ja: 873年初＝1468-07-31（h2g.py、年精度）。873年のペストによる死。
   quote: سنة
+persons:
+- id: p1
+  label: عجلان
+  for: r1
+  name_element: n6
+  by: rule
+- id: p2
+  label: طي
+  for: r2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10271#p1
   passive: AIND-D10271
   quote: طي
   note:
     ja: 規則3 (c')。父 عجلان は名のみで祖父名も不明、corpus に本伝なし（hw.py「عجلان|الأسيوطي」は本項のみ）。
 - id: r2
-  type: personal
+  type: kin
   subtype: ancestor
-  active: NEEDID
+  active: AIND-D10271#p2
   passive: AIND-D10271
   quote: null
   note:
     ja: 「ويقال له الطائي نسبة لجد له اسمه طي」＝طي という名の祖先（جد له＝世代は不明）にちなむニスバ。初版は grandfather（#NEEDID）としていたが、祖父とは限らない＝ancestor に（repo 実勢の subtype）。名のみ＝#NEEDID。
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q471116
   passive: AIND-D10271

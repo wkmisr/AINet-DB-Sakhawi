@@ -23,25 +23,34 @@ name:
     quote: الحنفي
     by: rule
     ref: wd:Q228986
+persons:
+- id: p1
+  label: عثمان
+  for: r1
+  name_element: n3
+  by: rule
+- id: p2
+  label: عثمان
+  for: r2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10110#p1
   passive: AIND-D10110
   quote: null
   note:
     ja: '規則3 (c'')。父 عثمان は見出しの名のみ（本項主の師でもある）。corpus に「عثمان … الكرخي／الجرخي」の本伝なし（hw.py）。二重立項の疑いのある #AIND-D00963 の見出しでは「عثمان بن نظام」。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
-  active: NEEDID
+  active: AIND-D10110#p2
   passive: AIND-D10110
   quote: null
   note:
     ja: 「ومن شيوخه والده」＝父（上の father relation と同一人物、#NEEDID）。原文は「شيوخه」と総称するのみで伝授の方法・科目を記さない＝method desc なし（初版の「أخذ」は原文にない）。
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001710
   passive: AIND-D10110
@@ -49,7 +58,7 @@ relations:
   note:
     ja: 「وقاضي زاده شارح الغميني وغيره」＝「『الغميني』その他の注釈者カーディー・ザーデ」。corpus に本伝なし。#AIND-D09431 の本文「وعن القاضي زاده الرومي صاحب شرح أشكال التأسيس」の人物と同一の可能性が高い（候補。呼称 قاضي زاده の1点のみで、本項は الرومي と言わない）。ID-Master 未登録＝仮番号。「الغميني」は原文どおり（規則25。الجغميني の『الملخص في الهيئة』を指すか＝候補）。初版が relation 内 bibl に充てた TMP-N-05114 はニスバ番号（カテゴリ不一致）で、注釈書は師の著作であって本項主が学んだ書とは書かれていない＝bibl を除去。
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001711
   passive: AIND-D10110
@@ -57,7 +66,7 @@ relations:
   note:
     ja: '「وخواجا فضل الله」。称号＋名のみ。corpus 見出し・本文に該当なし（全文走査「خواجا فضل الله」は本項のみ。見出しに فضل الله を持つ #AIND-D06185「فضل الله أبو الفضل الاسترابادي العجمي」は称号 خواجا を持たず、同定の根拠なし）。ID-Master 未登録＝仮番号（規則12）。'
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001712
   passive: AIND-D10110
@@ -65,7 +74,7 @@ relations:
   note:
     ja: '「وخواجا عصام الدين」。称号＋ラカブのみ。候補: #AIND-D01367 の本文がサマルカンドの師として挙げる「عصام الدين بن العلامة عبد الملك … من ذرية صاحب الهداية」（ラカブ1点のみ＝同定しない、規則26・57）。ID-Master 未登録＝仮番号。'
 - id: r6
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001713
   passive: AIND-D10110
@@ -73,7 +82,7 @@ relations:
   note:
     ja: 「وملا علي القشي」。corpus に本伝なし（全文走査「القوشجي」「القوشي」0件。「القشي」は القشيري の一部としてのみ）。原文の綴り「القشي」のまま（規則25。علي القوشجي を指すか＝候補）。ID-Master 未登録＝仮番号。
 - id: r7
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001714
   passive: AIND-D10110
@@ -81,7 +90,7 @@ relations:
   note:
     ja: 「وملا علاء الشاشي」。corpus に本伝なし（全文走査「علاء الشاشي」は本項のみ。#AIND-D04812 عبيد الله بن محمود الشاشي は別人）。ID-Master 未登録＝仮番号。
 - id: r8
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D00963
   passive: AIND-D10110

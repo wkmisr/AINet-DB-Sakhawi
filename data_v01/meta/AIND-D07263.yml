@@ -29,9 +29,21 @@ name:
     type: nasab
     quote: محمد
     by: rule
+persons:
+- id: p1
+  label: أبو بكر بن محمد البكري الطنبذي
+  for: r2
+  name_element: n5
+  by: rule
+- id: p2
+  label: الجمال محمد البكري الطنبذي
+  for: r3
+- id: p3
+  label: التاج البكري الطنبذي
+  for: r4
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D07263
@@ -47,25 +59,25 @@ relations:
   note:
     ja: 規則2。原文にない field الحديث を除去。
 - id: r2
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07263#p1
   passive: AIND-D07263
   quote: null
   note:
     ja: '父。汎用名で本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r3
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D07263#p2
   passive: AIND-D07263
   quote: null
   note:
     ja: 「حفيد الجمال والتاج البكري الطنبذي」。見出しナサブの祖父 محمد がラカブ الجمال の方と読める。corpus の الطنبذي 見出し（D01133 البدر أحمد بن عمر الطنبذي、D01419 ابن عرب 家など）に該当する「الجمال محمد」「التاج」の本伝なし。
 - id: r4
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D07263#p3
   passive: AIND-D07263
   quote: null
   note:

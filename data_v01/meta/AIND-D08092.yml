@@ -22,9 +22,15 @@ name:
     type: nasab
     quote: صبيح
     by: rule
+persons:
+- id: p1
+  label: علي بن صبيح
+  for: r2
+  name_element: n3
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D08092
@@ -40,15 +46,15 @@ relations:
   note:
     ja: 「ممن سمع مني بالمدينة」（規則2）。初版の field الحديث を除去。
 - id: r2
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D08092#p1
   passive: AIND-D08092
   quote: null
   note:
     ja: '規則3 (c'')。父 علي بن صبيح（المدني）は裸名で corpus に本伝なし（hw.py「صبيح」: D03753 عبد الرحمن بن محمد بن صبيح المدني は別人）、ID-Master 未登録 → #NEEDID。兄 D01024 と共有。'
 - id: r3
-  type: personal
+  type: kin
   subtype: brother
   active: AIND-D01024
   passive: AIND-D08092

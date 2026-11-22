@@ -29,25 +29,34 @@ name:
     type: nasab
     quote: أحمد
     by: rule
+persons:
+- id: p1
+  label: علي بن أحمد الخطيري
+  for: r1
+  name_element: n5
+  by: rule
+- id: p2
+  label: ابنه محمد
+  for: r2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D08021#p1
   passive: AIND-D08021
   quote: ابنه محمد
   note:
     ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
-  type: personal
+  type: kin
   subtype: son
-  active: NEEDID
+  active: AIND-D08021#p2
   passive: AIND-D08021
   quote: null
   note:
     ja: '「وكان معه ابنه محمد」＝名のみ。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة の息子 محمد）を除去し #NEEDID（規則3・12）。corpus に「محمد بن محمد بن علي بن أحمد الخطيري」の本伝なし。'
 - id: r3
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D08893
   passive: AIND-D08021
@@ -55,7 +64,7 @@ relations:
   note:
     ja: '「ممن خدم البدر البغدادي」。البدر البغدادي ＝ #AIND-D08893「محمد بن محمد بن عبد المنعم بن داود بن سليمان البدر أبو المحاسن … البغدادي الأصل القاهري الحنبلي」（ハンバリー派カーディー、repo 先例 D07009・D07777 が同じ呼称で D08893 を充当）。初版の #NEEDID を解消。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D13827
   passive: AIND-D08021

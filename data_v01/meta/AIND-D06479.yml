@@ -28,17 +28,23 @@ name:
     type: nasab
     quote: أحمد
     by: rule
+persons:
+- id: p1
+  label: إبراهيم بن أحمد
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06479#p1
   passive: AIND-D06479
   quote: null
   note:
     ja: 裸名（名＋父名）のみで識別要素なし（規則3 (c')）。
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D00232
   passive: AIND-D06479
@@ -46,7 +52,7 @@ relations:
   note:
     ja: '「والد إبراهيم وإخوته」。子 إبراهيم ＝ #AIND-D00232「إبراهيم بن محمد بن إبراهيم بن أحمد برهان الدين بن شمس الدين القاهري المقسي الشافعي الخطيب … ويعرف كأبيه بابن الخص」（874没、未収録）。ナサブ3代＋通称 ابن الخص で閉合。D00232 末尾「ورأيت لأبيه سماعا لمجلس الختم للدارقطني على الأبناسي والغماري والشمس الحريري إمام الصرغتمشية والفوى وأحمد بن عبد الله بن رشيد السلمي الحجازي والزين بن النقاش وذلك في سنة خمس وتسعين وسبعمائة فيشار إليه في ترجمته من المحمدين」は本項の師の列挙と一致し、聴講年を 795 と伝える（他項の情報なので日付属性にせず note に留める、規則23）。他の子（通称索引 #AIND-D12295「ابن الخص … محمد بن إبرهيم بن أحمد وبنوه إبراهيم ومحمد وبهاء الدين」の محمد・بهاء الدين）は本項に名がなく relation を立てない。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-000322
   passive: AIND-D06479
@@ -56,7 +62,7 @@ relations:
   note:
     ja: 「ممن صحب ناصر الدين بن الميلق وغيره」。ID-Master 既登録 TMP-P-000322（repo D00134・D07445・D10040 で同じ師に使用）。corpus に本伝なし。【集約 2026-11-08】校閲 note の括弧書き「8世紀末没のシャーズィリー派シャイフ」は出典がない（corpus に ناصر الدين بن الميلق の見出しなし）ので削除（規則42・59(e)、内容B L）。「وغيره」は立てない。
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D08929
   passive: AIND-D06479
@@ -68,7 +74,7 @@ relations:
   note:
     ja: 'الغماري ＝ #AIND-D08929「محمد بن محمد بن علي بن عبد الرزاق الشمس أبو عبد الله الغماري ثم المصري المالكي النحوي」（720生・802没、شيخ النحاة）。D08928（إمام الصرغتمشية の子）の師の列挙でも「الغماري」が الأبناسي・ابن رشيد・ابن النقاش・الفوي と並ぶ。ختم الدارقطني＝『سنن الدارقطني』（wd:Q12217063、ID-Master・repo 5件）の読了会。'
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D00335
   passive: AIND-D06479
@@ -80,7 +86,7 @@ relations:
   note:
     ja: 'الأبناسي ＝ #AIND-D00335「إبراهيم بن موسى بن أيوب البرهان … الأبناسي ثم القاهري المقسي الشافعي الفقيه」（802没、ブリーフ頻出ID）。初版のニスバ番号 TMP-N-00086 の人物位置流用（precheck）を是正。'
 - id: r6
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-000326
   passive: AIND-D06479
@@ -92,7 +98,7 @@ relations:
   note:
     ja: 「الشمس الحريري إمام الصرغتمشية」。#AIND-D08928「محمد بن محمد بن علي بن صلاح المجد أبو الفتح بن الشمس القاهري الحنفي إمام الصرغتمشية وابن إمامها ويقال لأبيه أيضا الحريري」の父 الشمس محمد بن علي بن صلاح（本伝なし。hw.py「محمد بن علي بن صلاح」の該当 D08093 は السكندري で別人）。ID-Master 既登録 TMP-P-000326「الشمس الحريري」（repo D00134 の8世紀カイロの師に使用、TMP-P-001495 のジャルジャルの同名は別人）を使用。Note 補強を ISSUES §D162-4 に。
 - id: r7
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D05452
   passive: AIND-D06479
@@ -104,7 +110,7 @@ relations:
   note:
     ja: 'النور الفوي ＝ #AIND-D05452「علي بن محمد بن عبد الكريم النور أبو الحسن الفوي القاهري الشافعي نزيل خانقاه شيخو … ويعرف بالفوي … وعلى المحب الخلاطي السنن للدارقطني」（750頃生・827没。ID-Master「النور بن الفوي」＝AIND-D05452 名寄せ済）。D05452 自身が『سنن الدارقطني』を聴いており伝承者として整合。初版の #NEEDID を置換。'
 - id: r8
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D00896
   passive: AIND-D06479
@@ -116,7 +122,7 @@ relations:
   note:
     ja: '＝ #AIND-D00896「أحمد بن عبد الله بن رشيد الشهاب السلمي الحجازي الحنفي الضرير . سمع عليه المجد إمام الصرغتمشية في سنة أربع وتسعين الختم من الدارقطني وجزء الغطريف」（repo 収録済）。名・ナサブ・ニスバ・الضرير・ختم الدارقطني の伝承まで一致。'
 - id: r9
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D03778
   passive: AIND-D06479

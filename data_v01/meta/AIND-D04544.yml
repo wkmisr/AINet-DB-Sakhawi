@@ -10,9 +10,13 @@ name:
     type: ism
     quote: عبد الله
     by: rule
+persons:
+- id: p1
+  label: أحد من أخذ باستدعاء الزيني رضوان وابن موسى المراكشي المؤرخ بسنة أربع عشرة وثمانمائة
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: brother
   active: AIND-D04543
   passive: AIND-D04544
@@ -21,7 +25,7 @@ relations:
   note:
     ja: '「الذي قبله」＝直前項 #AIND-D04543（عبد الله بن محمد بن إبراهيم بن أحمد بن أبي بكر بن عبد الوهاب عفيف الدين بن الجمال المرشدي المكي الحنفي、822年生）。本項主は同名の兄で、D04543 より先に没したためその名が付けられたと推定される（أظنه توفي قبله فسمي باسمه）。初版の active 空欄の不正 relation を解消。'
 - id: r2
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D06465
   passive: AIND-D04544
@@ -30,9 +34,9 @@ relations:
   note:
     ja: 'D04543 の父 الجمال محمد بن إبراهيم بن أحمد بن أبي بكر بن عبد الوهاب المرشدي ＝ #AIND-D06465（770年マッカ生、والد عبد الأول وعبد الرحمن）。本項は「أخ للذي قبله」とのみ記し父名を明示しないため cert medium（規則23）。なお D04543 の同母兄 عبد الأول（#AIND-D03480）との関係は本項文に根拠がないため relation を立てない。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
-  active: NEEDID
+  active: AIND-D04544#p1
   passive: AIND-D04544
   methods:
   - TMP-S-00004
@@ -43,7 +47,7 @@ relations:
   note:
     ja: '「أخذ باستدعاء …」＝الزيني رضوان と ابن موسى المراكشي が814年付で作成したイジャーザ申請状（استدعاء）に名を連ね（無名の授与者から）イジャーザを受けた、の意。授与者は無名のため #NEEDID（#AIND-D04490 の同型先例）。初版は申請者2名を teacher としていたが、申請者は授与者ではないため other relation に改めた。'
 - id: r4
-  type: personal
+  type: social
   subtype: other
   active: AIND-D03005
   passive: AIND-D04544
@@ -51,7 +55,7 @@ relations:
   note:
     ja: 'إجازة 申請（استدعاء）の作成者。الزيني رضوان ＝ #AIND-D03005（رضوان بن محمد بن يوسف العقبي）。'
 - id: r5
-  type: personal
+  type: social
   subtype: other
   active: AIND-D09466
   passive: AIND-D04544

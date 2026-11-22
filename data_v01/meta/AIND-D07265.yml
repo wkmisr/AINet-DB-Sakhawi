@@ -29,17 +29,23 @@ name:
     type: nasab
     quote: محمد
     by: rule
+persons:
+- id: p1
+  label: أبو بكر بن محمد القابسي المحلي
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07265#p1
   passive: AIND-D07265
   quote: null
   note:
     ja: '父（初版は欠落）。汎用名で本伝なし → #NEEDID（規則3 (c'')）。甥 #AIND-D07700 によれば「من ذرية موفق الدين عمر بن عبد الوهاب القابسي」の家系。'
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
   active: TMP-P-001569
   passive: AIND-D07265
@@ -48,7 +54,7 @@ relations:
   note:
     ja: '「أخو نوابها الآن」（本項では兄弟の名なし）。甥の本伝 #AIND-D07700「محمد بن عبد القادر بن أبي بكر البدر أبو السعادات القابسي الأصل المحلى الشافعي … وأبوه ينوب عن قاضي المحلة بل هو نفسه . وقد تقدم عمه أبو الطيب محمد ابن أبي بكر بن محمد」が本項主を名指しで「عم」とするので、その父 عبد القادر（المحلة の代理カーディー）は本項主の兄弟＝「نوابها」の一人。父が #NEEDID のため規則23 但書により cert medium で relation。corpus に عبد القادر 自身の本伝なし、ID-Master 未登録 → 新規 TMP-P-001569（規則12）。他の「نواب」兄弟は名が出ないため relation にしない（規則14）。初版の空 brother relation（active 空）を置換。'
 - id: r3
-  type: personal
+  type: kin
   subtype: siblings_child
   active: AIND-D07700
   passive: AIND-D07265

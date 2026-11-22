@@ -36,9 +36,18 @@ death:
     cert: low
   note:
     ja: 「ومات قبيل التسعين」＝890年直前＝notAfter 889年（年末 1485-01-26、h2g.py）。先例「قبل العشرين→0819」に従い notAfter-custom を N−1 とする。cert low は「قبيل」の概数表現による。
+persons:
+- id: p1
+  label: ابنة الصفدي الحاشر
+  for: r2
+- id: p2
+  label: عبد الله بن محمد
+  for: r4
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D07845
@@ -56,15 +65,15 @@ relations:
   note:
     ja: 「ممن سمع مني بها في سنة ست وثمانين」（規則2）。「بها」は直前の مكة（照応、規則22(3)）。886年＝1481-03-11〜1482-02-28（h2g.py）。初版の field الحديث（原文なし）を除去。
 - id: r2
-  type: personal
+  type: kin
   subtype: spouse
-  active: NEEDID
+  active: AIND-D07845#p1
   passive: AIND-D07845
   quote: null
   note:
     ja: 「وتزوج ابنة الصفدي الحاشر بها」。妻は名不詳（الصفدي の娘）。
 - id: r3
-  type: personal
+  type: kin
   subtype: father-in-law
   active: TMP-P-001623
   passive: AIND-D07845
@@ -72,9 +81,9 @@ relations:
   note:
     ja: '妻の父「الصفدي الحاشر بها（＝بمكة）」。ニスバ＋職（الحاشر）＋マッカ在住という識別要素があるので規則12 により仮番号 TMP-P-001623 を発行（先例 #AIND-D03593「تزوج ابنة الجلال الخجندي」→ father-in-law TMP-P）。corpus に「الحاشر」は本項のみ、ID-Master 未登録。'
 - id: r4
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07845#p2
   passive: AIND-D07845
   quote: null
   note:

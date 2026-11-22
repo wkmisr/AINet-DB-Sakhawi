@@ -50,17 +50,26 @@ death:
   note:
     ja: イブン・ハジャル『إنباء』の引用中。「بها」＝直前の عدن（照応、cert 不要）。821年初＝1418-02-17（h2g.py、年精度）。التقي بن فهد は『معجم』で同じ没年を記すが没地を زبيد とする（「لكن بزبيد」）＝異伝として mention event の placeName と note に留め、death の placeName は主文の عدن。
   quote: سنة
+persons:
+- id: p1
+  label: علي بن أحمد
+  for: r1
+  name_element: n8
+  by: rule
+- id: p2
+  label: ابن شداد
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D03156#p1
   passive: AIND-D03156
   quote: ابن شداد
   note:
     ja: '見出しナサブのみ（汎用名、識別要素なし）。「ويعرف بالجنيد أو ابن الجنيد」の الجنيد が父（または祖先）の名・通称である可能性はあるが原文から決まらない。corpus に本伝なし（hw.py「الجنيد」: イエメンの ابن الجنيد 家の本伝は本項以外になし）、ID-Master 未登録 → #NEEDID（規則3 (c'')）。初版なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: daughter
   active: TMP-P-001175
   passive: AIND-D03156
@@ -69,9 +78,9 @@ relations:
   note:
     ja: 他項からの補完（規則23、cert medium）。#AIND-D07541「محمد بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … القرشي المكي ، وأمه خديجة ابنة القاضي سليمان بن علي بن الجنيد . درج صغيرا」＝母 خديجة は ID-Master 既登録 TMP-P-001175（Note に「父＝#AIND-D03156」）。「القاضي سليمان بن علي بن الجنيد」は本項主（名・父名・القاضي・ابن الجنيد）に一意。D07541（マッカの ابن ظهيرة 家の幼児）は本項主の外孫＝note のみ。
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
-  active: NEEDID
+  active: AIND-D03156#p2
   passive: AIND-D03156
   methods:
   - TMP-S-00003

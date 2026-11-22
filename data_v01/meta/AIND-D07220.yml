@@ -30,9 +30,18 @@ name:
     quote: الحنفي
     by: rule
     ref: wd:Q228986
+persons:
+- id: p1
+  label: أبو بكر بن علي الغزي
+  for: r4
+  name_element: n4
+  by: rule
+- id: p2
+  label: أخو العلاء الغزي
+  for: r5
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D07220
@@ -52,7 +61,7 @@ relations:
   note:
     ja: '「قرأ علي」の علي は「عليّ（私に）」（規則2）。場所はカイロ来訪中（「قدم القاهرة مرارا … في بعض قدماته」）。『عمدة القاري في ختم البخاري』はサハーウィー自著（「من تصانيفي」。自伝 #AIND-D07578 の著作目録に「عمدة القاري والسامع في ختم الصحيح الجامع」）＝ ID-Master 未登録 → TMP-T-00242。「وغير ذلك مما أثبته له في كراسة」（その他、冊子に書き付けたもの）は書名不明のため bibl にしない。初版の field（الحديث）は原文に根拠がないため除去。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D07220
@@ -70,7 +79,7 @@ relations:
   note:
     ja: 'サハーウィー自身の『ابن الجزري の الهداية 注釈』（TMP-T-00208、先例 #AIND-D05826「بحثا شرحي لهداية ابن الجزري」）の大部分を討究（بحث）の形で読んだ。初版の field（القراءات）は根拠がないため除去（الهداية は ابن الجزري のハディース学入門書で朗誦学書ではない）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D07220
@@ -88,23 +97,23 @@ relations:
   note:
     ja: 同書の残りは聴聞（سماع）。討究（بحث）とは性質の異なる伝授なので別 relation（規則2）。
 - id: r4
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07220#p1
   passive: AIND-D07220
   quote: العلاء الغزي
   note:
     ja: '父は見出しのナサブのみ。corpus の أبو بكر بن علي 見出し（クンヤ部）・ID-Master に الغزي の該当なし → #NEEDID（規則3）。'
 - id: r5
-  type: personal
+  type: kin
   subtype: maternal_grandfather
-  active: NEEDID
+  active: AIND-D07220#p2
   passive: AIND-D07220
   quote: null
   note:
     ja: '「سبط أخي العلاء الغزي」＝本項主は العلاء الغزي（#AIND-D05038 علي بن أحمد بن محمد العلاء البغدادي الأصل الغزي الحنفي … إمام إينال）の兄弟の娘の子。母方祖父＝ العلاء の兄弟（名不詳、…بن أحمد بن محمد الغزي）。通称「ابن بنت الحميري」からこの祖父が「الحميري」と呼ばれた可能性があるが、corpus に本伝なし・ID-Master 未登録 → #NEEDID。'
 - id: r6
-  type: personal
+  type: social
   subtype: granduncle
   active: AIND-D05038
   passive: AIND-D07220

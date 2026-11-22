@@ -32,9 +32,15 @@ name:
     type: nasab
     quote: محمد
     by: rule
+persons:
+- id: p1
+  label: إبراهيم بن محمد
+  for: r2
+  name_element: n6
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D06561
@@ -48,15 +54,15 @@ relations:
   note:
     ja: 「ممن سمع مني بالمدينة」（規則2）。
 - id: r2
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06561#p1
   passive: AIND-D06561
   quote: null
   note:
     ja: '規則3 (c'')。見出しどおりなら父は إبراهيم بن محمد（الشكيلي）＝汎用名で識別要素なし、corpus に本伝なし（全文「الشكيلي」8件）。ID-Master の TMP-P-000962「إبراهيم（جد أحمد بن محمد الشكيلي المدني）」は #AIND-D01628 の祖父として登録された別の位置の人物＝充てない。なお下の possible_identity が成り立てば、本項主の正しいナサブは「محمد بن إبراهيم」の順が逆（أبو الفتح بن محمد بن إبراهيم）で、父は محمد بن إبراهيم となる。初版は father relation なし。'
 - id: r3
-  type: personal
+  type: kin
   subtype: siblings_child
   active: AIND-D09830
   passive: AIND-D06561
@@ -64,7 +70,7 @@ relations:
   note:
     ja: '「وعم محمود بن أحمد الآتي」＝#AIND-D09830「محمود بن أحمد واختلف علي فيمن بعده فقيل محمد بن إبرهيم وقيل إبرهيم بن محمد وكأنه أصح الزين الشكيلي المدني أحد مؤذنيها والماضي عمه محمد بن إبرهيم وأخوه محمد وأبوهما . ممن سمع في المدينة . ويحرر مع محمود ابن أحمد بن إبرهيم الماضي قريبا」（相手側が「الماضي عمه محمد بن إبرهيم」と本項主を名指し＝相互閉合、repo 未収録）。ブリーフの候補 #AIND-D09826「محمود بن أحمد بن إبرهيم حميد اتلدين بن الفاضل شهاب الدين الشكيلي المدني الشافعي」は本項主に触れず、サハーウィー自身が D09830 の末尾で「ويحرر مع محمود ابن أحمد بن إبرهيم الماضي قريبا」（D09826 と同一人物かを要精査）と留保している項＝充てない（ISSUES §D170-1）。初版は #NEEDID。'
 - id: r4
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D11030
   passive: AIND-D06561

@@ -45,17 +45,23 @@ death:
     ar: مات تقريبا سنة سبع وستين
     ja: 「تقريبا」＝概数のため cert low。867＝1462-10-05 開始、年精度 1462。
   quote: سنة
+persons:
+- id: p1
+  label: علي بن حسن
+  for: r1
+  name_element: n6
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D08061#p1
   passive: AIND-D08061
   quote: null
   note:
     ja: 規則3 (c')。父 علي بن حسن は識別要素のない汎用名で corpus に本伝なし（hw.py「علي بن حسن」＋「الحنفي」は D08058・本項のみ）。初版・校閲で欠落していた father relation を集約で追加（2026-11-03、内容A H・機械 M、オーケストレーター決定1）。
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06729
   passive: AIND-D08061
@@ -65,7 +71,7 @@ relations:
   note:
     ja: '「قرأ على البساطي في الأصول وغيره」。البساطي ＝ #AIND-D06729（محمد بن أحمد بن عثمان بن نعيم … الشمس أبو عبد الله البساطي ثم القاهري المالكي عالم العصر、マーリク派大カーディー、842没。repo D02805・D04267・D07692 と同じ）。ID-Master の「البساطي」行は wd:Q12219083 のため corresp に添えた（العيني の先例と同型）。初版は wd 単独。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D09832
   passive: AIND-D08061
@@ -77,7 +83,7 @@ relations:
   note:
     ja: 「وعلى صهره شرحه للشواهد وغيره」＝姻戚 البدر العيني（#AIND-D09832、corresp wd:Q257745）に العيني 自身の『شرح الشواهد』等を読んだ。書名は ID-Master 未登録 → TMP-T-00256（corpus 7330・10330・55310・60885 行等「شرح الشواهد للعيني」「عن مؤلفه العيني」）。
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D09832
   passive: AIND-D08061
@@ -89,7 +95,7 @@ relations:
   note:
     ja: 「وحصل شرحه للبخاري」＝العيني のブハーリー注釈（D09832 本文「شرح البخاري في أحد وعشرين مجلدا سماه عمدة القاري」、corpus 109882 行）を入手した。ID-Master 未登録（TMP-T-00242 はサハーウィー自著の『عمدة القاري في ختم البخاري』＝別書） → TMP-T-00257。初版の field الحديث（原文になし）は除去。
 - id: r5
-  type: personal
+  type: kin
   subtype: relative
   active: AIND-D09832
   passive: AIND-D08061
@@ -97,7 +103,7 @@ relations:
   note:
     ja: 「صهر البدر العيني」「وعلى صهره」＝姻戚。婿か舅か義兄弟かは原文から決まらない（規則52 ★2 (b)）ため subtype relative。初版の subtype other を置換。
 - id: r6
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D09832
   passive: AIND-D08061

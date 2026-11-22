@@ -33,17 +33,23 @@ death:
   note:
     ja: 「مات في سنة سبع وثلاثين」。837年＝1433-08-27〜1434-08-15（h2g.py）。年精度。
   quote: سنة
+persons:
+- id: p1
+  label: أحمد
+  for: r1
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07050#p1
   passive: AIND-D07050
   quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06928
   passive: AIND-D07050
@@ -51,7 +57,7 @@ relations:
   note:
     ja: '「وانتمى لأبي الفتح بن وفاء」＝ #AIND-D06928「محمد بن أحمد بن محمد بن محمد بن النجم محمد فتح الدين أبو الفتح … القاهري المالكي الشاذلي … ويعرف بابن وفا」（790年頃生、852年没＝本項主の没年 837 に存命）。ID-Master の TMP-P-000148「أبو الفتح محمد ابن وفا」（Note「AIND-D0047の兄弟」＝#AIND-D00047 の桁欠け。repo では D02523 の brother に使用）は同一人物＝名寄せ要（要判断 ★名寄せ）。「شيخه」（後出）はこの人物。'
 - id: r3
-  type: personal
+  type: social
   subtype: funeral
   active: AIND-D06928
   passive: AIND-D07050
@@ -59,7 +65,7 @@ relations:
   note:
     ja: 「وتقدم شيخه للصلاة عليه بإشارة الزيني عبد الباسط مع حضرة الحنبلي وغيره من الأعيان」。葬礼の礼拝を導いた「شيخه」＝直前で「انتمى」の対象とされた أبو الفتح بن وفاء（#AIND-D06928）。初版はこれをイブン・ハジャルと誤読。「الحنبلي」（ハンバル派カーディー）は名を挙げないため relation を立てない。
 - id: r4
-  type: personal
+  type: social
   subtype: other
   active: AIND-D03484
   passive: AIND-D07050

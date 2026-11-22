@@ -46,17 +46,23 @@ death:
   note:
     ja: '「سنة اثنتين」＝802（一の位のみ＝80X、cert medium）。802年ラジャブ月＝1400-03-07〜04-05（h2g.py）、月精度で @when=1400-03（初版は年のみの 1399）。二重立項の相手 #AIND-D06799 も「في رجب سنة اثنتين」とし、イブン・ハジャルの言「ومات قبل دخولي دمشق بيسير」を引く（甥 #AIND-D07165 は「ولقيه شيخنا بدمشق … ومات في رمضان أو شوال سنة ثلاث」）。'
   quote: سنة
+persons:
+- id: p1
+  label: أحمد بن إدريس بن أبي الفتح
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06614#p1
   passive: AIND-D06614
   quote: null
   note:
     ja: '規則3 (c'')。父の本伝は corpus にない。ナサブの順は本項「بن أحمد بن إدريس بن أبي الفتح」、二重立項の相手 #AIND-D06799「بن أحمد بن أبي الفتح بن ادريس بن شامة」、甥 #AIND-D07165「بن أحمد بن أبي الفتح بن إدريس بن سلامة」で食い違う（刊本どおり）。初版は父 relation なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
   active: TMP-P-001485
   passive: AIND-D06614
@@ -64,7 +70,7 @@ relations:
   note:
     ja: '見出し「أخو العماد أبي بكر」。ID-Master 既登録 TMP-P-001485「المحدث العماد (أو الكمال) أبو بكر بن أحمد بن أبي الفتح بن إدريس بن سلامة الدمشقي (والد أمين الدين محمد ابن السراج)」（#AIND-D07165 の父、8世紀の人で corpus に本伝なし。Note に「弟＝#AIND-D06799（أخو العماد أبي بكر）」）。初版は #NEEDID。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-000275
   passive: AIND-D06614
@@ -76,7 +82,7 @@ relations:
   note:
     ja: 「سمع على الحجار الصحيح」。الحجار＝TMP-P-000275（登録「الحجار」、8世紀のムスニド。precheck の汚染注意は誤検出＝登録どおりの使用、ID-Master の行で確認）。原文に分野の語はない＝初版の field（الحديث）を除去。
 - id: r4
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D06799
   passive: AIND-D06614

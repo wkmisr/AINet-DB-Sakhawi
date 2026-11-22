@@ -36,17 +36,23 @@ death:
   note:
     ja: 835年ラマダーン月22日＝1432-06-01（h2g.py）。初版の @when 1431（年精度・年も誤り）を是正。「وقد جاز السبعين」は年齢（70歳を越えて）＝生年を作らない（規則59(d)）。
   quote: سنة
+persons:
+- id: p1
+  label: عبد الله
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10257#p1
   passive: AIND-D10257
   quote: null
   note:
     ja: 規則3 (c')。父 عبد الله は名のみ（改宗コプトの家で「بن عبد الله」）。初版は father relation なし。
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
   active: TMP-P-001190
   passive: AIND-D10257
@@ -55,7 +61,7 @@ relations:
   note:
     ja: '本項原文に兄弟の記述はない。相手側 #AIND-D07648「محمد بن عبد الرزاق بن عبد الله العلم أبو الخير بن الشمس أخي الصاحب العلم يحيى بن أبي كم … ويعرف بابن أبي كم」（repo 収録済み）と #AIND-D10302「… بن الشمس أخي العلم يحيى أبي كم الماضي قريبا」が本項主を名指しして、その父 الشمس عبد الرزاق を本項主の兄弟とする＝規則23 により cert medium。الشمس عبد الرزاق＝ID-Master 既登録 TMP-P-001190（Note に「宰相 العلم يحيى بن عبد الله أبوكم=#AIND-D10257 の兄弟」）。父が #NEEDID なので兄弟 relation を立てた（規則23 但し書き）。'
 - id: r3
-  type: personal
+  type: kin
   subtype: siblings_child
   active: AIND-D07648
   passive: AIND-D10257
@@ -64,7 +70,7 @@ relations:
   note:
     ja: '甥（兄弟の子）。相手側 #AIND-D07648 が本項主を「الصاحب العلم يحيى بن أبي كم」と名指し（repo では uncle relation に #AIND-D10257）＝規則23 により cert medium。その子（本項主の兄弟の孫）が #AIND-D10302「يحيى بن محمد بن عبد الرزاق … ويعرف بابن أبي كم」。'
 - id: r4
-  type: personal
+  type: social
   subtype: predecessor
   active: AIND-D06427
   passive: AIND-D10257
@@ -72,7 +78,7 @@ relations:
   note:
     ja: '「ولي الوزارة في دولة الناصر فرج عوضا عن الفخر بن غراب」＝宰相職の前任。#AIND-D06427「ماجد بن عبد الرزاق فخر الدين القبطي السكندري … أخو سعد الدين إبراهيم … ويعرف بابن غراب … واستقر في الوزارة في ذي الحجة منها（801年）… وكذا ولي نظر الخاص مضافا للوزر」（ラカブ・通称・宰相職・ファラジュ期で閉合。ブリーフ候補を本文で確認）。初版の #NEEDID を置換。'
 - id: r5
-  type: personal
+  type: social
   subtype: predecessor
   active: AIND-D00149
   passive: AIND-D10257
@@ -80,7 +86,7 @@ relations:
   note:
     ja: 「ثم الخاص عوضا عن أخيه سعد الدين بن غراب」＝نظر الخاص の前任。「أخيه」の代名詞は直前の الفخر بن غراب を指す（سعد الدين は الفخر の兄弟）＝#AIND-D00149「إبراهيم بن عبد الرزاق بن غراب سعد الدين … أخو الفخر ماجد … ويعرف بابن غراب … ولاه نظر الخاص」。初版は「أخيه」を本項主の兄弟と誤読して brother relation（#NEEDID）を立てていた＝除去。
 - id: r6
-  type: personal
+  type: social
   subtype: successor
   active: AIND-D02650
   passive: AIND-D10257

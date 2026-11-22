@@ -38,7 +38,7 @@ death:
     ja: '従兄弟 عبد المؤمن に殺害された。殺害の年・場所は原文にない＝日付属性・placeName を付けない（規則18(e)・22）。初版の when-custom="0894"・placeName تونس は原文に根拠がない（原文の年は「والفتنة قائمة في سنة بضع وتسعين」＝その後の内乱の時期のみ）＝除去。即位は二重立項 #AIND-D10304 によれば 893年シャウワール月（note 留め、規則23）。'
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D07955
   passive: AIND-D10315
@@ -47,7 +47,7 @@ relations:
   note:
     ja: '規則3。見出しは「يحيى بن محمد بن مسعود بن عثمان بن محمد بن أبي فارس」で、字義どおりなら父 محمد・祖父 مسعود・曾祖父 عثمان。しかし (1) 本文は「استقر بعد جده」、(2) 祖父の項 #AIND-D04873 は「عهد لولده مسعود فمات في شعبان سنة ثلاث وتسعين … وعهد ليحيى بن مسعود المذكور」と後継者を مسعود の子 يحيى とし、(3) مسعود は #AIND-D07955「محمد بن عثمان بن محمد بن أبي فارس المسعود بالله」のラカブ＝見出しの「محمد بن مسعود」は「محمد المسعود」の崩れとみられ、父は D07955（二重立項 #AIND-D10304 の父と同じ）。見出しは原文のまま読み（規則25）、同定は cert medium（ISSUES §D166-5）。初版は汚染番号 TMP-P-000529（汎用 محمد、precheck）＝置換。'
 - id: r2
-  type: personal
+  type: kin
   subtype: grandfather
   active: AIND-D04873
   passive: AIND-D10315
@@ -56,7 +56,7 @@ relations:
   note:
     ja: 「استقر بعد جده」の祖父＝ハフス朝の أبو عمرو عثمان（#AIND-D04873、893年没。相手側本文が يحيى への譲位を記す）。見出しのナサブ「عثمان بن محمد بن أبي فارس」も D04873 に一致。ただし見出しを字義どおり読むと عثمان は曾祖父に当たる＝cert medium（父 relation と同じ理由）。初版は祖父を「مسعود」#NEEDID としていた＝置換。
 - id: r3
-  type: personal
+  type: kin
   subtype: cousin
   active: TMP-P-001723
   passive: AIND-D10315
@@ -64,7 +64,7 @@ relations:
   note:
     ja: '「ابن عمه عبد المؤمن بن إبرهيم بن عثمان」＝父方の従兄弟（祖父 عثمان の孫）。corpus に本伝なし（hw.py「عبد المؤمن＋إبراهيم」該当なし。本文では #AIND-D09253「بعد إخراج عبد المؤمن بن إبرهيم ابن عثمان عنها زكريا بن يحيى بن مسعود」に出る）・ID-Master 未登録。ナサブ3代＋事績で識別できる＝仮番号 TMP-P-001723。初版は #NEEDID。'
 - id: r4
-  type: personal
+  type: kin
   subtype: son
   active: TMP-P-001724
   passive: AIND-D10315
@@ -72,7 +72,7 @@ relations:
   note:
     ja: 「زكريا بن يحيى المذكور」＝「上述のヤフヤー（＝本項主）の子ザカリーヤー」。#AIND-D09253 は同じ人物を「زكريا بن يحيى بن مسعود」（チュニスの君主）と呼ぶ＝本項主の子。corpus に本伝なし（hw.py「زكريا بن يحيى」5件に該当なし）・ID-Master 未登録＝仮番号 TMP-P-001724。初版の TMP-P-001079（登録＝「زكريا」、D00456 の師）は別人の番号の流用＝置換。
 - id: r5
-  type: personal
+  type: social
   subtype: predecessor
   active: AIND-D04873
   passive: AIND-D10315
@@ -81,7 +81,7 @@ relations:
   note:
     ja: 「استقر بعد جده」＝祖父が前任者（規則29 の型）。cert は grandfather relation に合わせた。
 - id: r6
-  type: personal
+  type: social
   subtype: successor
   active: TMP-P-001723
   passive: AIND-D10315
@@ -89,7 +89,7 @@ relations:
   note:
     ja: '「ثم قتله ابن عمه عبد المؤمن … واستقر عوضه」＝殺害者が後任となった。初版は #NEEDID。'
 - id: r7
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D10304
   passive: AIND-D10315
@@ -128,7 +128,7 @@ events:
   places:
   - ref: gn:2464470
     quote: تونس
-  - ref: NEEDID
+  - label: الغرب
     quote: الغرب
   quote: قتله
   summary:

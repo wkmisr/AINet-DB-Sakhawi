@@ -34,17 +34,23 @@ death:
     ar: مات قريب السبعين ظنا
   note:
     ja: 「قريب السبعين ظنا」＝870年頃と推定（規則4「قريب الN」型＝when-custom=870、推定「ظنا」を重ねて cert low）。870年初＝1465-09-02（h2g.py、年精度）。初版は cert なし。
+persons:
+- id: p1
+  label: النور علي بن محمد
+  for: r1
+  name_element: n3
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D08187#p1
   passive: AIND-D08187
   quote: null
   note:
     ja: '見出し「الشمس بن النور」＝父のラカブ النور（علي の常用ラカブ）のみで、ニスバ・家名・職がなく、corpus に本伝なし（hw.py「سيدي جعفر」は本項のみ）、ID-Master 未登録。識別要素が実質的に裸名と同じため #NEEDID（規則3 (c'')・12。TMP-P 発行の可否は ISSUES §D156-10）。初版の TMP-P-000530（登録＝علي、関係専用の汚染番号、precheck）を除去。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q471116
   passive: AIND-D08187
@@ -54,7 +60,7 @@ relations:
   note:
     ja: 「ممن قرأ الحديث وسمع على شيخنا وغيره」。شيخنا＝イブン・ハジャル（wd:Q471116）。「وغيره」は人物を立てない。原文にない field（الحديث）を除去（「قرأ الحديث」は本項主の学習活動＝event に）。【集約 2026-11-05】desc は相手の名「ابن حجر」とし、サハーウィーの呼称「شيخنا」は本 note に（規則31、機械 L、決定8）。
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D08187
@@ -79,7 +85,7 @@ states:
     ja: '「خادم سيدي جعفر بالقرب من سوق أمير الجيوش」。سيدي جعفر＝カイロの聖者廟（施設、ブリーフ指示）。ID-Master に施設・職とも未登録 → 新規 TMP-I-00271（施設）・TMP-O-00383（職。既登録の施設限定 خادم 職 TMP-O-00153 خادم قبة العباس・O-00200 خادم الرباط・O-00213 خادم الشيخونية と同型）。سوق أمير الجيوش＝ID-Master 既登録 TMP-L-00216（カイロ、placeName）＝「بالقرب من」の位置表示として placeName に。初版の #NEEDID ×2・placeName القاهرة（原文になし）・重複する affiliation n=1 を是正（規則8・22）。'
 - id: s2
   type: office
-  ref: NEEDID
+  label: وظائف البيمارستان
   orgs:
   - label: البيمارستان
   quote: وظائف البيمارستان

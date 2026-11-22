@@ -46,17 +46,23 @@ birth:
     quote: قوص
   note:
     ja: 「ولد بقوص قبل سنة خمسين وسبعمائة」。「قبل N」は notAfter-custom=N−1（規則18）＝749、年末 1349-03-29 → notAfter 1349（年精度）。
+persons:
+- id: p1
+  label: أبو بكر بن محمد بن علي بن عبد الرحيم القوصي
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07246#p1
   passive: AIND-D07246
   quote: null
   note:
     ja: '【集約 2026-10-25】父 أبو بكر بن محمد بن علي بن عبد الرحيم（見出しナサブ）。corpus に「أبو بكر بن محمد بن علي بن عبد الرحيم」「أبو بكر … القوصي」の見出しなし（hw.py）、父自身の識別要素なし → #NEEDID（規則3、内容B[2]・機械[9]）。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: wd:Q293604
   passive: AIND-D07246
@@ -64,7 +70,7 @@ relations:
   note:
     ja: 「خادم المقريزي」＝マクリーズィー（wd:Q293604）に仕えた。repo 慣行（خادم＝subtype patron、active=主人）に合わせ、初版の subtype「client」（#NEEDID）を patron に。
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001567
   passive: AIND-D07246
@@ -74,7 +80,7 @@ relations:
   note:
     ja: '「وحكى عنه عن الشيخ محمد بن الشيخ سيف الدين بن مفرج الدماميني ونور الدين ابن عبد العزيز بن شقير عن أبي ثانيهما حكاية في الاعتماد على الله والاستغاثة به」＝マクリーズィーが本項主から、本項主が الشيخ محمد بن سيف الدين بن مفرج الدماميني と نور الدين بن عبد العزيز بن شقير から（後者はその父 عبد العزيز بن شقير から）伝えた逸話。伝承の相手（本項主の師）2名のうち第1。corpus に見出しなし（「مفرج」「سيف الدين الدماميني」で不検出。ابن الدماميني 家 #AIND-D07221 とは別系統の名）、ID-Master 未登録 → 新規 TMP-P-001567（規則12）。初版は #NEEDID・空 field。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001568
   passive: AIND-D07246

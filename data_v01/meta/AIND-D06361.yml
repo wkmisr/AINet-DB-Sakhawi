@@ -18,17 +18,24 @@ name:
     type: ism
     quote: قطلو
     by: rule
+persons:
+- id: p1
+  label: صديق بن علي القونوي الرومي
+  for: r1
+- id: p2
+  label: ابن حمام
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06361#p1
   passive: AIND-D06361
   quote: ابن حمام
   note:
     ja: '父 صديق بن علي は見出しナサブのみで識別要素（ラカブ・職）がなく、corpus に本伝なし（hw.py「صديق بن علي」該当なし）→ #NEEDID（規則3、B119-123 (c'')）。初版は father relation なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: TMP-P-001599
   passive: AIND-D06361
@@ -36,9 +43,9 @@ relations:
   note:
     ja: '「والد عبد الرحمن الماضي」。corpus の عبد الرحمن 部に「عبد الرحمن بن قطلو بك／قطلوبك」の見出しは無い（grep「بن قطلوبك|بن قطلو بك|بن قطلبك」該当は D10727「أبو بكر بن عبد الرحمن بن قطلوبك . مات بالقاهرة في طاعون سنة سبع وتسعين」＝本項主の孫にあたる人物のみ）。ID-Master にも未登録 → 仮番号 TMP-P-001599。初版の幻番号 #TMP-P-000000 を置換。'
 - id: r3
-  type: personal
+  type: kin
   subtype: relative
-  active: NEEDID
+  active: AIND-D06361#p2
   passive: AIND-D06361
   cert: low
   quote: null

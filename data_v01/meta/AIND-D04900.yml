@@ -22,9 +22,15 @@ name:
     type: nasab
     quote: خليل
     by: rule
+persons:
+- id: p1
+  label: خليل
+  for: r2
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: TMP-P-001316
   passive: AIND-D04900
@@ -32,15 +38,15 @@ relations:
   note:
     ja: 見出し「عرفات بن محمد بن خليل الزين خطيب منية حمل من الشرقية」から1段ずらして復元（統一規則3）。初版の汚染番号 TMP-P-000529（إبراهيم بن عبد الله ابن جماعة の息子 محمد＝別人）を破棄。corpus に本伝なし・ID-Master の同名3件（القدسي・ابن المنمنم・الكردي）はいずれも別人のため仮番号発行。⚠汎用名（名＋父名のみ）。
 - id: r2
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D04900#p1
   passive: AIND-D04900
   quote: null
   note:
     ja: '祖父。見出し「عرفات بن محمد بن خليل」。裸名のみのため #NEEDID（規則3・12。校閲時に削除した初版の relation を集約時に復元）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D04900

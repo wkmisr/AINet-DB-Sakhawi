@@ -28,9 +28,18 @@ death:
   note:
     en: Died in 866 AH (866-01-01 = 1461-10-15, proleptic Gregorian).
   quote: سنة
+persons:
+- id: p1
+  label: عمر
+  for: r2
+  name_element: n4
+  by: rule
+- id: p2
+  label: صاحب صلحاء اليمن
+  for: e2
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-001152
   passive: AIND-D04532
@@ -40,9 +49,9 @@ relations:
   note:
     ja: '「صحب عبد الله العراقي وانتفع به في الطريق ونصبه شيخا」。イエメンのスーフィー師 عبد الله العراقي は corpus 他所に出現せず本伝なし・ID-Master 未登録（TMP-N-00105 العراقي はニスバ番号）。名＋ニスバ＋役割（本項主をシャイフに任じた師）で識別できるため規則12により新規 #TMP-P-001152（⚠汎用名）。【裁定反映 要判断_B88 §M-3】「corpus 他所に出現せず」は誤り。本伝候補が2件ある: #AIND-D04477（عبد الله بن عبد اللطيف … اليامشي العراقي الأصل العدني اليماني、862年アデン没、「كان متصوفا مذكورا بكرامات」）と #AIND-D04479（عبد الله بن عبد اللطيف أبو محمد الحضرمي نزيل مكة الشهير بالعراقي、847年マッカ没、「كان معتقدا」。D04676「عبد الله العراقي الحضرمي . مضى في ابن عبد اللطيف」）。いずれもイエメン系のスーフィーで本項主（866没）の師として成り立ち、corpus 内では絞れないため仮番号を維持する。'
 - id: r2
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D04532#p1
   passive: AIND-D04532
   quote: صاحب صلحاء اليمن
   note:
@@ -64,7 +73,7 @@ events:
   type: cultural
   subtype: mention
   persons:
-  - ref: NEEDID
+  - ref: AIND-D04532#p2
   works:
   - ref: TMP-T-00184
   quote: ذكره

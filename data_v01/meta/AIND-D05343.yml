@@ -27,9 +27,15 @@ name:
     type: nasab
     quote: يحيى
     by: rule
+persons:
+- id: p1
+  label: يحيى بن عبد الله
+  for: r2
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D11097
   passive: AIND-D05343
@@ -37,15 +43,15 @@ relations:
   note:
     ja: '父＝#AIND-D11097（クンヤ部 立項番号460「أبو القسم بن يحيى بن عبد الله المراكشي المغربي ممن سمع مني بمكة」、未受領）。名・父名・ニスバ2つ・サハーウィーからのマッカでの聴聞まで一致（規則37）。初版は #NEEDID。'
 - id: r2
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D05343#p1
   passive: AIND-D05343
   quote: null
   note:
     ja: '祖父（父項 D11097 により曾祖父名 عبد الله が分かる）。corpus に本伝なし → #NEEDID。初版の TMP-P-000596（登録＝D01585 の兄 يحيى、別人）は汚染流用のため除去。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D05343

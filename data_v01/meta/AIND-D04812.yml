@@ -23,20 +23,30 @@ death:
     ar: مات في سلخ ربيع الأول أو مستهل الثاني سنة خمس وتسعين
   note:
     ja: 「سلخ ربيع الأول أو مستهل الثاني」＝895年ラビーウ1月末日（895-03-30＝1490-03-02 日曜）または同2月朔日（895-04-01＝1490-03-03 月曜）、h2g 検証。初版の年精度 @when 1490 を notBefore/notAfter に精密化。
+persons:
+- id: p1
+  label: محمود
+  for: r1
+- id: p2
+  label: بعض الآخذين عنه ممن أخذ عني
+  for: r2
+- id: p3
+  label: بعض الآخذين عنه
+  for: e1
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D04812#p1
   passive: AIND-D04812
   quote: محمود
   note:
     ja: '裸名のため #NEEDID 維持（規則3）。初版の #TMP-P-000760 は ID-Master 登録実体「محمود（D02751 حسين بن محمود の父）」で別人＝流用。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D04812
-  passive: NEEDID
+  passive: AIND-D04812#p2
   quote: بعض الآخذين عنه
   note:
     ja: '本項原文は筆者を無名（「بعض الآخذين عنه ممن أخذ عني」）とする。候補は #AIND-D05559（علي بن محمد … الكازروني。本文に本項主への師事・サハーウィーへの伝記書簡の記述あり）だが確証がないため #NEEDID とし、候補を note に留める（Waka 裁定★5）。'
@@ -45,7 +55,7 @@ events:
   type: cultural
   subtype: mention
   persons:
-  - ref: NEEDID
+  - ref: AIND-D04812#p3
   quote: وترجمته
   summary:
     ar: وترجمته عندي بخط بعض الآخذين عنه ممن أخذ عني

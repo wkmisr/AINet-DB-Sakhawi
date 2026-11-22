@@ -33,17 +33,23 @@ name:
     type: nasab
     quote: سليمان
     by: rule
+persons:
+- id: p1
+  label: علي بن داود
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D10273#p1
   passive: AIND-D10273
   quote: null
   note:
     ja: 規則3 (c')。父 علي بن داود بن سليمان は汎用名で識別要素なし、corpus に本伝なし（ニスバ الخفركي は corpus で本項のみ）。初版は father relation なし。
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D10273
   passive: AIND-D00900
@@ -66,7 +72,7 @@ relations:
   note:
     ja: '「أخذ عنه الطاووسي … قال وسمعت عليه آداب المريدين وقرأت عليه موضحة الأسرار ومرآة الناظرين في شرح منازل السائرين كلاهما من تصنيفه وكذلك أجوبة أسئلتي الأربعين المسماة طراز الدقائق في إبراز الحقائق وذلك في أيام اعتزاله بشيراز سنة سبع وعشرين」。「قال」以下の一人称は الطاووسي（#AIND-D00900、頻出確定ID）＝聴き・読んだのは الطاووسي で、本項主が師（規則15: active=師＝本項主、規則59(f)）。827年初＝1423-12-14（h2g.py、年精度）。初版は書ごとに4本の relation に分け、event を type「teaching」・@when「0827」（ヒジュラ年）としていた＝1本に統合し when-custom／when に。原文にない field（التصوف）を除去。書名4点は ID-Master 未登録＝ref なし（初版 #NEEDID。うち3点は本項主の著作＝下の event）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D10273
   passive: AIND-D00900

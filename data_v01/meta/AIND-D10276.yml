@@ -35,9 +35,13 @@ name:
     quote: الشافعي
     by: rule
     ref: wd:Q82245
+persons:
+- id: p1
+  label: أخت يحيى بن علي الحصني
+  for: r2
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: AIND-D05425
   passive: AIND-D10276
@@ -45,15 +49,15 @@ relations:
   note:
     ja: '「الماضي أبوه」＝#AIND-D05425「علي بن محمد بن حسين العلاء بن النجم أو البدر بن الجمال السعدي الحصني ثم القاهري الشافعي ابن أخي عمر بن حسين ووالد يحيى الآتيين ويعرف بالعلاء الحصني … مات … سنة ثمان وثمانين」（相互閉合、ブリーフ候補を本文で確認。未収録）。初版の #NEEDID を置換。祖父＝ID-Master TMP-P-001379（البدر محمد بن حسين … الحصني、Note に「#AIND-D10276 يحيى の祖父」）。'
 - id: r2
-  type: personal
+  type: kin
   subtype: sister
-  active: NEEDID
+  active: AIND-D10276#p1
   passive: AIND-D10276
   quote: null
   note:
     ja: 「زوج أخته المحيوي النبراوي」＝姉妹（名不詳）が المحيوي النبراوي に嫁いでいた。名不詳＝#NEEDID（規則12）。初版は active と desc が空の relation。
 - id: r3
-  type: personal
+  type: kin
   subtype: brother-in-law
   active: AIND-D04142
   passive: AIND-D10276
@@ -61,7 +65,7 @@ relations:
   note:
     ja: '「وكثيرا ما يتظلم عندي من زوج أخته المحيوي النبراوي」＝姉妹の夫（義兄弟、規則52: active=相手）。本項主はしばしばサハーウィーのもとで彼への不満を訴えた。#AIND-D04142「عبد القادر بن علي بن أحمد بن أيوب … المحيوي النبراوي ثم القاهري الحنبلي أحد النواب . ولد سنة أربع وثلاثين ظنا」（ラカブ المحيوي＋ニスバ النبراوي の2点で閉合。corpus 全文で「المحيوي النبراوي」は本項と D04142 のみ、ニスバ索引 #AIND-D12075 が挙げる النبراوي 3人のうちラカブ محيي الدين は彼だけ。ブリーフ候補を本文で確認、未収録）。親族なので @n なし（規約A）。初版は #NEEDID で、同じ人物に subtype「other」の relation を重ねていた＝1本に。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D10276
@@ -74,7 +78,7 @@ relations:
   note:
     ja: 「شاب قرأ علي قطعة من أول البخاري وجميع العمدة」＝『ブハーリー』の冒頭の一部と『العمدة』の全部を私（サハーウィー）に読んだ。初版は書ごとに2本の relation に分け、原文にない field（الحديث・الفقه）と event（القاهرة）を付けていた＝1本に統合して除去。
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D04876
   passive: AIND-D10276

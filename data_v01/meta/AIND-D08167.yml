@@ -57,17 +57,26 @@ name:
     quote: الشافعي
     by: rule
     ref: wd:Q82245
+persons:
+- id: p1
+  label: علي بن محمد بن محمد بن خلف
+  for: r1
+  name_element: n8
+  by: rule
+- id: p2
+  label: جقمق
+  for: e3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D08167#p1
   passive: AIND-D08167
   quote: جقمق
   note:
     ja: '見出しナサブのみ（汎用名、識別要素なし）、corpus に本伝なし → #NEEDID（規則3 (c'')）。初版なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: maternal_uncle
   active: AIND-D06743
   passive: AIND-D08167
@@ -75,7 +84,7 @@ relations:
   note:
     ja: '通称「ابن أخت حذيفة」＝母方叔父 حذيفة。ニスバ索引 #AIND-D11198「حذيفة محمد بن أحمد بن علي بن خلف الحنفي」が一人を特定し（規則11）、本伝＝#AIND-D06743「محمد بن أحمد بن علي بن خليفة الشمس الدكماوي المنوفي ثم القاهري الازهري الحنفي أخو على الماضي ويلقب حذيفة لمحبة أبيه في حذيفة بن اليمان الصحابي . ولد في سنة اثنتي عشرة وثمانمائة تقريبا … مات في أوائل ذي القعدة سنة أربع وثمانين」（未収録。ラカブ＋ニスバ経路 المنوفي ثم القاهري الأزهري が本項主と一致＝2点で閉合、規則57）。その兄弟 #AIND-D04993「علي بن أحمد بن علي بن خليفة … ويعرف بأخي حذيفة」（索引 D12831）も本項主の母方叔父に当たるが原文に言及なし＝note のみ。初版の uncle #NEEDID を maternal_uncle に。'
 - id: r3
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06861
   passive: AIND-D08167
@@ -110,7 +119,7 @@ events:
   subtype: mention
   persons:
   - ref: wd:Q4120128
-  - label: جقمق
+  - ref: AIND-D08167#p2
   quote: ترجمة
   summary:
     ar: بحيث كتبت عنه في ترجمة جقمق مناما

@@ -52,9 +52,15 @@ death:
     cert: low
   note:
     ja: 「وأظنه مات بعد الستين وقارب السبعين」＝860年以後（repo 先例どおり notBefore-custom は N＝860、年初 1455-12-20、h2g.py）。「أظنه」＝cert low。「وقارب السبعين」は年齢の定型（70歳近くで没した）であって没年ではない（ブリーフ「年齢＝生年逆算 cert low か note」、同型 D07863「وأظنه قارب السبعين」）。生年は没年自体が下限のみなので逆算しない（note 留め）。【集約 2026-10-31】校閲時の notAfter-custom 0869／notAfter 1465（「قارب السبعين」を没年と読んだもの）を除去（内容A M・機械 L、オーケストレーター決定12）。初版の点日付 0860 を改めた。
+persons:
+- id: p1
+  label: عبد الله بن يوسف بن حجاج بن قريش
+  for: r3
+  name_element: n6
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: social
   subtype: patron
   active: wd:Q471116
   passive: AIND-D07851
@@ -62,7 +68,7 @@ relations:
   note:
     ja: '「خادم شيخنا … ولم ينفك عن المجئ لمجلسه في رمضان بل ولا في كل ليلة لفرش السجادة ونحوها وإصلاح الشمعة」＝イブン・ハジャルに仕えた（「仕えた」型＝patron、規則56。初版の統制外 subtype「servant」を置換）。ニスバ索引 #AIND-D12637「ابن قريش الشمس محمد بن عبد الله بن حجاج خادم شيخنا」も同人。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q471116
   passive: AIND-D07851
@@ -80,9 +86,9 @@ relations:
   note:
     ja: イブン・ハジャルに密着し、その口述（الإملاء）と著作（『المقدمة』『بذل الماعون』）を書写し、一同とともに彼のもとで校合した。「المقدمة」はイブン・ハジャルの著作としては『مقدمة فتح الباري（هدي الساري）』＝ID-Master TMP-T-00249 が最も妥当（cert medium、先例 D07409「البخاري ومقدمة شرحه」）。『بذل الماعون في فضل الطاعون』は ID-Master 未登録 → TMP-T-00252。初版の3本の relation（field الحديث・placeName القاهرة＝原文なし）を1本に統合。
 - id: r3
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D07851#p1
   passive: AIND-D07851
   quote: null
   note:

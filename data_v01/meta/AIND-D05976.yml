@@ -63,9 +63,19 @@ death:
   note:
     ja: 「مات في المحرم سنة سبع وستين」。867-01 ＝ 1462-10-05〜11-03、月初 1462-10（h2g.py。初版は年精度 1462）。没地の明示なし。
   quote: سنة
+persons:
+- id: p1
+  label: أمة
+  for: r2
+- id: p2
+  label: عمه
+  for: r3
+- id: p3
+  label: عمه
+  for: r5
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: TMP-P-001429
   passive: AIND-D05976
@@ -73,23 +83,23 @@ relations:
   note:
     ja: '見出しナサブ「السراج بن البدر بن ناصر الدين بن الرئيس العلاء」から1段ずらして復元（規則3）。カイロの医家 ابن صغير（ニスバ索引 #AIND-D12462）。corpus محمد 部に本伝なし・ID-Master 未登録 → TMP-P-001429。初版に父 relation なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: mother
-  active: NEEDID
+  active: AIND-D05976#p1
   passive: AIND-D05976
   quote: أمة
   note:
     ja: '「وأمه أمة」（母は女奴隷）。名不詳のため #NEEDID を維持（規則12）。'
 - id: r3
-  type: personal
+  type: kin
   subtype: uncle
-  active: NEEDID
+  active: AIND-D05976#p2
   passive: AIND-D05976
   quote: عمه
   note:
     ja: '「ممن أخذ عن عمه」。名不詳（父 البدر محمد の兄弟）のため #NEEDID を維持。初版は active 空文字・desc 空の不正な relation。'
 - id: r4
-  type: personal
+  type: kin
   subtype: relative
   active: AIND-D08929b
   passive: AIND-D05976
@@ -97,9 +107,9 @@ relations:
   note:
     ja: '「وهو قريب الكمال محمد بن محمد بن علي بن عبد الكافي بن صغير」。親族 ＝ #AIND-D08929b「محمد بن محمد بن علي بن عبد الكافي بن علي بن عبد الواحد بن محمد بن صغير الكمال بن الشمس بن العلاء القاهري الحنبلي الطبيب حفيد رئيس الاطباء」（ナサブ一致。891年没）。初版の統制外 subtype「other」（#NEEDID）を relative に。'
 - id: r5
-  type: personal
+  type: scholarly
   subtype: teacher
-  active: NEEDID
+  active: AIND-D05976#p3
   passive: AIND-D05976
   methods:
   - TMP-S-00008
@@ -107,7 +117,7 @@ relations:
   note:
     ja: 「ممن أخذ عن عمه」。叔父（名不詳）から学んだ。
 - id: r6
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D07198
   passive: AIND-D05976
@@ -117,7 +127,7 @@ relations:
   note:
     ja: '「والعز بن جماعة」。本項主は 771 年頃生のため、767年没の祖父 العز عبد العزيز（TMP-P-001145）ではなく孫の العز محمد بن أبي بكر بن جماعة（#AIND-D07198、749–819、カイロ）。同家の #AIND-D08929b・#AIND-D08112 も「العز بن جماعة」に医書を提示・学んでいる。初版の混同番号 TMP-P-000010 を差し替え、原文にない field（الحديث）を除去（規則7）。'
 - id: r7
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D01133
   passive: AIND-D05976
@@ -127,7 +137,7 @@ relations:
   note:
     ja: '「وصحب البدر الطنبدي」。البدر الطنبدي ＝ #AIND-D01133「أحمد بن عمر بن محمد البدر أبو العباس الطنبذي القاهري الشافعي」（740年頃生、カイロのシャーフィイー派学者。corpus で「البدر الطنبدي」「البدر الطنبذي」と表記が揺れる）。初版の #NEEDID を解消。'
 - id: r8
-  type: personal
+  type: social
   subtype: predecessor
   active: TMP-P-001044
   passive: AIND-D05976

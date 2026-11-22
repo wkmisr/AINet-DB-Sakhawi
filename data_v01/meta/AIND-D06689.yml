@@ -35,9 +35,13 @@ name:
     quote: الحنفي
     by: rule
     ref: wd:Q228986
+persons:
+- id: p1
+  label: خال محمد بن أحمد بن عبد الرحمن الزرندي
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
   active: TMP-P-001760
   passive: AIND-D06689
@@ -45,7 +49,7 @@ relations:
   note:
     ja: '父 أحمد بن عبد الرحمن は corpus に本伝なし（hw.py「أحمد بن عبد الرحمن」＋「الزرندي」は本項と兄弟項の2件のみ）。本伝のある兄弟 #AIND-D03563 と共有する父＝仮 TMP-P-001760（規則3 (c'')、先例 TMP-P-001733）。初版は父 relation なし。'
 - id: r2
-  type: personal
+  type: kin
   subtype: brother
   active: AIND-D03563
   passive: AIND-D06689
@@ -54,15 +58,15 @@ relations:
   note:
     ja: '本項の原文は兄弟に触れないが、相手側 #AIND-D03563「عبد الرحمن بن أحمد بن عبد الرحمن الزين الزرندي المدني الحنفي أخو محمد الآتي . ممن سمع مني بالمدينة」（repo 収録済み）が本項主を「أخو محمد الآتي」と名指しし、ナサブ・ニスバ・学派が一致＝規則23 により cert medium で補った（D03563 側には本項への brother relation が既にある）。ブリーフに記載なし。'
 - id: r3
-  type: personal
+  type: kin
   subtype: maternal_uncle
-  active: NEEDID
+  active: AIND-D06689#p1
   passive: AIND-D06689
   quote: null
   note:
     ja: '「ابن أخت القاضي」＝本項主は「カーディー」の姉妹の子（カーディーが母方のおじ）。カーディーの名は挙がらない＝#NEEDID（規則12、desc は続柄＋本項主の呼称）。候補: マディーナのハナフィー派カーディーを出した同じ الزرندي 家の #AIND-D05162（علي بن سعيد … قاضيها الحنفي）・#AIND-D03092（سعد بن محمد … قاضيها الحنفي）。#AIND-D11153「ابن أخي قاضيها الحنفي ممن سمع مني بها」も同じ言い方だが、どのカーディーかは原文から決まらない（規則26）。初版は subtype uncle・desc「القاضي」。'
 - id: r4
-  type: personal
+  type: scholarly
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D06689

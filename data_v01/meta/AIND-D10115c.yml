@@ -25,9 +25,16 @@ death:
     ar: مات في رجب سنة ثلاث وثلاثين مطعونا
     ja: 833年ラジャブ、ペストにて。
   quote: سنة
+persons:
+- id: p1
+  label: ابن محمد البسامي
+  for: r2
+- id: p2
+  label: الشهاب بن المحمرة
+  for: e1
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: TMP-P-000026
   passive: AIND-D10115c
@@ -38,9 +45,9 @@ relations:
     ar: وسمع على التنوخي وغيره
     ja: التنوخي = TMP-P-000026。
 - id: r2
-  type: personal
+  type: identity
   subtype: possible_identity
-  active: NEEDID
+  active: AIND-D10115c#p1
   passive: AIND-D10115c
   quote: الشهاب بن المحمرة
   note:
@@ -55,7 +62,7 @@ events:
   type: cultural
   subtype: mention
   persons:
-  - label: الشهاب بن المحمرة
+  - ref: AIND-D10115c#p2
   quote: قال
   summary:
     ar: قال الشهاب بن المحمرة أنه لم يكن بها أحد على طريق الصوفية مثله

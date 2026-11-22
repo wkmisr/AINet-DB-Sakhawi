@@ -22,17 +22,24 @@ death:
     ar: مات في ربيع الأول سنة أربع وأربعين
     ja: 844-03＝1440-08-09 開始、月精度 1440-08（h2g.py。初版 @when="1440" は年精度）。没地の記載なし。
   quote: سنة
+persons:
+- id: p1
+  label: والد مبارك الحبشي
+  for: r1
+- id: p2
+  label: صاحب الحجاز
+  for: r3
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06452#p1
   passive: AIND-D06452
   quote: صاحب الحجاز
   note:
     ja: '規則3（Waka 裁定 2026-10-21 B124-128 ★1）。解放奴隷の項で父名が原文に全く出ないため #NEEDID で立てる。初版は father relation なし。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06757
   passive: AIND-D06452
@@ -40,9 +47,9 @@ relations:
   note:
     ja: '「عتيق التقي الفاسي」＝主人（規則51、عتيق）。التقي الفاسي ＝ #AIND-D06757（頻出確定ID、832没）。初版の subtype「client」（active＝الفاسي で向きは合うが統制外）を patron に。'
 - id: r3
-  type: personal
+  type: social
   subtype: patron
-  active: NEEDID
+  active: AIND-D06452#p2
   passive: AIND-D06452
   quote: null
   note:

@@ -25,7 +25,8 @@
 | `name.full` | 見出しの名前（本文どおり） | |
 | `name.elements[]` | 名前要素：`type`（ism・nasab・nisbah・laqab・kunyah・shuhrah・honorific・madhhab）、`ref`、`quote`。規則で付けたものは `by: rule` | `n1`… |
 | `birth` / `death` | `date`（`ah`・`notBefore`・`notAfter`・`cert`）、`places[]`、`quote`、`note` | `b` / `d` |
-| `relations[]` | `type`・`subtype`・`active`・`passive`（規則15：subtype は「active が passive の何にあたるか」）、`methods[]`（TMP-S）、`context[]`（日付・場所）、`works[]`、`cert`、`quote`、`note` | `r1`… |
+| `persons[]` | 本文に出てくる（または含意される）が ID で同定できない人物：`label`（TEI の desc）、`for`（その人物が現れる項目）、`name_element`（名のない父・祖父は見出しの1番目・2番目の nasab、`by: rule`）。参照は `<レコードID>#pN` | `p1`… |
+| `relations[]` | `type`（subtype から機械的に決める：kin・scholarly＝teacher・identity＝possible_identity・social）・`subtype`・`active`・`passive`（規則15：subtype は「active が passive の何にあたるか」。本項主かどうかは関係しない）、`methods[]`（TMP-S）、`context[]`（日付・場所）、`works[]`、`cert`、`quote`、`note` | `r1`… |
 | `states[]` | 官職・身分：`type`（office・status…）、`subtype`（deputy）、`ref`（なければ `label`）、`places[]`・`orgs[]`・`dates[]`、`cert`、`quote`、`note` | `s1`… |
 | `affiliations[]` | 所属：`type`、`ref`（なければ `label`）、`cert`、`note` | `a1`… |
 | `events[]` | 出来事：`type`・`subtype`、`date`、`persons[]`・`places[]`・`orgs[]`・`works[]`、`quote`（出来事の**中心語1語**）、`summary`（英語などの言い換え）、`cert`、`note`。規則で中心語を付けたものは `trigger: rule` | `e1`… |
@@ -35,6 +36,35 @@
 
 - 参照の中（`places[]` など）は `{ref, quote, role, cert}`。`role` の例：origin・destination（移動の出発地・到着地）、companion（同行者）。
 - `quote: null` は「本文で位置が決まっていない」の意味。ビューアーでは「未」として出る。本文に出てこないと人が判断したものは「本文になし」（今後 YAML に `attested: false` として持たせる）。
+
+## トリプル書き出しの前提（2026-11-22）
+YAML はそのままではトリプルではないが、欠けなく機械的に変換できるように次を守る。書き出し（TSV／Turtle）は YAML から毎回作り、正本は YAML と mARkdown だけにする。
+
+- **ノードの住所**：レコードは `AIND-D…`、項目は `<レコードID>#<項目の識別子>`（例 `AIND-D00008#e2`）。関係・官職・出来事は一つのノードになり、確度・本文の語句・日付・場所はそのノードに付く。
+- **識別子は変えない**：YAML を正本にした後は、一度付けた識別子（`r1`・`e1`・`p1` など）を振り直さない。項目を消しても番号を詰めない。移行までは TEI から作り直すが、同じ TEI からは同じ番号が出る（決定的）。
+- **同定できない人物**：TEI では `#NEEDID`（作業上の印）のまま。YAML では一人ずつ `persons[]` に立て、`<レコードID>#pN` で参照する。同じレコードの中の二つの #NEEDID が同じ人かどうかは判断せず、分けておく（後で同定したら ID に置き換える）。人物以外の #NEEDID（場所・官職など）は `ref` を持たず `label` だけにする。
+- **関係の向き**：述語の意味だけで決まる（規則15、2026-11-22 改訂）。逆向きと対称の語は下の表のとおり。両方のレコードに書かれた同じ関係（2026-11-22 時点で 182 組、矛盾 0）は、書き出しで一本にまとめる。
+
+  | 述語（active が passive の何か） | 逆向きの読み | 
+  |---|---|
+  | teacher | student（データには書かない） |
+  | father・mother | son・daughter（子） |
+  | son・daughter | father・mother（親） |
+  | grandfather・maternal_grandfather・grandmother | grandson（孫） |
+  | ancestor | descendant |
+  | uncle・paternal_uncle・maternal_uncle・maternal_aunt | siblings_child |
+  | siblings_child | uncle・aunt（親の兄弟姉妹） |
+  | father-in-law | son-in-law（逆も同じ） |
+  | patron | client（逆も同じ） |
+  | predecessor | successor（逆も同じ） |
+  | deputy | principal（本務者。データには書かない） |
+  | educator | ward（被養育者。データには書かない） |
+  | killer | victim（データには書かない） |
+  | 対称（向きなし） | brother・sister・spouse・cousin・relative・brother-in-law・colleague・rival・companion・friend・correspondent・possible_identity・other |
+- **確度**：`cert` がない項目は「本文に疑いの表現がない」を意味する。
+- **TMP の ID**：統合で消える TMP は、ID-Master に「旧 ID→新 ID」を残し、書き出しで置き換え関係（`dct:isReplacedBy` 相当）を出す。公開したリンクを切らないため。
+- **出来事の人物**：`role` がなければ「参加者」として書き出す。
+- 試作（`docs/lod_prototype/xml2ttl.py`、TEI から直接）は #NEEDID の人物を捨て、項目を並び順で番号付けしていた。YAML からの書き出しで置き換える。
 
 ## 日付の規則
 - 幅のある年は `notBefore`・`notAfter` で書く（単一の年に cert low を付ける書き方はしない）。
@@ -62,5 +92,5 @@
 ## 未決
 - `quote` に前置詞（ب・و など）を含めるか。現状は人物・地名などは mARkdown の前接辞の字数を除いた形、出来事の中心語は語全体（例：وحج）。
 - `attested: false`（本文になし）と CHECKED を YAML のどこに持つか（`provenance` か各項目か）。
-- 関係の向き：`active`/`passive` のまま（規則15）にするか、`partner` と `role` に直すか。
+- ~~関係の向き~~：`active`/`passive` のまま、向きは述語の意味だけで決める（Waka 裁定 2026-11-22、案 (a)）。
 - 出来事の繰り返し（「يكثر」など）：`repeated: true` を足すか（TimeML の頻度属性に相当）。

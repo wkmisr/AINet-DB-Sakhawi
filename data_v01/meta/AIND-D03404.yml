@@ -32,21 +32,38 @@ death:
   note:
     en: Killed shortly after being dismissed from the emirate of Medina in 850 AH.
   quote: سنة
+persons:
+- id: p1
+  label: خشرم
+  for: r1
+  name_element: n4
+  by: rule
+- id: p2
+  label: نجاد
+  for: r2
+  name_element: n5
+  by: rule
+- id: p3
+  label: مانع
+  for: r5
+- id: p4
+  label: أميان بن مانع
+  for: r6
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D03404#p1
   passive: AIND-D03404
   quote: مانع
 - id: r2
-  type: personal
+  type: kin
   subtype: grandfather
-  active: NEEDID
+  active: AIND-D03404#p2
   passive: AIND-D03404
   quote: أميان بن مانع
 - id: r3
-  type: personal
+  type: kin
   subtype: brother
   active: TMP-P-001109
   passive: AIND-D03404
@@ -55,7 +72,7 @@ relations:
   note:
     en: 'al-Sakhāwī hedges with "aẓunnuhu" (I think); the two entries give different grandfathers (Thābit b. Nuʿayr vs. Najād), so the fraternal identification with #AIND-D03401 is uncertain and NOT directly asserted (see possible_identity relation below).'
 - id: r4
-  type: personal
+  type: identity
   subtype: possible_identity
   active: TMP-P-001109
   passive: AIND-D03401
@@ -64,15 +81,15 @@ relations:
   note:
     ja: Waka裁定(2026-09-16、§D-9)により、祖父名の不一致(D03401=ثابت بن نعير、D03404=نجاد)を理由に#AIND-D03401への直接linkを避け、新規#TMP-P-001109(D03404言及の「ضغيم」)を発行した上でpossible_identity(cert=low)として#AIND-D03401と紐付け。最終判断は原典照合等による。
 - id: r5
-  type: personal
+  type: kin
   subtype: cousin
-  active: NEEDID
+  active: AIND-D03404#p3
   passive: AIND-D03404
   quote: null
 - id: r6
-  type: personal
+  type: social
   subtype: other
-  active: NEEDID
+  active: AIND-D03404#p4
   passive: AIND-D03404
   quote: null
 states:

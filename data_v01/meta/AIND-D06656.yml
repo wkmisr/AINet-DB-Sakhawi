@@ -40,17 +40,23 @@ death:
   note:
     ja: '甥 الجلال の口頭の申告による没年月（「قال لي إنه」＝cert medium、先例 #AIND-D08102・#AIND-D06003）。843年シャアバーン月＝1440-01-16 開始（h2g.py、月精度）。初版の @when 1439 を訂正。'
   quote: سنة
+persons:
+- id: p1
+  label: أحمد بن حمزة
+  for: r1
+  name_element: n3
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06656#p1
   passive: AIND-D06656
   quote: null
   note:
     ja: 父 أحمد بن حمزة は汎用名で識別要素なし、corpus に本伝なし（hw.py「أحمد بن حمزة」の7件はマッカのハサン家・ハドウィー家ほかで別人）＝#NEEDID（規則3 (c')）。初版は父 relation なし。
 - id: r2
-  type: personal
+  type: kin
   subtype: siblings_child
   active: AIND-D06755
   passive: AIND-D06656
@@ -58,7 +64,7 @@ relations:
   note:
     ja: '「خال صاحبنا الجلال الآتي」＝本項主は الجلال の母方のおじ（active=相手＝姉妹の子、規則15）。الجلال＝corpus 本伝 #AIND-D06755「محمد بن أحمد بن علي بن محمد بن علي … الجلال بن الولوى المحلى ثم السمنودى الشافعي الرفاعي ويعرف بابن المحلى . ولد … سنة خمس وعشرين وثمانمائة بسمنود … وأخذ الفقه عن خاله الشمس محمد بن أحمد بن حمزة الماضي」（相手側が本項主を名指し＝閉合。手がかりはブリーフの D04000「ابن عم الجلال محمد بن أحمد الآتي」）。相手側は本項主のラカブを「الشمس」とするが本項にはない＝属性は補わない（規則23）。初版は #NEEDID。ID-Master の TMP-P-000852「الجلال السمنودي الميقاتي」（D03713 の弟子、Note「立項なし」）は同じ人物とみられる＝名寄せ要（ISSUES §D173-1）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06656
   passive: AIND-D06755

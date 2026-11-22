@@ -26,25 +26,35 @@ name:
     type: ism
     quote: محسن
     by: rule
+persons:
+- id: p1
+  label: والد محسن الطواشي الحبشي
+  for: r1
+- id: p2
+  label: أبو الفتح المنوفي
+  for: r2
+- id: p3
+  label: سنبل
+  for: r4
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06461#p1
   passive: AIND-D06461
   quote: الفتح المنوفي
   note:
     ja: '規則3（Waka 裁定 2026-10-21 B124-128 ★1）。宦官の単名の項で父名が原文に全く出ないため #NEEDID で立てる。初版は father relation なし。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
-  active: NEEDID
+  active: AIND-D06461#p2
   passive: AIND-D06461
   quote: سنبل
   note:
     ja: '主人ニスバ「الفتحي أبي الفتح المنوفي」＝最初の主人（規則51、patron）。「أبو الفتح المنوفي」はサハーウィーの同時代に2人いる: (1) #AIND-D11039「أبو الفتح المنوفي هو أحمد بن علي بن علي بن عيسى القلعي الشافعي … ناب في القضاء بل سافر قاضي المحمل غير مرة … مات في جمادى الثانية سنة تسع وثمانين」（クンヤ索引で第一に挙がる人物）、(2) クンヤ索引の転送見出し「أبو الفتح المنوفي آخر نائب جدة هو البدر محمد بن العز محمد」（corpus 122735行、AIND 番号なし。886〜894年頃ジッダの صرف を担った官人、47104行）。いずれも الأشرف قايتباي の治世に在世し、宦官の前主人としてどちらもありうるので同定せず #NEEDID（規則26・61(c)）、候補は本注と ISSUES に。初版の desc「أبو الفتح」を原文の呼称に。'
 - id: r3
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D06305
   passive: AIND-D06461
@@ -52,9 +62,9 @@ relations:
   note:
     ja: '主人ニスバ「ثم الأشرفي قايتباي」＝のちの主人（規則51・ブリーフ「الأشرفي قايتباي は人物ならスルターン本人の AIND」）＝ #AIND-D06305（頻出確定ID、corresp wd:Q557847 は ID-Master 登録値）。'
 - id: r4
-  type: personal
+  type: social
   subtype: predecessor
-  active: NEEDID
+  active: AIND-D06461#p3
   passive: AIND-D06461
   quote: null
   note:

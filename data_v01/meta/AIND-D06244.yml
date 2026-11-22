@@ -30,9 +30,15 @@ name:
     type: nasab
     quote: مخلوف
     by: rule
+persons:
+- id: p1
+  label: محمد بن مسلم بن مخلوف التروجي
+  for: r4
+  name_element: n4
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D05895
   passive: AIND-D06244
@@ -44,7 +50,7 @@ relations:
   note:
     ja: '「سمع الشفا على ابن الملقن」。ابن الملقن＝ID-Master 登録 wd:Q6534585（repo 先例 D00134・D00435・D02900 と同じ）。corpus 本伝は #AIND-D05895「عمر بن علي بن أحمد … السراج … ابن الملقن」（索引 D12762）で、corresp に併記（ISSUES §D129-1）。'
 - id: r2
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06244
   passive: TMP-P-000418
@@ -59,7 +65,7 @@ relations:
   note:
     ja: 'イブン・ハジャル『معجم』の引用「أجاز في استدعاء أبي حامد ابن الضيا لأولادي يعني سنة سبع عشرة」＝本項主がイブン・ハジャルの子ら（ID-Master 既登録 TMP-P-000418、先例 D07001・D07199）に 817 年（1414-04-01 開始）イジャーザを授与した（規則33。方向: active＝授与者）。初版の subtype student（逆向き）と `when="0817"`（ヒジュラ年の @when 誤記）を是正。イスティドアーの書き手 أبو حامد ابن الضيا＝ #AIND-D06912（محمد الرضى أبو حامد بن الضياء الحنفي المكي、791 生・858 没）は relation の相手ではないため note に留める（初版の統制外 subtype「petitioner」・無効番号 TMP-P-000000 の relation を除去）。'
 - id: r3
-  type: personal
+  type: scholarly
   subtype: teacher
   active: AIND-D06244
   passive: AIND-D06912
@@ -70,9 +76,9 @@ relations:
   note:
     ja: '相手側本伝 #AIND-D06912 の本文「وباسكندرية على الكمال بن خير والتاج بن التنسي والشهاب أحمد بن محمد بن محمد بن اللاج وأبي البركات بن أبي زيد عبد الرحمن المكناسي والشرف قاسم بن محمد التروجي」＝أبو حامد بن الضياء がアレクサンドリアで本項主（名＋父名＋ニスバ التروجي が一致、corpus の「قاسم بن محمد … التروجي」は本項のみ）から聴聞した。本項の原文には聴聞の記載がなく、相手側本文のみによる補完のため cert medium（規則23）。相手側のラカブ「الشرف」は属性のため persName には加えない。'
 - id: r4
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06244#p1
   passive: AIND-D06244
   quote: null
   note:

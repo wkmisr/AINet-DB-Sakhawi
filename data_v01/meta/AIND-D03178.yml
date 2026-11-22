@@ -26,17 +26,26 @@ death:
     ar: ومات قبله قريبا من سنة عشر
     ja: '「قريبا من سنة عشر」＝810年頃 → when-custom 0810（1407-06-17 開始、年精度、h2g.py）、cert low（規則4、ブリーフ指定）。「قبله」＝話者の父 #AIND-D03516（D03516 側「ومات في سنة اثنتي عشرة」＝812没）より前。世紀は D03516 の812年没・#AIND-D12462 の801年の رياسة の記事から 810 と確定。初版は death なし。'
   quote: سنة
+persons:
+- id: p1
+  label: برابخ
+  for: r1
+  name_element: n3
+  by: rule
+- id: p2
+  label: أخت شمس الدين عبد الحق بن إبراهيم
+  for: r4
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D03178#p1
   passive: AIND-D03178
   quote: null
   note:
     ja: '規則3 (c'')。父 برابخ は名のみ（#AIND-D03516 では「سليمان بن رابخ」と綴る）。corpus 見出しに本伝なし、ID-Master 未登録 → #NEEDID。'
 - id: r2
-  type: personal
+  type: kin
   subtype: brother-in-law
   active: AIND-D03516
   passive: AIND-D03178
@@ -45,7 +54,7 @@ relations:
   note:
     ja: '「وكان متزوجا أخته」＝本項主は話者の父の姉妹を娶っていた → 父 الشمس عبد الحق は本項主の義兄弟（妻の兄弟）＝ subtype brother-in-law（active が passive の何にあたるか、規則52）。相手＝ #AIND-D03516「عبد الحق بن إبراهيم شمس الدين الطبيب والد الجمال عبد الله . ممن ولي رياسة الطب شريكا لزوج أخته علم الدين سليمان بن رابخ المالكي فيما قال لي ولده … ومات في سنة اثنتي عشرة」（未収録）が「زوج أخته علم الدين سليمان بن رابخ」と本項主を名指し＝双方向で閉合（名・ラカブ・父名・職・学派）。伝聞（قال لي）につき cert medium。'
 - id: r3
-  type: personal
+  type: social
   subtype: colleague
   active: AIND-D03516
   passive: AIND-D03178
@@ -54,16 +63,16 @@ relations:
   note:
     ja: '「ولى الرياسة شريكا لوالدى」＝医師頭職を話者の父 #AIND-D03516 と共同で務めた（D03516 側「ولي رياسة الطب شريكا لزوج أخته علم الدين سليمان」）。初版の #NEEDID「والد ابن عبد الحق」を置換。伝聞につき cert medium。'
 - id: r4
-  type: personal
+  type: kin
   subtype: spouse
-  active: NEEDID
+  active: AIND-D03178#p2
   passive: AIND-D03178
   cert: medium
   quote: null
   note:
     ja: '「وكان متزوجا أخته」の妻＝ #AIND-D03516 の姉妹（名なし、女性部に見出しなし）→ #NEEDID（人物が描写されているので relation を立てる、規則60(d)）。伝聞につき cert medium。'
 - id: r5
-  type: personal
+  type: kin
   subtype: spouse
   active: AIND-D13400
   passive: AIND-D03178
@@ -72,7 +81,7 @@ relations:
   note:
     ja: '女性部 #AIND-D13400「فاطمة الصغرى اخت التي قبلها . تزوجها ابن برابخ وتكررت خصومته مع ابن عمها ناصر الدين محمد بن عمر」（姉 #AIND-D13399「فاطمة الكبرى ابنة أمير علي بن الناصري محمد بن الجمال عبد الله بن بكتمر الحاجب」）が本項主を「ابن برابخ」として名指し。ابن برابخ は corpus で本項主（ラカブ部 #AIND-D12179「ابن برابخ … علم الدين سليمان」）以外にいない珍しい名＝相手側の名指しによる relation（規則23 → cert medium）。本項の原文には出ないので属性は補わない。'
 - id: r6
-  type: personal
+  type: identity
   subtype: possible_identity
   active: AIND-D12179
   passive: AIND-D03178

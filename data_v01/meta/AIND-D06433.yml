@@ -18,17 +18,30 @@ name:
     type: ism
     quote: ماميه
     by: rule
+persons:
+- id: p1
+  label: والد ماميه السيفي بيبغا المظفري
+  for: r1
+- id: p2
+  label: ابنة الطنبذي
+  for: r4
+- id: p3
+  label: الطنبذي
+  for: r5
+- id: p4
+  label: ابنة ماميه المظفري
+  for: r6
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D06433#p1
   passive: AIND-D06433
   quote: الطنبذي
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D02237
   passive: AIND-D06433
@@ -36,7 +49,7 @@ relations:
   note:
     ja: '見出し「السيفي بيبغا المظفري」＝主人 سيف الدين بيبغا المظفري のマムルーク（主人ニスバ、規則51）。corpus 本伝 #AIND-D02237「106 بيبغا المظفري التركي . كان من مماليك الظاهر وتأمر في دولة الناصر وعمل الأتابكية … مات … سنة ثلاث وثلاثين」（名＋ニスバで閉合、corpus の بيبغا はこの1項のみ）。初版にはなし。'
 - id: r3
-  type: personal
+  type: social
   subtype: successor
   active: AIND-D06305
   passive: AIND-D06433
@@ -44,31 +57,31 @@ relations:
   note:
     ja: 「واستقر فيها بعد نفيه أو موته قايتباي المحمودي」＝第三ダワーダール職の後任。#AIND-D06305（スルターン الأشرف قايتباي الجركسي المحمودي）の本文「وصيره خاصكيا ثم دوادارا ثالثا بعد ماميه المظفري صهر الشهابي بن العيني」が本項主を名指し（名・ニスバ・職・姻戚の4点で閉合）。「بعد نفيه أو موته」＝本項主の追放か死かはサハーウィーも不確か（没年なし）。
 - id: r4
-  type: personal
+  type: kin
   subtype: spouse
-  active: NEEDID
+  active: AIND-D06433#p2
   passive: AIND-D06433
   quote: null
   note:
     ja: '「تزوج بإحدى بنات الطنبذي واستولدها أولادا」＝名不詳の妻（人物が描写されているので #NEEDID で保持、規則12・60(d)）。初版の幻番号 TMP-P-000000 を置換。'
 - id: r5
-  type: personal
+  type: kin
   subtype: father-in-law
-  active: NEEDID
+  active: AIND-D06433#p3
   passive: AIND-D06433
   quote: null
   note:
     ja: '妻の父「الطنبذي」。corpus の الطنبذي は複数（#AIND-D01133 البدر أحمد بن عمر الطنبذي（学者、740年頃生）、#AIND-D01419 الشهاب أحمد بن محمد … الطنبذي ابن عرب（875没）、ニスバ索引 #AIND-D11814 の「نور الدين علي بن التاجر الشهير」＝商人 النور الطنبذي（#AIND-D06052・#AIND-D01185 に言及、本伝なし）ほか）で、ジャクマク期のダワーダールの岳父を特定する根拠がない → #NEEDID（規則26、候補は ISSUES §D160-6）。'
 - id: r6
-  type: personal
+  type: kin
   subtype: daughter
-  active: NEEDID
+  active: AIND-D06433#p4
   passive: AIND-D06433
   quote: null
   note:
     ja: 「منهم زوجة الشهابي حفيد العيني أم أولاده」＝名不詳の娘（#NEEDID で保持、規則12）。初版の幻番号 TMP-P-000000 を置換。
 - id: r7
-  type: personal
+  type: kin
   subtype: son-in-law
   active: AIND-D00846
   passive: AIND-D06433

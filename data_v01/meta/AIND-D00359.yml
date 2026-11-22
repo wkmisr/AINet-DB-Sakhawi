@@ -32,17 +32,23 @@ death:
     ar: مات في سنة ثلاث وتسعين بعد أن كف ثم رأى
     ja: 893＝1487-12-26 開始（年精度、h2g.py）。年は明記されているので cert なし（初版の cert medium を除去）。「بعد أن كف ثم رأى」＝失明したのち視力を回復したあとで没した（event n=2）。【集約 2026-11-08】@when を 1488 → 1487 に是正（893年は 1487-12-26 開始、h2g.py。月日がないので年精度＝開始の西暦年、規則18。内容A H・機械 H、決定3）。
   quote: سنة
+persons:
+- id: p1
+  label: علم الدين
+  for: r1
+  name_element: n5
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D00359#p1
   passive: AIND-D00359
   quote: null
   note:
     ja: '規則3 (c'')。父はラカブ「علم الدين」のみで名が出ない。corpus 見出し（hw.py「علم الدين|الباسطي」）に本伝なし、ID-Master 未登録 → #NEEDID。'
 - id: r2
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D03484
   passive: AIND-D00359
@@ -50,7 +56,7 @@ relations:
   note:
     ja: '「كاتب لباب ناظر الجيش الزيني عبد الباسط」＝عبد الباسط（ناظر الجيش）の門の書記として仕えた → patron（規則56、active=主人）。عبد الباسط ناظر الجيش＝ #AIND-D03484（頻出確定ID。ニスバ الباسطي もこれに由来）。初版の TMP-P-001418（太田氏「الزيني عبد الباسط」Note「AIND-D00359が仕えた人物」）は D03484 と名寄せ要（ISSUES §D159-3）。初版の統制外 subtype「client」を patron に。相手の職 ناظر الجيش は本項主の state にしない。'
 - id: r3
-  type: personal
+  type: social
   subtype: patron
   active: AIND-D10491
   passive: AIND-D00359

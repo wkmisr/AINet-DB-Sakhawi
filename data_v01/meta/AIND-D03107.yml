@@ -31,17 +31,23 @@ death:
   note:
     ja: '804年＝1401-08-20〜1402-08-09（h2g.py）、年精度で @when=1401。子 #AIND-D06219 の項に「وأن مولد والده سنة عشر أو سبع عشرة وسبعمائة」（本項主の生年 710 または 717）とあるが、他項の情報は補わない（規則23）。'
   quote: سنة
+persons:
+- id: p1
+  label: محمد بن محمد
+  for: r1
+  name_element: n3
+  by: rule
 relations:
 - id: r1
-  type: personal
+  type: kin
   subtype: father
-  active: NEEDID
+  active: AIND-D03107#p1
   passive: AIND-D03107
   quote: null
   note:
     ja: 規則3 (c')。父は汎用名のみで識別要素がなく、corpus に本伝なし（hw.py「العقباني」の見出し群に父の項なし）。初版は father なし。
 - id: r2
-  type: personal
+  type: kin
   subtype: son
   active: AIND-D06219
   passive: AIND-D03107
@@ -49,7 +55,7 @@ relations:
   note:
     ja: '子＝#AIND-D06219「قاسم بن سعيد بن محمد العقباني نسبة لبني عقبة التلمساني المغربي المالكي ويدعى أبا القاسم . ولد في سنة ثمان وستين وسبعمائة … وقال صاحب الترجمة أنه قرأ على والده」（768生、未収録）。子の見出しナサブ（名・父名・ニスバ）が本項主を指す（規則37）。孫 #AIND-D00221 の項「هو وأبوهما ممن ولي قضاء تلمسان」は قاسم と محمد とその父（＝本項主）がティレムセンのカーディーを務めたことを伝えるが、本項の原文にないため state は立てない（規則23）。'
 - id: r3
-  type: personal
+  type: kin
   subtype: grandson
   active: AIND-D00221
   passive: AIND-D03107
@@ -57,7 +63,7 @@ relations:
   note:
     ja: '孫＝#AIND-D00221「إبراهيم بن قاسم بن سعيد بن محمد بن محمد العقباني المغربي المالكي أخو محمد الآتي هو وأبوهما ممن ولي قضاء تلمسان . مات بالطاعون سنة إحدى وسبعين」（収録済み。相手側に grandfather #AIND-D03107 あり）。ナサブ5代が完全一致。'
 - id: r4
-  type: personal
+  type: kin
   subtype: grandson
   active: AIND-D08446
   passive: AIND-D03107
