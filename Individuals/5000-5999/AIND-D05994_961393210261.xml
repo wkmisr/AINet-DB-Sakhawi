@@ -14,6 +14,11 @@
         <note xml:lang="ja">「فلم يلبث أن مات في رابع صفر منها」（منها ＝ 850年）＝850年サファル月4日 ＝ 1446-05-10（h2g.py）。没地は原文に明記なし（カイロ到着直後の死と読めるが照応代名詞がないため placeName は付けず、規則22）。埋葬「ودفن بتربة التقي المذكور من القرافة الصغرى」＝ 前出の التقي رجب العجمي の墓廟（ID-Master 未登録 → TMP-I-00215。所在 القرافة الصغرى ＝ TMP-L-00221）。</note>
         <persName ref="#AIND-D02423" role="funeral_prayer">السلطان</persName>
         <note xml:lang="ja">「فأسف السلطان عليه وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه」。850年のスルターン ＝ الظاهر جقمق（#AIND-D02423、在位842–857、規則30 で年代確認）。先例 D02098（subtype funeral_attendee、الناصر فرج）。</note>
+        <note xml:lang="ar">وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه</note>
+        <placeName type="funeral" ref="#TMP-L-00151">مصلى المؤمني</placeName>
+        <persName role="funeral_prayer" ref="#AIND-D02423">السلطان</persName>
+        <note xml:lang="ja">スルターン（الظاهر جقمق）の命により مصلى المؤمني（TMP-L-00151）で葬礼が行われ、スルターン自ら下って礼拝した。先例 D02098。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D05994"><desc xml:lang="ar">محمد</desc><note xml:lang="ja">父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。</note></relation>
@@ -39,12 +44,6 @@
         <desc xml:lang="ar">فنزل في زاوية التقي رجب العجمي تحت قلعة الجبل</desc>
         <placeName ref="#TMP-I-00214">زاوية التقي رجب العجمي</placeName>
         <note xml:lang="ja">カイロ城塞（قلعة الجبل）の下にある التقي رجب العجمي のザーウィヤに宿った。ID-Master 未登録 → TMP-I-00214（施設を placeName に用いる先例 B20・B69-73）。初版の affiliation reside（#NEEDID）を本 event に統合。</note>
-    </event>
-    <event type="religious" subtype="funeral" n="3" when-custom="0850-02" when="1446-05">
-        <desc xml:lang="ar">وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه</desc>
-        <placeName ref="#TMP-L-00151">مصلى المؤمني</placeName>
-        <persName ref="#AIND-D02423">السلطان</persName>
-        <note xml:lang="ja">スルターン（الظاهر جقمق）の命により مصلى المؤمني（TMP-L-00151）で葬礼が行われ、スルターン自ら下って礼拝した。先例 D02098。</note>
     </event>
     <note type="source" xml:lang="ar">421 عمر بن محمد النجم النعماني نسبة للإمام أبي
 حنيفة النعمان البغدادي ثم الدمشقي الحنفي . قدم القاهرة في سنة خمسين
@@ -77,5 +76,11 @@
         <persName>claude-opus-5-5-vocab-20261122</persName>
         <date when="2026-11-22"/>
         <note xml:lang="ja">relation「funeral_attendee」は葬儀・埋葬の記述なので除去し、&lt;death&gt; の persName（role=funeral_prayer）に移した（葬儀は bio_event にしない規則）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

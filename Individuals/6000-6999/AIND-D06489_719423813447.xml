@@ -11,6 +11,10 @@
         <placeName xml:lang="ar" ref="#TMP-I-00279">جامع ابن ميالة</placeName>
         <placeName xml:lang="ar-Latn" ref="#TMP-I-00279">Jāmiʿ Ibn Mayyāla</placeName>
         <note xml:lang="ja">「مات في ليلة الجمعة ثامن ذي الحجة سنة تسع وسبعين ببيته تجاه جامع ابن ميالة بين السورين」。879-12-08＝1475-04-24（h2g.py、表暦では土曜。「ليلة الجمعة」＝金曜前夜との1日のずれは表暦の誤差範囲、規則18）。自宅は جامع ابن ميالة（ID-Master 未登録の施設、先例 D02345 では desc 内に留める）の向かい、بين السورين（TMP-L-00164）。【集約 2026-11-08】原文に明記された施設名なので placeName にした（規則22(2)・25、機械 L）。جامع ابن ميالة は corpus に19例（#AIND-D01381「خطيب جامع ابن ميالة بالقرب من بين السورين」ほか）、ID-Master・repo に番号なし＝新規仮番号 TMP-I-00279（自宅の目印＝「تجاه」。没地そのものではない）。</note>
+        <note xml:lang="ar">وصلى عليه جاره العبادي وغيره</note>
+        <persName role="funeral_prayer" ref="#NEEDID">العبادي</persName>
+        <note xml:lang="ja">【集約 2026-11-08】death の日付の写し（when-custom 0879-12-08）を除去（原文の年表現は没日の1回のみ、規則18(e)。機械 M、オーケストレーター決定11）。العبادي の同定は要判断 ★1（決定15）、裁定まで #NEEDID。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D06489"><desc xml:lang="ar">إبراهيم بن بركة</desc><note xml:lang="ja">名＋父名のみ（規則3 (c')）。</note></relation>
@@ -24,11 +28,6 @@
         <label xml:lang="ar-Latn">naqīb al-suqāt</label>
         <note xml:lang="ja">「كان نقيب السقاة」。ID-Master TMP-O-00275（同職 D07694・D10192）。通称索引 #AIND-D11390「نقيب القصر محمد بن إبرهيم ابن بركة ويقال له شفتر وابن أخيه لأمه محمد بن عبد الغني وولده وفاء كلهم عملوا النقابة」は نقيب القصر と呼ぶ（原文どおり本項では نقيب السقاة）。</note>
     </state>
-    <event type="religious" subtype="funeral" n="1">
-        <desc xml:lang="ar">وصلى عليه جاره العبادي وغيره</desc>
-        <persName ref="#NEEDID">العبادي</persName>
-        <note xml:lang="ja">【集約 2026-11-08】death の日付の写し（when-custom 0879-12-08）を除去（原文の年表現は没日の1回のみ、規則18(e)。機械 M、オーケストレーター決定11）。العبادي の同定は要判断 ★1（決定15）、裁定まで #NEEDID。</note>
-    </event>
     <note type="editorial" xml:lang="ja">通称索引 #AIND-D11272「شفتر محمد بن إبرهيم بن بركة و…」・#AIND-D11390。甥の子 #AIND-D10192「وفا بن محمد بن عبد الغني نقيب السقاة كأبيه وعم أبيه الماضي」。#AIND-D08841・#AIND-D09813（ابن شفتر 系）は別人。</note>
     <note type="source" xml:lang="ar">871 محمد بن إبراهيم بن بركة شمس الدين المعروف
 بشفتر كان نقيب السقاة . مات في ليلة الجمعة ثامن ذي الحجة سنة تسع
@@ -59,5 +58,11 @@
         <persName>claude-opus-5-5-vocab-20261122</persName>
         <date when="2026-11-22"/>
         <note xml:lang="ja">relation subtype「neighbor」→「other」。統制語彙外の弱い関係は other＋note（2026-11-22 裁定）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

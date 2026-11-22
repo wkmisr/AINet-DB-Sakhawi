@@ -6,6 +6,11 @@
     <sex value="M"/>
     <death when-custom="0873-05" when="1468-11">
         <note xml:lang="ja">「فعاد مريضا إلى أن مات في جمادى الأولى سنة ثلاث وسبعين وهو في الكهولة」。873年ジュマーダー・アル＝ウーラー＝1468-11-26〜12-25（h2g.py、月精度）。没地の明示なし（初版の placeName القاهرة を除去。葬礼の地 المؤمني は埋葬地ではなく funeral event に）。「في الكهولة」＝壮年期。</note>
+        <note xml:lang="ar">وحضر السلطان الصلاة عليه بالمؤمني</note>
+        <placeName type="funeral" ref="#TMP-L-00151">المؤمني</placeName>
+        <persName role="funeral_attendee" ref="#AIND-D06305" xml:lang="ar">السلطان</persName>
+        <note xml:lang="ja">873年ジュマーダー・アル＝ウーラーの「السلطان」＝الأشرف قايتباي（#AIND-D06305、即位872年ラジャブ）。المؤمني＝مصلى المؤمني（TMP-L-00151、登録綴り المومني＝表記差。実体一致、先例 D09970「حضر خاله الصلاة عليه بالمؤمني」）。初版は death の burial placeName としていたが葬礼の地なので funeral event に移した。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D06373"><desc xml:lang="ar">والد قوزي الظاهري</desc><note xml:lang="ja">父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。</note></relation>
@@ -43,12 +48,6 @@
         <persName ref="#AIND-D03198" xml:lang="ar">سوار</persName>
         <note xml:lang="ja">سوار＝شاه سوار（ذو القادر 朝、#AIND-D03198、repo 先例）への遠征（872–873年）に従軍し病んで帰還。初版の英文 desc を原文句に置換、persName を追加。</note>
     </event>
-    <event type="religious" subtype="funeral" n="4" when-custom="0873-05" when="1468-11">
-        <desc xml:lang="ar">وحضر السلطان الصلاة عليه بالمؤمني</desc>
-        <placeName ref="#TMP-L-00151">المؤمني</placeName>
-        <persName ref="#AIND-D06305" xml:lang="ar">السلطان</persName>
-        <note xml:lang="ja">873年ジュマーダー・アル＝ウーラーの「السلطان」＝الأشرف قايتباي（#AIND-D06305、即位872年ラジャブ）。المؤمني＝مصلى المؤمني（TMP-L-00151、登録綴り المومني＝表記差。実体一致、先例 D09970「حضر خاله الصلاة عليه بالمؤمني」）。初版は death の burial placeName としていたが葬礼の地なので funeral event に移した。</note>
-    </event>
     <note type="source" xml:lang="ar">758 قوزي الظاهري جقمق من مماليكه قبل تملكه فلما
 تملك عمله خاصكيا ثم ساقيا ثم أمير عشرة ثم امتحن إلى أن أمره خشقدم
 عشرة وجعله من رؤوس النوب وتجرد لسوار فعاد مريضا إلى أن مات في جمادى
@@ -72,5 +71,11 @@
         <note xml:lang="ja">主人でないスルターン خشقدم の patron（「أمره خشقدم عشرة」）を削除し、新設の political event n=2 の persName に（内容B F04、決定4）。event の @n を振り直し。</note>
         <persName>claude-b134-138-triage</persName>
         <date when="2026-10-26"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

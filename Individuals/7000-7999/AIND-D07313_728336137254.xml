@@ -13,6 +13,11 @@
         <placeName xml:lang="ar-Latn" type="burial" ref="#TMP-L-00275">Bayn al-Qaṣrayn</placeName>
         <note xml:lang="ar">مات في يوم الاثنين ثالث عشر ربيع الآخر سنة أربع وخمسين ولم يكمل عشرة أشهر وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة</note>
         <note xml:lang="ja">854年ラビーウ・アル＝アーヒル月13日＝1450-06-04（グレゴリオ暦、tabular では火曜。原文「月曜」は±1日の範囲内）。初版の when="1450" を日精度に。没地は原文に明記なし（城塞での葬礼は父の礼拝場所であって没地ではない）ため、初版の死没 placeName「القلعة」は除去し funeral event に移した。</note>
+        <placeName type="funeral" ref="#TMP-L-00193">القلعة</placeName>
+        <note xml:lang="ar">وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة</note>
+        <persName role="funeral_prayer" ref="#AIND-D02423">أبوه</persName>
+        <note xml:lang="ja">葬礼（父スルターン・ジャクマクによる城塞での礼拝→有力者による葬送→バルクーキーヤ埋葬、ズワイラ門の二門から棺を入れた）。القلعة＝TMP-L-00006（文脈上カイロ城塞）。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#AIND-D02423" passive="#AIND-D07313">
@@ -52,12 +57,6 @@
             <note xml:lang="ja">#AIND-D07312（محمد رابع الثلاثة قبله من أم ولد أيضا、853年没）。異母兄弟。</note>
         </relation>
     </listRelation>
-    <event type="religious" subtype="funeral" n="1" when-custom="0854-04-13" when="1450-06-04">
-        <placeName ref="#TMP-L-00193">القلعة</placeName>
-        <desc xml:lang="ar">وصلى عليه أبوه بالقلعة ثم شيعه الاعيان من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين ... ودخلوا بنعشه من بابي زويلة</desc>
-        <persName ref="#AIND-D02423">أبوه</persName>
-        <note xml:lang="ja">葬礼（父スルターン・ジャクマクによる城塞での礼拝→有力者による葬送→バルクーキーヤ埋葬、ズワイラ門の二門から棺を入れた）。القلعة＝TMP-L-00006（文脈上カイロ城塞）。</note>
-    </event>
     <note type="source" xml:lang="ar">محمد خامس الاربعة قبله . مات في يوم الاثنين ثالث عشر ربيع الآخر سنة
 أربع وخمسين ولم يكمل عشرة أشهر وصلى عليه أبوه بالقلعة ثم شيعه الاعيان
 من الامراء والمباشرين وغيرهم إلى أن دفن بالبرقوقية بين القصرين لكون أمه
@@ -82,5 +81,11 @@
         <note xml:lang="ja">placeName「القلعة」の ref TMP-L-00006 → TMP-L-00193（قلعة الجبل＝カイロ城塞）、1 箇所。本文の語「القلعة」は刊本どおり保持（規則25）。本文を読んでカイロ城塞であることを確認済み。</note>
         <persName>claude-office-followup</persName>
         <date when="2026-11-18"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

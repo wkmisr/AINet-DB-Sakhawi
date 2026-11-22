@@ -9,8 +9,9 @@
         <relation type="personal" subtype="teacher" n="1" active="wd:Q4120128"
             passive="#AIND-D00610">
             <desc type="method" ref="#TMP-S-00014" xml:lang="ar">لازم</desc>
-            <event type="learning" when="880s">
+            <event type="learning" notBefore-custom="0881" notBefore="1476">
                 <placeName ref="gn:104515">مكة</placeName>
+                <note xml:lang="ja">「المجاورة الثالثة بعد الثمانين」→ 881年以後（Waka 裁定 2026-11-22）</note>
             </event>
         </relation>
         <relation type="personal" subtype="father" active="#AIND-D10822" passive="#AIND-D00610">
@@ -22,10 +23,11 @@
         <placeName ref="gn:104515">مكة</placeName>
         <note xml:lang="en">with his father</note>
     </event>
-    <event type="residence" subtype="jāwara" n="2" when-custom="880s" cert="medium">
+    <event type="residence" subtype="jāwara" n="2" notBefore-custom="0881" notBefore="1476" cert="medium">
         <note xml:lang="en">Resided in Mecca for two years. This was his third jāwara, occurring
             after 880 H (المجاورة الثالثة بعد الثمانين).</note>
         <note xml:lang="ja">規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。</note>
+        <note xml:lang="ja">「المجاورة الثالثة بعد الثمانين」→ 881年以後（Waka 裁定 2026-11-22）</note>
     </event>
 
     <note type="source" xml:lang="ar">أحمد بن أبي بكر بن محمد بن أبي بكر بن علي بن
@@ -54,5 +56,11 @@
         <persName>claude-rule22-audit</persName>
         <date when="2026-09-24"/>
         <note xml:lang="ja">統一規則22 第1項（2026-09-21 Waka 裁定）の遡及適用。ニスバ・施設の所在地・職の勤務地等からの補完で原文に地名の明示がない placeName 1件（مكة（gn:104515））を除去し、各要素の note に記録。点検記録は docs/records_B88/規則22-1_点検_20260924.md。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 学習の年「880s」（@when に AH）→ 881以後 (2) ジワールの年「880s」→ 881以後</note>
     </respStmt>
 </person>
