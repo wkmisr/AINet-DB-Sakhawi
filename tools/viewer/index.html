@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -154,34 +154,33 @@ textarea{width:100%;min-height:160px;font:13px var(--mono);direction:rtl}
 <circle cx="20" cy="49" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
 <circle cx="47" cy="45" r="4.2" fill="#6F9BFF" stroke="#001E62" stroke-width="0.8"/>
 </svg><span>al-Ḍawʾ al-Lāmiʿ — mARkdown Viewer</span></h1>
-  <label style="font-size:13px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="raw" style="min-height:0"> タグ記号を表示</label>
   <span class="sp"></span>
-  <span id="status">読み込み中…</span>
+  <span id="status">Loading…</span>
 </header>
 <main>
   <nav id="list">
     <div class="lhead">
-      <input id="q" type="search" placeholder="AIND番号・名前で検索" aria-label="検索">
-      <label><input type="checkbox" id="qfull" style="min-height:0"> 本文も検索</label>
-      <select id="flt" aria-label="絞り込み">
-        <option value="all">すべての見出し</option>
-        <option value="x">XMLあり（タグ付き）</option>
-        <option value="nid">未同定タグあり</option>
-        <option value="ed">CHECKED（このビューアーで確認・編集済み）</option>
-        <option value="no">XMLなし（未処理）</option>
-        <option value="oth">その他・転送</option>
-        <option value="rm">取り除いたもの</option>
+      <input id="q" type="search" placeholder="Search by AIND number or name" aria-label="Search">
+      <label><input type="checkbox" id="qfull" style="min-height:0"> Search the text too</label>
+      <select id="flt" aria-label="Filter">
+        <option value="all">All headings</option>
+        <option value="x">With XML (tagged)</option>
+        <option value="nid">Has unidentified tags</option>
+        <option value="ed">CHECKED (checked or edited in this viewer)</option>
+        <option value="no">No XML (not processed)</option>
+        <option value="oth">Other / cross-references</option>
+        <option value="rm">Removed</option>
       </select>
       <div class="note" id="cnt"></div>
     </div>
     <div id="items"></div>
   </nav>
-  <section id="center"><div class="load">ダウの全見出しを読み込んでいます（約16MB）…</div></section>
+  <section id="center"><div class="load">Loading all headings of the Ḍawʾ (about 16 MB)…</div></section>
   <aside id="panel"></aside>
 </main>
 <div id="tip" role="tooltip"></div>
 <script src="js-yaml.min.js"></script>
-<div id="tbar"><button data-t="P">人物</button><button data-t="T">地名</button><button data-t="S">名前要素</button><button data-t="O">官職・職業</button><button data-t="Y">年・月</button></div>
+<div id="tbar"><button data-t="P">Person</button><button data-t="T">Place</button><button data-t="S">Name element</button><button data-t="O">Office / occupation</button><button data-t="Y">Year / month</button></div>
 
 <script>
 {
@@ -190,11 +189,11 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const N=s=>s.replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي');
 const ENT=/^@(P|T|S|O|E|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
 const isTag=w=>ENT.test(w)||YR.test(w)||LM.test(w);
-const MON=['','ムハッラム（1月）','サファル（2月）','ラビーウ・アウワル（3月）','ラビーウ・サーニー（4月）','ジュマーダー・ウーラー（5月）','ジュマーダー・アーヒラ（6月）','ラジャブ（7月）','シャアバーン（8月）','ラマダーン（9月）','シャウワール（10月）','ズー・アルカアダ（11月）','ズー・アルヒッジャ（12月）'];
+const MON=['','Muḥarram (1)','Ṣafar (2)','Rabīʿ I (3)','Rabīʿ II (4)','Jumādā I (5)','Jumādā II (6)','Rajab (7)','Shaʿbān (8)','Ramaḍān (9)','Shawwāl (10)','Dhū al-Qaʿda (11)','Dhū al-Ḥijja (12)'];
 const NUMW=new Set('واحد احدى إحدى اثنتين اثنين ثنتين ثلاث ثلاثة أربع اربع أربعة خمس خمسة ست ستة سبع سبعة ثمان ثماني ثمانية تسع تسعة عشر عشرة عشرين ثلاثين أربعين اربعين خمسين ستين سبعين ثمانين تسعين مائة مئة مائتين ثلاثمائة أربعمائة اربعمائة خمسمائة ستمائة سبعمائة ثمانمائة ثمانمئة تسعمائة بضع بضعة'.split(' '));
-const yLabel=m=>m[3]?`${+m[2]}〜${+m[3]}年（おおよそ）`:`${+m[2]}年`, yCE=m=>m[3]?`${Math.round(+m[2]*0.970229+621.5643)}〜${Math.round(+m[3]*0.970229+621.5643)}年ごろ`:`${Math.round(+m[2]*0.970229+621.5643)}年ごろ`;
+const yLabel=m=>m[3]?`${+m[2]}–${+m[3]} AH (approx.)`:`${+m[2]} AH`, yCE=m=>m[3]?`${Math.round(+m[2]*0.970229+621.5643)}–${Math.round(+m[3]*0.970229+621.5643)} AH (approx.)`:`${Math.round(+m[2]*0.970229+621.5643)} AH (approx.)`;
 const isNum=w=>NUMW.has(w)||(w[0]==='و'&&NUMW.has(w.slice(1)));
-const KIND={M:'男性 $',F:'女性 $$',R:'転送 $$$',O:'その他',X:'取り除いた'};
+const KIND={M:'Male $',F:'Female $$',R:'Cross-reference $$$',O:'Other',X:'Removed'};
 let KINDS={};try{KINDS=JSON.parse(localStorage.getItem('dawKinds')||'{}')}catch{}
 const kindOf=e=>KINDS[e.k]?.m||e.m;
 async function setKind(k,m){const e=BY.get(k);
@@ -202,8 +201,8 @@ async function setKind(k,m){const e=BY.get(k);
   if(rec)KINDS[k]=rec;else delete KINDS[k];
   if(db){try{rec?await db.doc('kinds/'+k).set(rec):await db.doc('kinds/'+k).delete()}catch(err){warnLocal(err.code)}}else warnLocal();
   try{localStorage.setItem('dawKinds',JSON.stringify(KINDS))}catch{}
-  status(rec?`${k} を「${KIND[m]}」に振り分けました`:`${k} の振り分けを元に戻しました`);openEntry(k);renderList()}
-const OSUB={'office':'官職・職業','office/deputy':'代理職','status':'身分・地位'};
+  status(rec?`${k}  → "${KIND[m]}": reassigned`:`${k} : reassignment undone`);openEntry(k);renderList()}
+const OSUB={'office':'Office / occupation','office/deputy':'Deputy','status':'Status'};
 let OFFS={},IDMJ={};
 let ABS={};try{ABS=JSON.parse(localStorage.getItem('dawAbsent')||'{}')}catch{}
 const uKey=u=>['u',u.k,u.typ||'',u.id||'',u.lab].join('|'),oKey=o=>['o',o.typ,o.id||'',o.lab].join('|');
@@ -212,13 +211,13 @@ async function setAbs(k,key,on){const d={...(ABS[k]||{})};if(on)d[key]={at:Date.
   if(Object.keys(d).length)ABS[k]=d;else delete ABS[k];
   if(db){try{Object.keys(d).length?await db.doc('absent/'+k).set({items:d}):await db.doc('absent/'+k).delete()}catch(err){warnLocal(err.code)}}else warnLocal();
   try{localStorage.setItem('dawAbsent',JSON.stringify(ABS))}catch{}openEntry(k,false)}
-const idmLabel=id=>{const f=IDMJ[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.x?'（廃止）':''):null};
-const ONO={ism:'イスム',nasab:'ナサブ',madhhab:'法学派',nisbah:'ニスバ',laqab:'ラカブ',kunyah:'クンヤ',shuhrah:'シュフラ（通称）',honorific:'敬称'};
-const ROLE_JP={teacher:'師',student:'弟子',father:'父',mother:'母',son:'息子',daughter:'娘',child:'子',brother:'兄弟',sister:'姉妹',grandfather:'祖父',paternal_grandfather:'父方の祖父',maternal_grandfather:'母方の祖父',grandmother:'祖母',grandson:'孫',spouse:'配偶者',uncle:'おじ',paternal_uncle:'父方のおじ',maternal_uncle:'母方のおじ',maternal_aunt:'母方のおば',granduncle:'大おじ',cousin:'いとこ',relative:'親族',siblings_child:'甥・姪',nephew:'甥',ancestor:'祖先','father-in-law':'義父','son-in-law':'婿','brother-in-law':'義兄弟',relative_by_marriage:'姻族',patron:'庇護者',client:'被庇護者',employer:'雇い主',servant:'従者',predecessor:'前任者',successor:'後任者',deputy:'代理',colleague:'同僚',rival:'対立者',friend:'友人',companion:'同行者',neighbor:'隣人',met:'面会',killer:'殺害者',educator:'養育者',ward:'被養育者',biographer:'伝記作者',possible_identity:'同一人物の可能性',mention:'言及',meeting:'会見',witness:'証人',funeral:'葬儀',isnad:'イスナード',political:'政治的事件',cultural:'文化的事件',other:'その他',person:'人物'};
+const idmLabel=id=>{const f=IDMJ[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.x?'(retired)':''):null};
+const ONO={ism:'ism',nasab:'nasab',madhhab:'madhhab',nisbah:'nisba',laqab:'laqab',kunyah:'kunya',shuhrah:'shuhra',honorific:'honorific'};
+const ROLE_JP={teacher:'teacher',student:'student',father:'father',mother:'mother',son:'son',daughter:'daughter',child:'child',brother:'brother',sister:'sister',grandfather:'grandfather',paternal_grandfather:'paternal grandfather',maternal_grandfather:'maternal grandfather',grandmother:'grandmother',grandson:'grandchild',spouse:'spouse',uncle:'uncle',paternal_uncle:'paternal uncle',maternal_uncle:'maternal uncle',maternal_aunt:'maternal aunt',granduncle:'great-uncle',cousin:'cousin',relative:'relative',siblings_child:'nephew / niece',nephew:'nephew',ancestor:'ancestor','father-in-law':'father-in-law','son-in-law':'son-in-law','brother-in-law':'brother-in-law',relative_by_marriage:'in-law',patron:'patron',client:'client',employer:'employer',servant:'servant',predecessor:'predecessor',successor:'successor',deputy:'deputy',colleague:'colleague',rival:'rival',friend:'friend',companion:'companion',neighbor:'neighbour',met:'met',killer:'killer',educator:'educator',ward:'ward',biographer:'biographer',possible_identity:'possibly the same person',mention:'mention',meeting:'meeting',witness:'witness',funeral:'funeral',isnad:'isnād',political:'political event',cultural:'cultural event',other:'Other',person:'Person'};
 const METH_AR={samac:'سمع',hudur:'حضر',qiraa:'قرأ',ard:'عرض',ijaza:'أجاز',akhdh:'أخذ',mulazama:'لازم',tafaqquh:'تفقه',tajwid:'جوّد',tilawa:'تلا',tahdith:'حدّث',kitaba:'كتب',libs:'لبس',suhba:'صحب',ishtighal:'اشتغل',dars:'درس',takharruj:'تخرج',bahth:'بحث',riwaya:'روى'};
 const splitRole=r=>{const [a,b]=(r||'').split('/');return{roles:a||'',meths:b?b.split('.'):[]}};
-const methAR=ms=>ms.map(x=>METH_AR[x]||x).join('・');
-const roleJP=r=>{if(!r)return '';const {roles,meths}=splitRole(r);return roles.split('+').map(x=>ROLE_JP[x]||x.replace(/^inv-/,'逆:')).join('・')+(meths.length?'（'+methAR(meths)+'）':'')};
+const methAR=ms=>ms.map(x=>METH_AR[x]||x).join(' · ');
+const roleJP=r=>{if(!r)return '';const {roles,meths}=splitRole(r);return roles.split('+').map(x=>ROLE_JP[x]||x.replace(/^inv-/,'inverse:')).join(' · ')+(meths.length?' ('+methAR(meths)+')':'')};
 const nA=x=>(x||'').replace(/[\u064B-\u065F]/g,'').replace(/[أإآ]/g,'ا');
 const methMatch=(xr,ms)=>{if(!ms.length)return xr;return xr.filter(r=>!r.m||ms.some(s=>nA(r.m).startsWith(nA(METH_AR[s]||'@@'))))};
 function parseBr(br){if(br==null)return{sub:null,id:null};const m=/^([A-Za-z0-9_+\-\/.]+):(.+)$/.exec(br);if(m&&m[1]!=='wd'&&m[1]!=='gn')return{sub:m[1],id:m[2]};const s=/^([a-z]+(?:\/deputy)?)$/.exec(br);if(s&&(ONO[s[1]]||OSUB[s[1]]))return{sub:s[1],id:null};return{sub:null,id:br}}
@@ -228,9 +227,9 @@ const curText=()=>DRAFTS[cur.k]??textOf(cur);
 
 const textOf=e=>EDITS[e.k]?.t??e.t;
 const plain=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
-const offLabel=id=>{const f=OFFS[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.cls?'［'+f.cls+'］':'')+(f.st==='retired'?'（廃止）':''):null};
-const label0=id=>id==='NEEDID'?'（未同定）':(BY.get(id)?.n||offLabel(id)||idmLabel(id)||LAB[id]||'（表示名なし）');
-const label=id=>isMerged(id)?label0(canon(id))+'（'+id+' から統合）':label0(id);
+const offLabel=id=>{const f=OFFS[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.cls?'['+f.cls+']':'')+(f.st==='retired'?'(retired)':''):null};
+const label0=id=>id==='NEEDID'?'(unidentified)':(BY.get(id)?.n||offLabel(id)||idmLabel(id)||LAB[id]||'(no label)');
+const label=id=>isMerged(id)?label0(canon(id))+' ('+id+'  merged)':label0(id);
 function idsIn(t){const s=new Set();for(const m of t.matchAll(/@(?:P|T|S|PER|TOP|SOC)\d\d+\[([^\]]+)\]/g)){const id=parseBr(m[1]).id;if(id&&id!=='NEEDID')s.add(canon(id))}return s}
 function reindexAll(){MENT.clear();KEYIDS.clear();for(const e of E)index(e)}
 function index(e){
@@ -252,13 +251,12 @@ function renderList(){
     if(q&&!(e.k.includes(q.toUpperCase())||e.s.includes(q)||N(e.n).includes(q)||(full&&N(plain(textOf(e))).includes(q))))continue;
     out.push(e);
   }
-  $('#cnt').textContent=`${out.length.toLocaleString()} 件`+(out.length>400?'（先頭400件を表示）':'');
+  $('#cnt').textContent=`${out.length.toLocaleString()} items`+(out.length>400?' (first 400 shown)':'');
   $('#items').innerHTML=out.slice(0,400).map(e=>`<button class="item${cur&&cur.k===e.k?' on':''}" data-k="${e.k}"><span class="id">${e.k.startsWith('AIND')?e.k:'#'+e.k} <span class="badge">${KIND[kindOf(e)]}</span>${e.x?'<span class="badge">XML</span>':''}${EDITS[e.k]?'<span class="badge ed">CHECKED</span>':''}</span><span class="nm">${esc(e.n)}</span></button>`).join('');
 }
 $('#items').addEventListener('click',ev=>{const b=ev.target.closest('.item');if(b)openEntry(b.dataset.k)});
 ['input','change'].forEach(t=>{$('#q').addEventListener(t,()=>{clearTimeout(lt);lt=setTimeout(renderList,220)});});
 $('#qfull').addEventListener('change',renderList);$('#flt').addEventListener('change',renderList);
-$('#raw').addEventListener('change',e=>document.body.classList.toggle('raw',e.target.checked));
 
 // ---------- text
 function renderText(){
@@ -282,7 +280,7 @@ function renderText(){
       h+=`<span class="tg">${esc(t)}</span><span class="ent Y" data-tag="${i}">`+ws.map(k=>`<span data-w="${k}">${esc(toks[k]??'')}</span>`).join(' ')+'</span> ';
       i=j;continue;
     }
-    h+=t==='%~%'?'<span class="hemi">%~%</span> ':t.startsWith('@')?`<span class="tg" style="display:inline">${esc(t)}</span><span class="bad" data-w="${i}" title="不明なタグ">?</span> `:`<span data-w="${i}">${esc(t)}</span> `;i++;
+    h+=t==='%~%'?'<span class="hemi">%~%</span> ':t.startsWith('@')?`<span class="tg" style="display:inline">${esc(t)}</span><span class="bad" data-w="${i}" title="Unknown tag">?</span> `:`<span data-w="${i}">${esc(t)}</span> `;i++;
   }
   $('#text').innerHTML=h;
   markFz();markEv();
@@ -290,15 +288,15 @@ function renderText(){
 function openEntry(k,push=true){
   const e=BY.get(k);if(!e)return;cur=e;mode=null;
   const ed=EDITS[k];
-  $('#center').innerHTML=`<div class="meta"><b>${e.k.startsWith('AIND')?e.k:'#'+e.k}</b><span>原典ID ${e.s||'—'}</span><span>${KIND[kindOf(e)]}${KINDS[e.k]?`（元は${KIND[KINDS[e.k].was]}）`:''}</span>${KINDS[e.k]?'<button id="kundo">振り分けを元に戻す</button>':(['O','R'].includes(e.m)?'<button id="krm">取り除く</button><button id="kbm">伝記（男性）として記録</button><button id="kbf">伝記（女性）として記録</button>':'')}${e.x?'':'<span>XMLなし（タグなし）</span>'}${ed?`<span class="chk">CHECKED</span><span>${new Date(ed.at).toLocaleString('ja-JP')}${ed.byName?' · '+esc(ed.byName):''}</span> <button id="rev">${ed.t===e.t?'CHECKED を外す':'元に戻す'}</button>`:(e.x?'<button class="pri" id="chkbtn">CHECKED</button>':'')}</div><div id="text"></div><section class="trs" id="trs"><div class="edbar" style="padding:0;border:0"><b>翻訳</b>${JEDITS[e.k]?.j?.translation?'<span class="note chk">CHECKED</span>':''}<span class="sp"></span><button id="tred">訳を編集</button></div>
-  <div id="trview">${e.tr?.ja?`<h3>日本語訳</h3><p>${esc(e.tr.ja)}</p>`:''}${e.tr?.en?`<h3>English</h3><p lang="en">${esc(e.tr.en)}</p>`:''}${!e.tr?.ja&&!e.tr?.en?'<p class="note">翻訳はまだありません。</p>':''}</div>
-  <div id="trform" hidden><label class="note" for="trja">日本語訳</label><textarea id="trja" class="trta">${esc(e.tr?.ja||'')}</textarea><label class="note" for="tren">English</label><textarea id="tren" class="trta" lang="en">${esc(e.tr?.en||'')}</textarea>
-  <div class="row"><span class="sp"></span><button id="trcx">取り消し</button><button class="pri" id="trsv">訳を保存</button></div></div></section>
-  <details class="ed js" id="jsd"><summary><b>YAML</b> <span class="note">構造化データ（aind-yaml 0.1）${JEDITS[e.k]?' ・<b class="chk">CHECKED</b>':''}</span></summary>
-  <div class="edbar"><span id="jmsg" class="note"></span><span class="sp"></span><button id="jfmt" aria-pressed="false">JSON で表示</button><button id="jcp">コピー</button><button id="jrv" ${JEDITS[e.k]?'':'disabled'}>XMLの値に戻す</button><button class="pri" id="jsv" disabled>保存</button></div>
-  <textarea id="jta" spellcheck="false" aria-label="構造化データの編集">読み込み中…</textarea></details>
-  <div class="ed"><div class="edbar"><b>mARkdown</b><span id="dirty"></span><span class="sp"></span><button id="ds">編集を破棄</button><button class="pri" id="sv">保存（⌘S）</button></div>
-  <textarea id="md" spellcheck="false" aria-label="mARkdown の編集"></textarea></div>`;
+  $('#center').innerHTML=`<div class="meta"><b>${e.k.startsWith('AIND')?e.k:'#'+e.k}</b><span>Source ID ${e.s||'—'}</span><span>${KIND[kindOf(e)]}${KINDS[e.k]?`(was ${KIND[KINDS[e.k].was]})`:''}</span>${KINDS[e.k]?'<button id="kundo">Undo reassignment</button>':(['O','R'].includes(e.m)?'<button id="krm">Remove</button><button id="kbm">Record as a biography (male)</button><button id="kbf">Record as a biography (female)</button>':'')}${e.x?'':'<span>No XML (no tags)</span>'}${ed?`<span class="chk">CHECKED</span><span>${new Date(ed.at).toLocaleString('ja-JP')}${ed.byName?' · '+esc(ed.byName):''}</span> <button id="rev">${ed.t===e.t?'Un-check':'Undo'}</button>`:(e.x?'<button class="pri" id="chkbtn">CHECKED</button>':'')}</div><div id="text"></div><section class="trs" id="trs"><div class="edbar" style="padding:0;border:0"><b>Translation</b>${JEDITS[e.k]?.j?.translation?'<span class="note chk">CHECKED</span>':''}<span class="sp"></span><button id="tred">Edit translation</button></div>
+  <div id="trview">${e.tr?.ja?`<h3>Japanese translation</h3><p>${esc(e.tr.ja)}</p>`:''}${e.tr?.en?`<h3>English</h3><p lang="en">${esc(e.tr.en)}</p>`:''}${!e.tr?.ja&&!e.tr?.en?'<p class="note">No translation yet.</p>':''}</div>
+  <div id="trform" hidden><label class="note" for="trja">Japanese translation</label><textarea id="trja" class="trta">${esc(e.tr?.ja||'')}</textarea><label class="note" for="tren">English</label><textarea id="tren" class="trta" lang="en">${esc(e.tr?.en||'')}</textarea>
+  <div class="row"><span class="sp"></span><button id="trcx">Cancel</button><button class="pri" id="trsv">Save translation</button></div></div></section>
+  <details class="ed js" id="jsd"><summary><b>YAML</b> <span class="note">Structured data (aind-yaml 0.1)${JEDITS[e.k]?'  · <b class="chk">CHECKED</b>':''}</span></summary>
+  <div class="edbar"><span id="jmsg" class="note"></span><span class="sp"></span><button id="jfmt" aria-pressed="false">Show as JSON</button><button id="jcp">Copy</button><button id="jrv" ${JEDITS[e.k]?'':'disabled'}>Revert to the XML values</button><button class="pri" id="jsv" disabled>Save</button></div>
+  <textarea id="jta" spellcheck="false" aria-label="Edit structured data">Loading…</textarea></details>
+  <div class="ed"><div class="edbar"><b>mARkdown</b><span id="dirty"></span><span class="sp"></span><button id="ds">Discard edits</button><button class="pri" id="sv">Save (⌘S)</button></div>
+  <textarea id="md" spellcheck="false" aria-label="Edit mARkdown"></textarea></div>`;
   renderText();showEntryCard();
   const ta=$('#md');ta.value=isolate(curText());markDirty();
   ta.addEventListener('blur',()=>{ta.value=isolate(unisolate(ta.value).replace(/\s+/g,' ').trim())});
@@ -320,13 +318,13 @@ function openEntry(k,push=true){
   const parse=s=>fmt==='yaml'?jsyaml.load(s):JSON.parse(s);
   $('#jsd').addEventListener('toggle',async ev=>{if(!ev.target.open)return;const r=await loadRecords();const ta=$('#jta');if(!ta)return;
     const jj=JEDITS[e.k]?.j;let v=jj??(r&&r[e.k])??{id:e.k};
-    if(jj&&!jj.schema){v=structuredClone((r&&r[e.k])||{id:e.k});if(jj.translation)v.translation=jj.translation;$('#jmsg').textContent='旧形式（XML 由来）で保存された編集があります。訳だけを新形式に引き継いで表示しています。'}
+    if(jj&&!jj.schema){v=structuredClone((r&&r[e.k])||{id:e.k});if(jj.translation)v.translation=jj.translation;$('#jmsg').textContent='Edits saved in the old (XML-based) format exist. Only the translation has been carried over to the new format.'}
     ta.value=dump(v);ta.dataset.orig=ta.value;$('#jsv').disabled=true;
-    ta.oninput=()=>{let ok=true;try{parse(ta.value)}catch(err){ok=false;$('#jmsg').textContent=(fmt==='yaml'?'YAML':'JSON')+' の書式に誤りがあります：'+String(err.message).split('\n')[0]}if(ok)$('#jmsg').textContent=ta.value!==ta.dataset.orig?'未保存の変更があります':'';$('#jsv').disabled=!ok||ta.value===ta.dataset.orig};});
-  $('#jfmt').onclick=()=>{const ta=$('#jta');let o;try{o=parse(ta.value)}catch{return status('書式の誤りを直してから切り替えてください')}
+    ta.oninput=()=>{let ok=true;try{parse(ta.value)}catch(err){ok=false;$('#jmsg').textContent=(fmt==='yaml'?'YAML':'JSON')+'  has a syntax error: '+String(err.message).split('\n')[0]}if(ok)$('#jmsg').textContent=ta.value!==ta.dataset.orig?'Unsaved changes':'';$('#jsv').disabled=!ok||ta.value===ta.dataset.orig};});
+  $('#jfmt').onclick=()=>{const ta=$('#jta');let o;try{o=parse(ta.value)}catch{return status('Fix the syntax error before switching')}
     const dirty=ta.value!==ta.dataset.orig;const origObj=parse(ta.dataset.orig);fmt=fmt==='yaml'?'json':'yaml';ta.value=dump(o);ta.dataset.orig=dirty?dump(origObj):ta.value;
-    $('#jfmt').textContent=fmt==='yaml'?'JSON で表示':'YAML で表示';$('#jfmt').setAttribute('aria-pressed',fmt==='json');$('#jsd summary b').textContent=fmt.toUpperCase()};
-  $('#jcp').onclick=()=>{const ta=$('#jta');if(ta)navigator.clipboard.writeText(ta.value).then(()=>status('コピーしました'),()=>{})};
+    $('#jfmt').textContent=fmt==='yaml'?'Show as JSON':'Show as YAML';$('#jfmt').setAttribute('aria-pressed',fmt==='json');$('#jsd summary b').textContent=fmt.toUpperCase()};
+  $('#jcp').onclick=()=>{const ta=$('#jta');if(ta)navigator.clipboard.writeText(ta.value).then(()=>status('Copied'),()=>{})};
   $('#jsv').onclick=async()=>{const ta=$('#jta');let j;try{j=parse(ta.value)}catch{return}
     const r=await loadRecords();const rec={j,at:Date.now(),base:hash(JSON.stringify(r?.[e.k]||{}))};if(uid)rec.by=uid;JEDITS[e.k]=rec;
     if(j&&j.translation)e.tr=j.translation;await persistJ(e.k,rec);openEntry(e.k,false);$('#jsd').open=true};
@@ -349,18 +347,18 @@ const canon=id=>{let x=id,seen=0;while(x&&MERGES[x]&&!MERGES[x].undone&&MERGES[x
 const isMerged=id=>!!(id&&MERGES[id]&&!MERGES[id].undone&&MERGES[id].to);
 const applyJTr=k=>{const e=BY.get(k);if(!e)return;const t=JEDITS[k]?.j?.translation;if(t)e.tr=t;else if(TR0[k])e.tr=TR0[k];else delete e.tr};
 let RECS=null;async function loadRecords(){if(RECS)return RECS;try{RECS=await fetch('records.json').then(r=>r.json())}catch{RECS=null}return RECS}
-function markDirty(){const d=$('#dirty');if(!d)return;const on=cur&&DRAFTS[cur.k]!=null;d.textContent=on?'未保存の編集があります':'';$('#sv').disabled=!on;$('#ds').disabled=!on}
+function markDirty(){const d=$('#dirty');if(!d)return;const on=cur&&DRAFTS[cur.k]!=null;d.textContent=on?'Unsaved edits':'';$('#sv').disabled=!on;$('#ds').disabled=!on}
 function saveDraft(){if(cur&&DRAFTS[cur.k]!=null)save(DRAFTS[cur.k])}
 // ---------- panel
 function mentionList(id){
   const ks=[...(MENT.get(id)||[])].filter(k=>k!==cur?.k);
-  if(!ks.length)return '<p class="note">他の見出しでこのIDを付けた箇所はまだありません。</p>';
+  if(!ks.length)return '<p class="note">No other heading uses this ID yet.</p>';
   return `<ul class="mlist">${ks.slice(0,200).map(k=>`<li><a data-open="${k}">${k}</a> <span class="ar">${esc(BY.get(k)?.n||'')}</span></li>`).join('')}</ul>`;
 }
 function extLink(id){
   if(id.startsWith('wd:'))return `<a class="lk" href="https://www.wikidata.org/wiki/${id.slice(3)}">Wikidata ${id.slice(3)}</a>`;
   if(id.startsWith('gn:'))return `<a class="lk" href="https://www.geonames.org/${id.slice(3)}">GeoNames ${id.slice(3)}</a>`;
-  if(BY.has(id))return `<a class="lk" data-open="${id}">この人物の伝記を開く</a>`;
+  if(BY.has(id))return `<a class="lk" data-open="${id}">Open this person’s biography</a>`;
   return '';
 }
 function placed(r){return r.o!=='NEEDID'&&idsIn(curText()).has(canon(r.o))}
@@ -368,10 +366,10 @@ const open_=r=>!placed(r)&&!r.nm;
 function relList(){
   const rs=cur.r||[];if(!rs.length)return '';
   const ok=rs.filter(placed).length,nm=rs.filter(r=>r.nm&&!placed(r)).length;
-  return `<h2>XMLの関係（${rs.length}件・本文で特定 ${ok}件${nm?`・本文に言及なし ${nm}件`:''}）</h2><ul class="mlist">${rs.map((r,ri)=>`<li${open_(r)&&r.o!=='NEEDID'?` draggable="true" data-dr="${ri}" title="本文のタグ（または語）にドラッグして紐付け"`:''}>${placed(r)?'✓':r.nm?`<span class="note" title="${esc(r.why||'')}">言及なし</span>`:'<span style="color:var(--nid)">未</span>'} <b>${esc(roleJP(r.role))}</b> ${r.o==='NEEDID'?'（未同定）':isMerged(r.o)?`<code>${esc(r.o)}</code> → <a data-open="${esc(canon(r.o))}">${esc(canon(r.o))}</a> <span class="badge">統合</span> <button class="lkb" data-unmerge="${esc(r.o)}">取り消す</button>`:`<a data-open="${esc(r.o)}">${esc(r.o)}</a>`} <span class="ar">${esc(r.txt||label0(r.o))}</span>${r.m?` <span class="note">${esc(r.m)}</span>`:''}</li>`).join('')}</ul>`;
+  return `<h2>Relations in the XML (${rs.length} · placed in the text ${ok}${nm?` · not in the text ${nm}`:''})</h2><ul class="mlist">${rs.map((r,ri)=>`<li${open_(r)&&r.o!=='NEEDID'?` draggable="true" data-dr="${ri}" title="Drag onto a tag (or word) in the text to link"`:''}>${placed(r)?'✓':r.nm?`<span class="note" title="${esc(r.why||'')}">not in text</span>`:'<span style="color:var(--nid)">unplaced</span>'} <b>${esc(roleJP(r.role))}</b> ${r.o==='NEEDID'?'(unidentified)':isMerged(r.o)?`<code>${esc(r.o)}</code> → <a data-open="${esc(canon(r.o))}">${esc(canon(r.o))}</a> <span class="badge">merged</span> <button class="lkb" data-unmerge="${esc(r.o)}">Undo</button>`:`<a data-open="${esc(r.o)}">${esc(r.o)}</a>`} <span class="ar">${esc(r.txt||label0(r.o))}</span>${r.m?` <span class="note">${esc(r.m)}</span>`:''}</li>`).join('')}</ul>`;
 }
-const EVJP={cultural:'文化',mention:'言及',residence:'居住',jāwara:'ムジャーウィル',political:'政治',other:'その他',visit:'訪問',travel:'旅行',religious:'宗教',hajj:'巡礼',learning:'学習',teaching:'教授',study:'勉学',meeting:'面会',funeral:'葬儀',witness:'目撃',legacy:'遺産',ijaza:'イジャーザ',isnad:'イスナード',burial:'埋葬',economic:'経済'};
-const evJP=e=>[e.type,e.subtype].filter(Boolean).map(x=>EVJP[x]||x).join('・');
+const EVJP={cultural:'cultural',mention:'mention',residence:'residence',jāwara:'mujāwara',political:'political',other:'Other',visit:'visit',travel:'travel',religious:'religious',hajj:'hajj',learning:'learning',teaching:'teaching',study:'study',meeting:'met',funeral:'funeral',witness:'witness',legacy:'legacy',ijaza:'ijāza',isnad:'isnād',burial:'burial',economic:'economic'};
+const evJP=e=>[e.type,e.subtype].filter(Boolean).map(x=>EVJP[x]||x).join(' · ');
 function evRanges(){const toks=curText().split(' '),out=[];
   toks.forEach((t,i)=>{const m=ENT.exec(t);if(!m||m[1]!=='E')return;const pb=parseBr(m[4]);let n=+m[3],j=i+1;const ws=[];
     while(ws.length<n&&j<toks.length){if(!isTag(toks[j]))ws.push(j);j++}out.push({i,id:pb.id,ws})});return out}
@@ -385,11 +383,11 @@ async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;c
   const evs=R?.[k]?.events||[];if(!evs.length){box.innerHTML='';return}
   const placed=new Set(evRanges().map(r=>r.id));const un=evs.filter((e,j)=>!placed.has('e'+(j+1))).length;
   const nfz=EDITS[k]?0:evs.filter((e,j)=>placed.has('e'+(j+1))).length;
-  box.innerHTML=`<h2>XMLの出来事（${evs.length}件${nfz?`・推定 ${nfz}件`:''}${un?`・未 ${un}件`:''}）</h2>${un&&sampler?`<div class="row"><button class="pri" id="evai">未の出来事の中心語を AI で推定</button></div><div id="evaibox"></div>`:''}<ul class="mlist">${evs.map((e,j)=>{const id='e'+(j+1),ok=placed.has(id),fz=ok&&!EDITS[k],abs=isAbs(k,'e|'+id);
-    const dd=e.date||{};const date=dd.ah!=null?`${parseInt(dd.ah,10)}年`:dd.notBefore!=null?`${parseInt(dd.notBefore,10)}年以降`:dd.notAfter!=null?`${parseInt(dd.notAfter,10)}年以前`:'';
-    const who=evRefs(e).map(r=>esc(label(r).split(' / ')[0])).join('、');
-    const sm=e.summary?.ja||e.summary?.en||Object.values(e.summary||{})[0]||'';
-    return `<li data-evj="${j}"${abs?'':` draggable="true" data-de="${j}" title="${ok?'別の語にドラッグすると付け替えます':'本文の語にドラッグして付ける'}"`}>${fz?'<span class="fz">推定</span>':ok?'✓':abs?'<span class="note">本文になし</span>':`<button class="mini" data-abse="${j}" data-on="1">本文になし</button> <span style="color:var(--nid)">未</span>`} <b>${id}</b> ${esc(evJP(e))}${date?' · '+date:''}${who?` · <span class="ar" style="font-family:var(--ar)">${who}</span>`:''}${sm?`<div class="note">${esc(sm)}</div>`:''}${abs?` <button class="mini" data-abse="${j}" data-on="0">戻す</button>`:''}${ok?` <button class="mini" data-evdel="${j}">外す</button>`:''}</li>`}).join('')}</ul><p class="note">出来事は、中心になる語（حج・حفظ・ولي など）1語に付けます。「推定」は規則で付けたもので、CHECKED で確定します。未の項目は本文の語にドラッグすると付きます。付いている項目も、別の語にドラッグすれば付け替えられ、「外す」で外せます。項目にカーソルを合わせると、その語と関わる人物・地名のタグが強調されます。</p>`;
+  box.innerHTML=`<h2>Events in the XML (${evs.length}${nfz?` · estimated ${nfz}`:''}${un?` · unplaced ${un}`:''})</h2>${un&&sampler?`<div class="row"><button class="pri" id="evai">Estimate trigger words of unplaced events with AI</button></div><div id="evaibox"></div>`:''}<ul class="mlist">${evs.map((e,j)=>{const id='e'+(j+1),ok=placed.has(id),fz=ok&&!EDITS[k],abs=isAbs(k,'e|'+id);
+    const dd=e.date||{};const date=dd.ah!=null?`${parseInt(dd.ah,10)} AH`:dd.notBefore!=null?`${parseInt(dd.notBefore,10)} AH or later`:dd.notAfter!=null?`${parseInt(dd.notAfter,10)} AH or earlier`:'';
+    const who=evRefs(e).map(r=>esc(label(r).split(' / ')[0])).join(', ');
+    const sm=e.summary?.en||e.summary?.ja||Object.values(e.summary||{})[0]||'';
+    return `<li data-evj="${j}"${abs?'':` draggable="true" data-de="${j}" title="${ok?'Drag to another word to move':'Drag onto a word in the text to place'}"`}>${fz?'<span class="fz">estimated</span>':ok?'✓':abs?'<span class="note">Not in text</span>':`<button class="mini" data-abse="${j}" data-on="1">Not in text</button> <span style="color:var(--nid)">unplaced</span>`} <b>${id}</b> ${esc(evJP(e))}${date?' · '+date:''}${who?` · <span class="ar" style="font-family:var(--ar)">${who}</span>`:''}${sm?`<div class="note">${esc(sm)}</div>`:''}${abs?` <button class="mini" data-abse="${j}" data-on="0">Restore</button>`:''}${ok?` <button class="mini" data-evdel="${j}">Unplace</button>`:''}</li>`}).join('')}</ul><p class="note">An event is placed on its single trigger word (حج, حفظ, ولي, …). "estimated" means placed by rule; CHECKED confirms it. Drag an unplaced item onto a word in the text to place it; drag a placed item to another word to move it, or use "Unplace". Hover over an item to highlight the person and place tags related to it.</p>`;
   $('#evai')?.addEventListener('click',()=>evAI(evs.map((e,j)=>({e,j})).filter(x=>!placed.has('e'+(x.j+1))&&!isAbs(k,'e|e'+(x.j+1)))));
 }
 async function evAI(items){const box=$('#evaibox');if(!box||!items.length)return;
@@ -402,16 +400,16 @@ For each event below, choose the ONE word that is the head (trigger) of the even
 Events:
 ${evtxt}
 
-Reply with one JSON object only: {"e1":{"i":12,"why":"短い理由（日本語）"}, "e2":{"i":null,"why":"…"}}`;
-  box.innerHTML='<p class="ai-wait">Opus が中心語を探しています…</p>';
+Reply with one JSON object only: {"e1":{"i":12,"why":"short reason (in English)"}, "e2":{"i":null,"why":"…"}}`;
+  box.innerHTML='<p class="ai-wait">Opus is looking for trigger words…</p>';
   try{const v=await sampler.json(prompt,{model:'claude-opus-5-5',modelTier:'complex'})||{};
     box.innerHTML=`<ul class="mlist">${items.map(({e,j})=>{const r=v['e'+(j+1)]||{};const i=Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?r.i:null;
-      return `<li><b>e${j+1}</b> ${esc(evJP(e))} → ${i!=null?`<span class="ar" style="font-family:var(--ar)">${esc(toks[i])}</span> <button class="mini" data-evput="${j}" data-i="${i}">付ける</button>`:'<span class="note">本文になし（AI）</span> <button class="mini" data-abse="'+j+'" data-on="1">本文になしにする</button>'}${r.why?`<div class="note">${esc(r.why)}</div>`:''}</li>`}).join('')}</ul>`;
+      return `<li><b>e${j+1}</b> ${esc(evJP(e))} → ${i!=null?`<span class="ar" style="font-family:var(--ar)">${esc(toks[i])}</span> <button class="mini" data-evput="${j}" data-i="${i}">Place</button>`:'<span class="note">Not in text (AI)</span> <button class="mini" data-abse="'+j+'" data-on="1">Mark as not in text</button>'}${r.why?`<div class="note">${esc(r.why)}</div>`:''}</li>`}).join('')}</ul>`;
     const props=items.map(({e,j})=>{const r=v['e'+(j+1)]||{};return Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?{e,j,i:r.i}:null}).filter(Boolean);
-    if(props.length>1)box.insertAdjacentHTML('afterbegin','<div class="row"><button class="pri" id="evall">提案をすべて付ける</button></div>');
+    if(props.length>1)box.insertAdjacentHTML('afterbegin','<div class="row"><button class="pri" id="evall">Apply all suggestions</button></div>');
     box.onclick=ev=>{if(ev.target.id==='evall'){const t2=curText().split(' ');for(const p of props.sort((a,b)=>b.i-a.i))t2.splice(p.i,0,`@E01[${(p.e.subtype||p.e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:e${p.j+1}]`);save(t2.join(' '));return}
       const b=ev.target.closest('[data-evput]');if(b)linkEv(+b.dataset.evput,+b.dataset.i,1)};
-  }catch(err){box.innerHTML=`<p class="note">AI の推定に失敗しました（${esc(err.code||'error')}）。</p>`}}
+  }catch(err){box.innerHTML=`<p class="note">AI estimation failed (${esc(err.code||'error')}).</p>`}}
 function dropEvTag(toks,j){const i=toks.findIndex(t=>{const m=ENT.exec(t);return m&&m[1]==='E'&&parseBr(m[4]).id==='e'+(j+1)});if(i>=0)toks.splice(i,1);return i}
 function linkEv(j,start,n){const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const toks=curText().split(' ');
   const old=dropEvTag(toks,j);if(old>=0&&old<start)start--;
@@ -425,9 +423,9 @@ function offList(){
   const chk=!!EDITS[cur.k];
   const st=os.map(o=>{const i=oTagIdx(o);return i<0?(isAbs(cur.k,oKey(o))?'na':'un'):(o.ok==='fz'&&!chk)?'fz':'ok'});
   const nOk=st.filter(x=>x!=='un').length,nFz=st.filter(x=>x==='fz').length;
-  return `<h2>XMLの官職・身分（${os.length}件・本文で特定 ${nOk}件${nFz?`・うち推定 ${nFz}件`:''}）</h2><ul class="mlist">${os.map((o,j)=>st[j]==='na'?`<li><span class="note">本文になし</span> <b>${esc(OSUB[o.typ]||o.typ)}</b> <span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span> <button class="mini" data-abso="${j}" data-on="0">戻す</button></li>`:`<li${st[j]==='un'?` draggable="true" data-do="${j}" title="本文の語（または官職のタグ）にドラッグして付ける"`:` data-ojump="${j}" style="cursor:pointer" title="本文のタグを開く"`}>${st[j]==='ok'?'✓':st[j]==='fz'?'<span class="fz">推定</span>':`<button class="mini" data-abso="${j}" data-on="1" title="本文に出てこない要素として片付ける">本文になし</button> <span style="color:var(--nid)">未</span>`} <b>${esc(OSUB[o.typ]||o.typ)}</b> ${o.id?`<code>${esc(o.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span>${o.id&&OFFS[o.id]?` <span class="note">${esc(offLabel(o.id))}</span>`:''}</li>`).join('')}</ul>${nFz?'<p class="note">「推定」は、XML の語句と本文の語形が違うため、語形を変えて照合して付けたタグです。確かめてください（CHECKED で ✓ になります）。</p>':''}`;
+  return `<h2>Offices and status in the XML (${os.length} · placed in the text ${nOk}${nFz?` · of which estimated ${nFz}`:''})</h2><ul class="mlist">${os.map((o,j)=>st[j]==='na'?`<li><span class="note">Not in text</span> <b>${esc(OSUB[o.typ]||o.typ)}</b> <span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span> <button class="mini" data-abso="${j}" data-on="0">Restore</button></li>`:`<li${st[j]==='un'?` draggable="true" data-do="${j}" title="Drag onto a word (or an office tag) in the text to place"`:` data-ojump="${j}" style="cursor:pointer" title="Open the tag in the text"`}>${st[j]==='ok'?'✓':st[j]==='fz'?'<span class="fz">estimated</span>':`<button class="mini" data-abso="${j}" data-on="1" title="Set aside as not in the text">Not in text</button> <span style="color:var(--nid)">unplaced</span>`} <b>${esc(OSUB[o.typ]||o.typ)}</b> ${o.id?`<code>${esc(o.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(o.lab)}</span>${o.id&&OFFS[o.id]?` <span class="note">${esc(offLabel(o.id))}</span>`:''}</li>`).join('')}</ul>${nFz?'<p class="note">"estimated" tags were matched after normalising word forms, because the XML wording differs from the text. Please check them (CHECKED turns them into ✓).</p>':''}`;
 }
-const UK={T:'地名・施設',S:'名前要素',Y:'年'};
+const UK={T:'Place / institution',S:'Name element',Y:'Year'};
 function uTagIdx(u){const toks=curText().split(' ');
   for(let i=0;i<toks.length;i++){const t=toks[i];let m;
     if(u.k==='Y'){if((m=YR.exec(t))&&m[1]===u.typ&&((+m[2]<=+u.lab&&+u.lab<=+(m[3]||m[2]))||(m[3]&&Math.floor(+m[2]/10)===Math.floor(+u.lab/10))))return i;continue}
@@ -439,36 +437,36 @@ function uTagIdx(u){const toks=curText().split(' ');
 function uList(){
   const us=cur.u||[];if(!us.length)return '';
   const st=us.map(u=>uTagIdx(u)>=0?'ok':isAbs(cur.k,uKey(u))?'na':'un');const un=st.filter(x=>x==='un').length,na=st.filter(x=>x==='na').length;
-  if(!un&&!na)return `<h2>XMLのその他の要素（${us.length}件・すべて本文で特定）</h2>`;
-  return `<h2>XMLのその他の要素（${us.length}件${un?`・未 ${un}件`:''}${na?`・本文になし ${na}件`:''}）</h2><ul class="mlist">${us.map((u,j)=>st[j]==='ok'?'':st[j]==='na'?`<li><span class="note">本文になし</span> <b>${UK[u.k]}${u.k==='S'?'：'+esc(ONO[u.typ]||u.typ):u.k==='Y'?'：'+({YD:'没年',YB:'生年'}[u.typ]||''):''}</b> <span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span> <button class="mini" data-absu="${j}" data-on="0">戻す</button></li>`:`<li draggable="true" data-du="${j}" title="本文の語（または同じ種類のタグ）にドラッグして付ける"><button class="mini" data-absu="${j}" data-on="1" title="本文に出てこない要素として片付ける">本文になし</button> <span style="color:var(--nid)">未</span> <b>${UK[u.k]}${u.k==='S'?'：'+esc(ONO[u.typ]||u.typ):u.k==='Y'?'：'+({YD:'没年',YB:'生年'}[u.typ]||''):''}</b> ${u.id?`<code>${esc(u.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span>${u.id?` <span class="note">${esc(label(u.id))}</span>`:''}</li>`).join('')}</ul>${un?'<p class="note">本文で位置を決められなかった要素です。本文の語にドラッグすると付きます（複数語は先に選んでから、その中に落とします）。本文に出てこない要素（ニスバから推した地名など）は「本文になし」で片付けます。</p>':''}`;
+  if(!un&&!na)return `<h2>Other elements in the XML (${us.length} · all placed in the text)</h2>`;
+  return `<h2>Other elements in the XML (${us.length}${un?` · unplaced ${un}`:''}${na?` · not in text ${na}`:''})</h2><ul class="mlist">${us.map((u,j)=>st[j]==='ok'?'':st[j]==='na'?`<li><span class="note">Not in text</span> <b>${UK[u.k]}${u.k==='S'?': '+esc(ONO[u.typ]||u.typ):u.k==='Y'?': '+({YD:'Death year',YB:'Birth year'}[u.typ]||''):''}</b> <span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span> <button class="mini" data-absu="${j}" data-on="0">Restore</button></li>`:`<li draggable="true" data-du="${j}" title="Drag onto a word (or a tag of the same kind) in the text to place"><button class="mini" data-absu="${j}" data-on="1" title="Set aside as not in the text">Not in text</button> <span style="color:var(--nid)">unplaced</span> <b>${UK[u.k]}${u.k==='S'?': '+esc(ONO[u.typ]||u.typ):u.k==='Y'?': '+({YD:'Death year',YB:'Birth year'}[u.typ]||''):''}</b> ${u.id?`<code>${esc(u.id)}</code> `:''}<span class="ar" style="font-family:var(--ar)">${esc(u.lab)}</span>${u.id?` <span class="note">${esc(label(u.id))}</span>`:''}</li>`).join('')}</ul>${un?'<p class="note">These elements could not be placed in the text. Drag one onto a word to place it (for several words, select them first and drop inside the selection). Elements that do not occur in the text (e.g. a place inferred from a nisba) can be set aside with "Not in text".</p>':''}`;
 }
 function linkU(u,ti,isTagToken,n=1){
   const toks=curText().split(' ');
   const mk=p=>u.k==='Y'?`@${u.typ}${u.lab}[${n}]`:u.k==='S'?`@S${p}${n}[${u.typ}${u.id?':'+u.id:''}]`:`@T${p}${n}[${u.id||'NEEDID'}]`;
   if(isTagToken){const t=toks[ti],m=ENT.exec(t),y=YR.exec(t);
-    if(u.k==='Y'){if(!y)return status('年は年のタグか本文の語にドラッグしてください');toks[ti]=`@${u.typ}${u.lab}[${spanOf(toks,ti)}]`}
-    else{if(!m||m[1]!==u.k)return status(UK[u.k]+'は同じ種類のタグか本文の語にドラッグしてください');n=+m[3];toks[ti]=mk(m[2])}}
+    if(u.k==='Y'){if(!y)return status('Drag a year onto a year tag or a word in the text');toks[ti]=`@${u.typ}${u.lab}[${spanOf(toks,ti)}]`}
+    else{if(!m||m[1]!==u.k)return status(UK[u.k]+' must be dragged onto a tag of the same kind or a word in the text');n=+m[3];toks[ti]=mk(m[2])}}
   else toks.splice(ti,0,mk(guessPrefix(toks[ti])));
   save(toks.join(' '));
 }
 function linkOff(o,ti,isTagToken,n=1){
   const toks=curText().split(' '),br=o.typ+(o.id?':'+o.id:(o.typ==='status'?'':':NEEDID'));
-  if(isTagToken){const m=ENT.exec(toks[ti]);if(!m||m[1]!=='O')return status('官職・身分は、官職のタグか本文の語にドラッグしてください');toks[ti]=`@O${m[2]}${m[3]}[${br}]`}
+  if(isTagToken){const m=ENT.exec(toks[ti]);if(!m||m[1]!=='O')return status('Drag offices and status onto an office tag or a word in the text');toks[ti]=`@O${m[2]}${m[3]}[${br}]`}
   else toks.splice(ti,0,`@O${guessPrefix(toks[ti])}${n}[${br}]`);
   save(toks.join(' '));
 }
 function linkRel(r,ti,isTagToken,n=1){
   const toks=curText().split(' ');
   if(isTagToken){
-    const t=toks[ti],m=ENT.exec(t);if(!m)return status('この種類のタグには紐付けられません');
+    const t=toks[ti],m=ENT.exec(t);if(!m)return status('Cannot be linked to this kind of tag');
     const k=m[1][0],pb=parseBr(m[4]);
     let br;
-    if(k==='S'){if(pb.sub!=='nasab')return status('名前要素はナサブだけ紐付けられます');br='nasab:'+r.o}
+    if(k==='S'){if(pb.sub!=='nasab')return status('Only a nasab name element can be linked');br='nasab:'+r.o}
     else if(k==='P'&&/^TMP-P-/.test(r.o)&&pb.id&&/^(AIND-|wd:)/.test(pb.id)){
       const rec={to:pb.id,at:Date.now(),entry:cur.k,how:'drag',role:r.role||null};if(uid)rec.by=uid;
-      persistMerge(r.o,rec).then(()=>{reindexAll();status(`${r.o} を ${pb.id} に統合しました`);openEntry(cur.k,false)});return}
+      persistMerge(r.o,rec).then(()=>{reindexAll();status(`${r.o}  → ${pb.id} : merged`);openEntry(cur.k,false)});return}
     else if(k==='P'){const old=splitRole(pb.sub);const keep=old.meths.length&&old.roles.split('+')[0]===(r.role||'').split('+')[0]?'/'+old.meths.join('.'):'';br=(r.role||'person')+keep+':'+r.o}
-    else return status('地名・年のタグには人物を紐付けられません');
+    else return status('A person cannot be linked to a place or year tag');
     toks[ti]=`@${m[1]}${m[2]}${m[3]}[${br}]`;
   }else{
     toks.splice(ti,0,`@P${guessPrefix(toks[ti])}${n}[${r.role||'person'}:${r.o}]`);
@@ -483,7 +481,7 @@ function showEntryCard(){
   ${offList()}
   ${uList()}
   <div id="evbox"></div>
-  ${isAind?`<h2>この人物に言及している見出し</h2>${mentionList(cur.k)}`:''}
+  ${isAind?`<h2>Headings that mention this person</h2>${mentionList(cur.k)}`:''}
   </div>`;
   fillEvents();
 }
@@ -493,19 +491,19 @@ function showTagCard(i){
   document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('sel');
   if(m=LM.exec(t)){
     const ws=[];for(let j=i+1;ws.length<+m[1]&&j<toks.length;j++)ws.push(toks[j]);
-    $('#panel').innerHTML=`<div class="card"><h2>月</h2><div class="big">${esc(ws.join(' '))}</div><dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>月</dt><dd>${MON[+m[2]]}</dd><dt>語数</dt><dd>${m[1]}</dd></dl><p class="note">EIS1600 と同じ形式（L＋語数＋X＋月番号＋L）。日（ثالث など）にはタグを付けません。</p><div class="row"><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div></div>`;
+    $('#panel').innerHTML=`<div class="card"><h2>Month</h2><div class="big">${esc(ws.join(' '))}</div><dl class="kv"><dt>Tag</dt><dd><code>${esc(t)}</code></dd><dt>Month</dt><dd>${MON[+m[2]]}</dd><dt>Words</dt><dd>${m[1]}</dd></dl><p class="note">Same format as EIS1600 (L + word count + X + month number + L). Days (ثالث, …) are not tagged.</p><div class="row"><button id="del">Delete this tag</button><button id="back">Back to the heading</button></div></div>`;
   }else if(m=YR.exec(t)){
-    const what={YB:'生年',YD:'没年',YY:'その他の年',YA:'年齢'}[m[1]];
-    $('#panel').innerHTML=`<div class="card"><h2>${what}</h2><dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>ヒジュラ暦</dt><dd>${yLabel(m)}</dd><dt>西暦</dt><dd>${yCE(m)}（年初基準の概算）</dd></dl><div class="row"><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div></div>`;
+    const what={YB:'Birth year',YD:'Death year',YY:'Other year',YA:'Age'}[m[1]];
+    $('#panel').innerHTML=`<div class="card"><h2>${what}</h2><dl class="kv"><dt>Tag</dt><dd><code>${esc(t)}</code></dd><dt>AH</dt><dd>${yLabel(m)}</dd><dt>CE</dt><dd>${yCE(m)}(approx., from the start of the year)</dd></dl><div class="row"><button id="del">Delete this tag</button><button id="back">Back to the heading</button></div></div>`;
   }else{
-    m=ENT.exec(t);const pb=parseBr(m[4]),isS=m[1][0]==='S',id=pb.id||(isS?'':'NEEDID'),type=isS?'名前要素：'+(ONO[pb.sub]||'種類未指定'):m[1][0]==='P'?'人物'+(pb.sub?'：'+roleJP(pb.sub):''):m[1][0]==='T'?'地名':m[1][0]==='O'?'官職・職業'+(pb.sub&&pb.sub!=='office'?'：'+(OSUB[pb.sub]||pb.sub):''):'その他';
+    m=ENT.exec(t);const pb=parseBr(m[4]),isS=m[1][0]==='S',id=pb.id||(isS?'':'NEEDID'),type=isS?'Name element: '+(ONO[pb.sub]||'type not set'):m[1][0]==='P'?'Person'+(pb.sub?': '+roleJP(pb.sub):''):m[1][0]==='T'?'Place':m[1][0]==='O'?'Office / occupation'+(pb.sub&&pb.sub!=='office'?': '+(OSUB[pb.sub]||pb.sub):''):'Other';
     const xr=(cur.r||[]).filter(r=>id!=='NEEDID'&&canon(r.o)===canon(id));
     const words=[];for(let j=i+1;words.length<+m[3]&&j<toks.length;j++)words.push(toks[j]);
     $('#panel').innerHTML=`<div class="card"><h2>${type}</h2><div class="big">${esc(words.join(' '))}</div>
-    <dl class="kv"><dt>タグ</dt><dd><code>${esc(t)}</code></dd><dt>前接辞</dt><dd>${m[2]}字</dd><dt>語数</dt><dd>${m[3]}</dd>${m[1][0]==='P'?`<dt>関係</dt><dd>${pb.sub?esc(roleJP(pb.sub))+` <code>${esc(pb.sub)}</code>`:'（なし）'}</dd>`:''}${xr.length?`<dt>XML</dt><dd>${methMatch(xr,splitRole(pb.sub).meths).map(r=>esc(r.st||r.role)+(r.m?' · '+esc(r.m):'')+(r.c?' · cert '+esc(r.c):'')).join('<br>')}</dd>`:''}<dt>ID</dt><dd>${esc(id||'（IDを持たない要素）')}</dd>${id?`<dt>同定先</dt><dd class="ar" style="font-family:var(--ar)">${esc(label(id))}</dd>`:''}</dl>
+    <dl class="kv"><dt>Tag</dt><dd><code>${esc(t)}</code></dd><dt>Proclitic</dt><dd>${m[2]} letters</dd><dt>Words</dt><dd>${m[3]}</dd>${m[1][0]==='P'?`<dt>Relation</dt><dd>${pb.sub?esc(roleJP(pb.sub))+` <code>${esc(pb.sub)}</code>`:'(none)'}</dd>`:''}${xr.length?`<dt>XML</dt><dd>${methMatch(xr,splitRole(pb.sub).meths).map(r=>esc(r.st||r.role)+(r.m?' · '+esc(r.m):'')+(r.c?' · cert '+esc(r.c):'')).join('<br>')}</dd>`:''}<dt>ID</dt><dd>${esc(id||'(element without an ID)')}</dd>${id?`<dt>Identified as</dt><dd class="ar" style="font-family:var(--ar)">${esc(label(id))}</dd>`:''}</dl>
     <div class="row">${extLink(id)}</div>
-    <div class="row"><button class="pri" id="chg">同定先を変える</button><button id="del">このタグを削除</button><button id="back">見出しに戻る</button></div>
-    ${id&&id!=='NEEDID'?`<h2>${pb.sub==='nisbah'?'同じニスバを持つ見出し':'同じIDが付いた他の見出し'}</h2>${mentionList(id)}`:''}</div>`;
+    <div class="row"><button class="pri" id="chg">Change identification</button><button id="del">Delete this tag</button><button id="back">Back to the heading</button></div>
+    ${id&&id!=='NEEDID'?`<h2>${pb.sub==='nisbah'?'Headings with the same nisba':'Other headings with the same ID'}</h2>${mentionList(id)}`:''}</div>`;
     $('#chg').onclick=()=>identify({type:isS?'S':m[1][0]==='T'?'T':m[1][0]==='O'?'O':'P',sub:pb.sub,role:isS||m[1][0]==='O'?null:pb.sub,replace:i,start:i+1,n:+m[3],prefix:+m[2]});
   }
   $('#del').parentElement.insertAdjacentHTML('beforebegin',rangeRow(i));wireRange(i);
@@ -533,7 +531,7 @@ $('#center').addEventListener('drop',ev=>{const d=ev.dataTransfer.getData('text/
   lastSel=null});
 $('#panel').addEventListener('mouseover',ev=>{const li=ev.target.closest('[data-evj]');hlEv(li?+li.dataset.evj:-1,!!li)});
 $('#panel').addEventListener('mouseleave',()=>hlEv(-1,false));
-$('#panel').addEventListener('click',async ev=>{const xd=ev.target.closest('[data-evdel]');if(xd){ev.stopPropagation();const t2=curText().split(' ');if(dropEvTag(t2,+xd.dataset.evdel)>=0)save(t2.join(' '));return}const ab=ev.target.closest('[data-absu],[data-abso],[data-abse]');if(ab){ev.stopPropagation();const on=ab.dataset.on==='1';if(ab.dataset.abse!=null)setAbs(cur.k,'e|e'+(+ab.dataset.abse+1),on);else if(ab.dataset.absu!=null)setAbs(cur.k,uKey(cur.u[+ab.dataset.absu]),on);else setAbs(cur.k,oKey(cur.o[+ab.dataset.abso]),on);return}const oj=ev.target.closest('[data-ojump]');if(oj){const i=oTagIdx((cur.o||[])[+oj.dataset.ojump]);if(i>=0){document.querySelectorAll('.ent.sel').forEach(x=>x.classList.remove('sel'));document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('sel');showTagCard(i)}return}const u=ev.target.closest('[data-unmerge]');if(u){const f=u.dataset.unmerge;await persistMerge(f,{...MERGES[f],undone:true,undoneAt:Date.now()});reindexAll();openEntry(cur.k,false);status(f+' の統合を取り消しました')}});
+$('#panel').addEventListener('click',async ev=>{const xd=ev.target.closest('[data-evdel]');if(xd){ev.stopPropagation();const t2=curText().split(' ');if(dropEvTag(t2,+xd.dataset.evdel)>=0)save(t2.join(' '));return}const ab=ev.target.closest('[data-absu],[data-abso],[data-abse]');if(ab){ev.stopPropagation();const on=ab.dataset.on==='1';if(ab.dataset.abse!=null)setAbs(cur.k,'e|e'+(+ab.dataset.abse+1),on);else if(ab.dataset.absu!=null)setAbs(cur.k,uKey(cur.u[+ab.dataset.absu]),on);else setAbs(cur.k,oKey(cur.o[+ab.dataset.abso]),on);return}const oj=ev.target.closest('[data-ojump]');if(oj){const i=oTagIdx((cur.o||[])[+oj.dataset.ojump]);if(i>=0){document.querySelectorAll('.ent.sel').forEach(x=>x.classList.remove('sel'));document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('sel');showTagCard(i)}return}const u=ev.target.closest('[data-unmerge]');if(u){const f=u.dataset.unmerge;await persistMerge(f,{...MERGES[f],undone:true,undoneAt:Date.now()});reindexAll();openEntry(cur.k,false);status(f+' : merge undone')}});
 $('#panel').addEventListener('click',ev=>{const a=ev.target.closest('[data-open]');if(a){ev.preventDefault();openEntry(a.dataset.open)}});
 $('#center').addEventListener('click',ev=>{const s=ev.target.closest('.ent');if(s&&!window.getSelection().toString())showTagCard(+s.dataset.tag)});
 
@@ -541,22 +539,22 @@ $('#center').addEventListener('click',ev=>{const s=ev.target.closest('.ent');if(
 function tipHTML(i){
   const toks=curText().split(' '),t=toks[i];let m;
   const words=n=>{const w=[];for(let j=i+1;w.length<n&&j<toks.length;j++)w.push(toks[j]);return w.join(' ')};
-  if(m=LM.exec(t))return `<div class="h">月：${MON[+m[2]]}</div><code>${esc(t)}</code><div class="ar">${esc(words(+m[1]))}</div>`;
-  if(m=YR.exec(t)){return `<div class="h">${{YB:'生年',YD:'没年',YY:'年',YA:'年齢'}[m[1]]}：ヒジュラ暦 ${yLabel(m)}（西暦 ${yCE(m)}）</div><code>${esc(t)}</code>`}
+  if(m=LM.exec(t))return `<div class="h">Month: ${MON[+m[2]]}</div><code>${esc(t)}</code><div class="ar">${esc(words(+m[1]))}</div>`;
+  if(m=YR.exec(t)){return `<div class="h">${{YB:'Birth year',YD:'Death year',YY:'Year',YA:'Age'}[m[1]]}: AH ${yLabel(m)} (CE ${yCE(m)})</div><code>${esc(t)}</code>`}
   m=ENT.exec(t);if(!m)return '';
   const pb=parseBr(m[4]),k=m[1][0],id=pb.id;
-  const kind=k==='S'?'名前要素：'+(ONO[pb.sub]||'?'):k==='P'?'人物':k==='T'?'地名':k==='O'?'官職・職業'+(pb.sub&&pb.sub!=='office'?'：'+(OSUB[pb.sub]||pb.sub):''):'その他';
+  const kind=k==='S'?'Name element: '+(ONO[pb.sub]||'?'):k==='P'?'Person':k==='T'?'Place':k==='O'?'Office / occupation'+(pb.sub&&pb.sub!=='office'?': '+(OSUB[pb.sub]||pb.sub):''):'Other';
   const xr=(cur.r||[]).filter(r=>id&&canon(r.o)===canon(id));
   const rows=[];
-  if(k==='P')rows.push(['関係',pb.sub?esc(roleJP(pb.sub)):'（なし）']);
-  if(k==='S'&&pb.sub==='nasab'&&xr.length)rows.push(['関係',esc(xr.map(r=>roleJP(r.role)).join('・'))]);
+  if(k==='P')rows.push(['Relation',pb.sub?esc(roleJP(pb.sub)):'(none)']);
+  if(k==='S'&&pb.sub==='nasab'&&xr.length)rows.push(['Relation',esc(xr.map(r=>roleJP(r.role)).join(' · '))]);
   const ms=splitRole(pb.sub).meths,xm=methMatch(xr,ms).filter(r=>r.m);
-  if(ms.length)rows.push(['方法',`<span class="ar" style="font-size:16px">${esc(methAR(ms))}</span>`+(xm.length?` <span class="note">（XML: <bdi dir="rtl">${esc(xm.map(r=>r.m).join(' / '))}</bdi>）</span>`:'')]);
-  else if(xr.some(r=>r.m))rows.push(['方法','<bdi dir="rtl">'+esc(xr.filter(r=>r.m).map(r=>r.m).join(' / '))+'</bdi>'+' <span class="note">（この箇所の動詞からは特定できず）</span>']);
+  if(ms.length)rows.push(['Method',`<span class="ar" style="font-size:16px">${esc(methAR(ms))}</span>`+(xm.length?` <span class="note"> (XML: <bdi dir="rtl">${esc(xm.map(r=>r.m).join(' / '))}</bdi>)</span>`:'')]);
+  else if(xr.some(r=>r.m))rows.push(['Method','<bdi dir="rtl">'+esc(xr.filter(r=>r.m).map(r=>r.m).join(' / '))+'</bdi>'+' <span class="note">(cannot be determined from the verb here)</span>']);
   if(id)rows.push(['ID',`<code>${esc(id)}</code>`]);
-  if(id&&id!=='NEEDID')rows.push(['同定先',`<span class="ar" style="font-size:16px">${esc(label(id))}</span>`]);
-  if(id==='NEEDID')rows.push(['同定','未同定']);
-  rows.push(['前接辞・語数',`${m[2]}字・${m[3]}語`]);
+  if(id&&id!=='NEEDID')rows.push(['Identified as',`<span class="ar" style="font-size:16px">${esc(label(id))}</span>`]);
+  if(id==='NEEDID')rows.push(['Identification','Unidentified']);
+  rows.push(['Proclitic / words',`${m[2]} letters · ${m[3]} words`]);
   return `<div class="h">${kind}</div><code>${esc(t)}</code><dl>${rows.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`;
 }
 const tip=$('#tip');
@@ -605,21 +603,21 @@ function retag(t,n,first,firstChanged){let m;
   return t}
 async function setSpan(i,s0,e0){
   const toks=curText().split(' '),n=spanOf(toks,i);if(!n)return;
-  if(s0>e0||s0<0||e0>=toks.length){status('範囲を変えられません');return}
+  if(s0>e0||s0<0||e0>=toks.length){status('The range cannot be changed');return}
   const cov=new Set();toks.forEach((t,k)=>{if(k!==i&&isTag(t)){cov.add(k);const c=spanOf(toks,k);for(let j=k+1;j<=k+c;j++)cov.add(j)}});
-  for(let k=s0;k<=e0;k++)if(k!==i&&(cov.has(k)||isTag(toks[k])||toks[k]==='%~%')){status('隣のタグや区切りとは重ねられません');return}
+  for(let k=s0;k<=e0;k++)if(k!==i&&(cov.has(k)||isTag(toks[k])||toks[k]==='%~%')){status('Cannot overlap a neighbouring tag or a separator');return}
   const t=toks[i];toks.splice(i,1);const s=s0>i?s0-1:s0,e=e0>i?e0-1:e0;
   const nt=retag(t,e-s+1,toks[s],s0!==i+1);toks.splice(s,0,nt);
   await save(toks.join(' '));showTagCard(s);
 }
 function rangeRow(i){const toks=curText().split(' '),n=spanOf(toks,i);
-  return `<div class="row rng" data-i="${i}"><span class="note">範囲</span><button data-rg="s+" title="右（前）の語を含める">→ 右へ広げる</button><button data-rg="s-"${n<2?' disabled':''}>右を縮める</button><button data-rg="e-"${n<2?' disabled':''}>左を縮める</button><button data-rg="e+" title="左（後）の語を含める">左へ広げる ←</button></div><p class="note">枠の両端のつまみを、含めたい語までドラッグしても変えられます。</p>`}
+  return `<div class="row rng" data-i="${i}"><span class="note">Range</span><button data-rg="s+" title="Include the word to the right (before)">→ extend right</button><button data-rg="s-"${n<2?' disabled':''}>shrink right</button><button data-rg="e-"${n<2?' disabled':''}>shrink left</button><button data-rg="e+" title="Include the word to the left (after)">extend left ←</button></div><p class="note">You can also drag the handles at either end of the box to the words to include.</p>`}
 function wireRange(i){
   const toks=curText().split(' '),n=spanOf(toks,i),s=i+1,e=i+n;
   $('#panel .rng')?.addEventListener('click',ev=>{const b=ev.target.closest('[data-rg]');if(!b)return;
     ({'s+':()=>setSpan(i,i-1,e),'s-':()=>setSpan(i,s+1,e),'e+':()=>setSpan(i,s,e+1),'e-':()=>setSpan(i,s,e-1)})[b.dataset.rg]()});
   const box=document.querySelector(`.ent[data-tag="${i}"]`);if(!box)return;
-  for(const side of ['s','e']){const g=document.createElement('span');g.className='grip '+side;g.title='ドラッグして範囲を変える';
+  for(const side of ['s','e']){const g=document.createElement('span');g.className='grip '+side;g.title='Drag to change the range';
     g.addEventListener('mousedown',ev=>{ev.preventDefault();ev.stopPropagation();document.body.classList.add('gripping');
       const up=u=>{document.removeEventListener('mouseup',up,true);document.body.classList.remove('gripping');u.preventDefault();u.stopPropagation();
         const w=document.elementFromPoint(u.clientX,u.clientY)?.closest('[data-w]');if(!w)return;const k=+w.dataset.w;
@@ -639,13 +637,13 @@ async function dateForm(o){
   const approx=()=>nw.some(w=>w==='بضع'||w==='بضعه');
   const fill=()=>{const y=xmlY(kind);if(!y)return['',''];return approx()&&y%10===0?[y+1,y+9]:[y,'']};
   const draw=()=>{const [a,b]=kind==='L'?['','']:fill();
-    $('#panel').innerHTML=`<div class="card"><h2>年・月のタグ付け</h2><div class="big">${esc(words.join(' '))}</div>
-    <div class="row"><select id="dk" aria-label="種類">${[['YD','没年'],['YB','生年'],['YY','その他の年'],['YA','年齢'],['L','月']].map(([k,v])=>`<option value="${k}"${k===kind?' selected':''}>${v}</option>`).join('')}</select></div>
-    ${kind==='L'?`<div class="row"><select id="dm" aria-label="月">${MON.slice(1).map((v,i)=>`<option value="${i+1}">${v}</option>`).join('')}</select></div>`
-    :`<div class="row"><label class="note">${kind==='YA'?'年齢':'ヒジュラ暦'} <input id="dy" inputmode="numeric" value="${a}" style="width:7em"></label><label class="note">〜 <input id="dy2" inputmode="numeric" value="${b}" style="width:7em" placeholder="幅があるとき"></label></div>
-    <p class="note">「بضع وعشرين」のように幅がある年は、上限も入れてください（例：821〜829。بضع は1〜9として扱う）。${xmlY(kind)?`XML の値：${xmlY(kind)}${rec[kind==='YD'?'death':'birth']?.date?.cert?'（cert '+esc(rec[kind==='YD'?'death':'birth'].date.cert)+'）':''}`:''}</p>`}
-    <p class="note">選択した ${o.n} 語にタグを付けます。</p>
-    <div class="row"><span class="sp"></span><button id="dback">取り消し</button><button class="pri" id="dok">付ける</button></div></div>`;
+    $('#panel').innerHTML=`<div class="card"><h2>Tag a year or month</h2><div class="big">${esc(words.join(' '))}</div>
+    <div class="row"><select id="dk" aria-label="Type">${[['YD','Death year'],['YB','Birth year'],['YY','Other year'],['YA','Age'],['L','Month']].map(([k,v])=>`<option value="${k}"${k===kind?' selected':''}>${v}</option>`).join('')}</select></div>
+    ${kind==='L'?`<div class="row"><select id="dm" aria-label="Month">${MON.slice(1).map((v,i)=>`<option value="${i+1}">${v}</option>`).join('')}</select></div>`
+    :`<div class="row"><label class="note">${kind==='YA'?'Age':'AH'} <input id="dy" inputmode="numeric" value="${a}" style="width:7em"></label><label class="note">– <input id="dy2" inputmode="numeric" value="${b}" style="width:7em" placeholder="If a range"></label></div>
+    <p class="note">For a year with a range such as «بضع وعشرين», enter the upper bound too (e.g. 821–829; بضع is taken as 1–9).${xmlY(kind)?`XML value: ${xmlY(kind)}${rec[kind==='YD'?'death':'birth']?.date?.cert?' (cert '+esc(rec[kind==='YD'?'death':'birth'].date.cert)+')':''}`:''}</p>`}
+    <p class="note">Tag the selected ${o.n}  words.</p>
+    <div class="row"><span class="sp"></span><button id="dback">Cancel</button><button class="pri" id="dok">Place</button></div></div>`;
     $('#dk').onchange=e=>{kind=e.target.value;draw()};
     $('#dback').onclick=()=>openEntry(cur.k);
     $('#dok').onclick=()=>{let tag;
@@ -696,23 +694,23 @@ function identify(o){
     const w0=words[0];let q=[w0.slice(o.prefix),...words.slice(1)].join(' ');
     if(o.type==='S'&&!o.sub)o.sub='nisbah';if(o.type==='O'&&!o.sub)o.sub='office';
     const isS=o.type==='S',isO=o.type==='O',needId=!isS||o.sub==='nisbah';
-    $('#panel').innerHTML=`<div class="card"><h2>${isS?'名前要素':isO?'官職・職業':o.type==='P'?'人物':'地名'}の${isS?'タグ付け':'同定'}${o.replace!=null?'（変更）':''}</h2>
+    $('#panel').innerHTML=`<div class="card"><h2>${isS?'Name element':isO?'Office / occupation':o.type==='P'?'Person':'Place'} — ${isS?'tagging':'Identification'}${o.replace!=null?'(change)':''}</h2>
     <div class="big">${esc(words.join(' '))}</div>
-    ${origId?`<div class="cand cur0"><div class="hd"><span class="note">現在の同定</span> <code>${esc(origId)}</code><span class="sp"></span>${extLink(origId)}<button id="keep0">このままにする</button><button class="pri" data-pick="${esc(origId)}" id="chk0">確認する</button></div><div class="ar">${esc(label(origId))}</div><div class="aibox" data-for="${esc(origId)}" hidden></div></div>`:''}
-    <div class="row"><span class="step">前接辞 <button id="pm" aria-label="減らす">−</button><b id="pv">${o.prefix}</b>字 <button id="pp" aria-label="増やす">＋</button></span><span class="note">例：「<bdi>بالمدينة</bdi>」なら <bdi>ب</bdi> の1字</span></div>
-    ${o.type==='P'?`<div class="row"><label class="note">関係 <select id="role" aria-label="関係の種類"><option value="">（なし）</option>${Object.keys(ROLE_JP).map(k=>`<option value="${k}"${k===(o.role||'').split('/')[0]?' selected':''}>${ROLE_JP[k]}（${k}）</option>`).join('')}</select></label></div>
-    ${(cur.r||[]).filter(open_).length?`<h2>この項のXMLの関係（本文で未特定）</h2>${(cur.r||[]).filter(open_).map((r,j)=>`<div class="cand"><div class="hd"><b>${esc(roleJP(r.role))}</b> <code>${esc(r.o)}</code><span class="sp"></span><button class="pri" data-rel="${j}">これにする</button></div><div class="ar">${esc(r.txt||label(r.o))}</div></div>`).join('')}`:''}`:''}
-    ${isO?`<div class="row"><select id="osub" aria-label="種類">${Object.entries(OSUB).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v}（${k}）</option>`).join('')}</select>${o.sub==='status'?'<button id="plain">IDなしで付ける</button>':''}</div><p class="note">汎用職に場所・施設が付くとき（نائب صفد など）は、職は汎用IDで付け、場所・施設は地名として別に付けます。</p>`:''}
-    ${isS?`<div class="row"><select id="sub" aria-label="名前要素の種類">${Object.entries(ONO).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v}</option>`).join('')}</select>${needId?'':'<button class="pri" id="plain">このまま付ける</button>'}</div>`:''}
-    ${needId?`<input id="cq" type="search" value="${esc(q)}" aria-label="候補を検索" style="width:100%">
-    <div class="row"><button class="pri" id="aiall">候補をまとめて確認</button><button id="nid">${isS?'IDなしで付ける':'IDなしで範囲だけ付ける（NEEDID）'}</button></div>
+    ${origId?`<div class="cand cur0"><div class="hd"><span class="note">Current identification</span> <code>${esc(origId)}</code><span class="sp"></span>${extLink(origId)}<button id="keep0">Keep as is</button><button class="pri" data-pick="${esc(origId)}" id="chk0">Check</button></div><div class="ar">${esc(label(origId))}</div><div class="aibox" data-for="${esc(origId)}" hidden></div></div>`:''}
+    <div class="row"><span class="step">Proclitic <button id="pm" aria-label="Fewer">−</button><b id="pv">${o.prefix}</b> letters <button id="pp" aria-label="More">+</button></span><span class="note">e.g. «<bdi>بالمدينة</bdi>» → <bdi>ب</bdi>  (1 letter)</span></div>
+    ${o.type==='P'?`<div class="row"><label class="note">Relation <select id="role" aria-label="Relation type"><option value="">(none)</option>${Object.keys(ROLE_JP).map(k=>`<option value="${k}"${k===(o.role||'').split('/')[0]?' selected':''}>${ROLE_JP[k]} (${k})</option>`).join('')}</select></label></div>
+    ${(cur.r||[]).filter(open_).length?`<h2>Relations in this entry’s XML (not placed in the text)</h2>${(cur.r||[]).filter(open_).map((r,j)=>`<div class="cand"><div class="hd"><b>${esc(roleJP(r.role))}</b> <code>${esc(r.o)}</code><span class="sp"></span><button class="pri" data-rel="${j}">Use this</button></div><div class="ar">${esc(r.txt||label(r.o))}</div></div>`).join('')}`:''}`:''}
+    ${isO?`<div class="row"><select id="osub" aria-label="Type">${Object.entries(OSUB).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v} (${k})</option>`).join('')}</select>${o.sub==='status'?'<button id="plain">Place without an ID</button>':''}</div><p class="note">When a generic office comes with a place or institution (نائب صفد, …), give the office its generic ID and tag the place or institution separately.</p>`:''}
+    ${isS?`<div class="row"><select id="sub" aria-label="Name element type">${Object.entries(ONO).map(([k,v])=>`<option value="${k}"${k===o.sub?' selected':''}>${v}</option>`).join('')}</select>${needId?'':'<button class="pri" id="plain">Place as is</button>'}</div>`:''}
+    ${needId?`<input id="cq" type="search" value="${esc(q)}" aria-label="Search candidates" style="width:100%">
+    <div class="row"><button class="pri" id="aiall">Check all candidates</button><button id="nid">${isS?'Place without an ID':'Place the range without an ID (NEEDID)'}</button></div>
     <div id="aiallbox" hidden></div>`:''}
-    <div class="row"><input id="mid" placeholder="IDを直接入力（AIND-D… / TMP-… / wd:Q… / gn:…）" style="flex:1"><button id="mok">確認する</button></div>
+    <div class="row"><input id="mid" placeholder="Enter an ID (AIND-D… / TMP-… / wd:Q… / gn:…)" style="flex:1"><button id="mok">Check</button></div>
     <div class="aibox" data-for="__manual" hidden></div>
     <div id="cands"></div></div>`;
     const run=()=>{const cs=search(o.type,$('#cq').value);lastCands=cs;
       $('#cands').innerHTML=cs.length?cs.map(c=>{const e=BY.get(c.id);const pt=e?plain(textOf(e)):'',cut=pt.indexOf(' . ');const sn=e?pt.slice(cut<0?0:cut+3,(cut<0?0:cut+3)+230):'';
-        return `<div class="cand"><div class="hd"><code>${esc(c.id)}</code>${MENT.get(c.id)?.size?`<span class="badge">${MENT.get(c.id).size}件で言及</span>`:''}<span class="sp"></span>${extLink(c.id)}<button class="pri" data-pick="${esc(c.id)}">確認する</button></div><div class="ar">${esc(c.nm)}</div>${c.d?`<div class="note">${esc(c.d)}</div>`:''}${cs.some(x=>x!==c&&x.id!==c.id&&N(LAB[x.id]||'')===N(LAB[c.id]||'')&&LAB[c.id])?`<div class="note fz">本文での呼び方（${esc(LAB[c.id])}）が同じ別の候補があります。施設・所在地の違いを確かめてください。</div>`:''}${sn?`<div class="sn">${esc(sn)}…</div>`:''}<div class="aibox" data-for="${esc(c.id)}" hidden></div></div>`}).join(''):'<p class="note">候補がありません。検索語を短くするか、ニスバ・ラカブだけで探してください。</p>'};
+        return `<div class="cand"><div class="hd"><code>${esc(c.id)}</code>${MENT.get(c.id)?.size?`<span class="badge">${MENT.get(c.id).size} mentions</span>`:''}<span class="sp"></span>${extLink(c.id)}<button class="pri" data-pick="${esc(c.id)}">Check</button></div><div class="ar">${esc(c.nm)}</div>${c.d?`<div class="note">${esc(c.d)}</div>`:''}${cs.some(x=>x!==c&&x.id!==c.id&&N(LAB[x.id]||'')===N(LAB[c.id]||'')&&LAB[c.id])?`<div class="note fz">Same name in the text (${esc(LAB[c.id])}) for another candidate. Check the difference in institution or location.</div>`:''}${sn?`<div class="sn">${esc(sn)}…</div>`:''}<div class="aibox" data-for="${esc(c.id)}" hidden></div></div>`}).join(''):'<p class="note">No candidates. Shorten the search or search by nisba or laqab only.</p>'};
     $('#sub')?.addEventListener('change',e=>{o.sub=e.target.value;draw()});
     $('#osub')?.addEventListener('change',e=>{o.sub=e.target.value;draw()});
     $('#role')?.addEventListener('change',e=>{o.role=e.target.value||null});
@@ -731,7 +729,7 @@ function identify(o){
     if(o.replace!=null&&o.type==='P'){const m0=ENT.exec(toks[o.replace]);const old=m0&&parseBr(m0[4]).id;
       if(old&&/^TMP-P-/.test(old)&&id&&/^(AIND-|wd:)/.test(id)&&canon(old)!==canon(id)){
         const rec={to:id,at:Date.now(),entry:cur.k,how:'replace',role:o.role||null};if(uid)rec.by=uid;if(meta?.ai)rec.ai=meta.ai;
-        await persistMerge(old,rec);reindexAll();status(`${old} を ${id} に統合しました`)}}
+        await persistMerge(old,rec);reindexAll();status(`${old}  → ${id} : merged`)}}
     const br=o.type==='S'||o.type==='O'?(o.sub+(id&&id!=='NEEDID'?':'+id:o.type==='O'&&o.sub!=='status'?':NEEDID':'')):o.type==='P'&&o.role?o.role+':'+id:id;
     const tag=`@${o.type}${o.prefix}${o.n}[${br}]`;
     if(o.replace!=null)toks[o.replace]=tag;else toks.splice(o.start,0,tag);
@@ -742,22 +740,22 @@ function identify(o){
     document.querySelectorAll('#panel .aibox').forEach(b=>{if(b!==box){b.hidden=true;b.innerHTML=''}});
     aiCtl?.abort();
     box.hidden=false;
-    const decideRow=(meta)=>`<div class="row"><span class="sp"></span><button id="aicx">取り消し</button><button class="pri" id="aiok">決定</button></div>`;
+    const decideRow=(meta)=>`<div class="row"><span class="sp"></span><button id="aicx">Cancel</button><button class="pri" id="aiok">Confirm</button></div>`;
     const wire=meta=>{box.querySelector('#aiok').onclick=()=>apply(id,meta);box.querySelector('#aicx').onclick=()=>{aiCtl?.abort();box.hidden=true;box.innerHTML=''}};
-    if(!sampler){box.innerHTML=`<p class="note">この環境では AI の確認を使えません。内容を確かめてから決定してください。</p>`+decideRow();wire({ai:{status:'unavailable'}});return}
-    box.innerHTML=`<p class="ai-wait">Opus が確認しています…（数十秒かかることがあります）</p><div class="row"><span class="sp"></span><button id="aistop">中止</button></div>`;
+    if(!sampler){box.innerHTML=`<p class="note">AI checking is not available here. Check the content before confirming.</p>`+decideRow();wire({ai:{status:'unavailable'}});return}
+    box.innerHTML=`<p class="ai-wait">Opus is checking… (this may take a few dozen seconds)</p><div class="row"><span class="sp"></span><button id="aistop">Stop</button></div>`;
     aiCtl=new AbortController();box.querySelector('#aistop').onclick=()=>aiCtl.abort();
     try{
       const res=await sampler.json(aiPrompt(id,o,words,toks),{model:'claude-opus-5-5',modelTier:'complex',signal:aiCtl.signal});
-      const v=res||{};const cls=v.verdict==='妥当'?'ok':v.verdict==='不適切'?'ng':'hm';
-      box.innerHTML=`<div class="ai ${cls}"><div class="aih">AI の判断：<b>${esc(v.verdict||'?')}</b>${v.confidence?`（確度 ${esc(v.confidence)}）`:''}</div>
+      const v=res||{};const cls=v.verdict==='plausible'?'ok':v.verdict==='not suitable'?'ng':'hm';
+      box.innerHTML=`<div class="ai ${cls}"><div class="aih">AI judgement: <b>${esc(v.verdict||'?')}</b>${v.confidence?` (confidence ${esc(v.confidence)})`:''}</div>
         ${Array.isArray(v.reasons)&&v.reasons.length?`<ul>${v.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
-        ${v.better_candidate?`<p>より適切な候補：<a class="lk" data-open="${esc(v.better_candidate)}">${esc(v.better_candidate)}</a> <span class="ar">${esc(label(v.better_candidate))}</span></p>`:''}
-        ${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">判断は参考です。決定するのは人です。</p>${origId?`<div class="row"><span class="sp"></span><button id="keep1">現在の同定（${esc(origId)}）のままにする</button></div>`:''}</div>`+decideRow();
+        ${v.better_candidate?`<p>Better candidate: <a class="lk" data-open="${esc(v.better_candidate)}">${esc(v.better_candidate)}</a> <span class="ar">${esc(label(v.better_candidate))}</span></p>`:''}
+        ${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">The judgement is advisory; a person decides.</p>${origId?`<div class="row"><span class="sp"></span><button id="keep1">Keep the current identification (${esc(origId)})</button></div>`:''}</div>`+decideRow();
       wire({ai:{model:'claude-opus-5-5',verdict:v.verdict||null,confidence:v.confidence||null,better:v.better_candidate||null}});
     }catch(err){
       if(err.code==='cancelled'){box.hidden=true;box.innerHTML='';return}
-      const msg={not_granted:'AI の利用が許可されていません。',rate_limited:'利用の上限に達しました。しばらくしてから試してください。',sampling_disabled:'このアカウントでは AI を使えません。',invalid_json:'AI の回答を読み取れませんでした。もう一度お試しください。'}[err.code]||'AI の確認に失敗しました（'+(err.code||'error')+'）。';
+      const msg={not_granted:'AI use is not permitted.',rate_limited:'Usage limit reached. Try again later.',sampling_disabled:'AI is not available for this account.',invalid_json:'Could not read the AI response. Please try again.'}[err.code]||'AI check failed ('+(err.code||'error')+').';
       box.innerHTML=`<p class="note">${msg}</p>`+decideRow();wire({ai:{status:err.code||'error'}});
     }
   };
@@ -769,24 +767,24 @@ function identify(o){
     for(const c of lastCands)if(!seen.has(c.id)){seen.add(c.id);ids.push(c.id)}
     let pool=ids.slice(0,12),full=false;box.hidden=false;
     if(o.type==='O'&&pool.filter(x=>x!==origId).length<3){full=true;pool=[...new Set([...(origId?[origId]:[]),...pools().O.map(c=>c.id)])]}
-    if(!pool.length){box.innerHTML='<p class="note">確認する候補がありません。</p>';return}
-    if(!sampler){box.innerHTML='<p class="note">この環境では AI の確認を使えません。</p>';return}
-    box.innerHTML=`<p class="ai-wait">Opus が${full?'官職・職業の一覧（'+pool.length+' 件）から候補を探しています':'候補 '+pool.length+' 件をまとめて確認しています'}…（1分ほどかかることがあります）</p><div class="row"><span class="sp"></span><button id="aistop2">中止</button></div>`;
+    if(!pool.length){box.innerHTML='<p class="note">No candidates to check.</p>';return}
+    if(!sampler){box.innerHTML='<p class="note">AI checking is not available here.</p>';return}
+    box.innerHTML=`<p class="ai-wait">Opus is ${full?'searching the list of offices and occupations ('+pool.length+' ) for candidates':'Candidates '+pool.length+'  being checked together'}… (this may take about a minute)</p><div class="row"><span class="sp"></span><button id="aistop2">Stop</button></div>`;
     aiCtl=new AbortController();box.querySelector('#aistop2').onclick=()=>aiCtl.abort();
     try{
       const v=await sampler.json(aiPromptAll(pool,o,words,toks,origId,full),{model:'claude-opus-5-5',modelTier:'complex',signal:aiCtl.signal})||{};
       const rk=(Array.isArray(v.ranking)?v.ranking:[]).filter(x=>x&&pool.includes(x.id));
       const rest=pool.filter(id=>!rk.some(x=>x.id===id));
-      const cls=x=>x.verdict==='妥当'?'ok':x.verdict==='不適切'?'ng':'hm';
-      const row=(x,i)=>`<div class="cand"><div class="hd"><b>${i+1}.</b> <code>${esc(x.id)}</code> <span class="badge v-${cls(x)}">${esc(x.verdict||'?')}${x.confidence?' · '+esc(x.confidence):''}</span><span class="sp"></span>${extLink(x.id)}<button class="pri" data-dec="${esc(x.id)}">決定</button></div><div class="ar">${esc(label(x.id))}</div>${Array.isArray(x.reasons)&&x.reasons.length?`<ul class="rs">${x.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}</div>`;
-      box.innerHTML=`<div class="ai ${v.best?'ok':'hm'}"><div class="aih">AI の判断：${v.best?`最も確度が高いのは <b>${esc(v.best)}</b>`:'<b>確実に同定できる候補はありません</b>'}</div>${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">判断は参考です。決定するのは人です。</p></div>
-        ${rk.map(row).join('')}${rest.length&&!full?`<p class="note">判断が返ってこなかった候補：${rest.map(esc).join('、')}</p>`:''}`;
+      const cls=x=>x.verdict==='plausible'?'ok':x.verdict==='not suitable'?'ng':'hm';
+      const row=(x,i)=>`<div class="cand"><div class="hd"><b>${i+1}.</b> <code>${esc(x.id)}</code> <span class="badge v-${cls(x)}">${esc(x.verdict||'?')}${x.confidence?' · '+esc(x.confidence):''}</span><span class="sp"></span>${extLink(x.id)}<button class="pri" data-dec="${esc(x.id)}">Confirm</button></div><div class="ar">${esc(label(x.id))}</div>${Array.isArray(x.reasons)&&x.reasons.length?`<ul class="rs">${x.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}</div>`;
+      box.innerHTML=`<div class="ai ${v.best?'ok':'hm'}"><div class="aih">AI judgement: ${v.best?`Most likely:  <b>${esc(v.best)}</b>`:'<b>No candidate can be identified with certainty</b>'}</div>${v.note?`<p class="note">${esc(v.note)}</p>`:''}<p class="note">The judgement is advisory; a person decides.</p></div>
+        ${rk.map(row).join('')}${rest.length&&!full?`<p class="note">Candidates without a judgement: ${rest.map(esc).join(', ')}</p>`:''}`;
       box.onclick=ev=>{if(ev.target.id==='keep1'){mode=null;showTagCard(o.replace);return}const b=ev.target.closest('[data-dec]');if(!b)return;const x=rk.find(y=>y.id===b.dataset.dec);
         const rel=(cur.r||[]).find(r=>r.o===x.id&&open_(r));if(rel&&!o.role)o.role=rel.role;
         apply(x.id,{ai:{model:'claude-opus-5-5',mode:'batch',verdict:x.verdict||null,confidence:x.confidence||null,rank:rk.indexOf(x)+1,of:pool.length}})};
     }catch(err){
       if(err.code==='cancelled'){box.hidden=true;box.innerHTML='';return}
-      box.innerHTML=`<p class="note">${({rate_limited:'利用の上限に達しました。しばらくしてから試してください。',invalid_json:'AI の回答を読み取れませんでした。もう一度お試しください。'})[err.code]||'AI の確認に失敗しました（'+esc(err.code||'error')+'）。'}</p>`;
+      box.innerHTML=`<p class="note">${({rate_limited:'Usage limit reached. Try again later.',invalid_json:'Could not read the AI response. Please try again.'})[err.code]||'AI check failed ('+esc(err.code||'error')+').'}</p>`;
     }
   };
   draw();
@@ -823,7 +821,7 @@ Other candidates found by name search:
 ${alts||'(none)'}
 
 Reply in Japanese, with only one JSON object:
-{"verdict":"妥当"|"要検討"|"不適切","confidence":"high"|"medium"|"low","reasons":["短い理由（根拠となる語句・年代を挙げる）", "..."],"better_candidate":"ID or null","note":"補足（なければ空）"}`;
+{"verdict":"plausible"|"needs review"|"not suitable","confidence":"high"|"medium"|"low","reasons":["short reason in English (cite the words or dates)", "..."],"better_candidate":"ID or null","note":"note in English (empty if none)"}`;
 }
 function aiPromptAll(ids,o,words,toks,origId,full){
   const strip=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
@@ -853,7 +851,7 @@ ${full?'The name search found no good candidate, so the whole active office list
 ${o.type==='O'?ids.map(id=>{const f=OFFS[id]||{};return `- ${id}${id===origId?' [CURRENT]':''}: ${f.ar||label(id)} / ${f.lat||''} [${f.cls||''}]${f.f&&f.f.length?' forms: '+f.f.slice(0,4).join('، '):''}`}).join('\n'):ids.map(id=>`### ${id}${id===origId?' [CURRENT — the ID the span has now]':''}${open.includes(id)?' [XML]':''} — ${label(id)}\n${BY.get(id)?bio(id,600):'(no biography of its own in this dictionary)'}`).join('\n\n')}
 
 Reply in Japanese, with only one JSON object. ${full?'Include at most 5 candidates in "ranking", best first:':'Include every candidate in "ranking", best first:'}
-{"best":"ID or null","ranking":[{"id":"…","verdict":"妥当"|"要検討"|"不適切","confidence":"high"|"medium"|"low","reasons":["短い理由（根拠の語句・年代）"]}],"note":"補足（なければ空）"}`;
+{"best":"ID or null","ranking":[{"id":"…","verdict":"plausible"|"needs review"|"not suitable","confidence":"high"|"medium"|"low","reasons":["short reason in English (words or dates)"]}],"note":"note in English (empty if none)"}`;
 }
 // ---------- persistence
 async function save(t,meta){
@@ -865,14 +863,14 @@ async function save(t,meta){
 }
 async function revert(k){delete EDITS[k];index(BY.get(k));await persistDel(k);openEntry(k);renderList()}
 function warnLocal(why){let b=document.getElementById('warnbar');if(!b){b=document.createElement('div');b.id='warnbar';b.setAttribute('role','alert');document.body.prepend(b)}
-  b.innerHTML=`<b>共有データベースに保存できていません。</b>この画面での編集は、このブラウザの中にだけ保存されています（${esc(why||'閲覧だけの権限か、サインインしていない可能性があります')}）。共有した人に「編集できる」権限をもらってください。`}
+  b.innerHTML=`<b>Not saved to the shared database.</b>Edits on this page are saved only in this browser (${esc(why||'you may have view-only access or not be signed in')}). Ask the owner for edit access.`}
 async function persist(k,rec){
-  if(db){try{await db.doc('edits/'+k).set(rec);status('共有DBに保存しました');return}catch(e){status('共有DBに保存できませんでした（'+(e.code||e)+'）。このブラウザに保存します');warnLocal(e.code)}}else warnLocal();
-  try{localStorage.setItem('dawEdits',JSON.stringify(EDITS));status('このブラウザに保存しました')}catch{status('保存できませんでした')}
+  if(db){try{await db.doc('edits/'+k).set(rec);status('Saved to the shared database');return}catch(e){status('Could not save to the shared database ('+(e.code||e)+'). Saving in this browser');warnLocal(e.code)}}else warnLocal();
+  try{localStorage.setItem('dawEdits',JSON.stringify(EDITS));status('Saved in this browser')}catch{status('Could not save')}
 }
 async function persistJ(k,rec){
-  if(db){try{rec?await db.doc('jedits/'+k).set(rec):await db.doc('jedits/'+k).delete();status('JSON を共有DBに保存しました');return}catch(e){status('共有DBに保存できませんでした。このブラウザに保存します');warnLocal(e.code)}}else warnLocal();
-  try{localStorage.setItem('dawJEdits',JSON.stringify(JEDITS));status('JSON をこのブラウザに保存しました')}catch{}
+  if(db){try{rec?await db.doc('jedits/'+k).set(rec):await db.doc('jedits/'+k).delete();status('JSON saved to the shared database');return}catch(e){status('Could not save to the shared database. Saving in this browser');warnLocal(e.code)}}else warnLocal();
+  try{localStorage.setItem('dawJEdits',JSON.stringify(JEDITS));status('JSON saved in this browser')}catch{}
 }
 async function persistMerge(from,rec){
   MERGES[from]=rec;
@@ -893,7 +891,7 @@ function mergeCandidate(e,toId,words,role){
 async function autoMerge(e,toId,words,role,how){
   const r=mergeCandidate(e,toId,words,role);if(!r)return null;
   const rec={to:toId,at:Date.now(),entry:e.k,how,role:r.role||null};if(uid)rec.by=uid;
-  await persistMerge(r.o,rec);reindexAll();status(`${r.o} を ${toId} に統合しました`);return r.o;
+  await persistMerge(r.o,rec);reindexAll();status(`${r.o}  → ${toId} : merged`);return r.o;
 }
 async function scanMerges(e,t){
   const toks=t.split(' ');let n=0;
@@ -914,7 +912,7 @@ const status=s=>$('#status').textContent=s;
     fetch('offices.json').then(r=>r.json()).then(o=>{OFFS=o;POOL=null}).catch(()=>{});
     fetch('idm.json').then(r=>r.json()).then(o=>{IDMJ=o;POOL=null;if(cur&&!mode)openEntry(cur.k,false)}).catch(()=>{});
     E=d;LAB=l;for(const e of E){BY.set(e.k,e);if(tr[e.k]){e.tr=tr[e.k];TR0[e.k]=tr[e.k]}}
-  }catch(e){$('#center').innerHTML='<div class="load">データを読み込めませんでした。ページを開き直してください。</div>';return}
+  }catch(e){$('#center').innerHTML='<div class="load">Could not load the data. Please reload the page.</div>';return}
   try{Object.assign(EDITS,JSON.parse(localStorage.getItem('dawEdits')||'{}'))}catch{}
   try{Object.assign(JEDITS,JSON.parse(localStorage.getItem('dawJEdits')||'{}'))}catch{}
   for(const k in JEDITS)applyJTr(k);
@@ -922,13 +920,13 @@ const status=s=>$('#status').textContent=s;
   reindexAll();
   renderList();
   const k=decodeURIComponent(location.hash.slice(1));openEntry(BY.has(k)?k:'AIND-D06228',false);
-  status(`${E.length.toLocaleString()} 見出し・タグ付き ${E.filter(e=>e.x).length.toLocaleString()} 件（このブラウザに保存）`);
+  status(`${E.length.toLocaleString()} headings · tagged ${E.filter(e=>e.x).length.toLocaleString()}  (saved in this browser)`);
   try{
     const c=window.claude;if(!c?.use)return;
     [db,user,dl,sampler]=await Promise.all([c.use('db'),c.use('user'),c.use('downloads'),c.use('sample')]);
     if(user){try{uid=await user.id()}catch{}}
     if(db){
-      const timer=setTimeout(()=>status('共有DBにまだ接続できていません'),10000);
+      const timer=setTimeout(()=>status('Not yet connected to the shared database'),10000);
       db.collection('edits').onSnapshot(snap=>{
         clearTimeout(timer);
         for(const ch of snap.docChanges()){
@@ -937,8 +935,8 @@ const status=s=>$('#status').textContent=s;
           index(e);
         }
         if(cur&&!mode&&DRAFTS[cur.k]==null&&document.activeElement?.id!=='md')openEntry(cur.k,false);renderList();
-        status(`${E.length.toLocaleString()} 見出し・共有DBの編集 ${snap.size} 件`);
-      },err=>{clearTimeout(timer);status('共有DBが使えません（'+err.code+'）。このブラウザに保存します');db=null});
+        status(`${E.length.toLocaleString()} headings · shared-database edits ${snap.size} items`);
+      },err=>{clearTimeout(timer);status('Shared database unavailable ('+err.code+'). Saving in this browser');db=null});
       let firstM=true;
       db.collection('merges').onSnapshot(async snap=>{for(const ch of snap.docChanges()){if(ch.type==='removed')delete MERGES[ch.doc.id];else MERGES[ch.doc.id]=ch.doc.data()}
         reindexAll();if(cur&&!mode&&document.activeElement?.tagName!=='TEXTAREA')openEntry(cur.k,false);
