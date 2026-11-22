@@ -65,18 +65,18 @@ class Log:
     def add(self, f, msg): self.d.setdefault(f, []).append(msg)
 
 RS = '''    <respStmt>
-        <resp xml:lang="ja">{resp}</resp>
+        <resp xml:lang="{lang}">{resp}</resp>
         <persName>claude-opus-5-5-triples-20261122</persName>
         <date when="2026-11-22"/>
-        <note xml:lang="ja">{note}</note>
+        <note xml:lang="{lang}">{note}</note>
     </respStmt>
 '''
 
 def esc(t): return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
-def finish(log, resp):
+def finish(log, resp, lang='ja'):
     for f, msgs in log.d.items():
         s = open(f, encoding='utf-8').read()
         i = s.rstrip().rfind('</person>')
-        s = s[:i] + RS.format(resp=resp, note=esc(' '.join('(%d) %s' % (k + 1, m) for k, m in enumerate(msgs)))) + s[i:]
+        s = s[:i] + RS.format(lang=lang, resp=resp, note=esc(' '.join('(%d) %s' % (k + 1, m) for k, m in enumerate(msgs)))) + s[i:]
         open(f, 'w', encoding='utf-8').write(s)
