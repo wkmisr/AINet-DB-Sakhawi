@@ -4,16 +4,14 @@
     <persName type="name_only" xml:lang="ar">سودون</persName>
     <persName type="nisbah" xml:lang="ar" ref="#TMP-N-00536">اليوسفي</persName>
     <sex value="M"/>
-    <listRelation>
-        <relation type="personal" subtype="jailer" n="1" active="#AIND-D03345" passive="#AIND-D03243"><desc xml:lang="ar">المؤيد شيخ</desc><note xml:lang="en">Sultan of Egypt and Syria who ordered his imprisonment in the Citadel of Damascus.</note></relation>
-        <relation type="personal" subtype="mentioned in connection with" n="2" active="#AIND-D03235" passive="#AIND-D03243"><desc xml:lang="ar">سودون المحمدي تلي</desc><note xml:lang="en">Sūdūn al-Yūsufī's name and details were learned from within the entry of Sūdūn al-Muḥammadī Tālī (#AIND-D03235), which precedes this entry in the corpus.</note></relation>
-    </listRelation>
+    <note type="cross-reference" target="#AIND-D03235">سودون المحمدي تلي — Sūdūn al-Yūsufī's name and details were learned from within the entry of Sūdūn al-Muḥammadī Tālī (#AIND-D03235), which precedes this entry in the corpus.</note>
     <event type="visit" n="1"><placeName ref="gn:170654">دمشق</placeName><note xml:lang="en">During his imprisonment there</note></event>
     <event type="political" n="1">
         <placeName ref="gn:170654">دمشق</placeName>
         <desc xml:lang="en">Imprisoned by Sultan al-Muʾayyad Shaykh in the Damascus Citadel.</desc>
         <note xml:lang="en">During the reign of Sultan al-Muʾayyad Shaykh</note>
     </event>
+    <event type="political" n="2"><persName ref="#AIND-D03345" role="imprisoner">المؤيد شيخ</persName><note xml:lang="en">Sultan of Egypt and Syria who ordered his imprisonment in the Citadel of Damascus.</note></event>
     <note type="source" xml:lang="ar">سودون اليوسفي . ممن حبسه المؤيد شيخ بقلعة
 دمشق ، ولم أر من ترجمه ولكن علمت اسمه من أثناء سودون المحمدي تلي .</note>
     <note type="translation" xml:lang="ja">スードゥン・アル＝ユースフィー。マムルーク朝のスルタン、アル＝ムアイヤド・シャイフによってダマスクス城塞に投獄された人物の一人。サハーウィーは、彼の独立した伝記自体は見ていないが、スードゥン・アル＝ムハンマディー・タリーの伝記の中でその名前を知ったとしている。</note>
@@ -28,5 +26,11 @@
         <persName>claude-b56-review</persName>
         <date when="2026-09-16"/>
         <note xml:lang="ja">relation n1「المؤيد شيخ」の#NEEDIDを確定ID#AIND-D03345に是正。relation n2「سودون المحمدي」は原文末尾の「تلي」を初版は動詞(follows)と解したが、corpus内#AIND-D03235(『سودون المحمدي الظاهري برقوق ويعرف بتلي』、本項より前の行に出現)と突合した結果、「تلي」は人物のシュフラ(愛称)であり同一人物を指すと判断、#AIND-D03235に是正。ja/en訳の「(のちに言及される/which follows later)」も同様に「タリー」という固有名として訳し直した。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「jailer」(#AIND-D03345) を political event の persName（role=imprisoner） に移した。出来事にあたる記述は relation でなく event の persName（2026-11-22 裁定）。 relation「mentioned in connection with」は編者の参照指示（له ذكر في 型）なので除去し、note type="cross-reference" に移した（先例 D02012・D02015）。</note>
     </respStmt>
 </person>
