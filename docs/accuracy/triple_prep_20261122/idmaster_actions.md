@@ -4,3 +4,5 @@
 2. 名寄せ：TMP-P-000005 → AIND-D04179（E/F 列）。統合（2026-11-22 Waka、ビューアー）。本伝 D04179「عبد القادر بن محمد بن حسن الزين النووي الأصل المقدسي」。D00005 の参照を付け替え済み
 3. Note 追記：TMP-L-00009・00011・00012、TMP-I-00049・00054、TMP-N-05476、TMP-T-00071・00080 に「【2026-11-22】repo の流用を是正（明細は docs/accuracy/triple_prep_20261122/changes.json）。登録名以外に使用禁止」。TMP-L-00010 も D00638（Waka 裁定でマッカ）を是正し、流用は 0。
 4. 次の採番起点：P-001763／N-05531／L-00423／I-00301／O-00411／T-00281／S-00078
+
+**Done 2026-11-22 (Claude, via Chrome):** 18 new rows at 8857–8874 (notes in English), row 22 merged (E/F), notes appended on 9 rows. Checked against a fresh Drive TSV export: only the intended cells changed (8,874 rows).
