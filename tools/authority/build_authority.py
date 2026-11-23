@@ -112,7 +112,7 @@ def init(pl_csv):
     open(REG, 'w', encoding='utf-8', newline='').write(dump(rows, REG_COLS))
     print('registry rows', len(rows))
 
-VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'name', 'name_latn', 'aliases', 'birth', 'death', 'madhhab',
+VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'name', 'name_latn', 'heading', 'aliases', 'birth', 'death', 'madhhab',
              'value_source', 'has_record', 'cited_by', 'same_as', 'note']
 HEAD_COLS = ['n12', 'id', 'kind', 'line', 'entry_no', 'heading']
 
@@ -123,8 +123,9 @@ def build():
     for aid in C:
         if aid not in R: problems.append(f'{aid}: in corpus, not in registry')
     for aid, r in R.items():
+        if r['status'] in ('active', 'transfer') and not r['name_ar']: problems.append(f'{aid}: no name')
         if not aid.startswith('AIND-D'):
-            if r['status'] == 'active' and not r['name_ar']: problems.append(f'{aid}: no name')
+            pass
         elif aid not in C and r['status'] not in ('merged', 'retired'):
             problems.append(f'{aid}: status {r["status"]} but not in corpus')
         if r['status'] in ('merged',) and not r['target']:
@@ -152,7 +153,7 @@ def build():
     for aid in sorted(R, key=lambda k: (not k.startswith('AIND'), k)):
         r, c, x = R[aid], C.get(aid, {}), X.get(aid)
         v = dict(id=aid, n12=c.get('n12', ''), kind=c.get('kind', ''), status=r['status'], target=r['target'],
-                 entry_no=c.get('entry_no', ''), name=c.get('heading', '') or r['name_ar'], name_latn=r['name_latn'],
+                 entry_no=c.get('entry_no', ''), name=r['name_ar'], name_latn=r['name_latn'], heading=c.get('heading', ''),
                  aliases=r['aliases'], same_as=r['same_as'], note=r['note'], cited_by=len(cited.get(aid, ())),
                  has_record='yes' if x and not x['ref'] else 'no')
         if x and not x['ref']:

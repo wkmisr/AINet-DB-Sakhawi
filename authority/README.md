@@ -6,7 +6,7 @@
 
 | ファイル | 中身 |
 |---|---|
-| `persons_registry.tsv` | 人物。AIND番号（伝記のある人物）、TMP-P番号（伝記のない人物）、Wikidata番号の人物を一つの表に持つ。列：状態（active／transfer／merged／retired）、統合先・転送先、名前（AIND番号以外のみ。AIND番号の名前は corpus の見出しが正本）、別名、対応する外部ID、注記、発行・修正の履歴 |
+| `persons_registry.tsv` | 人物。AIND番号（伝記のある人物）、TMP-P番号（伝記のない人物）、Wikidata番号の人物を一つの表に持つ。列：状態（active／transfer／merged／retired）、統合先・転送先、名前（どの名前をその人物の正式な名前とするかは人の判断なので、ここに持つ。corpus の見出しは本文の1行目で、名前そのものではない）、別名、対応する外部ID、注記、発行・修正の履歴 |
 | `entities_registry.tsv` | 人物以外（ニスバ、地名、施設、官職、著作、学問・学習方法）。列：分類、状態、統合先、正式な表記、ラテン文字表記、異表記、対応する外部ID、下位分類（官職の区分、学習の方法／分野）、注記、履歴 |
 
 ## 検索用の表（保存しない）
@@ -21,5 +21,6 @@
 ## 経緯
 
 - `persons_registry.tsv` は Google シート「1. Sakhawi_PersonList」（2026-11-23 取得）から `init` で一度だけ作った。担当者・Token・生没年・学派の列は移していない。
+- AIND番号の人物の名前は、処理済みレコードがあればその `persName type="full"`（4,295件）、なければ人物一覧の名前（9,763件）、どちらもなければ見出し（2件）から入れた。レコード側の名前は、YAMLへの移行のときに外す（典拠表だけに置く）。
 - `import_idmaster.py` で Google シート「2. ID-Master」（2026-11-23 取得）を取り込んだ。Person 行のうちAIND番号のものは、その人物の別名と注記に移した。注記に「旧TMP-P-…から統合」とあるものは、旧番号を `merged` の行として復元した。
 - そのまま取り込めなかった行は `import_idmaster_rulings.tsv` にある（裁定が済んだら消す）。
