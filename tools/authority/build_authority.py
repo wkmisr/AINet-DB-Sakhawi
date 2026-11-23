@@ -138,6 +138,10 @@ def build():
     for k, e in EN.items():
         if k in R: problems.append(f'{k}: in both registries')
         if e['target'] and e['target'] not in EN: problems.append(f'{k}: target {e["target"]} is not a registered ID')
+    rem = os.path.join(ROOT, 'authority', 'removed_ids.tsv')
+    if os.path.exists(rem):
+        for x in read_tsv(rem):
+            if x['id'] in R or x['id'] in EN: problems.append(f'{x["id"]}: removed number is in use again')
     cited = {}
     for rec, x in X.items():
         for v in x['refs']:
