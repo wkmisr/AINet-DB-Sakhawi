@@ -13,7 +13,7 @@ import csv, io, os, re, sys, collections
 csv.field_size_limit(10**9)
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 A = os.path.join(ROOT, 'authority')
-P_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history']
+P_COLS = ['id', 'status', 'target', 'name_ar', 'aliases', 'same_as', 'note', 'history']
 E_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history']
 PREFIX = {'TMP-N': 'Nisbah', 'TMP-L': 'Location', 'TMP-I': 'Institution', 'TMP-O': 'Office', 'TMP-T': 'Text', 'TMP-S': 'Subject', 'TMP-P': 'Person'}
 FORMER = re.compile(r'(?:旧\s*|Formerly\s+)(TMP-P-\d{6})|(TMP-P-\d{6})\s*(?:から|を)?\s*(?:統合|merged)')
@@ -44,7 +44,7 @@ def join(*xs):
 def main(src):
     persons = list(csv.DictReader(open(os.path.join(A, 'persons_registry.tsv'), encoding='utf-8', newline=''), delimiter='\t'))
     for p in persons:
-        p.setdefault('name_ar', ''); p.setdefault('name_latn', ''); p.setdefault('history', ''); p.setdefault('added_by', '')
+        p.setdefault('name_ar', ''); p.setdefault('history', ''); p.setdefault('added_by', '')
         p['same_as'] = p.pop('wikidata', '') if 'wikidata' in p else p.get('same_as', '')
     P = {p['id']: p for p in persons}
     E = {}
@@ -86,7 +86,7 @@ def main(src):
                 q['aliases'] = join(q['aliases'], names); q['note'] = (q['note'] + ' / ' + note).strip(' /')
                 continue
             P[rid] = dict(id=rid, status='retired' if st == 'retired' else 'active', target='', name_ar=names[0] if names else '',
-                          name_latn=latn, aliases=join(names[1:]), same_as='', note=note, history=hist, added_by=who)
+                          aliases=join(names[1:]), same_as='', note=note, history=hist, added_by=who)
             continue
         if rid.startswith('AIND-D'):
             rulings.append((i, cat, ar, raw, 'Person以外のCategoryにAIND番号')); continue

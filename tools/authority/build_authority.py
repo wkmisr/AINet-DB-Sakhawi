@@ -20,7 +20,7 @@ REG = os.path.join(ROOT, 'authority', 'persons_registry.tsv')
 OUT = os.path.join(ROOT, 'authority', '_generated')
 VIEW = os.path.join(OUT, 'persons_view.tsv')
 HEADS = os.path.join(OUT, 'headings_index.tsv')
-REG_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history']
+REG_COLS = ['id', 'status', 'target', 'name_ar', 'aliases', 'same_as', 'note', 'history']
 ENT = os.path.join(ROOT, 'authority', 'entities_registry.tsv')
 ENT_VIEW = os.path.join(OUT, 'entities_view.tsv')
 UNRES = os.path.join(OUT, 'unresolved_refs.tsv')
@@ -112,7 +112,7 @@ def init(pl_csv):
     open(REG, 'w', encoding='utf-8', newline='').write(dump(rows, REG_COLS))
     print('registry rows', len(rows))
 
-VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'name', 'name_latn', 'heading', 'aliases', 'birth', 'death', 'madhhab',
+VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'name', 'heading', 'aliases', 'birth', 'death', 'madhhab',
              'value_source', 'has_record', 'cited_by', 'same_as', 'note']
 HEAD_COLS = ['n12', 'id', 'kind', 'line', 'entry_no', 'heading']
 
@@ -153,7 +153,7 @@ def build():
     for aid in sorted(R, key=lambda k: (not k.startswith('AIND'), k)):
         r, c, x = R[aid], C.get(aid, {}), X.get(aid)
         v = dict(id=aid, n12=c.get('n12', ''), kind=c.get('kind', ''), status=r['status'], target=r['target'],
-                 entry_no=c.get('entry_no', ''), name=r['name_ar'], name_latn=r['name_latn'], heading=c.get('heading', ''),
+                 entry_no=c.get('entry_no', ''), name=r['name_ar'], heading=c.get('heading', ''),
                  aliases=r['aliases'], same_as=r['same_as'], note=r['note'], cited_by=len(cited.get(aid, ())),
                  has_record='yes' if x and not x['ref'] else 'no')
         if x and not x['ref']:

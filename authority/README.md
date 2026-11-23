@@ -15,7 +15,7 @@
 
 - `python3 tools/authority/build_authority.py view` で `authority/_generated/` に作る（git の管理外）。人物の表、人物以外の表、未解決の参照、見出しの索引。
 - `python3 tools/authority/build_authority.py check` は、registry が corpus と食い違う場合や、registry どうしが矛盾する場合に失敗する。
-- 生没年・学派は registry に持たない。登録者も持たない（今後は git の履歴に残る。過去分は凍結したシートにある）。出現箇所の一覧も持たない（レコードから数える）。
+- 生没年・学派は registry に持たない。人物のラテン文字表記も持たない（伝記のある人物には元からなく、照合はアラビア語で行う。必要になれば公開の段階で作る）。登録者も持たない（今後は git の履歴に残る。過去分は凍結したシートにある）。出現箇所の一覧も持たない（レコードから数える）。
 - IDの書き方はレコードの参照と同じにしている（`wd:Q…`、`gn:…`、`TMP-…`、`AIND-D…`）。
 
 ## 経緯
