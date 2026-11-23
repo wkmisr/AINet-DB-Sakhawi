@@ -13,8 +13,8 @@ import csv, io, os, re, sys, collections
 csv.field_size_limit(10**9)
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 A = os.path.join(ROOT, 'authority')
-P_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history', 'added_by']
-E_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history', 'added_by']
+P_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history']
+E_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history']
 PREFIX = {'TMP-N': 'Nisbah', 'TMP-L': 'Location', 'TMP-I': 'Institution', 'TMP-O': 'Office', 'TMP-T': 'Text', 'TMP-S': 'Subject', 'TMP-P': 'Person'}
 FORMER = re.compile(r'(?:旧\s*|Formerly\s+)(TMP-P-\d{6})|(TMP-P-\d{6})\s*(?:から|を)?\s*(?:統合|merged)')
 

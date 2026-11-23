@@ -18,11 +18,11 @@ CORPUS = [f for f in os.listdir(ROOT) if f.startswith('0__DawForAIND') and f.end
 REG = os.path.join(ROOT, 'authority', 'persons_registry.tsv')
 VIEW = os.path.join(ROOT, 'authority', 'persons_view.tsv')
 HEADS = os.path.join(ROOT, 'authority', 'headings_index.tsv')
-REG_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history', 'added_by']
+REG_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history']
 ENT = os.path.join(ROOT, 'authority', 'entities_registry.tsv')
 ENT_VIEW = os.path.join(ROOT, 'authority', 'entities_view.tsv')
 UNRES = os.path.join(ROOT, 'authority', 'unresolved_refs.tsv')
-ENT_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history', 'added_by']
+ENT_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history']
 REFRE = re.compile(r'(?:ref|active|passive)="([^"]*)"')
 H = re.compile(r'^###\$(?:(AIND-D\w+) \| )?(\d{12})\$# (\$+) ?(.*)')
 KIND = {'$': 'male', '$$': 'female', '$$$': 'transfer'}
