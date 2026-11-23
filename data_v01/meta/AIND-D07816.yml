@@ -40,6 +40,7 @@ name:
     type: nasab
     quote: أبي عبد الله محمد
     by: rule
+    norm: أبو عبد الله محمد
   - id: n9
     type: nasab
     quote: الرضي محمد
@@ -48,6 +49,7 @@ name:
     type: nasab
     quote: أبي بكر
     by: rule
+    norm: أبو بكر
   - id: n11
     type: nasab
     quote: خليل
@@ -69,7 +71,8 @@ death:
     cert: medium
   places:
   - ref: TMP-L-00002
-    quote: الشام
+    quote: بالشام
+    norm: الشام
   note:
     ja: 「ومات مطعونا بالشام سنة بضع وسبعين」＝ペストで没。「بضع」＝873〜879年（repo 先例「بضع وخمسين」→ notBefore 0853／notAfter 0859 cert medium）。873年初＝1468-07-31、879年末＝1475-05-15。初版の when-custom「87x」・when「706」は不正値のため置換。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 873〜879）
   quote: سنة بضع وسبعين
@@ -106,10 +109,12 @@ states:
   ref: TMP-O-00050
   places:
   - ref: TMP-L-00217
-    quote: باب السلام
-  quote: الشهادة
+    quote: بباب السلام
+    norm: باب السلام
+  quote: بالشهادة
   note:
     ja: 「وتكسب بالشهادة بباب السلام」。باب السلام は ID-Master で Location（TMP-L-00217、「orgName ではなく placeName」）のため placeName に改めた。初版の placeName مكة（原文の当該句に地名なし）は除去（規則22-1）。
+  norm: الشهادة
 events:
 - id: e1
   type: travel
@@ -123,6 +128,7 @@ events:
   note:
     ja: 'البلاد المصرية は ID-Master の TMP-L-00238（الديار المصرية | مصر (الإقليم)）を充当（初版 #NEEDID）。البلاد الشامية＝TMP-L-00196。初版の visit event 2本を1本の travel event にまとめた。'
   trigger: rule
+  norm: سافر
 notes:
 - text: '初版の residence event（مكة「Grew up and lived there」）は原文に居住・成育の記述がないため除去（規則22）。祖父 #AIND-D07827・父 #AIND-D04591・曾祖父 #AIND-D04615・叔母 #AIND-D13177（ست قريش ابنة محمد بن عبد الله …）など بنو خليل العثماني 家の本伝が corpus にある。'
   lang: ja

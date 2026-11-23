@@ -20,6 +20,19 @@ LM = re.compile(r'^@L(\d+)X(\d+)L$')
 STAT = collections.Counter()
 
 
+FIVE = {'أبي': 'أبو', 'أبا': 'أبو', 'أخي': 'أخو', 'أخا': 'أخو', 'ذي': 'ذو', 'ذا': 'ذو', 'بني': 'بنو'}
+
+
+def norm_ar(q, p=0):
+    """Standardized form of a quoted span: drop the proclitic (p letters, as counted by the mARkdown tag)
+    and unify the case forms of أبو / أخو / ذو / بنو when they head a construct (followed by another word)."""
+    q = q[p:] if p else q
+    w = q.split()
+    for i in range(len(w) - 1):
+        if w[i] in FIVE: w[i] = FIVE[w[i]]
+    return ' '.join(w)
+
+
 def norm_id(x):
     x = (x or '').lstrip('#')
     return x or None
@@ -285,6 +298,11 @@ def convert(k, r):
     if gnotes: meta['notes'] = gnotes
 
     # ---- link text tags to items, fill quotes ---------------------------
+    # quote = the words exactly as in the text (proclitics included); norm = standardized form
+    # (proclitic removed by the tag's prefix count, case forms of the five nouns unified)
+    def Q(q, p):
+        return {'_q': q, '_p': p}
+
     used = set()
     def take(pred, lst):
         for it in lst:
@@ -334,19 +352,35 @@ def convert(k, r):
             for holder in [meta.get('birth'), meta.get('death'), *states, *evs, *[c for r_ in rels for c in r_.get('context', [])]]:
                 for pl in (holder or {}).get('places') or []:
                     if pl.get('ref') == rid and 'quote' not in pl:
-                        pl['quote'] = q[p:] if p else q
+                        pl['quote'] = Q(q, p)
             STAT['T'] += 1
             continue
         if it is not None:
             if it.get('quote') is None and 'persons' not in it:
-                it['quote'] = q[p:] if p else q
+                it['quote'] = Q(q, p)
             elif 'persons' in it:
                 for pp in it['persons']:
-                    if pp.get('ref') == rid and 'quote' not in pp: pp['quote'] = q[p:] if p else q
+                    if pp.get('ref') == rid and 'quote' not in pp: pp['quote'] = Q(q, p)
             new[i] = m.group(0)[:-1] + '|' + it['id'] + ']'
             STAT['linked_' + code] += 1
         else:
             STAT['unlinked_' + code] += 1
+
+    def fixq(o):
+        if isinstance(o, dict):
+            for k_, v_ in list(o.items()):
+                if isinstance(v_, dict) and '_q' in v_:
+                    o[k_] = v_['_q']; nm = norm_ar(v_['_q'], v_['_p'])
+                    if nm != v_['_q']: o['norm'] = nm
+                    STAT['norm_changed' if nm != v_['_q'] else 'norm_same'] += 1
+                else: fixq(v_)
+        elif isinstance(o, list):
+            for x_ in o: fixq(x_)
+    fixq(meta)
+    for ev in evs:                                   # event trigger: «وحج» -> «حج»
+        if ev.get('quote') and 'norm' not in ev:
+            nm = norm_ar(ev['quote'], 1 if re.match(r'^[وف]\S{3,}', ev['quote']) else 0)
+            if nm != ev['quote']: ev['norm'] = nm; STAT['norm_changed'] += 1
 
     for lst in (names, rels, states, evs):
         for it in lst:

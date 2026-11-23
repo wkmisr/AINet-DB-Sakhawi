@@ -34,7 +34,8 @@
 | `translation` | `ja`・`en` | |
 | `provenance` | `app`・`generated_at`・`model_requested`・`model_resolved`（記録がなければ `model_era` と推定の根拠）・`created_by` | |
 
-- 参照の中（`places[]` など）は `{ref, quote, role, cert}`。`role` の例：origin・destination（移動の出発地・到着地）、companion（同行者）。
+- 参照の中（`places[]` など）は `{ref, quote, role, cert}`。
+- **`quote` と `norm`（2026-11-23、ロマノフの助言）**：`quote` は本文のままの語（前接辞 ب・و・ف・ك・ل も含む）。`norm` は標準化した形で、`quote` と違うときだけ書く。標準化は (1) 前接辞を外す（mARkdown のタグが数える前接辞の字数による。出来事の中心語は و・ف を規則で外す）、(2) 五つの名詞の格の形をそろえる（後ろに語が続くときの أبي・أبا→أبو、أخي・أخا→أخو、ذي・ذا→ذو、بني→بنو）。綴りの標準化（OpenITI `normalize_ara_light`：أ・إ・آ→ا など）は入れていない（要確認）。`role` の例：origin・destination（移動の出発地・到着地）、companion（同行者）。
 - `quote: null` は「本文で位置が決まっていない」の意味。ビューアーでは「未」として出る。本文に出てこないと人が判断したものは「本文になし」（今後 YAML に `attested: false` として持たせる）。
 
 ## トリプル書き出しの前提（2026-11-22）
