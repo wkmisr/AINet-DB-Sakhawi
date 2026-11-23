@@ -6,7 +6,7 @@ Principles (see the schema note):
 - every assertion gets a stable item id (r1, s1, e1, n1, a1, b, d); mARkdown tags carry that id after '|'
 - CE dates are derived from AH and not stored; edit history lives in git and in the frozen TEI (tag tei-final)
 """
-import json, re, sys, os, collections, yaml
+import json, re, sys, os, collections, unicodedata, yaml
 
 WORK = os.environ.get('AIND_WORK', '.')
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(WORK, 'v01')
@@ -22,15 +22,27 @@ STAT = collections.Counter()
 
 FIVE = {'أبي': 'أبو', 'أبا': 'أبو', 'أخي': 'أخو', 'أخا': 'أخو', 'ذي': 'ذو', 'ذا': 'ذو', 'بني': 'بنو'}
 
+# OpenITI normalize_ara_light (openiti.helper.ara, MIT licence), reproduced so the build needs no extra package
+_LIGHT = [("أ", "ا"), ("ٱ", "ا"), ("آ", "ا"), ("إ", "ا"), ("ى", "ي"),
+          ("يء", "ء"), ("ىء", "ء"), ("ؤ", "ء"), ("ئ", "ء"), ("ک", "ك"), ("ی", "ي"), ("ۀ", "ه")]
+
+
+def normalize_ara_light(t):
+    t = unicodedata.normalize('NFKC', t)
+    for a_, b_ in _LIGHT: t = re.sub(a_, b_, t)
+    return t
+
 
 def norm_ar(q, p=0):
-    """Standardized form of a quoted span: drop the proclitic (p letters, as counted by the mARkdown tag)
-    and unify the case forms of أبو / أخو / ذو / بنو when they head a construct (followed by another word)."""
+    """Standardized form of a quoted span (Romanov's advice, Waka 2026-11-23):
+    (1) drop the proclitic (p letters, as counted by the mARkdown tag);
+    (2) unify the case form of a name element that opens the span (أبي/أبا → أبو, أخي → أخو, ذي → ذو, بني → بنو),
+        only when it heads a construct; forms inside a longer phrase (ابن أبي اليمن) are left as written;
+    (3) OpenITI's light orthographic normalization (alifs, alif maqsura → ya, hamza carriers)."""
     q = q[p:] if p else q
     w = q.split()
-    for i in range(len(w) - 1):
-        if w[i] in FIVE: w[i] = FIVE[w[i]]
-    return ' '.join(w)
+    if len(w) > 1 and w[0] in FIVE: w[0] = FIVE[w[0]]
+    return normalize_ara_light(' '.join(w))
 
 
 def norm_id(x):
