@@ -18,8 +18,7 @@ CORPUS = [f for f in os.listdir(ROOT) if f.startswith('0__DawForAIND') and f.end
 REG = os.path.join(ROOT, 'authority', 'persons_registry.tsv')
 VIEW = os.path.join(ROOT, 'authority', 'persons_view.tsv')
 HEADS = os.path.join(ROOT, 'authority', 'headings_index.tsv')
-REG_COLS = ['id', 'status', 'target', 'aliases', 'wikidata', 'note',
-            'legacy_birth', 'legacy_death', 'legacy_madhhab', 'legacy_source']
+REG_COLS = ['id', 'status', 'target', 'aliases', 'wikidata', 'note']
 H = re.compile(r'^###\$(?:(AIND-D\w+) \| )?(\d{12})\$# (\$+) ?(.*)')
 KIND = {'$': 'male', '$$': 'female', '$$$': 'transfer'}
 AID = re.compile(r'AIND-D\d{5}[a-z]?')
@@ -96,9 +95,6 @@ def init(pl_csv):
             row['target'] = cited[0]
         else:
             row['status'] = 'active'
-        if c is not None and c['kind'] != 'transfer' and not x and (b or d or mad):
-            row['legacy_birth'], row['legacy_death'], row['legacy_madhhab'] = b, d, mad
-            row['legacy_source'] = 'PersonList 2026-11-23 (unverified)'
         rows.append(row)
     for aid, c in C.items():
         if aid not in seen:
@@ -136,9 +132,6 @@ def build():
                  wikidata=r['wikidata'], note=r['note'], has_record='yes' if x and not x['ref'] else 'no')
         if x and not x['ref']:
             v.update(birth=x['birth'], death=x['death'], madhhab=x['madhhab'], value_source='record')
-        elif r['legacy_source']:
-            v.update(birth=r['legacy_birth'], death=r['legacy_death'], madhhab=r['legacy_madhhab'],
-                     value_source='PersonList (unverified)')
         else:
             v.update(birth='', death='', madhhab='', value_source='')
         view.append(v)
