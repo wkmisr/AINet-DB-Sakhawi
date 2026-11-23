@@ -2,26 +2,28 @@
 """Build the person authority files.
 
 Source of truth (edited by people or by scripts that record a decision):
-  authority/persons_registry.tsv   only facts that live nowhere else
-Derived (regenerated, never edited by hand):
-  authority/headings_index.tsv     every corpus heading
-  authority/persons_view.tsv       one row per AIND ID, for lookup and candidate search
+  authority/persons_registry.tsv, authority/entities_registry.tsv   only facts that live nowhere else
+Generated on demand into authority/_generated/ (not committed, never edited):
+  persons_view.tsv, entities_view.tsv   lookup tables: registry + names from the corpus + values from the records
+  unresolved_refs.tsv                   references in the records that do not reach an active ID
+  headings_index.tsv                    every corpus heading
 
   build_authority.py init <personlist.csv>   create the registry from the frozen PersonList (run once)
   build_authority.py view                    regenerate the derived files from corpus + XML + registry
-  build_authority.py check                   exit 1 if the derived files are stale or the registry is inconsistent
+  build_authority.py check                   exit 1 if the registries are inconsistent with the corpus or with each other
 """
 import csv, os, re, sys, io
 csv.field_size_limit(10**9)
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CORPUS = [f for f in os.listdir(ROOT) if f.startswith('0__DawForAIND') and f.endswith('.txt')][0]
 REG = os.path.join(ROOT, 'authority', 'persons_registry.tsv')
-VIEW = os.path.join(ROOT, 'authority', 'persons_view.tsv')
-HEADS = os.path.join(ROOT, 'authority', 'headings_index.tsv')
+OUT = os.path.join(ROOT, 'authority', '_generated')
+VIEW = os.path.join(OUT, 'persons_view.tsv')
+HEADS = os.path.join(OUT, 'headings_index.tsv')
 REG_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history']
 ENT = os.path.join(ROOT, 'authority', 'entities_registry.tsv')
-ENT_VIEW = os.path.join(ROOT, 'authority', 'entities_view.tsv')
-UNRES = os.path.join(ROOT, 'authority', 'unresolved_refs.tsv')
+ENT_VIEW = os.path.join(OUT, 'entities_view.tsv')
+UNRES = os.path.join(OUT, 'unresolved_refs.tsv')
 ENT_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history']
 REFRE = re.compile(r'(?:ref|active|passive)="([^"]*)"')
 H = re.compile(r'^###\$(?:(AIND-D\w+) \| )?(\d{12})\$# (\$+) ?(.*)')
@@ -167,13 +169,10 @@ if __name__ == '__main__':
     elif cmd in ('view', 'check'):
         files, problems = build()
         if cmd == 'view':
+            os.makedirs(OUT, exist_ok=True)
             for path, text in files.items():
                 open(path, 'w', encoding='utf-8', newline='').write(text)
                 print(os.path.basename(path), len(list(csv.reader(io.StringIO(text), delimiter='\t'))) - 1)
-        else:
-            for path, text in files.items():
-                if not os.path.exists(path) or open(path, encoding='utf-8').read() != text:
-                    problems.append(os.path.basename(path) + ' is stale: run build_authority.py view')
         for p in problems: print('PROBLEM', p)
         sys.exit(1 if problems else 0)
     else:
