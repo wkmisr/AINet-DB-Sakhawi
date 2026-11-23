@@ -18,7 +18,12 @@ CORPUS = [f for f in os.listdir(ROOT) if f.startswith('0__DawForAIND') and f.end
 REG = os.path.join(ROOT, 'authority', 'persons_registry.tsv')
 VIEW = os.path.join(ROOT, 'authority', 'persons_view.tsv')
 HEADS = os.path.join(ROOT, 'authority', 'headings_index.tsv')
-REG_COLS = ['id', 'status', 'target', 'aliases', 'wikidata', 'note']
+REG_COLS = ['id', 'status', 'target', 'name_ar', 'name_latn', 'aliases', 'same_as', 'note', 'history', 'added_by']
+ENT = os.path.join(ROOT, 'authority', 'entities_registry.tsv')
+ENT_VIEW = os.path.join(ROOT, 'authority', 'entities_view.tsv')
+UNRES = os.path.join(ROOT, 'authority', 'unresolved_refs.tsv')
+ENT_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history', 'added_by']
+REFRE = re.compile(r'(?:ref|active|passive)="([^"]*)"')
 H = re.compile(r'^###\$(?:(AIND-D\w+) \| )?(\d{12})\$# (\$+) ?(.*)')
 KIND = {'$': 'male', '$$': 'female', '$$$': 'transfer'}
 AID = re.compile(r'AIND-D\d{5}[a-z]?')
@@ -54,7 +59,7 @@ def xmls():
                 return (lo + '/' + hi) if (lo or hi) else ''
             mad = sorted(set(re.findall(r'<affiliation[^>]*type="madhhab"[^>]*ref="([^"]*)"', t)))
             tgt = re.search(r'<note type="reference" target="#(AIND-D\w+)"', t)
-            out[m[2]] = dict(ref=bool(m[1]), birth=date('birth'), death=date('death'),
+            out[m[2]] = dict(refs=set(v.lstrip('#') for mm in REFRE.finditer(t) for v in mm[1].split()), ref=bool(m[1]), birth=date('birth'), death=date('death'),
                              madhhab=' | '.join(mad), target=tgt[1] if tgt else '')
     return out
 
@@ -105,8 +110,8 @@ def init(pl_csv):
     open(REG, 'w', encoding='utf-8', newline='').write(dump(rows, REG_COLS))
     print('registry rows', len(rows))
 
-VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'heading', 'birth', 'death', 'madhhab',
-             'value_source', 'has_record', 'aliases', 'wikidata', 'note']
+VIEW_COLS = ['id', 'n12', 'kind', 'status', 'target', 'entry_no', 'name', 'name_latn', 'aliases', 'birth', 'death', 'madhhab',
+             'value_source', 'has_record', 'cited_by', 'same_as', 'note']
 HEAD_COLS = ['n12', 'id', 'kind', 'line', 'entry_no', 'heading']
 
 def build():
@@ -116,40 +121,59 @@ def build():
     for aid in C:
         if aid not in R: problems.append(f'{aid}: in corpus, not in registry')
     for aid, r in R.items():
-        if aid not in C and r['status'] not in ('merged', 'retired'):
+        if not aid.startswith('AIND-D'):
+            if r['status'] == 'active' and not r['name_ar']: problems.append(f'{aid}: no name')
+        elif aid not in C and r['status'] not in ('merged', 'retired'):
             problems.append(f'{aid}: status {r["status"]} but not in corpus')
         if r['status'] in ('merged',) and not r['target']:
             problems.append(f'{aid}: merged without target')
         if r['target'] and r['target'] not in R:
             problems.append(f'{aid}: target {r["target"]} is not a registered ID')
-        if aid in C and (C[aid]['kind'] == 'transfer') != (r['status'] == 'transfer') and r['status'] != 'needs-ruling':
+        if aid in C and (C[aid]['kind'] == 'transfer') != (r['status'] == 'transfer'):
             problems.append(f'{aid}: corpus kind {C[aid]["kind"]} vs registry status {r["status"]}')
+    EN = {e['id']: e for e in read_tsv(ENT)} if os.path.exists(ENT) else {}
+    for k, e in EN.items():
+        if k in R: problems.append(f'{k}: in both registries')
+        if e['target'] and e['target'] not in EN: problems.append(f'{k}: target {e["target"]} is not a registered ID')
+    cited = {}
+    for rec, x in X.items():
+        for v in x['refs']:
+            if v != rec: cited.setdefault(v, set()).add(rec)
+    unres = []
+    for v in sorted(cited):
+        if v in ('NEEDID', ''): continue
+        row = R.get(v) or EN.get(v)
+        why = 'not registered' if row is None else ('' if row['status'] == 'active' else row['status'] + (' -> ' + row['target'] if row['target'] else ''))
+        if why: unres.append(dict(ref=v, problem=why, records=len(cited[v]), examples=' '.join(sorted(cited[v])[:5])))
+    ev = [dict(e, use_count=len(cited.get(k, ()))) for k, e in sorted(EN.items(), key=lambda t: (t[1]['category'], t[0]))]
     view = []
-    for aid in sorted(R):
+    for aid in sorted(R, key=lambda k: (not k.startswith('AIND'), k)):
         r, c, x = R[aid], C.get(aid, {}), X.get(aid)
         v = dict(id=aid, n12=c.get('n12', ''), kind=c.get('kind', ''), status=r['status'], target=r['target'],
-                 entry_no=c.get('entry_no', ''), heading=c.get('heading', ''), aliases=r['aliases'],
-                 wikidata=r['wikidata'], note=r['note'], has_record='yes' if x and not x['ref'] else 'no')
+                 entry_no=c.get('entry_no', ''), name=c.get('heading', '') or r['name_ar'], name_latn=r['name_latn'],
+                 aliases=r['aliases'], same_as=r['same_as'], note=r['note'], cited_by=len(cited.get(aid, ())),
+                 has_record='yes' if x and not x['ref'] else 'no')
         if x and not x['ref']:
             v.update(birth=x['birth'], death=x['death'], madhhab=x['madhhab'], value_source='record')
         else:
             v.update(birth='', death='', madhhab='', value_source='')
         view.append(v)
-    return dump(view, VIEW_COLS), dump(cs, HEAD_COLS), problems
+    return {VIEW: dump(view, VIEW_COLS), HEADS: dump(cs, HEAD_COLS), ENT_VIEW: dump(ev, ENT_COLS[:9] + ['use_count']), UNRES: dump(unres, ['ref', 'problem', 'records', 'examples'])}, problems
 
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else ''
     if cmd == 'init':
         init(sys.argv[2])
     elif cmd in ('view', 'check'):
-        v, h, problems = build()
+        files, problems = build()
         if cmd == 'view':
-            open(VIEW, 'w', encoding='utf-8', newline='').write(v)
-            open(HEADS, 'w', encoding='utf-8', newline='').write(h)
-            print('view rows', v.count('\n') - 1, 'headings', h.count('\n') - 1)
+            for path, text in files.items():
+                open(path, 'w', encoding='utf-8', newline='').write(text)
+                print(os.path.basename(path), len(list(csv.reader(io.StringIO(text), delimiter='\t'))) - 1)
         else:
-            if open(VIEW, encoding='utf-8').read() != v or open(HEADS, encoding='utf-8').read() != h:
-                problems.append('derived files are stale: run build_authority.py view')
+            for path, text in files.items():
+                if not os.path.exists(path) or open(path, encoding='utf-8').read() != text:
+                    problems.append(os.path.basename(path) + ' is stale: run build_authority.py view')
         for p in problems: print('PROBLEM', p)
         sys.exit(1 if problems else 0)
     else:
