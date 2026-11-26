@@ -417,6 +417,100 @@ def convert(k, r):
         if 'persons' not in out: out['persons'] = persons
         meta.clear(); meta.update(out)
 
+    # assessments (Waka 2026-11-26): the biographer's characterisation of the person («وهو من الصلحاء», «كان خيرا دينا»).
+    # Not an office, a status or an event: they get their own section (ids v1, v2 …, tags @V).
+    # (1) evaluative entries are moved out of states[] (state ids are kept, gaps allowed);
+    # (2) the stock formulas are picked up from the text by rule (by: rule) for confirmation in the viewer.
+    covered = set()
+    for i_, t_ in enumerate(toks):
+        m_ = ENT.match(t_) or YR.match(t_)
+        n_ = None
+        if m_: n_ = int(m_.group(3)) if ENT.match(t_) else (int(m_.group(4)) if m_.group(4) else 1)
+        else:
+            m2 = re.match(r'^@L(\d+)X\d\dL$', t_)
+            if m2: n_ = int(m2.group(1))
+            elif t_.startswith('@'): n_ = 0
+        if n_ is not None: covered.update(range(i_, i_ + n_ + 1))
+    def vterm(w):
+        """(term, prefix) of an evaluative word, or None"""
+        w0 = normalize_ara_light(w)
+        for pfx in (0, 1):
+            x = w0[pfx:] if pfx and w0[:1] == 'و' and len(w0) > 3 else (w0 if not pfx else None)
+            if x and x in VFORM: return VFORM[x], pfx
+        return None
+    assess, inserts, vretag, vlabels, vat = [], [], {}, [], []
+    def add_v(it):
+        it['id'] = f'v{len(assess) + 1}'; assess.append(it); STAT['assessment'] += 1; return it['id']
+    keep_s = []
+    for st in meta.get('states') or []:
+        lab = st.get('quote') or st.get('label') or ''
+        terms = []
+        for w_ in lab.split():
+            vt = vterm(w_)
+            if vt and vt[0] not in terms: terms.append(vt[0])
+        if st['type'] == 'status' and not st.get('ref') and terms:
+            it = {'id': None}
+            if st.get('quote'): it['quote'] = st['quote']
+            if st.get('norm'): it['norm'] = st['norm']
+            if not st.get('quote') and st.get('label'): it['label'] = st['label']
+            it['terms'] = terms
+            for kk in ('cert', 'note'):
+                if kk in st: it[kk] = st[kk]
+            vid = add_v(it); vretag[st['id']] = vid; STAT['assessment_from_status'] += 1
+            if st.get('label'): vlabels.append(st['label'])
+        else:
+            keep_s.append(st)
+    if vretag:
+        if keep_s: meta['states'] = keep_s
+        else: del meta['states']
+        for i_, t_ in enumerate(new):
+            m_ = re.match(r'^@O(\d+)\[[^|\]]*\|(s\d+)\]$', t_)
+            if m_ and m_.group(2) in vretag:
+                new[i_] = f'@V{m_.group(1)}[assessment|{vretag[m_.group(2)]}]'; vat.append([i_, f'@V{m_.group(1)}[assessment:{vretag[m_.group(2)]}]'])
+    used_v = set()
+    for it in assess:                                 # moved entries without a place: look for their word in the text
+        if it.get('quote'): continue
+        for i_, t_ in enumerate(toks):
+            if i_ in covered or i_ in used_v: continue
+            vt = vterm(t_)
+            if vt and vt[0] in it['terms']:
+                it['quote'] = t_; nm = norm_ar(t_, vt[1])
+                if nm != t_: it['norm'] = nm
+                it['by'] = 'rule'; it.pop('label', None)
+                inserts.append((i_, vt[1], it['id'])); used_v.add(i_); break
+    have = {t for it in assess for t in it['terms']}
+    i_ = 0
+    while i_ < len(toks) - 1:                         # stock formulas: كان / وهو (+ من [أهل]) + evaluative word(s)
+        if normalize_ara_light(toks[i_]) in VTRIG and i_ not in covered:
+            j_ = i_ + 1; plural_ok = False
+            if j_ < len(toks) and toks[j_] == 'من': j_ += 1; plural_ok = True
+            if plural_ok and j_ < len(toks) and toks[j_] == 'أهل': j_ += 1
+            while j_ < len(toks) and j_ not in covered and j_ not in used_v:
+                vt = vterm(toks[j_])
+                if not vt: break
+                w0 = normalize_ara_light(toks[j_])[vt[1]:]
+                if (w0 in VPLUR) != plural_ok: break
+                if vt[0] == 'ساكن' and j_ + 1 < len(toks) and re.match(r'^(ب|في|@T)', toks[j_ + 1]): break   # «ساكنا بـ…» = residing
+                if vt[0] not in have:
+                    it = {'id': None, 'quote': toks[j_]}
+                    nm = norm_ar(toks[j_], vt[1])
+                    if nm != toks[j_]: it['norm'] = nm
+                    it['terms'] = [vt[0]]; it['by'] = 'rule'
+                    inserts.append((j_, vt[1], add_v(it))); have.add(vt[0]); STAT['assessment_rule'] += 1
+                used_v.add(j_); j_ += 1
+            i_ = j_
+        else:
+            i_ += 1
+    if assess:
+        out = {}
+        for kk, vv in meta.items():
+            out[kk] = vv
+            if kk == ('states' if 'states' in meta else 'relations' if 'relations' in meta else 'name'): out['assessments'] = assess
+        meta.clear(); meta.update(out)
+        VMAP[k] = {'retag': vretag, 'insert': [[i__, f'@V{p__}1[assessment:{v__}]'] for i__, p__, v__ in inserts], 'labels': vlabels, 'retag_at': vat}
+        for i__, p__, v__ in sorted(inserts, reverse=True):
+            new.insert(i__, f'@V{p__}1[assessment|{v__}]')
+
     # source citations (Waka 2026-11-26): «ذكره / أرخه / قال فلان» is a statement about the sources, not an event
     # in the person's life. They move from events[] to sources[] (ids c1, c2 …); event ids are kept (gaps allowed).
     if meta.get('events'):
@@ -453,6 +547,14 @@ def convert(k, r):
 
 
 CMAP = {}
+VMAP = {}
+# evaluative vocabulary: written form (after normalize_ara_light) -> controlled term
+_V = {'صالح': 'صالحا صالح الصلحاء الصالحين', 'خير': 'خيرا خير الاخيار الخير', 'دين': 'دينا دين', 'فاضل': 'فاضلا فاضل الفضلاء',
+      'ثقة': 'ثقة', 'زاهد': 'زاهدا زاهد الزهاد', 'عابد': 'عابدا عابد', 'متعبد': 'متعبدا متعبد', 'ورع': 'ورعا ورع',
+      'متواضع': 'متواضعا متواضع', 'معتقد': 'معتقدا معتقد المعتقدين', 'عفيف': 'عفيفا عفيف', 'ساكن': 'ساكنا'}
+VFORM = {f: t for t, fs in _V.items() for f in fs.split()}
+VPLUR = {'الصلحاء', 'الصالحين', 'الاخيار', 'الخير', 'الفضلاء', 'الزهاد', 'المعتقدين'}
+VTRIG = {'كان', 'وكان', 'فكان', 'وهو', 'هو'}
 
 
 class D(yaml.SafeDumper):
@@ -471,6 +573,6 @@ if __name__ == '__main__':
         open(f'{OUT}/meta/{k}.yml', 'w', encoding='utf-8').write(y)
         open(f'{OUT}/text/{k}.md', 'w', encoding='utf-8').write(md)
         tot_y += len(y.encode()); tot_m += len(md.encode())
-    json.dump(CMAP, open(f'{OUT}/source_ids.json', 'w'), ensure_ascii=False)   # event id -> source id, per record
+    json.dump({'sources': CMAP, 'assessments': VMAP}, open(f'{OUT}/source_ids.json', 'w'), ensure_ascii=False)   # event id -> source id, per record
     print('files', len(R), 'meta MB', round(tot_y / 1e6, 2), 'text MB', round(tot_m / 1e6, 2))
     print(dict(sorted(STAT.items())))

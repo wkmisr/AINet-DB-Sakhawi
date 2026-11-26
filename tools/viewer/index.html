@@ -64,7 +64,7 @@ ul.rs{margin:4px 0 0;padding-inline-start:1.2em;font-size:14px}
 #warnbar{background:#fdeeee;color:#ce0000;border-bottom:2px solid #ce0000;padding:8px 16px;font-size:15px}
 .fz{color:#ac3e00;font-weight:700}
 .inev{text-decoration:underline 2px dotted #4d4d4d;text-underline-offset:10px}
-.evn{font-size:12px;color:#4d4d4d;font-family:var(--sans,system-ui);margin-inline-end:2px}
+.inv{border-bottom:3px double #8a3ffc}.inc{border-bottom:2px dotted #4d4d4d}.evn{font-size:12px;color:#4d4d4d;font-family:var(--sans,system-ui);margin-inline-end:2px}
 .evhl{outline:3px solid #ffd43d!important;background:#fff6cc!important}
 button.mini{font-size:12px;padding:1px 6px;min-height:0;border-radius:4px}
 .ent.fzt{outline:2px dashed #ac3e00;outline-offset:2px}
@@ -187,7 +187,7 @@ textarea{width:100%;min-height:160px;font:13px var(--mono);direction:rtl}
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const N=s=>s.replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي');
-const ENT=/^@(P|T|S|O|E|C|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
+const ENT=/^@(P|T|S|O|E|C|V|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
 const isTag=w=>ENT.test(w)||YR.test(w)||LM.test(w);
 const MON=['','Muḥarram (1)','Ṣafar (2)','Rabīʿ I (3)','Rabīʿ II (4)','Jumādā I (5)','Jumādā II (6)','Rajab (7)','Shaʿbān (8)','Ramaḍān (9)','Shawwāl (10)','Dhū al-Qaʿda (11)','Dhū al-Ḥijja (12)'];
 const NUMW=new Set('واحد احدى إحدى اثنتين اثنين ثنتين ثلاث ثلاثة أربع اربع أربعة خمس خمسة ست ستة سبع سبعة ثمان ثماني ثمانية تسع تسعة عشر عشرة عشرين ثلاثين أربعين اربعين خمسين ستين سبعين ثمانين تسعين مائة مئة مائتين ثلاثمائة أربعمائة اربعمائة خمسمائة ستمائة سبعمائة ثمانمائة ثمانمئة تسعمائة بضع بضعة'.split(' '));
@@ -263,7 +263,7 @@ function renderText(){
   const toks=curText().split(' ');let h='',i=0;
   while(i<toks.length){
     const t=toks[i];let m;
-    if((m=ENT.exec(t))&&(m[1]==='E'||m[1]==='C')){h+=`<span class="tg">${esc(t)}</span>`;i++;continue}
+    if((m=ENT.exec(t))&&(m[1]==='E'||m[1]==='C'||m[1]==='V')){h+=`<span class="tg">${esc(t)}</span>`;i++;continue}
     if(m=ENT.exec(t)){
       const n=+m[3],cls=m[1][0],pb=parseBr(m[4]),id=pb.id??'';const nid=cls!=='S'&&!(cls==='O'&&pb.sub==='status')&&(!id||id==='NEEDID');
       const ws=[];let j=i+1;while(ws.length<n&&j<toks.length){ws.push(j);j++}
@@ -373,7 +373,11 @@ const evJP=e=>[e.type,e.subtype].filter(Boolean).map(x=>EVJP[x]||x).join(' · ')
 function evRanges(){const toks=curText().split(' '),out=[];
   toks.forEach((t,i)=>{const m=ENT.exec(t);if(!m||m[1]!=='E')return;const pb=parseBr(m[4]);let n=+m[3],j=i+1;const ws=[];
     while(ws.length<n&&j<toks.length){if(!isTag(toks[j]))ws.push(j);j++}out.push({i,id:pb.id,ws})});return out}
-function markEv(){for(const r of evRanges())r.ws.forEach((k,x)=>{const el=document.querySelector(`#text [data-w="${k}"]`);if(el){el.classList.add('inev');el.dataset.ev=r.id;if(!x)el.insertAdjacentHTML('beforebegin',`<sup class="evn">${esc((r.id||'').replace('e',''))}</sup>`)}})}
+function markCV(){const toks=curText().split(' ');toks.forEach((t,i)=>{const m=ENT.exec(t);if(!m||(m[1]!=='C'&&m[1]!=='V'))return;const id=parseBr(m[4]).id;let n=+m[3],j=i+1,x=0;while(x<n&&j<toks.length){if(!isTag(toks[j])){const el=document.querySelector(`#text [data-w="${j}"]`);if(el){el.classList.add(m[1]==='V'?'inv':'inc');if(!x)el.insertAdjacentHTML('beforebegin',`<sup class="evn">${esc(id||'')}</sup>`)}x++}j++}})}
+function markEv(){markCV();for(const r of evRanges())r.ws.forEach((k,x)=>{const el=document.querySelector(`#text [data-w="${k}"]`);if(el){el.classList.add('inev');el.dataset.ev=r.id;if(!x)el.insertAdjacentHTML('beforebegin',`<sup class="evn">${esc((r.id||'').replace('e',''))}</sup>`)}})}
+function fillAssess(vs){let b=$('#asbox');if(!b){$('#evbox').insertAdjacentHTML('afterend','<div id="asbox"></div>');b=$('#asbox')}
+  if(!vs.length){b.innerHTML='';return}
+  b.innerHTML=`<h2>Assessments (${vs.length})</h2><p class="note">The biographer's characterisation of the person (كان خيرا, من الصلحاء …). "estimated" = found by rule; check that it describes this person.</p><ul class="mlist">${vs.map(v=>`<li>${v.by==='rule'?'<span class="fz">estimated</span>':v.quote?'✓':'<span style="color:var(--nid)">unplaced</span>'} <b>${v.id}</b> ${esc((v.terms||[]).join(' · '))} <span class="ar" dir="rtl">${esc(v.quote||v.label||'')}</span></li>`).join('')}</ul>`}
 function fillSources(ss){let b=$('#srcbox');if(!b){$('#evbox').insertAdjacentHTML('afterend','<div id="srcbox"></div>');b=$('#srcbox')}
   if(!ss.length){b.innerHTML='';return}
   b.innerHTML=`<h2>Source citations (${ss.length})</h2><p class="note">Statements about the sources (ذكره, أرخه, قال …), kept apart from the events of the person's life.</p><ul class="mlist">${ss.map(c=>{const who=(c.persons||[]).map(p=>esc(label((p.ref||'').replace(/^#/,'')).split(' / ')[0])).join(', ');const w=(c.works||[]).map(x=>esc(label((x.ref||'').replace(/^#/,'')).split(' / ')[0]||x.quote||'')).filter(Boolean).join(', ');return `<li><b>${c.id}</b> ${who||'(no author)'}${w?' · <i>'+w+'</i>':''} ${c.quote?`<span class="ar" dir="rtl">${esc(c.quote)}</span>`:'<span style="color:var(--nid)">unplaced</span>'}</li>`}).join('')}</ul>`}
@@ -382,7 +386,7 @@ function hlEv(j,on){document.querySelectorAll('.evhl').forEach(x=>x.classList.re
   const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const ids=new Set(evRefs(e).map(canon));const toks=curText().split(' ');
   toks.forEach((t,i)=>{const m=ENT.exec(t);if(m&&m[1]!=='E'&&ids.has(canon(parseBr(m[4]).id||'')))document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('evhl')});
   document.querySelectorAll(`#text [data-ev="${e?.id||'e'+(j+1)}"]`).forEach(x=>x.classList.add('evhl'))}
-async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;const R=await loadRecords();if(!cur||cur.k!==k||!$('#evbox'))return;   fillSources(R?.[k]?.sources||[]);
+async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;const R=await loadRecords();if(!cur||cur.k!==k||!$('#evbox'))return;   fillSources(R?.[k]?.sources||[]);fillAssess(R?.[k]?.assessments||[]);
   const evs=R?.[k]?.events||[];if(!evs.length){box.innerHTML='';return}
   const placed=new Set(evRanges().map(r=>r.id));const un=evs.filter((e,j)=>!placed.has((e?.id||'e'+(j+1)))).length;
   const nfz=EDITS[k]?0:evs.filter((e,j)=>placed.has((e?.id||'e'+(j+1)))).length;

@@ -13,6 +13,7 @@ Run in a work directory (`AIND_WORK`, default: current directory). `idmaster.tsv
    - deterministic: the script re-runs itself with `PYTHONHASHSEED=0`
 3. `AIND_WORK=... python3 tools/viewer/to_v01.py <out_dir>` → `<out_dir>/meta/*.yml` + `<out_dir>/text/*.md` (= `data_v01/`)
 4. `python3 tools/viewer/make_viewer_records.py <out_dir> records.json` → the viewer's YAML data
+5. `python3 tools/viewer/dau_sources.py <out_dir> dau.json dau_view.json` → the viewer's text with `@C` (source citations) and `@V` (assessments) tags; publish `dau_view.json` as `dau.json` (keep the original `dau.json` for step 3)
 
 The viewer (`index.html`) is published as a claude.ai artifact together with `dau.json`, `tr.json`, `labels.json`, `idm.json`, `offices.json`, `records.json`, `js-yaml.min.js`.
 Checks made in the viewer (CHECKED, moved tags, merges, "not in text", re-classification) are kept in the artifact's shared database, not in this repo.

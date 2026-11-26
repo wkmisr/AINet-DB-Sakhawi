@@ -30,6 +30,7 @@
 | `states[]` | 官職・身分：`type`（office・status…）、`subtype`（deputy）、`ref`（なければ `label`）、`places[]`・`orgs[]`・`dates[]`、`cert`、`quote`、`note` | `s1`… |
 | `affiliations[]` | 所属：`type`、`ref`（なければ `label`）、`cert`、`note` | `a1`… |
 | `events[]` | 出来事：`type`・`subtype`、`date`、`methods[]`（学習の方法 TMP-S、relation と同じ）、`persons[]`・`places[]`・`orgs[]`・`works[]`、`quote`（出来事の**中心語1語**）、`summary`（英語などの言い換え）、`cert`、`note`。規則で中心語を付けたものは `trigger: rule` | `e1`… |
+| `assessments[]` | 人物評（Waka 決定 2026-11-26）：伝記作者による人物の評価（«وهو من الصلحاء»、«كان خيرا دينا»）。官職・身分・出来事のどれでもない。`quote`（本文の語。なければ `label`）・`norm`・`terms[]`（統制語彙：صالح・خير・دين・فاضل・ثقة・زاهد・عابد・متعبد・ورع・متواضع・معتقد・عفيف・ساكن）・`by: rule`（定型句 كان／وهو〔من〕＋評価語 から規則で拾ったもの。ビューアーで確認）・`assessor`（評した人。なければサハーウィー）・`cert`・`note`。TEI で state type="status" に ID なしで入っていた人物評は変換時にここへ移す（state の識別子は振り直さない）。mARkdown のタグは `@V01[assessment\|v1]` | `v1`… |
 | `sources[]` | 典拠への言及（Waka 決定 2026-11-26）：«ذكره／أرخه／قال فلان» など、本人の生涯の出来事ではなく「誰がどの書で記録したか」。`persons[]`（記録した人）・`works[]`（書名）・`quote`（中心語）・`norm`・`summary`・`cert`・`note`。TEI では今も event type="cultural" subtype="mention" で、変換時にここへ移す。出来事の識別子は振り直さない（欠番が出る）。mARkdown のタグは `@C01[mention\|c1]` | `c1`… |
 | `notes[]` | 項目に属さない注記 | |
 | `translation` | `ja`・`en` | |
