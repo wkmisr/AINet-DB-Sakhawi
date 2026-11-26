@@ -417,6 +417,32 @@ def convert(k, r):
         if 'persons' not in out: out['persons'] = persons
         meta.clear(); meta.update(out)
 
+    # source citations (Waka 2026-11-26): «ذكره / أرخه / قال فلان» is a statement about the sources, not an event
+    # in the person's life. They move from events[] to sources[] (ids c1, c2 …); event ids are kept (gaps allowed).
+    if meta.get('events'):
+        srcs, keep, cmap = [], [], {}
+        for ev in meta['events']:
+            if ev.get('type') == 'cultural' and ev.get('subtype') == 'mention':
+                c = {'id': f'c{len(srcs) + 1}'}
+                for kk in ('persons', 'works', 'date', 'places', 'quote', 'norm', 'trigger', 'summary', 'cert', 'note'):
+                    if kk in ev: c[kk] = ev[kk]
+                cmap[ev['id']] = c['id']; srcs.append(c); STAT['source_citation'] += 1
+            else:
+                keep.append(ev)
+        if srcs:
+            if keep: meta['events'] = keep
+            else: del meta['events']
+            out = {}
+            for kk, vv in meta.items():
+                out[kk] = vv
+                if kk == ('events' if keep else 'affiliations' if 'affiliations' in meta else 'states'): out['sources'] = srcs
+            if 'sources' not in out: out['sources'] = srcs
+            meta.clear(); meta.update(out)
+            for i_, t_ in enumerate(new):
+                m_ = re.match(r'^@E(\d+)\[([^|\]]*)\|(e\d+)\]$', t_)
+                if m_ and m_.group(3) in cmap: new[i_] = f'@C{m_.group(1)}[mention|{cmap[m_.group(3)]}]'
+            CMAP[k] = cmap
+
     tr = TR.get(k)
     if tr: meta['translation'] = tr
     meta['provenance'] = provenance(r.get('generator'))
@@ -424,6 +450,9 @@ def convert(k, r):
     header = f"### $ {k}" if k.startswith('AIND') else f"### $ #{k}"
     md = header + '\n' + ' '.join(new) + '\n'
     return meta, md
+
+
+CMAP = {}
 
 
 class D(yaml.SafeDumper):
@@ -442,5 +471,6 @@ if __name__ == '__main__':
         open(f'{OUT}/meta/{k}.yml', 'w', encoding='utf-8').write(y)
         open(f'{OUT}/text/{k}.md', 'w', encoding='utf-8').write(md)
         tot_y += len(y.encode()); tot_m += len(md.encode())
+    json.dump(CMAP, open(f'{OUT}/source_ids.json', 'w'), ensure_ascii=False)   # event id -> source id, per record
     print('files', len(R), 'meta MB', round(tot_y / 1e6, 2), 'text MB', round(tot_m / 1e6, 2))
     print(dict(sorted(STAT.items())))

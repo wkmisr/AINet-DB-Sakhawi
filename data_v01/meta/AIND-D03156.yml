@@ -102,21 +102,6 @@ states:
   note:
     ja: '「وولي قضاء عدن مدة」。ID-Master 既登録 TMP-O-00223（قاضي عدن）。初版の #NEEDID を置換。'
 events:
-- id: e1
-  type: cultural
-  subtype: mention
-  persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  works:
-  - ref: TMP-T-00034
-  quote: أرخه
-  summary:
-    ar: قال شيخنا في أنبائه أنه سمع على ابن شداد وغيره ، وولي قضاء عدن مدة رأيته بها ، وبها مات سنة إحدى وعشرين
-  note:
-    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。本項の師事・職・没年没地はすべてこの引用による。初版の relation（subtype predecessor）を mention event に置換。
-  trigger: rule
-  norm: ارخه
 - id: e2
   type: cultural
   subtype: meeting
@@ -130,24 +115,36 @@ events:
     ja: 引用中の一人称＝引用元の著者イブン・ハジャル（規則59 (f)。イブン・ハジャルは800年にイエメンに渡っている。サハーウィー（831年生）は821年没の本項主を見ていない）。「بها」＝عدن。初版の en 訳「I (al-Sakhāwī) saw him」と residence event（原文に居住の記述なし）は誤りとして除去・訂正。
   trigger: rule
   norm: رايته
-- id: e3
-  type: cultural
-  subtype: mention
+sources:
+- id: c1
+  persons:
+  - ref: wd:Q471116
+    quote: شيخنا
+  works:
+  - ref: TMP-T-00034
+  quote: أرخه
+  norm: ارخه
+  trigger: rule
+  summary:
+    ar: قال شيخنا في أنبائه أنه سمع على ابن شداد وغيره ، وولي قضاء عدن مدة رأيته بها ، وبها مات سنة إحدى وعشرين
+  note:
+    ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。本項の師事・職・没年没地はすべてこの引用による。初版の relation（subtype predecessor）を mention event に置換。
+- id: c2
   persons:
   - ref: AIND-D09211
     quote: التقي بن فهد
+  works:
+  - ref: TMP-T-00138
   places:
   - ref: TMP-L-00041
     quote: بزبيد
     norm: زبيد
-  works:
-  - ref: TMP-T-00138
   quote: قال
+  trigger: rule
   summary:
     ar: وكذا أرخه التقي بن فهد في معجمه لكن بزبيد
   note:
     ja: Pattern A。「التقي」と「في معجمه」が明示＝#AIND-D09211（規則43 の振り分け「في معجمه→D09211」、cert 不要）、『معجم ابن فهد』＝TMP-T-00138。没地を زبيد とする異伝（原文の地名＝規則22(2) で placeName に残す）。初版の relation（subtype biographer）を mention event に置換。
-  trigger: rule
 translation:
   ja: スライマーン・ブン・アリー・ブン・アフマド、カーディー、ナフィース・アッ＝ディーン、アブー・アッ＝ラビーウ、アル＝クラシー・アル＝ヤマニー。アル＝ジュナイド、またはイブン・アル＝ジュナイドとして知られる。我らがシャイフ（イブン・ハジャル）は『インバーゥ』で、彼がイブン・シャッダードらから聴聞したこと、一時期アデンのカーディー職を務め「私（イブン・ハジャル）は彼をそこで見た」こと、そして（8）21年に同地で没したことを述べている。アッ＝タキー・ブン・ファハドも『ムウジャム』で同じ没年を記しているが、（没地は）ザビードとしている。
   en: Sulaymān b. ʿAlī b. Aḥmad, the qāḍī Nafīs al-Dīn Abū al-Rabīʿ al-Qurashī al-Yamanī, known as al-Junayd or Ibn al-Junayd. Our shaykh (Ibn Ḥajar) said in his Inbāʾ that he heard from Ibn Shaddād and others, that he held the judgeship of Aden for a period—"I (Ibn Ḥajar) saw him there"—and that he died there in the year [8]21. Al-Taqī b. Fahd likewise recorded his death date in his Muʿjam, but (placed it) in Zabīd.

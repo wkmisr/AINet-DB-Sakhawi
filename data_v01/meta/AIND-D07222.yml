@@ -83,19 +83,6 @@ relations:
   note:
     ja: 'corpus の علي بن محمد … الناشري 見出し（#AIND-D05400 علي بن محمد بن إسماعيل، #AIND-D05453 علي بن محمد بن عبد الله）はいずれも父名が異なり別人。初版の TMP-P-000530（登録実体＝D04287 の兄弟 علي、汚染番号）を解除し新規 TMP-P-001510。'
 events:
-- id: e1
-  type: cultural
-  subtype: mention
-  persons:
-  - ref: AIND-D05108
-    quote: أبو الحسن الخزرجي
-    norm: ابو الحسن الخزرجي
-  quote: ترجمة
-  summary:
-    ar: حكى عنه أبو الحسن الخزرجي في ترجمة أبيه المتوفي في سنة ستين وسبعمائة
-  note:
-    ja: 'Pattern A。أبو الحسن الخزرجي ＝ #AIND-D05108（علي بن الحسن بن أبي بكر … موفق الدين أبو الحسن الخزرجي الزبيدي اليمني المؤرخ、812没。先例 #AIND-D04630）。本項主の父（760没）の伝記中で本項主の語りを引く。初版の subtype="narrator" relation（#NEEDID）を mention event に変更。書名は原文に無いため bibl なし。'
-  trigger: rule
 - id: e2
   type: cultural
   persons:
@@ -107,6 +94,18 @@ events:
   cert: low
   note:
     ja: 'المجاهد ＝ ラスール朝の الملك المجاهد علي بن المؤيد داود（corpus D13243「سلامة ابنة الملك المجاهد علي بن المؤيد داود」の父。8世紀人物）。ID-Master 未登録 → TMP-P-001507（wd は Waka 実照合）。巡礼の年は原文に無い。【集約】頌詩の主語（「أنه … مدحه」の「هو」）は本項主とも父（760没、TMP-P-001508）とも読める：逸話は الخزرجي による父の伝記の中にあり、本項主は語り手（「حكى عنه」）。المجاهد の巡礼は 742・751 年で、800 年以後没の本項主が詠んだとするとかなりの長命になる。主語を断定しないため event に cert="low"（内容B M）。初版の patron relation と placeName مكة（巡礼からの地名補完＝規則22(1)）を除去し、頌詩献呈を本 event のみで表現（先例 #AIND-D05997「فمدح بها الأكابر」）。'
+sources:
+- id: c1
+  persons:
+  - ref: AIND-D05108
+    quote: أبو الحسن الخزرجي
+    norm: ابو الحسن الخزرجي
+  quote: ترجمة
+  trigger: rule
+  summary:
+    ar: حكى عنه أبو الحسن الخزرجي في ترجمة أبيه المتوفي في سنة ستين وسبعمائة
+  note:
+    ja: 'Pattern A。أبو الحسن الخزرجي ＝ #AIND-D05108（علي بن الحسن بن أبي بكر … موفق الدين أبو الحسن الخزرجي الزبيدي اليمني المؤرخ、812没。先例 #AIND-D04630）。本項主の父（760没）の伝記中で本項主の語りを引く。初版の subtype="narrator" relation（#NEEDID）を mention event に変更。書名は原文に無いため bibl なし。'
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ウマル・ブン・ウスマーン・ブン・アビー・バクル・ブン・ウマル・ブン・アブドゥッラフマーン・ブン・アブドゥッラー、アル＝バドル・アン＝ナーシリー。アブー・バクルとアリーの父。800年より後に没した。アブー・アル＝ハサン・アル＝ハズラジーが、760年に没した彼の父の伝記の中で彼から伝えるところでは、アル＝ムジャーヒドが巡礼した際に、彼（本項主あるいはその父）が巡礼の諸儀礼を詠み込んだカスィーダで彼（アル＝ムジャーヒド）を称えたという。
   en: Muḥammad b. Abī Bakr b. ʿUmar b. ʿUthmān b. Abī Bakr b. ʿUmar b. ʿAbd al-Raḥmān b. ʿAbd Allāh, al-Badr al-Nāshirī, the father of Abū Bakr and ʿAlī. He died after 800. Abū al-Ḥasan al-Khazrajī related on his authority, in the biography of his father, who died in the year 760, that when al-Mujāhid performed the pilgrimage he (the subject or his father) praised him with an ode into which he worked the rites of the ḥajj.

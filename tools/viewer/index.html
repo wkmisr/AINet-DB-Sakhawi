@@ -187,7 +187,7 @@ textarea{width:100%;min-height:160px;font:13px var(--mono);direction:rtl}
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const N=s=>s.replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي');
-const ENT=/^@(P|T|S|O|E|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
+const ENT=/^@(P|T|S|O|E|C|PER|TOP|SOC|SRC)(\d)(\d+)(?:\[([^\]]*)\])?$/, YR=/^@(Y[BDYA])(\d+)(?:-(\d+))?(?:\[(\d+)\])?$/, LM=/^@L(\d+)X(\d\d)L$/;
 const isTag=w=>ENT.test(w)||YR.test(w)||LM.test(w);
 const MON=['','Muḥarram (1)','Ṣafar (2)','Rabīʿ I (3)','Rabīʿ II (4)','Jumādā I (5)','Jumādā II (6)','Rajab (7)','Shaʿbān (8)','Ramaḍān (9)','Shawwāl (10)','Dhū al-Qaʿda (11)','Dhū al-Ḥijja (12)'];
 const NUMW=new Set('واحد احدى إحدى اثنتين اثنين ثنتين ثلاث ثلاثة أربع اربع أربعة خمس خمسة ست ستة سبع سبعة ثمان ثماني ثمانية تسع تسعة عشر عشرة عشرين ثلاثين أربعين اربعين خمسين ستين سبعين ثمانين تسعين مائة مئة مائتين ثلاثمائة أربعمائة اربعمائة خمسمائة ستمائة سبعمائة ثمانمائة ثمانمئة تسعمائة بضع بضعة'.split(' '));
@@ -263,7 +263,7 @@ function renderText(){
   const toks=curText().split(' ');let h='',i=0;
   while(i<toks.length){
     const t=toks[i];let m;
-    if((m=ENT.exec(t))&&m[1]==='E'){h+=`<span class="tg">${esc(t)}</span>`;i++;continue}
+    if((m=ENT.exec(t))&&(m[1]==='E'||m[1]==='C')){h+=`<span class="tg">${esc(t)}</span>`;i++;continue}
     if(m=ENT.exec(t)){
       const n=+m[3],cls=m[1][0],pb=parseBr(m[4]),id=pb.id??'';const nid=cls!=='S'&&!(cls==='O'&&pb.sub==='status')&&(!id||id==='NEEDID');
       const ws=[];let j=i+1;while(ws.length<n&&j<toks.length){ws.push(j);j++}
@@ -374,25 +374,28 @@ function evRanges(){const toks=curText().split(' '),out=[];
   toks.forEach((t,i)=>{const m=ENT.exec(t);if(!m||m[1]!=='E')return;const pb=parseBr(m[4]);let n=+m[3],j=i+1;const ws=[];
     while(ws.length<n&&j<toks.length){if(!isTag(toks[j]))ws.push(j);j++}out.push({i,id:pb.id,ws})});return out}
 function markEv(){for(const r of evRanges())r.ws.forEach((k,x)=>{const el=document.querySelector(`#text [data-w="${k}"]`);if(el){el.classList.add('inev');el.dataset.ev=r.id;if(!x)el.insertAdjacentHTML('beforebegin',`<sup class="evn">${esc((r.id||'').replace('e',''))}</sup>`)}})}
+function fillSources(ss){let b=$('#srcbox');if(!b){$('#evbox').insertAdjacentHTML('afterend','<div id="srcbox"></div>');b=$('#srcbox')}
+  if(!ss.length){b.innerHTML='';return}
+  b.innerHTML=`<h2>Source citations (${ss.length})</h2><p class="note">Statements about the sources (ذكره, أرخه, قال …), kept apart from the events of the person's life.</p><ul class="mlist">${ss.map(c=>{const who=(c.persons||[]).map(p=>esc(label((p.ref||'').replace(/^#/,'')).split(' / ')[0])).join(', ');const w=(c.works||[]).map(x=>esc(label((x.ref||'').replace(/^#/,'')).split(' / ')[0]||x.quote||'')).filter(Boolean).join(', ');return `<li><b>${c.id}</b> ${who||'(no author)'}${w?' · <i>'+w+'</i>':''} ${c.quote?`<span class="ar" dir="rtl">${esc(c.quote)}</span>`:'<span style="color:var(--nid)">unplaced</span>'}</li>`}).join('')}</ul>`}
 function evRefs(e){return [...(e.persons||[]),...(e.places||[]),...(e.orgs||[]),...(e.works||[])].map(x=>(x.ref||'').replace(/^#/,'')).filter(Boolean)}
 function hlEv(j,on){document.querySelectorAll('.evhl').forEach(x=>x.classList.remove('evhl'));if(!on)return;
   const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const ids=new Set(evRefs(e).map(canon));const toks=curText().split(' ');
   toks.forEach((t,i)=>{const m=ENT.exec(t);if(m&&m[1]!=='E'&&ids.has(canon(parseBr(m[4]).id||'')))document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('evhl')});
-  document.querySelectorAll(`#text [data-ev="e${j+1}"]`).forEach(x=>x.classList.add('evhl'))}
-async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;const R=await loadRecords();if(!cur||cur.k!==k||!$('#evbox'))return;
+  document.querySelectorAll(`#text [data-ev="${e?.id||'e'+(j+1)}"]`).forEach(x=>x.classList.add('evhl'))}
+async function fillEvents(){const box=$('#evbox');if(!box)return;const k=cur.k;const R=await loadRecords();if(!cur||cur.k!==k||!$('#evbox'))return;   fillSources(R?.[k]?.sources||[]);
   const evs=R?.[k]?.events||[];if(!evs.length){box.innerHTML='';return}
-  const placed=new Set(evRanges().map(r=>r.id));const un=evs.filter((e,j)=>!placed.has('e'+(j+1))).length;
-  const nfz=EDITS[k]?0:evs.filter((e,j)=>placed.has('e'+(j+1))).length;
-  box.innerHTML=`<h2>Events in the XML (${evs.length}${nfz?` · estimated ${nfz}`:''}${un?` · unplaced ${un}`:''})</h2>${un&&sampler?`<div class="row"><button class="pri" id="evai">Estimate trigger words of unplaced events with AI</button></div><div id="evaibox"></div>`:''}<ul class="mlist">${evs.map((e,j)=>{const id='e'+(j+1),ok=placed.has(id),fz=ok&&!EDITS[k],abs=isAbs(k,'e|'+id);
+  const placed=new Set(evRanges().map(r=>r.id));const un=evs.filter((e,j)=>!placed.has((e?.id||'e'+(j+1)))).length;
+  const nfz=EDITS[k]?0:evs.filter((e,j)=>placed.has((e?.id||'e'+(j+1)))).length;
+  box.innerHTML=`<h2>Events in the XML (${evs.length}${nfz?` · estimated ${nfz}`:''}${un?` · unplaced ${un}`:''})</h2>${un&&sampler?`<div class="row"><button class="pri" id="evai">Estimate trigger words of unplaced events with AI</button></div><div id="evaibox"></div>`:''}<ul class="mlist">${evs.map((e,j)=>{const id=(e?.id||'e'+(j+1)),ok=placed.has(id),fz=ok&&!EDITS[k],abs=isAbs(k,'e|'+id);
     const dd=e.date||{};const date=dd.ah!=null?`${parseInt(dd.ah,10)} AH`:dd.notBefore!=null?`${parseInt(dd.notBefore,10)} AH or later`:dd.notAfter!=null?`${parseInt(dd.notAfter,10)} AH or earlier`:'';
     const who=evRefs(e).map(r=>esc(label(r).split(' / ')[0])).join(', ');
     const sm=e.summary?.en||e.summary?.ja||Object.values(e.summary||{})[0]||'';
     return `<li data-evj="${j}"${abs?'':` draggable="true" data-de="${j}" title="${ok?'Drag to another word to move':'Drag onto a word in the text to place'}"`}>${fz?'<span class="fz">estimated</span>':ok?'✓':abs?'<span class="note">Not in text</span>':`<button class="mini" data-abse="${j}" data-on="1">Not in text</button> <span style="color:var(--nid)">unplaced</span>`} <b>${id}</b> ${esc(evJP(e))}${date?' · '+date:''}${who?` · <span class="ar" style="font-family:var(--ar)">${who}</span>`:''}${sm?`<div class="note">${esc(sm)}</div>`:''}${abs?` <button class="mini" data-abse="${j}" data-on="0">Restore</button>`:''}${ok?` <button class="mini" data-evdel="${j}">Unplace</button>`:''}</li>`}).join('')}</ul><p class="note">An event is placed on its single trigger word (حج, حفظ, ولي, …). "estimated" means placed by rule; CHECKED confirms it. Drag an unplaced item onto a word in the text to place it; drag a placed item to another word to move it, or use "Unplace". Hover over an item to highlight the person and place tags related to it.</p>`;
-  $('#evai')?.addEventListener('click',()=>evAI(evs.map((e,j)=>({e,j})).filter(x=>!placed.has('e'+(x.j+1))&&!isAbs(k,'e|e'+(x.j+1)))));
+  $('#evai')?.addEventListener('click',()=>evAI(evs.map((e,j)=>({e,j})).filter(x=>!placed.has((x.e.id||'e'+(x.j+1)))&&!isAbs(k,'e|e'+(x.j+1)))));
 }
 async function evAI(items){const box=$('#evaibox');if(!box||!items.length)return;
   const toks=curText().split(' ');const words=[];toks.forEach((t,i)=>{if(!isTag(t))words.push(`${i}:${t}`)});
-  const evtxt=items.map(({e,j})=>`e${j+1}: type=${e.type}${e.subtype?'/'+e.subtype:''}${e.date?.ah!=null?' year='+parseInt(e.date.ah,10):''}; participants=${evRefs(e).map(r=>label(r).split(' / ')[0]).join(', ')||'-'}; summary=${Object.values(e.summary||{}).join(' | ')||'-'}`).join('\n');
+  const evtxt=items.map(({e,j})=>`${e?.id||'e'+(j+1)}: type=${e.type}${e.subtype?'/'+e.subtype:''}${e.date?.ah!=null?' year='+parseInt(e.date.ah,10):''}; participants=${evRefs(e).map(r=>label(r).split(' / ')[0]).join(', ')||'-'}; summary=${Object.values(e.summary||{}).join(' | ')||'-'}`).join('\n');
   const prompt=`Biography ${cur.k} from al-Sakhāwī's al-Ḍawʾ al-Lāmiʿ. Each word is given as index:word.
 ${words.join(' ')}
 
@@ -403,17 +406,17 @@ ${evtxt}
 Reply with one JSON object only: {"e1":{"i":12,"why":"short reason (in English)"}, "e2":{"i":null,"why":"…"}}`;
   box.innerHTML='<p class="ai-wait">Opus is looking for trigger words…</p>';
   try{const v=await sampler.json(prompt,{model:'claude-opus-5-5',modelTier:'complex'})||{};
-    box.innerHTML=`<ul class="mlist">${items.map(({e,j})=>{const r=v['e'+(j+1)]||{};const i=Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?r.i:null;
-      return `<li><b>e${j+1}</b> ${esc(evJP(e))} → ${i!=null?`<span class="ar" style="font-family:var(--ar)">${esc(toks[i])}</span> <button class="mini" data-evput="${j}" data-i="${i}">Place</button>`:'<span class="note">Not in text (AI)</span> <button class="mini" data-abse="'+j+'" data-on="1">Mark as not in text</button>'}${r.why?`<div class="note">${esc(r.why)}</div>`:''}</li>`}).join('')}</ul>`;
-    const props=items.map(({e,j})=>{const r=v['e'+(j+1)]||{};return Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?{e,j,i:r.i}:null}).filter(Boolean);
+    box.innerHTML=`<ul class="mlist">${items.map(({e,j})=>{const r=v[(e?.id||'e'+(j+1))]||{};const i=Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?r.i:null;
+      return `<li><b>${e?.id||'e'+(j+1)}</b> ${esc(evJP(e))} → ${i!=null?`<span class="ar" style="font-family:var(--ar)">${esc(toks[i])}</span> <button class="mini" data-evput="${j}" data-i="${i}">Place</button>`:'<span class="note">Not in text (AI)</span> <button class="mini" data-abse="'+j+'" data-on="1">Mark as not in text</button>'}${r.why?`<div class="note">${esc(r.why)}</div>`:''}</li>`}).join('')}</ul>`;
+    const props=items.map(({e,j})=>{const r=v[(e?.id||'e'+(j+1))]||{};return Number.isInteger(r.i)&&!isTag(toks[r.i]||'@')?{e,j,i:r.i}:null}).filter(Boolean);
     if(props.length>1)box.insertAdjacentHTML('afterbegin','<div class="row"><button class="pri" id="evall">Apply all suggestions</button></div>');
     box.onclick=ev=>{if(ev.target.id==='evall'){const t2=curText().split(' ');for(const p of props.sort((a,b)=>b.i-a.i))t2.splice(p.i,0,`@E01[${(p.e.subtype||p.e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:e${p.j+1}]`);save(t2.join(' '));return}
       const b=ev.target.closest('[data-evput]');if(b)linkEv(+b.dataset.evput,+b.dataset.i,1)};
   }catch(err){box.innerHTML=`<p class="note">AI estimation failed (${esc(err.code||'error')}).</p>`}}
-function dropEvTag(toks,j){const i=toks.findIndex(t=>{const m=ENT.exec(t);return m&&m[1]==='E'&&parseBr(m[4]).id==='e'+(j+1)});if(i>=0)toks.splice(i,1);return i}
+function dropEvTag(toks,j){const eid=(RECS?.[cur.k]?.events||[])[j]?.id||'e'+(j+1);const i=toks.findIndex(t=>{const m=ENT.exec(t);return m&&m[1]==='E'&&parseBr(m[4]).id===eid});if(i>=0)toks.splice(i,1);return i}
 function linkEv(j,start,n){const e=(RECS?.[cur.k]?.events||[])[j];if(!e)return;const toks=curText().split(' ');
   const old=dropEvTag(toks,j);if(old>=0&&old<start)start--;
-  toks.splice(start,0,`@E01[${(e.subtype||e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:e${j+1}]`);save(toks.join(' '))}
+  toks.splice(start,0,`@E01[${(e.subtype||e.type||'event').replace('ā','a').replace(/[^A-Za-z0-9_]+/g,'_')}:${e?.id||'e'+(j+1)}]`);save(toks.join(' '))}
 function markFz(){if(EDITS[cur?.k])return;for(const o of cur?.o||[])if(o.ok==='fz'){const i=oTagIdx(o);if(i>=0)document.querySelector(`.ent[data-tag="${i}"]`)?.classList.add('fzt')}}
 function oTagIdx(o){const toks=curText().split(' ');
   for(let i=0;i<toks.length;i++){const m=ENT.exec(toks[i]);if(!m||m[1]!=='O')continue;const pb=parseBr(m[4]);
