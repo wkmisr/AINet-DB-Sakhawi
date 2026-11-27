@@ -225,7 +225,30 @@ let E=[],BY=new Map(),LAB={},EDITS={},MENT=new Map(),KEYIDS=new Map();
 let lastSel=null,cur=null,sel=null,mode=null,db=null,user=null,dl=null,uid=null;const DRAFTS={};
 const curText=()=>DRAFTS[cur.k]??textOf(cur);
 
-const textOf=e=>EDITS[e.k]?.t??e.t;
+// Texts checked before sources (@C) and assessments (@V) existed lack those tags: supply them from the built text, at the same word.
+const CV_SINCE=Date.UTC(2026,10,27),SUPP=new Map();
+function supplement(saved,built){
+  const need=[];let w=0;const bt=built.split(' ');
+  bt.forEach((t,i)=>{if(isTag(t)){const m=ENT.exec(t);if(m&&(m[1]==='C'||m[1]==='V')){let j=i+1;while(j<bt.length&&isTag(bt[j]))j++;need.push({tag:t,kind:m[1],w,word:bt[j]})}}else w++});
+  if(!need.length)return saved;
+  const st=saved.split(' '),pos=[];st.forEach((t,i)=>{if(!isTag(t))pos.push(i)});
+  const ins=[];
+  for(const n of need){
+    if(st.includes(n.tag))continue;
+    const i=pos[n.w];if(i==null||st[i]!==n.word)continue;
+    let a=i;while(a>0&&isTag(st[a-1]))a--;
+    let rep=-1;for(let j=a;j<i;j++){const m=ENT.exec(st[j]);if(!m)continue;const sub=parseBr(m[4]).sub||m[4];
+      if((n.kind==='C'&&m[1]==='E'&&sub==='mention')||(n.kind==='V'&&m[1]==='O'&&/^status/.test(m[4]||''))){rep=j;break}
+      if(m[1]===n.kind){rep=-2;break}}
+    if(rep===-2)continue;
+    ins.push({at:rep>=0?rep:i,rep:rep>=0,tag:n.tag});
+  }
+  if(!ins.length)return saved;
+  ins.sort((x,y)=>y.at-x.at);for(const x of ins)st.splice(x.at,x.rep?1:0,x.tag);
+  return st.join(' ');
+}
+const textOf=e=>{const ed=EDITS[e.k];if(!ed||ed.t==null)return e.t;if(ed.at>=CV_SINCE||ed.t===e.t)return ed.t;
+  const c=SUPP.get(e.k);if(c&&c.s===ed.t&&c.b===e.t)return c.r;const r=supplement(ed.t,e.t);SUPP.set(e.k,{s:ed.t,b:e.t,r});return r};
 const plain=t=>t.split(' ').filter(w=>!isTag(w)).join(' ');
 const offLabel=id=>{const f=OFFS[id];return f?[f.ar,f.lat].filter(Boolean).join(' / ')+(f.cls?'['+f.cls+']':'')+(f.st==='retired'?'(retired)':''):null};
 const label0=id=>id==='NEEDID'?'(unidentified)':(BY.get(id)?.n||offLabel(id)||idmLabel(id)||LAB[id]||'(no label)');
@@ -288,7 +311,7 @@ function renderText(){
 function openEntry(k,push=true){
   const e=BY.get(k);if(!e)return;cur=e;mode=null;
   const ed=EDITS[k];
-  $('#center').innerHTML=`<div class="meta"><b>${e.k.startsWith('AIND')?e.k:'#'+e.k}</b><span>Source ID ${e.s||'—'}</span><span>${KIND[kindOf(e)]}${KINDS[e.k]?`(was ${KIND[KINDS[e.k].was]})`:''}</span>${KINDS[e.k]?'<button id="kundo">Undo reassignment</button>':(['O','R'].includes(e.m)?'<button id="krm">Remove</button><button id="kbm">Record as a biography (male)</button><button id="kbf">Record as a biography (female)</button>':'')}${e.x?'':'<span>No XML (no tags)</span>'}${ed?`<span class="chk">CHECKED</span><span>${new Date(ed.at).toLocaleString('ja-JP')}${ed.byName?' · '+esc(ed.byName):''}</span> <button id="rev">${ed.t===e.t?'Un-check':'Undo'}</button>`:(e.x?'<button class="pri" id="chkbtn">CHECKED</button>':'')}</div><div id="text"></div><section class="trs" id="trs"><div class="edbar" style="padding:0;border:0"><b>Translation</b>${JEDITS[e.k]?.j?.translation?'<span class="note chk">CHECKED</span>':''}<span class="sp"></span><button id="tred">Edit translation</button></div>
+  $('#center').innerHTML=`<div class="meta"><b>${e.k.startsWith('AIND')?e.k:'#'+e.k}</b><span>Source ID ${e.s||'—'}</span><span>${KIND[kindOf(e)]}${KINDS[e.k]?`(was ${KIND[KINDS[e.k].was]})`:''}</span>${KINDS[e.k]?'<button id="kundo">Undo reassignment</button>':(['O','R'].includes(e.m)?'<button id="krm">Remove</button><button id="kbm">Record as a biography (male)</button><button id="kbf">Record as a biography (female)</button>':'')}${e.x?'':'<span>No XML (no tags)</span>'}${ed?`<span class="chk">CHECKED</span><span>${new Date(ed.at).toLocaleString('ja-JP')}${ed.byName?' · '+esc(ed.byName):''}</span> <button id="rev">${textOf(e)===e.t?'Un-check':'Undo'}</button>`:(e.x?'<button class="pri" id="chkbtn">CHECKED</button>':'')}</div><div id="text"></div><section class="trs" id="trs"><div class="edbar" style="padding:0;border:0"><b>Translation</b>${JEDITS[e.k]?.j?.translation?'<span class="note chk">CHECKED</span>':''}<span class="sp"></span><button id="tred">Edit translation</button></div>
   <div id="trview">${e.tr?.ja?`<h3>Japanese translation</h3><p>${esc(e.tr.ja)}</p>`:''}${e.tr?.en?`<h3>English</h3><p lang="en">${esc(e.tr.en)}</p>`:''}${!e.tr?.ja&&!e.tr?.en?'<p class="note">No translation yet.</p>':''}</div>
   <div id="trform" hidden><label class="note" for="trja">Japanese translation</label><textarea id="trja" class="trta">${esc(e.tr?.ja||'')}</textarea><label class="note" for="tren">English</label><textarea id="tren" class="trta" lang="en">${esc(e.tr?.en||'')}</textarea>
   <div class="row"><span class="sp"></span><button id="trcx">Cancel</button><button class="pri" id="trsv">Save translation</button></div></div></section>
