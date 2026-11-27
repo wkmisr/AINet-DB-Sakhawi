@@ -10,6 +10,7 @@
 - **ID のない値だけ `label`**（ID を持たない官職名、名前要素など）。
 - **西暦は保存しない。** ヒジュラ暦から計算する。
 - **変更履歴は git と凍結した TEI（tag `tei-final`）に任せる。** レコードには `provenance` の要約だけを置く。
+- **XML の内容は、変更履歴を除いてすべて YAML に移す**（Waka 決定 2026-11-27）。変換の最後に突き合わせ（`tools/viewer/audit_tei_vs_yaml.py`）を必ず走らせ、XML にある値が YAML になく、下の「意図して外すもの」にもなければ変換を失敗させる。
 - **識別子 `wd:`・`gn:` は W3C CURIE の書き方のまま。**
 
 ## ファイル
@@ -21,8 +22,10 @@
 | 項目 | 内容 | 識別子 |
 |---|---|---|
 | `schema` | `aind-yaml/0.1` | |
+| `entry` | 見出しの種類。転送の見出し（REF）は `type: reference`・`subtype: LIMBO`。転送先は `notes[]` の `target` | |
+| `corresp` | 見出しの人物の Wikidata 番号（AIND 番号と併記されたもの） | |
 | `id` / `source.uid` / `sex` | 見出しの ID、原典の12桁 ID、性別 | |
-| `name.full` | 見出しの名前（本文どおり） | |
+| `name.full` / `name.name_only` | 見出しの名前（本文どおり）／ニスバ・称号を除いた名前。確度は `full_cert`・`name_only_cert`、別の読みは `full_alt[]`・`name_only_alt[]` | |
 | `name.elements[]` | 名前要素：`type`（ism・nasab・nisbah・laqab・kunyah・shuhrah・honorific・madhhab）、`ref`、`quote`。規則で付けたものは `by: rule` | `n1`… |
 | `birth` / `death` | `date`（`ah`・`notBefore`・`notAfter`・`cert`）、`places[]`（埋葬地は `role: burial`、葬儀の礼拝の場所は `role: funeral`）、`persons[]`（`role: funeral_prayer`・`funeral_attendee`・`buried_near`）、`quote`、`note` | `b` / `d` |
 | `persons[]` | 本文に出てくる（または含意される）が ID で同定できない人物：`label`（TEI の desc）、`for`（その人物が現れる項目）、`name_element`（名のない父・祖父は見出しの1番目・2番目の nasab、`by: rule`）。参照は `<レコードID>#pN` | `p1`… |
@@ -36,7 +39,10 @@
 | `translation` | `ja`・`en` | |
 | `provenance` | `app`・`generated_at`・`model_requested`・`model_resolved`（記録がなければ `model_era` と推定の根拠）・`created_by` | |
 
-- 参照の中（`places[]` など）は `{ref, quote, role, cert}`。
+- 参照の中（`places[]` など）は `{ref, quote, role, cert, corresp}`（`corresp`＝AIND 番号と併記した Wikidata 番号）。ID のない参照は `ref` の代わりに `label`。
+- **TEI の `<desc>` の行き先（2026-11-27）**：学習の方法・学問分野は `methods[]`・`fields[]`（ID、ID がなければ `{label}`）。関係の種類の説明（«ربيب»・「義父」）は `relationship_type`（言語ごと）。本文にそのままある句は `phrase`（出来事では `quote` が中心語1語、`phrase` が元の句。例 D00360 `quote: وتدرب`・`phrase: وتدرب في الكتابة`）。それ以外の説明は `summary`（言語ごと）。種類つきの説明（editorial など）は `desc_notes[]`。
+- **ほかに 2026-11-27 に足した項目**：関係の `context[]` に `type`（learning・teaching…）・`persons[]`・`cert`・`note`・`phrase`。関係の `corresp`・`tei_type`（TEI の @type が personal 以外のとき）。官職・身分の `label_latn`（ID のない語のラテン文字表記）・`persons[]`・`works[]`・`dates[].type`（appointment・retirement）。所属の `places[]`・`orgs[]`。出来事の `ref`・`label`。注記は型・転送先・確度があれば `[{lang, type, target, cert, text}]` の形。listRelation の直下の出来事は `events[]` に、listRelation の注記と XML コメントは `notes[]`（`scope: relations`、コメントは `type: xml_comment`）に入れる。
+- **意図して外すもの**（突き合わせの除外表。理由つきで `audit_tei_vs_yaml.py` の `DROPPED` に書く）：変更履歴（respStmt）／app の生成記録（`provenance` に要約）／`@n`（app のグループ内の通し番号。順序は項目の識別子が持つ）／西暦／ID のある項目の名前・ラテン文字表記（ID-Master にある）／`#NEEDID`（ローカル人物 `#pN` になる）／関係の @type="personal"（既定値。`type` は subtype から決める）／要素間の空白。
 - **`quote` と `norm`（2026-11-23、ロマノフの助言・Waka 決定）**：`quote` は本文のままの語（前接辞 ب・و・ف・ك・ل も含む）。`norm` は標準化した形で、`quote` と違うときだけ書く。標準化は (1) 前接辞を外す（mARkdown のタグが数える前接辞の字数による。出来事の中心語は頭の و・ف を規則で外す）、(2) 名前要素の単位で格の形をそろえる（語句の頭の أبي・أبا→أبو、أخي・أخا→أخو、ذي・ذا→ذو、بني→بنو。後ろに語が続くときだけ。«ابن أبي اليمن» のように句の中にあるものはそのまま）、(3) OpenITI の `normalize_ara_light`（أ・إ・آ・ٱ→ا、ى→ي、台座つきハムザ→ء ほか。MIT ライセンスの関数を変換スクリプトに写した）。
 - `quote: null` は「本文で位置が決まっていない」の意味。ビューアーでは「未」として出る。本文に出てこないと人が判断したものは「本文になし」（今後 YAML に `attested: false` として持たせる）。
 

@@ -12,6 +12,7 @@ Run in a work directory (`AIND_WORK`, default: current directory). `idmaster.tsv
    - `manual_placements.json`: relation placements decided by hand
    - deterministic: the script re-runs itself with `PYTHONHASHSEED=0`
 3. `AIND_WORK=... python3 tools/viewer/to_v01.py <out_dir>` → `<out_dir>/meta/*.yml` + `<out_dir>/text/*.md` (= `data_v01/`)
+   - ends with the required check `audit_tei_vs_yaml.py`: every TEI value except the edit history must be in the YAML, or the run fails (report: `<out_dir>/audit_tei_vs_yaml.tsv`; what is left out on purpose is listed, with reasons, in `DROPPED`)
 4. `python3 tools/viewer/make_viewer_records.py <out_dir> records.json` → the viewer's YAML data
 5. `python3 tools/viewer/dau_sources.py <out_dir> dau.json dau_view.json` → the viewer's text with `@C` (source citations) and `@V` (assessments) tags; publish `dau_view.json` as `dau.json` (keep the original `dau.json` for step 3)
 

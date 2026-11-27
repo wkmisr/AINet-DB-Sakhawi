@@ -5,6 +5,8 @@ Principles (see the schema note):
 - authority names live in ID-Master only; records keep `ref` and the verbatim `quote` from the text
 - every assertion gets a stable item id (r1, s1, e1, n1, a1, b, d); mARkdown tags carry that id after '|'
 - CE dates are derived from AH and not stored; edit history lives in git and in the frozen TEI (tag tei-final)
+- everything else in the TEI is carried (Waka 2026-11-27); the conversion ends with audit_tei_vs_yaml.py and
+  fails when a TEI value is missing from the YAML and not on its dropped-on-purpose list
 """
 import json, re, sys, os, collections, unicodedata, yaml
 
@@ -65,13 +67,76 @@ def ar_texts(lst):
     return [d.get('text') for d in (lst or []) if d.get('text') and d.get('lang', 'ar') == 'ar']
 
 
-def notes_of(x):
+def flat_text(n):
+    """the whole text of a note: its own text, inline <span>s (with the text after them) and <p>s"""
+    parts = [n.get('text') or '']
+    for sp in n.get('span') or []: parts += [sp.get('text') or '', sp.get('_tail') or '']
+    for p_ in n.get('p') or []: parts.append(flat_text(p_))
+    return ''.join(parts).strip()
+
+
+def notes_of(x, key='notes'):
+    """notes as {lang: text}; when a note has a type, a target or a cert, a list of
+    {lang, type, target, cert, text} instead (nothing of the TEI note is lost)"""
+    ns = [n for n in x.get(key) or [] if flat_text(n)]
+    if not ns: return None
+    if any(n.get(a) for n in ns for a in ('type', 'target', 'cert')):
+        out = []
+        for n in ns:
+            o = {}
+            for a in ('lang', 'type', 'target', 'cert'):
+                if n.get(a): o[a] = norm_id(n[a]) if a == 'target' else n[a]
+            o['text'] = flat_text(n)
+            out.append(o)
+        return out
     out = {}
-    for n in x.get('notes') or []:
-        if n.get('text'):
-            k = n.get('lang') or 'und'
-            out[k] = (out[k] + ' / ' if k in out else '') + n['text']
-    return out or None
+    for n in ns:
+        k = n.get('lang') or 'und'
+        out[k] = (out[k] + ' / ' if k in out else '') + flat_text(n)
+    return out
+
+
+def by_lang(descs):
+    out = {}
+    for d in descs:
+        k = d.get('lang') or 'und'
+        out[k] = (out[k] + ' / ' if k in out else '') + d['text']
+    return out
+
+
+def desc_parts(it, descs, text, skip=None):
+    """distribute TEI <desc>s over an item, so that none is lost:
+    method / field -> methods[] / fields[] (an ID, or {label} when there is none);
+    relationship_type -> relationship_type {lang: text}; another typed desc -> desc_notes;
+    an Arabic desc found verbatim in the text -> phrase; any other -> summary {lang: text}."""
+    meth, fld, rt, phr, sm, other = [], [], [], [], [], []
+    for d in descs or []:
+        t = d.get('text')
+        ty = d.get('type')
+        if (not t and not (ty in ('method', 'field') and d.get('ref'))) or (t and t == skip): continue
+        if ty in ('method', 'field'):
+            r_ = norm_id(d.get('ref'))
+            v = r_ if r_ and r_ != 'NEEDID' else {'label': t, **({'lang': d['lang']} if d.get('lang') not in (None, 'ar') else {})}
+            lst = meth if ty == 'method' else fld
+            if v not in lst: lst.append(v)
+        elif ty == 'relationship_type': rt.append(d)
+        elif ty: other.append({'type': ty, **({'lang': d['lang']} if d.get('lang') else {}), 'text': t})
+        elif d.get('lang', 'ar') == 'ar' and text and re.sub(r'\s+', ' ', t).strip() in text: phr.append(re.sub(r'\s+', ' ', t).strip())
+        else: sm.append(d)
+        for nm in d.get('names') or []:                       # a person named inside a desc
+            if norm_id(nm.get('ref')) not in UNK: it.setdefault('desc_persons', []).append({'ref': norm_id(nm['ref'])})
+        if d.get('ref') and ty not in ('method', 'field'): it.setdefault('desc_refs', []).append(norm_id(d['ref']))
+    if meth: it['methods'] = meth
+    if fld: it['fields'] = fld
+    if rt: it['relationship_type'] = by_lang(rt)
+    if phr: it['_phrase'] = phr
+    if sm: it['summary'] = by_lang(sm)
+    if other: it['desc_notes'] = other
+
+
+def set_note(it, x):
+    nt = notes_of(x)
+    if nt: it['note'] = nt
 
 
 def ah_date(x):
@@ -82,21 +147,29 @@ def ah_date(x):
             d[k.replace('_ah', '').replace('when', 'ah')] = int(v) if v.isdigit() else v
     if d and x.get('cert'):
         d['cert'] = x['cert']
+    if d and x.get('type'):
+        d['type'] = x['type']                  # dates of a state: appointment / retirement
     return d or None
 
 
 def refs(lst, kind):
+    """references to persons, places, institutions, works. An Arabic and a Latin entry of the same ID are one
+    reference; the same ID with another role or cert stays a separate reference."""
     out = []; seen = set()
     for p in lst or []:
         r = norm_id(p.get('ref'))
         if r == 'NEEDID': r = None
-        if r and r in seen: continue
-        if r: seen.add(r)
         o = {'ref': r} if r else {}
         if p.get('role'): o['role'] = p['role']
         elif p.get('type') in ('burial', 'funeral'): o['role'] = p['type']     # place of burial / funeral prayer
+        elif p.get('type'): o['type'] = p['type']
         if p.get('cert'): o['cert'] = p['cert']
+        if p.get('corresp'): o['corresp'] = norm_id(p['corresp'])      # wd beside an AIND id
         if p.get('text') and not r: o['label'] = p['text']   # no ID: keep the given name as a label
+        if r:
+            key = json.dumps(o, sort_keys=True, ensure_ascii=False)
+            if key in seen: continue
+            seen.add(key)
         out.append(o)
     return out or None
 
@@ -155,14 +228,17 @@ def convert(k, r):
     e = E.get(k, {})
     text = e.get('t', '')
     toks = text.split(' ')
+    plain = ' '.join(t for t in toks if not t.startswith('@'))       # the text without tags, for verbatim phrases
     meta = {'schema': 'aind-yaml/0.1', 'id': k}
+    if r.get('type') or r.get('subtype'):                            # cross-reference heading (REF, LIMBO)
+        meta['entry'] = {kk: r[kk] for kk in ('type', 'subtype') if r.get(kk)}
+    if r.get('corresp'): meta['corresp'] = norm_id(r['corresp'])
     if r.get('source_id'): meta['source'] = {'uid': str(r['source_id'])}
     if r.get('sex'): meta['sex'] = r['sex']
 
     # ---- items with ids -------------------------------------------------
     by_ref = collections.defaultdict(list)          # ref -> [(kind, item_id)]
     names = []
-    full = next((n['text'] for n in r.get('names', []) if n.get('type') == 'full'), None)
     ni = 0
     for n in r.get('names', []):
         if n.get('type') in ('full', 'name_only'): continue
@@ -171,7 +247,14 @@ def convert(k, r):
         it['quote'] = None; it['_label'] = n.get('text')
         if n.get('cert'): it['cert'] = n['cert']
         names.append(it)
-    meta['name'] = {'full': full} if full else {}
+    meta['name'] = {}
+    for ty_ in ('full', 'name_only'):                                # name_only = the name without nisbas and titles
+        ns_ = [n for n in r.get('names', []) if n.get('type') == ty_ and n.get('text')]
+        if not ns_: continue
+        meta['name'][ty_] = ns_[0]['text']
+        if ns_[0].get('cert'): meta['name'][ty_ + '_cert'] = ns_[0]['cert']
+        if len(ns_) > 1:                                             # another reading of the heading (D02743, D05775)
+            meta['name'][ty_ + '_alt'] = [{'text': n['text'], **({'cert': n['cert']} if n.get('cert') else {})} for n in ns_[1:]]
     if names: meta['name']['elements'] = names
 
     persons = []                                    # people the text names (or implies) but no ID identifies
@@ -183,59 +266,71 @@ def convert(k, r):
         persons.append(o)
         return f'{k}#{pid}'
 
+    def person_refs(lst, why, stat):
+        ps = refs(lst, 'person')
+        for pp in ps or []:
+            if not pp.get('ref'): pp['ref'] = local_person(pp.pop('label', None), why); STAT[stat] += 1
+        return ps
+
     for kind in ('birth', 'death'):
         x = r.get(kind)
         if not x: continue
         it = {'id': kind[0]}
         d = ah_date(x)
         if d: it['date'] = d
+        elif x.get('cert'): it['cert'] = x['cert']
         pl = refs(x.get('places'), 'place') or []
         pl += refs(x.get('orgs'), 'org') or []
         if pl: it['places'] = pl
-        ps = refs(x.get('names'), 'person')               # funeral prayer, buried near (role)
-        for pp in ps or []:
-            if not pp.get('ref'): pp['ref'] = local_person(pp.pop('label', None), kind[0]); STAT['local_person_bd'] += 1
+        ps = person_refs(x.get('names'), kind[0], 'local_person_bd')     # funeral prayer, buried near (role)
         if ps: it['persons'] = ps
-        if x.get('descs'): it['summary'] = {d_.get('lang', 'en'): d_['text'] for d_ in x['descs'] if d_.get('text')}
-        nt = notes_of(x)
-        if nt: it['note'] = nt
+        desc_parts(it, x.get('descs'), plain)
+        set_note(it, x)
         meta[kind] = it
 
     rels = []
-    for lr in r.get('listRelation') or []:
-        for rel in lr.get('relations') or []:
-            rid_ = f'r{len(rels) + 1}'
-            it = {'id': rid_, 'type': REL_TYPE(rel.get('subtype')), 'subtype': rel.get('subtype'),
-                  'active': norm_id(rel.get('active')), 'passive': norm_id(rel.get('passive'))}
-            lab = next((d.get('text') for d in rel.get('descs') or []
-                        if not d.get('type') and d.get('text') and d.get('lang', 'ar') == 'ar'), None)
-            orig = (it['active'], it['passive'])
-            for side in ('active', 'passive'):
-                if it[side] in UNK:
-                    it[side] = local_person(lab, rid_); STAT['local_person_rel'] += 1
-            meths = [norm_id(d.get('ref')) for d in rel.get('descs') or [] if d.get('type') == 'method']
-            if meths: it['methods'] = [m for m in meths if m]
-            if rel.get('cert'): it['cert'] = rel['cert']
-            ctx = []
-            for ev in rel.get('events') or []:
-                c = {}
-                d = ah_date(ev)
-                if d: c['date'] = d
-                pl = refs(ev.get('places'), 'place')
-                if pl: c['places'] = pl
-                og = refs(ev.get('orgs'), 'org')
-                if og: c['orgs'] = og
-                if ev.get('descs'): c['summary'] = {d_.get('lang', 'en'): d_['text'] for d_ in ev['descs'] if d_.get('text')}
-                if c: ctx.append(c)
-            if ctx: it['context'] = ctx
-            bb = refs(rel.get('bibls'), 'work')
-            if bb: it['works'] = bb
-            it['quote'] = None
-            nt = notes_of(rel)
-            if nt: it['note'] = nt
-            partner = orig[1] if orig[0] == k else orig[0]          # as written in the TEI / text tags
-            it['_partner'] = partner
-            rels.append(it)
+    rel_src = [rel for lr in r.get('listRelation') or [] for rel in lr.get('relations') or []] + list(r.get('relations') or [])
+    for rel in rel_src:
+        rid_ = f'r{len(rels) + 1}'
+        it = {'id': rid_, 'type': REL_TYPE(rel.get('subtype')), 'subtype': rel.get('subtype'),
+              'active': norm_id(rel.get('active')), 'passive': norm_id(rel.get('passive'))}
+        if rel.get('type') and rel['type'] != 'personal': it['tei_type'] = rel['type']   # 'professional' (2)
+        if rel.get('corresp'): it['corresp'] = norm_id(rel['corresp'])
+        lab = next((d.get('text') for d in rel.get('descs') or []
+                    if not d.get('type') and d.get('text') and d.get('lang', 'ar') == 'ar'), None)
+        orig = (it['active'], it['passive'])
+        used_lab = None
+        for side in ('active', 'passive'):
+            if it[side] in UNK:
+                it[side] = local_person(lab, rid_); used_lab = lab; STAT['local_person_rel'] += 1
+        desc_parts(it, rel.get('descs'), plain, skip=used_lab)      # the label went to the local person
+        if rel.get('cert'): it['cert'] = rel['cert']
+        ctx = []
+        for ev in rel.get('events') or []:
+            c = {}
+            if ev.get('type'): c['type'] = ev['type']                  # learning / teaching …
+            d = ah_date(ev)
+            if d: c['date'] = d
+            elif ev.get('cert'): c['cert'] = ev['cert']
+            if d and ev.get('cert'): c['cert'] = ev['cert']
+            pl = refs(ev.get('places'), 'place')
+            if pl: c['places'] = pl
+            og = refs(ev.get('orgs'), 'org')
+            if og: c['orgs'] = og
+            ps = person_refs(ev.get('names'), rid_, 'local_person_rel')
+            if ps: c['persons'] = ps
+            desc_parts(c, ev.get('descs'), plain)
+            if c.get('_phrase'): c['phrase'] = ' / '.join(c.pop('_phrase'))
+            set_note(c, ev)
+            if c: ctx.append(c)
+        if ctx: it['context'] = ctx
+        bb = refs(rel.get('bibls'), 'work')
+        if bb: it['works'] = bb
+        it['quote'] = None
+        set_note(it, rel)
+        partner = orig[1] if orig[0] == k else orig[0]          # as written in the TEI / text tags
+        it['_partner'] = partner
+        rels.append(it)
     if rels: meta['relations'] = rels
 
     states = []
@@ -246,15 +341,22 @@ def convert(k, r):
         else:
             lab = next(iter(ar_texts(st.get('labels'))), None)
             if lab: it['label'] = lab               # no ID: the label is the only value
-        for f, kk in (('places', 'places'), ('orgs', 'orgs')):
+            lat = [d['text'] for d in st.get('labels') or [] if d.get('lang') == 'ar-Latn' and d.get('text')]
+            if lat: it['label_latn'] = ' / '.join(lat)
+            oth = [d for d in st.get('labels') or [] if d.get('lang') not in ('ar', 'ar-Latn', None) and d.get('text')]
+            if oth: it['label_other'] = by_lang(oth)
+        for f, kk in (('places', 'places'), ('orgs', 'orgs'), ('bibls', 'works')):
             v = refs(st.get(f), f)
             if v: it[kk] = v
-        ds = [ah_date(d) for d in st.get('dates') or []]
+        ps = person_refs(st.get('names'), it['id'], 'local_person_st')
+        if ps: it['persons'] = ps
+        d0 = ah_date(st)                                                # a date on the state itself
+        ds = ([d0] if d0 else []) + [ah_date(d) for d in st.get('dates') or []]
         if any(ds): it['dates'] = [d for d in ds if d]
         if st.get('cert'): it['cert'] = st['cert']
+        desc_parts(it, st.get('descs'), plain)
         it['quote'] = None
-        nt = notes_of(st)
-        if nt: it['note'] = nt
+        set_note(it, st)
         states.append(it)
     if states: meta['states'] = states
 
@@ -263,50 +365,52 @@ def convert(k, r):
         it = {'id': f'a{len(affs) + 1}', 'type': a.get('type')}
         if norm_id(a.get('ref')) not in UNK: it['ref'] = norm_id(a['ref'])
         elif a.get('text'): it['label'] = a['text']
+        for f, kk in (('places', 'places'), ('orgs', 'orgs')):
+            v = refs(a.get(f), f)
+            if v: it[kk] = v
         if a.get('cert'): it['cert'] = a['cert']
-        nt = notes_of(a)
-        if nt: it['note'] = nt
+        desc_parts(it, a.get('descs'), plain)
+        set_note(it, a)
         affs.append(it)
     if affs: meta['affiliations'] = affs
 
     evs = []
-    for ev in r.get('events') or []:
+    ev_src = list(r.get('events') or []) + [ev for lr in r.get('listRelation') or [] for ev in lr.get('events') or []]
+    for ev in ev_src:
         it = {'id': f'e{len(evs) + 1}', 'type': ev.get('type')}
         if ev.get('subtype'): it['subtype'] = ev['subtype']
+        if norm_id(ev.get('ref')) not in UNK: it['ref'] = norm_id(ev['ref'])     # an office sought (D01766)
+        lb = [d for d in ev.get('labels') or [] if d.get('text')]
+        if lb: it['label'] = by_lang(lb)
         d = ah_date(ev)
         if d: it['date'] = d
         for f, kk in (('names', 'persons'), ('places', 'places'), ('orgs', 'orgs'), ('bibls', 'works')):
-            v = refs(ev.get(f), f)
-            if v and kk == 'persons':
-                for pp in v:
-                    if not pp.get('ref'):
-                        pp['ref'] = local_person(pp.pop('label', None), it['id']); STAT['local_person_ev'] += 1
+            v = person_refs(ev.get(f), it['id'], 'local_person_ev') if kk == 'persons' else refs(ev.get(f), f)
             if v: it[kk] = v
-        q = None
-        sm = {}
-        meths = [norm_id(d_.get('ref')) for d_ in ev.get('descs') or [] if d_.get('type') == 'method' and d_.get('ref')]
-        if meths: it['methods'] = meths
-        for d_ in ev.get('descs') or []:
-            if not d_.get('text') or d_.get('type') in ('method', 'field'): continue
-            if d_.get('lang') == 'ar' and d_['text'] in text.replace('  ', ' '):
-                q = d_['text']                               # an Arabic desc that is verbatim in the text
-            else:
-                sm[d_.get('lang', 'en')] = d_['text']
-        it['quote'] = q
-        if sm: it['summary'] = sm
+        desc_parts(it, ev.get('descs'), plain)
+        phr = it.pop('_phrase', [])
+        it['quote'] = phr[0] if phr else None             # an Arabic desc that is verbatim in the text
+        if len(phr) > 1: it['_phrase'] = phr
         if ev.get('cert'): it['cert'] = ev['cert']
-        nt = notes_of(ev)
-        if nt: it['note'] = nt
+        set_note(it, ev)
         evs.append(it)
     if evs: meta['events'] = evs
 
     gnotes = []
     for n in r.get('notes') or []:
-        if n.get('text') and n.get('type') not in ('source', 'translation'):
-            g = {'text': n['text']}
-            if n.get('lang'): g['lang'] = n['lang']
-            if n.get('type'): g['type'] = n['type']
-            gnotes.append(g)
+        t = flat_text(n)
+        if not t: continue
+        g = {'text': t}
+        for a in ('lang', 'type', 'cert'):
+            if n.get(a): g[a] = n[a]
+        if n.get('target'): g['target'] = norm_id(n['target'])          # the heading a cross-reference points to
+        gnotes.append(g)
+    for lr in r.get('listRelation') or []:
+        for n in lr.get('notes') or []:
+            t = flat_text(n)
+            if t: gnotes.append({'text': t, **{a: n[a] for a in ('lang', 'type') if n.get(a)}, 'scope': 'relations'})
+        for c_ in lr.get('comments') or []:
+            if c_ and c_.strip(): gnotes.append({'text': c_.strip(), 'type': 'xml_comment', 'scope': 'relations'})
     if gnotes: meta['notes'] = gnotes
 
     # ---- link text tags to items, fill quotes ---------------------------
@@ -338,6 +442,8 @@ def convert(k, r):
         if code == 'E':
             j = int(rid[1:]) - 1 if rid and rid.startswith('e') else -1
             if 0 <= j < len(evs):
+                if evs[j].get('quote') and evs[j]['quote'] != q:        # the verbatim phrase stays as phrase
+                    evs[j].setdefault('_phrase', []).insert(0, evs[j]['quote'])
                 evs[j]['quote'] = q; evs[j]['trigger'] = 'rule'
                 new[i] = f'@E{p}{m.group(3)}[{sub}|{rid}]'; STAT['linked_E'] += 1
             continue
@@ -368,9 +474,9 @@ def convert(k, r):
             STAT['T'] += 1
             continue
         if it is not None:
-            if it.get('quote') is None and 'persons' not in it:
-                it['quote'] = Q(q, p)
-            elif 'persons' in it:
+            if not (code == 'P' and it['id'][0] == 'e'):     # relation / office / name element: the item's quote
+                if it.get('quote') is None: it['quote'] = Q(q, p)
+            else:                                            # a person tag on an event: the quote of that person
                 for pp in it['persons']:
                     if pp.get('ref') == rid and 'quote' not in pp: pp['quote'] = Q(q, p)
             new[i] = m.group(0)[:-1] + '|' + it['id'] + ']'
@@ -394,12 +500,18 @@ def convert(k, r):
             nm = norm_ar(ev['quote'], 1 if re.match(r'^[وف]\S{3,}', ev['quote']) else 0)
             if nm != ev['quote']: ev['norm'] = nm; STAT['norm_changed'] += 1
 
+    for lst in (rels, states, affs, evs, [meta.get('birth') or {}, meta.get('death') or {}]):
+        for it in lst:
+            ph = [p_ for p_ in dict.fromkeys(it.pop('_phrase', [])) if p_ != it.get('quote')]
+            if ph: it['phrase'] = ' / '.join(ph)
     for lst in (names, rels, states, evs):
         for it in lst:
             it.pop('_partner', None); lab = it.pop('_label', None)
             if it.get('quote') is None:
                 it['quote'] = None; STAT['noquote_' + it['id'][0]] += 1
                 if lab and not it.get('ref'): it['label'] = lab
+            elif lab and not it.get('ref') and lab != it.get('quote'):
+                it['label'] = lab                         # the name element as written in the TEI (no ID)
 
     # an unnamed father / grandfather is the 1st / 2nd nasab of the heading (by rule)
     nas = re.findall(r'\[nasab[^\]|]*\|(n\d+)\]', ' '.join(new))
@@ -452,10 +564,10 @@ def convert(k, r):
             it = {'id': None}
             if st.get('quote'): it['quote'] = st['quote']
             if st.get('norm'): it['norm'] = st['norm']
-            if not st.get('quote') and st.get('label'): it['label'] = st['label']
+            if st.get('label') and st['label'] != st.get('quote'): it['label'] = st['label']
             it['terms'] = terms
-            for kk in ('cert', 'note'):
-                if kk in st: it[kk] = st[kk]
+            for kk, vv in st.items():                  # everything else the state carried
+                if kk not in ('id', 'type', 'quote', 'norm', 'label') and kk not in it: it[kk] = vv
             vid = add_v(it); vretag[st['id']] = vid; STAT['assessment_from_status'] += 1
             if st.get('label'): vlabels.append(st['label'])
         else:
@@ -476,7 +588,7 @@ def convert(k, r):
             if vt and vt[0] in it['terms']:
                 it['quote'] = t_; nm = norm_ar(t_, vt[1])
                 if nm != t_: it['norm'] = nm
-                it['by'] = 'rule'; it.pop('label', None)
+                it['by'] = 'rule'
                 inserts.append((i_, vt[1], it['id'])); used_v.add(i_); break
     have = {t for it in assess for t in it['terms']}
     i_ = 0
@@ -518,8 +630,8 @@ def convert(k, r):
         for ev in meta['events']:
             if ev.get('type') == 'cultural' and ev.get('subtype') == 'mention':
                 c = {'id': f'c{len(srcs) + 1}'}
-                for kk in ('persons', 'works', 'date', 'places', 'quote', 'norm', 'trigger', 'summary', 'cert', 'note'):
-                    if kk in ev: c[kk] = ev[kk]
+                for kk, vv in ev.items():                 # everything the event carried (type/subtype = the section)
+                    if kk not in ('id', 'type', 'subtype'): c[kk] = vv
                 cmap[ev['id']] = c['id']; srcs.append(c); STAT['source_citation'] += 1
             else:
                 keep.append(ev)
@@ -576,3 +688,13 @@ if __name__ == '__main__':
     json.dump({'sources': CMAP, 'assessments': VMAP}, open(f'{OUT}/source_ids.json', 'w'), ensure_ascii=False)   # event id -> source id, per record
     print('files', len(R), 'meta MB', round(tot_y / 1e6, 2), 'text MB', round(tot_m / 1e6, 2))
     print(dict(sorted(STAT.items())))
+    # required check (Waka 2026-11-27): every TEI value except the edit history must be in the YAML
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from audit_tei_vs_yaml import audit
+    miss, dropped, lines = audit(R, OUT, os.path.join(OUT, 'audit_tei_vs_yaml.tsv'))
+    print('dropped on purpose:', dict(dropped))
+    if miss:
+        print('FAILED: TEI values missing from the YAML (see audit_tei_vs_yaml.tsv):', file=sys.stderr)
+        print('\n'.join(lines[:30]), file=sys.stderr)
+        sys.exit(1)
+    print('audit: every TEI value is in the YAML (or on the dropped-on-purpose list)')
