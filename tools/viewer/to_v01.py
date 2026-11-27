@@ -650,7 +650,7 @@ def convert(k, r):
                 if m_ and m_.group(3) in cmap: new[i_] = f'@C{m_.group(1)}[mention|{cmap[m_.group(3)]}]'
             CMAP[k] = cmap
 
-    if MENTIONS: to_mentions(k, meta, new); refine_spans(k, meta, new, r)
+    if MENTIONS: to_mentions(k, meta, new); refine_spans(k, meta, new, r); review_rules(k, meta, new)
     tr = TR.get(k)
     if tr: meta['translation'] = tr
     meta['provenance'] = provenance(r.get('generator'))
@@ -770,6 +770,85 @@ def to_mentions(k, meta, new):
         if 'mentions' not in out: out['mentions'] = ments
         meta.clear(); meta.update(out)
 
+
+# ---- rules from the D00008 / D00434 review (Waka 2026-11-27) ------------------------------------------------
+# a livelihood («تكسب …») is an occupation (a state), not an event; «تكسب بالشهادة» = شاهد (TMP-O-00050);
+# «كان له/لديه فضيلة» is a reputation; «وما علمته حدث» is a teaching event the author denies (polarity negative);
+# «القاهري المولد والدار» places the residence event the TEI has.
+EVALN = set(normalize_ara_light(w) for w in 'فضيلة فضل خير دين ديانة صلاح ورع زهد تواضع عقل مروءة ذكاء نباهة'.split())
+SHAHID = 'TMP-O-00050'
+
+
+def review_rules(k, meta, new):
+    M = {m['id']: m for m in meta.get('mentions') or []}
+    def new_mention(kind, **kw):
+        n_ = len(M) + 1
+        while f'm{n_}' in M: n_ += 1
+        M[f'm{n_}'] = {'id': f'm{n_}', 'kind': kind, **kw}; meta.setdefault('mentions', []).append(M[f'm{n_}']); return f'm{n_}'
+    def next_id(sec, p):
+        ids = [int(x['id'][1:]) for x in meta.get(sec) or [] if re.match(p + r'\d+$', x.get('id', ''))]
+        return f'{p}{max(ids) + 1 if ids else 1}'
+    def tagged(i):                    # is token i the first word under a tag?
+        return i > 0 and new[i - 1].startswith('@')
+    N = lambda x: normalize_ara_light(x)
+    # a. livelihood events -> no event tag (the occupation is a state)
+    for ev in meta.get('events') or []:
+        mid = ev.get('mention')
+        if mid and mid in M and re.match(r'^(?:و|ف)?ي?تكسب', N(M[mid].get('quote', '').split(' ')[0] if M[mid].get('quote') else '')):
+            for i, t in enumerate(new):
+                m_ = TAGX.match(t)
+                if m_ and m_.group(4) == mid: del new[i]; break
+            ev['phrase'] = M[mid]['quote']; ev['mention'] = None; ev['reclassify'] = 'occupation'
+            meta['mentions'].remove(M.pop(mid)); STAT['rule_livelihood_event_untagged'] += 1
+    # b. «تكسب بالشهادة / يتكسب من الشهادة» -> state شاهد
+    for i in range(len(new) - 1):
+        if new[i].startswith('@') or not re.match(r'^(?:و|ف)?ي?تكسب$', N(new[i])): continue
+        j = i + 1
+        while j < len(new) and new[j].startswith('@'): j += 1
+        w = N(new[j]) if j < len(new) else ''
+        if w == 'من' and j + 1 < len(new): j += 1; w = N(new[j]); pfx = 0
+        else: pfx = 1 if w.startswith('بال') else 0
+        if re.sub(r'^ب', '', w) not in ('الشهادة', 'الشهاده') or tagged(j): continue
+        st = next((x for x in meta.get('states') or [] if x.get('ref') == SHAHID and not x.get('mention')), None)
+        mid = new_mention('office', quote=new[j], ref=SHAHID)
+        nm = norm_ar(new[j], pfx)
+        if nm != new[j]: M[mid]['norm'] = nm
+        if st is None:
+            st = {'id': next_id('states', 's'), 'type': 'office', 'by': 'rule'}; meta.setdefault('states', []).append(st)
+        else: st.pop('ref', None)
+        st['mention'] = mid
+        new.insert(j, f'@O{pfx}1[{mid}]'); STAT['rule_shahid_state'] += 1
+        break
+    # c. «كان(ت) لديه/له/عنده/فيه فضيلة» -> assessment
+    for i in range(len(new) - 2):
+        if new[i].startswith('@') or tagged(i): continue
+        if re.match(r'^(?:و|ف)?كان(?:ت)?$', N(new[i])) and N(new[i + 1]) in ('لديه', 'له', 'عنده', 'فيه', 'لديها', 'لها', 'عندها') \
+                and N(new[i + 2]) in EVALN and not new[i + 1].startswith('@'):
+            mid = new_mention('assessment', quote=' '.join(new[i:i + 3]))
+            meta.setdefault('assessments', []).append({'id': next_id('assessments', 'v'), 'terms': [N(new[i + 2])], 'by': 'rule', 'mention': mid})
+            new.insert(i, f'@V03[{mid}]'); STAT['rule_assessment_noun'] += 1
+            break
+    # d. «وما علمته حدث / ما أظنه حدث / لم يحدث» -> teaching event, polarity negative, speaker al-Sakhawi
+    for i in range(len(new)):
+        if new[i].startswith('@') or tagged(i): continue
+        w = [N(x) for x in new[i:i + 3]]
+        span = 3 if len(w) == 3 and re.match(r'^(?:و|ف)?ما$', w[0]) and w[1] in ('علمته', 'اظنه', 'اعلمه') and w[2] == 'حدث' else \
+               2 if len(w) >= 2 and re.match(r'^(?:و|ف)?لم$', w[0]) and w[1] == 'يحدث' else 0
+        if not span: continue
+        mid = new_mention('event', quote=' '.join(new[i:i + span]), span='rule')
+        meta.setdefault('events', []).append({'id': next_id('events', 'e'), 'type': 'teaching', 'subtype': 'hadith',
+                                              'polarity': 'negative', 'speaker': 'al-Sakhawi', 'by': 'rule', 'mention': mid})
+        new.insert(i, f'@E0{span}[{mid}]'); STAT['rule_negated_transmission'] += 1
+        break
+    # e. «… المولد والدار / المولد والمنشأ» -> the residence event the TEI has
+    for i in range(len(new) - 1):
+        if new[i].startswith('@') or tagged(i): continue
+        if N(new[i]) == 'المولد' and N(new[i + 1]) in ('والدار', 'والمنشا', 'والمنشأ', 'والوفاة', 'والوفاه'):
+            ev = next((e for e in meta.get('events') or [] if e.get('type') == 'residence' and not e.get('mention')), None)
+            if ev is None: break
+            mid = new_mention('event', quote=' '.join(new[i:i + 2]), span='rule')
+            ev['mention'] = mid; new.insert(i, f'@E02[{mid}]'); STAT['rule_born_and_lived'] += 1
+            break
 
 # ---- spans (2026-11-27) ------------------------------------------------------------------------------------
 # year: «سنة» and the number words after it; event: the verbatim phrase from the TEI where there is one, else from
