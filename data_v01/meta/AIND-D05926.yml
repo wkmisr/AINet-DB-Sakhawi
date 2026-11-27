@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عمر بن قيماز ركن الدين أبو حفص بن الأمير سيف الدين
+  name_only: عمر بن قيماز
   elements:
   - id: n1
     type: laqab
@@ -37,8 +38,7 @@ birth:
   - ref: gn:360630
     quote: بالقاهرة
     norm: القاهرة
-  summary:
-    ar: ولد بالقاهرة
+  phrase: ولد بالقاهرة
 death:
   id: d
   date:
@@ -49,17 +49,18 @@ death:
     cert: medium
     quote: بحلب
     norm: حلب
-  summary:
-    ar: مات في يوم الاثنين مستهل رجب سنة تسع . ذكره العيني وغيره ، زاد المقريزي بحلب
   note:
     ja: 「سنة تسع」は一の位のみ → 809、cert medium（2026-09-24 裁定。العيني・المقريزي が記す年代と整合）。809-07-01 ＝ 1406-12-21（h2g.py では日曜。原文は月曜）。初版の when="1406" を日付精度に。没地 حلب は المقريزي の付加（「زاد المقريزي بحلب」）のため cert medium。初版の burial placeName（サビールと墓廟）は「صاحب السبيل والتربة」＝建立者であって埋葬の明記ではないため除去。
   quote: سنة
+  phrase: مات في يوم الاثنين مستهل رجب سنة تسع . ذكره العيني وغيره ، زاد المقريزي بحلب
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001399
   passive: AIND-D05926
+  summary:
+    ar: الأمير سيف الدين قيماز
   quote: null
   note:
     ja: '父 الأمير سيف الدين قيماز。アミールの称号＋名で識別できるため TMP-P-001399（規則12）。corpus に本伝なし・ID-Master 未登録。初版の #NEEDID を差し替え。'
@@ -74,6 +75,11 @@ affiliations:
 - id: a1
   type: founded
   ref: TMP-I-00210
+  places:
+  - ref: TMP-L-00321
+  orgs:
+  - label: السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
+  - label: Sabīl Ibn Qaymāz wa-turbatuhu tijāh Khalīj al-Zaʿfarān
   note:
     ja: '「وهو صاحب السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز」。カイロのサビール（公共給水所）と墓廟。ニスバ索引 #AIND-D12671「ابن قيماز صاحب السبيل الشهير عمر بن قيماز وهو جد جارنا محمد بن محمد بن عمر بن قيماز」でも確認（孫はサハーウィーの隣人）。ID-Master 未登録 → TMP-I-00210（施設）・TMP-L-00321（خليج الزعفران、カイロの運河）。'
 events:
@@ -85,20 +91,18 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D09832
+    corresp: wd:Q257745
     quote: العيني
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره العيني وغيره
   note:
     ja: Pattern A。العيني ＝ بدر الدين العيني（wd:Q257745）。
+  trigger: rule
+  phrase: ذكره العيني وغيره
 - id: c2
   persons:
   - ref: wd:Q293604
     quote: المقريزي
-  quote: null
-  summary:
-    ar: زاد المقريزي بحلب وهو صاحب السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
+  quote: زاد المقريزي بحلب وهو صاحب السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
   note:
     ja: Pattern A。المقريزي（wd:Q293604）。書名は原文にないため bibl は付さない。
 translation:

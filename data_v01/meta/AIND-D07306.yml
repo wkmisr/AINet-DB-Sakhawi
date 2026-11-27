@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن جعفر بن علي بن عبد الله بن طاهر بن هاشم بن عربشاه بن ناصر بن زيد السيد شمس الدين أبو عبد الله بن الجلال بن التاج بن أصيل الحسني الجرجاني الأصل الشيرازي المولد والدار الحنفي
+  name_only: محمد بن جعفر بن علي
   elements:
   - id: n1
     type: nisbah
@@ -21,9 +22,11 @@ name:
   - id: n4
     type: laqab
     quote: السيد
+    label: شمس الدين
   - id: n5
     type: laqab
     quote: شمس الدين
+    label: السيد
   - id: n6
     type: kunyah
     quote: أبو عبد الله
@@ -95,6 +98,8 @@ relations:
   subtype: father
   active: TMP-P-001577
   passive: AIND-D07306
+  summary:
+    ar: الجلال جعفر بن علي بن عبد الله بن طاهر الحسني الجرجاني الشيرازي
   quote: وأبوه
   note:
     ja: 父＝الجلال جعفر（見出しナサブ「بن الجلال بن التاج بن أصيل」から復元。「وأبوه سبط الأستاذ السيد الشريف الجرجاني」）。ラカブ＋ナサブで識別可。corpus の جعفر 部に本伝なし（hw.py「جعفر بن علي」）・ID-Master 未登録 → 新規 TMP-P-001577（規則3）。
@@ -116,6 +121,7 @@ relations:
   quote: null
   note:
     ja: 本項の原文にはないが、#AIND-D10166「هاشم بن محمد بن جعفر بن علي بن عبد الله بن طاهر الزين المسمى بعلي بن الشمس الحسني الجرجاني الأصل الشيرازي الماضي أبوه . ممن سمع مني مع أبيه بمكة في سنة ست وثمانين」のナサブ6代と「الماضي أبوه」・886年マッカの同行で閉合（規則37、cert なし）。
+  phrase: هاشم
 - id: r4
   type: scholarly
   subtype: teacher
@@ -124,8 +130,10 @@ relations:
   methods:
   - TMP-S-00025
   context:
-  - date:
+  - type: learning
+    date:
       ah: 886
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
@@ -145,8 +153,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 886
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
@@ -162,14 +172,15 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 886
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
       norm: مكة
-    summary:
-      ar: وكتبت له إجازة هائلة
+    phrase: وكتبت له إجازة هائلة
   quote: null
 affiliations:
 - id: a1
@@ -187,13 +198,12 @@ events:
   type: visit
   date:
     ah: 886
+    type: visit
   places:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  quote: null
-  summary:
-    ar: لقيني بمكة في سنة ست وثمانين
+  quote: لقيني بمكة في سنة ست وثمانين
   note:
     ja: '#AIND-D02073「أمير جان بن شكر الله بن مرتضى الحسني القزويني ، سمع مني بمكة في سنة ست وثمانين رفيقا لمحمد بن جعفر بن علي الآتي」＝同年マッカでの同行者（repo の D02073 は本項主を colleague として参照済み）。本項の原文にないので relation は立てない。'
 translation:

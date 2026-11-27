@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عبد الرحمن بن محمد بن عبد الله بن نشابة الأشعري العريشي اليماني الشافعي
+  name_only: عبد الرحمن بن محمد بن عبد الله
   elements:
   - id: n1
     type: nisbah
@@ -56,6 +57,8 @@ relations:
   passive: AIND-D03766
   methods:
   - TMP-S-00032
+  fields:
+  - wd:Q484181
   quote: null
 - id: r2
   type: scholarly
@@ -64,8 +67,11 @@ relations:
   passive: AIND-D03766
   methods:
   - TMP-S-00032
+  fields:
+  - wd:Q484181
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00236
       quote: مور
   quote: null
@@ -75,6 +81,7 @@ relations:
   active: AIND-D07848
   passive: AIND-D03766
   quote: null
+  phrase: محمد بن عبد الله بن نشابة
 states:
 - id: s1
   type: office
@@ -110,6 +117,7 @@ events:
   date:
     notBefore: 830
     cert: medium
+    type: visit
   places:
   - ref: TMP-L-00225
     quote: بأبيات حسين
@@ -120,20 +128,20 @@ events:
     en: After 830 AH (after the year thirty).
 sources:
 - id: c1
+  date:
+    notBefore: 830
+    cert: medium
+    type: cultural
   persons:
   - ref: AIND-D11169
     quote: الأهدل
     norm: الاهدل
-  date:
-    notBefore: 830
-    cert: medium
   quote: قال
-  trigger: rule
-  summary:
-    ar: قال الأهدل أنه اجتمع به بعد الثلاثين بأبيات حسين وهو مفتي بلده ومدرسها وينوب في الحكم بها
   cert: medium
   note:
     ja: 初版は subtype="acquaintance" の personal relation（Pattern A違反）。الأهدل=#AIND-D11169(البدر أبو محمد حسين بن عبد الرحمن بن محمد بن علي بن أبي بكر الحسيني اليماني الشافعي、『ذيل تاريخ الجندي』の著者)。「قال … أنه」は§9のcertマーカーで、その支配範囲は「اجتمع به…وينوب في الحكم بها」全体に及ぶ。
+  trigger: rule
+  phrase: قال الأهدل أنه اجتمع به بعد الثلاثين بأبيات حسين وهو مفتي بلده ومدرسها وينوب في الحكم بها
 notes:
 - text: 【裁定 §D-9・2026-09-01】原文の「بلده」は、父の項 D07848「**العريشي** … نسبة لقرية يقال لها **عريش من عمل حرض**」により**イエメン・ハラド郡の村 عريش** と確度高く同定できるため TMP-L-00224 を発行。⚠定冠詞付きの「العريش」（シナイ半島）とは別地。
   lang: ja

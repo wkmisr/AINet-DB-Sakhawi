@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عمر بن عبد العزيز بن علي بن أحمد بن عبد العزيز السراج بن القاضي العز بن القاضي النور الهاشمي النويري المكي
+  name_only: عمر بن عبد العزيز بن علي
   elements:
   - id: n1
     type: laqab
@@ -97,6 +98,7 @@ relations:
   note:
     ja: ابن الجزري ＝ wd:Q4120093（ID-Master・repo 慣行）。原文にない field・場所を除去。
   norm: ابن الجزري
+  phrase: ابن الجزري
 - id: r3
   type: scholarly
   subtype: teacher
@@ -107,6 +109,7 @@ relations:
   quote: هريرة بن الذهبي
   note:
     ja: 「وأجاز له أبو هريرة بن الذهبي وابن العلائي والتنوخي وآخرون」。TMP-P-000135 ＝ ID-Master 登録 أبو هريرة بن الذهبي。
+  phrase: أبو هريرة بن الذهبي
 - id: r4
   type: scholarly
   subtype: teacher
@@ -118,6 +121,7 @@ relations:
   note:
     ja: TMP-P-000273 ＝ ID-Master 登録 ابن العلائي。
   norm: ابن العلاءي
+  phrase: ابن العلائي
 - id: r5
   type: scholarly
   subtype: teacher
@@ -129,11 +133,14 @@ relations:
   note:
     ja: TMP-P-000026 ＝ ID-Master 登録 التنوخي（برهان الدين إبراهيم بن أحمد التنوخي البعلبكي، 800年没）。796年生の本項主への幼時イジャーザとして年代整合。
   norm: التنوخي
+  phrase: التنوخي
 - id: r6
   type: kin
   subtype: father
   active: AIND-D03979
   passive: AIND-D05872
+  summary:
+    ar: القاضي العز عبد العزيز بن علي بن أحمد بن عبد العزيز
   quote: التي بعدها
   note:
     ja: '父 ＝ #AIND-D03979（عبد العزيز بن علي بن أحمد بن عبد العزيز بن القاسم … العز أبو المعالي بن النور الهاشمي العقيلي النويري المكي）。ナサブ5代一致、弟 D07677 の校閲でも同定済み。初版の TMP-P-000813（ID-Master 登録実体 ＝ عبد العزيز بن سالم الكازروني ＝ 別人・汚染）を差し替え。'
@@ -142,6 +149,8 @@ relations:
   subtype: grandfather
   active: TMP-P-001116
   passive: AIND-D05872
+  summary:
+    ar: القاضي النور علي بن أحمد بن عبد العزيز
   quote: null
   note:
     ja: '見出し「… بن علي بن أحمد بن عبد العزيز السراج بن القاضي العز بن القاضي النور」のラカブ連鎖で祖父 ＝ القاضي النور علي بن أحمد بن عبد العزيز。ID-Master 既登録 TMP-P-001116「النور أبو الحسن علي بن أحمد بن عبد العزيز العقيلي النويري المكي」（マッカのマーリク派マカームのイマーム。子 #AIND-D00984・#AIND-D03684・#AIND-D04500）とナサブ一致（父 #AIND-D03979 の「المالكي أبوه」とも整合）。集約時に追加（内容検証A L-11）。'
@@ -171,6 +180,7 @@ relations:
   quote: null
   note:
     ja: '#AIND-D07677「محمد (بن) عبد العزيز بن علي بن أحمد بن عبد العزيز الهاشمي النويري … وسافر مع أخويه عمر وعبد الرحمن إلى القاهرة في سنة اثنتين وثلاثين ثم إلى المغرب ثم التكرور」が本項主を兄として一意に明記 → 規則23により cert medium で補う（repo 側に brother relation あり）。本項に記述なし。同父のもう一人の兄弟 عبد الرحمن（#AIND-D03646、الوجيه）と姉妹 زينب（#AIND-D13088）・فاطمة（#AIND-D13436）も corpus にあるが同様に本項に記述がないため relation は立てない。'
+  phrase: محمد
 states:
 - id: s1
   type: office
@@ -181,11 +191,13 @@ states:
   note:
     ja: 「وولي نصف الإمامة بمقام المالكية」＝マーリキー派のマカームにおけるイマーム職の半分（折半職）に就いた。職名は ID-Master 未登録（類例 TMP-O-00164 إمام مقام الشافعي、TMP-O-00285 نائب إمام مقام الحنفية）→ 新規 TMP-O-00306。初版の placeName مكة（施設所在地からの補完）と affiliation employed（state と二重符号化、文字化け orgName）を除去（規則22(1)・規則8）。初版の ref wd:Q125482（الإمامة 汎用）は特定職名に置き換え。
   norm: الامامة
+  phrase: وولي نصف الإمامة بمقام المالكية
 events:
 - id: e1
   type: travel
   date:
     ah: 832
+    type: travel
   places:
   - ref: gn:104515
     quote: بمكة
@@ -193,34 +205,32 @@ events:
   - ref: gn:360630
     quote: القاهرة
   quote: وسافر
-  summary:
-    ar: وسافر في أوائل سنة اثنتين وثلاثين من مكة إلى القاهرة
   note:
     ja: 832年初にマッカからカイロへ。832 ＝ 1428-10-20〜1429-10-08（h2g.py、年のみ→年初）。
   trigger: rule
   norm: سافر
+  phrase: وسافر في أوائل سنة اثنتين وثلاثين من مكة إلى القاهرة
 - id: e2
   type: travel
   date:
     notBefore: 832
+    type: travel
   places:
   - ref: TMP-L-00040
     quote: المغرب
-  quote: null
-  summary:
-    ar: ثم إلى المغرب
+  quote: ثم إلى المغرب
   note:
     ja: カイロの後にマグリブへ。年は 832 以降（初版の when-custom=0832 cert medium を notBefore に改めた）。
+  norm: ثم الي المغرب
 - id: e3
   type: travel
   date:
     notBefore: 832
+    type: travel
   places:
   - ref: TMP-L-00094
     quote: التكرور
-  quote: null
-  summary:
-    ar: ثم التكرور
+  quote: ثم التكرور
   note:
     ja: マグリブの後にタクルールへ。年は 832 以降。
 translation:

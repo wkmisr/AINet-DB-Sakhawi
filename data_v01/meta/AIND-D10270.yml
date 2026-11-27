@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: يحيى بن كريم الدين عبد الكريم بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة المكي الحنبلي
+  name_only: يحيى بن عبد الكريم بن عبد الرحمن
   elements:
   - id: n1
     type: nisbah
@@ -55,11 +56,10 @@ birth:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  summary:
-    ar: ولد في صفر سنة إحدى وسبعين بمكة
   note:
     ja: 871年サファル月＝1466-09-21 開始（h2g.py、月精度）。初版の @when 1466（年精度）を月精度に。
   quote: سنة
+  phrase: ولد في صفر سنة إحدى وسبعين بمكة
 relations:
 - id: r1
   type: kin
@@ -70,6 +70,7 @@ relations:
   note:
     ja: '「الماضي أبوه وجده」。父＝#AIND-D04260「عبد الكريم بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … كريم الدين أبو المكارم … القرشي المكي الحنبلي الماضي أبوه والآتي ولده يحيى … مات في ليلة الأربعاء خامس عشري صفر سنة تسع وتسعين」（相互閉合、ブリーフ候補を本文で確認。未収録）。初版の #NEEDID を置換。'
   norm: ابوه
+  phrase: كريم الدين عبد الكريم بن عبد الرحمن
 - id: r2
   type: kin
   subtype: grandfather
@@ -79,6 +80,7 @@ relations:
   note:
     ja: 祖父＝#AIND-D03605「عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … وجيه الدين القرشي اليماني ثم المكي والد عبد الكريم وأبي بكر الآتيين … مات في صفر سنة تسع وأربعين」（初版どおり、本文で確認）。
   norm: جده
+  phrase: عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة
 - id: r3
   type: scholarly
   subtype: teacher
@@ -90,6 +92,7 @@ relations:
   note:
     ja: '「واشتغل على أبيه」＝父 #AIND-D04260 のもとで学んだ。初版の #NEEDID（أخذ）を置換。'
   norm: ابيه
+  phrase: عبد الكريم
 - id: r4
   type: scholarly
   subtype: teacher
@@ -98,20 +101,26 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 886
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
       norm: مكة
-  - date:
+  - type: learning
+    date:
       ah: 893
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
       norm: مكة
-  - date:
+  - type: learning
+    date:
       ah: 894
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
@@ -149,20 +158,21 @@ events:
   note:
     ja: '暗記した書。القرآن＝TMP-T-00095、أربعي النووي＝TMP-T-00044、ألفية النحو＝wd:Q4721943（ID-Master「ألفية」、repo 先例 #AIND-D03771）。「الوجيز في فروعهم」＝ハンバリー派（فروعهم）の法学書『الوجيز』で、ID-Master の TMP-T-00262「الوجيز」はシャーフィイー派の別書＝充てない。「أصول ابن اللحام」（ابن اللحام＝ハンバリー派の العلاء البعلي とみられる。corpus #AIND-D05480「علي بن محمد بن علي بن عباس بن فتيان العلاء البعلي ثم الدمشقي الحنبلي ويعرف بابن اللحام」・#AIND-D05066）も ID-Master 未登録＝いずれも ref なし（ISSUES §D165-10）。「وعرض」は提示先の名がない＝relation を立てない。初版は暗記書5点を「عرض」の teacher relation 5本（#NEEDID、event に مكة）にしていた＝作り込みを除去し1つの learning event に。'
   trigger: rule
+  phrase: ونشأ فحفظ القرآن وأربعي النووي والوجيز في فروعهم وأصول ابن اللحام وألفية النحو وعرض
 - id: e2
   type: travel
   date:
     ah: 899
+    type: travel
   places:
   - ref: gn:360630
     quote: القاهرة
   quote: وسافر
-  summary:
-    ar: وسافر بعد أبيه في أثناء سنة تسع وتسعين بحرا إلى القاهرة وكتبت سلامته
   note:
     ja: '899年の途中、父の（死の）のち、海路カイロへ旅立ち、無事が書き送られた。899年初＝1493-10-21（h2g.py、年精度）。父 #AIND-D04260 は899年サファル月25日没。初版の type「visit」・cert medium（原文に不確定要素なし）を是正、@when を付与。'
   trigger: rule
   norm: سافر
+  phrase: وسافر بعد أبيه في أثناء سنة تسع وتسعين بحرا إلى القاهرة وكتبت سلامته
 translation:
   ja: ヤフヤー・ブン・カリーム・アッ＝ディーン・アブド・アル＝カリーム・ブン・アブド・アッ＝ラフマーン・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ズハイラ、アル＝マッキー、ハンバリー派。父と祖父は既出。（8）71年サファル月にマッカで生まれて育ち、クルアーン、ナワウィーの『四十（ハディース）』、彼ら（ハンバリー派）の法学細則の『ワジーズ』、イブン・アッ＝ラッハームの『ウスール』、文法の『アルフィーヤ』を暗記して（暗誦を）提示し、父のもとで学んだ。彼は、（8）86年に、ついで（8）93年と（8）94年に、マッカで私（サハーウィー）から聴聞した者の一人であり、暗記書の一部を私に提示したとも思う。父の後、（8）99年の途中に海路カイロへ旅立ち、無事であるとの報せが書き送られた。
   en: Yaḥyā b. Karīm al-Dīn ʿAbd al-Karīm b. ʿAbd al-Raḥmān b. Abī Bakr b. ʿAbd Allāh b. Ẓuhayra, al-Makkī, the Ḥanbalī, whose father and grandfather were mentioned earlier. He was born in Ṣafar of the year [8]71 in Mecca and grew up; he memorized the Qurʾān, al-Nawawī's Forty, the Wajīz on their (the Ḥanbalīs') substantive law, the Uṣūl of Ibn al-Laḥḥām and the Alfiyya on grammar, presented them from memory, and studied under his father. He is among those who heard from me (al-Sakhāwī) in Mecca in the year [8]86 and then in the years [8]93 and [8]94, and I think he presented some of his memorized texts to me. He travelled after his father, in the course of the year [8]99, by sea to Cairo, and word of his safe arrival was written.

@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: كزل الناصري الظاهري برقوق
+  name_only: كزل
   elements:
   - id: n1
     type: nisbah
@@ -23,10 +24,9 @@ death:
   date:
     notBefore: 821
     notAfter: 829
-  summary:
-    ar: ولزم داره حتى مات في سنة نيف وعشرين
   note:
     ja: 「سنة نيف وعشرين」＝820年代（821〜829）→ repo 先例（「نيف وثلاثين」→ notBefore 0831／notAfter 0839）に倣い notBefore 821（1418-02-17→1418）／notAfter 829（1426-11-10 終了→1426）、h2g.py。初版の非ISO 値（when-custom="82x" when="701"）を是正。没地は原文に無い（「لزم داره」の家の所在は書かれない）。
+  phrase: ولزم داره حتى مات في سنة نيف وعشرين
 persons:
 - id: p1
   label: والد كزل الناصري الظاهري برقوق
@@ -45,6 +45,8 @@ relations:
   subtype: patron
   active: AIND-D02178
   passive: AIND-D06396
+  summary:
+    ar: الظاهر برقوق
   quote: برقوق
   note:
     ja: '主人ニスバ「الظاهري برقوق」＝スルターン・アッ＝ザーヒル・バルクーク（#AIND-D02178）（規則51）。初版 #NEEDID。'
@@ -68,11 +70,10 @@ events:
   - ref: AIND-D03345
     quote: المؤيد
     norm: المءيد
-  quote: null
-  summary:
-    ar: ترقى في الدول حتى صار في أيام المؤيد مقدما مدة ثم استعفى ولزم داره
+  quote: ترقى في الدول حتى صار في أيام المؤيد مقدما مدة ثم استعفى ولزم داره
   note:
     ja: 時代指示。主人でないスルターンは relation にせず event 内 persName（規則53）。初版の統制外 subtype「ruler」relation は汚染番号 TMP-P-000844（登録＝زينب D05685 の師「المؤيد」＝別人）を流用していたため除去。
+  norm: ترقي في الدول حتي صار في ايام المءيد مقدما مدة ثم استعفي ولزم داره
 notes:
 - text: '「الناصري نسبة لتاجره الخواجا ناصر الدين」＝ニスバ الناصري は彼を売った奴隷商人ホワージャ・ナースィルッディーンに由来する。奴隷商人は主人（patron）ではなく、repo に「تاجره」の relation 先例は無い（D06197 も note のみ）ので relation を立てない（初版の patron #NEEDID を除去）。corpus にこの商人の本伝は見当たらない（hw.py「الخواجا」「ناصر الدين」）。'
   lang: ja

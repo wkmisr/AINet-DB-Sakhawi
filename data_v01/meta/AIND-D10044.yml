@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: موسى بن أحمد بن عيسى الحرامي
+  name_only: موسى بن أحمد بن عيسى
   elements:
   - id: n1
     type: nisbah
@@ -42,11 +43,14 @@ relations:
   quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（規則3）。本伝のある兄 #AIND-D02967（دريب بن أحمد بن عيسى الحرامى … أمير حلى）と共有する父なので TMP-P を発行。corpus に本伝なし（hw.py「الحرامي」の見出しは D02967 と本項のみ）。ID-Master 未登録（idsearch「الحرامي」は Nisbah TMP-N-01342 のみ）。'
+  phrase: أحمد بن عيسى الحرامي
 - id: r2
   type: kin
   subtype: brother
   active: AIND-D02967
   passive: AIND-D10044
+  summary:
+    ar: دريب بن أحمد بن عيسى الحرامي
   quote: أخيه
   note:
     ja: '「بعد أخيه دريب」。دريب ＝ #AIND-D02967「دريب بن أحمد بن عيسى الحرامى بمهملتين أمير حلى … قتل في حرب … سنة ثلاث … واستقر بعده أخوه موسى الآتى قاله شيخنا في أنبائه ، ثم ذكره في حوادث سنة عشر وأرخ قتله فيها وقال أن أخاه موسى كان شريكه في الأمرة ولكن لا كلام له معه فلما قتل استقل موسى」。ナサブ・ニスバ・職（أمير حلي）で閉合し、相手側も本項主を「أخوه موسى الآتى」と名指し。'
@@ -56,6 +60,8 @@ relations:
   subtype: predecessor
   active: AIND-D02967
   passive: AIND-D10044
+  summary:
+    ar: دريب بن أحمد بن عيسى الحرامي
   quote: null
   note:
     ja: 「انفرد بأمرتها بعد أخيه دريب」＝兄の後に حلي のアミール位を独占（規則29 の型。D02967 側「واستقر بعده أخوه موسى」）。
@@ -75,10 +81,9 @@ events:
   places:
   - ref: TMP-L-00102
   quote: أخرجه
-  summary:
-    ar: انفرد بأمرتها بعد أخيه دريب
   trigger: rule
   norm: اخرجه
+  phrase: انفرد بأمرتها بعد أخيه دريب
 - id: e2
   type: political
   persons:
@@ -86,11 +91,10 @@ events:
     quote: حسن بن عجلان
   places:
   - ref: TMP-L-00102
-  quote: null
-  summary:
-    ar: ثم أخرجه حسن بن عجلان منها
+  quote: ثم أخرجه حسن بن عجلان منها
   note:
     ja: 'حسن بن عجلان ＝ #AIND-D02560（حسن بن عجلان بن رميثة بن أبي نمى … السيد البدر أبو المعالي الحسني、マッカのシャリーフ）。追放した権力者は patron にせず event 内 persName（規則53）。初版の統制外 relation「rival」を置換。'
+  norm: ثم اخرجه حسن بن عجلان منها
 - id: e3
   type: political
   places:
@@ -105,11 +109,10 @@ sources:
   works:
   - ref: TMP-T-00034
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره شيخنا في إنبائه
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版は欠落。
+  trigger: rule
+  phrase: ذكره شيخنا في إنبائه
 notes:
 - text: 初版の honorific「أمير」（職であって名の一部ではない）・residence event（حلي、在職地からの補完）を除去（規則22(1)）。「الحرامي بالمهملتين」はニスバの綴り注記（ḥ・r 無点）。
   lang: ja

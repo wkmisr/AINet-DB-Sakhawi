@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: كمشبغا
+  name_only: كمشبغا
   elements:
   - id: n1
     type: ism
@@ -17,11 +18,10 @@ death:
   places:
   - ref: gn:321062
     quote: البيرة
-  summary:
-    ar: ولم يلبث أن مات بها في أواخر شوال سنة ثمان وستين
   note:
     ja: '868年シャウワール月＝1464-06-16〜07-15（h2g.py）。月精度で @when=1464-06（repo 慣行＝月初。「أواخر」（月末）は実際には1464年7月上旬〜中旬にあたる）。初版の 1463 は誤換算。没地「بها」＝直前の البيرة（照応、規則22(3)。gn:321062 Birecik は repo 先例 #AIND-D02226、ID-Master に Location 行なし＝ISSUES §D160-3）。【集約 2026-11-08】典拠台帳（docs/authority/lookup.py gn:321062）で「Birecik — P.PPLA2 TR」（status ok、wd Q849497、判定は未判定）を確認。地名 البيرة（ユーフラテス河畔のビーラ）と一致するので ref を維持し、ID-Master への Location 行登録を idmaster_actions §4 に回す（オーケストレーター決定19）。'
   quote: سنة
+  phrase: ولم يلبث أن مات بها في أواخر شوال سنة ثمان وستين
 persons:
 - id: p1
   label: والد كمشبغا مملوك بخشباي
@@ -47,6 +47,7 @@ states:
 - id: s1
   type: status
   label: من المماليك السلطانية
+  label_latn: min al-mamālīk al-sulṭāniyya
   quote: من المماليك السلطانية
   note:
     ja: '「ثم صار من المماليك السلطانية」＝主人の死後スルターン直属マムルークとなった（身分）。ID-Master に該当 Office なし＝ref なしの status state（先例 #AIND-D05054 の status）。'
@@ -58,6 +59,7 @@ states:
     quote: قلعة حلب
   dates:
   - ah: 867
+    type: appointment
   quote: نيابة
   note:
     ja: '「ولي نيابة قلعة حلب ببذل للظاهر خشقدم في سنة سبع وستين」＝867年（1462-10-05〜1463-09-23、年精度 1462）。汎用 نائب（TMP-O-00053）＋ラベル、施設 قلعة حلب（wd:Q206231、ID-Master Location）を placeName に（先例 #AIND-D05921・#AIND-D06214）。初版の幻番号 TMP-O-00000、施設名からの placeName حلب（gn:170063）と orgName を除去。'
@@ -75,6 +77,7 @@ events:
   type: political
   date:
     ah: 867
+    type: political
   persons:
   - ref: AIND-D02830
     quote: للظاهر خشقدم
@@ -83,21 +86,19 @@ events:
   - ref: wd:Q206231
     quote: قلعة حلب
   quote: ولي
-  summary:
-    ar: ولي نيابة قلعة حلب ببذل للظاهر خشقدم في سنة سبع وستين
   note:
     ja: 「ببذل للظاهر خشقدم」＝الظاهر خشقدم（#AIND-D02830、頻出確定ID）への献金による任官。主人でないスルターンによる任官は patron にせず event 内 persName（規則53）＝初版の patron relation（幻番号 TMP-P-000000）を除去。867年＝1462-10-05〜1463-09-23 → @when 1462。
   trigger: rule
+  phrase: ولي نيابة قلعة حلب ببذل للظاهر خشقدم في سنة سبع وستين
 - id: e2
   type: political
   places:
   - ref: gn:321062
     quote: البيرة
-  quote: null
-  summary:
-    ar: ثم نقل إلى نيابة البيرة
+  quote: ثم نقل إلى نيابة البيرة
   note:
     ja: 転任。年の記載なし＝初版の when-custom 0868 cert high を除去（規則18 (e)）。
+  norm: ثم نقل الي نيابة البيرة
 notes:
 - text: 初版の residence event（حلب 0867・البيرة 0868）は職の勤務地からの補完のため除去（規則22(1)）。
   lang: ja

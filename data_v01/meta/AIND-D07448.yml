@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن سليمان بن حماد الشمس السكندري الشافعي
+  name_only: محمد بن سليمان بن حماد
   elements:
   - id: n1
     type: nisbah
@@ -17,6 +18,7 @@ name:
     type: shuhrah
     quote: بابن حماد
     norm: ابن حماد
+    label: ابن حماد
   - id: n4
     type: ism
     quote: محمد
@@ -57,6 +59,9 @@ relations:
   passive: AIND-D07448
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00024
+  - TMP-S-00007
   quote: الشمس جنيبات
   note:
     ja: 'الشمس جنيبات＝#AIND-D08403（محمد بن عوض بن عبد الرحمن … الشمس أبو عبد الله السكندري المالكي الفرضي والد شعبان الماضي ويعرف بجنيبات）。ニスバ・ラカブ・通称・専門（فرضي）・息子 شعبان の存在すべてが一致。初版は #NEEDID を2 relation に分けていたものを1本（field 2件）に統合。'
@@ -67,6 +72,9 @@ relations:
   passive: AIND-D07448
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00022
+  - TMP-S-00075
   quote: شعبان ولد الشمس شيخه
   note:
     ar: وفي علم الميقات وكذا في الشروط أخذهما عن شعبان ولد الشمس شيخه وتكسب بها
@@ -76,6 +84,8 @@ relations:
   subtype: father
   active: TMP-P-001157
   passive: AIND-D07448
+  summary:
+    ar: سليمان بن حماد السكندري
   quote: null
   note:
     ja: '見出しナサブ「محمد بن سليمان بن حماد … السكندري」から1段ずらして復元（規則3：祖父名 حماد まで復元可）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001157（⚠汎用名、同名別人への流用禁止）。初版は #NEEDID。祖父 حماد は裸名のため #NEEDID 維持。'
@@ -89,7 +99,9 @@ states:
 - id: s1
   type: status
   label: بارع في الفرائض والحساب
+  label_latn: bāriʿ fī al-farāʾiḍ wa-l-ḥisāb
   quote: null
+  phrase: كان بارعا في الفرائض والحساب
 assessments:
 - id: v1
   quote: خيرا
@@ -103,6 +115,9 @@ affiliations:
 - id: a2
   type: employed
   ref: TMP-I-00166
+  orgs:
+  - label: جامع صفوان
+  - label: Jāmiʿ Ṣafwān
   note:
     ar: وباشر في جامع صفوان
     ja: 'جامع صفوان＝アレクサンドリアのモスク（corpus D03317「ودفن بتربته المنفذة لجامع صفوان」＝同市）。ID-Master 未登録（初版はプレースホルダ #TMP-I-00000）のため新規 TMP-I-00166。職名の明示がない（باشر のみ）ため state は立てず affiliation のみ（規則8）。'
@@ -120,9 +135,9 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وجاور
   summary:
     ar: وكان خيرا حج وجاور
+  quote: وجاور
   note:
     ja: placeName مكة は規則20の例外（حج）。「جاور」には placeName を付けない（規則20）。時期は没（875年）の直前だが原文に年の明示なし。
   trigger: rule

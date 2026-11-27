@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: مبارك بن ميلب بن علي بن مبارك بن رميثة بن أبي نمي الحسني المكي
+  name_only: مبارك بن ميلب بن علي
   elements:
   - id: n1
     type: nisbah
@@ -63,6 +64,7 @@ relations:
   quote: null
   note:
     ja: '規則3・37。父＝corpus 本伝 #AIND-D10112a「ميلب بن علي بن مبارك بن رميئة بن أبي نمي الحسني . مات بخليص في ليلة الجمعة ساد عشرى رجب سنة تسع وثلاثين وحمل إلى مكة فدفن بالحجون بالقرب من قبر خاله وأمه سعدانة ابنة عجلان بن رميثة . أرخه ابن فهد」（839没、repo 収録済み。兄弟項 #AIND-D06133 فارس بن ميلب も同番号を father に使用）。見出しナサブ5代で閉合。初版は father relation なし。'
+  phrase: ميلب بن علي بن مبارك بن رميثة
 - id: r2
   type: kin
   subtype: grandfather
@@ -71,11 +73,14 @@ relations:
   quote: جده
   note:
     ja: '「الماضي جده」＝既出の祖父 ＝ #AIND-D05354「علي بن مبارك بن رميثة بن أبي نمي الحسني المكي ، كان يأمل إمرتها … واستمر هذا بالقاهرة حتى مات في آخر سنة خمس عشرة وهو معتقل بقلعة الجبل ، ذكره الفاسي في مكة مطولا」（815没、repo 未収録）。ナサブ4代一致。初版の #NEEDID を置換。'
+  phrase: علي بن مبارك بن رميثة
 - id: r3
   type: kin
   subtype: sister
   active: AIND-D13814
   passive: AIND-D06449
+  summary:
+    ar: أم المسعود ابنة ميلب
   cert: medium
   quote: null
   note:
@@ -88,24 +93,22 @@ events:
     quote: وادي مر
   - ref: gn:104515
     quote: مكة
-  quote: null
-  summary:
-    ar: وهو قادم إلى مكة من وادي مر
+  quote: وهو قادم إلى مكة من وادي مر
   note:
     ja: 死亡時の状況（ワーディー・マッル（TMP-L-00194）からマッカへ向かう途上）。原文の地名を落とさないため event として置く（規則22(2)）。日付は death と同じだが event 側には写さない（規則18 (e)）。初版の visit event（when-custom 0866-12-29・cert high）を置換。
+  norm: وهو قادم الي مكة من وادي مر
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
     quote: ابن فهد
   quote: أرخه
-  norm: ارخه
-  trigger: rule
-  summary:
-    ar: أرخه ابن فهد
   cert: low
   note:
     ja: 'Pattern A。没年 866 ≤ 871 → ابن فهد 振り分け規則により التقي بن فهد #AIND-D09211、cert low（event 側、規則43）。初版の統制外 relation（subtype other）を置換。'
+  trigger: rule
+  norm: ارخه
+  phrase: أرخه ابن فهد
 notes:
 - text: '同父の兄弟 #AIND-D06133「فارس بن ميلب بن علي بن مبارك بن رميثة بن أبي نمي الشريف الحسني أمه فاطمة ابنة الشريف عنان بن مغامس … مات في رجب سنة ست وسبعين」（repo 収録済み）は本項・相手項とも名指しがないので relation は立てない（父が AIND で共通、規則23）。父の母 سعدانة ابنة عجلان（#AIND-D13238、TMP-P-000950）は本項主の祖母。'
   lang: ja

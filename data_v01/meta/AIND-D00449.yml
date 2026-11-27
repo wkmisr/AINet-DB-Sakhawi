@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: أحمد بن إبراهيم بن محمود بن خليل الشيخ موفق الدين أبو ذر الطرابلسي الحلبي الشافعي
+  name_only: أحمد بن إبراهيم بن محمود
   elements:
   - id: n1
     type: nisbah
@@ -75,7 +76,10 @@ relations:
   subtype: teacher
   active: AIND-D00267
   passive: AIND-D00449
-  methods: []
+  methods:
+  - label: جود | التجويد
+  fields:
+  - wd:Q1817983
   works:
   - ref: TMP-T-00095
   quote: null
@@ -112,7 +116,10 @@ relations:
   subtype: teacher
   active: TMP-P-000648
   passive: AIND-D00449
-  methods: []
+  methods:
+  - label: انتفع
+  fields:
+  - TMP-S-00001
   quote: null
 - id: r6
   type: scholarly
@@ -121,6 +128,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00001
   quote: ابن الأعزازي
   norm: ابن الاعزازي
 - id: r7
@@ -130,6 +139,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00001
   quote: والشمس الملطي
   norm: الشمس الملطي
 - id: r8
@@ -139,6 +150,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00001
   quote: والزين الخرزي
   norm: الزين الخرزي
 - id: r9
@@ -148,6 +161,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00052
   quote: null
 - id: r10
   type: scholarly
@@ -156,6 +171,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00066
   quote: null
 - id: r11
   type: scholarly
@@ -164,6 +181,8 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00066
   quote: وشيخنا
   note:
     ar: ولما كان شيخنا بحلب لازمه واغتبط شيخنا به وأذن له في تدريس الحديث
@@ -175,8 +194,11 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00002
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00002
       quote: الشام
   quote: ابن ناصر الدين
@@ -187,8 +209,11 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00002
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00002
       quote: الشام
   quote: وابن الطحان
@@ -200,8 +225,11 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00066
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00002
       quote: الشام
   quote: وابن الفخر المصري
@@ -213,12 +241,16 @@ relations:
   passive: AIND-D00449
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00066
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00002
       quote: الشام
   quote: وعائشة ابنة ابن الشرائحي
   norm: عاءشة ابنة ابن الشراءحي
+  phrase: عائشة ابنة ابن الشرائحي
 - id: r16
   type: scholarly
   subtype: teacher
@@ -232,6 +264,8 @@ relations:
   subtype: father
   active: AIND-D00267
   passive: AIND-D00449
+  summary:
+    ar: الحافظ البرهان أبو الوفا إبراهيم بن محمود بن خليل
   quote: null
   note:
     ja: 父=سبط ابن العجمي(#AIND-D00267 إبراهيم بن محمد بن خليل البرهان أبو الوفاء الطرابلسي الأصل الحلبي المولد والدار)。本項の「محمود」は版本の異文(D00267はمحمد)。旧TMP-P-000647。
@@ -240,6 +274,8 @@ relations:
   subtype: son
   active: TMP-P-000654
   passive: AIND-D00449
+  summary:
+    ar: أبو بكر
   quote: أبي بكر
   norm: ابو بكر
 states:
@@ -290,52 +326,51 @@ events:
   norm: حجب
 - id: e4
   type: cultural
-  quote: null
   summary:
     ar: تعاني في ابتدائه فنون الأدب فبرع فيها وجمع فيها تصانيف نظما ونثرا ثم أذهبها، ومن ذلك عروس الأفراح فيما يقال في الراح وعقد الدرر واللآل فيما يقال في السلسال وستر الحال فيما قيل في الخال والهلال المستنير في العذار المستدير والبدر إذا استنار فيما قيل في العذار
+  quote: null
   note:
     en: In his youth; he later destroyed these works.
 - id: e5
   type: cultural
-  quote: وشرح
   summary:
     en: compiled a subtle commentary on the ambiguous parts and grammar of صحيح البخاري.
+  quote: وشرح
   trigger: rule
   norm: شرح
 - id: e6
   type: cultural
-  quote: null
   summary:
     ar: وله التوضيح للأوهام الواقعة في الصحيح ومبهمات مسلم وقرة العين في فضل الشيخين والصهرين والسبطين وشرح الشفا والمصابيح ولكنه لم يكمل والذيل على تاريخ ابن خطيب الناصرية وغير ذلك
+  quote: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D00207
     quote: البقاعي
-  quote: وترجمه
-  norm: ترجمه
-  trigger: rule
   summary:
     ar: قال البقاعي وله حافظة عظيمة وملكة في تنميق الكلام... وقال وبيننا مودة وصداقة، وقال أنه مرض في آخر سنة اثنتين وثمانين ثم عوفي... واستمر به ذلك إلى أثناء سنة أربع وثمانين
+  quote: وترجمه
+  trigger: rule
+  norm: ترجمه
 - id: c2
   persons:
   - ref: AIND-D05979
     cert: medium
     quote: ابن فهد
-  quote: قال
-  trigger: rule
   summary:
     ar: وترجمه ابن فهد وغيره من أصحابنا، وأجاز له جماعة باستدعائه
+  quote: قال
+  trigger: rule
 - id: c3
   persons:
   - ref: AIND-D01457
     quote: ابن أبي عذيبة
     norm: ابن ابي عذيبة
   quote: فقال
-  norm: قال
   trigger: rule
-  summary:
-    ar: وكذا وصفه ابن أبي عذيبة في أبيه بالإمام العلامة وسمى بعض تصانيفه
+  norm: قال
+  phrase: وكذا وصفه ابن أبي عذيبة في أبيه بالإمام العلامة وسمى بعض تصانيفه
 notes:
 - text: 晩年は目と精神の病に苦しめられた
   lang: ja

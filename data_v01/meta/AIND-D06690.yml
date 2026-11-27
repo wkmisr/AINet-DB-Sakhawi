@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أحمد بن عبد العزيز بن عبد الله بن الفضل العماد الهاشمي
+  name_only: محمد بن أحمد بن عبد العزيز
   elements:
   - id: n1
     type: nisbah
@@ -38,11 +39,10 @@ death:
   id: d
   date:
     ah: 803
-  summary:
-    ar: مات في الكائنة العظمى مع اللنكية في الأسر سنة ثلاث
   note:
     ja: 「سنة ثلاث」＝803年。一の位のみの年だが、「الكائنة العظمى مع اللنكية」＝ティムール軍によるアレッポの災禍（803年）で世紀が確定するので cert なし（ブリーフ）。803年初＝1400-08-31（h2g.py、年精度）。没地は原文になし。
   quote: سنة
+  phrase: مات في الكائنة العظمى مع اللنكية في الأسر سنة ثلاث
 persons:
 - id: p1
   label: أحمد بن عبد العزيز بن عبد الله بن الفضل
@@ -63,6 +63,8 @@ relations:
   subtype: predecessor
   active: TMP-P-001762
   passive: AIND-D06690
+  summary:
+    ar: أبو الخير الميهني
   quote: الخير الميهني
   note:
     ja: '「وليها بعد أبي الخير الميهني」＝アレッポの شيخ الشيوخ 職の前任者。corpus に本伝なし（全文検索「الميهني」は本項と D06870 の2件のみ）、ID-Master は Nisbah の الميهني（TMP-N-02749）のみ＝クンヤ＋ニスバ＋職の識別要素により仮 TMP-P-001762（規則12）。前任者の職は本項主の state にしない。初版は #NEEDID。'
@@ -71,6 +73,8 @@ relations:
   subtype: possible_identity
   active: AIND-D06870
   passive: AIND-D06690
+  summary:
+    ar: محمد بن أحمد بن محمد بن عبد العزيز بن عبد الله بن الفضل العماد الهاشمي الحلبي
   cert: high
   quote: null
   note:
@@ -91,13 +95,13 @@ events:
   type: political
   date:
     ah: 803
+    type: political
   quote: وليها
-  summary:
-    ar: مات في الكائنة العظمى مع اللنكية في الأسر سنة ثلاث
   note:
     ja: ティムール軍（اللنكية）との大災禍のなかで捕虜となり、そのまま没した。年は原文の「سنة ثلاث」（死と同じ句）。場所は原文になく、初版の placeName حلب（職の勤務地からの補完）を除去（規則22(1)）、cert high も除去、英語 desc を原文に。
   trigger: rule
   norm: ليها
+  phrase: مات في الكائنة العظمى مع اللنكية في الأسر سنة ثلاث
 sources:
 - id: c1
   persons:
@@ -106,11 +110,10 @@ sources:
   works:
   - ref: TMP-T-00034
   quote: قاله
-  trigger: rule
-  summary:
-    ar: قاله شيخنا في إنبائه
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』＝TMP-T-00034）。初版は情報源を death の英語 note と event の desc に書くのみ。
+  trigger: rule
+  phrase: قاله شيخنا في إنبائه
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・アブド・アル＝アズィーズ・ブン・アブド・アッラー・ブン・アル＝ファドル、アル＝イマード・アル＝ハーシミー。アレッポのシャイフ・アッ＝シュユーフ。アブー・アル＝ハイル・アル＝マイハニーの後にその職に就き、しばらく務めた。アレッポの名家の出で、その名士の一人であった。ティムール軍との大災禍のなか、捕らわれの身で（80）3年に没した。私たちの師（イブン・ハジャル）がその『インバー』でこう述べている。
   en: Muḥammad b. Aḥmad b. ʿAbd al-ʿAzīz b. ʿAbd Allāh b. al-Faḍl, al-ʿImād al-Hāshimī. Shaykh al-shuyūkh in Aleppo; he took the office after Abū al-Khayr al-Mayhanī and exercised it for a time. He was of the great houses of the Aleppans and one of its notables. He died in captivity during the great catastrophe with the forces of Timur, in the year [80]3. Our shaykh (Ibn Ḥajar) said this in his Inbāʾ.

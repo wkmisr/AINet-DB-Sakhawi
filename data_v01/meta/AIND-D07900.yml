@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد أبو حامد
+  name_only: محمد بن عبد الهادي بن محمد
   elements:
   - id: n1
     type: kunyah
@@ -20,6 +21,8 @@ relations:
   subtype: father
   active: AIND-D04733
   passive: AIND-D07900
+  summary:
+    ar: عبد الهادي بن أبي اليمن محمد بن أحمد الطبري
   quote: الذي قبله
   note:
     ja: '「أخو الذي قبله」＝直前の項 #AIND-D07899「محمد بن عبد الهادي بن أبي اليمن محمد بن أحمد بن الرضى إبراهيم … الطبري المكي」の兄弟。父祖を直前の項の見出しナサブから復元（規則37）＝父 #AIND-D04733（عبد الهادي بن أبي اليمن محمد … الطبري إمام المقام、未収録）。name_only もナサブから復元。母は原文に記載なし（「أخو」のみで同母か不明）のため立てない。初版なし。'
@@ -28,6 +31,8 @@ relations:
   subtype: brother
   active: AIND-D07899
   passive: AIND-D07900
+  summary:
+    ar: محمد أبو اليمن بن عبد الهادي الطبري
   quote: أخو
   note:
     ja: '「أخو الذي قبله」＝直前の項 #AIND-D07899（cert なし、規則37）。初版の #NEEDID を解消。'
@@ -40,8 +45,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 823
+      type: learning
   quote: ابن الجزري
   note:
     ja: 「سمع من ابن الجزري في سنة ثلاث وعشرين」。ابن الجزري＝#AIND-D09163（頻出確定ID。初版の wd:Q4120093 は人物参照に使わない＝毒wd）。823年＝1420-01-26 開始（年精度 1420）。
@@ -50,10 +57,11 @@ sources:
   persons:
   - ref: AIND-D09211
   quote: ذكره
-  trigger: rule
   cert: low
   note:
     ja: Pattern A。主語は直前の項 D07899 の「بيض له ابن فهد」を受けた ابن فهد（初版の訳はイブン・ハジャルとしたが誤り）。「بيض له」＝没年を白紙で残した＝言及のみ。没年なし→振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。
+  trigger: rule
+  phrase: ذكره وبيض له أيضا
 translation:
   ja: ムハンマド、アブー・ハーミド。前項の者（ムハンマド・アブー・アル＝ヤマン・ブン・アブドゥルハーディー・アッ＝タバリー）の兄弟。823年にイブン・アル＝ジャザリーから聴聞した。彼（イブン・ファハド）は彼にも言及し、同じく（没年を）空白のまま残した。
   en: Muḥammad Abū Ḥāmid, brother of the preceding. He heard from Ibn al-Jazarī in the year 823. He (Ibn Fahd) mentioned him and likewise left a blank (for his death date).

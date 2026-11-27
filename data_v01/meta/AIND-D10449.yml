@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: يوسف بن أحمد الجمال الملكاوي
+  name_only: يوسف بن أحمد
   elements:
   - id: n1
     type: nisbah
@@ -27,11 +28,10 @@ death:
   date:
     ah: 805-10
     cert: medium
-  summary:
-    ar: مات في شوال سنة خمس
   note:
     ja: 「سنة خمس」＝一の位のみの年 → 805、cert medium（標準規則）。805年シャウワール月＝1403-05-03〜05-31（h2g.py）、月精度で @when=1403-05（初版 1402 を訂正）。没地は原文になし（「بدمشق」は「أحد الفضلاء」にかかる）＝初版の placeName دمشق を除去（規則22(1)：居住地を死地に継続させない）。
   quote: سنة
+  phrase: مات في شوال سنة خمس
 persons:
 - id: p1
   label: أحمد
@@ -54,6 +54,7 @@ states:
   quote: null
   note:
     ja: 「درس وخطب」の「خطب」。施設・地名は原文になし＝初版の placeName دمشق を除去（規則22(1)）。
+  phrase: وخطب
 events:
 - id: e1
   type: residence
@@ -61,9 +62,8 @@ events:
   - ref: gn:170654
     quote: بدمشق
     norm: دمشق
-  quote: null
-  summary:
-    ar: أحد الفضلاء بدمشق
+  quote: أحد الفضلاء بدمشق
+  norm: احد الفضلاء بدمشق
 - id: e2
   type: teaching
   quote: درس
@@ -78,11 +78,10 @@ sources:
   works:
   - ref: TMP-T-00034
   quote: قاله
-  trigger: rule
-  summary:
-    ar: قاله شيخنا في إنبائه
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版は death の note に記すのみ＝event を追加。
+  trigger: rule
+  phrase: قاله شيخنا في إنبائه
 notes:
 - text: 「وكان يميل إلى اعتقاد الحنابلة مع الدين والخير」＝ハンバル派の信条（アキーダ）への傾きであって法学派の所属ではない＝madhhab affiliation を立てない。刊本「والخير . .」の重複した句点は原文のまま。
   lang: ja

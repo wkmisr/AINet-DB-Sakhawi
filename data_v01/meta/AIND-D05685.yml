@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: علي بن يوسف بن إسماعيل بن إبراهيم بن علي بن غشم بن محمود بن فهد بن غشم بن عطاف بن ملك بن غشم العلاء العامري البعلي الحنفي
+  name_only: علي بن يوسف بن إسماعيل
   elements:
   - id: n1
     type: nisbah
@@ -89,8 +90,11 @@ relations:
   passive: AIND-D05685
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00002
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:277130
       quote: ببعلبك
       norm: بعلبك
@@ -105,6 +109,8 @@ relations:
   passive: AIND-D05685
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00002
   works:
   - ref: TMP-T-00137
   quote: الجمال يوسف بن عمر بن أحمد بن السقا
@@ -128,12 +134,11 @@ events:
   works:
   - ref: wd:Q886659
   quote: وحدث
-  summary:
-    ar: أخبرتنا به زينب ابنة عمر بن كندي عن المؤيد
   note:
     ja: 『サヒーフ・ムスリム』の上位イスナード。「أخبرتنا」は女性形一人称複数＝女性伝承者 زينب ابنة عمر بن كندي からの伝達。初版はこの2名を一切登録していなかった(要判断§D-11)。
   trigger: rule
   norm: حدث
+  phrase: أخبرتنا به زينب ابنة عمر بن كندي عن المؤيد
 - id: e2
   type: cultural
   subtype: isnad
@@ -146,16 +151,16 @@ events:
     role: author
   works:
   - ref: TMP-T-00137
-  quote: null
-  summary:
-    ar: أنابه أبو حفص عمر بن عبد المنعم بن غدير القواس أذنا عن مؤلفه
+  quote: أنابه أبو حفص عمر بن عبد المنعم بن غدير القواس أذنا عن مؤلفه
   note:
     ja: 「أنابه」の目的語は師 الجمال يوسف بن السقا であり伝主ではない。初版は القواس を伝主の師(relation n=3)として登録しており一世代の取り違えだったため、relationを除去し上位イスナードとして記録(要判断§D-11裁定)。著者 أبو الفتح محمد بن الحافظ عبد الغني も併記。
+  norm: انابه ابو حفص عمر بن عبد المنعم بن غدير القواس اذنا عن مءلفه
 - id: e3
   type: residence
   date:
     ah: 761
     cert: high
+    type: residence
   places:
   - ref: gn:277130
     quote: ببعلبك

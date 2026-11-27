@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عمر بن يحيى بن سليمان البوصيري الغمري الخطيب بن الخطيب
+  name_only: عمر بن يحيى بن سليمان
   elements:
   - id: n1
     type: nisbah
@@ -36,9 +37,13 @@ relations:
   passive: AIND-D06010
   methods:
   - TMP-S-00014
+  fields:
+  - TMP-S-00038
   context:
-  - date:
+  - type: learning
+    date:
       ah: 871
+      type: learning
   quote: ولازمني
   note:
     ja: 「جاور معي في سنة إحدى وسبعين ولازمني في الإملاء وغيره」（規則2 の同型、師＝サハーウィー）。871年にマッカで同時に滞在（مجاورة）し、口述（الإملاء）の会などで師事した。師事の場所は原文に明示されない（حج・جاور の文脈からマッカと推定されるが、規則20・22 により placeName は付けない）。
@@ -50,6 +55,7 @@ relations:
   quote: null
   note:
     ja: '父 يحيى بن سليمان البوصيري الغمري（الخطيب）。corpus يحيى 部に見出しなし（hw.py「يحيى بن سليمان」「البوصيري」）、ID-Master 未登録。祖父名（سليمان）まで復元でき、ニスバ2つ（البوصيري・الغمري）と職（見出し「الخطيب بن الخطيب」により父も説教師）で識別できるため TMP-P-001436 を発行（規則3。検証後訂正 2026-10-10: 校閲は #NEEDID 維持）。'
+  phrase: يحيى بن سليمان البوصيري الغمري
 states:
 - id: s1
   type: office
@@ -60,6 +66,7 @@ states:
 - id: s2
   type: status
   label: فقير
+  label_latn: faqīr
   quote: فقير
 events:
 - id: e1
@@ -67,6 +74,7 @@ events:
   subtype: hajj
   date:
     ah: 871
+    type: religious
   places:
   - ref: gn:104515
   quote: حج
@@ -78,13 +86,13 @@ events:
   subtype: jāwara
   date:
     ah: 871
+    type: residence
   quote: وجاور
-  summary:
-    ar: جاور معي في سنة إحدى وسبعين
   note:
     ja: サハーウィーとともに（マッカに）滞在。جاور には placeName を付けない（規則20）。
   trigger: rule
   norm: جاور
+  phrase: جاور معي في سنة إحدى وسبعين
 - id: e3
   type: cultural
   works:

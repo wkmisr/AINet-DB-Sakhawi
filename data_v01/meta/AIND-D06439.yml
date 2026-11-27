@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: مبارك شاه الظاهري برقوق
+  name_only: مبارك شاه
   elements:
   - id: n1
     type: nisbah
@@ -18,11 +19,10 @@ death:
   id: d
   date:
     ah: 816-09
-  summary:
-    ar: ولزم داره حتى مات في رمضان سنة ست عشر
   note:
     ja: 816年ラマダーン月＝1413-12-04〜1414-01-02（h2g.py）、月精度で @when=1413-12（初版の 1413 は年精度で不一致）。刊本の「ست عشر」は「ست عشرة」の表記揺れ＝816（原文どおり source に残す、規則25）。
   quote: سنة
+  phrase: ولزم داره حتى مات في رمضان سنة ست عشر
 persons:
 - id: p1
   label: والد مبارك شاه الظاهري
@@ -41,6 +41,8 @@ relations:
   subtype: patron
   active: AIND-D02178
   passive: AIND-D06439
+  summary:
+    ar: الظاهر برقوق
   quote: برقوق
   note:
     ja: 主人ニスバ「الظاهري برقوق」＋「كان من أتباعه أولا فلما تسلطن قربه」（規則51・56）。الظاهر برقوق＝#AIND-D02178（頻出確定ID）。初版の毒wd wd:Q3306083（Menthidae）を置換。
@@ -86,29 +88,28 @@ events:
   persons:
   - ref: AIND-D02178
   quote: تسلطن
-  summary:
-    ar: كان من أتباعه أولا فلما تسلطن قربه ثم ولاه الحجوبية ثم الوزارة ثم استادارية وغيرها من الوظائف ككشف الجيزية وولاية الوجه القبلي
   note:
     ja: 主人 الظاهر برقوق（即位 784）による重用と歴任。年の記載なし＝日付属性なし。初版の en desc を原文 desc に。
   trigger: rule
+  phrase: كان من أتباعه أولا فلما تسلطن قربه ثم ولاه الحجوبية ثم الوزارة ثم استادارية وغيرها من الوظائف ككشف الجيزية وولاية الوجه القبلي
 - id: e2
   type: political
-  quote: null
   summary:
     ar: ثم نكبه ولزم داره حتى مات
+  quote: null
   note:
     ja: 失脚（نكبه の主語は برقوق）と自宅蟄居。年の記載なし＝初版の when-custom 0816-09 cert high（没年月の写し）を除去（規則18 (e)）。
 sources:
 - id: c1
   persons:
   - ref: AIND-D09832
+    corresp: wd:Q257745
     quote: العيني
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره العيني وغيره
   note:
     ja: Pattern A。初版の統制外 subtype「biographer」relation（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に変換。「وغيره」は人物を立てない。
+  trigger: rule
+  phrase: ذكره العيني وغيره
 translation:
   ja: ムバーラク・シャー・アッ＝ザーヒリー・バルクーク。初め彼（バルクーク）の従者の一人であったが、彼がスルターンになると側近とし、ハージブ職、次いで宰相職、次いでアスターダール職、そのほかギーザのカーシフ職や上エジプト知事職などの職に任じた。その後（バルクークは）彼を失脚させ、彼は816年ラマダーン月に没するまで自宅に籠もった。アル＝アイニーらが彼に言及している。
   en: Mubārak Shāh al-Ẓāhirī Barqūq. He was at first one of his (Barqūq's) followers; when he became sultan he drew him close, then appointed him to the chamberlainship (ḥujūbiyya), then the vizierate, then the ustādāriyya and other offices such as the kashf of al-Jīza and the governorship of Upper Egypt (al-Wajh al-Qiblī). Then he disgraced him, and he kept to his house until he died in Ramaḍān of the year 816. Al-ʿAynī and others mentioned him.

@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد أبو المكارم الحنبلي
+  name_only: محمد
   elements:
   - id: n1
     type: kunyah
@@ -27,11 +28,10 @@ death:
   - ref: gn:266826
     quote: بطرابلس
     norm: طرابلس
-  summary:
-    ar: ومات بطرابلس من الشام سنة ثلاث وثلاثين
   note:
     ja: 833＝1429-10-09〜1430-09-27 → 年初の 1429（初版 1430 は誤り）。طرابلس الشام＝gn:266826（ID-Master「シリアの」）。
   quote: سنة
+  phrase: ومات بطرابلس من الشام سنة ثلاث وثلاثين
 persons:
 - id: p1
   label: وكذا صحب غيره من الأكابر
@@ -46,6 +46,7 @@ relations:
   - TMP-S-00003
   cert: medium
   quote: ابن الجزري
+  phrase: سمع ابن الجزري
 - id: r2
   type: scholarly
   subtype: teacher
@@ -65,12 +66,15 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 814
+      type: learning
   quote: سنة أربع عشرة الزين المراغي
   note:
     ja: 'الزين المراغي＝#AIND-D10690（الزين أبو بكر بن الحسين المراغي المدني、816年没）。814＝1411-05-04〜1412-04-21（年初 1411）。初版は #NEEDID。'
   norm: سنة اربع عشرة الزين المراغي
+  phrase: وأجاز له في سنة أربع عشرة الزين المراغي
 - id: r4
   type: scholarly
   subtype: teacher
@@ -80,6 +84,8 @@ relations:
   - TMP-S-00034
   - TMP-S-00014
   - TMP-S-00032
+  fields:
+  - wd:Q484181
   quote: وصحب الزين عبد الرحمن أبا شعر ولازمه وتفقه عليه
   note:
     ja: 'الزين عبد الرحمن أبو شعر＝#AIND-D03641（項番235 عبد الرحمن بن سليمان بن أبي الكرم بن سليمان الزين أبو الفرج الدمشقي الصالحي الحنبلي … ويعرف بأبي شعر、780年生）。ID-Master の TMP-P-001071「أبو شعر」は本伝 D03641 に名寄せすべき番号（ISSUES §Dg-4）。初版は #NEEDID の relation 3件（صحب／لازم／تفقه）に分かれていたため1件に統合。クンヤ部 #AIND-D11109 は「ودخل دمشق بعد الثلاثين بيسير ولازم بها أبا شعر وتفقه عليه」とし、師事地はダマスクスだが本項に明記なく placeName は付さない。'
@@ -106,6 +112,8 @@ relations:
   subtype: father
   active: AIND-D04386
   passive: AIND-D07749
+  summary:
+    ar: '[أبوه: العفيف عبد الله بن أحمد بن حسن القسطلاني]'
   cert: medium
   quote: null
   note:
@@ -115,6 +123,8 @@ relations:
   subtype: brother
   active: AIND-D07745
   passive: AIND-D07749
+  summary:
+    ar: أخو الأربعة قبله (الأول)
   quote: null
   note:
     ja: 兄弟＝#AIND-D07745（أبو السعادات الأكبر）。
@@ -123,6 +133,8 @@ relations:
   subtype: brother
   active: AIND-D07746
   passive: AIND-D07749
+  summary:
+    ar: أخو الأربعة قبله (الثاني)
   quote: null
   note:
     ja: 兄弟＝#AIND-D07746（أبو السعادات الأصغر）。
@@ -131,6 +143,8 @@ relations:
   subtype: brother
   active: AIND-D07747
   passive: AIND-D07749
+  summary:
+    ar: وشقيق اللذين قبله (الأول)
   quote: null
   note:
     ja: 同母兄弟＝#AIND-D07747（أبو البقاء）。
@@ -139,6 +153,8 @@ relations:
   subtype: brother
   active: AIND-D07748
   passive: AIND-D07749
+  summary:
+    ar: وشقيق اللذين قبله (الثاني)
   quote: null
   note:
     ja: 同母兄弟＝#AIND-D07748（الجمال أبو الخير）。初版は brother relation なし。
@@ -151,6 +167,7 @@ relations:
   quote: null
   note:
     ja: 'サハーウィー自身の二重立項。クンヤの部 #AIND-D11109（項番471「أبو المكارم بن عبد الله بن أحمد بن حسن بن الزين … القسطلاني المكي الحنبلي ولد بمكة وأمه خديجة ابنة إبرهيم بن أحمد المرشدي … وسمع من خاله الجمال محمد بن إبرهيم وابن الجزري والشمس الشامي … ولازم بها أبا شعر وتفقه عليه … ودخل طرابلس … فمات بها في سنة ثلاث وثلاثين」）と同一人物（母・師・没年・没地が完全一致）→ cert high。B74-78 §D-1 先例により両項とも実項として保持（ISSUES §Dg-2）。D11109 固有の情報: マッカ生、叔父 الجمال محمد بن إبراهيم المرشدي からの聴聞、814年の عائشة ابنة ابن عبد الهادي からのイジャーザ、830年直後のダマスクス入り、الأمير محمد بن منجك との同行。'
+  phrase: وسيأتي في الكنى
 affiliations:
 - id: a1
   type: madhhab
@@ -161,9 +178,9 @@ events:
   places:
   - ref: gn:360630
     quote: القاهرة
-  quote: ودخل
   summary:
     ar: ودخل القاهرة … وأقام بهما مدة
+  quote: ودخل
   trigger: rule
   norm: دخل
 - id: e2
@@ -172,9 +189,9 @@ events:
   - ref: gn:170654
     quote: ودمشق
     norm: دمشق
-  quote: null
   summary:
     ar: ودمشق وأقام بهما مدة
+  quote: null
   note:
     ja: 刊本「بهامدة」＝「بهما مدة」（両地にしばらく滞在）。
 translation:

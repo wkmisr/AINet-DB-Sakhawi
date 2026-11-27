@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن حسن بن حسن بن حسين بن عقبة المدني المالكي
+  name_only: محمد بن حسن بن حسن
   elements:
   - id: n1
     type: nisbah
@@ -14,10 +15,12 @@ name:
     type: shuhrah
     quote: بابن عقبة
     norm: ابن عقبة
+    label: ابن عقبة
   - id: n3
     type: shuhrah
     quote: وبابن حسن
     norm: ابن حسن
+    label: ابن حسن
   - id: n4
     type: ism
     quote: محمد
@@ -79,6 +82,7 @@ relations:
   quote: ابن صديق
   note:
     ja: 'precheck 幻番号の解消: 初版の #TMP-P-000131 は ID-Master 未登録（旧番号、2026-09-07 に #AIND-D00271 へ名寄せ済み）。ابن صديق＝#AIND-D00271（إبراهيم بن محمد بن صديق … برهان الدين الدمشقي الشافعي … نزيل الحرم بل يقال له المجاور بالحرمين ويعرف بابن صديق、719/720年生・806年没、الحجار から『صحيح البخاري』を伝えた著名な伝承者）。マディーナ生まれ（780年頃）の本項主が800年頃アレッポに移る前に両聖地で聴聞したと整合。「الصحيح」＝ابن صديق の伝承で知られる『صحيح البخاري』（wd:Q1023470、precheck の名前不一致は登録名 vs ラテン翻字の見かけ上の不一致）。聴聞地は原文に明示がないため placeName を付けない。field は原文に明示がないため除去。'
+  phrase: وسمع على ابن صديق بعض الصحيح
 - id: r2
   type: kin
   subtype: father
@@ -87,6 +91,7 @@ relations:
   quote: null
   note:
     ja: 父。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001129 を発行。初版は父 relation なし。
+  phrase: حسن بن حسن بن حسين بن عقبة المدني
 assessments:
 - id: v1
   quote: خيرا
@@ -103,12 +108,13 @@ events:
   date:
     ah: 800
     cert: medium
+    type: residence
   places:
   - ref: gn:170063
     quote: حلب
-  quote: فقطنها
   summary:
     ar: نزيل حلب … وقدم حلب على رأس القرن فقطنها
+  quote: فقطنها
   cert: medium
   note:
     ja: 「على رأس القرن」＝800年頃（800-01-01＝1397-10-02、グレゴリオ暦）、cert medium。
@@ -120,16 +126,18 @@ events:
   places:
   - ref: gn:104515
   quote: الحج
-  summary:
-    ar: كثير الحج
   trigger: rule
+  phrase: كثير الحج
 - id: e3
   type: learning
   methods:
   - TMP-S-00003
+  fields:
+  - wd:Q484181
   quote: وسمع
   trigger: rule
   norm: سمع
+  phrase: له اشتغال يسير في الفقه
 notes:
 - text: وكان خيرا محافظا على الجماعة
   lang: ar

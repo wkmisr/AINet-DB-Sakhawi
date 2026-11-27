@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن الأتابك أزبك الظاهري من ططخ
+  name_only: محمد بن أزبك
   elements:
   - id: n1
     type: nisbah
@@ -30,6 +31,7 @@ relations:
   note:
     ja: '父 ＝ #AIND-D01869（أزبك من ططخ الأشرفي ثم الظاهري جقمق、アターベク）。見出しナサブによる同定（規則37）。初版の #NEEDID を解消。'
   norm: ابوه
+  phrase: الأتابك أزبك الظاهري من ططخ
 - id: r2
   type: kin
   subtype: mother
@@ -62,6 +64,7 @@ relations:
   quote: قراجا الخزندار
   note:
     ja: '「وزوجه أبوه ابنة قراجا الخزندار واستولدها عليا」。妻は無名（قراجا の娘）＝関係専用の仮番号 TMP-P-001455 を発行（先例 TMP-P-000685「ابنة تغري بردي」）。corpus 女性部に「ابنة قراجا」の本伝なし。初版の #NEEDID を解消。'
+  phrase: ابنة قراجا الخزندار
 - id: r6
   type: kin
   subtype: father-in-law
@@ -70,6 +73,7 @@ relations:
   quote: null
   note:
     ja: '妻の父 قراجا الخزندار ＝ #AIND-D06325（قراجا الخازندار الظاهري جقمق … خازندارا كبيرا … أتابك الشام … قتل في الوقعة … سنة اثنتين وسبعين）。corpus の قراجا 8件のうち الخازندار はこの1件。subtype father-in-law は repo 既存の統制語彙（24例）。'
+  phrase: قراجا الخزندار
 - id: r7
   type: kin
   subtype: son
@@ -78,11 +82,14 @@ relations:
   quote: null
   note:
     ja: 「واستولدها عليا」。子 علي بن محمد بن أزبك من ططخ（ナサブ復元可）。corpus 本伝なし・ID-Master 未登録 → 新規 TMP-P-001454。初版の汚染番号 TMP-P-000530（登録実体は別人の علي）を是正。
+  phrase: علي
 - id: r8
   type: kin
   subtype: sister
   active: AIND-D13195
   passive: AIND-D07088
+  summary:
+    ar: ستيتة
   cert: medium
   quote: null
   note:
@@ -95,14 +102,17 @@ states:
   note:
     ja: 'ID-Master 既登録 TMP-O-00136（أمير أربعين）。初版の #NEEDID を解消。'
   norm: امير
+  phrase: وصار من أمراء الأربعين
 - id: s2
   type: office
   ref: TMP-O-00329
   dates:
   - ah: 898
+    type: appointment
   quote: null
   note:
     ja: '第一巡礼隊の長。ID-Master に未登録（TMP-O-00296 أمير ركب الرجبية・TMP-O-00134 أمير الحج とは別職）→ 新規 TMP-O-00329。初版の #NEEDID と placeName مكة（職の勤務地、規則22(1)）を除去。898 ＝ 1492-11-01〜1493-10-20、年初 1492。'
+  phrase: وحج أمير ركب الأول سنة ثمان وتسعين
 events:
 - id: e1
   type: political
@@ -115,14 +125,14 @@ events:
   subtype: hajj
   date:
     ah: 898
+    type: religious
   places:
   - ref: gn:104515
   quote: وحج
-  summary:
-    ar: وحج أمير ركب الأول سنة ثمان وتسعين
   note:
     ja: حج の placeName مكة は規則20 の例外。898年の巡礼月（ズー・アル＝ヒッジャ）は 1493-09-22〜10-20 だが原文は年のみのため @when は年初 1492（規則18）。初版の @cert="high" を除去。
   trigger: rule
+  phrase: وحج أمير ركب الأول سنة ثمان وتسعين
 notes:
 - text: '同母の妹 #AIND-D13398「فاطمة ابنة الاتابك أزبك من ططخ الظاهري سبطة الظاهر جقمق ، أمها خديجة」、異母の姉妹 #AIND-D12987「خديجة ابنة الاتابك أزبك الظاهري … امهما فاطمة ابنة الظاهر جقمق」（本項主を名指ししないため relation は立てない、規則23）。本項主を「أخت محمد الماضي لأبيه」と名指しする異母姉妹 #AIND-D13195（ستيتة）は sister relation（cert medium）として立てた（集約）。'
   lang: ja

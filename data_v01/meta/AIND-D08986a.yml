@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن محمد بن عمر بن أبي بكر الشمس الصرخدي الأصل الدمشقي الشافعي المقرئ ويعرف بالصرخدي
+  name_only: محمد بن محمد بن عمر بن أبي بكر
   elements:
   - id: n1
     type: laqab
@@ -19,6 +20,7 @@ name:
     type: shuhrah
     quote: بالصرخدي
     norm: الصرخدي
+    label: الصرخدي
   - id: n5
     type: ism
     quote: محمد
@@ -105,7 +107,8 @@ relations:
   subtype: teacher
   active: AIND-D08986a#p2
   passive: AIND-D08986a
-  methods: []
+  methods:
+  - label: جود
   quote: إسماعيل الحنبلي الدمشقي نزيل صالحيتها
   note:
     ar: وجود القرآن مع قراءة عاصم علي إسماعيل الحنبلي الدمشقي نزيل صالحيتها
@@ -154,6 +157,8 @@ relations:
   passive: AIND-D08986a
   methods:
   - TMP-S-00029
+  fields:
+  - TMP-S-00013
   quote: عمر الطيبي الصالحي الضرير
   note:
     ar: وجمعا للسبع علي عمر الطيبي الصالحي الضرير
@@ -165,6 +170,8 @@ relations:
   passive: AIND-D08986a
   methods:
   - TMP-S-00029
+  fields:
+  - TMP-S-00013
   quote: وخليل اللدي إمام الجامع الأموي
   note:
     ar: وخليل اللدي إمام الجامع الأموي وكانا شافعيين
@@ -217,8 +224,11 @@ relations:
   passive: AIND-D08986a
   methods:
   - TMP-S-00025
+  fields:
+  - label: الفقه
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:104515
       quote: بمكة
       norm: مكة
@@ -241,6 +251,7 @@ relations:
     ar: وابن أمير حاج الحلبي الحنفي رسالة الزين الخافي
     ja: 'ابن أمير حاج الحلبي الحنفي = #AIND-D08746（محمد بن محمد بن الحسن … الشمس الحلبي الحنفي、没879）と推定→cert medium。『رسالة الزين الخافي』の著者 = #AIND-D09164。'
   norm: ابن امير حاج الحلبي الحنفي
+  phrase: ابن أمير حاج الحلبي الحنفي
 - id: r13
   type: scholarly
   subtype: teacher
@@ -297,9 +308,13 @@ relations:
   passive: AIND-D08986a
   methods:
   - TMP-S-00003
+  summary:
+    ar: السخاوي
   context:
-  - date:
+  - type: learning
+    date:
       ah: 894
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
@@ -346,6 +361,7 @@ events:
     norm: مكة
   quote: وحج
   trigger: rule
+  phrase: وحج غير مرة
 - id: e2
   type: residence
   subtype: jāwara
@@ -354,35 +370,33 @@ events:
     quote: بمكة
     norm: مكة
   quote: وجاور
-  summary:
-    ar: وجاور بمكة
   trigger: rule
   norm: جاور
+  phrase: وجاور بمكة
 - id: e3
   type: travel
   places:
   - ref: gn:352261
     quote: مصر
   quote: ودخل
-  summary:
-    ar: ودخل مصر في التجارة وتكرر سفره لجدة بسببها بل له حانوت في بلده
   note:
     ja: 商業でエジプトへ、ジッダへも度々。ダマスクスに店舗を持つ。 / 2026-09-24 Waka 裁定（★3 E6）により placeName を原文どおり「مصر」（gn:352261、ID-Master の مصر）に差し替え（旧 القاهرة gn:360630 は原文 دخل مصر を超える同定）。
   trigger: rule
   norm: دخل
+  phrase: ودخل مصر في التجارة وتكرر سفره لجدة بسببها بل له حانوت في بلده
 - id: e4
   type: religious
   date:
     ah: 893-09
+    type: religious
   places:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  quote: null
-  summary:
-    ar: ولما كنت بمكة في سنة ثلاث وتسعين رأيته يقوم بالناس التراويح في رمضان فكان من أكثر القائمين زحاما لجودة قراءته
+  quote: ولما كنت بمكة في سنة ثلاث وتسعين رأيته يقوم بالناس التراويح في رمضان فكان من أكثر القائمين زحاما لجودة قراءته
   note:
     ja: 893年ラマダーン、マッカでタラーウィーフ礼拝の導師を務め、その朗誦の美しさで最も人を集めた。
+  norm: لما كنت بمكة في سنة ثلاث وتسعين رايته يقوم بالناس التراويح في رمضان فكان من اكثر القاءمين زحاما لجودة قراءته
 notes:
 - text: サハーウィー評：「ونعم الرجل سمتا وعقلا وتوددا وخيرا」。
   lang: ja

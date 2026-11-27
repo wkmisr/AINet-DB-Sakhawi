@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: قانبك الظاهري برقوق
+  name_only: قانبك
   elements:
   - id: n1
     type: nisbah
@@ -18,11 +19,10 @@ death:
   id: d
   date:
     ah: 814
-  summary:
-    ar: قبض الناصر عليه وقتله في سنة أربع عشرة
   note:
     ja: 814年（1411-05-04 開始、年精度）に الناصر فرج に捕えられ処刑された。地名の明記なし。
   quote: سنة
+  phrase: قبض الناصر عليه وقتله في سنة أربع عشرة
 persons:
 - id: p1
   label: والد قانبك الظاهري برقوق
@@ -41,6 +41,8 @@ relations:
   subtype: patron
   active: AIND-D02178
   passive: AIND-D06280
+  summary:
+    ar: الظاهر برقوق
   quote: برقوق
   note:
     ja: 見出し「الظاهري برقوق」および「كان من خاصكيته وممن وثب بعده」＝主人は الظاهر برقوق（#AIND-D02178、801年没）。初版の統制外 subtype「client」・#NEEDID を patron・AIND に是正。
@@ -75,38 +77,37 @@ events:
 - id: e1
   type: political
   quote: وقتله
-  summary:
-    ar: وممن وثب بعده وتأمر باليد في أيام تلك الفتن واستمر في رواج حتى صار مقدما ثم رأس نوبة النوب فلم تطل مدته
   note:
     ja: 「بعده」＝主人バルクークの死（801年）後。初版の when-custom 0801 cert medium は原文に年の明記がないため除去（時期の目安は本 note に留める）。
   trigger: rule
   norm: قتله
+  phrase: وممن وثب بعده وتأمر باليد في أيام تلك الفتن واستمر في رواج حتى صار مقدما ثم رأس نوبة النوب فلم تطل مدته
 - id: e2
   type: political
   date:
     ah: 814
+    type: political
   persons:
   - ref: AIND-D06160
     quote: الناصر
   quote: وقبض
-  summary:
-    ar: وقبض الناصر عليه وقتله في سنة أربع عشرة
   note:
     ja: الناصر＝الناصر فرج（#AIND-D06160、在位801〜815）。バルクークのマムルークで814年に処刑された文脈から一意。初版の rival relation（#NEEDID）を本 event の persName に統合。
   trigger: rule
   norm: قبض
+  phrase: وقبض الناصر عليه وقتله في سنة أربع عشرة
 sources:
 - id: c1
   persons:
   - ref: AIND-D09832
+    corresp: wd:Q257745
     quote: العيني
   quote: وذكره
-  norm: ذكره
-  trigger: rule
-  summary:
-    ar: وذكره العيني باختصار
   note:
     ja: Pattern A（第三者言及）。初版の統制外 relation「chronicled_by」（#NEEDID）を本 event に置換。
+  trigger: rule
+  norm: ذكره
+  phrase: وذكره العيني باختصار
 translation:
   ja: カーンバク・アッ＝ザーヒリー・バルクーク。彼（バルクーク）のハーッサキーヤの一人で、その死後に蜂起し、あの内乱の日々に実力でアミールとなった者の一人。順調に進み、ついにムカッダム、次いでラアス・ナウバト・アン＝ヌワブとなったが、その在任は長く続かず、アン＝ナースィルが彼を捕えて814年に殺した。その行状は褒められたものではなかった。アル＝アイニーが彼について簡潔に記している。
   en: 'Qānbak al-Ẓāhirī Barqūq. He was one of his (Barqūq''s) khāṣṣakiyya and among those who rose up after his death and seized an amirate by force in the days of those disturbances. He went on prospering until he became a muqaddam and then raʾs nawbat al-nuwab, but his tenure was not long: al-Nāṣir seized him and killed him in the year 814. His conduct was not praiseworthy. Al-ʿAynī mentioned him briefly.'

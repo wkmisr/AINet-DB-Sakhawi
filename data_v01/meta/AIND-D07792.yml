@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن عبد الله بن عبد الله الشمس أبو عبد الله ثم الدمشقي الحنبلي
+  name_only: محمد بن عبد الله بن عبد الله
   elements:
   - id: n1
     type: nisbah
@@ -41,6 +42,8 @@ relations:
   subtype: father
   active: TMP-P-001211
   passive: AIND-D07792
+  summary:
+    ar: عبد الله بن عبد الله الدمشقي الحنبلي
   quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。
@@ -51,9 +54,13 @@ relations:
   passive: AIND-D07792
   methods:
   - TMP-S-00025
+  fields:
+  - TMP-S-00002
   context:
-  - date:
+  - type: learning
+    date:
       ah: 839-01
+      type: learning
     places:
     - ref: gn:170063
       quote: حلب
@@ -63,6 +70,7 @@ relations:
   quote: البرهان الحلبي
   note:
     ja: 'البرهان الحلبي の引用文中の「فقرأ على」は人名を伴わないため「عليّ（私＝البرهان الحلبي に）」と読む（B87 §D-18 先例）。師＝#AIND-D00267（إبراهيم بن محمد بن خليل البرهان أبو الوفاء … الحلبي … سبط ابن العجمي）。初版の #NEEDID relation 2件を1件に統合。『مشيخة الفخر』＝ TMP-T-00004（ID-Master 登録。الفخر بن البخاري の mashyakha）。読誦は 839-01-10 の来訪から 25 日の帰途までの間のため月精度。'
+  phrase: فقرأ على سنن ابن ماجه ومشيخة الفخر
 - id: r3
   type: social
   subtype: other
@@ -71,6 +79,7 @@ relations:
   quote: محبي التقي بن تيمية
   note:
     ja: 「タキー・アッ＝ディーン・イブン・タイミーヤ（728 没）の敬慕者」。初版の wd:Q11025、校閲で置いた wd:Q311637 はいずれも誤りで、2026-09-24 Waka 裁定（★6-1、Wikidata 照合）によりイブン・タイミーヤ＝wd:Q491558 に差し替えた。統制外 subtype「admirer」を other に。
+  phrase: من محبي التقي بن تيمية
 affiliations:
 - id: a1
   type: madhhab
@@ -80,34 +89,34 @@ events:
   type: travel
   date:
     ah: 839-01-10
+    type: travel
   places:
   - ref: gn:170063
     quote: حلب
   quote: قدم
-  summary:
-    ar: قدم حلب في عاشر المحرم سنة تسع وثلاثين
   trigger: rule
+  phrase: قدم حلب في عاشر المحرم سنة تسع وثلاثين
 - id: e3
   type: travel
   date:
     ah: 839-01-25
+    type: travel
   places:
   - ref: gn:170654
     quote: دمشق
   quote: عاد
-  summary:
-    ar: ثم عاد إلى جهة دمشق في خامس عشريه
   trigger: rule
+  phrase: ثم عاد إلى جهة دمشق في خامس عشريه
 sources:
 - id: c1
   persons:
   - ref: AIND-D00267
-  quote: ترجمه
-  trigger: rule
   summary:
     ar: 'ترجمه البرهان الحلبي فقال : إنسان حسن حنبلي أصلا وفرعا من محبي التقي بن تيمية … كتب الله سلامته'
+  quote: ترجمه
   note:
     ja: Pattern A。初版の統制外 subtype「chronicled by」relation（#NEEDID）を mention event に変換。本項の本文はほぼ全文が البرهان الحلبي からの引用。
+  trigger: rule
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・アブドゥッラー、アッ＝シャムス・アブー・アブドゥッラー、のちにアッ＝ディマシュキー、ハンバル派の法学者にして読誦家。アル＝ブルハーン・アル＝ハラビーが彼の伝記を記して次のように述べた。「素性も学統もハンバル派の善良な人物で、タキー・アッ＝ディーン・イブン・タイミーヤの敬慕者の一人。（8）39年ムハッラム月10日にアレッポに来て、私に『イブン・マージャのスナン』と『ファフルのマシュヤハ』を読誦し、同月25日にダマスカス方面へ帰った。アッラーが彼の無事を定めたまわんことを。」
   en: 'Muḥammad b. ʿAbd Allāh b. ʿAbd Allāh, al-Shams Abū ʿAbd Allāh, then al-Dimashqī, the Ḥanbalī jurist and Qurʾān reciter. Al-Burhān al-Ḥalabī wrote his biography, saying: "A good man, Ḥanbalī by origin and by training, one of the admirers of al-Taqī Ibn Taymiyya. He came to Aleppo on 10 Muḥarram (8)39 and read to me the Sunan of Ibn Māja and the Mashyakha of al-Fakhr, then returned towards Damascus on the 25th of the same month. May God decree his safety."'

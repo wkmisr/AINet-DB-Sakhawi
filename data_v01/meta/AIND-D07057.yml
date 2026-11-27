@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أحمد ناصر الدين المصري الشافعي
+  name_only: محمد بن أحمد
   elements:
   - id: n1
     type: nisbah
@@ -17,6 +18,7 @@ name:
     type: shuhrah
     quote: بالسخاوي
     norm: السخاوي
+    label: السخاوي
   - id: n4
     type: ism
     quote: محمد
@@ -78,21 +80,24 @@ relations:
   methods:
   - TMP-S-00006
   context:
-  - date:
+  - type: learning
+    date:
       notBefore: 770
       notAfter: 779
-    summary:
-      ar: حضر دروسه ودروس غيره
+      type: learning
+    phrase: حضر دروسه ودروس غيره
   works:
   - ref: TMP-T-00095
   quote: كالجمال الاسنائي
   note:
     ja: 「حفظ القرآن وكتبا وعرضها في عشر السبعين على جماعة من علماء القاهرة كالجمال الاسنائي وحضر دروسه ودروس غيره」。الجمال الاسنائي＝الجمال الأسنوي（wd:Q25453579、ID-Master 登録。772年没）。「عشر السبعين」＝770年代（770〜779）。カイロの学者たちへの عرض だが場所は明示されないため placeName は付けない（規則22(1)。初版の placeName القاهرة・field القراءات（原文にない）を除去）。
   norm: الجمال الاسناءي
+  phrase: الجمال الاسنائي
 states:
 - id: s1
   type: status
   label: كانت فيه نباهة ويذاكر بفوائد حسنة
+  label_latn: kānat fīhi nabāha wa-yudhākiru bi-fawāʾid ḥasana
   quote: وكانت فيه نباهة ويذاكر بفوائد حسنة
   norm: كانت فيه نباهة ويذاكر بفواءد حسنة
 affiliations:
@@ -106,9 +111,7 @@ events:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  quote: null
-  summary:
-    ar: جاور بمكة غير مرة
+  quote: جاور بمكة غير مرة
   note:
     ja: 初版の統制外 subtype「jāwara」を除去。
 sources:
@@ -119,11 +122,10 @@ sources:
   works:
   - ref: TMP-T-00037
   quote: قاله
-  trigger: rule
-  summary:
-    ar: قاله الفاسي في مكة
   note:
     ja: Pattern A。الفاسي＝التقي الفاسي（#AIND-D06757。初版の幻番号 TMP-P-000603 は名寄せ済み）、「مكة」＝TMP-T-00037『تاريخ مكة』（『العقد الثمين』）。初版の統制外 subtype「biographical source」relation を event に変換。
+  trigger: rule
+  phrase: قاله الفاسي في مكة
 notes:
 - text: '「وهو غير الماضي فيمن جده على」＝祖父 علي の見出し #AIND-D06772「محمد بن أحمد بن علي ناصر الدين المقدسي نزيل مكة ويعرف بالسخاوى」とは別人であるとサハーウィーが明記（possible_identity は立てない、ブリーフ指定）。'
   lang: ja

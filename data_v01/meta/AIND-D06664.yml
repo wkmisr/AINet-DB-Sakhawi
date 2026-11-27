@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أحمد بن دينار الفقيه جمال الدين المكي
+  name_only: محمد بن أحمد بن دينار
   elements:
   - id: n1
     type: nisbah
@@ -37,11 +38,10 @@ death:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  summary:
-    ar: ومات بمكة في المحرم سنة ثلاث وأربعين
   note:
     ja: 843年ムハッラム月＝1439-06-23 開始（h2g.py、月精度）。初版の @when 1439 を月精度に。
   quote: سنة
+  phrase: ومات بمكة في المحرم سنة ثلاث وأربعين
 persons:
 - id: p1
   label: أحمد بن دينار
@@ -65,8 +65,10 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 807
+      type: learning
   quote: الشهاب الجوهري
   note:
     ja: 「أجاز له في سنة سبع وثمانمائة الشهاب الجوهري وعبد الكريم بن محمد الحلبي وأبو اليمن الطبري وعائشة ابنة محمد بن عبد الهادي وغيرهم」（規則55。「وغيرهم」は立てない）。807年初＝1404-07-19（h2g.py、年精度）。الشهاب الجوهري＝#AIND-D01126「أحمد بن عمر بن علي … الشهاب أبو العباس البغدادي ثم الدمشقي القاهري الشافعي ويعرف بالجوهري … مات في ربيع الأول سنة تسع」（ID-Master 登録どおり、本文で確認）。初版は event/@when にヒジュラ年「0807」を入れていた（4本とも）。
@@ -78,12 +80,15 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 807
+      type: learning
   quote: وعبد الكريم بن محمد الحلبي
   note:
     ja: 'corpus 本伝 #AIND-D04282「عبد الكريم بن محمد بن عبد الكريم بن عبد النور بن منير القطب ابن المحدث التقي بن الحافظ القطب الحلبي الأصل المصري ويعرف بابن الحلبي . ولد سنة ست وثلاثين وسبعمائة … مات يوم الاثنين ثامن رجب سنة تسع」（名＋父名＋ニスバ・年代で閉合。hw.py「عبد الكريم بن محمد」＋「الحلبي」の見出しはこの1件。マッカ人へのイジャーザの常連＝#AIND-D04284「أجاز له … وعبد الكريم حفيد القطب الحلبي」）。初版は #NEEDID。ID-Master の TMP-P-000323「عبد الكريم بن محمد ابن القطب الحلبي」（Note 空、repo 使用 D00134）は同じ人物＝名寄せ要（ISSUES §D173-1）。'
   norm: عبد الكريم بن محمد الحلبي
+  phrase: عبد الكريم بن محمد الحلبي
 - id: r4
   type: scholarly
   subtype: teacher
@@ -92,11 +97,14 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 807
+      type: learning
   quote: اليمن الطبري
   note:
     ja: '#AIND-D06599「محمد بن أحمد بن الرضي إبراهيم … الأمين وقال المقريزي : الزين أبو اليمن … الطبري المكي الشافعي … ولد سنة ثلاثين وسبعمائة بمكة … مات في صفر سنة تسع بمكة」（頻出確定ID、本文で年代を確認）。'
+  phrase: أبو اليمن الطبري
 - id: r5
   type: scholarly
   subtype: teacher
@@ -105,12 +113,15 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 807
+      type: learning
   quote: وعائشة ابنة محمد بن عبد الهادي
   note:
     ja: '女性部の本伝 #AIND-D13339「عائشة ابنة محمد بن عبد الهادي بن عبد الحميد بن عبد الهادي … مسندة الدنيا أم محمد القرشي العمري المقدسي الصالحي ؛ ولدت في رمضان سنة ثلاث وعشرين وسبعمائة」（名＋父名＋祖父名で閉合、ID-Master 登録「عائشة ابنة ابن عبد الهادي」）。初版は #NEEDID。'
   norm: عاءشة ابنة محمد بن عبد الهادي
+  phrase: عائشة ابنة محمد بن عبد الهادي
 states:
 - id: s1
   type: office
@@ -127,12 +138,11 @@ sources:
   - ref: AIND-D09211
     quote: ابن فهد
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره ابن فهد
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 843（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版は subtype other の relation。
+  trigger: rule
+  phrase: ذكره ابن فهد
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ディーナール、法学者ジャマール・アッ＝ディーン・アル＝マッキー。（カアバの）階段の奉仕者の一人。807年に、アッ＝シハーブ・アル＝ジャウハリー、アブド・アル＝カリーム・ブン・ムハンマド・アル＝ハラビー、アブー・アル＝ユムン・アッ＝タバリー、アーイシャ・ビント・ムハンマド・ブン・アブド・アル＝ハーディーらが彼にイジャーザを与えた。（8）43年ムハッラム月にマッカで没した。イブン・ファハドが彼に言及している。
   en: Muḥammad b. Aḥmad b. Dīnār, the jurist Jamāl al-Dīn al-Makkī, one of the attendants of the staircase [of the Kaʿba]. In the year 807 al-Shihāb al-Jawharī, ʿAbd al-Karīm b. Muḥammad al-Ḥalabī, Abū al-Yumn al-Ṭabarī, ʿĀʾisha bt. Muḥammad b. ʿAbd al-Hādī and others granted him an ijāza. He died in Mecca in al-Muḥarram of the year [8]43. Ibn Fahd mentioned him.

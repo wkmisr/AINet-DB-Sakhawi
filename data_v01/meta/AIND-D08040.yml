@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن علي بن أبي بكر بن أحمد بن علوش الدمشقي الزهري
+  name_only: محمد بن علي بن أبي بكر
   elements:
   - id: n1
     type: nisbah
@@ -40,19 +41,17 @@ birth:
   id: b
   date:
     notAfter: 769
-  summary:
-    ar: ولد قبل سنة سبعين وسبعمائة
   note:
     ja: 「قبل سنة سبعين وسبعمائة」→ notAfter-custom=769（規則18：قبل N は N−1、notAfter はその年末 769＝1368-08-23）。
+  phrase: ولد قبل سنة سبعين وسبعمائة
 death:
   id: d
   date:
     ah: 840
     cert: low
-  summary:
-    ar: مات قريب الأربعين أو قبلها
   note:
     ja: 「قريب الأربعين أو قبلها」＝840年頃またはそれ以前（規則4、when-custom=840、cert low。「أو قبلها」の留保は本 note）。840＝1436-07-25〜1437-07-13（年精度→1436）。
+  phrase: مات قريب الأربعين أو قبلها
 persons:
 - id: p1
   label: علي بن أبي بكر بن أحمد بن علوش الدمشقي
@@ -75,11 +74,14 @@ relations:
   passive: AIND-D08040
   methods:
   - TMP-S-00003
+  fields:
+  - TMP-S-00002
   works:
   - ref: TMP-T-00247
   quote: المحب الصامت
   note:
     ja: 'المحب الصامت ＝ TMP-P-000411（ID-Master 登録済み、repo 多数で使用。ダマスカスの8世紀ムハッディス）。「مسند عثمان من أبي يعلى」＝أبو يعلى الموصلي の『المسند』中の عثمان بن عفان 伝承部分（corpus D02621「قطعة من أول مسند عثمان من مسند أبي يعلى」で確認）。ID-Master に『مسند أبي يعلى』未登録（أمالي／عوالي أبي يعلى は別書）→ TMP-T-00247。初版の bibl は #NEEDID。'
+  phrase: وسمع من لفظ المحب الصامت قطعة من مسند عثمان من أبي يعلى
 - id: r3
   type: scholarly
   subtype: teacher
@@ -90,6 +92,7 @@ relations:
   quote: النجم بن فهد
   note:
     ja: '「أخذ عنه النجم بن فهد」＝本項主が師（active）、النجم بن فهد ＝ #AIND-D05979（عمر بن محمد بن محمد بن فهد النجم、812–885。原文が「النجم」と明示するため没年振り分けは適用しない、先例 D04428・D04567）。初版は passive #NEEDID。'
+  phrase: وأخذ عنه النجم بن فهد
 states:
 - id: s1
   type: office

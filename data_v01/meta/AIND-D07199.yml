@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن عبد الكريم الشمس المقدسي
+  name_only: محمد بن أبي بكر بن عبد الكريم
   elements:
   - id: n1
     type: nisbah
@@ -17,6 +18,7 @@ name:
     type: shuhrah
     quote: بابن كريم
     norm: ابن كريم
+    label: ابن كريم
   - id: n4
     type: ism
     quote: محمد
@@ -64,8 +66,8 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - summary:
-      ar: سمع من الصدر الميدومي مشيخته تخريج الحسيني وأولها المسلسل
+  - type: learning
+    phrase: سمع من الصدر الميدومي مشيخته تخريج الحسيني وأولها المسلسل
   works:
   - ref: TMP-T-00240
   - ref: TMP-T-00019
@@ -79,11 +81,14 @@ relations:
   passive: TMP-P-000418
   methods:
   - TMP-S-00004
+  summary:
+    ar: أولاد ابن حجر
   context:
-  - date:
+  - type: teaching
+    date:
       ah: 821
-    summary:
-      ar: أجاز لأولادي في سنة إحدى وعشرين
+      type: teaching
+    phrase: أجاز لأولادي في سنة إحدى وعشرين
   quote: null
   note:
     ja: 'イブン・ハジャル『معجم』の引用「أجاز لأولادي」＝本項主がイブン・ハジャルの子らにイジャーザを授与（821年＝1418）。受け手は先例 #AIND-D07001・D00060 どおり ID-Master 既登録 TMP-P-000418「أولاد ابن حجر」。方向: active＝授与者（本項主）。初版の subtype student（逆向き）を是正。'
@@ -118,6 +123,7 @@ states:
 - id: s3
   type: status
   label: كان عاميا صدوق اللهجة
+  label_latn: kāna ʿāmmiyyan ṣadūq al-lahja
   cert: medium
   quote: وكان عاميا صدوق اللهجة
   note:
@@ -131,6 +137,7 @@ events:
     ja: 「الفضلاء」（不特定の学者たち）は相手が描写されない集合のため relation を立てない（規則14、先例 D04475）。初版の TMP-P-000183 への student relation を除去。
   trigger: rule
   norm: حدث
+  phrase: وحدث سمع منه الفضلاء
 sources:
 - id: c1
   persons:
@@ -139,12 +146,11 @@ sources:
   works:
   - ref: TMP-T-00104
   quote: وذكره
-  norm: ذكره
-  trigger: rule
-  summary:
-    ar: 'قال شيخنا في معجمه : وكان خادم قبة المعراج بالمسجد الأقصى أجاز لأولادي في سنة إحدى وعشرين'
   note:
     ja: Pattern A。「في معجمه」＝『المجمع المؤسس』TMP-T-00104。初版の subtype other relation（イブン・ハジャル）を event 化。
+  trigger: rule
+  norm: ذكره
+  phrase: 'قال شيخنا في معجمه : وكان خادم قبة المعراج بالمسجد الأقصى أجاز لأولادي في سنة إحدى وعشرين'
 - id: c2
   persons:
   - ref: wd:Q293604
@@ -152,12 +158,11 @@ sources:
   works:
   - ref: TMP-T-00122
   quote: وقال
-  norm: قال
-  trigger: rule
-  summary:
-    ar: وذكره المقريزي في عقوده وقال أنه ولد بغزة بعد الثلاثين وسبعمائة وكان عاميا صدوق اللهجة . مات سنة إحدى وعشرين كذا قال
   note:
     ja: 'Pattern A。المقريزي＝wd:Q293604、عقوده＝TMP-T-00122。初版の #NEEDID relation（other）を event 化。'
+  trigger: rule
+  norm: قال
+  phrase: وذكره المقريزي في عقوده وقال أنه ولد بغزة بعد الثلاثين وسبعمائة وكان عاميا صدوق اللهجة . مات سنة إحدى وعشرين كذا قال
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アブドゥルカリーム、アッ＝シャムス・アル＝マクディスィー、同地（聖地）の薬種商（アッタール）。縮小形でイブン・クライムとして知られる。アッ＝サドル・アル＝マイドゥーミーから、アル＝フサイニー編の同人の『マシュヤハ（師名録）』——その冒頭は『ムサルサル』である——を聴聞し、伝承した。学者たち（フダラー）が彼から聴聞した。我らが師（イブン・ハジャル）は『ムウジャム』で言う。「彼はアクサー・モスクの昇天のドーム（クッバト・アル＝ミウラージュ）の奉仕者（ハーディム）で、（8）21年に私の子らにイジャーザを授けた」。アル＝マクリーズィーは『ウクード』で彼に言及し、730年より後にガザで生まれ、一般人（アーンミー）であったが語り口は誠実であった、と述べている。（8）21年に没した——彼（マクリーズィー）はそう言っている。
   en: 'Muḥammad b. Abī Bakr b. ʿAbd al-Karīm, al-Shams al-Maqdisī, the druggist (al-ʿaṭṭār) there, known as Ibn Kurayyim in the diminutive. He heard from al-Ṣadr al-Maydūmī the latter''s Mashyakha compiled (takhrīj) by al-Ḥusaynī, the first item of which is al-Musalsal, and he transmitted; the learned heard from him. Our shaykh (Ibn Ḥajar) said in his Muʿjam: "He was the custodian (khādim) of the Dome of the Ascension (Qubbat al-Miʿrāj) in the Aqṣā Mosque; he granted an ijāza to my children in the year (8)21." Al-Maqrīzī mentioned him in his ʿUqūd and said that he was born in Gaza after 730, and that he was a commoner (ʿāmmī) of truthful speech. He died in the year (8)21 — so he (al-Maqrīzī) said.'

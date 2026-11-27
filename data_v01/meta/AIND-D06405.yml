@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: كمشبغا الأحمدي الظاهري برقوق
+  name_only: كمشبغا
   elements:
   - id: n1
     type: nisbah
@@ -23,11 +24,10 @@ death:
   id: d
   date:
     ah: 838-03-11
-  summary:
-    ar: مات في ليلة الاثنين حادي عشر ربيع الأول سنة ثمان وثلاثين كما أرخه العيني وهو في عشر الستين
   note:
     ja: 838年ラビーウ第一月11日＝1434-10-24（h2g.py。h2g の曜日は金曜で原文の「ليلة الاثنين」と合わないが、曜日は暦の判別に使わない、規則18）。「وهو في عشر الستين」＝50代（年齢表現、規則59(d)）＝生年は作らない。
   quote: سنة
+  phrase: مات في ليلة الاثنين حادي عشر ربيع الأول سنة ثمان وثلاثين كما أرخه العيني وهو في عشر الستين
 persons:
 - id: p1
   label: والد كمشبغا الأحمدي الظاهري
@@ -46,6 +46,8 @@ relations:
   subtype: patron
   active: AIND-D02178
   passive: AIND-D06405
+  summary:
+    ar: الظاهر برقوق
   quote: برقوق
   note:
     ja: 「من أصاغر مماليكه」＝主人ニスバ「الظاهري برقوق」の الظاهر برقوق（#AIND-D02178、頻出確定ID）の年少のマムルーク（規則51）。初版の幻番号 TMP-P-000000 を置換。
@@ -70,6 +72,7 @@ events:
     ja: المؤيد＝المؤيد شيخ（#AIND-D03345、没824）。その死後にアミールとなった。原文に年の記載はなく、他項の没年から年を写さない（規則18 v13.44(e)）＝初版の when-custom 0824 cert medium を除去。
   trigger: rule
   norm: تامر
+  phrase: تأمر بعد موت المؤيد
 - id: e2
   type: political
   persons:
@@ -77,23 +80,22 @@ events:
     quote: الأشرف
     norm: الاشرف
   quote: استقر
-  summary:
-    ar: ثم استقر به الأشرف رءوس النوب وساق المحمل باشا
   note:
     ja: 任官者 الأشرف＝المؤيد شيخ の死（824）と本項主の没年（838）の間に在位した الأشرف برسباي（#AIND-D02168、在位825–841）。主人ではないスルターンによる任官は patron にせず event 内 persName（規則53）。年の記載なし＝日付属性なし。
   trigger: rule
+  phrase: ثم استقر به الأشرف رءوس النوب وساق المحمل باشا
 sources:
 - id: c1
   persons:
   - ref: AIND-D09832
+    corresp: wd:Q257745
     quote: العيني
   quote: أرخه
-  norm: ارخه
-  trigger: rule
-  summary:
-    ar: كما أرخه العيني
   note:
     ja: 'Pattern A。初版の統制外 subtype「chronicler」relation（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に変換（先例 #AIND-D02894・#AIND-D10025）。'
+  trigger: rule
+  norm: ارخه
+  phrase: كما أرخه العيني
 notes:
 - text: 「تركي الجنس」はトルコ系という出自の記述で見出しの名の一部ではないため、初版の persName nisbah「التركي」（TMP-N-00232）を除去し訳文に留めた。「وكان خفيف اللحية شهما قوي النفس مقداما له قدرة على بغض الجراكسة」は人物評＝訳文のみ。
   lang: ja

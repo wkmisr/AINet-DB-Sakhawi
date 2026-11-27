@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن محمد بن أبي بكر بن الحسين الكمال أبو الفضل حفيد أبي الفرج بن الزين المراغي الأصل المدني
+  name_only: محمد بن أبي بكر بن محمد
   elements:
   - id: n1
     type: nisbah
@@ -89,6 +90,8 @@ relations:
   subtype: father
   active: AIND-D10818
   passive: AIND-D07234
+  summary:
+    ar: أبو بكر بن محمد بن أبي بكر بن الحسين المراغي
   quote: والده
   note:
     ja: 父＝#AIND-D10818「أبو بكر بن محمد بن الزين أبي بكر بن الحسين بن عمر الزين بن ناصر الدين أبي الفرج بن الزين العثماني المراغي المدني الشافعي أخو محمد ووالد الكمال أبي الفضل محمد الماضيين … ومات بداء البرسام في شهر ربيع الأول سنة ثمان وخمسين」（クンヤ部、未受領）。見出しナサブと「والد الكمال أبي الفضل محمد」・没年858（本項「سنة مات والده」）が一致（規則37）。初版の汚染番号 TMP-P-000064（أبو بكر 汎用）を解消。
@@ -97,6 +100,8 @@ relations:
   subtype: grandfather
   active: AIND-D07182
   passive: AIND-D07234
+  summary:
+    ar: أبو الفرج محمد بن أبي بكر بن الحسين المراغي
   quote: null
   note:
     ja: 「حفيد أبي الفرج بن الزين المراغي … الماضي جده」＝#AIND-D07182（محمد ناصر الدين أبو الفرج … ولد في صفر سنة ست وثمانمائة بالمدينة）。曾祖父 الزين أبو بكر بن الحسين المراغي＝#AIND-D10690 は relation にせず note のみ。
@@ -113,6 +118,8 @@ relations:
   subtype: daughter
   active: AIND-D13609
   passive: AIND-D07234
+  summary:
+    ar: مريم
   cert: medium
   quote: null
   note:
@@ -134,34 +141,33 @@ events:
   - ref: TMP-L-00039
     quote: الهند
   quote: وسافر
-  summary:
-    ar: وسافر إلى الهند فدام مدة
   trigger: rule
   norm: سافر
+  phrase: وسافر إلى الهند فدام مدة
 - id: e3
   type: other
   date:
     notBefore: 888
     notAfter: 889
-  quote: null
-  summary:
-    ar: ثم قدم في سنة ثمان أو تسع وثمانين
+    type: other
+  quote: ثم قدم في سنة ثمان أو تسع وثمانين
   note:
     ja: 帰還先は原文に明記なし（placeName を置かない。初版は المدينة を補っていた）。888年＝1483-02-18〜1484-02-07、889年＝1484-02-08〜1485-01-26 → notBefore 1483／notAfter 1485（年精度）。
+  norm: ثم قدم في سنة ثمان او تسع وثمانين
 - id: e4
   type: travel
   date:
     notAfter: 894
+    type: travel
   places:
   - ref: TMP-L-00038
     quote: بالروم
     norm: الروم
   quote: دخلها
-  summary:
-    ar: وكان دخلها لقبض أوقافهم
   note:
     ja: ルームに入った年は明記されないが「فمات بها سنة أربع وتسعين」から没年と同年以前。【集約 2026-10-25】894 は没年であり入国年ではないので、校閲時の when-custom 0894 を notAfter-custom 0894（年末 1489-12-03 → 年精度 1489、h2g.py）に改めた（日付の作り込みの解消、内容B[9]）。
   trigger: rule
+  phrase: وكان دخلها لقبض أوقافهم
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アル＝フサイン、アル＝カマール・アブー・アル＝ファドル、アブー・アル＝ファラジュ・ブン・アッ＝ザイン・アル＝マラーギーの孫。マラーガに出自をもち、マディーナの人。その祖父は前述。858年、父がマディーナで没した年に生まれ、そこで育ち、祖父と、祖父の兄弟の娘であるファーティマ・ビント・アビー・アル＝ヤマン・アル＝マラーギーから聴聞した。インドへ旅してしばらく滞在し、その後888年あるいは889年に戻ってきた。ルーム（アナトリア）で没した。彼らのワクフ（の収益）を徴収するためにそこへ入っており、894年にそこで没した。息子アブド・アル＝ハフィーズを遺した。
   en: 'Muḥammad b. Abī Bakr b. Muḥammad b. Abī Bakr b. al-Ḥusayn, al-Kamāl Abū al-Faḍl, grandson of Abū al-Faraj b. al-Zayn al-Marāghī, of Marāgha origin, the Medinan; his grandfather has been mentioned above. He was born in 858, the year his father died in Medina, and grew up there. He heard from his grandfather and from his grandfather''s brother''s daughter, Fāṭima bt. Abī al-Yaman al-Marāghī. He travelled to India and stayed there for a while, then came back in 888 or 889. He died in al-Rūm (Anatolia): he had entered it to collect their endowments, and died there in 894. He left a son, ʿAbd al-Ḥafīẓ.'

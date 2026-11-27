@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن علي بن محمد الشمس بن النور
+  name_only: محمد بن علي بن محمد
   elements:
   - id: n1
     type: laqab
@@ -30,10 +31,9 @@ death:
   date:
     ah: 870
     cert: low
-  summary:
-    ar: مات قريب السبعين ظنا
   note:
     ja: 「قريب السبعين ظنا」＝870年頃と推定（規則4「قريب الN」型＝when-custom=870、推定「ظنا」を重ねて cert low）。870年初＝1465-09-02（h2g.py、年精度）。初版は cert なし。
+  phrase: مات قريب السبعين ظنا
 persons:
 - id: p1
   label: النور علي بن محمد
@@ -56,6 +56,8 @@ relations:
   passive: AIND-D08187
   methods:
   - TMP-S-00003
+  summary:
+    ar: ابن حجر
   quote: شيخنا
   note:
     ja: 「ممن قرأ الحديث وسمع على شيخنا وغيره」。شيخنا＝イブン・ハジャル（wd:Q471116）。「وغيره」は人物を立てない。原文にない field（الحديث）を除去（「قرأ الحديث」は本項主の学習活動＝event に）。【集約 2026-11-05】desc は相手の名「ابن حجر」とし、サハーウィーの呼称「شيخنا」は本 note に（規則31、機械 L、決定8）。
@@ -64,10 +66,11 @@ relations:
   subtype: teacher
   active: wd:Q4120128
   passive: AIND-D08187
-  methods: []
+  methods:
+  - label: تردد
   context:
-  - summary:
-      ar: وتردد إلي مع ولد له وغيره
+  - type: learning
+    phrase: وتردد إلي مع ولد له وغيره
   quote: null
   note:
     ja: '「تردد إلي」＝サハーウィーのもとに通った（先例 #AIND-D08086「وربما تردد لي」・D05884「وتردد لي」＝teacher relation、method تردد）。同伴した「ولد له」は名も描写もない（規則14）＝初版の空 relation（son、active=""）を除去し note に留める。'
@@ -87,6 +90,7 @@ states:
 - id: s2
   type: office
   label: وظائف البيمارستان
+  label_latn: waẕāʾif al-bīmāristān
   orgs:
   - label: البيمارستان
   quote: وظائف البيمارستان
@@ -99,10 +103,9 @@ events:
   methods:
   - TMP-S-00025
   quote: قرأ
-  summary:
-    ar: ممن قرأ الحديث
   trigger: rule
   norm: قرا
+  phrase: ممن قرأ الحديث
 - id: e2
   type: teaching
   quote: وتكسب بالتعليم

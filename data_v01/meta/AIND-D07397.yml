@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن زكريا بن محمد بن أبي بكر بن يحيى بن إبراهيم بن يحيى بن عبد الواحد بن عمر بن يحيى أبو عبد الله بن أبي يحيى الهنتاتي المصمودي القفصي المريني
+  name_only: محمد بن زكريا بن محمد
   elements:
   - id: n1
     type: kunyah
@@ -81,11 +82,10 @@ death:
   id: d
   date:
     ah: 810-12
-  summary:
-    ar: قبض عليه فقتله في ذي الحجة سنة عشر
   note:
     ja: 810年ズー・ル＝ヒッジャ月＝1408-05-07〜06-04（月精度 1408-05）。初版の when="1407" は誤り。殺害者は أبو فارس（#AIND-D03958）＝killer relation。
   quote: سنة
+  phrase: قبض عليه فقتله في ذي الحجة سنة عشر
 relations:
 - id: r1
   type: kin
@@ -95,11 +95,14 @@ relations:
   quote: null
   note:
     ja: '見出しナサブ「زكريا بن محمد بن أبي بكر بن يحيى … الهنتاتي」から復元。ハフス朝の王族（アブー・ファーリス #AIND-D03958「عبد العزيز بن أحمد بن محمد بن أبي بكر بن يحيى …」と祖父 محمد بن أبي بكر を共有＝アブー・ファーリスの叔父）。corpus に本伝なし・ID-Master 未登録 → TMP-P-001606。初版 #NEEDID。'
+  phrase: زكريا بن محمد بن أبي بكر
 - id: r2
   type: social
   subtype: rival
   active: TMP-P-001607
   passive: AIND-D07397
+  summary:
+    ar: زكريا بن محمد بن أبي العباس
   quote: زكريا
   note:
     ja: 'أحمد（#AIND-D01338）の後継となった弟 زكريا。corpus に本伝なし・ID-Master 未登録 → TMP-P-001607。D01338 本文の後継者「الدبال محمد」（TMP-P-001014）と同一人物の可能性があるが名が異なるため名寄せせず（§D140-1）。初版 #NEEDID。'
@@ -138,9 +141,8 @@ events:
   - ref: TMP-L-00051
     quote: بفاس
     norm: فاس
-  quote: null
-  summary:
-    ar: وكان مقيما بفاس
+  quote: وكان مقيما بفاس
+  norm: كان مقيما بفاس
 - id: e2
   type: political
   persons:
@@ -149,34 +151,32 @@ events:
     norm: احمد بن محمد بن ابي العباس
   - ref: TMP-P-001607
   quote: واستقر
-  summary:
-    ar: لما مات أحمد بن محمد بن أبي العباس واستقر أخوه زكريا بدله فصدهم محمد
   note:
     ja: أحمد بن محمد بن أبي العباس＝#AIND-D01338「أحمد بن محمد بن أبي العباس الحفصي ابن أخي السلطان أبي فارس وصاحب بجاية . مات في سنة عشر」（没年 810 で一致）。本項主が対抗した（فصدهم）のは أحمد の死後の後継側（「هم」）で أحمد 本人との対抗は原文にないため rival relation を立てず event の persName に（集約 2026-10-26、内容A L-5。校閲時の rival n=1 を削除し @n を振り直し）。D01338 では後継の弟を「الدبال محمد」（TMP-P-001014）とし本項の「زكريا」と食い違う（§D140-1）。
   trigger: rule
   norm: استقر
+  phrase: لما مات أحمد بن محمد بن أبي العباس واستقر أخوه زكريا بدله فصدهم محمد
 - id: e3
   type: political
   persons:
   - ref: AIND-D04834
   quote: فقتله
-  summary:
-    ar: وأعانه صاحبها أبو سعيد عثمان بن أبي العباس ابن أبي سالم وملكها
   note:
     ja: 「صاحبها」の「ها」は直前の فاس（援助者の居所、event n=1 で符号化済み）。「وملكها」の「ها」はフェズ君主が援助者である以上 فاس とは読みにくく、原文に名のない支配地（بلد العتاب か兄弟の後継をめぐる بجاية）とも読めて先行詞が両義＝placeName を付けない（規則22(3)。集約 2026-10-26、内容A M-2。校閲時の placeName فاس を除去）。
   trigger: rule
   norm: قتله
+  phrase: وأعانه صاحبها أبو سعيد عثمان بن أبي العباس ابن أبي سالم وملكها
 - id: e4
   type: political
   date:
     ah: 810-12
+    type: political
   persons:
   - ref: AIND-D03958
   quote: وقبض
-  summary:
-    ar: فلم يزل أبو فارس يعمل عليه حتى انفض عنه جمعه وقبض عليه فقتله في ذي الحجة سنة عشر
   trigger: rule
   norm: قبض
+  phrase: فلم يزل أبو فارس يعمل عليه حتى انفض عنه جمعه وقبض عليه فقتله في ذي الحجة سنة عشر
 sources:
 - id: c1
   persons:
@@ -185,21 +185,21 @@ sources:
   works:
   - ref: TMP-T-00034
   quote: قاله
-  trigger: rule
-  summary:
-    ar: قاله شيخنا في إنبائه
   note:
     ja: Pattern A。初版の relation「predecessor」（wd:Q471116）を mention event に改めた。
+  trigger: rule
+  phrase: قاله شيخنا في إنبائه
 - id: c2
   persons:
   - ref: wd:Q293604
   works:
   - ref: TMP-T-00122
   quote: وترجمته
-  norm: ترجمته
-  trigger: rule
   note:
     ja: Pattern A。『العقود』＝المقريزي『درر العقود الفريدة』（TMP-T-00122、ブリーフ規則49）。著者名は原文にないが書名で確定。
+  trigger: rule
+  norm: ترجمته
+  phrase: وترجمته في العقود طويلة
 notes:
 - text: ニスバ「المريني」はハフス朝系のナサブと整合しないが原文どおり保持（規則25）。「ابن أبي يحيى」は父 زكريا のクンヤ（persName full に残す）。
   lang: ja

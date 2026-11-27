@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عمر بن محمد بن علي السراج الحميري الدندري
+  name_only: عمر بن محمد بن علي
   elements:
   - id: n1
     type: nisbah
@@ -56,15 +57,17 @@ relations:
   passive: wd:Q471116
   methods:
   - TMP-S-00004
+  summary:
+    ar: شيخنا ابن حجر
   quote: شيخنا
   note:
     ja: 「لقيته بمجلس شيخنا ابن الملقن وأجاز لي」（『معجم』引用中の一人称＝イブン・ハジャル）。本項主がイブン・ハジャルにイジャーザを与えた＝本項主が師（active）、イブン・ハジャル（wd:Q471116）が学生（規則15・33）。初版は subtype student・active/passive の向きは同じ。ابن الملقن の講席で会ったのであって ابن الملقن から学んだのではないため、初版の ابن الملقن（wd:Q6534585）への teacher relation（حضر）は除去し、出会いは下記 event で表す。
 events:
 - id: e1
   type: cultural
-  quote: null
   summary:
     ar: اشتغل بالعلم … وكتب الكثير بخطه
+  quote: null
 - id: e2
   type: cultural
   subtype: meeting
@@ -72,13 +75,13 @@ events:
   - ref: wd:Q471116
     quote: شيخنا
   - ref: AIND-D05895
+    corresp: wd:Q6534585
     quote: ابن الملقن
   quote: لقيته
-  summary:
-    ar: لقيته بمجلس شيخنا ابن الملقن
   note:
     ja: イブン・ハジャルが ابن الملقن（wd:Q6534585、804年没）の講席で本項主に会った。
   trigger: rule
+  phrase: لقيته بمجلس شيخنا ابن الملقن
 sources:
 - id: c1
   persons:
@@ -86,12 +89,11 @@ sources:
   works:
   - ref: TMP-T-00104
   quote: وذكره
-  norm: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره شيخنا في معجمه
   note:
     ja: 'Pattern A。شيخنا ＝ ابن حجر（wd:Q471116）、「معجمه」＝ ID-Master の TMP-T-00104（المعجم المفهرس、「ذكره شيخنا في معجمه」で言及される書。先例 #AIND-D04862）。実際の書名は『المجمع المؤسس للمعجم المفهرس』と考えられるが、ID-Master の登録に従う。初版は統制外 subtype「biographer」relation。'
+  trigger: rule
+  norm: ذكره
+  phrase: ذكره شيخنا في معجمه
 - id: c2
   persons:
   - ref: wd:Q293604
@@ -99,12 +101,11 @@ sources:
   works:
   - ref: TMP-T-00122
   quote: وقال
-  norm: قال
-  trigger: rule
-  summary:
-    ar: وذكره المقريزي في عقوده وقال أنه مات عن سن عالية
   note:
     ja: Pattern A。المقريزي ＝ wd:Q293604、عقوده ＝ TMP-T-00122『درر العقود الفريدة』。初版は統制外 subtype「biographer」relation（#NEEDID）。
+  trigger: rule
+  norm: قال
+  phrase: وذكره المقريزي في عقوده وقال أنه مات عن سن عالية
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・アリー、アッ＝シラージュ、アル＝ヒムヤリー、アッ＝ダンダリー。我らの師（イブン・ハジャル）はその『ムウジャム』で彼に言及して言う。「学問に従事し、アル＝イッズ・ブン・ジャマーアらから聴聞し、多くを自筆で書写した。私は我らの師イブン・アル＝ムラッキンの講席で彼に会い、彼は私にイジャーザを与えた。私の思うところでは（80）4年に没した」。アル＝マクリーズィーもその『ウクード』で彼に言及し、高齢で没したと述べている。
   en: 'ʿUmar b. Muḥammad b. ʿAlī, al-Sirāj al-Ḥimyarī al-Dandarī. Our shaykh (Ibn Ḥajar) mentioned him in his Muʿjam and said: "He occupied himself with learning, heard from al-ʿIzz b. Jamāʿa and others, and wrote much in his own hand. I met him at the session of our shaykh Ibn al-Mulaqqin and he gave me an ijāza. He died, as I reckon, in the year (80)4." Al-Maqrīzī mentioned him in his ʿUqūd and said that he died at an advanced age.'

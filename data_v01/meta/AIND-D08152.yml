@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن علي بن فتح بن أوحد الشمس بن النور الخانكي
+  name_only: محمد بن علي بن فتح
   elements:
   - id: n1
     type: nisbah
@@ -36,12 +37,18 @@ name:
     type: nasab
     quote: النور
     by: rule
+persons:
+- id: p1
+  label: أبي الغيث
+  for: r5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D05335
   passive: AIND-D08152
+  summary:
+    ar: علي بن فتح بن أوحد النور الخانكي
   quote: أبوه
   note:
     ja: '「الماضي أبوه」＝#AIND-D05335「علي بن فتح بن أوحد النور الخانكي حفيد شيخ الخانقاه السرياقوسية كان ووالد محمد الآتي . ناب في القضاء بها عن صهره عز الدين المنوفي … مات في ربيع الثاني سنة تسعين」（収録済み。D05335 側に son #AIND-D08152 あり＝相互閉合、規則37）。初版の #NEEDID を解消。'
@@ -51,6 +58,8 @@ relations:
   subtype: grandfather
   active: TMP-P-001520
   passive: AIND-D08152
+  summary:
+    ar: فتح بن أوحد الخانكي
   quote: وجده
   note:
     ja: '見出しナサブの祖父 فتح بن أوحد＝ID-Master 既登録 TMP-P-001520「فتح بن أوحد الخانكي (والد النور علي)」（D05335 の父として発行。corpus に本伝なし）。初版の #NEEDID を解消。'
@@ -60,6 +69,8 @@ relations:
   subtype: ancestor
   active: AIND-D07144
   passive: AIND-D08152
+  summary:
+    ar: محمد ابن أوحد
   cert: medium
   quote: null
   note:
@@ -80,8 +91,12 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - summary:
-      ar: سمع علي في الشفا بقراءة أبي الغيث
+  - type: learning
+    persons:
+    - ref: AIND-D08152#p1
+    phrase: سمع علي في الشفا بقراءة أبي الغيث
+    note:
+      ja: '「سمع عليّ」＝サハーウィーのもとで聴聞（規則2）。「بقراءة أبي الغيث」の أبو الغيث は読み手であって師ではない（規則33）＝persName のみ。候補: #AIND-D11013「أبو الغيث الخانكي هو البدر والشمس محمد بن علي بن محمد بن الركن محمد الفارسكوري ثم النبهاني الخانكي」（同じ الخانكة の人物）だが限定語がなく確定できない。'
   works:
   - ref: wd:Q4120006
   quote: علي

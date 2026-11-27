@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن عبد الأحد بن علي الشمس القاهري النحوي
+  name_only: محمد بن عبد الأحد بن علي
   elements:
   - id: n1
     type: nisbah
@@ -21,6 +22,7 @@ name:
     type: shuhrah
     quote: بالعجيمي
     norm: العجيمي
+    label: العجيمي
   - id: n5
     type: ism
     quote: محمد
@@ -77,6 +79,7 @@ relations:
   quote: خاله
   note:
     ja: 「خاله المحب بن هشام」＝既登録 TMP-P-001619（المحب محمد بن الجمال عبد الله بن يوسف بن هشام الأنصاري القاهري الحنبلي、D07817 の祖父）。初版の subtype「uncle」#NEEDID を置換。
+  phrase: المحب بن هشام
 - id: r4
   type: scholarly
   subtype: teacher
@@ -84,6 +87,10 @@ relations:
   passive: AIND-D07889
   methods:
   - TMP-S-00008
+  fields:
+  - wd:Q484181
+  - TMP-S-00021
+  - TMP-S-00001
   quote: المحب بن هشام
   note:
     ja: 「أخذ عن خاله المحب بن هشام ومهر في الفقه والأصول والعربية」（イブン・ハジャルの引用）。初版の分野別3本（#NEEDID）を1本に統合。
@@ -95,11 +102,11 @@ relations:
   methods:
   - TMP-S-00014
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:360630
       quote: القاهرة
-    summary:
-      ar: ولازم العلاء البخاري لما قدم القاهرة
+    phrase: ولازم العلاء البخاري لما قدم القاهرة
   quote: العلاء البخاري
   note:
     ja: 'العلاء البخاري ＝ #AIND-D09233（محمد بن محمد بن محمد … العلاء أبو عبد الله البخاري العجمي الحنفي、779年生・841年没）。「لما قدم القاهرة」＝العلاء のカイロ来訪時（地名は原文に明示）。初版 #NEEDID を置換。'
@@ -117,26 +124,26 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D09832
+    corresp: wd:Q257745
     quote: العيني
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: وسمي العيني والده عبد الأحد
   note:
     ja: Pattern A。初版の統制外 relation「biographer」（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に置換。
+  trigger: rule
+  phrase: وسمي العيني والده عبد الأحد
 - id: c2
   persons:
   - ref: wd:Q471116
     quote: شيخنا
   works:
   - ref: TMP-T-00034
-  quote: وقال
-  norm: قال
-  trigger: rule
   summary:
     ar: 'ذكره شيخنا في إنبائه وقال : … وكان كثير الأدب فائقا في معرفة العربية ملازما للعبادة وقورا ساكنا'
+  quote: وقال
   note:
     ja: Pattern A。初版の統制外 relation「biographer」（wd:Q471116）を mention event に置換。
+  trigger: rule
+  norm: قال
 translation:
   ja: ムハンマド・ブン・アブド・アル＝アハド・ブン・アリー、アッ＝シャムス・アル＝カーヒリー、文法学者（アン＝ナフウィー）、イブン・ヒシャームの外孫、アル＝ウジャイミーとして知られる。アル＝アイニーは彼の父をアブド・アル＝アハドと呼んだ。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及して言う、「母方の叔父アル＝ムヒッブ・ブン・ヒシャームに学び、法学・法学原理論・アラビア語学に熟達した。アル＝アラー・アル＝ブハーリーがカイロに来た時には彼に密着して師事し、同じくアル＝バドル・アッ＝ダマーミーニーにも密着して師事した。礼節に富み、アラビア語学の知識に秀で、礼拝に励み、重厚で静かな人であった」。822年シャアバーン月20日に没し、スーフィー墓地に埋葬された。葬列は盛大であった。神が彼と我々を慈しまれんことを。
   en: 'Muḥammad b. ʿAbd al-Aḥad b. ʿAlī, al-Shams al-Qāhirī, the grammarian, grandson (through his mother) of Ibn Hishām, known as al-ʿUjaymī; al-ʿAynī named his father ʿAbd al-Aḥad. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "He studied under his maternal uncle al-Muḥibb b. Hishām and became skilled in jurisprudence, legal theory and Arabic; he attached himself to al-ʿAlāʾ al-Bukhārī when the latter came to Cairo, and likewise to al-Badr al-Damāmīnī. He was most courteous, outstanding in his knowledge of Arabic, assiduous in worship, dignified and calm." He died on 20 Shaʿbān [8]22 and was buried at al-Ṣūfiyya; his funeral was crowded. May God have mercy on him and on us.'

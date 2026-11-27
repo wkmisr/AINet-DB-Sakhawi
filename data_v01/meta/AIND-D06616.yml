@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أحمد بن إسماعيل بن أحمد الشرف البدماصي المصري
+  name_only: محمد بن أحمد بن إسماعيل
   elements:
   - id: n1
     type: nisbah
@@ -44,11 +45,10 @@ death:
   places:
   - ref: gn:104515
     quote: مكة
-  summary:
-    ar: مات بها في ذي الحجة سنة ثمان
   note:
     ja: 「سنة ثمان」＝808（一の位のみ＝80X、cert medium。師 ابن صديق は806年マッカ没、情報源 الفاسي は832年没で整合）。808年ズー・アル＝ヒッジャ月＝1406-05-29〜06-26（h2g.py）、月精度・月初で @when=1406-05（初版は年のみの 1405）。「بها」＝先行の مكة（cert 不要）。
   quote: سنة
+  phrase: مات بها في ذي الحجة سنة ثمان
 persons:
 - id: p1
   label: أحمد بن إسماعيل بن أحمد
@@ -72,7 +72,8 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:104515
       quote: مكة
   quote: ابن صديق
@@ -96,10 +97,9 @@ events:
   - ref: gn:104515
     quote: مكة
   quote: فأقام
-  summary:
-    ar: قدم مكة فأقام بها نحو عشر سنين
   trigger: rule
   norm: اقام
+  phrase: قدم مكة فأقام بها نحو عشر سنين
 sources:
 - id: c1
   persons:
@@ -108,11 +108,10 @@ sources:
   works:
   - ref: TMP-T-00037
   quote: ذكره
-  trigger: rule
-  summary:
-    ar: ذكره الفاسي في مكة
   note:
     ja: 'Pattern A。الفاسي＝التقي الفاسي #AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037、repo 先例どおり）。初版の統制外 relation「other」を置換。'
+  trigger: rule
+  phrase: ذكره الفاسي في مكة
 notes:
 - text: 「وقد جاز الأربعين ظنا」＝（没時に）40歳を過ぎていたと思われる。年齢の推測なので生年は立てない（規則59 (d)）。「وكان يذكر أنه من ذرية الصديق رضي الله عنه」＝本人が أبو بكر الصديق の子孫だと称していた（本人の主張。初版の relation「other」・#NEEDID を除去）。
   lang: ja

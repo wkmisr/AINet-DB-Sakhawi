@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن عبد الله بن جلال الدين ابن شمس الدين الأسعردي الدمشقي الصالحي
+  name_only: محمد بن أبي بكر بن عبد الله
   elements:
   - id: n1
     type: nisbah
@@ -23,6 +24,7 @@ name:
     type: shuhrah
     quote: بابن الخياطة
     norm: ابن الخياطة
+    label: ابن الخياطة
   - id: n5
     type: ism
     quote: محمد
@@ -76,11 +78,11 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00003
       quote: صالحية دمشق
-    summary:
-      ar: وسمع بها من أبي الهول الجزري
+    phrase: وسمع بها من أبي الهول الجزري
   quote: الهول الجزري
   note:
     ja: أبو الهول الجزري＝ID-Master 既登録 TMP-P-000388（8世紀後半の著名伝承者、収録対象外）。「بها」＝直前の「صالحية دمشق」。初版の field（الحديث）を除去。
@@ -92,11 +94,11 @@ relations:
   methods:
   - TMP-S-00025
   context:
-  - places:
+  - type: teaching
+    places:
     - ref: TMP-L-00003
       quote: صالحية دمشق
-    summary:
-      ar: ولقيته بها فقرأت عليه بعض الأجزاء
+    phrase: ولقيته بها فقرأت عليه بعض الأجزاء
   works:
   - label: بعض الأجزاء
   - label: baʿḍ al-ajzāʾ
@@ -108,6 +110,8 @@ relations:
   subtype: father
   active: TMP-P-001512
   passive: AIND-D07200
+  summary:
+    ar: أبو بكر بن عبد الله بن جلال الدين الأسعردي
   quote: التي بعدها
   note:
     ja: 父は見出しのナサブのみ（corpus に「أبو بكر بن عبد الله … الأسعردي」の見出しなし）。集約で父の扱いをチャンク間で統一（父自身のラカブ・クンヤ・職が原文にあり祖父名まで復元できる父、または曾祖父名まで復元でき固有のニスバ・家名がある父は TMP-P。規則3・12）し、TMP-P-001512 を発行（内容B M）。
@@ -146,10 +150,9 @@ events:
   - ref: TMP-L-00003
     quote: صالحية دمشق
   quote: فقطن
-  summary:
-    ar: وانتقل منها في صغره مع سلفه فقطن صالحية دمشق
   trigger: rule
   norm: قطن
+  phrase: وانتقل منها في صغره مع سلفه فقطن صالحية دمشق
 - id: e2
   type: teaching
   quote: وحدث
@@ -157,6 +160,7 @@ events:
     ja: 不特定の「الفضلاء」のため relation は立てない（規則14）。
   trigger: rule
   norm: حدث
+  phrase: وحدث سمع منه الفضلاء
 - id: e3
   type: other
   quote: ثم أضر وشاخ وانقطع
@@ -173,11 +177,10 @@ events:
   norm: صلي عليه بالجامع المظفري
 - id: e5
   type: cultural
-  quote: null
-  summary:
-    ar: وقد ذكر لي أن لبعض سلفه مدرسة بأسعرد وذكر
+  quote: وقد ذكر لي أن لبعض سلفه مدرسة بأسعرد وذكر
   note:
     ja: 先祖の一部がアスアルドにマドラサを持っていたと本人がサハーウィーに語った。末尾の「وذكر」は刊本のまま（文が途切れている）。
+  norm: وقد ذكر لي ان لبعض سلفه مدرسة باسعرد وذكر
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ジャラール・アッ＝ディーン——しばしば略してジャラールと言われる——・ブン・シャムス・アッ＝ディーン、アル＝アスアルディー・アッ＝ディマシュキー・アッ＝サーリヒー、同地（サーリヒーヤ）の製材職人（ナッシャール）。イブン・アル＝ハイヤータとして知られる。本人が私に告げたところでは、777年ムハッラム月初めに——翌年とも言われる——アスアルドで生まれた。幼少期に先祖とともに同地から移り、ダマスクスのサーリヒーヤに定住した。そこでアブー・アル＝ハウル・アル＝ジャザリーから聴聞し、（のちに）伝承して学者たちが彼から聴聞した。私はそこで彼に会い、いくつかのジュズウを彼に読誦した。彼は製材で生計を立て、カラーニスィーヤ・ハーンカーでムアッズィンを務めるとともに同ハーンカーの管理人（カイイム）でもあった。その後失明し、老いて隠棲し、（8）66年ラビーウ・アル＝アウワル月にサーリヒーヤで没した。ムザッファリー・モスクで葬礼が行われ、（カースィユーン）山麓（サフフ）に埋葬された。神が彼に慈悲を垂れたまわんことを。彼は私に、先祖の一部がアスアルドにマドラサを持っていたと語り、また語った（原文ここで途切れる）。
   en: Muḥammad b. Abī Bakr b. ʿAbd Allāh b. Jalāl al-Dīn — often shortened to Jalāl — b. Shams al-Dīn, al-Asʿardī al-Dimashqī al-Ṣāliḥī, the sawyer (al-nashshār) there, known as Ibn al-Khayyāṭa. He was born, as he told me, at the beginning of Muḥarram 777 — or, it is said, in the following year — at Asʿard. He moved from there in his childhood with his forebears and settled in the Ṣāliḥiyya of Damascus, where he heard from Abū al-Hawl al-Jazarī; he transmitted, and the learned heard from him. I met him there and read some ajzāʾ to him. He had earned his living by sawing, and he served as muezzin at the Qalānisiyya khānqāh while also being its custodian (qayyim). Then he went blind, grew old and withdrew, until he died in Rabīʿ al-Awwal (8)66 at al-Ṣāliḥiyya; the funeral prayer was performed for him at the Muẓaffarī mosque and he was buried at al-Safḥ (the foot of the mountain); may God have mercy on him. He told me that some of his forebears had a madrasa in Asʿard, and he mentioned [text

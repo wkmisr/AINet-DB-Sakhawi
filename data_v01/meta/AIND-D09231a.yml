@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن محمد بن محمد بن محمد بن محمد بن محمد بن محمد بن الامام حجة الاسلام أبي حامد محمد بن محمد بن محمد المحيوي أبو حامد الطوسي الغزالي الشافعي
+  name_only: محمد بن محمد بن محمد بن محمد
   elements:
   - id: n1
     type: laqab
@@ -92,7 +93,8 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - places:
+  - type: learning
+    places:
     - ref: TMP-L-00196
       quote: الشام
   quote: ابن أميلة
@@ -107,6 +109,8 @@ relations:
   passive: AIND-D00193
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00020
   quote: ابراهيم بن علي الزمزمي
   note:
     ar: وذكره شيخنا في إنبائه وقال أخذ عنه ابراهيم بن علي الزمزمي المكي يعني التصريف كما تقدم في ترجمته
@@ -120,14 +124,14 @@ events:
   type: travel
   date:
     ah: 830-09
+    type: travel
   places:
   - ref: gn:170063
     role: destination
     quote: حلب
   quote: قدم
-  summary:
-    ar: قدم من بلاده الى حلب في رمضان سنة ثلاثين بعد دخوله الشام قديما
   trigger: rule
+  phrase: قدم من بلاده الى حلب في رمضان سنة ثلاثين بعد دخوله الشام قديما
 - id: e2
   type: cultural
   places:
@@ -141,30 +145,29 @@ events:
   places:
   - ref: gn:104515
   quote: حج
-  summary:
-    ar: وأخبر بعض الطلبة عنه أنه حج مرارا منها مرة ماشيا على قدم التجريد
   trigger: rule
+  phrase: وأخبر بعض الطلبة عنه أنه حج مرارا منها مرة ماشيا على قدم التجريد
 sources:
 - id: c1
   persons:
   - ref: wd:Q55672163
   quote: وذكره
-  norm: ذكره
-  trigger: rule
-  summary:
-    ar: ووصفه حافظها البرهان والعلاء بن خطيب الناصرية بالعلم والدين وأنه قال لهما ان جده الثامن هو الغزالي
   note:
     ja: Pattern A。حافظها البرهان = الحافظ البرهان سبط ابن العجمي（wd:Q55672163）。
+  trigger: rule
+  norm: ذكره
+  phrase: ووصفه حافظها البرهان والعلاء بن خطيب الناصرية بالعلم والدين وأنه قال لهما ان جده الثامن هو الغزالي
 - id: c2
   persons:
   - ref: wd:Q57420531
     quote: والعلاء بن خطيب الناصرية
     norm: العلاء بن خطيب الناصرية
   quote: وقال
-  norm: قال
-  trigger: rule
   note:
     ja: Pattern A。
+  trigger: rule
+  norm: قال
+  phrase: زاد ثانيهما رأيت أتباعه وتلامذته يذكرون عنه علما كثيرا وزهدا وورعا وأنه معظم في بلاده من بيت علم ودين
 - id: c3
   persons:
   - ref: wd:Q471116
@@ -172,11 +175,10 @@ sources:
   works:
   - ref: TMP-T-00034
   quote: ترجمته
-  trigger: rule
-  summary:
-    ar: وذكره شيخنا في إنبائه
   note:
     ja: Pattern A。
+  trigger: rule
+  phrase: وذكره شيخنا في إنبائه
 notes:
 - text: 逸話：死の天使に会い「العشر に死ぬ」と告げられ、どの10日間か分からなかったが、ラマダーン最後の10日間に没した（ابن خطيب الناصرية 伝）。
   lang: ja

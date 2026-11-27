@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن الفخر عثمان بن علي الشمس المارديني ثم الحلبي الشافعي الأبار
+  name_only: محمد بن عثمان بن علي
   elements:
   - id: n1
     type: nisbah
@@ -66,6 +67,8 @@ relations:
   subtype: father
   active: TMP-P-001643
   passive: AIND-D07949
+  summary:
+    ar: الفخر عثمان بن علي المارديني
   quote: أباه
   note:
     ja: '父＝「الفخر عثمان بن علي」（ラカブ الفخر が識別要素、祖父名 علي あり＝規則3 で TMP-P）。子 #AIND-D04188 の見出し「عبد القادر بن محمد بن الفخر عثمان بن علي المحيوي بن الشمس المارديني الأصل الحلبي」でも確認。corpus に本伝なし（hw.py「عثمان بن علي」＋「المارديني」該当なし）、ID-Master 未登録（الفخر عثمان で grep＝別人のみ）→ 新規 TMP-P-001643。初版は #NEEDID。初版の grandfather relation（汚染番号 #TMP-P-000530＝関係専用の汎用 علي）は除去（祖父 علي に識別要素なし）。'
@@ -75,6 +78,8 @@ relations:
   subtype: son
   active: AIND-D04188
   passive: AIND-D07949
+  summary:
+    ar: عبد القادر بن محمد بن الفخر عثمان المحيوي ابن الأبار
   quote: والد
   note:
     ja: '「والد عبد القادر الماضي」＝corpus 本伝 #AIND-D04188「عبد القادر بن محمد بن الفخر عثمان بن علي المحيوي بن الشمس المارديني الأصل الحلبي الشافعي الآتي أبوه ويعرف بابن الأبار وهي حرفته كأبيه . ولد في ربيع الآخر سنة ثلاث وأربعين وثمانمائة بحلب … وأخذ عن أبيه الفقه والحديث」（索引 #AIND-D12131「ابن الأبار عبد القادر بن محمد بن عثمان الحلبي」）。初版の #AIND-D04089（عبد القادر بن إبراهيم … المناوي … ابن عليبة＝別人）を差し替え。'
@@ -85,6 +90,8 @@ relations:
   passive: AIND-D07949
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00001
   cert: medium
   quote: null
   note:
@@ -96,6 +103,8 @@ relations:
   passive: AIND-D07949
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00001
   cert: medium
   quote: null
   note:
@@ -149,19 +158,20 @@ events:
   quote: وأخذ
   trigger: rule
   norm: اخذ
+  phrase: وتفقه
 - id: e4
   type: religious
   subtype: hajj
   date:
     ah: 871
+    type: religious
   places:
   - ref: gn:104515
   quote: الحج
-  summary:
-    ar: مات في رجوعه من الحج
   note:
     ja: 871 年の巡礼（帰途に没）。placeName مكة は規則20 の例外。初版の cert="high" を除去。
   trigger: rule
+  phrase: مات في رجوعه من الحج
 - id: e5
   type: cultural
   works:
@@ -187,12 +197,12 @@ sources:
   persons:
   - ref: AIND-D04188
     quote: عبد القادر
-  quote: ذكر
-  trigger: rule
   summary:
     ar: ذكر لي أن أباه حفظ الحاوي بعد التنبيه وغيرهما وتفقه …
+  quote: ذكر
   note:
     ja: Pattern A。「ذكر لي」の主語は直前の子 عبد القادر（#AIND-D04188）＝息子が父（本項主）の学歴を語った。以下の学歴は本項主の事績。
+  trigger: rule
 notes:
 - text: 「وكان صالحا خيرا سليم الصدر」＝人物評（訳のみ）。初版の residence event ماردين・حلب はニスバからの補完＝除去（規則22(1)）、visit بدر は death と重複＝除去。祖父 علي は識別要素なし＝relation を立てない（初版の汚染番号 TMP-P-000530 を除去）。
   lang: ja

@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد عز الدين أبو اليمن
+  name_only: محمد
   elements:
   - id: n1
     type: laqab
@@ -37,12 +38,12 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:104515
       cert: medium
       quote: مكة
-    summary:
-      ar: وربما سمع علي بل سمع معظم البخاري
+    phrase: وربما سمع علي بل سمع معظم البخاري
   works:
   - ref: wd:Q1023470
   quote: علي
@@ -53,6 +54,8 @@ relations:
   subtype: brother
   active: AIND-D11247
   passive: AIND-D07195
+  summary:
+    ar: زين العابدين محمد بن أبي بكر السخاوي
   quote: الذي قبله
   note:
     ja: '「شقيق الذي قبله」＝直前の転送見出し（corpus 12桁 758703471831、AIND 無し）「محمد بن أبي بكر بن عبد الرحمن بن محمد بن أبي بكر بن عثمان زين العابدين ابن أخي السخاوي … يأتي هناك」。その本伝は #AIND-D11247（زين العابدين بن أبي بكر بن عبد الرحمن … السخاوي الأصل ابن أخي واسمه محمد、879年生）。索引項 #AIND-D03048「زين العابدين جماعة منهم …」は合同項のため充てない（規則11）。初版の #NEEDID を解消。'
@@ -61,6 +64,8 @@ relations:
   subtype: father
   active: AIND-D10729
   passive: AIND-D07195
+  summary:
+    ar: الزين أبو بكر بن عبد الرحمن السخاوي
   quote: أبوه
   note:
     ja: '父＝兄 D11247 の父＝サハーウィーの同父母弟 #AIND-D10729（أبو بكر بن عبد الرحمن بن محمد بن أبي بكر بن عثمان شقيقي الزين السخاوي الأصل القاهري الشافعي、845生・893年ズー・ル＝ヒッジャ4日没）。「ثم مات أبوه」と896年のマッカ同行の前後関係に整合。初版の空 relation を解消。'
@@ -70,6 +75,8 @@ relations:
   subtype: paternal_uncle
   active: wd:Q4120128
   passive: AIND-D07195
+  summary:
+    ar: السخاوي
   cert: medium
   quote: null
   note:
@@ -77,23 +84,22 @@ relations:
 events:
 - id: e1
   type: other
-  quote: null
-  summary:
-    ar: ونشأ في كنف أبويه ثم مات أبوه وانتزع من أمه
+  quote: ونشأ في كنف أبويه ثم مات أبوه وانتزع من أمه
   note:
     ja: 両親の庇護下で育ち、父の死後、母（名不詳、relation 不要）から引き取られた（主体＝サハーウィー）。
+  norm: نشا في كنف ابويه ثم مات ابوه وانتزع من امه
 - id: e2
   type: travel
   date:
     ah: 896
+    type: travel
   places:
   - ref: gn:104515
     quote: مكة
-  quote: null
-  summary:
-    ar: وأخذته معي إلى مكة في موسم سنة ست وتسعين
+  quote: وأخذته معي إلى مكة في موسم سنة ست وتسعين
   note:
     ja: 896年の巡礼期（موسم）にサハーウィーがマッカへ連れて行った。896年＝1490-11-23 開始、年精度 1490。
+  norm: اخذته معي الي مكة في موسم سنة ست وتسعين
 - id: e3
   type: residence
   places:
@@ -108,11 +114,11 @@ events:
   type: other
   date:
     ah: 898-03
-  quote: null
-  summary:
-    ar: وختنته في ربيع الأول سنة ثمان وتسعين
+    type: other
+  quote: وختنته في ربيع الأول سنة ثمان وتسعين
   note:
     ja: サハーウィーが割礼を施した。898年ラビーウ1月＝1492-12-30〜1493-01-28（月精度 1492-12、h2g.py）。地名の明示はないため placeName を付けない（規則22）。
+  norm: ختنته في ربيع الاول سنة ثمان وتسعين
 translation:
   ja: ムハンマド・イッズ・アッ＝ディーン・アブー・アル＝ヤマン、前の項の人物（ザイン・アル＝アービディーン）の同父母弟。（8）87年ジュマーダー・アル＝アーヒラ月14日火曜日の午後にカイロで生まれた。両親の庇護のもとで育ったが、やがて父が没し、母から引き取られて、私は（8）96年の巡礼期に彼を伴ってマッカへ行き、彼は私とともに隣留（ジャーワラ）した。彼は私に聴聞することもあり、それどころか『ブハーリー』の大部分を聴聞した。（8）98年ラビーウ・アル＝アウワル月に私は彼に割礼を施した。神が彼に神の書（クルアーン）の暗記を容易にし、彼を学問の徒・学識者の一人としてくださるように。
   en: Muḥammad ʿIzz al-Dīn Abū al-Yaman, full brother of the preceding (Zayn al-ʿĀbidīn). He was born in Cairo on the afternoon of Tuesday 14 Jumādā al-Ākhira (8)87. He grew up under the care of his parents; then his father died, and he was taken from his mother, and I took him with me to Mecca in the pilgrimage season of (8)96, where he sojourned (jāwara) with me. He sometimes heard from me; indeed he heard most of al-Bukhārī. I circumcised him in Rabīʿ al-Awwal (8)98. May God make the memorization of His Book easy for him and make him one of the people of knowledge and its masters.

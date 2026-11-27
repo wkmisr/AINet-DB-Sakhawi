@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن علي بن عثمان الزبيدي المطيب الحنفي
+  name_only: محمد بن علي بن عثمان
   elements:
   - id: n1
     type: nisbah
@@ -49,6 +50,8 @@ relations:
   subtype: father
   active: AIND-D05285
   passive: AIND-D08133
+  summary:
+    ar: علي بن عثمان أبو الحسن المطيب
   quote: والده
   note:
     ja: '父＝ #AIND-D05285「علي بن عثمان أبو الحسن المطيب . قدوة الحنفية باليمن في عصره ووالد محمد الآتي . وولاه الأشرف قضاء مذهبه بزبيد في سنة إحدى وسبعين وسبعمائة ومات في سنة اثنتين」（相手側で「والد محمد الآتي」と名指し、repo で son #AIND-D08133 として収録済み）。初版 #NEEDID を置換。'
@@ -57,13 +60,15 @@ relations:
   subtype: predecessor
   active: AIND-D05285
   passive: AIND-D08133
+  summary:
+    ar: علي بن عثمان أبو الحسن المطيب
   context:
-  - places:
+  - type: other
+    places:
     - ref: TMP-L-00037
       quote: باليمن
       norm: اليمن
-    summary:
-      ar: خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد
+    phrase: خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد
   quote: null
   note:
     ja: '「خلف والده باليمن في جودة الفقه وانتهت إليه بعده رياسة الحنفية بزبيد」＝父を継いだ（規則29、active=前任者＝父 #AIND-D05285）。初版の predecessor relation 2本（#NEEDID、同一の父を2回）を1本に統合。'
@@ -72,6 +77,8 @@ relations:
   subtype: possible_identity
   active: AIND-D08233
   passive: AIND-D08133
+  summary:
+    ar: محمد بن علي بن الطيب الزبيدي الحنفي المطيب
   cert: high
   quote: null
   note:
@@ -80,6 +87,7 @@ states:
 - id: s1
   type: status
   label: انتهت إليه رياسة الحنفية بزبيد
+  label_latn: intahat ilayhi riyāsat al-Ḥanafiyya bi-Zabīd
   places:
   - ref: TMP-L-00041
     quote: بزبيد
@@ -103,11 +111,10 @@ events:
   - ref: TMP-I-00264
     quote: المحالبية
   quote: درس
-  summary:
-    ar: ثم درس في المحالبية للشهاب أحمد بن إبراهيم المحالبي
   note:
     ja: '「درس في المحالبية للشهاب أحمد بن إبراهيم المحالبي」＝ザビードのマハーリビーヤ学院で教授した（درّس＝教授、規則50）。初版は「学んだ」（teacher relation #NEEDID・affiliation study）と誤読＝除去。「للشهاب …」はマハーリビーヤの創建者（名の由来）とも、同人の代理としての教授とも読めるため relation を立てず persName のみ（新規 TMP-P-001662、corpus に本伝なし）。المحالبية は ID-Master の Institution 未登録（Location TMP-L-00228 المحالب の Note に「ザビードの مدرسة المحالبية（D04863/D07115/D08133）」とあるのみ）→ 新規 TMP-I-00264。'
   trigger: rule
+  phrase: ثم درس في المحالبية للشهاب أحمد بن إبراهيم المحالبي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ウスマーン・アッ＝ザビーディー・アル＝ムタイヤブ・アル＝ハナフィー。イエメンで法学の優秀さにおいて父の後を継ぎ、父の後、ザビードにおけるハナフィー派の首位は彼に帰した。その後、アッ＝シハーブ・アフマド・ブン・イブラーヒーム・アル＝マハーリビーのマハーリビーヤ（学院）で教授した。842年ラマダーン月にザビードで没した。
   en: Muḥammad b. ʿAlī b. ʿUthmān al-Zabīdī al-Muṭayyab al-Ḥanafī. He succeeded his father in Yemen in excellence in jurisprudence, and after him the leadership of the Ḥanafīs in Zabīd passed to him; then he taught in the Maḥālibiyya of al-Shihāb Aḥmad b. Ibrāhīm al-Maḥālibī. He died in Ramaḍān [8]42 in Zabīd.

@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن علي بن أبي البركات أمين الدين أبو النصر وأبو اليمن بن الفخر بن ظهيرة القرشي المكي الحنفي
+  name_only: محمد بن أبي بكر بن علي
   elements:
   - id: n1
     type: nisbah
@@ -26,6 +27,7 @@ name:
     type: kunyah
     quote: وأبو اليمن
     norm: ابو اليمن
+    label: أبو اليمن
   - id: n6
     type: shuhrah
     quote: null
@@ -75,8 +77,8 @@ relations:
   methods:
   - TMP-S-00009
   context:
-  - summary:
-      ar: واشتغل قليلا عند العلاء بن الجندي نقيب زكريا في مجاورته
+  - type: learning
+    phrase: واشتغل قليلا عند العلاء بن الجندي نقيب زكريا في مجاورته
   quote: العلاء بن الجندي نقيب زكريا
   note:
     ja: 'العلاء بن الجندي نقيب زكريا＝#AIND-D05429（علي بن محمد بن خضر … العلاء … المحلي الحنفي القاهري ويعرف في بلده بابن الجندي نقيب زكريا、840生）。「في مجاورته」＝ابن الجندي のマッカ隣留中（クンヤ部の重複項 #AIND-D11133「قرأ في الفقه سنة سبع وتسعين على العلاء بن الجندي المحلى نقيب زكريا حين جاور فيها」）。地名の明示がないため placeName を付けない。初版の #NEEDID を解消。「وعند غيره」は無名のため relation なし。'
@@ -87,6 +89,8 @@ relations:
   passive: AIND-D07211
   methods:
   - TMP-S-00008
+  fields:
+  - wd:Q1866303
   quote: إسماعيل بن أبي يزيد
   note:
     ja: '「وأخذ عن إسماعيل بن أبي يزيد في النحو」＝#AIND-D01993（إسماعيل بن أبي يزيد … الزبيدي اليماني ثم المكي الشافعي、兄弟 D03964・D04695 の師でもある）。初版の #NEEDID を解消。'
@@ -98,6 +102,8 @@ relations:
   passive: AIND-D07211
   methods:
   - TMP-S-00008
+  fields:
+  - TMP-S-00044
   quote: عبد النبي المغربي
   note:
     ja: ID-Master 既登録 TMP-P-000002（عبد النبي المغربي。弟 D04695 では「عبد النبي الغزي في أصول الدين」）。
@@ -109,10 +115,11 @@ relations:
   methods:
   - TMP-S-00014
   context:
-  - date:
+  - type: learning
+    date:
       ah: 897
-    summary:
-      ar: ولازمني في سنة سبع وتسعين في البخاري وغيره
+      type: learning
+    phrase: ولازمني في سنة سبع وتسعين في البخاري وغيره
   works:
   - ref: wd:Q1023470
   quote: ولازمني
@@ -126,10 +133,11 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 886
-    summary:
-      ar: بل كان سمع علي في حياة أبيه سنة ست وثمانين
+      type: learning
+    phrase: بل كان سمع علي في حياة أبيه سنة ست وثمانين
   quote: علي
   note:
     ja: 「سمع علي」＝「عليّ（私に）」。886年＝1481-03-11 開始、年精度 1481。父の存命中。
@@ -149,6 +157,8 @@ relations:
   subtype: father
   active: AIND-D10764
   passive: AIND-D07211
+  summary:
+    ar: الفخر أبو بكر بن علي بن أبي البركات بن ظهيرة
   quote: أبيه
   note:
     ja: '見出しのナサブから #AIND-D10764（أبو بكر بن علي بن أبي البركات محمد بن أبي السعود محمد بن حسين … الفخر القرشي المكي الشافعي شقيق البرهان、838生）。ナサブ3代＋ラカブ一致（規則37）。初版は父 relation 欠落。'
@@ -158,6 +168,8 @@ relations:
   subtype: brother
   active: AIND-D03964
   passive: AIND-D07211
+  summary:
+    ar: عبد العزيز (فائز)
   quote: null
   note:
     ja: 「أخو عبد العزيز وعبد المعطي」。عبد العزيز＝#AIND-D03964（عبد العزيز بن الفخر أبي بكر بن علي بن أبي البركات … ويلقب فائزا、872生）。初版の TMP-P-000813（الكازروني＝別人）を差し替え。
@@ -170,6 +182,7 @@ relations:
   note:
     ja: 'عبد المعطي＝#AIND-D04695（عبد المعطي بن أبي بكر بن علي بن أبي البركات أبو الفضل بن الفخر بن ظهيرة、874生）。初版の #NEEDID を解消。'
   norm: عبد المعطي
+  phrase: عبد المعطي
 - id: r10
   type: kin
   subtype: mother
@@ -179,6 +192,7 @@ relations:
   note:
     ja: 母 قدم الخير（父の黒人女奴隷）。corpus 女性部に本伝なし（فائز の母 غزال＝#AIND-D13894 とは別人）、ID-Master 未登録 → TMP-P-001506。
   norm: امه
+  phrase: قدم الخير الزنجية فتاة أبيه
 - id: r11
   type: kin
   subtype: cousin
@@ -188,11 +202,14 @@ relations:
   quote: null
   note:
     ja: 上記 teacher n=6 と同人（cert medium）。
+  phrase: ابن عمه
 - id: r12
   type: identity
   subtype: possible_identity
   active: AIND-D11133
   passive: AIND-D07211
+  summary:
+    ar: أبو اليمن أمين الدين بن الفخر أبي بكر بن علي … ابن ظهيرة
   cert: high
   quote: null
   note:

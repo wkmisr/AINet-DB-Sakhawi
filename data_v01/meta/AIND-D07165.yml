@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن أحمد بن أبي الفتح بن إدريس بن سلامة أمين الدين أو شمس الدين بن المحدث العماد أو الكمال الدمشقي
+  name_only: محمد بن أبي بكر بن أحمد
   elements:
   - id: n1
     type: nisbah
@@ -21,6 +22,7 @@ name:
     type: shuhrah
     quote: بابن السراج
     norm: ابن السراج
+    label: ابن السراج
   - id: n5
     type: ism
     quote: محمد
@@ -81,6 +83,7 @@ relations:
   note:
     ja: '「وزينب ابنة الخباز」。corpus では本項のみ、ID-Master 未登録（既登録「زينب ابنة الكمال」TMP-P-000347 は別人）→ 仮番号 TMP-P-001486。初版の #NEEDID を解消。「في آخرين」の他の師は名が無いため relation を立てない。'
   norm: زينب ابنة الخباز
+  phrase: زينب ابنة الخباز
 - id: r3
   type: scholarly
   subtype: teacher
@@ -88,13 +91,15 @@ relations:
   passive: wd:Q471116
   methods:
   - TMP-S-00025
+  summary:
+    ar: شيخنا ابن حجر
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:170654
       quote: بدمشق
       norm: دمشق
-    summary:
-      ar: ولقيه شيخنا بدمشق فقرأ عليه
+    phrase: ولقيه شيخنا بدمشق فقرأ عليه
   quote: شيخنا
   note:
     ja: イブン・ハジャルがダマスクスで本項主に会い、本項主に対して読誦した＝本項主が師（active）、イブン・ハジャルが学生（passive）。規則15。
@@ -116,6 +121,8 @@ relations:
   subtype: father
   active: TMP-P-001485
   passive: AIND-D07165
+  summary:
+    ar: المحدث العماد أو الكمال أبو بكر بن أحمد بن أبي الفتح بن إدريس بن سلامة الدمشقي
   quote: أبوه
   note:
     ja: '「بن المحدث العماد أو الكمال الدمشقي المذكور أبوه في الثامنة」＝父は8世紀の人物（『الدرر الكامنة』に立項）＝AIND 対象外。叔父 #AIND-D06799 の見出し「أخو العماد أبي بكر」とも一致。ID-Master 未登録 → 仮番号 TMP-P-001485。初版の #NEEDID を解消。'
@@ -125,6 +132,8 @@ relations:
   subtype: paternal_uncle
   active: AIND-D06799
   passive: AIND-D07165
+  summary:
+    ar: الشمس محمد بن أحمد بن أبي الفتح بن إدريس الدمشقي ابن السراج
   quote: null
   note:
     ja: '「ابن أخي محمد الماضي」＝ #AIND-D06799「محمد بن أحمد بن أبي الفتح بن ادريس بن شامة الشمس الدمشقي أخو العماد أبي بكر ويعرف بابن السراج」（802没）。D06799 末尾に「وهو عم محمد بن أبي بكر بن أحمد بن أبي الفتح الآتي」とあり相互に閉合。初版の汚染番号 #TMP-P-000529（登録＝ابن جماعة の息子 محمد）を差し替え、subtype uncle → paternal_uncle。'
@@ -136,20 +145,19 @@ sources:
   - ref: TMP-T-00104
   - ref: TMP-T-00034
   quote: وهو في معجمه وانبائه
-  norm: وهو في معجمه وانباءه
   note:
     ja: Pattern A。イブン・ハジャル『المجمع المؤسس』（TMP-T-00104）および『إنباء الغمر』（TMP-T-00034）。初版の英文 desc のみの cultural event を改めた。
+  norm: وهو في معجمه وانباءه
 - id: c2
   persons:
   - ref: wd:Q293604
     quote: المقريزي
   works:
   - ref: TMP-T-00122
-  quote: null
-  summary:
-    ar: وتبعه المقريزي في عقوده
+  quote: وتبعه المقريزي في عقوده
   note:
     ja: Pattern A。マクリーズィー『درر العقود الفريدة』（TMP-T-00122）。初版の統制外 relation「cited_by」を event に改めた。
+  norm: تبعه المقريزي في عقوده
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アフマド・ブン・アビー・アル＝ファトフ・ブン・イドリース・ブン・サラーマ、アミーン・アッ＝ディーンまたはシャムス・アッ＝ディーン、ハディース学者アル＝イマードまたはアル＝カマールの子、アッ＝ディマシュキー。その父は第8（世紀の部）で言及されている。イブン・アッ＝サッラージュとして知られ、前述のムハンマドの甥（兄弟の子）である。アブド・アッ＝ラヒーム・ブン・アビー・アル＝ヤサルやザイナブ・イブナ・アル＝ハッバーズほかから聴聞した。我らの師（イブン・ハジャル）はダマスクスで彼に会い、彼のもとで読誦した。803年のラマダーン月またはシャウワール月に没した。彼は師（イブン・ハジャル）の『ムウジャム』と『インバー』にあり、アル＝マクリーズィーも『ウクード』でそれに従った。彼から『アル＝フィルヤービーのムスナド』のまとまった一部を聴聞した者の一人に、アッ＝タキー・アブー・バクル・アル＝カルカシャンディーがいる。
   en: Muḥammad b. Abī Bakr b. Aḥmad b. Abī al-Fatḥ b. Idrīs b. Salāma, Amīn al-Dīn or Shams al-Dīn, son of the muḥaddith al-ʿImād or al-Kamāl, al-Dimashqī; his father is mentioned in the eighth (century). He was known as Ibn al-Sarrāj and was the nephew (brother's son) of Muḥammad, mentioned above. He heard from ʿAbd al-Raḥīm b. Abī al-Yasar and Zaynab bint al-Khabbāz, among others. Our shaykh met him in Damascus and read to him. He died in Ramaḍān or Shawwāl of the year [80]3. He is in his (our shaykh's) Muʿjam and his Inbāʾ, and al-Maqrīzī followed him in his ʿUqūd. Among those who heard from him a good portion of the Musnad of al-Firyābī was al-Taqī Abū Bakr al-Qalqashandī.

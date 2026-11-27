@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عثمان بن علي بن إسماعيل بن غانم الفخر بن القطب المقدسي
+  name_only: عثمان بن علي بن إسماعيل
   elements:
   - id: n1
     type: nisbah
@@ -49,11 +50,15 @@ relations:
   methods:
   - TMP-S-00028
   context:
-  - date:
+  - type: learning
+    date:
       ah: 760
       cert: medium
-    summary:
-      ar: أحضر في الرابعة
+      type: learning
+    cert: medium
+    phrase: أحضر في الرابعة
+    note:
+      ja: 生年 757 から「في الرابعة」（4歳の年）＝ 760 頃と逆算（cert medium、年初換算）。初版は @when にヒジュラ年「0761」を誤置。
   works:
   - ref: TMP-T-00200
   quote: البياني
@@ -67,10 +72,11 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: teaching
+    date:
       ah: 815
-    summary:
-      ar: لقيه ابن موسى ومعه الأبي في سنة خمس عشرة فسمعا عليه
+      type: teaching
+    phrase: لقيه ابن موسى ومعه الأبي في سنة خمس عشرة فسمعا عليه
   quote: ابن موسى
   note:
     ja: 'ابن موسى ＝ #AIND-D09466（الجمال محمد بن موسى المراكشي المكي、ID-Master「ابن موسى」、旧 TMP-P-000034 から名寄せ済み）。初版の幻番号 TMP-P-000034 を差し替え。field（الحديث）は原文に明示がないため除去。'
@@ -83,8 +89,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: teaching
+    date:
       ah: 815
+      type: teaching
   quote: الأبي
   note:
     ja: 'الأبي ＝ #AIND-D04932「علي بن إبراهيم بن علي بن راشد الموفق أبو الحسن الإبي … اليماني ثم المكي」。同項「ارتحل في موسم سنة أربع عشرة رفيقا للجمال بن موسى المراكشي … فسمعا … وبيت المقدس」が本項の「لقيه ابن موسى ومعه الأبي في سنة خمس عشرة」と閉合（集約時に TMP-P-000035 から差し替え。ID-Master の TMP-P-000035「الموفق الابي」は Note が別人 محمد بن خلفة الوشتاني を指しており要是正・名寄せ）。'
@@ -126,6 +134,8 @@ relations:
   subtype: father
   active: TMP-P-001304
   passive: AIND-D04862
+  summary:
+    ar: القطب علي بن إسماعيل بن غانم المقدسي
   quote: null
   note:
     ja: 見出しナサブ「الفخر بن القطب」から1段ずらして復元（統一規則3）。corpus に本伝なし（ابن غانم 家の他の人物は別系）・ID-Master 未登録のため仮番号 TMP-P-001304 を発行。
@@ -142,11 +152,10 @@ sources:
   works:
   - ref: TMP-T-00104
   quote: قال
-  trigger: rule
-  summary:
-    ar: 'قال شيخنا في معجمه : أجاز لبنتي رابعة'
   note:
     ja: Pattern A（初版は統制外 subtype「other」の relation）。شيخنا ＝ ابن حجر（wd:Q471116）、「معجمه」＝ ID-Master の TMP-T-00104（المعجم المفهرس、「ذكره شيخنا في معجمه」で言及される書）。
+  trigger: rule
+  phrase: 'قال شيخنا في معجمه : أجاز لبنتي رابعة'
 translation:
   ja: ウスマーン・ブン・アリー・ブン・イスマーイール・ブン・ガーニム、アル＝ファフル・ブン・アル＝クトゥブ、アル＝マクディスィー。757年に生まれ、4歳のときアル＝バヤーニーのもとに連れられて『アル＝ムスタジャード・ミン・ターリーフ・バグダード』などを聴講した。伝承（ハディース伝授）を行った。815年にイブン・ムーサーが、アル＝アッビーを伴って彼に会い、二人は彼から聴聞した。アッ＝タキー・ブン・ファハドとその子など一団の人々にイジャーザを与えた。我らの師（イブン・ハジャル）はその『ムウジャム』で「彼は私の娘ラービアにイジャーザを与えた」と述べている。
   en: 'ʿUthmān b. ʿAlī b. Ismāʿīl b. Ghānim, al-Fakhr b. al-Quṭb, al-Maqdisī. He was born in 757 and in his fourth year was brought to attend, under al-Bayānī, al-Mustajād min Taʾrīkh Baghdād and other works. He transmitted ḥadīth. Ibn Mūsā, accompanied by al-Ubbī, met him in 815 and both heard from him. He granted ijāza to a group including al-Taqī b. Fahd and his son. Our shaykh (Ibn Ḥajar) said in his Muʿjam: "He granted ijāza to my daughter Rābiʿa."'

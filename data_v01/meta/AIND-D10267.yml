@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: يحيى بن عبد الغني بن محمد الخانكي
+  name_only: يحيى بن عبد الغني بن محمد
   elements:
   - id: n1
     type: nisbah
@@ -28,11 +29,10 @@ death:
   id: d
   date:
     ah: 896-06-02
-  summary:
-    ar: ثم قدما أول سنة ست فلم يلبث أن مات في ثاني جمادى الثانية منها وفجع به أبوه
   note:
     ja: '「أول سنة ست … ثاني جمادى الثانية منها」＝896年ジュマーダー第二月2日＝1491-04-21（h2g.py）。年は 894・895（滞留）に続く「ست」＝896（ブリーフ）。初版の @when 1491（年精度）を日精度に。没地は原文にない（父の本伝 #AIND-D04074 は「ثم مات الولد بعد عوده مع أبيه إلى الخانقاه」と記すが、他項のみの情報＝補わない、規則23）。「وأظنه بلغ أو قارب」＝成年（ブルーグ）に達していたか、それに近かったと思う（サハーウィーの推測、年齢の記述＝生年を作らない）。'
   quote: سنة
+  phrase: ثم قدما أول سنة ست فلم يلبث أن مات في ثاني جمادى الثانية منها وفجع به أبوه
 persons:
 - id: p1
   label: أم يحيى بن عبد الغني الخانكي
@@ -47,6 +47,7 @@ relations:
   note:
     ja: '「الماضي أبوه」＝#AIND-D04074「عبد الغني بن محمد بن أحمد الزين الجوجري ثم الخانكي … جاور مرارا منها في سنة أربع وتسعين بعد حجه في التي قبلها … وكان يجلس معي فيسمع ومما سمعه عمدة الأحكام بقراءة ولده يحيى وتخلف سنة خمس … ثم مات الولد بعد عوده مع أبيه إلى الخانقاه」（ナサブ・ニスバ・894年のマッカ滞留・「ولده يحيى」の العمدة 朗読で相互閉合。ブリーフ候補を本文で確認、未収録）。初版の #NEEDID を置換。祖父 محمد（名のみ）の #NEEDID relation は除去（父の desc に含む）。'
   norm: ابوه
+  phrase: عبد الغني بن محمد الخانكي
 - id: r2
   type: kin
   subtype: mother
@@ -63,8 +64,10 @@ relations:
   methods:
   - TMP-S-00025
   context:
-  - date:
+  - type: learning
+    date:
       ah: 894
+      type: learning
     places:
     - ref: gn:104515
       quote: بمكة
@@ -84,30 +87,31 @@ events:
   quote: وقرأ
   trigger: rule
   norm: قرا
+  phrase: ذكي حاذق حفظ القرآن
 - id: e2
   type: residence
   subtype: jāwara
   date:
     ah: 894
+    type: residence
   places:
   - ref: gn:104515
     quote: بمكة
     norm: مكة
-  quote: null
-  summary:
-    ar: حين مجاورته مع أبيه بمكة سنة أربع وتسعين وتخلفا عنا هناك سنة أخرى
+  quote: حين مجاورته مع أبيه بمكة سنة أربع وتسعين وتخلفا عنا هناك سنة أخرى
   note:
     ja: 894年に父とともにマッカに滞留し、サハーウィーらが去ったのちも「そこに」（هناك＝مكة）もう一年（895年）残った。初版の cert="high" を除去、@when を付与。
+  norm: حين مجاورته مع ابيه بمكة سنة اربع وتسعين وتخلفا عنا هناك سنة اخري
 - id: e3
   type: travel
   date:
     ah: 896
+    type: travel
   quote: قدما
-  summary:
-    ar: ثم قدما أول سنة ست
   note:
     ja: 896年の初めに父子で（マッカから）戻って来た。到着地は原文に明記がない＝placeName を付けない。896年初＝1490-11-23（h2g.py、年精度。「أول سنة」の意は note に）。
   trigger: rule
+  phrase: ثم قدما أول سنة ست
 translation:
   ja: ヤフヤー・ブン・アブド・アル＝ガニー・ブン・ムハンマド・アル＝ハーンキー。父は既出。女奴隷から生まれた子で、聡明で利発であり、クルアーンを暗記し、（8）94年に父とともにマッカに滞留していたとき、私（サハーウィー）に『ウムダ』を読んだ。二人は我々のあとそこにもう一年とどまり、6年の初めに戻って来たが、ほどなく同年ジュマーダー第二月2日に没し、父は彼を失って悲嘆にくれた。神が二人に天国をもって償いたまわんことを。彼は成年に達していたか、それに近かったと思う。
   en: Yaḥyā b. ʿAbd al-Ghanī b. Muḥammad al-Khānkī, whose father was mentioned earlier. A boy born of a slave woman, intelligent and sharp, he memorized the Qurʾān and read the ʿUmda to me (al-Sakhāwī) when he sojourned with his father in Mecca in the year [8]94. The two of them stayed on there after us for another year, then came back at the beginning of the year six; but it was not long before he died on 2 Jumādā II of that year, and his father was grief-stricken at his loss; may God compensate them both with Paradise. I think he had reached puberty or was close to it.

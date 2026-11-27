@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن شعبان بن علي بن شعبان الشمس الغزي الشافعي
+  name_only: محمد بن شعبان بن علي
   elements:
   - id: n1
     type: nisbah
@@ -59,6 +60,7 @@ relations:
   note:
     ja: الجوجري＝#AIND-D07896（الشمس الجوجري、確定ID）。初版は ニスバ番号 TMP-N-00128 を person 位置に流用（precheck カテゴリ不一致）。
   norm: الجوجري
+  phrase: الجوجري
 - id: r3
   type: scholarly
   subtype: teacher
@@ -66,6 +68,8 @@ relations:
   passive: AIND-D07472
   methods:
   - TMP-S-00008
+  summary:
+    ar: أبو السعادات
   quote: وأبي السعادات
   note:
     ja: أبو السعادات＝#AIND-D08815（البدر أبو السعادات البلقيني）。
@@ -81,6 +85,7 @@ relations:
   note:
     ja: الزيني زكريا＝#AIND-D03042（زكريا بن محمد … الزين الأنصاري السنيكي）。
   norm: الزيني زكريا
+  phrase: الزيني زكريا
 - id: r5
   type: scholarly
   subtype: teacher
@@ -92,6 +97,7 @@ relations:
   note:
     ja: 'الشرف بن الجيعان＝#AIND-D10249（يحيى بن شاكر بن عبد الغني … الشرف أبو زكريا … ويعرف بابن الجيعان）。初版 #NEEDID を是正。「وآخرين」（その他）は relation 化しない。'
   norm: الشرف بن الجيعان
+  phrase: الشرف بن الجيعان
 - id: r6
   type: scholarly
   subtype: teacher
@@ -108,6 +114,8 @@ relations:
   subtype: brother
   active: AIND-D00770
   passive: AIND-D07472
+  summary:
+    ar: شقيق أحمد الماضي
   quote: null
   note:
     ja: 'أحمد＝#AIND-D00770（أحمد بن شعبان بن علي بن شعبان الشهاب الأنصاري الفارسكوري الأصل الغزي الشافعي … ويعرف بابن شعبان）。ナサブ完全一致。初版 #NEEDID を是正。'
@@ -116,6 +124,8 @@ relations:
   subtype: brother
   active: AIND-D04123
   passive: AIND-D07472
+  summary:
+    ar: شقيق عبد القادر الماضي
   quote: null
   note:
     ja: 'عبد القادر＝#AIND-D04123（عبد القادر بن شعبان بن علي بن شعبان الغزي الشافعي شقيق أحمد ومحمد وأصغر الثلاثة）。初版の #AIND-D04089（عبد القادر بن إبراهيم … المناوي、別人）を是正。「وهو أسن الثلاثة」＝本項主が3人の最年長。'
@@ -124,6 +134,8 @@ relations:
   subtype: father
   active: TMP-P-001163
   passive: AIND-D07472
+  summary:
+    ar: شعبان بن علي بن شعبان الغزي
   quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（規則3）。兄弟 #AIND-D00770・#AIND-D04123 と共通の父。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001163。初版は father relation なし。'
@@ -136,6 +148,7 @@ states:
   quote: null
   note:
     ja: الصالحية＝カイロの المدرسة الصالحية（repo 先例 D01002・D04416・D04490 は wd:Q7404512 を充当。ID-Master は同番号を「الصلاحية」と登録しており表記の確認を要する→ISSUES §Db-7）。初版の重複 affiliation（employed、#NEEDID）を除去（規則8）、施設所在地由来の placeName القاهرة を除去（規則22-1）。
+  phrase: واستقر أحد المعيدين بالصالحية
 affiliations:
 - id: a1
   type: madhhab
@@ -143,6 +156,9 @@ affiliations:
 - id: a2
   type: reside
   ref: TMP-I-00029
+  orgs:
+  - label: البرقوقية
+  - label: al-Barqūqiyya
 events:
 - id: e1
   type: learning
@@ -151,17 +167,17 @@ events:
   quote: وأخذ
   trigger: rule
   norm: اخذ
+  phrase: اشتغل في الفقه وأصوله والعربية وغيرها
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
   quote: وحج
-  summary:
-    ar: وحج وجاور يسيرا
   note:
     ja: placeName مكة は規則20の例外。
   trigger: rule
+  phrase: وحج وجاور يسيرا
 - id: e3
   type: residence
   subtype: jāwara
@@ -170,16 +186,16 @@ events:
     ja: 短期のムジャーワラ。規則20により placeName を付けない（初版の مكة を除去）。
   trigger: rule
   norm: جاور
+  phrase: وجاور يسيرا
 - id: e4
   type: travel
   places:
   - ref: TMP-L-00002
     quote: الشام
   quote: ودخل
-  summary:
-    ar: ودخل الشام للتكسب
   trigger: rule
   norm: دخل
+  phrase: ودخل الشام للتكسب
 - id: e5
   type: residence
   places:
@@ -187,9 +203,9 @@ events:
     quote: القاهرة
   orgs:
   - ref: TMP-I-00029
-  quote: وسكن
   summary:
     ar: نزيل البرقوقية من القاهرة … وقطن القاهرة وسكن البرقوقية
+  quote: وسكن
   trigger: rule
   norm: سكن
 translation:

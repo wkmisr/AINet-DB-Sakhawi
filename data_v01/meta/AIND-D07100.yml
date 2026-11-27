@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن إسماعيل بن إبراهيم أبو الوفا القاهري
+  name_only: محمد بن إسماعيل بن إبراهيم
   elements:
   - id: n1
     type: nisbah
@@ -18,6 +19,7 @@ name:
     type: shuhrah
     quote: بوفا
     norm: وفا
+    label: وفا
   - id: n4
     type: ism
     quote: محمد
@@ -49,7 +51,10 @@ relations:
   subtype: teacher
   active: TMP-P-001457
   passive: AIND-D07100
-  methods: []
+  methods:
+  - label: تدرب
+  fields:
+  - TMP-S-00055
   quote: الشهاب أحمد بن خليل
   note:
     ja: '「تدرب في الطب بخاله الشهاب أحمد بن خليل」。母方の叔父で医学の師。corpus の #AIND-D00719「أحمد بن خليل الصوفي أحد الأطباء ووالد الموجودين الآن … وآخر عهدي به بعد الستين」（カイロ・アクマル・モスク門前の医師）が名・職業・年代ともに合致する候補だが、ラカブ الشهاب の記載がなく名のみの一致のため同定は保留し（規則26）、仮番号 TMP-P-001457 を発行（§D118-2）。【集約】内容B は D00719（cert medium）を推したが、ラカブ・ニスバの裏付けがなく名＋職業＋年代の一致にとどまるため規則26 どおり仮番号を維持し、D00719 は ID-Master の候補注記とした（自己裁定）。'
@@ -59,11 +64,15 @@ relations:
   subtype: teacher
   active: AIND-D09495
   passive: AIND-D07100
-  methods: []
+  methods:
+  - label: تدرب
+  fields:
+  - TMP-S-00055
   quote: وناصر الدين بن البندقي
   note:
     ja: 'ناصر الدين بن البندقي ＝ #AIND-D09495（محمد بن نجم الدين ناصر الدين الطبيب ويعرف بابن البندقي、マンスーリーヤで医学を教授、850年代没）。ラカブ・通称・職業が一致。初版の #NEEDID を解消。'
   norm: ناصر الدين بن البندقي
+  phrase: ناصر الدين بن البندقي
 - id: r3
   type: kin
   subtype: maternal_uncle
@@ -72,11 +81,14 @@ relations:
   quote: null
   note:
     ja: 初版の subtype uncle（#NEEDID）を maternal_uncle（خال）に是正。同定は上記 teacher relation の note を参照。
+  phrase: الشهاب أحمد بن خليل
 - id: r4
   type: kin
   subtype: father
   active: TMP-P-001460
   passive: AIND-D07100
+  summary:
+    ar: إسماعيل بن إبراهيم القاهري
   quote: null
   note:
     ja: 父は見出しナサブ「إسماعيل بن إبراهيم」（祖父名まで復元可、規則3）。corpus に本伝なし・ID-Master 未登録 → 仮番号 TMP-P-001460（⚠汎用名、ニスバのみ）。
@@ -97,9 +109,8 @@ events:
   places:
   - ref: gn:104515
   quote: حج
-  summary:
-    ar: وقد حج غير مرة
   trigger: rule
+  phrase: وقد حج غير مرة
 - id: e2
   type: residence
   subtype: jāwara
@@ -108,16 +119,16 @@ events:
     ja: 原文に地名なし＝placeName を付けない（規則20）。
   trigger: rule
   norm: جاور
+  phrase: وجاور مرتين
 - id: e3
   type: travel
   places:
   - ref: gn:358048
     quote: دمياط
   quote: ودخل
-  summary:
-    ar: ودخل دمياط
   trigger: rule
   norm: دخل
+  phrase: ودخل دمياط
 - id: e4
   type: cultural
   persons:

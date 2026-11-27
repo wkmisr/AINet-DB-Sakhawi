@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: قانصوه الأشرفي قايتباي
+  name_only: قانصوه
   elements:
   - id: n1
     type: nisbah
@@ -15,6 +16,7 @@ name:
     type: shuhrah
     quote: بخمسمائة
     norm: خمسماءة
+    label: خمسمائة
   - id: n3
     type: ism
     quote: قانصوه
@@ -46,6 +48,8 @@ relations:
   subtype: spouse
   active: AIND-D13195
   passive: AIND-D06289
+  summary:
+    ar: ابنة الأتابك سبطة الظاهر جقمق
   quote: null
   note:
     ja: '妻＝#AIND-D13195 ستيتة ابنة الأتابك أزبك（上記 note 参照。892年婚、895年末に男児を産みその子は夭折、彼女は897年のペストで没）。本項の「ماتت في الطاعون بعد ولديها」（二子の後）は D13195 の記述（一子）と子の数が食い違うため note に留め、同定は cert medium。初版の #NEEDID を是正。الظاهر جقمق（#AIND-D02423）は妻の母方祖父であり本項主との直接関係ではないため、初版の「other」relation を除去。 【集約 2026-10-25】相手側の本文が通称＋職で本項主を名指しして閉合する: #AIND-D01869「واستولدها عدة كالتي صاهر أمير اخور قانصوه خمسمائة عليها」、#AIND-D13409（فاطمة ابنة الظاهر جقمق＝أزبك の妻、ستيتة の母）「بعد تزوج قانصوه أمير آخور واحدة منهم」。よって cert を外した（規則37 の趣旨、内容A[5]、§D130-6）。子の数の差（本項「بعد ولديها」／D13195 一子）は note に留める。'
@@ -54,6 +58,8 @@ relations:
   subtype: patron
   active: AIND-D06305
   passive: AIND-D06289
+  summary:
+    ar: الأشرف قايتباي
   quote: قايتباي
   note:
     ja: 見出し「الأشرفي قايتباي」（「أيضا」＝前項 D06288 と同名同主人の別人）＝主人は الأشرف قايتباي（#AIND-D06305）。初版に主人 relation なし。
@@ -74,24 +80,23 @@ states:
 events:
 - id: e1
   type: other
-  quote: null
-  summary:
-    ar: وصاهر الأتابك على ابنته سبطة الظاهر جقمق واستولدها ثم ماتت في الطاعون بعد ولديها
+  quote: وصاهر الأتابك على ابنته سبطة الظاهر جقمق واستولدها ثم ماتت في الطاعون بعد ولديها
   note:
     ja: 妻（D13195）は二子の死後ペストで没した。本項に年の明記はない（D13195 では897年のペスト）。初版の when-custom 0898 cert medium（原文に根拠なし）を除去。
+  norm: صاهر الاتابك علي ابنته سبطة الظاهر جقمق واستولدها ثم ماتت في الطاعون بعد ولديها
 - id: e2
   type: religious
   subtype: hajj
   date:
     ah: 898
+    type: religious
   places:
   - ref: gn:104515
   quote: وحج
-  summary:
-    ar: وحج بأثر ذلك أمير الركب سنة ثمان وتسعين
   note:
     ja: 898年（1492-11-01 開始、年精度）、その直後に巡礼隊の長（أمير الركب）として巡礼した。巡礼の placeName مكة は規則20 の例外。「أمير الركب」はこの巡礼における役割（行為）であり state にしない（ブリーフ D06289 注記）。初版の state「أمير الركب」（#NEEDID、placeName مكة 付き）を除去。
   trigger: rule
+  phrase: وحج بأثر ذلك أمير الركب سنة ثمان وتسعين
 translation:
   ja: カーンスーフ・アル＝アシュラフィー・カーイトバーイ、同じく（同名の別人）、ハムスミア（五百）として知られる。昇進して第二ダワーダール、次いでアミール・アーホールとなった。アターバクの娘、すなわちアッ＝ザーヒル・ジャクマクの外孫娘を娶ってその女婿となり、彼女との間に子をもうけたが、彼女は二人の子の後にペストで没した。その直後、898年に巡礼隊の長（アミール・アッ＝ラクブ）として巡礼した。
   en: Qānṣūh al-Ashrafī Qāytbāy, likewise (another of the same name), known as Khamsumiʾa (Five Hundred). He rose until he became second dawādār and then amīr ākhūr. He became son-in-law of the atābak by marrying his daughter, the daughter's daughter of al-Ẓāhir Jaqmaq, and had children by her; then she died in the plague after her two children. Immediately after that he made the pilgrimage as commander of the pilgrim caravan in the year 898.

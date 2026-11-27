@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عبد الرحمن بن أبي السعادات بن محمود بن عادل الزين الحسيني المدني الحنفي
+  name_only: عبد الرحمن بن أبي السعادات بن محمود
   elements:
   - id: n1
     type: nisbah
@@ -52,7 +53,8 @@ relations:
   subtype: teacher
   active: AIND-D05974
   passive: AIND-D03634
-  methods: []
+  methods:
+  - label: جود على
   quote: عمر النجار الحموي
   note:
     ja: عمر النجار الحموي=マディーナ周辺で活動したクルアーン美誦の師(D04446にも「وعمر النجار الحموي」として同役で出現)。corpus独立立項なし=TMP-P-000735新規発行。
@@ -72,7 +74,8 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - places:
+  - type: learning
+    places:
     - ref: gn:109223
       quote: بالمدينة
       norm: المدينة
@@ -86,11 +89,14 @@ relations:
   note:
     ja: أحمد=#AIND-D00741(أحمد بن أبي السعادات بن عادل الحسيني المدني)。
   norm: احمد الماضي
+  phrase: أخو أحمد الماضي
 - id: r5
   type: kin
   subtype: brother
   active: AIND-D04446
   passive: AIND-D03634
+  summary:
+    ar: وعبد الله الآتي
   quote: وعبد الله
   note:
     ja: عبد الله=#AIND-D04446(#67 عبد الله بن أبي السعادات بن محمود بن عادل)。汚染番号TMP-P-000490(=al-Zuhrīの祖父عبد الله)の流用を解消。
@@ -104,6 +110,7 @@ relations:
   note:
     ja: عبد الكبير=#AIND-D04237(#820 عبد الكبير بن أبي السعادات بن محمود بن عادل)。
   norm: عبد الكبير
+  phrase: وعبد الكبير الآتي
 affiliations:
 - id: a1
   type: madhhab
@@ -120,9 +127,9 @@ events:
     en: Grew up in Medina.
 - id: e2
   type: cultural
-  quote: فحفظ
   summary:
     en: Memorized the Qurʾān and al-Mukhtār, and studied grammar and morphology.
+  quote: فحفظ
   trigger: rule
   norm: حفظ
 translation:

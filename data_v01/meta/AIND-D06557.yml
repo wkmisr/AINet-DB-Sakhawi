@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن إبراهيم بن محمد بن يحيى بن محمد بن إبراهيم قوام الدين بن غياث الدين الحسيني الكازروني
+  name_only: محمد بن إبراهيم بن محمد
   elements:
   - id: n1
     type: laqab
@@ -57,17 +58,18 @@ birth:
   - ref: TMP-L-00042
     cert: low
     quote: غزة
-  summary:
-    ar: ولد في غزة في ذي القعدة سنة ثلاث وأربعين وسبعمائة
   note:
     ja: '743年ズー・アル＝カアダ月＝1343-04-05 開始（h2g.py、月精度）。初版の @when 1342（年精度、743年の年初の年）を月精度 1343-04 に。出生地「غزة」は刊本どおり（規則25）だが、同一人物とみられる二重立項 #AIND-D09254 は「ولد في غرة ذي القعدة سنة ثلاث وأربعين وسبعمائة بكازرون」（同月の朔日、カーザルーンで）と書く＝本項の「في غزة في」は「في غرة」（朔日に）の誤りである可能性が高い。原文の地名を落とさず cert low とし、判断を ISSUES §D170-3 に上げた。'
   quote: سنة
+  phrase: ولد في غزة في ذي القعدة سنة ثلاث وأربعين وسبعمائة
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001751
   passive: AIND-D06557
+  summary:
+    ar: غياث الدين إبراهيم بن محمد بن يحيى
   quote: null
   note:
     ja: '見出し「قوام الدين بن غياث الدين」＝父はラカブ غياث الدين を持ち、祖父名以上（محمد بن يحيى بن محمد بن إبراهيم）まで復元できる＝識別要素あり（規則3）。corpus に本伝なし（全文「غياث الدين」＋「الكازروني」6件: 本項・#AIND-D09254 のほかは別人）、ID-Master 未登録（「غياث الدين」「الكازروني」「D06557」）→ 新規 TMP-P-001751。二重立項 #AIND-D09254 の見出しは父の名を「محمد」とする（「محمد بن محمد بن محمد بن يحيى」）＝名の異伝を TSV Note に。初版は father relation なし。'
@@ -100,8 +102,10 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 829
+      type: learning
   quote: الطاووسي
   note:
     ja: '「قال الطاووسي : أجاز لي في سنة تسع وعشرين」＝一人称は引用元の الطاووسي（規則59 (f)）。本項主が الطاووسي（#AIND-D00900 أحمد بن عبد الله … أبو الفتوح … الطاوسي）にイジャーザを与えた＝本項主が師（規則15）。829年＝1425-11-22 開始（h2g.py、年精度）。本項主は743年生＝829年には86歳。初版は subtype="student"、event の @when に ヒジュラ暦年「0829」。'
@@ -110,6 +114,8 @@ relations:
   subtype: possible_identity
   active: AIND-D09254
   passive: AIND-D06557
+  summary:
+    ar: محمد بن محمد بن محمد بن يحيى بن محمد بن إبرهيم السيد قوام الدين بن غياث الدين العلوي الحسيني الموسوي الكازروني
   cert: high
   quote: null
   note:
@@ -119,11 +125,10 @@ sources:
   persons:
   - ref: AIND-D00900
   quote: قال
-  trigger: rule
-  summary:
-    ar: 'قال الطاووسي : أجاز لي في سنة تسع وعشرين'
   note:
     ja: Pattern A。情報源は الطاووسي（#AIND-D00900）。
+  trigger: rule
+  phrase: 'قال الطاووسي : أجاز لي في سنة تسع وعشرين'
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・ヤフヤー・ブン・ムハンマド・ブン・イブラーヒーム、カワーム・アッ＝ディーン・ブン・ギヤース・アッ＝ディーン、アル＝フサイニー、アル＝カーザルーニー。743年ズー・アル＝カアダ月にガザで生まれ、アル＝アミーン・ムハンマド・アル＝バルヤーニーに学び、サイード・アッ＝ディーン・アル＝カーザルーニーから伝えた。アッ＝ターウースィーは「29年に彼は私にイジャーザを与えた」と述べている。
   en: 'Muḥammad b. Ibrāhīm b. Muḥammad b. Yaḥyā b. Muḥammad b. Ibrāhīm, Qawām al-Dīn b. Ghiyāth al-Dīn, al-Ḥusaynī al-Kāzarūnī. He was born in Gaza in Dhū al-Qaʿda of the year 743, studied under al-Amīn Muḥammad al-Balyānī and transmitted from Saʿīd al-Dīn al-Kāzarūnī. Al-Ṭāwūsī said: "He gave me an ijāza in the year 29."'

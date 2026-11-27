@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: عبد الله بن محمد بن عبد الله بن بلال المكي
+  name_only: عبد الله بن محمد بن عبد الله
   elements:
   - id: n1
     type: nisbah
@@ -45,8 +46,10 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 805
+      type: learning
   quote: العراقي
 - id: r2
   type: scholarly
@@ -56,10 +59,13 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 805
+      type: learning
   quote: والهيثمي
   norm: الهيثمي
+  phrase: الهيثمي
 - id: r3
   type: scholarly
   subtype: teacher
@@ -68,12 +74,15 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - date:
+  - type: learning
+    date:
       ah: 805
+      type: learning
   quote: وابن صديق
   note:
     ja: '「أجاز له في سنة خمس العراقي والهيثمي وابن صديق」。「سنة خمس」＝805（العراقي 806年没・الهيثمي 807年没と整合、マッカ在住者への一括イジャーザの定型）。初版の幻番号 TMP-P-000131 は #AIND-D00271（ابن صديق）に名寄せ済み。'
   norm: ابن صديق
+  phrase: ابن صديق
 - id: r4
   type: kin
   subtype: father
@@ -82,11 +91,14 @@ relations:
   quote: null
   note:
     ja: 見出しナサブの父 محمد بن عبد الله بن بلال＝#AIND-D07762（「محمد بن عبد الله بن بلال الفراش بالمسجد الحرام وأخو أحمد وإسحق」、B88 収録）。同じ بلال 家（マッカ聖モスクの فراش／وقاد）で3代一致。
+  phrase: محمد بن عبد الله بن بلال
 - id: r5
   type: kin
   subtype: son
   active: AIND-D00911
   passive: AIND-D04583
+  summary:
+    ar: أحمد بن عبد الله بن محمد بن عبد الله بن بلال الوقاد
   cert: medium
   quote: null
   note:
@@ -96,6 +108,8 @@ relations:
   subtype: uncle
   active: AIND-D00889
   passive: AIND-D04583
+  summary:
+    ar: أحمد بن عبد الله بن بلال الفراش والوقاد بالحرم المكي
   cert: medium
   quote: null
   note:
@@ -115,13 +129,12 @@ sources:
   - ref: AIND-D09211
     quote: ابن فهد
   quote: أرخه
-  norm: ارخه
-  trigger: rule
-  summary:
-    ar: أرخه ابن فهد
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 847（≦871）→ ブリーフの振り分けにより التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「chronicler」relation を event に変換。
+  trigger: rule
+  norm: ارخه
+  phrase: أرخه ابن فهد
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥッラー・ブン・ビラール、アル＝マッキー、ハラム（マッカ聖モスク）の灯火係（ワッカード）。（8）05年にアル＝イラーキー、アル＝ハイサミー、イブン・スィッディークが彼にイジャーザを与えた。（8）47年ラマダーン月に同地（マッカ）で没した。イブン・ファハドがその没年月を記録している。
   en: ʿAbd Allāh b. Muḥammad b. ʿAbd Allāh b. Bilāl, al-Makkī, the lamp-lighter (waqqād) at the Ḥaram (the Sacred Mosque of Mecca). In (8)05 al-ʿIrāqī, al-Haythamī and Ibn Ṣiddīq granted him an ijāza. He died there (in Mecca) in Ramaḍān (8)47; Ibn Fahd recorded his death.

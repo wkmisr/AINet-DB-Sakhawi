@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أبي بكر بن عباس بن أحمد البدراني
+  name_only: محمد بن أبي بكر بن عباس
   elements:
   - id: n1
     type: nisbah
@@ -38,10 +39,11 @@ relations:
   methods:
   - TMP-S-00006
   context:
-  - date:
+  - type: learning
+    date:
       ah: 892
-    summary:
-      ar: عرض على المنهاج في سنة اثنتين وتسعين
+      type: learning
+    phrase: عرض على المنهاج في سنة اثنتين وتسعين
   works:
   - ref: TMP-T-00065
   quote: مني
@@ -55,8 +57,8 @@ relations:
   methods:
   - TMP-S-00025
   context:
-  - summary:
-      ar: ثم قرأ على ثلاثة أحاديث من أول البخاري
+  - type: learning
+    phrase: ثم قرأ على ثلاثة أحاديث من أول البخاري
   works:
   - ref: wd:Q1023470
   quote: null
@@ -70,8 +72,8 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - summary:
-      ar: بعد أن سمع مني المسلسل
+  - type: learning
+    phrase: بعد أن سمع مني المسلسل
   works:
   - ref: TMP-T-00019
   quote: null
@@ -83,8 +85,8 @@ relations:
   methods:
   - TMP-S-00004
   context:
-  - summary:
-      ar: وأجزت له
+  - type: learning
+    phrase: وأجزت له
   quote: null
   note:
     ja: 性質の異なる伝授（عرض・قرأ・سمع・إجازة）を別 relation に分けた（規則2）。
@@ -93,6 +95,8 @@ relations:
   subtype: father
   active: AIND-D10710
   passive: AIND-D07191
+  summary:
+    ar: الزين أبو بكر بن عباس بن أحمد البدراني
   quote: أبوه
   note:
     ja: '「الآتي أبوه」＝#AIND-D10710（أبو بكر بن عباس بن أحمد الزين البدراني والد محمد الآتي）。ナサブ・ニスバ一致（規則37）。初版の #NEEDID を解消。'
@@ -102,6 +106,8 @@ relations:
   subtype: maternal_grandfather
   active: AIND-D09058
   passive: AIND-D07191
+  summary:
+    ar: الشمس محمد بن محمد بن محمد بن أمين البدراني
   quote: null
   note:
     ja: '「سبط الشمس محمد بن محمد بن محمد بن أمين الآتي أيضا」＝母方祖父 #AIND-D09058（محمد بن محمد بن محمد بن أمين … الشمس بن القطب البدراني المالكي、864年ペスト没。父項 D10710「تزوج … ابنته واستولدها ولده المشار إليه」と整合）。初版の subtype grandfather・#NEEDID を是正。'
@@ -109,6 +115,7 @@ states:
 - id: s1
   type: status
   label: ولد فطن
+  label_latn: walad faṭin
   quote: ولد فطن
   note:
     ja: 「ولد فطن」＝「聡明な子」（年号が続かず幼少者の描写なので「ولدٌ」。「生まれた」ではない）。

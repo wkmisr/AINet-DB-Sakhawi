@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن أحمد بن نصر الله بن أحمد بن محمد بن عمر موفق الدين بن المحب البغدادي الأصل الحنبلي
+  name_only: محمد بن أحمد بن نصر الله
   elements:
   - id: n1
     type: nisbah
@@ -62,10 +63,9 @@ death:
     cert: medium
   places:
   - ref: gn:361058
-  summary:
-    ar: وكان حيا في سنة أربع وخمسين أو قريبها ثم مات باسكندرية
   note:
     ja: 没年は不明。「كان حيا في سنة أربع وخمسين أو قريبها ثم مات」から 854 年以降（notBefore、854年＝1450-02-23 開始）。「أو قريبها」の hedge により cert medium。没地 الإسكندرية は原文明記。
+  phrase: وكان حيا في سنة أربع وخمسين أو قريبها ثم مات باسكندرية
 persons:
 - id: p1
   label: أخت الشمس محمد بن علي بن عيسى البغدادي
@@ -78,6 +78,8 @@ relations:
   passive: AIND-D07009
   methods:
   - TMP-S-00008
+  summary:
+    ar: المحب أحمد بن نصر الله
   quote: null
   note:
     ja: '「وأخذ عن أبيه」＝父 المحب أحمد بن نصر الله（#AIND-D01674）から学んだ。初版は #NEEDID。'
@@ -101,8 +103,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 845-02
+      type: learning
   quote: ابن ناظر الصاحبة
   note:
     ja: ID-Master TMP-P-000018（repo 既使用）。corpus に本伝なし。@when の誤置（0845-02）を 1441-06（845年サファル月＝1441-06-30〜07-28、月精度）に。
@@ -114,12 +118,15 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 845-02
+      type: learning
   quote: وابن بردس
   note:
     ja: 'ابن بردس ＝ #AIND-D05064（علي بن إسماعيل … العلاء … البعلي الحنبلي ويعرف كسلفه بابن بردس、762年生、「استقدم القاهرة فحدث بها」、846年ズー・アル＝ヒッジャ月ダマスクス没）。聴聞は原文明記の 845年サファル月で、兄弟のうち التاج محمد（#AIND-D07118）は830年没のため不可能＝845年に存命の ابن بردس は D05064 のみ（ニスバ索引 #AIND-D12182、repo 先例 D00420 も D05064）。【集約】校閲時の TMP-P-000019（ID-Master 裸名行、年代不明の D07748 でも使用）から差し替え。'
   norm: ابن بردس
+  phrase: ابن بردس
 - id: r5
   type: scholarly
   subtype: teacher
@@ -128,12 +135,15 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: learning
+    date:
       ah: 845-02
+      type: learning
   quote: وابن الطحان
   note:
     ja: ID-Master TMP-P-000017（repo 既使用）。corpus に本伝なし。
   norm: ابن الطحان
+  phrase: ابن الطحان
 - id: r6
   type: kin
   subtype: father
@@ -142,6 +152,7 @@ relations:
   quote: null
   note:
     ja: '父 ＝ #AIND-D01674（أحمد بن نصر الله بن أحمد بن محمد بن عمر … المحب … التستري الأصل البغدادي … الحنبلي、ハンバリー派カーディー、844年没）。ナサブ6代一致、弟 #AIND-D10445「الماضي أبوه وجده」で閉合（規則37）。初版は #NEEDID。'
+  phrase: أحمد بن نصر الله
 - id: r7
   type: kin
   subtype: grandfather
@@ -150,6 +161,7 @@ relations:
   quote: null
   note:
     ja: '祖父 ＝ #AIND-D10130（نصر الله بن أحمد بن محمد بن عمر الجلال أبو الفتح التستري البغدادي الحنبلي … ووالد المحب أحمد）。規則37 により追加。'
+  phrase: نصر الله بن أحمد
 - id: r8
   type: kin
   subtype: brother
@@ -181,6 +193,7 @@ states:
   ref: wd:Q215536
   quote: وكان
   norm: كان
+  phrase: وتعاني التجارة
 affiliations:
 - id: a1
   type: madhhab
@@ -190,17 +203,17 @@ events:
   type: learning
   date:
     ah: 845-02
+    type: learning
   persons:
   - ref: AIND-D08893
   methods:
   - TMP-S-00008
   quote: وأخذ
-  summary:
-    ar: وكذا سمع بعده على ابن ناظر الصاحبة وابن بردس وابن الطحان بحضرة البدر البغدادي الحنبلي في صفر سنة خمس وأربعين
   note:
     ja: '845年サファル月の聴聞会に同席した البدر البغدادي الحنبلي ＝ #AIND-D08893（محمد بن محمد بن عبد المنعم … البدر أبو المحاسن … البغدادي الأصل القاهري الحنبلي、801年生、父 المحب بن نصر الله の弟子。repo 先例 #AIND-D07777）。初版の統制外 relation「witness at hearing」（#NEEDID）を event に変更。'
   trigger: rule
   norm: اخذ
+  phrase: وكذا سمع بعده على ابن ناظر الصاحبة وابن بردس وابن الطحان بحضرة البدر البغدادي الحنبلي في صفر سنة خمس وأربعين
 - id: e2
   type: cultural
   works:

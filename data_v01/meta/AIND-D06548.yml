@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن إبراهيم بن محمد بن عبد الله بن إبراهيم بن محمد الأرموي ثم الصالحي
+  name_only: محمد بن إبراهيم بن محمد
   elements:
   - id: n1
     type: nisbah
@@ -50,11 +51,10 @@ death:
   - ref: gn:170654
     quote: بدمشق
     norm: دمشق
-  summary:
-    ar: ومات بدمشق سنة أربع
   note:
     ja: 「سنة أربع」は一の位のみ＝804（cert medium。イブン・ハジャルが聴き『إنباء الغمر』に載せる＝9世紀初頭）。804年＝1401-08-20 開始（h2g.py、年精度）。初版は cert なし。
   quote: سنة
+  phrase: ومات بدمشق سنة أربع
 persons:
 - id: p1
   label: إبراهيم بن محمد بن عبد الله
@@ -90,6 +90,8 @@ relations:
   passive: wd:Q471116
   methods:
   - TMP-S-00003
+  summary:
+    ar: ابن حجر
   quote: شيخنا
   note:
     ja: '「سمع منه شيخنا وآخرون」＝本項主が師、イブン・ハジャル（wd:Q471116）が学生（規則15: 師弟は常に teacher、active=師）。初版は subtype="student"。「وآخرون」は人物を立てない。【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。'
@@ -97,10 +99,9 @@ events:
 - id: e1
   type: teaching
   quote: وحدث
-  summary:
-    ar: وحدث سمع منه شيخنا وآخرون
   trigger: rule
   norm: حدث
+  phrase: وحدث سمع منه شيخنا وآخرون
 sources:
 - id: c1
   persons:
@@ -108,17 +109,18 @@ sources:
   works:
   - ref: TMP-T-00104
   quote: ذكره
-  trigger: rule
   note:
     ja: Pattern A。「ذكره في المعجم والأنباء」の主語は直前の شيخنا＝イブン・ハジャル（wd:Q471116）。『المجمع المؤسس للمعجم المفهرس』（TMP-T-00104）。
+  trigger: rule
+  phrase: ذكره في المعجم
 - id: c2
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: null
   summary:
     ar: ذكره في … الأنباء
+  quote: null
   note:
     ja: Pattern A。『إنباء الغمر』（TMP-T-00034）。初版は ref のない cultural event 1件（英語 desc）。
 notes:

@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: قانم الدهيشة الأشرفي قايتباي
+  name_only: قانم
   elements:
   - id: n1
     type: nisbah
@@ -24,10 +25,9 @@ death:
   - ref: TMP-L-00196
     quote: للبلاد الشامية
     norm: لبلاد الشامية
-  summary:
-    ar: ومات هناك في شوال سنة .
   note:
     ja: 「مات هناك في شوال سنة .」＝年が欠けている（刊本の途切れ）。規則45により年を補わない（シャウワール月のみ、@when-custom は作らない）。「هناك」は直前の「البلاد الشامية」を指す照応副詞（規則22(3)）。
+  phrase: ومات هناك في شوال سنة .
 persons:
 - id: p1
   label: والد قانم الدهيشة الأشرفي قايتباي
@@ -50,6 +50,7 @@ relations:
   note:
     ja: '「ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب … وليحضر مع أخيه」＝兄弟 جانم（第二ダワーダールに任命された際アレッポにいた）。corpus の جانم 見出しのうち本項主を名指しするものは無く、候補は #AIND-D02395「جانم نائب قلعة حلب كان وقريب سلطان الوقت ممن قدمه ورام أن يزوجه ابنته فمات هو وإياها في سنة سبع وتسعين」（「وهو بحلب」と整合）・#AIND-D02391「جانم الاشرفي قايتباي ابن أخي السلطان」（884年没、شاد الشربخاناه）・#AIND-D06387 كرتباي「قريبه وأخو جانم」の兄 جانم。いずれも第二ダワーダール任命の記載がなく同定の確証がないため規則26により TMP-P-001562 を発行（ISSUES §D130-2）。初版の #NEEDID を是正。'
   norm: اخيه
+  phrase: جانم
 - id: r3
   type: social
   subtype: deputy
@@ -58,11 +59,14 @@ relations:
   quote: جانم
   note:
     ja: '「ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب」＝兄弟 جانم の代理として第二ダワーダール職を務めた（repo 先例 D05308・D05973 の deputy 型、active＝本務者）。本項主自身の在職ではないため state にしない【2026-11-17 改: 規則65 (f) により本職 ID＋subtype="deputy" の state を立てた】。'
+  phrase: أخيه جانم
 - id: r4
   type: social
   subtype: patron
   active: AIND-D06305
   passive: AIND-D06298
+  summary:
+    ar: الأشرف قايتباي
   quote: قايتباي
   note:
     ja: 見出し「الأشرفي قايتباي」＝主人は الأشرف قايتباي（#AIND-D06305）。初版の corresp 属性を除去。
@@ -82,23 +86,21 @@ events:
     quote: بحلب
     norm: حلب
   quote: وليحضر
-  summary:
-    ar: ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب
   note:
     ja: 【集約 2026-10-25】原文に明記された地名 حلب を placeName として復元（規則22(2)、内容A[3]）。この地は任命時の جانم の所在（本項主の所在・在職地ではない）。 第二ダワーダール職（TMP-O-00063 دوادار の第二位）の代理。「وهو بحلب」の主語は任命された兄弟 جانم と読み（本項主の所在ではない）、初版の visit event حلب と state「الدوادارية الثانية」（placeName حلب）を除去した。
   trigger: rule
   norm: ليحضر
+  phrase: ممن ناب عن أخيه جانم في الدوادارية الثانية حين عينت له وهو بحلب
 - id: e2
   type: political
   places:
   - ref: TMP-L-00196
     quote: للبلاد الشامية
     norm: لبلاد الشامية
-  quote: null
-  summary:
-    ar: ولم يلبث أن عين للبلاد الشامية بمراسيم نوابها وليحضر مع أخيه فظلم وعسف
+  quote: ولم يلبث أن عين للبلاد الشامية بمراسيم نوابها وليحضر مع أخيه فظلم وعسف
   note:
     ja: 間もなくシリア諸州へ（各地の代官への）勅令を携えて派遣されることとなり、兄弟とともに出頭するよう命じられたが、圧政と横暴を働いた。「عين لـ」は派遣任務の指名であり官職ではないため state にしない（規則47。初版の state「نائب」البلاد الشامية＝代官職の誤読を除去）。
+  norm: ولم يلبث ان عين للبلاد الشامية بمراسيم نوابها وليحضر مع اخيه فظلم وعسف
 translation:
   ja: カーニム・アッ＝ダヒーシャ・アル＝アシュラフィー・カーイトバーイ。兄弟のジャーニムが第二ダワーダール職に任命された際（彼（ジャーニム）はアレッポにいた）、その職を代理した者の一人。間もなく、シリア諸州へその代官たちへの勅令を携えて派遣され、兄弟とともに出頭することとなったが、圧政と横暴を働いた。そこで、シャウワール月、…年に没した（年は欠）。
   en: Qānim al-Dahīsha al-Ashrafī Qāytbāy. He was among those who deputised for his brother Jānim in the second dawādāriyya when it was assigned to him while he (Jānim) was in Aleppo. Before long he was designated to go to the Syrian provinces with decrees for their governors, and to present himself together with his brother; but he acted oppressively and tyrannically. He died there in Shawwāl of the year [missing].

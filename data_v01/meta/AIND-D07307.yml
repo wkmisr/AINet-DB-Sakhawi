@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن جعفر بن علي البعلي اليونيني
+  name_only: محمد بن جعفر بن علي
   elements:
   - id: n1
     type: nisbah
@@ -18,6 +19,7 @@ name:
     type: shuhrah
     quote: بابن الشويخ
     norm: ابن الشويخ
+    label: ابن الشويخ
   - id: n4
     type: ism
     quote: محمد
@@ -83,8 +85,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: teaching
+    date:
       ah: 815
+      type: teaching
   quote: كابن موسى
   note:
     ja: '「سمع منه الفضلاء كابن موسى … وكان سماعهما في سنة خمس عشرة」。ابن موسى ＝ #AIND-D09466（محمد بن موسى … المراكشي الأصل المكي … ويعرف بابن موسى、幻番号 TMP-P-000034 の名寄せ先）。815 ＝ 1412-04-22〜1413-04-11、年初 1412。'
@@ -97,8 +101,10 @@ relations:
   methods:
   - TMP-S-00003
   context:
-  - date:
+  - type: teaching
+    date:
       ah: 815
+      type: teaching
   quote: الأبي
   note:
     ja: '「شيخنا الأبي」＝ #AIND-D04932（علي بن إبراهيم بن علي بن راشد الموفق … ويعرف بالإبي、幻番号 TMP-P-000035 の名寄せ先）。直後に固有名があるので「شيخنا」はイブン・ハジャルを指さない。先例 D04862（同じ815年の ابن موسى・الأبي の聴聞）。'
@@ -126,6 +132,7 @@ states:
   quote: شيخ زاوية عبد الله اليونيني
   note:
     ja: 施設限定 شيخ 職（先例 TMP-O-00265・00274・00334）。ID-Master の Office を語根 شيخ／زاوية で grep、該当なし → 新規 TMP-O-00354。施設 زاوية عبد الله اليونيني（بعلبك）は ID-Master 未登録 → 新規 TMP-I-00246。placeName بعلبك は原文明記（規則22(2)）。初版の affiliation employed（同内容）は規則8により除去。
+  phrase: وكان شيخ زاوية عبد الله اليونيني ببعلبك
 events:
 - id: e1
   type: cultural
@@ -140,10 +147,11 @@ sources:
   works:
   - ref: TMP-T-00104
   quote: وقال
-  norm: قال
-  trigger: rule
   note:
     ja: Pattern A。شيخنا ＝ ابن حجر（wd:Q471116）、「معجمه」＝ TMP-T-00104。先例 D04862。
+  trigger: rule
+  norm: قال
+  phrase: وقال شيخنا في معجمه أجاز في استدعاء ابنتي رابعة
 translation:
   ja: ムハンマド・ブン・ジャアファル・ブン・アリー・アル＝バアリー・アル＝ユーニーニー、イブン・アッ＝シュワイフとして知られる。ビシュルとウマルのイブラーヒーム・アル＝バアリーの二子、およびアブー・アッ＝ターヒル・ムハンマド・ブン・アブド・アル＝ガニー・アッ＝ドゥライビーから聴聞した。ハディースを伝え、イブン・ムーサーや我らの師アル＝ウッビーら俊秀が彼から聴聞した。二人の聴聞は815年のことであった。我らの師は『ムウジャム』で「彼は私の娘ラービアのための要請書（イスティドアー）においてイジャーザを与えた」と述べている。彼はバアルバクのアブドゥッラー・アル＝ユーニーニーのザーウィヤのシャイフであった。
   en: 'Muḥammad b. Jaʿfar b. ʿAlī al-Baʿlī al-Yūnīnī, known as Ibn al-Shuwaykh. He heard from Bishr and ʿUmar, the two sons of Ibrāhīm al-Baʿlī, and from Abū al-Ṭāhir Muḥammad b. ʿAbd al-Ghanī al-Duraybī. He transmitted, and eminent scholars such as Ibn Mūsā and our shaykh al-Ubbī heard from him; their hearing was in the year 815. Our shaykh said in his Muʿjam: "He granted an ijāza in the request (istidʿāʾ) for my daughter Rābiʿa." He was the shaykh of the zāwiya of ʿAbd Allāh al-Yūnīnī in Baalbek.'

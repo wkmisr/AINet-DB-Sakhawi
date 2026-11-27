@@ -5,6 +5,7 @@ source:
 sex: M
 name:
   full: محمد بن جسار بن علي الحميضي
+  name_only: محمد بن جسار بن علي
   elements:
   - id: n1
     type: nisbah
@@ -31,6 +32,10 @@ death:
   - ref: TMP-L-00203
     quote: ببلاد الشرق
     norm: بلاد الشرق
+  - ref: TMP-L-00203
+    role: burial
+    quote: ببلاد الشرق
+    norm: بلاد الشرق
   note:
     ja: 「قتل … ببلاد الشرق في رجب سنة سبع وثلاثين ودفن هناك」。837年ラジャブ ＝ 1434-02-20〜03-21、月初 1434-02。埋葬地「هناك」は照応副詞（規則22(3)）＝بلاد الشرق（TMP-L-00203、先例 D03018・D02441）。
   quote: سنة
@@ -43,11 +48,13 @@ relations:
   quote: null
   note:
     ja: 父 جسار بن علي الحميضي：珍しい名＋祖父名で復元可（規則3）。corpus の جسار 見出し（D02965・D03185・D03301・D04566・D05102・D09995）はいずれも العمري 家の القواد で本人の本伝なし。ID-Master の TMP-P-001556「جسار الحسني (والد قاسم بن جسار الحسني)」（D06213）はニスバが異なり同定不可 → 新規 TMP-P-001576。
+  phrase: جسار بن علي الحميضي
 events:
 - id: e1
   type: political
   date:
     ah: 837-07
+    type: political
   persons:
   - ref: AIND-D03018
     quote: السيد رميثة بن محمد بن عجلان
@@ -56,24 +63,22 @@ events:
     quote: ببلاد الشرق
     norm: بلاد الشرق
   quote: قتل
-  summary:
-    ar: قتل مع السيد رميثة بن محمد بن عجلان ببلاد الشرق في رجب سنة سبع وثلاثين
   note:
     ja: 'رميثة بن محمد بن عجلان ＝ #AIND-D03018（「فقتل في المعركة في رجب سنة سبع وثلاثين」ببلاد الشرق、同戦闘）。同行の戦死は relation でなく event の persName で表現（初版の統制外 subtype「companion in death」relation を除去）。'
   trigger: rule
+  phrase: قتل مع السيد رميثة بن محمد بن عجلان ببلاد الشرق في رجب سنة سبع وثلاثين
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
     quote: ابن فهد
   quote: أرخه
-  norm: ارخه
-  trigger: rule
-  summary:
-    ar: أرخه ابن فهد
   cert: low
   note:
     ja: '没年 837（≤871）→ 振り分け規則により #AIND-D09211（cert low）。'
+  trigger: rule
+  norm: ارخه
+  phrase: أرخه ابن فهد
 translation:
   ja: ムハンマド・ブン・ジャッサール・ブン・アリー・アル＝フマイディー。837年ラジャブ月、東方の地（ビラード・アッ＝シャルク）でサイイド・ルマイサ・ブン・ムハンマド・ブン・アジュラーンと共に殺害され、その地に葬られた。イブン・ファハドが彼の没年を記録している。
   en: Muḥammad b. Jassār b. ʿAlī al-Ḥumayḍī. He was killed together with al-Sayyid Rumaytha b. Muḥammad b. ʿAjlān in Bilād al-Sharq in Rajab 837 and was buried there. Ibn Fahd recorded his death date.
