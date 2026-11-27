@@ -650,7 +650,7 @@ def convert(k, r):
                 if m_ and m_.group(3) in cmap: new[i_] = f'@C{m_.group(1)}[mention|{cmap[m_.group(3)]}]'
             CMAP[k] = cmap
 
-    if MENTIONS: to_mentions(k, meta, new); refine_spans(k, meta, new)
+    if MENTIONS: to_mentions(k, meta, new); refine_spans(k, meta, new, r)
     tr = TR.get(k)
     if tr: meta['translation'] = tr
     meta['provenance'] = provenance(r.get('generator'))
@@ -665,7 +665,7 @@ def convert(k, r):
 # Items point to the mention (`mention: m3`; a relation's partner side becomes m3); the ID and the quoted words
 # live on the mention only. Items that no tag places keep `mention: null` (the former `quote: null`).
 MENTIONS = os.environ.get('AIND_MENTIONS', '1') != '0'
-KIND = {'P': 'person', 'T': 'place', 'S': 'name', 'O': 'office', 'E': 'event', 'C': 'source', 'V': 'assessment',
+KIND = {'I': 'institution', 'P': 'person', 'T': 'place', 'S': 'name', 'O': 'office', 'E': 'event', 'C': 'source', 'V': 'assessment',
         'YB': 'year', 'YD': 'year', 'YY': 'year', 'YA': 'age', 'L': 'month'}
 TAG2 = re.compile(r'^@(P|T|S|O|E|C|V)(\d)(\d+)\[([^\]]*)\]$')
 
@@ -782,10 +782,35 @@ LAQAB = set(normalize_ara_light(w) for w in ('الشرف البدر الشمس �
         'الولوي السراج العز الصلاح البرهان الفخر المجد الصدر العماد النجم الشرفي البدري الزيني الشمسي التاج الركن الرضي '
         'الامين القطب الحافظ الناصري السيفي العلم الكمالي الجلالي السعد الغرس الخير').split())
 TAGX = re.compile(r'^@([A-Z])(\d)(\d+)\[(m\d+)\]$')
+DUA = re.compile(r'^(?:و|ف)?(?:وفقه|رحمه|عفا|سامحه|نفع|نفعنا|تغمده|اعزه|ابقاه|حفظه|ايده|غفر|بلغه|اعانه|عوضه|اثابه|جزاه)\b.{0,12}الله')
+OPENER = re.compile(r'^(?:و|ف|ثم)?(?:كان|ولي|حج|جاور|دخل|سافر|حفظ|سمع|أخذ|اخذ|مات|ولد|ناب|قدم|رجع|عاد|استقر|درس|أقرأ|اقرا|حدث|أفتى|افتى|لازم|تزوج|توجه|انتقل|سكن|نزل|قرأ|قرا|اشتغل|تكسب|تنزل|باشر|كتب|صنف|عرض|رحل|ارتحل|زار|خرج|توجه|تدرب|خدم|تعرض|نشأ|تفقه|تلا|أقام|اقام)')
+MASDAR = {'مؤذن': ['اذان', 'تاذين'], 'موذن': ['اذان', 'تاذين'], 'خطيب': ['خطابه'], 'قاضي': ['قضاء'], 'محتسب': ['حسبه'],
+          'مدرس': ['تدريس'], 'ناظر': ['نظر'], 'شاهد': ['شهاده'], 'امام': ['امامه'], 'كاتب': ['كتابه'], 'نائب': ['نيابه'],
+          'حاجب': ['حجوبيه', 'حجابه'], 'وكيل': ['وكاله'], 'مفتي': ['افتاء'], 'خازن': ['خزن'], 'وزير': ['وزاره'],
+          'استادار': ['استاداريه'], 'دوادار': ['دواداريه'], 'معيد': ['اعاده'], 'مباشر': ['مباشره'], 'شاد': ['شد']}
+MASDAR = {normalize_ara_light(k).replace('ة', 'ه'): v for k, v in MASDAR.items()}
+def _iter_orgs(o):
+    if isinstance(o, dict):
+        for kk, v in o.items():
+            if kk == 'orgs' and isinstance(v, list):
+                for x in v:
+                    if isinstance(x, dict): yield x
+            elif kk == 'affiliations' and isinstance(v, list):
+                for x in v:
+                    if isinstance(x, dict) and x.get('ref'):
+                        for y in x.get('orgs') or []: yield {'ref': x['ref'], 'text': y.get('text')}
+                    yield from _iter_orgs(x)
+            else: yield from _iter_orgs(v)
+    elif isinstance(o, list):
+        for x in o: yield from _iter_orgs(x)
+IDM_AR = {}
+try:
+    for _k, _v in json.load(open(os.path.join(WORK, 'idm.json'))).items(): IDM_AR[_k] = _v.get('ar', '')
+except Exception: pass
 STOPCL = {'.', '،', ',', ':', '؛', 'ثم'}
 
 
-def refine_spans(k, meta, new):
+def refine_spans(k, meta, new, r=None):
     M = {m['id']: m for m in meta.get('mentions') or []}
     def plain_after(i, n):            # indices of the next n plain words after position i
         out, j = [], i + 1
@@ -795,6 +820,99 @@ def refine_spans(k, meta, new):
         return out
     def set_tag(i, n):
         m_ = TAGX.match(new[i]); new[i] = f'@{m_.group(1)}{m_.group(2)}{n}[{m_.group(4)}]'
+    def covered(kinds=None):          # token indices inside some tag's span (the tag token included)
+        cov = set()
+        for i, t in enumerate(new):
+            m_ = TAGX.match(t)
+            if not m_ or (kinds and m_.group(1) not in kinds): continue
+            cov.add(i); cnt, j = 0, i + 1
+            while cnt < int(m_.group(3)) and j < len(new):
+                cov.add(j)
+                if not new[j].startswith('@'): cnt += 1
+                j += 1
+        return cov
+    def new_mention(kind, **kw):
+        mid = f'm{len(M) + 1}'
+        while mid in M: mid = f'm{int(mid[1:]) + 1}'
+        M[mid] = {'id': mid, 'kind': kind, **kw}; meta.setdefault('mentions', []).append(M[mid]); return mid
+    # 0a. years written without «سنة» (بعد الستين وثمانمائة): number words with a hundreds word
+    cov = covered()
+    i = 0
+    while i < len(new):
+        w0 = normalize_ara_light(new[i]); core = lambda w: re.sub(r'^(?:و)?(?:ال)?', '', w) if re.sub(r'^(?:و)?(?:ال)?', '', w) in NUMW else (w[1:] if w[:1] == 'و' else w)
+        if i in cov or new[i].startswith('@') or core(w0) not in NUMW:
+            i += 1; continue
+        j = i
+        while j < len(new) and not new[j].startswith('@') and j not in cov and core(normalize_ara_light(new[j])) in NUMW: j += 1
+        seq = [normalize_ara_light(x) for x in new[i:j]]
+        after_sana = i > 0 and normalize_ara_light(new[i - 1]) in ('سنة', 'سنه', 'عام')   # «سنة …» has its own tag
+        if j - i >= 2 and not after_sana and any(re.search('ما[ءئ]|مئ', x) for x in seq):
+            st = i
+            if i > 0 and normalize_ara_light(new[i - 1]) in ('بعد', 'قبل', 'قبيل', 'بعيد', 'نحو', 'حدود', 'اواخر', 'اوائل', 'اول', 'بضع') and i - 1 not in cov: st = i - 1
+            ctx = ' '.join(normalize_ara_light(x) for x in new[max(0, st - 3):st])
+            link = meta.get('birth') if re.search(r'ولد|مولده', ctx) else meta.get('death') if re.search(r'مات|توفي|وفاته', ctx) else None
+            mid = new_mention('year', quote=' '.join(new[st:j]))
+            if link is not None and not link.get('mention'): link['mention'] = mid
+            new.insert(st, f'@Y0{j - st}[{mid}]'); STAT['span_year_nosana'] += 1
+            cov = covered(); i = j + 1; continue
+        i = j if j > i else i + 1
+    # 0b. institutions: the orgs an item names, found in the text by their TEI or ID-Master forms
+    def strip_pc(w):
+        w = normalize_ara_light(w).replace('ة', 'ه')
+        x = re.sub(r'^(?:و|ف)?(?:ب|ك|ل)?', '', w)
+        return x if len(x) >= 3 else w
+    orgs = []
+    for sec in ('states', 'events', 'affiliations', 'sources'):
+        for it in meta.get(sec) or []:
+            for o_ in it.get('orgs') or []:
+                if o_.get('ref') and not o_.get('mention'): orgs.append(o_)
+            if sec == 'affiliations' and it.get('ref', '').startswith('TMP-I') and not it.get('mention'): orgs.append(it)
+    for kk in ('birth', 'death'):
+        for o_ in (meta.get(kk) or {}).get('places') or []:
+            if (o_.get('ref') or '').startswith('TMP-I') and not o_.get('mention'): orgs.append(o_)
+    forms_tei = collections.defaultdict(set)
+    for o_ in _iter_orgs(r or {}):
+        if o_.get('ref') and o_.get('text'): forms_tei[norm_id(o_['ref'])].add(o_['text'])
+    done = {}
+    for o_ in orgs:
+        ref = o_['ref']
+        if ref in done:
+            o_['mention'] = done[ref]; o_.pop('ref', None); continue
+        forms = set(forms_tei.get(ref, ())) | set(x.strip() for x in (IDM_AR.get(ref) or '').split('|') if x.strip())
+        cov = covered(); hit = None
+        for f in sorted(forms, key=lambda x: -len(x.split())):
+            fw = [strip_pc(x) for x in f.split()]
+            if not fw or len(fw[0]) < 3: continue
+            for i in range(len(new) - len(fw) + 1):
+                if i in cov or new[i].startswith('@'): continue
+                if [strip_pc(x) for x in new[i:i + len(fw)]] == fw:
+                    pfx = len(normalize_ara_light(new[i]).replace('ة', 'ه')) - len(strip_pc(new[i]))
+                    hit = (i, len(fw), pfx); break
+            if hit: break
+        if not hit: continue
+        i, n, pfx = hit
+        mid = new_mention('institution', quote=' '.join(new[i:i + n]), ref=ref)
+        nm = norm_ar(M[mid]['quote'], pfx)
+        if nm != M[mid]['quote']: M[mid]['norm'] = nm
+        new.insert(i, f'@I{pfx}{n}[{mid}]'); o_['mention'] = mid; o_.pop('ref', None); done[ref] = mid
+        STAT['span_institution'] += 1
+    # 0c. offices written as the verbal noun (بالأذان for مؤذن)
+    for st_ in meta.get('states') or []:
+        if st_.get('mention') or not st_.get('ref'): continue
+        lab = normalize_ara_light(IDM_AR.get(st_['ref'], '').split('|')[0]).replace('ة', 'ه')
+        cands = MASDAR.get(re.sub(r'^ال', '', lab.split()[0]) if lab else '', [])
+        if not cands: continue
+        cov = covered()
+        for i, t in enumerate(new):
+            if i in cov or t.startswith('@'): continue
+            w = strip_pc(t); w2 = re.sub(r'^ال', '', w)
+            if w2 in cands:
+                pfx = len(normalize_ara_light(t)) - len(re.sub(r'^(?:و|ف)?(?:ب|ك|ل)?', '', normalize_ara_light(t))) if len(t) > 4 else 0
+                mid = new_mention('office', quote=t, ref=st_.pop('ref'))
+                nm = norm_ar(t, pfx)
+                if nm != t: M[mid]['norm'] = nm
+                new.insert(i, f'@O{pfx}1[{mid}]'); st_['mention'] = mid; STAT['span_office_masdar'] += 1
+                break
     # 1. year spans
     for i, t in enumerate(new):
         m_ = TAGX.match(t)
@@ -853,11 +971,24 @@ def refine_spans(k, meta, new):
             if i is None: continue
             idx = plain_after(i, 40); n = 0
             for j in idx:
+                if DUA.match(' '.join(normalize_ara_light(x) for x in new[j:j + 3])): break
                 if new[j] in STOPCL or (n >= 1 and re.match(r'^(?:و|ف)(?:كان|ولي|حج|جاور|دخل|سافر|حفظ|سمع|أخذ|اخذ|مات|ولد|ناب|قدم|رجع|عاد|استقر|درس|أقرأ|اقرا|حدث|أفتى|افتى|لازم|تزوج|توجه|انتقل|سكن|نزل|قرأ|قرا|اشتغل|تكسب|تنزل|باشر|ترجمه|ذكره|كتب|صنف|عرض)', new[j])): break
                 n += 1
                 if n >= 12: break
             if n < 1: n = 1
-            set_tag(i, n); M[mid]['quote'] = ' '.join(new[j] for j in idx[:n]); M[mid].pop('norm', None)
+            set_tag(i, n)
+            head = new[idx[0]] if idx else ''
+            if not OPENER.match(head):                 # the head is not where the clause starts: go back to the boundary
+                cov = covered('EOYCVLA'); cov.discard(i); cov -= set(idx[:n])
+                b = i - 1; back = 0                # persons, places, institutions inside may be passed (they nest)
+                while b >= 0 and back < 15 and b not in cov and new[b] not in STOPCL:
+                    if not new[b].startswith('@'): back += 1
+                    b -= 1
+                while b + 1 < i and new[b + 1].startswith('@') is False and False: pass
+                if back:
+                    tag = new.pop(i); new.insert(b + 1, TAGX.sub(lambda m_: f'@{m_.group(1)}{m_.group(2)}{n + back}[{m_.group(4)}]', tag))
+                    i = b + 1; idx = plain_after(i, n + back); n = n + back; STAT['span_event_back'] += 1
+            M[mid]['quote'] = ' '.join(new[j] for j in idx[:n]); M[mid].pop('norm', None)
             M[mid]['span'] = 'rule'; ev.pop('trigger', None); STAT['span_event_rule'] += 1
             span_idx = (i, n)
         else:
