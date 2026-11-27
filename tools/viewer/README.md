@@ -4,7 +4,8 @@ Trial tools for moving AIND from TEI-XML to **aind-yaml 0.1 + mARkdown** (see `d
 The TEI in `Individuals/` stays the master until the migration is decided; everything here is regenerated from it.
 
 ## Steps
-Run in a work directory (`AIND_WORK`, default: current directory). `idmaster.tsv` = ID-Master exported as TSV.
+Run in a work directory (`AIND_WORK`, default: current directory).
+IDs and their names come from the registries in `authority/` on main (the master since 2026-11-27; point `AIND_AUTHORITY` at that folder if this checkout does not have it). The ID-Master sheet is frozen; `$AIND_WORK/idmaster.tsv` (an export of it) is read only when no registry is found.
 
 1. `python3 tools/viewer/make_records.py <repo> $AIND_WORK` → `records_tei.json` (lossless dicts of the TEI)
 2. `AIND_WORK=... python3 tools/viewer/build_data.py` → `dau.json` (tagged mARkdown text per heading), `tr.json`, `labels.json`, `idm.json`, `offices.json`

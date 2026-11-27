@@ -9,6 +9,30 @@ from tei2markdown import year_phrases, find_span, norm, TENS, HUND
 from lxml import etree
 R=os.environ.get('AIND_REPO',os.path.join(HERE,'..','..'))
 XL="{http://www.w3.org/XML/1998/namespace}lang"
+# ---- authority: rows in the ID-Master column order ('', Category, Arabic, Latin, ID, Note, -, class, Status).
+# Read from the registries (authority/, the master since 2026-11-27; AIND_AUTHORITY or <repo>/authority);
+# fall back to an ID-Master export ($AIND_WORK/idmaster.tsv) only when no registry is found.
+AUTH=os.environ.get('AIND_AUTHORITY',os.path.join(R,'authority'))
+def idmaster_rows():
+    pe,en=os.path.join(AUTH,'persons_registry.tsv'),os.path.join(AUTH,'entities_registry.tsv')
+    if not (os.path.exists(pe) and os.path.exists(en)):
+        return list(csv.reader(open(os.path.join(WORK,'idmaster.tsv'),encoding='utf-8'),delimiter='\t'))
+    bare=lambda i: i[3:] if i.startswith(('wd:','gn:')) else i
+    st=lambda r: 'retired' if r['status']=='retired' else ''
+    rows=[]
+    ws=lambda x: re.sub(r'\s+',' ',x).strip()
+    for r in csv.DictReader(open(en,encoding='utf-8'),delimiter='\t'):
+        ar=' | '.join(ws(x) for x in [r['label_ar']]+r['variants'].split('|') if ws(x))
+        rows.append(['',r['category'],ar,r['label_latn'],bare(r['id']),r['note'],'',r['class'],st(r)])
+    for r in csv.DictReader(open(pe,encoding='utf-8'),delimiter='\t'):
+        if r['status']=='merged': continue   # old numbers: their forms are on the surviving row
+        al=[ws(v) for v in r['aliases'].split('|') if ws(v)]
+        if r['id'].startswith('AIND-'):          # persons with a biography: only the aliases (their names come from the entries)
+            if al: rows.append(['','Person',' | '.join(al),'',r['id'],r['note'],'','',st(r)])
+            continue
+        rows.append(['','Person',' | '.join([ws(r['name_ar'])]+al),'',bare(r['id']),r['note'],'','',st(r)])
+    return rows
+IDROWS=idmaster_rows()
 HDR=re.compile(r'^###\$(AIND-D\d+[a-z]?|\d{12})(?: \| (\d{12}))?\$# ?(\${1,3}|\|)? ?(.*)$')
 entries=[];cur=None
 for line in open(R+'/0__DawForAIND_renumbered_B54_split20260905.txt',encoding='utf-8'):
@@ -103,7 +127,7 @@ def find_months(tokens,lo):
 APPROX=[0];EVT=[0];OFF=[0];OFFZ=[0];OFFL=[];XUL=[];NAME_HIT=collections.Counter();MON=[0];METH_TAG=[0];MAN_HIT=collections.Counter();MAN_MISS=[];REL_PRON=[0];REL_KIN=[0];REL_ANA=[0];REL_ALIAS=[0];REL_LOG=[];ONO_HIT=collections.Counter();ONO_MISS=collections.Counter()
 # ---- ID-Master: official names of TMP/wd/gn IDs, plus short forms used in running text
 IDM={}
-for row in csv.reader(open(os.path.join(WORK,'idmaster.tsv'),encoding='utf-8'),delimiter='\t'):
+for row in IDROWS:
     if len(row)<5 or not row[4].strip(): continue
     i=row[4].strip()
     i=('gn:'+i) if i.isdigit() else ('wd:'+i) if re.fullmatch(r'Q\d+',i) else i
@@ -546,7 +570,7 @@ for _r in xmlmap.values():
             if lb.get(XL)=='ar' and lb.text:
                 f=norm(re.sub(r'\s*\(.*?\)','',lb.text))
                 if f and f not in OFF_FORMS[r]: OFF_FORMS[r].append(f)
-for row in csv.reader(open(os.path.join(WORK,'idmaster.tsv'),encoding='utf-8'),delimiter='\t'):
+for row in IDROWS:
     if len(row)>4 and row[1]=='Office' and row[4].strip():
         i=row[4].strip(); i=('wd:'+i) if re.fullmatch(r'Q\d+',i) else i
         for f in row[2].split('|'):
@@ -589,7 +613,7 @@ with open('dau.json','w',encoding='utf-8') as f:
     f.write('[\n'+',\n'.join(json.dumps(e,ensure_ascii=False,separators=(',',':')) for e in entries)+'\n]\n')
 json.dump(lab,open('labels.json','w',encoding='utf-8'),ensure_ascii=False,separators=(',',':'))
 IDMJ={}
-for row in csv.reader(open(os.path.join(WORK,'idmaster.tsv'),encoding='utf-8'),delimiter='\t'):
+for row in IDROWS:
     if len(row)<5 or not row[4].strip() or row[4].strip()=='ID': continue
     i=row[4].strip(); i=('gn:'+i) if i.isdigit() else ('wd:'+i) if re.fullmatch(r'Q\d+',i) else i
     if i in IDMJ: continue
@@ -602,7 +626,7 @@ print('labels',len(lab),'method-qualified tags',METH_TAG[0]);print('manual',dict
 json.dump(REL_LOG,open('/tmp/rel_log.json','w'),ensure_ascii=False)
 
 OFFS={}
-for row in csv.reader(open(os.path.join(WORK,'idmaster.tsv'),encoding='utf-8'),delimiter='\t'):
+for row in IDROWS:
     if len(row)<9 or row[1]!='Office' or not row[4].strip(): continue
     i=row[4].strip(); i=('wd:'+i) if re.fullmatch(r'Q\d+',i) else i
     OFFS[i]={'ar':row[2].strip(),'lat':row[3].strip(),'cls':row[7].strip(),'st':row[8].strip(),'note':row[5].strip()[:120]}
