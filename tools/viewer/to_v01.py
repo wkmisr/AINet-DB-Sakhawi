@@ -381,7 +381,7 @@ def convert(k, r):
         if ev.get('subtype'): it['subtype'] = ev['subtype']
         if norm_id(ev.get('ref')) not in UNK: it['ref'] = norm_id(ev['ref'])     # an office sought (D01766)
         lb = [d for d in ev.get('labels') or [] if d.get('text')]
-        if lb: it['label'] = by_lang(lb)
+        if lb: it['title'] = by_lang(lb)          # a heading the TEI gave the event (not a name in place of an ID)
         d = ah_date(ev)
         if d: it['date'] = d
         for f, kk in (('names', 'persons'), ('places', 'places'), ('orgs', 'orgs'), ('bibls', 'works')):
@@ -564,7 +564,8 @@ def convert(k, r):
             it = {'id': None}
             if st.get('quote'): it['quote'] = st['quote']
             if st.get('norm'): it['norm'] = st['norm']
-            if st.get('label') and st['label'] != st.get('quote'): it['label'] = st['label']
+            if st.get('label') and st['label'] != st.get('quote'):     # the TEI wording of the reputation: a phrase, not a name
+                it['phrase'] = st['label'] if not st.get('phrase') else st['label'] + ' / ' + st['phrase']
             it['terms'] = terms
             for kk, vv in st.items():                  # everything else the state carried
                 if kk not in ('id', 'type', 'quote', 'norm', 'label') and kk not in it: it[kk] = vv
@@ -729,7 +730,7 @@ def to_mentions(k, meta, new):
                 it['mention'] = mid; move(it, m); STAT['mention_item'] += 1
             else:
                 if rid: m['ref'] = rid
-                if sub and code in ('P', 'O', 'S'): m['label'] = sub          # the tag's own type when no item takes it
+                if sub and code in ('P', 'O', 'S'): m['tag_type'] = sub       # the tag's own type when no item takes it
                 m['quote'] = words(i, n); STAT['mention_unlinked_' + code] += 1
             if 'quote' not in m: m['quote'] = words(i, n)
             new[i] = f'@{code}{p}{n}[{mid}]'
