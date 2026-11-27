@@ -64,8 +64,6 @@ events:
   - mention: m4
   note:
     ja: 'バルスバーイ（#AIND-D02168、841没）治世末期にアミールとなった（規則53: 主人でないスルターンの下での昇進は patron にせず event＋persName）。年なし。位階の記載がないので state は立てない。'
-  trigger: rule
-  phrase: تأمر في آخر دولة الأشرف برسباي
   mention: m3
 - id: e2
   type: political
@@ -75,8 +73,10 @@ events:
   - mention: m6
   note:
     ja: 「ولاه」の主語は直前の الأشرف برسباي（規則53）。城塞副官への任命は昇進ではなく肥満のため、という判断句は desc に原文どおり保持。
-  phrase: ثم ولاه نيابة قلعة الجبل لا لرفع منزلته بل لسمنه وعجزه عن الحركة بحيث لم يكن يستطيع الثبات على الفرس لسمنه
   mention: null
+  phrase: ثم ولاه نيابة قلعة الجبل لا لرفع منزلته بل لسمنه وعجزه عن الحركة بحيث لم يكن يستطيع الثبات على الفرس لسمنه
+  overlaps:
+  - m5
 - id: e3
   type: political
   persons:
@@ -85,8 +85,10 @@ events:
   - mention: m8
   note:
     ja: 「ولاه」の主語は同じく الأشرف برسباي と読む（連続する「ثم ولاه」）。
-  phrase: ثم ولاه نيابة إسكندرية فطالت أيامه فيها
   mention: null
+  phrase: ثم ولاه نيابة إسكندرية فطالت أيامه فيها
+  overlaps:
+  - m7
 mentions:
 - id: m1
   kind: name
@@ -98,8 +100,8 @@ mentions:
   norm: المءيدي
 - id: m3
   kind: event
-  quote: تأمر
-  norm: تامر
+  quote: تأمر في آخر دولة الأشرف برسباي
+  span: phrase
 - id: m4
   kind: person
   ref: AIND-D02168

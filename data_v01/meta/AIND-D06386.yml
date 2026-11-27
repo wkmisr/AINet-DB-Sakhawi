@@ -56,9 +56,10 @@ events:
   - mention: m6
   note:
     ja: フシュカダムが彼を追放した。主人でないスルターンによる昇進・追放は patron にせず event 内 persName で表現（規則53）。初版の patron relation（#NEEDID）を除去。
-  trigger: rule
+  mention: null
   phrase: تأمر عشرة في أيام الظاهر خشقدم ثم نفاه
-  mention: m4
+  overlaps:
+  - m5
 - id: e2
   type: political
   persons:
@@ -67,8 +68,6 @@ events:
   - mention: m7
   note:
     ja: （フシュカダムが）次いでトリポリ（シリア、gn:266826）にイクターを与えた。原文に年は無い。初版の重複する residence event（طرابلس）を本 event に統合。
-  trigger: rule
-  phrase: ثم أعطاه إقطاعا بطرابلس
   mention: m8
 mentions:
 - id: m1
@@ -83,10 +82,6 @@ mentions:
   kind: person
   ref: AIND-D02168
   quote: برسباي
-- id: m4
-  kind: event
-  quote: تأمر
-  norm: تامر
 - id: m5
   kind: office
   ref: TMP-O-00101
@@ -102,11 +97,12 @@ mentions:
   norm: طرابلس
 - id: m8
   kind: event
-  quote: قتل
+  quote: ثم أعطاه إقطاعا بطرابلس
+  span: phrase
 - id: m9
   kind: year
   value: '872'
-  quote: سنة
+  quote: سنة اثنتين وسبعين
 translation:
   ja: クルトバーイ・アル＝アシュラフィー・バルスバーイ。アッ＝ザーヒル・フシュカダムの時代に十人長となったが、次いで彼（フシュカダム）は彼を追放し、次いでトリポリにイクターを与えた。そして872年、スワール（との）戦役で戦死した。横暴な人物であった。
   en: Kurtbāy al-Ashrafī Barsbāy. He became an amir of ten in the days of al-Ẓāhir Khushqadam, who then exiled him and then gave him an iqṭāʿ in Tripoli, until he was killed in the Suwār campaign (al-waqʿa al-Suwāriyya) in the year 872. He was a tyrannical man.

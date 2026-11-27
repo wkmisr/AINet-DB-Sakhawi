@@ -94,8 +94,6 @@ events:
   type: visit
   places:
   - mention: m12
-  trigger: rule
-  phrase: قدم القاهرة
   mention: m19
 - id: e2
   type: travel
@@ -106,7 +104,6 @@ events:
   - mention: m18
   note:
     ja: 894年の途中（894 ＝ 1488-12-14 開始、年初 1488）。それ以前にも一度インドへ渡航（「بعد أن كان سافر إليها قبل ذلك」、年不明＝別 event にしない）。初版の cert medium は根拠がないため除去。
-  trigger: rule
   phrase: سافر في أثناء سنة أربع وتسعين إلى الهند للاسترزاق وكتبت معه ما أرجو انتفاعه به وعاد مجبورا
   mention: m16
 - id: e3
@@ -114,8 +111,6 @@ events:
   places:
   - mention: m12
   - mention: m20
-  trigger: rule
-  phrase: ثم دخل أيضا القاهرة ودمشق
   mention: m11
 notes:
 - text: ID-Master の TMP-P-000246「محمد الكيلاني」（D00687「زوج ابنة الشمس محمد الكيلاني نائب الإمام بمقام الحنبلي」の岳父）は、同じ職「نائب الإمام بالمقام الحنبلي」のキーラーニー家の人物で本項主と同一の可能性があるが、ラカブが الشمس⇄الجمال で食い違うため名寄せせず §D115-6 に記録。
@@ -163,7 +158,8 @@ mentions:
   norm: انسان خير ساكن
 - id: m11
   kind: event
-  quote: قدم
+  quote: ثم دخل أيضا القاهرة ودمشق
+  span: phrase
 - id: m12
   kind: place
   quote: القاهرة
@@ -180,22 +176,23 @@ mentions:
 - id: m15
   kind: year
   value: '886'
-  quote: سنة
+  quote: سنة ست وثمانين
 - id: m16
   kind: event
-  quote: وسافر
-  norm: سافر
+  quote: وسافر في أثناء سنة أربع وتسعين إلى الهند للاسترزاق
+  span: rule
 - id: m17
   kind: year
   value: '894'
-  quote: سنة
+  quote: سنة أربع وتسعين
 - id: m18
   kind: place
   quote: الهند
   ref: TMP-L-00039
 - id: m19
   kind: event
-  quote: دخل
+  quote: قدم القاهرة
+  span: phrase
 - id: m20
   kind: place
   quote: ودمشق

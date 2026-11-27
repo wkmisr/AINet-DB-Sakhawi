@@ -116,14 +116,11 @@ events:
   - mention: m12
   note:
     ja: 「بها」は直前の「مات والده بالمدينة」の المدينة を指す（規則22(3)）。
-  phrase: ونشأ بها
-  mention: null
+  mention: m20
 - id: e2
   type: travel
   places:
   - mention: m14
-  trigger: rule
-  phrase: وسافر إلى الهند فدام مدة
   mention: m13
 - id: e3
   type: other
@@ -133,8 +130,7 @@ events:
     type: other
   note:
     ja: 帰還先は原文に明記なし（placeName を置かない。初版は المدينة を補っていた）。888年＝1483-02-18〜1484-02-07、889年＝1484-02-08〜1485-01-26 → notBefore 1483／notAfter 1485（年精度）。
-  phrase: ثم قدم في سنة ثمان أو تسع وثمانين
-  mention: null
+  mention: m21
 - id: e4
   type: travel
   date:
@@ -144,8 +140,6 @@ events:
   - mention: m16
   note:
     ja: ルームに入った年は明記されないが「فمات بها سنة أربع وتسعين」から没年と同年以前。【集約 2026-10-25】894 は没年であり入国年ではないので、校閲時の when-custom 0894 を notAfter-custom 0894（年末 1489-12-03 → 年精度 1489、h2g.py）に改めた（日付の作り込みの解消、内容B[9]）。
-  trigger: rule
-  phrase: وكان دخلها لقبض أوقافهم
   mention: m17
 mentions:
 - id: m1
@@ -185,7 +179,7 @@ mentions:
 - id: m10
   kind: year
   value: '858'
-  quote: سنة
+  quote: سنة ثمان وخمسين وثمانمائة
 - id: m11
   kind: person
   ref: AIND-D10818
@@ -197,8 +191,8 @@ mentions:
   norm: المدينة
 - id: m13
   kind: event
-  quote: وسافر
-  norm: سافر
+  quote: وسافر إلى الهند فدام مدة
+  span: phrase
 - id: m14
   kind: place
   quote: الهند
@@ -206,7 +200,7 @@ mentions:
 - id: m15
   kind: year
   value: '858'
-  quote: سنة
+  quote: سنة ثمان
 - id: m16
   kind: place
   quote: بالروم
@@ -214,15 +208,24 @@ mentions:
   norm: الروم
 - id: m17
   kind: event
-  quote: دخلها
+  quote: وكان دخلها لقبض أوقافهم
+  span: phrase
 - id: m18
   kind: year
   value: '894'
-  quote: سنة
+  quote: سنة أربع وتسعين
 - id: m19
   kind: person
   ref: AIND-D03515
   quote: عبد الحفيظ
+- id: m20
+  kind: event
+  quote: ونشأ بها
+  span: phrase
+- id: m21
+  kind: event
+  quote: ثم قدم في سنة ثمان أو تسع وثمانين
+  span: phrase
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アル＝フサイン、アル＝カマール・アブー・アル＝ファドル、アブー・アル＝ファラジュ・ブン・アッ＝ザイン・アル＝マラーギーの孫。マラーガに出自をもち、マディーナの人。その祖父は前述。858年、父がマディーナで没した年に生まれ、そこで育ち、祖父と、祖父の兄弟の娘であるファーティマ・ビント・アビー・アル＝ヤマン・アル＝マラーギーから聴聞した。インドへ旅してしばらく滞在し、その後888年あるいは889年に戻ってきた。ルーム（アナトリア）で没した。彼らのワクフ（の収益）を徴収するためにそこへ入っており、894年にそこで没した。息子アブド・アル＝ハフィーズを遺した。
   en: 'Muḥammad b. Abī Bakr b. Muḥammad b. Abī Bakr b. al-Ḥusayn, al-Kamāl Abū al-Faḍl, grandson of Abū al-Faraj b. al-Zayn al-Marāghī, of Marāgha origin, the Medinan; his grandfather has been mentioned above. He was born in 858, the year his father died in Medina, and grew up there. He heard from his grandfather and from his grandfather''s brother''s daughter, Fāṭima bt. Abī al-Yaman al-Marāghī. He travelled to India and stayed there for a while, then came back in 888 or 889. He died in al-Rūm (Anatolia): he had entered it to collect their endowments, and died there in 894. He left a son, ʿAbd al-Ḥafīẓ.'

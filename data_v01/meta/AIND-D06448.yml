@@ -69,8 +69,6 @@ events:
   - mention: m10
   note:
     ja: '797＝1394-11-04 開始、年精度 1394。حسن بن عجلان ＝ #AIND-D02560「حسن بن عجلان بن رميثة بن أبي نمى … السيد البدر أبو المعالي الحسني المكي أميرها ونائب السلطنة بالبلاد الحجازية … وكان أول ما ولى الامرة بعد قتل أخيه علي في ذي القعدة سنة سبع وتسعين」（829没、repo 収録済み）。「صاحب مكة」は相手の職なので state にしない。初版の colleague relation（#NEEDID）は同行の記述のみで関係語がないため event の persName に（規則14・53）。'
-  trigger: rule
-  phrase: توجه إلى القاهرة سنة سبع وتسعين مع السيد حسن بن عجلان صاحب مكة
   mention: m9
 - id: e2
   type: political
@@ -80,8 +78,6 @@ events:
   - mention: m10
   note:
     ja: カイロで حسن بن عجلان とともに捕縛され、حسن は釈放されたが本項主はカイロで投獄され続けた。年は旅行（797）に続く記述だが event 自体に年の明記がないので日付属性を置かない（規則18 (e)）。初版の cert="high"・when-custom 0797 を除去。
-  trigger: rule
-  phrase: فقبض عليهما ثم أطلق حسن واستمر هذا محبوسا بالقاهرة
   mention: m15
 - id: e3
   type: political
@@ -89,8 +85,6 @@ events:
   - mention: m14
   note:
     ja: アレクサンドリアに移送され、一団とともに投獄されたのち釈放された。年の明記なし（初版の when-custom 0797・cert medium を除去）。
-  trigger: rule
-  phrase: ثم نقل إلى إسكندرية فسجن بها في جماعة إلى أن أطلق
   mention: m13
 sources:
 - id: c1
@@ -132,7 +126,8 @@ mentions:
   quote: حسن
 - id: m9
   kind: event
-  quote: توجه
+  quote: توجه إلى القاهرة سنة سبع وتسعين مع السيد حسن بن عجلان صاحب مكة
+  span: phrase
 - id: m10
   kind: place
   quote: القاهرة
@@ -140,15 +135,15 @@ mentions:
 - id: m11
   kind: year
   value: '797'
-  quote: سنة
+  quote: سنة سبع وتسعين
 - id: m12
   kind: person
   ref: AIND-D02560
   quote: السيد حسن بن عجلان صاحب مكة
 - id: m13
   kind: event
-  quote: فقبض
-  norm: قبض
+  quote: ثم نقل إلى إسكندرية فسجن بها في جماعة إلى أن أطلق
+  span: phrase
 - id: m14
   kind: place
   quote: إسكندرية
@@ -156,12 +151,12 @@ mentions:
   norm: اسكندرية
 - id: m15
   kind: event
-  quote: فسجن
-  norm: سجن
+  quote: فقبض عليهما ثم أطلق حسن واستمر هذا محبوسا بالقاهرة
+  span: phrase
 - id: m16
   kind: year
   value: '799'
-  quote: سنة
+  quote: سنة تسع
 - id: m17
   kind: place
   quote: بظاهر القاهرة

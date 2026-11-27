@@ -560,7 +560,7 @@ def convert(k, r):
         for w_ in lab.split():
             vt = vterm(w_)
             if vt and vt[0] not in terms: terms.append(vt[0])
-        if st['type'] == 'status' and not st.get('ref') and terms:
+        if st['type'] == 'status' and not st.get('ref') and (terms or re.match(VREP, normalize_ara_light(lab))):
             it = {'id': None}
             if st.get('quote'): it['quote'] = st['quote']
             if st.get('norm'): it['norm'] = st['norm']
@@ -649,7 +649,7 @@ def convert(k, r):
                 if m_ and m_.group(3) in cmap: new[i_] = f'@C{m_.group(1)}[mention|{cmap[m_.group(3)]}]'
             CMAP[k] = cmap
 
-    if MENTIONS: to_mentions(k, meta, new)
+    if MENTIONS: to_mentions(k, meta, new); refine_spans(k, meta, new)
     tr = TR.get(k)
     if tr: meta['translation'] = tr
     meta['provenance'] = provenance(r.get('generator'))
@@ -770,6 +770,110 @@ def to_mentions(k, meta, new):
         meta.clear(); meta.update(out)
 
 
+# ---- spans (2026-11-27) ------------------------------------------------------------------------------------
+# year: «سنة» and the number words after it; event: the verbatim phrase from the TEI where there is one, else from
+# the head word to the end of the clause (span: rule); no event tag where an office tag lies inside the span (the
+# office says it); a short laqab right before a person tag (الشرف إبراهيم) belongs to the person.
+NUMW = set(normalize_ara_light(w) for w in ('واحد احدى إحدى اثنتين اثنين ثنتين ثلاث ثلاثة أربع اربع أربعة خمس خمسة ست ستة سبع سبعة '
+        'ثمان ثماني ثمانية تسع تسعة عشر عشرة عشرين ثلاثين أربعين اربعين خمسين ستين سبعين ثمانين تسعين مائة مئة مائتين '
+        'ثلاثمائة أربعمائة اربعمائة خمسمائة ستمائة سبعمائة ثمانمائة ثمانمئة تسعمائة بضع بضعة الف ألف').split())
+LAQAB = set(normalize_ara_light(w) for w in ('الشرف البدر الشمس التقي الزين العلاء الجلال الكمال الجمال الشهاب النور المحب '
+        'الولوي السراج العز الصلاح البرهان الفخر المجد الصدر العماد النجم الشرفي البدري الزيني الشمسي التاج الركن الرضي '
+        'الامين القطب الحافظ الناصري السيفي العلم الكمالي الجلالي السعد الغرس الخير').split())
+TAGX = re.compile(r'^@([A-Z])(\d)(\d+)\[(m\d+)\]$')
+STOPCL = {'.', '،', ',', ':', '؛', 'ثم'}
+
+
+def refine_spans(k, meta, new):
+    M = {m['id']: m for m in meta.get('mentions') or []}
+    def plain_after(i, n):            # indices of the next n plain words after position i
+        out, j = [], i + 1
+        while len(out) < n and j < len(new):
+            if not new[j].startswith('@'): out.append(j)
+            j += 1
+        return out
+    def set_tag(i, n):
+        m_ = TAGX.match(new[i]); new[i] = f'@{m_.group(1)}{m_.group(2)}{n}[{m_.group(4)}]'
+    # 1. year spans
+    for i, t in enumerate(new):
+        m_ = TAGX.match(t)
+        if not m_ or m_.group(1) != 'Y': continue
+        idx = plain_after(i, 12)
+        if not idx: continue
+        n = 1
+        for j in idx[1:]:
+            w = normalize_ara_light(new[j]); w = w[1:] if w[:1] == 'و' and w[1:] in NUMW else w
+            if w in NUMW: n += 1
+            else: break
+        if n > int(m_.group(3)):
+            set_tag(i, n); M[m_.group(4)]['quote'] = ' '.join(new[j] for j in idx[:n]); STAT['span_year'] += 1
+    # 5. laqab before a person
+    for i, t in enumerate(list(new)):
+        m_ = TAGX.match(new[i]) if i < len(new) else None
+        if not m_ or m_.group(1) != 'P' or i == 0: continue
+        prev = new[i - 1]
+        if not prev.startswith('@') and normalize_ara_light(prev) in LAQAB:
+            n = int(m_.group(3)) + 1
+            new[i - 1], new[i] = f'@P{m_.group(2)}{n}[{m_.group(4)}]', prev
+            mm = M[m_.group(4)]; mm['quote'] = prev + ' ' + mm['quote']; mm.pop('norm', None)
+            nm = norm_ar(mm['quote'], int(m_.group(2)))
+            if nm != mm['quote']: mm['norm'] = nm
+            STAT['span_laqab'] += 1
+    # 2/3. events
+    evs = meta.get('events') or []
+    def drop_tag(mid):
+        for i, t in enumerate(new):
+            m_ = TAGX.match(t)
+            if m_ and m_.group(4) == mid: del new[i]; return i
+        return -1
+    plainpos = lambda: [i for i, t in enumerate(new) if not t.startswith('@')]
+    for ev in evs:
+        ph = ev.get('phrase'); mid = ev.get('mention')
+        pos = None
+        if ph and ' / ' not in ph:
+            pw = ph.split(); pp = plainpos(); words = [new[i] for i in pp]
+            for a in range(len(words) - len(pw) + 1):
+                if words[a:a + len(pw)] == pw: pos = (pp[a], len(pw)); break
+        if pos:
+            if mid: drop_tag(mid); pp = plainpos(); words = [new[i] for i in pp]; a = words.index(pw[0]) if False else None
+            # recompute the start after a possible deletion
+            pp = plainpos(); words = [new[i] for i in pp]
+            a = next(x for x in range(len(words) - len(pw) + 1) if words[x:x + len(pw)] == pw)
+            start = pp[a]
+            if not mid:
+                mid = f'm{len(M) + 1}'; M[mid] = {'id': mid, 'kind': 'event'}; meta['mentions'].append(M[mid]); ev['mention'] = mid
+            M[mid]['quote'] = ph; M[mid].pop('norm', None); M[mid]['span'] = 'phrase'
+            ev.pop('phrase', None); ev.pop('trigger', None)
+            while start > 0 and new[start - 1].startswith('@'): start -= 1      # outside the tags that start here
+            new.insert(start, f'@E0{len(pw)}[{mid}]'); STAT['span_event_phrase'] += 1
+            span_idx = (start, len(pw))
+        elif mid:
+            i = next((x for x, t in enumerate(new) if TAGX.match(t) and TAGX.match(t).group(4) == mid), None)
+            if i is None: continue
+            idx = plain_after(i, 40); n = 0
+            for j in idx:
+                if new[j] in STOPCL or (n >= 1 and re.match(r'^(?:و|ف)(?:كان|ولي|حج|جاور|دخل|سافر|حفظ|سمع|أخذ|اخذ|مات|ولد|ناب|قدم|رجع|عاد|استقر|درس|أقرأ|اقرا|حدث|أفتى|افتى|لازم|تزوج|توجه|انتقل|سكن|نزل|قرأ|قرا|اشتغل|تكسب|تنزل|باشر|ترجمه|ذكره|كتب|صنف|عرض)', new[j])): break
+                n += 1
+                if n >= 12: break
+            if n < 1: n = 1
+            set_tag(i, n); M[mid]['quote'] = ' '.join(new[j] for j in idx[:n]); M[mid].pop('norm', None)
+            M[mid]['span'] = 'rule'; ev.pop('trigger', None); STAT['span_event_rule'] += 1
+            span_idx = (i, n)
+        else:
+            continue
+        # 3. an office tag inside the event span: the office already says it; no event tag
+        i0, n0 = span_idx
+        inner = []; cnt = 0; j = i0 + 1
+        while cnt < n0 and j < len(new):
+            if new[j].startswith('@'): inner.append(new[j])
+            else: cnt += 1
+            j += 1
+        offs = [TAGX.match(t).group(4) for t in inner if TAGX.match(t) and TAGX.match(t).group(1) == 'O']
+        if offs and ev.get('type') in ('political', 'other', 'cultural', None):
+            del new[i0]; ev['mention'] = None; ev['phrase'] = M[mid]['quote']; ev['overlaps'] = offs
+            meta['mentions'].remove(M.pop(mid)); STAT['event_tag_dropped_office'] += 1
+
+
 CMAP = {}
 VMAP = {}
 # evaluative vocabulary: written form (after normalize_ara_light) -> controlled term
@@ -779,6 +883,7 @@ _V = {'صالح': 'صالحا صالح الصلحاء الصالحين', 'خير
 VFORM = {f: t for t, fs in _V.items() for f in fs.split()}
 VPLUR = {'الصلحاء', 'الصالحين', 'الاخيار', 'الخير', 'الفضلاء', 'الزهاد', 'المعتقدين'}
 VTRIG = {'كان', 'وكان', 'فكان', 'وهو', 'هو'}
+VREP = r'^(?:و|ف)?(?:يذكر|ذكر|يوصف|وصف|موصوف|ينسب)\s*ب'   # «ويذكر بحذق وذكاء …»: a reputation, not a status (2026-11-27)
 
 
 class D(yaml.SafeDumper):

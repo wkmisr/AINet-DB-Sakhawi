@@ -70,9 +70,11 @@ events:
   type: political
   note:
     ja: 「بعده」＝主人バルクークの死（801年）後。初版の when-custom 0801 cert medium は原文に年の明記がないため除去（時期の目安は本 note に留める）。
-  trigger: rule
+  mention: null
   phrase: وممن وثب بعده وتأمر باليد في أيام تلك الفتن واستمر في رواج حتى صار مقدما ثم رأس نوبة النوب فلم تطل مدته
-  mention: m9
+  overlaps:
+  - m5
+  - m6
 - id: e2
   type: political
   date:
@@ -82,8 +84,6 @@ events:
   - mention: m8
   note:
     ja: الناصر＝الناصر فرج（#AIND-D06160、在位801〜815）。バルクークのマムルークで814年に処刑された文脈から一意。初版の rival relation（#NEEDID）を本 event の persName に統合。
-  trigger: rule
-  phrase: وقبض الناصر عليه وقتله في سنة أربع عشرة
   mention: m7
 sources:
 - id: c1
@@ -123,20 +123,16 @@ mentions:
   norm: راس نوبة النوب
 - id: m7
   kind: event
-  quote: وقبض
-  norm: قبض
+  quote: وقبض الناصر عليه وقتله في سنة أربع عشرة
+  span: phrase
 - id: m8
   kind: person
   ref: AIND-D06160
   quote: الناصر
-- id: m9
-  kind: event
-  quote: وقتله
-  norm: قتله
 - id: m10
   kind: year
   value: '814'
-  quote: سنة
+  quote: سنة أربع عشرة
 - id: m11
   kind: source
   quote: وذكره

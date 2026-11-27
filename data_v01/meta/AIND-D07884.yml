@@ -58,8 +58,7 @@ events:
   type: cultural
   note:
     ja: 医学・錬金術・幻術（النارنجيات、刊本は「النار نجيات」と分綴）・星学を業とした。
-  phrase: كان يعاني الطب والكيمياء والنار نجيات والنجوم
-  mention: null
+  mention: m20
 - id: e3
   type: residence
   subtype: jāwara
@@ -67,8 +66,6 @@ events:
   - mention: m8
   note:
     ja: 原文に地名 مكة が明示されているため placeName 可（規則20・22-2）。
-  trigger: rule
-  phrase: وأقام بمكة مدة مجاورا
   mention: m9
 - id: e4
   type: cultural
@@ -84,8 +81,6 @@ events:
   cert: medium
   note:
     ja: イブン・ハジャルが806年にマッカで本項主に会った（イブン・ハジャルの一人称。面会は relation でなく event、規則56）。「بها」＝直前の مكة（規則22-3）。一の位のみの年「سنة ست」＝806（cert medium）。初版の relation「friend」（wd:Q471116）を置換。
-  trigger: rule
-  phrase: ولقيته بها سنة ست
   mention: m10
 - id: e5
   type: travel
@@ -95,8 +90,6 @@ events:
   - mention: m13
   note:
     ja: 'イエメン入り。「سلطانها الناصر」＝ラスール朝の الناصر أحمد بن إسماعيل #AIND-D00549（在位803〜827）。主人でないスルターンの厚遇は patron にせず event 内 persName（規則53）。初版の relation「patron」（#NEEDID）を置換。'
-  trigger: rule
-  phrase: ثم دخل اليمن فأقبل عليه سلطانها الناصر
   mention: m12
 - id: e6
   type: political
@@ -109,8 +102,6 @@ events:
   cert: medium
   note:
     ja: '豪商 الشهاب المحلي 毒殺の嫌疑（人々の噂＝「هواتهم」、刊本のまま）。الشهاب المحلى التاجر ＝ #AIND-D00446（أحمد بن إبراهيم بن عمر بن علي الشهاب أبو الفضل بن البرهان المصري ويعرف بابن المحلى التاجر … مات … بمكة في أواخر ذي القعدة سنة ست … بعد قدومه من اليمن … وكان طلب منه ليفوض له أمر المتجر السلطاني）。ラカブ・ニスバ・職・没時期（806年末、マッカ）の4点が閉合。嫌疑は事実でなく噂のため cert medium、年は一の位のみ（806）。初版の relation「rival」（#NEEDID）を置換。'
-  trigger: rule
-  phrase: وكان هواتهم بأنه دس على الرئيس الشهاب المحلى التاجر سما فقتله في آخر سنة ست
   mention: m18
 sources:
 - id: c1
@@ -156,18 +147,20 @@ mentions:
   norm: مكة
 - id: m9
   kind: event
-  quote: مجاورا
+  quote: وأقام بمكة مدة مجاورا
+  span: phrase
 - id: m10
   kind: event
-  quote: ولقيته
-  norm: لقيته
+  quote: ولقيته بها سنة ست
+  span: phrase
 - id: m11
   kind: year
   value: '806'
-  quote: سنة
+  quote: سنة ست
 - id: m12
   kind: event
-  quote: دخل
+  quote: ثم دخل اليمن فأقبل عليه سلطانها الناصر
+  span: phrase
 - id: m13
   kind: place
   quote: اليمن
@@ -183,7 +176,7 @@ mentions:
 - id: m16
   kind: year
   value: '808'
-  quote: سنة
+  quote: سنة ثمان
 - id: m17
   kind: person
   ref: AIND-D00446
@@ -191,12 +184,16 @@ mentions:
   norm: الرءيس الشهاب المحلي التاجر
 - id: m18
   kind: event
-  quote: فقتله
-  norm: قتله
+  quote: وكان هواتهم بأنه دس على الرئيس الشهاب المحلى التاجر سما فقتله في آخر سنة ست
+  span: phrase
 - id: m19
   kind: year
   value: '806'
-  quote: سنة
+  quote: سنة ست
+- id: m20
+  kind: event
+  quote: كان يعاني الطب والكيمياء والنار نجيات والنجوم
+  span: phrase
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝ミスリー、のちアル＝マッキー、医師、アル＝フダリー（点のある二字で、最初がダンマ、次がファトハ）として知られる。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及して言う、「彼は医学・錬金術・幻術（ナーランジヤート）・星学を業とし、マッカにしばらく隣住者として滞在した。私は（80）6年にそこで彼に会った。その後イエメンに入り、同地のスルターン・アン＝ナースィルが彼を厚遇した。アン＝ナースィルの侍医が彼に毒を仕込んで（80）8年に死んだと言われる。人々の噂では、彼は頭領（ラーイース）の商人アッ＝シハーブ・アル＝マハッリーに毒を仕込み、（80）6年末に彼を殺したという」。
   en: 'Muḥammad b. ʿAbd Allāh al-Miṣrī, then al-Makkī, the physician, known as al-Khuḍarī (with two dotted letters, the first with ḍamma and the second with fatḥa). Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "He practised medicine, alchemy, illusionism (nāranjiyyāt) and astrology, and stayed in Mecca for a time as a mujāwir; I met him there in [80]6. Then he entered Yemen, and its sultan al-Nāṣir received him favourably. It is said that al-Nāṣir''s physician had him poisoned, and he perished in [80]8. People murmured that he had administered poison to the chief merchant al-Shihāb al-Maḥallī and killed him at the end of [80]6."'

@@ -63,8 +63,6 @@ events:
   type: political
   note:
     ja: المؤيد＝المؤيد شيخ（#AIND-D03345、没824）。その死後にアミールとなった。原文に年の記載はなく、他項の没年から年を写さない（規則18 v13.44(e)）＝初版の when-custom 0824 cert medium を除去。
-  trigger: rule
-  phrase: تأمر بعد موت المؤيد
   mention: m5
 - id: e2
   type: political
@@ -72,9 +70,10 @@ events:
   - mention: m7
   note:
     ja: 任官者 الأشرف＝المؤيد شيخ の死（824）と本項主の没年（838）の間に在位した الأشرف برسباي（#AIND-D02168、在位825–841）。主人ではないスルターンによる任官は patron にせず event 内 persName（規則53）。年の記載なし＝日付属性なし。
-  trigger: rule
+  mention: null
   phrase: ثم استقر به الأشرف رءوس النوب وساق المحمل باشا
-  mention: m6
+  overlaps:
+  - m8
 sources:
 - id: c1
   persons:
@@ -108,11 +107,8 @@ mentions:
   quote: برقوق
 - id: m5
   kind: event
-  quote: تأمر
-  norm: تامر
-- id: m6
-  kind: event
-  quote: استقر
+  quote: تأمر بعد موت المؤيد
+  span: phrase
 - id: m7
   kind: person
   ref: AIND-D02168
@@ -129,7 +125,7 @@ mentions:
 - id: m10
   kind: year
   value: '838'
-  quote: سنة
+  quote: سنة ثمان وثلاثين
 - id: m11
   kind: source
   quote: أرخه

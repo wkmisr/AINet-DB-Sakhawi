@@ -102,8 +102,6 @@ states:
 events:
 - id: e1
   type: teaching
-  trigger: rule
-  phrase: ودرس وأفتى
   mention: m11
 - id: e2
   type: political
@@ -111,8 +109,11 @@ events:
   - mention: m12
   note:
     ja: ターヒル朝（بنو طاهر）のザビード領有に際し、المدرسة الحسينية の監督と教授を付与された（下の state）。年は原文になし＝日付属性を置かない（初版の when-custom="0858" cert medium は原文に根拠がなく除去、規則18・42）。placeName زبيد は原文の「ملك بنو طاهر زبيد」。「بنو طاهر」は王朝の集合名のため persName を立てない。
-  phrase: ولما ملك بنو طاهر زبيد أضيف إليه نظر المدرسة الحسينية وتدريسها إلى أن مات
   mention: null
+  phrase: ولما ملك بنو طاهر زبيد أضيف إليه نظر المدرسة الحسينية وتدريسها إلى أن مات
+  overlaps:
+  - m13
+  - m14
 - id: e3
   type: cultural
   persons:
@@ -121,16 +122,14 @@ events:
   - ref: TMP-T-00262
   note:
     ja: '著作: 『الوجيز』（ID-Master 未登録 → 新規 TMP-T-00262）への تصحيح。典拠とした「تصحيح التقي عمر الفتي」の عمر الفتي＝#AIND-D05983「عمر بن محمد بن معيبد السراج أبو حفص … الزبيدي … ويعرف بالفتى」（同本伝に著作「الإبريز في تصحيح الوجيز」あり、索引 #AIND-D11320「الفتى اثنان يمنيان عمر بن محمد بن معيبد فقيه اليمن و…」）＝名＋通称＋著作で閉合。本項のラカブ「التقي」は D05983 の「السراج」と異なる（規則25、原文どおり保持し note）。'
-  phrase: وقد كتب تصحيحا على الوجيز استمده من تصحيح التقي عمر الفتي
-  mention: null
+  mention: m18
 - id: e4
   type: cultural
   works:
   - ref: TMP-T-00065
   note:
     ja: '著作: 『منهاج الطالبين』（TMP-T-00065）への部分注釈。'
-  phrase: وقطعة على المنهاج
-  mention: null
+  mention: m19
 mentions:
 - id: m1
   kind: name
@@ -166,15 +165,15 @@ mentions:
 - id: m9
   kind: year
   value: '802'
-  quote: سنة
+  quote: سنة اثنتين وثمانمائة
 - id: m10
   kind: person
   ref: AIND-D06630
   quote: الجمال الطيب الناشري
 - id: m11
   kind: event
-  quote: ودرس
-  norm: درس
+  quote: ودرس وأفتى
+  span: phrase
 - id: m12
   kind: place
   quote: زبيد
@@ -195,11 +194,19 @@ mentions:
 - id: m16
   kind: year
   value: '879'
-  quote: سنة
+  quote: سنة تسع وسبعين
 - id: m17
   kind: person
   ref: AIND-D05983
   quote: التقي عمر الفتي
+- id: m18
+  kind: event
+  quote: وقد كتب تصحيحا على الوجيز استمده من تصحيح التقي عمر الفتي
+  span: phrase
+- id: m19
+  kind: event
+  quote: وقطعة على المنهاج
+  span: phrase
 translation:
   ja: ムーサー・ブン・アフマド・ブン・アリー・ブン・ウジャイル、アル＝カマール、アル＝ヤマーニー、前述のアフマドとアブド・アッ＝ラティーフの父。802年に生まれ、学問に励んで法学で頭角を現し、カーディーのアル＝ジャマール・アッ＝タイイブ・アン＝ナーシリーの講義に出席し、彼からファトワー発行の許可を得た。教授しファトワーを発し、ターヒル家（バヌー・ターヒル）がザビードを領有すると、アル＝マドラサ・アル＝フサイニーヤの監督（ナザル）と教授職を付与され、（8）79年ムハッラム月11日金曜日に没するまでその任にあった。彼はアッ＝タキー・ウマル・アル＝ファティーの校訂に拠って『アル＝ワジーズ』の校訂を著し、また『アル＝ミンハージュ』に対する一部（の注釈）を著した。神が彼を慈しみたまわんことを。
   en: Mūsā b. Aḥmad b. ʿAlī b. ʿUjayl, al-Kamāl, al-Yamānī, father of Aḥmad and ʿAbd al-Laṭīf (mentioned above). He was born in 802, devoted himself to study and distinguished himself in fiqh; he attended the sessions of the qāḍī al-Jamāl al-Ṭayyib al-Nāshirī, who authorised him to give fatwās. He taught and gave fatwās, and when the Banū Ṭāhir took possession of Zabīd, the supervision (naẓar) of al-Madrasa al-Ḥusayniyya and its teaching post were added to him, until he died on Friday 11 Muḥarram of the year [8]79. He wrote a taṣḥīḥ on al-Wajīz, drawing it from the taṣḥīḥ of al-Taqī ʿUmar al-Fatī, and a portion (of commentary) on al-Minhāj; may God have mercy on him.

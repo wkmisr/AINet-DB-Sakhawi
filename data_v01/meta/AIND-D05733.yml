@@ -58,8 +58,6 @@ events:
     mention: m6
   note:
     ja: '「بلاده」はニスバ الأرزنجاني の指すアルズィンジャーン（息子の本伝 #AIND-D10383 に「ولد … بأرزنجان」）。出発地は placeName にせず note に留める。'
-  trigger: rule
-  phrase: قدم من بلاده إلى الروم
   mention: m5
 - id: e2
   type: travel
@@ -73,14 +71,12 @@ events:
   cert: medium
   note:
     ja: 「في أول سلطنة المؤيد」＝アル＝ムアイヤド・シャイフ（#AIND-D03345）の即位（815年シャアバーン月＝1412年11月）直後。年は治世開始からの推定のため cert medium。初版は residence event（cert medium）としていたが、原文は到来（قدم）のみ。
-  phrase: ثم إلى القاهرة في أول سلطنة المؤيد
-  mention: null
+  mention: m13
 - id: e3
   type: political
   note:
     ja: 'スルターンの家（宮廷）に移った。スルターンは文脈上アル＝ムアイヤド・シャイフ（#AIND-D03345）と推定されるが、原文に名が無いため relation は立てず note に留める（規則26）。初版の affiliation（employed بيت السلطان #NEEDID）を event に改めた。'
-  phrase: ثم انتقل لبيت السلطان
-  mention: null
+  mention: m14
 - id: e4
   type: religious
   subtype: hajj
@@ -88,15 +84,12 @@ events:
   - ref: gn:104515
   note:
     ja: 7回巡礼した（規則20により مكة を付す）。
-  trigger: rule
-  phrase: وحج سبع مرار
   mention: m10
 - id: e5
   type: residence
   subtype: jāwara
   note:
     ja: 「جاور」には placeName を付けない（規則20）。初版の placeName مكة を除去。
-  trigger: rule
   mention: m11
 mentions:
 - id: m1
@@ -118,7 +111,8 @@ mentions:
   norm: يعقوب شاه الاتي
 - id: m5
   kind: event
-  quote: قدم
+  quote: قدم من بلاده إلى الروم
+  span: phrase
 - id: m6
   kind: place
   quote: الروم
@@ -138,15 +132,24 @@ mentions:
   norm: تقدم في القوس علما وعملا بحيث عرف بالاسطا
 - id: m10
   kind: event
-  quote: وحج
+  quote: وحج سبع مرار
+  span: phrase
 - id: m11
   kind: event
-  quote: وجاور
-  norm: جاور
+  quote: وجاور وعمر نحو المائة حتى مات
+  span: rule
 - id: m12
   kind: assessment
   quote: وكان خيرا من ولده
   norm: كان خيرا من ولده
+- id: m13
+  kind: event
+  quote: ثم إلى القاهرة في أول سلطنة المؤيد
+  span: phrase
+- id: m14
+  kind: event
+  quote: ثم انتقل لبيت السلطان
+  span: phrase
 translation:
   ja: アリー・アル＝ウスター・アル＝アルズィンジャーニー、後出のヤアクーブ・シャーの父。自分の国からルーム（アナトリア）へ、次いでアル＝ムアイヤドの治世の初めにカイロへやって来た。アン＝ナースィリー・ブン・アル＝バーリズィーに専属して仕え、次いでスルターンの家（宮廷）に移った。弓術において理論と実践の両面で抜きん出て、それゆえ「アル＝ウスター（親方）」として知られた。7回巡礼し、（マッカに）滞在（ムジャーワラ）し、100歳近くまで長命を保って没した。息子よりも善良な人物であった。
   en: ʿAlī al-Usṭā al-Arzinjānī, father of Yaʿqūb Shāh (to follow). He came from his homeland to al-Rūm (Anatolia), then to Cairo at the beginning of the sultanate of al-Muʾayyad. He attached himself to the service of al-Nāṣirī b. al-Bārizī, then moved to the household of the sultan. He excelled in archery in both theory and practice, so that he became known as "al-Usṭā" (the master). He performed the pilgrimage seven times and resided as a mujāwir (presumably in Mecca), and lived to about a hundred years before he died. He was a better man than his son.

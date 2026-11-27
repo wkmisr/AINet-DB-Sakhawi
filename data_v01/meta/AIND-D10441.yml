@@ -124,8 +124,6 @@ events:
   type: travel
   places:
   - mention: m15
-  trigger: rule
-  phrase: وطاف كثيرا من البلاد كبغداد
   mention: m18
 - id: e2
   type: religious
@@ -137,8 +135,6 @@ events:
   - mention: m23
   note:
     ja: 895年＝1489-12-04 開始（h2g.py、年精度）。巡礼月（895年ズー・アル＝ヒッジャ）は西暦1490年に当たるが、原文は年のみのため年初換算（規則18）。placeName は حج の語義の展開（規則20）。
-  trigger: rule
-  phrase: وحج في سنة خمس وتسعين
   mention: m20
 - id: e3
   type: residence
@@ -148,8 +144,6 @@ events:
     type: residence
   note:
     ja: 「التي تليها」＝896年（1490-11-23 開始）。جاور に地名なし＝初版の placeName مكة を除去（規則20）。
-  trigger: rule
-  phrase: وجاور التي تليها
   mention: m17
 - id: e4
   type: travel
@@ -160,8 +154,7 @@ events:
   - mention: m21
   note:
     ja: 「سنة سبع」＝直前の 895・896 に続く 897年（1491-11-13 開始、年精度。「أول」は note）。出発とマディーナ参詣を1件にまとめた（初版は visit のみ）。
-  phrase: وسافر في أول سنة سبع وزار المدينة
-  mention: null
+  mention: m27
 - id: e5
   type: teaching
   places:
@@ -171,8 +164,6 @@ events:
   - ref: TMP-T-00233
   note:
     ja: 'マッカでの教授（type=teaching、規則50）。年は原文になし＝初版の when-custom「0895-896」cert medium を除去（規則18）。『المتوسط』＝イブン・アル＝ハージブ『الكافية』の中型注釈（corpus #AIND-D02694「في المتوسط على الكافية الحاجبية」）、ID-Master 未登録 → 仮 TMP-T-00268。『الطوالع』＝ID-Master TMP-T-00233（طوالع الأنوار للبيضاوي、別名「الطوالع」登録あり）。'
-  trigger: rule
-  phrase: وأقرأ بمكة المتوسط والطوالع
   mention: m22
 notes:
 - text: 「وأندجان من فرغانة」はニスバの由来説明（アンディジャーンはフェルガナの地）＝event ではないので placeName を作らない（規則22(2)）。師 العلماشاني の母音は未確認。
@@ -218,7 +209,7 @@ mentions:
 - id: m11
   kind: year
   value: '825'
-  quote: سنة
+  quote: سنة خمس وعشرين وثمانمائة
 - id: m12
   kind: place
   quote: بسمرقند
@@ -241,31 +232,31 @@ mentions:
 - id: m16
   kind: year
   value: '895'
-  quote: سنة
+  quote: سنة خمس وتسعين
 - id: m17
   kind: event
-  quote: وجاور
-  norm: جاور
+  quote: وجاور التي تليها
+  span: phrase
 - id: m18
   kind: event
-  quote: وسافر
-  norm: سافر
+  quote: وطاف كثيرا من البلاد كبغداد
+  span: phrase
 - id: m19
   kind: year
   value: '897'
-  quote: سنة
+  quote: سنة سبع
 - id: m20
   kind: event
-  quote: وزار
-  norm: زار
+  quote: وحج في سنة خمس وتسعين
+  span: phrase
 - id: m21
   kind: place
   quote: المدينة
   ref: gn:109223
 - id: m22
   kind: event
-  quote: وأقرأ
-  norm: اقرا
+  quote: وأقرأ بمكة المتوسط والطوالع
+  span: phrase
 - id: m23
   kind: place
   quote: بمكة
@@ -278,11 +269,15 @@ mentions:
 - id: m25
   kind: year
   value: '896'
-  quote: سنة
+  quote: سنة ست
 - id: m26
   kind: person
   ref: wd:Q4120128
   quote: علي
+- id: m27
+  kind: event
+  quote: وسافر في أول سنة سبع وزار المدينة
+  span: phrase
 translation:
   ja: ユースフ・ブン・アフマド・ブン・ムハンマド・ブン・カマール・アッ＝ディーン、ジャマール・アッ＝ディーン・ブン・アッ＝シハーブ・ブン・アッ＝シャムス、アンディジャーンの出、アッ＝サマルカンディー、アル＝ハナフィー。アンディジャーンはフェルガナにある。825年にサマルカンドで生まれて育ち、多くの人々について諸学を学んだ。そのうち最も優れた者はマフムード・アル＝イルマーシャーニーとムハンマド・アル＝ブハーリーである。バグダードなど多くの土地を巡り、（8）95年に巡礼を行い、その翌年は寄留し、（8）97年の初めに旅立ってマディーナを参詣した。マッカでは『ムタワッスィト』と『タワーリウ』を講じた。（8）96年の末に私（サハーウィー）に会い、私のもとでブハーリーの「啓示の始まり」を読み、私は彼にイジャーザを与えた。
   en: Yūsuf b. Aḥmad b. Muḥammad b. Kamāl al-Dīn, Jamāl al-Dīn b. al-Shihāb b. al-Shams, of Andijān origin, al-Samarqandī, al-Ḥanafī; Andijān is in Farghāna. He was born in 825 in Samarqand and grew up; he studied the sciences under a number of people, the most eminent of whom were Maḥmūd al-ʿIlmāshānī and Muḥammad al-Bukhārī. He travelled through many lands, such as Baghdad, performed the pilgrimage in the year [8]95, stayed as a sojourner (jāwara) the following year, set out at the beginning of the year [8]97 and visited Medina. He taught al-Mutawassiṭ and al-Ṭawāliʿ in Mecca. He met me (al-Sakhāwī) at the end of the year [8]96 and read with me the "Beginning of Revelation" from al-Bukhārī, and I granted him an ijāza.

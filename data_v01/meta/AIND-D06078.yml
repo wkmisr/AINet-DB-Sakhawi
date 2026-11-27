@@ -67,8 +67,6 @@ events:
   type: residence
   places:
   - mention: m9
-  trigger: rule
-  phrase: نزيل مكة
   mention: m8
 - id: e2
   type: residence
@@ -77,7 +75,6 @@ events:
   - mention: m9
   note:
     ja: 原文に「بمكة」が明記されているため placeName を付す（規則22(2)。裸の جاور ではない）。
-  trigger: rule
   phrase: جاور بمكة سنين
   mention: m15
 sources:
@@ -127,7 +124,8 @@ mentions:
   quote: المهجمي
 - id: m8
   kind: event
-  quote: نزيل
+  quote: نزيل مكة
+  span: phrase
 - id: m9
   kind: place
   quote: مكة
@@ -156,8 +154,8 @@ mentions:
   ref: TMP-L-00049
 - id: m15
   kind: event
-  quote: وجاور
-  norm: جاور
+  quote: وجاور بمكة سنين مات في رجب سنة اثنتين بأبيات حسين ذكره الفاسي
+  span: rule
 - id: m16
   kind: month
   value: 7
@@ -165,7 +163,7 @@ mentions:
 - id: m17
   kind: year
   value: '802'
-  quote: سنة
+  quote: سنة اثنتين
 - id: m18
   kind: place
   quote: بأبيات حسين

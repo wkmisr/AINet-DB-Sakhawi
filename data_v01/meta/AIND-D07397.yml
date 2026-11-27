@@ -119,8 +119,7 @@ events:
   type: residence
   places:
   - mention: m22
-  phrase: وكان مقيما بفاس
-  mention: null
+  mention: m32
 - id: e2
   type: political
   persons:
@@ -128,8 +127,6 @@ events:
   - ref: TMP-P-001607
   note:
     ja: أحمد بن محمد بن أبي العباس＝#AIND-D01338「أحمد بن محمد بن أبي العباس الحفصي ابن أخي السلطان أبي فارس وصاحب بجاية . مات في سنة عشر」（没年 810 で一致）。本項主が対抗した（فصدهم）のは أحمد の死後の後継側（「هم」）で أحمد 本人との対抗は原文にないため rival relation を立てず event の persName に（集約 2026-10-26、内容A L-5。校閲時の rival n=1 を削除し @n を振り直し）。D01338 では後継の弟を「الدبال محمد」（TMP-P-001014）とし本項の「زكريا」と食い違う（§D140-1）。
-  trigger: rule
-  phrase: لما مات أحمد بن محمد بن أبي العباس واستقر أخوه زكريا بدله فصدهم محمد
   mention: m20
 - id: e3
   type: political
@@ -137,8 +134,6 @@ events:
   - ref: AIND-D04834
   note:
     ja: 「صاحبها」の「ها」は直前の فاس（援助者の居所、event n=1 で符号化済み）。「وملكها」の「ها」はフェズ君主が援助者である以上 فاس とは読みにくく、原文に名のない支配地（بلد العتاب か兄弟の後継をめぐる بجاية）とも読めて先行詞が両義＝placeName を付けない（規則22(3)。集約 2026-10-26、内容A M-2。校閲時の placeName فاس を除去）。
-  trigger: rule
-  phrase: وأعانه صاحبها أبو سعيد عثمان بن أبي العباس ابن أبي سالم وملكها
   mention: m26
 - id: e4
   type: political
@@ -147,8 +142,6 @@ events:
     type: political
   persons:
   - ref: AIND-D03958
-  trigger: rule
-  phrase: فلم يزل أبو فارس يعمل عليه حتى انفض عنه جمعه وقبض عليه فقتله في ذي الحجة سنة عشر
   mention: m25
 sources:
 - id: c1
@@ -251,8 +244,8 @@ mentions:
   norm: احمد بن محمد بن ابي العباس
 - id: m20
   kind: event
-  quote: واستقر
-  norm: استقر
+  quote: لما مات أحمد بن محمد بن أبي العباس واستقر أخوه زكريا بدله فصدهم محمد
+  span: phrase
 - id: m21
   kind: person
   ref: TMP-P-001607
@@ -274,12 +267,12 @@ mentions:
   norm: ابو فارس
 - id: m25
   kind: event
-  quote: وقبض
-  norm: قبض
+  quote: فلم يزل أبو فارس يعمل عليه حتى انفض عنه جمعه وقبض عليه فقتله في ذي الحجة سنة عشر
+  span: phrase
 - id: m26
   kind: event
-  quote: فقتله
-  norm: قتله
+  quote: وأعانه صاحبها أبو سعيد عثمان بن أبي العباس ابن أبي سالم وملكها
+  span: phrase
 - id: m27
   kind: month
   value: 12
@@ -287,7 +280,7 @@ mentions:
 - id: m28
   kind: year
   value: '810'
-  quote: سنة
+  quote: سنة عشر
 - id: m29
   kind: source
   quote: قاله
@@ -299,6 +292,10 @@ mentions:
   kind: source
   quote: وترجمته
   norm: ترجمته
+- id: m32
+  kind: event
+  quote: وكان مقيما بفاس
+  span: phrase
 translation:
   ja: ムハンマド・ブン・ザカリヤー・ブン・ムハンマド・ブン・アビー・バクル・ブン・ヤフヤー・ブン・イブラーヒーム・ブン・ヤフヤー・ブン・アブドゥルワーヒド・ブン・ウマル・ブン・ヤフヤー、アブー・アブドゥッラー・ブン・アビー・ヤフヤー、アル＝ヒンターティー・アル＝マスムーディー・アル＝カフスィー・アル＝マリーニー、バラド・アル＝アッターブの領主。アフマド・ブン・ムハンマド・ブン・アビー・ル＝アッバースが没し、その兄弟ザカリヤーが彼に代わって就いたとき、ムハンマドは彼らに対抗した。彼はフェズに滞在しており、その（フェズの）君主アブー・サイード・ウスマーン・ブン・アビー・ル＝アッバース・イブン・アビー・サーリムが彼を援助し、彼はそれを領有した。しかしアブー・ファーリスは彼に対して策を講じ続け、ついに彼の軍勢は離散し、彼を捕らえて殺した。810年ズー・ル＝ヒッジャ月のことである。我らがシャイフ（イブン・ハジャル）が『インバー』で述べている。『ウクード』における彼の伝記は長い。
   en: Muḥammad b. Zakariyyā b. Muḥammad b. Abī Bakr b. Yaḥyā b. Ibrāhīm b. Yaḥyā b. ʿAbd al-Wāḥid b. ʿUmar b. Yaḥyā, Abū ʿAbd Allāh b. Abī Yaḥyā, al-Hintātī al-Maṣmūdī al-Qafṣī al-Marīnī, lord of Balad al-ʿAttāb. When Aḥmad b. Muḥammad b. Abī al-ʿAbbās died and his brother Zakariyyā was established in his place, Muḥammad opposed them. He was residing in Fez, and its ruler Abū Saʿīd ʿUthmān b. Abī al-ʿAbbās b. Abī Sālim assisted him, and he took possession of it. Abū Fāris kept working against him until his following dispersed; he seized him and killed him in Dhū al-Ḥijja of the year [8]10. Our shaykh (Ibn Ḥajar) said this in his Inbāʾ, and his biography in al-ʿUqūd is long.

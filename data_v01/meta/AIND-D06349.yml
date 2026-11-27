@@ -83,8 +83,6 @@ events:
   - mention: m8
   note:
     ja: ططر＝الظاهر ططر（#AIND-D03422）。解任・逮捕・投獄（年なし。ططر の執権〜在位は824年）。初版の統制外 subtype「rival」relation（TMP-P-000000）を event の persName に統合。拘禁の場所は原文にない（初版の placeName الاسكندرية を除去）。
-  trigger: rule
-  phrase: عزله ططر بدواداره فارس ثم قبض عليه وحبسه
   mention: m7
 - id: e2
   type: political
@@ -93,17 +91,17 @@ events:
     mention: m9
   note:
     ja: 「الأشرف」＝文脈（ططر の後、830年以前）から الأشرف برسباي（#AIND-D02168、825〜841年在位）だが裸のラカブのため cert medium（規則26）。初版の patron relation（TMP-P-000000）は任命の記述のみなので relation にせず event の persName に。
-  trigger: rule
+  mention: null
   phrase: إلى أن أخرجه الأشرف وعمله الأتابك حلب
-  mention: m12
+  overlaps:
+  - m10
 - id: e3
   type: residence
   places:
   - mention: m11
   note:
     ja: 照応代名詞 إليها＝حلب（規則22(3)）。初版の residence event الاسكندرية（職からの補完）は除去。
-  phrase: وتوجه إليها فدام حتى قتل
-  mention: null
+  mention: m13
 notes:
 - text: 「وكان أشقر معتدل القد ساكنا لا بأس به」＝赤毛で中背、物静かで悪くない人物（人物評）。
   lang: ja
@@ -136,7 +134,8 @@ mentions:
   norm: اسكندرية
 - id: m7
   kind: event
-  quote: عزله
+  quote: عزله ططر بدواداره فارس ثم قبض عليه وحبسه
+  span: phrase
 - id: m8
   kind: person
   ref: AIND-D03422
@@ -155,13 +154,14 @@ mentions:
   kind: place
   quote: حلب
   ref: gn:170063
-- id: m12
-  kind: event
-  quote: قتل
 - id: m13
   kind: year
   value: '830'
-  quote: سنة
+  quote: سنة ثلاثين
+- id: m13
+  kind: event
+  quote: وتوجه إليها فدام حتى قتل
+  span: phrase
 translation:
   ja: カシュタムル・アル＝ムアイヤディー・シャイフ。彼（アル＝ムアイヤド・シャイフ）のハースィキーの一人で、小ダワーダールの一人。その死後、その子アル＝ムザッファル・アフマドの名でアレクサンドリアのナーイブ（代官）となったが、タタルが自身のダワーダールのファーリスをもって彼を解任し、次いで彼を捕らえて投獄した。やがてアル＝アシュラフ（バルスバーイ）が彼を釈放してアレッポのアターバクに任じ、彼はアレッポに赴いてそこに留まり、830年にトルクメンとアレッポ軍との間に起こった戦闘で戦死した。赤毛で中背、物静かで、悪くない人物であった。
   en: Qashtamur al-Muʾayyadī Shaykh. He was one of his (al-Muʾayyad Shaykh's) khāṣṣakīs and one of his junior dawādārs. After his (master's) death he served as governor (nāʾib) of Alexandria on behalf of his son al-Muẓaffar Aḥmad; Ṭaṭar removed him, replacing him with his own dawādār Fāris, then arrested and imprisoned him, until al-Ashraf (Barsbāy) released him and made him atābak of Aleppo. He went there and remained until he was killed in a battle between the Turkmens and the army of Aleppo in the year 830. He was fair-haired, of medium build, calm, and not a bad man.

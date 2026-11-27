@@ -87,15 +87,15 @@ events:
     type: political
   note:
     ja: 原文に地名なし（初版の القاهرة を除去）。
-  trigger: rule
+  mention: null
   phrase: استقر في الوزر في صفر سنة أربع وستين بعد اختفاء ابني الأهناسي فأقام ثلاثة أيام ثم صرف بمنصور ابن صفي
-  mention: m5
+  overlaps:
+  - m6
 - id: e2
   type: political
   note:
     ja: アスターダール職（TMP-O-00064）その他に内定したが実現しなかった（在職なし）。【集約 2026-10-19】在職記録として集計されないよう、校閲時の state（TMP-O-00064、cert low）を削除し本 event に一本化（内容A L）。
-  phrase: وعين للاستادارية وغيرها فلم يتم
-  mention: null
+  mention: m12
 mentions:
 - id: m1
   kind: name
@@ -113,9 +113,6 @@ mentions:
   ref: AIND-D06199
   quote: فيروز نائب المقدم
   norm: فيروز ناءب المقدم
-- id: m5
-  kind: event
-  quote: استقر
 - id: m6
   kind: office
   ref: wd:Q175240
@@ -127,7 +124,7 @@ mentions:
 - id: m8
   kind: year
   value: '864'
-  quote: سنة
+  quote: سنة أربع وستين
 - id: m9
   kind: person
   ref: AIND-D05410
@@ -148,6 +145,10 @@ mentions:
   ref: AIND-D06138#p1
   quote: برأس نوبة خوند الكبرى
   norm: راس نوبة خوند الكبري
+- id: m12
+  kind: event
+  quote: وعين للاستادارية وغيرها فلم يتم
+  span: phrase
 translation:
   ja: ファーリス・アル＝ムハンマディー・アッ＝ルクニー、（主人は）ナーイブ・アル＝ムカッダムのファイルーズ。864年サファル月、アル＝アフナースィーの二子の逃亡後に宰相職（ウィザーラ）に就いたが、3日在職しただけでマンスール・イブン・サフィーに交代させられた。アスターダール職その他にも内定したが実現しなかった。アル＝アシュラフ・カーイトバーイに近づき、ハワンド・アル＝クブラー付きのラアス・ナウバと結婚した。
   en: Fāris al-Muḥammadī al-Ruknī, (mamlūk of) Fayrūz the nāʾib al-muqaddam. He was appointed to the vizierate in Ṣafar of the year 864 after the two sons of al-Ahnāsī went into hiding, but remained only three days before being replaced by Manṣūr Ibn Ṣafī. He was designated for the ustādāriyya and other posts, but it did not come about. He drew close to al-Ashraf Qāytbāy and married the raʾs nawba of Khawand al-Kubrā.

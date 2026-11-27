@@ -444,7 +444,6 @@ events:
   - mention: m15
   note:
     en: Moved with his father.
-  trigger: rule
   mention: m28
 - id: e2
   type: residence
@@ -452,7 +451,6 @@ events:
   - mention: m15
   note:
     en: Grew up there.
-  trigger: rule
   mention: m26
 - id: e3
   type: residence
@@ -460,13 +458,11 @@ events:
   - mention: m27
   note:
     en: Resided for a period with his father.
-  trigger: rule
   mention: m23
 - id: e4
   type: travel
   places:
   - mention: m29
-  trigger: rule
   mention: m50
 - id: e5
   type: political
@@ -474,8 +470,10 @@ events:
   - mention: m45
   summary:
     en: Ordered the demolition of part of Ibn al-Shaḥḥna's house with the assistance of some notables.
-  trigger: rule
-  mention: m39
+  mention: null
+  phrase: وعزل منها مرارا وكذا باشر القضاء بأماكن كالرملة وحماة وطرابلس وغزة وحلب
+  overlaps:
+  - m40
 notes:
 - text: 各地のカーディー職を務めたが、その評判は芳しいものではなかったと伝えられる。
   lang: ja
@@ -534,7 +532,7 @@ mentions:
 - id: m13
   kind: year
   value: '806'
-  quote: سنة
+  quote: سنة ست وثمانمائة
 - id: m14
   kind: place
   quote: بالبقاع العزيزي
@@ -570,16 +568,16 @@ mentions:
 - id: m21
   kind: person
   ref: TMP-P-000461
-  quote: والبرهان بن خطيب عذراء
-  norm: البرهان بن خطيب عذراء
+  quote: التاج والبرهان بن خطيب عذراء
+  norm: لتاج والبرهان بن خطيب عذراء
 - id: m22
   kind: person
   ref: AIND-D07528
   quote: الشمس البرماوي
 - id: m23
   kind: event
-  quote: إقامته
-  norm: اقامته
+  quote: إقامته بدمشق وفي العربية عن الشمس البصروي وفي الأصول عن الشرف بن
+  span: rule
 - id: m24
   kind: person
   ref: TMP-P-000463
@@ -590,15 +588,16 @@ mentions:
   quote: الشرف بن مفلح
 - id: m26
   kind: event
-  quote: وسكن
-  norm: سكن
+  quote: وسكن صفد مع والده مدة
+  span: rule
 - id: m27
   kind: place
   quote: صفد
   ref: gn:293100
 - id: m28
   kind: event
-  quote: سافر
+  quote: سافر إلى القاهرة
+  span: rule
 - id: m29
   kind: place
   quote: القاهرة
@@ -645,10 +644,6 @@ mentions:
   ref: AIND-D00024
   quote: أبيه
   norm: ابيه
-- id: m39
-  kind: event
-  quote: وعزل
-  norm: عزل
 - id: m40
   kind: office
   ref: wd:Q217029
@@ -689,14 +684,15 @@ mentions:
 - id: m48
   kind: year
   value: '847'
-  quote: سنة
+  quote: سنة سبع وأربعين
 - id: m49
   kind: office
   ref: wd:Q217029
   quote: قاضيهم
 - id: m50
   kind: event
-  quote: قدميه
+  quote: قدميه إلى أن مات في ربيع الآخر سنة ثمان وسبعين وصلى عليه
+  span: rule
 - id: m51
   kind: month
   value: 4
@@ -704,7 +700,7 @@ mentions:
 - id: m52
   kind: year
   value: '878'
-  quote: سنة
+  quote: سنة ثمان وسبعين
 - id: m53
   kind: person
   ref: AIND-D10288

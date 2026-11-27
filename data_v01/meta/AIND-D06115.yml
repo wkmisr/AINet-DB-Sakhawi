@@ -65,15 +65,12 @@ events:
   - ref: gn:104515
   note:
     ja: 「حج … غير مرة」＝複数回の巡礼。مكة は規則20 の例外。
-  trigger: rule
-  phrase: ممن حج وجاور غير مرة
   mention: m5
 - id: e2
   type: residence
   subtype: jāwara
   note:
     ja: 「جاور」に地名の明記なし→ placeName を付けない（規則20）。初版の مكة を除去。
-  trigger: rule
   phrase: جاور غير مرة
   mention: m6
 - id: e3
@@ -82,14 +79,12 @@ events:
   - mention: m10
   note:
     ja: カイロに召喚された際に多額の金銭を徴収された（没年895年より前）。初版の重複する visit event を本 event に統合。
-  phrase: أخذ منه حين طلب إلى القاهرة مبلغ كبير
-  mention: null
+  mention: m12
 - id: e4
   type: political
   note:
     ja: 本項主の死後まもなく息子からも徴収された。原文に地名なし（初版の دمشق を除去、規則22）。
-  phrase: ثم أخذ من ولده بعد موته مع قرب
-  mention: null
+  mention: m13
 mentions:
 - id: m1
   kind: name
@@ -109,11 +104,12 @@ mentions:
   quote: ممن
 - id: m5
   kind: event
-  quote: حج
+  quote: ممن حج وجاور غير مرة
+  span: phrase
 - id: m6
   kind: event
-  quote: وجاور
-  norm: جاور
+  quote: وجاور غير مرة وفيه خير وبر ومعروف مع كونه دخيلا مات بدمشق
+  span: rule
 - id: m7
   kind: place
   quote: بدمشق
@@ -126,7 +122,7 @@ mentions:
 - id: m9
   kind: year
   value: '895'
-  quote: سنة
+  quote: سنة خمس وتسعين
 - id: m10
   kind: place
   quote: القاهرة
@@ -135,6 +131,14 @@ mentions:
   kind: person
   ref: AIND-D06115#p1
   quote: ولده
+- id: m12
+  kind: event
+  quote: أخذ منه حين طلب إلى القاهرة مبلغ كبير
+  span: phrase
+- id: m13
+  kind: event
+  quote: ثم أخذ من ولده بعد موته مع قرب
+  span: phrase
 translation:
   ja: イーサー・アル＝カーリー・アッ＝ディマシュキー。ダマスクスの有力商人の一人で、複数回にわたり巡礼し留錫（ムジャーワラ）した。余所者（新来者）であったにもかかわらず、善行・敬虔・施しの人であった。895年シャアバーン月末にダマスクスで没したが、それはカイロに召喚された際に多額の金銭を徴収された後のことであり、さらに彼の死後まもなく息子からも徴収された。
   en: ʿĪsā al-Qārī al-Dimashqī, one of the notable merchants of Damascus, who performed the Hajj and resided in the holy city (jāwara) more than once. He was a man of goodness, piety, and charity, despite being an outsider. He died in Damascus in late Shaʿbān of the year 895, after a large sum had been taken from him when he was summoned to Cairo; then, shortly after his death, more was taken from his son.

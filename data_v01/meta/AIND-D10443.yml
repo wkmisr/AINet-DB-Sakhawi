@@ -93,13 +93,9 @@ events:
   - TMP-S-00008
   note:
     ja: 初学（文法・形態論）の師は名なし＝relation を立てない（規則14）。
-  trigger: rule
-  phrase: بعد أن أخذ عن غيره في المبادئ من نحو وصرف وتميز في الكلام والمنطق والنجوم والتواريخ وغيرها
   mention: m13
 - id: e2
   type: teaching
-  trigger: rule
-  phrase: وتصدى لإقراء الطلبة في العقليات
   mention: m18
 - id: e3
   type: political
@@ -108,9 +104,10 @@ events:
     mention: m16
   note:
     ja: '任官は patron にせず event 内 persName（規則53。初版の patron relation #NEEDID を除去）。年は原文になし。السلطان محمود＝グジャラートのスルターン、corpus 本伝 #AIND-D09862「محمود شاه بن محمد بن أحمد بن محمد بن مظفر … الأحمد أبادي المولد . ولد سنة ثمان وأربعين تقريبا … واستقر أخوهم محمود شاه صاحب الترجمة وذلك في سنة ثلاث وستين … ودام في المملكة إلى الآن」（未収録）。名 محمود・スルターン位・本項主の出身地アフマダーバードの君主である点で閉合するが、原文は「السلطان محمود」のみで国名がない＝cert medium（規則26・57、ISSUES §D167-3）。'
-  trigger: rule
+  mention: null
   phrase: واستقر به السلطان محمود في الحسبة بالممالك
-  mention: m15
+  overlaps:
+  - m17
 sources:
 - id: c1
   cert: medium
@@ -160,7 +157,7 @@ mentions:
 - id: m11
   kind: year
   value: '849'
-  quote: سنة
+  quote: سنة تسع وأربعين وثمانمائة
 - id: m12
   kind: place
   quote: بأحمداباد
@@ -168,16 +165,12 @@ mentions:
   norm: احمداباد
 - id: m13
   kind: event
-  quote: وأخذ
-  norm: اخذ
+  quote: بعد أن أخذ عن غيره في المبادئ من نحو وصرف وتميز في الكلام والمنطق والنجوم والتواريخ وغيرها
+  span: phrase
 - id: m14
   kind: person
   ref: TMP-P-001730
   quote: نظام الدين الملقب غوث الملك
-- id: m15
-  kind: event
-  quote: واستقر
-  norm: استقر
 - id: m16
   kind: person
   ref: AIND-D09862
@@ -188,7 +181,8 @@ mentions:
   quote: الحسبة بالممالك
 - id: m18
   kind: event
-  quote: حدثني
+  quote: وتصدى لإقراء الطلبة في العقليات
+  span: phrase
 translation:
   ja: ユースフ・ブン・アフマド・ブン・ムハンマド、アル＝ジャマール、アル＝ムルターニー、スィジスターンの出、アル＝クジャラーティー、アル＝アフマダーバーディー、アル＝ハナフィー。849年サファル月にアフマダーバードで生まれた。文法・形態論などの初歩を他の者から学んだのち、同郷のニザーム・アッ＝ディーン（ガウス・アル＝ムルクの称号をもつ）から『シャルフ・アル＝マワーキフ』や『ラワーミウ』などの理性的諸学を学び、神学・論理学・星学・歴史などに秀でた。学生たちに理性的諸学を教えることに専心し、スルターン・マフムードは彼を諸国（王国全土）のヒスバ職に就け、彼は配下の者を代理に立てている。以上は、彼の学生で私（サハーウィー）からも学んだ複数の者が私に語ったことである。
   en: Yūsuf b. Aḥmad b. Muḥammad, al-Jamāl, al-Multānī, of Sijistānī origin, al-Kujarātī, al-Aḥmadābādī, al-Ḥanafī. He was born in Ṣafar of the year 849 in Aḥmadābād. After studying the elementary subjects, such as grammar and morphology, with others, he studied the rational sciences, such as Sharḥ al-Mawāqif and al-Lawāmiʿ, with his fellow townsman Niẓām al-Dīn, who bears the title Ghawth al-Mulk; he distinguished himself in theology, logic, astronomy, history and other fields. He devoted himself to teaching students the rational sciences, and Sultan Maḥmūd appointed him to the ḥisba throughout the realm, in which he appoints deputies under him. More than one of his students who also studied with me (al-Sakhāwī) told me this.

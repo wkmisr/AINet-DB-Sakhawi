@@ -125,36 +125,29 @@ events:
   type: residence
   places:
   - mention: m14
-  trigger: rule
-  phrase: وانتقل منها في صغره مع سلفه فقطن صالحية دمشق
   mention: m13
 - id: e2
   type: teaching
   note:
     ja: 不特定の「الفضلاء」のため relation は立てない（規則14）。
-  trigger: rule
-  phrase: وحدث سمع منه الفضلاء
   mention: m16
 - id: e3
   type: other
   note:
     ja: 晩年に失明し、老いて隠棲した。初版の「失明」event にあった placeName（صالحية دمشق）は原文に明示がないため除去（規則22）。
-  phrase: ثم أضر وشاخ وانقطع
-  mention: null
+  mention: m25
 - id: e4
   type: religious
   orgs:
   - ref: TMP-I-00237
   note:
     ja: 葬礼。الجامع المظفري（ダマスクス・サーリヒーヤの جامع الحنابلة）は ID-Master 未登録（repo の先例 AIND-D08902b ابن شقير も ref 未付与）→ TMP-I-00237。
-  phrase: وصلى عليه بالجامع المظفري
-  mention: null
+  mention: m26
 - id: e5
   type: cultural
   note:
     ja: 先祖の一部がアスアルドにマドラサを持っていたと本人がサハーウィーに語った。末尾の「وذكر」は刊本のまま（文が途切れている）。
-  phrase: وقد ذكر لي أن لبعض سلفه مدرسة بأسعرد وذكر
-  mention: null
+  mention: m27
 mentions:
 - id: m1
   kind: name
@@ -194,7 +187,7 @@ mentions:
 - id: m10
   kind: year
   value: '777'
-  quote: سنة
+  quote: سنة سبع وسبعين وسبعمائة
 - id: m11
   kind: person
   ref: TMP-P-001512
@@ -206,8 +199,8 @@ mentions:
   norm: اسعرد
 - id: m13
   kind: event
-  quote: فقطن
-  norm: قطن
+  quote: وانتقل منها في صغره مع سلفه فقطن صالحية دمشق
+  span: phrase
 - id: m14
   kind: place
   quote: صالحية دمشق
@@ -218,8 +211,8 @@ mentions:
   quote: الهول الجزري
 - id: m16
   kind: event
-  quote: وحدث
-  norm: حدث
+  quote: وحدث سمع منه الفضلاء
+  span: phrase
 - id: m17
   kind: office
   ref: TMP-O-00332
@@ -241,7 +234,7 @@ mentions:
 - id: m21
   kind: year
   value: '866'
-  quote: سنة
+  quote: سنة ست وستين
 - id: m22
   kind: place
   quote: بالصالحية
@@ -256,6 +249,18 @@ mentions:
   kind: person
   ref: wd:Q4120128
   quote: لي
+- id: m25
+  kind: event
+  quote: ثم أضر وشاخ وانقطع
+  span: phrase
+- id: m26
+  kind: event
+  quote: وصلى عليه بالجامع المظفري
+  span: phrase
+- id: m27
+  kind: event
+  quote: وقد ذكر لي أن لبعض سلفه مدرسة بأسعرد وذكر
+  span: phrase
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ジャラール・アッ＝ディーン——しばしば略してジャラールと言われる——・ブン・シャムス・アッ＝ディーン、アル＝アスアルディー・アッ＝ディマシュキー・アッ＝サーリヒー、同地（サーリヒーヤ）の製材職人（ナッシャール）。イブン・アル＝ハイヤータとして知られる。本人が私に告げたところでは、777年ムハッラム月初めに——翌年とも言われる——アスアルドで生まれた。幼少期に先祖とともに同地から移り、ダマスクスのサーリヒーヤに定住した。そこでアブー・アル＝ハウル・アル＝ジャザリーから聴聞し、（のちに）伝承して学者たちが彼から聴聞した。私はそこで彼に会い、いくつかのジュズウを彼に読誦した。彼は製材で生計を立て、カラーニスィーヤ・ハーンカーでムアッズィンを務めるとともに同ハーンカーの管理人（カイイム）でもあった。その後失明し、老いて隠棲し、（8）66年ラビーウ・アル＝アウワル月にサーリヒーヤで没した。ムザッファリー・モスクで葬礼が行われ、（カースィユーン）山麓（サフフ）に埋葬された。神が彼に慈悲を垂れたまわんことを。彼は私に、先祖の一部がアスアルドにマドラサを持っていたと語り、また語った（原文ここで途切れる）。
   en: Muḥammad b. Abī Bakr b. ʿAbd Allāh b. Jalāl al-Dīn — often shortened to Jalāl — b. Shams al-Dīn, al-Asʿardī al-Dimashqī al-Ṣāliḥī, the sawyer (al-nashshār) there, known as Ibn al-Khayyāṭa. He was born, as he told me, at the beginning of Muḥarram 777 — or, it is said, in the following year — at Asʿard. He moved from there in his childhood with his forebears and settled in the Ṣāliḥiyya of Damascus, where he heard from Abū al-Hawl al-Jazarī; he transmitted, and the learned heard from him. I met him there and read some ajzāʾ to him. He had earned his living by sawing, and he served as muezzin at the Qalānisiyya khānqāh while also being its custodian (qayyim). Then he went blind, grew old and withdrew, until he died in Rabīʿ al-Awwal (8)66 at al-Ṣāliḥiyya; the funeral prayer was performed for him at the Muẓaffarī mosque and he was buried at al-Safḥ (the foot of the mountain); may God have mercy on him. He told me that some of his forebears had a madrasa in Asʿard, and he mentioned [text

@@ -33,15 +33,11 @@ events:
   type: residence
   places:
   - mention: m5
-  trigger: rule
-  phrase: قدم من بلاده فأقام بحلب
   mention: m4
 - id: e2
   type: residence
   places:
   - mention: m6
-  trigger: rule
-  phrase: ثم تحول إلى دمشق فأقام بها مدة
   mention: m7
 - id: e3
   type: travel
@@ -54,8 +50,6 @@ events:
   cert: medium
   note:
     ja: '原文の年「سنة إحدى」は没年にかかり、出発年は書かれていない。途上で没したため旅は没年 801 以前に始まった＝notAfter 801（801 の年末 ＝ 1399-09-10）。cert medium は没年の一の位表記に準ずる（検証後訂正 2026-10-10: 校閲の @when 801／1398 を notAfter に）。'
-  trigger: rule
-  phrase: ثم توجه منها إلى مصر فمات بها في الطريق
   mention: m8
 sources:
 - id: c1
@@ -82,8 +76,8 @@ mentions:
   quote: الحلبي
 - id: m4
   kind: event
-  quote: فأقام
-  norm: اقام
+  quote: قدم من بلاده فأقام بحلب
+  span: phrase
 - id: m5
   kind: place
   quote: بحلب
@@ -95,11 +89,12 @@ mentions:
   ref: gn:170654
 - id: m7
   kind: event
-  quote: فأقام
-  norm: اقام
+  quote: ثم تحول إلى دمشق فأقام بها مدة
+  span: phrase
 - id: m8
   kind: event
-  quote: توجه
+  quote: ثم توجه منها إلى مصر فمات بها في الطريق
+  span: phrase
 - id: m9
   kind: place
   quote: مصر
@@ -107,7 +102,7 @@ mentions:
 - id: m10
   kind: year
   value: '801'
-  quote: سنة
+  quote: سنة إحدى
 - id: m11
   kind: source
   quote: أرخه

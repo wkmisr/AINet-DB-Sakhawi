@@ -70,15 +70,12 @@ events:
   - ref: gn:104515
   note:
     ja: 巡礼（規則20 により placeName مكة を許容）。年なし。
-  trigger: rule
-  phrase: ممن حج في خدمة خوند
   mention: m7
 - id: e2
   type: political
   note:
     ja: '主人の怒りを買い、ハウワーラ族のシャイフ（名なし）に引き渡された。シャイフは名がないので relation を立てない（規則14。初版の統制外 subtype「custodian」relation #NEEDID を除去）。'
-  phrase: ثم غضب عليه لبعض الأسباب وسلمه لشيخ عرب هوارة
-  mention: null
+  mention: m13
 - id: e3
   type: travel
   places:
@@ -88,8 +85,7 @@ events:
   - mention: m12
   note:
     ja: その後インド・サワーキン・アデン・ホルムズ等に（渡った／転々とした）。刊本の動詞「وسندت」は不明瞭（規則25＝原文どおり保持、訳は文脈で補う）。初版の visit event ×4 を1本の travel event に統合（placeName 4件は保持、規則22(2)）。年なし。
-  phrase: وسندت بالهند وسواكن وغيرهما كعدن وهرموز بعد
-  mention: null
+  mention: m14
 notes:
 - text: 「ويقال له سنبل الصغير للتمييز عن آخر أكبر منه」＝同名の年長者（سنبل الكبير）と区別するための呼称。年長の سنبل は corpus に見出しなし（hw.py「سنبل」該当は本項のみ）。#AIND-D06461「محسن الفتحي … ثم الأشرفي قايتباي الطواشي الحبشي . استقر به خازنا عوض سنبل」の前任 سنبل は本項主（الأشرفي の خازندار）の可能性があるが、2人の سنبل がいるので同定しない（ISSUES §D159-9）。初版の honorific「الطواشي」（nisbah と二重）を除去。
   lang: ja
@@ -119,7 +115,8 @@ mentions:
   norm: من المبجلين المقربين
 - id: m7
   kind: event
-  quote: حج
+  quote: ممن حج في خدمة خوند
+  span: phrase
 - id: m8
   kind: person
   ref: AIND-D03188#p1
@@ -144,6 +141,14 @@ mentions:
   quote: وهرموز
   ref: TMP-L-00172
   norm: هرموز
+- id: m13
+  kind: event
+  quote: ثم غضب عليه لبعض الأسباب وسلمه لشيخ عرب هوارة
+  span: phrase
+- id: m14
+  kind: event
+  quote: وسندت بالهند وسواكن وغيرهما كعدن وهرموز بعد
+  span: phrase
 translation:
   ja: スンブル・アル＝アシュラフィー、宦官（アッ＝タワーシー）。年長の同名者と区別して「小スンブル（スンブル・アッ＝サギール）」と呼ばれる。主人の財庫管理官（ハーズィンダール）で、重んじられ側近とされた者の一人であり、ハワンド（王妃）に仕えて巡礼した者の一人であった。その後、（主人は）何らかの理由で彼に怒り、彼をハウワーラ族のアラブのシャイフに引き渡した。彼はその後インド、サワーキン、そのほかアデンやホルムズなどに（渡った）。
   en: Sunbul al-Ashrafī the eunuch (al-ṭawāshī), called Sunbul al-Ṣaghīr (the Younger) to distinguish him from another, older [Sunbul]. He was the treasurer (khāzindār) of his master and one of the honoured intimates, one of those who performed the pilgrimage in the service of Khawand (the sultan's consort). Then [his master] became angry with him for certain reasons and handed him over to the shaykh of the Hawwāra Arabs, and afterwards he was in India, Suakin, and elsewhere, such as Aden and Hormuz [the verb in the printed text, "wa-sunidat", is unclear].

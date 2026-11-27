@@ -184,38 +184,34 @@ events:
   - label: الزبد في الطب
   note:
     ja: 『الزبد』は父 D08112 の著作。医学書群は ID-Master 未登録。
-  phrase: ممن حفظ القرآن والعمدة والخرقي وألفية النحو والموجز في الطب واللمحة العفيفية في الاسباب والعلامات في الطب وفصول ابقراط ومقدمة المعرفة له وتشريح الاعضاء والزبد في الطب
-  mention: null
+  mention: m30
 - id: e2
   type: travel
   places:
   - mention: m21
   note:
     ja: アーミド遠征（الأشرف برسباي、836年）にスルタン随行医として同行と推定。آمد = TMP-L-00047。
-  trigger: rule
-  phrase: وسافر مع الركاب السلطاني إلى آمد رفيقا لغيره من الاطباء صحبة رئيسهم
   mention: m20
 - id: e3
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  trigger: rule
-  phrase: وحج غير مرة
   mention: m22
 - id: e4
   type: residence
   subtype: jāwara
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。
-  trigger: rule
   mention: m23
 - id: e5
   type: other
   note:
     ja: 召使の少年に妻を殺害され財を奪われたのを機に衰え、失明。
-  phrase: وعدا عليه فتى له فقتل زوجته واختلس بعض متاعه فكان ذلك ابتداء ضعفه بل كف ولم ينقطع عن مباشرة نوبته وغيرها الى أن اشتد به الامر وأقعد
   mention: null
+  phrase: وعدا عليه فتى له فقتل زوجته واختلس بعض متاعه فكان ذلك ابتداء ضعفه بل كف ولم ينقطع عن مباشرة نوبته وغيرها الى أن اشتد به الامر وأقعد
+  overlaps:
+  - m24
 notes:
 - text: サハーウィー評：熟練・沈着・温和・話し方が良く威厳があり足取りが軽く、父〔サハーウィーの父〕同様その治療を信頼した。ただし「ضنينا بفوائده」（知見を惜しんだ）と言われる。
   lang: ja
@@ -268,7 +264,7 @@ mentions:
 - id: m15
   kind: year
   value: '816'
-  quote: سنة
+  quote: سنة ست عشرة
 - id: m16
   kind: person
   ref: AIND-D07198
@@ -276,7 +272,7 @@ mentions:
 - id: m17
   kind: year
   value: '911'
-  quote: سنة
+  quote: سنة إحدى عشرة
 - id: m18
   kind: person
   ref: AIND-D08112
@@ -288,8 +284,8 @@ mentions:
   quote: نوبة بالبيمارستان
 - id: m20
   kind: event
-  quote: وسافر
-  norm: سافر
+  quote: وسافر مع الركاب السلطاني إلى آمد رفيقا لغيره من الاطباء صحبة رئيسهم
+  span: phrase
 - id: m21
   kind: place
   quote: آمد
@@ -297,11 +293,12 @@ mentions:
   norm: امد
 - id: m22
   kind: event
-  quote: وحج
+  quote: وحج غير مرة
+  span: phrase
 - id: m23
   kind: event
-  quote: وجاور
-  norm: جاور
+  quote: وجاور وعدا عليه فتى له فقتل زوجته واختلس بعض متاعه
+  span: rule
 - id: m24
   kind: office
   ref: TMP-O-00108
@@ -309,7 +306,7 @@ mentions:
 - id: m25
   kind: year
   value: '891'
-  quote: سنة
+  quote: سنة إحدى وتسعين
 - id: m26
   kind: person
   ref: TMP-P-000945
@@ -317,7 +314,7 @@ mentions:
 - id: m27
   kind: year
   value: '911'
-  quote: سنة
+  quote: سنة إحدى عشرة
 - id: m28
   kind: person
   ref: wd:Q471116
@@ -326,6 +323,10 @@ mentions:
   kind: person
   ref: AIND-D09542
   quote: الشمس التفهني
+- id: m30
+  kind: event
+  quote: ممن حفظ القرآن والعمدة والخرقي وألفية النحو والموجز في الطب واللمحة العفيفية في الاسباب والعلامات في الطب وفصول ابقراط ومقدمة المعرفة له وتشريح الاعضاء والزبد في الطب
+  span: phrase
 translation:
   ja: ムハンマド・ブン・ムハンマド・ブン・アリー・ブン・アブド・アル＝カーフィー・ブン・アリー・ブン・アブド・アル＝ワーヒド・ブン・ムハンマド・ブン・サギール、カマール〔・ッディーン〕・イブン・アッ＝シャムス・イブン・アル＝アラー、カイロの人、ハンバル派、医師、医師頭の孫で、先祖同様「イブン・サギール」（「カビール」に倣った形）として知られる。クルアーン、『ウムダ』、『ヒラキー』、『文法のアルフィーヤ』、『医学のムージャズ』、医学の病因と徴候に関する『ルムハ・アフィーフィーヤ』、『ヒポクラテスのフスール』と彼の『マカッディマ・アル＝マアリファ』、『諸器官の解剖』、『医学のズバド』を暗記し、816年にイッズ・イブン・ジャマーアらに提示してイジャーザを得た。それ以前の811年にも提示している。先祖同様に医学に従事し、それを父とイッズ・イブン・ジャマーアから学んで秀で、一団が彼のもとで修練した。いくつかの学芸にも通じ、長年患者を治療し、病院とバルクーク廟の当番医となり、スルタンの行軍に他の医師たちとともに医師頭に随行してアーミドまで赴いた。幾度も巡礼しマッカに滞在した。召使の少年が彼を襲って妻を殺し家財の一部を盗み、それが衰えの始まりとなって失明したが、症状が重くなって寝たきりになるまで当番などの職務を絶やさなかった。それでも忍耐強く神に報いを求め、クルアーンの誦読を非常に多くした。891年サファル月に96歳で没した——弟のアラー〔・ッディーン〕・アリーが私に語ったところによる。彼が妻とともに相続した。811年の提示は800年以前の生まれであることの傍証となる。私は父と同様、その熟練、沈着、温和、話しぶりの良さ、威厳、軽やかな足取りと学識ゆえに、その治療を信頼する者の一人であった。彼は我らの師〔イブン・ハジャル〕をその死の病でわずかに治療したが、その知見を惜しむ人だったと言われる。彼の後任はシャムス・アッ＝タファフニーであった。
   en: Muḥammad b. Muḥammad b. ʿAlī b. ʿAbd al-Kāfī b. ʿAlī b. ʿAbd al-Wāḥid b. Muḥammad b. Ṣaghīr, al-Kamāl b. al-Shams b. al-ʿAlāʾ, Cairene, Ḥanbalī, physician, grandson of the chief of physicians, known like his forebears as Ibn Ṣaghīr. He memorised the Qurʾān, the ʿUmda, al-Khiraqī, the Alfiyya, al-Mūjaz fī al-ṭibb, al-Lamḥa al-ʿAfīfiyya on causes and symptoms, the Aphorisms of Hippocrates and his Prognostics, the Anatomy of the Organs and al-Zubad fī al-ṭibb, presenting them in 816 to al-ʿIzz Ibn Jamāʿa and others, who gave him ijāza (he had presented earlier in 811). He practised medicine like his forebears, taking it from his father and al-ʿIzz Ibn Jamāʿa, excelled and trained a group, treated the sick for a long time, held a shift at the hospital and at Barqūq's mausoleum, and travelled with the sultan's expedition to Āmid with other physicians under their chief. He performed the pilgrimage several times and resided in Mecca. A servant boy attacked him, killed his wife and stole some

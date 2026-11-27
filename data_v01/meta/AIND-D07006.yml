@@ -72,8 +72,7 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  phrase: اشتغل كثيرا وفضل ونسخ بخطه الكثير
-  mention: null
+  mention: m16
 - id: e2
   type: teaching
   orgs:
@@ -81,8 +80,6 @@ events:
   - ref: TMP-I-00222
   note:
     ja: 'ダマスカスの2マドラサで教授した。初版の affiliation type="teach" ×2 を teaching event に（先例 #AIND-D05887）。الأكرية は ID-Master 未登録のため TMP-I-00222 を発行。施設の所在地（دمشق）からの placeName 補完はしない（規則22(1)）。'
-  trigger: rule
-  phrase: ودرس بالعصرونية والأكرية
   mention: m9
 - id: e3
   type: religious
@@ -91,14 +88,12 @@ events:
   - ref: gn:104515
   note:
     ja: 規則20 により حج の placeName مكة を認める。
-  trigger: rule
   mention: m10
 - id: e4
   type: residence
   subtype: jāwara
   note:
     ja: 規則20 により جاور には placeName を付けない（原文に地名の明示なし）。初版の placeName مكة を除去。
-  trigger: rule
   mention: m11
 sources:
 - id: c1
@@ -144,15 +139,16 @@ mentions:
   quote: الشافعي
 - id: m9
   kind: event
-  quote: ودرس
-  norm: درس
+  quote: ودرس بالعصرونية والأكرية
+  span: phrase
 - id: m10
   kind: event
   quote: وحج
+  span: rule
 - id: m11
   kind: event
   quote: وجاور
-  norm: جاور
+  span: rule
 - id: m12
   kind: month
   value: 3
@@ -160,7 +156,7 @@ mentions:
 - id: m13
   kind: year
   value: '801'
-  quote: سنة
+  quote: سنة إحدى
 - id: m14
   kind: person
   ref: AIND-D10051
@@ -169,6 +165,10 @@ mentions:
 - id: m15
   kind: source
   quote: ذكر
+- id: m16
+  kind: event
+  quote: اشتغل كثيرا وفضل ونسخ بخطه الكثير
+  span: phrase
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ムーサー、アル＝バドル・アブー・アブドゥッラー・アッ＝ラムサーウィー・アッ＝ディマシュキー、法学者、シャーフィイー派。大いに学問に励んで秀で、自筆で多くを筆写し、アル＝アスルーニーヤとアル＝アクリーヤで教授した。巡礼を行い、（聖地に）滞在した。〔8〕01年ラビーウ第一月に、40歳を過ぎたところで没した。人々から離れて引きこもり、悪事とは無縁で、むしろそれから遠い人であった――兄弟のムーサーとは異なって。我らがシャイフ（イブン・ハジャル）はその『インバー』でこの人物について簡略に記している。
   en: Muḥammad b. Aḥmad b. Mūsā, al-Badr Abū ʿAbd Allāh al-Ramthāwī al-Dimashqī, the jurist, the Shāfiʿī. He studied much, excelled, and copied a great deal in his own hand; he taught at al-ʿAṣrūniyya and al-Akriyya, performed the pilgrimage and sojourned (in the Holy City). He died in Rabīʿ I of the year [8]01, having passed forty. He kept apart from people and was of little harm—indeed far from it—unlike his brother Mūsā. Our shaykh (Ibn Ḥajar) mentioned this man briefly in his Inbāʾ.
