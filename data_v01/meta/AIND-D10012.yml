@@ -9,38 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00264
-    quote: الزواوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00039
-    quote: البجائي
-    norm: البجاءي
+    mention: m5
   - id: n3
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 846
     cert: low
   places:
-  - ref: gn:2464470
-    quote: بتونس
-    norm: تونس
+  - mention: m13
   note:
     ja: 「رأيت من قال … أنه مات في سنة ست وأربعين بتونس」＝他者の説（伝聞、しかも同一人物かどうかの留保つき）→ cert low。846＝1442-05-21〜1443-05-09（h2g）→ 年精度 @when 1442。تونس＝gn:2464470（ID-Master 登録・repo 使用）。
-  quote: سنة
   phrase: ورأيت من قال أنه الزواوي العالم الشهير وأنه مات في سنة ست وأربعين بتونس
+  mention: m12
 persons:
 - id: p1
   label: علي بن عثمان الزواوي
@@ -53,30 +48,23 @@ relations:
   subtype: father
   active: AIND-D10012#p1
   passive: AIND-D10012
-  quote: null
   note:
     ja: 規則3 (c')。父 علي بن عثمان الزواوي は corpus に本伝なし（hw.py「علي بن عثمان」＋الزواوي／البجائي に該当なし）・ID-Master 未登録、名＋父名＋ニスバのみで識別要素なし。
 - id: r2
   type: social
   subtype: other
-  active: AIND-D05226
+  active: m7
   passive: AIND-D10012
-  quote: أبو الحسن علي بن أبي فارس
   note:
     ja: '「لما امتنع أبو الحسن علي بن أبي فارس من مبايعة ابن أخيه … قام معه」＝政治的に加担（支持）。相手は #AIND-D05226「818 علي بن عبد العزيز بن أحمد بن محمد بن أبي بكر أبو الحسن بن صاحب المغرب أبي فارس . ولاه ابن أخيه المنتصر … بجاية . فلما مات وخلفه أخوه أبو عمرو عثمان امتنع هذا من مبايعته ورأى أحقيته به وساعده فقيه بجاية منصور بن علي بن عثمان」＝相手側が本項主をナサブ3代＋「فقيه بجاية」で名指しして閉合。加担の型は統制語彙にないため subtype="other"（初版の「colleague」#NEEDID を置換）。'
-  norm: ابو الحسن علي بن ابي فارس
 states:
 - id: s1
   type: office
-  ref: TMP-O-00185
   places:
-  - ref: gn:2505329
-    quote: ببجاية
-    norm: بجاية
-  quote: فقيهها
+  - mention: m8
   note:
     ja: 「البجائي فقيهها」＝ビジャーヤの法学者（原文明記。فقيه＝TMP-O-00185、بجاية＝gn:2505329 ID-Master・repo 使用どおり）。
-  norm: قيهها
+  mention: m6
 events:
 - id: e1
   type: political
@@ -84,27 +72,78 @@ events:
   - ref: AIND-D05226
   - ref: AIND-D04873
   places:
-  - ref: gn:2505329
-    quote: ببجاية
-    norm: بجاية
-  quote: لما امتنع أبو الحسن علي بن أبي فارس من مبايعة ابن أخيه أبي عمرو عثمان بن أبي عبد الله محمد بن أبي فارس قام معه وكانت له عصبة وقوة بحيث استبد ببجاية ثم تراجع ودخل بينهما في الصلح
+  - mention: m8
   note:
     ja: 'ハフス朝の内紛（規則53: event＋persName）。أبو عمرو عثمان＝#AIND-D04873「479 عثمان بن محمد بن عبد العزيز بن أحمد … المتوكل على الله أبو عمرو … بن أبي عبد الله بن أبي فارس … الحفصي … ولي ملك تونس … في سنة تسع وثلاثين」（D04873 本文「ثار به عمه أبو الحسن صاحب بجاية」とも整合）。初版の「rival」relation（#NEEDID）はこの event に置換。年の記載なし（サハーウィーは「حوادث سنة ثلاث وأربعين」の المقريزي に言及するのみ）＝日付属性なし（初版の when-custom 0843 cert medium を除去、規則18）。'
-  norm: لما امتنع ابو الحسن علي بن ابي فارس من مبايعة ابن اخيه ابي عمرو عثمان بن ابي عبد الله محمد بن ابي فارس قام معه وكانت له عصبة وقوة بحيث استبد ببجاية ثم تراجع ودخل بينهما في الصلح
+  phrase: لما امتنع أبو الحسن علي بن أبي فارس من مبايعة ابن أخيه أبي عمرو عثمان بن أبي عبد الله محمد بن أبي فارس قام معه وكانت له عصبة وقوة بحيث استبد ببجاية ثم تراجع ودخل بينهما في الصلح
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: قال
+  - mention: m9
   note:
     ja: 'Pattern A。المقريزي（wd:Q293604）が843年の事件記事でこれらの出来事に触れた。書名は原文に明記なし（「حوادث سنة ثلاث وأربعين」＝年代記の843年の項）のため bibl を置かない（先例 #AIND-D04812）。'
   trigger: rule
   phrase: فكانت حوادث لم يتحرر لي الآن أمرها وإن أشار إليها المقريزي في حوادث سنة ثلاث وأربعين
+  mention: m11
 notes:
 - text: 「ورأيت من قال أنه الزواوي العالم الشهير」＝本項主を「著名な学者アッ＝ザワーウィー」と同一視する説をサハーウィーが見た、という伝聞。corpus に「الزواوي العالم الشهير」に当たる独立見出しは特定できない（hw.py「الزواوي」の見出し群に該当なし）ため possible_identity は立てず note に留める。原文の「ورأيت من ورأيت من قال」は刊本の重複（原文どおり source に保持）。「وكان عالما」は評価句＝訳のみ。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  ref: TMP-N-00264
+  quote: الزواوي
+- id: m5
+  kind: name
+  ref: TMP-N-00039
+  quote: البجائي
+  norm: البجاءي
+- id: m6
+  kind: office
+  ref: TMP-O-00185
+  quote: فقيهها
+  norm: قيهها
+- id: m7
+  kind: person
+  ref: AIND-D05226
+  quote: أبو الحسن علي بن أبي فارس
+  norm: ابو الحسن علي بن ابي فارس
+- id: m8
+  kind: place
+  quote: ببجاية
+  ref: gn:2505329
+  norm: بجاية
+- id: m9
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m10
+  kind: year
+  value: '843'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بتونس
+  ref: gn:2464470
+  norm: تونس
 translation:
   ja: マンスール・ブン・アリー・ブン・ウスマーン・アッ＝ザワーウィー、のちにアル＝ビジャーイー、同地（ビジャーヤ）の法学者。アブー・アル＝ハサン・アリー・ブン・アビー・ファーリスが、その兄弟の子アブー・アムル・ウスマーン・ブン・アビー・アブド・アッラー・ムハンマド・ブン・アビー・ファーリスへの忠誠誓約を拒んだとき、彼はアブー・アル＝ハサンと共に立ち上がった。彼には党派と勢力があり、ビジャーヤを独占支配するほどであったが、その後退いて両者の間に入り和解を図った。そこで諸事件が起こったが、その実態は今の私には確定できていない。もっともマクリーズィーが843年の事件記事でそれに言及している。また、彼が著名な学者アッ＝ザワーウィーその人であり、846年にチュニスで没したと言う者がいるのを目にした。彼は学者であった。
   en: Manṣūr b. ʿAlī b. ʿUthmān al-Zawāwī, then al-Bijāʾī, the jurist (faqīh) of Bijāya. When Abū al-Ḥasan ʿAlī b. Abī Fāris refused to pledge allegiance to his brother's son Abū ʿAmr ʿUthmān b. Abī ʿAbd Allāh Muḥammad b. Abī Fāris, he rose with him; he had a faction and such strength that he took sole control of Bijāya, then drew back and entered into mediating peace between the two. Events ensued whose course I have not yet been able to establish, although al-Maqrīzī alludes to them in the events of the year 843. I have seen someone say that he is al-Zawāwī the famous scholar, and that he died in the year 846 in Tunis; and he was a scholar.

@@ -9,57 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00125
-    quote: البكري
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-03927
-    quote: الكتكي
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m9
   - id: n4
     type: laqab
-    quote: ظهير الدين
+    mention: m4
   - id: n5
     type: ism
-    quote: عبد اللطيف
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: هبة الله
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: أرشد الدين
     by: rule
-    norm: ارشد الدين
+    mention: m5
   - id: n9
     type: nasab
-    quote: نور الدين
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 830
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m10
   note:
     ar: فجاور بها حتى مات سنة ثلاثين
     ja: 830年＝1426年11月2日〜1427年10月21日（初版の 1427 を年初基準で 1426 に）。
-  quote: سنة
+  mention: m15
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D04366
-  passive: AIND-D00900
+  passive: m12
   methods:
   - TMP-S-00025
   - TMP-S-00004
@@ -71,7 +66,6 @@ relations:
   works:
   - ref: TMP-T-00095
   - label: مقدمات العلوم
-  quote: الطاووسي
   note:
     ja: '弟子 الطاووسي ＝ #AIND-D00900（canonical、B49-53 裁定）。初版はニスバ番号 TMP-N-00266 を person 位置に流用。「قبل الثمانمائة」→ 799年末まで（notAfter 1397）。'
   phrase: قال الطاووسي قرأت عليه قبل الثمانمائة القرآن ومقدمات العلوم وأجاز لي
@@ -79,35 +73,86 @@ events:
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00055
-    role: origin
-    quote: شيراز
-  - ref: gn:104515
-    role: destination
-    quote: مكة
-  quote: وانتقل من شيراز إلى مكة
-  norm: انتقل من شيراز الي مكة
+  - role: origin
+    mention: m13
+  - role: destination
+    mention: m10
+  phrase: وانتقل من شيراز إلى مكة
+  mention: null
 - id: e3
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m10
   summary:
     ar: نزيل مكة … فجاور بها حتى مات
-  quote: فجاور
   trigger: rule
-  norm: جاور
+  mention: m14
 sources:
 - id: c1
   persons:
   - ref: AIND-D00900
   summary:
     ar: قال الطاووسي … وعظمه
-  quote: قال
   note:
     ja: Pattern A（الطاووسي の証言・称揚）。
   trigger: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد اللطيف
+- id: m2
+  kind: name
+  quote: هبة الله
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: ظهير الدين
+- id: m5
+  kind: name
+  quote: أرشد الدين
+  norm: ارشد الدين
+- id: m6
+  kind: name
+  quote: نور الدين
+- id: m7
+  kind: name
+  ref: TMP-N-00125
+  quote: البكري
+- id: m8
+  kind: name
+  ref: TMP-N-03927
+  quote: الكتكي
+- id: m9
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m10
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسي
+- id: m13
+  kind: place
+  quote: شيراز
+  ref: TMP-L-00055
+- id: m14
+  kind: event
+  quote: فجاور
+  norm: جاور
+- id: m15
+  kind: year
+  value: '830'
+  quote: سنة
 translation:
   ja: アブド・アッ＝ラティーフ・ブン・ヒバト・アッラー・ブン・ムハンマド、ザヒール・アッ＝ディーン・ブン・アルシャド・アッ＝ディーン・ブン・ヌール・アッ＝ディーン・アル＝バクリー・アル＝カトキー・アッ＝シーラーズィー、マッカ寓居の人。アッ＝ターウースィーは「私は800年より前に彼のもとでクルアーンと諸学の入門書を読み、彼は私にイジャーザを与えた」と述べている。彼はシーラーズからマッカへ移り、そこに滞在して830年に没した。（アッ＝ターウースィーは）彼を大いに尊んだ。
   en: 'ʿAbd al-Laṭīf b. Hibat Allāh b. Muḥammad, Ẓahīr al-Dīn b. Arshad al-Dīn b. Nūr al-Dīn al-Bakrī al-Katakī al-Shīrāzī, resident of Mecca. Al-Ṭāwūsī said: "I read to him the Qurʾān and the introductory texts of the sciences before the year 800, and he granted me ijāza." He moved from Shīrāz to Mecca and sojourned there until he died in the year [8]30; and he (al-Ṭāwūsī) held him in high esteem.'

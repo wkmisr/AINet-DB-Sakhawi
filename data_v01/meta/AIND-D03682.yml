@@ -9,21 +9,20 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عليان
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D03682
   methods:
   - TMP-S-00003
@@ -32,21 +31,39 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m6
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m6
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: عليان
+- id: m3
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m4
+  kind: event
+  quote: سمع
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥルラフマーン・ブン・ウライヤーン・アル＝ガッズィー。マッカ（メッカ）にて私（サハーウィー）からハディースを聴聞した者。
   en: ʿAbd al-Raḥmān b. ʿUlayyān al-Ghazzī. Among those who heard (hadith) from me in Mecca.

@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05505
-    quote: البكتمري
+    mention: m2
   - id: n2
     type: ism
-    quote: فارس
     by: rule
+    mention: m1
 death:
   id: d
   note:
@@ -29,70 +28,101 @@ relations:
   subtype: father
   active: AIND-D06135#p1
   passive: AIND-D06135
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02207
+  active: m3
   passive: AIND-D06135
   cert: medium
-  quote: بكتمر السعدي
   note:
     ja: '見出し「فارس البكتمري بكتمر السعدي」＝ニスバ البكتمري の由来となった最初の主人。【集約 2026-10-19】corpus 本伝 #AIND-D02207「بكتمر بن عبد الله السعدي مملوك سعد الدين بن غراب … مات في ربيع الاول سنة احدى وثلاثين」（hw.py「بكتمر」で出る。校閲時の「本伝なし」は見落とし）。名＋ニスバ一致、没831で本項主（イーナールのアミール時代＝857年以前から仕える）の最初の主人として年代も整合。相手側に本項主の名指しはないため cert medium（規則26）。校閲時の仮番号 取り下げた仮番号 B125-P01 は取り下げ（内容A H）。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m4
   passive: AIND-D06135
-  quote: إينال
   note:
     ja: '「خدم إينال في إمرته فلما تسلطن عمله من الدوادارية الصغار」＝الأشرف إينال（#AIND-D02110、在位857〜865）にアミール時代から仕え、即位後に小ダワーダールに任じられた。初版の #NEEDID・subtype client を解消。'
-  norm: اينال
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m8
   passive: AIND-D06135
-  quote: الأشرف قايتباي
   note:
     ja: 「أمره الأشرف قايتباي عشرة」＝カーイトバーイ（#AIND-D06305）が十人長アミールに任じた。初版の corresp 属性（wd:Q557847）を除去し、subtype client → patron。
-  norm: الاشرف قايتباي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00063
-  quote: من الدوادارية الصغار
   note:
     ja: 小ダワーダール（repo 慣行により دوادار＝TMP-O-00063 に階級語を label で付す。先例「دوادارا صغيرا」）。初版の appointment 857／retirement 865 の date と placeName القاهرة は原文になく除去（規則16・22）。イーナール即位後（857以降）の任命であることは note に留める。
+  mention: m7
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: إمرته
   note:
     ja: 「أمره الأشرف قايتباي عشرة」。原文に地名なし（初版の القاهرة を除去）。
-  norm: امرته
+  mention: m5
 events:
 - id: e1
   type: political
-  quote: فقتل
   note:
     ja: イーナール（の治世）の後に試練（失脚）に遭い、自宅に籠った。原文に年・地名なし（初版の when-custom 865 と القاهرة を除去）。
   trigger: rule
-  norm: قتل
   phrase: ثم امتحن بعده ولزم داره
+  mention: m10
 - id: e2
   type: political
   persons:
-  - ref: AIND-D03198
-    quote: لسوار
-    norm: سوار
-  quote: تسلطن
+  - mention: m9
   note:
     ja: 'سوار＝ #AIND-D03198（سوار بن سليمان بن ناصر الدين يك بن دلغادر التركماني … شاه سوار、repo 先例 D02359）。遠征先で戦死（death 参照）。'
   trigger: rule
   phrase: ثم تجرد لسوار فقتل هناك
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: فارس
+- id: m2
+  kind: name
+  ref: TMP-N-05505
+  quote: البكتمري
+- id: m3
+  kind: person
+  ref: AIND-D02207
+  quote: بكتمر السعدي
+- id: m4
+  kind: person
+  ref: AIND-D02110
+  quote: إينال
+  norm: اينال
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: إمرته
+  norm: امرته
+- id: m6
+  kind: event
+  quote: تسلطن
+- id: m7
+  kind: office
+  ref: TMP-O-00063
+  quote: من الدوادارية الصغار
+- id: m8
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m9
+  kind: person
+  ref: AIND-D03198
+  quote: لسوار
+  norm: سوار
+- id: m10
+  kind: event
+  quote: فقتل
+  norm: قتل
 translation:
   ja: ファーリス・アル＝バクタムリー、（主人は）バクタムル・アッ＝サアディー。イーナールにそのアミール時代から仕え、彼がスルタンになると小ダワーダールの一人に任じられた。その後（イーナールの治世の）後に試練（失脚）に遭い、自宅に籠っていたが、やがてアル＝アシュラフ・カーイトバーイが彼を十人長アミールに任じた。その後スワールへの遠征に出て、そこで殺された。伝えられるところでは、礼節と品格の点で悪くない人物であった。神よ彼を憐れみたまえ。
   en: Fāris al-Baktamarī, (mamlūk of) Baktamur al-Saʿdī. He served Īnāl during his amirate, and when the latter became sultan he made him one of the junior dawādārs. Afterwards he suffered a disgrace and kept to his house, until al-Ashraf Qāytbāy made him an amir of ten; then he went out on the expedition against Suwār and was killed there. He was, it is said, not bad in manners and decorum. May God have mercy on him.

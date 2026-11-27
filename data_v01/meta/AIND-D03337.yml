@@ -9,56 +9,82 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: شهاب
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: مخلوف
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D03337
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
 - id: r2
   type: kin
   subtype: uncle
-  active: AIND-D06796
+  active: m6
   passive: AIND-D03337
-  quote: الأمين بن النجار
-  norm: الامين بن النجار
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: شهاب
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: مخلوف
+- id: m6
+  kind: person
+  ref: AIND-D06796
+  quote: الأمين بن النجار
+  norm: الامين بن النجار
+- id: m7
+  kind: event
+  quote: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: シハーブ・ブン・ムハンマド・ブン・ムハンマド・ブン・ムハンマド・ブン・マフルーフ。アル＝アミーン・ブン・アン＝ナッジャールの姉妹の息子（甥）。カイロで私（サハーウィー）から聴聞した。
   en: Shihāb b. Muḥammad b. Muḥammad b. Muḥammad b. Makhlūf, the nephew (sister's son) of al-Amīn b. al-Najjār. He heard from me (al-Sakhāwī) in Cairo.

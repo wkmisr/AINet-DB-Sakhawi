@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04193
-    quote: الرميني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m6
   - id: n3
     type: laqab
-    quote: العلاء
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D09410
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمود
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
@@ -43,28 +39,25 @@ death:
     cert: medium
   note:
     en: '"He died close to the year [8]40" (māta qarīb sanat arbaʿīn).'
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4664581
+  active: m11
   passive: AIND-D05579
   methods:
   - TMP-S-00003
-  quote: الزين العراقي
   note:
     ja: 'الزين العراقي = wd:Q4664581（確定wd）。登録済みIDの #NEEDID 放置。'
   phrase: سمع من الزين العراقي وغيره
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D08174
+  active: m10
   passive: AIND-D05579
-  quote: والآتي ولده محمد
   note:
     ja: 息子 = المحب محمد بن علي بن محمد بن محمود بن إسماعيل بن المنتخب … الحلبي ثم القاهري الشافعي الماضي أبوه والآتي جده ويعرف بالألواحي（#AIND-D08174、生780頃）。初版の汚染番号 TMP-P-000529 を置換。
-  norm: الاتي ولده محمد
   phrase: الآتي ولده محمد
 - id: r3
   type: kin
@@ -73,7 +66,6 @@ relations:
   passive: AIND-D05579
   summary:
     ar: محمد بن محمود (جد ولده الآتي)
-  quote: null
   note:
     ja: 「والآتي … جده」＝息子 محمد の祖父＝本項主の父 = الشمس محمد بن محمود بن إسماعيل بن المنتجب السرميني نزيل حلب ووالد العلاء علي الماضي（#AIND-D09410）。初版は「محمود」を本項主の祖父としていたが誤読。⚠本項のニスバ「الرميني」は父の項の「السرميني」（サルミーン、アレッポ近郊）の誤写と思われる。
 affiliations:
@@ -84,11 +76,56 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: نزيل
+  - mention: m9
   trigger: rule
   phrase: نزيل القاهرة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D09410
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمود
+- id: m4
+  kind: name
+  quote: العلاء
+- id: m5
+  kind: name
+  ref: TMP-N-04193
+  quote: الرميني
+- id: m6
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m10
+  kind: person
+  ref: AIND-D08174
+  quote: والآتي ولده محمد
+  norm: الاتي ولده محمد
+- id: m11
+  kind: person
+  ref: wd:Q4664581
+  quote: الزين العراقي
+- id: m12
+  kind: year
+  value: '840'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・マフムード、アル＝アラー・アッ＝ルマイニー（＝アッ＝サルミーニー）、のちにアル＝ハラビー、シャーフィイー派、カイロ居留。息子ムハンマドとその祖父は後述。アッ＝ザイン・アル＝イラーキーらから聴聞した。840年頃に没した。
   en: ʿAlī b. Muḥammad b. Maḥmūd, al-ʿAlāʾ al-Rumaynī (i.e. al-Sarmīnī), then al-Ḥalabī, al-Shāfiʿī, resident of Cairo; his son Muḥammad and the latter's grandfather are mentioned below. He heard from al-Zayn al-ʿIrāqī and others, and died around the year [8]40.

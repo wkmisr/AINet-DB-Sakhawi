@@ -9,44 +9,60 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: حمزة
     by: rule
+    mention: m1
   - id: n2
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D02792
-  passive: AIND-D04077
+  passive: m4
   methods:
   - TMP-S-00025
-  quote: الزين عبد الغني الاشليمي
   note:
     ja: الزين عبد الغني الاشليمي = AIND-D04077。当該項に「انتقل مع أخيه إلى القاهرة فأكمله بها عند الفقيه حمزة إمام مقام الشافعي」とあり本項と相互閉合。active=見出し人物＝師（قرأ عليه فلان）。初版の重複relation（subtype="other"）は本relationに統合。
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
   orgs:
   - ref: TMP-I-00173
-  quote: إمام مقام
-  norm: امام مقام
+  mention: m2
 - id: s2
   type: office
   ref: TMP-O-00029
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D04077
-  quote: وأثنى
   trigger: rule
-  norm: اثني
   phrase: وأثنى عليه
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: حمزة
+- id: m2
+  kind: office
+  ref: wd:Q125482
+  quote: إمام مقام
+  norm: امام مقام
+- id: m3
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m4
+  kind: person
+  ref: AIND-D04077
+  quote: الزين عبد الغني الاشليمي
+- id: m5
+  kind: source
+  quote: وأثنى
+  norm: اثني
 translation:
   ja: ハムザ。マカーム・アッ＝シャーフィイーのイマーム。子供たちに教えた（児童教育に携わった）一人。アッ＝ザイン・アブドゥルガニー・アル＝アシュリーミーが彼のもとで読誦した者の一人であり、彼を称賛した。
   en: Ḥamza, the Imam of the Maqām of al-Shāfiʿī. He was among those who educated children. Al-Zayn ʿAbd al-Ghanī al-Ashlīmī was among those who read under him, and he praised him.

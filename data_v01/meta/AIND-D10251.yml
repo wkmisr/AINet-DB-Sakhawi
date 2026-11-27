@@ -9,59 +9,81 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: ابن سبع
+    mention: null
   - id: n2
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n3
     type: nasab
-    quote: صدقة
     by: rule
-    ref: TMP-P-001718
+    mention: m2
   - id: n4
     type: nasab
-    quote: سبع
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001718
+  active: m6
   passive: AIND-D10251
-  quote: كأبيه
   note:
     ja: 規則3。「مدرك زفتي كأبيه」＝父 صدقة も زفتى の مدرك（在地の治安責任者）であった＝職が識別要素、祖父名 سبع まで復元できる。corpus に本伝なし（全文検索「صدقة بن سبع」は本項のみ）、ID-Master 未登録 → 新規 TMP-P-001718。初版の TMP-P-000652（登録＝汎用「صدقة」、Note「同名の人物は複数存在するが確定できず … 汎用登録」）は別人への流用になるので置換。祖父 سبع（#NEEDID の grandfather relation）は名のみ＝父の desc に含めて relation を除去。
-  norm: ابيه
   phrase: صدقة بن سبع
 states:
 - id: s1
   type: office
-  ref: TMP-O-00397
   places:
-  - ref: TMP-L-00407
-    quote: زفتي
-  quote: مدرك
+  - mention: m5
   note:
     ja: '「مدرك زفتي كأبيه」。مدرك＝村・地区の治安と徴税に責任を負う在地の長（corpus #AIND-D07477「شيخ تلك الناحية ومدركها」、#AIND-D04333「كان أبوه من مدركي بلده」、#AIND-D06770「وكان أبوه مدركا」）。ID-Master の Office に مدرك はなく（TMP-O-00282 は「شيخ الناحية (فارسكور)」）→ 新規 TMP-O-00397。「زفتي」は地名（زفتى。ニスバ الزفتاوي の由来地が候補）と読んだ（イダーファ「زفتى の مدرك」）。ID-Master の Location に未登録 → 新規 TMP-L-00407。初版は「مدرك」をラカブ、「زفتي」をニスバ（#NEEDID）としていた＝誤読。読みの確認は ISSUES §D165-6。'
+  mention: m4
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   trigger: rule
   phrase: ممن حج
+  mention: m7
 - id: e2
   type: residence
   subtype: jāwara
-  quote: وذكر في مجاورته ببر وخير
   note:
     ja: 滞留（مجاورة）の地は原文に明記がない＝placeName を付けない（規則20。初版の مكة を除去）。滞留中、善行と徳で語られた。
-  norm: ذكر في مجاورته ببر وخير
+  phrase: وذكر في مجاورته ببر وخير
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: TMP-P-001718
+  quote: صدقة
+- id: m3
+  kind: name
+  quote: سبع
+- id: m4
+  kind: office
+  ref: TMP-O-00397
+  quote: مدرك
+- id: m5
+  kind: place
+  quote: زفتي
+  ref: TMP-L-00407
+- id: m6
+  kind: person
+  ref: TMP-P-001718
+  quote: كأبيه
+  norm: ابيه
+- id: m7
+  kind: event
+  quote: حج
 translation:
   ja: ヤフヤー・ブン・サダカ・ブン・サブウ。父と同じくズィフターのムドリク（在地の治安責任者）で、祖父の名で知られる。巡礼を行った者の一人で、その滞留（ムジャーワラ）のあいだ、善行と徳をもって語られた。
   en: Yaḥyā b. Ṣadaqa b. Sabʿ, the mudrik (local headman responsible for security) of Ziftā like his father, known by his grandfather's name. He was among those who performed the pilgrimage, and during his sojourn (mujāwara) he was spoken of for piety and goodness.

@@ -9,38 +9,34 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الفخر
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: بابن الطحان
-    norm: ابن الطحان
     label: ابن الطحان
+    mention: m6
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001308
+    mention: m2
   - id: n5
     type: nasab
-    quote: ناصر الدين الحاجب بحلب
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 836-01-15
   places:
-  - ref: gn:170063
-    quote: خارج حلب
-  - ref: gn:170063
-    role: burial
-    quote: خارج حلب
+  - mention: m9
+  - role: burial
+    mention: m9
   note:
     ja: 「مات في منتصف المحرم سنة ست وثلاثين خارج حلب وأحضر إليها بعد يومين ودفن بها」。836-01-15 ＝ 1432-09-20（h2g.py）。没地はハラブ郊外（先例「خارج مكة」→ gn:104515 に倣い gn:170063）、2日後にハラブへ運ばれ埋葬。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
@@ -49,7 +45,6 @@ relations:
   passive: AIND-D04878
   summary:
     ar: ناصر الدين محمد ابن الطحان
-  quote: null
   note:
     ja: 「عثمان بن محمد الفخر بن ناصر الدين … كان الأمير بن الأمير ويعرف بابن الطحان」。父 ＝ ナースィル・アッ＝ディーン・ムハンマド・イブン・アッ＝タッハーン（アミール）。corpus に本伝なし（corpus の「ابن الطحان」はダマスクスのハディース伝承者で別人）・ID-Master 未登録のため仮番号発行。
 states:
@@ -57,29 +52,67 @@ states:
   type: office
   ref: TMP-O-00065
   places:
-  - ref: gn:170063
-    quote: خارج حلب
-  quote: null
+  - mention: m9
   note:
     ja: 「عثمان بن محمد الفخر بن ناصر الدين الحاجب بحلب」。職名句は本項主の記述と読む（続く「كان الأمير بن الأمير」と整合。Waka 裁定★2：伝記主の職として登録）。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00014
-  quote: الأمير
   note:
     ja: '「كان الأمير بن الأمير」。初版の ref #TMP-P-000503（Person 番号・カテゴリ不一致）を Office 番号 TMP-O-00014（أمير）に差し替え。placeName حلب（原文に明記なし）は除去。'
-  norm: الامير
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: أرخه
+  - mention: m11
   note:
     ja: Pattern A。شيخنا ＝ Ibn Ḥajar。初版の統制外 subtype「biographer」relation を mention event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-P-001308
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الفخر
+- id: m4
+  kind: name
+  quote: ناصر الدين الحاجب بحلب
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: الأمير
+  norm: الامير
+- id: m6
+  kind: name
+  quote: بابن الطحان
+  norm: ابن الطحان
+- id: m7
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m8
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: خارج حلب
+  ref: gn:170063
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウスマーン・ブン・ムハンマド、アル＝ファフル・ブン・ナースィル・アッ＝ディーン、ハラブのハージブ（侍従）。アミールの子たるアミールであり、イブン・アッ＝タッハーンとして知られた。（8）36年ムハッラム月中旬にハラブの郊外で没し、2日後にハラブへ運ばれて同地に埋葬された。我らがシャイフ（イブン・ハジャル）がその没年を記録している。
   en: ʿUthmān b. Muḥammad, al-Fakhr b. Nāṣir al-Dīn, the ḥājib (chamberlain) in Aleppo. He was an amīr and the son of an amīr, and was known as Ibn al-Ṭaḥḥān. He died in mid-Muḥarram (8)36 outside Aleppo, was brought there two days later, and was buried there. Our shaykh (Ibn Ḥajar) recorded his death.

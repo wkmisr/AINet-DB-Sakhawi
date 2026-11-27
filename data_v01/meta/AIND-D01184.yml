@@ -9,40 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00377
-    quote: الحكمي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m8
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد الطيب
     by: rule
-    ref: AIND-D06553
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m5
   - id: n8
     type: nasab
-    quote: مطير
     by: rule
+    mention: m6
 death:
   id: d
   note:
@@ -51,16 +45,14 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00452
+  active: m9
   passive: AIND-D01184
   methods:
   - TMP-S-00032
   fields:
   - wd:Q484181
-  quote: بعمه أحمد
   note:
     ja: '校閲: Gemini幻番号TMP-P-000515を破棄し伯父أحمد＝#AIND-D00452（أحمد بن إبراهيم بن محمد بن عيسى بن مطر بن علي بن عثمان شهاب الدين أبو القسم）へ同定。ナサブが本項の父系（بن إبراهيم بن محمد بن عيسى بن مطير）と完全一致（مطر／مطيرは異綴り、D11084ではمطير بن علي بن عثمان）。'
-  norm: عمه احمد
 - id: r2
   type: scholarly
   subtype: teacher
@@ -71,7 +63,6 @@ relations:
   fields:
   - wd:Q484181
   cert: medium
-  quote: null
   note:
     ja: '校閲: Gemini幻番号TMP-P-000516を破棄し#AIND-D05055（علي بن أحمد اليمني من أهل أبيات حسين ويلقب بالأزرق、809年没、فقه大著編纂）を候補同定（cert="medium"）。مطير家の本拠はبيت حسين（D11084）＝同郷のفقيه。ただしD02702（الأهدل本伝）ではالنور علي بن أبي بكر الأزرقと父名が異なるため要Waka確認。'
 - id: r3
@@ -79,29 +70,73 @@ relations:
   subtype: uncle
   active: AIND-D00452
   passive: AIND-D01184
-  quote: null
   phrase: عمه أحمد
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D06553
+  active: m10
   passive: AIND-D01184
-  quote: أبيه
   note:
     ja: '校閲: 父relation欠落を補完。父محمد الطيب＝#AIND-D06553（محمد العز الطيب بن إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني والد إبراهيم الماضي）。ナサブ完全一致、D00239（息子إبراهيم「الآتي أبوه العز الطيب」）で家系閉合。原文「مات بعد أبيه بنحو ثلاث سنين」。'
-  norm: ابيه
   phrase: محمد الطيب
 sources:
 - id: c1
   persons:
-  - ref: AIND-D02702
-    quote: الأهدل
-    norm: الاهدل
-  quote: قاله
+  - mention: m12
   note:
     ja: '校閲: 言及者الأهدل＝#AIND-D02702（حسين بن عبد الرحمن البدر أبو محمد الحسني اليماني ويعرف بابن الأهدل、779年生の歴史家）。転送スタブ「حسين الأهدل . في ابن عبد الرحمن بن محمد」経由で同定。'
   trigger: rule
   phrase: قاله الأهدل
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D06553
+  quote: محمد الطيب
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m6
+  kind: name
+  quote: مطير
+- id: m7
+  kind: name
+  ref: TMP-N-00377
+  quote: الحكمي
+- id: m8
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m9
+  kind: person
+  ref: AIND-D00452
+  quote: بعمه أحمد
+  norm: عمه احمد
+- id: m10
+  kind: person
+  ref: AIND-D06553
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: source
+  quote: قاله
+- id: m12
+  kind: person
+  ref: AIND-D02702
+  quote: الأهدل
+  norm: الاهدل
 translation:
   ja: アフマド・ブン・ムハンマド・アッ＝タイイブ・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イーサー・ブン・ムタイル・アル＝ハカミー・アル＝ヤマニー。彼は父方の叔父アフマドやアル＝アズラクらのもとで法学を修めた。父の死後およそ3年で死去した。アル＝アハダルがそう述べている。
   en: Aḥmad b. Muḥammad al-Ṭayyib b. Ibrāhīm b. Muḥammad b. ʿĪsā b. Muṭayr al-Ḥakamī al-Yamānī. He studied jurisprudence with his paternal uncle Aḥmad, and al-Azraq, among others. He died approximately three years after his father, as stated by al-Ahdal.

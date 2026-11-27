@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m2
   - id: n2
     type: ism
-    quote: كبيش
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 839
   note:
     ja: 839年、彼に血讐のある一団に捕らえられ殺害された（839 = 1435-08-05〜1436-07-24、h2g.py）。殺害の地は原文に無い（「قبل أن يدخلها」の ها は文脈上 القاهرة（目的地）と読むのが自然だが、直前の「المدينة النبوية」の可能性もある＝placeName は置かない）。
-  quote: سنة
   phrase: فظفر به قوم لهم عليه ثأر فقتلوه قبل أن يدخلها في سنة تسع وثلاثين
+  mention: m4
 relations:
 - id: r1
   type: kin
@@ -32,33 +31,53 @@ relations:
   summary:
     ar: هبة بن جماز بن منصور الحسيني
   cert: medium
-  quote: null
   note:
     ja: '見出しは「كبيش بن جماز」だが、corpus の転送見出し（12桁 707021256314、`$$$`、AIND 無し）「كبيش بن هبة بن جماز الحسيني . هو ابن جماز الماضي قريبا」がサハーウィー自身の同定として本項主＝كبيش بن هبة بن جماز と記す（祖父 جماز に遡らせたナサブ）。父 هبة بن جماز بن منصور الحسيني は corpus に本伝なし（子 جماز=#AIND-D02443（812没、أمير المدينة）・سليمان=#AIND-D03175（أمير المدينة）、孫 زهير بن سليمان=#AIND-D03045 等のナサブに出る）→ 新規 TMP-P-001602。他項（索引見出し）の情報による同定のため cert medium（規則23）。初版の幻番号 TMP-P-000000（desc جماز）を置換。 対立読み（集約 2026-10-26、内容A L-1）: 見出し「كبيش بن جماز」をそのまま読めば父＝#AIND-D02443「جماز بن هبة بن جماز بن منصور الحسيني أمير المدينة」（812没）もありうる。転送見出しは「نسب لجده」と言わないが、サハーウィー自身が本項主のナサブを「كبيش بن هبة بن جماز」と明記し「هو ابن جماز」と通称を説明している（父の名を هبة とする明示の記述）ので هبة の読みを採る（自己裁定。D02443 は父ではなく兄弟の可能性が高い）。'
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: كان قصد القاهرة ليتولى إمرة المدينة النبوية
+  - mention: m3
   note:
     ja: マディーナのアミール職を得るためにカイロへ向かったが、入る前に殺害された。就任には至っていないので state（إمرة المدينة）は置かない（規則47）。初版の state（TMP-O-00144、appointment 0839、placeName المدينة）を除去。
-  norm: كان قصد القاهرة ليتولي امرة المدينة النبوية
+  phrase: كان قصد القاهرة ليتولى إمرة المدينة النبوية
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m6
   works:
   - ref: TMP-T-00034
-  quote: قاله
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m5
 notes:
 - text: '兄弟候補: #AIND-D02443 جماز بن هبة بن جماز بن منصور الحسيني（أمير المدينة、812没）・#AIND-D03175 سليمان بن هبة بن جماز بن منصور الحسيني（أمير المدينة）は父 هبة（TMP-P-001602）を共有する。相手側本文に本項主の名指しは無いので brother relation は立てない（規則23、共通の父で導出可）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: كبيش
+- id: m2
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m3
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m4
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m5
+  kind: source
+  quote: قاله
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: クバイシュ（点付きの字で）・ブン・ジャンマーズ・アル＝フサイニー。預言者の町マディーナのアミール職に就くためにカイロへ向かったが、彼に血讐のある一団が彼を捕らえ、そこ（カイロ）に入る前に殺害した。839年のことである。我らがシャイフ（イブン・ハジャル）が『インバー』でそう述べている。
   en: Kubaysh (with the dotted letter) b. Jammāz al-Ḥusaynī. He had set out for Cairo in order to take up the emirate of Medina, but a group of people who had a blood feud against him seized him and killed him before he entered it, in the year 839. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ.

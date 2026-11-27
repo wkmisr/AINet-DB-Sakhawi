@@ -9,21 +9,20 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بقانم نبصا
-    norm: قانم نبصا
     label: قانم نبصا
+    mention: m3
   - id: n2
     type: ism
-    quote: قانم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873
   note:
     ja: 873年（1468-07-31 開始、年精度）、سوار 討伐の遠征先で戦死。「هناك」は名指しされない遠征地を指すため placeName を付けない（repo 先例）。初版の placeName「بلاد سوار」（#NEEDID、原文にない語）を除去。
-  quote: سنة
   phrase: فقتل هناك في سنة ثلاث وسبعين
+  mention: m7
 persons:
 - id: p1
   label: والد قانم الظاهر جقمق
@@ -34,24 +33,21 @@ relations:
   subtype: father
   active: AIND-D06299#p1
   passive: AIND-D06299
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m2
   passive: AIND-D06299
-  quote: الظاهر جقمق
   note:
     ja: 見出し「قانم الظاهر جقمق」＝主人は الظاهر جقمق（#AIND-D02423）。初版の統制外 subtype「client」を patron に是正。通称「قانم نبصا」の نبصا はチェルケス語（لفظة جاركسية）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: 「تأمر عشرة」。
+  mention: m5
 events:
 - id: e1
   type: political
@@ -59,15 +55,41 @@ events:
     ah: 873
     type: political
   persons:
-  - ref: AIND-D03198
-    quote: لسوار
-    norm: سوار
-  quote: تأمر
+  - mention: m6
   note:
     ja: 'سوار＝شاه سوار بن سليمان بن دلغادر（#AIND-D03198）。初版の travel event（placeName بلاد سوار #NEEDID）を本 event に統合、placeName は除去。'
   trigger: rule
-  norm: تامر
   phrase: ثم لم يلبث أن سافر مع المجردين لسوار فقتل هناك في سنة ثلاث وسبعين
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: قانم
+- id: m2
+  kind: person
+  ref: AIND-D02423
+  quote: الظاهر جقمق
+- id: m3
+  kind: name
+  quote: بقانم نبصا
+  norm: قانم نبصا
+- id: m4
+  kind: event
+  quote: تأمر
+  norm: تامر
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m6
+  kind: person
+  ref: AIND-D03198
+  quote: لسوار
+  norm: سوار
+- id: m7
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: カーニム・アッ＝ザーヒル・ジャクマク（のマムルーク）、カーニム・ナブサー——チェルケス語の語——として知られる。十人隊アミールとなり、間もなくサワール討伐の遠征軍とともに出征して、873年にそこで戦死した。悪人の一人であった。
   en: Qānim (mamlūk of) al-Ẓāhir Jaqmaq, known as Qānim Nabṣā, a Circassian word. He became an amir of ten, and before long set out with the expeditionary force against Sawār and was killed there in the year 873. He was one of the wicked.

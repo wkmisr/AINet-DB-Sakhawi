@@ -9,59 +9,50 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00174
-    quote: البدري
+    mention: m7
   - id: n3
     type: laqab
-    quote: المحب
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو الجود
-    norm: ابو الجود
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الكريم
     by: rule
-    ref: AIND-D04253
+    mention: m2
   - id: n7
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: شيخ القراآت بالقدس وإمام
     by: rule
-    norm: شيخ القراات بالقدس وامام
+    mention: m6
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D07722
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m12
   works:
   - ref: TMP-T-00019
-  quote: مني
   note:
     ja: 「سمع مني بمكة في المجاورة الثالثة المسلسل」（規則2）。「المجاورة الثالثة」はサハーウィー自身の3回目のマッカ隣住（repo 先例）で、本項主の隣住ではない。初版の field الحديث を除去。
 - id: r2
@@ -74,27 +65,70 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: null
+    - mention: m12
   note:
     ja: 「وعرض على محافيظه」＝「عليّ（私に）」暗記したテクストを提示した。
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D04253
+  active: m10
   passive: AIND-D07722
   summary:
     ar: عبد الكريم بن داود كريم الدين البدري
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父＝#AIND-D04253「عبد الكريم بن داود بن سليمان بن داود بن التاج أبي الوفاء محمد بن علي ابن أحمد زين الدين وكريم الدين الحسيني المقدسي الشافعي المقري البدري الوفائي إمام الأقصى ووالد المحب أبي الجود محمد」（未受領）。父側が「والد المحب أبي الجود محمد」と本項主を名指し（規則37）。父の職「شيخ القراآت بالقدس وإمام الأقصى」は父のものなので本項主の state・placeName にしない。初版は #NEEDID。'
-  norm: ابوه
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04253
+  quote: عبد الكريم
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  quote: المحب
+- id: m5
+  kind: name
+  quote: أبو الجود
+  norm: ابو الجود
+- id: m6
+  kind: name
+  quote: شيخ القراآت بالقدس وإمام
+  norm: شيخ القراات بالقدس وامام
+- id: m7
+  kind: name
+  ref: TMP-N-00174
+  quote: البدري
+- id: m8
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D04253
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アブド・アル＝カリーム・ブン・ダーウード、アル＝ムヒッブ、アブー・アル＝ジュード、エルサレムの読誦学の長にしてアル＝アクサー（モスク）のイマームであるカリーム・アッ＝ディーン・アル＝バドリー・ブン・アビー・アル＝ワファー、アル＝マクディスィー、アッ＝シャーフィイーの息子。父は前述。（私の）3回目の隣住の際にマッカで私（サハーウィー）から『ムサルサル』を聴聞し、暗記したテクストを私に提示した。
   en: Muḥammad b. ʿAbd al-Karīm b. Dāwūd, al-Muḥibb, Abū al-Jūd, son of the shaykh of Qurʾān readings in Jerusalem and imam of al-Aqṣā, Karīm al-Dīn al-Badrī b. Abī al-Wafāʾ, al-Maqdisī, al-Shāfiʿī; his father has been mentioned above. He heard al-Musalsal from me (al-Sakhāwī) in Mecca during the (my) third mujāwara, and presented to me the texts he had memorized.

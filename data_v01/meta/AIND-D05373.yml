@@ -9,46 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00050
-    quote: الكناني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00186
-    quote: الزفتاوي
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m9
   - id: n4
     type: laqab
-    quote: نور الدين
+    mention: m6
   - id: n5
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001532
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد المحسن
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 death:
   id: d
   note:
@@ -61,18 +55,15 @@ relations:
   passive: AIND-D05373
   summary:
     ar: محمد بن أحمد بن عبد المحسن بن محمد الكناني الزفتاوي
-  quote: null
   note:
     ja: '見出しナサブから復元（規則3）。corpus に本伝なし（兄弟項 #AIND-D01206 に「أخذ الفقه بقراءته عن أبيه」「وعن والده … النحو」とあるのみ）、ID-Master 未登録 → TMP-P-001532。D01206 の父としても共用。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D01206
+  active: m11
   passive: AIND-D05373
-  quote: أحمد
   note:
     ja: '「أخو أحمد الماضي」＝ #AIND-D01206（أحمد بن محمد بن أحمد بن عبد المحسن بن محمد الشهاب الكناني الزفتاوي المصري ثم القاهري الشافعي أخو علي الآتي、773/774頃生・861没）。ナサブ5代一致、相互に言及。初版の #NEEDID を解消。'
-  norm: احمد
 affiliations:
 - id: a1
   type: madhhab
@@ -80,14 +71,62 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00844
-    quote: الولي العراقي
-  quote: وصفه
+  - mention: m13
   note:
     ja: 'Pattern A。الولي العراقي ＝ #AIND-D00844（أحمد بن عبد الرحيم … ولي الدين أبو زرعة العراقي、826没）。初版の幻番号 TMP-P-000011 は同 AIND に名寄せ済み（規則36）、統制外 relation「praised by」を event に改めた。'
   trigger: rule
-  norm: صفه
   phrase: وصفه الولي العراقي بالعلم والفضيلة
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001532
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عبد المحسن
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: نور الدين
+- id: m7
+  kind: name
+  ref: TMP-N-00050
+  quote: الكناني
+- id: m8
+  kind: name
+  ref: TMP-N-00186
+  quote: الزفتاوي
+- id: m9
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: AIND-D01206
+  quote: أحمد
+  norm: احمد
+- id: m12
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m13
+  kind: person
+  ref: AIND-D00844
+  quote: الولي العراقي
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アフマド・ブン・アブド・アル＝ムフスィン・ブン・ムハンマド、ヌール・アッ＝ディーン・アル＝キナーニー・アッ＝ザフターウィー・アル＝ミスリー・アッ＝シャーフィイー。前述のアフマドの兄弟。彼（アフマド）よりしばらく前に没した。アル＝ワリー・アル＝イラーキーは彼を学識と徳をもって評した。
   en: ʿAlī b. Muḥammad b. Aḥmad b. ʿAbd al-Muḥsin b. Muḥammad, Nūr al-Dīn al-Kinānī al-Zaftāwī al-Miṣrī al-Shāfiʿī, the brother of the aforementioned Aḥmad. He died some time before him. Al-Walī al-ʿIrāqī described him as possessing learning and merit.

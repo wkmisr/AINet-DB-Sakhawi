@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قانبك
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 814
   note:
     ja: 814年（1411-05-04 開始、年精度）に الناصر فرج に捕えられ処刑された。地名の明記なし。
-  quote: سنة
   phrase: قبض الناصر عليه وقتله في سنة أربع عشرة
+  mention: m10
 persons:
 - id: p1
   label: والد قانبك الظاهري برقوق
@@ -33,81 +32,119 @@ relations:
   subtype: father
   active: AIND-D06280#p1
   passive: AIND-D06280
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D06280
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: 見出し「الظاهري برقوق」および「كان من خاصكيته وممن وثب بعده」＝主人は الظاهر برقوق（#AIND-D02178、801年没）。初版の統制外 subtype「client」・#NEEDID を patron・AIND に是正。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيته
   note:
     ja: 「كان من خاصكيته」＝バルクークのハーッサキーヤの一員。
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00014
-  quote: وتأمر
   note:
     ja: 「تأمر باليد في أيام تلك الفتن」＝バルクーク没後（801年以降）の内乱期に実力でアミールとなった。位階の明記なし（汎用 أمير TMP-O-00014）。
-  norm: تامر
+  mention: m5
 - id: s3
   type: office
   ref: TMP-O-00083
-  quote: null
   note:
     ja: '「حتى صار مقدما」。ID-Master 既登録 المقدم（TMP-O-00083、先例 D06143）。初版の #NEEDID を是正。'
+  mention: null
 - id: s4
   type: office
-  ref: TMP-O-00092
-  quote: رأس نوبة النوب
   note:
     ja: '「ثم رأس نوبة النوب فلم تطل مدته」。repo 先例（D02271・D05346・D05580）どおり筆頭ラアス・ナウバ職 TMP-O-00092（登録名 رأس نوبة كبير）に揃えた。初版の #NEEDID を是正。'
-  norm: راس نوبة النوب
+  mention: m6
 events:
 - id: e1
   type: political
-  quote: وقتله
   note:
     ja: 「بعده」＝主人バルクークの死（801年）後。初版の when-custom 0801 cert medium は原文に年の明記がないため除去（時期の目安は本 note に留める）。
   trigger: rule
-  norm: قتله
   phrase: وممن وثب بعده وتأمر باليد في أيام تلك الفتن واستمر في رواج حتى صار مقدما ثم رأس نوبة النوب فلم تطل مدته
+  mention: m9
 - id: e2
   type: political
   date:
     ah: 814
     type: political
   persons:
-  - ref: AIND-D06160
-    quote: الناصر
-  quote: وقبض
+  - mention: m8
   note:
     ja: الناصر＝الناصر فرج（#AIND-D06160、在位801〜815）。バルクークのマムルークで814年に処刑された文脈から一意。初版の rival relation（#NEEDID）を本 event の persName に統合。
   trigger: rule
-  norm: قبض
   phrase: وقبض الناصر عليه وقتله في سنة أربع عشرة
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: وذكره
+  - corresp: wd:Q257745
+    mention: m12
   note:
     ja: Pattern A（第三者言及）。初版の統制外 relation「chronicled_by」（#NEEDID）を本 event に置換。
   trigger: rule
-  norm: ذكره
   phrase: وذكره العيني باختصار
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: قانبك
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: وتأمر
+  norm: تامر
+- id: m6
+  kind: office
+  ref: TMP-O-00092
+  quote: رأس نوبة النوب
+  norm: راس نوبة النوب
+- id: m7
+  kind: event
+  quote: وقبض
+  norm: قبض
+- id: m8
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m9
+  kind: event
+  quote: وقتله
+  norm: قتله
+- id: m10
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m12
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: カーンバク・アッ＝ザーヒリー・バルクーク。彼（バルクーク）のハーッサキーヤの一人で、その死後に蜂起し、あの内乱の日々に実力でアミールとなった者の一人。順調に進み、ついにムカッダム、次いでラアス・ナウバト・アン＝ヌワブとなったが、その在任は長く続かず、アン＝ナースィルが彼を捕えて814年に殺した。その行状は褒められたものではなかった。アル＝アイニーが彼について簡潔に記している。
   en: 'Qānbak al-Ẓāhirī Barqūq. He was one of his (Barqūq''s) khāṣṣakiyya and among those who rose up after his death and seized an amirate by force in the days of those disturbances. He went on prospering until he became a muqaddam and then raʾs nawbat al-nuwab, but his tenure was not long: al-Nāṣir seized him and killed him in the year 814. His conduct was not praiseworthy. Al-ʿAynī mentioned him briefly.'

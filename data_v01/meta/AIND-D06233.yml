@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00463
-    quote: الريمي
+    mention: m3
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: عمر الريمي
@@ -31,13 +30,12 @@ relations:
   subtype: father
   active: AIND-D06233#p1
   passive: AIND-D06233
-  quote: null
   note:
     ja: 父。名＋ニスバのみ（規則3）。corpus の الريمي 家（D03687 عبد الرحمن بن علي الريمي ثم المكي・D05789 عمر بن أحمد بن عبد الرحمن الريمي المكي 等）はナサブが合わず別人。初版は father relation 欠落。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m4
   passive: AIND-D06233
   methods:
   - TMP-S-00003
@@ -47,12 +45,33 @@ relations:
       ah: 800
       type: learning
     places:
-    - ref: TMP-L-00037
-      quote: باليمن
-      norm: اليمن
-  quote: شيخنا
+    - mention: m5
   note:
     ja: 「ممن سمع على شيخنا باليمن في سنة ثمانمائة」＝イブン・ハジャルの800年イエメン滞在中に聴聞。800年＝1397-10-02〜1398-09-20（年精度 @when=1397）。初版の field（الحديث）と event の @when="0800"（ヒジュラ年の誤記）を是正。
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  ref: TMP-N-00463
+  quote: الريمي
+- id: m4
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m5
+  kind: place
+  quote: باليمن
+  ref: TMP-L-00037
+  norm: اليمن
+- id: m6
+  kind: year
+  value: '800'
+  quote: سنة
 translation:
   ja: カースィム・ブン・ウマル、アッ＝ライミー。800年にイエメンで我らがシャイフ（イブン・ハジャル）から聴聞した者の一人。
   en: Qāsim b. ʿUmar al-Raymī. He is among those who heard from our shaykh (Ibn Ḥajar) in Yemen in the year 800.

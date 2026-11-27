@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00403
-    quote: النصيبي
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n5
     type: nasab
-    quote: طوق
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -36,8 +33,8 @@ death:
     cert: medium
   note:
     ja: 「سنة عشر」＝810（一の位・十の位のみ＝80X の型、cert medium。ブリーフどおり）。810＝1407-06-17〜1408-06-04（h2g.py）、年精度で @when=1407。
-  quote: سنة
   phrase: مات سنة عشر
+  mention: m7
 persons:
 - id: p1
   label: أحمد بن أحمد بن طوق
@@ -50,20 +47,45 @@ relations:
   subtype: father
   active: AIND-D06605#p1
   passive: AIND-D06605
-  quote: null
   note:
     ja: 規則3 (c')。父の本伝は corpus にない。初版は父 relation なし。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00010
-  quote: الكاتب
   note:
     ja: 見出しの「الكاتب」。勤め先は原文にない。
+  mention: m6
 notes:
 - text: corpus で「بن طوق」を持つ項はもう1件、#AIND-D08561「21 محمد بن محمد بن أحمد بن طوق البدر أو الشمس بن الجمال الطواويسي الكاتب . ولد سنة سبع وثلاثين وسبعمائة … وكان يباشر ديوان الأسرى والأسوار … ومات في سابع عشري ذي الحجة سنة إحدى . وذكره في أنبائه أيضا ، وتبعه المقريزي في عقوده」（repo 未収録）だけである。家名 ابن طوق と「الكاتب」は共通するが、父名（أحمد／محمد）・ニスバ（النصيبي／الطواويسي）・没年（810／801）が違う。同族か、別の典拠から入った同一人物の二重立項かは原文からは決まらない＝relation を立てず候補として記す（ISSUES §D172-6）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: طوق
+- id: m5
+  kind: name
+  ref: TMP-N-00403
+  quote: النصيبي
+- id: m6
+  kind: office
+  ref: TMP-O-00010
+  quote: الكاتب
+- id: m7
+  kind: year
+  value: '810'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・アフマド・ブン・タウク・アン＝ナスィービー、書記。（8）10年に没した。
   en: Muḥammad b. Aḥmad b. Aḥmad b. Ṭawq al-Naṣībī, the secretary. He died in the year [8]10.

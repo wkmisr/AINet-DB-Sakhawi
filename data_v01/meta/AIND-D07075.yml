@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01929
-    quote: الشقوري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00017
-    quote: العجمي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بالبايزيدي
-    norm: البايزيدي
     label: البايزيدي
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 persons:
 - id: p1
   label: أحمد
@@ -41,25 +37,50 @@ relations:
   subtype: father
   active: AIND-D07075#p1
   passive: AIND-D07075
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07075
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。field は付けない。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-01929
+  quote: الشقوري
+- id: m4
+  kind: name
+  ref: TMP-N-00017
+  quote: العجمي
+- id: m5
+  kind: name
+  quote: بالبايزيدي
+  norm: البايزيدي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アフマド・アッ＝シャクーリー・アル＝アジャミー、アル＝バーヤズィーディーとして知られる。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Aḥmad al-Shaqūrī al-ʿAjamī, known as al-Bāyazīdī. He was among those who heard from me (al-Sakhāwī) in Mecca.

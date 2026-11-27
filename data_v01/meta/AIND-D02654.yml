@@ -9,39 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-01028
-    quote: المروي
+    mention: m6
   - id: n3
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: صالح
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000715
+  active: m8
   passive: AIND-D02654
   methods:
   - TMP-S-00009
@@ -50,8 +46,6 @@ relations:
   - TMP-S-00057
   - wd:Q484181
   - wd:Q1866303
-  quote: أحمد القصار
-  norm: احمد القصار
 - id: r2
   type: scholarly
   subtype: teacher
@@ -65,9 +59,7 @@ relations:
       ah: 896
       type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: null
+    - mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -80,40 +72,36 @@ events:
     cert: medium
     type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وقدم
+  - mention: m14
   cert: medium
   note:
     en: Arrived in Cairo near 890 AH
   trigger: rule
-  norm: قدم
+  mention: m9
 - id: e2
   type: visit
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m12
   note:
     en: Visited Damascus on his way to Hajj
+  mention: null
 - id: e3
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     en: Performed Hajj from Damascus
   trigger: rule
+  mention: m11
 - id: e4
   type: residence
   subtype: jāwara
-  quote: وجاور
   note:
     en: Resided as a neighbor in Mecca
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。
   trigger: rule
-  norm: جاور
+  mention: m13
 - id: e5
   type: residence
   date:
@@ -121,12 +109,69 @@ events:
     cert: high
     type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: null
+  - mention: m14
   cert: high
   note:
     en: Returned to Cairo and met al-Sakhawi there in 896 AH
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: صالح
+- id: m5
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m6
+  kind: name
+  ref: TMP-N-01028
+  quote: المروي
+- id: m7
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m8
+  kind: person
+  ref: TMP-P-000715
+  quote: أحمد القصار
+  norm: احمد القصار
+- id: m9
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m10
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m11
+  kind: event
+  quote: وحج
+- id: m12
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m13
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m14
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m15
+  kind: year
+  value: '896'
+  quote: سنة
 translation:
   ja: ハサン・ブン・ユースフ・ブン・ハサン・ブン・サーリフ・アル＝アンサーリー・アル＝マルウィー。アンダルスのアル・マリーヤに由来する。マーリキ派。アフマド・アル＝カッサールの下で、医学、天文学、およびこれらに類する法学や文法学などを学んだ。ヒジュラ暦890年頃に［カイロに］到着し、ダマスクスからハッジ（大巡礼）に赴き、［マッカに］隣接滞在（ジャーワラ）した。その後カイロに戻り、ヒジュラ暦896年の半ばに私（サハーウィー）と出会い、私から聴聞するまでそこに留まった。
   en: Ḥasan b. Yūsuf b. Ḥasan b. Ṣāliḥ al-Anṣārī al-Marwī, named after Almería (al-Mariyya) in al-Andalus. He was a Maliki. He occupied himself with medicine, astronomy, and similar subjects, as well as jurisprudence and grammar, under Aḥmad al-Qaṣṣār. He arrived [in Cairo] around the year 890 AH, performed Hajj from Damascus, and stayed as a neighbor [in Mecca]. He then returned to Cairo and remained there until he met me during the year 896 AH and heard from me.

@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: فواز
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عقيل
     by: rule
-    ref: AIND-D04913
+    mention: m2
   - id: n5
     type: nasab
-    quote: مبارك
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: رميثة
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي نمي
     by: rule
-    norm: ابو نمي
+    mention: m5
 birth:
   id: b
   date:
@@ -51,15 +47,14 @@ death:
     ah: 820-09
   note:
     ja: 820-09-01＝1417-10-21、@when は月精度 1417-10。殺害された場所は「أغار على مكة … فقتل يومئذ」でメッカ襲撃の当日だが、原文は地を明示しないため placeName は event 側（مكة）にのみ置く。年齢「في عشر الثلاثين ظنا」は cert medium 相当（著者の推測 ظنا）。
-  quote: سنة
   phrase: فقتل يومئذ وهو في عشر الثلاثين ظنا
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D04913
   passive: AIND-D06190
-  quote: null
   note:
     ja: '見出しナサブから（規則37）。corpus 本伝 #AIND-D04913「عقيل بن مبارك بن رميثة بن أبي نمى الحسني المكي كان من أعيان الأشراف … جعله ابن عمه عنان بن مغامس … شريكا له في إمرة مكة」（【集約 2026-10-19 訂正】repo 収録済み `Individuals/4000-4999/AIND-D04913_402426702455.xml`、既に son relation active=#AIND-D06190 cert medium を持ち双方向で閉合。校閲時の「未収録」は誤り、内容B L・規則42）。同父の兄弟 #AIND-D04498 عبد الله（846没）・#AIND-D10011 منصور（850没）は本項主を名指ししないため note 留め（規則23）。祖父 مبارك بن رميثة は ID-Master TMP-P-001324。'
   phrase: عقيل بن مبارك بن رميثة
@@ -70,33 +65,82 @@ events:
     ah: 820-09
     type: political
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: فقتل
+  - mention: m8
   note:
     ja: 「بني عمه」（従兄弟たち）は名が無いため relation にしない（規則14）。
   trigger: rule
-  norm: قتل
   phrase: كان ممن أغار على مكة مع بني عمه وغيرهم من الأشراف والقواد في رمضان سنة عشرين فقتل يومئذ
+  mention: m11
 - id: e2
   type: other
   places:
-  - ref: TMP-L-00353
-    quote: قرية المبارك من وادي نخلة
-  quote: وكان كثير التسلط على أهل قرية المبارك من وادي نخلة والتكليف لهم
+  - mention: m12
   note:
     ja: '居住ではなく住民への圧制（تسلط・تكليف）の記述なので residence ではなく other。地名 قرية المبارك（وادي نخلة）は ID-Master 未登録（既登録は سولة من نخلة اليمانية TMP-L-00202 のみ）→ 仮番号 TMP-L-00353。初版のプレースホルダ #TMP-L-00000 を是正。'
-  norm: كان كثير التسلط علي اهل قرية المبارك من وادي نخلة والتكليف لهم
+  phrase: وكان كثير التسلط على أهل قرية المبارك من وادي نخلة والتكليف لهم
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m14
   note:
     ja: 'Pattern A。初版の biographer relation（幻番号 TMP-P-000603＝名寄せ済み）→ #AIND-D06757（التقي الفاسي、832没）の mention event。'
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: فواز
+- id: m2
+  kind: name
+  ref: AIND-D04913
+  quote: عقيل
+- id: m3
+  kind: name
+  quote: مبارك
+- id: m4
+  kind: name
+  quote: رميثة
+- id: m5
+  kind: name
+  quote: أبي نمي
+  norm: ابو نمي
+- id: m6
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m10
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m11
+  kind: event
+  quote: فقتل
+  norm: قتل
+- id: m12
+  kind: place
+  quote: قرية المبارك من وادي نخلة
+  ref: TMP-L-00353
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ファウワーズ・ブン・アキール・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝ハサニー・アル＝マッキー。（8）20年ラマダーン月に、従兄弟たちやその他のシャリーフやカーイド（隊長）たちとともにマッカを襲撃した者の一人で、その日に殺された。おそらく20代であった。ワーディー・ナフラのアル＝ムバーラク村の人々に対してしばしば横暴をはたらき、負担を課していた。アル＝ファースィーが彼に言及している。
   en: Fawwāz b. ʿAqīl b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī al-Makkī. He was among those who raided Mecca together with his cousins and other sharīfs and commanders (quwwād) in Ramaḍān of the year [8]20, and he was killed on that day, being, it is thought, in his twenties. He frequently tyrannised the people of the village of al-Mubārak in Wādī Nakhla and imposed burdens on them. Al-Fāsī mentioned him.

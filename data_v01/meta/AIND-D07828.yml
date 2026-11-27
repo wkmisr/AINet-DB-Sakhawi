@@ -9,97 +9,89 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m13
   - id: n2
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m14
   - id: n3
     type: laqab
-    quote: الفخر
+    mention: m11
   - id: n4
     type: shuhrah
-    quote: بابن خير
-    norm: ابن خير
     label: ابن خير
+    mention: m17
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: AIND-D04617
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: عطاء
     by: rule
+    mention: m6
   - id: n11
     type: nasab
-    quote: جميل
     by: rule
+    mention: m7
   - id: n12
     type: nasab
-    quote: فضل
     by: rule
+    mention: m8
   - id: n13
     type: nasab
-    quote: خير
     by: rule
+    mention: m9
   - id: n14
     type: nasab
-    quote: النعمان
     by: rule
+    mention: m10
   - id: n15
     type: nasab
-    quote: الكمال
     by: rule
+    mention: m12
   - id: n16
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m15
 birth:
   id: b
   date:
     ah: 768-12
   note:
     ja: 「ولد في ذي الحجة سنة ثمان وستين وسبعمائة」＝768年ズー・アル＝ヒッジャ月＝1367-08-06 開始（h2g.py）、月精度。初版の @when 1366 を修正。
-  quote: سنة
+  mention: m19
 death:
   id: d
   date:
     ah: 840-07-21
   note:
     ja: 「مات في يوم الجمعة حادي عشري رجب سنة أربعين」＝840年ラジャブ月21日＝1437-02-07（h2g.py では火曜。原文の金曜とは合わないが曜日は暦の判別に用いない、規則18）。初版の @when 1436 を修正。
-  quote: سنة
+  mention: m21
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04617
+  active: m16
   passive: AIND-D07828
   summary:
     ar: الكمال عبد الله بن محمد بن محمد بن سليمان ابن خير
-  quote: أبوه
   note:
     ja: '「والماضي أبوه」＝ #AIND-D04617（عبد الله بن محمد بن محمد بن سليمان بن عطاء بن جميل بن فضل بن خير ابن النعمان الكمال بن النجم بن الزين الأنصاري الشقوري السكندري المالكي ويعرف بابن خير、739年生）。ナサブ一致（規則37）。初版 #NEEDID を置換。 ID-Master の TMP-P-000068「الكمال بن خير」（Note 空、corpus 約40件のアレクサンドリアの musnid）は D04617 と名寄せ候補（★、内容B M）。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: paternal_uncle
@@ -107,7 +99,6 @@ relations:
   passive: AIND-D07828
   summary:
     ar: الجمال عبد الرحمن ابن خير
-  quote: null
   note:
     ja: 「ابن أخي الجمال عبد الرحمن قاضي مصر」＝父方の叔父（父 D04617 の兄弟）、マーリク派のエジプト大カーディー الجمال عبد الرحمن بن محمد بن محمد بن سليمان ابن خير。corpus に見出しなし。ID-Master 既登録 TMP-P-001350「الجمال بن خير」（Note「AIND-D00352の師」）と同一人物（corpus の「الجمال بن خير」＝D05386「أمهما ابنة قاضي القضاة الجمال بن خير」、D00352・D08204・D02227 の師）→ TMP-P-001350 を充当（集約 2026-10-26、内容B H、決定4。校閲時の 取り下げた仮番号 B143-P06 は取り下げ、TMP-P-001350 の Note 追記は ID-Master 要対応）。初版の subtype uncle・#NEEDID を置換（統制語彙 paternal_uncle、規則35）。「قاضي مصر」は職名句なので desc から外し note に。
 affiliations:
@@ -117,14 +108,96 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    corresp: wd:Q12198099
-    quote: البقاعي
-  quote: ذكره
+  - corresp: wd:Q12198099
+    mention: m23
   note:
     ja: 'Pattern A。البقاعي ＝ #AIND-D00207（wd:Q12198099 は corresp）。初版の統制外 relation「mentioned_by」（wd:Q12198099）を mention event に変換。'
   trigger: rule
   phrase: ذكره البقاعي مجردا
+  mention: m22
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04617
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: سليمان
+- id: m6
+  kind: name
+  quote: عطاء
+- id: m7
+  kind: name
+  quote: جميل
+- id: m8
+  kind: name
+  quote: فضل
+- id: m9
+  kind: name
+  quote: خير
+- id: m10
+  kind: name
+  quote: النعمان
+- id: m11
+  kind: name
+  quote: الفخر
+- id: m12
+  kind: name
+  quote: الكمال
+- id: m13
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m14
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m15
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m16
+  kind: person
+  ref: AIND-D04617
+  quote: أبوه
+  norm: ابوه
+- id: m17
+  kind: name
+  quote: بابن خير
+  norm: ابن خير
+- id: m18
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m19
+  kind: year
+  value: '768'
+  quote: سنة
+- id: m20
+  kind: month
+  value: 7
+  quote: رجب
+- id: m21
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m22
+  kind: source
+  quote: ذكره
+- id: m23
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・ムハンマド・ブン・スライマーン・ブン・アター・ブン・ジャミール・ブン・ファドル・ブン・ハイル・ブン・アン＝ヌウマーン、アル＝ファフル・ブン・アル＝カマール・アル＝アンサーリー・アッ＝サカンダリー・アル＝マーリキー。エジプトのカーディー、アル＝ジャマール・アブドゥッラフマーンの甥（兄弟の子）で、父は前述。先祖と同じくイブン・ハイルとして知られる。768年ズー・アル＝ヒッジャ月に生まれ、840年ラジャブ月21日金曜日に没した。アル＝ビカーイーが名のみ挙げている。
   en: Muḥammad b. ʿAbd Allāh b. Muḥammad b. Muḥammad b. Sulaymān b. ʿAṭāʾ b. Jamīl b. Faḍl b. Khayr b. al-Nuʿmān, al-Fakhr b. al-Kamāl al-Anṣārī al-Sakandarī al-Mālikī, nephew of al-Jamāl ʿAbd al-Raḥmān, qāḍī of Egypt; his father was mentioned above. Like his forebears he was known as Ibn Khayr. He was born in Dhū al-Ḥijja 768 and died on Friday 21 Rajab [8]40. Al-Biqāʿī mentioned him without detail.

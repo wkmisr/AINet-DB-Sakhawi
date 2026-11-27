@@ -11,8 +11,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قينار
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -20,7 +20,7 @@ death:
     cert: medium
   note:
     ja: 「مات في يوم الأربعاء خامس عشري جمادى الأولى سنة ثمان」。一の位のみの年＝808（標準規則、cert medium）。808年ジュマーダー・アル＝ウーラー25日＝1405-11-27（h2g.py、水曜と検証＝原文「يوم الأربعاء」と整合）。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قينار
@@ -31,44 +31,65 @@ relations:
   subtype: father
   active: AIND-D06377#p1
   passive: AIND-D06377
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: وأمير
-  norm: امير
+  - mention: m3
+  mention: m2
 - id: s2
   type: office
   ref: TMP-O-00097
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: null
+  - mention: m3
   note:
     ja: '「أمير آخور صغير بالديار المصرية」。ref は既登録 أميراخور（TMP-O-00097、repo 先例「أمير آخور ثالث」も同番号）。初版の幻番号 #TMP-O-00000 を置換。placeName は原文「بالديار المصرية」（TMP-L-00238）。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m7
   note:
     ja: 'Pattern A。初版の統制外 relation（mentioned by、wd:Q257745 単独）を変換（Waka 裁定 2026-10-26: العيني は #AIND-D09832＋corresp）。'
   trigger: rule
   phrase: ذكره العيني ويحرر اسمه
+  mention: m6
 notes:
 - text: 「ويحرر اسمه」＝名の読みは要検証（サハーウィーの留保）→ persName に cert low。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قينار
+- id: m2
+  kind: office
+  ref: TMP-O-00016
+  quote: وأمير
+  norm: امير
+- id: m3
+  kind: place
+  quote: بالديار المصرية
+  ref: TMP-L-00238
+  norm: الديار المصرية
+- id: m4
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m5
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: カイナール、エジプトにおけるタブルハーナ・アミールの一人で、小アミール・アーフール。（8）08年ジュマーダー・アル＝ウーラー月25日水曜日に没した。アル＝アイニーが彼に言及しているが、その名は要検証である。
   en: Qaynār, one of the amirs of ṭablkhānāh and junior amīr ākhūr in Egypt. He died on Wednesday 25 Jumādā al-Ūlā of the year (8)08. Al-ʿAynī mentioned him; his name is to be verified.

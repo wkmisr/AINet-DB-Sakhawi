@@ -9,63 +9,54 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00470
-    quote: الكفيري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n3
     type: laqab
-    quote: الصدر
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: داود
     by: rule
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 birth:
   id: b
   date:
     ah: 761
   note:
     en: Estimated based on his age at death (forty years) in 801 AH.
-  quote: سنة
+  mention: m14
 death:
   id: d
   date:
     ah: 801-01
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m12
   note:
     en: Died in Muharram 801 AH at the age of forty.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: وناب
-  norm: ناب
+  - mention: m12
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -73,27 +64,86 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: 初版はこの言及を一切エンコードしていなかった（Pattern A完全欠落）。
   trigger: rule
   phrase: قال شيخنا في الأنباء عنى بالفقه وناب في الحكم بدمشق ومات بها في المحرم سنة إحدى عن أربعين سنة
+  mention: m9
 - id: c2
   persons:
   - ref: AIND-D03663#p1
-  quote: قاله
   note:
     ja: 'Pattern A完全欠落の2件目。★要判断: 「ابن حجي」の候補は #AIND-D00646（أحمد بن حجي بن موسى … الشهاب أبو العباس … الدمشقي الشافعي ويعرف بابن حجي، 751生）と #AIND-D05831（عمر بن حجي … النجم أبو الفتوح … ويعرف بابن حجي、767生）の兄弟2名。家系見出し #AIND-D12252「ابن حجي الشهاب أحمد والنجم عمر ابنا حجي بن موسى」でも両者が併記される。歴史書の著者としては الشهاب أحمد(D00646)が有力だが決め手を欠くため #NEEDID 保持。'
   trigger: rule
   phrase: وكانت له همة في طلب الرياسة . قاله ابن حجي
+  mention: m15
 persons:
 - id: p1
   label: ابن حجي
   for: e2
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: داود
+- id: m5
+  kind: name
+  quote: الصدر
+- id: m6
+  kind: name
+  ref: TMP-N-00470
+  quote: الكفيري
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: source
+  quote: قال
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m12
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m13
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m14
+  kind: year
+  value: '761'
+  quote: سنة
+- id: m15
+  kind: source
+  quote: قاله
+- id: m16
+  kind: person
+  label: mention
+  quote: ابن حجي
 translation:
   ja: アブドゥッラフマーン・ブン・アブドゥッラー・ブン・ムハンマド・ブン・ダーウード、アッ＝サドル・アル＝クファイリー・アッ＝ディマシュキー・アッ＝シャーフィイー。我らがシャイフ（イブン・ハジャル）は『インバーウ（・アル＝グムル）』において、彼が法学に専心し、ダマスクスで副判事を務め、同地にて801年（ヒジュラ暦）のアル＝ムハッラム月に40歳で没したと述べている。また、彼には地位向上（主導権）を求める強い熱意があった。これはイブン・ヒッジーの言葉である。
   en: Abd al-Rahman b. Abd Allah b. Muhammad b. Dawud, al-Sadr al-Kufayri al-Dimashqi al-Shafi'i. Our shaykh (Ibn Hajar) mentioned in Inba' al-Ghumr that he was devoted to fiqh and served as a deputy judge in Damascus, where he died in Muharram 801 AH at the age of forty. He possessed a strong ambition for leadership, as reported by Ibn Hijji.

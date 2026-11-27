@@ -9,37 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00445
-    quote: القلعي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بالزهر
-    norm: الزهر
     label: الزهر
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سعد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 896-01
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
+  - mention: m8
   note:
     ja: 896年ムハッラム月＝1490-11-23〜12-22（月精度 1490-11）。「بها」は直前の مكة（「قطنها」）を指す。初版の @when 1491 は誤り。
-  quote: سنة
   phrase: ومات بها في المحرم سنة ست وتسعين
+  mention: m12
 persons:
 - id: p1
   label: سعد بن عبد الله القلعي
@@ -52,55 +48,91 @@ relations:
   subtype: father
   active: AIND-D07415#p1
   passive: AIND-D07415
-  quote: null
   note:
     ja: '父は汎用名＋ニスバのみ、corpus に本伝なし → #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D01915
+  active: m5
   passive: AIND-D07415
-  quote: المجد إسماعيل القلعي
   note:
     ja: '「أحد من عرف بخدمة المجد إسماعيل القلعي」。المجد إسماعيل القلعي＝#AIND-D01915（頻出確定ID）。本項主が仕えた相手（active=仕えられた人）。初版 client #NEEDID → 校閲 servant → 「仕えた・重用された」型（名指しされた個人への奉仕・帰属）は repo 先例（D06170「اختص ببرسباي قرا」、D05189「تقدم عند مخدومه」）どおり subtype="patron" に統一。規則53（任官・追放した主人でない君主＝event）とは別型（本人が仕えた相手）（集約 2026-10-26、オーケストレーター決定5）。'
-  norm: المجد اسماعيل القلعي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07415
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      cert: medium
-      quote: لمكة
-      norm: مكة
+    - cert: medium
+      mention: m8
     phrase: وسمع مني ومن غيري أشياء
-  quote: مني
   note:
     ja: 「ثم قطنها وسمع مني」＝マッカ定住の後に聴聞。地は接続による照応のため cert medium。「ومن غيري」の師は立てない。
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: تردد
+  - mention: m8
   trigger: rule
   phrase: ممن تردد لمكة كثيرا
+  mention: m7
 - id: e2
   type: residence
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: قطنها
+  - mention: m8
   trigger: rule
   phrase: ثم قطنها
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: سعد
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00445
+  quote: القلعي
+- id: m5
+  kind: person
+  ref: AIND-D01915
+  quote: المجد إسماعيل القلعي
+  norm: المجد اسماعيل القلعي
+- id: m6
+  kind: name
+  quote: بالزهر
+  norm: الزهر
+- id: m7
+  kind: event
+  quote: تردد
+- id: m8
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: event
+  quote: قطنها
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m12
+  kind: year
+  value: '896'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・サアド・ブン・アブドゥッラー・アル＝カルイー、アル＝マジュド・イスマーイール・アル＝カルイーに仕えたことで知られた者の一人で、アッ＝ザフルとして知られる。マッカにしばしば通い、やがてそこに定住し、私や他の人々から若干のものを聴聞した。896年ムハッラム月にそこ（マッカ）で没した。
   en: Muḥammad b. Saʿd b. ʿAbd Allāh al-Qalʿī, one of those known for serving al-Majd Ismāʿīl al-Qalʿī, and known as al-Zahr. He was among those who travelled to Mecca often, then settled there, and heard some things from me and from others. He died there in Muḥarram of the year [8]96.

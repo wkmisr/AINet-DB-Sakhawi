@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00754
-    quote: اللاري
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001159
+    mention: m2
   - id: n4
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07453
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بمكة」型（規則2）：teacher relation＋relation 内 event。field（الحديث）は付けない。初版の field と重複する独立 study event を除去。
 - id: r2
@@ -46,18 +41,44 @@ relations:
   subtype: father
   active: TMP-P-001159
   passive: AIND-D07453
-  quote: null
   note:
     ja: 見出しナサブ「محمد بن سليمان بن داود اللاري」から1段ずらして復元（規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001159（⚠汎用名、同名別人への流用禁止。D07452 の父 سليمان بن داود الطائفي とは別人）。初版は father relation なし。
   phrase: سليمان بن داود اللاري
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
-  quote: المؤذن
   note:
     ja: 'مؤذن＝wd:Q239718（ID-Master 登録済み）。初版は #NEEDID。勤務地の明示なし。'
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001159
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  ref: TMP-N-00754
+  quote: اللاري
+- id: m5
+  kind: office
+  ref: wd:Q239718
+  quote: المؤذن
   norm: المءذن
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・スライマーン・ブン・ダーウード・アル＝ラーリー、ムアッズィン（礼拝告知者）。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Sulaymān b. Dāwūd al-Lārī, the muezzin. He was among those who heard from me (al-Sakhāwī) in Mecca.

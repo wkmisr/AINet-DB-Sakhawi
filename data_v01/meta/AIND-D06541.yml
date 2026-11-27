@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00444
-    quote: الأسعردي
-    norm: الاسعردي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الخواجا إبراهيم
     by: rule
-    norm: الخواجا ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: مباركشاه
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
 birth:
   id: b
   note:
@@ -43,33 +39,72 @@ death:
   date:
     ah: 851
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m9
   note:
     ja: 851年＝1447-03-28 開始（h2g.py、年精度）。「أوائل」（年の初め）は月が書かれていないので年精度のまま。
-  quote: سنة
   phrase: ومات في أوائل سنة إحدى وخمسين بدمشق
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00227
+  active: m7
   passive: AIND-D06541
-  quote: الذي قبله
   note:
     ja: '見出しナサブ「بن الخواجا إبراهيم بن مباركشاه … الأسعردي」＝#AIND-D00227「إبراهيم بن مباركشاه الأسعردي الخواجا التاجر الشهير صاحب المدرسة بالجسر الأبيض … فمات هذا مطعونا في رجب سنة ست وعشرين ولم يكمل الستين」（名・父名・ニスバ・「الخواجا」で閉合、repo 収録済み。規則37）。826年に60歳未満で没した父と、800年前後生まれの子で年代も合う。初版は #NEEDID。'
   phrase: إبراهيم بن مباركشاه
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: قاله
+  - mention: m11
   note:
     ja: Pattern A。البقاعي＝#AIND-D00207（إبراهيم بن عمر بن حسن الرباط … البقاعي）。「مجردا」＝それ以上の記述なしに。初版の統制外 subtype「informant」relation を置換。
   trigger: rule
   phrase: قاله البقاعي مجردا
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الخواجا إبراهيم
+  norm: الخواجا ابراهيم
+- id: m3
+  kind: name
+  quote: مباركشاه
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  ref: TMP-N-00444
+  quote: الأسعردي
+  norm: الاسعردي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: person
+  ref: AIND-D00227
+  quote: الذي قبله
+- id: m8
+  kind: year
+  value: '851'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: ムハンマド・ブン・アル＝ハワージャー・イブラーヒーム・ブン・ムバーラクシャー・ブン・アブドゥッラー・アル＝アスアルディー・アッ＝ディマシュキー。世紀の初め、あるいはその前の世紀の末に生まれた。51年の初めにダマスクスで没した。アル＝ビカーイーが、それだけを述べた。
   en: Muḥammad b. al-Khawājā Ibrāhīm b. Mubārakshāh b. ʿAbd Allāh al-Asʿardī al-Dimashqī. He was born at the beginning of the century or at the end of the one before it, and died at the beginning of the year 51 in Damascus. Al-Biqāʿī said this, without anything further.

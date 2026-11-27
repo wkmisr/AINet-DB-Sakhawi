@@ -9,41 +9,36 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عليباي
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: خليل
     by: rule
-    ref: TMP-P-001320
+    mention: m2
   - id: n3
     type: nasab
-    quote: دلغادر قتل على يد
     by: rule
-    norm: دلغادر قتل علي يد
+    mention: m3
 death:
   id: d
   date:
     ah: 829
   note:
     ja: 「قتل على يد نائب حلب جار قطلو في سنة تسع وعشرين」。829年＝1425-11-22〜1426-11-10。アレッポ副王 جار قطلو の手で殺害された。没地の記載なし。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: social
   subtype: killer
-  active: AIND-D02330
+  active: m4
   passive: AIND-D04919
-  quote: نائب حلب جار قطلو
   note:
     ja: 'جار قطلو ＝ #AIND-D02330（جار قطلي … سيف الدين الأشرفي من عتقاء الظاهر برقوق … نقله الأشرف لنيابة حلب عوضا عن تاني بك البجاسي فكان دخوله لها في شوال سنة ست وعشرين、837年没）。826年以降のアレッポ副王＝829年の殺害と整合。初版の #NEEDID を解消。'
-  norm: ناءب حلب جار قطلو
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001320
   passive: AIND-D04919
-  quote: null
   note:
     ja: '父 خليل بن دلغادر＝ドゥルガーディル（ズルカドル）朝の خليل بن قراجا بن دلغادر（corpus では #AIND-D05138「علي بن خليل بن قراجا بن دلغادر … وأخو الناصري محمد بك」および照会項「محمد بك بن دلغادر . هو ابن خليل بن قراجا」の父。ID-Master の TMP-P-000683 ناصر الدين محمد بك بن دلغادر の父にもあたる）。corpus に本伝なし・ID-Master 未登録 → 仮 TMP-P-001320 を発行（統一規則3、祖父名 دلغادر まで復元可）。'
   phrase: خليل بن دلغادر
@@ -55,9 +50,29 @@ relations:
   summary:
     ar: علي بن خليل بن قراجا بن دلغادر علاء الدين الأرتقي التركماني أمير التركمان ببلد مرعش … ويعرف بعلي باك
   cert: medium
-  quote: null
   note:
     ja: 同名異項の可能性。#AIND-D05138（علي بن خليل بن قراجا بن دلغادر … ويعرف بعلي باك … استدعى به إلى مصر فتوجه إليه … ومات في ...）は父名・祖名が一致し「علي باك」＝「عليباي」。照会項「عليباي بابي . في علي بن خليل بن قراجا」も両形を同一視する。ただし本項に転送指示はなく、D05138 側は没年を空欄とするため二重立項型として両項を実項のまま保持（Waka 裁定 2026-09-08）、possible_identity cert medium。要判断 §D98-2。
+mentions:
+- id: m1
+  kind: name
+  quote: عليباي
+- id: m2
+  kind: name
+  ref: TMP-P-001320
+  quote: خليل
+- id: m3
+  kind: name
+  quote: دلغادر قتل على يد
+  norm: دلغادر قتل علي يد
+- id: m4
+  kind: person
+  ref: AIND-D02330
+  quote: نائب حلب جار قطلو
+  norm: ناءب حلب جار قطلو
+- id: m5
+  kind: year
+  value: '829'
+  quote: سنة
 translation:
   ja: アリーバーイ・ブン・ハリール・ブン・ドゥルガーディル。829年、アレッポ副王ジャール・クトルの手で殺害された。
   en: ʿAlībāy b. Khalīl b. Dulghādir. He was killed at the hands of the viceroy of Aleppo, Jār Quṭlū, in the year 829.

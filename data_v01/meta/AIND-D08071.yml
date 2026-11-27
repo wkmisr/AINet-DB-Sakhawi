@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن غانم
-    norm: ابن غانم
     label: ابن غانم
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: خليل
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 persons:
 - id: p1
   label: علي بن خليل
@@ -46,7 +43,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D08071
   methods:
   - TMP-S-00003
@@ -55,12 +52,10 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m10
     phrase: قدم القاهرة فاشتغل وسمع مني المسلسل بالأولية
   works:
   - ref: TMP-T-00019
-  quote: مني
   note:
     ja: 「سمع مني المسلسل بالأولية」（規則2、field は付けない）。المسلسل＝TMP-T-00019。placeName القاهرة は「قدم القاهرة فاشتغل وسمع مني」の等位接続による（規則22(3)、先例 D05717）。
 - id: r2
@@ -68,15 +63,13 @@ relations:
   subtype: father
   active: AIND-D08071#p1
   passive: AIND-D08071
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن خليل（المقدسي）は裸名で corpus に本伝なし、ID-Master 未登録 → #NEEDID。'
 - id: r3
   type: kin
   subtype: relative
-  active: TMP-P-001657
+  active: m8
   passive: AIND-D08071
-  quote: ناصر الدين بن غانم
   note:
     ja: '「قريب ناصر الدين بن غانم」。ID-Master に「ناصر الدين بن غانم」の Person 登録なし（idsearch「غانم」）→ 新規 TMP-P-001657（ناصر الدين بن غانم المقدسي）。候補: #AIND-D07832「محمد بن عبد الله بن محمد بن محمد بن غانم ناصر الدين بن الجمال بن ناصر الدين الغانمي … المقدسي الشافعي ابن شيخ الحرم」（827年生、サハーウィーと同世代）と、同家で同じ呼称になる祖父 ناصر الدين محمد بن محمد بن سليمان（#AIND-D04620 の父、本伝なし）。閉合はラカブ ناصر الدين と家名 غانم のみで2人を区別できず、corpus の「ناصر الدين بن غانم」は本項と #AIND-D06818「أمه أخت لناصر الدين بن غانم المقدسي」の2例だけ＝固定呼称とも言えない（規則26 例外2 不適用）→ 同定せず仮番号（規則26・57）。【集約 2026-11-03】校閲時の #AIND-D07832 cert medium を差し替え（内容A M、オーケストレーター決定10）。候補は ★1 の候補一覧に。'
 affiliations:
@@ -87,13 +80,52 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m10
   note:
     ja: 「قدم القاهرة」は到来の記述＝travel（先例 D05717・D05733）。初版の type="study" を置換。
   trigger: rule
   phrase: قدم القاهرة فاشتغل
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: خليل
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: name
+  quote: بابن غانم
+  norm: ابن غانم
+- id: m8
+  kind: person
+  ref: TMP-P-001657
+  quote: ناصر الدين بن غانم
+- id: m9
+  kind: event
+  quote: قدم
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ハリール、アッ＝シャムス・アル＝マクディスィー、ハナフィー派。イブン・ガーニムとして知られ、ナースィル・アッ＝ディーン・ブン・ガーニムの親族。カイロに来て学問に励み、私（サハーウィー）から『アル＝ムサルサル・ビル＝アウワリーヤ』を聴聞した。
   en: Muḥammad b. ʿAlī b. Khalīl, al-Shams al-Maqdisī al-Ḥanafī, known as Ibn Ghānim, a relative of Nāṣir al-Dīn b. Ghānim. He came to Cairo, pursued his studies, and heard from me al-Musalsal bi-l-Awwaliyya.

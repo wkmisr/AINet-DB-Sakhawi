@@ -9,29 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 895-06-06
   note:
     ja: 895年ジュマーダー・アッ＝サーニヤ月6日＝1490-05-06（グレゴリオ暦、h2g.py で火曜と検証。「ليلة الثلاثاء」は火曜の前夜）。@when を日付まで精密化（初版は 1490）。「عند بلوغه」（成年に達した頃）＝没時は少年で、生年は 880 年前後と推定されるが逆算根拠が弱いため birth は立てない。
-  quote: سنة
   phrase: مات في ليلة الثلاثاء سادس جمادى الثانية سنة خمس وتسعين عند بلوغه
+  mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07778
+  active: m4
   passive: AIND-D04671
   methods:
   - TMP-S-00071
@@ -39,14 +37,13 @@ relations:
   - ref: TMP-T-00095
   - label: كتب جمة
   - label: kutub jamma
-  quote: العذول
   note:
     ja: '主人 العذول＝#AIND-D07778（الشمس محمد بن عبد الله بن شاه خان … الحلبي المنشأ الدمشقي الاستيطان الشافعي نزيل مكة ويعرف بالعذول بفتح المهملة وضم المعجمة）。corpus 全体で「يعرف بالعذول」は同項のみ（他は詩句中の普通名詞）。初版の field「القراءات」（wd:Q1817983）は原文になく除去し、教材を bibl（القرآن＝#TMP-T-00095）に。初版の relation n=1・n=2（いずれも #NEEDID）を統合。'
   phrase: أحسن سيده تربيته وأقرأه القرآن وكتبا جمة أجاد حفظها
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04671
   methods:
   - TMP-S-00006
@@ -54,29 +51,62 @@ relations:
   - ref: TMP-T-00095
   - label: كتب جمة
   - label: kutub jamma
-  quote: علي
   note:
     ja: 「عرضها علي」＝人名が続かないため「عليّ（私＝サハーウィーに）」と読む。「ها」＝前出の القرآن وكتب جمة。
   phrase: وعرضها علي في جملة الجماعة
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D04671
   methods:
   - TMP-S-00003
-  quote: علي
   phrase: بل وسمع علي أشياء
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D07778
+  active: m5
   passive: AIND-D04671
-  quote: أحسن سيده تربيته وأقرأه القرآن وكتبا جمة أجاد حفظها
   note:
     ja: '「فتى العذول」＝العذول の奴隷（少年）。العذول＝#AIND-D07778（同上）。初版 #NEEDID を解消。'
-  norm: احسن سيده تربيته واقراه القران وكتبا جمة اجاد حفظها
   phrase: العذول
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: person
+  ref: AIND-D07778
+  quote: العذول
+- id: m5
+  kind: person
+  ref: AIND-D07778
+  quote: أحسن سيده تربيته وأقرأه القرآن وكتبا جمة أجاد حفظها
+  norm: احسن سيده تربيته واقراه القران وكتبا جمة اجاد حفظها
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m9
+  kind: year
+  value: '895'
+  quote: سنة
 translation:
   ja: アブドゥッラー・アル＝ハバシー・アル＝マッキー。アル＝アドゥールの奴隷の少年。主人は彼を立派に育て、クルアーンと数多くの書物を教授し、彼はそれらを見事に暗記して、集団の一員として私（サハーウィー）にそれらを暗誦提示し、さらには私からいくつかのものを聴聞した。聡明であった。895年ジュマーダー・アッ＝サーニヤ月6日火曜の夜、成年に達した頃に没した。神が彼とその主人に楽園をもって報われんことを。
   en: ʿAbd Allāh al-Ḥabashī al-Makkī, the slave-boy (fatā) of al-ʿAdhūl. His master brought him up well and taught him the Qurʾān and a great many books, which he memorized excellently and recited from memory (ʿaraḍa) to me [al-Sakhāwī] among the group; indeed he also heard several things from me. He was intelligent. He died on the eve of Tuesday, the sixth of Jumādā II of the year 895, on reaching maturity. May God compensate him and his master with Paradise.

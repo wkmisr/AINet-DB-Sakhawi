@@ -9,38 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01246
-    quote: البطناوي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n3
     type: shuhrah
-    quote: بابن الجمال
-    norm: ابن الجمال
     label: ابن الجمال
+    mention: m8
   - id: n4
     type: ism
-    quote: عبد الوهاب
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001283
+    mention: m2
   - id: n6
     type: nasab
-    quote: جمال
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: غنايم
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: سليم
     by: rule
+    mention: m5
 birth:
   id: b
   date:
@@ -53,7 +49,6 @@ relations:
   subtype: father
   active: TMP-P-001283
   passive: AIND-D04776
-  quote: null
   note:
     ja: '見出しナサブの父。corpus に本伝なし・ID-Master 未登録。祖父名（جمال）以上まで4代のナサブと一族の通称 ابن الجمال・ニスバ البطناوي（corpus では本項のみ）が識別要素になるため、規則3・12 により集約時に #NEEDID から仮番号 TMP-P-001283 に差し替え（§D94-5）。校閲時の判断: ナサブは長いが祖父以上が裸名（جمال بن غنايم بن سليم）で通称 ابن الجمال 以外の識別要素がなく、ニスバ البطناوي は本項主にしか corpus で出現しないため #NEEDID 維持（TMP-P 発行の要否は要判断、ISSUES §D94-5）。'
   phrase: عبد الله بن جمال بن غنايم بن سليم البطناوي الدمشقي
@@ -61,11 +56,10 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D04776
-  passive: AIND-D00207
+  passive: m11
   methods:
   - TMP-S-00004
   cert: medium
-  quote: البقاعي
   note:
     ja: '規則15: 「استجازه البقاعي」＝البقاعي（#AIND-D00207）が本項主にイジャーザを求めた＝本項主が授与者（active）。授与の明記はなく、サハーウィーも「وما أحببت ذلك」と否定的なため cert medium。初版の wd:Q12198099 をブリーフ確定ID #AIND-D00207 に差し替え。'
   phrase: واستجازه البقاعي لظنه سماعه وما أحببت ذلك
@@ -75,19 +69,60 @@ events:
   date:
     ah: 859
     type: other
-  quote: وكان حيا في سنة تسع وخمسين
   note:
     ja: 859年に存命。859 ＝ 1454-12-31〜1455-12-19、年初 1454（h2g.py）。
-  norm: كان حيا في سنة تسع وخمسين
+  phrase: وكان حيا في سنة تسع وخمسين
+  mention: null
 - id: e2
   type: cultural
   subtype: meeting
   persons:
   - ref: TMP-P-000135
-  quote: null
   cert: medium
   note:
     ja: 本人の談（أخبر أنه）で、礼拝で後ろに立っただけで聴聞・イジャーザの記憶はないと明言するため、teacher ではなく met とし cert medium。أبو هريرة بن الذهبي ＝ TMP-P-000135（ID-Master 登録済み、799年没）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوهاب
+- id: m2
+  kind: name
+  ref: TMP-P-001283
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: جمال
+- id: m4
+  kind: name
+  quote: غنايم
+- id: m5
+  kind: name
+  quote: سليم
+- id: m6
+  kind: name
+  ref: TMP-N-01246
+  quote: البطناوي
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  quote: بابن الجمال
+  norm: ابن الجمال
+- id: m9
+  kind: year
+  value: '785'
+  quote: سنة
+- id: m10
+  kind: year
+  value: '859'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: アブドゥルワッハーブ・ブン・アブドゥッラー・ブン・ジャマール・ブン・ガナーイム・ブン・サリーム、アル＝バトナーウィー・アッ＝ディマシュキー、イブン・アル＝ジャマールとして知られる。785年より後に生まれた。アブー・フライラ・ブン・アッ＝ザハビーの後ろで礼拝したと語ったが、彼からの聴聞もイジャーザも覚えていない。（8）59年には存命であり、アル＝ビカーイーは彼が（アブー・フライラから）聴聞したと考えてイジャーザを求めたが、私（サハーウィー）はそれを好まなかった。
   en: ʿAbd al-Wahhāb b. ʿAbd Allāh b. Jamāl b. Ghanāyim b. Salīm, al-Baṭnāwī al-Dimashqī, known as Ibn al-Jamāl. He was born after 785. He reported that he had prayed behind Abū Hurayra b. al-Dhahabī, but did not recall any audition (samāʿ) or ijāza from him. He was still alive in (8)59, and al-Biqāʿī sought an ijāza from him, supposing that he had heard (from Abū Hurayra), which I (al-Sakhāwī) did not approve of.

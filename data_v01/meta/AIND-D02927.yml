@@ -9,64 +9,57 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: ism
-    quote: خنافر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عقيل
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: وبير
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 875
   note:
     en: Killed in a clash against Sabʿ b. Hajjān.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: social
   subtype: predecessor
-  active: TMP-P-000781
+  active: m7
   passive: AIND-D02927
-  quote: هجان بن محمد بن مسعود
   note:
     en: Predecessor as Emir of Yanbuʿ.
     ja: corpus本伝未特定（息子 سبع=AIND-D03068、مقدم=AIND-D09996 は立項あり）＝TMP発行。
 - id: r2
   type: social
   subtype: rival
-  active: AIND-D03068
+  active: m9
   passive: AIND-D02927
-  quote: بسبع بن هجان
   note:
     en: Rival who temporarily deposed him and later clashed with him, leading to his death.
     ja: سبع بن هجان بن محمد بن مسعود الحسني أمير الينبوع = AIND-D03068。
-  norm: سبع بن هجان
   phrase: سبع بن هجان
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
+  - mention: m6
   dates:
   - ah: 860
     type: appointment
   - ah: 875
     type: retirement
-  quote: أمير
   note:
     ja: 初版は裸年「بعد سنة ستين」「سنة خمس وسبعين」を760/775と読んでいたが、本書は9世紀（801–900H）人物録であり同項のdeathも0875と採る。100年ズレを是正（0760→0860・0775→0875）。
-  norm: امير
+  mention: m5
 events:
 - id: e1
   type: residence
@@ -75,12 +68,11 @@ events:
     cert: low
     type: residence
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
-  quote: null
+  - mention: m6
   cert: low
   note:
     en: Became Emir of Yanbu after 860 AH.
+  mention: null
 - id: e2
   type: political
   date:
@@ -88,13 +80,55 @@ events:
     cert: high
     type: political
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
+  - mention: m6
   summary:
     en: Killed in a clash against Sabʿ b. Hajjān.
-  quote: قتل
   cert: high
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: خنافر
+- id: m2
+  kind: name
+  quote: عقيل
+- id: m3
+  kind: name
+  quote: وبير
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: أمير
+  norm: امير
+- id: m6
+  kind: place
+  quote: الينبوع
+  ref: TMP-L-00081
+- id: m7
+  kind: person
+  ref: TMP-P-000781
+  quote: هجان بن محمد بن مسعود
+- id: m8
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D03068
+  quote: بسبع بن هجان
+  norm: سبع بن هجان
+- id: m10
+  kind: event
+  quote: قتل
+- id: m11
+  kind: year
+  value: '875'
+  quote: سنة
 translation:
   ja: フナーフィル・ブン・アキール・ブン・ウハイル・アル＝ハサニー。ヤンブーのアミール（統治者）。ハッジャーン・ブン・ムハンマド・ブン・マスウードの後、860年以降にヤンブーを統治した。その後、ハッジャーンの息子サブウによって退位させられたが、再び復位し、875年にサブウとの衝突（戦闘）の中で殺害されるまでその地位にあった。
   en: Khunāfir b. ʿAqīl b. Wubayr al-Ḥasanī, Emir of Yanbuʿ. He governed it after Hajjān b. Muḥammad b. Masʿūd after the year 860 AH. He was then deposed by Sabʿ b. Hajjān, but was later restored to power until he was killed in a clash against Sabʿ in the year 875 AH.

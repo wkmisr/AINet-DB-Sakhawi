@@ -9,55 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03963
-    quote: الرازابي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 886-07
   places:
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - role: burial
+    mention: m11
   note:
     ja: 「مات في رجب سنة ست وثمانين ، ودفن بالمعلاة」。886-07 ＝ 1481-09-04〜10-03（h2g.py）。没地は原文に明示がなく（埋葬地 المعلاة のみ）、初版の placeName مكة は施設所在地からの補完のため除去（規則22(1)）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m14
   passive: AIND-D04603
   methods:
   - TMP-S-00028
   works:
   - ref: TMP-T-00033
-  quote: عندي
   note:
     ja: 「ممن حضر عندي في شرح الألفية وغيره」＝私（サハーウィー）の『شرح الألفية』（自著＝ID-Master TMP-T-00033「شرح الألفية للسخاوي」）講義に出席。field（الحديث）は原文に明示がないため除去。
 - id: r2
@@ -69,33 +63,31 @@ relations:
   - TMP-S-00067
   works:
   - ref: TMP-T-00090
-  quote: null
   note:
     ja: 「وحصل القول البديع」＝私の『القول البديع』（TMP-T-00090）を入手した。初版の空 desc に語（حصل）を補い field を除去。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03521
+  active: m15
   passive: AIND-D04603
   methods:
   - TMP-S-00025
   cert: medium
   works:
   - ref: TMP-T-00108
-  quote: الشرف عبد الحق السنباطي
   note:
     ja: 「بل كان فيما بلغني يقرأ على الشرف عبد الحق السنباطي حين مجاورته في تقسيم الأرشاد」＝伝聞（بلغني）のため cert medium。الشرف عبد الحق السنباطي＝#AIND-D03521（عبد الحق بن محمد بن عبد الحق … الشرف بن الشمس السنباطي ثم القاهري الشافعي。同項に 882・885年のマッカ مجاورة の記事あり）。「حين مجاورته」の地は原文に明示がないため placeName は置かず、初版の learning event（مكة）を除去（規則22(1)）。『الإرشاد』は既存 TMP-T-00108（篠田氏登録、同定困難の注記あり）を維持。
 assessments:
 - id: v1
-  quote: صالحا
   terms:
   - صالح
   by: rule
+  mention: m12
 - id: v2
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m13
 events:
 - id: e1
   type: residence
@@ -103,10 +95,65 @@ events:
   - ref: gn:104515
   orgs:
   - ref: TMP-I-00179
-  quote: نزيل
   note:
     ja: 「ثم المكي نزيل رباط ابن الزمن منها」。رباط ابن الزمن は ID-Master 未登録（corpus 16811 行「ناب في مشيخة رباط ابن الزمن」にも出現）→ 新規 TMP-I-00179。「منها」の指示対象はニスバ المكي の地 مكة 一つに定まるため cert medium（規則22(3)）。初版の affiliation type="reside"（規則8 二重）と ニスバ由来 residence・「مجاورته」由来の jāwara event を除去。
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: سليمان
+- id: m5
+  kind: name
+  ref: TMP-N-03963
+  quote: الرازابي
+- id: m6
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: month
+  value: 7
+  quote: رجب
+- id: m10
+  kind: year
+  value: '886'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m12
+  kind: assessment
+  quote: صالحا
+- id: m13
+  kind: assessment
+  quote: خيرا
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
+- id: m15
+  kind: person
+  ref: AIND-D03521
+  quote: الشرف عبد الحق السنباطي
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アリー・ブン・スライマーン、アッ＝ラーザービー・アル＝ジャバルティー、のちにアル＝マッキー。同地（マッカ）のリバート・イブン・アッ＝ザマンの住人。（8）86年ラジャブ月に没し、アル＝マアラーに葬られた。善良で敬虔な人物で、私（サハーウィー）のもとで『アルフィーヤ註釈』などの講義に出席した者の一人であり、『アル＝カウル・アル＝バディーウ』を入手した。それどころか、私の聞いたところでは、彼はアッ＝シャラフ・アブドゥルハック・アッ＝スンバーティーが隣留（ムジャーワラ）していた際に彼のもとで『アル＝イルシャード』の分担講読を行っていたという。神が彼を憐れみたまえ。
   en: ʿAbd Allāh b. Muḥammad b. ʿAlī b. Sulaymān, al-Rāzābī al-Jabartī, later al-Makkī, resident of Ribāṭ Ibn al-Zaman there (in Mecca). He died in Rajab (8)86 and was buried at al-Muʿallā. He was a righteous, good man, one of those who attended my (al-Sakhāwī's) lectures on the Sharḥ al-Alfiyya and other works, and he obtained al-Qawl al-Badīʿ; indeed, as I was informed, he used to read al-Irshād in divided sessions under al-Sharaf ʿAbd al-Ḥaqq al-Sunbāṭī during the latter's sojourn (mujāwara). May God have mercy on him.

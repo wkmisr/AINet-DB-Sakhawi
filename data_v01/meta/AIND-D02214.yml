@@ -9,20 +9,20 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: بلاط
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 812
   note:
     en: He was killed on the road.
-  quote: سنة
+  mention: m5
 states:
 - id: s1
   type: office
   ref: TMP-O-00083
-  quote: null
+  mention: null
 events:
 - id: e2
   type: political
@@ -30,25 +30,22 @@ events:
   - ref: gn:361058
   summary:
     en: Imprisoned by the Sultan in Alexandria.
-  quote: وحبسه
   cert: low
   note:
     en: Year not specified, occurred prior to death in 812 H.
   trigger: rule
-  norm: حبسه
+  mention: m2
 - id: e3
   type: political
   places:
-  - ref: gn:358048
-    quote: دمياط
+  - mention: m3
   summary:
     en: Exiled from Alexandria to Damietta.
-  quote: فقتل
   cert: low
   note:
     en: Year not specified, occurred prior to death in 812 H.
   trigger: rule
-  norm: قتل
+  mention: m4
 - id: e4
   type: other
   date:
@@ -57,19 +54,45 @@ events:
     type: other
   summary:
     en: Killed on the road.
-  quote: null
   cert: medium
   note:
     en: Century inferred from al-Sakhāwī's work focusing on the 9th century AH.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m7
   trigger: rule
   phrase: ذكره العيني أيضا
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: بلاط
+- id: m2
+  kind: event
+  quote: وحبسه
+  norm: حبسه
+- id: m3
+  kind: place
+  quote: دمياط
+  ref: gn:358048
+- id: m4
+  kind: event
+  quote: فقتل
+  norm: قتل
+- id: m5
+  kind: year
+  value: '812'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: バラート。高官の一人。彼は宗教的知識に疎く、放蕩で堕落した人物であった。そのためスルタンは彼に激怒し、アレクサンドリアに投獄した。その後、彼はそこからダミエッタへ移送され、道中で812年に殺害された。アル＝アイニーも彼のことに言及している。
   en: Balāṭ. One of the muqaddams. He was among the wicked, corrupt, and ignorant in religious matters. The Sultan therefore became angry with him and imprisoned him in Alexandria. He was then removed from there to Damietta and killed on the road in the year 812 H. Al-ʿAynī also mentioned him.

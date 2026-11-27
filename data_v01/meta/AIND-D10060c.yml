@@ -9,35 +9,34 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشرف
+    mention: m5
   - id: n2
     type: nisbah
-    quote: الكناني
+    mention: m6
   - id: n3
     type: nisbah
-    quote: null
     label: الجلجولي
+    mention: null
   - id: n4
     type: nisbah
-    quote: null
     label: المقدسي
+    mention: null
   - id: n5
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: رجب
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: راشد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: ناصر الدين محمد
     by: rule
+    mention: m4
 birth:
   id: b
   date:
@@ -49,7 +48,7 @@ birth:
   note:
     ar: ولد سنة إحدى أو إثنتين وعشرين وسبعمائة بجلجوليا
     ja: 原文「سبعمائة」は「ثمانمائة」の誤り（師 العز عبد السلام القدسي・ابن السائح・المحب بن الشحنة、サハーウィーとの同行、没880頃から9世紀人）。821または822年→821 で cert medium。جلجوليا は ID-Master 要照合。
-  quote: سنة
+  mention: m7
 death:
   id: d
   date:
@@ -57,7 +56,7 @@ death:
     cert: medium
   note:
     ar: مات تقريبا سنة ثمانين
-  quote: سنة
+  mention: m18
 persons:
 - id: p1
   label: الشمس القلقبلي
@@ -69,47 +68,41 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10060c#p1
+  active: m9
   passive: AIND-D10060c
   methods:
   - TMP-S-00025
   works:
   - ref: TMP-T-00095
   - ref: wd:Q108806953
-  quote: الشمس القلقبلي
   note:
     ar: فقرأ القرآن عند الشمس القلقبلي وبعض التنبيه
     ja: الشمس القلقبلي、corpus 本伝なし→ref 未付与。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000209
+  active: m10
   passive: AIND-D10060c
   methods:
   - TMP-S-00028
-  quote: العز عبد السلام القدسى
   note:
     ar: وحضر دروس العز عبد السلام القدسى وغيره
     ja: العز عبد السلام القدسي = TMP-P-000209。
-  norm: العز عبد السلام القدسي
 - id: r3
   type: social
   subtype: other
-  active: AIND-D10060c#p2
+  active: m13
   passive: AIND-D10060c
-  quote: ابن السائح
   note:
     ar: وناب في القضاء ببيت المقدس عن ابن السائح
     ja: ابن السائح（قاضي الرملة → D10438 に「ابن السائح قاضي الرملة」）。corpus 本伝なし→ref 未付与。
-  norm: ابن الساءح
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D09237
+  active: m14
   passive: AIND-D10060c
   methods:
   - TMP-S-00014
-  quote: المحب بن الشحنة
   note:
     ar: ولازم المحب بن الشحنة حين إفامته هناك
     ja: 'المحب بن الشحنة = #AIND-D09237（محمد بن محمد بن محمد بن محمد بن محمود … المحب أبو الفضل ابن الشحنة الحلبي الحنفي、没890、エルサレム滞在あり）。父 المحب أبو الوليد（#AIND-D09245、没815）は本項主の生年（821）と合わない。'
@@ -125,22 +118,16 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00142
-      quote: قطيا
-  quote: null
+    - mention: m17
   note:
     ar: وفي رجوعه منها مرة رافقناه … وكتبت عنه في المكان المعروف بابن أبى الفرج من قطيا أشياء أوردتها في المعجم
     ja: サハーウィーが同行し قطيا 近郊「ابن أبي الفرج」で詩を筆録（『المعجم』所収）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:281184
-    quote: ببيت المقدس
-    norm: بيت المقدس
-  quote: وناب
-  norm: ناب
+  - mention: m12
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -149,16 +136,87 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: للقاهرة
-    norm: لقاهرة
-  quote: وتردد
+  - mention: m16
   trigger: rule
-  norm: تردد
   phrase: وتردد للقاهرة غير مرة
+  mention: m15
 notes:
 - text: 人物評：「خفيف الروح لطيف العشرة يغلب عليه المجون والخراعة وتولع بالأدب وبالنظم」。詩2行（علم الدين という美少年への詩、原文参照）。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: رجب
+- id: m3
+  kind: name
+  quote: راشد
+- id: m4
+  kind: name
+  quote: ناصر الدين محمد
+- id: m5
+  kind: name
+  quote: الشرف
+- id: m6
+  kind: name
+  quote: الكناني
+- id: m7
+  kind: year
+  value: '821'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بجلجوليا
+  ref: None
+  norm: جلجوليا
+- id: m9
+  kind: person
+  ref: AIND-D10060c#p1
+  quote: الشمس القلقبلي
+- id: m10
+  kind: person
+  ref: TMP-P-000209
+  quote: العز عبد السلام القدسى
+  norm: العز عبد السلام القدسي
+- id: m11
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m12
+  kind: place
+  quote: ببيت المقدس
+  ref: gn:281184
+  norm: بيت المقدس
+- id: m13
+  kind: person
+  ref: AIND-D10060c#p2
+  quote: ابن السائح
+  norm: ابن الساءح
+- id: m14
+  kind: person
+  ref: AIND-D09237
+  quote: المحب بن الشحنة
+- id: m15
+  kind: event
+  quote: وتردد
+  norm: تردد
+- id: m16
+  kind: place
+  quote: للقاهرة
+  ref: gn:360630
+  norm: لقاهرة
+- id: m17
+  kind: place
+  quote: قطيا
+  ref: TMP-L-00142
+- id: m18
+  kind: year
+  value: '880'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・ラジャブ・ブン・ラーシド・ブン・ナースィル・ッディーン・ムハンマド、シャラフ〔・ッディーン〕・アル＝キナーニー・アル＝ジャルジューリー・アル＝マクディスィー、シャーフィイー派。〔8〕21年または22年にジャルジューリヤーに生まれ、そこで育ってシャムス・アル＝カルカブリーのもとでクルアーンと『タンビーフ』の一部を読み、イッズ・アブド・アッ＝サラーム・アル＝クドスィーらの講義に出席した。イブン・アッ＝サーイフの代理としてエルサレムでカーディー職を務め、ムヒッブ・イブン・アッ＝シフナがそこに滞在していた際に彼に師事した。幾度もカイロに往来し、あるときその帰路に我々は彼と同行した。彼は快活で交際が穏やかだが戯れと放埓が勝ち、文学と詩作を好む人物と見えた。私はカティヤーの「イブン・アビー・ル＝ファラジュ」として知られる場所で彼から詩を書き留め、『ムウジャム』に収めた。その中にアラム・ッディーンという名の美少年への詩がある（2行）。およそ880年に没した。神が彼を憐れみ赦したまえ。
   en: Mūsā b. Rajab b. Rāshid b. Nāṣir al-Dīn Muḥammad, al-Sharaf al-Kinānī al-Jaljūlī al-Maqdisī al-Shāfiʿī. Born in [8]21 or 822 at Jaljūliyā, he read the Qurʾān and part of al-Tanbīh with al-Shams al-Qalqablī, attended the lessons of al-ʿIzz ʿAbd al-Salām al-Qudsī and others, deputised as judge in Jerusalem for Ibn al-Sāʾiḥ, and attached himself to al-Muḥibb Ibn al-Shiḥna during his stay there. He went to Cairo several times; on one return journey we travelled with him, and I found him light-spirited and pleasant company, though given to jesting and licence, fond of literature and verse. I wrote down from him, at the place known as Ibn Abī al-Faraj near Qaṭyā, pieces which I included in the Muʿjam, including lines on a handsome youth named ʿAlam al-Dīn. He died about 880.

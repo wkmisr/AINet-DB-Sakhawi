@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو زمام
-    norm: ابو زمام
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-04567
-    quote: الخلطي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-05526
-    quote: المالكي
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: زمام
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 866-02
   note:
     ja: 866年サファル月＝1461-11-14〜12-12（月精度 1461-11）。初版の when="1462" は誤り。
-  quote: سنة
   phrase: توفي في صفر سنة ست وستين
+  mention: m8
 persons:
 - id: p1
   label: زمام
@@ -47,30 +44,59 @@ relations:
   subtype: father
   active: AIND-D07398#p1
   passive: AIND-D07398
-  quote: null
   note:
     ja: '父は裸名のみ（祖父名なし）、corpus に本伝なし → #NEEDID（規則3）。'
 states:
 - id: s1
   type: status
-  quote: null
   phrase: كان صالحا
+  mention: null
 sources:
 - id: c1
-  quote: أفاده لي بعض أصحابنا المغاربة
   note:
     ja: 没年の情報源はマグリブ出身の同輩の一人（名不詳）。persName・relation を立てない（規則44、ブリーフ）。
-  norm: افاده لي بعض اصحابنا المغاربة
+  phrase: أفاده لي بعض أصحابنا المغاربة
+  mention: null
 assessments:
 - id: v1
-  quote: صالحا
   terms:
   - صالح
   by: rule
+  mention: m6
 notes:
 - text: 「المالكي」は原文の説明どおりマグリブの部族 بنو ملك へのニスバであり、マーリク派（学派）ではない → affiliation madhhab は立てず、部族ニスバとして TMP-N-05526 を発行（既登録の学派 المالكي とは別）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: زمام
+- id: m3
+  kind: name
+  quote: أبو زمام
+  norm: ابو زمام
+- id: m4
+  kind: name
+  ref: TMP-N-04567
+  quote: الخلطي
+- id: m5
+  kind: name
+  ref: TMP-N-05526
+  quote: المالكي
+- id: m6
+  kind: assessment
+  quote: صالحا
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '866'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ズィマーム、アブー・ズィマーム、アル＝フルティー──アル＝フルートと呼ばれる部族への帰属名──、次いでアル＝マーリキー──マグリブのバヌー・マリクへの帰属名。善良な人であった。866年サファル月に没した。マグリブ出身の我らの同輩の一人が私に伝えてくれた。
   en: Muḥammad b. Zimām, Abū Zimām, al-Khulṭī, a nisba to a tribe called al-Khulūṭ, then al-Mālikī, a nisba to the Banū Malik of the Maghrib. He was a righteous man. He died in Ṣafar of the year [8]66. One of our Maghribi companions informed me of this.

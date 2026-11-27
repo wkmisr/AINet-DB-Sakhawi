@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m2
   - id: n2
     type: ism
-    quote: خالد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m6
   note:
     ja: 873年（1468-07-31 開始、年精度）のペストでカイロにて没。「قاله ابن فهد」＝イブン・ファハドの伝。
-  quote: سنة
   phrase: مات في طاعون سنة ثلاث وسبعين بالقاهرة
+  mention: m5
 persons:
 - id: p1
   label: والد خالد المقدسي
@@ -37,33 +34,61 @@ relations:
   subtype: father
   active: AIND-D02814#p1
   passive: AIND-D02814
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: wd:Q125482
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: نائب إمام الحنابلة
+  - mention: m4
   note:
     ja: 見出し「نائب إمام الحنابلة بمكة」＝マッカ（聖モスク）のハンバリー派イマーム代理。ID-Master の先例 TMP-O-00325「نائب الإمام بالمقام الحنبلي」（D07038、corpus D00687 も同職）に同定。placeName مكة は原文明記。学派（ハンバリー派）は職から推定されるが原文に明記がないため affiliation は立てない。
-  norm: ناءب امام الحنابلة
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: قاله
+  - mention: m8
   cert: medium
   note:
     ja: 'Pattern A。ابن فهد 振り分け規則（没年 873＝871〈没年≤885）により #AIND-D05979（cert medium、規則43）。初版の統制外 subtype「source」relation（D09211）を変換。'
   trigger: rule
   phrase: قاله ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: خالد
+- id: m2
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m3
+  kind: office
+  ref: wd:Q125482
+  quote: نائب إمام الحنابلة
+  norm: ناءب امام الحنابلة
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m7
+  kind: source
+  quote: قاله
+- id: m8
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ハーリド・アル＝マクディスィー、マッカのハンバリー派イマーム代理。873年のペストでカイロにて没した。イブン・ファハドがそう述べている。
   en: Khālid al-Maqdisī, deputy imam of the Ḥanbalīs at Mecca. He died in the plague of the year 873 in Cairo; so said Ibn Fahd.

@@ -9,84 +9,116 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m5
   - id: n2
     type: ism
-    quote: سبع
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: هجان
     by: rule
-    ref: TMP-P-000781
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 887-12
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
+  - mention: m7
   note:
     en: He died in Dhu al-Hijjah, 887 AH.
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000781
   passive: AIND-D03068
-  quote: null
   phrase: هجان بن محمد بن مسعود
 - id: r2
   type: social
   subtype: successor
-  active: AIND-D02964
+  active: m11
   passive: AIND-D03068
-  quote: دراج ابن مفري
   note:
     en: Succeeded the subject as governor (emir) of Yanbuʿ by a decree from the ruler of al-Ḥijāz.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
+  - mention: m7
   dates:
   - ah: 887-12
     type: retirement
-  quote: أمير
-  norm: امير
+  mention: m6
 events:
 - id: e1
   type: political
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
+  - mention: m7
   summary:
     en: Clashed with Khanāfir b. ʿAqīl, the rival amīr of Yanbuʿ, who was killed in the encounter (in 865).
-  quote: وليها
   note:
     ja: corpus D02927(خنافر بن عقيل)「ثم انفصل بسبع بن هجان … قتل في مناطحة بينه وبين سبع」による補完(要判断§D-7・逆relation)。
   trigger: rule
-  norm: ليها
+  mention: m8
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00081
-    quote: الينبوع
-  quote: null
+  - mention: m7
   note:
     en: Governed and resided in Yanbuʿ intermittently until his death.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: سبع
+- id: m2
+  kind: name
+  ref: TMP-P-000781
+  quote: هجان
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: مسعود
+- id: m5
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m6
+  kind: office
+  ref: TMP-O-00163
+  quote: أمير
+  norm: امير
+- id: m7
+  kind: place
+  quote: الينبوع
+  ref: TMP-L-00081
+- id: m8
+  kind: event
+  quote: وليها
+  norm: ليها
+- id: m9
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m10
+  kind: year
+  value: '887'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D02964
+  quote: دراج ابن مفري
 translation:
   ja: サバウ・イブン・ハッジャーン・イブン・ムハンマド・イブン・マスウード・アル＝ハサニー。ヤンブウのアミール（総督）。何度もその職に就き、ハジュ（巡礼）の月（ズー・アル＝ヒッジャ）のヒジュラ暦887年に没した。彼の死後、ヒジャーズの支配者の決定により、ダッラージュ・イブン・ムフリーが後任としてその職に就いた。
   en: Sabaʿ ibn Hajjān ibn Muḥammad ibn Masʿūd al-Ḥasanī, the emir of Yanbuʿ. He governed it time after time until he died in Dhu al-Hijjah, 887 AH. After him, Darrāj ibn Mufrī was established as governor by a decree from the ruler of al-Ḥijāz.

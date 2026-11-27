@@ -9,51 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01403
-    quote: الأشمومي
-    norm: الاشمومي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m9
   - id: n3
     type: nisbah
-    ref: TMP-N-00675
-    quote: المديني
+    mention: m10
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m6
   - id: n5
     type: kunyah
-    quote: أبو النور
-    norm: ابو النور
+    mention: m7
   - id: n6
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n7
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
   - id: n8
     type: nasab
-    quote: حجاج
     by: rule
+    mention: m3
   - id: n9
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m4
   - id: n10
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m5
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m11
 persons:
 - id: p1
   label: يوسف بن حجاج
@@ -66,13 +58,12 @@ relations:
   subtype: father
   active: AIND-D06105#p1
   passive: AIND-D06105
-  quote: null
   note:
     ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D02414
+  active: m12
   passive: AIND-D06105
   methods:
   - label: أذن له
@@ -83,39 +74,91 @@ relations:
     date:
       ah: 850
       type: learning
-  quote: الزين جعفر السنهوري
   note:
     ja: '「ومن شيوخه فيها الزين جعفر السنهوري وأذن له في سنة خمسين」＝クルアーン読誦学の師で、850年に（教授の）許可を与えた。الزين جعفر السنهوري ＝ #AIND-D02414（جعفر بن إبراهيم … الزين أبو الفتح … السنهوري … المقرئ、810年頃生）。初版の method أجاز（TMP-S-00004）は原文「أذن له」に改め、@when の誤置（ヒジュラ年 0850）を西暦 1446（年精度）に訂正。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m14
   passive: AIND-D06105
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「وسمع على شيخنا」＝イブン・ハジャルから聴聞。原文に分野の明示はなく、初版の field（الحديث）は除去。
 states:
 - id: s1
   type: office
   ref: wd:Q3595924
-  quote: null
   note:
     ja: 見出しの「المقري」。「ممن اشتغل وعرف القراءات」とあり、クルアーン読誦の専門家。
+  mention: null
 - id: s2
   type: status
   label: الصرير
   label_latn: al-ṣarīr
-  quote: null
   note:
     ja: '見出しの「الصرير」（盲目）。先例 #AIND-D04943「الضرير」と同様に status とする。'
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: حجاج
+- id: m4
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m5
+  kind: name
+  quote: يوسف
+- id: m6
+  kind: name
+  quote: الشرف
+- id: m7
+  kind: name
+  quote: أبو النور
+  norm: ابو النور
+- id: m8
+  kind: name
+  ref: TMP-N-01403
+  quote: الأشمومي
+  norm: الاشمومي
+- id: m9
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m10
+  kind: name
+  ref: TMP-N-00675
+  quote: المديني
+- id: m11
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m12
+  kind: person
+  ref: AIND-D02414
+  quote: الزين جعفر السنهوري
+- id: m13
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: イーサー・ブン・ユースフ・ブン・ハッジャージュ・ブン・イーサー・ブン・ユースフ、アッ＝シャラフ、アブー・アン＝ヌール、アル＝アシュムーミー、のちにアル＝カーヒリー、アル＝マディーニー、クルアーン読誦家、シャーフィイー派、盲目の人。学問に励み、クルアーン読誦諸伝承（キラーアート）に通じた者の一人で、この分野における彼の師の一人がアッ＝ザイン・ジャアファル・アッ＝サンフーリーであり、彼は850年に彼に（教授の）許可を与えた。また、我らがシャイフ（イブン・ハジャル）から聴聞した。
   en: ʿĪsā b. Yūsuf b. Ḥajjāj b. ʿĪsā b. Yūsuf, al-Sharaf Abū al-Nūr al-Ashmūmī, then al-Qāhirī, al-Madīnī, the Qurʾān reciter, the Shāfiʿī, the blind. He was among those who devoted themselves to study and became versed in the Qurʾānic readings (qirāʾāt); among his teachers in that field was al-Zayn Jaʿfar al-Sanhūrī, who gave him authorization in the year 850. He also heard from our shaykh (Ibn Ḥajar).

@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00395
-    quote: الزيلعي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00292
-    quote: الصحراوي
+    mention: m3
   - id: n3
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد فرج الزيلعي الصحراوي
@@ -29,15 +27,13 @@ relations:
   subtype: father
   active: AIND-D06173#p1
   passive: AIND-D06173
-  quote: null
   note:
     ja: '父の名は原文に無い → #NEEDID（規則3）。'
 - id: r2
   type: kin
   subtype: daughter
-  active: AIND-D13013
+  active: m4
   passive: AIND-D06173
-  quote: خديجة
   note:
     ja: '「والد خديجة الآتية」。娘は女性部 #AIND-D13013「خديجة ابنة فرج الزيلعية الاصل الصحراوية زوج محمد بن علي بن محمد بن عبد الله القليوبي الحفار … ولدت تقريبا سنة خمس وثمانمائة … وكان أبوها صالحا معتقدا」（本項の「كما ذكر في ابنته」と一致）。初版の TMP-P-000292（ID-Master 登録実体＝#AIND-D00136 の母 خديجة、汚染番号）を解除。娘の項から分かる娘婿 محمد بن علي … القليوبي الحفار（「الماضي」）は本項に記述がないため relation にしない（規則23）。'
 assessments:
@@ -49,8 +45,27 @@ assessments:
   label_latn: ṣāliḥ muʿtaqad
   note:
     ja: 「كان صالحا معتقدا كما ذكر في ابنته」。
-  quote: صالحا
   by: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: name
+  ref: TMP-N-00395
+  quote: الزيلعي
+- id: m3
+  kind: name
+  ref: TMP-N-00292
+  quote: الصحراوي
+- id: m4
+  kind: person
+  ref: AIND-D13013
+  quote: خديجة
+- id: m5
+  kind: assessment
+  quote: صالحا
 translation:
   ja: ファラジュ・アッ＝ザイラーイー・アッ＝サフラーウィー。後述のハディージャの父。彼は敬虔で（人々に）信奉された人物であった。娘の項で述べたとおりである。
   en: Faraj al-Zaylaʿī al-Ṣaḥrāwī, the father of Khadīja, who comes below. He was a pious man held in veneration, as was mentioned in the entry on his daughter.

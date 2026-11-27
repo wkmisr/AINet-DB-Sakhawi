@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n2
     type: laqab
-    quote: البدر
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبيدان
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 birth:
   id: b
   date:
@@ -40,7 +38,7 @@ death:
     cert: medium
   note:
     ja: '「مات في ربيع الأول سنة اثنتين」＝一の位のみの年＝802（文脈: 生年 750 以前、السراج البلقيني・البرهان بن جماعة と同時代、إنباء 所収）、cert medium（Waka 2026-09-24）。802 年ラビーウ1月＝1399-11-09〜12-08 → 月精度 1399-11。'
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: عبيدان
@@ -53,13 +51,12 @@ relations:
   subtype: father
   active: AIND-D07925#p1
   passive: AIND-D07925
-  quote: null
   note:
     ja: '父は見出しの名 عبيدان のみ（祖父名・ラカブなし）。corpus に本伝なし（hw.py「عبيدان」は本項のみ）、ID-Master 未登録。規則3 (c'') で #NEEDID。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D05849
+  active: m7
   passive: AIND-D07925
   corresp: wd:Q6798541
   methods:
@@ -67,42 +64,36 @@ relations:
   fields:
   - label: الإفتاء
   cert: medium
-  quote: البلقيني
   note:
     ja: '「وأجازه البلقيني بالإفتاء」。البلقيني＝السراج عمر بن رسلان البلقيني #AIND-D05849（724 生・805 没、769 年にダマスクスのカーディー）。本項主（750 以前生、802 没）にファトワーの免許を与えうる世代の البلقيني は السراج と判断、呼称のみなので cert medium（規則26）。初版は wd:Q6798541（サラージュ・アッ＝ディーン・アル＝ブルキーニー＝同一人物だが人物参照は AIND を優先）。'
 - id: r3
   type: social
   subtype: deputy
   active: AIND-D07925
-  passive: TMP-P-000180
-  quote: البرهان بن جماعة
+  passive: m10
   note:
     ja: 「وولي قضاء بعلبك عن البرهان بن جماعة」＝البرهان بن جماعة（ダマスクスのシャーフィイー派大カーディー、イブン・ジャマーア家の إبراهيم بن عبد الرحيم、790 没）の代理としてバアルバクのカーディー職に就いた（deputy 型、active＝本務者、先例 D05308・D04883）。ID-Master 既登録 TMP-P-000180（Note 空欄）。corpus に本伝なし（8 世紀没）。初版の統制外 subtype「client」を是正。
 states:
 - id: s1
   type: office
   ref: TMP-O-00050
-  quote: null
   note:
     ja: 「وشهد عند الحكام」＝裁判官のもとで公証人（証人）を務めた。ref は O-00050。初版なし。
+  mention: null
 - id: s2
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:277130
-    quote: بعلبك
-  quote: قضاء
+  - mention: m9
   note:
     ja: '「وولي قضاء بعلبك عن البرهان بن جماعة」。ref は汎用 قاض wd:Q217029（ID-Master）、地名 بعلبك＝gn:277130（ID-Master）。初版 ref #NEEDID。'
+  mention: m8
 - id: s3
   type: office
-  ref: wd:Q217029
   places:
-  - ref: TMP-L-00062
-    quote: حمص
-  quote: قضاء
+  - mention: m12
   note:
     ja: '「ثم قضاء حمص」。地名 حمص＝TMP-L-00062（ID-Master）。初版 ref #NEEDID。'
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -112,25 +103,84 @@ events:
   type: learning
   methods:
   - TMP-S-00032
-  quote: وتفقه
   trigger: rule
-  norm: تفقه
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m16
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版は death の note 内の記述のみ。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m15
 notes:
 - text: 「وتميز」＝頭角を現した（人物評）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبيدان
+- id: m3
+  kind: name
+  quote: البدر
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: event
+  quote: وتفقه
+  norm: تفقه
+- id: m7
+  kind: person
+  ref: AIND-D05849
+  quote: البلقيني
+- id: m8
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m9
+  kind: place
+  quote: بعلبك
+  ref: gn:277130
+- id: m10
+  kind: person
+  ref: TMP-P-000180
+  quote: البرهان بن جماعة
+- id: m11
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m12
+  kind: place
+  quote: حمص
+  ref: TMP-L-00062
+- id: m13
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m14
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m15
+  kind: source
+  quote: ذكره
+- id: m16
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・ウバイダーン、アル＝バドル、アッ＝ディマシュキー、アッ＝シャーフィイー。750年より前に生まれ、法学を修め、裁判官たちのもとで証人（公証人）を務め、頭角を現した。アル＝ブルキーニーが彼にファトワー発給の免許（イジャーザ）を与えた。アル＝ブルハーン・イブン・ジャマーアの代理としてバアルバクのカーディー職に就き、次いでヒムスのカーディー職に就いた。（80）2年ラビーウ1月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Muḥammad b. ʿUbaydān, al-Badr, al-Dimashqī, al-Shāfiʿī. He was born before [7]50, studied jurisprudence, served as a notary witness before the judges, and distinguished himself. Al-Bulqīnī licensed him to issue fatwas. He held the judgeship of Baalbek as deputy of al-Burhān b. Jamāʿa, and then the judgeship of Homs. He died in Rabīʿ I of the year [80]2. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

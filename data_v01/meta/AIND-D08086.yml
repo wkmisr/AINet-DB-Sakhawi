@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00820
-    quote: الابراهيمي
+    mention: m6
   - id: n2
     type: kunyah
-    quote: أبو المعالي
-    norm: ابو المعالي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05172
+    mention: m2
   - id: n5
     type: nasab
-    quote: سودون
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: صاحبنا العلاء
     by: rule
+    mention: m5
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 relations:
 - id: r1
   type: scholarly
@@ -50,43 +46,37 @@ relations:
   context:
   - type: learning
     places:
-    - ref: wd:Q23975647
-      quote: الظاهرية القديمة
+    - mention: m11
     phrase: سمع ختم البخاري في الظاهرية القديمة هو وأخوه على أم هانيء الهورينية
   works:
   - ref: wd:Q1023470
-  quote: null
   note:
     ja: '「وكان قد سمع ختم البخاري في الظاهرية القديمة هو وأخوه على أم هانيء الهورينية والشمس بن الفوي」。أم هانئ الهورينية ＝ #AIND-D13827（أم هانئ ابنة … علي بن … عبد الرحمن … الهورينية الأصل المصرية الشافعية、778生、未収録。corpus の「سمع ختم البخاري على أم هانئ الهورينية」型の常連伝承者）。الظاهرية القديمة ＝ ID-Master 既登録 wd:Q23975647（مدرسة الظاهر بيبرس）。兄弟 عبد القادر も同席（兄弟 relation 参照）。初版の #NEEDID・field الحديث を置換・除去。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D08590
+  active: m12
   passive: AIND-D08086
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: wd:Q23975647
-      quote: الظاهرية القديمة
+    - mention: m11
   works:
   - ref: wd:Q1023470
-  quote: والشمس بن الفوي
   note:
     ja: 'الشمس بن الفوي ＝ #AIND-D08590「محمد بن علي بن محمد بن عبد الكريم الشمس بن النور الفوي الشيخوني الشافعي … من قدماء صوفية الشيخونية … مات … سنة ستين」（860没、未収録。ID-Master が「الشمس محمد بن علي بن محمد بن عبد الكريم الفوي」＝AIND-D08590 と登録、旧 TMP-P-001348）。父 D05172 の師「النور الفوي」（#AIND-D05452）の子＝別人。初版の #NEEDID を置換。'
-  norm: الشمس بن الفوي
   phrase: الشمس بن الفوي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D08086
   methods:
   - label: تردد
   summary:
     ar: السخاوي
-  quote: لي
   note:
     ja: 「وربما تردد لي」＝時にサハーウィーのもとに通った（先例 D05884「وتردد لي」＝teacher relation、method تردد）。初版の subtype acquaintance を置換。
 - id: r4
@@ -96,27 +86,23 @@ relations:
   passive: AIND-D08086
   summary:
     ar: العلاء علي بن سودون الإبراهيمي
-  quote: null
   note:
     ja: '規則37。「ابن صاحبنا العلاء الابراهيمي」＝父 #AIND-D05172「علي بن سودون العلاء الإبراهيمي القاهري الحنفي نزيل الشيخونية وأحد صوفيتها ويعرف بأبيه … مات … سنة ثمانين」（880没、未収録）。名・父名 سودون・ラカブ・ニスバ・الشيخونية が一致。初版の #NEEDID を置換。'
 - id: r5
   type: kin
   subtype: brother
-  active: TMP-P-001655
+  active: m9
   passive: AIND-D08086
-  quote: عبد القادر
   note:
     ja: 「وأخو عبد القادر」「هو وأخوه」。兄弟 عبد القادر بن علي بن سودون الإبراهيمي は corpus に本伝なし（hw.py「عبد القادر」+「سودون」「الابراهيمي」該当なし。父 D05172 の本文にも子の名なし）、ID-Master 未登録（初版の TMP-P-000489 は未登録・別人2名への流用歴のある汚染番号＝除去）。父（AIND）と家名で識別できるので新規 TMP-P-001655（規則12）。
 states:
 - id: s1
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00027
-  quote: أحد صوفية الشيخونية
   note:
     ja: 「أحد صوفية الشيخونية」。初版の affiliation（الشيخونية、state と二重）と placeName القاهرة（原文になし）を除去（規則8・22）。
-  norm: احد صوفية الشيخونية
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -124,9 +110,58 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: ممن كتب الخط الحسن وتميز ونظم ونثر
   note:
     ja: 能書家で、詩文を能くした（人物評）。
+  phrase: ممن كتب الخط الحسن وتميز ونظم ونثر
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05172
+  quote: علي
+- id: m3
+  kind: name
+  quote: سودون
+- id: m4
+  kind: name
+  quote: أبو المعالي
+  norm: ابو المعالي
+- id: m5
+  kind: name
+  quote: صاحبنا العلاء
+- id: m6
+  kind: name
+  ref: TMP-N-00820
+  quote: الابراهيمي
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: office
+  ref: wd:Q2892720
+  quote: أحد صوفية الشيخونية
+  norm: احد صوفية الشيخونية
+- id: m9
+  kind: person
+  ref: TMP-P-001655
+  quote: عبد القادر
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m11
+  kind: place
+  quote: الظاهرية القديمة
+  ref: wd:Q23975647
+- id: m12
+  kind: person
+  ref: AIND-D08590
+  quote: والشمس بن الفوي
+  norm: الشمس بن الفوي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・スードゥーン、アブー・アル＝マアーリー、我らが友アル＝アラー・アル＝イブラーヒーミーの子、ハナフィー派、シャイフーニーヤのスーフィーの一人で、アブドゥルカーディルの兄弟。美しい書を書き、頭角を現し、詩と散文を作った者の一人で、時に私（サハーウィー）のもとに通った。彼とその兄弟は旧ザーヒリーヤ（マドラサ）で、ウンム・ハーニ・アル＝ハウリーニーヤとアッ＝シャムス・ブン・アル＝ファウウィーから『ブハーリー』の読了会（ハトム）を聴聞していた。
   en: Muḥammad b. ʿAlī b. Sūdūn, Abū al-Maʿālī, son of our companion al-ʿAlāʾ al-Ibrāhīmī, al-Ḥanafī, one of the Sufis of al-Shaykhūniyya and brother of ʿAbd al-Qādir. He was among those who wrote a fine hand, distinguished himself, and composed poetry and prose; he occasionally frequented me (al-Sakhāwī). He and his brother had heard the concluding session (khatm) of al-Bukhārī at the old Ẓāhiriyya from Umm Hāniʾ al-Hawrīniyya and al-Shams b. al-Fuwwī.

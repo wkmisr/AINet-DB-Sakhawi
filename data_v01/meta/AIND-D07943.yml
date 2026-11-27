@@ -9,47 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00378
-    quote: الأيوبي
-    norm: الايوبي
+    mention: m7
   - id: n2
     type: laqab
-    quote: أسد الدين
-    norm: اسد الدين
+    mention: m6
   - id: n3
     type: laqab
-    quote: null
     label: المفضل
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
-    ref: TMP-P-001640
+    mention: m2
   - id: n6
     type: nasab
-    quote: الملك الأفضل عباس
     by: rule
-    ref: TMP-P-001641
-    norm: الملك الافضل عباس
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: داود
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001640
   passive: AIND-D07943
-  quote: null
   note:
     ja: 父＝ラスール朝スルターン الأفضل عباس の子 عثمان。見出しナサブから復元（規則3、識別要素＝スルターンの子・祖父名あり）。corpus に本伝なし（hw.py「عثمان بن العباس」「عثمان بن عباس」該当なし）、ID-Master 未登録 → 新規 TMP-P-001640。初版は父 relation なし。
   phrase: عثمان بن الملك الأفضل عباس بن علي بن داود
@@ -58,7 +51,6 @@ relations:
   subtype: grandfather
   active: TMP-P-001641
   passive: AIND-D07943
-  quote: null
   note:
     ja: 父方祖父＝ラスール朝スルターン الأفضل العباس بن علي بن داود（778 没、corpus では D01950・D00549・D01685・D10234・D02754 のナサブに「الأفضل」として現れるのみで本伝なし）。ID-Master 未登録（「الأفضل」grep 該当なし）→ 新規 TMP-P-001641。初版なし。
   phrase: الملك الأفضل عباس بن علي بن داود
@@ -69,16 +61,14 @@ events:
     ah: 846
     type: political
   persons:
-  - ref: AIND-D10506
-    quote: المظفر
+  - mention: m10
   places:
-  - ref: TMP-L-00041
-    quote: زبيد
-  quote: استقر
+  - mention: m9
   note:
     ja: 'ザビードのマムルークたちがスルターン المظفر に反旗を翻し、本項主を擁立して「المفضل أسد الدين」と称した。المظفر＝#AIND-D10506「يوسف بن عمر بن إسماعيل بن العباس المظفر بن المنصور بن الأشرف ملوك اليمن . استقر بعد موت ابن عمه الأشرف إسماعيل بن يحيى بن إسماعيل في سنة خمس وأربعين」（845 年即位＝本項の 846 年と整合）。「كل ذلك في سنة ست وأربعين」＝846 年＝1442-05-21 開始 → 年精度 1442。初版の residence event（「استقر」は居住でなく擁立）・rival relation（#NEEDID）・cert="high" を是正（規則53: スルターンとの関係は event＋persName）。'
   trigger: rule
   phrase: استقر في زبيد حين خالف المماليك بها على المظفر وأقاموه ولقبوه المفضل أسد الدين
+  mention: m8
 - id: e2
   type: political
   date:
@@ -86,15 +76,61 @@ events:
     type: political
   persons:
   - ref: AIND-D10506
-  quote: قبض
   note:
     ja: المظفر が差し向けた者に捕らえられ、いずこかの城塞に入れられ、それが消息の最後となった（没年の記載なし＝death を作らない）。
   trigger: rule
   phrase: ولكن لم يلبث حتى جهز إليه المظفر من قبض عليه وأدخل بعض الحصون فكان آخر العهد به
+  mention: m11
 notes:
 - text: ラスール朝（بنو رسول、サハーウィーは「الأيوبي」と記す）の王族。「المفضل」は擁立時の称号（laqab として符号化、初版は shuhrah）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001640
+  quote: عثمان
+- id: m3
+  kind: name
+  ref: TMP-P-001641
+  quote: الملك الأفضل عباس
+  norm: الملك الافضل عباس
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: داود
+- id: m6
+  kind: name
+  quote: أسد الدين
+  norm: اسد الدين
+- id: m7
+  kind: name
+  ref: TMP-N-00378
+  quote: الأيوبي
+  norm: الايوبي
+- id: m8
+  kind: event
+  quote: استقر
+- id: m9
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m10
+  kind: person
+  ref: AIND-D10506
+  quote: المظفر
+- id: m11
+  kind: event
+  quote: قبض
+- id: m12
+  kind: year
+  value: '846'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ウスマーン・ブン・アル＝マリク・アル＝アフダル・アッバース・ブン・アリー・ブン・ダーウード、アサド・アッ＝ディーン、アル＝アイユービー。ザビードのマムルークたちがアル＝ムザッファルに叛いたとき、彼はザビードに（支配者として）据わり、彼らは彼を擁立して「アル＝ムファッダル・アサド・アッ＝ディーン」と称した。しかし長くは続かず、アル＝ムザッファルが彼を捕らえる者を差し向け、彼はいずこかの城塞に入れられ、それが彼の消息の最後となった。これらはすべて（8）46年のことである。
   en: Muḥammad b. ʿUthmān b. al-Malik al-Afḍal ʿAbbās b. ʿAlī b. Dāwūd, Asad al-Dīn, al-Ayyūbī. He was installed in Zabīd when the mamlūks there rose against al-Muẕaffar; they set him up and titled him al-Mufaḍḍal Asad al-Dīn. But he did not last long before al-Muẕaffar sent someone who seized him, and he was put into one of the fortresses, which was the last that was heard of him. All of this was in the year [8]46.

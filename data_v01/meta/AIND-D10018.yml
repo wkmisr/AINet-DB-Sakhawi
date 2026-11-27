@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: ناصر القائد
     by: rule
-    norm: ناصر القاءد
+    mention: m2
 death:
   id: d
   date:
     ah: 880-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ja: 880年ラビーウ2月＝1475-08-13〜09-10（h2g）→ @when は月精度 1475-08（初版の年精度 1475 を修正）。
-  quote: سنة
   phrase: مات في ربيع الآخر سنة ثمانين بمكة
+  mention: m4
 persons:
 - id: p1
   label: ناصر
@@ -40,32 +37,58 @@ relations:
   subtype: father
   active: AIND-D10018#p1
   passive: AIND-D10018
-  quote: null
   note:
     ja: '規則3 (c'')。父 ناصر は裸名で識別要素なし。前項 #AIND-D10017（منصور بن ناصر الحسني المكي、855没）の父 ناصر と同一人物かは原文から決められない。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
-  quote: null
   note:
     ja: 見出しの「القائد」は職（マッカの قائد、TMP-O-00094）。初版は shuhrah にしていたが職として state に。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخهم
+  - mention: m7
   cert: medium
   note:
     ja: Pattern A。「أرخهم ثلاثتهم ابن فهد」＝この3人（#AIND-D10016・#AIND-D10017・本項）の没年を ابن فهد が記した。本項主の没年 880（871＜没年≤885）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium（event 側、規則43・58）。初版は統制外 subtype「chronicler」relation（#AIND-D09211）。
   trigger: rule
-  norm: ارخهم
   phrase: أرخهم ثلاثتهم ابن فهد
+  mention: m6
 notes:
 - text: '前項 #AIND-D10017「منصور بن ناصر الحسني المكي مولى السيد حسن بن عجلان وأحد القواد . مات في جمادى الأولى سنة خمس وخمسين」は同名・同職だが没年が異なり、サハーウィーは別人として立項し転送指示もないので同一視しない（相手側 note と対応）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: name
+  quote: ناصر القائد
+  norm: ناصر القاءد
+- id: m3
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m4
+  kind: year
+  value: '880'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: source
+  quote: أرخهم
+  norm: ارخهم
+- id: m7
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: マンスール・ブン・ナースィル、カーイド（隊長）。880年ラビーウ第二月にマッカで没した。この三人（の没年）はイブン・ファハドが記している。
   en: Manṣūr b. Nāṣir, the qāʾid. He died in Rabīʿ II 880 in Mecca. Ibn Fahd dated all three of them.

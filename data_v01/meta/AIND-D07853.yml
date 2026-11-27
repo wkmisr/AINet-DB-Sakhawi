@@ -9,37 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02181
-    quote: الججاوي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m5
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 death:
   id: d
   date:
     ah: 833
   note:
     ja: 「مات سنة ثلاث وثلاثين」＝833年（年初 1429-10-09、h2g.py）。初版の @when 1430 を年初に訂正。
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: عبد الله بن يوسف
@@ -50,34 +47,29 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000031
+  active: m9
   passive: AIND-D07853
   methods:
   - TMP-S-00003
   cert: medium
-  quote: الصلاح بن أبي عمر
   note:
     ja: 「وقال إنه ذكر أنه سمع من الصلاح بن أبي عمر والمحب الصامت」＝本人の申告（ذكر أنه）を التقي بن فهد が伝える → cert medium。الصلاح بن أبي عمر＝ID-Master 既登録 TMP-P-000031（repo 6件使用）。初版の field الحديث（原文なし）を除去。
-  norm: الصلاح بن ابي عمر
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000411
+  active: m10
   passive: AIND-D07853
   methods:
   - TMP-S-00003
   cert: medium
-  quote: والمحب الصامت
   note:
     ja: 同上。المحب الصامت＝ID-Master 既登録 TMP-P-000411（repo 7件使用）。
-  norm: المحب الصامت
   phrase: المحب الصامت
 - id: r3
   type: kin
   subtype: father
   active: AIND-D07853#p1
   passive: AIND-D07853
-  quote: null
   note:
     ja: '父 عبد الله بن يوسف الججاوي は裸名で本伝・識別要素なし → #NEEDID（規則3 (c'')）。'
 affiliations:
@@ -92,34 +84,86 @@ events:
   date:
     ah: 827
     type: teaching
-  quote: أجاز لأولادي سنة سبع وعشرين
   note:
     ja: イブン・ハジャルの子らへのイジャーザ（827年＝年初 1423-12-14、h2g.py）。子の名は原文になく relation は立てない（本バッチのブリーフ指示）。初版は passive=TMP-P-000418（ID-Master「أولاد ابن حجر」、repo 5件で使用）の student relation。§D144-2。
-  norm: اجاز لاولادي سنة سبع وعشرين
+  phrase: أجاز لأولادي سنة سبع وعشرين
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m8
   works:
   - ref: TMP-T-00138
-  quote: ذكره
   note:
     ja: Pattern A。「في معجمه」→ التقي بن فهد＝#AIND-D09211、『معجم』＝TMP-T-00138。初版の統制外 relation「mentioned by」を event に置換。
   trigger: rule
   phrase: ذكره التقي بن فهد في معجمه وقال إنه ذكر أنه سمع من الصلاح بن أبي عمر والمحب الصامت
+  mention: m7
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00104
-  quote: وذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『المجمع المؤسس』＝TMP-T-00104。
   trigger: rule
-  norm: ذكره
   phrase: 'وذكره شيخنا في معجمه فقال : أجاز لأولادي سنة سبع وعشرين ولم يزد'
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  ref: TMP-N-02181
+  quote: الججاوي
+- id: m5
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
+- id: m9
+  kind: person
+  ref: TMP-P-000031
+  quote: الصلاح بن أبي عمر
+  norm: الصلاح بن ابي عمر
+- id: m10
+  kind: person
+  ref: TMP-P-000411
+  quote: والمحب الصامت
+  norm: المحب الصامت
+- id: m11
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: year
+  value: '827'
+  quote: سنة
+- id: m14
+  kind: year
+  value: '833'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ユースフ・アル＝ジャジャーウィー・アル＝ハンバリー。彼をハナフィー派と言った者は誤っている。アッ＝タキー・ブン・ファハドが『ムウジャム』で彼に言及し、彼（本人）がアッ＝サラーフ・ブン・アビー・ウマルとアル＝ムヒッブ・アッ＝サーミトから聴聞したと述べていた、と記している。我らがシャイフ（イブン・ハジャル）も『ムウジャム』で彼に言及し、「（8）27年に私の子らにイジャーザを授けた」と言い、それ以上は加えていない。833年に没した。
   en: 'Muḥammad b. ʿAbd Allāh b. Yūsuf al-Jajāwī al-Ḥanbalī; whoever called him a Ḥanafī erred. Al-Taqī b. Fahd mentioned him in his Muʿjam and said that he (the subject) stated that he had heard from al-Ṣalāḥ b. Abī ʿUmar and al-Muḥibb al-Ṣāmit. Our shaykh (Ibn Ḥajar) mentioned him in his Muʿjam, saying: "He granted an ijāza to my children in the year [8]27," and added nothing more. He died in the year 833.'

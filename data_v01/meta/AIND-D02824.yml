@@ -9,26 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m2
   - id: n2
     type: ism
-    quote: خشرم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 802-09
   places:
-  - ref: TMP-L-00037
-    cert: medium
-    quote: اليمن
+  - cert: medium
+    mention: m5
   - ref: wd:Q42004
     role: burial
   note:
     ja: 802年ラマダーン月（1400-05-05〜06-03、月精度）、「بصوب اليمن」（イエメン方面で）没し、マッカへ運ばれてマアラート墓地（wd:Q42004、gn:104515 مكة 内）に埋葬。没地 اليمن は「صوب（方面）」付きなので原文どおり desc に残す。情報源 ابن فهد。「بصوب اليمن」は「イエメン方面で（へ向かう途上で）」でイエメン域内とは限らないため、没地 اليمن に cert medium を付した（集約 2026-10-26、内容A L-2）。
-  quote: سنة
   phrase: مات في رمضان سنة اثنتين وثمانمائة بصوب اليمن وحمل لمكة فدفن بمعلاتها
+  mention: m4
 persons:
 - id: p1
   label: والد خشرم الحسني
@@ -39,20 +37,45 @@ relations:
   subtype: father
   active: AIND-D02824#p1
   passive: AIND-D02824
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: قاله
+  - mention: m7
   cert: low
   note:
     ja: 'Pattern A。ابن فهد 振り分け規則（没年 802 ≤ 871）により #AIND-D09211（cert low、規則43）。初版の統制外 subtype「informant」relation を変換。'
   trigger: rule
   phrase: قاله ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: خشرم
+- id: m2
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m3
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m4
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m6
+  kind: source
+  quote: قاله
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ハシュラム・アル＝ハサニー。802年ラマダーン月にイエメン方面で没し、マッカへ運ばれてそのマアラート墓地に葬られた。イブン・ファハドがそう述べている。
   en: Khashram al-Ḥasanī. He died in Ramaḍān of the year 802 in the direction of Yemen, and was carried to Mecca and buried in its Muʿallāt cemetery; so said Ibn Fahd.

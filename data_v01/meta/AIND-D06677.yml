@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00847
-    quote: القيرواني
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: صلح
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أحمد بن صلح
@@ -36,24 +34,44 @@ relations:
   subtype: father
   active: AIND-D06677#p1
   passive: AIND-D06677
-  quote: null
   note:
     ja: 父 أحمد بن صلح は汎用名で識別要素なし、corpus に本伝なし（hw.py「بن صلح」＋「القيرواني」、「أحمد بن صالح」＋「القيرواني」とも該当は本項のみ）＝#NEEDID（規則3 (c')）。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D06677
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m6
     phrase: ممن سمع مني بمكة
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: صلح
+- id: m4
+  kind: name
+  ref: TMP-N-00847
+  quote: القيرواني
+- id: m5
+  kind: person
+  ref: wd:Q4120128
   quote: مني
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・サーリフ・アル＝カイラワーニー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Aḥmad b. Ṣāliḥ al-Qayrawānī. One of those who heard from me in Mecca.

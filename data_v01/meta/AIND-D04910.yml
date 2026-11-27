@@ -9,58 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n3
     type: ism
-    quote: عفان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عثمان
     by: rule
-    ref: AIND-D04846
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n9
     type: nasab
-    quote: عطية
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m8
 death:
   id: d
   date:
     ah: 892-12
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m15
   note:
     ja: 「مات في ذي الحجة سنة اثنتين وتسعين بالقاهرة」。892年ズー・アル＝ヒッジャ月＝1487-11-27〜1487-12-25。訃報は翌893年ラビーウ・アル＝アウワル月にマッカへ届いた（legacy event）。
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: وأمه من زبيد
@@ -69,31 +62,27 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001331
+  active: m12
   passive: AIND-D04910
   methods:
   - TMP-S-00028
-  quote: درس البرهاني فمن دونه
   note:
     ja: 「البرهاني」は通称のみ。候補は البرهان بن ظهيرة（#AIND-D00196）だが確証がないため仮番号 TMP-P-001331 で保持（Waka 裁定★5）。確証を得たら統合。「فمن دونه」は不特定のため relation を立てない。
   phrase: ممن حضر في درس البرهاني فمن دونه
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D04846
+  active: m11
   passive: AIND-D04910
   summary:
     ar: عثمان بن أبي بكر بن عبد الله بن ظهيرة الماضي
-  quote: أبوه
   note:
     ja: '父 ＝ #AIND-D04846（عثمان بن أبي بكر بن عبد الله بن ظهيرة بن أحمد بن عطية بن ظهيرة القرشي المكي والد عفان الآتي、806年ザビード生・848年没。本バッチ B96）。相手側が「والد عفان الآتي」と明記し相互閉合。初版の #TMP-P-000000 を是正。'
-  norm: ابوه
 - id: r3
   type: kin
   subtype: mother
   active: AIND-D04910#p1
   passive: AIND-D04910
-  quote: null
   note:
     ja: 母はザビード出身とのみ記され無名＝#NEEDID 維持（統一規則12）。
 events:
@@ -103,13 +92,78 @@ events:
     ah: 893-03
     type: legacy
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: وجاء الخبر لمكة في ربيع الأول من التي تليها
+  - mention: m16
   note:
     ja: 死後の出来事（訃報の到達）。893年ラビーウ・アル＝アウワル月＝1488-02-23〜1488-03-23。
-  norm: جاء الخبر لمكة في ربيع الاول من التي تليها
+  phrase: وجاء الخبر لمكة في ربيع الأول من التي تليها
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عفان
+- id: m2
+  kind: name
+  ref: AIND-D04846
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: ظهيرة
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: عطية
+- id: m8
+  kind: name
+  quote: ظهيرة
+- id: m9
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: person
+  ref: AIND-D04846
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: person
+  ref: TMP-P-001331
+  quote: درس البرهاني فمن دونه
+- id: m13
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m14
+  kind: year
+  value: '892'
+  quote: سنة
+- id: m15
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m16
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m17
+  kind: month
+  value: 3
+  quote: ربيع الأول
 translation:
   ja: アッファーン・ブン・ウスマーン・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ザヒーラ・ブン・アフマド・ブン・アティーヤ・ブン・ザヒーラ、アル＝クラシー、アル＝マッキー。父は前述。母はザビードの出身。アル＝ブルハーニー、およびそれより下位の者たちの講義に出席した者の一人。892年ズー・アル＝ヒッジャ月にカイロで没し、その訃報は翌年のラビーウ・アル＝アウワル月にマッカに届いた。
   en: ʿAffān b. ʿUthmān b. Abī Bakr b. ʿAbd Allāh b. Ẓahīra b. Aḥmad b. ʿAṭiyya b. Ẓahīra al-Qurashī al-Makkī. His father is mentioned above, and his mother was from Zabīd. He is among those who attended the lessons of al-Burhānī and of those below him. He died in Dhū al-Ḥijja of the year 892 in Cairo, and the news reached Mecca in Rabīʿ al-Awwal of the following year.

@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05474
-    quote: العمري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
-    ref: TMP-P-001149
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -43,14 +40,13 @@ death:
     cert: medium
   note:
     ja: '原文「مات سنة ثلاث ظنا」（الفاسي の『مكة』史による）は一の位のみ。2026-09-24 Waka 裁定: 一の位のみの年は基本的に 80X → 803 年（803-01-01＝1400-08-31、h2g.py）。「ظنا」と裁定の「基本的に」に対応して cert="medium"（旧 cert low、旧 note の「813／823 もありうる」の留保は本裁定で解消）。'
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001149
   passive: AIND-D04522
-  quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（統一規則3）。マッカの قواد「العمرة」一族（بنو عمر بن مسعود العمري: D02442／D03184／D04271／D05102／D08085／D09936 等）。corpus に本伝なし・ID-Master 未登録のため新規 #TMP-P-001149。'
   phrase: عمر بن عبد الله بن عمر بن مسعود العمري
@@ -62,28 +58,62 @@ relations:
   summary:
     ar: محمد بن عبد الله بن عمر بن عبد الله بن عمر بن مسعود القائد العمري المكي
   cert: medium
-  quote: null
   note:
     ja: 本項原文に言及はないが、#AIND-D07800（محمد بن عبد الله بن عمر بن عبد الله بن عمر بن مسعود القائد العمري المكي … كان من أعيان القواد العمرة … توفي في آخر سنة أربع وعشرين أو أول سنة خمس وعشرين وقد بلغ الخمسين … ذكره الفاسي في مكة）のナサブが本項主を父として一意に特定する（ナサブ5代一致）ため、規則23により cert medium で補う。
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
-  quote: null
   note:
     ja: '「كان من أعيان القواد المعروفين بالعمرة」＝マッカの قواد（軍事指揮官層）のうち「العمرة」（العمري 家の複数形）として知られる一族の名士。ID-Master #TMP-O-00094（القائد、メッカの隊長）。地名は原文に明示がないため placeName を置かない（規則22-1）。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m10
   works:
   - ref: TMP-T-00037
-  quote: قاله
   note:
     ja: 'Pattern A。الفاسي = التقي محمد بن أحمد الفاسي（#AIND-D06757）、「في مكة」＝『تاريخ مكة』（#TMP-T-00037）。先例 #AIND-D04271。'
   trigger: rule
   phrase: قاله الفاسي في مكة
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001149
+  quote: عمر
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: مسعود
+- id: m6
+  kind: name
+  ref: TMP-N-05474
+  quote: العمري
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: قاله
+- id: m10
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: アブドゥッラー・ブン・ウマル・ブン・アブドゥッラー・ブン・ウマル・ブン・マスウード・アル＝ウマリー・アル＝マッキー。「アル＝ウマラ（ウマリー家）」として知られる隊長（カーイド）たちの名士の一人であった。おそらく（八百）三年に没した。アル＝ファースィーが『マッカ史』の中でそう述べている。
   en: ʿAbd Allāh b. ʿUmar b. ʿAbd Allāh b. ʿUmar b. Masʿūd al-ʿUmarī al-Makkī. He was one of the notables of the commanders (quwwād) known as al-ʿUmara. He died in the year [80]3, conjecturally; so said al-Fāsī in his history of Mecca.

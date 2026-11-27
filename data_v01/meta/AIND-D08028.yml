@@ -9,17 +9,16 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: أحمد العتال
     by: rule
-    norm: احمد العتال
+    mention: m3
 persons:
 - id: p1
   label: علي بن أحمد
@@ -32,13 +31,12 @@ relations:
   subtype: father
   active: AIND-D08028#p1
   passive: AIND-D08028
-  quote: null
   note:
     ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m4
   passive: AIND-D08028
   methods:
   - TMP-S-00003
@@ -48,18 +46,39 @@ relations:
       ah: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m5
     phrase: ممن سمع مني بمكة في سنة ست وثمانين
-  quote: مني
 states:
 - id: s1
   type: office
   ref: TMP-O-00358
-  quote: null
   note:
     ja: 「العتال」＝荷担ぎ人（生業の呼称）。ID-Master の Office・Nisbah とも未登録 → TMP-O-00358（手工業・生業の O 登録先例 الحائك＝TMP-O-00205・الفران＝TMP-O-00236）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد العتال
+  norm: احمد العتال
+- id: m4
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: year
+  value: '886'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド・アル＝アッタール（荷担ぎ人）。886年にマッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿAlī b. Aḥmad al-ʿAttāl (the porter). One of those who heard from me in Mecca in the year eighty-six.

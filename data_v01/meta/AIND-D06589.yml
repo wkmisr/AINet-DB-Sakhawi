@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 death:
   id: d
   date:
     ah: 856-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 856年ムハッラム月＝1452-02-01〜03-01（h2g.py）、月精度で @when=1452-02（初版は年のみの 1452）。没地マッカは原文に明記。
-  quote: سنة
   phrase: مات في المحرم سنة ست وخمسين بمكة
+  mention: m6
 persons:
 - id: p1
   label: إبراهيم
@@ -42,12 +38,10 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06589#p1
+  active: m4
   passive: AIND-D06589
-  quote: إبراهيم
   note:
     ja: 規則3 (c')。「فأبوه فيما قاله أهل بلده كان مزينا」＝同郷（ガザ）の人々の言うところでは父は理髪師（مزين）であった。名＋生業の伝聞のみで本伝なし（corpus 全文で「محمد بن إبراهيم الغزي」は本項のみ）。父の生業は父の属性なので本項主の state にしない。初版は零番号 TMP-P-000000。
-  norm: ابراهيم
 notes:
 - text: 「كان يذكر أنه من أولاد إبراهيم بن زقاعة ولم يصح」＝本人は إبراهيم بن زقاعة（#AIND-D00258「إبراهيم بن محمد بن بهادر بن أحمد بن عبد الله برهان الدين القرشي النوفلي الغزي الشافعي ويعرف بابن زقاعة」、ガザの人）の子孫だと称していたが、サハーウィーは「正しくない」と退けている。否定された主張なので relation は立てない（ブリーフどおり）。
   lang: ja
@@ -55,15 +49,51 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 'Pattern A。没年 856（≤871）＝振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の統制外 relation「chronicler」を置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m4
+  kind: person
+  ref: AIND-D06589#p1
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m6
+  kind: year
+  value: '856'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・アル＝ガッズィー。自分はイブラーヒーム・ブン・ズッカーアの子孫だと称していたが、それは正しくなく、同郷の人々の言うところでは、彼の父は理髪師であった。（8）56年ムハッラム月にマッカで没した。イブン・ファハドが彼の没年を記した。
   en: 'Muḥammad b. Ibrāhīm al-Ghazzī. He used to say that he was one of the descendants of Ibrāhīm b. Zuqqāʿa, but this was not correct: his father, according to what the people of his town said, was a barber. He died in al-Muḥarram of the year [8]56 in Mecca. Ibn Fahd recorded the date of his death.'

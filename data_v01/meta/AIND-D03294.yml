@@ -9,66 +9,105 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: قصقا
+    mention: m2
   - id: n2
     type: ism
-    quote: شاهين
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 810-11
   places:
-  - ref: TMP-L-00149
-    role: burial
-    quote: حوش الظاهر
+  - role: burial
+    mention: m8
   note:
     ar: مات عن قرب في ذي القعدة سنة عشر ودفن في حوش الظاهر
     ja: 810年ズー・アル＝カアダ月＝1408年3月29日〜4月26日（初版の 1408-04 を月初基準に是正）。حوش الظاهر ＝ TMP-L-00149（حوش الظاهر ظاهر باب النصر、バルクーク廟域）。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m4
   passive: AIND-D03294
-  quote: الناصر
   note:
     ja: الناصر ＝ الناصر فرج（#AIND-D06160、在位801–815）。没810と整合。
   phrase: كان من الخاصكية فنقله الناصر شيئا بعد شيء حتى صار أحد المقدمين
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: الخاصكية
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00083
-  quote: أحد المقدمين
-  norm: احد المقدمين
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は統制外 subtype「mentioned by」の relation。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m9
 - id: c2
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: وقال
+  - corresp: wd:Q257745
+    mention: m11
   note:
     ja: Pattern A。初版は統制外 subtype「criticized by」の relation（#NEEDID）。
   trigger: rule
-  norm: قال
   phrase: وكذا العيني وقال انه ما اشتهر بخير
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: شاهين
+- id: m2
+  kind: name
+  quote: قصقا
+- id: m3
+  kind: office
+  ref: TMP-O-00015
+  quote: الخاصكية
+- id: m4
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m5
+  kind: office
+  ref: TMP-O-00083
+  quote: أحد المقدمين
+  norm: احد المقدمين
+- id: m6
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m7
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: حوش الظاهر
+  ref: TMP-L-00149
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
+- id: m12
+  kind: source
+  quote: وقال
+  norm: قال
 translation:
   ja: シャーヒーン・カスカー。その意味は「背の低い者」である。ハーッサキーヤ（親衛マムルーク）の一員であったが、アン＝ナースィル（・ファラジュ）が彼を少しずつ引き上げ、ついには軍司令官（ムカッダム）の一人となった。（その）ほどなく810年ズー・アル＝カアダ月に没し、ハウシュ・アッ＝ザーヒル（バルクーク廟域）に葬られた。我らがシャイフ（イブン・ハジャル）が『インバー（・アル＝グムル）』で彼に言及しており、アル＝アイニーも同様で、彼は善いことでは知られなかったと述べている。
   en: Shāhīn Qaṣqā, which means "the short one". He was one of the khāṣṣakiyya, and al-Nāṣir (Faraj) advanced him step by step until he became one of the commanders (muqaddams). He died shortly afterwards, in Dhū al-Qaʿda of the year [8]10, and was buried in Ḥawsh al-Ẓāhir. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, as did al-ʿAynī, who said that he was not known for any good.

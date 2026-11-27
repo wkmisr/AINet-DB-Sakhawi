@@ -9,40 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00284
-    quote: الحراني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00156
-    quote: القادري
+    mention: m9
   - id: n4
     type: laqab
-    quote: جلال الدين
+    mention: m4
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد العزيز
     by: rule
-    ref: AIND-D04014
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: العز
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: البدر
     by: rule
+    mention: m6
 death:
   id: d
   date:
@@ -51,12 +47,12 @@ death:
   note:
     ar: ومات قبل أن يتكهل سنة ستين تقريبا رحمه الله
     ja: 「تقريبا」のため cert medium。860年＝1455-12-20〜1456-12-07 → 年初 1455（初版の 1456 を是正）。没地の記載なし。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m12
   passive: AIND-D07681
   methods:
   - TMP-S-00003
@@ -68,63 +64,110 @@ relations:
     phrase: وسمع على شيخنا وغيره كالبخاري بالظاهرية حيث سمع فيه
   works:
   - ref: wd:Q1023470
-  quote: شيخنا
   note:
     ja: '裸の「الظاهرية」を الظاهرية القديمة（wd:Q23975647）と解した。repo 先例 D01135・D04039 に同じ（D05511 は #NEEDID）。イブン・ハジャルによる『صحيح البخاري』の定例聴聞会場は الظاهرية القديمة として知られる。ただしカイロには الظاهر برقوق 建立の البرقوقية（#TMP-I-00029）もあり、原文が裸の「الظاهرية」である以上その可能性は排除しきれないため cert="medium"（裁定 §D-26 により現状維持）。「وغيره」の他の師は無名のため relation を立てない。'
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D04014
+  active: m10
   passive: AIND-D07681
-  quote: لأبيه
   note:
     ja: 父＝#AIND-D04014（عبد العزيز بن محمد بن العز بن البدر الحراني الأصل القاهري الشافعي القادري شيخ الزاوية … ووالد عبد القادر ومحمد الآتيين وربيبه المحب القادري、839年没）。「والد … محمد الآتيين」で閉合。
-  norm: ابيه
   phrase: جلال الدين بن العز بن البدر الحراني
 - id: r3
   type: kin
   subtype: brother
   active: AIND-D04134
   passive: AIND-D07681
-  quote: null
   note:
     ja: '同父兄＝#AIND-D04134（عبد القادر بن عبد العزيز بن محمد محيي الدين بن الشيخ عز الدين بن البدر الحراني الأصل القاهري القباني أخو الجلال محمد الآتي、809年生）。初版の #AIND-D04089（عبد القادر المناوي ابن عليبة）は別人。'
   phrase: أخو عبد القادر الماضي لأبيه
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D07789
+  active: m11
   passive: AIND-D07681
-  quote: والمحب بن بلكا القادري لأمه
   note:
     ja: 同母兄＝#AIND-D07789（محمد بن عبد الله بلكان بن عبد الرحمن المحب أبو المحاسن القاهري القادري الشافعي、811年生・878年没。「فتزوج بأمه العز القادري شيخ زاوية القادرية」＝父 D04014 の継子）。初版の TMP-P-000548 は ID-Master 上「corpus に立項なし」とされるが実際は本伝 D07789 が存在する（要判断 §Dd-5）。
-  norm: المحب بن بلكا القادري لامه
 events:
 - id: e1
   type: cultural
   works:
   - ref: TMP-T-00110
-  quote: ممن حفظ القرآن والعمدة
-  norm: ممن حفظ القران والعمدة
+  phrase: ممن حفظ القرآن والعمدة
+  mention: null
 - id: e2
   type: cultural
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: وأجاز له جماعة باستدعاء ابن فهد وغيره
+  - cert: low
+    mention: m13
   note:
     ja: '初版の統制外 subtype「applicant for ijaza」relation を event に変換。استدعاء の ابن فهد は限定語なし・本項主の没年 860（≦871）→ ブリーフの振り分けにより التقي بن فهد ＝ #AIND-D09211、cert low。'
-  norm: اجاز له جماعة باستدعاء ابن فهد وغيره
+  phrase: وأجاز له جماعة باستدعاء ابن فهد وغيره
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
     cert: low
-  quote: وتكررت تسمية ابن فهد لأبيه بمحمد وهو غلط
   note:
     ja: Pattern A（第三者による記載への言及）。
-  norm: تكررت تسمية ابن فهد لابيه بمحمد وهو غلط
+  phrase: وتكررت تسمية ابن فهد لأبيه بمحمد وهو غلط
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04014
+  quote: عبد العزيز
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: جلال الدين
+- id: m5
+  kind: name
+  quote: العز
+- id: m6
+  kind: name
+  quote: البدر
+- id: m7
+  kind: name
+  ref: TMP-N-00284
+  quote: الحراني
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: TMP-N-00156
+  quote: القادري
+- id: m10
+  kind: person
+  ref: AIND-D04014
+  quote: لأبيه
+  norm: ابيه
+- id: m11
+  kind: person
+  ref: AIND-D07789
+  quote: والمحب بن بلكا القادري لأمه
+  norm: المحب بن بلكا القادري لامه
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m14
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥルアズィーズ・ブン・ムハンマド、ジャラール・アッ＝ディーン・イブン・アル＝イッズ・イブン・アル＝バドル、ハッラーンを本貫とするアル＝カーヒリー・アル＝カーディリー。前述のアブドゥルカーディルの同父兄弟であり、アル＝ムヒッブ・イブン・バルカー・アル＝カーディリーの同母兄弟。クルアーンと『ウムダ』を暗記し、我らがシャイフ（イブン・ハジャル）らから、たとえばアッ＝ザーヒリーヤでの『ブハーリー』のように聴聞した（彼はそこでそれを聴聞した）。イブン・ファハドらの依頼状により一群の人々が彼にイジャーザを与えたが、イブン・ファハドは彼の父の名をくり返しムハンマドと記しており、これは誤りである。壮年に達する前、860年頃に没した。神よ彼を憐れみたまえ。
   en: Muḥammad b. ʿAbd al-ʿAzīz b. Muḥammad, Jalāl al-Dīn b. al-ʿIzz b. al-Badr, of Ḥarrānī origin, al-Qāhirī al-Qādirī, paternal brother of the aforementioned ʿAbd al-Qādir and maternal brother of al-Muḥibb b. Balkā al-Qādirī. He was among those who memorised the Qurʾān and al-ʿUmda, and heard from our shaykh (Ibn Ḥajar) and others, for instance al-Bukhārī at al-Ẓāhiriyya, where he attended its audition. A group granted him an ijāza at the request of Ibn Fahd and others, though Ibn Fahd repeatedly named his father Muḥammad, which is an error. He died before reaching middle age, in about the year 860. May God have mercy on him.

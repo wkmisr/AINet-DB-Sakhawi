@@ -9,13 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: قانصوه
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -29,8 +27,8 @@ death:
     ah: 874-04
   note:
     ja: 874年ラビーウ・アル＝アーヒル月（1469-10-17 開始、月精度）。سوار 遠征から病んで帰還し没した。地名の明記なし。
-  quote: سنة
   phrase: فعاد مريضا . حتى مات في ربيع الآخر سنة أربع وسبعين عن نحو الستين
+  mention: m9
 persons:
 - id: p1
   label: والد قانصوه الأشرفي برسباي
@@ -41,45 +39,76 @@ relations:
   subtype: father
   active: AIND-D06285#p1
   passive: AIND-D06285
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m3
   passive: AIND-D06285
   summary:
     ar: الأشرف برسباي
-  quote: برسباي
   note:
     ja: 見出し「الأشرفي برسباي」（「أيضا」＝前項 D06284 と同名同主人の別人）＝主人は الأشرف برسباي（#AIND-D02168）。初版の統制外 subtype「client」・#NEEDID を是正。ID-Master の TMP-P-000749「قانصوه الطويل الاشرفي برسباي」は別人（同 Note に明記）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيا
   note:
     ja: 「أقام خاصكيا دهرا」。
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: '「ثم تأمر عشرة في أيام خشقدم」＝الظاهر خشقدم（#AIND-D02830、在位865〜872）の治世に十人隊アミールとなった。خشقدم は時期の指標であり relation は立てない（初版の colleague relation #NEEDID を除去）。'
+  mention: m6
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03198
-    quote: لسوار
-    norm: سوار
-  quote: تأمر
+  - mention: m7
   note:
     ja: 'سوار＝شاه سوار بن سليمان بن دلغادر（#AIND-D03198）討伐の遠征に出て、病んで帰還。年の明記なし（repo 先例どおり persName で表し、初版の rival relation #NEEDID を本 event に統合）。'
   trigger: rule
-  norm: تامر
   phrase: إلى أن تجرد لسوار فعاد مريضا
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: قانصوه
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيا
+- id: m5
+  kind: event
+  quote: تأمر
+  norm: تامر
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m7
+  kind: person
+  ref: AIND-D03198
+  quote: لسوار
+  norm: سوار
+- id: m8
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m9
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: カーンスーフ・アル＝アシュラフィー・バルスバーイ、同じく（同名の別人）。長らくハーッサキーとして過ごし、次いでフシュカダムの時代に十人隊アミールとなり、やがてサワール討伐に出征したが病んで帰還し、そのまま874年ラビーウ・アル＝アーヒル月に約60歳で没した。
   en: Qānṣūh al-Ashrafī Barsbāy, likewise (another of the same name). He remained a khāṣṣakī for a long time, then became an amir of ten in the days of Khushqadam, until he went on campaign against Sawār and returned ill, and so he died in Rabīʿ II of the year 874 at about sixty years of age.

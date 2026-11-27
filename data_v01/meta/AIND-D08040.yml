@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00075
-    quote: الزهري
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: علوش
     by: rule
+    mention: m5
 birth:
   id: b
   date:
@@ -64,13 +60,12 @@ relations:
   subtype: father
   active: AIND-D08040#p1
   passive: AIND-D08040
-  quote: null
   note:
     ja: '父 علي بن أبي بكر：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000411
+  active: m10
   passive: AIND-D08040
   methods:
   - TMP-S-00003
@@ -78,7 +73,6 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00247
-  quote: المحب الصامت
   note:
     ja: 'المحب الصامت ＝ TMP-P-000411（ID-Master 登録済み、repo 多数で使用。ダマスカスの8世紀ムハッディス）。「مسند عثمان من أبي يعلى」＝أبو يعلى الموصلي の『المسند』中の عثمان بن عفان 伝承部分（corpus D02621「قطعة من أول مسند عثمان من مسند أبي يعلى」で確認）。ID-Master に『مسند أبي يعلى』未登録（أمالي／عوالي أبي يعلى は別書）→ TMP-T-00247。初版の bibl は #NEEDID。'
   phrase: وسمع من لفظ المحب الصامت قطعة من مسند عثمان من أبي يعلى
@@ -86,32 +80,73 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D08040
-  passive: AIND-D05979
+  passive: m11
   methods:
   - TMP-S-00008
-  quote: النجم بن فهد
   note:
     ja: '「أخذ عنه النجم بن فهد」＝本項主が師（active）、النجم بن فهد ＝ #AIND-D05979（عمر بن محمد بن محمد بن فهد النجم、812–885。原文が「النجم」と明示するため没年振り分けは適用しない、先例 D04428・D04567）。初版は passive #NEEDID。'
   phrase: وأخذ عنه النجم بن فهد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00359
-  quote: النساج
   note:
     ja: 「النساج」＝織工（生業）。ID-Master 未登録（الحائك＝TMP-O-00205 は語根が異なる）→ TMP-O-00359（→ISSUES §D134-4）。
+  mention: m8
 events:
 - id: e1
   type: residence
   places:
   - ref: TMP-L-00003
-  quote: نزيل الصالحية
   note:
     ja: 'الصالحية ＝ ダマスカスのサーリヒーヤ（TMP-L-00003「صالحية (دمشق)」、本項主は الدمشقي で師 المحب الصامت もダマスカス）。カイロの المدرسة الصالحية（wd:Q7404512）ではない。初版は #NEEDID。'
+  phrase: نزيل الصالحية
+  mention: null
 - id: e2
   type: cultural
-  quote: وحدث
-  norm: حدث
+  phrase: وحدث
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: علوش
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: name
+  ref: TMP-N-00075
+  quote: الزهري
+- id: m8
+  kind: office
+  ref: TMP-O-00359
+  quote: النساج
+- id: m9
+  kind: year
+  value: '770'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000411
+  quote: المحب الصامت
+- id: m11
+  kind: person
+  ref: AIND-D05979
+  quote: النجم بن فهد
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アビー・バクル・ブン・アフマド・ブン・アッルーシュ・アッ＝ディマシュキー、アッ＝サーリヒーヤの寄留者、アッ＝ズフリー、織工。770年より前に生まれ、アル＝ムヒッブ・アッ＝サーミトの口から、アブー・ヤアラー（の『ムスナド』）のうちウスマーンのムスナドの一部を聴聞し、（ハディースを）伝えた。アン＝ナジュム・ブン・ファフドが彼から学んだ。840年頃、あるいはそれ以前に没した。
   en: Muḥammad b. ʿAlī b. Abī Bakr b. Aḥmad b. ʿAllūsh al-Dimashqī, resident of al-Ṣāliḥiyya, al-Zuhrī, the weaver. He was born before the year 770, heard from the lips of al-Muḥibb al-Ṣāmit a portion of the Musnad of ʿUthmān from [the Musnad of] Abū Yaʿlā, and transmitted hadith; al-Najm b. Fahd took from him. He died around [the year] forty or before it.

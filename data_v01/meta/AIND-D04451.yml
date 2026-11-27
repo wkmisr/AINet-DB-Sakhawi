@@ -9,19 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -29,7 +28,7 @@ death:
   note:
     ar: مات في رجب سنة ثمان وثلاثين
     ja: ラジャブ838年＝1435年2月（838-07-01 = 1435-02-09、グレゴリオ暦）。月初基準により @when は 1435-02。初版の when="1434" は誤り（838年の年初が1434年8月であるため月を無視して年初に丸めた結果と思われる）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: سليمان
@@ -42,38 +41,74 @@ relations:
   subtype: father
   active: AIND-D04451#p1
   passive: AIND-D04451
-  quote: null
   note:
     ja: '父は裸名「سليمان」のみで祖父名の復元も corpus 本伝の特定もできないため、統一規則③により #NEEDID を維持。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00078
-  quote: موقعي الحكم
   note:
     ar: أحد موقعي الحكم
     ja: '原文は勤務地を明示しないため placeName は付さない（初版は gn:360630 を付していた）。【裁定 2026-09-18（§Db-4）】「موقع الحكم」に新規 TMP-O は発行せず、既存の #TMP-O-00078（توقيع الحكم | Tawqīʿ al-Ḥukm。出現 D01721「عمل توقيع الحكم」）に別名として一本化する（動詞形＝職務名と名詞形＝担当者名の一本化。نائب الحكم ＝ #TMP-O-00096 について Waka が 2026-07-11 に下した裁定と同型）。したがって校閲時に充てた汎用の #TMP-O-00058（موقع。D00875・D01683 の「الموقع」用に残す）を #TMP-O-00078 に差し替えた。label は原文どおり「موقع الحكم」を保持する。ID-Master 側の別名追加（Arabic 欄を「توقيع الحكم | موقع الحكم | موقعي الحكم」に）は docs/records_B86/ID-Master修正_B86.tsv に記載。'
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ناب
+  - mention: m7
   note:
     ar: بل ناب في بعض الجهات والنواحي من القاهرة قليلا
     ja: '#TMP-O-00096（نائب الحكم）は ID-Master 登録名と一致する正用。Waka 裁定（2026-07-11）により動詞形「ناب في الحكم」型も本IDに一本化されている。precheck の「汚染注意」は خادم への流用歴に対する警告。地は「من القاهرة」に依拠。'
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: أرخه
+  - mention: m11
   note:
     ja: Pattern A。「أرخه」は没年の記録であり伝記執筆ではない。初版の統制外 subtype「biographer」relation を除去して event 化。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m5
+  kind: office
+  ref: TMP-O-00078
+  quote: موقعي الحكم
+- id: m6
+  kind: office
+  ref: TMP-O-00096
+  quote: ناب
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー・ブン・スライマーン、アル＝ジャマール・アル＝マハッリー。判決書記官（ムワッキウ・アル＝フクム）の一人であり、それどころかカイロの一部の地区や近郊で短期間、裁判代理官（ナーイブ）を務めた。838年ラジャブ月に没した。我らがシャイフ（イブン・ハジャル）がその没年を記録している。
   en: ʿAbd Allāh b. Sulaymān, al-Jamāl al-Maḥallī. One of the clerks who countersigned judgements (muwaqqiʿī al-ḥukm); indeed he acted briefly as deputy (nāʾib) in some districts and outlying areas of Cairo. He died in Rajab of the year 838. Our shaykh (Ibn Ḥajar) recorded his death-date.

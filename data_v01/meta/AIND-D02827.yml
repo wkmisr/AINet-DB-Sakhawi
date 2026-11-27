@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00131
-    quote: الزيني
+    mention: m2
   - id: n2
     type: ism
-    quote: خشقدم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 879-12
   note:
     ja: 「وسط」＝腰斬（胴切り）の刑に処された。879年ズー・アル＝ヒッジャ月（1475-04-17〜05-15、月精度）。幾度も取りなし（شفاعة）があったにもかかわらず、明白な理由なく処刑された。没地の記載なし。
-  quote: سنة
   phrase: وسط في ذي الحجة سنة تسع وسبعين مع تكرر الشفاعة فيه بدون سبب ظاهر
+  mention: m5
 persons:
 - id: p1
   label: والد خشقدم الزيني
@@ -31,28 +30,46 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D10263
+  active: m3
   passive: AIND-D02827
-  quote: يحيى
   note:
     ja: '見出し「خشقدم الزيني يحيى الاستادار」＝主人は الزين يحيى الأستادار＝#AIND-D10263「يحيى بن عبد الرزاق الزين القبطي القاهري الأستادار … ويعرف بالأشقر」（874没）。repo 先例 #AIND-D03286「شاهين الزيني يحيى الاستادار」（patron #AIND-D10263）に揃える。初版は #NEEDID。'
-  norm: يحيي
   phrase: الزيني يحيى
 - id: r2
   type: kin
   subtype: father
   active: AIND-D02827#p1
   passive: AIND-D02827
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00070
-  quote: null
   note:
     ja: 見出し「أحد الكشاف」。管轄地の記載なし。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خشقدم
+- id: m2
+  kind: name
+  ref: TMP-N-00131
+  quote: الزيني
+- id: m3
+  kind: person
+  ref: AIND-D10263
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m5
+  kind: year
+  value: '879'
+  quote: سنة
 translation:
   ja: フシュカダム・アッ＝ザイニー（アッ＝ザイン・）ヤフヤー・アル＝ウスターダール（の配下）、カーシフ（地方監督官）の一人。879年ズー・アル＝ヒッジャ月、彼のために幾度も取りなしがあったにもかかわらず、明白な理由もなく腰斬の刑に処された。
   en: Khushqadam al-Zaynī (mamlūk of al-Zayn) Yaḥyā al-Ustādār, one of the kāshifs. He was executed by being cut in half (wussiṭa) in Dhū al-Ḥijja of the year 879, despite repeated intercession on his behalf and without any apparent cause.

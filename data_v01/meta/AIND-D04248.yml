@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02086
-    quote: الشقيري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
     ah: 879-02
   places:
-  - ref: TMP-L-00214
-    quote: بهدة بني جابر
-    norm: هدة بني جابر
+  - mention: m8
   - ref: wd:Q42004
     role: burial
   note:
     ar: مات في صفر سنة تسع وسبعين بهدة بني جابر وحمل لمكة فدفن بمعلاتها
     ja: 879年サファル月＝1474年6月17日〜7月15日（初版の 1474-06 は月初基準で正）。هدة بني جابر ＝ ID-Master の وادي الهدة（TMP-L-00214、メッカ近郊。D04455「بواسط الهدة هدة بني جابر」で同一地と確認）→ 別名追記を提案。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: أحمد
@@ -50,29 +45,63 @@ relations:
   subtype: father
   active: AIND-D04248#p1
   passive: AIND-D04248
-  quote: null
   note:
     ja: '父 أحمد は裸の名のみ → #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00353
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
+  - mention: m9
   orgs:
   - label: درجة الكعبة
-  quote: أحد خدام الدرجة
   note:
     ja: メッカの「خدام الدرجة」（カアバの階段の奉仕者）。ID-Master 未登録 → 新規 TMP-O-00253（corpus では D06664 にも出現）。
-  norm: احد خدام الدرجة
+  mention: m5
 - id: s2
   type: office
   ref: TMP-O-00012
-  quote: null
   note:
     ja: 「بعد أن كان عطارا」＝以前の生業。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-02086
+  quote: الشقيري
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: office
+  ref: TMP-O-00353
+  quote: أحد خدام الدرجة
+  norm: احد خدام الدرجة
+- id: m6
+  kind: month
+  value: 2
+  quote: صفر
+- id: m7
+  kind: year
+  value: '879'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بهدة بني جابر
+  ref: TMP-L-00214
+  norm: هدة بني جابر
+- id: m9
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブド・アル＝カリーム・ブン・アフマド・アッ＝シュカイリー・アル＝マッキー。かつて薬種商であったのち、（カアバの）階段の奉仕者の一人となった。879年サファル月にハッダト・バニー・ジャービルで没し、マッカに運ばれてそのムアッラー墓地に葬られた。
   en: ʿAbd al-Karīm b. Aḥmad al-Shuqayrī al-Makkī, one of the servants of the Staircase (khuddām al-daraja) after having been a druggist. He died in Ṣafar of the year 879 at Haddat Banī Jābir and was carried to Mecca, where he was buried in its Muʿallā cemetery.

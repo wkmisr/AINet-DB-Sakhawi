@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02720
-    quote: الكنبايتي
+    mention: m3
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: بهاء الدين سليمان
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: بهاء الدين سليمان
@@ -29,17 +28,14 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m4
   passive: AIND-D06017
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m5
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。
 - id: r2
@@ -47,9 +43,28 @@ relations:
   subtype: father
   active: AIND-D06017#p1
   passive: AIND-D06017
-  quote: null
   note:
     ja: '父はラカブ＋名のみ（祖父名・ニスバなし）→ #NEEDID 維持（規則3・12）。'
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: بهاء الدين سليمان
+- id: m3
+  kind: name
+  ref: TMP-N-02720
+  quote: الكنبايتي
+- id: m4
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ウマル・ブン・バハー・アッ＝ディーン・スライマーン・アル＝カンバーヤティー。マッカで私から聴聞した者の一人。
   en: ʿUmar b. Bahāʾ al-Dīn Sulaymān al-Kanbāyatī. He was among those who heard from me in Mecca.

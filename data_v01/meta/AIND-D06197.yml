@@ -9,20 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00143
-    quote: الجمالي
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00340
-    quote: القابوني
+    mention: m4
   - id: n4
     type: ism
-    quote: فيروز
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد فيروز الرومي الجمالي القابوني
@@ -33,64 +30,101 @@ relations:
   subtype: father
   active: AIND-D06197#p1
   passive: AIND-D06197
-  quote: null
   note:
     ja: '父の名は原文に無い（ルーム出身の宦官）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m5
   passive: AIND-D06197
-  quote: الأشرفي قايتباي
   note:
     ja: '「الأشرفي قايتباي رقاه للخازندارية الصغرى ثم شادية السواقي … ثم للزمامية」＝スルターン・カーイトバーイ（#AIND-D06305）が昇進させた。初版 note の「彼の商人（tājir）＝カーイトバーイ」は誤読: 「الجمالي القابوني نسبة لتاجره」は直前のニスバ（الجمالي القابوني）が奴隷商人（تاجر）に由来することを述べ、قايتباي は次文の主語。初版の corresp="wd:Q557847" は ID-Master 未確認のため除去。'
-  norm: الاشرفي قايتباي
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D02831
+  active: m8
   passive: AIND-D06197
-  quote: خشقدم الأحمدي
   note:
     ja: '「ثم شادية السواقي عن خشقدم الأحمدي ثم للزمامية بعده بسنتين」＝シャード・アッ＝サワーキー職とザマーム職の前任者。corpus 本伝 #AIND-D02831「خشقدم الظاهري جقمق الرومي اللالا ويقال له أيضا الاحمدي لتاجره … شاد السواقي … استقر خازندارا زماما بعد موت جوهر شراقطلي في ربيع الأول سنة اثنتين وثمانين مضافا للوزر وشد السواقي منفصلا عما عداهما … واستمر على الزمامية والخازندارية إلى أن رسم عليه … فكانت منيته بسواكن في شوال سنة أربع وتسعين」（収録済み）。【集約 2026-10-19 訂正】D02831 は882年にザマーム職（خازندار زمام）に宰相職と شد السواقي を兼ね（「مضافا للوزر وشد السواقي منفصلا عما عداهما」＝それ以外の職からは離れた）、894年までザマーム在任。「ثم شادية السواقي عن خشقدم الأحمدي ثم للزمامية بعده بسنتين」の بعده は「خشقدم の後に」とも読め、ザマーム職の前任としても整合（校閲時の「882年に شد السواقي を離れた」は誤読、内容B L・規則42）。初版 #NEEDID。'
-  norm: خشقدم الاحمدي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00345
-  quote: للخازندارية الصغرى
   note:
     ja: 「رقاه للخازندارية الصغرى」。ID-Master には خازندار（TMP-O-00073）と الخازندارية الكبرى（TMP-O-00268、裁定 §D-8 で分離発行）があり、الصغرى は未登録 → 同型で仮番号 TMP-O-00345（規則41、語根 خزن）。
-  norm: لخازندارية الصغري
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00344
-  quote: شادية السواقي
   note:
     ja: 「ثم شادية السواقي عن خشقدم الأحمدي」。ID-Master の شاد 系（TMP-O-00131 شاد|شاد الشربخاناه・O-00168 شاد الشؤن・O-00241 شاد العمائر）に水車監督職は無し → 仮番号 TMP-O-00344（B27 裁定「広義で近い程度ではエイリアス統合しない」）。年は原文に無い（前任 D02831 の本文から 882 年頃と推定できるが補完しない）。
+  mention: m7
 - id: s3
   type: office
-  ref: TMP-O-00074
-  quote: للزمامية
   note:
     ja: 「ثم للزمامية بعده بسنتين حين إشرافه على التكهل」＝（前職の）2年後、壮年（كهولة）にさしかかる頃にザマーム職へ。ID-Master 既登録 زمام（TMP-O-00074）。
-  norm: لزمامية
+  mention: m9
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00038
-    quote: الروم
-  quote: توجه
+  - mention: m10
   note:
     ja: ルームからの到来（年は原文に無い）。
   trigger: rule
   phrase: في سنة قدومه من الروم
+  mention: m11
 - id: e2
   type: travel
-  quote: توجه في خدمة خوند حين حجت
   note:
     ja: ルームから到来した年に、خوند（スルターンの妃。名は無い）が巡礼した際に随行した。خوند は名不詳のため relation にしない（規則14）。本項主自身の حج とは書かれないため placeName مكة は置かない（規則20・22）。初版の patron relation（خوند、#NEEDID）と hajj event（placeName مكة）を本 event に統合。
+  phrase: توجه في خدمة خوند حين حجت
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: فيروز
+- id: m2
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m3
+  kind: name
+  ref: TMP-N-00143
+  quote: الجمالي
+- id: m4
+  kind: name
+  ref: TMP-N-00340
+  quote: القابوني
+- id: m5
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرفي قايتباي
+  norm: الاشرفي قايتباي
+- id: m6
+  kind: office
+  ref: TMP-O-00345
+  quote: للخازندارية الصغرى
+  norm: لخازندارية الصغري
+- id: m7
+  kind: office
+  ref: TMP-O-00344
+  quote: شادية السواقي
+- id: m8
+  kind: person
+  ref: AIND-D02831
+  quote: خشقدم الأحمدي
+  norm: خشقدم الاحمدي
+- id: m9
+  kind: office
+  ref: TMP-O-00074
+  quote: للزمامية
+  norm: لزمامية
+- id: m10
+  kind: place
+  quote: الروم
+  ref: TMP-L-00038
+- id: m11
+  kind: event
+  quote: توجه
 translation:
   ja: フィールーズ・アッ＝ルーミー・アル＝ジャマーリー・アル＝カーブーニー——（このニスバは）彼の（奴隷）商人にちなむ。アル＝アシュラフ・カーイトバーイが彼を小ハーズィンダール職（al-khāzindāriyya al-ṣughrā）に昇進させ、次いでフシュカダム・アル＝アフマディーの後任として水車監督職（shādiyyat al-sawāqī）に、その2年後、彼が壮年にさしかかった頃にザマーム職に就けた。ルームから到来した年には、ハワンド（王妃）が巡礼した際にその供をして赴いた。
   en: Fīrūz al-Rūmī al-Jamālī al-Qābūnī, the latter nisba being after his (slave-)merchant. Al-Ashraf Qāytbāy promoted him to the lesser treasurership (al-khāzindāriyya al-ṣughrā), then to the superintendency of the waterwheels (shādiyyat al-sawāqī) in succession to Khushqadam al-Aḥmadī, and then, two years after that, when he was approaching middle age, to the office of zimām. In the year of his arrival from Rūm he had travelled in the service of the Khawand (the sultan's consort) when she performed the pilgrimage.

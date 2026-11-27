@@ -9,37 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01492
-    quote: العزازي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m5
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n4
     type: shuhrah
-    quote: بابن سفليس
-    norm: ابن سفليس
     label: ابن سفليس
+    mention: m6
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
     ah: 837-04-19
   note:
     ja: ラビーウ2月19日837 ＝ 1433-12-12（木曜、h2g.py。初版の 1433 を日精度に）。没地は原文に明記されない（「اشتهر به في حلب … وقد لقيه البقاعي هناك」の حلب は名声の地・ビカーイーとの面会地）ため、初版の placeName حلب を除去（規則22）。
-  quote: سنة
   phrase: مات في ليلة الخميس تاسع عشر ربيع الآخر سنة سبع وثلاثين
+  mention: m12
 persons:
 - id: p1
   label: أحمد
@@ -52,32 +48,29 @@ relations:
   subtype: father
   active: AIND-D07042#p1
   passive: AIND-D07042
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D07042
-  passive: AIND-D00207
+  passive: m13
   methods:
   - TMP-S-00026
   context:
   - type: teaching
     places:
-    - ref: gn:170063
-      quote: حلب
+    - mention: m9
     phrase: لقيه البقاعي هناك وكتب عنه
-  quote: البقاعي
   note:
     ja: 「وقد لقيه البقاعي هناك وكتب عنه قوله …」＝ビカーイー（#AIND-D00207 إبراهيم بن عمر البقاعي。初版の wd:Q12198099 は名寄せ済み）がハラブ（هناك＝直前の حلب、規則22(3)）で本項主に会い、彼から書き取った → 本項主＝師（規則15）。初版の subtype student・field الحديث（原文になし）を是正。書き取られたのは ḥassān b. Thābit の哀悼詩2行（原文 note 参照）。
 states:
 - id: s1
   type: office
   ref: wd:Q215536
-  quote: null
   note:
     ja: 「بتكسب بالمتجر」。商いの地は原文にないため初版の placeName حلب を除去（規則22）。
+  mention: null
 assessments:
 - id: v1
   label: كان خيرا دينا
@@ -85,8 +78,8 @@ assessments:
   - خير
   - دين
   label_latn: kāna khayyiran dayyinan
-  quote: خيرا
   by: rule
+  mention: m10
 events:
 - id: e1
   type: learning
@@ -94,26 +87,74 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00025
-  quote: قرأ
   trigger: rule
-  norm: قرا
   phrase: قرأ القرآن واشتغل بالعلم وطلب الحديث بنفسه
+  mention: m7
 - id: e2
   type: travel
-  quote: ورحل
   note:
     ja: 行き先は原文にない。
   trigger: rule
-  norm: رحل
   phrase: ورحل وحصل
+  mention: m8
 - id: e3
   type: cultural
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: اشتهر به في حلب مع المشاركة في غيره
+  - mention: m9
   note:
     ja: ハディース学で名声を得た地として原文明記。居住の記述ではないため初版の residence event を本 event に置換。
+  phrase: اشتهر به في حلب مع المشاركة في غيره
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-01492
+  quote: العزازي
+- id: m5
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m6
+  kind: name
+  quote: بابن سفليس
+  norm: ابن سفليس
+- id: m7
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m8
+  kind: event
+  quote: ورحل
+  norm: رحل
+- id: m9
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m10
+  kind: assessment
+  quote: خيرا
+- id: m11
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m12
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: ムハンマド・ブン・アフマド・アッ＝シャムス、アッザーズ出身でハラブの人、イブン・スィフリースとして知られる。クルアーンを読み、学問に携わり、自らハディースを求めて旅し、修得して、ハラブでそれによって有名になり、他の分野にも参与し、善良で信心深く、商いで生計を立てていたが、837年ラビーウ・アル＝アーヒル月19日木曜の夜に没した。アル＝ビカーイーはそこ〔ハラブ〕で彼に会い、彼から次の言葉を書き留めた。「ハッサーン・ブン・サービトは預言者――神の祝福と平安あれ――の息子イブラーヒーム――神が彼を嘉したまえ――を悼み、預言者――神の祝福と平安あれ――に呼びかけてこう詠んだ。『あなたの息子は、称えられる結末のうちに逝った、欠点に汚されず／言葉でも行いでも非難されることなく。彼は、もし生きながらえて高みであなたと並べば〔と考え〕／あなたが比類なく唯一のままであることを選んだのだ』」。
   en: 'Muḥammad b. Aḥmad al-Shams, of ʿAzāz by origin, of Aleppo, known as Ibn Siflīs. He read the Qurʾān, occupied himself with learning, sought ḥadīth on his own, travelled and acquired [it], so that he became famous for it in Aleppo, with participation in other [fields] as well; he was good and pious, earning his living by trade, until he died on the night of Thursday, 19 Rabīʿ al-Ākhir of the year 837. Al-Biqāʿī met him there and wrote down from him his words: "Ḥassān b. Thābit said, mourning Ibrāhīm, the son of the Prophet (God bless him and grant him peace), may God be pleased with him, and addressing the Prophet (God bless him and grant him peace) with this: ''Your son has passed away, praised in his ends, unstained / by fault, and unblamed in word or deed. / He saw that were he to live and equal you in eminence, / [so] he preferred that you remain unique, without peer.''"'

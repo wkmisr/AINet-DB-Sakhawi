@@ -9,41 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02329
-    quote: الحيري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-000401
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D00902
   methods:
   - TMP-S-00025
@@ -55,14 +49,11 @@ relations:
     - ref: gn:109223
   works:
   - ref: TMP-T-00044
-  quote: علي
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-000401
+  active: m8
   passive: AIND-D00902
-  quote: وأبوه
-  norm: ابوه
   phrase: عبد الله بن علي بن إبراهيم
 states:
 - id: s1
@@ -72,7 +63,7 @@ states:
   - ref: gn:109223
   orgs:
   - ref: TMP-I-00120
-  quote: null
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -81,12 +72,11 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m11
   note:
     en: came with his father
   trigger: rule
+  mention: m10
 - id: e2
   type: other
   date:
@@ -94,14 +84,61 @@ events:
     cert: high
     type: other
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m11
   summary:
     en: Met (with his father) at the end of the year.
-  quote: null
   cert: high
   note:
     en: at the end of the year
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-000401
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  ref: TMP-N-02329
+  quote: الحيري
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: TMP-P-000401
+  quote: وأبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m10
+  kind: event
+  quote: قدم
+- id: m11
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m12
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ハイリー家系の出、マディーナの住人、シャーフィイー派、預言者のモスク（アル＝ハラム・アル＝マダニー）において彼とその父が فراش （フトン係）の一人であった。私（サハーウィー）がマディーナに逗留していた時、私に対し『アル＝アルバアイン・アン＝ナワウィー』（イマーム・ナワウィーの40ハディース集）を読誦した。その後、彼と彼の父はカイロにやって来て、891年の終わりに私と会合した。
   en: Aḥmad b. ʿAbd Allāh b. ʿAlī b. Ibrāhīm, originally from Ḥīra, a resident of Medina, and a Shafi'i. He and his father were among the attendants (farrāshīn) in the Sacred Precinct of Medina (al-Ḥaram al-Madanī). He recited al-Arbaʿūn al-Nawawiyya to me (al-Sakhāwī) during my stay there (in Medina). Afterward, he and his father came to Cairo, and they met with me at the end of the year 891 AH.

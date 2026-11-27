@@ -9,48 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00377
-    quote: الحكمي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: داود
     by: rule
-    ref: AIND-D02958
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: أبي القسم
     by: rule
-    norm: ابو القسم
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02958
+  active: m7
   passive: AIND-D07378
   summary:
     ar: داود بن محمد بن أبي القسم الحكمي (الماضي أبوه)
-  quote: أبوه
   note:
     ja: '父=#AIND-D02958（داود بن محمد بن أبي القسم التزيلي الحكمي اليماني。قرية سعد に زاوية を持つ。「خلف ابنين إبراهيم ومحمد」、没870以後）。相互参照あり。合同索引 #AIND-D11600（الحكمي جماعة）は規則11により使用しない。'
-  norm: ابوه
 - id: r2
   type: social
   subtype: predecessor
   active: AIND-D02958
   passive: AIND-D07378
-  quote: null
   note:
     en: He succeeded his father in running the latter's zāwiya.
   phrase: خلفه في القيام بزاويته
@@ -58,49 +51,90 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D07378
-  passive: AIND-D07379
+  passive: m10
   methods:
   - TMP-S-00008
   context:
   - type: teaching
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: الذي بعده
+    - mention: m11
   note:
     ja: '「أخذ عنه الذي بعده بمكة وغيرها」＝次項 #AIND-D07379（محمد بن داود بن ناجي بن مشرف الجمال الحراري اليماني الشافعي）が本項主からマッカ等で学んだ。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00265
   orgs:
   - label: زاوية داود الحكمي
-  quote: القيام بزاويته
   note:
     ja: '父 داود الحكمي の زاوية（父の項によれば قرية سعد）の運営を継承。「وهو الآن في الأحياء」＝執筆時点で存命。所在地は本項原文に明示がないため placeName は置かない。ID-Master に該当職名がないため新規 #TMP-O-00274。'
+  mention: m8
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: حج
+  - mention: m11
   note:
     en: '"mimman ḥajja wa-zāra": he performed the pilgrimage and the visitation.'
   trigger: rule
+  mention: m9
 sources:
 - id: c1
   persons:
   - ref: AIND-D07379
-  quote: وحكى
   note:
     ja: Pattern A。語り手は「الذي بعده」＝#AIND-D07379。
   trigger: rule
-  norm: حكي
   phrase: وحكى لي عنه أحوالا صالحة
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D02958
+  quote: داود
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m5
+  kind: name
+  ref: TMP-N-00377
+  quote: الحكمي
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: person
+  ref: AIND-D02958
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: office
+  ref: TMP-O-00265
+  quote: القيام بزاويته
+- id: m9
+  kind: event
+  quote: حج
+- id: m10
+  kind: person
+  ref: AIND-D07379
+  quote: الذي بعده
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: source
+  quote: وحكى
+  norm: حكي
 translation:
   ja: ムハンマド・ブン・ダーウード・ブン・ムハンマド・ブン・アビー・アル＝カースィム・アル＝ハカミー・アル＝ヤマーニー。彼の父は前述。父の後を継いでそのザーウィヤの運営を善良かつ恵み豊かに担い、現在も存命である。巡礼（ハッジ）と参詣（ズィヤーラ）を行った者の一人で、次項の人物がマッカその他で彼から学んだ。そして（その人物が）私（サハーウィー）に彼の立派な行状を語ってくれた。
   en: Muḥammad b. Dāwūd b. Muḥammad b. Abī al-Qāsim al-Ḥakamī al-Yamānī. His father was mentioned previously. He succeeded him in running his zāwiya, with goodness and blessing, and he is at present among the living. He was among those who performed the pilgrimage and the visitation, and the person mentioned after him studied under him in Mecca and elsewhere, and related to me (al-Sakhāwī) good accounts of him.

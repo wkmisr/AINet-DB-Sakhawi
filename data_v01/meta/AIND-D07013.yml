@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m5
   - id: n2
     type: honorific
-    quote: السيد
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: يعلي
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أحمد بن يعلي
@@ -39,7 +37,6 @@ relations:
   subtype: father
   active: AIND-D07013#p1
   passive: AIND-D07013
-  quote: null
   note:
     ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
 - id: r2
@@ -55,12 +52,9 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00051
-      quote: بفاس
-      norm: فاس
+    - mention: m6
   works:
   - ref: wd:Q4699994
-  quote: null
   note:
     ja: '「وقال أن مؤلفها صنفها لولده أبي محمد وأنه قرأها على الولد المشار إليه بفاس」＝本項主自身の言（cert medium）。師は『الآجرومية』（wd:Q4699994）の著者 ابن آجروم（723年没、ID-Master 未登録）の息子 أبو محمد。ID-Master 未登録のため TMP-P-001444 を発行。初版は #NEEDID、field النحو は原文にないため除去。'
 events:
@@ -68,13 +62,37 @@ events:
   type: cultural
   works:
   - ref: wd:Q4699994
-  quote: شرح الجرومية
   note:
     ja: 『الآجرومية』の註釈を著した（本項主の著作、書名不詳のため bibl は註釈対象のみ）。
+  phrase: شرح الجرومية
+  mention: null
 notes:
 - text: 「وأظنه من أهل هذا القرن فيحرر」＝サハーウィー自身が本項主を9世紀の人物と推測し、要確認としている（本項全体の年代は cert low 相当）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: يعلي
+- id: m4
+  kind: name
+  quote: السيد
+- id: m5
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m6
+  kind: place
+  quote: بفاس
+  ref: TMP-L-00051
+  norm: فاس
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ヤアラー、アッ＝サイイド・アル＝ハサニー。『ジュルーミーヤ』の註釈を著し、その著者がこれを息子のアブー・ムハンマドのために著したこと、そして自分がフェズでその息子からこの書を読誦したことを述べている。私は彼を今世紀の人と思うが、要確認である。
   en: Muḥammad b. Aḥmad b. Yaʿlā, al-Sayyid al-Ḥasanī. He wrote a commentary on al-Jurūmiyya and stated that its author had composed it for his son Abū Muḥammad, and that he had read it with that son in Fez. I think he belongs to this century, but this should be verified.

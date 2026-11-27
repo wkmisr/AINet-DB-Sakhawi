@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001759
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: سلام
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
@@ -36,32 +34,28 @@ relations:
   passive: AIND-D06668
   summary:
     ar: الشهاب أحمد بن سلام
-  quote: null
   note:
     ja: '見出し「ناصر الدين بن الشهاب」＝父はラカブ الشهاب をもつ أحمد بن سلام。corpus に本伝なし（hw.py「أحمد بن سلام」は本項のみ、全文検索「بن سلام」＋「دمياط」も本項のみ）、ID-Master 未登録 → 仮 TMP-P-001759（規則3: ラカブ＋祖父名）。初版は父 relation なし。'
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D03226
+  active: m9
   passive: AIND-D06668
-  quote: سودون المغربي
   note:
     ja: '「ولي دمياط … عوضا عن سودون المغربي」＝前任者。corpus 本伝 #AIND-D03226「سودون الظاهري برقوق ويعرف بسودون المغربي لنشوفته … ثم ولاه نيابة دمياط ثم انفصل عنها ثم أعاده الظاهر إليها ثم نفاه إلى القدس … مات في ذي الحجة سنة ثلاث وأربعين」（通称・دمياط の職・年代で閉合、ブリーフの番号を本文で確認）。前任者の職は本項主の state にしない。初版は幻番号 TMP-P-000000。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:358048
-    quote: دمياط
+  - mention: m7
   dates:
   - ah: 842
     type: appointment
   - ah: 843
     type: retirement
-  quote: ولي
   note:
     ja: '「ولي دمياط في أواخر سنة اثنتين وأربعين … ثم صرف عنها في التي تليها」。原文は職名を挙げず「ولي دمياط」とするが、前任者の本伝 #AIND-D03226 が同じ職を「نيابة دمياط」と呼ぶので、汎用 نائب（TMP-O-00053）＋placeName دمياط で立てた（規則65 (b)、repo 先例「نائب دمياط」＝TMP-O-00053＋gn:358048）。初版の幻番号 TMP-O-00000（label「والي دمياط」）を置換。就任は「أواخر」842年だが年精度のため @when は年初 1438（842年＝1438-07-03〜1439-06-22。年末なら1439年に当たる、規則33）。解任 843年＝1439-06-23 開始（h2g.py）。'
+  mention: m6
 events:
 - id: e1
   type: political
@@ -69,18 +63,54 @@ events:
     ah: 843
     type: political
   places:
-  - ref: gn:358048
-    quote: دمياط
-  quote: وقتلوه
+  - mention: m7
   note:
     ja: 解任の経緯。「عنها」は先行する دمياط を指す（規則22(3)）。「السلطان」は名が挙がらないので persName・ref を付けない（ブリーフ）。初版は英語 desc の event 2件（就任・解任、cert high）と residence event（دمياط、居住の記述なし）を置いていた＝就任は state の date に、解任を本 event 1件にまとめた。
   trigger: rule
-  norm: قتلوه
   phrase: ثم صرف عنها في التي تليها حين انتصر لبعض النصارى لما وثب عليه الدمياطيون وقتلوه فكاتب في إغراء الدولة عليهم فلما اتضح خبره للسلطان صرفه
+  mention: m10
 notes:
 - text: '【集約 2026-11-18】通称索引 #AIND-D12415（ابن 部）の末尾「★ID_Missing★ ابن سلام بالتشديد محمد بن أحمد بن سلام .」が本項主を指す＝サハーウィー自身の発音指示により「سلّام」（Sallām）と読み、訳文の転写を Sallām に直した。通称「ابن سلّام」は索引にだけ出るので属性としては補わない（規則23）。父の本伝は増えない（内容B L1・L2、オーケストレーター決定23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001759
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: سلام
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  quote: الشهاب
+- id: m6
+  kind: office
+  ref: TMP-O-00053
+  quote: ولي
+- id: m7
+  kind: place
+  quote: دمياط
+  ref: gn:358048
+- id: m8
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D03226
+  quote: سودون المغربي
+- id: m10
+  kind: event
+  quote: وقتلوه
+  norm: قتلوه
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・サッラーム、ナースィル・アッ＝ディーン、アッ＝シハーブの子。（8）42年の末にスードゥーン・アル＝マグリビーに代わってディムヤートを治めた。ついで翌年にそこから解任された。ディムヤートの人々があるキリスト教徒に襲いかかって殺したとき、彼がそのキリスト教徒の側に立ち、政権を彼らに対してけしかける書簡を送ったためで、その実情がスルターンに明らかになると、スルターンは彼を解任した。
   en: Muḥammad b. Aḥmad b. Sallām, Nāṣir al-Dīn b. al-Shihāb. He took charge of Damietta at the end of the year [8]42 in place of Sūdūn al-Maghribī, then was removed from it in the following year, when he took the side of a certain Christian whom the people of Damietta had set upon and killed, and wrote to incite the government against them; when the truth about him became clear to the sultan, he dismissed him.

@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03955
-    quote: التركستاني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00281
-    quote: بالقرمي
-    norm: القرمي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: القرمي
+    mention: null
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: الشيخ
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 806
   note:
     en: At the end of the year 806. It is said that a tribulation befell him, on account of which he strangled himself, as was widely reported among the people.
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -43,48 +40,86 @@ relations:
   passive: AIND-D04551
   summary:
     ar: الشيخ الشهير ببيت المقدس محمد بن أحمد بن عبد الرحمن ويقال عثمان بن عمر
-  quote: null
   note:
     ja: '父 ＝ バイト・アル＝マクディスの著名なシャイフ الشمس محمد بن أحمد بن عبد الرحمن القرمي（corpus では #AIND-D00267「اجتمع بالشيخ الشهير الشمس محمد بن أحمد بن عبد الرحمن القرمي」・#AIND-D00258「الشيخ محمد القرمي ببيت المقدس」・#AIND-D00688・#AIND-D07571 に師として言及。801年以前没のため本伝なし）。ID-Master 未登録のため仮番号 TMP-P-001216 を発行。初版の #NEEDID を解消。'
 events:
 - id: e1
   type: cultural
-  quote: اشتغل قليلا
+  phrase: اشتغل قليلا
+  mention: null
 - id: e2
   type: visit
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: دخل
+  - mention: m6
   trigger: rule
   phrase: قدم حلب
+  mention: m7
 - id: e3
   type: visit
   places:
-  - ref: TMP-L-00043
-    quote: بغداد
-  quote: وقدم
+  - mention: m8
   trigger: rule
-  norm: قدم
   phrase: دخل بغداد
+  mention: m5
 - id: e4
   type: political
-  quote: أسر مع اللنكية ثم خلص
   note:
     ja: ティムール（اللنك）軍による捕囚と解放。捕囚の地は原文に明示されないため、初版の placeName بغداد（直前の「دخل بغداد」からの推定）を除去（規則22(1)）。
-  norm: اسر مع اللنكية ثم خلص
+  phrase: أسر مع اللنكية ثم خلص
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A。شيخنا ＝ Ibn Ḥajar、『إنباء الغمر』＝ TMP-T-00034。
   trigger: rule
   phrase: قاله شيخنا في أنبائه
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: الشيخ
+- id: m3
+  kind: name
+  ref: TMP-N-03955
+  quote: التركستاني
+- id: m4
+  kind: name
+  ref: TMP-N-00281
+  quote: بالقرمي
+  norm: القرمي
+- id: m5
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m6
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m7
+  kind: event
+  quote: دخل
+- id: m8
+  kind: place
+  quote: بغداد
+  ref: TMP-L-00043
+- id: m9
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー、バイト・アル＝マクディスで名高いシャイフ、ムハンマド・ブン・アフマド・ブン・アブド・アッラフマーン——アブド・アッラフマーンではなくウスマーン・ブン・ウマルとも言われる——の息子、アッ＝トゥルキスターニー、アル＝クルミーとして知られる。少しばかり学問に従事し、ハラブに来て、次いでバグダードに入り、ランク（ティムール）軍のもとで捕虜となったのち解放された。一説には、彼に苦難が降りかかり、そのために自ら首を絞めて死んだと言われ、それが人々の間に広まった。それは806年末のことである。我らがシャイフ（イブン・ハジャル）がその『インバー』で述べている。
   en: ʿAbd Allāh, son of the shaykh famous in Jerusalem (Bayt al-Maqdis), Muḥammad b. Aḥmad b. ʿAbd al-Raḥmān — or, as is also said, b. ʿUthmān b. ʿUmar — al-Turkistānī, known as al-Qirimī. He studied a little, came to Aleppo and then entered Baghdad, where he was taken captive by the Timurid (Lankī) forces and later released. It is said that a tribulation befell him, on account of which he strangled himself, as was widely reported among the people; that was at the end of the year 806. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ.

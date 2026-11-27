@@ -9,17 +9,16 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m2
   - id: n2
     type: ism
-    quote: ريحان
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m4
   passive: AIND-D03026
   methods:
   - TMP-S-00003
@@ -28,10 +27,7 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m5
 - id: r2
   type: social
   subtype: patron
@@ -39,22 +35,39 @@ relations:
   passive: AIND-D03026
   summary:
     ar: الزكي أبو بكر المصري
-  quote: null
   note:
     en: His patron and master (fatā)
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   methods:
   - TMP-S-00003
-  quote: سمع
   note:
     en: During his stay in Mecca to study under al-Sakhāwī
   trigger: rule
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: ريحان
+- id: m2
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m3
+  kind: event
+  quote: سمع
+- id: m4
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: レイハーン・アル＝ハバシー。アッ＝ザキー・アブー・バクル・アル＝ミスリーの若僕（または解放奴隷）。マッカ（メッカ）にて私（サハーウィー）から（ハディースを）聴聞した者の一人である。
   en: Rayḥān al-Ḥabashī, the servant (or freedman) of al-Zakī Abū Bakr al-Miṣrī. He was among those who heard (ḥadīth) from me in Mecca.

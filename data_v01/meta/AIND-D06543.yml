@@ -9,56 +9,48 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الكمال
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00784
-    quote: النيني
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n4
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m10
   - id: n5
     type: shuhrah
-    quote: بابن القادري
-    norm: ابن القادري
     label: ابن القادري
+    mention: m13
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00233
-    norm: ابراهيم
+    mention: m2
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n9
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
   - id: n10
     type: nasab
-    quote: صلح
     by: rule
+    mention: m5
   - id: n11
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m7
   - id: n12
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m11
 birth:
   id: b
   date:
@@ -71,36 +63,32 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07896
+  active: m14
   passive: AIND-D06543
   methods:
   - TMP-S-00009
-  quote: الجوجري
   note:
     ja: '「واشتغل يسيرا عند الجوجري وغيره」。الجوجري＝#AIND-D07896（محمد بن عبد المنعم … الشمس … الجوجري ثم القاهري الشافعي）。父 #AIND-D00233 の本伝にも「لازم تلميذه الجوجري」とあり同じ人物。「وغيره」は人物を立てない。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m18
   passive: AIND-D06543
   methods:
   - TMP-S-00025
   works:
   - label: الألفية
-  quote: علي
   note:
     ja: '「وقرأ علي في الألفية وغيرها」。どの『アルフィーヤ』かは原文にない。初版の ref wd:Q4721943 は典拠台帳では「ألفية ابن مالك」（文法書）で、サハーウィーのもとで読んだ書としては ألفية الحديث（TMP-T-00101。父の本伝 #AIND-D00233「وحضر عندي في بعض دروس الألفية」、#AIND-D08536「وقرأ على ألفية الحديث بحثا」）の可能性が高い＝決められないので ref を外した（ISSUES §D170-9）。'
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D00233
+  active: m12
   passive: AIND-D06543
   summary:
     ar: إبراهيم بن محمد بن إبراهيم بن صالح
-  quote: أبوه
   note:
     ja: 「الماضي أبوه」＝#AIND-D00233「إبراهيم بن محمد بن إبراهيم بن صالح برهان الدين النيني … الدمشقي ثم القاهري الشافعي القادري ويعرف بالبرهان القادري … وسمع ختم البخاري في الظاهرية القديمة … مات في ليلة السبت سادس عشر شوال سنة ست وثمانين」（ナサブ4代・ラカブ البرهان・ニスバ・通称 القادري で閉合、repo 未収録）。曾祖父名は本項「صلح」・父の項「صالح」（刊本どおり）。初版は幻番号 TMP-P-000000。
-  norm: ابوه
 affiliations:
 - id: a1
   type: madhhab
@@ -110,8 +98,8 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: حفظ القرآن وكتبا
-  norm: حفظ القران وكتبا
+  phrase: حفظ القرآن وكتبا
+  mention: null
 - id: e2
   type: learning
   date:
@@ -123,16 +111,85 @@ events:
   - ref: wd:Q1023470
   methods:
   - TMP-S-00025
-  quote: وقرأ
   note:
     ja: '854年ムハッラム月5日＝1450-02-27（h2g.py）。父に連れられて2歳目に『ブハーリー』の読了（ختم）に出席（إحضار。読み手・師は原文になし＝relation は立てない）。الظاهرية＝wd:Q23975647（الظاهرية القديمة）: 父の本伝 #AIND-D00233 に「وسمع ختم البخاري في الظاهرية القديمة」とある。初版は同じ内容を、幻番号 TMP-P-000000 への teacher relation（@when に ヒジュラ暦の日付、placeName القاهرة）・affiliation（study）・cultural event の三重に書いていた＝この event 一つに統合。القاهرة は原文にない（規則22(1)）。'
   trigger: rule
-  norm: قرا
   phrase: وأحضره والده في الثانية خامس المحرم سنة أربع وخمسين ختم البخاري بالظاهرية
+  mention: m17
 notes:
 - text: 「وما سلك مسلك أبيه」＝父の道を歩まなかった（サハーウィーの評）。ニスバ由来の residence event（دمشق・القاهرة）は除去（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00233
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  quote: صلح
+- id: m6
+  kind: name
+  quote: الكمال
+- id: m7
+  kind: name
+  quote: البرهان
+- id: m8
+  kind: name
+  ref: TMP-N-00784
+  quote: النيني
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m11
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m12
+  kind: person
+  ref: AIND-D00233
+  quote: أبوه
+  norm: ابوه
+- id: m13
+  kind: name
+  quote: بابن القادري
+  norm: ابن القادري
+- id: m14
+  kind: person
+  ref: AIND-D07896
+  quote: الجوجري
+- id: m15
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m16
+  kind: year
+  value: '854'
+  quote: سنة
+- id: m17
+  kind: event
+  quote: وقرأ
+  norm: قرا
+- id: m18
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム・ブン・サーリフ、アル＝カマール・ブン・アル＝ブルハーン、アン＝ナイニー、のちアッ＝ディマシュキー、アル＝カーヒリー、アッ＝シャーフィイー。父は既出。イブン・アル＝カーディリーの名で知られる。クルアーンといくつかの書を暗記し、アル＝ジャウジャリーらのもとで少し学んだ。父は、彼が2歳目であった54年ムハッラム月5日に、ザーヒリーヤでの『ブハーリー』の読了に彼を出席させた。私には『アルフィーヤ』その他を読んだ。父の道は歩まなかった。
   en: Muḥammad b. Ibrāhīm b. Muḥammad b. Ibrāhīm b. Ṣāliḥ, al-Kamāl b. al-Burhān, al-Naynī, then al-Dimashqī, al-Qāhirī al-Shāfiʿī, whose father has been mentioned above; known as Ibn al-Qādirī. He memorized the Qurʾān and some books, and studied a little under al-Jawjarī and others. His father brought him, in his second year, on 5 Muḥarram of the year 54, to the completion (khatm) of al-Bukhārī at the Ẓāhiriyya. He read with me in the Alfiyya and other works. He did not follow his father's path.

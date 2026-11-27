@@ -9,31 +9,27 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: صلاح الدين
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن أبي الهول
-    norm: ابن ابي الهول
     label: ابن أبي الهول
+    mention: m6
   - id: n3
     type: ism
-    quote: خليل
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي البركات
     by: rule
-    ref: AIND-D10619
-    norm: ابو البركات
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: سعد الدين
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -41,7 +37,7 @@ death:
   note:
     ar: مات في رمضان سنة ثلاث وثمانين
     ja: 883-09＝1478-12-05 開始、月精度 1478-12（h2g.py）。初版 @when="1478"（年精度）を月精度に。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -50,7 +46,6 @@ relations:
   passive: AIND-D02889
   summary:
     ar: سعد الدين أبو البركات بن موسى بن أبي الهول
-  quote: null
   note:
     ja: '規則3・37。父＝ #AIND-D10619「أبو البركات بن موسى بن أبي الهول سعد الدين والد خليل وإبرهيم . ولي كتابة المماليك في أيام الناصر فرج ومات في رجب سنة إحدى وخمسين」（851没、未収録）。見出しナサブ（أبو البركات بن موسى）・ラカブ سعد الدين・家名 ابن أبي الهول・「والد خليل」で閉合。'
 - id: r2
@@ -61,36 +56,75 @@ relations:
   summary:
     ar: برهان الدين إبراهيم بن أبي البركات بن موسى
   cert: medium
-  quote: null
   note:
     ja: '兄弟＝ #AIND-D00072「إبراهيم بن أبي البركات بن موسى برهان الدين بن سعد الدين بن أبي الهول أحد كتاب المماليك وأخو خليل الآتي」（未収録）。本項原文に名指しはないが、相手側が「أخو خليل الآتي」と名指しし、父 D10619 も「والد خليل وإبرهيم」と両者を挙げるため cert medium で立てる（規則23）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00028
-  quote: أحد كتاب المماليك
-  norm: احد كتاب المماليك
+  mention: m7
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00342
-    quote: ببركة قرموط
-    norm: بركة قرموط
+  - mention: m10
   orgs:
   - ref: TMP-I-00270
-  quote: وهو صاحب الجامع الذي ببركة قرموط ، وكان مسجدا قديما فوسعه وعمل فيه خطبة ورتب فيه أرباب وظائف
   note:
     ja: بركة قرموط（カイロの街区）＝ID-Master 既登録 TMP-L-00342（خط بركة قرموط）。本項主が拡張してジャーミウにしたモスクは ID-Master 未登録（「قرموط」該当は TMP-L-00342 のみ）→ TMP-I-00270。初版の affiliation founded（#NEEDID）を event に置換。
-  norm: وهو صاحب الجامع الذي ببركة قرموط ، وكان مسجدا قديما فوسعه وعمل فيه خطبة ورتب فيه ارباب وظاءف
+  phrase: وهو صاحب الجامع الذي ببركة قرموط ، وكان مسجدا قديما فوسعه وعمل فيه خطبة ورتب فيه أرباب وظائف
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
   phrase: وحج غير مرة
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: خليل
+- id: m2
+  kind: name
+  ref: AIND-D10619
+  quote: أبي البركات
+  norm: ابو البركات
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: صلاح الدين
+- id: m5
+  kind: name
+  quote: سعد الدين
+- id: m6
+  kind: name
+  quote: بابن أبي الهول
+  norm: ابن ابي الهول
+- id: m7
+  kind: office
+  ref: TMP-O-00028
+  quote: أحد كتاب المماليك
+  norm: احد كتاب المماليك
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '883'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: ببركة قرموط
+  ref: TMP-L-00342
+  norm: بركة قرموط
+- id: m11
+  kind: event
+  quote: وحج
 translation:
   ja: ハリール・ブン・アビー・アル＝バラカート・ブン・ムーサー、サラーフ・アッ＝ディーン・ブン・サアド・アッ＝ディーン、先人と同じくイブン・アビー・アル＝ハウルとして知られる。マムルーク登録書記（クッターブ・アル＝ママーリーク）の一人。883年ラマダーン月に没した。彼はビルカト・カルムートにあるジャーミウの主で、それは古いモスクであったが、彼が拡張して金曜説教を設け、職務者を配置した。巡礼を複数回行った。
   en: Khalīl b. Abī al-Barakāt b. Mūsā, Ṣalāḥ al-Dīn b. Saʿd al-Dīn, known like his forebears as Ibn Abī al-Hawl. One of the scribes of the mamlūks (kuttāb al-mamālīk). He died in Ramaḍān of the year 883. He was the master of the congregational mosque at Birkat Qarmūṭ; it had been an old mosque, which he enlarged, instituting the Friday sermon in it and appointing office-holders. He performed the pilgrimage more than once.

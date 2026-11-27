@@ -9,15 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m3
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m2
   - id: n3
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -27,8 +26,8 @@ death:
   - ref: gn:361058
   note:
     ja: '「سنة ثلاث」＝一の位のみ→803（cert medium。文脈: 801年に برقوق が任命、後任 أرسطاي #AIND-D01848 は811年没＝8世紀初頭で整合）。「آخر ربيع الأول」＝月末だが月精度で 803-03（803-03-01＝1400-10-29、月末 803-03-29＝1400-11-26）、@when は月精度 1400-10。「بها」はアレクサンドリア（直前の نيابة إسكندرية の照応、規則22(3)）。'
-  quote: سنة
   phrase: مات بها في آخر ربيع الأول سنة ثلاث
+  mention: m11
 persons:
 - id: p1
   label: والد فرج الزين الحلبي
@@ -39,46 +38,38 @@ relations:
   subtype: father
   active: AIND-D06174#p1
   passive: AIND-D06174
-  quote: null
   note:
     ja: '父の名は原文に無い → #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m4
   passive: AIND-D06174
-  quote: الظاهر برقوق
   note:
     ja: '「ولاه الظاهر برقوق أستادار الأملاك والذخيرة ثم نقله لنيابة إسكندرية」。初版 #NEEDID → 頻出確定ID #AIND-D02178。'
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D06358
+  active: m9
   passive: AIND-D06174
   cert: medium
-  quote: قطلوبغا الخليلي
   note:
     ja: '「بعد قطلوبغا الخليلي」＝アレクサンドリア代官職の前任者。corpus 本伝 #AIND-D06358「قطلوبغا الخليلي . ولي الحجوبية في أيام برقوق ثم تعطل مدة إلى أن طلبه المؤيد وولاه نيابة إسكندرية … مات في ذي الحجة سنة إحدى وعشرين」（未収録）。名・時代（برقوق 期のアミール）が一致し、corpus に同名の見出しは他にないが、D06358 本文は801年以前のアレクサンドリア代官在任に触れないため cert medium（規則26）。初版 #NEEDID。'
 - id: r4
   type: social
   subtype: successor
-  active: AIND-D01848
+  active: m13
   passive: AIND-D06174
-  quote: أرسطاي رأس نوبة
   note:
     ja: '「واستقر بعده أرسطاي رأس نوبة」。corpus 本伝 #AIND-D01848「أرسطاي الظاهري برقوق … باشر فيها رأس نوبة كبير … ثم نيابة الإسكندرية حتى مات … سنة إحدى عشرة」＝رأس نوبة・アレクサンドリア代官が一致。初版の #TMP-N-02420（ニスバ番号 ارسطاي の人物位置流用）を是正。'
-  norm: ارسطاي راس نوبة
 states:
 - id: s1
   type: office
-  ref: TMP-O-00342
-  quote: أستادار الأملاك والذخيرة
   note:
     ja: 「ولاه الظاهر برقوق أستادار الأملاك والذخيرة」。ID-Master の استادار 系は汎用 أستادار（TMP-O-00064）と استادار الذخيرة（TMP-O-00118、Waka 裁定で別職）のみで「الأملاك والذخيرة」は未登録 → 仮番号 TMP-O-00342（規則41、語根で照合）。
-  norm: استادار الاملاك والذخيرة
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00053
   places:
   - ref: gn:361058
   dates:
@@ -88,10 +79,9 @@ states:
   - ah: 803-03
     cert: medium
     type: retirement
-  quote: لنيابة
   note:
     ja: '「نقله لنيابة إسكندرية في جمادى الأولى سنة إحدى … واستمر إلى أن مات بها」。repo 先例 #AIND-D02976「نائب اسكندرية」どおり汎用 نائب TMP-O-00053＋placeName。801-05-01＝1399-01-17。年は一の位のみ（801・803）で cert medium。'
-  norm: نيابة
+  mention: m6
 events:
 - id: e1
   type: political
@@ -101,22 +91,81 @@ events:
     type: political
   places:
   - ref: gn:361058
-  quote: واستقر
   cert: medium
   trigger: rule
-  norm: استقر
   phrase: نقله لنيابة إسكندرية في جمادى الأولى سنة إحدى بعد قطلوبغا الخليلي
+  mention: m12
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: أرخه
+  - mention: m15
   note:
     ja: Pattern A。初版の chronicler relation を mention event に変更（書名は原文に無いため bibl なし）。
   trigger: rule
-  norm: ارخه
   phrase: أرخه المقريزي
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: name
+  quote: الزين
+- id: m3
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m4
+  kind: person
+  ref: AIND-D02178
+  quote: الظاهر برقوق
+- id: m5
+  kind: office
+  ref: TMP-O-00342
+  quote: أستادار الأملاك والذخيرة
+  norm: استادار الاملاك والذخيرة
+- id: m6
+  kind: office
+  ref: TMP-O-00053
+  quote: لنيابة
+  norm: نيابة
+- id: m7
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m8
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D06358
+  quote: قطلوبغا الخليلي
+- id: m10
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m11
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m12
+  kind: event
+  quote: واستقر
+  norm: استقر
+- id: m13
+  kind: person
+  ref: AIND-D01848
+  quote: أرسطاي رأس نوبة
+  norm: ارسطاي راس نوبة
+- id: m14
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m15
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ファラジュ、アッ＝ザイン・アル＝ハラビー。諸々の勤めを転々とした末に、アッ＝ザーヒル・バルクークが彼を王領と宝物庫のアスターダール（ustādār al-amlāk wa-l-dhakhīra）に任じ、次いで（8）01年ジュマーダー・アル＝ウーラー月にクトゥルーブガー・アル＝ハリーリーの後任としてアレクサンドリア代官職に転任させた。彼は（8）03年ラビーウ・アル＝アウワル月末に同地で没するまでその職にあり、後任にはラアス・ナウバのアルスターイが就いた。アル＝マクリーズィーが彼の没年を記している。
   en: Faraj, al-Zayn al-Ḥalabī. He moved from one service to another until al-Ẓāhir Barqūq appointed him ustādār of the royal estates and the treasury (ustādār al-amlāk wa-l-dhakhīra), then transferred him to the governorship (niyāba) of Alexandria in Jumādā al-Ūlā of the year [8]01, after Quṭlūbughā al-Khalīlī. He remained there until he died in that city at the end of Rabīʿ al-Awwal of the year [8]03, and Arisṭāy, the raʾs nawba, was installed after him. Al-Maqrīzī recorded his death date.

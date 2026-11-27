@@ -9,32 +9,30 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: الشقيف سمع من الزين
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 861-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     en: He died in al-Muharram, 861 AH, as recorded by Ibn Fahd.
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m4
   passive: AIND-D05260
   methods:
   - TMP-S-00003
@@ -42,7 +40,6 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00019
-  quote: المراغي
 - id: r2
   type: scholarly
   subtype: teacher
@@ -54,18 +51,50 @@ relations:
   - TMP-S-00002
   works:
   - ref: wd:Q1023470
-  quote: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   note:
     en: He recorded the subject's death.
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: الشقيف سمع من الزين
+- id: m4
+  kind: person
+  ref: AIND-D10690
+  quote: المراغي
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '861'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・アブドゥッラー・ブン・アッ＝シャキーフ。アッ＝ザイン・アル＝マラーギーから『アル＝ムササール』を聴聞し、『サヒーハ・アル＝ブハーリー』の講読完了（ハトム）に立ち会った。ハジュル暦861年ムハッラム月にマッカで没した。イブン・ファハドがその死を記録している。
   en: ʿAlī b. ʿAbd Allāh b. al-Shaqīf. He heard 『al-Musalsal』 and the conclusion of the reading of 『al-Bukhārī』 from al-Zayn al-Marāghī. He died in Mecca in al-Muḥarram, the year 861 AH, as recorded by Ibn Fahd.

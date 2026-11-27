@@ -9,114 +9,171 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01127
-    quote: الوجيزي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03581
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01208
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
   - id: n8
     type: nasab
-    quote: عرندة
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 891-11
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m16
   note:
     ar: مات بالمدينة في ذي القعدة سنة إحدى وتسعين وأظنه جاز الستين
     ja: 891年ズー・アル＝カアダ月＝1486-11-07〜12-06 → 月初 1486（h2g.py、初版と同値）。「أظنه جاز الستين」（60歳を越えていたと思う）は著者の推測のため birth は立てない。
-  quote: سنة
+  mention: m18
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03581
+  active: m11
   passive: AIND-D07538
   summary:
     ar: عبد الرحمن بن أحمد بن محمد بن أحمد بن عرندة الماضي أبوه
-  quote: أبوه
   note:
     ja: '父＝#AIND-D03581（عبد الرحمن بن أحمد بن محمد بن أحمد بن عرندة جلال الدين بن الشهاب المحلي الأصل القاهري الشافعي … ويعرف بابن الوجيزي、788年生）。ナサブ5代完全一致。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D01208
+  active: m12
   passive: AIND-D07538
   summary:
     ar: أحمد بن محمد بن أحمد بن عرندة الماضي جده
-  quote: وجده
   note:
     ja: 祖父＝#AIND-D01208（أحمد بن محمد بن أحمد بن عرندة الشهاب المحلي القاهري الشافعي والد عبد الرحمن الآتي ويعرف بالوجيزي、742年生）。
-  norm: جده
 states:
 - id: s1
   type: office
-  ref: TMP-O-00188
   places:
-  - ref: TMP-L-00280
-    quote: بسوق الغزل
-    norm: سوق الغزل
-  quote: الدلال
+  - mention: m10
   note:
     ja: 仲買人（TMP-O-00188 الدلال）。勤務先「سوق الغزل（الشرب）」は原文に明記された施設名のため placeName とし、ID-Master 未登録につき仮番号 TMP-L-00280 を発行（統一規則22(2)・12）。初版の placeName القاهرة（ニスバ由来）を除去。「الشرب」は上質亜麻布（شَرْب）と解した。
+  mention: m9
 - id: s2
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00018
-  quote: أحد صوفية سعيد السعداء
   note:
     ja: '初版の affiliation（TMP-I-00018）と state の二重符号化を state に一本化（統一規則8、先例 #AIND-D05050）。施設所在地からの placeName القاهرة 補完は不可（統一規則22(1)）。'
-  norm: احد صوفية سعيد السعداء
+  mention: m15
 events:
 - id: e1
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: المجاورة
+  - mention: m14
   note:
     ja: 原文に「بمكة」が明記されているため placeName を保持（統一規則22(2)。規則20の「جاور に placeName を付けない」は地名が原文にない場合の補完禁止）。
   trigger: rule
   phrase: ممن أكثر المجاورة بمكة
+  mention: m13
 - id: e2
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: وكان فقيرا يقرأ القرآن
-  norm: كان فقيرا يقرا القران
+  phrase: وكان فقيرا يقرأ القرآن
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D03581
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  ref: AIND-D01208
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  quote: عرندة
+- id: m7
+  kind: name
+  ref: TMP-N-01127
+  quote: الوجيزي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: office
+  ref: TMP-O-00188
+  quote: الدلال
+- id: m10
+  kind: place
+  quote: بسوق الغزل
+  ref: TMP-L-00280
+  norm: سوق الغزل
+- id: m11
+  kind: person
+  ref: AIND-D03581
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: person
+  ref: AIND-D01208
+  quote: وجده
+  norm: جده
+- id: m13
+  kind: event
+  quote: المجاورة
+- id: m14
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m15
+  kind: office
+  ref: wd:Q2892720
+  quote: أحد صوفية سعيد السعداء
+  norm: احد صوفية سعيد السعداء
+- id: m16
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m17
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m18
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・アフマド・ブン・ムハンマド・ブン・アフマド・ブン・アランダ、アル＝ワジーズィー・アル＝カーヒリー、糸・上質亜麻布（シャルブ）市場の仲買人（ダッラール）。その父と祖父は前述。マッカに幾度も滞在（ムジャーワラ）した者の一人。貧しく、クルアーンを朗誦し、サイード・アッ＝スアダーのスーフィーの一人であった。（八百）九十一年ズー・アル＝カアダ月にマディーナで没した。六十歳を越えていたと私は思う。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Aḥmad b. Muḥammad b. Aḥmad b. ʿAranda, al-Wajīzī al-Qāhirī, the broker (dallāl) at the market of yarn and sharb-linen. His father and grandfather have been mentioned above. He was among those who frequently sojourned (as a mujāwir) in Mecca; he was poor, recited the Qurʾān, and was one of the Sufis of Saʿīd al-Suʿadāʾ. He died in Medina in Dhū al-Qaʿda of the year (8)91, and I think he had passed sixty.

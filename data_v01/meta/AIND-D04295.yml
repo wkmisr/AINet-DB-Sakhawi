@@ -9,32 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: laqab
-    quote: جاني بك
+    mention: m2
   - id: n3
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 890-09-14
     cert: medium
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  - ref: TMP-I-00149
-    role: burial
-    quote: بتربة بني فهد من المعلاة
-    norm: تربة بني فهد من المعلاة
+  - mention: m6
+  - role: burial
+    mention: m9
   note:
     ar: مات شبه الفجأة من نزلة نزلت في عنقه منعته الأكل والشرب في ليلة السبت رابع عشر رمضان سنة وتسعين بجدة وحمل لمكة فصلى عليه ثم دفن على والدته بتربة بني فهد من المعلاة
     ja: 「سنة وتسعين」＝890年（底本の脱落。「ليلة السبت رابع عشر رمضان」＝890年ラマダーン月14日＝1485年9月24日は表計算でも土曜で一致。ただし 898年ラマダーン月14日＝1493年6月29日も土曜で、曜日だけでは 890 に一意化できない → cert medium）。埋葬地 تربة بني فهد（المعلاة 内のバヌー・ファフド家の墓所）は ID-Master 未登録 → 新規 TMP-I-00149（埋葬地が施設の場合は placeName に I 番号、B69-73 §D-10 方式）。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: ميلب
@@ -46,9 +41,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04295#p1
+  active: m3
   passive: AIND-D04295
-  quote: ميلب
   note:
     ja: '父 ميلب は名のみ。corpus の ميلب 見出しは D10112a（ميلب بن علي … الحسني、没839）・D10112b（ميلب بن محمد … الحسني）・D10112c（ميلب السيد المجاشي、没859）といずれもシャリーフ家で、ジッダの職人である本項主との結びつきを確定できない → #NEEDID（候補併記）。'
 - id: r2
@@ -56,7 +50,6 @@ relations:
   subtype: mother
   active: AIND-D04295#p2
   passive: AIND-D04295
-  quote: null
   note:
     ja: '母は名不詳（バヌー・ファフドの墓所に葬られている）→ #NEEDID。初版は active 空の mother／brother relation（兄弟は「اخوته」の総称のみ → relation を立てない）。'
 states:
@@ -65,16 +58,53 @@ states:
   label: الصانع بجدة
   label_latn: al-ṣāniʿ bi-Jidda
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: الصانع
+  - mention: m6
   note:
     ja: 「الصانع」（職人）は ID-Master に該当職なし → status として保持。
+  mention: m5
 - id: s2
   type: status
   label: وكان بارا بوالديه واخوته
   label_latn: wa-kāna bārran bi-wālidayhi wa-ikhwatihi
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  quote: جاني بك
+- id: m3
+  kind: person
+  ref: AIND-D04295#p1
+  quote: ميلب
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: office
+  quote: الصانع
+- id: m6
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m7
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m8
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بتربة بني فهد من المعلاة
+  ref: TMP-I-00149
+  norm: تربة بني فهد من المعلاة
+- id: m10
+  kind: office
   quote: وكان بارا بوالديه واخوته
 translation:
   ja: アブド・アル＝カリーム、ジャーニー・バクと称される、ブン・マイラブ・アル＝マッキー、ジッダの職人。（8）90年ラマダーン月14日、土曜の前夜にジッダで、首に降りたカタルのために飲食ができなくなり、ほとんど急死した。マッカへ運ばれて葬礼が行われ、ムアッラー墓地のバヌー・ファフドの墓所にある母の墓の上に葬られた。両親と兄弟たちに孝行であった。

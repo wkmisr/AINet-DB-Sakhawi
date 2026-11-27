@@ -9,38 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00311
-    quote: الأردبيلي
-    norm: الاردبيلي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00195
-    quote: التبريزي
+    mention: m7
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: بدل
     by: rule
-    ref: TMP-P-001482
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: البدر
     by: rule
+    mention: m5
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 relations:
 - id: r1
   type: kin
@@ -49,13 +44,12 @@ relations:
   passive: AIND-D07151
   summary:
     ar: البدر بدل بن محمد الأردبيلي التبريزي
-  quote: null
   note:
     ja: '見出し「الشمس بن البدر」＝父のラカブ البدر、ナサブ بدل بن محمد（規則3）。corpus 本伝なし・ID-Master 未登録 → TMP-P-001482。初版の #NEEDID を差し替え。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m9
   passive: AIND-D07151
   methods:
   - TMP-S-00006
@@ -74,10 +68,8 @@ relations:
   - ref: TMP-T-00233
   - ref: TMP-T-00055
   - ref: TMP-T-00234
-  quote: كشيخنا
   note:
     ja: 「حفظ القرآن والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر ، وعرضها على جماعة كشيخنا في رمضان سنة ثلاث وأربعين」＝暗記した諸書をイブン・ハジャルら一団に試問提示。843年ラマダーン月＝1440-02-14〜03-14。『المنهاج』は「كلاهما للبيضاوي」と明記＝البيضاوي『منهاج الوصول إلى علم الأصول』（TMP-T-00232。初版の wd:Q6806081 はムスリム注釈＝毒）、『الطوالع』＝『طوالع الأنوار』（TMP-T-00233）、『التلخيص』＝『تلخيص المفتاح』（TMP-T-00055）、「شرحه المختصر」＝التفتازاني『المختصر』（TMP-T-00234）。初版は書ごとに relation を分割（分野「القراءات」「الفقه」は原文になく除去）。
-  norm: شيخنا
 - id: r3
   type: scholarly
   subtype: teacher
@@ -90,7 +82,6 @@ relations:
     phrase: بل وقرأ عليه قطعة جيدة من أول البخاري
   works:
   - ref: wd:Q1023470
-  quote: null
   note:
     ja: '「بل وقرأ عليه قطعة جيدة من أول البخاري」＝イブン・ハジャルのもとで『ブハーリー』冒頭のかなりの部分を読んだ。صحيح البخاري ＝ wd:Q1023470（初版 #NEEDID）。日付は原文になし（初版の 843-09 を除去）。'
 affiliations:
@@ -100,20 +91,66 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: حفظ القرآن والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر
   note:
     ja: 暗記（書名 ID は relation n=1 の bibl と同じ）。
-  norm: حفظ القران والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر
+  phrase: حفظ القرآن والشاطبية والمصابيح للبغوي والحاوي الصغير والمنهاج والطوالع كلاهما للبيضاوي والتلخيص وشرحه المختصر
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
-  quote: وقال
   note:
     ja: Pattern A。イブン・ハジャルによる評語（「مصره」＝彼の町。エジプトではない）。
   trigger: rule
-  norm: قال
   phrase: ووصفه بالشيخ الفاضل الحفظة الكامل العالم الباهر الماهر مفخر أهل مصره وغرة نجوم عصره وقال أعانه الله على الإنتفاع بما حفظه وأوزعه شكر نعمته لما أودعه واستحفظه
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001482
+  quote: بدل
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  quote: البدر
+- id: m6
+  kind: name
+  ref: TMP-N-00311
+  quote: الأردبيلي
+  norm: الاردبيلي
+- id: m7
+  kind: name
+  ref: TMP-N-00195
+  quote: التبريزي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: كشيخنا
+  norm: شيخنا
+- id: m10
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m11
+  kind: year
+  value: '843'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: وقال
+  norm: قال
 translation:
   ja: ムハンマド・ブン・バダル・ブン・ムハンマド、アッ＝シャムス・ブン・アル＝バドル・アル＝アルダビーリー・アッ＝タブリーズィー、シャーフィイー派。クルアーン、『シャーティビーヤ』、バガウィーの『マサービーフ』、『ハーウィー・サギール』、ともにバイダーウィーの『ミンハージュ』と『タワーリウ』、『タルヒース』とその注釈『ムフタサル』を暗記し、843年ラマダーン月にそれらを我らがシャイフ（イブン・ハジャル）ら一団に提示（暗誦試問）した。それどころか彼（イブン・ハジャル）のもとで『ブハーリー』の冒頭のかなりの部分を読み、彼（イブン・ハジャル）は彼を「徳高きシャイフ、完全なる記憶者、傑出して熟達した学者、その町の人々の誇り、その時代の星々の輝き」と評し、「神が彼に、暗記したものを活かす助けを与え、神が彼に託し保持させたものについて神の恩恵への感謝を授けたまわんことを」と述べた。
   en: 'Muḥammad b. Badal b. Muḥammad, al-Shams b. al-Badr al-Ardabīlī al-Tabrīzī, the Shāfiʿī. He memorised the Qurʾān, al-Shāṭibiyya, al-Baghawī''s al-Maṣābīḥ, al-Ḥāwī al-Ṣaghīr, al-Minhāj and al-Ṭawāliʿ (both by al-Bayḍāwī), al-Talkhīṣ and its commentary al-Mukhtaṣar, and presented them to a group including our shaykh (Ibn Ḥajar) in Ramaḍān 843; indeed he also read with him a good portion of the beginning of al-Bukhārī. He (Ibn Ḥajar) described him as "the excellent shaykh, the perfect memoriser, the brilliant and skilled scholar, the pride of the people of his town and the brightest of the stars of his age", and said: "May God help him to profit from what he has memorised, and inspire him to give thanks for His favour in what He has entrusted to him and had him preserve."'

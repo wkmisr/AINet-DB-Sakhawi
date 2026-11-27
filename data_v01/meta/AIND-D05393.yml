@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00006
-    quote: البصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن الأقواسي
-    norm: ابن الاقواسي
     label: ابن الأقواسي
+    mention: m6
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: شمس الدين محمد
     by: rule
-    ref: AIND-D06774
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 death:
   id: d
   note:
@@ -52,18 +47,15 @@ relations:
   passive: AIND-D05393
   summary:
     ar: شمس الدين محمد بن أحمد بن علي الأقواسي البصري
-  quote: null
   note:
     ja: '父 ＝ #AIND-D06774（محمد بن أحمد بن علي الأقواسي البصري نزيل مكة ووالد علي الماضي والمتسبب في دارالامارة بمكة）。相手側が「والد علي الماضي」と名指し、ニスバ索引 #AIND-D11440「الأقواسي علي بن محمد بن أحمد بن علي البصري الأصل المكي ووالده」とも一致。初版の TMP-P-000520（登録＝裸の「شمس الدين محمد」、篠田氏発行の関係専用番号）を是正。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D05393#p1
+  active: m7
   passive: AIND-D05393
-  quote: أحمد بن علي
   note:
     ja: 「واسم جده أحمد بن علي」。祖父は名のみで本伝なし。
-  norm: احمد بن علي
 - id: r3
   type: kin
   subtype: mother
@@ -72,39 +64,77 @@ relations:
   summary:
     ar: أم كلثوم ابنة علي الفيومي
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には無く、女性部 #AIND-D13783「أم كلثوم ابنة علي الفيومي والدة على الاقواسي … ماتت في رمضان سنة ثمانين بمكة」が本項主を「والدة على الاقواسي」と名指し（規則23、cert medium）。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05393
   methods:
   - TMP-S-00014
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m10
     phrase: ولازمني بمكة وغيرها
-  quote: ولازمني
 states:
 - id: s1
   type: status
   fields:
   - TMP-S-00022
-  quote: null
   phrase: واشتغل قليلا وتميز في الميقات
+  mention: null
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: للقاهرة
-    norm: لقاهرة
-  quote: ممن تردد للقاهرة وغيرها كثيرا
+  - mention: m8
+  phrase: ممن تردد للقاهرة وغيرها كثيرا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06774
+  quote: شمس الدين محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00006
+  quote: البصري
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: name
+  quote: بابن الأقواسي
+  norm: ابن الاقواسي
+- id: m7
+  kind: person
+  ref: AIND-D05393#p1
+  quote: أحمد بن علي
+  norm: احمد بن علي
+- id: m8
+  kind: place
+  quote: للقاهرة
+  ref: gn:360630
+  norm: لقاهرة
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: ولازمني
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アリー・ブン・シャムス・アッ＝ディーン・ムハンマド・ブン・アフマド、バスラ出自のアル＝マッキー。イブン・アル＝アクワースィーとして知られ、祖父の名はアフマド・ブン・アリー。カイロなどにしばしば往来した者の一人で、少し学問に携わり、礼拝時刻学（ミーカート）に秀で、マッカなどで私（サハーウィー）に師事した。没（空白）。
   en: ʿAlī b. Shams al-Dīn Muḥammad b. Aḥmad, of Baṣran origin, al-Makkī, known as Ibn al-Aqwāsī; his grandfather's name is Aḥmad b. ʿAlī. He was among those who frequented Cairo and elsewhere often; he studied a little, distinguished himself in timekeeping (mīqāt), and attended me closely in Mecca and elsewhere. He died (blank).

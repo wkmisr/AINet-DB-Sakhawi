@@ -9,51 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01998
-    quote: الرسعني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m8
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05317
+    mention: m2
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: قنان
     by: rule
+    mention: m5
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 death:
   id: d
   date:
     notBefore: 845
     notAfter: 846
   places:
-  - ref: wd:Q1239
-    quote: ببحر الهند
-    norm: بحر الهند
+  - mention: m17
   note:
     ja: 845年末か846年初めにインド洋で溺死（二者択一のため notBefore 845 / notAfter 846、初版の when 845 を是正）。845 ＝ 1441-05-31〜1442-05-20、846 ＝ 1442-05-21〜1443-05-09（h2g.py）。بحر الهند は ID-Master 未登録 → TMP-L-00318（初版の wd:Q1283 は未照合のため不採用、§D107-1）。
   phrase: مات غريقا ببحر الهند إما في آخر سنة خمس وأربعين أو أول سنة ست
@@ -61,29 +54,25 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05317
+  active: m10
   passive: AIND-D05904
   summary:
     ar: علي بن محمد بن علي بن قنان النور الرسعني المدني
-  quote: أبيه
   note:
     ja: '父 = #AIND-D05317（علي بن محمد بن علي بن قنان نور الدين … الرسعني … ثم المدني الشافعي والد عمر ومحمد ويعرف بابن قنان）。本項のナサブ「علي بن عمر بن محمد」と父項の「علي بن محمد بن علي」で祖父・曽祖父の順が食い違う（弟 #AIND-D08144 も「محمد بن علي بن عمر بن قنان」）。父項の「والد عمر ومحمد」と弟項の「أخيه عمر وأبيهما الماضيين」で親子は確実。初版の汚染番号 TMP-P-000530（登録=علي、D04287 の兄弟）を差し替え。'
-  norm: ابيه
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D08144
+  active: m11
   passive: AIND-D05904
   summary:
     ar: الشمس محمد بن علي بن عمر بن قنان
-  quote: وأخيه
   note:
     ja: '「سمع مع أبيه وأخيه على الزين أبي بكر المراغي في سنة اثنتي عشرة」。兄弟 = #AIND-D08144（محمد بن علي بن عمر بن قنان شمس الدين … المدني الشاعر「سمع مع أخيه عمر وأبيهما الماضيين على الزين المراغي في سنة اثنتي عشرة」）で相互に閉合。初版の空 relation を補填。'
-  norm: اخيه
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m12
   passive: AIND-D05904
   methods:
   - TMP-S-00003
@@ -94,18 +83,14 @@ relations:
     date:
       ah: 812
       type: learning
-  quote: الزين أبي بكر المراغي
   note:
     ja: 812年に父・兄弟とともに الزين أبو بكر بن الحسين المراغي（#AIND-D10690、マディーナ在住）から聴聞。
-  norm: الزين ابي بكر المراغي
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: فكان
   note:
     ja: 「تعانى التجارة」から。
-  norm: كان
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -114,13 +99,89 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00197
-    quote: الحرمين
-  quote: يتردد
+  - mention: m16
   note:
     ja: 商いのため両聖地（マッカ・マディーナ＝TMP-L-00197）とその他の地を往来。
   trigger: rule
   phrase: تعانى التجارة فكان يتردد بين الحرمين وغيرهما فيها
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D05317
+  quote: علي
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: قنان
+- id: m6
+  kind: name
+  ref: TMP-N-01998
+  quote: الرسعني
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D05317
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: person
+  ref: AIND-D08144
+  quote: وأخيه
+  norm: اخيه
+- id: m12
+  kind: person
+  ref: AIND-D10690
+  quote: الزين أبي بكر المراغي
+  norm: الزين ابي بكر المراغي
+- id: m13
+  kind: year
+  value: '812'
+  quote: سنة
+- id: m14
+  kind: office
+  ref: wd:Q215536
+  quote: فكان
+  norm: كان
+- id: m15
+  kind: event
+  quote: يتردد
+- id: m16
+  kind: place
+  quote: الحرمين
+  ref: TMP-L-00197
+- id: m17
+  kind: place
+  quote: ببحر الهند
+  ref: wd:Q1239
+  norm: بحر الهند
+- id: m18
+  kind: year
+  value: '845'
+  quote: سنة
+- id: m19
+  kind: year
+  value: '846'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アリー・ブン・ウマル・ブン・ムハンマド・ブン・キナーン、アッ＝ラスアニー・アッ＝ディマシュキー・アル＝マダニー・アッ＝シャーフィイー。812年に父および兄弟とともにアッ＝ザイン・アブー・バクル・アル＝マラーギーから聴聞した。商業に従事し、そのために両聖地（マッカ・マディーナ）やその他の地を往来していたが、845年末か846年初めにインド洋で溺死した。
   en: ʿUmar b. ʿAlī b. ʿUmar b. Muḥammad b. Qinān al-Rasʿanī al-Dimashqī al-Madanī al-Shāfiʿī. He heard, together with his father and his brother, from al-Zayn Abū Bakr al-Marāghī in the year 812. He engaged in trade and for that purpose kept travelling between the Two Sanctuaries (Mecca and Medina) and other places, until he drowned in the Indian Ocean, either at the end of the year 845 or at the beginning of the year 846.

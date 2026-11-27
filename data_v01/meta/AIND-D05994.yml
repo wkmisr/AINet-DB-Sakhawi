@@ -9,32 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00397
-    quote: النعماني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00112
-    quote: البغدادي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n4
     type: laqab
-    quote: النجم
+    mention: m3
   - id: n5
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 death:
   id: d
   date:
@@ -42,17 +38,15 @@ death:
   places:
   - ref: TMP-I-00215
     role: burial
-  - ref: TMP-L-00151
-    role: funeral
-    quote: مصلى المؤمني
-    norm: مصلي المءمني
+  - role: funeral
+    mention: m18
   persons:
   - ref: AIND-D02423
     role: funeral_prayer
   note:
     ja: 「فلم يلبث أن مات في رابع صفر منها」（منها ＝ 850年）＝850年サファル月4日 ＝ 1446-05-10（h2g.py）。没地は原文に明記なし（カイロ到着直後の死と読めるが照応代名詞がないため placeName は付けず、規則22）。埋葬「ودفن بتربة التقي المذكور من القرافة الصغرى」＝ 前出の التقي رجب العجمي の墓廟（ID-Master 未登録 → TMP-I-00215。所在 القرافة الصغرى ＝ TMP-L-00221）。 / 「فأسف السلطان عليه وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه」。850年のスルターン ＝ الظاهر جقمق（#AIND-D02423、在位842–857、規則30 で年代確認）。先例 D02098（subtype funeral_attendee、الناصر فرج）。 / スルターン（الظاهر جقمق）の命により مصلى المؤمني（TMP-L-00151）で葬礼が行われ、スルターン自ら下って礼拝した。先例 D02098。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
     ar: وأمرهم بالصلاة عليه في مصلى المؤمني ونزل فصلى عليه
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: محمد
@@ -63,9 +57,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05994#p1
+  active: m19
   passive: AIND-D05994
-  quote: محمد
   note:
     ja: '父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。'
 - id: r2
@@ -74,27 +67,22 @@ relations:
   active: AIND-D06830
   passive: AIND-D05994
   cert: low
-  quote: null
   note:
     ja: '「وينظر أهو قريب حميد الدين محمد بن تاج الدين القاضي」＝サハーウィー自身が親族か否かを要検討としている（ينظر → cert low）。相手 ＝ #AIND-D06830「محمد بن أحمد … حميد الدين أبو المعالي بن التاج النعماني نسبة للإمام أبي حنيفة النعمان البغدادي الأصل الفرغاني الدمشقي الحنفي」（805年生、父 ＝ #AIND-D01217 القاضي تاج الدين النعماني）。同じ النعماني（アブー・ハニーファ裔）・البغدادي・الدمشقي・الحنفي の属性を共有する。'
   phrase: حميد الدين محمد بن تاج الدين القاضي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00055
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: حسبة
+  - mention: m12
   note:
     ja: 「قدم القاهرة في سنة خمسين وبيده حسبة دمشق ووكالة بيت المال وعدة وظائف」＝850年のカイロ到着時に在任。任命年は不明（初版の date appointment 850 を除去）。
+  mention: m11
 - id: s2
   type: office
-  ref: TMP-O-00046
-  quote: ووكالة بيت المال
   note:
     ja: 同上。原文は「حسبة دمشق ووكالة بيت المال」で、وكالة بيت المال に دمشق は直接かからない（ダマスクスの職と推定されるが placeName は付けない、規則22）。「وعدة وظائف」（ほか数職）は特定不能のため state を立てない（初版の「غيرها」state を除去）。
-  norm: وكالة بيت المال
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -106,27 +94,99 @@ events:
     ah: 850
     type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m9
   note:
     ja: 850年＝1446-04-07〜（年のみ→年初、h2g.py）。
   trigger: rule
   phrase: قدم القاهرة في سنة خمسين
+  mention: m8
 - id: e2
   type: residence
   date:
     ah: 850
     type: residence
   places:
-  - ref: TMP-I-00214
-    quote: زاوية التقي رجب العجمي
-  quote: فنزل
+  - mention: m15
   note:
     ja: カイロ城塞（قلعة الجبل）の下にある التقي رجب العجمي のザーウィヤに宿った。ID-Master 未登録 → TMP-I-00214（施設を placeName に用いる先例 B20・B69-73）。初版の affiliation reside（#NEEDID）を本 event に統合。
   trigger: rule
-  norm: نزل
   phrase: فنزل في زاوية التقي رجب العجمي تحت قلعة الجبل
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: النجم
+- id: m4
+  kind: name
+  ref: TMP-N-00397
+  quote: النعماني
+- id: m5
+  kind: name
+  ref: TMP-N-00112
+  quote: البغدادي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: event
+  quote: قدم
+- id: m9
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m10
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m11
+  kind: office
+  ref: TMP-O-00055
+  quote: حسبة
+- id: m12
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m13
+  kind: office
+  ref: TMP-O-00046
+  quote: ووكالة بيت المال
+  norm: وكالة بيت المال
+- id: m14
+  kind: event
+  quote: فنزل
+  norm: نزل
+- id: m15
+  kind: place
+  quote: زاوية التقي رجب العجمي
+  ref: TMP-I-00214
+- id: m16
+  kind: month
+  value: 2
+  quote: صفر
+- id: m17
+  kind: person
+  ref: AIND-D02423
+  quote: السلطان
+- id: m18
+  kind: place
+  quote: مصلى المؤمني
+  ref: TMP-L-00151
+  norm: مصلي المءمني
+- id: m19
+  kind: person
+  ref: AIND-D05994#p1
+  quote: محمد
 translation:
   ja: ウマル・ブン・ムハンマド・アン＝ナジュム・アン＝ヌウマーニー——イマーム・アブー・ハニーファ・アン＝ヌウマーンにちなむ——アル＝バグダーディー、のちアッ＝ディマシュキー、アル＝ハナフィー。（8）50年に、ダマスクスのヒスバ（市場監督職）と国庫代理職（ワカーラト・バイト・アル＝マール）およびいくつかの職を手にしたままカイロに来て、城塞の下にあるアッ＝タキー・ラジャブ・アル＝アジャミーのザーウィヤに宿ったが、間もなく同年サファル月4日に没した。スルターンは彼の死を惜しみ、人々にムサッラー・アル＝ムウミニーで彼のための葬礼を行うよう命じ、自ら下って礼拝した。前述のアッ＝タキーの墓廟（小カラーファ）に葬られた。神が彼を赦したまわんことを。彼がカーディーのハミード・アッ＝ディーン・ムハンマド・ブン・タージュ・アッ＝ディーンの親族であるかどうかは検討を要する。
   en: ʿUmar b. Muḥammad al-Najm al-Nuʿmānī—after the Imam Abū Ḥanīfa al-Nuʿmān—al-Baghdādī, then al-Dimashqī, al-Ḥanafī. He came to Cairo in the year (8)50 holding the ḥisba of Damascus, the agency of the treasury (wakālat bayt al-māl) and several other offices, and lodged in the zāwiya of al-Taqī Rajab al-ʿAjamī below the Citadel; but before long he died, on the fourth of Ṣafar of that year. The sultan grieved for him, ordered them to pray over him at the Muṣallā al-Muʾminī, and came down and prayed over him himself. He was buried in the tomb of the aforementioned al-Taqī in the Lesser Qarāfa; may God pardon him. It remains to be examined whether he was a relative of the judge Ḥamīd al-Dīn Muḥammad b. Tāj al-Dīn.

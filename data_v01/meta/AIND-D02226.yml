@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00093
-    quote: العثماني
+    mention: m2
   - id: n2
     type: ism
-    quote: بهادر
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 802
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: colleague
-  active: AIND-D02089
+  active: m6
   passive: AIND-D02226
-  quote: ايتمش
   note:
     en: killed together with Aytamish
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:321062
-    quote: البيرة
-  quote: نائب
-  norm: ناءب
+  - mention: m4
+  mention: m3
 events:
 - id: e1
   type: political
@@ -47,9 +42,37 @@ events:
     type: political
   summary:
     en: killed with Aytamish (ايتمش)
-  quote: قتل
   cert: high
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: بهادر
+- id: m2
+  kind: name
+  ref: TMP-N-00093
+  quote: العثماني
+- id: m3
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m4
+  kind: place
+  quote: البيرة
+  ref: gn:321062
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: person
+  ref: AIND-D02089
+  quote: ايتمش
+- id: m7
+  kind: year
+  value: '802'
+  quote: سنة
 translation:
   ja: バハードゥル・アル＝ウスマーニー。アル＝ビーラ（ビーレジク）の知事（ナーイブ）で、802年にアイタミシュと共に殺害された者たちの一人である。
   en: Bahādur al-ʿUthmānī, nāʾib of al-Bīra, was among those killed with Aytamish in the year 802 H.

@@ -9,41 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00102
-    quote: المناوي
+    mention: m7
   - id: n2
     type: laqab
-    quote: الفخر
+    mention: m5
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001306
+    mention: m2
   - id: n5
     type: nasab
-    quote: إسحاق
     by: rule
-    norm: اسحاق
+    mention: m3
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
   - id: n7
     type: nasab
-    quote: قاضي القضاة التاج
     by: rule
+    mention: m6
 birth:
   id: b
   date:
     ah: 766
   note:
     en: Born in 766.
-  quote: سنة
+  mention: m9
 death:
   id: d
   date:
@@ -52,7 +48,7 @@ death:
   note:
     en: Died in Rajab of "the year seven" (sanat sabʿ), i.e. 807.
     ja: 原文「سنة سبع」は一の位のみ。生年 766・子 البهاء أحمد（#AIND-D00960、784年生）の年代から 807 と解する（cert medium）。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
@@ -61,18 +57,15 @@ relations:
   passive: AIND-D04870
   summary:
     ar: قاضي القضاة التاج محمد بن إسحاق بن إبراهيم المناوي
-  quote: null
   note:
     ja: '見出しナサブ「الفخر بن قاضي القضاة التاج المناوي」から1段ずらして復元（統一規則3）。corpus に本伝なし（子 #AIND-D00960「بن التاج أبي عبد الله بن البهاء أبي الفداء المناوي الأصل السلمي」、#AIND-D10815「الشرف بن التاج السلمي المناوي」にも父として現れる）・ID-Master 未登録のため仮番号 TMP-P-001306 を発行。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00960
+  active: m8
   passive: AIND-D04870
-  quote: البهاء أحمد الماضي
   note:
     ja: '子 ＝ #AIND-D00960「أحمد بن عثمان بن محمد بن إسحاق بن إبراهيم البهاء أبو الفتوح بن الفخر أبي عمرو بن التاج … المناوي الأصل السلمي القاهري الشافعي」（相互に明記）。初版の #NEEDID を解消。'
-  norm: البهاء احمد الماضي
 - id: r3
   type: kin
   subtype: son
@@ -81,7 +74,6 @@ relations:
   summary:
     ar: البدر محمد
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D07953「محمد بن عثمان بن محمد بن إسحق بن إبراهيم البدر بن الفخر بن التاج السلمي المناوي … أخو البهاء أحمد الماضي」はナサブが本項主と一致し、D00960 も「أخو البدر محمد」と記す（統一規則23、cert medium）。'
 - id: r4
@@ -92,34 +84,85 @@ relations:
   summary:
     ar: الشرف أبو بكر بن التاج المناوي
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D10815「أبو بكر بن محمد بن إسحق بن إبرهيم بن عبد الرحمن الشرف بن التاج السلمي المناوي الشافعي」（760年以前生・809年没）は父 التاج محمد بن إسحق を共有（ナサブ4代一致）。本項・D10815 のいずれも兄弟関係を明記しないため cert medium（ISSUES §D96-8）。'
 states:
 - id: s1
   type: office
   ref: wd:Q352842
-  quote: null
   phrase: درس
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00243
-  quote: null
   phrase: أعاد
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  - ref: gn:352261
-    quote: ومصر
-    norm: مصر
-  quote: وناب
+  - mention: m11
+  - mention: m12
   note:
     ja: 原文「ودرس وأعاد وناب في القاهرة ومصر وفي بعض أعمالها」。前置詞句は直接には ناب にかかると解し placeName を本 state にのみ付した（درس・أعاد にも及ぶ可能性はある）。「بعض أعمالها」は地名未特定。
-  norm: ناب
   phrase: ناب في القاهرة ومصر وفي بعض أعمالها
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-P-001306
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إسحاق
+  norm: اسحاق
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  quote: الفخر
+- id: m6
+  kind: name
+  quote: قاضي القضاة التاج
+- id: m7
+  kind: name
+  ref: TMP-N-00102
+  quote: المناوي
+- id: m8
+  kind: person
+  ref: AIND-D00960
+  quote: البهاء أحمد الماضي
+  norm: البهاء احمد الماضي
+- id: m9
+  kind: year
+  value: '766'
+  quote: سنة
+- id: m10
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m11
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m12
+  kind: place
+  quote: ومصر
+  ref: gn:352261
+  norm: مصر
+- id: m13
+  kind: month
+  value: 7
+  quote: رجب
+- id: m14
+  kind: year
+  value: '807'
+  quote: سنة
 translation:
   ja: ウスマーン・ブン・ムハンマド・ブン・イスハーク・ブン・イブラーヒーム、アル＝ファフル・ブン・カーディー・ル＝クダート・アッ＝タージュ・アル＝ムナーウィー。前出のアル＝バハー・アフマドの父。766年に生まれ、教授（タドリース）し、補講（イアーダ）を務め、カイロとミスルおよびその管区の一部でカーディー代理を務めた。（8）07年ラジャブ月に没した。
   en: ʿUthmān b. Muḥammad b. Isḥāq b. Ibrāhīm, al-Fakhr b. the chief judge al-Tāj al-Munāwī, the father of al-Bahāʾ Aḥmad, mentioned above. He was born in 766; he taught, served as repetitor (muʿīd) and acted as deputy judge in Cairo and Miṣr (Fusṭāṭ) and in some of their districts. He died in Rajab of the year [8]07.

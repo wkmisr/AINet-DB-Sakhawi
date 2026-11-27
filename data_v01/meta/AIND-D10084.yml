@@ -9,45 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01736
-    quote: الجاناتي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: honorific
-    quote: الرجل الصالح
+    mention: m7
   - id: n4
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m4
 death:
   id: d
   date:
     ah: 849
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     ja: 849＝1445-04-18〜1446-04-06（h2g.py）、年精度 1445。
-  quote: سنة
   phrase: مات بمكة في سنة تسع وأربعين
+  mention: m9
 persons:
 - id: p1
   label: محمد بن علي بن موسى
@@ -60,7 +54,6 @@ relations:
   subtype: father
   active: AIND-D10084#p1
   passive: AIND-D10084
-  quote: null
   note:
     ja: '規則3 (c'')。父 محمد بن علي بن موسى الجاناتي は汎用名で corpus に見出しなし（hw.py「الجاناتي」: 本項・索引 D11556 のほかは يعقوب بن محمد بن علي بن عبد الله الجاناتي 家（D03823・D09549）で祖父名が異なる）。【集約 2026-11-05】機械照合の候補（父ナサブ「محمد بن علي بن موسى」3代一致）#AIND-D08207（… بن عيسى بن عمران المكي المعروف بالمزرق、833没）・#AIND-D08208（… بن قريش الهاشمي المكي、852没）・#AIND-D08209（… أمين الدين بن النور القرافي القاهري المقرئ、856没）・#AIND-D08210（البدر القاهري الماوردي ويعرف بابن موسى）を原文で読んだ。いずれもニスバ الجاناتي がなく、ラカブ・職の閉合もない＝ナサブ1点のみで規則57 の下限未満＝#NEEDID のまま（機械 L、決定14）。'
 notes:
@@ -70,13 +63,54 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: قال
+  - mention: m11
   note:
     ja: Pattern A。ابن عزم＝#AIND-D08351（محمد بن عمر بن محمد بن أحمد بن عزم الشمس … التونسي ثم المكي المالكي、816生。合同索引 D12540 は使わない＝規則11）。「صاحبنا」（我らの友）と評した。初版の統制外 relation「friend」（#AIND-D12540）を置換。
   trigger: rule
   phrase: 'قال فيه ابن عزم : صاحبنا'
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m5
+  kind: name
+  ref: TMP-N-01736
+  quote: الجاناتي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  quote: الرجل الصالح
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: قال
+- id: m11
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: ムーサー・ブン・ムハンマド・ブン・アリー・ブン・ムーサー・アル＝ジャーナーティー・アル＝マッキー、敬虔な人。（8）49年にマッカで没した。イブン・アズムは彼について「我らの友（サーヒブナー）」と述べた。
   en: 'Mūsā b. Muḥammad b. ʿAlī b. Mūsā al-Jānātī al-Makkī, the righteous man. He died in Mecca in the year (8)49. Ibn ʿAzm said of him: "our companion".'

@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: كرتباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 872
   note:
     ja: 872年（1467-08-11 開始、年精度、h2g.py）、الوقعة السوارية（シャーフ・スワール（ドゥルカディル朝）との戦闘）で戦死。戦闘地は原文に無い（placeName なし。先例 D06353）。
-  quote: سنة
   phrase: إلى أن قتل في الوقعة السوارية سنة اثنتين وسبعين
+  mention: m9
 persons:
 - id: p1
   label: والد كرتباي الأشرفي برسباي
@@ -34,51 +32,81 @@ relations:
   subtype: father
   active: AIND-D06386#p1
   passive: AIND-D06386
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m3
   passive: AIND-D06386
   summary:
     ar: الأشرف برسباي
-  quote: برسباي
   note:
     ja: '主人ニスバ「الأشرفي برسباي」＝スルターン・アル＝アシュラフ・バルスバーイ（#AIND-D02168、841没）（規則51）。初版 #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: 「تأمر عشرة في أيام الظاهر خشقدم」＝アッ＝ザーヒル・フシュカダム（#AIND-D02830、865〜872年在位）の時代に十人長となった。時代指示であり年は原文に無い（日付属性なし）。
+  mention: m5
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D02830
-    quote: الظاهر خشقدم
-  quote: تأمر
+  - mention: m6
   note:
     ja: フシュカダムが彼を追放した。主人でないスルターンによる昇進・追放は patron にせず event 内 persName で表現（規則53）。初版の patron relation（#NEEDID）を除去。
   trigger: rule
-  norm: تامر
   phrase: تأمر عشرة في أيام الظاهر خشقدم ثم نفاه
+  mention: m4
 - id: e2
   type: political
   persons:
   - ref: AIND-D02830
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: قتل
+  - mention: m7
   note:
     ja: （フシュカダムが）次いでトリポリ（シリア、gn:266826）にイクターを与えた。原文に年は無い。初版の重複する residence event（طرابلس）を本 event に統合。
   trigger: rule
   phrase: ثم أعطاه إقطاعا بطرابلس
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: كرتباي
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m4
+  kind: event
+  quote: تأمر
+  norm: تامر
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m6
+  kind: person
+  ref: AIND-D02830
+  quote: الظاهر خشقدم
+- id: m7
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m8
+  kind: event
+  quote: قتل
+- id: m9
+  kind: year
+  value: '872'
+  quote: سنة
 translation:
   ja: クルトバーイ・アル＝アシュラフィー・バルスバーイ。アッ＝ザーヒル・フシュカダムの時代に十人長となったが、次いで彼（フシュカダム）は彼を追放し、次いでトリポリにイクターを与えた。そして872年、スワール（との）戦役で戦死した。横暴な人物であった。
   en: Kurtbāy al-Ashrafī Barsbāy. He became an amir of ten in the days of al-Ẓāhir Khushqadam, who then exiled him and then gave him an iqṭāʿ in Tripoli, until he was killed in the Suwār campaign (al-waqʿa al-Suwāriyya) in the year 872. He was a tyrannical man.

@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو سعد
-    norm: ابو سعد
+    mention: m2
   - id: n2
     type: laqab
-    quote: null
     label: فهد
+    mention: null
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -26,19 +25,17 @@ death:
   note:
     ar: مات قبل السنة أيضا في رجب سنة ست وثلاثين
     ja: 満1歳未満で没（「قبل السنة أيضا」＝前項 D07968 と同じく）。836-07＝1433-03-02〜03-31、月初 1433-03。没地は原文に明記なし（前項の「بها」を継続させない、規則22）。生年（835〜836年頃）は逆算になるため birth は置かず本 note に留める。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D07968
+  active: m3
   passive: AIND-D07969
   summary:
     ar: محمد أبو الخير
-  quote: أخوه
   note:
     ja: '「أخوه」＝直前の項 #AIND-D07968「محمد بن عطية بن محمد بن أبي الخير محمد بن محمد بن عبد الله بن محمد بن فهد أبو الخير الهاشمي المكي」（842年没の嬰児）。規則37。初版は active・desc が空欄。'
-  norm: اخوه
 - id: r2
   type: kin
   subtype: father
@@ -46,13 +43,33 @@ relations:
   passive: AIND-D07969
   summary:
     ar: عطية بن محمد بن أبي الخير محمد بن فهد
-  quote: null
   note:
     ja: '規則37。直前の項 D07968 の見出しナサブから復元した父 ＝ #AIND-D04909「عطية بن محمد بن أبي الخير محمد بن محمد بن عبد الله بن فهد ولي الدين أبو الفتح … الهاشمي … المكي」（804年生、未収録）。転送見出し #AIND-D06189「فهد بن عطية بن محمد بن أبي الخير محمد بن فهد أبو سعد الهاشمي المكي . هو محمد يأتي」（REF 化済み、target=#AIND-D07969）も父名 عطية を示す。'
 notes:
 - text: '本項主の別名見出し: #AIND-D06189「فهد بن عطية بن محمد بن أبي الخير محمد بن فهد أبو سعد الهاشمي المكي . هو محمد يأتي」（REF、target=#AIND-D07969、収録済み）。「ويلقب فهدا أيضا」＝ラカブ فهد を laqab に置いた（初版の shuhrah を変更）。父 D04909 を共有する兄弟 #AIND-D02561 حسن・#AIND-D02708 حسين الأكبر は相手側に名指しがないため relation は立てない（規則23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبو سعد
+  norm: ابو سعد
+- id: m3
+  kind: person
+  ref: AIND-D07968
+  quote: أخوه
+  norm: اخوه
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '836'
+  quote: سنة
 translation:
   ja: ムハンマド、アブー・サアド、前項の人物の兄弟。彼もまたファハドとあだ名された。やはり満1歳になる前に、836年ラジャブ月に没した。
   en: Muḥammad Abū Saʿd, brother of the preceding. He too was given the laqab Fahd. He likewise died before reaching one year of age, in Rajab of the year 836.

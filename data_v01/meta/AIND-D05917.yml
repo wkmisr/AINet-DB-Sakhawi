@@ -9,44 +9,43 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الزين
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن الجندي
+    mention: null
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
-    ref: TMP-P-001393
+    mention: m2
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: التاجر السراج
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: الفخر
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: الجندي
     by: rule
+    mention: m7
 death:
   id: d
   date:
     ah: 889
   note:
     ja: 889 ＝ 1484-02-08〜1485-01-26、年初 1484（h2g.py）。没地は原文にない。
-  quote: سنة
   phrase: مات سنة تسع وثمانين
+  mention: m9
 persons:
 - id: p1
   label: ابنه
@@ -55,29 +54,62 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001393
+  active: m8
   passive: AIND-D05917
   summary:
     ar: السراج عمر بن الفخر عثمان بن الجندي التاجر
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」だが、corpus の عمر 部に「عمر بن عثمان … بن الجندي」の見出しは見当たらない（ニスバ索引 #AIND-D12232「ابن الجندي … التاجر ناصر الدين محمد بن عمر بن عثمان وبنوه … وله رابع اسمه عمر」は父を محمد とする別系の記載）。原文どおり（規則25）父＝السراج عمر بن الفخر عثمان بن الجندي التاجر として TMP-P-001393 を発行（§D107-6）。初版の汚染番号 TMP-P-000664（登録=عمر、ティムールの子）を差し替え。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D05917#p1
+  active: m10
   passive: AIND-D05917
-  quote: ابنه
   note:
     ja: '「ولم يلبث أن مات ابنه」。名不詳の息子（父の死後ほどなく没）。初版の空 active を #NEEDID に。'
 events:
 - id: e1
   type: political
-  quote: ووضع السلطان يده على تركته
   note:
     ja: 本項主と息子の死後、スルターンが遺産を差し押さえた。889年時点のスルターンは قايتباي（#AIND-D06305）だが原文は名を記さないため ref は付さない。初版の when-custom 889・cert high（息子の没後なので年は厳密には不明）を除去。
-  norm: وضع السلطان يده علي تركته
+  phrase: ووضع السلطان يده على تركته
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001393
+  quote: عمر
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: الزين
+- id: m5
+  kind: name
+  quote: التاجر السراج
+- id: m6
+  kind: name
+  quote: الفخر
+- id: m7
+  kind: name
+  quote: الجندي
+- id: m8
+  kind: person
+  ref: TMP-P-001393
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: year
+  value: '889'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: AIND-D05917#p1
+  quote: ابنه
 translation:
   ja: ウマル・ブン・ウマル・ブン・ウスマーン、アッ＝ザイン・ブン・アッ＝タージル（商人）・アッ＝シラージュ・ブン・アル＝ファフル、イブン・アル＝ジュンディー。父は前述。（8）89年に没し、ほどなくその息子も没して、スルターンが彼の遺産に手を置いた（差し押さえた）。
   en: ʿUmar b. ʿUmar b. ʿUthmān, al-Zayn b. al-Tājir (the merchant) al-Sirāj b. al-Fakhr, Ibn al-Jundī; his father was mentioned above. He died in the year (8)89, and shortly afterwards his son died too, and the Sultan laid his hand on his estate.

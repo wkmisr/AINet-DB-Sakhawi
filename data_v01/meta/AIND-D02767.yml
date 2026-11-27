@@ -9,17 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01978
-    quote: البكلمشي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00133
-    quote: العلائي
-    norm: العلاءي
+    mention: m3
   - id: n3
     type: ism
-    quote: حطط
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -27,14 +24,13 @@ death:
   note:
     en: Died in 841 H at around seventy years of age.
     ja: 2026-09-24 Waka 裁定（★3 E7）により没地 مصر（gn:352261、ar・ar-Latn）を除去。原文「صار أحد العشرات بالديار المصرية حتى مات」の بالديار المصرية は在職地で、死地に継続させるのは推論。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: social
   subtype: patron
   active: AIND-D02210
   passive: AIND-D02767
-  quote: null
   note:
     en: He was the mamluk (client) of Baklamish al-ʿAlāʾī, his ustādh.
     ja: بكلمش العلائي = AIND-D02210（أحد الامراء الكبار、没801）。本項の「تقدم بعد أستاذه」の أستاذ に当たる。
@@ -48,28 +44,48 @@ states:
   dates:
   - ah: 841
     type: retirement
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
   - ref: gn:352261
-  quote: null
   note:
     en: Resided in Egypt during his military career until his death in 841 H.
+  mention: null
 - id: e2
   type: political
   persons:
-  - ref: AIND-D06160
-    corresp: AIND-D06160
-    quote: الناصر فرج
+  - corresp: AIND-D06160
+    mention: m4
   places:
   - ref: gn:352261
   summary:
     en: Advanced in status under Sultan al-Nāṣir Faraj after his master Baklamish.
-  quote: null
   note:
     ja: '初版は wd:Q333240 を الناصر فرج に付していたが、実item は William Beckford（18世紀イングランドの小説家）＝毒wd。破棄し、repo慣行のD-3形式 #AIND-D06160 + corresp=wd:Q698037 に置換。非ustādhスルターンによる引立てはrelation化せずevent内 persName で表現（D02116方式）。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حطط
+- id: m2
+  kind: name
+  ref: TMP-N-01978
+  quote: البكلمشي
+- id: m3
+  kind: name
+  ref: TMP-N-00133
+  quote: العلائي
+  norm: العلاءي
+- id: m4
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر فرج
+- id: m5
+  kind: year
+  value: '841'
+  quote: سنة
 translation:
   ja: ハタト（点のない文字で、第1・第2母音はファトハ、チェルケス系の名前）。アル＝バクラミシー（バクラミシュ・アル＝アラーイーの（マムルーク））。主人の死後、スルタン・アル＝ナースィル・ファラジュのもとで取り立てられ、エジプト（カイロ）の十人頭（アミール・アシャラ）に昇進した。ハジュラ暦841年に約70歳で没。人柄は悪くなかった。
   en: Ḥuṭuṭ (written with unpointed letters, with fatha on its first and second) is a Circassian name; he is al-Baklamishī, the mamluk of Baklamish al-ʿAlāʾī. He advanced after his master under Sultan al-Nāṣir Faraj, until he became one of the Amirs of Ten in Egypt, where he died in the year 841 H at around seventy years of age. He was a decent man.

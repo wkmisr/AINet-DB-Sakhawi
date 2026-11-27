@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001564
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
   - id: n6
     type: nasab
-    quote: جعمان
     by: rule
+    mention: m5
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
@@ -47,7 +42,7 @@ death:
     ar: مات في رمضان سنة ست وخمسين وأرخه الكمال موسى الدوالي … في منتصف شوالها
   note:
     ja: サハーウィーの本文は856年ラマダーン月（1452-09-24 開始、月精度）。الكمال موسى الدوالي は同年シャウワール月中旬（856-10-15＝1452-11-07）と記す（異伝、note 留め）。地名の明記なし。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
@@ -56,18 +51,15 @@ relations:
   passive: AIND-D07230
   summary:
     ar: أبو بكر بن محمد بن إبراهيم بن جعمان
-  quote: null
   note:
     ja: '父＝見出しナサブ「أبي بكر بن محمد بن إبراهيم بن جعمان」。4代のナサブと家名 جعمان（イエメン بيت الفقيه の学者一族、索引 #AIND-D12225）で識別できるが corpus に本伝なし（hw.py「جعمان」の見出し群に該当なし）、ID-Master 未登録 → TMP-P-001564（規則3）。初版に無し。'
 - id: r2
   type: kin
   subtype: maternal_uncle
-  active: TMP-P-001565
+  active: m9
   passive: AIND-D07230
-  quote: الفقيه رضى الدين الصديق بن إبراهيم بن جعمان
   note:
     ja: '「على خاليه الفقيه رضى الدين الصديق بن إبراهيم بن جعمان والشرف أبي القسم」＝母方の叔父2人のうちの1人。corpus の #AIND-D10636「أبو بكر بن إبرهيم بن أبي القاسم بن إبرهيم بن عبد الله بن جعمان الرضي الملقب بالصديق」は名・ラカブが一致するが、#AIND-D11058（الشرف أبو القاسم بن إبراهيم بن عبد الله、804生）の孫（父 #AIND-D00223 إبراهيم بن الشرف أبي القسم は831生）で897年にイジャーザを受けた人物であり、856年没の本項主の師にはなり得ない。本項の الصديق は الشرف أبو القاسم の兄弟（＝الصديق بن إبراهيم بن عبد الله بن جعمان）と読み、corpus に本伝なし → TMP-P-001565（ISSUES §D130-5）。母は إبراهيم بن عبد الله بن جعمان の娘（名は原文になく relation を立てない）。初版の uncle・#NEEDID を是正。'
-  norm: الفقيه رضي الدين الصديق بن ابراهيم بن جعمان
 - id: r3
   type: kin
   subtype: maternal_uncle
@@ -75,7 +67,6 @@ relations:
   passive: AIND-D07230
   summary:
     ar: الشرف أبو القسم
-  quote: null
   note:
     ja: الشرف أبو القاسم＝#AIND-D11058「أبو القسم بن إبرهيم بن عبد الله بن محمد بن عمر … الشرف الصريفي الذؤالي اليماني الشافعي خال الجمال محمد ابن أبي بكر بن محمد الماضي」（相手側が本項主を甥と名指し。804生・857年没）。同項によれば本項主のラカブは الجمال（本項原文にないため persName には加えない、規則23）。初版の uncle・#NEEDID を是正。
 - id: r4
@@ -90,10 +81,7 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00359
-      quote: قرية الفقيه أحمد بن موسى بن عجيل
-      norm: قرية الفقيه احمد بن موسي بن عجيل
-  quote: null
+    - mention: m8
   note:
     ja: 「تفقه ببلده قرية الفقيه أحمد بن موسى بن عجيل على خاليه …」。地名は原文明記（بلده＝彼の町として名指し）。
   phrase: الفقيه رضى الدين الصديق بن إبراهيم بن جعمان
@@ -111,21 +99,16 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00359
-      quote: قرية الفقيه أحمد بن موسى بن عجيل
-      norm: قرية الفقيه احمد بن موسي بن عجيل
-  quote: null
+    - mention: m8
 - id: r6
   type: scholarly
   subtype: teacher
   active: AIND-D07230
-  passive: AIND-D10050
+  passive: m13
   methods:
   - TMP-S-00008
-  quote: الكمال موسى الدوالي
   note:
     ja: '「وهو ممن أخذ عنه」＝الكمال موسى الدوالي が本項主から学んだ（active＝本項主＝師）。الكمال موسى الدوالي＝#AIND-D10050「موسى بن أحمد بن موسى بن محمد الكمال أبو عمران بن الشهاب الدؤالي الصريفيني اليماني الزبيدي الشافعي … وأخذ عن الفقيه محمد بن أبي بكر بن جعمان الذؤالي」（相手側も本項主を師と名指し）。初版の #NEEDID を是正。'
-  norm: الكمال موسي الدوالي
 affiliations:
 - id: a1
   type: madhhab
@@ -133,10 +116,10 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: ودرس وأفاد وتقدم في الفرائض والجبر والمقابلة وكان فقيها علامة
   note:
     ja: 教授・講義を行い、相続法・代数（الجبر والمقابلة）に秀で、博学の法学者であった。
-  norm: درس وافاد وتقدم في الفراءض والجبر والمقابلة وكان فقيها علامة
+  phrase: ودرس وأفاد وتقدم في الفرائض والجبر والمقابلة وكان فقيها علامة
+  mention: null
 sources:
 - id: c1
   persons:
@@ -145,11 +128,64 @@ sources:
   - ref: TMP-T-00184
   summary:
     ar: وأرخه الكمال موسى الدوالي … في منتصف شوالها وأطال ترجمته في صلحاء اليمن من تأليفه
-  quote: وأرخه
   note:
     ja: Pattern A。『صلحاء اليمن』＝TMP-T-00184（ID-Master Note に本項の「من تأليفه」句を含む既登録）。初版は student relation 内の bibl（#NEEDID）としていた。
   trigger: rule
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001564
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  quote: جعمان
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: place
+  quote: قرية الفقيه أحمد بن موسى بن عجيل
+  ref: TMP-L-00359
+  norm: قرية الفقيه احمد بن موسي بن عجيل
+- id: m9
+  kind: person
+  ref: TMP-P-001565
+  quote: الفقيه رضى الدين الصديق بن إبراهيم بن جعمان
+  norm: الفقيه رضي الدين الصديق بن ابراهيم بن جعمان
+- id: m10
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m11
+  kind: year
+  value: '856'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: وأرخه
   norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D10050
+  quote: الكمال موسى الدوالي
+  norm: الكمال موسي الدوالي
 translation:
   ja: ムハンマド・ブン・アブー・バクル・ブン・ムハンマド・ブン・イブラーヒーム・ブン・ジャアマーン・アル＝ヤマーニー・アッ＝シャーフィイー。自らの町であるファキーフ・アフマド・ブン・ムーサー・ブン・ウジャイル村で、二人の母方の叔父、ファキーフ・ラディー・アッ＝ディーン・アッ＝スィッディーク・ブン・イブラーヒーム・ブン・ジャアマーンとアッ＝シャラフ・アブー・アル＝カースィムに法学を学んだ。教授し講義して益を与え、相続法と代数（ジャブルとムカーバラ）に秀で、博学の法学者であった。856年ラマダーン月に没した。アル＝カマール・ムーサー・アッ＝ダワーリー——彼は本項主から学んだ者の一人である——は、その没年月を同年シャウワール月の中旬と記し、自著『イエメンの義人たち』で彼の伝記を長く記している。
   en: Muḥammad b. Abī Bakr b. Muḥammad b. Ibrāhīm b. Jaʿmān al-Yamānī al-Shāfiʿī. He studied jurisprudence in his home town, the village of al-Faqīh Aḥmad b. Mūsā b. ʿUjayl, under his two maternal uncles, the jurist Raḍī al-Dīn al-Ṣiddīq b. Ibrāhīm b. Jaʿmān and al-Sharaf Abū al-Qāsim. He taught and gave instruction, excelled in inheritance law and algebra (al-jabr wa-l-muqābala), and was a learned jurist. He died in Ramaḍān of the year 856; al-Kamāl Mūsā al-Dawālī, who was among those who studied under him, dated it to the middle of Shawwāl of that year, and gave him a long biography in his own Ṣulaḥāʾ al-Yaman.

@@ -9,76 +9,120 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05474
-    quote: العمري
+    mention: m7
   - id: n2
     type: ism
-    quote: مكي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: راجح
     by: rule
-    ref: TMP-P-001669
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 851-03
   places:
-  - ref: TMP-L-00391
-    quote: بالأطواء
-    norm: الاطواء
-  - ref: TMP-L-00037
-    quote: اليمن
-  - ref: gn:104515
-    role: burial
-    quote: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m11
+  - mention: m12
+  - role: burial
+    mention: m13
+  - role: burial
+    mention: m14
   note:
     ja: '851年ラビーウ1月＝1447-05-26〜06-24（h2g）→ @when は月精度 1447-05。没地「الأطواء من بلاد اليمن」は ID-Master・repo に未登録 → 仮番号 TMP-L-00391（イエメン地方の地名、corpus 出現は本項のみ）。遺体はマッカへ運ばれ المعلاة（wd:Q42004）に埋葬。【集約 2026-11-03】原文明記の地名「اليمن」（「من بلاد اليمن」＝没地の範囲、TMP-L-00037）と搬送・埋葬先「مكة」（gn:104515、type burial。同型の #AIND-D10011「وحمل إلى مكة فدفن بها」と揃えた）を補った（規則22(2)、内容B L・機械 L、オーケストレーター決定17）。'
-  quote: سنة
   phrase: مات في ربيع الأول سنة إحدى وخمسين بالأطواء من بلاد اليمن وحمل إلى مكة فدفن بالمعلاة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001669
   passive: AIND-D10000
-  quote: null
   note:
     ja: '規則3。父 راجح بن محمد بن عبد الله بن عمر بن مسعود العمري は corpus に本伝なし（hw.py「راجح بن محمد」はすべて子孫の見出し）・ID-Master 未登録（idsearch「راجح」に該当なし）。マッカの قواد「العمرة」家の祖の一人で、本伝のある子 سنان بن راجح（#AIND-D03184）および منصور بن راجح（子 تبل #AIND-D02260・مشيعب #AIND-D09936・مطيرق #AIND-D09945・عويد #AIND-D06062 の父）の父でもあるため、仮番号 TMP-P-001669 を発行（ナサブ5代＋ニスバで識別）。'
   phrase: راجح بن محمد بن عبد الله بن عمر بن مسعود العمري
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
-  quote: أحد القواد
   note:
     ja: '「أحد القواد」＝マッカの قائد（ID-Master TMP-O-00094「القائد」。初版は #NEEDID）。'
-  norm: احد القواد
+  mention: m8
 notes:
 - text: '兄弟: #AIND-D03184「سنان بن راجح بن محمد بن عبد الله بن عمر بن مسعود العمري . كان أحد القواد المعروفين بالعمرة …」は同じ父 راجح بن محمد の子だが、相手側に本項主への名指しがないため relation は立てない（規則23、父は TMP-P で共通）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: مكي
+- id: m2
+  kind: name
+  ref: TMP-P-001669
+  quote: راجح
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: عمر
+- id: m6
+  kind: name
+  quote: مسعود
+- id: m7
+  kind: name
+  ref: TMP-N-05474
+  quote: العمري
+- id: m8
+  kind: office
+  ref: TMP-O-00094
+  quote: أحد القواد
+  norm: احد القواد
+- id: m9
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m10
+  kind: year
+  value: '851'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: بالأطواء
+  ref: TMP-L-00391
+  norm: الاطواء
+- id: m12
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m13
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m14
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: マッキー・ブン・ラージフ・ブン・ムハンマド・ブン・アブド・アッラー・ブン・ウマル・ブン・マスウード・アル＝ウマリー。カーイド（隊長）たちの一人。851年ラビーウ第一月にイエメン地方のアル＝アトワーで没し、マッカに運ばれてアル＝マアラー（墓地）に埋葬された。
   en: Makkī b. Rājiḥ b. Muḥammad b. ʿAbd Allāh b. ʿUmar b. Masʿūd al-ʿUmarī, one of the qāʾids (commanders). He died in Rabīʿ I 851 at al-Aṭwāʾ in the land of Yemen, and was carried to Mecca and buried at al-Muʿallā.

@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00557
-    quote: الإسحاقي
-    norm: الاسحاقي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m3
   - id: n3
     type: ism
-    quote: قانصوه
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 881
   note:
     ja: 881年（1476-05-05 開始、年精度）にペストで没。
-  quote: سنة
   phrase: مات مطعونا في سنة إحدى وثمانين
+  mention: m5
 persons:
 - id: p1
   label: والد قانصوه الإسحاقي الأشرفي إينال
@@ -39,33 +35,53 @@ relations:
   subtype: father
   active: AIND-D06283#p1
   passive: AIND-D06283
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m4
   passive: AIND-D06283
   summary:
     ar: الأشرف إينال
-  quote: إينال
   note:
     ja: 見出し「الأشرفي إينال」＝主人は الأشرف إينال（#AIND-D02110）。初版の統制外 subtype「client」・#NEEDID を patron・AIND に是正。ニスバ الإسحاقي（最初の主人 إسحاق か）は原文に説明がなく人物化しない。
-  norm: اينال
 states:
 - id: s1
   type: office
   ref: TMP-O-00101
-  quote: null
   note:
     ja: 「أحد العشراوات」＝十人隊アミール（別形、規則48）。
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00107
-  quote: null
   note:
     ja: 「ورؤوس النوب」＝複数いるラアス・ナウバの一人（汎用 TMP-O-00107、規則48）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قانصوه
+- id: m2
+  kind: name
+  ref: TMP-N-00557
+  quote: الإسحاقي
+  norm: الاسحاقي
+- id: m3
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m4
+  kind: person
+  ref: AIND-D02110
+  quote: إينال
+  norm: اينال
+- id: m5
+  kind: year
+  value: '881'
+  quote: سنة
 translation:
   ja: カーンスーフ・アル＝イスハーキー・アル＝アシュラフィー・イーナール。十人隊アミールの一人にしてラアス・ナウバの一人。881年にペストで没した。
   en: Qānṣūh al-Isḥāqī al-Ashrafī Īnāl, one of the amirs of ten and of the ruʾūs al-nuwab. He died of the plague in the year 881.

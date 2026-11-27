@@ -9,98 +9,134 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الواحد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01153
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m3
 death:
   id: d
   date:
     ah: 897
   places:
-  - ref: TMP-L-00002
-    quote: الشام
+  - mention: m12
   note:
     ja: 「وسافر منها إلى الشام فمات بها في الطاعون في سنة سبع وتسعين」。「بها」＝الشام（直前の到達地の照応、規則22(3)）。ペストで没。897 ＝ 1491-11-13〜1492-10-31、年のみのため年初 1491（h2g.py）。
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D01153
+  active: m10
   passive: AIND-D04739
-  quote: أبيه
   note:
     ja: '父 ＝ #AIND-D01153「أحمد بن عيسى بن موسى بن قريش الشهاب القرشي الهاشمي المكي الشافعي والد الزين عبد الواحد الآتي」（867年シャアバーン月マッカ没、「قدم القاهرة غير مرة」）。父の本伝が本項主を「والد الزين عبد الواحد الآتي」と明記し、本項の「دخل مع أبيه القاهرة」とも整合。'
-  norm: ابيه
   phrase: أحمد بن عيسى القرشي المكي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04739
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m7
   - type: learning
     places:
-    - ref: gn:104515
-      quote: ومكة
-      norm: مكة
-  quote: مني
+    - mention: m8
   note:
     ja: 「ممن سمع مني بالقاهرة ومكة」（規則2）。同一の伝授（سماع）を2地で受けたため1 relation に2 event。
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: دخل
+  - mention: m7
   trigger: rule
   phrase: كان قد دخل مع أبيه القاهرة
+  mention: m9
 - id: e2
   type: visit
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: ثم بعد ذلك أيضا
+  - mention: m7
   note:
     ja: 「ثم بعد ذلك أيضا」＝その後にも再び（カイロに入った）。
-  norm: ثم بعد ذلك ايضا
+  phrase: ثم بعد ذلك أيضا
+  mention: null
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: وسافر
+  - mention: m12
   trigger: rule
-  norm: سافر
   phrase: وسافر منها إلى الشام
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الواحد
+- id: m2
+  kind: name
+  ref: AIND-D01153
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m8
+  kind: place
+  quote: ومكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: event
+  quote: دخل
+- id: m10
+  kind: person
+  ref: AIND-D01153
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m12
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
+- id: m13
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: アブドゥルワーヒド・ブン・アフマド・ブン・イーサー、アル＝クラシー・アル＝マッキー。カイロとマッカで私（サハーウィー）から聴聞した者の一人。父とともにカイロに入り、その後にも再び（入り）、そこからシャーム（シリア）へ旅立ったが、（8）97年に同地でペストにより没した。神が彼に（その代わりに）楽園を与えたまわんことを。
   en: ʿAbd al-Wāḥid b. Aḥmad b. ʿĪsā, al-Qurashī al-Makkī. He was among those who heard from me (al-Sakhāwī) in Cairo and Mecca. He had entered Cairo with his father, and again after that, and travelled from there to Syria (al-Shām), where he died of the plague in (8)97. May God compensate him with Paradise.

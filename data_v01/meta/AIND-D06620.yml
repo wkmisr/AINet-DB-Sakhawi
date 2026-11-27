@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن الصعيدي
-    norm: ابن الصعيدي
     label: ابن الصعيدي
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: وبالأحدب
-    norm: الاحدب
     label: الأحدب
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
 birth:
   id: b
   date:
@@ -45,16 +40,14 @@ birth:
     cert: low
   note:
     ja: 逆算生年。「مات … سنة تسع وقد بلغ الخمسين أو قاربها」＝809年に50歳、あるいはそれに近かった → 809−50＝759年頃（cert low）。759＝1357-12-22 開始（h2g.py）＝@when 1357（初版の 1358 を是正）。
-  quote: سنة
+  mention: m13
 death:
   id: d
   date:
     ah: 809-05
     cert: medium
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m10
   note:
     ja: 「سنة تسع」＝809（一の位のみ＝80X、cert medium。情報源 الفاسي は832年没）。809年ジュマーダー第一月＝1406-10-23〜11-21（h2g.py）、月精度で @when=1406-10（初版は年のみの 1406）。「بها」＝先行の مكة（cert 不要）。
   phrase: مات بها في جمادى الأولى سنة تسع
@@ -70,49 +63,99 @@ relations:
   subtype: father
   active: AIND-D06620#p1
   passive: AIND-D06620
-  quote: null
   note:
     ja: 規則3 (c')。通称「ابن الصعيدي」から父祖が الصعيدي と呼ばれたことは分かるが、名＋父名のみで本伝は corpus にない（「بابن الصعيدي」は全文で本項のみ）。初版は父 relation なし。
 states:
 - id: s1
   type: office
-  ref: wd:Q3595924
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: المقري
+  - mention: m10
   note:
     ja: 見出しの「المقري」と本文「جاور بمكة سنين وانتصب للإقراء」＝マッカでクルアーン読誦の教授に当たった（等位接続、規則22(3)）。
+  mention: m6
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m11
 events:
 - id: e1
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: جاور
+  - mention: m10
   trigger: rule
   phrase: جاور بمكة سنين
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m15
   works:
   - ref: TMP-T-00037
-  quote: ذكره
   note:
     ja: Pattern A。الفاسي＝#AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037）。初版の統制外 relation「chronicler / biographer」を置換。
   trigger: rule
   phrase: ذكره الفاسي في مكة
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: office
+  ref: wd:Q3595924
+  quote: المقري
+- id: m7
+  kind: name
+  quote: بابن الصعيدي
+  norm: ابن الصعيدي
+- id: m8
+  kind: name
+  quote: وبالأحدب
+  norm: الاحدب
+- id: m9
+  kind: event
+  quote: جاور
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m11
+  kind: assessment
+  quote: خيرا
+- id: m12
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m13
+  kind: year
+  value: '759'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: ذكره
+- id: m15
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・イスマーイール、アッ＝シャムス・アッ＝ディマシュキー、クルアーン読誦の師。イブン・アッ＝サイーディー、またアル＝アフダブとして知られる。数年のあいだマッカに寄留し、読誦の教授に当たった。善良で祝福された人であった。（80）9年ジュマーダー第一月にそこで没し、50歳に達していたか、それに近かった。アル＝ファースィーが『マッカ〔史〕』で彼に言及している。
   en: Muḥammad b. Aḥmad b. Ismāʿīl, al-Shams al-Dimashqī, the Qurʾān reciter, known as Ibn al-Ṣaʿīdī and as al-Aḥdab. He sojourned in Mecca for some years and set himself up to teach recitation; he was a good and blessed man. He died there in Jumādā I of the year [80]9, having reached fifty or come close to it. Al-Fāsī mentioned him in [his history of] Mecca.

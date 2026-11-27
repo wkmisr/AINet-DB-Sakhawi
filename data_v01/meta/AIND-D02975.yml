@@ -9,40 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: دولات
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 874
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
-  quote: سنة
+  - mention: m6
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m3
   passive: AIND-D02975
   corresp: AIND-D02110
   summary:
     ar: الأشرف إينال
-  quote: اينال
   note:
     en: He was a mamlūk of Sultan al-Ashraf Īnāl, his ustādh.
     ja: D-3形式（#AIND-D02110 + corresp=wd:Q286532）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
+  mention: m5
 events:
 - id: e1
   type: travel
@@ -51,13 +45,11 @@ events:
     cert: high
     type: travel
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
-  quote: null
+  - mention: m6
   cert: high
   note:
     en: On his return from the military campaign.
+  mention: null
 - id: e2
   type: political
   date:
@@ -66,10 +58,39 @@ events:
     type: political
   summary:
     en: He was dispatched on a military campaign against Shāh Suwār of Dhū al-Qadr.
-  quote: تأمر
   cert: high
   trigger: rule
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: دولات
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02110
+  quote: اينال
+- id: m4
+  kind: event
+  quote: تأمر
   norm: تامر
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m6
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
+- id: m7
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: ドウラート・バーイ・アル＝アシュラフィー・イーナール。十人隊長（アミール・アシャラ）に任じられた。その後すぐにシャー・スワールに対する遠征軍に派遣され、その帰路のヒジュラ暦874年にガザで没した。
   en: Dawlāt Bāy al-Ashrafī Īnāl. He was appointed as an Amīr of Ten, then shortly after dispatched on a military campaign against Shāh Suwār, and died in Gaza on his return in the year 874 AH.

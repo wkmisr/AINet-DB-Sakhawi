@@ -9,27 +9,24 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
 death:
   id: d
   date:
     ah: 820
   note:
     en: Drowned while en route to Sawākin.
-  quote: سنة
+  mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m2
   cert: low
   note:
     en: Implied as he was one of the last revered figures there.
+  mention: null
 - id: e2
   type: travel
   date:
@@ -37,21 +34,19 @@ events:
     cert: high
     type: travel
   places:
-  - ref: TMP-L-00079
-    quote: لسواكن
-    norm: سواكن
-  quote: توجهه
+  - mention: m4
   cert: high
   note:
     en: Journey during which he drowned.
   trigger: rule
+  mention: m3
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
-  quote: ذكره
   trigger: rule
   phrase: ذكره ابن فهد
+  mention: m6
 notes:
 - text: マッカで敬われた最後期の人物の一人。
   lang: ja
@@ -59,6 +54,31 @@ notes:
 - text: One of the last of those held in [pious] esteem at Mecca.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m3
+  kind: event
+  quote: توجهه
+- id: m4
+  kind: place
+  quote: لسواكن
+  ref: TMP-L-00079
+  norm: سواكن
+- id: m5
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: ذكره
 translation:
   ja: アフマド・アル＝ハッワーシュ。マッカで敬われた最後期の人物の一人。820年、スワーキンへ向かう途中に溺死した。イブン・ファハドが彼について言及している。
   en: Aḥmad al-Khawwāṣ. One of the last revered figures in Makka. He died by drowning in 820 H while heading to Sawākin. Ibn Fahd mentioned him.

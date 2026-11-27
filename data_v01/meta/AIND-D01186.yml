@@ -9,83 +9,119 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01126
-    quote: الشكيلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشهاب
+    mention: m4
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
 death:
   id: d
   date:
     ah: 889-04-16
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m9
   note:
     en: Funeral prayer was performed in the afternoon (ʿaṣr). Al-Fakhr al-ʿAynī wrote to me (al-Sakhāwī) about his death.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D01186
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m9
 states:
 - id: s1
   type: office
-  ref: TMP-O-00408
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: ملقن الأموات
-  norm: ملقن الاموات
+  - mention: m9
+  mention: m7
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m9
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D10662
-    quote: الفخر العيني
-  quote: كتب
+  - mention: m13
   note:
     ja: '校閲: 訃報通知はcorrespondent relation（故人と生者の文通関係ではない。書簡の宛先はサハーウィー）でなくevent化。要検証番号TMP-P-000346を破棄し#AIND-D10662（أبو بكر بن أحمد بن علي بن عمر بن قنان فخر الدين العيني الحنفي المدني、846年生「وهو بلقبه أشهر」）へ同定。ラカブ部D11146区画「وابن العيني المدني أبو بكر بن أحمد بن علي بن عمر بن قنان」で閉合。符号化方針は要Waka確認。'
   trigger: rule
   phrase: كتب إلي بوفاته الفخر العيني
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  ref: TMP-N-01126
+  quote: الشكيلي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: office
+  ref: TMP-O-00408
+  quote: ملقن الأموات
+  norm: ملقن الاموات
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m10
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m11
+  kind: year
+  value: '889'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: كتب
+- id: m13
+  kind: person
+  ref: AIND-D10662
+  quote: الفخر العيني
 translation:
   ja: アフマド・ブン・ムハンマド・ブン・イブラーヒーム、アッ＝シハーブ・アッ＝シャキーリー・アル＝マダニー。メディナにおける死者への唱誦者（ムラッキン・アル＝アムワート、埋葬時のタルキーンを行う者）。私（サハーウィー）からメディナで聴聞した者の一人。889年ラビーウ・アル＝アーヒル月16日金曜日にメディナで死去し、その日の午後の礼拝時に（葬儀）礼拝が執り行われた。アル＝ファフル・アル＝アイニーが彼の死を私に書き送ってきた。
   en: Aḥmad b. Muḥammad b. Ibrāhīm, al-Shihāb al-Shakīlī al-Madanī, the prompter of the dead (mulaqqin al-amwāt) in Medina. Among those who heard from me (al-Sakhāwī) in Medina. He died there on Friday, the 16th of Rabīʿ al-Ākhir in the year 889 (AH). The funeral prayer was performed in the afternoon (ʿaṣr). Al-Fakhr al-ʿAynī wrote to me about his death.

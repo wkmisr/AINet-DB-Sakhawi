@@ -10,24 +10,23 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00022
-    quote: null
+    mention: null
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m2
   - id: n3
     type: laqab
-    quote: الصوة
+    mention: m3
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D01757
-  passive: AIND-D03985
+  passive: m6
   methods:
   - TMP-S-00026
   fields:
@@ -38,12 +37,9 @@ relations:
       ah: 890
       type: teaching
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m5
     note:
       en: al-ʿIzz b. Fahd (#AIND-D03985) recorded some of his poetry from him in Mecca after 890 H.
-  quote: العز بن فهد
 events:
 - id: e1
   type: residence
@@ -52,19 +48,40 @@ events:
     cert: low
     type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m5
   cert: low
   note:
     en: In Mecca around/after 890 H (inferred from the place of transmission).
+  mention: null
 - id: e2
   type: cultural
   summary:
     en: composed poetry
-  quote: نظم
   trigger: rule
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: الشهاب
+- id: m3
+  kind: name
+  quote: الصوة
+- id: m4
+  kind: event
+  quote: نظم
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: person
+  ref: AIND-D03985
+  quote: العز بن فهد
 translation:
   ja: アフマド・アッ＝シハーブ・アッ＝サワ。彼はアリー・ブン・イブラーヒーム・アル＝ハラビーの子で、殺された者（アル＝マクトゥール）の甥にあたる。アッ＝サワの渾名を持ち、詩作があった。その一部は（後述の）ウバイドゥッラー・ブン・アブドゥッラーの項で挙げられる。実際、890年以降メッカにおいて、アル＝ʿイッズ・ブン・ファフドが彼からその詩の一部を書き取っている。
   en: Aḥmad al-Shihāb al-Ṣawa. He is the son of ʿAlī b. Ibrāhīm al-Ḥalabī, the nephew (son of the brother) of the slain man. He was nicknamed al-Ṣawa and composed poetry. Some of it is cited in the entry for ʿUbayd Allāh b. ʿAbd Allāh (mentioned later). Indeed, al-ʿIzz b. Fahd recorded some of his poetry from him in Mecca after 890 H.

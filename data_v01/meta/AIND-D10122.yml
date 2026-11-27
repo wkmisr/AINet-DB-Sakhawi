@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00271
-    quote: المحمدي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: ism
-    quote: نانق
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 872
   note:
     ja: 872年＝1467-08-11〜1468-07-30（h2g.py）、年精度で @when=1467（年初）。シャー・スワールとの戦いで戦死。没地の記載なし。
-  quote: سنة
   phrase: وقتل في الوقعة السوارية سنة اثنتين وسبعين
+  mention: m12
 persons:
 - id: p1
   label: والد نانق المحمدي
@@ -37,78 +35,67 @@ relations:
   subtype: father
   active: AIND-D10122#p1
   passive: AIND-D10122
-  quote: null
   note:
     ja: 規則3（単名の項。原文に父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m4
   passive: AIND-D10122
   summary:
     ar: الظاهر جقمق
-  quote: جقمق
   note:
     ja: 主人ニスバ「الظاهري جقمق」＋「كان من أصاغر مماليكه」（規則51）。الظاهر جقمق＝#AIND-D02423。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير
   note:
     ja: '「فأمره الظاهر خشقدم عشرة」＝الظاهر خشقدم（#AIND-D02830）が十人長に任じた。任官者は主人ではない＝relation にせず下の event の persName で示す（規則53。初版の patron relation #NEEDID を除去）。'
-  norm: امير
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00097
-  quote: null
   note:
     ja: '「ثم عمله أمير آخور ثاني」。ID-Master の Office「أميراخور」＝TMP-O-00097（語根で検索。repo 先例は أمير آخور ثالث・صغير も同番号＋label）。初版は #NEEDID。'
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00131
   orgs:
   - ref: TMP-I-00079
-  quote: شاد
   note:
     ja: 「ثم شاد الشر بخاناه」（原文は分かち書き）。#AIND-D02833 の本文「ثم عمل شاد الشر بخاناة في آخر أيامه عوضا عن نانق المحمدي」が本項主の後任を記す。
+  mention: m7
 - id: s4
   type: office
   ref: TMP-O-00083
-  quote: null
   note:
     ja: '「ثم مقدما」＝ムカッダム（千人長）。ID-Master「المقدم」＝TMP-O-00083（repo 実勢）。初版は #NEEDID。'
+  mention: null
 - id: s5
   type: office
   ref: TMP-O-00158
   dates:
   - ah: 871
     type: appointment
-  quote: null
   note:
     ja: '「وأمره على المحمل في سنة إحدى وسبعين」＝871年（1466-08-22 開始、h2g.py）にマフマルの長とした。ID-Master「أمير المحمل」＝TMP-O-00158。初版は #NEEDID。'
+  mention: null
 - id: s6
   type: office
-  ref: TMP-O-00092
-  quote: رأس نوبة النوب
   note:
     ja: '「ثم الأشرف قايتباي رأس نوبة النوب」＝الأشرف قايتباي（#AIND-D06305）が任じた。repo 先例（#AIND-D02271・#AIND-D02833 ほか）どおり筆頭ラアス・ナウバ＝TMP-O-00092（登録名 رأس نوبة كبير。汎用 TMP-O-00107 ではない）。初版は #NEEDID。任官者は主人ではない＝初版の patron relation（#AIND-D06305）を除去（規則53）。'
-  norm: راس نوبة النوب
+  mention: m10
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D02830
-    quote: الظاهر خشقدم
-  - ref: AIND-D06305
-    quote: الأشرف قايتباي
-    norm: الاشرف قايتباي
-  quote: وقتل
+  - mention: m5
+  - mention: m9
   note:
     ja: 任官の主体（الظاهر خشقدم＝#AIND-D02830、الأشرف قايتباي＝#AIND-D06305）を persName で示す（規則53）。年が記されるのはマフマルの長（871）のみで、state の date に置いた＝この event には日付属性を置かない（規則18）。
   trigger: rule
-  norm: قتل
   phrase: فأمره الظاهر خشقدم عشرة ثم عمله أمير آخور ثاني ثم شاد الشر بخاناه ثم مقدما ، وأمره على المحمل في سنة إحدى وسبعين ثم الأشرف قايتباي رأس نوبة النوب
+  mention: m11
 - id: e2
   type: political
   date:
@@ -116,10 +103,61 @@ events:
     type: political
   persons:
   - ref: AIND-D03198
-  quote: وقتل في الوقعة السوارية سنة اثنتين وسبعين
   note:
     ja: '「الوقعة السوارية」＝شاه سوار（#AIND-D03198「سوار بن سليمان بن ناصر الدين يك بن دلغادر التركماني … ويقال له شاه سوار」）との戦い（repo 先例は「الوقعة السوارية」の event に persName #AIND-D03198）。初版の英文 desc・cert high を是正。'
-  norm: قتل في الوقعة السوارية سنة اثنتين وسبعين
+  phrase: وقتل في الوقعة السوارية سنة اثنتين وسبعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: نانق
+- id: m2
+  kind: name
+  ref: TMP-N-00271
+  quote: المحمدي
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: person
+  ref: AIND-D02423
+  quote: جقمق
+- id: m5
+  kind: person
+  ref: AIND-D02830
+  quote: الظاهر خشقدم
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير
+  norm: امير
+- id: m7
+  kind: office
+  ref: TMP-O-00131
+  quote: شاد
+- id: m8
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m10
+  kind: office
+  ref: TMP-O-00092
+  quote: رأس نوبة النوب
+  norm: راس نوبة النوب
+- id: m11
+  kind: event
+  quote: وقتل
+  norm: قتل
+- id: m12
+  kind: year
+  value: '872'
+  quote: سنة
 translation:
   ja: ナーニク・アル＝ムハンマディー・アッ＝ザーヒリー・ジャクマク。彼の年少のマムルークの一人であった。アッ＝ザーヒル・フシュカダムが彼を十人長とし、ついで第二厩舎長（アミール・アーフール・サーニー）、ついで飲料庫監督（シャード・アッ＝シャラブハーナー）、ついでムカッダムとし、（8）71年にはマフマルの長とした。ついでアル＝アシュラフ・カーイトバーイが筆頭ラアス・ナウバ（ラアス・ナウバト・アン＝ヌワブ）とした。（8）72年、スワールとの戦いで殺された。
   en: Nāniq al-Muḥammadī al-Ẓāhirī Jaqmaq. He was one of his junior mamluks. Al-Ẓāhir Khushqadam made him an amīr of ten, then appointed him second amīr ākhūr, then shādd al-sharabkhānāh, then a muqaddam, and put him in command of the maḥmal in the year [8]71; then al-Ashraf Qāytbāy made him raʾs nawbat al-nuwab. He was killed in the battle against Suwār (al-waqʿa al-Suwāriyya) in the year [8]72.

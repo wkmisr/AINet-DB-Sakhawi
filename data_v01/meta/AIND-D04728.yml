@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الناصر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: جلال الدين محمد
     by: rule
-    ref: TMP-P-001256
+    mention: m2
 persons:
 - id: p1
   label: ابن الطريني
@@ -28,53 +26,77 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001256
+  active: m4
   passive: AIND-D04728
   summary:
     ar: جلال الدين محمد المحلي الخطيب بجامع الطريني
-  quote: أبوه
   note:
     ja: 「الخطيب أبوه بجامع الطريني بها」＝父はマハッラのジャーミウ・アッ＝トゥリーニーの説教師（父の職のため本項主の state にしない）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（ラカブ＋職で識別可能）。
-  norm: ابوه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D04728
   methods:
   - TMP-S-00025
-  quote: علي
   note:
     ja: 「قرأ علي」の直後に人名が来ないため「عليّ（私＝サハーウィーに）」と読む。
   phrase: كان ممن قرأ علي
 - id: r3
   type: social
   subtype: rival
-  active: AIND-D04728#p1
+  active: m6
   passive: AIND-D04728
-  quote: ابن الطريني
   note:
     ja: '「وعارضه ابن الطريني بعد أبيه في الخطابة」。ابن الطريني はマハッラのトゥリーニー家（السراج عمر بن محمد #AIND-D05992 の子 محمد #AIND-D08374〔861没〕・أبو بكر #AIND-D10786、孫 محمد #AIND-D08999 ほか。ニスバ索引 #AIND-D11809）の誰かで特定できないため #NEEDID（索引は合同項目のため充当しない、規則11）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
   - ref: TMP-L-00044
   orgs:
   - ref: TMP-I-00185
   cert: medium
-  quote: الخطابة
   note:
     ja: '「عارضه ابن الطريني بعد أبيه في الخطابة」から、父の後に本項主が同ジャーミウの説教職を（争いつつ）継いだと解されるが、就任自体は明記されないため cert medium。المحلة は「بها」（ニスバ المحلي を受ける照応、規則22-3）。جامع الطريني は ID-Master 未登録の施設のため #NEEDID（TMP-I 発行は要裁定、ISSUES §D93-5）。'
+  mention: m7
 events:
 - id: e1
   type: religious
-  quote: وسمعت أنه عمل جامعا
   cert: medium
   note:
     ja: 「سمعت أنه」（伝聞）のため cert medium。
-  norm: سمعت انه عمل جامعا
+  phrase: وسمعت أنه عمل جامعا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الناصر
+- id: m2
+  kind: name
+  ref: TMP-P-001256
+  quote: جلال الدين محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m4
+  kind: person
+  ref: TMP-P-001256
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m6
+  kind: person
+  ref: AIND-D04728#p1
+  quote: ابن الطريني
+- id: m7
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة
 translation:
   ja: アブドゥンナースィル・ブン・ジャラール・アッ＝ディーン・ムハンマド・アル＝マハッリー。その父はそこ（マハッラ）のジャーミウ・アッ＝トゥリーニーの説教師であった。私（サハーウィー）に読誦した者の一人であり、父の後、説教職をめぐってイブン・アッ＝トゥリーニーが彼と争った。彼がジャーミウ（金曜モスク）を建てたと私は聞いた。
   en: ʿAbd al-Nāṣir b. Jalāl al-Dīn Muḥammad al-Maḥallī; his father was the preacher (khaṭīb) at the Jāmiʿ al-Ṭurīnī there (in al-Maḥalla). He was among those who read to me (al-Sakhāwī), and Ibn al-Ṭurīnī contested the preachership with him after his father. I heard that he built a congregational mosque.

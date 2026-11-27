@@ -9,69 +9,59 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00189
-    quote: الحمصي
+    mention: m6
   - id: n2
     type: shuhrah
-    quote: بابن زهرة
-    norm: ابن زهرة
     label: ابن زهرة
+    mention: m9
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: خلد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m5
   - id: n8
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m7
 relations:
 - id: r1
   type: kin
   subtype: uncle
-  active: TMP-P-000608
+  active: m8
   passive: AIND-D01497
-  quote: عبد الرحمن ابن محمد بن خلد
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
   - ref: gn:170017
     cert: medium
-  quote: قاضيها
   note:
     ja: '原文「ولي قضاء الحنابلة ببلده」の「ببلده」が指す地はニスバ الحمصي の地 حمص のみ。2026-09-24 Waka 裁定（★1: 「بلده／قطره」＋ニスバで候補がニスバの地しかない場合に限り保持）により cert="medium" で保持。'
+  mention: m13
 - id: s2
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m11
   persons:
   - ref: AIND-D00462
-  quote: فناب
   note:
     ar: ناب عن قاضيها العز الكناني
-  norm: ناب
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -80,11 +70,60 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وقدم
+  - mention: m11
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: خلد
+- id: m5
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m6
+  kind: name
+  ref: TMP-N-00189
+  quote: الحمصي
+- id: m7
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m8
+  kind: person
+  ref: TMP-P-000608
+  quote: عبد الرحمن ابن محمد بن خلد
+- id: m9
+  kind: name
+  quote: بابن زهرة
+  norm: ابن زهرة
+- id: m10
+  kind: event
+  quote: وقدم
   norm: قدم
+- id: m11
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m12
+  kind: office
+  ref: TMP-O-00096
+  quote: فناب
+  norm: ناب
+- id: m13
+  kind: office
+  ref: wd:Q217029
+  quote: قاضيها
 translation:
   ja: アフマド・ブン・ムハンマド・ブン・ムハンマド・ブン・ハルド・ブン・ムーサー・アル＝ヒムスィー・アル＝ハンバリー。後述される（父子ともに立項される）アブドゥッラフマーン・ブン・ムハンマド・ブン・ハルドの甥であり、イブン・ズフラとして知られる。彼は故郷でハンバリー派のカーディー職を務め、カイロに来て、その地のカーディーであったアル＝イッズ・アル＝キナーニーの代理（ナーイブ）を務めた。
   en: Aḥmad b. Muḥammad b. Muḥammad b. Khald b. Mūsā al-Ḥimṣī al-Ḥanbalī, nephew of ʿAbd al-Raḥmān b. Muḥammad b. Khald (who, together with his father, is mentioned later), known as Ibn Zahra. He held the judgeship (qaḍāʾ) of the Ḥanbalīs in his hometown, then came to Cairo, where he deputized for its judge, al-ʿIzz al-Kinānī.

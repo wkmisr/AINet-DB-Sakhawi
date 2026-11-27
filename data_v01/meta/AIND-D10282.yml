@@ -9,19 +9,16 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n2
     type: nasab
-    quote: عمر
     by: rule
-    ref: AIND-D05846
+    mention: m2
   - id: n3
     type: nasab
-    quote: أصلم
     by: rule
-    norm: اصلم
+    mention: m3
 death:
   id: d
   date:
@@ -29,7 +26,7 @@ death:
   note:
     ar: مات في أوائل جمادى الأولى سنة اثنتين وتسعين ولم يتأخر بعد أبيه إلا يسيرا
     ja: '892年ジュマーダー第一月の上旬＝1487-05-04 開始（h2g.py、月精度。初版 @when="1487" は年精度）。「父の後わずかしか生きなかった」とあるが、父の項 #AIND-D05846 の没年月は「رمضان سنة ثمان وثمانين」（888-09＝1483-10）で、3年8か月の開きがある＝原文どおり記録し、食い違いは補正しない（規則25）。'
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: أمة
@@ -38,35 +35,65 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05846
+  active: m4
   passive: AIND-D10282
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝corpus 本伝 #AIND-D05846「عمر بن خليل بن حسن بن يوسف الركن بن الغرس الكردي الأصل القاهري الشافعي سبط الشهابي أصلم صاحب الجامع الشهير بسوق الغنم لأن أمه وهي ألف ابنة الشهاب أحمد الفارقابي أمها فرح خاتون ابنة أصلم فلذا يقال له ابن أصلم … مات في رمضان سنة ثمان وثمانين」（repo 未収録）。見出しは「عمر بن خليل」だが、同項が「ابن أصلم」と呼ばれる理由（母方の曾祖父 أصلم）を説明し、corpus 他項も #AIND-D03709「خليل والد عمر بن أصلم」・#AIND-D04378「الركن عمر بن أصلم」と呼ぶ＝名 عمر＋通称 ابن أصلم＋「الماضي」で閉合（規則26・57）。corpus に「عمر … أصلم」の見出しは他にない。初版は #NEEDID。ID-Master の TMP-P-001006「عمر بن أصلم (والد أحمد ويحيى)」（Note「本伝未検出」）は D05846 と名寄せ要（ISSUES §D166-1）。'
-  norm: ابوه
   phrase: عمر بن أصلم
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D01116
+  active: m5
   passive: AIND-D10282
-  quote: أحمد
   note:
     ja: '「وأخوه أحمد」（既出）＝#AIND-D01116「أحمد بن عمر بن أصلم الآتي أبوه وأخوه يحيى وهذا أكبرهما …」（ブリーフ候補、相互に名指し＝閉合。repo 収録済み、同項の father は TMP-P-001006）。初版は #NEEDID。'
-  norm: احمد
 - id: r3
   type: kin
   subtype: mother
-  active: AIND-D10282#p1
+  active: m6
   passive: AIND-D10282
-  quote: أمة
   note:
     ja: '「وأمه أمة」＝母は女奴隷（名ではない）。名不詳のため #NEEDID（規則12、先例 #AIND-D05976）。初版訳の「母はアマ（またはアマト）」は固有名と誤読。'
-  norm: امة
 notes:
 - text: 見出しの「ابن أصلم」は父 عمر の通称（母方の祖先 الشهابي أصلم＝جامع أصلم の建立者に由来）で、أصلم は父系の祖父ではない。persName は原文の見出し形のまま。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: AIND-D05846
+  quote: عمر
+- id: m3
+  kind: name
+  quote: أصلم
+  norm: اصلم
+- id: m4
+  kind: person
+  ref: AIND-D05846
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: person
+  ref: AIND-D01116
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: person
+  ref: AIND-D10282#p1
+  quote: أمة
+  norm: امة
+- id: m7
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m8
+  kind: year
+  value: '892'
+  quote: سنة
 translation:
   ja: ヤフヤー・ブン・ウマル・ブン・アスラム。父と兄弟アフマドは既出。母は女奴隷であった。892年ジュマーダー第一月の上旬に没し、父の後わずかしか生きなかった。
   en: Yaḥyā b. ʿUmar b. Aṣlam; his father and his brother Aḥmad have been mentioned above. His mother was a slave woman. He died in the first days of Jumādā I 892, having outlived his father only briefly.

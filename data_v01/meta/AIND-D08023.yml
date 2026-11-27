@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00078
-    quote: البرلسي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 persons:
 - id: p1
   label: علي بن أحمد البرلسي
@@ -36,14 +34,13 @@ relations:
   subtype: father
   active: AIND-D08023#p1
   passive: AIND-D08023
-  quote: null
   note:
     ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D08023
-  passive: AIND-D08670
+  passive: m5
   methods:
   - TMP-S-00006
   context:
@@ -52,13 +49,34 @@ relations:
       notBefore: 850
       type: teaching
     places:
-    - ref: TMP-L-00363
-      quote: بأبيار
-      norm: ابيار
+    - mention: m6
     phrase: ممن عرض عليه خير الدين بن القصبي بعيد الخمسين بأبيار
-  quote: خير الدين بن القصبي
   note:
     ja: '「ممن عرض عليه خير الدين بن القصبي」＝本項主が試問者（師、active）、提示した側＝خير الدين بن القصبي ＝ #AIND-D08670（محمد بن محمد بن أحمد بن موسى بن أبي بكر … خير الدين … أبو الخير بن الشمس السخاوي ثم القاهري ثم المدني المالكي … ويعرف بابن القصبي、842生。先例 D04010・D01418・D08074 と同型、規則28）。「بعيد الخمسين」＝850 の少し後 → notBefore-custom 0850（先例 D04010・D04384）。地名 أبيار（原文明記）は ID-Master 未登録 → TMP-L-00363。初版は passive #NEEDID・@when="after 850"（非ISO）・placeName #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00078
+  quote: البرلسي
+- id: m5
+  kind: person
+  ref: AIND-D08670
+  quote: خير الدين بن القصبي
+- id: m6
+  kind: place
+  quote: بأبيار
+  ref: TMP-L-00363
+  norm: ابيار
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド・ブン・アル＝ブルッルスィー。ハイル・アッ＝ディーン・ブン・アル＝カサビーが850年の少し後にアビヤールで（暗誦を）提示した相手の一人。
   en: Muḥammad b. ʿAlī b. Aḥmad b. al-Burullusī, one of those to whom Khayr al-Dīn b. al-Qaṣabī presented (his memorized texts) shortly after [the year] fifty at Abyār.

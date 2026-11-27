@@ -9,71 +9,63 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04167
-    quote: الطرسوسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00217
-    quote: المزي
+    mention: m6
   - id: n3
     type: laqab
-    quote: العلاء
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000125
+  active: m10
   passive: AIND-D05503
   methods:
   - TMP-S-00028
   cert: medium
-  quote: ابن أميلة
   note:
     ja: ابن أميلة（TMP-P-000125、ダマスクスの伝承家・没778）。本人の申告（قال أنه حضر على）による伝聞のため cert="medium"。
-  norm: ابن اميلة
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000906
+  active: m11
   passive: AIND-D05503
   methods:
   - TMP-S-00028
   cert: medium
-  quote: والزين القرشي
   note:
     ja: الزين القرشي（ダマスクスの説教師、8世紀後半）。ID-Master 未登録・corpus 本伝なし → 新規 TMP-P-000906。
-  norm: الزين القرشي
   phrase: الزين القرشي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000905
+  active: m12
   passive: AIND-D05503
   methods:
   - TMP-S-00028
   cert: medium
-  quote: وابن رجب
   note:
     ja: ابن رجب = زين الدين عبد الرحمن بن أحمد بن رجب الحنبلي（没795）。ID-Master 未登録 → 新規 TMP-P-000905。
-  norm: ابن رجب
   phrase: ابن رجب
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D05503
-  passive: wd:Q4120128
+  passive: m7
   methods:
   - TMP-S-00004
   context:
@@ -81,53 +73,106 @@ relations:
     date:
       ah: 850
       type: teaching
-  quote: لي
   phrase: استجازه لي إبراهيم العجلوني في سنة خمسين
 - id: r5
   type: social
   subtype: other
-  active: TMP-P-000941
+  active: m8
   passive: AIND-D05503
   summary:
     ar: استجازه لي إبراهيم العجلوني (وسيط الإجازة)
-  quote: إبراهيم العجلوني
   note:
     ja: 'إبراهيم العجلوني（850年にダマスクスでサハーウィーのためにイジャーザを取り次いだ人物。D05515 でも同様）。候補は D00019（البرهان ابن الغرس العجلوني ثم الدمشقي、没888）・D00018（العجلوني ثم المقدسي）・D00290 で確定不能 → #NEEDID 維持（§D-5 型）。'
-  norm: ابراهيم العجلوني
 - id: r6
   type: social
   subtype: other
-  active: wd:Q4664581
+  active: m13
   passive: AIND-D05503
   cert: medium
-  quote: الزين العراقي
   note:
     ja: الزين العراقي（wd:Q4664581）が『ジャーミウ・アッ＝ティルミズィー』注釈のため本項主に助力を求めて使いを送った（本人の言、伝聞）。初版の統制外 subtype「correspondent」を other に。
   phrase: أرسل إلي الزين العراقي يستعين بي في شرح الترمذي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00032
   places:
-  - ref: TMP-L-00240
-    quote: بالمزة
-    norm: المزة
+  - mention: m15
   orgs:
   - ref: TMP-I-00136
-  quote: ناظر الجامع المرجاني
   note:
     ja: المزة → 新規 TMP-L-00240、الجامع المرجاني → 新規 TMP-I-00136。
+  mention: m14
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00240
-    quote: بالمزة
-    norm: المزة
-  quote: null
+  - mention: m15
+  mention: null
 notes:
 - text: 「قلت ومات بعد يسير فالله أعلم」＝850年のイジャーザ後まもなく没（年不明のため death 要素は立てない）。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: العلاء
+- id: m5
+  kind: name
+  ref: TMP-N-04167
+  quote: الطرسوسي
+- id: m6
+  kind: name
+  ref: TMP-N-00217
+  quote: المزي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m8
+  kind: person
+  ref: TMP-P-000941
+  quote: إبراهيم العجلوني
+  norm: ابراهيم العجلوني
+- id: m9
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000125
+  quote: ابن أميلة
+  norm: ابن اميلة
+- id: m11
+  kind: person
+  ref: TMP-P-000906
+  quote: والزين القرشي
+  norm: الزين القرشي
+- id: m12
+  kind: person
+  ref: TMP-P-000905
+  quote: وابن رجب
+  norm: ابن رجب
+- id: m13
+  kind: person
+  ref: wd:Q4664581
+  quote: الزين العراقي
+- id: m14
+  kind: office
+  ref: TMP-O-00032
+  quote: ناظر الجامع المرجاني
+- id: m15
+  kind: place
+  quote: بالمزة
+  ref: TMP-L-00240
+  norm: المزة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アリー、アル＝アラー・アッ＝タルスースィー・アル＝ミッズィー。850年にイブラーヒーム・アル＝アジュルーニーが私（サハーウィー）のために彼からイジャーザを求めた。彼（イブラーヒーム）によれば、本人はイブン・ウマイラ、アッ＝ザイン・アル＝クラシー、イブン・ラジャブ（の講席）に出席したといい、また本人が「アッ＝ザイン・アル＝イラーキーが『ティルミズィー』の注釈で私の助力を求めて使いをよこした」と語るのを聞いたという。彼（イブラーヒーム）は言う、このアル＝アラーはアル＝ミッザのアル＝マルジャーニー・モスクの管財人（ナーズィル）であった。私（サハーウィー）は言う、彼はその後ほどなく没した。神がもっともよく知りたまう。
   en: 'ʿAlī b. Muḥammad b. ʿAlī, al-ʿAlāʾ al-Ṭarsūsī al-Mizzī. Ibrāhīm al-ʿAjlūnī obtained an ijāza from him on my behalf in the year 850, and said that he had attended (the sessions of) Ibn Umayla, al-Zayn al-Qurashī and Ibn Rajab, and that he heard him say: "al-Zayn al-ʿIrāqī sent to me seeking my help with the commentary on al-Tirmidhī." He (Ibrāhīm) said: this al-ʿAlāʾ was the supervisor (nāẓir) of the Marjānī Mosque at al-Mizza. I say: he died shortly afterwards, and God knows best.'

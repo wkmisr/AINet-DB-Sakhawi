@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05521
-    quote: النعاس
+    mention: m4
   - id: n2
     type: laqab
-    quote: فتح الدين
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m5
 death:
   id: d
   date:
@@ -37,7 +34,7 @@ death:
     role: funeral_prayer
   note:
     ja: 「مات في سنة سبع وثلاثين」。837年＝1433-08-27〜1434-08-15（h2g.py）。年精度。 / 「وتقدم شيخه للصلاة عليه بإشارة الزيني عبد الباسط مع حضرة الحنبلي وغيره من الأعيان」。葬礼の礼拝を導いた「شيخه」＝直前で「انتمى」の対象とされた أبو الفتح بن وفاء（#AIND-D06928）。初版はこれをイブン・ハジャルと誤読。「الحنبلي」（ハンバル派カーディー）は名を挙げないため relation を立てない。
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: أحمد
@@ -50,50 +47,44 @@ relations:
   subtype: father
   active: AIND-D07050#p1
   passive: AIND-D07050
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06928
+  active: m9
   passive: AIND-D07050
   summary:
     ar: أبو الفتح بن وفاء
-  quote: الفتح بن وفاء
   note:
     ja: '「وانتمى لأبي الفتح بن وفاء」＝ #AIND-D06928「محمد بن أحمد بن محمد بن محمد بن النجم محمد فتح الدين أبو الفتح … القاهري المالكي الشاذلي … ويعرف بابن وفا」（790年頃生、852年没＝本項主の没年 837 に存命）。ID-Master の TMP-P-000148「أبو الفتح محمد ابن وفا」（Note「AIND-D0047の兄弟」＝#AIND-D00047 の桁欠け。repo では D02523 の brother に使用）は同一人物＝名寄せ要（要判断 ★名寄せ）。「شيخه」（後出）はこの人物。'
 - id: r3
   type: social
   subtype: other
-  active: AIND-D03484
+  active: m11
   passive: AIND-D07050
-  quote: الزيني عبد الباسط
   note:
     ja: '「بإشارة الزيني عبد الباسط」＝葬礼の礼拝をシャイフが導くよう指示した。الزيني عبد الباسط＝ #AIND-D03484（ناظر الجيش、الباسطية の建立者。本項主はその الباسطية の خطيب）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00078
-  quote: أحد موقعي الحكم
   note:
     ja: 「أحد موقعي الحكم」＝判決署名官。ID-Master の TMP-O-00078（توقيع الحكم | موقع الحكم | موقعي الحكم）に一致（初版の TMP-O-00058 موقع 汎用から変更）。
-  norm: احد موقعي الحكم
+  mention: m6
 - id: s2
   type: office
-  ref: wd:Q932945
   orgs:
   - ref: TMP-I-00021
-  quote: الخطابة بالباسطية
   note:
     ja: 「ولي الخطابة بالباسطية」。الباسطية＝TMP-I-00021（الخانقاه الباسطية）。初版の affiliation type="employed"（同施設）は state との二重符号化（規則8）のため除去。
+  mention: m8
 - id: s3
   type: status
   label: حسن الخط عارف بالوثائق
   label_latn: ḥasan al-khaṭṭ ʿārif bi-l-wathāʾiq
-  quote: حسن الخط
   note:
     ja: 「كن حسن الخط عارفا بالوثائق」（刊本「كن」＝كان の脱字）。
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -101,16 +92,65 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、إنبائه＝TMP-T-00034『إنباء الغمر』。初版はこれを師弟 relation（أخذ）として符号化していたが、原文に本項主がイブン・ハジャルに学んだ記述はない。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: فتح الدين
+- id: m4
+  kind: name
+  ref: TMP-N-05521
+  quote: النعاس
+- id: m5
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m6
+  kind: office
+  ref: TMP-O-00078
+  quote: أحد موقعي الحكم
+  norm: احد موقعي الحكم
+- id: m7
+  kind: office
+  quote: حسن الخط
+- id: m8
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة بالباسطية
+- id: m9
+  kind: person
+  ref: AIND-D06928
+  quote: الفتح بن وفاء
+- id: m10
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D03484
+  quote: الزيني عبد الباسط
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アフマド・ファトフ・アッ＝ディーン・アン＝ナッアース（無点の二字とヌーン）・アル＝マーリキー、判決署名官の一人。能書で証書類に通じ、アル＝バースィティーヤの説教職に就き、アブー・アル＝ファトフ・イブン・ワファーに帰依した。837年に没し、アッ＝ザイニー・アブド・アル＝バースィトの指示により、彼のシャイフが、アル＝ハンバリー（ハンバル派カーディー）その他の名士の臨席のもと、葬礼の礼拝を導くために進み出た。我らの師（イブン・ハジャル）が『インバー』に彼の没年を記した。
   en: Muḥammad b. Aḥmad Fatḥ al-Dīn al-Naʿʿās (with two undotted letters and a nūn) al-Mālikī, one of the court signatories (muwaqqiʿī al-ḥukm). He had a fine hand and was knowledgeable in legal documents; he held the office of preacher at al-Bāsiṭiyya and attached himself to Abū al-Fatḥ Ibn Wafāʾ. He died in the year 837, and his shaykh stepped forward to lead the prayer over him at the direction of al-Zaynī ʿAbd al-Bāsiṭ, in the presence of the Ḥanbalī (judge) and other notables. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

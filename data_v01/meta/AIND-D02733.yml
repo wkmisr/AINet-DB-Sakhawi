@@ -9,53 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01133
-    quote: الحفصي
+    mention: m3
   - id: n2
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي فارس عبد العزيز
     by: rule
-    ref: AIND-D03958
-    norm: ابو فارس عبد العزيز
+    mention: m2
 death:
   id: d
   date:
     ah: 839
   note:
     en: He was executed alongside two of his brothers in 839 AH following his failed rebellion against his nephew, the ruler.
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03958
+  active: m6
   passive: AIND-D02733
   summary:
     ar: أبو فارس عبد العزيز أمير المسلمين
-  quote: أبيه
   note:
     ja: 父=#AIND-D03958(عبد العزيز بن أحمد أبو فارس الهنتاتي الحفصي、チュニスのハフス朝君主・没837)。既存$$$転送項「حسين بن عبد العزيز الحفصي . في ابن أبي فارس」も本項を指す。
-  norm: ابيه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
-  quote: المفتي
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00014
-  quote: الأمير
-  norm: الامير
+  mention: m5
 assessments:
 - id: v1
-  quote: فاضلا
   terms:
   - فاضل
   by: rule
+  mention: m9
 events:
 - id: e1
   type: political
@@ -65,30 +57,79 @@ events:
     type: political
   summary:
     en: Attempted to launch a rebellion against his nephew, who succeeded to the throne after his father. However, the nephew captured him and executed him along with two of his brothers.
-  quote: فقتله
   cert: high
   trigger: rule
-  norm: قتله
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   trigger: rule
   phrase: قاله شيخنا في أنبائه
+  mention: m10
 - id: c2
   persons:
-  - ref: AIND-D03755
-    quote: الزين عبد الرحمن البرشكي
+  - mention: m11
   summary:
     ar: ذكره لي صاحبنا الزين عبد الرحمن البرشكي (القائل هو شيخنا في الإنباء)
-  quote: قاله
   note:
     ja: البرشكي=#AIND-D03755(عبد الرحمن بن محمد الزين التونسي المالكي ويعرف بابن البرشكي、没839)。「ذكره لي」の「لي」は引用元のイブン・ハジャル(شيخنا、صاحبناとも同人の言)であり、サハーウィー本人ではない(サハーウィー生831・バルシャキー没839)。
   trigger: rule
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  ref: AIND-D03958
+  quote: أبي فارس عبد العزيز
+  norm: ابو فارس عبد العزيز
+- id: m3
+  kind: name
+  ref: TMP-N-01133
+  quote: الحفصي
+- id: m4
+  kind: office
+  ref: TMP-O-00004
+  quote: المفتي
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: الأمير
+  norm: الامير
+- id: m6
+  kind: person
+  ref: AIND-D03958
+  quote: أبيه
+  norm: ابيه
+- id: m7
+  kind: event
+  quote: فقتله
+  norm: قتله
+- id: m8
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m9
+  kind: assessment
+  quote: فاضلا
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: AIND-D03755
+  quote: الزين عبد الرحمن البرشكي
+- id: m12
+  kind: source
+  quote: قاله
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: フサイン・ブン・アビー・ファーリス・アブド・アル＝アズィーズ・アル＝ハフスィー。イマーム、大学者、ムフティーにしてアミール、「ムスリムたちの司令官（アミール・アル＝ムスリミーン）」〔＝ハフス朝君主〕の息子。兄弟の息子（甥）が〔フサインの〕父の後を継いで王位に就くと、彼はこれに対する反乱を企てたが、甥は彼を捕らえて殺し、彼の二人の兄弟も殺した。フサインの殺害による災いは甚大で、それは839年のことであった。彼は優れた人物で、討論に長け、聡明であった。「我らの友ザイン・アブド・アッ＝ラフマーン・アル＝バルシャキーが私に彼のことを語った」——以上はわがシャイフ（イブン・ハジャル）が『インバー〔・アル＝グムル〕』で述べたものである。
   en: Ḥusayn b. Abī Fāris ʿAbd al-ʿAzīz al-Ḥafṣī, the imam, the eminent scholar, the mufti, the amir, son of the Commander of the Muslims [the Ḥafṣid ruler]. He sought to rise against his brother's son when the latter was established in the kingdom after his [Ḥusayn's] father; the nephew seized him, killed him, and killed two of his brothers as well. The calamity of Ḥusayn's killing was immense; that was in the year 839 AH. He was accomplished, a skilled disputant, and intelligent. 'Our companion al-Zayn ʿAbd al-Raḥmān al-Barashkī mentioned him to me' — thus our shaykh (Ibn Ḥajar) in his Inbāʾ [al-Ghumr].

@@ -9,101 +9,161 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: السراج
+    mention: m7
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسن
     by: rule
-    ref: AIND-D02635
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: قاسم
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n8
     type: nasab
-    quote: الخواجا البدر لمعروف بالطاهر
     by: rule
+    mention: m8
 death:
   id: d
   date:
     ah: 868-08
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  - ref: gn:104515
-    role: burial
-    quote: مكة
+  - mention: m16
+  - role: burial
+    mention: m17
   note:
     ja: 868-08 ＝ 1464-04-18〜05-16、月初 1464-04（h2g.py。初版は年精度 1463）。إصقالة（إسقالة）＝ 港の渡し板・桟橋の梯子。「قليلا」は「تعطله」（しばらく動けなかった）にかかると読む。埋葬地 مكة は原文明記。初版の重複する「other」event（転落）を本 desc に統合。
-  quote: سنة
   phrase: مات في شعبان سنة ثمان وستين بجدة بعد سقوطه من إصقالة وتعطله بسبب كسر رجله قليلا وحمل إلى مكة فدفن بها
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02635
+  active: m9
   passive: AIND-D05836
   summary:
     ar: الخواجا البدر حسن بن محمد بن قاسم الطاهر
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 ＝ #AIND-D02635「حسن بن محمد بن قاسم بن علي بن أحمد التاجر الكبير بدر الدين الصعدي اليمني نزيل مكة … ويعرف بالطاهر」（790年頃生、871年没、マッカの大商人）。ナサブ5代一致。兄弟 #AIND-D03621 も父を D02635 とする。初版の汚染番号 TMP-P-000204（登録実体は D0106 の息子 حسن）を差し替え。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03621
+  active: m10
   passive: AIND-D05836
-  quote: عبد الرحمن
   note:
     ja: '「الماضي … شقيقه عبد الرحمن」。同母兄弟 ＝ #AIND-D03621「عبد الرحمن بن الخواجا البدر حسن بن محمد بن قاسم بن علي اليمني الأصل المكي الماضي أبوه والآتي أخواه علي ومحمد وشقيقه عمر ويعرف بابن الطاهر」（862年ジッダ没）。相手側も本項主を「شقيقه عمر」と名指しし、repo 収録済の D03621 は本項主 #AIND-D05836 を brother として参照する。他の兄弟（#AIND-D05121 علي・#AIND-D10688 أبو بكر・محمد）は本項原文に名がないため relation を立てない（索引 #AIND-D11299「الطاهر … وبنوه أبو بكر وعمر وعلي وعبد الرحمن ومحمد」）。初版の #NEEDID を解消。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: وكان
-  norm: كان
   phrase: تقدم في التجارة وكان أجل إخوته
+  mention: m11
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00039
-    quote: الهند
-  quote: وسافر
+  - mention: m13
   trigger: rule
-  norm: سافر
   phrase: سافر لبلاد الهند
+  mention: m12
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m19
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、没年 868（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版の統制外 subtype「biographer」relation を event に変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m18
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D02635
+  quote: حسن
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: قاسم
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: السراج
+- id: m8
+  kind: name
+  quote: الخواجا البدر لمعروف بالطاهر
+- id: m9
+  kind: person
+  ref: AIND-D02635
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: AIND-D03621
+  quote: عبد الرحمن
+- id: m11
+  kind: office
+  ref: wd:Q215536
+  quote: وكان
+  norm: كان
+- id: m12
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m13
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m14
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m15
+  kind: year
+  value: '868'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m17
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m18
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m19
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウマル・ブン・ハサン・ブン・ムハンマド・ブン・カースィム・ブン・アリー・ブン・アフマド、アッ＝シラージュ・ブン・アル＝ハワージャー・アル＝バドル、アッ＝ターヒルとして知られる［者の子］。その父と同母兄弟のアブド・アッ＝ラフマーンは前述した。商業で頭角を現し、兄弟のうち最も重きをなし、インドの地へ旅した。（8）68年シャアバーン月にジッダで、渡し板から落ちて脚を骨折ししばらく動けなくなった後に没し、マッカへ運ばれて同地に埋葬された。父は彼の死を深く悲しんだ。イブン・ファハドがその没年月を記録している。
   en: ʿUmar b. Ḥasan b. Muḥammad b. Qāsim b. ʿAlī b. Aḥmad, al-Sirāj b. al-Khawājā al-Badr known as al-Ṭāhir; his father and his full brother ʿAbd al-Raḥmān were mentioned above. He advanced in trade, was the most eminent of his brothers, and travelled to the lands of India. He died in Shaʿbān (8)68 in Jidda, after falling from a gangway and being laid up for a while by a broken leg; he was carried to Mecca and buried there. His father was stricken by his loss. Ibn Fahd recorded his death.

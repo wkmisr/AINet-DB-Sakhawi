@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00195
-    quote: التبريزي
+    mention: m5
   - id: n2
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الجبار
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n5
     type: nasab
-    quote: كرشان
     by: rule
+    mention: m4
 birth:
   id: b
   date:
@@ -41,7 +39,7 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D04259
-  passive: AIND-D09211
+  passive: m10
   methods:
   - TMP-S-00025
   fields:
@@ -49,32 +47,67 @@ relations:
   works:
   - label: تفسيره
   - label: Tafsīruhu
-  quote: وله تفسير قرأت عليه منه
   note:
     ja: 「قرأت عليه منه」の一人称は『معجم』の著者 التقي بن فهد（#AIND-D09211）。本項主が師（active）、التقي が弟子（passive）。書名不明の『تفسير』のため bibl に ref を付けない。
-  norm: وله تفسير قرات عليه منه
 events:
 - id: e2
   type: other
   date:
     ah: 831-12
     type: other
-  quote: ذكر في ذي الحجة سنة إحدى وثلاثين وثمانمائة أنه ابن أربع وسبعين سنة
   note:
     ja: 831年ズー・アル＝ヒッジャ月＝1428年9月11日〜10月9日。
-  norm: ذكر في ذي الحجة سنة احدي وثلاثين وثمانماءة انه ابن اربع وسبعين سنة
+  phrase: ذكر في ذي الحجة سنة إحدى وثلاثين وثمانمائة أنه ابن أربع وسبعين سنة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
+  - mention: m7
   works:
   - ref: TMP-T-00138
-  quote: قال
   note:
     ja: Pattern A。「ابن فهد في معجم أبيه」＝ النجم عمر بن فهد（#AIND-D05979）が父 التقي の『معجم』（TMP-T-00138）に記した、の意（原文が「أبيه」で النجم を特定）。
   trigger: rule
   phrase: قال ابن فهد في معجم أبيه أنه ذكر في ذي الحجة سنة إحدى وثلاثين وثمانمائة أنه ابن أربع وسبعين سنة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  quote: عبد الجبار
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: كرشان
+- id: m5
+  kind: name
+  ref: TMP-N-00195
+  quote: التبريزي
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
+- id: m8
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m9
+  kind: year
+  value: '831'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: وله تفسير قرأت عليه منه
+  norm: وله تفسير قرات عليه منه
 translation:
   ja: アブド・アル＝カリーム・ブン・アブド・アル＝ジャッバール・ブン・イブラーヒーム・ブン・カルシャーン・アッ＝タブリーズィー。イブン・ファフド（アン＝ナジュム）はその父（アッ＝タキー）の『ムウジャム』で、彼が831年ズー・アル＝ヒッジャ月に自分は74歳であると述べたと記している。また（アッ＝タキーは）「彼にはタフスィール（クルアーン注釈）があり、私はそのうちの一部を彼に読んだ」と述べている。
   en: 'ʿAbd al-Karīm b. ʿAbd al-Jabbār b. Ibrāhīm b. Karshān al-Tabrīzī. Ibn Fahd (al-Najm) said in his father''s Muʿjam that he stated in Dhū al-Ḥijja of the year 831 that he was seventy-four years old; and he (al-Taqī) said: "He has a Tafsīr, part of which I read to him."'

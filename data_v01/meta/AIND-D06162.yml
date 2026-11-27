@@ -9,87 +9,128 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00187
-    quote: المؤيدي
-    norm: المءيدي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m3
   - id: n3
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سكزباي بمهملة
     by: rule
-    ref: TMP-P-001547
+    mention: m2
 death:
   id: d
   date:
     ah: 824-02-04
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m10
   note:
     ja: 「مات في رابع صفر سنة أربع وعشرين بالقاهرة بعد مرض طويل」＝824年サファル月4日（1421-02-17、土曜）、カイロ、長患いの末。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001547
   passive: AIND-D06162
-  quote: null
   note:
     ja: '父 سكزباي（原文の読み「بمهملة ثم كاف مكسورتين بعدها زاي ساكنة ثم موحدة」＝Sikizbāy）。珍しい名はそれ自体が識別要素（規則3）。corpus に見出しなし・ID-Master には Nisbah として TMP-N-04296 が誤登録されているのみ → 仮 TMP-P-001547。初版の #TMP-N-04296（ニスバ番号の人物位置流用）を解消。'
   phrase: سكزباي
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D03345
+  active: m5
   passive: AIND-D06162
   summary:
     ar: المؤيد شيخ
-  quote: شيخ
   note:
     ja: '「رباه في حال إمرته فلما تسلطن عمله خاصكيا ثم أمير عشرة وقربه لجماله حتى صار من أعيان دولته」＝アミール時代のシャイフに養育され、即位（815年）後にハーッサキー、ついで十人長アミールに取り立てられた。المؤيد شيخ＝#AIND-D03345（شيخ المحمودي … المؤيد أبو النصر、824年没）。初版 #NEEDID を解消。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيا
   note:
     ja: 「فلما تسلطن عمله خاصكيا」。初版の placeName القاهرة（原文になし）を除去（規則22(1)）。
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: 「ثم أمير عشرة」。初版の placeName القاهرة を除去。
-  norm: امير عشرة
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: ذكره
+  - mention: m12
   note:
     ja: 「ذكره المقريزي والعيني وغيرهما」。Pattern A。初版の統制外 relation「other」を event に改めた。
   trigger: rule
   phrase: ذكره المقريزي
+  mention: m11
 - id: c2
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: والعيني
-    norm: العيني
+  - corresp: wd:Q257745
+    mention: m13
   summary:
     ar: ذكره العيني
-  quote: null
   note:
     ja: 'Pattern A。初版は #TMP-I-00083（مدرسة العيني＝施設番号）を人物位置に流用していた → wd:Q257745。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: name
+  ref: TMP-P-001547
+  quote: سكزباي بمهملة
+- id: m3
+  kind: name
+  quote: الزين
+- id: m4
+  kind: name
+  ref: TMP-N-00187
+  quote: المؤيدي
+  norm: المءيدي
+- id: m5
+  kind: person
+  ref: AIND-D03345
+  quote: شيخ
+- id: m6
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيا
+- id: m7
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '824'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m13
+  kind: person
+  ref: AIND-D09832
+  quote: والعيني
+  norm: العيني
 translation:
   ja: ファラジュ・ブン・スィキズバーイ——（父名は）無点の字（スィーン）、ついでカーフ（ともにカスラ）、その後にスクーンのザーイ、ついで一点のバー——、アッ＝ザイン・アル＝ムアイヤディー。（アル＝ムアイヤド・）シャイフがアミール時代に彼を養育し、スルターンに即位すると彼をハーッサキー（近侍）に、ついで十人長アミールにし、その美貌ゆえに側近くに置いたので、ついには政権の有力者の一人となった。背が高く、髭が薄く、容姿が美しい美男であった。長患いの末、824年サファル月4日にカイロで没した。マクリーズィーとアイニーらが彼に言及している。
   en: Faraj b. Sikizbāy — with undotted sīn and kāf, both with kasra, then a quiescent zāy, then a bāʾ with one dot — al-Zayn al-Muʾayyadī. Shaykh (al-Muʾayyad) brought him up during his amirate, and when he became sultan he made him a khāṣṣakī, then an amir of ten, and kept him close on account of his beauty, until he became one of the notables of his regime. He was tall, thin-bearded, of handsome appearance and good-looking. He died on 4 Ṣafar 824 in Cairo after a long illness. Al-Maqrīzī, al-ʿAynī and others mentioned him.

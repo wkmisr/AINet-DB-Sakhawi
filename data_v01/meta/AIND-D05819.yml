@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m4
   - id: n2
     type: laqab
-    quote: شجاع الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: عبد السلام
+    mention: m2
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D06630
+  active: m6
   passive: AIND-D05819
   methods:
   - TMP-S-00003
-  quote: القاضي الجمال الطيب
   note:
     ja: '「سمع على خاله القاضي الجمال الطيب كثيرا」。師 ＝ 母方の叔父 الجمال الطيب ＝ #AIND-D06630「محمد الجمال أبو عبد الله الشافعي أخو الذي قبله ووالد العفيف عبد الله الماضي ويعرف هذا بالطيب」（782年ザビード生、844年にザビードの大カーディー、874年没）。父 #AIND-D10822 の項に「ابن عمه الجمال محمد الطيب بن أحمد الناشري」とあり同一人物。初版の #NEEDID を解消。ID-Master の TMP-P-000364「الطيب محمد بن أحمد بن أبي بكر بن الشهاب بن الجمال」（Note 空欄）は同人＝名寄せ要（ISSUES §D104-2）。'
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D10822
+  active: m5
   passive: AIND-D05819
   summary:
     ar: أبو بكر بن محمد بن أبي بكر الناشري
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父 ＝ #AIND-D10822「أبو بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر بن عبد الله ابن عمر بن عبد الرحمن بن عبد الله الناشري اليماني」（773年生、ザビードで婚姻契約を司った）。ナサブ6代が一致。兄弟 #AIND-D00610「أحمد بن أبي بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر الناشري الآتي أبوه وجده」・#AIND-D03408「الطاهر بن أبي بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر الناشري الآتي أبوه . حفظ القرآن وحج في سنة ست وعشرين」（本項主と同じ826年の巡礼）も同じ父を持つが、本項原文に兄弟への言及がないため relation は立てない。ID-Master の TMP-P-000698（D03408 の父として発行）は #AIND-D10822 と名寄せ要（ISSUES §D104-2）。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r3
   type: kin
   subtype: maternal_uncle
   active: AIND-D06630
   passive: AIND-D05819
-  quote: null
   note:
     ja: '「خاله القاضي الجمال الطيب」（母方の叔父。初版の subtype uncle → maternal_uncle、#NEEDID → #AIND-D06630）。'
   phrase: القاضي الجمال الطيب
@@ -61,11 +56,41 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: 826 ＝ 1422-12-24〜1423-12-13、年のみのため 1422。placeName مكة は規則20の例外。
   trigger: rule
   phrase: حج سنة ست وعشرين
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عبد السلام
+- id: m3
+  kind: name
+  quote: شجاع الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m5
+  kind: person
+  ref: AIND-D10822
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: person
+  ref: AIND-D06630
+  quote: القاضي الجمال الطيب
+- id: m7
+  kind: event
+  quote: وحج
+- id: m8
+  kind: year
+  value: '826'
+  quote: سنة
 translation:
   ja: ウマル、アブド・アッ＝サラームと呼ばれる、ブン・アビー・バクル・ブン・ムハンマド・アビー・バクル・ブン・アリー・ブン・ムハンマド・ブン・アビー・バクル、シュジャーウ・アッ＝ディーン・アン＝ナーシリー。その父は後述する。母方の叔父であるカーディー・アル＝ジャマール・アッ＝タイイブのもとで多くを聴聞し、［クルアーンの］誦読と集団礼拝への精励に専心した。（8）26年に巡礼し、子供たちがいた。
   en: ʿUmar, called ʿAbd al-Salām, b. Abī Bakr b. Muḥammad Abī Bakr b. ʿAlī b. Muḥammad b. Abī Bakr, Shujāʿ al-Dīn al-Nāshirī; his father comes below. He heard much from his maternal uncle the qāḍī al-Jamāl al-Ṭayyib, and devoted himself to recitation and to constant attendance at congregational prayer. He performed the pilgrimage in (8)26, and he had children.

@@ -9,61 +9,92 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D08298
+    mention: m2
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: الرضي أبي بكر
     by: rule
-    norm: الرضي ابي بكر
+    mention: m4
   - id: n6
     type: nasab
-    quote: عبد اللطيف
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: سالم
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D08298
+  active: m8
   passive: AIND-D05965
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父 ＝ #AIND-D08298「محمد بن عمر بن الرضي أبي بكر بن محمد بن عبد اللطيف بن سالم الجمال أبو الفتح المكي سبط التقي بن فهد … ويعرف بابن الرضي」（ナサブ一致。D08298 は عبد اللطيف と سالم の間に محمد を一代多く含むが、同家の #AIND-D05822・ニスバ索引 #AIND-D12349 と同様の揺れ）。初版の #NEEDID を解消。'
-  norm: ابوه
   phrase: محمد بن عمر بن الرضي أبي بكر بن عبد اللطيف بن سالم
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05965
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m10
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D08298
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  quote: الرضي أبي بكر
+  norm: الرضي ابي بكر
+- id: m5
+  kind: name
+  quote: عبد اللطيف
+- id: m6
+  kind: name
+  quote: سالم
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: person
+  ref: AIND-D08298
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・ウマル・ブン・アッ＝ラディー・アビー・バクル・ブン・アブド・アッ＝ラティーフ・ブン・サーリム、アル＝マッキー。父は後述。マッカで私から聴聞した者の一人。
   en: ʿUmar b. Muḥammad b. ʿUmar b. al-Raḍī Abī Bakr b. ʿAbd al-Laṭīf b. Sālim al-Makkī; his father comes below. He was among those who heard from me in Mecca.

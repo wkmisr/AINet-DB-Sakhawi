@@ -9,34 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00098
-    quote: النويري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: kunyah
-    quote: أبو بكر
-    norm: ابو بكر
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001116
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: أجاز له في سنة إحدى وتسعين وسبعمائة وبعدها جماعة
@@ -45,7 +40,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D04500#p1
+  active: m9
   passive: AIND-D04500
   methods:
   - TMP-S-00004
@@ -54,10 +49,8 @@ relations:
     date:
       ah: 791
       type: learning
-  quote: سنة إحدى وتسعين وسبعمائة وبعدها جماعة
   note:
     ja: '授与者は「جماعة」（無名の一団）のため #NEEDID。791年以降に複数回。'
-  norm: سنة احدي وتسعين وسبعماءة وبعدها جماعة
 - id: r2
   type: kin
   subtype: father
@@ -65,7 +58,6 @@ relations:
   passive: AIND-D04500
   summary:
     ar: علي بن أحمد بن عبد العزيز النويري
-  quote: null
   note:
     ja: '父＝النور أبو الحسن علي بن أحمد بن عبد العزيز العقيلي النويري المكي（マッカのマーリク派マカーム・イマーム、8世紀）。corpus に本伝はないが「إمام المالكية النور أبو الحسن علي بن أحمد بن عبد العزيز العقيلي النويري」として言及され、同じ父を持つ兄弟 #AIND-D00984（أحمد、780年生）・#AIND-D03684（عبد الرحمن、773年生、「ولي امامة مقام المالكية بعد أبيه」）・#TMP-P-000943（الولوي محمد）が corpus／ID-Master にある。ID-Master 未登録のため TMP-P-001116 を新規発行（規則3・12）。'
 events:
@@ -74,19 +66,65 @@ events:
   date:
     ah: 813
     type: other
-  quote: وكان حيا في سنة ثلاث عشرة بمقتضى خطه في شهادة
-  norm: كان حيا في سنة ثلاث عشرة بمقتضي خطه في شهادة
+  phrase: وكان حيا في سنة ثلاث عشرة بمقتضى خطه في شهادة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: قاله
+  - cert: low
+    mention: m12
   note:
     ja: 'Pattern A。初版は統制外 subtype「informant」の relation。限定句なし・没年不明 → 規約により #AIND-D09211、cert low。'
   trigger: rule
   phrase: قاله ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001116
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عبد العزيز
+- id: m5
+  kind: name
+  quote: أبو بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  ref: TMP-N-00098
+  quote: النويري
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: year
+  value: '791'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D04500#p1
+  quote: سنة إحدى وتسعين وسبعمائة وبعدها جماعة
+  norm: سنة احدي وتسعين وسبعماءة وبعدها جماعة
+- id: m10
+  kind: year
+  value: '813'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: قاله
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥッラー・ブン・アリー・ブン・アフマド・ブン・アブドゥルアズィーズ、アブー・バクル、アン＝ヌワイリー、アル＝マッキー。ヒジュラ暦791年およびそれ以降に、一団の人々が彼にイジャーザを与えた。ある証書に記された彼の自筆によれば、813年には存命であった。イブン・ファハドがそう述べている。
   en: ʿAbd Allāh b. ʿAlī b. Aḥmad b. ʿAbd al-ʿAzīz Abū Bakr al-Nuwayrī al-Makkī. A group of scholars granted him ijāza in the year 791 and thereafter. He was still alive in the year 813, according to his handwriting on a deed of testimony. So says Ibn Fahd.

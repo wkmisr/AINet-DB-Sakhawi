@@ -9,49 +9,45 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: زين الدين
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن المجير
+    mention: null
   - id: n3
     type: honorific
-    quote: القاضي
+    mention: m3
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: المجير
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D00759
+  active: m10
   passive: AIND-D03668
-  quote: أحمد بن سليمان الأشرف
   note:
     en: The ruler of Hisn Kayfa who appointed him as vizier (wazir).
-  norm: احمد بن سليمان الاشرف
   phrase: صاحب حصن كيفا
 states:
 - id: s1
   type: office
   ref: wd:Q175240
   places:
-  - ref: TMP-L-00173
-    quote: حصن كيفا
-  quote: null
+  - mention: m6
+  mention: null
 - id: s2
   type: office
-  ref: wd:Q217029
-  quote: قاض
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -60,23 +56,61 @@ events:
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00173
-    quote: حصن كيفا
-  quote: null
+  - mention: m6
+  mention: null
 sources:
 - id: c1
   date:
     ah: 836
     type: cultural
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   - ref: AIND-D00759
-  quote: قاله
   note:
     ja: 'Pattern A。言及者=ابن حجر、言及の場は أحمد بن سليمان الأشرف(=#AIND-D00759)の836年項。★重要: この「أحمد بن سليمان الأشرف」は上のpatron「صاحب حصن كيفا」と同一人物（D00759本文「الأشرف أبو المحامد …صاحب حصن كيفا…ذكره شيخنا في أنبائه…قتل…في شوال سنة ست وثلاثين」）。初版は2つの#NEEDIDに分裂させていた。'
   trigger: rule
   phrase: كما قاله شيخنا في أحمد بن سليمان الأشرف من سنة ست وثلاثين
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: القاضي
+- id: m4
+  kind: name
+  quote: زين الدين
+- id: m5
+  kind: name
+  quote: المجير
+- id: m6
+  kind: place
+  quote: حصن كيفا
+  ref: TMP-L-00173
+- id: m7
+  kind: office
+  ref: wd:Q217029
+  quote: قاض
+- id: m8
+  kind: source
+  quote: قاله
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: person
+  ref: AIND-D00759
+  quote: أحمد بن سليمان الأشرف
+  norm: احمد بن سليمان الاشرف
+- id: m11
+  kind: year
+  value: '836'
+  quote: سنة
 translation:
   ja: アブドゥルラフマーン・ブン・アブドゥッラー、カージ・ザイン・アッ＝ディーン・イブン・アル＝ムジール。ヒスン・カイファーの支配者に宰相（ワズィール）として仕えた。彼は、我らがシャイフ（イブン・ハジャル）が836年の項のアフマド・ブン・スライマーン・アル＝アシュラフの伝記において述べているように、シャーフィイー派の判事（カージ）であり、高潔な人物であった。
   en: Abd al-Rahman b. Abd Allah, al-Qadi Zayn al-Din b. al-Mujir. He was appointed as vizier (wazir) by the ruler of Hisn Kayfa. He was a learned Shafi'i judge (qadi) of good conduct, as our shaykh (Ibn Hajar) mentioned in the biography of Ahmad b. Sulayman al-Ashraf under the year 836 AH.

@@ -9,50 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00072
-    quote: الكتبي
+    mention: m8
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n5
     type: shuhrah
-    quote: بابن عبد الكريم
-    norm: ابن عبد الكريم
     label: ابن عبد الكريم
+    mention: m9
   - id: n6
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n7
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
   - id: n8
     type: nasab
-    quote: عبد الكريم
     by: rule
+    mention: m3
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
     ah: 837-10
   note:
     ja: 837年シャウワール月＝1434-05-20〜06-17（h2g.py）、月精度で @when=1434-05。初版の 1433 を訂正。
-  quote: سنة
   phrase: مات في شوال سنة سبع وثلاثين
+  mention: m13
 persons:
 - id: p1
   label: سليمان بن عبد الكريم
@@ -65,13 +59,12 @@ relations:
   subtype: father
   active: AIND-D10062#p1
   passive: AIND-D10062
-  quote: null
   note:
     ja: 規則3 (c')。父 سليمان بن عبد الكريم は汎用名で識別要素がなく、corpus に見出しなし（hw.py「سليمان بن عبد الكريم」）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000297
+  active: m10
   passive: AIND-D10062
   methods:
   - TMP-S-00025
@@ -79,7 +72,6 @@ relations:
   - wd:Q1817983
   works:
   - ref: TMP-T-00015
-  quote: الشمس العسقلاني
   note:
     ja: '「قرأ الشاطبية من حفظه على الشمس العسقلاني」。الشمس العسقلاني＝TMP-P-000297（ID-Master 登録名一致。repo で D00134・D04925・D05249・D05362・D05933 が同番号を القراءات の師として使用）。corpus に本伝なし（hw.py「العسقلاني」「المقري」: 本伝候補 D06748 はハンバリー派のハディース伝承者＝別人）。'
 - id: r3
@@ -91,7 +83,6 @@ relations:
   - TMP-S-00010
   fields:
   - TMP-S-00013
-  quote: null
   note:
     ja: 「وتلا عليه بالسبع」。
   phrase: الشمس العسقلاني
@@ -99,21 +90,18 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D10062
-  passive: AIND-D09211
+  passive: m14
   methods:
   - TMP-S-00008
   cert: low
-  quote: ابن فهد
   note:
     ja: 「وممن أخذ عنه ابن فهد」＝本項主が師（規則15）。限定語のない ابن فهد・本項主の没年 837（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（規則43）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00020
-  quote: وتكسب
   note:
     ja: 「وتكسب في الكتب وبرع في ذلك جدا」。見出しのニスバ الكتبي と同じ生業。
-  norm: تكسب
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -122,11 +110,69 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D09211
-  quote: وترجمه
   cert: low
   note:
     ja: 'Pattern A（「ممن أخذ عنه ابن فهد وترجمه」＝ابن فهد が彼の伝記を書いた）。没年 837 ≤871 → #AIND-D09211、cert low（event 側、規則43・58）。'
   trigger: rule
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: عبد الكريم
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: name
+  ref: TMP-N-00072
+  quote: الكتبي
+- id: m9
+  kind: name
+  quote: بابن عبد الكريم
+  norm: ابن عبد الكريم
+- id: m10
+  kind: person
+  ref: TMP-P-000297
+  quote: الشمس العسقلاني
+- id: m11
+  kind: office
+  ref: TMP-O-00020
+  quote: وتكسب
+  norm: تكسب
+- id: m12
+  kind: month
+  value: 10
+  quote: شوال
+- id: m13
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m15
+  kind: source
+  quote: وترجمه
   norm: ترجمه
 translation:
   ja: ムーサー・ブン・スライマーン・ブン・アブドゥルカリーム、アッ＝シャラフ、アッ＝シャーミー、のちアル＝カーヒリー、アッ＝シャーフィイー、アル＝クトゥビー（書籍商）。イブン・アブドゥルカリームとして知られる。『アッ＝シャーティビーヤ』を暗記によってアッ＝シャムス・アル＝アスカラーニーの前で読み、彼のもとで七読誦法によって朗誦した。書籍（の売買）で生計を立て、その分野で非常に卓越していた。（8）37年シャウワール月に没した。彼から学んだ者の中にイブン・ファハドがおり、彼の伝記を書いている。

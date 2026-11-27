@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: بهاء الدين
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: حجاج
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: بهاء الدين بن حجاج الجبرتي
@@ -33,17 +32,14 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D07285
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m6
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。初版の field الحديث（原文なし）を除去。
 - id: r2
@@ -51,9 +47,31 @@ relations:
   subtype: father
   active: AIND-D07285#p1
   passive: AIND-D07285
-  quote: null
   note:
     ja: '父。見出しナサブ「بن بهاء الدين بن حجاج」のみ（ラカブ形の名で祖父名 حجاج まで分かるが、corpus に「بهاء الدين بن حجاج」「حجاج الجبرتي」の見出しなし）。汎用性が高いため #NEEDID（規則3）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: بهاء الدين
+- id: m3
+  kind: name
+  quote: حجاج
+- id: m4
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・バハー・アッ＝ディーン・ブン・ハッジャージュ・アル＝ジャバルティー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Bahāʾ al-Dīn b. Ḥajjāj al-Jabartī. One of those who heard from me in Mecca.

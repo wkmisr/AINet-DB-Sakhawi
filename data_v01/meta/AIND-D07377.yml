@@ -9,40 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02793
-    quote: المكيسي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n4
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m6
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: داود
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: داود
     by: rule
+    mention: m4
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 birth:
   id: b
   date:
@@ -50,34 +46,28 @@ birth:
     cert: medium
   note:
     en: Born in 797 AH "ẓannan" (presumably).
-  quote: سنة
+  mention: m10
 death:
   id: d
   date:
     ah: 840-02-19
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  - ref: TMP-I-00091
-    role: burial
-    quote: بمقبرة الباب الصغير
-    norm: مقبرة الباب الصغير
+  - mention: m13
+  - role: burial
+    mention: m18
   note:
     en: Died on the night of Sunday 19 Ṣafar 840 AH (= 11 September 1436; the tabular calendar gives a Sunday) in Damascus, and was buried in the cemetery of Bāb al-Ṣaghīr.
-  quote: سنة
+  mention: m17
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D13339
+  active: m11
   passive: AIND-D07377
   methods:
   - TMP-S-00003
-  quote: عائشة ابنة ابن عبد الهادي
   note:
     ja: 'عائشة ابنة ابن عبد الهادي＝#AIND-D13339（عائشة ابنة محمد بن عبد الهادي ... مسندة الدنيا أم محمد ... الصالحي、生723）。corpus に本伝があるため、初版の #TMP-P-000158（ID-Master「عائشة ابنة ابن عبد الهادي」）から AIND に差し替え（ISSUES §Dc-3 で名寄せを提案）。「وغيرها」の他の師は不詳。'
-  norm: عاءشة ابنة ابن عبد الهادي
 - id: r2
   type: scholarly
   subtype: teacher
@@ -85,21 +75,16 @@ relations:
   passive: TMP-P-001136
   methods:
   - TMP-S-00008
-  quote: null
   note:
     ja: '「أخذ عنه غير واحد منهم أبو العباس المقدسي」。أبو العباس المقدسي は ID-Master 未登録。corpus 候補（#AIND-D01568 أحمد بن محمد بن موسى بن فياض الشهاب أبو العباس المقدسي الأصل الحلبي الحنبلي القاضي など）と同定できないため新規 #TMP-P-001136 を発行（規則12、ISSUES §Dc-6）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: وناب
+  - mention: m13
   note:
     en: '"nāba fī al-qaḍāʾ bi-Dimashq": served as deputy judge in Damascus.'
-  norm: ناب
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -107,14 +92,84 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: ووصفه
+  - mention: m15
   note:
     ja: Pattern A。البقاعي＝#AIND-D00207（ブリーフ頻出確定ID。初版の wd:Q12198099 を置換）。初版の relation(eulogist) を置換。
   trigger: rule
-  norm: وصفه
   phrase: ووصفه البقاعي بالعلامة
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: داود
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: داود
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m7
+  kind: name
+  ref: TMP-N-02793
+  quote: المكيسي
+- id: m8
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: year
+  value: '797'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D13339
+  quote: عائشة ابنة ابن عبد الهادي
+  norm: عاءشة ابنة ابن عبد الهادي
+- id: m12
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m13
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m14
+  kind: source
+  quote: ووصفه
+  norm: وصفه
+- id: m15
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
+- id: m16
+  kind: month
+  value: 2
+  quote: صفر
+- id: m17
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m18
+  kind: place
+  quote: بمقبرة الباب الصغير
+  ref: TMP-I-00091
+  norm: مقبرة الباب الصغير
 translation:
   ja: ムハンマド・ブン・ダーウード・ブン・ムハンマド・ブン・ダーウード、アッ＝シャムス、アブー・アブドゥッラー、アル＝ムカイスィー――ミーム、カーフ、無点のスィーンで縮小形、ハウラーンの諸村の一つ（ムカイス）に由来する――、アッ＝ディマシュキー、シャーフィイー派。おそらくヒジュラ暦797年に生まれ、アーイシャ・ビント・イブン・アブド・アルハーディーらから聴聞し、法学を修めて教えた。ダマスクスで代理裁判官（ナーイブ・アル＝カーディー）を務め、アブー・アル＝アッバース・アル＝マクディスィーをはじめ複数の者が彼から学んだ。アル＝ビカーイーは彼を「アッラーマ（大学者）」と評した。840年サファル月19日日曜の夜にダマスクスで没し、バーブ・アッ＝サギール墓地に葬られた。アッラーが彼を慈しまれますように。
   en: Muḥammad b. Dāwūd b. Muḥammad b. Dāwūd, al-Shams Abū ʿAbd Allāh al-Mukaysī — with mīm, kāf and undotted sīn, in the diminutive, from one of the villages of Ḥawrān — al-Dimashqī, the Shāfiʿī. He was born presumably in 797 AH, heard from ʿĀʾisha bint Ibn ʿAbd al-Hādī and others, studied jurisprudence and taught. He served as deputy judge in Damascus, and more than one person studied under him, among them Abū al-ʿAbbās al-Maqdisī; al-Biqāʿī described him as "al-ʿallāma". He died on the night of Sunday, 19 Ṣafar 840 AH, in Damascus, and was buried in the cemetery of Bāb al-Ṣaghīr. May God have mercy on him.

@@ -9,33 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-05489
-    quote: الكاتب
+    mention: m6
   - id: n4
     type: laqab
-    quote: المحب
+    mention: m3
   - id: n5
     type: shuhrah
-    quote: بابن المجروح
-    norm: ابن المجروح
     label: ابن المجروح
+    mention: m7
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
@@ -43,7 +38,7 @@ death:
     notAfter: 869
   note:
     ja: 「مات في سنة بضع وستين وقد جاز الخمسين」。بضع＝3〜9 → 863〜869年（1458-11-17〜1465-09-01、h2g.py）＝ notBefore/notAfter（規則4）。没時に50歳を超えていた（逆算生年は 810年代以前と幅が広いため birth は立てない）。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 863〜869）
-  quote: سنة بضع وستين
+  mention: m13
 persons:
 - id: p1
   label: أحمد
@@ -56,17 +51,15 @@ relations:
   subtype: father
   active: AIND-D07053#p1
   passive: AIND-D07053
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001452
+  active: m8
   passive: AIND-D07053
   methods:
   - TMP-S-00026
-  quote: ابن الشمس الحلبي
   note:
     ja: '「كتب على ابن الشمس الحلبي」＝書道（كتابة）を学んだ師。corpus で「ابن الشمس الحلبي」と呼ばれる人物（D05959 ابن المزلق・D07619 ابن سحلول・D09007 ابن شمس・D09476 ابن الشهاب محمود）はいずれも書家としての記述がなく同定不能。ID-Master 未登録のため仮番号 TMP-P-001452 を発行（規則12・26）。初版の #NEEDID と field（الكتابة）の重複 desc を整理。'
 - id: r3
@@ -79,36 +72,82 @@ relations:
   summary:
     ar: أحمد بن أبي بكر بن علي بن سراج البابي الحلبي
   cert: medium
-  quote: null
   note:
     ja: '相手側 #AIND-D00600（أحمد بن أبي بكر بن علي بن سراج شهاب الدين البابي الأصل الحلبي الشافعي）本文「وتخرج في الكتابة بابن المجروح」＝本項主に就いて書法を修めた弟子。ابن المجروح はニスバ索引 #AIND-D12705「ابن المجروح الكاتب محمد بن أحمد」で本項主に一意。他項にのみある情報のため規則23 により cert medium（active=師＝本項主）。【集約】内容B L の指摘で追加。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00269
   orgs:
   - ref: TMP-I-00098
-  quote: للتكتيب
   note:
     ja: 「وتصدى للتكتيب في المجاهدية وغيرها」＝習字（書道）教授。المجاهدية＝TMP-I-00098（ダマスクスのマドラサ）。職 التكتيب（書法の教授）は ID-Master 既登録の TMP-O-00269「المكتب」（書法教師、先例 D04437・D06109）と同実体のためこれを充てる（【集約】校閲時の仮番号 取り下げた仮番号 B116-O02 は取り下げ、内容B M）。初版の affiliation type="teach"（同施設）は state との二重符号化（規則8）のため除去。
-  norm: لتكتيب
+  mention: m10
 - id: s2
   type: status
   label: تميز في الكتابة
   label_latn: tamayyaza fī al-kitāba
-  quote: وتميز في الكتابة
-  norm: تميز في الكتابة
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06844
-    quote: أبو الفضل بن الإمام
-    norm: ابو الفضل بن الامام
-  quote: قال
+  - mention: m11
   note:
     ja: 'Pattern A。أبو الفضل بن الإمام＝ #AIND-D06844「محمد بن أحمد بن محمد بن أيوب المحب أبو الفضل … الصفدي الأصل الدمشقي الشافعي ويعرف بأبي الفضل بن الإمام」（クンヤ索引見出し「أبو الفضل بن الإمام الدمشقي الشافعي هو المحب محمد بن أحمد بن محمد بن أيوب」でも確認。D06505 أبو الفضل بن الإمام المغربي は別人）。初版はこれを本項主の弟子（student relation）と誤読。'
   trigger: rule
   phrase: كان ممن كتب عنه أبو الفضل بن الإمام قال وكان عشيرا حسن الشكالة والبزة ماجنا
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: المحب
+- id: m4
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: TMP-N-05489
+  quote: الكاتب
+- id: m7
+  kind: name
+  quote: بابن المجروح
+  norm: ابن المجروح
+- id: m8
+  kind: person
+  ref: TMP-P-001452
+  quote: ابن الشمس الحلبي
+- id: m9
+  kind: office
+  quote: وتميز في الكتابة
+  norm: تميز في الكتابة
+- id: m10
+  kind: office
+  ref: TMP-O-00269
+  quote: للتكتيب
+  norm: لتكتيب
+- id: m11
+  kind: person
+  ref: AIND-D06844
+  quote: أبو الفضل بن الإمام
+  norm: ابو الفضل بن الامام
+- id: m12
+  kind: source
+  quote: قال
+- id: m13
+  kind: year
+  value: 861-869
+  quote: سنة بضع وستين
 translation:
   ja: ムハンマド・ブン・アフマド・アル＝ムヒッブ・アル＝ハラビー、のちアッ＝ディマシュキー、書家（アル＝カーティブ）、イブン・アル＝マジュルーフとして知られる。イブン・アッ＝シャムス・アル＝ハラビーについて書を学び、書において抜きん出て、アル＝ムジャーヒディーヤその他で習字の教授にあたった。アブー・アル＝ファドル・イブン・アル＝イマームが彼から書き取った者の一人で、彼は言う、「付き合いやすく、容姿も身なりも良かったが、放埒であった」と。（8）60年代に、50歳を超えて没した。
   en: 'Muḥammad b. Aḥmad al-Muḥibb al-Ḥalabī, then al-Dimashqī, the scribe (al-Kātib), known as Ibn al-Majrūḥ. He studied penmanship under Ibn al-Shams al-Ḥalabī, excelled in writing, and devoted himself to teaching penmanship at al-Mujāhidiyya and elsewhere. He was among those from whom Abū al-Faḍl Ibn al-Imām wrote down; he said: he was sociable, of handsome appearance and dress, and dissolute. He died in the (eight hundred and) sixties, having passed fifty.'

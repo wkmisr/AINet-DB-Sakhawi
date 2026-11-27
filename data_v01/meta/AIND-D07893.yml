@@ -9,46 +9,43 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن الزكي
+    mention: null
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الملك
     by: rule
-    ref: TMP-P-001633
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الكريم
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m4
   - id: n7
     type: nasab
-    quote: المحيوي
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: التقي
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: محيي الدين
     by: rule
+    mention: m8
   - id: n10
     type: nasab
-    quote: الزكي أسن إخوته
     by: rule
-    norm: الزكي اسن اخوته
+    mention: m9
 birth:
   id: b
   date:
@@ -62,7 +59,7 @@ death:
     cert: medium
   note:
     ja: 「فقطع عليهم الطريق فقتل هذا … وذلك في المحرم سنة ست」＝806年ムハッラム月に路上で襲われ殺害された（死因＝殺害）。「سنة ست」は一の位のみ＝80X と読む（標準規則、cert medium。イブン・ハジャルの『إنباء』引用で、師 العرضي・ابن الجوخي（al-Fakhr の弟子世代）と 750年以後の生年から 806 で整合）。806-01-01＝1403-07-30（月精度）。
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: kin
@@ -71,30 +68,26 @@ relations:
   passive: AIND-D07893
   summary:
     ar: عبد الملك بن عبد الكريم بن يحيى ابن الزكي
-  quote: null
   note:
     ja: 父＝المحيوي（محيي الدين）عبد الملك بن عبد الكريم بن يحيى、ダマスクスの بنو الزكي 家。ラカブ＋家名＋祖父名 عبد الكريم・曾祖父名 يحيى まで復元できる＝識別要素あり（規則3）。corpus に本伝なし（hw.py「عبد الملك」「عبد الكريم」／「عبد الكريم بن يحيى」該当なし）、ID-Master 未登録 → 仮 TMP-P-001633。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001634
+  active: m12
   passive: AIND-D07893
   methods:
   - TMP-S-00003
-  quote: العرضي
   note:
     ja: 「وسمع من العرضي وابن الجوخي وغيرهما من أصحاب الفخر」。العرضي＝ダマスクスのハディース伝承者、الفخر（ابن البخاري）の弟子（corpus では D00778「سمع … من العرضي لما قدمها … بعد سنة ستين جامع الترمذي」・D01092「صحبة الزين العراقي على العرضي لمشيخة الفخر」・D03127・D04840・D08714 にも師として現れる）。corpus に本伝なし（9世紀以前の没）、ID-Master には Nisbah TMP-N-00359 のみ（初版はこのニスバ番号を人物位置に流用＝カテゴリ不一致）→ 仮 TMP-P-001634。「وغيرهما」は人物を立てない。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000110
+  active: m13
   passive: AIND-D07893
   methods:
   - TMP-S-00003
-  quote: وابن الجوخي
   note:
     ja: ابن الجوخي＝ID-Master 既登録 TMP-P-000110（D07001 でも師として使用）。corpus の D03626「البدر أبي العباس بن الجوخي」・D09442「البدر أحمد بن محمد بن الجوخي」と同人（الفخر の弟子世代）。
-  norm: ابن الجوخي
   phrase: ابن الجوخي
 events:
 - id: e2
@@ -104,31 +97,88 @@ events:
     cert: medium
     type: other
   persons:
-  - ref: AIND-D05437
-    quote: العلاء بن أبي البقاء
-    norm: العلاء بن ابي البقاء
-  quote: خرج مع العلاء بن أبي البقاء لقسم بعض المغلات فقطع عليهم الطريق فقتل هذا وجرح الآخر وسقط فظنوا موته فسلم
+  - mention: m14
   cert: medium
   note:
     ja: 収穫物の分配のため العلاء بن أبي البقاء と出かけ、路上で襲撃され、本項主は殺害、العلاء は負傷して倒れ死んだと思われたが助かった。العلاء بن أبي البقاء＝#AIND-D05437「علي بن محمد بن عبد البر … العلاء بن البهاء أبي البقاء … السبكي الأصل الدمشقي الشافعي … ولي قضاءها（دمشق）مرتين … مات … سنة تسع」（ダマスクスのカーディー、809没。806 の事件と年代・ダマスクスの文脈が整合、ラカブ＋クンヤ父名＋地の3点で閉合）。同行は学習を伴わない行為のため relation でなく event（規則56）。初版の colleague relation（#NEEDID）を置換。年の cert は death と同じ（「سنة ست」＝806、medium）。
-  norm: خرج مع العلاء بن ابي البقاء لقسم بعض المغلات فقطع عليهم الطريق فقتل هذا وجرح الاخر وسقط فظنوا موته فسلم
+  phrase: خرج مع العلاء بن أبي البقاء لقسم بعض المغلات فقطع عليهم الطريق فقتل هذا وجرح الآخر وسقط فظنوا موته فسلم
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
   summary:
     ar: 'ذكره شيخنا في إنبائه وقال : ولد بعد الخمسين …'
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。本項の本文はすべて『إنباء』の引用。
   trigger: rule
+  mention: m10
 notes:
 - text: 「أسن إخوته」＝兄弟たちの最年長。兄弟の名は原文になく relation は立てない。「الفخر」＝الفخر ابن البخاري（アル＝ファフル・イブン・アル＝ブハーリー、690没のダマスクスのハディース学者）＝その弟子（أصحاب）から聴いた、の意。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001633
+  quote: عبد الملك
+- id: m3
+  kind: name
+  quote: عبد الكريم
+- id: m4
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m5
+  kind: name
+  quote: ناصر الدين
+- id: m6
+  kind: name
+  quote: المحيوي
+- id: m7
+  kind: name
+  quote: التقي
+- id: m8
+  kind: name
+  quote: محيي الدين
+- id: m9
+  kind: name
+  quote: الزكي أسن إخوته
+  norm: الزكي اسن اخوته
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: person
+  ref: TMP-P-001634
+  quote: العرضي
+- id: m13
+  kind: person
+  ref: TMP-P-000110
+  quote: وابن الجوخي
+  norm: ابن الجوخي
+- id: m14
+  kind: person
+  ref: AIND-D05437
+  quote: العلاء بن أبي البقاء
+  norm: العلاء بن ابي البقاء
+- id: m15
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m16
+  kind: year
+  value: '806'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥルマリク・ブン・アブドゥルカリーム・ブン・ヤフヤー、ナースィル・アッ＝ディーン・ブン・アル＝ムヒウィー・イブン・アッ＝タキー・ブン・ムヒー・アッ＝ディーン・ブン・アッ＝ザキー。兄弟の中の最年長。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及し、次のように述べた。「750年以後に生まれ、アル＝アルディーやイブン・アル＝ジャウヒーなど、アル＝ファフル（・イブン・アル＝ブハーリー）の弟子たちから聴聞した。信仰心と理性に立ち返る人物であった。アル＝アラー・ブン・アビー・アル＝バカーと共に一部の収穫物を分配するために出かけたところ、彼らは路上で襲われ、この者（本項主）は殺され、もう一人（アル＝アラー）は負傷して倒れた。賊は彼が死んだと思ったが、彼は無事であった。これは（80）6年ムハッラム月のことである。」
   en: 'Muḥammad b. ʿAbd al-Malik b. ʿAbd al-Karīm b. Yaḥyā, Nāṣir al-Dīn b. al-Muḥyawī Ibn al-Taqī b. Muḥyī al-Dīn b. al-Zakī. The eldest of his brothers. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, saying: "He was born after (7)50 and heard from al-ʿArḍī, Ibn al-Jawkhī, and others among the companions of al-Fakhr (Ibn al-Bukhārī). He was a man of religion and good sense. He went out with al-ʿAlāʾ b. Abī al-Baqāʾ to divide some crop yields, and they were set upon by highwaymen; this one (the subject) was killed, while the other was wounded and fell, so they thought him dead, but he survived. That was in Muḥarram of the year (80)6."'

@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00512
-    quote: الجابي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن البارد
-    norm: ابن البارد
     label: ابن البارد
+    mention: m5
   - id: n4
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبيد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 875-12
   note:
     ja: 「مات في ذي الحجة سنة خمس وسبعين」＝875年ズー・アル＝ヒッジャ月（1471年5〜6月）。死地の明記なし。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: عبيد
@@ -47,17 +44,15 @@ relations:
   subtype: father
   active: AIND-D06226#p1
   passive: AIND-D06226
-  quote: null
   note:
     ja: 父。名のみで識別要素なし（規則3）。初版は father relation 欠落。
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001560
+  active: m9
   passive: AIND-D06226
   summary:
     ar: بدر الدين محمد بن قاسم بن عبيد
-  quote: بدر
   note:
     ja: '「وخلف ابنه بدر الدين محمد وهو خير منه」。初版の TMP-P-000050（登録実体＝AIND-D0015 の息子 بدر الدين محمد＝別人）は汚染流用のため差し替え。ニスバ索引 #AIND-D12616「ابن قاسم السكري واسمه البدر محمد بن قاسم خير ويعرف أبوه بابن البارد」が同人（父が ابن البارد、名 البدر محمد بن قاسم）。独立見出しは corpus になし → TMP-P-001560。'
 states:
@@ -66,25 +61,62 @@ states:
   ref: TMP-O-00091
   orgs:
   - ref: TMP-I-00243
-  quote: null
   note:
     ja: 「وكان يجبي قيسطارية طيلان وغيرها وليس بمرضي」＝ティーラーン商館（قيسارية طيلان、カイロ سوق أمير الجيوش 内＝D08449、ID-Master 未登録 → TMP-I-00243）などの賃料徴収人で、評判はよくなかった。原文の綴り「قيسطارية」は「قيسارية」の異形（規則46、他項 D00609・D08449・D10664 は قيسارية طيلان）。初版の placeName القاهرة（ニスバ由来）を除去。
+  mention: null
 assessments:
 - id: v1
-  quote: خير
   terms:
   - خير
   by: rule
+  mention: m10
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-I-00002
-    quote: المنكوتمرية
-  quote: ابتنى مكانا تجاه المنكوتمرية
+  - mention: m6
   note:
     ja: マンクータムリーヤ学院（TMP-I-00002）の向かいに建物を建てた。
-  norm: ابتني مكانا تجاه المنكوتمرية
+  phrase: ابتنى مكانا تجاه المنكوتمرية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: عبيد
+- id: m3
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m4
+  kind: name
+  ref: TMP-N-00512
+  quote: الجابي
+- id: m5
+  kind: name
+  quote: بابن البارد
+  norm: ابن البارد
+- id: m6
+  kind: place
+  quote: المنكوتمرية
+  ref: TMP-I-00002
+- id: m7
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m8
+  kind: year
+  value: '875'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: TMP-P-001560
+  quote: بدر
+- id: m10
+  kind: assessment
+  quote: خير
 translation:
   ja: カースィム・ブン・ウバイド、アル＝カーヒリー、徴収人（ジャービー）。イブン・アル＝バーリドとして知られる。マンクータムリーヤ学院の向かいに建物を建て、ティーラーン商館などの（賃料）徴収を行っていたが、好ましい人物ではなかった。875年ズー・アル＝ヒッジャ月に没し、息子のバドル・アッ＝ディーン・ムハンマドを遺した。息子は彼よりもよい人物である。
   en: Qāsim b. ʿUbayd al-Qāhirī, the rent-collector (al-jābī), known as Ibn al-Bārid. He built a place opposite al-Mankūtamuriyya and used to collect the rents of Qaysāriyyat Ṭaylān and other properties; he was not a satisfactory man. He died in Dhū al-Ḥijja 875 and left his son Badr al-Dīn Muḥammad, who is better than him.

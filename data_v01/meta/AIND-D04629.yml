@@ -9,52 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00160
-    quote: المنوفي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-02288
-    quote: المازاني
+    mention: m10
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m6
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001241
+    mention: m2
   - id: n6
     type: nasab
-    quote: موسى
     by: rule
-    ref: TMP-P-001242
-    norm: موسي
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m5
   - id: n9
     type: nasab
-    quote: الشمس
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: الشرف
     by: rule
+    mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D02414
+  active: m11
   passive: AIND-D04629
   methods:
   - TMP-S-00008
@@ -67,41 +61,97 @@ relations:
       ah: 852
       type: learning
     phrase: أخذ القراءات عن جعفر في سنة اثنتين وخمسين
-  quote: جعفر
   note:
     ja: 裸名「جعفر」。852年にカイロで القراءات を伝授した جعفر は الزين جعفر بن إبراهيم السنهوري المقرئ（#AIND-D02414、B88 D04534 の先例）と解し cert medium。852年＝1448-03-16〜1449-03-04。
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001241
+  active: m15
   passive: AIND-D04629
   summary:
     ar: الشمس محمد بن موسى بن محمد بن موسى المنوفي
-  quote: والده
   note:
     ja: '見出し「الجمال بن الشمس بن الشرف المنوفي」＋ナサブから復元（統一規則3）。corpus に本伝なし（#AIND-D09474 محمد بن موسى بن محمد بن علي الشمس المنوفي الحنفي は祖父名 علي・ハナフィー派で別人）・ID-Master 未登録のため新規 #TMP-P-001241。初版の #TMP-P-000529（汚染番号）を差し替え。'
 - id: r3
   type: kin
   subtype: grandfather
-  active: TMP-P-001242
+  active: m16
   passive: AIND-D04629
   summary:
     ar: الشرف موسى بن محمد بن موسى المنوفي
-  quote: وجده
   note:
     ja: '見出し「بن الشرف المنوفي」＋ナサブから復元。corpus に本伝なし（#AIND-D10098 موسى بن يوسف بن موسى بن يوسف الشرف المنوفي は父名 يوسف で別人）・ID-Master 未登録のため新規 #TMP-P-001242。'
-  norm: جده
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ووصفه
+  - mention: m13
   note:
     ja: Pattern A。イブン・ハジャルが（ジャアファルからの）イジャーザに証人として署名し、本項主を「الفاضل العالم البارع」と評した。末尾「وشيخ والده وجده」は「（我らの師は）彼の父と祖父の師でもあった」と読むのが初版の解釈だが、「وصفه بـ…」の続きとして授与者側の形容と読む余地もあり多義（ISSUES §D91-2）。relation 化せず note に留める。
   trigger: rule
-  norm: وصفه
   phrase: وشهد شيخنا في إجازته ووصفه بالفاضل العالم البارع وشيخ والده وجده
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001241
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-P-001242
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m6
+  kind: name
+  quote: الجمال
+- id: m7
+  kind: name
+  quote: الشمس
+- id: m8
+  kind: name
+  quote: الشرف
+- id: m9
+  kind: name
+  ref: TMP-N-00160
+  quote: المنوفي
+- id: m10
+  kind: name
+  ref: TMP-N-02288
+  quote: المازاني
+- id: m11
+  kind: person
+  ref: AIND-D02414
+  quote: جعفر
+- id: m12
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m14
+  kind: source
+  quote: ووصفه
+  norm: وصفه
+- id: m15
+  kind: person
+  ref: TMP-P-001241
+  quote: والده
+- id: m16
+  kind: person
+  ref: TMP-P-001242
+  quote: وجده
+  norm: جده
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・ムーサー・ブン・ムハンマド・ブン・ムーサー、アル＝ジャマール・ブン・アッ＝シャムス・ブン・アッ＝シャラフ、アル＝マヌーフィー、のちアル＝マーザーニー。852年にジャアファルからクルアーン読誦諸法（キラーアート）を学んだ。我らの師（イブン・ハジャル）は彼のイジャーザに証人として署名し、彼を「有徳の、学識ある、卓越した者」と評した。また（我らの師は）彼の父と祖父の師でもあった。
   en: ʿAbd Allāh b. Muḥammad b. Mūsā b. Muḥammad b. Mūsā, al-Jamāl b. al-Shams b. al-Sharaf, al-Manūfī, then al-Māzānī. He took the Qurʾānic readings (qirāʾāt) from Jaʿfar in the year 852. Our shaykh (Ibn Ḥajar) attested as a witness on his ijāza and described him as "the virtuous, learned, brilliant scholar"; he (our shaykh) was also the shaykh of his father and grandfather.

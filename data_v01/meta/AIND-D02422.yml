@@ -9,41 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00560
-    quote: الصفوي
+    mention: m2
   - id: n2
     type: ism
-    quote: جقمق
     by: rule
+    mention: m1
 death:
   id: d
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m4
   note:
     ar: فلما انكسر نوروز مات فيها
     en: He died in Damascus when Nawrūz was defeated; the year is not stated in the text.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00065
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: الحاجب
+  - mention: m4
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00065
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m4
   dates:
   - ah: 808
     type: appointment
-  quote: الحجوبية
+  mention: m11
 events:
 - id: e1
   type: travel
@@ -52,12 +43,11 @@ events:
     cert: high
     type: travel
   places:
-  - ref: TMP-L-00042
-    quote: غزة
-  quote: null
+  - mention: m8
   cert: high
   note:
     en: Sent to Gaza after his arrest in Muḥarram 805 H.
+  mention: null
 - id: e2
   type: travel
   date:
@@ -65,16 +55,13 @@ events:
     cert: high
     type: travel
   persons:
-  - ref: AIND-D10152
-    quote: نوروز
+  - mention: m9
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m4
   cert: high
   note:
     en: Brought back to Damascus by Nawrūz (al-Ḥāfiẓī) when the latter took over Damascus in 808 H, and reinstated as ḥājib.
+  mention: null
 - id: e3
   type: political
   date:
@@ -82,25 +69,73 @@ events:
     cert: high
     type: political
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m4
   summary:
     en: Arrested in Muḥarram 805 H.
-  quote: قبض
   cert: high
   trigger: rule
   phrase: قبض عليه في المحرم سنة خمس وثمانمائة
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: جقمق
+- id: m2
+  kind: name
+  ref: TMP-N-00560
+  quote: الصفوي
+- id: m3
+  kind: office
+  ref: TMP-O-00065
+  quote: الحاجب
+- id: m4
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m5
+  kind: event
+  quote: قبض
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: غزة
+  ref: TMP-L-00042
+- id: m9
+  kind: person
+  ref: AIND-D10152
+  quote: نوروز
+- id: m10
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m11
+  kind: office
+  ref: TMP-O-00065
+  quote: الحجوبية
+- id: m12
+  kind: source
+  quote: ذكره
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ダマスカスのハージブであるジャクマク・アッ＝サファウィー。805年ムハッラム月に逮捕され、ガザに送られた。808年にナウルーズが（職務に）就任すると、彼をダマスカスに呼び戻し、ハージブ職に再任した。ナウルーズが敗れると、彼はその地（ダマスカス）で亡くなった。我らがシャイフ（イブン・ハジャル）は彼の『インバーウ』の中で彼に言及した。
   en: Jaqmaq al-Ṣafawī, the Ḥājib in Damascus. He was arrested in Muḥarram of the year 805 [Hijri], then sent to Gaza. When Nawrūz took office in 808 [Hijri], he brought him back to Damascus and reappointed him to the chamberlainship. When Nawrūz was defeated, he died there. Our shaykh (Ibn Ḥajar) mentioned him in his *Inbāʾ*.

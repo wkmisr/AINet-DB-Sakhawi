@@ -9,26 +9,25 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: قطب الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: فيروز
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 839
   note:
     ja: '839年初＝1435-08-05。子の本伝 #AIND-D10029 مهار は「قتل أباه واستبد بالملك」と伝えるが、本項は「مات」とのみ記すため death には補完しない（【集約】killer relation を cert medium で追加、規則23）。'
-  quote: سنة
   phrase: مات في سنة تسع وثلاثين
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001552
+  active: m3
   passive: AIND-D06194
-  quote: تهمتم بن جردن شاه بن طغلق
   note:
     ja: '見出しナサブから復元（規則3）。ホルムズ君主家（تهمتم＝Tahamtan）。corpus に見出しなし、ID-Master 未登録（本項主番号 D06194 で Note も検索）。珍しい名＋君主位＝識別要素があるため TMP-P-001552。初版 #NEEDID。初版の grandfather relation（جردن شاه、#NEEDID）は父の desc にナサブとして含め、独立 relation にはしない。'
 - id: r2
@@ -38,7 +37,6 @@ relations:
   passive: AIND-D06194
   summary:
     ar: مهار بن فيروز شاه
-  quote: null
   note:
     ja: 'corpus 本伝 #AIND-D10029「مهار بن فيروز شاه بن محمد تم بن بهم تم بن جرد بن شاه بن طغلق ابن طبق شاه سيف الدين بن قطب الدين صاحب جزيرة هرمز والبحرين قتل أباه واستبد بالملك …」（未収録）。子の見出しナサブ（فيروز شاه … بن طغلق بن طبق شاه، ラカブ قطب الدين、صاحب هرمز والبحرين）が本項主と一致（規則37。D10029 側の綴り「بهم تم／جرد بن شاه」は刊本の揺れ）。'
 - id: r3
@@ -49,50 +47,82 @@ relations:
   summary:
     ar: مهار بن فيروز شاه
   cert: medium
-  quote: null
   note:
     ja: '【集約 2026-10-19】子の本伝 #AIND-D10029「مهار بن فيروز شاه … صاحب جزيرة هرمز والبحرين قتل أباه واستبد بالملك」は子の見出しナサブで本項主を一意に特定し殺害を明記する＝規則23 により relation を cert medium で補う（§D127-4 自己裁定、内容B 同意）。本項の death は原文どおり「مات」のまま。綴り「محمد تم بن بهم تم」（D10029）⇄「تهمتم بن جردن شاه」（本項）の異同は父 TMP-P-001552 の Note に記載。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00354
-    quote: هرمز
-  quote: صاحب
+  - mention: m5
   note:
     ja: '「صاحب هرمز والبحرين والحسا والقطيف」。先例 #AIND-D02781「صاحب آمد／صاحب ماردين」どおり在地君主職 TMP-O-00163 を地ごとに分けて置く。هرمز は ID-Master 未登録（ニスバ الهرمزي TMP-N-03074 のみ）→ 仮番号 TMP-L-00354。'
+  mention: m4
 - id: s2
   type: office
   ref: TMP-O-00163
   places:
-  - ref: TMP-L-00013
-    quote: والبحرين
-    norm: البحرين
-  quote: null
+  - mention: m6
+  mention: null
 - id: s3
   type: office
   ref: TMP-O-00163
   places:
-  - ref: TMP-L-00012
-    quote: والحسا والقطيف
-    norm: الحسا والقطيف
-  quote: null
+  - mention: m7
   note:
     ja: ID-Master 既登録「بادية الحسا والقطيف」（TMP-L-00012）を充当。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。初版の非統制 relation（subtype mentioned_in_chronicle）を mention event に変更。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في أنبائه
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: فيروز
+- id: m2
+  kind: name
+  quote: قطب الدين
+- id: m3
+  kind: person
+  ref: TMP-P-001552
+  quote: تهمتم بن جردن شاه بن طغلق
+- id: m4
+  kind: office
+  ref: TMP-O-00163
+  quote: صاحب
+- id: m5
+  kind: place
+  quote: هرمز
+  ref: TMP-L-00354
+- id: m6
+  kind: place
+  quote: والبحرين
+  ref: TMP-L-00013
+  norm: البحرين
+- id: m7
+  kind: place
+  quote: والحسا والقطيف
+  ref: TMP-L-00012
+  norm: الحسا والقطيف
+- id: m8
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: フィールーズ・シャー、クトゥブ・アッ＝ディーン・ブン・タハムタム・ブン・ジュルダン・シャー・ブン・トゥグルク・ブン・タバク・シャー。ホルムズ、バハライン、アル＝ハサー、アル＝カティーフの君主。（8）39年に没した。われらがシャイフ（イブン・ハジャル）が『インバー』で彼の没年を記している。
   en: Fīrūz Shāh, Quṭb al-Dīn b. Tahamtam b. Jurdan Shāh b. Ṭughluq b. Ṭabaq Shāh, lord of Hormuz, al-Baḥrayn, al-Ḥasā and al-Qaṭīf. He died in the year [8]39. Our shaykh (Ibn Ḥajar) recorded his death date in his Inbāʾ.

@@ -9,11 +9,11 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: المجنون
+    mention: m2
   - id: n2
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -23,8 +23,8 @@ death:
   - ref: AIND-D02089
   note:
     ja: 「سنة اثنتين」は一の位のみ → 標準規則により 802、cert medium。أيتمش（البجاسي）が殺されたのは 802（#AIND-D02089「قتل بقلعة دمشق في أوئل شعبان سنة اثنتين」）で、同じ事件の他の犠牲者の項（#AIND-D02226・D02250「ممن قتل مع ايتمش في سنة اثنتين」、#AIND-D06315「قتل في وقعة إيتمش في ثامن ربيع الأول سنة اثنتين بالقاهرة」）とも整合。802＝1399-09-11 開始、年精度 1399。没地の記載なし（事件はカイロとダマスクスにまたがるので補わない）。
-  quote: سنة
   phrase: ممن قتل مع أيتمش في سنة اثنتين
+  mention: m5
 persons:
 - id: p1
   label: والد مبارك المجنون
@@ -35,7 +35,6 @@ relations:
   subtype: father
   active: AIND-D06454#p1
   passive: AIND-D06454
-  quote: null
   note:
     ja: '規則3（Waka 裁定 2026-10-21 B124-128 ★1）。単名の項で父名が原文に全く出ないため #NEEDID で立てる。初版は father relation なし。'
 events:
@@ -46,15 +45,32 @@ events:
     cert: medium
     type: political
   persons:
-  - ref: AIND-D02089
-    quote: أيتمش
-    norm: ايتمش
-  quote: قتل
+  - mention: m4
   cert: medium
   note:
     ja: 'أيتمش ＝ #AIND-D02089「ايتمش البحاسي الجركسي أتابك العساكر في أيام الظاهر برقوق قربه وأدناه ثم بعده أمسك وقتل بقلعة دمشق في أوئل شعبان سنة اثنتين وقد ناهز الستين … وهو صاحب المدرسة الايتمشية」（802没、repo 未収録）。名＋没年（802の事件）で閉合。初版は ID-Master の TMP-P-000601（登録名 أيتمش、Note「独立本伝headwordなし」は誤り＝D02089 が本伝）を関係専用の relation（subtype other）に使っていたが、「قتل مع X」は関係語のない共死の記述なので relation を立てず event の persName で示す（規則14・53、先例 D02250・D06315）。TMP-P-000601 は D02089 と名寄せ要（ISSUES）。'
   trigger: rule
   phrase: ممن قتل مع أيتمش في سنة اثنتين
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  quote: المجنون
+- id: m3
+  kind: event
+  quote: قتل
+- id: m4
+  kind: person
+  ref: AIND-D02089
+  quote: أيتمش
+  norm: ايتمش
+- id: m5
+  kind: year
+  value: '802'
+  quote: سنة
 translation:
   ja: ムバーラク・アル＝マジュヌーン。［8］02年にアイタミシュとともに殺された者の一人。
   en: Mubārak al-Majnūn. He was among those killed together with Aytamish in the year [8]02.

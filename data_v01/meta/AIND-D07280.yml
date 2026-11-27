@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00513
-    quote: المنبجي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
 persons:
 - id: p1
   label: أبو بكر
@@ -36,46 +34,66 @@ relations:
   - TMP-S-00003
   works:
   - label: جزء
-  quote: null
   note:
     ja: '「سمع من العماد أبي بكر بن محمد بن أبي غانم الحبال الصائغ جزءا وحدث به」。師 العماد أبو بكر بن محمد بن أبي غانم الحبال الصائغ は8世紀のハディース伝承者（D10755「سمع من المحب الصامت والعماد أبي بكر بن محمد بن الحبال」にも師として出現）。corpus に本伝なし・ID-Master 未登録 → TMP-P-001571。同家＝#AIND-D01482「أحمد بن محمد بن محمد بن أحمد بن أبي غانم … السكندري … ويعرف بابن الحبال وبابن الصائغ」・索引 #AIND-D12246。書名は「جزء」（不特定）のため ref なし。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D07280
-  passive: AIND-D09211
+  passive: m5
   methods:
   - TMP-S-00016
   cert: low
-  quote: ابن فهد
   note:
     ja: '「وحدث به لقيه ابن فهد وغيره」＝本項主がこの جزء を伝承し、ابن فهد らが彼に会った（本項主＝師、規則15）。ابن فهد は没年不明のため規則43により التقي بن فهد #AIND-D09211・cert low（repo 先例 D07445「لقيه ابن فهد」の student relation（要判断_B88 §D-b3 で D05979 cert medium に変更）。【集約 2026-10-25】校閲時の「D06228「لقيه ابن فهد」」は誤引用（D06228 は「ذكره ابن فهد」の Pattern A）を訂正、規則42）。'
 - id: r3
   type: identity
   subtype: possible_identity
-  active: AIND-D07271
+  active: m6
   passive: AIND-D07280
   cert: low
-  quote: محمد بن أبي بكر بن الصيرفي
   note:
     ja: 「وينظر محمد بن أبي بكر بن الصيرفي الماضي」＝#AIND-D07271「محمد بن أبي بكر المسند شمس الدين الدمشقي بن الصيرفي البزار قريب الحافظ ابن ناصر الدين … مات بدمشق … سنة اثنتين وستين … ذكره ابن اللبودي … وينظر محمد بن أبي بكر المنبجي」（未収録）。双方に転送指示はなく「ينظر」の相互照会（同一人物か要検討）のため、二重立項型として両項を実項のまま保持し possible_identity cert low（ينظر＝low）。D07271 側にも本項への「ينظر」あり（鏡像は D07271 受領時に）。
-  norm: محمد بن ابي بكر بن الصيرفي
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D07280#p1
+  active: m4
   passive: AIND-D07280
-  quote: أبي بكر
   note:
     ja: 父。見出しの「بن أبي بكر」のみで識別要素なし（規則3 (c')）。
-  norm: ابو بكر
 events:
 - id: e1
   type: cultural
-  quote: وحدث به
   note:
     ja: 師から聴聞した جزء をみずから伝承した（حدث）。
-  norm: حدث به
+  phrase: وحدث به
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: TMP-N-00513
+  quote: المنبجي
+- id: m4
+  kind: person
+  ref: AIND-D07280#p1
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m6
+  kind: person
+  ref: AIND-D07271
+  quote: محمد بن أبي بكر بن الصيرفي
+  norm: محمد بن ابي بكر بن الصيرفي
 translation:
   ja: ムハンマド・ブン・アブー・バクル・アル＝マンビジー。アル＝イマード・アブー・バクル・ブン・ムハンマド・ブン・アビー・ガーニム・アル＝ハッバール・アッ＝サーイグから一つのジュズウ（ハディース集の一部）を聴聞し、それを伝承した。イブン・ファハドらが彼に会った。前出のムハンマド・ブン・アブー・バクル・ブン・アッ＝サイラフィーを参照（同一人物か検討を要する）。
   en: Muḥammad b. Abī Bakr al-Manbijī. He heard a juzʾ from al-ʿImād Abū Bakr b. Muḥammad b. Abī Ghānim al-Ḥabbāl al-Ṣāʾigh and transmitted it. Ibn Fahd and others met him. Muḥammad b. Abī Bakr b. al-Ṣayrafī, mentioned above, should be compared.

@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01388
-    quote: الديواني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: جعفر
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -44,8 +40,7 @@ death:
     notAfter: 807
     cert: medium
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m9
   note:
     ja: 「سنة ست أو في التي بعدها」＝806年または807年（一の位のみ＝80X。主人 عنان は805年没、情報源 الفاسي は832年没）。「ظنا」＝推測、cert medium。806＝1403-07-30 開始、807 の年末＝1405-07-07（h2g.py）＝notBefore 1403・notAfter 1405。初版は when-custom=0806 の一点。「بها」＝直前の مكة（「أمراء مكة」、cert 不要）。
   phrase: ومات بها ظنا في سنة ست أو في التي بعدها
@@ -61,15 +56,13 @@ relations:
   subtype: father
   active: AIND-D06639#p1
   passive: AIND-D06639
-  quote: null
   note:
     ja: 規則3 (c')。corpus の見出し（أحمد بن جعفر）に該当なし。初版は父 relation なし。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06051
+  active: m8
   passive: AIND-D06639
-  quote: عنان بن مغامس بن رميثة
   note:
     ja: '「خدم عنان بن مغامس بن رميثة وغيره من أمراء مكة」＝仕えた型（規則56）。عنان＝#AIND-D06051「464 عنان بن مغامس بن رميثة بن أبي نمي الزين أبو لجام الحسني المكي أميرها ، ولد بها في سنة اثنتين وأربعين وسبعمائة … ومات في يوم الجمعة مستهل ربيع الأول سنة خمس」（repo 未収録）。ナサブ3代が一致。「وغيره من أمراء مكة」は名なし＝立てない。主人の「أمراء مكة」は本項主の state にしない。初版は active #NEEDID。'
 notes:
@@ -79,15 +72,55 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m11
   works:
   - ref: TMP-T-00037
-  quote: ذكره
   note:
     ja: Pattern A。الفاسي＝#AIND-D06757、「في مكة」＝その『マッカ史』（TMP-T-00037）。初版の統制外 relation「biographer」を置換。
   trigger: rule
   phrase: ذكره الفاسي في مكة
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: جعفر
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  ref: TMP-N-01388
+  quote: الديواني
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: person
+  ref: AIND-D06051
+  quote: عنان بن مغامس بن رميثة
+- id: m9
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ジャアファル・ブン・アフマド・ブン・アリー・アッ＝ディーワーニー・アル＝マッキー。イナーン・ブン・ムガーミス・ブン・ルマイサほかマッカのアミールたちに仕え、思うに（80）6年かその翌年にそこで没した。アル＝ファースィーが『マッカ〔史〕』で彼に言及している。
   en: Muḥammad b. Aḥmad b. Jaʿfar b. Aḥmad b. ʿAlī al-Dīwānī al-Makkī. He served ʿInān b. Mughāmis b. Rumaytha and others of the amirs of Mecca, and he died there, as is thought, in the year [80]6 or the one after it. Al-Fāsī mentioned him in [his history of] Mecca.

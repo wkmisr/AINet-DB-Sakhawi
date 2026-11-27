@@ -9,45 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04519
-    quote: الديلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m6
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
     ah: 855-03-09
   places:
-  - ref: TMP-L-00344
-    role: burial
-    quote: بحوش الصوفية السعيدية
-    norm: حوش الصوفية السعيدية
+  - role: burial
+    mention: m12
   note:
     ja: 「مات قبل التكهل في يوم الأحد تاسع ربيع الأول سنة خمس وخمسين ودفن بحوش الصوفية السعيدية」。855年ラビーウ1月9日＝1451-04-20（h2g.py、日曜で整合。初版の 1451 を日付に精密化）。「قبل التكهل」＝壮年（40歳前後）に達する前の若死に。没地の明示なし（placeName を補わない）。埋葬地 حوش الصوفية السعيدية（サイード・アッ＝スアダー・ハーンカーのスーフィー墓域）は ID-Master 未登録 → TMP-L-00344（既登録の تربة السعيدية TMP-I-00046 と同一施設の可能性は Waka 判断）。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: أبو بكر بن علي الديلي المقدسي
@@ -58,12 +52,11 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D08937
+  active: m8
   passive: AIND-D07217
   methods:
   - TMP-S-00008
   cert: medium
-  quote: ابن حسان
   note:
     ja: '「أخذ عن ابن حسان وغيره」。ابن حسان ＝ corpus #AIND-D08937「محمد بن محمد بن علي بن محمد بن حسان الشمس بن الشمس الموصلي الأصل المقدسي ثم القاهري الشافعي … ويعرف بابن حسان」（集約で差し替え、cert medium）。同郷（エルサレム出身・シャーフィイー派）、D08937 は 853 年から本項主が寄留する سعيد السعداء のシャイフ、855-03-01 没・「حوش صوفية سعيد السعداء」埋葬で、本項主（855-03-09 没・同墓域）と同地・同職場・同時期の三重一致（内容B H）。見出しの ابن حسان #AIND-D04698（マッカの若年者）は年代・地が合わない。校閲時の既登録 TMP-P-000515「ابن حسان」（通称のみ・Note 空）は D08937 への名寄せ提案（要判断）。「وغيره」は relation にしない。'
 - id: r2
@@ -71,18 +64,16 @@ relations:
   subtype: father
   active: AIND-D07217#p1
   passive: AIND-D07217
-  quote: null
   note:
     ja: '父は見出しのナサブのみ。corpus に「أبو بكر بن علي … الديلي」の見出しなし → #NEEDID（規則3）。'
 assessments:
 - id: v1
-  quote: وكان خيرا متواضعا
-  norm: كان خيرا متواضعا
   label: كان خيرا متواضعا
   terms:
   - خير
   - متواضع
   label_latn: kāna khayran mutawāḍiʿan
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -98,8 +89,55 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: ونبل
-  norm: نبل
+  phrase: ونبل
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  ref: TMP-N-04519
+  quote: الديلي
+- id: m6
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D08937
+  quote: ابن حسان
+- id: m9
+  kind: assessment
+  quote: وكان خيرا متواضعا
+  norm: كان خيرا متواضعا
+- id: m10
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m11
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بحوش الصوفية السعيدية
+  ref: TMP-L-00344
+  norm: حوش الصوفية السعيدية
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アリー、ナースィル・アッ＝ディーン・アッ＝ディーリー・アル＝マクディスィー、シャーフィイー派、サイード・アッ＝スアダー（・ハーンカー）の寄留者。イブン・ハッサーンらに学び、優れた人物となった。善良で謙虚であった。壮年に達する前、（8）55年ラビーウ・アル＝アウワル月9日日曜日に没し、サイーディーヤのスーフィー墓域（ハウシュ・アッ＝スーフィーヤ）に埋葬された。神が彼に慈悲を垂れたまわんことを。
   en: Muḥammad b. Abī Bakr b. ʿAlī, Nāṣir al-Dīn al-Daylī al-Maqdisī al-Shāfiʿī, resident of Saʿīd al-Suʿadāʾ. He studied under Ibn Ḥassān and others and became accomplished; he was a good and humble man. He died before reaching mature age, on Sunday 9 Rabīʿ al-Awwal (8)55, and was buried in the Sufis' enclosure (ḥawsh) of the Saʿīdiyya; may God have mercy on him.

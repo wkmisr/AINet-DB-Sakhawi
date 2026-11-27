@@ -9,30 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00292
-    quote: الصحراوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00602
-    quote: الهرساني
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m3
 death:
   id: d
   date:
@@ -40,8 +35,8 @@ death:
     cert: medium
   note:
     ja: 「سنة ثمان」＝一の位のみの年。基本規則（80X、cert medium）により808年ムハッラム月（1405-07-08 開始、月精度）。師 الميدومي（754年没）から聴聞しイブン・ハジャルが伝承した世代と整合。
-  quote: سنة
   phrase: مات في المحرم سنة ثمان
+  mention: m10
 persons:
 - id: p1
   label: أبو بكر بن عيسى
@@ -54,29 +49,26 @@ relations:
   subtype: father
   active: AIND-D07227#p1
   passive: AIND-D07227
-  quote: null
   note:
     ja: '父 أبو بكر بن عيسى は汎用名のみで識別要素がなく、corpus に本伝なし → #NEEDID（規則3）。初版に無し。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000173
+  active: m7
   passive: AIND-D07227
   methods:
   - TMP-S-00003
-  quote: الميدومي
   note:
     ja: '「ممن سمع على الميدومي」＝الصدر الميدومي（TMP-P-000173、754年没の高名な伝承者。repo 先例 D00094・D02612 ほか多数）。初版の #TMP-N-00163（ニスバ番号の人物位置への流用＝precheck カテゴリ不一致）を是正。原文に分野の明記がないため field は付けない。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D07227
-  passive: wd:Q471116
+  passive: m8
   methods:
   - TMP-S-00011
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「وروى عنه شيخنا وغيره」＝イブン・ハジャル（wd:Q471116）が本項主から伝承（active＝本項主＝師）。「وغيره」の他の弟子は無名。
 - id: r4
@@ -89,7 +81,6 @@ relations:
   summary:
     ar: عبد الصمد بن عبد الرحمن بن محمد بن أبي بكر بن عيسى الصحراوي
   cert: medium
-  quote: null
   note:
     ja: '【集約 2026-10-25】孫 #AIND-D03941 の本文「ثم سمع على جده الشمس والحافظين بعض سنن أبي داود」（見出しナサブ「عبد الصمد بن عبد الرحمن بن محمد بن أبي بكر بن عيسى … ابن الزين بن الشمس … الصحراوي … ويعرف كسلفه بالهرساني」で祖父＝本項主に一意）。他項にのみある関係のため cert medium（規則23、内容A[6]）。active＝本項主＝師。'
 - id: r5
@@ -102,7 +93,6 @@ relations:
   summary:
     ar: محمد بن عبد الرحمن بن محمد بن أبي بكر بن عيسى الصحراوي
   cert: medium
-  quote: null
   note:
     ja: '【集約 2026-10-25】孫 #AIND-D07580 の本文「وسمع على جده والحافظين العراقي والهيثمي」（見出し「محمد بن عبد الرحمن بن محمد بن أبي بكر بن عيسى الشمس بن الزين بن الشمس القاهري الصحراوي … ويعرف بالهرساني」）。cert medium（規則23、内容A[6]）。'
 notes:
@@ -112,23 +102,72 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m12
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   trigger: rule
   phrase: ذكره المقريزي في عقوده
+  mention: m11
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00104
-  quote: وينظر معجم شيخنا
   note:
     ja: 「ينظر معجم شيخنا」＝イブン・ハジャルの『المجمع المؤسس』（TMP-T-00104）を参照せよ、との指示（Pattern A）。
-  norm: ينظر معجم شيخنا
+  phrase: وينظر معجم شيخنا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  ref: TMP-N-00292
+  quote: الصحراوي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00602
+  quote: الهرساني
+- id: m7
+  kind: person
+  ref: TMP-P-000173
+  quote: الميدومي
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m9
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m10
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アブー・バクル・ブン・イーサー・アッ＝サフラーウィー・アル＝カーヒリー・アル＝ハルサーニー。アル＝マイドゥーミーから聴聞した者の一人で、我らが師（イブン・ハジャル）らが彼から伝承した。貧者（スーフィーたち）と交わった。（8）08年ムハッラム月に没した。アル＝マクリーズィーが『ウクード』で彼に言及しており、我らが師の『ムウジャム』を参照せよ。
   en: Muḥammad b. Abī Bakr b. ʿĪsā al-Ṣaḥrāwī al-Qāhirī al-Harsānī. He was among those who heard from al-Maydūmī, and our shaykh (Ibn Ḥajar) and others transmitted from him. He kept company with the poor (Sufis). He died in Muḥarram of the year [8]08. Al-Maqrīzī mentioned him in his ʿUqūd; see also the Muʿjam of our shaykh.

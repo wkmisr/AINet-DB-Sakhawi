@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قماري
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 819-10
   note:
     ja: 「فمات متوجها إلى الحج في شوال سنة تسع عشرة」＝巡礼へ向かう途上で没した（没地の記載なし）。819年シャウワール＝1416-12-01〜12-29（h2g.py、月精度）。
-  quote: سنة
+  mention: m4
 persons:
 - id: p1
   label: والد قماري
@@ -28,39 +28,62 @@ relations:
   subtype: father
   active: AIND-D06366#p1
   passive: AIND-D06366
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00329
-  quote: أمير الركب الأول
   note:
     ja: '「كان أمير الركب الأول فمات متوجها إلى الحج」＝実際に在任（規則47）。ref は既登録 TMP-O-00329。初版の #NEEDID を置換。'
-  norm: امير الركب الاول
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00363
-  quote: شاد الزردخاناه
   note:
     ja: 「وكان شاد الزردخاناه」。ID-Master の شاد 系（TMP-O-00131 شاد الشربخاناه、00168 شاد الشؤن、00241 شاد العمائر、00344 شادية السواقي）に該当なし → 仮番号 TMP-O-00363。
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版の統制外 relation（other、ابن حجر）を変換。
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m6
 notes:
 - text: 初版の hajj event（placeName مكة、when 819-10）は除去。「متوجها إلى الحج」は巡礼途上の死であって巡礼の遂行ではなく、規則22(1)（حج の語義を職や巡礼帰途の死に広げない）により event を立てない。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قماري
+- id: m2
+  kind: office
+  ref: TMP-O-00329
+  quote: أمير الركب الأول
+  norm: امير الركب الاول
+- id: m3
+  kind: month
+  value: 10
+  quote: شوال
+- id: m4
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m5
+  kind: office
+  ref: TMP-O-00363
+  quote: شاد الزردخاناه
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: クマーリー。第一巡礼隊のアミールであったが、819年シャウワール月、巡礼へ向かう途上で没した。シャード・アッ＝ザルドハーナー（武器庫監督官）でもあった。我らの師（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Qamārī. He was amīr of the first pilgrimage caravan and died while on his way to the pilgrimage in Shawwāl 819. He had also been shādd al-zardkhānāh (superintendent of the armoury). Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

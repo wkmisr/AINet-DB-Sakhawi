@@ -9,43 +9,38 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02781
-    quote: الجهيني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001491
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: التقي
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07169
   methods:
   - TMP-S-00003
@@ -55,11 +50,8 @@ relations:
       ah: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m11
     phrase: ممن سمع مني بمكة في سنة ست وثمانين
-  quote: مني
   note:
     ja: 規則2。886年＝1481-03-11 開始（年精度 1481）。初版の @when="0886"（ヒジュラ年の誤置）を是正。
 - id: r2
@@ -69,19 +61,64 @@ relations:
   passive: AIND-D07169
   summary:
     ar: التقي أبو بكر بن أحمد بن الشهاب الجهيني الدمشقي
-  quote: null
   note:
     ja: 見出しナサブ「أبي بكر بن أحمد … بن التقي بن الشهاب الجهيني الدمشقي」から祖父名・ラカブ・ニスバまで復元（規則3）。corpus に本伝なし（الجهيني は本項のみ）・ID-Master 未登録 → 仮番号 TMP-P-001491。初版は relation なし。
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D02858
+  active: m9
   passive: AIND-D07169
   summary:
     ar: الزين خطاب بن عمر العجلوني الدمشقي
-  quote: الزين خطاب
   note:
     ja: '「سبط الزين خطاب الماضي」＝母方の祖父 ＝ #AIND-D02858「خطاب بن عمر بن مهنى بن يوسف بن يحيى الزيني … العجلوني ثم الدمشقي الشافعي」（809生）。初版の幻番号 #TMP-P-000053 は ID-Master で AIND-D02858 に名寄せ済み（規則36）。subtype grandfather → maternal_grandfather。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001491
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  quote: التقي
+- id: m6
+  kind: name
+  quote: الشهاب
+- id: m7
+  kind: name
+  ref: TMP-N-02781
+  quote: الجهيني
+- id: m8
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m9
+  kind: person
+  ref: AIND-D02858
+  quote: الزين خطاب
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: year
+  value: '886'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アフマド、アッ＝シャムス・ブン・アッ＝タキー・ブン・アッ＝シハーブ・アル＝ジュハイニー・アッ＝ディマシュキー、前述のアッ＝ザイン・ハッターブの外孫。886年にマッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Abī Bakr b. Aḥmad, al-Shams b. al-Taqī b. al-Shihāb al-Juhaynī al-Dimashqī, the maternal grandson of al-Zayn Khaṭṭāb, mentioned above. He was among those who heard from me in Mecca in the year 886.

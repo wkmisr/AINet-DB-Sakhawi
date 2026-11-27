@@ -9,19 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00076
-    quote: السعدي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00237
-    quote: الطواشي
+    mention: m3
   - id: n3
     type: laqab
-    quote: اللالا
+    mention: m4
   - id: n4
     type: ism
-    quote: شاهين
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -30,57 +28,94 @@ death:
   note:
     ar: مات في سنة ثمان . أرخه شيخنا وأظنه شاهين الحسنى الماضي قريبا وأحد التاريخين غلط
     ja: 「سنة ثمان」＝808年（1405年6月29日〜1406年6月17日）。サハーウィーは本項を直前の شاهين الحسني（#AIND-D03277、没815）と同一人物と推測し、二つの没年のいずれかが誤りとする → cert medium。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: wd:Q286592
+  active: m5
   passive: AIND-D03287
   cert: medium
-  quote: خدم الاشرف فمن بعده
   note:
     ja: 没808・「تقدم في دولة الناصر（فرج）」から、الأشرف ＝ الأشرف شعبان بن حسين بن قلاوون（在位764–778。corpus 本伝なし）＝ wd:Q286592（Waka 実照合 2026-09-08。校閲初稿の TMP-P-001031 は取消）。cert medium。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m6
   passive: AIND-D03287
   cert: medium
-  quote: الناصر
   note:
     ja: الناصر ＝ الناصر فرج（#AIND-D06160、在位801–815）。repo の「الناصر」→ D06160 運用（D03277 と同じ）。
   phrase: تقدم في دولة الناصر
 - id: r3
   type: identity
   subtype: possible_identity
-  active: AIND-D03277
+  active: m11
   passive: AIND-D03287
   cert: medium
-  quote: وأظنه شاهين الحسنى الماضي قريبا وأحد التاريخين غلط
   note:
     ja: サハーウィー自身の推測（أظنه → cert medium）。#AIND-D03277（شاهين الحسني الطواشي、نظر البيبرسية、没815 by العيني）。経歴（الناصر の治世に立身・نظر البيبرسية وغيرها）が一致。
-  norm: واظنه شاهين الحسني الماضي قريبا واحد التاريخين غلط
 states:
 - id: s1
   type: office
-  ref: TMP-O-00032
   orgs:
   - ref: wd:Q6400398
-  quote: نظر البيبرسية
   note:
     ja: 汎用 ناظر（TMP-O-00032）＋対象施設 orgName（D03277 と同形）。「وغيرها」は state にしない。　規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البيبرسية の所在地〉からの補完で原文に地名の明示なし。
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: أرخه
+  - mention: m10
   note:
     ja: Pattern A（没年記録）。شيخنا ＝ Ibn Ḥajar。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: شاهين
+- id: m2
+  kind: name
+  ref: TMP-N-00076
+  quote: السعدي
+- id: m3
+  kind: name
+  ref: TMP-N-00237
+  quote: الطواشي
+- id: m4
+  kind: name
+  quote: اللالا
+- id: m5
+  kind: person
+  ref: wd:Q286592
+  quote: خدم الاشرف فمن بعده
+- id: m6
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m7
+  kind: office
+  ref: TMP-O-00032
+  quote: نظر البيبرسية
+- id: m8
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: person
+  ref: AIND-D03277
+  quote: وأظنه شاهين الحسنى الماضي قريبا وأحد التاريخين غلط
+  norm: واظنه شاهين الحسني الماضي قريبا واحد التاريخين غلط
 translation:
   ja: シャーヒーン・アッ＝サアディー・アッ＝タワーシー・アッ＝ラーラー。アル＝アシュラフ（・シャアバーン）とその後継者たちに仕え、アン＝ナースィル（・ファラジュ）の治世に立身し、バイバルスィーヤの管財職（ナザル）やその他の職に就いた。（8）08年に没した。我らがシャイフ（イブン・ハジャル）がその没年を記録しているが、私（サハーウィー）は彼が少し前に挙げたシャーヒーン・アル＝ハサニーと同一人物であり、二つの没年のいずれかが誤りであると考える。
   en: Shāhīn al-Saʿdī al-Ṭawāshī al-Lālā. He served al-Ashraf (Shaʿbān) and those after him, rose to prominence under al-Nāṣir (Faraj), and held the trusteeship (naẓar) of the Baybarsiyya and other posts. He died in the year [8]08. Our shaykh (Ibn Ḥajar) recorded his death, but I think he is the Shāhīn al-Ḥasanī mentioned shortly before, and that one of the two dates is wrong.

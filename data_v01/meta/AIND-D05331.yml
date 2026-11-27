@@ -9,53 +9,78 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04128
-    quote: الراجبي
+    mention: m5
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عيسى
     by: rule
-    ref: AIND-D06094
-    norm: عيسي
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: قاسم
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06094
+  active: m6
   passive: AIND-D05331
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父＝#AIND-D06094（立項番号504「عيسى بن محمد بن قاسم الموصلي الدمشقي الراحبي والد علي الماضي ممن سمع مني بمكة」）。ナサブ3代一致・相互参照（「والد علي الماضي」）で確定（規則26・37）。ニスバは本項「الراجبي」・父項「الراحبي」と綴りが揺れる（綴り揺れとして note 留め）。D06094 側は既に son relation で本項を指す。初版は #NEEDID。'
-  norm: ابوه
   phrase: عيسى بن محمد بن قاسم الراجبي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D05331
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m8
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06094
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: قاسم
+- id: m5
+  kind: name
+  ref: TMP-N-04128
+  quote: الراجبي
+- id: m6
+  kind: person
+  ref: AIND-D06094
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アリー・ブン・イーサー・ブン・ムハンマド・ブン・カースィム・アッ＝ラージビー。父は前述した。マッカで私から聴聞した者の一人。
   en: ʿAlī b. ʿĪsā b. Muḥammad b. Qāsim al-Rājibī, whose father has been mentioned above. He is among those who heard from me in Mecca.

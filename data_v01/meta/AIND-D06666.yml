@@ -9,71 +9,63 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00698
-    quote: الجدي
+    mention: m7
   - id: n2
     type: laqab
-    quote: الجمال
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن أبي العيون
-    norm: ابن ابي العيون
     label: ابن أبي العيون
+    mention: m8
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00738
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: سالم
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: حسن
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: القاضي شهاب الدين
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 875-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   note:
     ja: 875年ラジャブ月＝1471-01-02 開始（h2g.py、月精度）。初版の @when 1470 を訂正。
-  quote: سنة
   phrase: مات بمكة في رجب سنة خمس وسبعين
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00738
+  active: m9
   passive: AIND-D06666
   summary:
     ar: أحمد بن سالم بن حسن شهاب الدين الجدي
-  quote: والده
   note:
     ja: '見出しナサブ「بن القاضي شهاب الدين الجدي」（規則37）。父＝corpus 本伝 #AIND-D00738「أحمد بن سالم بن حسن شهاب الدين الجدي نزيل مكة وقاضي جدة ويعرف بابن أبي العيون … وكان يذكر أنه من ربيعة الفرس . مات بمكة في أوائل ربيع الآخر سنة سبع وعشرين」（ナサブ・ラカブ・職 قاضي・通称・「ربيعة الفرس」で閉合、ブリーフの番号を本文で確認）。初版 #NEEDID。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m10
   passive: AIND-D06666
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q1023470
-  quote: الزين المراغي
   note:
     ja: '「وسمع هو من الزين المراغي الصحيح」。الزين المراغي＝#AIND-D10690（أبو بكر بن الحسين … الزين أبو محمد … المراغي المصري الشافعي نزيل المدينة النبوية、頻出確定ID・本文で確認）。初版 #NEEDID。「الصحيح」は ID-Master 登録どおり صحيح البخاري（wd:Q1023470）。'
 notes:
@@ -83,14 +75,70 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: ذكره
+  - mention: m15
   cert: medium
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 875（871 より後・885 以前）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium（event 側、規則43・58）。初版は subtype other の relation（#AIND-D09211）。
   trigger: rule
   phrase: ذكره ابن فهد
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00738
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: سالم
+- id: m4
+  kind: name
+  quote: حسن
+- id: m5
+  kind: name
+  quote: الجمال
+- id: m6
+  kind: name
+  quote: القاضي شهاب الدين
+- id: m7
+  kind: name
+  ref: TMP-N-00698
+  quote: الجدي
+- id: m8
+  kind: name
+  quote: بابن أبي العيون
+  norm: ابن ابي العيون
+- id: m9
+  kind: person
+  ref: AIND-D00738
+  quote: والده
+- id: m10
+  kind: person
+  ref: AIND-D10690
+  quote: الزين المراغي
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: month
+  value: 7
+  quote: رجب
+- id: m13
+  kind: year
+  value: '875'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: ذكره
+- id: m15
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・サーリム・ブン・ハサン、アル＝ジャマール、カーディーのシハーブ・アッ＝ディーン・アル＝ジュッディーの子。イブン・アビー・アル＝ウユーンとして知られる。父は、自分はラビーア・アル＝ファラスの出であると語っていた。彼自身はアッ＝ザイン・アル＝マラーギーから『サヒーフ』を聴聞した。（8）75年ラジャブ月にマッカで没した。イブン・ファハドが彼に言及している。
   en: Muḥammad b. Aḥmad b. Sālim b. Ḥasan, al-Jamāl, son of the qāḍī Shihāb al-Dīn al-Juddī, known as Ibn Abī al-ʿUyūn. His father used to say that he was of Rabīʿat al-Faras. He himself heard the Ṣaḥīḥ from al-Zayn al-Marāghī. He died in Mecca in Rajab of the year [8]75. Ibn Fahd mentioned him.

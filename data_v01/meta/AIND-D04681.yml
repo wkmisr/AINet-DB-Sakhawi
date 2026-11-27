@@ -9,44 +9,70 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 886-01
   places:
-  - ref: gn:104515
-    quote: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m5
+  - role: burial
+    mention: m8
   note:
     ja: 「بها」は直前の「نزيل مكة」を受ける照応（規則22(3)）。886年ムハッラム月＝1481-03-11〜04-09（グレゴリオ暦）。@when を月初の 1481-03 に精密化（初版は 1481）。
-  quote: سنة
   phrase: مات بها في المحرم سنة ست وثمانين . ودفن بالمعلاة
+  mention: m7
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل مكة
+  mention: m4
 notes:
 - text: corpus レコード末尾に転送見出し 1 本（『عبد الله الهبي . هو ابن محمد مضى .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m3
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '886'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: アブドゥッラー・アン＝ナーシリー・アル＝ヤマニー、マッカの住人。886年ムハッラム月に同地で没し、アル＝マアラーに葬られた。神が彼を憐れみたまえ。
   en: ʿAbd Allāh al-Nāshirī al-Yamanī, resident of Mecca. He died there in Muḥarram of the year 886, and was buried at al-Muʿallā, may God have mercy on him.

@@ -9,43 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00583
-    quote: العبدري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00268
-    quote: الشيبي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00922
-    quote: الحجبي
+    mention: m8
   - id: n4
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m9
   - id: n5
     type: kunyah
-    quote: أبو المكارم
-    norm: ابو المكارم
+    mention: m5
   - id: n6
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n8
     type: nasab
-    quote: أبي راجح محمد
     by: rule
-    norm: ابو راجح محمد
+    mention: m3
   - id: n9
     type: nasab
-    quote: إدريس
     by: rule
-    norm: ادريس
+    mention: m4
 death:
   id: d
   date:
@@ -55,7 +47,7 @@ death:
   - label: al-Baḥr al-Māliḥ
   note:
     en: Drowned in the Red Sea (al-Baḥr al-Māliḥ) while traveling to Yemen at the beginning of the year.
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
@@ -64,7 +56,6 @@ relations:
   passive: AIND-D01050
   summary:
     ar: حسين بدر الدين العبدري الشيبي الحجبي
-  quote: null
 - id: r2
   type: kin
   subtype: daughter
@@ -72,22 +63,19 @@ relations:
   passive: AIND-D01050
   summary:
     ar: أم الكامل ابنة أبي المكارم أحمد الشيبي
-  quote: null
 states:
 - id: s1
   type: office
   ref: TMP-O-00065
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m14
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m14
+  mention: null
 - id: e2
   type: travel
   date:
@@ -96,18 +84,18 @@ events:
     type: travel
   places:
   - label: بلاد اليمن
-  quote: null
   cert: medium
   note:
     en: at the beginning of the year
+  mention: null
 - id: e3
   type: cultural
   summary:
     ar: ذكره الفاسي (التقي الفاسي، مؤرخ مكة) في تاريخ مكة (TMP-T-00037)
     ja: アル＝ファースィー（タキー・アッディーン、マッカの歴史家）が『マッカ史』（TMP-T-00037）で彼に言及している。
     en: Al-Fāsī (al-Taqī al-Fāsī, the historian of Mecca) mentioned him in his history of Mecca (TMP-T-00037).
-  quote: ذكره
   trigger: rule
+  mention: m13
 notes:
 - text: 息子フサイン
   type: xml_comment
@@ -115,6 +103,61 @@ notes:
 - text: 娘ウンム・アル＝カーミル
   type: xml_comment
   scope: relations
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أبي راجح محمد
+  norm: ابو راجح محمد
+- id: m4
+  kind: name
+  quote: إدريس
+  norm: ادريس
+- id: m5
+  kind: name
+  quote: أبو المكارم
+  norm: ابو المكارم
+- id: m6
+  kind: name
+  ref: TMP-N-00583
+  quote: العبدري
+- id: m7
+  kind: name
+  ref: TMP-N-00268
+  quote: الشيبي
+- id: m8
+  kind: name
+  ref: TMP-N-00922
+  quote: الحجبي
+- id: m9
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m10
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: البحر المالح
+  ref: None
+- id: m12
+  kind: place
+  quote: بلاد اليمن
+  ref: None
+- id: m13
+  kind: event
+  quote: ذكره
+- id: m14
+  kind: place
+  quote: مكة
+  ref: gn:104515
 translation:
   ja: アフマド・ブン・アリー・ブン・アビー・ラージフ・ムハンマド・ブン・イドリース。アブー・アル＝マカーリム。アル＝アブダリー、アル＝シャイビー、アル＝ハジャビー、アル＝マッキー。彼は高位の侍従の一人であった。808年（ヒジュラ暦）の初め、イエメン地方へ向かう途中で紅海に溺死した。アル＝ファースィーがマッカで彼に言及している。
   en: Aḥmad b. ʿAlī b. Abī Rājiḥ Muḥammad b. Idrīs, Abū al-Makārim al-ʿAbdarī al-Shaybī al-Ḥajabī al-Makkī. He was among the notables of the chamberlains. He died at the beginning of the year 808 AH, drowned in the Red Sea while heading to the lands of Yemen. al-Fāsī mentioned him in Mecca.

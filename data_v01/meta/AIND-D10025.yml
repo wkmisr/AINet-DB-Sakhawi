@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: منكلى
     by: rule
-    norm: منكلي
+    mention: m1
 death:
   id: d
   date:
     ah: 801-07
     cert: medium
   places:
-  - ref: TMP-L-00289
-    role: burial
-    quote: الصحراء
+  - role: burial
+    mention: m8
   note:
     ja: 「سنة إحدى」は一の位のみ＝801年と読み cert medium（2026-09-24 Waka 基準。主人 الظاهر برقوق（801年没）の時代とも整合）。801年ラジャブ月＝1399-03-17〜04-15（h2g.py）、月精度で @when=1399-03。「عن أزيد من ثلاثين سنة」（30歳余）から生年は作らない（下限のみで逆算不能）。埋葬地「تربته في الصحراء」＝カイロ城外の砂漠墓地（北墓地）TMP-L-00289。固有名のない「تربته」自体には番号を付けない（初版の幻番号 TMP-I-00000 を除去）。初版の death placeName「الديار المصرية」は原文に死地として明記がなく除去（規則22）。
-  quote: سنة
   phrase: مات في رجب سنة إحدى عن أزيد من ثلاثين سنة ودفن بتربته في الصحراء
+  mention: m7
 persons:
 - id: p1
   label: والد منكلى بغا قراجا الظاهري
@@ -42,17 +39,15 @@ relations:
   subtype: father
   active: AIND-D10025#p1
   passive: AIND-D10025
-  quote: null
   note:
     ja: 規則3（マムルーク、父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D10025
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: 主人ニスバ「الظاهري برقوق」（規則51・53）。الظاهر برقوق＝#AIND-D02178（頻出確定ID）。
 - id: r3
@@ -60,36 +55,72 @@ relations:
   subtype: daughter
   active: AIND-D10025#p2
   passive: AIND-D10025
-  quote: null
   note:
     ja: '「ولم يترك سوى بنت」＝名不詳の娘一人のみを残した。名不詳者の #NEEDID relation は削除しない（規則12。repo 先例 D04571・D05502・D03375・D07380 の daughter #NEEDID）。【集約 2026-11-03】校閲時の除去（規則14 を理由）を戻した。規則14 は動詞のみで相手が描写されない関係の規定で、ここは人物（بنت）が描写されている（内容B L、オーケストレーター決定15）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: أحد الطبلخانات
+  - mention: m5
   note:
     ja: 「أحد الطبلخانات بالديار المصرية」＝タブルハーナ級アミール（規則48。ID-Master Office TMP-O-00016 طبلخاناة）。placeName は原文の「بالديار المصرية」（TMP-L-00238）。
-  norm: احد الطبلخانات
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m10
   note:
     ja: 'Pattern A。العيني＝بدر الدين العيني #AIND-D09832（corresp wd:Q257745）。書名の明記なし。初版の統制外 subtype「mentioned_in_history」relation（wd:Q257745 単独）を event に変換。'
   trigger: rule
   phrase: ذكره العيني
+  mention: m9
 notes:
 - text: '「ولم يترك سوى بنت」＝娘一人（名なし）のみを残した＝daughter relation（#NEEDID、規則12）。見出しの「قراجا」は原文どおり名の一部として保持（「منكلى بغا」の後置の付加名か、購入元・前主人名「من قراجا」の省略かは決められない）。同名の #AIND-D10024「منكلى بغا العلاء الصالحي الظاهري برقوق ويعرف بالعجمي」（B152）は別人（ラカブ・通称・経歴が異なる）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منكلى
+  norm: منكلي
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00016
+  quote: أحد الطبلخانات
+  norm: احد الطبلخانات
+- id: m5
+  kind: place
+  quote: بالديار المصرية
+  ref: TMP-L-00238
+  norm: الديار المصرية
+- id: m6
+  kind: month
+  value: 7
+  quote: رجب
+- id: m7
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: الصحراء
+  ref: TMP-L-00289
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: マンカリー・ブガー・カラージャー、アッ＝ザーヒリー（アッ＝ザーヒル・バルクークのマムルーク）、エジプトにおけるタブルハーナ級アミールの一人。（8）01年ラジャブ月に30歳余で没し、サフラー（カイロ郊外の砂漠墓地）の自身の墓廟に葬られた。娘一人のほかには（子を）残さなかった。アル＝アイニーが彼に言及している。
   en: Mankalī Bughā Qarājā al-Ẓāhirī (mamlūk of al-Ẓāhir Barqūq), one of the amirs of ṭablkhānāh in the Egyptian lands. He died in Rajab of the year [8]01, aged a little over thirty, and was buried in his tomb (turba) in al-Ṣaḥrāʾ (the desert cemetery outside Cairo). He left no one but a daughter. Al-ʿAynī mentioned him.

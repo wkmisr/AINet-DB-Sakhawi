@@ -9,40 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00159
-    quote: الزبيدي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001209
+    mention: m2
   - id: n4
     type: nasab
-    quote: شوعان
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   date:
     ah: 822
   note:
     ja: 「مات سنة اثنتين وعشرين ، ذكره شيخنا في إنبائه」。822-01-01 ＝ 1419-02-06（h2g.py）。没地の記載はない（初版の زبيد はニスバ由来のため規則22により除去）。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001209
   passive: AIND-D07779
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。初版の TMP-P-000490（ID-Master 登録＝الزهري の祖父 عبد الله、汚染番号）は別人のため破棄。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。
   phrase: عبد الله بن شوعان الزبيدي
@@ -54,7 +50,6 @@ relations:
   summary:
     ar: محمد بن عمر الزبيدي شوعان . مات سنة اثنتين وعشرين
   cert: low
-  quote: null
   note:
     ja: '校閲者の推定（cert low）。#AIND-D08398「محمد بن عمر الزبيدي شوعان . مات سنة اثنتين وعشرين وقد مضى فيمن جده شوعان لكن الوفاة مختلفة فإما أن يكون الغلط في أحد الموضعين أو هو أخ آخر له」は本項と没年（822）・ニスバ・祖父名 شوعان が一致し、父名のみ（عبد الله／عمر）が異なる。サハーウィー自身は D08398 を「فيمن جده شوعان」＝ #AIND-D08312（محمد بن عمر بن شوعان … أحد فقهاء الحنفية … مات سنة سبع عشرة）と結び付けており、本項への転送指示はないため両項とも実項のまま（ISSUES §Dh 参照）。'
 - id: r3
@@ -65,7 +60,6 @@ relations:
   summary:
     ar: محمد بن عمر بن شوعان أبو عبد الله أحد فقهاء الحنفية
   cert: low
-  quote: null
   note:
     ja: 校閲者の推定（cert low）。#AIND-D08312（ハナフィー派法学者、「انتفع به جماعة … قرأ عليه العفيف الناشري」、817 没）は学派・活動（ザビードの الناشري 家が師事）・祖父名 شوعان が本項の「انتهت إليه الرياسة في مذهبه ببلده ودرس وأفاد」と整合するが、父名（عبد الله／عمر）・没年（822／817）が異なる。
 states:
@@ -76,10 +70,9 @@ states:
   places:
   - ref: TMP-L-00041
     cert: medium
-  quote: انتهت إليه الرياسة في مذهبه ببلده
   note:
     ja: 「ببلده」（彼の町で）の指示先はニスバ الزبيدي のみ。規則22(3)（照応代名詞が受ける地名）に準じて زبيد を cert medium で置いた。初版の office state 2件（#NEEDID・「退任 822」の捏造日付付き）を status state と teaching event に整理。
-  norm: انتهت اليه الرياسة في مذهبه ببلده
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -87,20 +80,56 @@ affiliations:
 events:
 - id: e1
   type: teaching
-  quote: ودرس
   trigger: rule
-  norm: درس
   phrase: ودرس وأفاد
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001209
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: شوعان
+- id: m4
+  kind: name
+  ref: TMP-N-00159
+  quote: الزبيدي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: office
+  quote: انتهت إليه الرياسة في مذهبه ببلده
+  norm: انتهت اليه الرياسة في مذهبه ببلده
+- id: m7
+  kind: event
+  quote: ودرس
+  norm: درس
+- id: m8
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・シャウアーン・アッ＝ザビーディー、ハナフィー派。彼の町において自派（ハナフィー派）の首位は彼に帰し、教授して人々を益した。（8）22年に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Muḥammad b. ʿAbd Allāh b. Shawʿān al-Zabīdī, the Ḥanafī. Leadership of his school in his town came to rest with him; he taught and benefited others. He died in (8)22. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

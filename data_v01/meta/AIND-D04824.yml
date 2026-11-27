@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m2
   - id: n2
     type: ism
-    quote: عبيد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 885
   places:
-  - ref: TMP-L-00297
-    quote: بقبور الشهداء
-    norm: قبور الشهداء
+  - mention: m6
   note:
     ja: 885年初＝1480-03-22（h2g 検証）、@when 1480。قبور الشهداء は corpus D08604「قبور الشهداء عند مشهد السيد حمزة」からマディーナ（ウフド）の殉教者墓地と解されるが、本項は地名のみ。ID-Master 未登録のため TMP-L-00297 を発行。
-  quote: سنة
   phrase: ومات في رجوعه من الحج بقبور الشهداء سنة خمس وثمانين
+  mention: m7
 persons:
 - id: p1
   label: البرلسية
@@ -35,35 +32,62 @@ relations:
 - id: r1
   type: kin
   subtype: spouse
-  active: AIND-D04824#p1
+  active: m3
   passive: AIND-D04824
-  quote: البرلسية
   note:
     ja: '妻はニスバ形の通称のみで #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00209
-  quote: أحد المدولبين
   note:
     ja: مدولب（工房経営者）＝ID-Master TMP-O-00209。
-  norm: احد المدولبين
+  mention: m4
 events:
 - id: e1
   type: residence
-  quote: جاورنا وقتا
   note:
     ja: 「われわれの隣人として（ないし、われわれとともにムジャーワラして）しばらく過ごした」。地名は原文に無く、規則20により جاور に placeName を付けない（初版の مكة と統制外 subtype「jāwara」を除去）。
+  phrase: جاورنا وقتا
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: الحج
   note:
     ja: 巡礼の年は原文に無い（885年中の帰途没なので 884年末または885年末の巡礼）ため、初版の when-custom="0885" cert="high" を除去。placeName مكة は規則20の例外として保持。
   trigger: rule
   phrase: في رجوعه من الحج
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عبيد
+- id: m2
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m3
+  kind: person
+  ref: AIND-D04824#p1
+  quote: البرلسية
+- id: m4
+  kind: office
+  ref: TMP-O-00209
+  quote: أحد المدولبين
+  norm: احد المدولبين
+- id: m5
+  kind: event
+  quote: الحج
+- id: m6
+  kind: place
+  quote: بقبور الشهداء
+  ref: TMP-L-00297
+  norm: قبور الشهداء
+- id: m7
+  kind: year
+  value: '885'
+  quote: سنة
 translation:
   ja: ウバイド・アッ＝ディムヤーティー、アル＝ブルルスィーヤの夫、工房経営者（ムダウリブ）の一人。しばらくの間われわれの隣人であった（あるいは、われわれとともに〔マッカに〕ムジャーワラした）。〔8〕85年、巡礼からの帰途にクブール・アッ＝シュハダーで没した。
   en: 'ʿUbayd al-Dimyāṭī, husband of al-Burlusiyya and one of the mudawlibīn (workshop owners). He was our neighbour for a time (or: he resided [in Mecca] as a mujāwir together with us for a time). He died on his return from the ḥajj at Qubūr al-Shuhadāʾ in the year [8]85.'

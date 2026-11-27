@@ -9,42 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00210
-    quote: الطوخي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: laqab
-    quote: محيي الدين
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بابن أخت مهني
-    norm: ابن اخت مهني
     label: ابن أخت مهني
+    mention: m10
   - id: n5
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05147
+    mention: m2
   - id: n7
     type: nasab
-    quote: رمضان
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 persons:
 - id: p1
   label: صحب ابن قاضي عجلون وقتا
@@ -53,66 +48,53 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D04147
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m12
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D04147#p1
+  active: m13
   passive: AIND-D04147
   methods:
   - TMP-S-00034
-  quote: وصحب ابن قاضي عجلون وقتا
   note:
     ja: ابن قاضي عجلون：التقي أبو بكر（#AIND-D10715）か兄 النجم محمد か限定要素なし → 同定保留（要判断）。
-  norm: صحب ابن قاضي عجلون وقتا
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D05147
+  active: m9
   passive: AIND-D04147
-  quote: الآتي أبوه
   note:
     ja: '= #AIND-D05147（علي بن رمضان بن علي نور الدين الطوخي القاهري الأزهري الشافعي والد عبد القادر الماضي、閉合）。'
-  norm: الاتي ابوه
 - id: r4
   type: kin
   subtype: relative
   active: AIND-D10034
   passive: AIND-D04147
   cert: medium
-  quote: null
   note:
     ja: '父 D05147 が「ابن أخت الشيخ مهنا」＝مهنا は父の母方の伯叔父（本項主から見れば大伯叔父）。通称を父から継承しているため subtype は relative。الشيخ مهنا = #AIND-D10034（مهنا بن علي بن حسين البندراوي ثم الأزهري الشافعي、بندرة は طوخ 近傍）と同定、cert medium。初版はニスバ番号 TMP-N-01350 を人物 ID に流用していた。'
   phrase: ويعرف بابن أخت مهني
 - id: r5
   type: social
   subtype: patron
-  active: TMP-P-000924
+  active: m15
   passive: AIND-D04147
-  quote: الشهاب الفليحي
   note:
     ja: الشهاب الفليحي（証人組合の長か）は corpus に本伝なし → 新規 TMP-P-000924。
   phrase: وتكسب بالشهادة عند الشهاب الفليحي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: بالشهادة
-  norm: الشهادة
+  - mention: m12
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -121,10 +103,69 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: null
+  - mention: m12
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D05147
+  quote: علي
+- id: m3
+  kind: name
+  quote: رمضان
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محيي الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00210
+  quote: الطوخي
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: person
+  ref: AIND-D05147
+  quote: الآتي أبوه
+  norm: الاتي ابوه
+- id: m10
+  kind: name
+  quote: بابن أخت مهني
+  norm: ابن اخت مهني
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m13
+  kind: person
+  ref: AIND-D04147#p1
+  quote: وصحب ابن قاضي عجلون وقتا
+  norm: صحب ابن قاضي عجلون وقتا
+- id: m14
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m15
+  kind: person
+  ref: TMP-P-000924
+  quote: الشهاب الفليحي
 translation:
   ja: アブドゥルカーディル・ブン・アリー・ブン・ラマダーン・ブン・アリー・ムヒュッディーン・アッ＝トゥーヒー・アル＝カーヒリー・アッ＝シャーフィイー（彼の父の伝記は後述される）。『ミフニーの姉妹の息子』として知られる。カイロで私（サハーウィー）からハディースを聴聞し、少し学問に従事した。また、一時期イブン・カーディー・アジュルーンに師事（同伴）した。シハーブ・アル＝ファリーヒーのもとで公証人（シャーヒド）として生計を立てた。
   en: ʿAbd al-Qādir b. ʿAlī b. Ramaḍān b. ʿAlī Muḥyī al-Dīn al-Ṭūkhī al-Qāhirī al-Shāfiʿī (his father's biography is forthcoming below), known as the son of Mihnī's sister. He heard ḥadīth from me (al-Sakhāwī) in Cairo, engaged briefly in studies, accompanied Ibn Qāḍī ʿAjlūn for a time, and earned his living as a notary witness under al-Shihāb al-Falīḥī.

@@ -9,38 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00445
-    quote: القلعي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: يونس
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000834
+  active: m12
   passive: AIND-D05705
   methods:
   - TMP-S-00003
@@ -49,11 +46,10 @@ relations:
   cert: medium
   works:
   - ref: wd:Q1023470
-  quote: المحاسن يوسف بن محمد القباني
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000835
+  active: m13
   passive: AIND-D05705
   methods:
   - TMP-S-00003
@@ -62,11 +58,10 @@ relations:
   cert: medium
   works:
   - ref: wd:Q886659
-  quote: الياسوفي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000836
+  active: m14
   passive: AIND-D05705
   methods:
   - TMP-S-00003
@@ -75,12 +70,10 @@ relations:
   cert: medium
   works:
   - ref: wd:Q886659
-  quote: وخليل القدسي
-  norm: خليل القدسي
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-000837
+  active: m15
   passive: AIND-D05705
   methods:
   - TMP-S-00003
@@ -89,18 +82,15 @@ relations:
   cert: medium
   works:
   - ref: wd:Q4120006
-  quote: المحيوي الرحبي
 states:
 - id: s1
   type: office
   ref: TMP-O-00029
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m10
   note:
     ar: جوار حمام القواس
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -109,23 +99,78 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00212
-    quote: العقيبة الصغرى
-    norm: العقيبة الصغري
-  quote: نزيل
+  - mention: m9
   trigger: rule
+  mention: m8
 - id: e2
   type: residence
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m10
+  mention: null
 notes:
 - text: وقال أنه سمع
   lang: ar
 - text: 原文「وقال أنه سمع البخاري على … وبعض مسلم على … والشفا على …」＝師4件すべてが伝主本人の自称(قال أنه)に基づく報告。サハーウィーは中立に伝えるのみで裏付けを示していないため、4relationとも cert="medium"。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: يونس
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: مسعود
+- id: m5
+  kind: name
+  ref: TMP-N-00445
+  quote: القلعي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: place
+  quote: العقيبة الصغرى
+  ref: TMP-L-00212
+  norm: العقيبة الصغري
+- id: m10
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m11
+  kind: year
+  value: '750'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: TMP-P-000834
+  quote: المحاسن يوسف بن محمد القباني
+- id: m13
+  kind: person
+  ref: TMP-P-000835
+  quote: الياسوفي
+- id: m14
+  kind: person
+  ref: TMP-P-000836
+  quote: وخليل القدسي
+  norm: خليل القدسي
+- id: m15
+  kind: person
+  ref: TMP-P-000837
+  quote: المحيوي الرحبي
 translation:
   ja: アリ・ブン・ユーヌス・ブン・ユースフ・ブン・マスウード・アル＝カルイー・アッ＝ディマシュキー・アッ＝シャーフィイー。ダマスクスのアキーバ・アス＝スグラに居住した。750年より前に生まれ、アブー・アル＝マハースィン・ユースフ・ブン・ムハンマド・アル＝カッバーニーのもとで『サヒーフ・アル＝ブハーリー』を聴聞し、アル＝ヤースフィーとハリール・アル＝クドゥシーのもとで『サヒーフ・ムスリム』の一部を、アル＝ムヒュウィー・アッ＝ラハビーのもとで『アッ＝シファー』を聴聞したと語った。ハディースを伝承し、我々の同僚の一部が彼から学んだ。彼はハンマーム・アル＝カウワースの近くで児童の教育（学塾教師）を行っていた。
   en: ʿAlī b. Yūnus b. Yūsuf b. Masʿūd al-Qalʿī al-Dimashqī al-Shāfiʿī, who resided in al-ʿUqayba al-Ṣughrā in Damascus. He was born before the year 750 AH. He stated that he heard the Ṣaḥīḥ al-Bukhārī from Abū al-Maḥāsin Yūsuf b. Muḥammad al-Qabbānī, some of the Ṣaḥīḥ Muslim from al-Yāswfī and Khalīl al-Qudsī, and al-Shifāʾ from al-Muḥyawī al-Raḥbī. He transmitted Hadith, and some of our companions took knowledge from him. He used to teach children near Hammām al-Qawwās.

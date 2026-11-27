@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00724
-    quote: الملكاوي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
@@ -30,8 +28,8 @@ death:
     cert: medium
   note:
     ja: 「سنة خمس」＝一の位のみの年 → 805、cert medium（標準規則）。805年シャウワール月＝1403-05-03〜05-31（h2g.py）、月精度で @when=1403-05（初版 1402 を訂正）。没地は原文になし（「بدمشق」は「أحد الفضلاء」にかかる）＝初版の placeName دمشق を除去（規則22(1)：居住地を死地に継続させない）。
-  quote: سنة
   phrase: مات في شوال سنة خمس
+  mention: m8
 persons:
 - id: p1
   label: أحمد
@@ -44,48 +42,82 @@ relations:
   subtype: father
   active: AIND-D10449#p1
   passive: AIND-D10449
-  quote: null
   note:
     ja: 規則3 (c')。父 أحمد は裸名。corpus の الشهاب أحمد بن راشد بن طرخان الملكاوي（#AIND-D00727、ダマスクス）は同ニスバだが、本項主の父とする根拠は原文にない。
 states:
 - id: s1
   type: office
   ref: wd:Q932945
-  quote: null
   note:
     ja: 「درس وخطب」の「خطب」。施設・地名は原文になし＝初版の placeName دمشق を除去（規則22(1)）。
   phrase: وخطب
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: أحد الفضلاء بدمشق
-  norm: احد الفضلاء بدمشق
+  - mention: m5
+  phrase: أحد الفضلاء بدمشق
+  mention: null
 - id: e2
   type: teaching
-  quote: درس
   note:
     ja: 教授は event type=teaching（規則50）。施設・地名は原文になし。初版の state office「مدرس」（TMP-O-00036、placeName دمشق）を置換。
   trigger: rule
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版は death の note に記すのみ＝event を追加。
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m9
 notes:
 - text: 「وكان يميل إلى اعتقاد الحنابلة مع الدين والخير」＝ハンバル派の信条（アキーダ）への傾きであって法学派の所属ではない＝madhhab affiliation を立てない。刊本「والخير . .」の重複した句点は原文のまま。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00724
+  quote: الملكاوي
+- id: m5
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m6
+  kind: event
+  quote: درس
+- id: m7
+  kind: month
+  value: 10
+  quote: شوال
+- id: m8
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: قاله
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ユースフ・ブン・アフマド、アル＝ジャマール、アル＝マルカーウィー、ダマスクスの優れた学者の一人。教鞭を執り、説教をした。信仰心と善良さを備え、ハンバル派の信条に傾いていた。（80）5年シャウワール月に没した。我らの師（イブン・ハジャル）が『インバー』でそう述べている。
   en: Yūsuf b. Aḥmad, al-Jamāl, al-Malkāwī, one of the accomplished scholars in Damascus. He taught and preached, and he inclined to the creed of the Ḥanbalīs, together with piety and goodness. He died in Shawwāl of the year [80]5. Our shaykh (Ibn Ḥajar) said this in his Inbāʾ.

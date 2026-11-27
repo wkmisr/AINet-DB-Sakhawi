@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m2
   - id: n2
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 862-12
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ar: مات بمكة في ذي الحجة سنة اثنتين وستين
     ja: 862-12＝1458-10-19 開始、月精度 1458-10（h2g.py。初版 @when="1458" は年精度）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: غثرا
@@ -35,28 +32,52 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06451#p1
+  active: m3
   passive: AIND-D06451
-  quote: غثرا
   note:
     ja: '規則3 (c'')。父 غثرا は corpus に本伝なし（hw.py「غثرا」「غثر」該当は本項のみ）、ID-Master 未登録。珍しい名だがナサブ・ニスバ・職の付帯情報が全くない裸名なので TMP-P は発行せず #NEEDID。初版は father relation なし。'
 states:
 - id: s1
   type: office
   ref: wd:Q242468
-  quote: null
   note:
     ja: 見出しの「الخياط」（仕立屋）。ID-Master 既登録 Office الخياطة＝wd:Q242468（repo 慣行）。ラベルを原文の語形に。
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D05979
   summary:
     ar: أرخهم ابن فهد
-  quote: null
   cert: medium
   note:
     ja: 'Pattern A。根拠は2項後の #AIND-D06453「مبارك عتيق أبا البركات بن الضيا ، مات في المحرم أو صفر سنة خمس وسبعين . أرخهم ابن فهد」の複数「أرخهم」＝情報源の記載のない連続する3項（#AIND-D06451・#AIND-D06452・#AIND-D06453）を指すと読む（規則58・60(a)、先例 D10016・D10017）。3人のうち最も遅い没年＝D06453 の 875（871＜875≤885）で振り分け → النجم عمر بن فهد #AIND-D05979、cert medium（event 側、規則43）。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m3
+  kind: person
+  ref: AIND-D06451#p1
+  quote: غثرا
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m6
+  kind: year
+  value: '862'
+  quote: سنة
 translation:
   ja: ムバーラク・アル＝マッキー、仕立屋、ブン・ガスラー。862年ズー・ル＝ヒッジャ月にマッカで没した。
   en: Mubārak al-Makkī, the tailor, b. Ghathrā. He died in Mecca in Dhū al-Ḥijja 862.

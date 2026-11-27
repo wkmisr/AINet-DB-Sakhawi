@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: خلف
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أحمد بن خلف
@@ -36,21 +34,38 @@ relations:
   subtype: father
   active: AIND-D06659#p1
   passive: AIND-D06659
-  quote: null
   note:
     ja: '父 أحمد بن خلف は汎用名で識別要素なし＝#NEEDID（規則3 (c'')）。hw.py「أحمد بن خلف」の #AIND-D00709「أحمد بن خلف شهاب الدين المصري ناظر المواريث」（「مات في جمادى الآخرة سنة اثنتين」）はニスバが合わず、子の言及もない＝同定しない（規則26）。初版は父 relation なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m5
   passive: AIND-D06659
   methods:
   - TMP-S-00008
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: خلف
+- id: m4
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ハラフ・アッ＝シャーミー。私たちの師（イブン・ハジャル）から学んだ者の一人。
   en: Muḥammad b. Aḥmad b. Khalaf al-Shāmī. One of those who learned from our shaykh (Ibn Ḥajar).

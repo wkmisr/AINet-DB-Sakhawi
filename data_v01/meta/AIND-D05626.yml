@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00471
-    quote: الحمصاني
+    mention: m3
   - id: n2
     type: laqab
-    quote: المقرئ
-    norm: المقرء
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 832-12-30
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     en: Killed in Mecca on Friday night (Thursday after sunset), the last day of Dhu al-Hijja.
-  quote: سنة
+  mention: m6
 states:
 - id: s1
   type: office
   ref: wd:Q3595924
-  quote: null
+  mention: null
 events:
 - id: e1
   type: other
@@ -47,29 +43,61 @@ events:
     cert: high
     type: other
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   summary:
     en: He was killed in Mecca.
-  quote: null
   cert: high
   note:
     en: On the night of Friday, the last day of Dhu al-Hijja.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m9
   note:
     en: Ibn Fahd recorded his death date.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00471
+  quote: الحمصاني
+- id: m4
+  kind: name
+  quote: المقرئ
+  norm: المقرء
+- id: m5
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m6
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリ・ブン・ムハンマド・アル＝ヒムサーニー・アル＝ムクリ。ヒジュラ暦832年ズー・アル＝ヒッジャの最終日の金曜の夜（木曜の日没後）、メッカにて殺害された。イブン・ファハドがその死を記録している。
   en: ʿAlī b. Muḥammad al-Ḥimṣānī al-Muqriʾ. He was killed on Friday night (Thursday after sunset), the last day of Dhu al-Hijja, in the year 832 AH in Mecca. His death was chronicled by Ibn Fahd.

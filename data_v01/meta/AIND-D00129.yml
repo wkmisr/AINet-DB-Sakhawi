@@ -11,33 +11,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01078
-    quote: الفزاري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00065
-    quote: الناصري
+    mention: m6
   - id: n3
     type: laqab
-    quote: البرهان
+    mention: m4
   - id: n4
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n5
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: سالم
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D00129
   methods:
   - TMP-S-00028
@@ -48,12 +45,11 @@ relations:
       type: learning
     places:
     - ref: gn:104515
-  quote: عندي
 states:
 - id: s1
   type: office
   ref: TMP-O-00064
-  quote: null
+  mention: null
 events:
 - id: e1
   type: religious
@@ -64,11 +60,11 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: حج
   cert: high
   note:
     en: performed hajj with al-Rajabiyya
   trigger: rule
+  mention: m7
 - id: e2
   type: learning
   date:
@@ -80,21 +76,57 @@ events:
     role: teacher
   places:
   - ref: gn:104515
-  quote: null
   cert: high
   note:
     en: attended some sessions with al-Sakhāwī there
+  mention: null
 - id: e3
   type: cultural
   persons:
-  - ref: TMP-P-000471
-    quote: الامشاطي
+  - mention: m10
   summary:
     en: |-
       al-Amshāṭī almost described him favorably (kāda al-Amshāṭī an
                       yaṣifahu bi-l-khayr).
-  quote: كاد الامشاطي أن يصفه بالخير
-  norm: كاد الامشاطي ان يصفه بالخير
+  phrase: كاد الامشاطي أن يصفه بالخير
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: سالم
+- id: m4
+  kind: name
+  quote: البرهان
+- id: m5
+  kind: name
+  ref: TMP-N-01078
+  quote: الفزاري
+- id: m6
+  kind: name
+  ref: TMP-N-00065
+  quote: الناصري
+- id: m7
+  kind: event
+  quote: حج
+- id: m8
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
+- id: m10
+  kind: person
+  ref: TMP-P-000471
+  quote: الامشاطي
 translation:
   ja: イブラーヒーム・ブン・スライマーン・ブン・サーリム。渾名（ブルハーン）を持つファザーリー。ナーシリー朝のタムルバーイのウスターダール。871年にラジャビーヤと共にハッジを履行し、その際私（＝サハーウィー）のもとでいくつかの講義を聴講した。穏やかな人物で、アル=アムシャーティーが彼を良い人物だと評しかけたほどだったという。800年頃の少し前か少し後に死去した。
   en: Ibrāhīm b. Sulaymān b. Sālim, al-Burhān al-Fazārī, Ustādār of Tamurbāy al-Nāṣirī. He performed the hajj with al-Rajabiyya in 871 H and attended some of my sessions there. He was a tranquil person, and al-Amshāṭī almost described him as good. He died shortly before or after the 880s AH.

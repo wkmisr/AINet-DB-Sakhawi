@@ -9,18 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00161
-    quote: الكركي
+    mention: m3
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: شاهين
     by: rule
-    ref: AIND-D03292
+    mention: m2
 relations:
 - id: r1
   type: scholarly
@@ -34,7 +31,6 @@ relations:
     date:
       ah: 825
       type: learning
-  quote: null
 - id: r2
   type: kin
   subtype: father
@@ -42,15 +38,13 @@ relations:
   passive: AIND-D00767
   summary:
     ar: شاهين العلائي قطلوبغا الكركي
-  quote: null
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D10471
+  active: m4
   passive: AIND-D00767
   summary:
     ar: يوسف بن شاهين الجمال أبو المحاسن الكركي（شقيق）
-  quote: سبط شيخنا
 - id: r4
   type: kin
   subtype: maternal_grandfather
@@ -58,7 +52,6 @@ relations:
   passive: AIND-D00767
   summary:
     ar: جده لأمه شيخنا ابن حجر العسقلاني（سبط، واستجاز له）
-  quote: null
 events:
 - id: e1
   type: learning
@@ -71,8 +64,32 @@ events:
     en: |-
       His maternal grandfather (our shaykh, Ibn Ḥajar) requested ijāzas on his
                   (Aḥmad's) behalf from a group of scholars (jamāʿa) in the year 825 AH.
-  quote: استجاز
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D03292
+  quote: شاهين
+- id: m3
+  kind: name
+  ref: TMP-N-00161
+  quote: الكركي
+- id: m4
+  kind: person
+  ref: AIND-D10471
+  quote: سبط شيخنا
+- id: m5
+  kind: event
+  quote: استجاز
+- id: m6
+  kind: year
+  value: '825'
+  quote: سنة
 translation:
   ja: アハマド・ブン・シャーヒーン・アル＝カラキーは、我らがシャイフ（イブン・ハジャル）の孫で、後に言及されるユースフの兄弟である。祖父が825年に彼のためにイジャーザを授与させた後、両親が存命中に死去した。
   en: Aḥmad b. Shāhīn al-Karakī was the grandson of our shaykh (Ibn Ḥajar) and the brother of Yusuf (who will be mentioned later). He died during the lifetime of his parents, after his grandfather had arranged for him to receive an ijāza from a group of scholars in the year 825.

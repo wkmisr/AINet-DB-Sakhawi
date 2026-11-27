@@ -9,51 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01242
-    quote: الجناني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m6
   - id: n3
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: منصور
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
     ah: 861-05-01
   places:
-  - ref: gn:104515
-    quote: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m10
+  - role: burial
+    mention: m14
   note:
     ja: 「مستهل جمادى الأولى سنة إحدى وستين」＝861-05-01＝1457-04-05（日曜、h2g）。初版の年精度 @when 1457 を日精度に。「مات بها」の بها＝直前の مكة（照応、cert 不要、規則22(3)）。
-  quote: سنة
   phrase: مات بها في مستهل جمادى الأولى سنة إحدى وستين ودفن بالمعلاة
+  mention: m13
 persons:
 - id: p1
   label: أبو بكر بن منصور بن أبي بكر الجناني
@@ -66,30 +57,26 @@ relations:
   subtype: father
   active: AIND-D10006#p1
   passive: AIND-D10006
-  quote: null
   note:
     ja: 規則3 (c')。父 أبو بكر بن منصور الجناني は corpus に本伝なし（hw.py「أبو بكر بن منصور」該当なし）・ID-Master 未登録、クンヤ名＋父名＋ニスバのみで識別要素なし。الشيخ سليم（#AIND-D03180）の娘婿にあたる（本項主が「سبط الشيخ سليم」）。
 - id: r2
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D03180
+  active: m8
   passive: AIND-D10006
-  quote: الشيخ سليم
   note:
     ja: '「سبط الشيخ سليم」＝#AIND-D03180「1027 سليم ككبير بن عبد الرحمن بن سليم العسقلاني الأصل الجناني … القاهري الأزهري」（没840）。ニスバ索引 #AIND-D11576「الجناني … سليم بن عبد الرحمن بن سليم وابن ابنته منصور بن أبي بكر」が本項主を「その娘の子 منصور بن أبي بكر」と名指しして閉合。初版は grandfather #NEEDID。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D07181
+  active: m11
   passive: AIND-D10006
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: الفتح المراغي
+    - mention: m10
   note:
     ja: 「وكان بها في مجاورتي الأولى فسمع بقراءتي على أبي الفتح المراغي」＝サハーウィーの最初のマッカ滞在（مجاورتي الأولى）中、サハーウィーの読み上げで أبو الفتح المراغي（#AIND-D07181。初版の TMP-P-000003 は名寄せ済み番号、規則36）から聴講。読み手サハーウィーは師ではないので relation を立てない（規則55「سمع معنا」と同じ。初版の colleague relation wd:Q4120128 を除去）。
 affiliations:
@@ -100,11 +87,66 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: قطن
+  - mention: m10
   trigger: rule
   phrase: قطن مكة مدة
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: منصور
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  ref: TMP-N-01242
+  quote: الجناني
+- id: m6
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D03180
+  quote: الشيخ سليم
+- id: m9
+  kind: event
+  quote: قطن
+- id: m10
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m11
+  kind: person
+  ref: AIND-D07181
+  quote: الفتح المراغي
+- id: m12
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m13
+  kind: year
+  value: '861'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: マンスール・ブン・アビー・バクル・ブン・マンスール・ブン・アビー・バクル・アル＝ジャナーニー・アル＝アズハリー・アッ＝シャーフィイー、シャイフ・サリームの娘の子（スィブト）。しばらくマッカに住み、私（サハーウィー）の最初の（マッカ）滞在のときそこにいて、私の読み上げによりアブー・アル＝ファトフ・アル＝マラーギーから聴講した。861年ジュマーダー第一月朔日にそこ（マッカ）で没し、アル＝マアラーに埋葬された。
   en: Manṣūr b. Abī Bakr b. Manṣūr b. Abī Bakr al-Janānī al-Azharī al-Shāfiʿī, daughter's son of Shaykh Salīm. He resided in Mecca for a time and was there during my first sojourn (mujāwara), when he heard from Abū al-Fatḥ al-Marāghī through my reading. He died there on the first of Jumādā I 861 and was buried at al-Muʿallā.

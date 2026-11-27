@@ -9,19 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00457
-    quote: القسنطيني
+    mention: m3
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي القسم
     by: rule
-    ref: TMP-P-001010
-    norm: ابو القسم
+    mention: m2
 relations:
 - id: r1
   type: kin
@@ -30,7 +26,6 @@ relations:
   passive: AIND-D01169
   summary:
     ar: أبو القسم
-  quote: null
   note:
   - lang: ja
     type: review
@@ -38,15 +33,35 @@ relations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: ذكره
+  - mention: m5
   note:
   - lang: ja
     type: review
     text: '第三者の言及（ذكره ... أيضا）を Pattern A mention event に是正（§4-2）。言及者 ابن عزم = #TMP-P-000351。'
   trigger: rule
   phrase: ذكره ابن عزم أيضا
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-001010
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m3
+  kind: name
+  ref: TMP-N-00457
+  quote: القسنطيني
+- id: m4
+  kind: source
+  quote: ذكره
+- id: m5
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: アフマド・ブン・アビー・アル＝カースィム・アル＝クサンティーニー。イブン・アズムも彼に言及している。
   en: Aḥmad b. Abī al-Qāsim al-Qusanṭīnī. Ibn ʿAzm also mentioned him.

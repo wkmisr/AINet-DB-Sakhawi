@@ -9,57 +9,47 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01093
-    quote: الدواخلي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00134
-    quote: الغمري
+    mention: m6
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001220
+    mention: m2
   - id: n6
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04561
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m9
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001220
   passive: AIND-D04561
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001220 を発行（汎用名、TSV に流用禁止を明記）。
   phrase: محمد بن إسماعيل الدواخلي
@@ -69,10 +59,10 @@ states:
   ref: wd:Q932945
   orgs:
   - ref: TMP-I-00072
-  quote: null
   note:
     ja: 数日間のみ（أياما）。施設の所在地から補われた placeName القاهرة を除去（規則22(1)）。初版の affiliation（employed、同じ جامع الغمري）は state との二重符号化のため削除（規則8）。
   phrase: وخطب بجامع الغمري أياما
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -80,8 +70,45 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: وربما اشتغل
-  norm: ربما اشتغل
+  phrase: وربما اشتغل
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001220
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  ref: TMP-N-01093
+  quote: الدواخلي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00134
+  quote: الغمري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・イスマーイール・アッ＝ダワーヒリー、のちにアル＝カーヒリー、アル＝ガムリー、アッ＝シャーフィイー。カイロで私（サハーウィー）から聴聞した者の一人。時に学問に従事し、ガムリー・モスクで数日間フトバを行った。告げ口と争いを好むことで知られている。
   en: ʿAbd Allāh b. Muḥammad b. Ismāʿīl al-Dawākhilī, then al-Qāhirī, al-Ghamrī, al-Shāfiʿī. He was among those who heard from me (al-Sakhāwī) in Cairo. He occasionally engaged in study and delivered the Friday sermon at the Ghamrī Mosque for some days. He is noted for a fondness for tale-bearing and stirring up strife.

@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: حمزة فقيه الزيدية
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 864-04
   places:
-  - ref: TMP-L-00237
-    quote: بواسط من وادي مر
-    norm: واسط من وادي مر
-  - ref: TMP-L-00237
-    role: burial
-    quote: بواسط من وادي مر
-    norm: واسط من وادي مر
+  - mention: m5
+  - role: burial
+    mention: m5
   note:
     ar: مات في ربيع الآخر سنة أربع وستين بواسط من وادي مر ودفن هناك
     ja: 864年ラビーウ・アル＝アーヒル月＝1460年1月25日〜2月22日。月初の日の属する月 1460-01。ワーディー・マッル（マッカ北方）のワースィトで没し同地に埋葬。
-  quote: سنة
+  mention: m4
 states:
 - id: s1
   type: office
   ref: TMP-O-00255
-  quote: null
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -43,15 +39,41 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: Pattern A。没年864（≤871）のため規約11により التقي بن فهد（#AIND-D09211）、cert low。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: حمزة فقيه الزيدية
+- id: m3
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m4
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: بواسط من وادي مر
+  ref: TMP-L-00237
+  norm: واسط من وادي مر
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・ハムザ、ザイド派の法学者。864年ラビーウ・アル＝アーヒル月にワーディー・マッルのワースィトで没し、同地に埋葬された。イブン・ファハドが彼の没年を記録している。
   en: ʿAlī b. Ḥamza, the jurist (faqīh) of the Zaydīs. He died in Rabīʿ al-Ākhir of the year 864 at Wāsiṭ in Wādī Marr and was buried there. Ibn Fahd recorded his death date.

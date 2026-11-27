@@ -9,35 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05528
-    quote: الذويد
+    mention: m4
   - id: n2
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001702
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: قاسم
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 845-02
   places:
-  - ref: gn:104515
-    quote: خارج مكة
+  - mention: m7
   - ref: wd:Q42004
     role: burial
   note:
     ar: مات في صفر سنة خمس وأربعين خارج مكة وحمل فدفن بمعلاتها
     ja: 845-02＝1441-06-30 開始、月精度 1441-06（h2g.py。初版の年精度 1441 を是正）。「خارج مكة」（マッカの外）は repo 慣行（D01681・D08085）どおり gn:104515 を付して原文句のまま置く（初版は裸の「مكة」＝市内で没したことになるので是正）。遺体はマッカに運ばれ「معلاتها」＝المعلاة（wd:Q42004）に葬られた。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
@@ -46,7 +42,6 @@ relations:
   passive: AIND-D06440
   summary:
     ar: أحمد بن قاسم بن علي بن حسين بن قاسم الذويد
-  quote: null
   note:
     ja: '規則3・37。父 أحمد بن قاسم الذويد は corpus に本伝なし（hw.py「أحمد بن قاسم بن علي」「أحمد بن قاسم」＋「الذويد」該当なし）。ただし本伝のある兄弟項 #AIND-D10224a「يحيى بن أحمد بن قاسم بن علي بن حسين بن قاسم الذويد」（837没）・#AIND-D11061「أبو القسم بن أحمد بن قاسم بن علي بن حسين بن قاسم الذويد الشهير بالذيب」（868没）と父を共有し、祖父以下のナサブ（قاسم بن علي بن حسين بن قاسم）が復元できるため、先例（TMP-P-001539 البربهاري・TMP-P-001542 ابن درباس＝兄弟項共用の父）に倣い新規 TMP-P-001702 を発行（規則3「本伝のある兄弟項と共有する父」）。ID-Master の Person に「أحمد بن قاسم」＋الذويد の行なし。初版は father relation なし。兄弟 D10224a・D11061 は本項に名指しがなく父が TMP-P なので relation は立てない（規則23）。'
 - id: r2
@@ -56,13 +51,40 @@ relations:
   passive: AIND-D06440
   summary:
     ar: محمد بن مبارك بن أحمد بن قاسم الذويد
-  quote: null
   note:
     ja: '【集約 2026-11-08】子＝ #AIND-D08505「محمد بن مبارك بن أحمد بن قاسم بن علي بن حسين بن قاسم الذويد ويعرف بالبدري . مات بمكة في ليلة الجمعة خامس عشري رمضان سنة ثمان وستين」（未収録）。子の見出しナサブ6代（父 مبارك・祖父 أحمد・曾祖父 قاسم＋家名 الذويد）が本項主と閉合し、同ナサブの مبارك は corpus に本項主のみ＝規則23「親子は子の見出しナサブで relation 可」・規則37 により本項からも立てる（cert なし。内容A L）。'
 notes:
 - text: '同家（الذويد、マッカの一族。ニスバ索引 #AIND-D11232「الذويد كسعيد جماعة من مكة كيحيى بن أحمد بن قاسم ويحيى بن أحمد آخر」）: 兄弟とみられる #AIND-D10224a يحيى・#AIND-D11061 أبو القاسم（いずれも「بن أحمد بن قاسم بن علي بن حسين بن قاسم الذويد」）、甥とみられる #AIND-D09510「محمد بن يحيى بن أحمد بن قاسم الذويد」（867没）、子とみられる #AIND-D08505「محمد بن مبارك بن أحمد بن قاسم بن علي بن حسين بن قاسم الذويد ويعرف بالبدري」（868没）。D08505 は見出しナサブ6代が本項主と閉合する。【集約 2026-11-08】規則23（親子は子の見出しナサブで relation 可）により本項にも son relation を立てた。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  ref: TMP-P-001702
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: قاسم
+- id: m4
+  kind: name
+  ref: TMP-N-05528
+  quote: الذويد
+- id: m5
+  kind: month
+  value: 2
+  quote: صفر
+- id: m6
+  kind: year
+  value: '845'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: خارج مكة
+  ref: gn:104515
 translation:
   ja: ムバーラク・ブン・アフマド・ブン・カースィム・アッ＝ズワイド。845年サファル月にマッカの外で没し、運ばれてそのムアッラー墓地に葬られた。
   en: Mubārak b. Aḥmad b. Qāsim al-Dhuwayd. He died in Ṣafar 845 outside Mecca, and was carried and buried in its al-Muʿallā cemetery.

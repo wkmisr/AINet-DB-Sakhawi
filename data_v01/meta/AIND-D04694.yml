@@ -9,64 +9,91 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن المحب
-    norm: ابن المحب
     label: ابن المحب
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد المعطي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001252
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: المحب أبي الحسين
     by: rule
-    norm: المحب ابي الحسين
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001252
   passive: AIND-D04694
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行。兄弟 محمد（#AIND-D06811「محمد بن أحمد بن المحب بن الحسين علم الدين الشيرازي الاصل المدني أخو عبد المعطي الماضي」）の父でもある（統合時に同番号を充てること）。
   phrase: أحمد بن المحب أبي الحسين الشيرازي الأصل المدني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D06811
+  active: m6
   passive: AIND-D04694
-  quote: محمد
   note:
     ja: '「أخو محمد الآتي」＝ #AIND-D06811（محمد بن أحمد بن المحب بن الحسين علم الدين الشيرازي الأصل المدني ويعرف بابن المحب . ممن سمع مني بالمدينة。本項主を「أخو عبد المعطي الماضي」と明記）。初版の汚染番号 TMP-P-000529（別人の محمد）を差し替え。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04694
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عبد المعطي
+- id: m2
+  kind: name
+  ref: TMP-P-001252
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: المحب أبي الحسين
+  norm: المحب ابي الحسين
+- id: m4
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: AIND-D06811
+  quote: محمد
+- id: m7
+  kind: name
+  quote: بابن المحب
+  norm: ابن المحب
+- id: m8
+  kind: person
+  ref: wd:Q4120128
   quote: مني
+- id: m9
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブドゥルムウティー・ブン・アフマド・ブン・アル＝ムヒッブ・アビー・アル＝フサイン、シーラーズ出自のマディーナの人。後述のムハンマドの兄弟で、イブン・アル＝ムヒッブとして知られる。マディーナで私（サハーウィー）から聴聞した一人。
   en: ʿAbd al-Muʿṭī b. Aḥmad b. al-Muḥibb Abī al-Ḥusayn, of Shīrāzī origin, the Medinan, brother of Muḥammad who will be mentioned below, and known as Ibn al-Muḥibb. He was among those who heard from me (al-Sakhāwī) in Medina.

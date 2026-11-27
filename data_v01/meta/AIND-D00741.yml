@@ -9,63 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي السعادات
     by: rule
-    norm: ابو السعادات
+    mention: m2
   - id: n5
     type: nasab
-    quote: عادل
     by: rule
+    mention: m3
 birth:
   id: b
   date:
     ah: 867
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: سنة
+  - mention: m9
+  mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D00741
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m9
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04446
+  active: m6
   passive: AIND-D00741
-  quote: عبد الله
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D03634
+  active: m7
   passive: AIND-D00741
-  quote: وعبد الرحمن
-  norm: عبد الرحمن
   phrase: عبد الرحمن
 - id: r4
   type: kin
@@ -74,27 +62,23 @@ relations:
   passive: AIND-D00741
   summary:
     ar: عبد الكبير
-  quote: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m9
+  mention: null
 - id: e2
   type: cultural
   summary:
     en: memorized the Qurʾān
-  quote: وحفظ
   trigger: rule
-  norm: حفظ
+  mention: m10
 - id: e3
   type: cultural
   summary:
     en: memorized 『al-Qudurī』
-  quote: null
+  mention: null
 notes:
 - text: 本文は三人目の兄弟を「عبد الكريم」と記すが、これは「عبد الكبير」(AIND-D04237) の誤記。父 أبو السعادات (AIND-D10978) および他の兄弟項 AIND-D03634・AIND-D04446 がいずれも「عبد الكبير」と記し、本人項 AIND-D04237 自身も同綴りであることから、D00741 側の単独の誤記と判断した。
   lang: ja
@@ -102,6 +86,57 @@ notes:
 - text: The text names the third brother "ʿAbd al-Karīm," but this is a scribal error for "ʿAbd al-Kabīr" (AIND-D04237). The father's entry (Abū al-Saʿādāt, AIND-D10978) and the other brothers' entries (AIND-D03634, AIND-D04446), as well as the man's own entry (AIND-D04237), all read "ʿAbd al-Kabīr"; the discrepancy is therefore an isolated error in D00741.
   lang: en
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: أبي السعادات
+  norm: ابو السعادات
+- id: m3
+  kind: name
+  quote: عادل
+- id: m4
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: AIND-D04446
+  quote: عبد الله
+- id: m7
+  kind: person
+  ref: AIND-D03634
+  quote: وعبد الرحمن
+  norm: عبد الرحمن
+- id: m8
+  kind: year
+  value: '867'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m10
+  kind: event
+  quote: وحفظ
+  norm: حفظ
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: place
+  quote: بالمدينة النبوية
+  ref: gn:109223
+  norm: المدينة النبوية
 translation:
   ja: アブー・アッ＝サアーダート・ブン・アーディル・アル＝フサイニー・アル＝マダニーの息子アフマド。上述したアブドゥッラー、アブドゥッラフマーン、アブドゥルカリームの兄弟である。867年にマディーナで生まれ、クルアーンと『アル＝クドゥーリー』を暗記し、少しばかり学問に励んだ。彼は、聖なる預言者の町マディーナで私（サハーウィー）から聞いた者たちの一人である。
   en: Aḥmad b. Abī al-Saʿādāt b. ʿĀdil al-Ḥusaynī al-Madanī, brother of the aforementioned ʿAbd Allāh, ʿAbd al-Raḥmān, and ʿAbd al-Karīm. He was born in 867 H in Medina, memorized the Qurʾān and 『al-Qudurī』, and studied a little. He was among those who heard from me (al-Sakhāwī) in the Prophetic city of Medina.

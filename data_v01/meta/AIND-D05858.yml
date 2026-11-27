@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02574
-    quote: المقراني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m5
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   date:
@@ -46,7 +42,7 @@ death:
     ah: 888
   note:
     ja: 「مات سنة ثمان وثمانين عن ست وسبعين سنة」。888 ＝ 1483-02-18〜1484-02-07（h2g.py、年のみ→年初）。享年76。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: الأهدل
@@ -55,25 +51,22 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05858#p1
+  active: m8
   passive: AIND-D05858
   methods:
   - TMP-S-00025
-  quote: الأهدل
   note:
     ja: '「وأنه قرأ على الأهدل」。الأهدل はイエメンの一族名のみで人物を特定できない → #NEEDID 維持（規則12）。息子 D03945 の本文「ذكر لي أن والده كان فقيها قرأ على الاهدل」が情報源。'
-  norm: الاهدل
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D05858
-  passive: AIND-D03945
+  passive: m7
   methods:
   - TMP-S-00009
   fields:
   - wd:Q484181
   cert: medium
-  quote: عبد الصمد
   note:
     ja: '息子 #AIND-D03945 の本文「فاضل اشتغل على أبيه في الفقه وغيره」が本項主を一意に父として明記 → 規則23により cert medium で補う（active ＝ 師 ＝ 本項主）。'
 - id: r3
@@ -81,7 +74,6 @@ relations:
   subtype: son
   active: AIND-D03945
   passive: AIND-D05858
-  quote: null
   note:
     ja: '「والد عبد الصمد الماضي له ذكر فيه」。息子 ＝ #AIND-D03945（عبد الصمد بن عمر بن عبد الرحمن بن أحمد المقراني اليماني الشافعي ويعرف بأبي نبيلة、repo 収録済み・父 relation に #AIND-D05858 を置く）で双方向に閉合。初版 #NEEDID。'
   phrase: عبد الصمد
@@ -90,13 +82,49 @@ states:
   type: status
   label: فقيه
   label_latn: faqīh
-  quote: null
   note:
     ja: 「وكان فقيها」。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-02574
+  quote: المقراني
+- id: m5
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: AIND-D03945
+  quote: عبد الصمد
+- id: m8
+  kind: person
+  ref: AIND-D05858#p1
+  quote: الأهدل
+  norm: الاهدل
+- id: m9
+  kind: year
+  value: '888'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アブド・アッ＝ラフマーン・ブン・アフマド・アル＝ムクラーニー・アル＝ヤマーニー・アッ＝シャーフィイー。前述のアブド・アッ＝サマドの父。その（息子の）項に彼への言及があり、彼がアル＝アフダルのもとで学び（読誦し）、法学者であったこと、888年に76歳で没したことが記されている。
   en: ʿUmar b. ʿAbd al-Raḥmān b. Aḥmad al-Muqrānī al-Yamānī al-Shāfiʿī, the father of ʿAbd al-Ṣamad, mentioned previously. He is mentioned in his son's entry, where it is stated that he read under al-Ahdal, that he was a jurist, and that he died in the year 888 at the age of seventy-six.

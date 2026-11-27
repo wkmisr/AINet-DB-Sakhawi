@@ -9,87 +9,117 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00096
-    quote: البرماوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00029
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D00029
   passive: AIND-D06482
-  quote: null
   note:
     ja: '父 ＝ #AIND-D00029「إبراهيم بن أحمد بن عبد اللطيف بن نجم بن عبد المعطي البرماوي والد الفخر عثمان وإخوته」（806没、repo 収録済）。本項主は「أخو عثمان وعبد الرحمن وعبد الغني」＝الفخر عثمان の兄弟（وإخوته）なので D00029 の子。ナサブ＋ニスバ＋兄弟の名指しで閉合（規則37）。'
   phrase: إبراهيم بن أحمد البرماوي
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04829
+  active: m6
   passive: AIND-D06482
-  quote: عثمان
   note:
     ja: '＝ #AIND-D04829「عثمان بن إبراهيم بن أحمد بن عبد اللطيف بن نجم بن عبد المعطي الفخر أبو محمد البرماوي … أخو عبد الغني ووالد الشهاب أحمد」（本項の「المذكورين」）。'
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D03538
+  active: m7
   passive: AIND-D06482
-  quote: وعبد الرحمن
   note:
     ja: '＝ #AIND-D03538「عبد الرحمن بن إبراهيم بن أحمد بن عبد اللطيف بن نجم بن عبد المعطي البرماوي ثم القاهري أخو الفخر عثمان وعبد الغني الآتيين」（repo 収録済）。'
-  norm: عبد الرحمن
   phrase: عبد الرحمن
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D04049
+  active: m8
   passive: AIND-D06482
-  quote: وعبد الغني
   note:
     ja: '＝ #AIND-D04049「عبد الغني بن إبراهيم بن أحمد بن عبد اللطيف بن الشيخ نجم الدين نجم بن عبد المعطي تقي الدين … البرماوي ثم القاهري الشافعي أخو الفخر عثمان الآتي」（789頃生・856没）。'
-  norm: عبد الغني
   phrase: عبد الغني
 events:
 - id: e1
   type: learning
-  quote: أسمعه أخوه على جماعة
   note:
     ja: どの兄弟が聴講させたかは原文に名がなく（「أخوه」）、師も「جماعة」で無名のため relation は立てない（規則14）。初版の teacher relation（TMP-P-000000）を除去。
-  norm: اسمعه اخوه علي جماعة
+  phrase: أسمعه أخوه على جماعة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: وذكره
+  - mention: m10
   note:
     ja: 'Pattern A。البقاعي ＝ #AIND-D00207（ブリーフ頻出ID）。初版の統制外 relation「other」を置換。「مجردا」＝詳述なしに名のみ挙げた。'
   trigger: rule
-  norm: ذكره
   phrase: وذكره البقاعي مجردا
+  mention: m9
 notes:
 - text: '甥 #AIND-D00957「أحمد بن عثمان بن إبراهيم … الشهاب بن الفخر البرماوي」は本項主を名指ししないため relation は立てない（規則23）。生没年・職の記載なし。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00029
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00096
+  quote: البرماوي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: person
+  ref: AIND-D04829
+  quote: عثمان
+- id: m7
+  kind: person
+  ref: AIND-D03538
+  quote: وعبد الرحمن
+  norm: عبد الرحمن
+- id: m8
+  kind: person
+  ref: AIND-D04049
+  quote: وعبد الغني
+  norm: عبد الغني
+- id: m9
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m10
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アフマド・アル＝ビルマーウィー・アル＝カーヒリー。既述のウスマーン、アブド・アッラフマーン、アブド・アル＝ガニーの兄弟。兄弟が彼を一群（の師）のもとで聴講させた。アル＝ビカーイーが彼を（詳述なしに）名だけ挙げている。
   en: Muḥammad b. Ibrāhīm b. Aḥmad al-Birmāwī al-Qāhirī, brother of the aforementioned ʿUthmān, ʿAbd al-Raḥmān and ʿAbd al-Ghanī. His brother had him hear from a group [of shaykhs], and al-Biqāʿī mentioned him by name only, without details.

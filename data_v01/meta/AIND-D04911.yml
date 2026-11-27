@@ -9,66 +9,91 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01504
-    quote: الموزعي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n4
     type: ism
-    quote: عفيف
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001325
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: الصديق
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001325
   passive: AIND-D04911
-  quote: null
   note:
     ja: 父。見出しナサブから復元（統一規則3）。corpus 見出し（父の名＋ニスバ）・ID-Master を再検索し本伝・既登録なし。集約時に追加（校閲版は父 relation 欠落。B94・B97 と同じ基準に統一）。
   phrase: أحمد بن الصديق الموزعي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04911
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m9
     phrase: ممن سمع مني بالمدينة
-  quote: مني
 states:
 - id: s1
   type: office
-  ref: TMP-O-00033
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: الفراش
+  - mention: m9
   note:
     ja: 「المدني الفراش بها」。「بها」の先行詞はニスバ المدني が指すマディーナ（規則22(3)の照応による指示、先行詞がニスバのみでも cert 不要＝B89-93 裁定 §D92-5。集約時に cert medium を除去）。
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عفيف
+- id: m2
+  kind: name
+  ref: TMP-P-001325
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الصديق
+- id: m4
+  kind: name
+  ref: TMP-N-01504
+  quote: الموزعي
+- id: m5
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: office
+  ref: TMP-O-00033
+  quote: الفراش
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アフィーフ・ブン・アフマド・ブン・アッ＝スィッディーク、アル＝マウザイー、アル＝ヤマーニー、アル＝マダニー、同地（マディーナ）のファッラーシュ（敷物係）。マディーナで私（サハーウィー）から聴聞した者の一人。
   en: ʿAfīf b. Aḥmad b. al-Ṣiddīq al-Mawzaʿī al-Yamānī al-Madanī, the farrāsh (attendant in charge of furnishings) there (in Medina). He is among those who heard from me in Medina.

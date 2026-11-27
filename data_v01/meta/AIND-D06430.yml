@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: ماجي
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد ماجي نزيل جامع الأزهر
@@ -21,25 +21,34 @@ relations:
   subtype: father
   active: AIND-D06430#p1
   passive: AIND-D06430
-  quote: null
   note:
     ja: '父の名は刊本で欠字「بن ...」（規則45＝原文のまま、補わない・TMP-P を発行しない）→ #NEEDID（規則3）。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: wd:Q312342
-    quote: جامع الأزهر
-    norm: جامع الازهر
-  quote: نزيل
+  - mention: m3
   note:
     ja: '「نزيل جامع الأزهر」＝アズハル・モスク（wd:Q312342、ID-Master 登録済み）に寄寓。repo 先例 #AIND-D01147（residence event＋placeName wd:Q312342）に揃え、初版の affiliation（type reside）を event に変換。'
   trigger: rule
   phrase: نزيل جامع الأزهر
+  mention: m2
 notes:
 - text: 刊本に立項番号がなく、本文は見出しの一行のみ（父名欠字）。没年・没地等の記載なし。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ماجي
+- id: m2
+  kind: event
+  quote: نزيل
+- id: m3
+  kind: place
+  quote: جامع الأزهر
+  ref: wd:Q312342
+  norm: جامع الازهر
 translation:
   ja: マージー・ブン・……（以下欠）。アズハル・モスクの寄寓者。
   en: Mājī b. ... (lacuna), resident of the al-Azhar Mosque.

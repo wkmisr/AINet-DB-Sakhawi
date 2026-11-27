@@ -9,60 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00120
-    quote: الكازروني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m8
   - id: n3
     type: shuhrah
-    quote: بابن تقي
-    norm: ابن تقي
     label: ابن تقي
+    mention: m10
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10856
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي الفتح محمد
     by: rule
-    norm: ابو الفتح محمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد تقي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: روزبة
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D07255
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m11
     phrase: ممن سمع بالمدينة مني
-  quote: مني
   note:
     ja: 規則2。原文にない field الحديث を除去。
 - id: r2
@@ -72,20 +63,65 @@ relations:
   passive: AIND-D07255
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: '「وقبل ذلك سمع على فاطمة ابنة أبي اليمن المراغي」＝#AIND-D13487（女性部「فاطمة ابنة الجمال أبي اليمن محمد بن الزين أبي بكر بن الحسين أم الحسين ابنة المراغي … وماتت في سنة ثمان وسبعين」）。父の本伝 #AIND-D10856 によれば彼女は本項主の父方祖母（「وأمه فاطمة ابنة أبي اليمن المراغي」）だが、本項には続柄の記載がないため grandmother relation は立てず note に留める（規則23）。初版は #NEEDID。'
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D10856
+  active: m9
   passive: AIND-D07255
   summary:
     ar: أبو بكر بن أبي الفتح محمد بن محمد تقي الكازروني
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」＝クンヤ部 #AIND-D10856「أبو بكر بن الشيخ فتح الدين أبي الفتح محمد بن محمد تقي بن عبد السلام الكازروني المدني الشافعي أخو الشمس محمد وعبد السلام وأبو بكر أصغرهم وأمه فاطمة ابنة أبي اليمن المراغي . ولد سنة سبع وأربعين بالمدينة」（未受領）。見出しナサブ（أبي الفتح محمد بن محمد تقي）が一致。同じクンヤ部に短い #AIND-D10792「أبو بكر بن أبي الفتح الكازروني المدني سبط أبي اليمن المراغي أمه فاطمة . سمع عليها في سنة ثمان وسبعين」があり同一人物の二重立項とみられる（§D131-4）。初版の汚染番号 TMP-P-000064（أبو بكر 汎用）を解消。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D10856
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: أبي الفتح محمد
+  norm: ابو الفتح محمد
+- id: m4
+  kind: name
+  quote: محمد تقي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: روزبة
+- id: m7
+  kind: name
+  ref: TMP-N-00120
+  quote: الكازروني
+- id: m8
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m9
+  kind: person
+  ref: AIND-D10856
+  quote: أبوه
   norm: ابوه
+- id: m10
+  kind: name
+  quote: بابن تقي
+  norm: ابن تقي
+- id: m11
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アビー・アル＝ファトフ・ムハンマド・ブン・ムハンマド・タキー・ブン・ムハンマド・ブン・ルーズバ、アル＝カーザルーニー・アル＝マダニー。その父は後述。先祖と同様にイブン・タキーとして知られる。マディーナで私から聴聞した者の一人で、それ以前にアブー・アル＝ヤマン・アル＝マラーギーの娘ファーティマから聴聞した。
   en: Muḥammad b. Abī Bakr b. Abī al-Fatḥ Muḥammad b. Muḥammad Taqī b. Muḥammad b. Rūzba al-Kāzarūnī al-Madanī; his father comes below. Like his forebears he was known as Ibn Taqī. He is among those who heard from me in Medina, and before that he heard from Fāṭima bt. Abī al-Yaman al-Marāghī.

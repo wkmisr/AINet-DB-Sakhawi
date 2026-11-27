@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قجقار
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -18,7 +18,7 @@ death:
     cert: medium
   note:
     ja: 「مات في ربيع الأول سنة ثلاث」＝一の位のみの年は 80X＝803 年ラビーウ第一月（月初 1400-10-29、月精度）、cert medium（標準規則。言及者 العيني の年代と整合）。初版の @when 1400（年精度）を月精度に。没地の記載なし。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قجقار رأس نوبة
@@ -29,33 +29,56 @@ relations:
   subtype: father
   active: AIND-D06309#p1
   passive: AIND-D06309
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00107
-  quote: رأس نوبة
   note:
     ja: 見出し「قجقار رأس نوبة」＝汎用 رأس نوبة（TMP-O-00107、規則48。実体一致）。
-  norm: راس نوبة
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: الأمراء العشرات
-  norm: الامراء العشرات
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m7
   note:
     ja: Pattern A。العيني＝بدر الدين العيني（#AIND-D09832、corresp wd:Q257745、先例 D06269）。初版の統制外 subtype「mentioned by」relation（wd:Q257745 単独）を event に。
   trigger: rule
   phrase: ذكره العيني
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: قجقار
+- id: m2
+  kind: office
+  ref: TMP-O-00107
+  quote: رأس نوبة
+  norm: راس نوبة
+- id: m3
+  kind: office
+  ref: TMP-O-00101
+  quote: الأمراء العشرات
+  norm: الامراء العشرات
+- id: m4
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m5
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: カジュカール、ラアス・ナウバ、十人長（アミール・アシャラ）の一人。（8）03年ラビーウ第一月に没した。アル＝アイニーが彼に言及している。
   en: Qajqār, raʾs nawba, one of the amīrs of ten. He died in Rabīʿ I of the year [80]3. Al-ʿAynī mentioned him.

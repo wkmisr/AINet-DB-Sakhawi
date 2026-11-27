@@ -9,21 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00311
-    quote: الأردبيلي
-    norm: الاردبيلي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00155
-    quote: الشرواني
+    mention: m4
   - id: n3
     type: laqab
-    quote: الصلاح
+    mention: m2
   - id: n4
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
 persons:
 - id: p1
   label: والد موسى الصلاح الأردبيلي
@@ -34,21 +30,40 @@ relations:
   subtype: father
   active: AIND-D10101#p1
   passive: AIND-D10101
-  quote: null
   note:
     ja: '原文に父名が全く出ない単名の項＝規則3（Waka 裁定 2026-10-21 B124-128 ★1）により #NEEDID の father relation を立て、desc は「والد＋本項主の呼称」書式。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D10101
-  passive: AIND-D04690
+  passive: m5
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00054
-  quote: عبد المحسن بن عبد الصمد
   note:
     ja: '「أخذ عنه بلديه عبد المحسن بن عبد الصمد المنطق وغيره」＝同郷人 عبد المحسن بن عبد الصمد が本項主から論理学などを学んだ（本項主＝師＝active、規則15）。学生＝#AIND-D04690「عبد المحسن بن عبد الصمد بن لطف الله بن محمد بن حسن حميد الدين الشرواني الشافعي نزيل مكة . أخذ الفقه والنحو والمنطق عن خاله … والمنطق أيضا وغيره عن الصلاح موسى الأردبيلي ثم الشرواني」（相手側がラカブ・名・ニスバ2つで本項主を名指し＝閉合、規則57）。初版 #NEEDID。「وغيره」（他の学科）は field にしない。'
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: الصلاح
+- id: m3
+  kind: name
+  ref: TMP-N-00311
+  quote: الأردبيلي
+  norm: الاردبيلي
+- id: m4
+  kind: name
+  ref: TMP-N-00155
+  quote: الشرواني
+- id: m5
+  kind: person
+  ref: AIND-D04690
+  quote: عبد المحسن بن عبد الصمد
 translation:
   ja: ムーサー・アッ＝サラーフ・アル＝アルダビーリー、のちアッ＝シルワーニー。同郷人のアブド・アル＝ムフスィン・ブン・アブド・アッ＝サマドが彼から論理学などを学んだ。
   en: Mūsā al-Ṣalāḥ al-Ardabīlī, then al-Shirwānī. His compatriot ʿAbd al-Muḥsin b. ʿAbd al-Ṣamad studied logic and other subjects under him.

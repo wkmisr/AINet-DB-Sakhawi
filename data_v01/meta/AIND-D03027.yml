@@ -9,54 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-05484
-    quote: بالعيني
-    norm: العيني
+    mention: m4
   - id: n4
     type: shuhrah
-    quote: null
     label: العيني
+    mention: null
   - id: n5
     type: ism
-    quote: ريحان
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 816
   places:
-  - ref: TMP-L-00041
-    quote: بزبيد
-    norm: زبيد
+  - mention: m7
   note:
     en: He died in Ramadan or Shawwal 816 AH in Zabid.
-  quote: سنة
+  mention: m10
 states:
 - id: s1
   type: office
-  ref: TMP-O-00124
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: أمر المكس
-  norm: امر المكس
+  - mention: m6
+  mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: null
+  - mention: m6
+  mention: null
 - id: e2
   type: visit
   date:
@@ -64,31 +52,82 @@ events:
     cert: high
     type: visit
   places:
-  - ref: TMP-L-00041
-    quote: بزبيد
-    norm: زبيد
-  quote: null
+  - mention: m7
   cert: high
   note:
     en: Died there in 816 AH.
+  mention: null
 - id: e3
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m13
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    role: mentioner
-    quote: الفاسي
-  quote: ذكره
+  - role: mentioner
+    mention: m12
   note:
     en: Al-Fāsī mentioned him in his biographical dictionary of Mecca.
     ja: 第三者による言及・記録(Pattern A)。
   trigger: rule
   phrase: الفاسي
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: ريحان
+- id: m2
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: name
+  ref: TMP-N-05484
+  quote: بالعيني
+  norm: العيني
+- id: m5
+  kind: office
+  ref: TMP-O-00124
+  quote: أمر المكس
+  norm: امر المكس
+- id: m6
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m7
+  kind: place
+  quote: بزبيد
+  ref: TMP-L-00041
+  norm: زبيد
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: month
+  value: 10
+  quote: شوال
+- id: m10
+  kind: year
+  value: '816'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
+- id: m13
+  kind: place
+  quote: مكة
+  ref: gn:104515
 translation:
   ja: ライハーン・アル＝ハバシー・アル＝マッキー、別名アル＝アイニー。アリー・ブン・アジュラーン・サイイドの統治期に、ジッダの関税（マクス）徴収官に任じられた。富と不動産を築いたが、その大部分を失った。気高き人物であった。816年ラマダーン月、またはシャウワール月にザビードにて没した。アル＝ファースィーがメッカ（の歴史書）において彼について言及している。
   en: Rayḥān al-Ḥabashī al-Makkī, known as al-ʿAynī. He was appointed as the customs officer (amr al-maks) of Jidda during the reign of al-Sayyid ʿAlī b. ʿAjlān, and acquired wealth and properties, most of which he subsequently lost. He was a man of chivalry. He died in Zabīd in Ramaḍān or Shawwāl of the year 816 AH. Al-Fāsī mentioned him in his history of Mecca.

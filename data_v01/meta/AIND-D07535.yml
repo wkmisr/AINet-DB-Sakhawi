@@ -9,59 +9,84 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بابن وهيب
-    norm: ابن وهيب
     label: ابن وهيب
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: TMP-P-001173
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D07535
   methods:
   - TMP-S-00003
-  quote: فسمع علي معه أشياء
   note:
     ja: '「سمع علي」は直後に人名が続かないため「عليّ（私＝サハーウィーに）」と読む（B87 §D-18 先例）。叔父 #AIND-D06722 の本伝「وأسمع ابن أخيه محمد بن عبد الرحمن」（894年のマッカ滞在中）と整合するが、本項の原文は聴聞の場所を明示しないため placeName は付けない。原文にない field(الحديث) を除去。'
-  norm: فسمع علي معه اشياء
 - id: r2
   type: kin
   subtype: uncle
-  active: AIND-D06722
+  active: m6
   passive: AIND-D07535
   summary:
     ar: ابن أخي الشمس محمد بن أحمد … كان مع عمه وفي كفالته بعد موت أبيه
-  quote: عمه
   note:
     ja: '叔父＝#AIND-D06722（محمد بن أحمد بن عبد الوهاب الشمس أبو عبد الله البرلسي التاجر ويعرف بابن وهيب、893年に巡礼し894年にマッカに滞在）。同項「وأسمع ابن أخيه محمد بن عبد الرحمن」で本項主に閉合。初版の #NEEDID を解消し、同一人物への重複 relation（統制外 subtype="patron"）を本 relation に統合（後見 كفالة は desc に保持）。'
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-001173
+  active: m7
   passive: AIND-D07535
-  quote: أبيه
   note:
     ja: '見出しナサブから「عبد الرحمن بن أحمد بن عبد الوهاب」（叔父 #AIND-D06722 の兄弟＝البرلسي・ابن وهيب 家）を復元し仮番号 TMP-P-001173 を発行（統一規則3）。（八百）九十四年にマッカで没（「بعد موت أبيه بمكة سنة أربع وتسعين」）。corpus に本伝なし。'
-  norm: ابيه
   phrase: عبد الرحمن بن أحمد بن عبد الوهاب
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001173
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عبد الوهاب
+- id: m5
+  kind: name
+  quote: بابن وهيب
+  norm: ابن وهيب
+- id: m6
+  kind: person
+  ref: AIND-D06722
+  quote: عمه
+- id: m7
+  kind: person
+  ref: TMP-P-001173
+  quote: أبيه
+  norm: ابيه
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: فسمع علي معه أشياء
+  norm: فسمع علي معه اشياء
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・アフマド・ブン・アブドゥルワッハーブ、アッ＝シャムス・ムハンマド・ブン・アフマドの甥で、イブン・ウハイブとして知られる。（八百）九十四年にマッカで父が没した後、叔父とともにあってその後見下に置かれ、彼とともに私（サハーウィー）からいくつかのものを聴聞した。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Aḥmad b. ʿAbd al-Wahhāb, nephew of al-Shams Muḥammad b. Aḥmad, known as Ibn Wuhayb. After his father's death in Mecca in the year (8)94 he was with his paternal uncle and under his guardianship, and together with him he heard some things from me (al-Sakhāwī).

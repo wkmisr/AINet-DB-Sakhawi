@@ -9,25 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00851
-    quote: النابتي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00134
-    quote: الغمري
+    mention: m5
   - id: n3
     type: kunyah
-    quote: أبو عبد القادر
-    norm: ابو عبد القادر
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 persons:
 - id: p1
   label: أحمد
@@ -40,7 +36,6 @@ relations:
   subtype: father
   active: AIND-D07061#p1
   passive: AIND-D07061
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
@@ -55,23 +50,52 @@ relations:
     date:
       ah: 895
       type: learning
-  quote: null
   note:
     ja: 「ممن سمع على في سنة خمس وتسعين」＝「سمع عليّ（私に）」（على の直後に人名が来ない＝サハーウィーから聴聞、標準規則）。895年＝1489-12-04〜1490-11-22（h2g.py）→ @when は年初の 1489（規則18）。場所の記述なし。
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m7
   orgs:
   - ref: TMP-I-00072
-  quote: نزيل
   note:
     ja: 「جامعه」＝ニスバ الغمري の由来となる محمد الغمري のモスク＝カイロの جامع الغمري（TMP-I-00072）。القاهرة は原文「بالقاهرة」に明記。初版の affiliation type="reside"（同モスク）は residence event との二重符号化のため除去（規則8）。
   trigger: rule
   phrase: نزيل جامعه بالقاهرة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أبو عبد القادر
+  norm: ابو عبد القادر
+- id: m4
+  kind: name
+  ref: TMP-N-00851
+  quote: النابتي
+- id: m5
+  kind: name
+  ref: TMP-N-00134
+  quote: الغمري
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m8
+  kind: year
+  value: '895'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・アブー・アブド・アル＝カーディル・アン＝ナービティー・アル＝ガムリー、カイロの彼（アル＝ガムリー）のモスクの寄留者。（8）95年に私から聴聞した者の一人。
   en: Muḥammad b. Aḥmad Abū ʿAbd al-Qādir al-Nābitī al-Ghamrī, resident of his (al-Ghamrī's) mosque in Cairo. He was among those who heard from me in the year (8)95.

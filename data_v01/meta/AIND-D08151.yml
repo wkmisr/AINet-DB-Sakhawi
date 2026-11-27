@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00112
-    quote: البغدادي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m7
 death:
   id: d
   date:
@@ -44,7 +40,7 @@ death:
     cert: medium
   note:
     ja: 「مات ظنا سنة بضع وخمسين」＝850年代（851〜859）の推定（ظنا → cert medium）。notBefore 851＝1447-03-28 開始 → 1447、notAfter 859 の年末＝1455-12-19 → 1455。初版の when-custom="850s" when="1446" を範囲属性に改めた。
-  quote: سنة بضع وخمسين
+  mention: m10
 persons:
 - id: p1
   label: علي بن عيسى
@@ -57,7 +53,6 @@ relations:
   subtype: father
   active: AIND-D08151#p1
   passive: AIND-D08151
-  quote: null
   note:
     ja: '見出しナサブのみ（汎用名、識別要素なし）、corpus に本伝なし → #NEEDID（規則3 (c'')）。初版なし。'
 - id: r2
@@ -67,7 +62,6 @@ relations:
   passive: AIND-D08151
   summary:
     ar: موفق الدين محمد بن أحمد بن نصر الله
-  quote: null
   note:
     ja: '「صهر موفق الدين بن المحب بن نصر الله ، كان الموفق زوج أخته」＝الموفق は本項主の姉妹の夫 → brother-in-law（active=الموفق、規則52）。الموفق＝#AIND-D07009「محمد بن أحمد بن نصر الله بن أحمد بن محمد بن عمر موفق الدين بن المحب البغدادي الأصل الحنبلي … وصاهر الشمس محمد بن علي بن عيسى البغدادي على أخته」（収録済み。D07009 側に brother-in-law #AIND-D08151 が立っており相互に閉合）。初版の subtype other・#NEEDID を解消。'
 - id: r3
@@ -77,7 +71,6 @@ relations:
   passive: AIND-D08151
   summary:
     ar: زينب ابنة إبراهيم الشنويهي
-  quote: null
   note:
     ja: '「وهو أخو زينب وزليخا ابنتي إبراهيم الشنويهي لأمهما」＝母を同じくする（異父）姉妹。زينب＝女性部 #AIND-D13072「زينب ابنة إبراهيم بن محمد بن أحمد أم الخير ابنة البرهان الشنويهى القاهري الشافعي أخت زليخا وأم عبد المغيث بن عبد الرحيم بن الفرات … ماتت في ربيع الآخر سنة تسع وسبعين」（未収録。父名・ニスバ・姉妹名が一致、規則38）。初版の #NEEDID を解消。'
 - id: r4
@@ -87,15 +80,14 @@ relations:
   passive: AIND-D08151
   summary:
     ar: زليخا ابنة إبراهيم الشنويهي
-  quote: null
   note:
     ja: '同上。زليخا＝女性部 #AIND-D13063「زليخا ابنة إبراهيم بن محمد بن أحمد أم الفضل وأم إبراهيم ابنة البرهان الشنويهى … وأخت زينب الآتية وأمهما هي عائشة ابنة عبد الرحمن ابن امام البيرسية … ماتت في أحد الربيعين سنة سبع وستين」（未収録）。異父姉妹（لأمهما）。'
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -112,17 +104,53 @@ events:
 - id: e1
   type: teaching
   persons:
-  - ref: AIND-D07940
-    quote: المحب بن الأشقر
-    norm: المحب بن الاشقر
-  quote: ويقرئ في بيت المحب بن الأشقر
+  - mention: m9
   note:
     ja: 'المحب بن الأشقر の家で（クルアーンを）教授した。المحب بن الأشقر＝#AIND-D07940「محمد بن عثمان بن سليمان بن رسول … المحب بن الشرف الكرادي الأصل … القاهري الحنفي … ويعرف بابن الأشقر」（كاتب السر、863没。ニスバ索引 D12151「ابن الأشقر المحب محمد وحسين …」で المحب は一人＝ラカブ＋家名の2点で閉合）。初版の affiliation teach #NEEDID・state مقرئ（orgName #NEEDID・placeName القاهرة）・patron relation #NEEDID を本 event に一本化（規則8・22(1)。原文は「仕えた」とは言わないので patron にしない）。'
-  norm: يقرء في بيت المحب بن الاشقر
+  phrase: ويقرئ في بيت المحب بن الأشقر
+  mention: null
 notes:
 - text: '母: 姉妹 D13063 の本文「وأمهما هي عائشة ابنة عبد الرحمن ابن امام البيرسية الرجل الصالح الياس العجمى」により本項主の母も同人とみられるが、他項のみの情報のため note に留める（規則23）。異父姉妹 زينب・زليخا の父 البرهان إبراهيم بن محمد بن أحمد الشنويهي＝#AIND-D00254（「إبراهيم بن محمد بن أحمد البرهان الشنويهي القاهري الشافعي … بالقراسنقرية」、本項主には触れない）は、原文では姉妹を特定する名として出るだけで、本項主の母の前夫か後夫かも原文から決まらない＝relation を立てない。【集約 2026-11-03】校閲時の relation subtype other（「継父」、cert medium）を除去しここに記す（内容A M、オーケストレーター決定9）。「وكان خيرا」「ونعم الرجل」は人物評（訳のみ）。初版の residence event القاهرة はニスバ由来＝除去（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00112
+  quote: البغدادي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m8
+  kind: assessment
+  quote: خيرا
+- id: m9
+  kind: person
+  ref: AIND-D07940
+  quote: المحب بن الأشقر
+  norm: المحب بن الاشقر
+- id: m10
+  kind: year
+  value: 851-859
+  quote: سنة بضع وخمسين
 translation:
   ja: ムハンマド・ブン・アリー・ブン・イーサー、アッ＝シャムス・アル＝バグダーディー、のちアル＝カーヒリー、アル＝ハンバリー。ムワッファク・アッ＝ディーン・ブン・アル＝ムヒッブ・ブン・ナスルッラーの姻戚で、アル＝ムワッファクは彼の姉妹の夫であった。善良な人で、アル＝カラースンクリーヤに住み、アル＝ムヒッブ・ブン・アル＝アシュカルの家で（クルアーンを）教えていた。彼はイブラーヒーム・アッ＝シャヌワイヒーの二人の娘ザイナブとズライハーの同母の兄弟である。思うに（8）50年代に没した。立派な人であった。
   en: Muḥammad b. ʿAlī b. ʿĪsā, al-Shams al-Baghdādī, then al-Qāhirī, al-Ḥanbalī, the in-law of Muwaffaq al-Dīn b. al-Muḥibb b. Naṣr Allāh—al-Muwaffaq was the husband of his sister. He was a good man who lived in al-Qarāsunqurīya and taught (the Qurʾān) in the house of al-Muḥibb b. al-Ashqar; he is the brother, on their mother's side, of Zaynab and Zulaykhā, the two daughters of Ibrāhīm al-Shanwayhī. He died, I think, in the [8]50s. What a fine man he was.

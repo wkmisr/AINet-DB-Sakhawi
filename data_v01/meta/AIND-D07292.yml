@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00165
-    quote: الهندي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-05502
-    quote: المحمودا بادي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: التاج
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 birth:
   id: b
   date:
@@ -46,22 +43,19 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D07292
-  passive: AIND-D02984
+  passive: m7
   methods:
   - TMP-S-00071
   fields:
   - TMP-S-00057
   - TMP-S-00045
-  quote: كراجح
   note:
     ja: '「ممن أقرأ الفضلاء الهيئة والكلام كراجح」＝本項主が師、راجح が弟子（規則15）。راجح ＝ #AIND-D02984「راجح بن داود بن محمد بن عيسى بن أحمد الهندي الاحمداباي الحنفي」（生871、未収録）。D02984 本文「وعلى محمد بن التاج الحنفي الهيئة والكلام」で閉合（名・科目が一致）。初版は2本の student relation（向き逆、#NEEDID）に分割していた。'
-  norm: راجح
 - id: r2
   type: kin
   subtype: father
   active: AIND-D07292#p1
   passive: AIND-D07292
-  quote: null
   note:
     ja: '父。見出しの「بن التاج」（ラカブのみ）→ #NEEDID（規則3）。'
 affiliations:
@@ -71,12 +65,11 @@ affiliations:
 events:
 - id: e1
   type: teaching
-  quote: أقرأ
   note:
     ja: 天文学（الهيئة）と神学（الكلام）を優秀な学徒たちに教授した。
   trigger: rule
-  norm: اقرا
   phrase: ممن أقرأ الفضلاء الهيئة والكلام
+  mention: m6
 sources:
 - id: c1
   date:
@@ -85,12 +78,47 @@ sources:
   persons:
   - ref: AIND-D02984
     cert: medium
-  quote: وقال
   note:
     ja: 894年（1488-12-14〜1489-12-03、年精度→1488）にサハーウィーが聞いた存命記録（口頭情報源＝mention event、relation にしない）。【集約 2026-10-25】「كراجح ، وقال لي … أنه حي」の話者は直前に名の出た راجح（#AIND-D02984）と読むのが自然で、本項主が自分の存命を告げたとは断定しない（規則44・B86⑥、内容B[7][8]）。persName を校閲時の wd:Q4120128（السخاوي＝聞き手）から情報提供者の候補 راجح（cert medium）に改めた。D02984 によれば راجح 一行は894年初頭にマッカでサハーウィーに会っており、同じ機会と考えられる（推定、note のみ）。death は作らない。初版の統制外 correspondent relation を置換。
   trigger: rule
-  norm: قال
   phrase: وقال لي في سنة أربع وتسعين أنه حي ابن نحو أربعين سنة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: التاج
+- id: m3
+  kind: name
+  ref: TMP-N-00165
+  quote: الهندي
+- id: m4
+  kind: name
+  ref: TMP-N-05502
+  quote: المحمودا بادي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: event
+  quote: أقرأ
+  norm: اقرا
+- id: m7
+  kind: person
+  ref: AIND-D02984
+  quote: كراجح
+  norm: راجح
+- id: m8
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m9
+  kind: year
+  value: '894'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アッ＝タージュ・アル＝ヒンディー・アル＝マフムーダーバーディー・アル＝ハナフィー。ラージフのような優秀な者たちに天文学（ハイア）と神学（カラーム）を教授した者の一人。（8）94年に（ある者が）私に、彼は存命で40歳ほどであると語った。
   en: Muḥammad b. al-Tāj al-Hindī al-Maḥmūdābādī al-Ḥanafī. One of those who taught astronomy (hayʾa) and theology (kalām) to accomplished scholars such as Rājiḥ. In the year (8)94 I was told that he was alive and about forty years old.

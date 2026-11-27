@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: ism
-    quote: سعيد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: صالح
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 persons:
 - id: p1
   label: أبو بكر بن صالح
@@ -41,13 +38,12 @@ relations:
   subtype: father
   active: AIND-D03100#p1
   passive: AIND-D03100
-  quote: null
   note:
     ja: '規則3 (c'')。父は「名＋父名」のみで識別要素がなく、corpus に本伝なし（hw.py「أبي بكر بن صالح」「أبو بكر بن صالح」の見出しは #AIND-D00591 المرعشي・#AIND-D10707 الجوهري など別人のみ）。初版は father なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001681
+  active: m6
   passive: AIND-D03100
   methods:
   - TMP-S-00025
@@ -57,19 +53,48 @@ relations:
       ah: 866
       type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m8
     phrase: قرأ على محمد بن مبروك الشفا في سنة ست وستين بالمدينة النبوية
   works:
   - ref: wd:Q4120006
-  quote: محمد بن مبروك
   note:
     ja: '「قرأ على محمد بن مبروك الشفا」＝直後に人名が続くので「عليّ（私に）」ではなく محمد بن مبروك が師。師は corpus 全文で本項のみ（hw.py・全文 grep「مبروك」）、ID-Master・repo 未登録 → 名＋父名（珍しい）＋866年マディーナでの『الشفا』教授という識別要素により新規 TMP-P-001681（規則12）。866年＝1461-10-15 開始（年精度 1461。初版は @when にヒジュラ値 0866 を書いていた）。「بالمدينة النبوية」＝gn:109223。初版の #NEEDID を置換。'
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: سعيد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: صالح
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: person
+  ref: TMP-P-001681
+  quote: محمد بن مبروك
+- id: m7
+  kind: year
+  value: '866'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: サイード・ブン・アビー・バクル・ブン・サーリフ・アル＝マダニー・アッ＝シャーフィイー。（8）66年、預言者の都マディーナにてムハンマド・ブン・マブルークのもとで『アッ＝シファー』を読誦した。
   en: Saʿīd b. Abī Bakr b. Ṣāliḥ al-Madanī al-Shāfiʿī. He read al-Shifāʾ under Muḥammad b. Mabrūk in the year [8]66 in the Prophet's city, Medina.

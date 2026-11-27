@@ -9,43 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00385
-    quote: الشيباني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00124
-    quote: الطبري
+    mention: m7
   - id: n3
     type: ism
-    quote: آسية
     by: rule
-    norm: اسية
+    mention: m1
   - id: n4
     type: nasab
-    quote: صالح
     by: rule
-    ref: TMP-P-001736
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي المنصور أحمد
     by: rule
-    norm: ابو المنصور احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الكريم
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي المعالي
     by: rule
-    norm: ابو المعالي
+    mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001736
   passive: AIND-D12846
-  quote: null
   note:
     ja: '父 صالح。corpus に本伝なし（hw.py「صالح」＋「الشيباني」「الطبري」）。本伝のある兄弟 #AIND-D02335（جار الله بن صالح …）・#AIND-D04455（عبد الله بن صالح … أخو جار الله الماضي）と共有する父で、クンヤつきの祖父名まで復元できる＝仮番号（規則3 (c'')）。ID-Master 未登録。初版は #NEEDID。'
   phrase: صالح بن أبي المنصور أحمد بن عبد الكريم بن أبي المعالي
@@ -56,40 +49,76 @@ relations:
   passive: AIND-D12846
   summary:
     ar: آسية ابنة جار الله بن صالح
-  quote: null
   note:
     ja: '「قريبة الماضية」。「الماضية」は直前の #AIND-D12845（آسية ابنة المؤيد شيخ）ではなく、同じ家の #AIND-D12844「آسية ابنة جار الله بن صالح بن أبي المنصور أحمد بن عبد الكريم بن أبي المعالي يحيى … الشيباني الطبري الأصل المكي」。ナサブ上は本項主の兄弟 جار الله（D02335）の娘＝姪にあたるが、原文は「قريبة」としか言わないので subtype は relative（§D168-5）。初版はこの関係を空の relation（active=""）にしていた。'
 - id: r3
   type: kin
   subtype: spouse
-  active: TMP-P-001737
+  active: m8
   passive: AIND-D12846
-  quote: الشمس محمد بن عبد الله بن أحمد الأستجي
   note:
     ja: '「تزوجها الشمس محمد بن عبد الله بن أحمد الأستجي」。娘の項 #AIND-D13496 は「الشمس الأديب محمد بن عبد الله بن أحمد … الاستجي」と書く。corpus に本伝なし・ID-Master 未登録 → 仮番号（ラカブ・ナサブ3代・ニスバ）。初版は #NEEDID。'
-  norm: الشمس محمد بن عبد الله بن احمد الاستجي
 - id: r4
   type: kin
   subtype: daughter
-  active: AIND-D13496
+  active: m9
   passive: AIND-D12846
-  quote: فاطمة
   note:
     ja: '#AIND-D13496「فاطمة ابنة الشمس الأديب محمد بن عبد الله بن أحمد أم الحسن الاستجي . تزوجها عبد الوهاب بن العفيف عبد الله اليافعي فولدت له أم هانئ وماتت … في جمادى الأولى سنة سبع وعشرين ، وامها آسية ابنة صالح بن أبي المنصور الشيباني」＝母を名指し（閉合）。初版は #NEEDID。'
 - id: r5
   type: kin
   subtype: daughter
-  active: TMP-P-001738
+  active: m10
   passive: AIND-D12846
-  quote: وأم هاني
   note:
     ja: '娘 أم هاني（ابنة الشمس محمد الأستجي）。corpus の #AIND-D13826「أم هانئ ابنة عبد الوهاب بن العفيف عبد الله بن اسعد اليافعي المكية」は فاطمة の娘＝本項主の孫で別人。娘本人の本伝はなし → 仮番号。初版は #NEEDID。'
-  norm: ام هاني
   phrase: أم هاني
 notes:
 - text: '「ويحرر إن كانت من شرطنا」＝本書の収録条件（9世紀に生存）に当たるか要確認、という著者の留保（没年不詳。娘 فاطمة は 827 年没＝D13496）。兄弟（本項は名指ししない＝relation は立てない。父が共通の仮番号なので導出可、規則23）: #AIND-D02335 جار الله بن صالح、#AIND-D04455 عبد الله بن صالح（「مات في ربيع الأول سنة سبع عشرة عن سبع وسبعين سنة」）。ニスバ「الأستجي」の読み（al-Istijī か）は未確認。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: آسية
+  norm: اسية
+- id: m2
+  kind: name
+  ref: TMP-P-001736
+  quote: صالح
+- id: m3
+  kind: name
+  quote: أبي المنصور أحمد
+  norm: ابو المنصور احمد
+- id: m4
+  kind: name
+  quote: عبد الكريم
+- id: m5
+  kind: name
+  quote: أبي المعالي
+  norm: ابو المعالي
+- id: m6
+  kind: name
+  ref: TMP-N-00385
+  quote: الشيباني
+- id: m7
+  kind: name
+  ref: TMP-N-00124
+  quote: الطبري
+- id: m8
+  kind: person
+  ref: TMP-P-001737
+  quote: الشمس محمد بن عبد الله بن أحمد الأستجي
+  norm: الشمس محمد بن عبد الله بن احمد الاستجي
+- id: m9
+  kind: person
+  ref: AIND-D13496
+  quote: فاطمة
+- id: m10
+  kind: person
+  ref: TMP-P-001738
+  quote: وأم هاني
+  norm: ام هاني
 translation:
   ja: アースィヤ・ビント・サーリフ・ブン・アビー・ル＝マンスール・アフマド・ブン・アブドゥルカリーム・ブン・アビー・ル＝マアーリー、アッ＝シャイバーニー・アッ＝タバリー。既出の女性の親族。シャムス・ムハンマド・ブン・アブドゥッラー・ブン・アフマド・アル＝イスティジーが彼女を娶り、彼女にファーティマとウンム・ハーニーを産ませた。彼女が本書の収録条件に当たるかどうかは確かめる必要がある。
   en: Āsiya, daughter of Ṣāliḥ b. Abī al-Manṣūr Aḥmad b. ʿAbd al-Karīm b. Abī al-Maʿālī, al-Shaybānī al-Ṭabarī, a kinswoman of the woman mentioned above. Al-Shams Muḥammad b. ʿAbd Allāh b. Aḥmad al-Istijī married her and had by her Fāṭima and Umm Hāniʾ. Whether she falls within the scope of our book is to be verified.

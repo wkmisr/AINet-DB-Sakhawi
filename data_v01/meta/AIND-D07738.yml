@@ -9,44 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00088
-    quote: المخزومي
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-01117
-    quote: اليبناوي
+    mention: m9
   - id: n4
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n5
     type: laqab
-    quote: الجمال
+    mention: m6
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: عبد اللطيف
     by: rule
-    ref: AIND-D04363
+    mention: m2
   - id: n8
     type: nasab
-    quote: موسي
     by: rule
+    mention: m3
   - id: n9
     type: nasab
-    quote: عميرة
     by: rule
+    mention: m4
   - id: n10
     type: nasab
-    quote: موسي
     by: rule
+    mention: m5
 birth:
   id: b
   date:
@@ -54,43 +49,103 @@ birth:
     cert: medium
   note:
     ja: '刊本の生年「ولد في ذي الحجة سنة إحدى ...」は十の位が欠落し一の位のみ。2026-09-24 Waka 裁定: 一の位のみの年は基本的に 80X → 801 年。月は原文の ذي الحجة により when-custom="0801-12"、西暦は h2g.py で 801-12＝1399-08-12〜09-10 → 月初 1399-08（統一規則18）。裁定の「基本的に」に対応して cert="medium"（旧 cert low・@when なし、旧 note の「801／811／821」の留保は本裁定で解消）。'
-  quote: سنة
   phrase: ولد في ذي الحجة سنة إحدى ...
+  mention: m12
 death:
   id: d
   date:
     notBefore: 833-12
     notAfter: 839-12
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m15
   note:
     ja: 「بضع وثلاثين」＝833〜839（規則4により notBefore/notAfter）。833-12＝1430-08-30〜09-27、839-12＝1436-06-25〜07-24（h2g.py）。
-  quote: سنة بضع وثلاثين
   phrase: ومات في ذي الحجة سنة بضع وثلاثين بمكة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D04363
   passive: AIND-D07738
-  quote: null
   note:
     ja: 父＝#AIND-D04363（項番945 عبد اللطيف بن موسى بن عميرة بن موسى بن صالح السراج القرشي المخزومي المكي الشافعي والد أحمد الماضي ويعرف باليبناوي、772年マッカ生）。ナサブ4代・ニスバが一致。兄弟 الشهاب أحمد＝#AIND-D00879（D04363「والد أحمد」）だが本項に記載なく relation は立てない。初版は relation なし。
   phrase: عبد اللطيف بن موسي بن عميرة
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m17
   note:
     ja: Pattern A（没年記録）。初版は統制外 subtype「chronicler」の relation → event 化。没年 830年代（≦871）・限定句なし → 規約により التقي بن فهد＝#AIND-D09211、cert low。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04363
+  quote: عبد اللطيف
+- id: m3
+  kind: name
+  quote: موسي
+- id: m4
+  kind: name
+  quote: عميرة
+- id: m5
+  kind: name
+  quote: موسي
+- id: m6
+  kind: name
+  quote: الجمال
+- id: m7
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m8
+  kind: name
+  ref: TMP-N-00088
+  quote: المخزومي
+- id: m9
+  kind: name
+  ref: TMP-N-01117
+  quote: اليبناوي
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m12
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m13
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m14
+  kind: year
+  value: 831-839
+  quote: سنة بضع وثلاثين
+- id: m15
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m16
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m17
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アブドゥッラティーフ・ブン・ムーサー・ブン・ウマイラ・ブン・ムーサー、アル＝ジャマール、アル＝クラシー・アル＝マフズーミー・アル＝ユブナーウィー・アル＝マッキー。ヒジュラ暦8□1年（十の位は原文欠落）のズー・アル＝ヒッジャ月に生まれ、…830年代のいずれかの年のズー・アル＝ヒッジャ月にマッカで没した。神が彼を憐れみたまわんことを。イブン・ファハドが彼の没年を記録している。
   en: Muḥammad b. ʿAbd al-Laṭīf b. Mūsā b. ʿAmīra b. Mūsā, al-Jamāl, al-Qurashī al-Makhzūmī al-Yubnāwī al-Makkī. He was born in Dhū al-Ḥijja in the year [8]?1 (the decade is missing in the printed text) … and died in Dhū al-Ḥijja in one of the years between 833 and 839 in Mecca; may God have mercy on him. Ibn Fahd recorded his death date.

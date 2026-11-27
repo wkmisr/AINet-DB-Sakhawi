@@ -9,35 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00213
-    quote: الزمزمي
+    mention: m7
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n5
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001691
-    norm: ابو بكر
+    mention: m2
   - id: n7
     type: nasab
-    quote: أكبر
     by: rule
-    norm: اكبر
+    mention: m3
 death:
   id: d
   date:
@@ -45,7 +38,7 @@ death:
     cert: medium
   note:
     ja: '「مات في سنة تسع عشرة أو قبيلها」＝819年またはその直前。819 を主値とし「أو قبيلها」のため cert medium（同型の先例 #AIND-D05908「بعيد التسعين أو قبيلها」→ 0890 cert low、#AIND-D03399「في حدود العشرين」→ cert medium）。819＝1416-03-10〜1417-02-26（年精度 1416）。'
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
@@ -54,31 +47,72 @@ relations:
   passive: AIND-D10057
   summary:
     ar: أبو بكر بن أكبر الشيرازي
-  quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（規則3）。祖父名 أكبر は珍しい名で識別要素になる（規則3「珍しい名はそれ自体が識別要素」）ので TMP-P を発行。corpus に本伝なし（hw.py「بن أكبر」の見出しは本項主の子孫 #AIND-D03934・D03971・D10732・D13228 と本項のみ）。ID-Master 未登録（idsearch「أكبر」「بن أكبر」該当なし）。初版の TMP-P-000064（汎用 أبو بكر、汚染流用歴）を除去（precheck）。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D03934
+  active: m8
   passive: AIND-D10057
   summary:
     ar: عبد السلام بن موسى بن أبي بكر بن أكبر
-  quote: والد
   note:
     ja: '「والد عبد السلام الماضي」＝#AIND-D03934「524 عبد السلام بن موسى بن أبي بكر بن أكبر الزين أو المحب الشيرازي العجمي المكي والد عبد العزيز الآتي سبط الشيخ على الزمزمي ولذا يعرف بالزمزمي . ولد في ربيع الأول سنة خمس وثمانين وسبعمائة بمكة … مات في ذي الحجة سنة ست وأربعين بمكة」。ナサブ4代が一致（規則37、cert なし）。初版の #NEEDID を置換。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D01373
-    quote: المحب بن ظهيرة
-  quote: وصفه
+  - mention: m10
   cert: medium
   note:
     ja: 'Pattern A。المحب بن ظهيرة ＝ #AIND-D01373「384 أحمد بن محمد بن عبد الله بن ظهيرة … المحب أبو العباس وأبو الفتح بن الجمال أبي حامد القرشي المخزومي المكي الشافعي … ولد … سنة تسع وثمانين وسعبمائة … [قاضي مكة]」（本項主と同時代のマッカの学者・カーディー。corpus で「المحب بن ظهيرة」の裸称は D09082「وفاة المحب بن ظهيرة قاضي مكة」や娘たちの項（D13356 علما・D13377 زينب・D04007 أم الحسين الصغرى）でこの人物を指す）。ブリーフ頻出IDの「المحب بن ظهيرة（أبي حامد）＝#AIND-D09205」は836年生で、819年没の本項主を評した人物としては年代が合わないため採らない（ISSUES §D157 に記録）。同名の المحب أحمد بن أبي السعادات بن ظهيرة（#AIND-D01525）も世代が下る。呼称のみの同定なので cert medium（event 側）。初版の統制外 relation「praised_by」（#NEEDID）を置換。'
   trigger: rule
-  norm: صفه
   phrase: وصفه المحب بن ظهيرة بالشيخ الصالح
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  ref: TMP-P-001691
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: أكبر
+  norm: اكبر
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: TMP-N-00213
+  quote: الزمزمي
+- id: m8
+  kind: person
+  ref: AIND-D03934
+  quote: والد
+- id: m9
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m10
+  kind: person
+  ref: AIND-D01373
+  quote: المحب بن ظهيرة
+- id: m11
+  kind: year
+  value: '819'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・アビー・バクル・ブン・アクバル、アッ＝シャラフ・アッ＝シーラーズィー・アル＝マッキー・アッ＝ザムザミー。既述のアブド・アッ＝サラームの父。アル＝ムヒッブ・ブン・ザヒーラは彼を「敬虔なシャイフ」と評した。819年、あるいはその少し前に没した。
   en: Mūsā b. Abī Bakr b. Akbar, al-Sharaf al-Shīrāzī al-Makkī al-Zamzamī, the father of the aforementioned ʿAbd al-Salām. Al-Muḥibb b. Ẕahīra described him as "the righteous shaykh". He died in the year 819 or shortly before it.

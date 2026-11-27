@@ -9,54 +9,74 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: صبيح
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D01024
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m7
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D08092
+  active: m5
   passive: AIND-D01024
   summary:
     ar: محمد بن علي بن صبيح المدني
-  quote: وأخو
-  norm: اخو
 states:
 - id: s1
   type: office
   ref: TMP-O-00033
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m7
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: صبيح
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D08092
+  quote: وأخو
+  norm: اخو
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アハマド・ブン・アリー・ブン・スバイフ・アル＝マダニー。彼（マディーナ）の調度品係の一人。また後述するムハンマドの兄弟。マディーナで私（＝サハーウィー）から聴聞した一人。
   en: Aḥmad b. ʿAlī b. Ṣubayḥ al-Madanī was one of its (Medina's) farrāsh (floor-spreaders/servants), and the brother of the forthcoming Muḥammad. He was among those who heard from me (al-Sakhāwī) in Medina.

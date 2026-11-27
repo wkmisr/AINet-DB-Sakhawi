@@ -10,37 +10,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: السمين
     by: rule
+    mention: m3
 birth:
   id: b
   date:
     ah: 746-06
   note:
     en: Born in Jumādā al-Thāniya 746 AH (= October 1345).
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
   subtype: maternal_uncle
-  active: TMP-P-001130
+  active: m7
   passive: AIND-D07347
-  quote: خاله المحدث أحمد بن إبراهيم العسيلي
   note:
     ja: '母方の叔父。ID-Master 未登録（ニスバ العسيلي=TMP-N-01715 のみ）・corpus に本伝なし（8世紀人）のため新規 #TMP-P-001130 を発行。原文末尾「ويحرر ... نسبة شيخه」により、ニスバ العسيلي は要校訂。'
-  norm: خاله المحدث احمد بن ابراهيم العسيلي
 - id: r2
   type: scholarly
   subtype: teacher
@@ -48,20 +45,52 @@ relations:
   passive: AIND-D07347
   methods:
   - TMP-S-00011
-  quote: null
   note:
     en: '"rawā ʿan khālihi ... ʿan al-ʿAfīf al-Yāfiʿī ijāzatan": he narrated from his maternal uncle, who in turn had it from al-ʿAfīf al-Yāfiʿī (#TMP-P-000406) by ijāza. The ijāza belongs to the uncle''s link with al-Yāfiʿī, so al-Yāfiʿī is not recorded as the subject''s own teacher.'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
-  quote: وذكره
+  - mention: m9
   note:
     ja: Pattern A。「في معجمه」＝التقي ابن فهد(#AIND-D09211)。
   trigger: rule
-  norm: ذكره
   phrase: ذكره التقي بن فهد في معجمه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: السمين
+- id: m4
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m5
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m6
+  kind: year
+  value: '746'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: TMP-P-001130
+  quote: خاله المحدث أحمد بن إبراهيم العسيلي
+  norm: خاله المحدث احمد بن ابراهيم العسيلي
+- id: m8
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
 translation:
   ja: ムハンマド・ブン・ハサン・ブン・アッ＝サミーン・アル＝ヤマニー。ヒジュラ暦746年ジュマーダー・アッサーニヤ月に生まれた。母方の叔父であるハディース学者アフマド・ブン・イブラーヒーム・アル＝ウサイリーから伝承した。（その叔父は）アル＝アフィーフ・アル＝ヤーフィイーからイジャーザによって（伝承していた）。アッ＝タキー・ブン・ファハドが自身の『ムウジャム』において彼に言及している。彼の祖父の名と彼の師のニスバは要校訂である。
   en: Muḥammad b. Ḥasan b. al-Samīn al-Yamanī. He was born in Jumādā al-Thāniya of the year 746 AH. He narrated from his maternal uncle, the muḥaddith Aḥmad b. Ibrāhīm al-ʿUsaylī, who [narrated] from al-ʿAfīf al-Yāfiʿī by ijāza. Al-Taqī b. Fahd mentioned him in his Muʿjam. The name of his grandfather and the nisba of his shaykh remain to be verified.

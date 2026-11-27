@@ -9,29 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00441
-    quote: الصعيدي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بالمدني
-    norm: المدني
     label: المدني
+    mention: m12
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 birth:
   id: b
   date:
@@ -45,7 +42,7 @@ death:
     ah: 891-02
   note:
     ja: 「مات في صفر سنة إحدى وتسعين」＝891年サファル月＝1486-02-15〜1486-03-15（h2g.py）→ 月精度 1486-02。没地は原文に明記されないので初版の placeName مكة を除去（規則22(1)）。
-  quote: سنة
+  mention: m17
 persons:
 - id: p1
   label: عبد الله
@@ -58,47 +55,36 @@ relations:
   subtype: father
   active: AIND-D07863#p1
   passive: AIND-D07863
-  quote: null
   note:
     ja: '父 عبد الله は裸名で本伝・識別要素なし → #NEEDID（規則3 (c'')）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00029
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: TMP-L-00377
-    quote: بباب خرورة
-    norm: باب خرورة
-  quote: ومؤدب الأطفال
+  - mention: m9
+  - mention: m10
   note:
     ja: 「مؤدب الأطفال بمكة بباب خرورة」。職＝TMP-O-00111（先例「مؤدب الأبناء」）。باب خرورة はマッカの聖モスクの門（名）で、ID-Master 未登録 → TMP-L-00377（原文明記、規則22(2)）。初版の affiliation teach（باب خرورة、state と二重）を除去（規則8）。
-  norm: مءدب الاطفال
+  mention: m8
 - id: s2
   type: office
   subtype: deputy
-  ref: wd:Q239718
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: وأحد مؤذنيها نيابة
+  - mention: m9
   note:
     ja: 「وأحد مؤذنيها نيابة」＝マッカ（照応「ها」）のムアッズィン代理の一人。初版の orgName المسجد الحرام・affiliation employed（原文になし）を除去（規則22(1)・8）。
-  norm: احد مءذنيها نيابة
+  mention: m11
 assessments:
 - id: v1
-  quote: فاضلا
   terms:
   - فاضل
   by: rule
+  mention: m14
 - id: v2
-  quote: صالحا
   terms:
   - صالح
   by: rule
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -107,31 +93,96 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00197
-    quote: الحرمين
-  quote: نزيل
+  - mention: m7
   note:
     ja: 「نزيل الحرمين」＝二聖都（مكة والمدينة）＝ID-Master TMP-L-00197（TMP-L-00034 はエルサレム・ヘブロンで別実体）。初版の2本の residence（#NEEDID・مكة）を1本に。
   trigger: rule
   phrase: نزيل الحرمين
+  mention: m6
 - id: e2
   type: teaching
-  quote: أقرأ
   trigger: rule
-  norm: اقرا
   phrase: ممن أقرأ الأبناء طبقة بعد أخرى
+  mention: m13
 - id: e3
   type: cultural
   works:
   - ref: wd:Q4120006
-  quote: وجود الخط وكتب به جملة ورأيت منها الشفا نسخة هائلة وربما كتب للناس
   note:
     ja: 書写活動。『الشفا』＝wd:Q4120006（ID-Master 既登録）。
-  norm: جود الخط وكتب به جملة ورايت منها الشفا نسخة هاءلة وربما كتب للناس
+  phrase: وجود الخط وكتب به جملة ورأيت منها الشفا نسخة هائلة وربما كتب للناس
+  mention: null
 notes:
 - text: '「وهو أفضل من فقيه مكة الأخر مكي」＝マッカのもう一人の「فقيه」（子供の教師）مكي。候補は #AIND-D10001「مكي بن سليمان السندي الهندي الأصل المكي المولد والدار مؤدب الأطفال بها … ويعرف بالعياشي」（索引 #AIND-D11871「تلميذه الفقيه مكي بن سليمان」）で、名・職（مؤدب الأطفال）・地（مكة）が一致する。ただし原文は比較評価であって関係の記述ではないので relation は立てず（初版の colleague #NEEDID を除去）、同定は本 note に留める。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00441
+  quote: الصعيدي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: الحرمين
+  ref: TMP-L-00197
+- id: m8
+  kind: office
+  ref: TMP-O-00029
+  quote: ومؤدب الأطفال
+  norm: مءدب الاطفال
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: place
+  quote: بباب خرورة
+  ref: TMP-L-00377
+  norm: باب خرورة
+- id: m11
+  kind: office
+  ref: wd:Q239718
+  quote: وأحد مؤذنيها نيابة
+  norm: احد مءذنيها نيابة
+- id: m12
+  kind: name
+  quote: بالمدني
+  norm: المدني
+- id: m13
+  kind: event
+  quote: أقرأ
+  norm: اقرا
+- id: m14
+  kind: assessment
+  quote: فاضلا
+- id: m15
+  kind: assessment
+  quote: صالحا
+- id: m16
+  kind: month
+  value: 2
+  quote: صفر
+- id: m17
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー、アッ＝シャムス・アッ＝サイーディー・アッ＝シャーフィイー。二聖都に住み、マッカのバーブ・ハルーラで子供の教師を務め、またそこ（マッカ）のムアッズィン代理の一人であった。アル＝マダニーとして知られる。子供たちを世代を次いで教えた者の一人で、書を能くして多くを書写し、私はそのうち『アッ＝シファー』の見事な一本を見た。人々のために書写することもあった。徳が高く敬虔な人物で、称賛が広く行き渡っていた。891年サファル月に没し、私の思うところ70歳に近かった。彼はマッカのもう一人のファキーフ（子供の教師）マッキーより優れていた。
   en: Muḥammad b. ʿAbd Allāh, al-Shams al-Ṣaʿīdī al-Shāfiʿī, resident of the Two Sanctuaries, teacher of children in Mecca at Bāb Kharūra and one of its deputy muezzins; known as al-Madanī. He was among those who taught the children generation after generation; he wrote a fine hand and copied many works, among which I saw a magnificent copy of al-Shifāʾ, and he sometimes copied for others. He was a virtuous and righteous man, widely praised. He died in Ṣafar of the year 891, and I think he was approaching seventy. He was better than the other faqīh (children's teacher) of Mecca, Makkī.

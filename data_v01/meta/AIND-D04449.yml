@@ -9,56 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00050
-    quote: الكناني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00426
-    quote: الحوراني
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m8
   - id: n4
     type: laqab
-    quote: الجمال
+    mention: m5
   - id: n5
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n9
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m9
 death:
   id: d
   date:
     ah: 888-01
   places:
-  - ref: gn:1265873
-    quote: كالكوت
+  - mention: m14
   note:
     ar: مات غريبا بنواحي كالكوت في المحرم سنة ثمان وثمانين
     ja: 'ムハッラム888年＝1483年2月（888-01-01 = 1483-02-18、グレゴリオ暦）。初版の when="1483"（年精度）を月精度に是正。没地 #NEEDID → gn:1265873（ID-Master 登録「كالكوط / Kālikūṭ (Calicut)」。インド・マラバール海岸のカリカット＝コーリコード。corpus の綴りは كالكوت で末字が ت、D04279 等は كالكوط）。'
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D04449
   methods:
   - TMP-S-00003
@@ -67,22 +62,18 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: مني
+    - mention: m10
   note:
     ar: وكان ممن سمع مني فيها
     ja: 統一規則②（「ممن سمع مني بـX」型）により teacher relation（method سمع）＋ relation 内 event とし、field（الحديث）は付さない（初版の field を除去）。「فيها」＝マッカ。
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00761
+  active: m11
   passive: AIND-D04449
-  quote: أحمد
   note:
     ar: وشقيق أحمد الماضي
     ja: '同母兄弟 أحمد ＝ #AIND-D00761（أحمد بن سليمان بن محمد بن عبد الله الشهاب الكناني الحوراني الأصل الغزي الحنفي المقرئ نزيل مكة وأخو عبد الله）。4代ナサブ・ニスバ4種・「نزيل مكة」がすべて一致し、D00761 側にも「وأخو عبد الله」と相互参照がある。初版は #NEEDID。'
-  norm: احمد
 affiliations:
 - id: a1
   type: madhhab
@@ -92,17 +83,77 @@ events:
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m10
   summary:
     ar: نزيل مكة . جاور بمكة نحو عشر سنين
-  quote: جاور
   note:
     ja: 初版は「نزيل مكة」と「جاور بمكة」を別個の residence event 2件に分けていたが、同一の居住事実のため1件に統合。
   trigger: rule
+  mention: m12
 - id: e2
   type: cultural
-  quote: وله نظم وفهم يشارك به يسيرا
+  phrase: وله نظم وفهم يشارك به يسيرا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: الجمال
+- id: m6
+  kind: name
+  ref: TMP-N-00050
+  quote: الكناني
+- id: m7
+  kind: name
+  ref: TMP-N-00426
+  quote: الحوراني
+- id: m8
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m9
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m10
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m11
+  kind: person
+  ref: AIND-D00761
+  quote: أحمد
+  norm: احمد
+- id: m12
+  kind: event
+  quote: جاور
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m14
+  kind: place
+  quote: كالكوت
+  ref: gn:1265873
+- id: m15
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m16
+  kind: year
+  value: '888'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・スライマーン・ブン・ムハンマド・ブン・アブドゥッラー。アル＝ジャマール・アル＝キナーニー、ハウラーンの出自でガザの人（アル＝ガッズィー）、ハナフィー派。マッカの居留者で、前述のアフマドの同母兄弟。マッカに約10年間隣住（ジャーワラ）し、その地で私（サハーウィー）から聴聞した者の一人である。詩作と理解力があり、それらにいささか通じていた。888年ムハッラム月にカーリクート（カリカット）の地方で異郷の死を遂げた。アッラーが彼を慈しみ、その代償として楽園を与えられんことを。
   en: ʿAbd Allāh b. Sulaymān b. Muḥammad b. ʿAbd Allāh, al-Jamāl al-Kinānī, of Ḥawrānī origin, al-Ghazzī, the Ḥanafī, a resident of Mecca and the full brother of the aforementioned Aḥmad. He lived adjacent (jāwara) to Mecca for about ten years and was among those who heard [ḥadīth] from me there. He had some verse and understanding, in which he shared to a modest degree. He died as a stranger in the regions of Calicut in al-Muḥarram of the year 888. May God have mercy on him and grant him Paradise in recompense.

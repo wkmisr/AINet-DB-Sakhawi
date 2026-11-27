@@ -9,82 +9,69 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02580
-    quote: المستناني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m8
   - id: n4
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n5
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m5
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: عبد العزيز
     by: rule
-    ref: AIND-D04019
+    mention: m2
   - id: n8
     type: nasab
-    quote: مسلم
     by: rule
+    mention: m3
   - id: n9
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m9
 death:
   id: d
   date:
     ah: 875
     cert: medium
   places:
-  - ref: gn:358048
-    quote: بدمياط
-    norm: دمياط
+  - mention: m12
   note:
     ar: مات في سنة خمس وسبعين أو أوائل التي بعدها بدمياط
     ja: 「875年または翌年初頭」＝875 を主として cert medium。875年＝1470-07-09〜1471-06-28 → 年初 1470（876年初は 1471-06-29）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04019
+  active: m10
   passive: AIND-D07682
-  quote: الماضي أبوه
   note:
     ja: 父＝#AIND-D04019（عبد العزيز بن مسلم … العز أبو الفضل المستناني … المغربي ثم السكندري المالكي والد محمد الآتي）。「والد محمد الآتي」で閉合。
-  norm: الماضي ابوه
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D04849
+  active: m14
   passive: AIND-D07682
-  quote: المنصور
   note:
     ja: 'المنصور ＝ #AIND-D04849（المنصور عثمان بن الظاهر جقمق、廃位後 دمياط に移され同地で没）。本項主はその礼拝導師（إمام）であった。初版の統制外 subtype「imam and spiritual advisor」を patron に置換。'
   phrase: فإنه توجه إليها صحبة المنصور لكونه كان إمامه وله فيه مزيد اعتقاد
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
-  quote: إمامه
   note:
     ja: المنصور عثمان の私的な導師職。原文に職の所在地の記載はないため placeName を付けない（統一規則16）。
-  norm: امامه
   phrase: لكونه كان إمامه
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -93,15 +80,74 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:358048
-    quote: بدمياط
-    norm: دمياط
-  quote: توجه
+  - mention: m12
   trigger: rule
   phrase: فإنه توجه إليها صحبة المنصور
+  mention: m13
 - id: e2
   type: cultural
-  quote: وقد كتب الكثير بخطه
+  phrase: وقد كتب الكثير بخطه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04019
+  quote: عبد العزيز
+- id: m3
+  kind: name
+  quote: مسلم
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m6
+  kind: name
+  ref: TMP-N-02580
+  quote: المستناني
+- id: m7
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m8
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m9
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m10
+  kind: person
+  ref: AIND-D04019
+  quote: الماضي أبوه
+  norm: الماضي ابوه
+- id: m11
+  kind: year
+  value: '875'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بدمياط
+  ref: gn:358048
+  norm: دمياط
+- id: m13
+  kind: event
+  quote: توجه
+- id: m14
+  kind: person
+  ref: AIND-D04849
+  quote: المنصور
+- id: m15
+  kind: office
+  ref: wd:Q125482
+  quote: إمامه
+  norm: امامه
 translation:
   ja: ムハンマド・ブン・アブドゥルアズィーズ・ブン・ムスリム、アッ＝シャムス、アブー・アブドゥッラー・アル＝ムスタナーニー・アル＝マグリビー・アッ＝サカンダリー・アル＝マーリキー。その父は前述。875年、あるいはその翌年の初頭に、ディムヤート（ダミエッタ）で没した。というのも彼はアル＝マンスール〔ウスマーン〕に随行して同地に赴いたからで、それは彼がアル＝マンスールのイマーム（礼拝導師）であり、アル＝マンスールが彼に格別の信を寄せていたためである。彼は敬虔と学識、理性と静穏によって広く知られていた。彼は多くを自筆で書写した。神よ彼と我らを憐れみたまえ。
   en: Muḥammad b. ʿAbd al-ʿAzīz b. Muslim, al-Shams Abū ʿAbd Allāh al-Mustanānī al-Maghribī al-Sakandarī al-Mālikī; his father has been mentioned above. He died in the year 875, or at the beginning of the following year, in Damietta, for he had gone there in the company of al-Manṣūr [ʿUthmān], since he was his imam and al-Manṣūr held him in especially high regard; he was widely reputed for piety and learning, with intelligence and composure. He copied a great deal in his own hand. May God have mercy on him and on us.

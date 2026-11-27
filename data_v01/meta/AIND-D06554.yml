@@ -9,90 +9,79 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: البدر
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00054
-    quote: البعلي
+    mention: m8
   - id: n3
     type: shuhrah
-    quote: بابن المرحل
-    norm: ابن المرحل
     label: ابن المرحل
+    mention: m11
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00298
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m7
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 death:
   id: d
   date:
     ah: 879
   note:
     ja: '879年＝1474-05-27 開始（h2g.py、年精度）。没地は原文にない。甥の本伝 #AIND-D08939 にも「خاله البدر محمد بن البرهان بن المرحل المتوفى سنة تسع وسبعين」。'
-  quote: سنة
   phrase: ومات في سنة تسع وسبعين
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00298
+  active: m10
   passive: AIND-D06554
-  quote: كأبيه
   note:
     ja: '見出し「البدر بن البرهان … عرف كأبيه بابن المرحل」＝#AIND-D00298「إبراهيم بن محمد بن محمد بن سليمان بن علي … برهان الدين بن الشمس بن الشرف البعلي الشافعي والد البدر محمد الآتي ويعرف بابن المرحل … مات في يوم الأربعاء سابع ذي الحجة سنة إحدى وستين ببعلبك」（ナサブ4代・ラカブ・通称＋相手側「والد البدر محمد الآتي」で閉合、repo 未収録。規則37）。初版は #NEEDID。'
-  norm: ابيه
   phrase: إبراهيم بن محمد بن محمد بن سليمان
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D08939
+  active: m15
   passive: AIND-D06554
-  quote: البهاء بن الفصي
   note:
     ja: '「ابن أخته البهاء بن الفصي」＝#AIND-D08939「محمد بن محمد بن علي بن محمد بن حسن البهاء أبو الفضل … البعلي الشافعي سبط الشيخ برهان الدين بن المرحل ، أمه سلمى ويعرف بابن الفصي … وولي تدريس النورية ببلده تلقى نصفه عن خاله البدر محمد بن البرهان بن المرحل المتوفى سنة تسع وسبعين」（ラカブ・通称・続柄・職の継承・没年で閉合、repo 未収録）。姉妹 سلمى（D08939 の母）は本項に名が出ない＝relation にしない。初版は #NEEDID。'
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D00298
+  active: m12
   passive: AIND-D06554
-  quote: أبيه
   note:
     ja: 「درس بعد أبيه بالمدرسة النورية ببعلبك」＝父がヌーリーヤ学院の教授職の前任（規則29）。
-  norm: ابيه
   phrase: إبراهيم بن محمد بن محمد بن سليمان
 - id: r4
   type: social
   subtype: successor
   active: AIND-D08939
   passive: AIND-D06554
-  quote: null
   note:
     ja: '「فتلقى النصف فيها عنه ابن أخته البهاء بن الفصي」＝甥が（教授職の）半分を本項主から受け継いだ（後任。持ち分は半分）。相手側 #AIND-D08939「وولي تدريس النورية ببلده تلقى نصفه عن خاله … والنصف الآخر نيابة」。初版はこれを本項主→#NEEDID の student relation（method تلقى、placeName بعلبك、@when 0879）としていた＝学問の伝授ではなく職の継承。'
   phrase: البهاء بن الفصي
@@ -101,14 +90,12 @@ states:
   type: office
   ref: wd:Q352842
   places:
-  - ref: gn:277130
-    quote: ببعلبك
-    norm: بعلبك
+  - mention: m13
   orgs:
   - ref: TMP-I-00292
-  quote: null
   note:
     ja: '「درس بعد أبيه بالمدرسة النورية ببعلبك」。تدريس＝wd:Q352842（初版 #NEEDID）。المدرسة النورية ببعلبك は ID-Master 未登録（「النوري」で grep: البيمارستان النوري بدمشق TMP-I-00268 のみ）＝新規 TMP-I-00292。初版が state に付けていた date（retirement 0879）は没年の写しで、退任の年は原文にない＝除去（規則18 (e)）。重複する affiliation（teach）も除去（規則8）。'
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -117,6 +104,65 @@ notes:
 - text: 「فتلقى النصف فيها عنه」の「فيها」は直前の「سنة تسع وسبعين」（その年に）と読んだ（ヌーリーヤを指す読みも可能。いずれでも relation は同じ）。甥が受けた職は甥の state（他人の職）＝本項主の state にはしない。ニスバ由来の residence event（بعلبك）は除去（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00298
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: سليمان
+- id: m6
+  kind: name
+  quote: البدر
+- id: m7
+  kind: name
+  quote: البرهان
+- id: m8
+  kind: name
+  ref: TMP-N-00054
+  quote: البعلي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D00298
+  quote: كأبيه
+  norm: ابيه
+- id: m11
+  kind: name
+  quote: بابن المرحل
+  norm: ابن المرحل
+- id: m12
+  kind: person
+  ref: AIND-D00298
+  quote: أبيه
+  norm: ابيه
+- id: m13
+  kind: place
+  quote: ببعلبك
+  ref: gn:277130
+  norm: بعلبك
+- id: m14
+  kind: year
+  value: '879'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D08939
+  quote: البهاء بن الفصي
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・ムハンマド・ブン・スライマーン、アル＝バドル・ブン・アル＝ブルハーン、アル＝バアリー、アッ＝シャーフィイー。父と同じくイブン・アル＝ムラッヒルの名で知られた。父の後、バアルベックのヌーリーヤ学院で教えた。79年に没し、その年に姉妹の子アル＝バハー・ブン・アル＝ファッスィーが彼からその半分を受け継いだ。
   en: Muḥammad b. Ibrāhīm b. Muḥammad b. Muḥammad b. Sulaymān, al-Badr b. al-Burhān, al-Baʿlī al-Shāfiʿī, known, like his father, as Ibn al-Muraḥḥil. He taught, after his father, at the Nūriyya madrasa in Baalbek. He died in the year 79, and in it his sister's son al-Bahāʾ Ibn al-Faṣṣī took over half of it from him.

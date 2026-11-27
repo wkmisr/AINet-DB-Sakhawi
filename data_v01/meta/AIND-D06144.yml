@@ -9,38 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00532
-    quote: التروجي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m7
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n4
     type: ism
-    quote: فاضل
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: مخلوف
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: خلف
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 883-03
   note:
     ja: 「مات في ربيع الأول سنة ثلاث وثمانين」＝883年ラビーウ1月（月初 1478-06-11）。没地は原文に記載なし。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: مخلوف بن خلف بن سليمان التروجي السكندري
@@ -53,7 +51,6 @@ relations:
   subtype: father
   active: AIND-D06144#p1
   passive: AIND-D06144
-  quote: null
   note:
     ja: '父 مخلوف は見出しナサブのみで、ラカブ・クンヤ・職などの識別要素がない汎用名。corpus の مخلوف 見出し（hw.py）に本伝なし・ID-Master 未登録 → 規則3（B119-123 ★4-1 (c'')）により #NEEDID。'
 states:
@@ -62,18 +59,56 @@ states:
   ref: wd:Q239718
   orgs:
   - ref: TMP-I-00242
-  quote: null
   note:
     ja: 「أحد المؤذين بالقصر السلطاني」。施設 القصر السلطاني（カイロ城塞の王宮）は ID-Master 未登録（بين القصرين・قصر بشتاك は別実体）→ 仮 TMP-I-00242。初版の affiliation（同施設、規則8の二重符号化）と placeName القاهرة（施設の所在地からの補完、規則22(1)）を除去。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: نزيل
+  - mention: m9
   trigger: rule
   phrase: نزيل القاهرة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: فاضل
+- id: m2
+  kind: name
+  quote: مخلوف
+- id: m3
+  kind: name
+  quote: خلف
+- id: m4
+  kind: name
+  quote: سليمان
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  ref: TMP-N-00532
+  quote: التروجي
+- id: m7
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m10
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m11
+  kind: year
+  value: '883'
+  quote: سنة
 translation:
   ja: ファーディル・ブン・マフルーフ・ブン・ハラフ・ブン・スライマーン、アッ＝シャムス・アッ＝タルージー・アッ＝サカンダリー。カイロに居住し、スルターン宮殿のムアッズィン（礼拝告知者）の一人。883年ラビーウ1月に没した。そのアザーンとタスビーフ（神の称揚の唱和）は人々に好まれ、近頃はひときわ重んじられて、求めに応じてアザーンを行うために諸所へ出向くことが多く、時には求められずに自ら行うこともあった。私は彼（のアザーン）を幾度も聴いた。神よ彼を憐れみたまえ。
   en: Fāḍil b. Makhlūf b. Khalaf b. Sulaymān al-Shams al-Tarūjī al-Sakandarī, resident of Cairo and one of the muezzins of the Sultan's palace. He died in Rabīʿ I 883. His call to prayer and his tasbīḥ were well received, and in these days he enjoyed exceptional favour; he frequently travelled to various places to give the call to prayer at the request of those who asked him for it, and sometimes did so in some of them on his own initiative without being asked. I heard him more than once. May God have mercy on him.

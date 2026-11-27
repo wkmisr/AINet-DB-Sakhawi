@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00321
-    quote: الغزولي
+    mention: m3
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الشرف
     by: rule
+    mention: m2
   - id: n4
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m4
 death:
   id: d
   date:
     ah: 804-11
     cert: medium
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
+  - mention: m7
   note:
     ja: 「مات في ذي القعدة سنة أربع بحلب」。一の位のみの年「أربع」＝804（イブン・ハジャル『إنباء』の記事、cert medium。note のみで属性に cert がなかったのを集約時に補正、内容検証A M-6）。804年ズー・アル＝カアダ月 ＝ 1402-06-11〜1402-07-10（h2g.py、月のみ→月初）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: الشرف
@@ -48,7 +44,6 @@ relations:
   subtype: father
   active: AIND-D05852#p1
   passive: AIND-D05852
-  quote: null
   note:
     ja: '父はラカブ الشرف のみ → #NEEDID 維持（規則3・12）。'
 affiliations:
@@ -58,16 +53,50 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の統制外 subtype「chronicled by」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: الشرف
+- id: m3
+  kind: name
+  ref: TMP-N-00321
+  quote: الغزولي
+- id: m4
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m5
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m6
+  kind: year
+  value: '804'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウマル・ブン・アッ＝シャラフ・アル＝ガズーリー・アル＝ハンバリー。（8）04年ズー・アル＝カアダ月にハラブで没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記している。
   en: ʿUmar b. al-Sharaf al-Ghazūlī al-Ḥanbalī. He died in Dhū al-Qaʿda of the year (8)04 in Aleppo. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

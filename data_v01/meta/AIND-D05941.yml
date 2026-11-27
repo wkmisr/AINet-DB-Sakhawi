@@ -9,43 +9,38 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m9
   - id: n2
     type: shuhrah
-    quote: ابن ظهيرة
+    mention: m8
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي سعيد محمد
     by: rule
-    ref: AIND-D07201
-    norm: ابو سعيد محمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n9
     type: nasab
-    quote: عطية
     by: rule
+    mention: m7
 persons:
 - id: p1
   label: زبيدية
@@ -58,22 +53,20 @@ relations:
   passive: AIND-D05941
   summary:
     ar: أبو سعيد محمد بن أبي بكر بن عبد الله بن ظهيرة
-  quote: null
   note:
     ja: '父 ＝ #AIND-D07201（محمد بن أبي بكر بن عبد الله بن ظهيرة بن أحمد عطية بن ظهيرة أبو سعيد القرشي المكي … مات سنة خمس عشرة بزبد）。ナサブ5代＋クンヤ أبو سعيد が一致＝確実。父がザビードで没したことは母「زبيدية」とも整合。初版の #NEEDID を差し替え。'
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D05941#p1
+  active: m10
   passive: AIND-D05941
-  quote: زبيدية
   note:
     ja: '「وأمه زبيدية」。名不詳（ザビード出身の女性）→ #NEEDID 維持（規則12）。なお同父 #AIND-D07201 の子 #AIND-D10819「أبو بكر بن أبي سعيد محمد … الماضي أبوه وأمه زبيدية . درج صغيرا」も母を「زبيدية」と記すが、相手側が本項主を名指ししないため規則23の条件を満たさず、校閲時に cert medium で置かれていた brother relation は集約時に除去して記録のみとした（§D108-4。B99-103 §D103-5・本バッチ §D105-10・§D108-5 の同父兄弟の扱いと統一）。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D05941
-  passive: wd:Q4120128
+  passive: m11
   methods:
   - TMP-S-00004
   context:
@@ -81,21 +74,71 @@ relations:
     date:
       ah: 836
       type: teaching
-  quote: لنا
   note:
     ja: 「أجاز لنا في سنة ست وثلاثين جماعة」＝（8）36年に一団とともに我々（サハーウィー、wd:Q4120128）にイジャーザを与えた。836 ＝ 1432-09-06〜1433-08-26、年初 1432（h2g.py）。初版の event when="0836"（ヒジュラ年を @when に誤記）を是正。
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: وبيض
+  - mention: m14
   cert: low
   note:
     ja: Pattern A。「بيض له」＝イブン・ファハドが彼のために（معجم に）空欄を残した。限定語のない ابن فهد・没年不明 → 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「chronicler」relation を event に変換。
   trigger: rule
-  norm: بيض
   phrase: وبيض له ابن فهد
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D07201
+  quote: أبي سعيد محمد
+  norm: ابو سعيد محمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: ظهيرة
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: عطية
+- id: m8
+  kind: name
+  quote: ابن ظهيرة
+- id: m9
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m10
+  kind: person
+  ref: AIND-D05941#p1
+  quote: زبيدية
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: لنا
+- id: m12
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m13
+  kind: source
+  quote: وبيض
+  norm: بيض
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウマル・ブン・アビー・サイード・ムハンマド・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ザヒーラ・ブン・アフマド・ブン・アティーヤ、イブン・ザヒーラ、アル＝クラシー。母はザビードの女性。（8）36年に一団とともに我々にイジャーザを与えた。イブン・ファハドは彼のために（記載欄を）空白にしている。
   en: ʿUmar b. Abī Saʿīd Muḥammad b. Abī Bakr b. ʿAbd Allāh b. Ẓahīra b. Aḥmad b. ʿAṭiyya, Ibn Ẓahīra, al-Qurashī; his mother was a woman of Zabīd. He granted us an ijāza, together with a group, in the year (8)36. Ibn Fahd left his entry blank.

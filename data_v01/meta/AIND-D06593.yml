@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 death:
   id: d
   date:
@@ -27,8 +25,8 @@ death:
     cert: low
   note:
     ja: 「قريبا من سنة سبع وأربعين」＝847年頃（規則4、when-custom=847、cert low）。847＝1443-05-10〜1444-04-28（h2g.py）、年精度 1443。初版は cert なし。
-  quote: سنة
   phrase: مات قريبا من سنة سبع وأربعين
+  mention: m5
 persons:
 - id: p1
   label: إبراهيم
@@ -41,19 +39,37 @@ relations:
   subtype: father
   active: AIND-D06593#p1
   passive: AIND-D06593
-  quote: null
   note:
     ja: 規則3 (c')。父 إبراهيم は名のみ。corpus で「جامع القرويين」に関わる項（#AIND-D04021・#AIND-D04628・#AIND-D06087・#AIND-D09511）に該当する父子なし。初版は父 relation なし。
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
   orgs:
   - ref: wd:Q12204282
-  quote: إمام
   note:
     ja: 「إمام جامع القرويين」＝汎用 إمام（wd:Q125482）＋orgName（規則65(b)）。جامع القرويين＝wd:Q12204282（ID-Master 登録、フェズ）。初版は同じ内容の affiliation（employed）を重ねていた＝除去（規則8）。
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m4
+  kind: office
+  ref: wd:Q125482
+  quote: إمام
   norm: امام
+- id: m5
+  kind: year
+  value: '847'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・アル＝マグリビー、カラウィーイーン・モスクのイマーム。（8）47年近くに没した。
   en: Muḥammad b. Ibrāhīm al-Maghribī, imām of the Qarawiyyīn Mosque. He died close to the year [8]47.

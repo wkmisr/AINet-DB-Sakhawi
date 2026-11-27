@@ -9,78 +9,66 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00796
-    quote: الأسدي
-    norm: الاسدي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n3
     type: laqab
-    quote: سري الدين
+    mention: m6
   - id: n4
     type: shuhrah
-    quote: بابن قاضي شهبة
-    norm: ابن قاضي شهبة
     label: ابن قاضي شهبة
+    mention: m13
   - id: n5
     type: ism
-    quote: حمزة
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: wd:Q85461758
-    norm: ابو بكر
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: عمر
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: التقي
     by: rule
+    mention: m7
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 death:
   id: d
   date:
     ah: 860-09
   places:
-  - ref: TMP-I-00091
-    role: burial
-    quote: بمقبرة الباب الصغير
-    norm: مقبرة الباب الصغير
+  - role: burial
+    mention: m16
   note:
     en: He died in Ramaḍān 860 AH and was buried in al-Bāb al-Ṣaghīr cemetery.
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName دمشق（gn:170654）を除去（ar-Latn 形も併せて除去）。根拠は〈ニスバ الدمشقي／墓地 مقبرة الباب الصغير の所在地〉からの補完で原文に地名の明示なし。
-  quote: سنة
+  mention: m15
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q85461758
+  active: m11
   passive: AIND-D02773
   methods:
   - TMP-S-00008
-  quote: أبوه
   note:
     en: '"He studied under his father and others" — the father is al-Taqī Abū Bakr b. Qāḍī Shuhba.'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: father
@@ -88,37 +76,34 @@ relations:
   passive: AIND-D02773
   summary:
     ar: أبو بكر بن أحمد بن محمد بن عمر
-  quote: null
   note:
     ja: التقي أبو بكر بن قاضي شهبة（فقيه الشام、D12617のابن-部見出し「ابن قاضي شهبة التقي أبو بكر بن أحمد بن محمد بن عمر بن محمد وابناه البدر محمد وحمزة」で本項と兄弟が確認できる）。ID-Master登録 wd:Q85461758 を採用。
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D07166
+  active: m12
   passive: AIND-D02773
   summary:
     ar: البدر محمد
-  quote: وأخوه
   note:
     ja: 「الآتي أبوه وأخوه」の أخ ＝ محمد بن أبي بكر بن أحمد بن محمد بن عمر البدر أبو الفضل = AIND-D07166（D12617のابن-部見出しで閉合）。
-  norm: اخوه
 states:
 - id: s1
   type: office
   ref: wd:Q352842
   orgs:
   - ref: TMP-I-00097
-  quote: null
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName دمشق（gn:170654）を除去。根拠は〈施設 المسرورية の所在地〉からの補完で原文に地名の明示なし。
+  mention: null
 - id: s2
   type: office
   ref: wd:Q352842
   orgs:
   - ref: TMP-I-00098
-  quote: null
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName دمشق（gn:170654）を除去。根拠は〈施設 المجاهدية の所在地〉からの補完で原文に地名の明示なし。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -135,6 +120,71 @@ affiliations:
   orgs:
   - label: المدرسة المجاهدية
   - label: al-Madrasa al-Mujāhidiyya
+mentions:
+- id: m1
+  kind: name
+  quote: حمزة
+- id: m2
+  kind: name
+  ref: wd:Q85461758
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عمر
+- id: m6
+  kind: name
+  quote: سري الدين
+- id: m7
+  kind: name
+  quote: التقي
+- id: m8
+  kind: name
+  ref: TMP-N-00796
+  quote: الأسدي
+  norm: الاسدي
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: wd:Q85461758
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: person
+  ref: AIND-D07166
+  quote: وأخوه
+  norm: اخوه
+- id: m13
+  kind: name
+  quote: بابن قاضي شهبة
+  norm: ابن قاضي شهبة
+- id: m14
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m15
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بمقبرة الباب الصغير
+  ref: TMP-I-00091
+  norm: مقبرة الباب الصغير
 translation:
   ja: ハムザ・ブン・アブー・バクル・ブン・アフマド・ブン・ムハンマド・ブン・ウマル・サリー・アッ＝ディーン・ブン・アッ＝タキー・アル＝アサディー・アッ＝ディマシュキー・アッ＝シャーフィイー。彼の父と兄弟は後述される。先祖と同様にイブン・カーディー・シュフバとして知られる。父などから（学問を）取得し、マスルーリーヤ・マドラサやムジャーヒディーヤ・マドラサなどで教授職を務めた。860年ラマダーン月に没し、バブ・アッ＝サギール墓地の先祖の傍らに埋葬された。神が彼と我らを慈しまんことを。
   en: Ḥamza b. Abī Bakr b. Aḥmad b. Muḥammad b. ʿUmar Sarī al-Dīn b. al-Taqī al-Asadī al-Dimashqī al-Shāfiʿī. His father and brother are mentioned below. Like his ancestors, he was known as Ibn Qāḍī Shuhba. He studied under his father and others, and taught at al-Masrūriyya and al-Mujāhidiyya Madrasas, among others. He died in Ramaḍān in the year 860 AH and was buried in al-Bāb al-Ṣaghīr cemetery next to his ancestors.

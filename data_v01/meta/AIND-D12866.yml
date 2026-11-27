@@ -9,22 +9,19 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
 death:
   id: d
   date:
     ah: 888-07-10
   places:
-  - ref: TMP-I-00289
-    role: burial
-    quote: بمدرسة ولدها العلاء في سوق الدريس ظاهر باب النصر
-    norm: مدرسة ولدها العلاء في سوق الدريس ظاهر باب النصر
+  - role: burial
+    mention: m6
   note:
     ja: '888年ラジャブ月10日＝1483-08-23（h2g.py）。初版の @when 1483 を日付精度に。葬礼は翌日（場所の記載なし）。埋葬地＝息子 العلاء（#AIND-D05410）の学院。D05410 本文「وابتنى في سوق التدريس مدرسة」（刊本の綴り。本項は「سوق الدريس」）と対応。ID-Master 未登録（「الدريس」「الأهناسي」の Institution なし。باب النصر＝TMP-L-00211 は門そのもの）→ TMP-I-00289。初版は #NEEDID。'
-  quote: سنة
   phrase: عمرت وماتت في ليلة عاشر رجب سنة ثمان وثمانين وصلى عليها من الغد ودفنت بمدرسة ولدها العلاء في سوق الدريس ظاهر باب النصر
+  mention: m5
 persons:
 - id: p1
   label: والد آمنة زوج الشمس بن الأهناسي
@@ -35,24 +32,20 @@ relations:
   subtype: father
   active: AIND-D12866#p1
   passive: AIND-D12866
-  quote: null
   note:
     ja: '父の名は刊本で欠（「آمنة ابنة ...」）＝補わない（規則45）。規則3 により #NEEDID の father relation。'
 - id: r2
   type: kin
   subtype: spouse
-  active: AIND-D07239
+  active: m2
   passive: AIND-D12866
-  quote: الشمس بن الأهناسي
   note:
     ja: '「زوج الشمس بن الأهناسي」。#AIND-D07239「محمد بن أبي بكر بن محمد بن حسين الشمس بن الأهناسي الوزير والد العلاء علي والبدر محمد … إلى أن كان في ربيع الآهر سنة ثلاث وسبعين فابتدأ به المرض حتى مات في يوم السبت سادس عشر جمادى الأولى عن أزيد من ثمانين سنة」（ラカブ・家名・子 العلاء で閉合）。初版は #NEEDID。'
-  norm: الشمس بن الاهناسي
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D05410
+  active: m3
   passive: AIND-D12866
-  quote: العلاء
   note:
     ja: '「وأم بنيه العلاء الوزير وإخوته … بمدرسة ولدها العلاء」。#AIND-D05410「علي بن محمد بن أبي بكر بن محمد بن حسين العلاء بن الشمس الأهناسي ثم القاهري الآتي أبوه وأخوه محمد … ومات وكل من أبويه في قيد الحياة … سنة ثمان وستين … وابتنى في سوق التدريس مدرسة」（ラカブ・ワズィール職・学院・「両親とも存命中に没」で閉合）。「الوزير」は息子の職＝state にしない。初版は #NEEDID。'
 - id: r4
@@ -63,13 +56,39 @@ relations:
   summary:
     ar: البدر محمد
   cert: medium
-  quote: null
   note:
     ja: 「وأم بنيه العلاء الوزير وإخوته」の「إخوته」は名が出ない。#AIND-D08728「محمد بن محمد بن أبي بكر بن محمد بن حسين البدر الشمس الاهناسي الماضي أبوه وأخوه علي」は الشمس の子で العلاء の兄弟＝「夫の息子たち（العلاء とその兄弟）の母」に含まれるとみて cert medium（同母かどうかの明言はない。規則23）。
 notes:
 - text: 初版の affiliation「buried」（مدرسة العلاء、#NEEDID）は death の埋葬地と二重で除去（規則8）。「عمرت」＝長命だった。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: person
+  ref: AIND-D07239
+  quote: الشمس بن الأهناسي
+  norm: الشمس بن الاهناسي
+- id: m3
+  kind: person
+  ref: AIND-D05410
+  quote: العلاء
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '888'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بمدرسة ولدها العلاء في سوق الدريس ظاهر باب النصر
+  ref: TMP-I-00289
+  norm: مدرسة ولدها العلاء في سوق الدريس ظاهر باب النصر
 translation:
   ja: アーミナ・ビント・（欠）。シャムス・イブン・アル＝アフナースィーの妻で、その息子たち、すなわちワズィールのアラーとその兄弟たちの母。長命で、（8）88年ラジャブ月10日の前夜（9日の夜）に没した。翌日に葬礼が行われ、ナスル門外のスーク・アッ＝ダリースにある息子アラーの学院に葬られた。
   en: Āmina, daughter of [lacuna], wife of al-Shams Ibn al-Ahnāsī and mother of his sons, al-ʿAlāʾ the vizier and his brothers. She lived long and died on the eve of 10 Rajab of the year [8]88; the prayer over her was held the next day, and she was buried in the madrasa of her son al-ʿAlāʾ in Sūq al-Darīs outside Bāb al-Naṣr.

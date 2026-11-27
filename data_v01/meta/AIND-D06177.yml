@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m2
   - id: n2
     type: ism
-    quote: فروخ
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد فروخ الشيرازي
@@ -25,20 +24,18 @@ relations:
   subtype: father
   active: AIND-D06177#p1
   passive: AIND-D06177
-  quote: null
   note:
     ja: '父の名は原文に無い → #NEEDID（規則3）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m5
   passive: AIND-D06177
   methods:
   - TMP-S-00008
   context:
   - type: learning
     phrase: فأخذ عن شيخنا وأظهر تبجحا بلقيه واغتباطا
-  quote: شيخنا
   note:
     ja: 「قدم قريب الخمسين فأخذ عن شيخنا」＝イブン・ハジャル（wd:Q471116）に学んだ。初版の `when="ca. 850"`（不正な値）を除去し、来着年は travel event に置く。
 states:
@@ -46,7 +43,7 @@ states:
   type: status
   label: شيخ مسن جدا
   label_latn: shaykh musinn jiddan
-  quote: شيخ مسن جدا
+  mention: m3
 events:
 - id: e1
   type: travel
@@ -54,12 +51,30 @@ events:
     ah: 850
     cert: medium
     type: travel
-  quote: قدم
   cert: medium
   note:
     ja: 「قريب الخمسين」＝850年頃。規則4により when-custom=0850（850年初＝1446-04-07）、cert medium（先例「ممن سمع مني قريب التسعين」→ 0890 cert medium）。行先の地名は原文に無いため placeName を立てない。
   trigger: rule
   phrase: قدم قريب الخمسين
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: فروخ
+- id: m2
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m3
+  kind: office
+  quote: شيخ مسن جدا
+- id: m4
+  kind: event
+  quote: قدم
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ファッルーフ・アッ＝シーラーズィー。非常に高齢のシャイフ。（8）50年近くに来着し、われらがシャイフ（イブン・ハジャル）から学び、彼に会えたことに誇りと喜びをあらわにした。
   en: Farrūkh al-Shīrāzī. A very aged shaykh. He arrived around the year [8]50 and studied under our shaykh (Ibn Ḥajar), displaying pride and delight at having met him.

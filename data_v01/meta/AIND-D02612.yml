@@ -9,17 +9,17 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: غازي
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000173
+  active: m6
   passive: AIND-D02612
   methods:
   - TMP-S-00011
@@ -27,12 +27,11 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00019
-  quote: الميدومي
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D02612
-  passive: AIND-D10816
+  passive: m7
   methods:
   - TMP-S-00011
   fields:
@@ -43,13 +42,9 @@ relations:
       ah: 804
       type: teaching
     places:
-    - ref: gn:285066
-      quote: بالخليل
-      norm: الخليل
+    - mention: m4
   works:
   - ref: TMP-T-00019
-  quote: التقي أبو بكر القلقشندي
-  norm: التقي ابو بكر القلقشندي
 events:
 - id: e1
   type: visit
@@ -58,11 +53,9 @@ events:
     cert: high
     type: visit
   places:
-  - ref: gn:285066
-    quote: بالخليل
-    norm: الخليل
-  quote: null
+  - mention: m4
   cert: high
+  mention: null
 - id: e2
   type: cultural
   date:
@@ -70,14 +63,40 @@ events:
     cert: high
     type: cultural
   places:
-  - ref: gn:285066
-    quote: بالخليل
-    norm: الخليل
+  - mention: m4
   summary:
     en: Transmitted al-Musalsal in Hebron to a group, from al-Maydūmī.
-  quote: حدث
   cert: high
   trigger: rule
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: غازي
+- id: m3
+  kind: event
+  quote: حدث
+- id: m4
+  kind: place
+  quote: بالخليل
+  ref: gn:285066
+  norm: الخليل
+- id: m5
+  kind: year
+  value: '804'
+  quote: سنة
+- id: m6
+  kind: person
+  ref: TMP-P-000173
+  quote: الميدومي
+- id: m7
+  kind: person
+  ref: AIND-D10816
+  quote: التقي أبو بكر القلقشندي
+  norm: التقي ابو بكر القلقشندي
 translation:
   ja: ハサン・ブン・ガーズィー。804年にヘブロンにおいて、アル＝マイドゥーミーからハディース・ムサルサル（特定の伝承動作を伴うハディース）を人々の集まりに伝承した。それをアッ＝タキー・アブー・バクル・アル＝カルカシャンディーが彼らから得て、我々に伝えた。
   en: Ḥasan b. Ghāzī. He transmitted the musalsal (pattern-chained) hadith in Hebron to a group from al-Maydūmī in the year 804 AH. Al-Taqī Abū Bakr al-Qalqashandī transmitted it to us from them.

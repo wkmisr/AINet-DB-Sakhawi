@@ -9,57 +9,52 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشرف
+    mention: m6
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن جوشن
+    mention: null
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05330
+    mention: m2
   - id: n5
     type: nasab
-    quote: عيسى
     by: rule
-    ref: AIND-D06079
-    norm: عيسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: جوشن
     by: rule
+    mention: m7
 birth:
   id: b
   date:
     ah: 835
   note:
     ja: 「ولد سنة خمس وثلاثين وثمانمائة」。835年＝1431-09-18 開始（年精度 → 1431）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05330
+  active: m8
   passive: AIND-D08150
   summary:
     ar: علي بن عيسى بن عثمان بن محمد النور بن الشرف ابن جوشن
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝#AIND-D05330「علي بن عيسى بن عثمان بن محمد النور بن الشرف القاهري الشافعي والد الشرف محمد وأخو الفخر محمد وأحمد ويعرف كسلفه بابن جوشن . ولد سنة ثمان وثمانمائة … مات سنة ثمان وثلاثين」（未収録）。「والد الشرف محمد」で本項主と閉合（規則37、cert なし）。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
@@ -67,35 +62,32 @@ relations:
   passive: AIND-D08150
   summary:
     ar: عيسى بن عثمان الشرف القاهري
-  quote: null
   note:
     ja: 祖父＝#AIND-D06079「عيسى بن عثمان بن عيسى بن عثمان بن محمد الشرف القاهري الشافعي والد الفخر محمد وعلي وأحمد المذكورين」（未収録）。父 D05330（علي）の父として閉合（規則37）。見出しナサブ「عيسى بن عثمان بن محمد」は D06079 の「عيسى بن عثمان بن عيسى بن عثمان بن محمد」を1段省略した形。初版なし。
 - id: r3
   type: kin
   subtype: paternal_uncle
-  active: AIND-D08408
+  active: m9
   passive: AIND-D08150
   summary:
     ar: الفخر محمد بن عيسى بن عثمان ابن جوشن
-  quote: الفخر محمد
   note:
     ja: '「والآتي عمه الفخر محمد」＝#AIND-D08408「محمد بن عيسى بن عثمان بن محمد الفخر بن الشرف القاهري الشافعي … وأخو أحمد وعلي الماضيين … ويعرف كسلفه بابن جوشن . ولد سنة ست وثمانمائة … مات في ذي القعدة سنة ثمان وسبعين」（未収録）。父 D05330 の兄弟として閉合。初版の uncle #NEEDID を paternal_uncle（repo 統制語彙）に。もう一人の叔父 أحمد＝#AIND-D01149（本項では言及なし＝relation なし）。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m12
   passive: AIND-D08150
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「وسمع على شيخنا وغيره」＝イブン・ハジャル。「وغيره」は立てない。（【集約 2026-11-03】desc「شيخنا」は続柄的な呼称＝規則31 により「ابن حجر」に。D08073 と揃えた）
 - id: r5
   type: scholarly
   subtype: teacher
-  active: AIND-D10313
+  active: m13
   passive: AIND-D08150
   methods:
   - TMP-S-00014
@@ -103,7 +95,6 @@ relations:
   context:
   - type: learning
     phrase: ولازم المناوي في التقسيم وغيره
-  quote: المناوي
   note:
     ja: '「ولازم المناوي في التقسيم وغيره」。المناوي＝頻出確定ID الشرف المناوي #AIND-D10313（798生・871没、カイロのシャーフィイー派カーディー・教師）。本項主は 835 生でカイロのシャーフィイー派＝年代・場が整合するが、呼称がニスバ単独のため cert medium（規則26 例外2）。「التقسيم」は書名ではなく講読形式のため初版の bibl #NEEDID を除去し、relation 内 event の desc に残す（先例 D04132）。'
 events:
@@ -113,20 +104,69 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00003
-  quote: وسمع
   trigger: rule
-  norm: سمع
   phrase: ونشأ فحفظ القرآن وغيره
+  mention: m11
 - id: e2
   type: cultural
-  quote: وتنزل في الجهات
   note:
     ja: '「تنزل في الجهات」（諸施設の俸給ポストを得た）＝先例 #AIND-D04039 どおり event（cultural）。初版の state「الجهات」（#NEEDID、職名ではない）を置換。'
-  norm: تنزل في الجهات
+  phrase: وتنزل في الجهات
+  mention: null
 notes:
 - text: '「وهو إلى الانجماع أقرب」＝人物評（訳のみ）。同家の ابن جوشن（カイロの الشرف 家）: 祖父 D06079・父 D05330・叔父 D08408／D01149・叔父の縁者 D01925。マッカの ابن جوشن 家（D08064・D11088 等）とは別系統。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05330
+  quote: علي
+- id: m3
+  kind: name
+  ref: AIND-D06079
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  quote: عثمان
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: الشرف
+- id: m7
+  kind: name
+  quote: جوشن
+- id: m8
+  kind: person
+  ref: AIND-D05330
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: AIND-D08408
+  quote: الفخر محمد
+- id: m10
+  kind: year
+  value: '835'
+  quote: سنة
+- id: m11
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: person
+  ref: AIND-D10313
+  quote: المناوي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・イーサー・ブン・ウスマーン・ブン・ムハンマド、アッ＝シャラフ・ブン・ジャウシャン。父は既述、叔父のアル＝ファフル・ムハンマドは後述。835年に生まれ、成長してクルアーンなどを暗記し、我らがシャイフ（イブン・ハジャル）らから聴聞し、アル＝マナーウィーにタクスィーム（分講）などで密に師事した。諸施設の俸給職に就き、彼は隠遁に近い性向の人である。
   en: Muḥammad b. ʿAlī b. ʿĪsā b. ʿUthmān b. Muḥammad, al-Sharaf b. Jawshan; his father has been mentioned and his paternal uncle al-Fakhr Muḥammad will be mentioned. He was born in the year 835, grew up and memorized the Qurʾān and other texts, heard from our shaykh (Ibn Ḥajar) and others, and attended al-Manāwī assiduously in the taqsīm (sectional lessons) and other things. He obtained stipendiary posts, and he is closer to seclusion.

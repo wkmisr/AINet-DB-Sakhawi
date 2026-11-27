@@ -9,26 +9,25 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n2
     type: honorific
-    quote: الأمير
-    norm: الامير
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: رشيد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 837-12-01
   note:
     ja: 「مات في مستهل ذي الحجة سنة سبع وثلاثين」＝837年ズー・ル＝ヒッジャ月朔日＝1434-07-18（h2g.py）。没地は原文に無い。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: رشيد
@@ -41,36 +40,69 @@ relations:
   subtype: father
   active: AIND-D07392#p1
   passive: AIND-D07392
-  quote: null
   note:
     ja: '父 رشيد は名のみで識別要素が無い → #NEEDID（規則3）。初版はカテゴリ不一致の地名番号 TMP-L-00058（登録＝رشيد、ロゼッタ）を人物位置に流用 → 置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00055
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: محتسب
+  - mention: m6
   note:
     ja: 見出しの「محتسب دمشق」（ID-Master 既登録 TMP-O-00055）。
+  mention: m5
 - id: s2
   type: office
   ref: TMP-O-00014
-  quote: null
   note:
     ja: 見出しの「الأمير ناصر الدين」。勤務地は原文に無いので初版の placeName دمشق（محتسب の地からの補完）を除去（規則22）。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00710
-    quote: ابن اللبودي
-  quote: أرخه
+  - mention: m10
   note:
     ja: Pattern A。ابن اللبودي＝#AIND-D00710（頻出確定ID、ダマスクスの史家）。初版の統制外 subtype「chronicler」relation（#NEEDID）を event に置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن اللبودي
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: رشيد
+- id: m3
+  kind: name
+  quote: الأمير
+  norm: الامير
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: office
+  ref: TMP-O-00055
+  quote: محتسب
+- id: m6
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m7
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m8
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D00710
+  quote: ابن اللبودي
 translation:
   ja: ムハンマド・ブン・ラシード、アミール・ナースィルッディーン、ダマスクスのムフタスィブ。837年ズー・ル＝ヒッジャ月の朔日に没した。イブン・アッ＝ラブーディーがその没年を記している。
   en: Muḥammad b. Rashīd, the amir Nāṣir al-Dīn, muḥtasib of Damascus. He died on the first day of Dhū al-Ḥijja of the year 837. Ibn al-Labūdī recorded the date of his death.

@@ -9,66 +9,56 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00027
-    quote: الهاشمي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عيسى
     by: rule
-    ref: AIND-D06101
-    norm: عيسي
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: قريش
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 878-08
   places:
-  - ref: TMP-L-00298
-    quote: كالبرقة
-  - ref: TMP-L-00039
-    quote: الهند
+  - mention: m11
+  - mention: m12
   note:
     en: He died in Shaʿbān 878 in a region called Kālbarqa in India.
     ja: 原文「ببلاد كالبرقة من الهند」。كالبرقة（デカンの Gulbarga／Kalaburagi とみられる）は ID-Master 未登録のため TMP-L-00298 を発行（gn は要照合）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: TMP-P-001305
+  active: m8
   passive: AIND-D04866
   summary:
     ar: المجد بن أبي السعادات
-  quote: للمجد بن أبي السعادات
   note:
     ja: 原文「ممن انتمى للمجد بن أبي السعادات」。corpus に見出し・本伝なし（مجد الدين をラカブとする بن أبي السعادات は未検出）・ID-Master 未登録のため TMP-P-001305 を発行。初版の subtype「associate」（#NEEDID）を patron（active＝相手、規則15）に是正。
-  norm: لمجد بن ابي السعادات
 - id: r2
   type: kin
   subtype: father
   active: AIND-D06101
   passive: AIND-D04866
-  quote: null
   note:
     ja: '父 ＝ #AIND-D06101「عيسى بن موسى بن علي بن قريش بن داود القرشي الهاشمي المكي ويلقب بالعماد」（ナサブ5代一致、825年マッカ没）。'
   phrase: عيسى بن موسى بن علي بن قريش الهاشمي المكي
@@ -76,28 +66,82 @@ states:
 - id: s1
   type: office
   ref: TMP-O-00155
-  quote: null
   note:
     ja: 原文「وكان يعمل العمر ويزرع」。マッカの代行ウムラ業（TMP-O-00155）。場所の明示はないため placeName を付けない（規則22(1)）。
+  mention: null
 - id: s2
   type: office
   label: الزراعة
   label_latn: al-zirāʿa
-  quote: null
   note:
     ja: 「ويزرع」（農耕）。ID-Master に該当する職・生業の登録なし。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m14
   cert: medium
   note:
     ja: 'Pattern A（初版は統制外 subtype「biographer」の relation）。没年 878（871＜878≦885）→ ブリーフの振り分けにより النجم عمر بن فهد ＝ #AIND-D05979、cert medium。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: AIND-D06101
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: قريش
+- id: m6
+  kind: name
+  ref: TMP-N-00027
+  quote: الهاشمي
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: person
+  ref: TMP-P-001305
+  quote: للمجد بن أبي السعادات
+  norm: لمجد بن ابي السعادات
+- id: m9
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m10
+  kind: year
+  value: '878'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: كالبرقة
+  ref: TMP-L-00298
+- id: m12
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m13
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m14
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ウスマーン・ブン・イーサー・ブン・ムーサー・ブン・アリー・ブン・クライシュ・アル＝ハーシミー・アル＝マッキー。アル＝マジュド・ブン・アビー・ッ＝サアーダートに身を寄せた者の一人で、代行ウムラを生業とし、農耕もしていた。878年シャアバーン月にインドのカールバルカ地方で没した。イブン・ファハドが彼の没年を記録している。
   en: ʿUthmān b. ʿĪsā b. Mūsā b. ʿAlī b. Quraysh al-Hāshimī al-Makkī. He was among those attached to al-Majd b. Abī al-Saʿādāt; he used to perform ʿumras on behalf of others for a living and to farm. He died in Shaʿbān 878 in the region of Kālbarqa in India. Ibn Fahd recorded his death date.

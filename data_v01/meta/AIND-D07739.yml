@@ -9,87 +9,125 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00078
-    quote: البرلسي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد اللطيف
     by: rule
-    ref: TMP-P-001194
+    mention: m2
 death:
   id: d
   date:
     ah: 881-10
   places:
-  - ref: TMP-L-00284
-    quote: بالرمل ظاهر اسكندرية
-    norm: الرمل ظاهر اسكندرية
-  - ref: TMP-L-00285
-    role: burial
-    quote: الجزيرة خارج باب البحر
+  - mention: m8
+  - role: burial
+    mention: m9
   note:
     ja: 881-10＝1477-01-26〜02-23（h2g.py。初版 1476 は誤り）。الرمل（アレクサンドリア郊外）と الجزيرة خارج باب البحر（海門外の「島」＝墓域）は ID-Master 未登録のため TMP-L-00284／-02 を新規発行（既登録 TMP-L-00075「الجزيرة」は所在不明の別行のため流用せず）。埋葬先の目印「الشيخ علي الموازيني」（アレクサンドリアの聖者墓）は人物同定不能のため note のみ（ISSUES §Dg-9）。
-  quote: سنة
   phrase: مات في شوال سنة إحدى وثمانين بالرمل ظاهر اسكندرية فحمل إلى الجزيرة خارج باب البحر فدفن عند الشيخ علي الموازيني
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D05246
+  active: m5
   passive: AIND-D07739
-  quote: أخو
   note:
     ja: 兄弟＝#AIND-D05246（項番837 علي بن عبد اللطيف البرلسي ثم السكندري التاجر أخو محمد الآتي、887年マッカ没）。双方の本文が互いを兄弟と明記。初版の TMP-P-000530（#AIND-D04287 の兄弟 علي 専用の関係専用番号）は汚染流用のため破棄。
-  norm: اخو
   phrase: أخو على الماضي
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001194
   passive: AIND-D07739
-  quote: null
   note:
     ja: '父 عبد اللطيف البرلسي السكندري。名＋ニスバのみだが、子2人（本項主と #AIND-D05246）が corpus に立項されるアレクサンドリアの商人一族の父として TMP-P-001194 を新規発行（規則3 但書、⚠汎用名）。'
   phrase: عبد اللطيف
 - id: r3
   type: social
   subtype: other
-  active: TMP-P-001195
+  active: m12
   passive: AIND-D07739
-  quote: بيت المنصور بن الظاهر جقمق الذي صار إليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط
   note:
     ja: 家屋の売主 خليل بن الناصر（ダミエッタへ転居した際に本項主へ المنصور بن الظاهر جقمق 邸を売却）。corpus に他の言及なし・ID-Master 未登録。「الناصر」は الناصري محمد بن الظاهر جقمق（#AIND-D04849 المنصور عثمان の兄）の可能性が高く（叔父の邸宅が甥に渡った経緯として整合）、識別要素があるため TMP-P-001195 を新規発行（ISSUES §Dg-9）。初版の統制外 subtype「transaction partner」を other に。
-  norm: بيت المنصور بن الظاهر جقمق الذي صار اليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: وكان
-  norm: كان
   phrase: أحد التجار
+  mention: m10
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: وسافر في التجارة لمكة وغيرها
-  norm: سافر في التجارة لمكة وغيرها
+  - mention: m11
+  phrase: وسافر في التجارة لمكة وغيرها
+  mention: null
 - id: e2
   type: other
-  quote: وله أوقاف في جهات قرب من جملتها بيت المنصور بن الظاهر جقمق الذي صار إليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط ثم وقفه
   note:
     ja: 善行の諸方面（جهات قُرَب）へのワクフ。その一つが المنصور بن الظاهر جقمق（＝#AIND-D04849 المنصور عثمان بن جقمق、スルタン 857年）の邸宅で、خليل بن الناصر から購入後にワクフとした。المنصور・الظاهر جقمق（#AIND-D02423）は邸宅の旧所有者としての言及のみで本項主との直接関係ではないため、初版の relation（former property owner／father of former property owner）と affiliation「بيت المنصور」は除去。
-  norm: وله اوقاف في جهات قرب من جملتها بيت المنصور بن الظاهر جقمق الذي صار اليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط ثم وقفه
+  phrase: وله أوقاف في جهات قرب من جملتها بيت المنصور بن الظاهر جقمق الذي صار إليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط ثم وقفه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001194
+  quote: عبد اللطيف
+- id: m3
+  kind: name
+  ref: TMP-N-00078
+  quote: البرلسي
+- id: m4
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m5
+  kind: person
+  ref: AIND-D05246
+  quote: أخو
+  norm: اخو
+- id: m6
+  kind: month
+  value: 10
+  quote: شوال
+- id: m7
+  kind: year
+  value: '881'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالرمل ظاهر اسكندرية
+  ref: TMP-L-00284
+  norm: الرمل ظاهر اسكندرية
+- id: m9
+  kind: place
+  quote: الجزيرة خارج باب البحر
+  ref: TMP-L-00285
+- id: m10
+  kind: office
+  ref: wd:Q215536
+  quote: وكان
+  norm: كان
+- id: m11
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: person
+  ref: TMP-P-001195
+  quote: بيت المنصور بن الظاهر جقمق الذي صار إليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط
+  norm: بيت المنصور بن الظاهر جقمق الذي صار اليه بعد خليل بن الناصر اشتراه منه حين تحول لدمياط
 translation:
   ja: ムハンマド・ブン・アブドゥッラティーフ・アル＝ブルルスィー・アッ＝サカンダリー。前述のアリーの兄弟。商人の一人で、ヒジュラ暦881年シャウワール月にアレクサンドリア郊外のアッ＝ラムルで没し、海門（バーブ・アル＝バフル）の外のアル＝ジャズィーラに運ばれてシャイフ・アリー・アル＝マワーズィーニーの傍らに埋葬された。非常に裕福で、善良さ、気概、目的達成のために惜しみなく施す寛大さ、そして端正な容姿を兼ね備えていた。交易のためマッカやその他の地へ旅した。彼は善行のための諸方面にワクフを持ち、その一つがアル＝マンスール・ブン・アッ＝ザーヒル・ジャクマクの邸宅である。それはハリール・ブン・アン＝ナースィルの後に彼の手に渡ったもので、ハリールがダミエッタへ移った際に彼から買い取り、のちにワクフとした。神が彼を憐れみたまわんことを。
   en: 'Muḥammad b. ʿAbd al-Laṭīf al-Burullusī al-Sakandarī, brother of the aforementioned ʿAlī. One of the merchants, he died in Shawwāl 881 at al-Raml outside Alexandria and was carried to al-Jazīra outside Bāb al-Baḥr, where he was buried beside Shaykh ʿAlī al-Mawāzīnī. He was very wealthy, with goodness, strength of character, generosity in spending to attain his aims, and a handsome appearance. He travelled for trade to Mecca and elsewhere, and he had endowments (awqāf) for pious purposes, among them the house of al-Manṣūr b. al-Ẓāhir Jaqmaq, which came to him after Khalīl b. al-Nāṣir: he bought it from him when Khalīl moved to Damietta and then made it a waqf. May God have mercy on him.'

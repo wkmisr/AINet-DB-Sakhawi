@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01363
-    quote: الزوقري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 death:
   id: d
   date:
@@ -41,23 +36,21 @@ death:
   note:
     ar: مات سنة عشر
     ja: 「سنة عشر」＝810年。810年ヒジュラ暦年初＝1407年6月17日（グレゴリオ暦）。
-  quote: سنة
+  mention: m9
 states:
 - id: s1
   type: office
   ref: TMP-O-00004
   orgs:
   - ref: TMP-I-00162
-  quote: null
   note:
     ja: '#TMP-I-00162（المظفرية）の同定根拠: 本項主は原文で「أحد الفضلاء من أهل تعز」＝タイッズの人と明記されており、当該المظفرية はタイッズのムザッファリーヤ学院を指す。ただし原文は「أفتى ودرس بالمظفرية」と述べるのみで施設の所在地を記さないため、§D-V2 裁定（2026-09-18）により placeName は付けず、同定根拠を本 note に記録する。地名「تعز」自体は原文に現れるため event type="residence" n="2" の placeName としては保持する。'
+  mention: null
 - id: s2
   type: office
-  ref: wd:Q352842
   orgs:
   - ref: TMP-I-00162
-  quote: وكان
-  norm: كان
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -66,22 +59,20 @@ events:
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00050
-    quote: تعز
-  quote: أحد الفضلاء من أهل تعز
-  norm: احد الفضلاء من اهل تعز
+  - mention: m7
+  phrase: أحد الفضلاء من أهل تعز
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は統制外 subtype「mentioned_by」の relation にしていた。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m10
 notes:
 - text: タイッズの人びとのうちの優れた者の一人で、その品行は称賛されていた（كان مشكور السيرة）。
   lang: ja
@@ -89,6 +80,50 @@ notes:
 - text: One of the excellent men among the people of Taʿizz, whose conduct was praised (kāna mashkūr al-sīra).
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: name
+  ref: TMP-N-01363
+  quote: الزوقري
+- id: m5
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: place
+  quote: تعز
+  ref: TMP-L-00050
+- id: m8
+  kind: office
+  ref: wd:Q352842
+  quote: وكان
+  norm: كان
+- id: m9
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー・ブン・アビー・バクル・ブン・ヤフヤー・アッ＝ザウカリー・アル＝ヤマーニー・アッ＝シャーフィイー。タイッズの人びとのうちの優れた者の一人。ムザッファリーヤ〔学院〕でファトワーを出し、教授した。その品行は称賛されていた。810年に没した。我らがシャイフ（イブン・ハジャル）がその『インバーウ〔・アル＝グムル〕』において彼に言及している。
   en: ʿAbd Allāh b. Abī Bakr b. Yaḥyā al-Zawqarī al-Yamānī al-Shāfiʿī. One of the excellent men among the people of Taʿizz. He issued fatwas and taught at al-Muẓaffariyya, and was of praiseworthy conduct. He died in the year ten [810 AH]. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ [al-Ghumr].

@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01738
-    quote: المفعلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-05486
-    quote: النجار
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بالمسلوت
-    norm: المسلوت
     label: المسلوت
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n8
     type: nasab
-    quote: داود
     by: rule
+    mention: m4
 birth:
   id: b
   date:
@@ -49,8 +43,8 @@ birth:
     cert: medium
   note:
     ja: 「تقريبا」＝cert medium。779＝1377-05-18〜1378-05-07（h2g.py）、年精度 1377。
-  quote: سنة
   phrase: ولد تقريبا سنة تسع وسبعين وسبعمائة
+  mention: m9
 persons:
 - id: p1
   label: أحمد بن إبراهيم بن داود
@@ -63,19 +57,17 @@ relations:
   subtype: father
   active: AIND-D06596#p1
   passive: AIND-D06596
-  quote: null
   note:
     ja: 規則3 (c')。父 أحمد بن إبراهيم بن داود は識別要素のない汎用名で本伝なし（hwm.py「أحمد بن إبراهيم بن داود」は本項のみ。#AIND-D00721 أحمد بن داود بن إبراهيم بن داود الصالحي القطان は727年生でナサブの順が異なる別人）。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000411
+  active: m10
   passive: AIND-D06596
   methods:
   - TMP-S-00028
   works:
   - ref: TMP-T-00275
-  quote: المحب بن الصامت
   note:
     ja: '「وأحضر على المحب بن الصامت للنصف الثاني من بلدانيات السلفي」＝幼時に連れて行かれ、السلفي の『البلدانيات』の後半を（聴講の席に）出席した。المحب بن الصامت＝TMP-P-000411（ID-Master 登録「المحب الصامت」、ダマスクス・サーリヒーヤの8世紀のムスナド。corpus の「المحب الصامت／بن الصامت」の用例は #AIND-D01443・#AIND-D02621 などサーリヒーヤの人々の師）。書名は ID-Master 未登録＝仮番号 TMP-T-00275（初版は零番号 TMP-T-00000）。初版の field الحديث は原文になく除去。'
 - id: r3
@@ -85,7 +77,6 @@ relations:
   passive: AIND-D06596
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: 「ثم سمع عليه غيرها」＝のち同じ師からほかのものも聴いた（書名なし）。出席（حضور）と聴聞（سماع）は性質が異なるので relation を分ける（規則2）。
   phrase: المحب بن الصامت
@@ -93,35 +84,80 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D06596
-  passive: AIND-D05979
+  passive: m12
   methods:
   - TMP-S-00003
   cert: medium
-  quote: كابن فهد
   note:
     ja: '「سمع منه الفضلاء كابن فهد」＝本項主が師（active）。「ابن فهد」は名指しがなく、本項主の没年も不明（「ومات」のみ）で、振り分け規則の既定は #AIND-D09211（cert low）になる。しかし本項主はダマスクス・サーリヒーヤの人で、シリアへ旅したのは النجم عمر（#AIND-D05979）のほう（本伝「وسافر منها إلى الشام في رمضانها」「فلقي شيخنا بدمشق」「ثم رحل إلى القدس والخليل وأخذ عن الموجودين بهما إلى دمشق فأخذ عمن لقيه بها」）で、父 التقي（#AIND-D09211）の本伝にはシリア行の記述がない。同じ帯の #AIND-D06631（ハマーの人）も「وحدث سمع منه الفضلاء كالجمال بن السابق … والنجم بن فهد」と النجم を名指しする。年代と行動範囲から #AIND-D05979 に充て、裸の「ابن فهد」なので cert medium（ISSUES §D171-5）。初版は passive #AIND-D09211・subtype student（旧規約）・原文にない field。'
-  norm: ابن فهد
   phrase: ابن فهد
 states:
 - id: s1
   type: office
   ref: TMP-O-00300
-  quote: null
   note:
     ja: '見出しの「النجار」（大工。職業・生業も state type="office" で立てる、規則65(a)。ID-Master 登録 TMP-O-00300、先例 #AIND-D04962）。場所・施設の記載なし。ニスバ形の登録 TMP-N-05486 は persName に残した。【集約 2026-11-18】検証A A-2（state を外して D06579 に揃える案）は不適用。repo の実項で、見出しの位置にだけ出て本文に生業の記述がない職業語は、state ありが49件・なしが40件（التاجر 18対0、الخياط 8対1、العطار 10対5、النجار 1対5 など。集約の走査）で、規則65(a)（職業・生業も state type="office"）とも合う。本バッチの D06605 الكاتب・D06619 التاجر・D06638 البناء・D06661 الخياط も同じ扱い。D06579 の القصار を state ありに揃えた（オーケストレーター決定2）。'
+  mention: null
 events:
 - id: e1
   type: teaching
-  quote: وحدث
   note:
     ja: ハディースの伝授（حدث）。「الفضلاء」のうち名指しされるのは ابن فهد のみ（上の relation）。
   trigger: rule
-  norm: حدث
   phrase: وحدث سمع منه الفضلاء
+  mention: m11
 notes:
 - text: 原文は「ومات」で終わり、没年・没地が書かれていない＝death 要素は作らない（規則45）。「الصالحي」はニスバのみで居住地の placeName は立てない（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: داود
+- id: m5
+  kind: name
+  ref: TMP-N-01738
+  quote: المفعلي
+- id: m6
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m7
+  kind: name
+  ref: TMP-N-05486
+  quote: النجار
+- id: m8
+  kind: name
+  quote: بالمسلوت
+  norm: المسلوت
+- id: m9
+  kind: year
+  value: '779'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000411
+  quote: المحب بن الصامت
+- id: m11
+  kind: event
+  quote: وحدث
+  norm: حدث
+- id: m12
+  kind: person
+  ref: AIND-D05979
+  quote: كابن فهد
+  norm: ابن فهد
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・イブラーヒーム・ブン・ダーウード・アル＝マフアリー（ミームにファトハ、次にファー、無点字〔アイン〕、ラーム）・アッ＝サーリヒー・アン＝ナッジャール。アル＝マスルートとして知られる（無点字〔スィーン〕で、末尾は二点字〔ター〕）。おおよそ779年に生まれ、アル＝ムヒッブ・ブン・アッ＝サーミトのもとに、アッ＝スィラフィーの『ブルダーニーヤート』後半（の席）に連れて行かれ、のち彼からほかのものも聴いた。ハディースを語り、イブン・ファハドのような優れた人々が彼から聴いた。そして没した。
   en: Muḥammad b. Aḥmad b. Ibrāhīm b. Dāwūd al-Mafʿalī (with fatḥa on the mīm, then fāʾ, an undotted letter [ʿayn] and lām) al-Ṣāliḥī al-Najjār, known as al-Maslūt (with an undotted letter [sīn], and ending in a two-dotted letter [tāʾ]). He was born in approximately the year 779 and was brought as a child to al-Muḥibb b. al-Ṣāmit for the second half of al-Silafī’s Buldāniyyāt; later he heard other things from him. He transmitted ḥadīth, and worthy scholars such as Ibn Fahd heard from him. He then died.

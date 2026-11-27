@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00457
-    quote: القسنطيني
+    mention: m4
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: قاسم
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m5
 persons:
 - id: p1
   label: محمد بن قاسم القسنطيني
@@ -40,22 +38,19 @@ relations:
   subtype: father
   active: AIND-D06239#p1
   passive: AIND-D06239
-  quote: null
   note:
     ja: 父。名＋父名＋ニスバのみ（規則3 (c')）。corpus に本伝なし。初版は father relation 欠落。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D06239
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بها」（بها＝المدينة、規則2）。初版の field（الحديث）は原文になく除去。
 affiliations:
@@ -66,11 +61,39 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: نزيل
+  - mention: m7
   trigger: rule
   phrase: نزيل المدينة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: قاسم
+- id: m4
+  kind: name
+  ref: TMP-N-00457
+  quote: القسنطيني
+- id: m5
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: カースィム・ブン・ムハンマド・ブン・カースィム、アル＝クサンティーニー、マーリキー派、マディーナの寄留者。そこ（マディーナ）で私から聴聞した者の一人。
   en: Qāsim b. Muḥammad b. Qāsim al-Qusanṭīnī, the Mālikī, resident of Medina. He is among those who heard from me there.

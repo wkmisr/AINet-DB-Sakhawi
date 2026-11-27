@@ -9,24 +9,23 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 834
   note:
     ja: 「أرخ شيخنا وفاته في إنبائه سنة أربع وثلاثين」＝イブン・ハジャル『إنباء الغمر』による没年 834（年精度、1430-09-28 開始）。
-  quote: سنة
+  mention: m4
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D07154
+  active: m2
   passive: AIND-D07155
   summary:
     ar: محمد الناصري بن الأشرف برسباي
-  quote: الذي قبله
   note:
     ja: '「أخو الذي قبله」＝直前項 #AIND-D07154（محمد الناصري بن الأشرف برسباي）。初版の #NEEDID を解消。'
 - id: r2
@@ -36,20 +35,34 @@ relations:
   passive: AIND-D07155
   summary:
     ar: الأشرف برسباي
-  quote: null
   note:
     ja: '「أخو الذي قبله」により兄 #AIND-D07154 と同じく父は الأشرف برسباي（#AIND-D02168）。刊本でも「محمد بن برسباي」部に立項。規則3により father relation を立てる。'
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m3
   works:
   - ref: TMP-T-00034
-  quote: أرخ شيخنا وفاته في إنبائه سنة أربع وثلاثين ولم يزد
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の relation「other」を event に改めた。
-  norm: ارخ شيخنا وفاته في انباءه سنة اربع وثلاثين ولم يزد
+  phrase: أرخ شيخنا وفاته في إنبائه سنة أربع وثلاثين ولم يزد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: person
+  ref: AIND-D07154
+  quote: الذي قبله
+- id: m3
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m4
+  kind: year
+  value: '834'
+  quote: سنة
 translation:
   ja: ムハンマド、前項の人物の兄弟。我らの師（イブン・ハジャル）は『インバー』で彼の没年を834年と記し、それ以上は付け加えなかった。
   en: Muḥammad, the brother of the preceding one. Our shaykh dated his death in his Inbāʾ to the year 834 and added nothing more.

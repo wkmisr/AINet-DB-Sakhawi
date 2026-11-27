@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن الضرير
-    norm: ابن الضرير
     label: ابن الضرير
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -47,7 +45,6 @@ relations:
   subtype: father
   active: AIND-D07951#p1
   passive: AIND-D07951
-  quote: null
   note:
     ja: '父 عثمان بن علي は汎用名で識別要素なし（「ابن الضرير」が父の通称かは原文から決まらない）。規則3 (c'') で #NEEDID。初版なし。'
 - id: r2
@@ -62,13 +59,12 @@ relations:
     date:
       ah: 794
       type: learning
-  quote: null
   note:
     ja: '「سمع في سنة أربع وتسعين وسبعمائة على عبد الرحمن بن محمد بن الرشيد」。ID-Master 既登録 TMP-P-001400「الزين عبد الرحمن بن محمد بن الرشيد (الصالحي)」（D05928 の師、793 年）。794 年＝1391-12-07 開始 → 年精度 1391（初版は @when="0794" 誤記）。初版 #NEEDID、field الحديث を除去（原文に聴聞内容なし）。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-001644
+  active: m7
   passive: AIND-D07951
   methods:
   - TMP-S-00003
@@ -77,13 +73,12 @@ relations:
     date:
       ah: 794
       type: learning
-  quote: ابن عبد
   note:
     ja: '「والعماد أبي بكر بن أحمد ابن عبد الهادي」＝ダマスクス・サーリヒーヤのハンバル派ハディース伝承者 العماد أبو بكر بن أحمد بن عبد الهادي المقدسي الصالحي（没年は corpus・ID-Master に根拠なし＝未確認。【集約 2026-10-31】校閲時の「800 没」（記憶由来、規則42）を削除）。corpus に本伝なし、ID-Master 未登録（ابن عبد الهادي 家の登録は الحافظ الشمس محمد بن أحمد・أبو الفرج عبد الرحمن TMP-P-001114・عائشة #AIND-D13339 のみ）→ 新規 TMP-P-001644。初版 #NEEDID。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-001645
+  active: m8
   passive: AIND-D07951
   methods:
   - TMP-S-00003
@@ -92,14 +87,12 @@ relations:
     date:
       ah: 795
       type: learning
-  quote: أحمد بن محمد بن راشد بن خطليشا
   note:
     ja: '「وفي التي تليها على أحمد بن محمد بن راشد بن خطليشا」。corpus に本伝なし（hw.py「خطليشا」は本項のみ）、ID-Master 未登録 → 新規 TMP-P-001645。795 年＝1392-11-25 開始 → 年精度 1392。初版 #NEEDID。'
-  norm: احمد بن محمد بن راشد بن خطليشا
 - id: r5
   type: scholarly
   subtype: teacher
-  active: AIND-D04440
+  active: m9
   passive: AIND-D07951
   methods:
   - TMP-S-00003
@@ -108,7 +101,6 @@ relations:
     date:
       ah: 795
       type: learning
-  quote: ابن خليل
   note:
     ja: '「وعبد الله ابن خليل الحرستاني」＝#AIND-D04440「عبد الله بن خليل بن أبي الحسن بن ظاهر … التقى أبو عبد الرحمن الحرستاني ثم الدمشقي」（ID-Master で旧 TMP-P-000350 と名寄せ済）。初版 #NEEDID。'
 - id: r6
@@ -124,38 +116,78 @@ relations:
     date:
       ah: 795
       type: learning
-  quote: null
   note:
     ja: '「وأحمد بن إبراهيم بن يوسف」＝#AIND-D00463「أحمد بن إبراهيم بن يوسف شهاب الدين الحلبي ثم الدمشقي الصالحي القطان بها … سمع … على عبد الله بن خليل الحرستاني … وحدث سمع منه الفضلاء وكان قطانا بالصالحية」（ナサブ3代一致、同じサーリヒーヤの伝承者で الحرستاني と並ぶ）。ニスバが原文にないため cert medium。初版 #NEEDID。'
 - id: r7
   type: scholarly
   subtype: teacher
   active: AIND-D07951
-  passive: AIND-D09211
+  passive: m10
   methods:
   - TMP-S-00003
   cert: low
-  quote: كابن فهد
   note:
     ja: 「وحدث سمع منه الفضلاء كابن فهد وغيره」＝学生としての ابن فهد。本項主は 850 年以前没＝التقي بن فهد（#AIND-D09211、871 没）か息子 النجم عمر（812 生）か年代で決まらないため D09211 cert low（規則58）。初版の field الحديث を除去。
-  norm: ابن فهد
 states:
 - id: s1
   type: office
   ref: TMP-O-00370
   places:
-  - ref: TMP-L-00003
-    quote: الصالحية
+  - mention: m11
   orgs:
   - ref: TMP-I-00260
-  quote: null
   note:
     ja: 「العلاف … وكان يتكسب بحانوت قريب الشركسية من الصالحية」＝飼料商（生業）。店はダマスクス・サーリヒーヤ（TMP-L-00003）の الشركسية（学院、ID-Master 未登録 → 新規 TMP-I-00260）の近く。職 العلاف は ID-Master の Office に未登録（語根 علف）→ 新規 TMP-O-00370。初版は العلاف を nisbah（#NEEDID）とし、state「تكسب بحانوت」・affiliation「other」الشركسية・residence الصالحية を置いた＝生業の state 1本に統合（規則8）。
+  mention: null
 events:
 - id: e1
   type: cultural
-  quote: وحدث سمع منه الفضلاء
-  norm: حدث سمع منه الفضلاء
+  phrase: وحدث سمع منه الفضلاء
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m5
+  kind: name
+  quote: بابن الضرير
+  norm: ابن الضرير
+- id: m6
+  kind: year
+  value: '794'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: TMP-P-001644
+  quote: ابن عبد
+- id: m8
+  kind: person
+  ref: TMP-P-001645
+  quote: أحمد بن محمد بن راشد بن خطليشا
+  norm: احمد بن محمد بن راشد بن خطليشا
+- id: m9
+  kind: person
+  ref: AIND-D04440
+  quote: ابن خليل
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: كابن فهد
+  norm: ابن فهد
+- id: m11
+  kind: place
+  quote: الصالحية
+  ref: TMP-L-00003
 translation:
   ja: ムハンマド・ブン・ウスマーン・ブン・アリー、アッ＝サーリヒー、アル＝アッラーフ（飼料商）。イブン・アッ＝ダリールとして知られる。794年にアブド・アッ＝ラフマーン・ブン・ムハンマド・イブン・アッ＝ラシードとアル＝イマード・アブー・バクル・ブン・アフマド・イブン・アブド・アル＝ハーディーから、その翌年にアフマド・ブン・ムハンマド・ブン・ラーシド・ブン・ハトリーシャー、アブド・アッラー・イブン・ハリール・アル＝ハラスターニー、アフマド・ブン・イブラーヒーム・ブン・ユースフから聴聞した。伝承を行い、イブン・ファハドらの優れた学者たちが彼から聴聞した。サーリヒーヤのアッ＝シャルカスィーヤ近くの店で生計を立てていた。思うに（8）50年より前に没した。
   en: Muḥammad b. ʿUthmān b. ʿAlī, al-Ṣāliḥī, al-ʿAllāf (the fodder-seller), known as Ibn al-Ḍarīr. In the year 794 he heard from ʿAbd al-Raḥmān b. Muḥammad Ibn al-Rashīd and al-ʿImād Abū Bakr b. Aḥmad Ibn ʿAbd al-Hādī, and in the following year from Aḥmad b. Muḥammad b. Rāshid b. Khaṭlīshā, ʿAbd Allāh Ibn Khalīl al-Ḥarastānī and Aḥmad b. Ibrāhīm b. Yūsuf. He transmitted, and the learned, such as Ibn Fahd and others, heard from him. He earned his living in a shop near al-Sharkasiyya in al-Ṣāliḥiyya. He died, I think, before [8]50.

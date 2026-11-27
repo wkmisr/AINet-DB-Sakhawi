@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: تاج الدين
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الوهاب
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أفتكين
     by: rule
-    norm: افتكين
+    mention: m2
 death:
   id: d
   date:
     ah: 836-11
   places:
-  - ref: TMP-L-00169
-    role: burial
-    quote: بمقبرة باب توما
-    norm: مقبرة باب توما
+  - role: burial
+    mention: m8
   note:
     ja: 「مات في ذي القعدة سنة ست وثلاثين ودفن بمقبرة باب توما」。836-11 ＝ 1433-06-28〜07-27、月初 1433-06（h2g.py）。埋葬地 مقبرة باب توما ＝ ID-Master の مقابر باب توما（TMP-L-00169、ダマスクス）。没地の明記はないため placeName は埋葬地のみ。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: أفتكين
@@ -43,29 +40,64 @@ relations:
   subtype: father
   active: AIND-D04762#p1
   passive: AIND-D04762
-  quote: null
   note:
     ja: '見出しナサブの父。裸名のみで識別要素がないため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00008
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: كاتب السر
+  - mention: m5
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00710
-    quote: ابن اللبودي
-  quote: أرخه
+  - mention: m10
   note:
     ja: 'Pattern A。ابن اللبودي ＝ #AIND-D00710（repo の既存7件と同じ充当）。初版の統制外 subtype「chronicler」relation（#NEEDID）を event に変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن اللبودي
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوهاب
+- id: m2
+  kind: name
+  quote: أفتكين
+  norm: افتكين
+- id: m3
+  kind: name
+  quote: تاج الدين
+- id: m4
+  kind: office
+  ref: TMP-O-00008
+  quote: كاتب السر
+- id: m5
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m6
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m7
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بمقبرة باب توما
+  ref: TMP-L-00169
+  norm: مقبرة باب توما
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D00710
+  quote: ابن اللبودي
 translation:
   ja: アブドゥルワッハーブ・ブン・アフタキーン、タージュ・アッ＝ディーン、ダマスクスの機密書記長（カーティブ・アッ＝スィッル）。（8）36年ズー・アル＝カアダ月に没し、バーブ・トゥーマー墓地に埋葬された。イブン・アッ＝ラブーディーがその没年月を記録している。
   en: ʿAbd al-Wahhāb b. Aftakīn, Tāj al-Dīn, confidential secretary (kātib al-sirr) in Damascus. He died in Dhū al-Qaʿda (8)36 and was buried in the cemetery of Bāb Tūmā. Ibn al-Labūdī recorded his death.

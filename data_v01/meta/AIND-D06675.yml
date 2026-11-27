@@ -9,48 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00245
-    quote: الأخميمي
-    norm: الاخميمي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001448
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: الشيخ البهاء
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001448
+  active: m8
   passive: AIND-D06675
   summary:
     ar: أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء
   cert: medium
-  quote: أبيه
   note:
     ja: '本項の見出しは「محمد بن أحمد بن الشيخ البهاء」のみ。二重立項 #AIND-D07025（下の possible_identity）の本文「وحينئذ فجده محمد بن محمد بن عبد الوهاب بن البهاء」と転送見出し #AIND-D06915 により、父は أحمد بن محمد بن محمد بن عبد الوهاب بن البهاء＝既登録 TMP-P-001448（D07025 の父として発行済み）。本項の原文だけでは祖父名が出ないので cert medium（規則23、先例 #AIND-D08233 の父）。「الشيخ البهاء」は祖父ではなく遠祖のラカブ＝grandfather relation は立てない。'
-  norm: ابيه
 - id: r2
   type: identity
   subtype: possible_identity
   active: AIND-D07025
   passive: AIND-D06675
   cert: high
-  quote: null
   note:
     ja: 二重立項。#AIND-D07025「محمد بن أحمد بن الشيخ البهاء الأنصاي الأخميمي . ذكره التقي بن فهد في معجمه هكذا مجردا وهو جد قاضي الحنفية الآن ناصر الدين محمد بن أحمد وحينئذ فجده محمد بن محمد بن عبد الوهاب بن البهاء」（repo 収録済み、B115）は見出しが一字一句同じで、言及元（ابن فهد の معجم に「هكذا مجردا」）も一致＝同一人物。本項に転送指示はないので REF 化せず両項とも実項（絶対基準）。D07025 側には本項への possible_identity（cert high）が既にあり、本 relation はその鏡像（B115 の申し送り §D115-3）。ブリーフに記載なし。
   phrase: محمد بن أحمد بن الشيخ البهاء الأنصاري الأخميمي
@@ -61,15 +52,48 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: النجم بن فهد
+  - mention: m7
   works:
   - ref: TMP-T-00138
-  quote: ذكره
   note:
     ja: 'Pattern A。النجم بن فهد＝#AIND-D05979（عمر بن محمد … النجم … ابن شيخنا التقي … ابن فهد、本文で確認）が、父 التقي の『معجم』（TMP-T-00138）に本項主を名のみで記した（先例 #AIND-D04259「قال ابن فهد في معجم أبيه」＝#AIND-D05979＋TMP-T-00138）。原文が人物と書名を明示するので cert なし。初版は統制外 subtype「biographer」の relation 2本（التقي＝D09211、النجم＝幻番号 TMP-P-000000）。'
   trigger: rule
   phrase: ذكره النجم بن فهد في معجم أبيه التقى هكذا مجردا
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001448
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الشيخ البهاء
+- id: m4
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m5
+  kind: name
+  ref: TMP-N-00245
+  quote: الأخميمي
+  norm: الاخميمي
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D05979
+  quote: النجم بن فهد
+- id: m8
+  kind: person
+  ref: TMP-P-001448
+  quote: أبيه
+  norm: ابيه
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・アッ＝シャイフ・アル＝バハー、アル＝アンサーリー・アル＝アフミーミー。アン＝ナジュム・ブン・ファハドが、父アッ＝タキーの『ムウジャム』で、このとおり名のみで彼に言及している。
   en: Muḥammad b. Aḥmad b. al-Shaykh al-Bahāʾ, al-Anṣārī al-Akhmīmī. Al-Najm b. Fahd mentioned him in the Muʿjam of his father al-Taqī thus, bare [of any details].

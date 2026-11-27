@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01133
-    quote: الحفصي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-01714
-    quote: الوصابي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: راشد
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: علي بن راشد
@@ -41,7 +38,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m7
   passive: AIND-D08073
   methods:
   - TMP-S-00003
@@ -49,7 +46,6 @@ relations:
     ar: ابن حجر
   works:
   - ref: TMP-T-00258
-  quote: شيخنا
   note:
     ja: 「سمع على شيخنا المجالسة وغيرها」＝イブン・ハジャル（wd:Q471116）に『المجالسة』等を聴聞。書名は ID-Master 未登録（grep「المجالسة」「مجالس」該当なし。corpus でも書名としての出現は本項のみ）→ TMP-T-00258。初版の field الحديث（原文になし）を除去（先例 D07871）。
 - id: r2
@@ -57,9 +53,34 @@ relations:
   subtype: father
   active: AIND-D08073#p1
   passive: AIND-D08073
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن راشد（الحفصي الوصابي）は corpus に本伝なし、ID-Master 未登録、識別要素なし → #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: راشد
+- id: m4
+  kind: name
+  ref: TMP-N-01133
+  quote: الحفصي
+- id: m5
+  kind: name
+  ref: TMP-N-01714
+  quote: الوصابي
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ラーシド、アル＝ハフスィー、アル＝ワッサービー、アル＝ヤマーニー。我らが師（イブン・ハジャル）に『アル＝ムジャーラサ』などを聴聞した。
   en: Muḥammad b. ʿAlī b. Rāshid al-Ḥafṣī al-Waṣṣābī al-Yamānī. He heard al-Mujālasa and other works from our shaykh (Ibn Ḥajar).

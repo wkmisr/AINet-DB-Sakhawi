@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01093
-    quote: الدواخلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: ism
-    quote: الحسن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
@@ -48,16 +44,12 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00033
-      quote: بالحرمين
-      norm: الحرمين
-  quote: null
+    - mention: m12
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D06882
+  active: m8
   passive: AIND-D02521
-  quote: محمد
   note:
     en: His elder brother Muḥammad b. Aḥmad b. Muḥammad b. ʿAbd Allāh al-Naḥrīrī then al-Dawākhilī (AIND-D06882), whose entry names "his brother Ḥasan"; cf. the nisbah entry AIND-D11661.
 - id: r3
@@ -65,7 +57,6 @@ relations:
   subtype: spouse
   active: AIND-D12938
   passive: AIND-D02521
-  quote: null
   note:
     en: The fatāh (slave woman) of Yaḥyā b. Fahd whom he married after Yaḥyā's death = Jawhara al-Ḥabashiyya (AIND-D12938), "mustawladat Yaḥyā b. Fahd thumma zawj Ḥasan al-Ghamrī", who died in Medina in 898; the Dawākhilīs were residents of Jāmiʿ al-Ghamrī and AIND-D11661 calls this Ḥasan "nazīl al-Madīna". Identification approved by Waka, 2026-07-30. Yaḥyā b. Fahd (al-ʿImād) = TMP-P-000678.
   phrase: فتاة يحيى بن فهد
@@ -74,13 +65,12 @@ states:
   type: office
   ref: TMP-O-00116
   places:
-  - ref: gn:109223
-    quote: المدينة النبوية
+  - mention: m16
   orgs:
   - ref: TMP-I-00075
-  quote: null
   note:
     ja: مدرسة السلطان(TMP-I-00075)=カーイトバーイ(在位872-901)がマディーナに建立したマドラサ「アル＝アシュラフィーヤ」と同定(伊藤2026-08-11・確信度ほぼ確実。同時代のマディーナ地誌 al-Samhūdī, Wafāʾ al-Wafā の索引もMadrasat al-Sulṭān=al-Madrasa al-Ashrafiyyaとする。この時期のマディーナで「スルターンのマドラサ」と呼び得るのは他にない)。ID-MasterのI-00075行に要反映。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -90,50 +80,103 @@ events:
   type: residence
   subtype: jāwara
   places:
-  - ref: TMP-L-00033
-    quote: بالحرمين
-    norm: الحرمين
-  quote: وجاور
+  - mention: m12
   note:
     en: for a period
   trigger: rule
-  norm: جاور
+  mention: m11
 - id: e2
   type: residence
   places:
-  - ref: gn:109223
-    quote: المدينة النبوية
-  quote: وأقام
+  - mention: m16
   note:
     ja: 見出しの「نزيل طيبة」も同じ居住（طيبة＝المدينة）。旧 event n=1 を統合（2026-11-22 裁定 ★11）。
   trigger: rule
-  norm: اقام
+  mention: m15
 - id: e3
   type: cultural
   summary:
     en: Memorized the Qur'an.
-  quote: حفظ
   trigger: rule
+  mention: m9
 - id: e4
   type: cultural
   summary:
     en: Engaged in scholarly pursuits.
-  quote: واشتغل
   trigger: rule
-  norm: اشتغل
+  mention: m10
 - id: e5
   type: other
   persons:
-  - ref: TMP-P-000678
-    quote: يحيى بن فهد
-    norm: يحيي بن فهد
+  - mention: m14
   places:
-  - ref: gn:109223
-    quote: المدينة النبوية
+  - mention: m16
   summary:
     en: Married the fatāh (slave woman) of Yaḥyā b. Fahd (al-ʿImād, TMP-P-000678) after his (Yaḥyā's) death and resided in Medina.
-  quote: تزوج
   trigger: rule
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: الحسن
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  ref: TMP-N-01093
+  quote: الدواخلي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D06882
+  quote: محمد
+- id: m9
+  kind: event
+  quote: حفظ
+- id: m10
+  kind: event
+  quote: واشتغل
+  norm: اشتغل
+- id: m11
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m12
+  kind: place
+  quote: بالحرمين
+  ref: TMP-L-00033
+  norm: الحرمين
+- id: m13
+  kind: event
+  quote: تزوج
+- id: m14
+  kind: person
+  ref: TMP-P-000678
+  quote: يحيى بن فهد
+  norm: يحيي بن فهد
+- id: m15
+  kind: event
+  quote: وأقام
+  norm: اقام
+- id: m16
+  kind: place
+  quote: المدينة النبوية
+  ref: gn:109223
 translation:
   ja: アル＝ハサン・ブン・アフマド・ブン・ムハンマド・ブン・アブドゥッラー・アッ＝ダワーヒリー、次いでアル＝カーヒリー、シャーフィイー派。ターイバ（マディーナ）の住人。 後述のムハンマドの兄弟であり、ムハンマドの方が年長である。クルアーンを暗記し、学問に励み、両聖都（ハラマイン）に長く滞在し、そこで私（＝サハーウィー）から聴聞した。 ヤフヤー・ブン・ファハドの死後、そのファター（女奴隷）であった女性と結婚し、預言者の町マディーナに定住した。そこでスルターンのマドラサの門番となった。彼は悪くない人物であった。
   en: Al-Ḥasan b. Aḥmad b. Muḥammad b. ʿAbd Allāh al-Dawākhilī, then al-Qāhirī, al-Shāfiʿī, was a resident of Ṭayba (Medina) and the brother of the Muḥammad who is to come, who was older than him. He memorized the Qur'an, engaged in scholarly pursuits, resided in the Ḥaramayn (Mecca and Medina) for a period, and heard from me (al-Sakhāwī) there. After the death of Yaḥyā b. Fahd, he married his fatāh (slave woman) and settled in al-Madīna al-Nabawiyya. He became the gatekeeper of the Sulṭān's madrasa there, and he was a decent person.

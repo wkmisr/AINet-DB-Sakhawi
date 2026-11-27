@@ -9,65 +9,57 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05688
+    mention: m2
   - id: n3
     type: nasab
-    quote: يوسف البزاز
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 858-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 「مات بمكة في جمادى الأولى سنة ثمان وخمسين」。858-05＝1454-05-08〜1454-06-06（h2g.py、月精度）。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D05688
   passive: AIND-D08225
-  quote: null
   note:
     ja: '父 ＝ #AIND-D05688「علي بن يوسف بن حسب الله البزاز . سمع على ابن الجزري في سنة ثلاث وعشرين ختم نشره ، ومات بمكة في ذي الحجة سنة ثمان وأربعين」（repo 収録済）。母の項 #AIND-D13667「أم الأمان ابنة عبد السلام بن موسى بن أبي بكر المكي الزمزمي . تزوجها علي بن يوسف البزاز وأولدها محمدا الماضيين」が、夫 علي بن يوسف البزاز と子 محمد をともに「الماضيين」（既出＝立項済）と明記し、corpus で「علي بن يوسف … البزاز」の見出しは D05688 のみ（hw.py）。名・父名・البزاز・マッカで閉合。'
   phrase: علي بن يوسف البزاز
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D13667
+  active: m5
   passive: AIND-D08225
-  quote: أم الأمان
   note:
     ja: '「أمه أم الأمان」。＝ #AIND-D13667（女性部、882没）。相手側が「أولدها محمدا」と本項主を名指し。初版の #NEEDID を置換。'
-  norm: ام الامان
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D03934
+  active: m4
   passive: AIND-D08225
-  quote: عبد السلام الزمزمي
   note:
     ja: '「سبط عبد السلام الزمزمي」。＝ #AIND-D03934「عبد السلام بن موسى بن أبي بكر بن أكبر الزين أو المحب الشيرازي العجمي المكي … سبط الشيخ على الزمزمي ولذا يعرف بالزمزمي」（785生・846没）＝母 D13667 の父（ナサブ一致）。初版の subtype grandfather（#NEEDID）を maternal_grandfather（repo 統制語彙）に。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D04238
+  active: m6
   passive: AIND-D08225
   methods:
   - label: من مريدي
   fields:
   - TMP-S-00023
-  quote: عبد الكبير الحضرمي
   note:
     ja: '「كان من مريدي عبد الكبير الحضرمي」＝スーフィーの弟子（先例 #AIND-D04672「تسلك به المريدون」＝method تسلك・field التصوف）。عبد الكبير الحضرمي ＝ #AIND-D04238「عبد الكبير بن عبد الله بن محمد … أبو حميد الأنصاري … الحضرمي اليماني نزيل مكة ووالد يس الآتي … استوطن مكة وابتنى بها زاوية … صدر ترجمته [ابن فهد] بالشيخ الصالح العابد المسلك العارف بالله … مات … سنة تسع وستين … ودفن بباب الشبيكة」（794頃生・869没、未収録。repo D04472 で maternal_uncle として使用済み）。名＋ニスバ＋マッカのスーフィー・シャイフ（مسلك）で閉合（規則57）。B161 の D06446「بيت عبد الكبير الحضرمي بسوق الليل … تربته بالشبيكة」も同人。ID-Master 既登録 TMP-P-001670「عبيد الكبير الحضرمي」（D10016）は B161 ISSUES §D161-2 で D04238 との名寄せ候補とされている。'
 notes:
@@ -77,15 +69,58 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   cert: low
   note:
     ja: 'Pattern A。没年 858（≤871）＝振り分け規則により #AIND-D09211（التقي بن فهد）cert low（cert は event 側、規則43・58）。初版は death の英文 note に留めていた。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05688
+  quote: علي
+- id: m3
+  kind: name
+  quote: يوسف البزاز
+- id: m4
+  kind: person
+  ref: AIND-D03934
+  quote: عبد السلام الزمزمي
+- id: m5
+  kind: person
+  ref: AIND-D13667
+  quote: أم الأمان
+  norm: ام الامان
+- id: m6
+  kind: person
+  ref: AIND-D04238
+  quote: عبد الكبير الحضرمي
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ユースフ・アル＝バッザーズ、アブド・アッサラーム・アッ＝ザムザミーの娘の子で、母はウンム・アル＝アマーン。アブド・アル＝カビール・アル＝ハドラミーの弟子（ムリード）の一人であった。858年ジュマーダー・アル＝ウーラー月にマッカで没した。イブン・ファハドがその没年を記録している。
   en: Muḥammad b. ʿAlī b. Yūsuf al-Bazzāz, daughter's son of ʿAbd al-Salām al-Zamzamī; his mother was Umm al-Amān. He was one of the disciples (murīds) of ʿAbd al-Kabīr al-Ḥaḍramī. He died in Mecca in Jumādā al-Ūlā of the year 858. Ibn Fahd recorded his death.

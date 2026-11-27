@@ -9,47 +9,67 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m4
   - id: n2
     type: ism
-    quote: داود
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D02953
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: داود
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m5
+  kind: event
+  quote: سمع
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ダーウード・ブン・ウマル・ブン・アブー・バクル・アッ＝シーラーズィー。マッカ（メッカ）で私から（ハディースを）聴聞した者の一人。
   en: Dāwūd b. ʿUmar b. Abī Bakr al-Shīrāzī. He was among those who heard from me (al-Sakhāwī) in Mecca.

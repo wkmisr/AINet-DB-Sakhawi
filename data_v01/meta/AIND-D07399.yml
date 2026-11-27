@@ -9,34 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01780
-    quote: الأثميدي
-    norm: الاثميدي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بابن زيادة
-    norm: ابن زيادة
     label: ابن زيادة
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: زيادة
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: شمس الدين
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: زيادة بن شمس الدين
@@ -49,38 +44,32 @@ relations:
   subtype: father
   active: AIND-D07399#p1
   passive: AIND-D07399
-  quote: null
   note:
     ja: '父は名＋ラカブのみで識別要素なし、corpus に本伝なし → #NEEDID（規則3）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D07399
   methods:
   - TMP-S-00003
   context:
   - type: learning
     phrase: وهو ممن سمع مني في الإملاء
-  quote: مني
 states:
 - id: s1
   type: office
-  ref: TMP-O-00171
-  quote: المقرئ
-  norm: المقرء
   phrase: قرأ به في الأجواق
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00233
   places:
-  - ref: TMP-L-00244
-    quote: بباب القنطرة
-    norm: باب القنطرة
-  quote: null
+  - mention: m11
   note:
     ja: 絹業＝TMP-O-00233（صناعة الحرير、先例 D04076「يتكسب في صناعة الحرير」）。店の所在 باب القنطرة＝TMP-L-00244。初版の affiliation（TMP-I-00003「بعض الحوانيت عند باب القنطرة」）は state と二重符号化のため除去（規則8）。
   phrase: وتكسب حريريا في حانوت بباب القنطرة
+  mention: null
 events:
 - id: e1
   type: learning
@@ -88,20 +77,17 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00025
-  quote: وقرأ
   trigger: rule
-  norm: قرا
   phrase: ممن حفظ القرآن وقرأ به في الأجواق
+  mention: m9
 - id: e2
   type: cultural
   places:
-  - ref: TMP-L-00193
-    quote: بالقلعة
-    norm: القلعة
-  quote: وربما قرأ في نوبة بالقلعة وتميز في ذلك
+  - mention: m10
   note:
     ja: 「ربما」（時に）の hedge があり常勤の職とは読めないため、初版の state（TMP-O-00199「نوبة في القلعة」）を event に改めた。
-  norm: ربما قرا في نوبة بالقلعة وتميز في ذلك
+  phrase: وربما قرأ في نوبة بالقلعة وتميز في ذلك
+  mention: null
 - id: e3
   type: religious
   subtype: hajj
@@ -110,11 +96,68 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: 889年＝1484-02-08 開始（年精度 1484）。placeName مكة は規則20 の例外。
   trigger: rule
   phrase: وحج في سنة تسع وثمانين
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: زيادة
+- id: m3
+  kind: name
+  quote: شمس الدين
+- id: m4
+  kind: name
+  ref: TMP-N-01780
+  quote: الأثميدي
+  norm: الاثميدي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: office
+  ref: TMP-O-00171
+  quote: المقرئ
+  norm: المقرء
+- id: m7
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m8
+  kind: name
+  quote: بابن زيادة
+  norm: ابن زيادة
+- id: m9
+  kind: event
+  quote: وقرأ
+  norm: قرا
+- id: m10
+  kind: place
+  quote: بالقلعة
+  ref: TMP-L-00193
+  norm: القلعة
+- id: m11
+  kind: place
+  quote: بباب القنطرة
+  ref: TMP-L-00244
+  norm: باب القنطرة
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m13
+  kind: event
+  quote: وحج
+- id: m14
+  kind: year
+  value: '889'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ズィヤーダ・ブン・シャムス・アッ＝ディーン・アル＝アスミーディー・アル＝カーヒリー、朗誦家、絹商、イブン・ズィヤーダとして知られる。クルアーンを暗記し、それを合唱朗誦隊（アジュワーク）で朗誦した者の一人で、時には城塞での勤番で朗誦することもあり、それに秀でていた。バーブ・アル＝カンタラの店で絹商として生計を立てた。彼は私の口述講義（イムラー）を聴聞した者の一人である。889年に巡礼した。
   en: Muḥammad b. Ziyāda b. Shams al-Dīn al-Athmīdī al-Qāhirī, the Qurʾān reciter and silk dealer, known as Ibn Ziyāda. He was among those who memorized the Qurʾān and recited it in the choral groups (al-ajwāq); he sometimes recited in a shift (nawba) at the Citadel and excelled in that. He earned his living as a silk dealer in a shop at Bāb al-Qanṭara. He is among those who heard from me at the dictation sessions. He performed the pilgrimage in the year [8]89.

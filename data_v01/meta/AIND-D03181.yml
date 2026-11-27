@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m3
   - id: n2
     type: ism
-    quote: سليم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 815
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m5
   note:
     ar: مات بدمشق سنة خمس عشرة
     ja: 815＝1412-04-22 開始（年精度、h2g.py）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: عبد الله
@@ -43,7 +40,6 @@ relations:
   subtype: father
   active: AIND-D03181#p1
   passive: AIND-D03181
-  quote: null
   note:
     ja: '規則3 (c'')。父 عبد الله は裸名のみ、corpus 見出し（hw.py「سليم بن عبد الله」）に本伝なし → #NEEDID。初版の TMP-P-000490（登録＝al-Zuhrī の祖父 عبد الله、関係専用の汚染番号）を除去（precheck 汚染注意）。'
 states:
@@ -51,30 +47,59 @@ states:
   type: status
   label: الضرير
   label_latn: al-ḍarīr
-  quote: null
   note:
     ja: 見出しの「الضرير」（盲人）。repo 先例（D07176）どおり status state（初版は shuhrah）。
+  mention: null
 events:
 - id: e1
   type: learning
   methods:
   - TMP-S-00077
-  quote: اشتغل
   trigger: rule
   phrase: اشتغل بالفقه ومهر فيه
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』TMP-T-00034）。初版の統制外 subtype「biographical subject」relation を mention event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: سليم
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m4
+  kind: event
+  quote: اشتغل
+- id: m5
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m6
+  kind: year
+  value: '815'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: サリーム・ブン・アブドゥッラー、アッ＝サーリヒー、盲人（アッ＝ダリール）。法学に従事し、それに熟達した。（8）15年にダマスクスで没した。我らの師（イブン・ハジャル）が『インバーゥ』に彼の没年を記している。
   en: Salīm b. ʿAbd Allāh al-Ṣāliḥī al-Ḍarīr (the blind). He occupied himself with jurisprudence and became skilled in it. He died in Damascus in the year [8]15. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

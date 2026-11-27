@@ -9,47 +9,67 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00069
-    quote: القليوبي
+    mention: m4
   - id: n2
     type: ism
-    quote: ربيع
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D02990
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: ربيع
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00069
+  quote: القليوبي
+- id: m5
+  kind: event
+  quote: سمع
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ラビーウ・ブン・イブラーヒーム・ブン・アリー・アル＝カリユービー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Rabīʿ b. Ibrāhīm b. ʿAlī al-Qalyūbī. Among those who heard from me (al-Sakhāwī) in Mecca.

@@ -10,51 +10,49 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00657
-    quote: null
+    mention: null
   - id: n2
     type: laqab
-    quote: المحب
+    mention: m2
   - id: n3
     type: kunyah
-    quote: أبو بكر
-    norm: ابو بكر
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 birth:
   id: b
   date:
     ah: 828
   note:
     ja: 828年＝1424-12-02〜1425-11-21（年精度 → 1424、h2g.py）。初版の 1425 を是正。
-  quote: سنة
   phrase: ولد سنة ثمان وعشرين وثمانمائة
+  mention: m6
 death:
   id: d
   date:
     ah: 893-05
   note:
     ja: 893年ジュマーダー1月＝1488-04-22〜05-21（月精度 → 1488-04）。「رفيقه」＝أبو الطيب الأسيوطي（#AIND-D11000、893年サファル月に溺死）。「أظنه جاز الستين」＝60歳超はサハーウィーの推測（828年生なら 65 歳）。
-  quote: سنة
   phrase: ومات في جمادى الأولى سنة ثلاث وتسعين بعد رفيقه بقليل وأظنه جاز الستين
+  mention: m15
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001445
+  active: m7
   passive: AIND-D07018
   methods:
   - TMP-S-00027
   works:
   - ref: TMP-T-00095
-  quote: الشمس محمد بن علي بن صلاح المناوي
   note:
     ja: '「نشأ فحفظ القرآن عند الشمس محمد بن علي بن صلاح المناوي」。corpus に同名の本伝なし（D08093 محمد بن علي بن صلاح الشمس السكندري الحريري はニスバが異なり別人。D08928 المجد محمد بن محمد بن علي بن صلاح إمام الصرغتمشية の父「الشمس … الحريري」と同一人物の可能性はあるがニスバ المناوي と一致せず確証なし、規則26）。ID-Master 未登録のため TMP-P-001445 を発行。初版は #NEEDID、空の field desc を除去。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D09211
+  active: m9
   passive: AIND-D07018
   methods:
   - TMP-S-00003
@@ -64,61 +62,113 @@ relations:
       ah: 843
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: التقي بن فهد
+    - mention: m8
   note:
     ja: '「وسمع مع أخيه بمكة على التقي بن فهد في سنة ثلاث وأربعين」。兄 #AIND-D07017 と共にマッカで聴聞。843年＝1439-06-23 開始（年精度 → 1439）。初版の @when「0843」（ヒジュラ年の誤置）を是正、原文にない field（الحديث）を除去。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D11000
+  active: m13
   passive: AIND-D07018
-  quote: الطيب الأسيوطي
   note:
     ja: 「واسترفقه أبو الطيب الأسيوطي فصار بذلك وجيها」＝أبو الطيب الأسيوطي（#AIND-D11000、محمد بن محمد بن محمد … المحب … نزيل القاهرة、828年生・893年没）が本項主を同伴者（رفيق）とし、それによって本項主は名士となった。初版の brother relation（誤り）と colleague relation（#NEEDID）を patron 1件に統合。
-  norm: الطيب الاسيوطي
   phrase: أبو الطيب الأسيوطي
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D01717
+  active: m5
   passive: AIND-D07018
   summary:
     ar: أحمد بن يوسف الزعيفريني
-  quote: الذي قبله
   note:
     ja: '兄 #AIND-D07017 のナサブ「محمد بن أحمد بن يوسف بن محمد بن معالي … الزعيفريني … الماضي أبوه」により父 ＝ #AIND-D01717（أحمد بن يوسف بن محمد بن معالي بن محمد الشهاب أبو محمد الدمشقي ثم القاهري الشافعي والد محمد الآتي ويعرف بالزعيفريني、767年生）。規則37 により追加。'
 - id: r5
   type: kin
   subtype: brother
-  active: AIND-D07017
+  active: m4
   passive: AIND-D07018
   summary:
     ar: محمد بن أحمد بن يوسف الزعيفريني
-  quote: أخو
   note:
     ja: '「أخو الذي قبله」＝直前の項 #AIND-D07017（محمد بن أحمد بن يوسف بن محمد بن معالي بن محمد الشمس أبو الفتح … الزعيفريني、813年生・856年没、未受領）の弟。'
-  norm: اخو
 states:
 - id: s1
   type: office
-  ref: TMP-O-00141
-  quote: التجليد
   note:
     ja: '製本業（TMP-O-00141 مجلد）。初版は #NEEDID。'
   phrase: وتعاني التجليد في بيته
+  mention: m11
 - id: s2
   type: office
-  ref: TMP-O-00050
-  quote: بالشهادة
-  norm: الشهادة
   phrase: وتكسب بالشهادة
+  mention: m12
 notes:
 - text: '見出しは「محمد المحب أبو بكر أخو الذي قبله」のみ。persName full は直前の兄 #AIND-D07017 のナサブ（أحمد بن يوسف بن محمد بن معالي）と父 #AIND-D01717 の通称「الزعيفريني」から復元した（ブリーフ指定）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: المحب
+- id: m3
+  kind: name
+  quote: أبو بكر
+  norm: ابو بكر
+- id: m4
+  kind: person
+  ref: AIND-D07017
+  quote: أخو
+  norm: اخو
+- id: m5
+  kind: person
+  ref: AIND-D01717
+  quote: الذي قبله
+- id: m6
+  kind: year
+  value: '828'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: TMP-P-001445
+  quote: الشمس محمد بن علي بن صلاح المناوي
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
+- id: m10
+  kind: year
+  value: '843'
+  quote: سنة
+- id: m11
+  kind: office
+  ref: TMP-O-00141
+  quote: التجليد
+- id: m12
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m13
+  kind: person
+  ref: AIND-D11000
+  quote: الطيب الأسيوطي
+  norm: الطيب الاسيوطي
+- id: m14
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m15
+  kind: year
+  value: '893'
+  quote: سنة
 translation:
   ja: ムハンマド・アル＝ムヒッブ・アブー・バクル、前項の人物の兄弟。828年に生まれ、成長してアッ＝シャムス・ムハンマド・ブン・アリー・ブン・サラーフ・アル＝マナーウィーのもとでクルアーンを暗記し、843年に兄とともにマッカでアッ＝タキー・ブン・ファハドから聴聞した。自宅で製本業に携わり、公証人として生計を立てた。アブー・アッ＝タイイブ・アル＝アスユーティーが彼を同伴者としたので、それによって名士となった。893年ジュマーダー第一月に、その同伴者の死後まもなく没した。私は彼が60歳を越えていたと思う。
   en: Muḥammad al-Muḥibb Abū Bakr, brother of the preceding. He was born in the year 828 and grew up memorizing the Qurʾān with al-Shams Muḥammad b. ʿAlī b. Ṣalāḥ al-Manāwī, and he heard together with his brother in Mecca from al-Taqī b. Fahd in the year 843. He practised bookbinding at home and earned a living as a notary witness; Abū al-Ṭayyib al-Asyūṭī took him as his companion, and through that he became a man of standing. He died in Jumādā I 893, shortly after his companion; I think he had passed sixty.

@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: honorific
-    quote: القائد
-    norm: القاءد
+    mention: m3
   - id: n3
     type: ism
-    quote: قنيد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: مثقال
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 865-07
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m7
   note:
     ja: 「مات بها في رجب سنة خمس وستين」。بها は直前の「نائب مكة」の مكة（本項で唯一の地名、規則22(3)）。865年ラジャブ＝1461-04-21〜05-20（h2g.py、月精度）。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: مثقال
@@ -45,64 +42,107 @@ relations:
   subtype: father
   active: AIND-D06371#p1
   passive: AIND-D06371
-  quote: null
   note:
     ja: '父 مثقال は名のみで識別要素がなく（corpus の مثقال 見出し D06456〜D06458 はいずれも宦官で別人）、ID-Master 未登録 → #NEEDID（規則3）。子2人の本伝（#AIND-D09921・#AIND-D06050）のナサブ「بن قنيد بن مثقال」と一致。初版は father relation なし。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D09921
+  active: m8
   passive: AIND-D06371
-  quote: مسعود
   note:
     ja: '「والد مسعود وعنان」。مسعود ＝ #AIND-D09921（مسعود بن قنيد بن مثقال الحسني … وزير مكة وابن وزيرها）。ナサブ一致。初版の #NEEDID を置換。'
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D06050
+  active: m9
   passive: AIND-D06371
-  quote: وعنان
   note:
     ja: 'عنان ＝ #AIND-D06050（عنان بن قنيد بن مثقال القائد الحسني الآتي أبوه وأخوه مسعود）。相手側は「الآتي أبوه」で閉合。初版の #NEEDID を置換。'
-  norm: عنان
   phrase: عنان
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D02560
+  active: m5
   passive: AIND-D06371
-  quote: السيد حسن بن عجلان
   note:
     ja: '「مولى السيد حسن بن عجلان نائب مكة」＝解放奴隷の主人（規則51）。حسن بن عجلان ＝ #AIND-D02560（حسن بن عجلان بن رميثة بن أبي نمى … 、829年没）。初版の統制外 subtype「client」#NEEDID を置換。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
-  quote: null
   note:
     ja: 見出しの「القائد」（マッカのシャリーフ配下の隊長）。ref は既登録 TMP-O-00094。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نائب
+  - mention: m7
   note:
     ja: 見出し「مولى السيد حسن بن عجلان نائب مكة」＝マッカのナーイブ（シャリーフ配下の常設の職、00053＋مكة。誰の下かは原文になし（حسن بن عجلان は旧主人で、本人の没年 865 よりずっと前に没）。2026-11-17 Waka 了承）。記録が抜けていたので追加。
-  norm: ناءب
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m13
   cert: low
   note:
     ja: 'Pattern A。規則43: 没865（≤871）→ #AIND-D09211（التقي بن فهد）、cert low を event 側に。初版の統制外 relation（chronicler）を変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: قنيد
+- id: m2
+  kind: name
+  quote: مثقال
+- id: m3
+  kind: name
+  quote: القائد
+  norm: القاءد
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: person
+  ref: AIND-D02560
+  quote: السيد حسن بن عجلان
+- id: m6
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m7
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m8
+  kind: person
+  ref: AIND-D09921
+  quote: مسعود
+- id: m9
+  kind: person
+  ref: AIND-D06050
+  quote: وعنان
+  norm: عنان
+- id: m10
+  kind: month
+  value: 7
+  quote: رجب
+- id: m11
+  kind: year
+  value: '865'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: クナイド・ブン・ミスカール、アル＝カーイド、アル＝ハサニー。マッカの副王サイイド・ハサン・ブン・アジュラーンの解放奴隷で、マスウードとイナーンの父。865年ラジャブ月に同地（マッカ）で没した。イブン・ファハドが没年を記している。
   en: Qunayd b. Mithqāl, al-Qāʾid, al-Ḥasanī, freedman (mawlā) of al-Sayyid Ḥasan b. ʿAjlān, viceroy of Mecca, and father of Masʿūd and ʿInān. He died there (in Mecca) in Rajab 865. Ibn Fahd recorded his death.

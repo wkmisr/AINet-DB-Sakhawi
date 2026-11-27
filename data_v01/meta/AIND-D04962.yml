@@ -9,37 +9,32 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بحب الرمان
-    norm: حب الرمان
     label: حب الرمان
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: خلد النجار بباب الخرق
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D04962
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m6
   note:
     ja: 「ممن سمع مني بالمدينة」（規則2）。原文にない field（الحديث）は付けない。
 states:
@@ -48,9 +43,33 @@ states:
   ref: TMP-O-00300
   places:
   - ref: TMP-L-00159
-  quote: null
   note:
     ja: 「النجار بباب الخرق」＝バーブ・アル＝ハルク（カイロ、TMP-L-00159）の大工。原文に明記された地名のため placeName を保持（規則22(2)）。大工の Office は ID-Master 未登録 → 新規 TMP-O-00300。初版の residence event（باب الخرق）は居住の記述ではないため state に置き換えた。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: خلد النجار بباب الخرق
+- id: m4
+  kind: name
+  quote: بحب الرمان
+  norm: حب الرمان
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アリー・ブン・アフマド・ブン・ハルド、バーブ・アル＝ハルクの大工で、ハッブ・アッ＝ルンマーンとして知られる。マディーナで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Aḥmad b. Khald, the carpenter at Bāb al-Kharq, known as Ḥabb al-Rummān. He was among those who heard from me (al-Sakhāwī) in Medina.

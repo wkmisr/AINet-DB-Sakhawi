@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01258
-    quote: الشرابي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n4
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 853-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   note:
     ja: 「مات بمكة في ربيع الثاني سنة ثلاث وخمسين」＝853年ラビーウ2月（月初 1449-06-02）、マッカ。
-  quote: سنة
+  mention: m13
 persons:
 - id: p1
   label: عبد الله
@@ -42,15 +37,14 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06165#p1
+  active: m2
   passive: AIND-D06165
-  quote: عبد الله
   note:
     ja: '見出し「فرج عبد الله الشرابي الحبشي」は بن を欠くが、エチオピア出自の解放奴隷に慣用の父名 عبد الله とみて father relation を #NEEDID で立てる（規則3）。識別要素なし・本伝なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m7
   passive: AIND-D06165
   methods:
   - TMP-S-00003
@@ -63,16 +57,14 @@ relations:
   works:
   - ref: wd:Q1023470
     cert: medium
-  quote: الزين المراغي
   note:
     ja: 'الزين المراغي＝#AIND-D10690（أبو بكر بن الحسين … الزين أبو محمد … المراغي المصري الشافعي نزيل المدينة النبوية、727年生・816年没）。814年の『サヒーフ』読了会の聴聞＝年代整合。聴聞地は原文に記載なし（初版の placeName مكة を除去、規則22(1)）。初版の #NEEDID と field الحديث を解消。【集約 2026-10-19】裸の「الصحيح」を『サヒーフ・ブハーリー』（wd:Q1023470）とするのは推定（الزين المراغي の ختم には D01054・D04274「الختم من مسلم」の例もある）ため bibl に cert medium（内容B L、初版由来）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: التاجر
   note:
     ja: 「التاجر صاحب دور وغيرها」＝複数の家屋などを所有する商人。初版の placeName مكة（ニスバ由来）を除去（規則22(1)）。
+  mention: m6
 events:
 - id: e1
   type: cultural
@@ -80,23 +72,75 @@ events:
     ah: 847
     type: cultural
   places:
-  - ref: TMP-L-00201
-    quote: بمنى
-    norm: مني
-  quote: أنشأ في سنة سبع وأربعين بمنى سبيلا لم يكمل
+  - mention: m10
   note:
     ja: '847年（1443-05-10 起点）にミナーに給水所（سبيل）を建てたが未完に終わった。施設としての番号は発行しない（未完・固有名なし）。なお corpus の #AIND-D04288（عبد الكريم بن محمد بن عوض الجدي）にも「أنشأ بمنى في سنة سبع وأربعين سبيلا」とあり、同年のミナーの別の給水所（同年同地の共同サビールは #AIND-D04078 عبد الغني القليوبي「شركة بينه وبين ابن كرسون」にもある）。【集約 2026-10-19】番号を D04915（علان من ططخ、بركة الحاج 途上のサビール）から D04288 に訂正（内容B M）。'
-  norm: انشا في سنة سبع واربعين بمني سبيلا لم يكمل
+  phrase: أنشأ في سنة سبع وأربعين بمنى سبيلا لم يكمل
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
   summary:
     ar: أرخهما ابن فهد
-  quote: null
   cert: low
   note:
     ja: 'Pattern A。直後の項 #AIND-D06166 末尾の「أرخهما ابن فهد」（双数）は D06166 と本項の2人を指す（規則43「أرخهما」は各項に置く）。本項の没年 853 ≦ 871 → التقي بن فهد ＝ #AIND-D09211、cert low。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: person
+  ref: AIND-D06165#p1
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-01258
+  quote: الشرابي
+- id: m4
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m7
+  kind: person
+  ref: AIND-D10690
+  quote: الزين المراغي
+- id: m8
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m9
+  kind: year
+  value: '847'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بمنى
+  ref: TMP-L-00201
+  norm: مني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m13
+  kind: year
+  value: '853'
+  quote: سنة
 translation:
   ja: ファラジュ・アブドゥッラー・アッ＝シャラービー・アル＝ハバシー・アル＝マッキー、商人。複数の家屋などを所有した。814年にアッ＝ザイン・アル＝マラーギーのもとで『サヒーフ』の読了（会）を聴聞した者の一人。847年にミナーに給水所（サビール）を建てたが完成しなかった。853年ラビーウ2月にマッカで没した。
   en: Faraj ʿAbd Allāh al-Sharābī al-Ḥabashī al-Makkī, the merchant, owner of houses and other property. He is one of those who heard the completion of al-Ṣaḥīḥ under al-Zayn al-Marāghī in the year 814. In 847 he built a public fountain (sabīl) at Minā which was not completed. He died in Mecca in Rabīʿ II 853.

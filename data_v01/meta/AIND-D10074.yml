@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00027
-    quote: الهاشمي
+    mention: m5
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05661
+    mention: m2
   - id: n4
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n5
     type: nasab
-    quote: قريش
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 874-09
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     ja: 「سنة أربع وسبعين」＝874（百の位の省略は通例の 8 世紀台。初版の 774「または 874」を訂正）。874年ラマダーン月＝1470-03-13〜04-11（h2g.py）、月精度で @when=1470-03。
-  quote: سنة
   phrase: مات في رمضان سنة أربع وسبعين بمكة
+  mention: m7
 relations:
 - id: r1
   type: kin
@@ -50,7 +44,6 @@ relations:
   passive: AIND-D10074
   summary:
     ar: علي بن موسى بن علي بن قريش بن داود الهاشمي
-  quote: null
   note:
     ja: '規則37。父＝#AIND-D05661「علي بن موسى بن علي بن قريش بن داود الهاشمي الحارثي المكي」（846没）。転送見出し #AIND-D05663「علي بن موسى بن قريش المكي . فيمن جده علي قريبا」が本項の父名の形（علي بن موسى بن قريش）を D05661 に同定しており、D05661 末尾「وأسقط عليا من نسبه في موضع آخر」も同じナサブの省略を説明する。兄弟の本伝 #AIND-D04511 も同じ父に AIND を充てている（先例）。初版は父 relation なし。'
 notes:
@@ -60,15 +53,54 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: medium
   note:
     ja: Pattern A。限定語のない ابن فهد・没年 874（871＜874≤885）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium（event 側、規則43・58）。初版の統制外 relation「biographer」（#AIND-D09211）を置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  ref: AIND-D05661
+  quote: علي
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: قريش
+- id: m5
+  kind: name
+  ref: TMP-N-00027
+  quote: الهاشمي
+- id: m6
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m7
+  kind: year
+  value: '874'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ムーサー・ブン・アリー・ブン・ムーサー・ブン・クライシュ・アル＝ハーシミー。（8）74年ラマダーン月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Mūsā b. ʿAlī b. Mūsā b. Quraysh al-Hāshimī. He died in Ramaḍān of the year (8)74 in Mecca. Ibn Fahd recorded his death.

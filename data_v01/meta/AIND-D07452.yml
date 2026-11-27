@@ -9,44 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00606
-    quote: الطائفي
-    norm: الطاءفي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00134
-    quote: الغمري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001158
+    mention: m2
   - id: n6
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D01456
+  active: m8
   passive: AIND-D07452
   summary:
     ar: أبو العباس
   cert: medium
-  quote: أبا العباس
   note:
     ar: ممن خدم أبا العباس وعرف به وحج معه
     ja: '本項主は أبو العباس に仕え（خدم）、彼によって知られ、彼とともにハッジを行った。ニスバ الغمري・「نزيل جامع الغمري」の文脈から أبو العباس＝أبو العباس الغمري（#AIND-D01456、أحمد بن محمد بن عمر الشهاب … ويعرف بأبي العباس الغمري、ガムリー・モスクの後継シャイフ）。クンヤのみによる同定のため cert medium。初版の subtype「client」active #NEEDID を是正。'
-  norm: ابو العباس
 - id: r2
   type: scholarly
   subtype: teacher
@@ -54,7 +47,6 @@ relations:
   passive: AIND-D07452
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ar: وسمع على أشياء
     ja: '「سمع على أشياء」は「سمع عليّ（私＝サハーウィーに）」と読む（B87 §D-18 先例：「سمع على／قرأ على」の直後に人名が来ない場合。corpus はシャッダを書かない）。初版は #NEEDID かつ訳文で「彼（アブー・アルアッバース）から聴聞」としていたものを是正。'
@@ -63,7 +55,6 @@ relations:
   subtype: father
   active: TMP-P-001158
   passive: AIND-D07452
-  quote: null
   note:
     ja: 見出しナサブ「محمد بن سليمان بن داود الطائفي」から1段ずらして復元（規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001158（⚠汎用名、同名別人への流用禁止。D07453 の父 سليمان بن داود اللاري とは別人）。初版は father relation なし。
   phrase: سليمان بن داود الطائفي
@@ -81,21 +72,56 @@ events:
   - ref: gn:360630
   orgs:
   - ref: TMP-I-00072
-  quote: نزيل
   note:
     ja: 「بها」＝القاهرة（直前の「ثم القاهري」を受ける照応、規則22-3）。
   trigger: rule
   phrase: نزيل جامع الغمري بها
+  mention: m7
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: أبو العباس（#AIND-D01456）に同行。placeName مكة は規則20の例外。
   trigger: rule
   phrase: وحج معه
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001158
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  ref: TMP-N-00606
+  quote: الطائفي
+  norm: الطاءفي
+- id: m5
+  kind: name
+  ref: TMP-N-00134
+  quote: الغمري
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: person
+  ref: AIND-D01456
+  quote: أبا العباس
+  norm: ابو العباس
+- id: m9
+  kind: event
+  quote: وحج
 translation:
   ja: ムハンマド・ブン・スライマーン・ブン・ダーウード、アッ＝ターイフィー、アル＝ガムリー、のちにアル＝カーヒリー。カイロのガムリー・モスクの寄寓者。アブー・アル＝アッバースに仕え、彼によって知られ、彼とともにハッジを行った者の一人で、私（サハーウィー）から諸々を聴聞した。悪くない人物である。
   en: Muḥammad b. Sulaymān b. Dāwūd al-Ṭāʾifī al-Ghamrī, then al-Qāhirī, a resident of the Ghamrī Mosque there. He was among those who served Abū al-ʿAbbās and became known through him; he performed the pilgrimage with him, and he heard various things from me (al-Sakhāwī). There is nothing wrong with him.

@@ -9,35 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: كبيش
     by: rule
-    ref: TMP-P-001531
+    mention: m2
   - id: n4
     type: nasab
-    quote: عجلان
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 838-12
   note:
     ja: 「مات في ذي الحجة سنة ثمان وثلاثين」＝838年ズー・アル＝ヒッジャ月（1435-07-07〜08-04）。初版の when="1434" を 1435-07 に是正（規則18）。没地は原文に無い。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001531
   passive: AIND-D05351
-  quote: null
   note:
     ja: 見出しナサブから復元。corpus に「كبيش بن عجلان」の本伝なし（كبيش の見出しは D06383 كبيش بن جماز الحسيني・D06384 كبيش بن سنان・D06385 كبيش بن مظفر のみで別人）。ID-Master 未登録 → TMP-P-001531（規則3）。祖父 عجلان はマッカのシャリーフ عجلان بن رميثة（TMP-P-001061 أحمد بن عجلان・#AIND-D02560 حسن بن عجلان の父）と推定されるが原文は「عجلان」のみ。
   phrase: كبيش بن عجلان الحسني
@@ -49,7 +46,6 @@ relations:
   summary:
     ar: بيبي شاه ابنة المجد محمد بن يعقوب الشيرازي
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には無く、妻の項 #AIND-D12922「بيبي شاه ابنة المجد محمد بن يعقوب … الشيرازي … تزوجها على بن كبيش فأولدها بنتا ومات عنها في سنة ثمان وثلاثين」からの逆引き（没年838が一致、規則23、cert medium）。'
 - id: r3
@@ -60,41 +56,74 @@ relations:
   summary:
     ar: ست الشرف ابنة علي بن كبيش
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には無く、娘の項 #AIND-D13170「ست الشرف ابنة على بن كبيش أمها بيبى شاه ابنة المجد اللغوى」からの逆引き（規則23、cert medium）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نائب
+  - mention: m6
   note:
     ja: '「نائب مكة ومن له حرمة وصولة فيها」。先例 #AIND-D00744（نائب مكة → TMP-O-00053＋placeName مكة）に揃えた。'
-  norm: ناءب
+  mention: m5
 - id: s2
   type: status
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m6
   note:
     ja: 「فيها」は直前の مكة を指す（規則22(3)）。
   phrase: ومن له حرمة وصولة فيها
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: low
   note:
     ja: 'Pattern A。没年838（≤871）＝ابن فهد 振り分け規則により #AIND-D09211（التقي بن فهد）、cert low。初版の統制外 relation「other」を event に改めた。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001531
+  quote: كبيش
+- id: m3
+  kind: name
+  quote: عجلان
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m6
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m7
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m8
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・クバイシュ・ブン・アジュラーン・アル＝ハサニー。マッカの代官（ナーイブ）で、同地で威信と権勢を有した者の一人。838年ズー・アル＝ヒッジャ月に没した。イブン・ファハドがその没年を記録した。
   en: ʿAlī b. Kubaysh b. ʿAjlān al-Ḥasanī, deputy (nāʾib) of Mecca and one of those who held respect and power there. He died in Dhū al-Ḥijja of the year 838. Ibn Fahd recorded his death date.

@@ -9,37 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00338
-    quote: الآمدي
-    norm: الامدي
+    mention: m4
   - id: n2
     type: laqab
-    quote: خير الدين
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   date:
     ah: 835
   places:
-  - ref: TMP-L-00047
-    quote: آمد
-    norm: امد
+  - mention: m6
   note:
     ar: ومات ببلاد آمد سنة خمس وثلاثين
     ja: 835年＝1431-09-18 起点（年のみ表記のため年初、グレゴリオ暦）。precheck の「名前不一致」（#TMP-L-00047 登録「آمد」≠ 記載名「Āmid」）は、ラテン翻字の placeName とアラビア語登録名を突き合わせたことによる偽陽性であり、同一地名のため修正不要。
-  quote: سنة
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -47,25 +42,62 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: ممن برع في المعقولات وشارك في علوم أخر
   note:
     ja: 初版は英語 desc のみだったため、統一規則⑦により原文の言及句に置換。
-  norm: ممن برع في المعقولات وشارك في علوم اخر
+  phrase: ممن برع في المعقولات وشارك في علوم أخر
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  - ref: AIND-D00552
-    cert: medium
-    quote: الشهاب الكوراني
+  - mention: m9
+  - cert: medium
+    mention: m10
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   note:
     ja: 'Pattern A。المقريزي ＝ wd:Q293604、عقوده ＝ #TMP-T-00122（عقود المقريزي | درر العقود الفريدة）。初版の統制外 subtype「biographer」relation（#NEEDID）を event 化。【裁定 2026-09-18（§Db-5）】「ونقل عن الشهاب الكوراني أنه قال له …」は、マクリーズィーの言及の内部に置かれた口頭情報源の明示であって師弟関係の記述ではない（سمع／قرأ／أخذ 等の学統語は無い）。よって校閲時の subtype="other" の relation を除去し、الشهاب الكوراني を本 mention event 内の persName として المقريزي と並置する形に改めた（口頭の情報提供者を mention event 内の persName ref に置く確立した先例: #AIND-D04086「أفادنيه صاحبنا قاضي الركب」、#AIND-D03259「أخبرني بذلك إمامها」）。同定: الشهاب الكوراني ＝ #AIND-D00552（أحمد بن إسماعيل بن عثمان … الشهرزوري … الكوراني ثم القاهري عالم بلاد الروم、813年生・893年没）。corpus 中「الشهاب الكوراني」の指示対象は一貫して D00552 であり（転送見出し「أحمد بن يوسف بن إسماعيل بن عثمان الشهاب الكوراني . مضى بدون يوسف」も D00552 に閉合）、マクリーズィーがディヤール・バクル方面の人物についてクーラーニーを情報源とする同型例が corpus L91333「ذكره المقريزي في عقوده عن الشهاب الكوراني」にも見える。ただし被伝者の没年（835年）時点でクーラーニーは22歳前後で、両者の接触地は corpus から確認できないため cert="medium"。desc は原文の言及句全体に広げた（統一規則7）。'
   trigger: rule
   phrase: ذكره المقريزي في عقوده ونقل عن الشهاب الكوراني أنه قال له حليت على مشايخي مائة وثلاثين تصنيفا
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: خير الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00338
+  quote: الآمدي
+  norm: الامدي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: place
+  quote: آمد
+  ref: TMP-L-00047
+  norm: امد
+- id: m7
+  kind: year
+  value: '835'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m10
+  kind: person
+  ref: AIND-D00552
+  quote: الشهاب الكوراني
 translation:
   ja: アブドゥッラー・ブン・アブドゥッラフマーン、ハイル・アッ＝ディーン・アル＝アーミディー・アル＝ハナフィー。理性諸学（マアクーラート）に卓越した者の一人であり、他の諸学にも参与した。835年にアーミドの地で没した。アル＝マクリーズィーが『ウクード』において彼に言及し、アッ＝シハーブ・アル＝クーラーニーから、彼（被伝者）がクーラーニーに「私は師たちのもとで130部の著作を講解した」と語ったことを伝えている。
   en: 'ʿAbd Allāh b. ʿAbd al-Raḥmān, Khayr al-Dīn al-Āmidī al-Ḥanafī. He was among those who excelled in the rational sciences and shared in other branches of learning. He died in the land of Āmid in the year 835. Al-Maqrīzī mentioned him in his ʿUqūd and transmitted from al-Shihāb al-Kūrānī that he said to him: "I expounded one hundred and thirty compositions under my shaykhs."'

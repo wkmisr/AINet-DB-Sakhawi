@@ -9,44 +9,71 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m3
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000875
+    mention: m2
 death:
   id: d
   date:
     ah: 860-02
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: سنة
+  - mention: m6
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-000875
+  active: m5
   passive: AIND-D01623
   summary:
     ar: محمد الحريري دلال الكتب
-  quote: أبوه
   note:
     ja: 原文「وكيل الشرع ودلال الكتب أبوه」＝書籍仲買人（دلال الكتب、TMP-O-00217）は父。初版は本項主の state n=2 としていたため除去し、父 relation を新設（TMP発行ルールにより TMP-P-000875 を発行）。
-  norm: ابوه
 states:
 - id: s1
   type: office
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-000875
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m4
+  kind: office
   ref: TMP-O-00220
   quote: وكيل الشرع
+- id: m5
+  kind: person
+  ref: TMP-P-000875
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: アフマド・イブン・ムハンマド・アル＝ハリーリーは法廷代理人および書籍仲買人であった。彼の父。彼は860年サファル月にメッカで亡くなった。
   en: Aḥmad b. Muḥammad al-Ḥarīrī, agent of the Sharia court and book broker. His father. He died in Mecca in Ṣafar 860 H.

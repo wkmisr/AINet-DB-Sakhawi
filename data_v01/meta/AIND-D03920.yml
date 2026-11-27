@@ -9,22 +9,21 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد الرءوف
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D08450
+    mention: m2
   - id: n3
     type: nasab
-    quote: قاسم
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D03920
   methods:
   - TMP-S-00003
@@ -33,33 +32,52 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: علي
+    - mention: m5
   note:
     ja: '「سمع علي بها」＝一人称の主体はサハーウィー本人（wd:Q4120128）。初版は #NEEDID。'
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D08450
+  active: m4
   passive: AIND-D03920
   summary:
     ar: محمد بن قاسم الواعظ
   cert: medium
-  quote: أبوه
   note:
     ja: '「الآتي أبوه … والواعظ أبوه」＝父はメッカの説教師。候補 = #AIND-D08450（محمد بن قاسم بن علي الشمس المصري ثم المكي الشاذلي الواعظ الغزولي、没885 بمكة）、転送見出し #AIND-D08462「محمد بن قاسم الشمس واعظ مكة」も同人。ナサブが2代分（محمد بن قاسم）しか一致しないため cert="medium"（→要判断）。（独立検証パスで補正）'
-  norm: ابوه
 states:
 - id: s1
   type: office
   ref: TMP-O-00050
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m5
   note:
     ja: 「الآتي أبوه من شهود مكة والواعظ أبوه」は「أبوه」が2度現れるため、「من شهود مكة」は本項主の属性、「الواعظ」は父の属性と読む。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرءوف
+- id: m2
+  kind: name
+  ref: AIND-D08450
+  quote: محمد
+- id: m3
+  kind: name
+  quote: قاسم
+- id: m4
+  kind: person
+  ref: AIND-D08450
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
 translation:
   ja: アブドゥッラウーフ・ブン・ムハンマド・ブン・カースィム。父は後述され、（彼は）メッカの証人（シュフード）の一人で、父は説教師（ワーイズ）である。メッカで私（サハーウィー）から（ハディースを）聴聞した者の一人であった。
   en: ʿAbd al-Raʾūf b. Muḥammad b. Qāsim—whose father is mentioned below—one of the notary-witnesses of Mecca; his father was the preacher (al-wāʿiẓ). He was among those who heard from me there [in Mecca].

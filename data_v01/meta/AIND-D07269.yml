@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00488
-    quote: الهمداني
+    mention: m6
   - id: n2
     type: shuhrah
-    quote: الخياط
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10895
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: زين الدين
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: إسحاق
     by: rule
-    norm: اسحاق
+    mention: m4
   - id: n7
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -46,46 +42,92 @@ death:
     cert: medium
   note:
     ja: 「مات بها في صفر سنة خمس وثمانين」。「بها」の先行詞は直前の「الحرم المكي」（＝マッカ）で、見出しにニスバ المكي はない → مكة cert medium（規則22(3)）。885年サファル月＝1480-04-21〜1480-05-19 → @when 1480-04（月精度。初版は年精度 1480）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D10895
+  active: m8
   passive: AIND-D07269
   summary:
     ar: أبو بكر بن زين الدين بن إسحاق بن عثمان الهمداني الخياط
-  quote: ووالده
   note:
     ja: '父の本伝＝クンヤ部 #AIND-D10895「أبو بكر بن زين الدين بن إسحق بن عثمان الهمداني الخياط . مات بمكة في ذي الحجة سنة سبع وستين . أرخه ابن فهد」（未受領）。見出しナサブ・通称 الخياط（本項「الخياط هو ووالده」）が一致（規則37）。初版の #NEEDID を解消。'
-  norm: والده
 states:
 - id: s1
   type: office
   ref: wd:Q242468
-  quote: null
   note:
     ja: 「الخياط هو ووالده」。職の placeName مكة（原文なし）を除去。父の同職は父の属性。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00033
   orgs:
   - ref: wd:Q428858
-  quote: الفراش بالحرم المكي
   note:
     ja: '「ثم الفراش بالحرم المكي」。الحرم المكي＝المسجد الحرام wd:Q428858（ID-Master 登録、初版 #NEEDID）。初版の affiliation employed（二重符号化）と state の placeName مكة を除去（規則8・22(1)）。'
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m13
   cert: medium
   note:
     ja: '規則43（没885: 871＜885≤885 → النجم عمر بن فهد D05979、cert medium）。初版の統制外 chronicler relation（D09211）を Pattern A に変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D10895
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: زين الدين
+- id: m4
+  kind: name
+  quote: إسحاق
+  norm: اسحاق
+- id: m5
+  kind: name
+  quote: عثمان
+- id: m6
+  kind: name
+  ref: TMP-N-00488
+  quote: الهمداني
+- id: m7
+  kind: name
+  quote: الخياط
+- id: m8
+  kind: person
+  ref: AIND-D10895
+  quote: ووالده
+  norm: والده
+- id: m9
+  kind: office
+  ref: TMP-O-00033
+  quote: الفراش بالحرم المكي
+- id: m10
+  kind: month
+  value: 2
+  quote: صفر
+- id: m11
+  kind: year
+  value: '885'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ザイン・アッ＝ディーン・ブン・イスハーク・ブン・ウスマーン、アル＝ハムダーニー、仕立屋（アル＝ハイヤート）──彼もその父も──、のちにマッカの聖域（ハラム）の従僕（ファッラーシュ）。885年サファル月にそこ（マッカ）で没した。イブン・ファハドがその没年月を記している。
   en: Muḥammad b. Abī Bakr b. Zayn al-Dīn b. Isḥāq b. ʿUthmān al-Hamdānī, the tailor (al-Khayyāṭ) — he and his father — and later farrāsh (attendant) at the Meccan Sanctuary. He died there (in Mecca) in Ṣafar 885. Ibn Fahd recorded his death date.

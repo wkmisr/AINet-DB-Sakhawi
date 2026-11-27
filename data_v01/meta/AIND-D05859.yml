@@ -9,63 +9,97 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01363
-    quote: الزوقري
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m8
   - id: n3
     type: laqab
-    quote: التقي
+    mention: m5
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03606
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n8
     type: nasab
-    quote: الوجيه
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03606
+  active: m11
   passive: AIND-D05859
   summary:
     ar: الوجيه عبد الرحمن بن أبي بكر بن أبي بكر
   cert: medium
-  quote: ووالده
   note:
     ja: '父。ラカブ連鎖「التقي بن الوجيه」から父のラカブは الوجيه。corpus の عبد الرحمن 部に #AIND-D03606「عبد الرحمن بن أبي بكر بن عبد الله وجيه الدين أبو محمد الزوقري الركني الشافعي」（744年生・810年没、タイッズの学者。末尾「ورأيت من سمي جده يحيى فالله أعلم」）があり、名・父名・ラカブ・ニスバは一致するが祖父名（本項 أبي بكر／D03606 عبد الله または يحيى）が合わないため規則26により同定せず、新規 TMP-P-001381 を発行して候補を note に留める（§D105-5）。ابن فهد は父を「العلامة」と評した。'
-  norm: والده
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m10
   works:
   - ref: TMP-T-00138
-  quote: ذكره
   note:
     ja: 'Pattern A。「في معجمه」→ ابن فهد 振り分け規則により التقي بن فهد ＝ #AIND-D09211、معجمه ＝ TMP-T-00138『معجم ابن فهد』。「وبيض」＝（没年等を）空欄のまま残した。初版の統制外 subtype「mentioned_by」relation（note 内の TMP-T-0138 は桁誤り）を event に変換。初版の honorific「الإمام」は ابن فهد の評語であり名の一部ではないため除去。'
   trigger: rule
   phrase: ذكره التقي بن فهد في معجمه ووصفه بالإمام المفنن ووالده بالعلامة وبيض
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D03606
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  quote: التقي
+- id: m6
+  kind: name
+  quote: الوجيه
+- id: m7
+  kind: name
+  ref: TMP-N-01363
+  quote: الزوقري
+- id: m8
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
+- id: m11
+  kind: person
+  ref: AIND-D03606
+  quote: ووالده
+  norm: والده
 translation:
   ja: ウマル・ブン・アブド・アッ＝ラフマーン・ブン・アビー・バクル・ブン・アビー・バクル、アッ＝タキー・ブン・アル＝ワジーフ、アッ＝ザウカリー・アル＝ヤマーニー。アッ＝タキー・ブン・ファハドがその『ムウジャム』で彼に言及し、彼を「多芸なイマーム」、その父を「大学者（アッラーマ）」と評し、（没年などは）空欄のままにした。
   en: ʿUmar b. ʿAbd al-Raḥmān b. Abī Bakr b. Abī Bakr, al-Taqī b. al-Wajīh, al-Zawqarī al-Yamānī. Al-Taqī b. Fahd mentioned him in his Muʿjam, describing him as "the versatile imām" and his father as "the eminent scholar (al-ʿallāma)", and left the rest blank.

@@ -9,60 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00411
-    quote: الفارقي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-05470
-    quote: الشاذلي
+    mention: m7
   - id: n3
     type: laqab
-    quote: المحب
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو الطيب
-    norm: ابو الطيب
+    mention: m5
   - id: n5
     type: shuhrah
-    quote: ابن فكيك
     cert: medium
+    mention: m8
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05009
+    mention: m2
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05009
+  active: m9
   passive: AIND-D08017
   summary:
     ar: علي بن أحمد الفارقي
   cert: medium
-  quote: أبيه
   note:
     ja: '父 علي بن أحمد：「لازم مع أبيه الولي العراقي في أماليه」＝父も الولي العراقي の口述会に同席。【集約 2026-10-25】#AIND-D05009「علي بن أحمد بن علي نور الدين الفارقي الشاذلي . سمع في ابن ماجة على الأبناسي والغماري والجوهري」は corpus で唯一の「علي بن أحمد … الفارقي الشاذلي」で、本項主の見出し「محمد بن علي بن أحمد … الفارقي الشاذلي」とナサブ＋ニスバ2種が一致し、年代（الأبناسي・الغماري 802没、父子で الولي العراقي（826没）の أمالي に出席）も整合する（規則37・38、内容B[3]、§D133-5）。相手側に子の言及がないため cert medium（同バッチ D07235→D10825 と同水準）。校閲時は #NEEDID（候補 note 留め）、初版は汚染番号 TMP-P-000530。'
-  norm: ابيه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D00844
+  active: m10
   passive: AIND-D08017
   methods:
   - TMP-S-00014
   works:
   - ref: TMP-T-00186
-  quote: الولي العراقي
   note:
     ja: '「لازم مع أبيه الولي العراقي في أماليه」。الولي العراقي ＝ #AIND-D00844（幻番号 TMP-P-000011 の名寄せ先）。「أماليه」＝الولي العراقي 自身の口述録。ID-Master TMP-T-00030 はサハーウィー自身の الأمالي の正規名なので、【集約 2026-10-25】既登録の #TMP-T-00186（أمالي الولي العراقي、出現 D07473、repo D05436・D07473 で使用）に差し替えた（内容B[1]、§D133-3）。初版の field（الحديث）を除去。'
 - id: r3
@@ -73,13 +65,51 @@ relations:
   summary:
     ar: محمد بن علي المحب الفارقي
   cert: medium
-  quote: null
   note:
     ja: 【集約 2026-10-25】#AIND-D08256「محمد بن علي المحب الفارقي ممن سمع من شيخنا ، وأظنه ابن فكيك فيحرر」。同じ المحب الفارقي＋「أظنه ابن فكيك」。双方に転送指示がないため二重立項型（両項実項）。本項側に片方向で置き（同バッチ D07280⇄D07271・D07293⇄D09267 と同扱い、内容B[4]・機械[12]）、鏡像は D08256 収録時に。
 notes:
 - text: '#AIND-D08256「محمد بن علي المحب الفارقي ممن سمع من شيخنا ، وأظنه ابن فكيك فيحرر」は同一人物の可能性（同じ المحب الفارقي・「أظنه ابن فكيك」）。本項・D08256 とも転送指示がないため二重立項型（実項のまま）。【集約 2026-10-25】本項側に possible_identity（cert medium）を置いた。D08256 側の鏡像は収録時に。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05009
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: المحب
+- id: m5
+  kind: name
+  quote: أبو الطيب
+  norm: ابو الطيب
+- id: m6
+  kind: name
+  ref: TMP-N-00411
+  quote: الفارقي
+- id: m7
+  kind: name
+  ref: TMP-N-05470
+  quote: الشاذلي
+- id: m8
+  kind: name
+  quote: ابن فكيك
+- id: m9
+  kind: person
+  ref: AIND-D05009
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: person
+  ref: AIND-D00844
+  quote: الولي العراقي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド、アル＝ムヒッブ・アブー・アッ＝タイイブ・アル＝ファーリキー・アッ＝シャーズィリー。私は彼をイブン・フカイクだと思う。父とともにアル＝ワリー・アル＝イラーキーの口述会（アマーリー）に通い師事した。
   en: Muḥammad b. ʿAlī b. Aḥmad, al-Muḥibb Abū al-Ṭayyib al-Fāriqī al-Shādhilī; I think he is Ibn Fukayk. Together with his father he attended assiduously the dictation sessions (amālī) of al-Walī al-ʿIrāqī.

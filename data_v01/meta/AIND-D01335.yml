@@ -9,55 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01026
-    quote: الباسطي
+    mention: m5
   - id: n2
     type: laqab
-    quote: شهاب الدين
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بدقماق
-    norm: دقماق
     label: دقماق
+    mention: m9
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: طلاداي
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D01335
   methods:
   - TMP-S-00014
   works:
   - ref: wd:Q4120006
-  quote: لازمني
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D02414
+  active: m11
   passive: AIND-D01335
   methods:
   - TMP-S-00025
   fields:
   - wd:Q1817983
-  quote: الزين جعفر السنهوري
 - id: r3
   type: scholarly
   subtype: teacher
@@ -69,12 +63,10 @@ relations:
   - wd:Q1817983
   works:
   - ref: TMP-T-00015
-  quote: null
 states:
 - id: s1
   type: office
-  ref: wd:Q3595924
-  quote: المقري
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -83,16 +75,14 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00422
-    quote: حارة عبد الباسط
-  quote: null
+  - mention: m6
+  mention: null
 - id: e2
   type: cultural
   summary:
     en: Memorized 『al-Shāṭibiyya』
-  quote: وحفظ
   trigger: rule
-  norm: حفظ
+  mention: m12
 notes:
 - text: 私（サハーウィー）は彼を称賛しない。
   lang: ja
@@ -102,6 +92,52 @@ notes:
   type: personalia
 - text: '【校閲2026-09-01】原文「قرأ على الزين جعفر السنهوري **ثم على الناصري الأخميمي** في القراءات وحفظ الشاطبية」。初版はn=3を active=passive=伝主 の自己ループで生成していた。n=2が السنهوري(#AIND-D02414)なので n=3 は **الناصري الأخميمي = #AIND-D06838**（ID-Master「ناصر الدين الأخميمي」）。'
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: طلاداي
+- id: m4
+  kind: name
+  quote: شهاب الدين
+- id: m5
+  kind: name
+  ref: TMP-N-01026
+  quote: الباسطي
+- id: m6
+  kind: place
+  quote: حارة عبد الباسط
+  ref: TMP-L-00422
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: office
+  ref: wd:Q3595924
+  quote: المقري
+- id: m9
+  kind: name
+  quote: بدقماق
+  norm: دقماق
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: لازمني
+- id: m11
+  kind: person
+  ref: AIND-D02414
+  quote: الزين جعفر السنهوري
+- id: m12
+  kind: event
+  quote: وحفظ
+  norm: حفظ
 translation:
   ja: アハマド・ブン・ムハンマド・ブン・タッラダーイ、シャハーブッディーン・アル＝バースィティー。ハナフィー派のクルアーン朗誦教師で、アブドゥルバースィト地区に居住していたことからドゥクマクとして知られる。私（＝サハーウィー）に『アッ＝シファー』などをわずかな期間師事し、アル＝ザイン・ジャアファル・アッ＝サンフーリにクルアーン朗誦を学び、次にアッ＝ナーシリー・アル＝アキミイに学び、アッ＝シャーティビーヤを暗記した。また、もしかするとアラビア語学にも携わったかもしれないが、私は彼を称賛しない。
   en: Aḥmad b. Muḥammad b. Ṭallādāy, Shihāb al-Dīn al-Bāsṭī, a Ḥanafī Qurʾān reciter known as Dukmāq, due to his residence in Ḥārat ʿAbd al-Bāsiṭ. He accompanied me (al-Sakhāwī) for a short period while studying 『al-Shifāʾ』 and other works. He studied Qurʾān recitation with al-Zayn Jaʿfar al-Sanhūrī, and then with al-Nāṣirī al-Akhmīmī, memorizing 『al-Shāṭibiyya』. He may also have been involved in Arabic language studies, but I do not praise him for that.

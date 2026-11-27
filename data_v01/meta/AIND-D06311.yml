@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قجق
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -30,11 +29,10 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D06311
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: '見出しのニスバ「الظاهري برقوق」＋「من صغار مماليك أستاذه」＝主人はアッ＝ザーヒル・バルクーク（#AIND-D02178、先例 D02452）。初版は #NEEDID。'
 - id: r2
@@ -42,48 +40,71 @@ relations:
   subtype: father
   active: AIND-D06311#p1
   passive: AIND-D06311
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: 「وممن تأخر في أيام المؤيد وصار أمير عشرة ورأس نوبة」＝アル＝ムアイヤド・シャイフ（#AIND-D03345、在位815–824）の治世まで生き残り、十人長・ラアス・ナウバとなった。初版の「sovereign」relation（#TMP-P-000844＝ID-Master では D05685 زينب の師「المؤيد」の関係専用番号＝汚染）は時期表現でもあり除去し、ここに記す。
-  norm: امير عشرة
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00107
-  quote: ورأس نوبة
   note:
     ja: 汎用 رأس نوبة（TMP-O-00107、規則48。実体一致）。
-  norm: راس نوبة
+  mention: m5
 - id: s3
   type: office
   ref: TMP-O-00132
-  quote: null
   note:
     ja: '「ممن ساق المحمل باشا سنين」＝数年にわたりバーシュ（隊長）としてマフマル（巡礼行列）を率いた。ID-Master 登録 باش（TMP-O-00132、別名 باش مكة）を語根で充当（初版は #NEEDID）。初版の placeName مكة と hajj event（مكة）は原文に地名・حج の語がないため除去（規則20・22）。'
+  mention: null
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D02168
-    quote: الأشرف
-    norm: الاشرف
+  - mention: m6
   places:
-  - ref: gn:293100
-    quote: صفد
-  quote: إلى أن نفاه الأشرف إلى صفد ثم أعطاه فيها أقطاعا هينا
+  - mention: m7
   note:
     ja: 'アル＝アシュラフ（＝المؤيد の後の「الأشرف」＝برسباي #AIND-D02168、在位825–841。没年 830 年代と整合）がサファドへ追放し、ついで同地（فيها＝صفد）で小さな إقطاع を与えた。非主人のスルターンによる処分は relation にせず event 内 persName で表す（先例 D02929・D02116 方式）。初版の統制外 subtype「exiler」relation（#NEEDID）と residence event（صفد）をこの event に統合。'
-  norm: الي ان نفاه الاشرف الي صفد ثم اعطاه فيها اقطاعا هينا
+  phrase: إلى أن نفاه الأشرف إلى صفد ثم أعطاه فيها أقطاعا هينا
+  mention: null
 notes:
 - text: 見出しの発音注記「بضم ثم فتح」＝Qujaq（第1字母音 u、第2字母音 a）。「وكان أطلس عارفا بلعب الرمح」＝髭がなく（أطلس）、槍術に通じていた（人物評）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قجق
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m5
+  kind: office
+  ref: TMP-O-00107
+  quote: ورأس نوبة
+  norm: راس نوبة
+- id: m6
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m7
+  kind: place
+  quote: صفد
+  ref: gn:293100
 translation:
   ja: クジャク（第1字にダンマ、第2字にファトハ）、アッ＝ザーヒリー・バルクーク。主人（バルクーク）の年少のマムルークの一人で、アル＝ムアイヤドの治世まで生き残った者の一人。十人長（アミール・アシャラ）およびラアス・ナウバとなったが、ついにアル＝アシュラフが彼をサファドへ追放し、ついで同地で小さなイクターを与えた。その後間もなく、830年代のある年に没した。髭のない者（アトラス）で、槍術に通じ、数年にわたりバーシュ（隊長）としてマフマルを率いた者の一人であった。
   en: Qujaq (with ḍamma on the first letter, then fatḥa), al-Ẓāhirī Barqūq. He was one of the junior mamlūks of his master and one of those who survived into the days of al-Muʾayyad; he became an amīr of ten and a raʾs nawba, until al-Ashraf exiled him to Ṣafad and then granted him a modest iqṭāʿ there. He died shortly afterwards, in the year [8]30-something. He was beardless (aṭlas), skilled in lance-play, and one of those who led the maḥmal as bāsh for some years.

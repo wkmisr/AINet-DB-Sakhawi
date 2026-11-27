@@ -9,35 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00970
-    quote: المكراني
+    mention: m6
   - id: n2
     type: laqab
-    quote: محي الدين
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: TMP-P-001143
-    norm: اسماعيل
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: المجد
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07099
   methods:
   - TMP-S-00014
@@ -47,32 +43,26 @@ relations:
       notBefore: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m9
     phrase: ولازمني بها في سنة ست وثمانين وبعدها
     note:
       ja: 「بها」＝直前の مكة（照応、規則22(3)）。886年＝1481-03-11 開始、年精度 1481。「وبعدها」のため notBefore。
-  quote: ولازمني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00544a
+  active: m7
   passive: AIND-D07099
-  quote: أحمد
   note:
     ja: '「أخو أحمد الماضي」＝ #AIND-D00544a（أحمد بن إسماعيل بن إبراهيم الصدر أبو البركات بن المجد المكراني الشافعي نزيل مكة وأخو محمد الآتي）。相互に閉合。初版の #NEEDID を解消（規則37）。REF #AIND-D00864（أحمد بن عبد القادر بن إبراهيم … المكراني . مضى في ابن إسماعيل）も同人。'
-  norm: احمد
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-001143
+  active: m15
   passive: AIND-D07099
   summary:
     ar: المجد إسماعيل بن إبراهيم المكراني
-  quote: وأبوهما
   note:
     ja: 父＝ ID-Master 登録済み TMP-P-001143（مجد الدين عبد القادر (أو إسماعيل) بن إبراهيم المكراني。Note に本項 D07099・D00544a・D07696 での言及が記載）。corpus に本伝なし。初版の TMP-P-000528（登録実体＝ابن جماعة の息子 إسماعيل、汚染番号）を差し替え。末尾「وأبوهما يقرئ ولدا لصاحبها」＝父がカンバーヤの君主の子に教えている（父の職であり本項主の state にしない）。
-  norm: ابوهما
 - id: r4
   type: identity
   subtype: possible_identity
@@ -81,56 +71,109 @@ relations:
   summary:
     ar: محمد بن عبد القادر أو اسمعيل بن ابراهيم محي الدين بن مجد الدين المكراني الأصل المكي
   cert: high
-  quote: null
   note:
     ja: '二重立項: #AIND-D07696（刊本 111 番「محمد بن عبد القادر أو اسمعيل والأول أشبه بن ابراهيم محي الدين بن مجد الدين المكراني الأصل المكي … وقد لازمني كثيرا في سنة ست وثمانين وبعدها」）と、ラカブ・父のラカブ المجد・祖父 إبراهيم・ニスバ・「لازمني في سنة ست وثمانين وبعدها」が一致し、父名の揺れ（إسماعيل／عبد القادر）は D00544a でサハーウィー自身が記す揺れと同一。$$$ 索引項「محمد بن مجد الدين المكراني المكي . في ابن إسماعيل بن إبرهيم وفي ابن عبد القادر بن إبرهيم」も両項を並記。いずれにも転送指示がないため両項とも実項のまま双方向 possible_identity（cert high）。D07696 側（B87d 校閲済み）に既に本項への relation あり＝本項はその鏡像。'
 assessments:
 - id: v1
-  quote: وفهم مع عقل وسكون وأدب وانتماء لبيت ابن السيد عفيف الدين وصغر سن
-  norm: فهم مع عقل وسكون وادب وانتماء لبيت ابن السيد عفيف الدين وصغر سن
   label: فهم مع عقل وسكون وأدب وانتماء لبيت ابن السيد عفيف الدين وصغر سن
   terms:
   - عفيف
   label_latn: fahm maʿa ʿaql wa-sukūn wa-adab wa-intimāʾ li-bayt Ibn al-Sayyid ʿAfīf al-Dīn wa-ṣighar sinn
   note:
     ja: '「انتماء لبيت ابن السيد عفيف الدين」＝イブン・アッ＝サイイド・アフィーフ・アッ＝ディーン家（بيت＝家門）への帰属・つながり。家門への言及であり個人との統制関係ではないため relation を立てず status に含めた。家名の主 ابن السيد عفيف الدين ＝ #AIND-D09126（السيد العلاء محمد بن محمد … بن السيد عفيف الدين أبي بكر الحسيني … المكراني الأصل النيريزي المولد الإيجي الشيرازي、814生。初版の幻番号 TMP-P-000702 は ID-Master で同 AIND に名寄せ済み）。本項主と同じ المكراني の出自で、マッカに住んだ同家との縁故を指すか。'
+  mention: m11
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: وقطن
+  - mention: m9
   trigger: rule
-  norm: قطن
   phrase: نشأ وقطن مكة مع أهله مشتغلا بالنحو والصرف والمنطق وغيرها
+  mention: m8
 - id: e2
   type: travel
-  quote: رجع
   note:
     ja: '「بلاده」の指す地は原文に明記なし。ニスバ المكراني（مكران、インドの町＝ニスバ索引 D12045）から推定しうるが ID-Master に مكران の Location 登録がなく、一族の現住地はカンバーヤ（インド）のため placeName は付けない（規則22(3)）。初版の placeName #NEEDID を除去。'
   trigger: rule
   phrase: ثم رجع إلى بلاده
+  mention: m12
 - id: e3
   type: travel
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: عاد
+  - mention: m9
   cert: medium
   note:
     ja: 「أظنه」＝cert medium。「إليها」＝مكة（照応）。
   trigger: rule
   phrase: وأظنه عاد إليها
+  mention: m13
 - id: e4
   type: residence
   places:
-  - ref: TMP-L-00067
-    quote: كنباية
-  quote: بل هو الآن بنواحي كنباية هو وأخوه وأبوهما
+  - mention: m14
   note:
     ja: 執筆時点でカンバーヤ（インド）近辺に兄弟・父とともに滞在。
-  norm: بل هو الان بنواحي كنباية هو واخوه وابوهما
+  phrase: بل هو الآن بنواحي كنباية هو وأخوه وأبوهما
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001143
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: محي الدين
+- id: m5
+  kind: name
+  quote: المجد
+- id: m6
+  kind: name
+  ref: TMP-N-00970
+  quote: المكراني
+- id: m7
+  kind: person
+  ref: AIND-D00544a
+  quote: أحمد
+  norm: احمد
+- id: m8
+  kind: event
+  quote: وقطن
+  norm: قطن
+- id: m9
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: ولازمني
+- id: m11
+  kind: assessment
+  quote: وفهم مع عقل وسكون وأدب وانتماء لبيت ابن السيد عفيف الدين وصغر سن
+  norm: فهم مع عقل وسكون وادب وانتماء لبيت ابن السيد عفيف الدين وصغر سن
+- id: m12
+  kind: event
+  quote: رجع
+- id: m13
+  kind: event
+  quote: عاد
+- id: m14
+  kind: place
+  quote: كنباية
+  ref: TMP-L-00067
+- id: m15
+  kind: person
+  ref: TMP-P-001143
+  quote: وأبوهما
+  norm: ابوهما
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・イブラーヒーム、ムヒー・アッ＝ディーン・ブン・アル＝マジュド・アル＝ムクラーニー。前述のアフマドの兄弟で、こちらが二人のうち優れている。家族とともにマッカで育ち、そこに住んで文法学・形態論・論理学などに励み、886年およびそれ以後そこ（マッカ）で私（サハーウィー）に師事した。理解力に加えて分別・落ち着き・礼儀を備え、イブン・アッ＝サイイド・アフィーフ・アッ＝ディーン家とのつながりがあり、年若い。その後故郷に戻り、私の思うところではそこ（マッカ）に再び戻ったが、いや、彼は今、兄弟および父とともにカンバーヤ近辺におり、父はその地の君主の子に教えている。
   en: Muḥammad b. Ismāʿīl b. Ibrāhīm, Muḥyī al-Dīn b. al-Majd al-Makrānī, brother of the aforementioned Aḥmad, and the better of the two. He grew up and settled in Mecca with his family, occupying himself with grammar, morphology, logic and other subjects, and he attended me there assiduously in the year 886 and thereafter. He has understanding together with good sense, composure and good manners, an attachment to the house of Ibn al-Sayyid ʿAfīf al-Dīn, and is young in years. He then returned to his homeland, and I think he came back to it (Mecca); rather, he is now in the region of Cambay, he and his brother and their father, who teaches a son of its ruler.

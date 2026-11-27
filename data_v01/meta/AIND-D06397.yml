@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: كزل
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -18,8 +18,8 @@ death:
     cert: medium
   note:
     ja: 「عصى … في سنة خمس وعشرين والظن أنه قتل في تلك الوقعة」＝825年（1422-01-04 開始、年精度、h2g.py）の反乱の戦闘で殺されたと推定（الظن＝cert medium）。戦闘の地は原文に無い（初版の placeName حلب は「نائب حلب」からの補完→除去、規則22）。
-  quote: سنة
   phrase: والظن أنه قتل في تلك الوقعة
+  mention: m6
 persons:
 - id: p1
   label: والد كزل
@@ -30,27 +30,21 @@ relations:
   subtype: father
   active: AIND-D06397#p1
   passive: AIND-D06397
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00370
-    quote: البهنسا
-  quote: نائب
+  - mention: m3
   note:
     ja: '見出しの「نائب البهنسا」。上エジプトのバフナサー（町）は ID-Master に未登録（بلاد البهنساوية TMP-L-00143 は地方名）→ 新規 TMP-L-00370。初版 #NEEDID。'
-  norm: ناءب
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00014
-  quote: تأمر
   note:
     ja: アル＝ムアイヤド（・シャイフ、#AIND-D03345、815〜824在位）の時代にアミールとなった。時代指示のみで年は原文に無い。
-  norm: تامر
+  mention: m4
 events:
 - id: e1
   type: political
@@ -58,14 +52,42 @@ events:
     ah: 825
     type: political
   persons:
-  - ref: TMP-P-001605
-    quote: تغرى بردى المؤذي نائب حلب
-    norm: تغري بردي المءذي ناءب حلب
-  quote: قتل
+  - mention: m5
   note:
     ja: '825年、アレッポ副官 تغرى بردى المؤذي とともに反乱。相手は corpus に同ラカブの本伝 #AIND-D02264「تغرى بردي الرومي البكلمشي ويعرف لأذاه بالمؤذي」（846没）があるが、その本文にアレッポ副官職も825年の反乱も無い（821年以降833年まで خامل）ため同定できない（規則25・26）。825年の反乱者として知られる #AIND-D02271「تغرى بردي المحمودي الناصري」の本文にも反乱の記述は無い → 新規 TMP-P-001605、候補は TSV Note と ISSUES §D139-3。初版の統制外 subtype「colleague」relation（#NEEDID）を event 内 persName に置換（反乱＝event、ブリーフ指示）。 集約 2026-10-26（内容A M-1、決定9）: 「نائب حلب」の肩書を持つ見出し #AIND-D02262「131 تغرى بردي من قصروه نائب حلب . مات سنة ثمان عشرة قاله ابن عزم .」を照合したが、825 年の反乱に触れず没年 818 が反乱年 825 と合わない＝閉合不成立。AIND を充てず候補として TSV Note・§D139-3 に並記（規則25・26）。'
   trigger: rule
   phrase: ثم عصى مع تغرى بردى المؤذي نائب حلب في سنة خمس وعشرين
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: كزل
+- id: m2
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m3
+  kind: place
+  quote: البهنسا
+  ref: TMP-L-00370
+- id: m4
+  kind: office
+  ref: TMP-O-00014
+  quote: تأمر
+  norm: تامر
+- id: m5
+  kind: person
+  ref: TMP-P-001605
+  quote: تغرى بردى المؤذي نائب حلب
+  norm: تغري بردي المءذي ناءب حلب
+- id: m6
+  kind: year
+  value: '825'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: قتل
 translation:
   ja: クズル、バフナサーの副官。アル＝ムアイヤドの時代にアミールとなった者の一人で、次いで825年にアレッポ副官タグリー・ビルディー・アル＝ムウズィーとともに反乱を起こした。その戦闘で殺されたと思われる。
   en: Kuzul, governor (nāʾib) of al-Bahnasā. He was among those who became amirs in the days of al-Muʾayyad; then he rebelled together with Taghrī Birdī al-Muʾdhī, the governor of Aleppo, in the year 825, and it is thought that he was killed in that engagement.

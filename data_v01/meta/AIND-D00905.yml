@@ -9,42 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00689
-    quote: السرسي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D00905
   methods:
   - TMP-S-00014
   fields:
   - label: al-Riwāya
     lang: en
-  quote: لازمني
 - id: r2
   type: scholarly
   subtype: teacher
@@ -55,7 +50,6 @@ relations:
   fields:
   - label: al-Dirāya
     lang: en
-  quote: null
 affiliations:
 - id: a1
   type: madhhab
@@ -64,10 +58,9 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00289
-    quote: الصحراء
-  quote: نزيل
+  - mention: m8
   trigger: rule
+  mention: m7
 notes:
 - text: わずかに学問に励んだ後、貧困と必要性から教育で生計を立てた。
   lang: ja
@@ -75,6 +68,40 @@ notes:
 - text: He applied himself to study only a little, then earned his living by teaching, on account of his poverty and need.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  ref: TMP-N-00689
+  quote: السرسي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: الصحراء
+  ref: TMP-L-00289
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: لازمني
 translation:
   ja: アフマド・ブン・アブドゥッラー・ブン・ウマル・アッ＝サルシー、後にアル＝カーヒリー。マーリキー派。サハラー居住。ハディース伝承学と理解において私（＝サハーウィー）に師事した者の一人。わずかに学問に励んだ後、貧困と必要性から教育で生計を立てた。
   en: Aḥmad b. ʿAbd Allāh b. ʿUmar al-Sirsī, then al-Qāhirī, of the Mālikī school, a resident of al-Ṣaḥrāʾ. He was among those who continuously adhered to me (al-Sakhāwī) in transmission and understanding, and he engaged in scholarly pursuits for a short while, then earned his living by teaching due to his poverty and necessity.

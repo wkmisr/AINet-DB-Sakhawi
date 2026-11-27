@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عرفة
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 death:
   id: d
   date:
     ah: 891
   note:
     ar: ومات سنة إحدى وتسعين
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: عرفة
@@ -45,17 +42,14 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07965
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بالمدينة」（規則2）。初版の field الحديث を除去。
 - id: r2
@@ -63,13 +57,44 @@ relations:
   subtype: father
   active: AIND-D07965#p1
   passive: AIND-D07965
-  quote: null
   note:
     ja: '規則3。父 عرفة は裸名で corpus に本伝なし（チュニスの ابن عرفة #AIND-D09141 とは無関係）。'
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عرفة
+- id: m3
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m8
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アラファ、アレッポ出自、アル＝マダニー、シャーフィイー派。マディーナで私（サハーウィー）から聴講した者の一人。891年に没した。
   en: Muḥammad b. ʿArafa, of Aleppan origin, al-Madanī, al-Shāfiʿī. One of those who heard from me in Medina. He died in the year 891.

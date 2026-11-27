@@ -9,41 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00262
-    quote: القباني
+    mention: m5
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الزكي أبي بكر
     by: rule
-    ref: TMP-P-000809
-    norm: الزكي ابي بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05813
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m10
   note:
     ja: 「ممن سمع مني بمكة」（規則2。原文にない field（الحديث）を除去）。
 - id: r2
@@ -53,49 +46,86 @@ relations:
   passive: AIND-D05813
   summary:
     ar: الزكي أبو بكر بن عبد الرحمن المصري القباني العطار
-  quote: null
   note:
     ja: '見出しナサブから。ID-Master 既登録 TMP-P-000809「الزكي أبو بكر بن عبد الرحمن المصري ثم المكي القباني العطار」（Note に子 علي D05080・إبراهيم D00075・أحمد D00594・عمر D05813）。corpus に本伝なし。兄弟 #AIND-D05080・甥 #AIND-D04871 の先例と同じ充当。初版に父 relation なし。'
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D00075
+  active: m6
   passive: AIND-D05813
-  quote: إبراهيم
   note:
     ja: '兄弟 إبراهيم ＝ #AIND-D00075「إبراهيم بن الزكي أبي بكر بن عبد الرحمن المصري القباني العطار بمكة أخو أحمد وعلي وعمر المذكورين في محالهم」。初版の #NEEDID を解消。'
-  norm: ابراهيم
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D00594
+  active: m7
   passive: AIND-D05813
-  quote: وأحمد
   note:
     ja: '兄弟 أحمد ＝ #AIND-D00594「أحمد بن الزكي أبي بكر بن عبد الرحمن المصري أخو إبراهيم وعلي وعمر ، ممن أخذ عني بمكة」（repo 収録済で本項主 #AIND-D05813 を brother として参照）。初版の #NEEDID を解消。'
-  norm: احمد
   phrase: أحمد
 - id: r5
   type: kin
   subtype: brother
-  active: AIND-D05080
+  active: m8
   passive: AIND-D05813
-  quote: وعلي
   note:
     ja: '兄弟 علي ＝ #AIND-D05080「علي بن الزكي أبي بكر بن عبد الرحمن المصري ثم المكي القباني العطار أخو إبراهيم وأحمد وعمر」（repo 収録済で本項主を brother として参照）。初版の汚染番号 TMP-P-000530（登録実体は D04287 の兄弟 علي）を差し替え。'
-  norm: علي
   phrase: علي
 states:
 - id: s1
   type: office
   ref: TMP-O-00034
-  quote: null
   note:
     ja: '兄弟 #AIND-D05080・甥 #AIND-D04871 の先例に揃え、職業的ニスバ القباني（秤量人）を state にも符号化。'
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00012
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-000809
+  quote: الزكي أبي بكر
+  norm: الزكي ابي بكر
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: name
+  ref: TMP-N-00262
+  quote: القباني
+- id: m6
+  kind: person
+  ref: AIND-D00075
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m7
+  kind: person
+  ref: AIND-D00594
+  quote: وأحمد
+  norm: احمد
+- id: m8
+  kind: person
+  ref: AIND-D05080
+  quote: وعلي
+  norm: علي
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ウマル・ブン・アッ＝ザキー・アビー・バクル・ブン・アブド・アッ＝ラフマーン・アル＝ミスリー・アル＝カッバーニー・アル＝アッタール、イブラーヒーム・アフマド・アリーの兄弟。マッカで私から聴聞した者の一人。
   en: ʿUmar b. al-Zakī Abī Bakr b. ʿAbd al-Raḥmān al-Miṣrī al-Qabbānī al-ʿAṭṭār, the brother of Ibrāhīm, Aḥmad and ʿAlī. He was among those who heard from me in Mecca.

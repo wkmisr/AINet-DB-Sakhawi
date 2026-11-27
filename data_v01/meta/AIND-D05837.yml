@@ -9,35 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m3
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D05837
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q1023470
-  quote: مني
   note:
     ja: '「سمع مني معهم بعض الصحيح وغيره」（規則2。原文にない field（الحديث）を除去）。「معهم」の指示対象は原文に明示されない。後見人 ابن الحوراني の家の者たち（例: #AIND-D03715「عبد الرحمن بن عمر بن محمد بن أحمد بن عمر الحوراني المكي … وسمع علي بها بقراءة أخيه بعض الصحيح ومني المسلسل وغيره」、886年ジッダ生）を指すと読むのが最も自然（同じ「بعض الصحيح وغيره」）。ブリーフ案の「前項 D05836 の人々」は、D05836 が868年没の単独の商人のため合わない（§D104-4）。'
 - id: r2
   type: social
   subtype: patron
-  active: TMP-P-001376
+  active: m5
   passive: AIND-D05837
-  quote: ابن الحوراني التاجر
   note:
     ja: '「يتيم في كفالة ابن الحوراني التاجر」＝ 商人 ابن الحوراني の後見下にある孤児（後見は patron 型、先例 D07535）。マッカの الحوراني 商人家（ハマー出自）のうち「ابن الحوراني」と呼ばれ「التاجر」と記されるのは #AIND-D05938「عمر بن محمد بن أحمد الحوراني ثم المكي التاجر」（本バッチ B108。息子 #AIND-D10283「يحيى بن عمر … الحوراني … التاجر نزيل مكة والماضي أبوه ويعرف كهو بابن الحوراني」）。その兄 #AIND-D01216（أحمد بن محمد … الشهاب الحوراني … أحد أعيان التجار … ويعرف بالحوراني）・息子 #AIND-D10283 も候補となる。とくに D10283 は「ومات والده فأسند وصيته على أخويه إليه」（父の没後に弟たちの後見人（وصي）となった）とあり、弟 #AIND-D03715 が「بقراءة أخيه بعض الصحيح」と同じ『サヒーフ』の聴聞会を يحيى の読誦で聴いているため、本項の後見人としては D10283 が D05938 と同等以上に有力。一意に定まらないため規則26により仮番号 #TMP-P-001376（候補 D10283・D05938・D01216）を発行（集約時、内容検証A M-2／B L-26。校閲時は #AIND-D05938 cert medium としていた。ISSUES §D104-4）。初版の #NEEDID を差し替え。'
 states:
@@ -45,8 +42,30 @@ states:
   type: status
   label: شريف
   label_latn: sharīf
-  quote: شريف
   phrase: شريف يتيم في كفالة ابن الحوراني التاجر
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m4
+  kind: office
+  quote: شريف
+- id: m5
+  kind: person
+  ref: TMP-P-001376
+  quote: ابن الحوراني التاجر
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ウマル・ブン・ハサン・アル＝ハマウィー、商人イブン・アル＝ハウラーニーの後見下にある孤児のシャリーフ。彼ら［イブン・アル＝ハウラーニーの家の者たち］とともに私から『サヒーフ』の一部などを聴聞した。
   en: ʿUmar b. Ḥasan al-Ḥamawī, a sharīf, an orphan under the guardianship of the merchant Ibn al-Ḥawrānī. He heard part of the Ṣaḥīḥ and other works from me together with them [the household of Ibn al-Ḥawrānī].

@@ -9,51 +9,80 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: المروبص
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 870-09
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m5
   note:
     en: Died in Ramadan 870 AH in Mecca. His death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m7
 states:
 - id: s1
   type: office
   ref: TMP-O-00012
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m5
   trigger: rule
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: Pattern A（没年記録）。没870 → ابن فهد 規則③（≤871）＝التقي بن فهد（#AIND-D09211、cert low）。初版は統制外 subtype「recorded by」の relation にしていた。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: المروبص
+- id: m3
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m7
+  kind: year
+  value: '870'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥルカーディル・ブン・アル＝ムラウビス・アッ＝シャーミー・アル＝アッタール。マッカの居住者。ヒジュラ暦870年ラマダーン月にマッカで死去した。イブン・ファハドがその死を記録している。
   en: ʿAbd al-Qādir b. al-Murawbiṣ al-Shāmī al-ʿAṭṭār, a resident of Mecca. He died there in Ramadan, the year 870 AH. His death was recorded by Ibn Fahd.

@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00065
-    quote: الناصري
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالبهلوان
-    norm: البهلوان
     label: البهلوان
+    mention: m6
   - id: n3
     type: ism
-    quote: خشكلدي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 850
     cert: low
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m7
   note:
     ja: 「مات بالقاهرة في حدود الخمسين تقريبا」＝850 年頃（概数「حدود」＋「تقريبا」）。repo 先例（D06200「في حدود الخمسين」→ when-custom 0850 cert low）どおり when-custom=0850（850 年初＝1446-04-07、年精度）、cert low。
 persons:
@@ -39,9 +35,8 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m3
   passive: AIND-D02839
-  quote: فرج
   note:
     ja: 見出しのニスバ「الناصري فرج」＝主人はアン＝ナースィル・ファラジュ（#AIND-D06160）。repo 先例（D10379b）どおり patron。初版は統制外 subtype「Mamluk subject」で الظاهر جقمق（#AIND-D02423）を相手にしていたが、ジャクマクは「في الايام الظاهرية جقمق」＝在職時期の表現であって主人ではないため、その relation は除去し state の note に記す。
   phrase: الناصري فرج
@@ -50,24 +45,50 @@ relations:
   subtype: father
   active: AIND-D02839#p1
   passive: AIND-D02839
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمراء العشرات
   note:
     ja: 「أحد أمراء العشرات ورءوس النوب في الايام الظاهرية جقمق」＝アッ＝ザーヒル・ジャクマク（#AIND-D02423、在位842–857）の治世に十人長かつラアス・ナウバであった。
-  norm: امراء العشرات
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00107
-  quote: ورءوس النوب
   note:
     ja: 「ورءوس النوب」（複数のラアス・ナウバの一人）＝汎用 رأس نوبة（TMP-O-00107、規則48。筆頭職 رأس نوبة النوب ではない）。
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: خشكلدي
+- id: m2
+  kind: name
+  ref: TMP-N-00065
+  quote: الناصري
+- id: m3
+  kind: person
+  ref: AIND-D06160
+  quote: فرج
+- id: m4
+  kind: office
+  ref: TMP-O-00101
+  quote: أمراء العشرات
+  norm: امراء العشرات
+- id: m5
+  kind: office
+  ref: TMP-O-00107
+  quote: ورءوس النوب
   norm: رءوس النوب
+- id: m6
+  kind: name
+  quote: بالبهلوان
+  norm: البهلوان
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: フシュカルディー・アン＝ナースィリー・ファラジュ。アッ＝ザーヒル・ジャクマクの治世における十人長（アミール・アシャラ）およびラアス・ナウバの一人で、アル＝バフラワーンとして知られた。850年頃、おおよそのところ、カイロで没した。
   en: Khushkaldī al-Nāṣirī Faraj, one of the amīrs of ten and of the ruʾūs al-nuwab (heads of the guard) in the days of al-Ẓāhir Jaqmaq; he was known as al-Bahlawān. He died in Cairo around the year 850, approximately.

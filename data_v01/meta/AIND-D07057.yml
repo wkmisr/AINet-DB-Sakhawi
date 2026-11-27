@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بالسخاوي
-    norm: السخاوي
     label: السخاوي
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 birth:
   id: b
   date:
@@ -47,16 +43,12 @@ death:
   date:
     ah: 810-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m9
+  - role: burial
+    mention: m12
   note:
     ja: 「جاور بمكة غير مرة وكانت وفاته بها في شعبان سنة عشر ودفن بالمعلاة」。بها＝直前の مكة（照応、規則22(3)）。810年シャアバーン月＝1408-01-10〜02-07（h2g.py）。月精度。埋葬地 المعلاة＝wd:Q42004。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: أحمد
@@ -69,13 +61,12 @@ relations:
   subtype: father
   active: AIND-D07057#p1
   passive: AIND-D07057
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q25453579
+  active: m7
   passive: AIND-D07057
   methods:
   - TMP-S-00006
@@ -88,18 +79,15 @@ relations:
     phrase: حضر دروسه ودروس غيره
   works:
   - ref: TMP-T-00095
-  quote: كالجمال الاسنائي
   note:
     ja: 「حفظ القرآن وكتبا وعرضها في عشر السبعين على جماعة من علماء القاهرة كالجمال الاسنائي وحضر دروسه ودروس غيره」。الجمال الاسنائي＝الجمال الأسنوي（wd:Q25453579、ID-Master 登録。772年没）。「عشر السبعين」＝770年代（770〜779）。カイロの学者たちへの عرض だが場所は明示されないため placeName は付けない（規則22(1)。初版の placeName القاهرة・field القراءات（原文にない）を除去）。
-  norm: الجمال الاسناءي
   phrase: الجمال الاسنائي
 states:
 - id: s1
   type: status
   label: كانت فيه نباهة ويذاكر بفوائد حسنة
   label_latn: kānat fīhi nabāha wa-yudhākiru bi-fawāʾid ḥasana
-  quote: وكانت فيه نباهة ويذاكر بفوائد حسنة
-  norm: كانت فيه نباهة ويذاكر بفواءد حسنة
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -108,28 +96,83 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: جاور بمكة غير مرة
+  - mention: m9
   note:
     ja: 初版の統制外 subtype「jāwara」を除去。
+  phrase: جاور بمكة غير مرة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m14
   works:
   - ref: TMP-T-00037
-  quote: قاله
   note:
     ja: Pattern A。الفاسي＝التقي الفاسي（#AIND-D06757。初版の幻番号 TMP-P-000603 は名寄せ済み）、「مكة」＝TMP-T-00037『تاريخ مكة』（『العقد الثمين』）。初版の統制外 subtype「biographical source」relation を event に変換。
   trigger: rule
   phrase: قاله الفاسي في مكة
+  mention: m13
 notes:
 - text: '「وهو غير الماضي فيمن جده على」＝祖父 علي の見出し #AIND-D06772「محمد بن أحمد بن علي ناصر الدين المقدسي نزيل مكة ويعرف بالسخاوى」とは別人であるとサハーウィーが明記（possible_identity は立てない、ブリーフ指定）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: name
+  quote: بالسخاوي
+  norm: السخاوي
+- id: m7
+  kind: person
+  ref: wd:Q25453579
+  quote: كالجمال الاسنائي
+  norm: الجمال الاسناءي
+- id: m8
+  kind: office
+  quote: وكانت فيه نباهة ويذاكر بفوائد حسنة
+  norm: كانت فيه نباهة ويذاكر بفواءد حسنة
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m11
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m13
+  kind: source
+  quote: قاله
+- id: m14
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ムハンマド・ブン・アフマド・ナースィル・アッ＝ディーン・アル＝ミスリー・アッ＝シャーフィイー、アッ＝サハーウィーとして知られ、祖父がアリーである者たち（の部）で前述した人物とは別人である。クルアーンと諸書を暗記し、（7）70年代にそれらをアル＝ジャマール・アル＝イスナーイーなどカイロの学者たちに提示（アルド）し、彼の講義やほかの者の講義に出席した。彼には聡明さがあり、優れた知見を語り合った。マッカに幾度も隣住（ジワール）し、そこで（8）10年シャアバーン月に没し、60数歳でアル＝ムアッラーに葬られた。アル＝ファースィーが『マッカ（史）』でそう述べている。
   en: Muḥammad b. Aḥmad Nāṣir al-Dīn al-Miṣrī al-Shāfiʿī, known as al-Sakhāwī; he is other than the one mentioned above among those whose grandfather is ʿAlī. He memorized the Qurʾān and some books and presented them in the (7)70s to a number of the scholars of Cairo, such as al-Jamāl al-Isnāʾī, and attended his lessons and those of others. There was intelligence in him, and he would discuss fine points of learning. He sojourned in Mecca more than once, and his death occurred there in Shaʿbān (8)10; he was buried in al-Muʿallā at the age of sixty-odd. Al-Fāsī said this in (his history of) Mecca.

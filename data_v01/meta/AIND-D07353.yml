@@ -9,39 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00144
-    quote: الطرابلسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 birth:
   id: b
   date:
     ah: 764
   note:
     en: Born in 764 AH "as in his own handwriting" (kamā bi-khaṭṭihi). No birthplace is stated.
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: ابن البدر
@@ -58,16 +55,13 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:266826
-      quote: بطرابلس
-      norm: طرابلس
-  quote: null
+    - mention: m10
   note:
     ja: 'الشهاب أحمد بن الحبال（طرابلس で聴聞）。「قال إنه سمع」＝自称のため cert medium。既登録の ابن الحبال 系（TMP-P-000675 يوسف بن الحبال／#AIND-D01482 الشهاب أحمد ... الحلبي الأصل الصالحي السكندري、没825）とは別人と判断し新規 #TMP-P-001131 を発行。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D07353#p1
+  active: m11
   passive: AIND-D07353
   methods:
   - TMP-S-00003
@@ -75,17 +69,13 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:266826
-      quote: بطرابلس
-      norm: طرابلس
-  quote: وابن البدر
+    - mention: m10
   note:
     ja: '「ابن البدر」（طرابلس で聴聞）。シュフラのみで固有名・ラカブを欠くため #NEEDID。cert medium（自称）。'
-  norm: ابن البدر
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D07198
+  active: m13
   passive: AIND-D07353
   methods:
   - TMP-S-00008
@@ -93,9 +83,7 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: العز بن جماعة
+    - mention: m12
   note:
     ja: 'العز بن جماعة＝#AIND-D07198（محمد بن أبي بكر بن عبد العزيز ... العز أبو عبد الله ... ابن جماعة、没819）。corpus に本伝があるため、初版の #TMP-P-000010（ID-Master「العز بن جماعة」）から AIND に差し替え（ISSUES §Dc-2 で名寄せを提案）。「لازم دروسه في فنونه」。'
 - id: r4
@@ -105,7 +93,6 @@ relations:
   passive: AIND-D07353
   methods:
   - TMP-S-00014
-  quote: null
   note:
     ja: 'الجمال الأمشاطي＝العز بن جماعة の弟子（「تلميذه」）。ID-Master 未登録・corpus の الأمشاطي 立項（D11441: محمد ومحمود ابنا أحمد）とはラカブが合わないため新規 #TMP-P-001132 を発行（ISSUES §Dc-4）。'
 affiliations:
@@ -116,22 +103,21 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: null
+  - mention: m12
   note:
     en: '"qadima al-Qāhira": he came to Cairo (and is styled "then al-Qāhirī").'
+  mention: null
 - id: e3
   type: cultural
   subtype: meeting
   persons:
   - ref: AIND-D03608
-  quote: لقيه
   cert: medium
   note:
     ja: ابن الأسيوطي＝#AIND-D03608（عبد الرحمن بن أبي بكر ... السيوطي「ويعرف بابن الأسيوطي」＝ジャラール・アッディーン・スユーティー）。「قريب سنة سبعين」＝870年頃（規則4により when-custom 相当の年表現、cert medium）。初版の student relation(#NEEDID) を置換。
   trigger: rule
   phrase: لقيه ابن الأسيوطي قريب سنة سبعين
+  mention: m14
 sources:
 - id: c1
   date:
@@ -139,16 +125,76 @@ sources:
     cert: medium
     type: cultural
   persons:
-  - ref: AIND-D03608
-    quote: ابن الأسيوطي
-    norm: ابن الاسيوطي
-  quote: وقال
+  - mention: m15
   cert: medium
   note:
     ja: Pattern A。年は「قريب سنة سبعين」による概数（cert medium）。
   trigger: rule
-  norm: قال
   phrase: لقيه ابن الأسيوطي قريب سنة سبعين وقال إنه كان مستحضرا
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: عبد الوهاب
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00144
+  quote: الطرابلسي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: year
+  value: '764'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m10
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m11
+  kind: person
+  ref: AIND-D07353#p1
+  quote: وابن البدر
+  norm: ابن البدر
+- id: m12
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m13
+  kind: person
+  ref: AIND-D07198
+  quote: العز بن جماعة
+- id: m14
+  kind: event
+  quote: لقيه
+- id: m15
+  kind: person
+  ref: AIND-D03608
+  quote: ابن الأسيوطي
+  norm: ابن الاسيوطي
+- id: m16
+  kind: year
+  value: '870'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ハサン・ブン・アブド・アルワッハーブ、ナースィル・アッディーン、アッ＝タラーブルスィー、のちにアル＝カーヒリー、シャーフィイー派。彼自身の筆跡によれば、ヒジュラ暦764年に生まれた。彼は、トリポリでアッ＝シハーブ・アフマド・ブン・アル＝ハッバールとイブン・アル＝バドルから聴聞したと述べた。カイロに来てアル＝イッズ・ブン・ジャマーアから学び、その諸学の講義に密着し、その後（イッズの没後）その弟子アル＝ジャマール・アル＝アムシャーティーに師事した。イブン・アル＝アスユーティーが870年頃に彼に会い、彼は（学識を）よく記憶していたと述べた。
   en: Muḥammad b. Ḥasan b. ʿAbd al-Wahhāb, Nāṣir al-Dīn, al-Ṭarābulusī, then al-Qāhirī, the Shāfiʿī. He was born, according to his own handwriting, in the year 764 AH. He stated that he heard [hadith] in Tripoli from al-Shihāb Aḥmad b. al-Ḥabbāl and Ibn al-Badr. He came to Cairo and studied under al-ʿIzz b. Jamāʿa, attending his lectures in his various disciplines assiduously, and after him he attached himself to his pupil al-Jamāl al-Amshāṭī. Ibn al-Asyūṭī met him around the year 870 AH and said that he had a ready memory.

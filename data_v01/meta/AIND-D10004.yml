@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: ممجق
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -22,8 +21,8 @@ death:
     cert: medium
   note:
     ja: 「سنة ثلاث وثلاثين ظنا」＝833年（推定＝cert medium）。833＝1429-10-09〜1430-09-27（h2g）→ 年精度 @when 1429。
-  quote: سنة
   phrase: مات في سنة ثلاث وثلاثين ظنا
+  mention: m5
 persons:
 - id: p1
   label: والد ممجق الظاهري
@@ -34,31 +33,48 @@ relations:
   subtype: father
   active: AIND-D10004#p1
   passive: AIND-D10004
-  quote: null
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D10004
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: '「الظاهري برقوق من أصاغر مماليكه」＝主人 الظاهر برقوق #AIND-D02178（規則51）。初版の subtype「client」#NEEDID を patron・AIND に。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: '「صار أمير عشرة في أيام الأشرف برسباي إلى أن مات」＝الأشرف برسباي（#AIND-D02168）の治世に十人長となり没するまで。برسباي は主人ではない（規則53）ので relation を立てず（初版の patron #NEEDID を除去）、時期は note に留める（年の記載なし＝日付属性なし、規則18）。'
-  norm: امير عشرة
+  mention: m4
 notes:
 - text: 「بميمين أولاهما مفتوحة ثم جيم مكسورة」＝名の読み方の注記（Mamjiq）。「وكان لا بأس بدينه」は評価句＝訳のみ。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ممجق
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m5
+  kind: year
+  value: '833'
+  quote: سنة
 translation:
   ja: マムジク（二つのミームのうち最初がファトハ、次いでカスラのジーム）、アッ＝ザーヒリー・バルクーク。彼（バルクーク）の年少のマムルークの一人。アル＝アシュラフ・バルスバーイの時代に十人長（アミール・アシャラ）となり、おそらく833年に没するまでその地位にあった。その信仰には問題がなかった。
   en: Mamjiq (with two mīms, the first with fatḥa, then a jīm with kasra), al-Ẓāhirī Barqūq, one of the junior mamluks of al-Ẓāhir Barqūq. He became an amīr of ten in the days of al-Ashraf Barsbāy, and remained so until he died, presumably in the year 833. There was nothing wrong with his religion.

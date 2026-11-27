@@ -9,55 +9,70 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001202
+    mention: m2
   - id: n3
     type: nasab
-    quote: بلال الفراش بالمسجد الحرام
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001202
   passive: AIND-D07762
-  quote: null
   note:
     ja: 見出しナサブから復元（統一規則3）。#AIND-D00889（أحمد）・#AIND-D01899（إسحاق）の父でもある。corpus に本伝なし・ID-Master 未登録（一族祖 بلال は TMP-P-000958 として登録済み）。兄弟2件の既存ファイルには父 relation がないため、統合時に同番号で補うことを ISSUES に申し送り。
   phrase: عبد الله بن بلال
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00889
+  active: m4
   passive: AIND-D07762
-  quote: وأخو أحمد
   note:
     ja: 兄弟＝#AIND-D00889「أحمد بن عبد الله بن بلال الفراش والوقاد بالحرم المكي وأخو محمد وإسحاق」。既存ファイルは active=#AIND-D07762 で本項を参照済み（双方向閉合）。
-  norm: اخو احمد
   phrase: أخو أحمد
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D01899
+  active: m5
   passive: AIND-D07762
-  quote: وإسحق
   note:
     ja: 兄弟＝#AIND-D01899「إسحاق بن عبد الله بن بلال الفراش بمكة أخو أحمد الماضي ومحمد」。既存ファイルは active=#AIND-D07762 で本項を参照済み。
-  norm: واسحق
 states:
 - id: s1
   type: office
   ref: TMP-O-00033
   orgs:
   - ref: wd:Q428858
-  quote: null
   note:
     ja: 「الفراش بالمسجد الحرام」。職 فراش ＝ TMP-O-00033（兄弟 D00889・D01899 と同一）。施設所在地からの placeName（مكة）は規則22により付けない。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001202
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: بلال الفراش بالمسجد الحرام
+- id: m4
+  kind: person
+  ref: AIND-D00889
+  quote: وأخو أحمد
+  norm: اخو احمد
+- id: m5
+  kind: person
+  ref: AIND-D01899
+  quote: وإسحق
+  norm: واسحق
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ビラール。マスジド・ハラーム（マッカの聖モスク）のファッラーシュ（敷物係）で、アフマドとイスハークの兄弟。
   en: Muḥammad b. ʿAbd Allāh b. Bilāl, the farrāsh (attendant in charge of furnishings) at the Sacred Mosque (al-Masjid al-Ḥarām), and the brother of Aḥmad and Isḥāq.

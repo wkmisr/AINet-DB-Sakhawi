@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01953
-    quote: البيدمري
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -31,8 +29,8 @@ death:
     cert: medium
   note:
     ja: 「سنة ست」は一の位のみ＝806（cert medium。イブン・ハジャル『إنباء الغمر』所載＝9世紀初頭）。806年ラビーウ第二月＝1403-10-27 開始（h2g.py、月精度）。初版の @when 1403（年精度）を月精度に、cert medium を付与。没地は原文にない。
-  quote: سنة
   phrase: مات في ربيع الآخر سنة ست
+  mention: m8
 persons:
 - id: p1
   label: إبراهيم بن عمر
@@ -45,26 +43,21 @@ relations:
   subtype: father
   active: AIND-D06538#p1
   passive: AIND-D06538
-  quote: null
   note:
     ja: '規則3 (c'')。父 إبراهيم بن عمر（البيدمري）は汎用名で識別要素なし。corpus 全文「البيدمري」は本項のほか #AIND-D01850（أرغون شاه البيدمري）とその言及（#AIND-D02566）のみで本伝なし、ID-Master も「البيدمري」「بيدمر」「D06538」で未登録。初版は father relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
-  quote: وتأمر
   note:
     ja: 「وتأمر」＝アミールとなった（位階の明記なし＝汎用 أمير TMP-O-00014）。
-  norm: تامر
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00390
   orgs:
   - label: الخاص
-  quote: وباشر الخاص
   note:
     ja: '「وباشر الخاص」＝ハーッス（スルターン私財庁）の実務を執った。規則65 (b) により汎用 مباشر（TMP-O-00390）＋orgName。初版は #NEEDID。「ناظر الخاص」（TMP-O-00085）とは原文に書かれていない＝充てない。الخاص の Institution 登録は ID-Master になし（「ديوان」「الخاص」で grep）＝orgName に ref を付けない（先例 #AIND-D08061 の「الأحباس」）。'
-  norm: باشر الخاص
+  mention: m6
 events:
 - id: e1
   type: cultural
@@ -72,19 +65,58 @@ events:
   - ref: TMP-T-00095
   summary:
     ar: نشأ نشأة حسنة وقرأ القرآن ونظم الشعر … وكانت له معرفة بالأمور
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）。初版の統制外 subtype「informant」relation を置換。
   trigger: rule
   phrase: قاله شيخنا في أنبائه
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  ref: TMP-N-01953
+  quote: البيدمري
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: وتأمر
+  norm: تامر
+- id: m6
+  kind: office
+  ref: TMP-O-00390
+  quote: وباشر الخاص
+  norm: باشر الخاص
+- id: m7
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m8
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: قاله
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ウマル・アル＝バイダムリー。良い育ち方をし、クルアーンを読み、詩を詠み、アミールとなり、ハーッス（スルターン私財庁）の実務を執った。諸事に通じていた。（80）6年ラビーウ第二月に没した。我らの師（イブン・ハジャル）がその『インバー』で述べたことである。
   en: Muḥammad b. Ibrāhīm b. ʿUmar al-Baydamurī. He had a good upbringing, read the Qurʾān, composed poetry, became an amir and administered the Khāṣṣ (the sultan's privy fisc); he had knowledge of affairs. He died in Rabīʿ II of the year [80]6. Our shaykh (Ibn Ḥajar) said this in his Inbāʾ.

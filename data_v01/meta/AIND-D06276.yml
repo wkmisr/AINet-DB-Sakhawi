@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -18,7 +18,7 @@ death:
     cert: medium
   note:
     ja: '「مات في يوم الخميس مستهل جمادى الآخرة سنة سبع」＝「سنة سبع」（一の位のみ）＝807（cert medium。言及者 العيني の年代と整合、先例 D06109）。h2g: 807-06-01＝1404-12-14 は金曜で、原文の木曜と1日ずれる（月初の観測差の範囲）。初版の @when 1404 を日精度に。没地の記載なし。'
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد قانباي أحد رؤوس النوب الصغار
@@ -29,42 +29,66 @@ relations:
   subtype: father
   active: AIND-D06276#p1
   passive: AIND-D06276
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00102
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: أحد رؤوس النوب الصغار
+  - mention: m4
   note:
     ja: 「أحد رؤوس النوب الصغار والأمراء العشرات بالديار المصرية」＝ID-Master 登録 رأس النوب الصغار（TMP-O-00102）。
-  norm: احد رءوس النوب الصغار
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00101
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: والأمراء العشرات
-  norm: الامراء العشرات
+  - mention: m4
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m8
   note:
     ja: Pattern A。العيني＝بدر الدين العيني（#AIND-D09832、wd:Q257745、先例 D02053）。初版の統制外 subtype「chronicler」relation を event に。
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: office
+  ref: TMP-O-00102
+  quote: أحد رؤوس النوب الصغار
+  norm: احد رءوس النوب الصغار
+- id: m3
+  kind: office
+  ref: TMP-O-00101
+  quote: والأمراء العشرات
+  norm: الامراء العشرات
+- id: m4
+  kind: place
+  quote: بالديار المصرية
+  ref: TMP-L-00238
+  norm: الديار المصرية
+- id: m5
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m6
+  kind: year
+  value: '807'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: カーンバーイ、エジプト（アッ＝ディヤール・アル＝ミスリーヤ）の小ラアス・ナウバおよび十人隊アミールの一人。（8）07年ジュマーダー第二月朔日の木曜日に没した。アル＝アイニーがその没年を記している。
   en: Qānbāy, one of the lesser ruʾūs al-nuwab and of the amīrs of ten in the Egyptian realm (al-Diyār al-Miṣriyya). He died on Thursday, the first day of Jumādā al-Ākhira of the year [80]7. Al-ʿAynī recorded his death date.

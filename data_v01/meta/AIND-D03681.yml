@@ -9,30 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m4
   - id: n2
     type: laqab
-    quote: جمال الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: الترجمان
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
-    ref: TMP-P-000879
+    mention: m2
 death:
   id: d
   date:
     ah: 849-09
   note:
     en: He fell ill after arriving from Alexandria, recovered slightly, entered the bathhouse, relapsed, and died in Ramadan 849 AH.
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: ابن الأشقر
@@ -43,25 +41,21 @@ relations:
   subtype: father
   active: TMP-P-000879
   passive: AIND-D03681
-  quote: null
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「عثمان السكندري」。⚠#AIND-D03908（عبد الرزاق بن عثمان جمال الدين التركماني السكندري、没849 رمضان）は本項主と父名・ラカブ・ニスバ・没月が一致し、重複立項または実兄弟の可能性（要判断）。'
   phrase: عثمان
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-000880
+  active: m11
   passive: AIND-D03681
-  quote: محمد
   note:
     ja: '【旧注記】初版の#TMP-P-000529は別実体(إبراهيم بن عبد الله ابن جماعةの息子محمد)の汚染流用。原文「ومات له ابن اسمه محمد」にالماضي/الآتيなし＝立項なし。§D-4により新規TMPを発行せず#NEEDIDを保持。 / TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「محمد بن عبد الرحمن بن عثمان السكندري」。'
 - id: r3
   type: social
   subtype: other
-  active: AIND-D03681#p1
+  active: m7
   passive: AIND-D03681
-  quote: ابن الأشقر
-  norm: ابن الاشقر
 - id: r4
   type: identity
   subtype: possible_identity
@@ -70,28 +64,25 @@ relations:
   summary:
     ar: عبد الرزاق بن عثمان جمال الدين التركماني السكندري التاجر
   cert: low
-  quote: null
   note:
     ja: '二重立項の疑い（B64-67 要判断 §E-5）: #AIND-D03908（項番498「عبد الرزاق بن عثمان جمال الدين التركماني السكندري التاجر . مات في رمضان سنة تسع وأربعين . أرخه ابن عزم」）と父名 عثمان・ラカブ جمال الدين・ニスバ السكندري・職 التاجر・没月（849年ラマダーン）が一致し、名のみ عبد الرحمن／عبد الرزاق が異なる。転送指示はなくサハーウィー自身の同一視もないため、二重立項規約（2026-09-08）により両項を実項のまま保持し、校閲側の推定として cert low。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: التاجر
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00198
-  quote: null
+  mention: null
 events:
 - id: e1
   type: visit
   places:
   - ref: gn:361058
-  quote: ودخل
   note:
     en: Arrived from Alexandria while suffering from an illness.
   trigger: rule
-  norm: دخل
+  mention: m8
 - id: e2
   type: other
   date:
@@ -100,10 +91,53 @@ events:
     type: other
   summary:
     en: After arriving from Alexandria in ill health, he fell sick for a period, recovered temporarily to enter the bathhouse (ḥammām), then suffered a relapse.
-  quote: null
   cert: medium
   note:
     en: Shortly before his death in Ramadan.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-000879
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: جمال الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m5
+  kind: name
+  quote: الترجمان
+- id: m6
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m7
+  kind: person
+  ref: AIND-D03681#p1
+  quote: ابن الأشقر
+  norm: ابن الاشقر
+- id: m8
+  kind: event
+  quote: ودخل
+  norm: دخل
+- id: m9
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m10
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: TMP-P-000880
+  quote: محمد
 translation:
   ja: アブド・アッラフマーン・ブン・ウスマーン・ジャマール・アッディーン・アッ＝サカンダリー。通訳官、商人。商業の諸事に通じており、イブン・アル＝アシュカル家と婚姻関係を結んだ。アレクサンドリアから体調を崩して（カイロに）到来し、しばらく病に伏したが、一時回復してハンマーム（公衆浴場）に入った。しかしその後病が再発し、849年ラマダーン月に没した。彼にはムハンマドという息子がいたが、彼も（先立って）没した。
   en: Abd al-Rahman bin Uthman Jamal al-Din al-Sakandari. The interpreter and merchant, he was knowledgeable in trade matters and married into the family of Ibn al-Ashqar. He arrived from Alexandria in ill health and remained sick for a period, after which he recovered slightly and entered the bathhouse, but then suffered a relapse and died in Ramadan, the year 849 AH. A son of his named Muhammad also died.

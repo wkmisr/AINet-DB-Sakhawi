@@ -9,45 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00105
-    quote: العراقي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m9
   - id: n3
     type: laqab
-    quote: المحب
+    mention: m5
   - id: n4
     type: kunyah
-    quote: أبو حاتم
-    norm: ابو حاتم
+    mention: m6
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الرحيم
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: الحسين
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: الزينأبي الفضل
     by: rule
-    norm: الزينابي الفضل
+    mention: m7
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 death:
   id: d
   date:
@@ -55,19 +50,17 @@ death:
   note:
     ar: مات في صفر سنة اثنتين وكان توجه لمكة في رجب ثم رجع قبل الحج لمرض أصابه فاستمر به حتى مات
     ja: 802年サファル月＝1399-10-11〜11-08 → 1399-10。没地の明記なし（マッカから巡礼前に帰還した後に没）。
-  quote: سنة
+  mention: m17
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4664581
+  active: m14
   passive: AIND-D07636
   methods:
   - TMP-S-00003
-  quote: أسمعه أبوه الكثير
   note:
     ja: 父 الزين أبو الفضل العراقي（wd:Q4664581、ID-Master 登録済み）が多くを聴聞させた（イブン・ハジャル『الإنباء』の引用による）。field は原文に明示がないため付けない。
-  norm: اسمعه ابوه الكثير
 - id: r2
   type: kin
   subtype: father
@@ -75,25 +68,22 @@ relations:
   passive: AIND-D07636
   summary:
     ar: بن الزين أبي الفضل العراقي
-  quote: null
   note:
     ja: 父＝الحافظ زين الدين أبو الفضل عبد الرحيم بن الحسين العراقي（wd:Q4664581。corpus 本伝 D03861 もあるが repo は ID-Master 登録の wd を採用）。
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D00844
+  active: m11
   passive: AIND-D07636
-  quote: الولي أبي زرعة أحمد الماضي
   note:
     ja: 兄弟＝#AIND-D00844（أحمد بن عبد الرحيم بن الحسين بن عبد الرحمن … الولي أبو زرعة العراقي）。
-  norm: الولي ابي زرعة احمد الماضي
   phrase: أخو الولي أبي زرعة أحمد الماضي
 assessments:
 - id: v1
-  quote: فاضلا
   terms:
   - فاضل
   by: rule
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -101,10 +91,10 @@ affiliations:
 events:
 - id: e2
   type: cultural
-  quote: واشتغل ودرس ثم ترك
   note:
     ja: 教授（درس）の場所・機関の記載なし。
-  norm: اشتغل ودرس ثم ترك
+  phrase: واشتغل ودرس ثم ترك
+  mention: null
 - id: e3
   type: travel
   date:
@@ -112,27 +102,100 @@ events:
     cert: medium
     type: travel
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: توجه
+  - mention: m19
   cert: medium
   note:
     ja: 年は原文になく、802年サファル月没・「رجع قبل الحج」から直前の巡礼期＝801年ラジャブ月と推定（cert medium）。801年ラジャブ月＝1399-03-17〜04-15。
   trigger: rule
   phrase: وكان توجه لمكة في رجب ثم رجع قبل الحج لمرض أصابه
+  mention: m18
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A（شيخنا＝イブン・ハジャル、『إنباء الغمر』）。初版の統制外 subtype「mentioned by」relation を event に変換。
   trigger: rule
   phrase: 'ذكره شيخنا في إنبائه فقال : أسمعه أبوه الكثير واشتغل ودرس ثم ترك وكان فاضلا حسن الشكالة قليل الاشتغال'
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  quote: الحسين
+- id: m4
+  kind: name
+  quote: عبد الرحمن
+- id: m5
+  kind: name
+  quote: المحب
+- id: m6
+  kind: name
+  quote: أبو حاتم
+  norm: ابو حاتم
+- id: m7
+  kind: name
+  quote: الزينأبي الفضل
+  norm: الزينابي الفضل
+- id: m8
+  kind: name
+  ref: TMP-N-00105
+  quote: العراقي
+- id: m9
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: AIND-D00844
+  quote: الولي أبي زرعة أحمد الماضي
+  norm: الولي ابي زرعة احمد الماضي
+- id: m12
+  kind: source
+  quote: ذكره
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m14
+  kind: person
+  ref: wd:Q4664581
+  quote: أسمعه أبوه الكثير
+  norm: اسمعه ابوه الكثير
+- id: m15
+  kind: assessment
+  quote: فاضلا
+- id: m16
+  kind: month
+  value: 2
+  quote: صفر
+- id: m17
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m18
+  kind: event
+  quote: توجه
+- id: m19
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m20
+  kind: month
+  value: 7
+  quote: رجب
 translation:
   ja: ムハンマド・ブン・アブドゥッラヒーム・ブン・アル＝フサイン・ブン・アブドゥッラフマーン、アル＝ムヒッブ・アブー・ハーティム・イブン・アッ＝ザイン・アビー・アル＝ファドル、イラクを本貫とするアル＝カーヒリー、シャーフィイー派。前述のアル＝ワリー・アブー・ズルア・アフマドの兄弟。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及して言った、「父は彼に多くを聴聞させ、彼は学問に励み教授したが、その後やめた。徳があり容姿端正だったが、学問への従事は少なかった」と。〔八百〕二年サファル月に没した。ラジャブ月にマッカへ向かったが、病を得て巡礼の前に戻り、その病が続いて没した。
   en: 'Muḥammad b. ʿAbd al-Raḥīm b. al-Ḥusayn b. ʿAbd al-Raḥmān, al-Muḥibb Abū Ḥātim b. al-Zayn Abī al-Faḍl, of ʿIrāqī origin, al-Qāhirī al-Shāfiʿī, the brother of al-Walī Abū Zurʿa Aḥmad, mentioned above. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "His father had him hear a great deal; he studied and taught, then gave it up. He was learned and of handsome appearance, but of little scholarly application." He died in Ṣafar of the year [8]02. He had set out for Mecca in Rajab, then returned before the pilgrimage because of an illness that befell him and persisted until he died.'

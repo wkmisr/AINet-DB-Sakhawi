@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m2
   - id: n3
     type: laqab
-    quote: خير الدين
+    mention: m3
   - id: n4
     type: ism
-    quote: خضر
     by: rule
+    mention: m1
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   cert: medium
   places:
-  - ref: gn:281184
-    quote: ببيت المقدس
-    norm: بيت المقدس
+  - mention: m12
   note:
     ar: وقال إنه مات ببيت المقدس بعد أيام الظاهر
     ja: 没地・時期は弟子 الزين عبد الرحيم المنشاوي（#AIND-D03874）の伝聞（「قال إنه」）＝cert medium。「بعد أيام الظاهر」＝الظاهر جقمق（#AIND-D02423、857年退位・没）の治世の後。原文に年号がないため日付属性は作らない（規則18）。
@@ -46,48 +42,41 @@ relations:
   subtype: father
   active: AIND-D02852#p1
   passive: AIND-D02852
-  quote: null
   note:
     ja: '規則3（単名の項）。父の名は原文に全く出ない → #NEEDID、desc は本項主の呼称で。'
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001676
+  active: m7
   passive: AIND-D02852
-  quote: البرهان الحنفي
   note:
     ja: '「ووالد البرهان الحنفي」。子はラカブ البرهان・学派・父（本項主）で識別できる（規則12）。corpus の「إبراهيم بن خضر」見出し3件はいずれも別人: #AIND-D00112（البرهان القصوري、شافعي、父は خضر بن أحمد الزين العثماني）、#AIND-D06494・#AIND-D01916 の父 إبراهيم بن خضر البرهان المحلي ثم العنتابي الدمشقي（ダマスクスの شاهد）。#AIND-D02261 も「خير الدين خضر المقيم بكعب الاحبار والد البرهان الحنفي」と同じ呼称で言及。ID-Master 未登録（「البرهان الحنفي」「إبراهيم بن خضر」「خير الدين خضر」該当なし）→ 新規 TMP-P-001676。名 إبراهيم は原文にないので desc に補わない。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D02852
-  passive: AIND-D03874
+  passive: m10
   methods:
   - TMP-S-00008
-  quote: الزين عبد الرحيم المنشاوي
   note:
     ja: '「وممن أخذ عنه الزين عبد الرحيم المنشاوي」＝本項主が師（active）、規則15。弟子＝ #AIND-D03874「عبد الرحيم بن غلام الله بن محمد الزين المنشاوي ثم المصري القاهري الحنفي」（828生）。D03874 本文「وتفقه بابن الهمام وخير الدين خضر الرومي وابن الديري」で名・ラカブ・ニスバ・学派が閉合（規則57）。初版の #NEEDID（passive）を置換（subtype student・active=本項主は repo 慣行どおり、先例 D08074）。 / 2026-11-16 の統一規則で師弟は常に subtype="teacher"（active=師）とした（向きは不変）。上の注記の「subtype=student」の慣行は改訂前のもの。'
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D02852
-  passive: AIND-D02261
+  passive: m13
   methods:
   - TMP-S-00025
-  quote: تغرى بردى بن أبي بكر
   note:
     ja: '「وكذا قرأ عليه تغرى بردى بن أبي بكر」＝本項主が師。弟子＝ #AIND-D02261「تغرى بردي بن أبي بكر بن قرابغا الناصري الحنفي نزيل الروضة」（825生、895没）。D02261 本文「وغيرهم كخير الدين خضر المقيم بكعب الاحبار والد البرهان الحنفي قال إنه أخذ عنه المنطق وفهم الفقه والعربية والقراءات」で名・ラカブ・كعب الأحبار・子 البرهان الحنفي が閉合。初版の #NEEDID を置換。'
-  norm: تغري بردي بن ابي بكر
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   orgs:
   - ref: TMP-I-00267
-  quote: شيخ مسجد يعرف بكعب الأحبار
   note:
     ja: '「شيخ مسجد يعرف بكعب الأحبار」。施設 مسجد كعب الأحبار は ID-Master 未登録（「كعب الأحبار」該当なし）→ TMP-I-00267（corpus では本項と #AIND-D02261「المقيم بكعب الاحبار」の2件）。施設限定の شيخ 職は repo 慣行（شيخ زاوية X・شيخ رباط X）どおり新規 TMP-O-00380。所在地は原文に明記なし（本項主はカイロ在住）。初版の affiliation employed（state と二重、規則8）を除去。'
-  norm: شيخ مسجد يعرف بكعب الاحبار
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -97,30 +86,82 @@ events:
   type: residence
   places:
   - ref: gn:360630
-  quote: نزيل القاهرة
+  phrase: نزيل القاهرة
+  mention: null
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02423
-    quote: الظاهر جقمق
-  quote: ممن كان الظاهر جقمق يكرمه
+  - mention: m8
   note:
     ja: スルターン الظاهر جقمق（#AIND-D02423）の厚遇。主人ではないスルターンの厚遇は patron にせず event＋persName（規則53）。初版の patron relation と placeName القاهرة（原文になし）を除去。
+  phrase: ممن كان الظاهر جقمق يكرمه
+  mention: null
 - id: e3
   type: teaching
-  quote: ودرس
   trigger: rule
-  norm: درس
+  mention: m9
 sources:
 - id: c1
   persons:
   - ref: AIND-D03874
-  quote: وقال
   note:
     ja: Pattern A。المنشاوي（#AIND-D03874）が本項主を称賛し、没地・時期（上記 death）を伝えた。
   trigger: rule
-  norm: قال
   phrase: وأثنى عليه
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: خضر
+- id: m2
+  kind: name
+  quote: الزين
+- id: m3
+  kind: name
+  quote: خير الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: office
+  ref: wd:Q7492880
+  quote: شيخ مسجد يعرف بكعب الأحبار
+  norm: شيخ مسجد يعرف بكعب الاحبار
+- id: m7
+  kind: person
+  ref: TMP-P-001676
+  quote: البرهان الحنفي
+- id: m8
+  kind: person
+  ref: AIND-D02423
+  quote: الظاهر جقمق
+- id: m9
+  kind: event
+  quote: ودرس
+  norm: درس
+- id: m10
+  kind: person
+  ref: AIND-D03874
+  quote: الزين عبد الرحيم المنشاوي
+- id: m11
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m12
+  kind: place
+  quote: ببيت المقدس
+  ref: gn:281184
+  norm: بيت المقدس
+- id: m13
+  kind: person
+  ref: AIND-D02261
+  quote: تغرى بردى بن أبي بكر
+  norm: تغري بردي بن ابي بكر
 translation:
   ja: ハディル、アッ＝ザイン、あるいはハイル・アッ＝ディーン、アッ＝ルーミー、カイロ在住、ハナフィー派。カアブ・アル＝アフバールとして知られるモスクのシャイフで、アル＝ブルハーン・アル＝ハナフィーの父。アッ＝ザーヒル・ジャクマクが厚遇した者の一人で、教授した。彼から学んだ者にアッ＝ザイン・アブドゥッラヒーム・アル＝ミンシャーウィーがおり、彼（アル＝ミンシャーウィー）は、彼がアッ＝ザーヒルの時代の後にバイト・アル＝マクディス（エルサレム）で没したと述べ、彼を称賛した。同じくタグリー・バルディー・ブン・アビー・バクルも彼のもとで読誦した。
   en: Khaḍir, al-Zayn or Khayr al-Dīn, al-Rūmī, resident of Cairo, the Ḥanafī. Shaykh of a mosque known as Kaʿb al-Aḥbār and father of al-Burhān al-Ḥanafī. He was among those whom al-Ẕāhir Jaqmaq honoured, and he taught. Among those who studied under him was al-Zayn ʿAbd al-Raḥīm al-Minshāwī, who said that he died in Bayt al-Maqdis (Jerusalem) after the days of al-Ẕāhir, and praised him. Likewise Taghrī Birdī b. Abī Bakr read under him.

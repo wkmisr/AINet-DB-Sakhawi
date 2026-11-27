@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04529
-    quote: الباقوري
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بيرة
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: تاج الدين
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: أبو بكر بن محمد بن تاج الدين الباقوري
@@ -43,7 +41,6 @@ relations:
   subtype: father
   active: AIND-D07261#p1
   passive: AIND-D07261
-  quote: null
   note:
     ja: '父（初版は欠落）。名＋ナサブ＋ニスバのみで本伝なし → #NEEDID（規則3 (c'')）。'
 notes:
@@ -53,14 +50,41 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: وصفه
+  - mention: m8
   note:
     ja: Pattern A。ابن عزم＝#AIND-D08351（محمد بن عمر بن محمد بن أحمد بن عزم الشمس … التونسي ثم المكي المالكي ويعرف بابن عزم、816生。ブリーフ指定、合同索引 D12540 は使わない）。「صاحبنا（我らの同輩）」はイブン・アズムの評語であって本項主の relation ではないので、初版の friend relation（#AIND-D12540）を mention event に置換。
   trigger: rule
-  norm: صفه
   phrase: وصفه ابن عزم بصاحبنا
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: تاج الدين
+- id: m5
+  kind: name
+  ref: TMP-N-04529
+  quote: الباقوري
+- id: m6
+  kind: name
+  quote: بيرة
+- id: m7
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m8
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・タージュ・アッ＝ディーン、アル＝バークーリー、ビーラ。イブン・アズムは彼を「我らの同輩（サーヒブナー）」と評した。
   en: Muḥammad b. Abī Bakr b. Muḥammad b. Tāj al-Dīn al-Bāqūrī, Bīra. Ibn ʿAzm described him as "our companion" (ṣāḥibunā).

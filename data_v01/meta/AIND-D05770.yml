@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عمار
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: خمليش
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: خمليش
@@ -27,22 +27,34 @@ relations:
   subtype: father
   active: AIND-D05770#p1
   passive: AIND-D05770
-  quote: null
   note:
     ja: '見出しナサブから。父は裸名のみ（祖父名・ニスバなし）のため #NEEDID 維持（規則3・12）。corpus に「خمليش」の本伝なし・ID-Master 未登録。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00095
   places:
-  - ref: TMP-L-00051
-    quote: فاس
+  - mention: m4
   orgs:
   - label: أولاد حسين
-  quote: شيخ أولاد حسين عرب
   note:
     ja: 「شيخ أولاد حسين عرب فاس」＝ フェズ地方のアラブ部族アウラード・フサインの族長。ID-Master に該当 Office なし → 先例 TMP-O-00140（شيخ أولاد أبي الليل）に倣い新規 TMP-O-00304。فاس は部族を限定する原文明記の地名として placeName に残す。初版の residence event（فاس）は居住の記述がないため除去（規則22(1)）。
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: عمار
+- id: m2
+  kind: name
+  quote: خمليش
+- id: m3
+  kind: office
+  ref: TMP-O-00095
+  quote: شيخ أولاد حسين عرب
   norm: شيخ اولاد حسين عرب
+- id: m4
+  kind: place
+  quote: فاس
+  ref: TMP-L-00051
 translation:
   ja: アンマール・ブン・ハムリーシュ。フェズのアラブ、アウラード・フサインのシャイフ。
   en: ʿAmmār b. Khamlīsh, the shaykh of Awlād Ḥusayn, the Arabs of Fez.

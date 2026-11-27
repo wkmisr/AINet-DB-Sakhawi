@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00293
-    quote: السيفي
+    mention: m2
   - id: n2
     type: ism
-    quote: كرتباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 881
   note:
     ja: 881年（1476-05-05 開始、年精度、h2g.py）、ペストで没（مطعونا）。没地は原文に無い。
-  quote: سنة
   phrase: ولم يلبث أن مات مطعونا في سنة إحدى وثمانين
+  mention: m8
 persons:
 - id: p1
   label: والد كرتباي السيفي جانبك
@@ -33,47 +32,73 @@ relations:
   subtype: father
   active: AIND-D06388#p1
   passive: AIND-D06388
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: kin
   subtype: relative
-  active: AIND-D06305
+  active: m4
   passive: AIND-D06388
   summary:
     ar: قايتباي
   cert: medium
-  quote: السلطان
   note:
     ja: 「كان من أقرباء السلطان」。スルターンの名は無いが、任官（879年末以降）・没年 881 からアル＝アシュラフ・カーイトバーイ（#AIND-D06305、872〜901在位）と読み cert medium。初版の重複 relation（subtype「other」）と未確認 corresp wd:Q557847 を除去、親族の @n を除去（規約A）。 desc は称号「السلطان」→ 名「قايتباي」（規則31、集約 2026-10-26）。
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02369
+  active: m3
   passive: AIND-D06388
-  quote: جانبك
   note:
     ja: 主人ニスバ「السيفي جانبك نائب جدة」＝ジッダ副官ジャーニバク（#AIND-D02369、旧 TMP-P-000783 は名寄せ済み・規則36）。先例 D02938・D06324。 「نائب جدة」は主人の職のため desc から外した（規則31、集約 2026-10-26）。
 - id: r4
   type: social
   subtype: predecessor
-  active: AIND-D02827
+  active: m7
   passive: AIND-D06388
   cert: medium
-  quote: خشقدم
   note:
     ja: '「فاستقر به في كشف البحيرة عقب توسيط خشقدم」＝خشقدم の腰斬（توسيط）の直後にブハイラのカシュフ職に就いた。corpus の خشقدم で腰斬されたカーシフは #AIND-D02827「خشقدم الزيني يحيى الاستادار أحد الكشاف . وسط في ذي الحجة سنة تسع وسبعين مع تكرر الشفاعة فيه بدون سبب ظاهر」（879年ズー・ル＝ヒッジャ月）であり、本項主の没年 881 と整合する。スルターン・アッ＝ザーヒル・フシュカダム（#AIND-D02830、872没、自然死）ではない。D02827 がブハイラのカシュフであったことは原文に明記されない（「أحد الكشاف」のみ）ので predecessor は cert medium。初版は訳文で「フシュカダムが処刑された後」とするのみで relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00070
   places:
-  - ref: TMP-L-00162
-    quote: البحيرة
-  quote: كشف
+  - mention: m6
   note:
     ja: 「فاستقر به في كشف البحيرة عقب توسيط خشقدم」。ブハイラ（TMP-L-00162）のカシュフ職。就任年は原文に無い（D02827 の腰斬 879年末から推定できるが補完しない、規則18）。
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: كرتباي
+- id: m2
+  kind: name
+  ref: TMP-N-00293
+  quote: السيفي
+- id: m3
+  kind: person
+  ref: AIND-D02369
+  quote: جانبك
+- id: m4
+  kind: person
+  ref: AIND-D06305
+  quote: السلطان
+- id: m5
+  kind: office
+  ref: TMP-O-00070
+  quote: كشف
+- id: m6
+  kind: place
+  quote: البحيرة
+  ref: TMP-L-00162
+- id: m7
+  kind: person
+  ref: AIND-D02827
+  quote: خشقدم
+- id: m8
+  kind: year
+  value: '881'
+  quote: سنة
 translation:
   ja: クルトバーイ・アッ＝サイフィー・ジャーニバク——ジッダ副官（ジャーニバク）の（マムルーク）。彼はスルターンの親族の一人であり、そのため彼（スルターン）はフシュカダムが腰斬に処された直後に彼をブハイラのカシュフ職に就けたが、ほどなく881年にペストで没した。
   en: Kurtbāy al-Sayfī Jānibak, (mamlūk of Jānibak) the deputy of Jedda. He was one of the Sultan's relatives, so he (the Sultan) appointed him to the kashf of al-Buḥayra right after Khushqadam was cut in half (executed), but before long he died of the plague in the year 881.

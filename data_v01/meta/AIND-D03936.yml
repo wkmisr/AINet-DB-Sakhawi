@@ -9,24 +9,20 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02573
-    quote: الشرنوبي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00391
-    quote: البحيري
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m4
   - id: n4
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n5
     type: ism
-    quote: عبد السلام
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: ولده
@@ -41,45 +37,77 @@ relations:
 - id: r1
   type: kin
   subtype: son
-  active: AIND-D03936#p1
+  active: m6
   passive: AIND-D03936
-  quote: أزبك اليوسفي
   note:
     ja: '名不詳。「ونزل ولده في قراء الشيخونية وفي غيرها」＝الشيخونية（TMP-I-00027）などの朗誦者の禄を得た。初版は active="" の空 relation → #NEEDID。'
-  norm: ازبك اليوسفي
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D03936#p2
+  active: m7
   passive: AIND-D03936
-  quote: لتمراز
   note:
     ja: '「خدم عند أزبك اليوسفي إماما ثم طرده」。corpus の أ 部に أزبك اليوسفي は2名（#AIND-D01871 الخازندار/ناظر الخاص と、同項で言及される「الشهير بفستق」）が併存し決め手を欠くため #NEEDID（→要判断）。初版の subtype="client"（向き不統一）を repo 多数形の patron（active=主人）に統一。'
-  norm: تمراز
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D03936#p3
+  active: m9
   passive: AIND-D03936
-  quote: ولده
   note:
     ja: '「فانتمى لتمراز وسافر معه للبحيرة」。corpus の ت 部に تمراز は10名（D02281–D02290）。本項は執筆時（890年代）の話とみられ、当時の大アミール تمراز الشمسي（#AIND-D02284、أمير سلاح）が有力だが確定不能 → #NEEDID（→要判断）。'
 states:
 - id: s1
   type: office
   ref: wd:Q125482
-  quote: null
   note:
     ja: أزبك اليوسفي のもとでのイマーム職（後に解任）。
+  mention: null
 events:
 - id: e1
   type: visit
   places:
-  - ref: TMP-L-00162
-    quote: للبحيرة
-    norm: لبحيرة
-  quote: وسافر معه للبحيرة
-  norm: سافر معه للبحيرة
+  - mention: m8
+  phrase: وسافر معه للبحيرة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد السلام
+- id: m2
+  kind: name
+  ref: TMP-N-02573
+  quote: الشرنوبي
+- id: m3
+  kind: name
+  ref: TMP-N-00391
+  quote: البحيري
+- id: m4
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: AIND-D03936#p1
+  quote: أزبك اليوسفي
+  norm: ازبك اليوسفي
+- id: m7
+  kind: person
+  ref: AIND-D03936#p2
+  quote: لتمراز
+  norm: تمراز
+- id: m8
+  kind: place
+  quote: للبحيرة
+  ref: TMP-L-00162
+  norm: لبحيرة
+- id: m9
+  kind: person
+  ref: AIND-D03936#p3
+  quote: ولده
 translation:
   ja: アブドゥッサラーム・アッ＝シャルヌービー・アル＝ブハイリー、のちにアル＝カーヒリー、アル＝マッキー。アズバク・アル＝ユースフィーのもとでイマームとして仕えたが、のちに追い出されたため、ティムラーズに身を寄せ、彼とともにブハイラ地方へ赴いた。彼の息子はシャイフーニーヤなどの朗誦者の職（禄）を得た。
   en: ʿAbd al-Salām al-Sharnūbī al-Buḥayrī, later al-Qāhirī, al-Makkī. He served Azbak al-Yūsufī as imam, but the latter dismissed him, so he attached himself to Timrāz and travelled with him to al-Buḥayra. His son obtained a place among the Qurʾān readers of al-Shaykhūniyya and elsewhere.

@@ -9,54 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00728
-    quote: السلامي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00606
-    quote: الطائفي
-    norm: الطاءفي
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الجمال محمد
     by: rule
-    ref: AIND-D08412
+    mention: m2
   - id: n5
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 843-08
   places:
-  - ref: TMP-L-00056
-    quote: بالطائف
-    norm: الطاءف
+  - mention: m9
   note:
     en: He died of a plague in the middle ten days of Sha'ban, 843 AH, a few days before his father's death. Recorded by Ibn Fahd.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D08412
+  active: m8
   passive: AIND-D03784
-  quote: أبوه
-  norm: ابوه
   phrase: الجمال محمد بن عيسى
 events:
 - id: e2
@@ -66,13 +57,11 @@ events:
     cert: high
     type: residence
   places:
-  - ref: TMP-L-00056
-    quote: بالطائف
-    norm: الطاءف
-  quote: null
+  - mention: m9
   cert: high
   note:
     en: Resided in al-Ta'if where he died.
+  mention: null
 - id: e3
   type: other
   date:
@@ -80,27 +69,76 @@ events:
     cert: high
     type: other
   places:
-  - ref: TMP-L-00056
-    quote: بالطائف
-    norm: الطاءف
+  - mention: m9
   summary:
     en: He was afflicted by the plague (wabāʾ) that spread in al-Ta'if and its vicinities, and died of it.
-  quote: null
   cert: high
   note:
     en: Middle ten days of Sha'ban, 843 AH
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m13
   cert: low
   note:
     ja: 初版は subtype="chronicler" の personal relation（Pattern A違反）。没843≦871のため §5の振り分け規則④により التقي محمد(#AIND-D09211)、cert="low"。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D08412
+  quote: الجمال محمد
+- id: m3
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عبد الله
+- id: m6
+  kind: name
+  ref: TMP-N-00728
+  quote: السلامي
+- id: m7
+  kind: name
+  ref: TMP-N-00606
+  quote: الطائفي
+  norm: الطاءفي
+- id: m8
+  kind: person
+  ref: AIND-D08412
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: place
+  quote: بالطائف
+  ref: TMP-L-00056
+  norm: الطاءف
+- id: m10
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m11
+  kind: year
+  value: '843'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥルラフマーン・ブン・アル＝ジャマール・ムハンマド・ブン・イーサー・ブン・ムハンマド・ブン・アブドゥッラー・アッ＝サラーミー・アッ＝ターイフィー。その父の伝記は後述される。父に先立つこと数日前、ターイフとその周辺地域で発生した疫病により、843年シャアバーン月中旬（11日〜20日）に死去した。イブン・ファハドが彼の没年を記録している。
   en: ʿAbd al-Raḥmān b. al-Jamāl Muḥammad b. ʿĪsā b. Muḥammad b. ʿAbd Allāh al-Salāmī al-Ṭāʾifī, whose father's biography is mentioned below. He died a few days before his father during a plague that struck al-Ta'if and its vicinities, in the middle ten days of Sha'ban, 843 AH. His death was recorded by Ibn Fahd.

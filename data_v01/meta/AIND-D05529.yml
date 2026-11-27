@@ -9,31 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00023
-    quote: الموصلي
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: فتح
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D05529
-  passive: AIND-D09344
+  passive: m7
   methods:
   - TMP-S-00006
   - TMP-S-00004
@@ -43,9 +41,7 @@ relations:
       ah: 846
       type: teaching
     places:
-    - ref: gn:266826
-      quote: طرابلس
-  quote: الصلاح
+    - mention: m6
   note:
     ja: الصلاح الطرابلسي = الصلاح محمد بن محمد بن يوسف الطرابلسي ثم القاهري الحنفي（#AIND-D09344）。初版の TMP-P-000555 は 2026-09-01 に D09344 へ名寄せ済みの旧番号（使用禁止）。عرض と إجازة の2件を1 relation に統合。
   phrase: ممن عرض عليه الصلاح الطرابلسي بها في سنة ست وأربعين وكتب له إجازة بخط جيد
@@ -54,11 +50,10 @@ states:
   type: office
   ref: TMP-O-00235
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: null
+  - mention: m6
   note:
     ja: 四法学派すべてに基づくファトワー発行。ID-Master の汎用 مفتي（TMP-O-00004）では特性が失われるため新規 TMP-O-00235。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -67,24 +62,62 @@ events:
 - id: e2
   type: residence
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m6
   summary:
     ar: نزيل طرابلس … وأقام عندهم مدة يسيرة
-  quote: وأقام
   trigger: rule
-  norm: اقام
+  mention: m11
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09344
-    quote: الصلاح
-  quote: وقال
+  - mention: m10
   note:
     ja: Pattern A（情報提供者 الصلاح الطرابلسي）。
   trigger: rule
-  norm: قال
   phrase: وقال الصلاح إنه كان يفتي على المذاهب الأربعة وأقام عندهم مدة يسيرة
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: فتح
+- id: m4
+  kind: name
+  ref: TMP-N-00023
+  quote: الموصلي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m7
+  kind: person
+  ref: AIND-D09344
+  quote: الصلاح
+- id: m8
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m10
+  kind: person
+  ref: AIND-D09344
+  quote: الصلاح
+- id: m11
+  kind: event
+  quote: وأقام
+  norm: اقام
 translation:
   ja: アリー・ブン・ムハンマド・ブン・ファトフ・アル＝マウスィリー・アル＝ハナフィー、トリポリ（タラーブルス）の居留者。846年に同地でアッ＝サラーフ・アッ＝タラーブルスィーが彼に（暗記書を）提示した者の一人で、彼はアッ＝サラーフに良い筆跡でイジャーザを書いた。アッ＝サラーフによれば、彼は四法学派に基づいてファトワーを出しており、彼ら（トリポリの人々）のもとに短期間滞在したという。
   en: ʿAlī b. Muḥammad b. Fatḥ al-Mawṣilī al-Ḥanafī, resident of Tripoli. He was among those to whom al-Ṣalāḥ al-Ṭarābulusī presented (texts) there in the year 846, and he wrote him an ijāza in a fine hand. Al-Ṣalāḥ said that he used to issue fatwās according to the four madhhabs and that he stayed with them only a short while.

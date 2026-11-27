@@ -9,22 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: TMP-P-001466
-    norm: اسماعيل
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
@@ -36,21 +33,38 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m5
     phrase: ممن سمع منى مكة
     note:
       ja: 原文「سمع منى مكة」は「سمع مني بمكة」（بـ 脱落）と読む。原文どおり source に残し、placeName は مكة（規則22(2)）。
-  quote: null
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001466
   passive: AIND-D07122
-  quote: null
   note:
     ja: '父は見出しナサブ「إسماعيل بن محمد」（祖父名まで復元可、規則3）。ID-Master 未登録 → 仮番号 TMP-P-001466（⚠汎用名、ニスバのみ）。corpus の候補: #AIND-D01987「إسماعيل بن محمد المقدسي ثم المكي الصوفي」（マッカ在住、810年没、「تأهل بمكة … ورزق منها ابنه」、祖父名 ميكائيل）。本項主はマッカでサハーウィーに聴聞しており地縁は合うが、名＋父名＋ニスバのみの一致のため規則26 により同定しない（【集約】内容B L の指摘で候補を追記）。'
   phrase: إسماعيل بن محمد المقدسي
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001466
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・ムハンマド・アル＝マクディスィー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Ismāʿīl b. Muḥammad al-Maqdisī. He was among those who heard from me in Mecca.

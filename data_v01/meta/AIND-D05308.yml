@@ -9,54 +9,50 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو الحسن
-    norm: ابو الحسن
+    mention: m7
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عمر
     by: rule
-    ref: TMP-P-001364
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n8
     type: nasab
-    quote: السراج أبي حفص
     by: rule
-    norm: السراج ابي حفص
+    mention: m8
   - id: n9
     type: nasab
-    quote: النور
     by: rule
+    mention: m9
   - id: n10
     type: nasab
-    quote: عرب
     by: rule
+    mention: m10
 birth:
   id: b
   date:
     ah: 828
   note:
     ja: 「ولد في سنة ثمان وعشرين وثمانمائة」。828 ＝ 1424-12-02〜1425-11-21、年初 1424（h2g.py）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
@@ -65,15 +61,13 @@ relations:
   passive: AIND-D05308
   summary:
     ar: السراج أبو حفص عمر بن النور علي بن عمر بن علي بن أحمد بن عرب
-  quote: null
   note:
     ja: '父。見出しナサブから復元（規則3）。カイロのシャーフィイー派法官一族 ابن عرب（القرشي الطنبدي、索引 #AIND-D12536）の一員で、D08980 に「حجملك ابنة السراج عمر بن علي بن عمر بن علي بن أحمد ابن عرب」として娘が見える。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001364。初版は #NEEDID。'
 - id: r2
   type: social
   subtype: deputy
   active: AIND-D05308
-  passive: AIND-D03354
-  quote: العلم البلقيني
+  passive: m13
   note:
     ja: '「وناب عن العلم البلقيني فمن بعده」。العلم البلقيني ＝ #AIND-D03354（صالح بن عمر بن رسلان、シャーフィイー派大カーディー）の代理裁判官（نائب）を務め、その後継者たちの下でも続けた。初版の幻番号 TMP-P-000199・subtype other を差し替え。同族の #AIND-D10931・#AIND-D09170 にも同文「ناب عن العلم البلقيني فمن بعده」。'
 - id: r3
@@ -84,17 +78,62 @@ relations:
   summary:
     ar: أبو الحسن بن عرب أحد النواب أيضا
   cert: low
-  quote: null
   note:
     ja: 'クンヤ部の #AIND-D10932「أبو الحسن بن عرب أحد النواب أيضا . مات في ليلة الاثنين حادي عشري ربيع الأول سنة إحدى وتسعين ويحرر مع المذكورين」に続けて「أبو الحسن ابن عرب . هو علي بن عمر بن علي بن عمر بن علي بن أحمد مضى في العليين」と本項への参照がある。891年没の نائب が本項主である可能性があるが、サハーウィー自身が「يحرر」と保留 → possible_identity cert low。没年は本項に補わない（規則23）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
-  quote: وناب
   note:
     ja: 原文にない placeName القاهرة は除去（規則22(1)）。
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001364
+  quote: عمر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: أبو الحسن
+  norm: ابو الحسن
+- id: m8
+  kind: name
+  quote: السراج أبي حفص
+  norm: السراج ابي حفص
+- id: m9
+  kind: name
+  quote: النور
+- id: m10
+  kind: name
+  quote: عرب
+- id: m11
+  kind: year
+  value: '828'
+  quote: سنة
+- id: m12
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
   norm: ناب
+- id: m13
+  kind: person
+  ref: AIND-D03354
+  quote: العلم البلقيني
 translation:
   ja: アリー・ブン・ウマル・ブン・アリー・ブン・ウマル・ブン・アリー・ブン・アフマド、アブー・アル＝ハサン・ブン・アッ＝スィラージュ・アビー・ハフス・ブン・アン＝ヌール・ブン・アラブ。彼はクンヤ（アブー・アル＝ハサン）でより知られる。828年に生まれ、アル＝アラム・アル＝ブルキーニーとその後継者たちの代理（裁判官）を務めた。
   en: ʿAlī b. ʿUmar b. ʿAlī b. ʿUmar b. ʿAlī b. Aḥmad, Abū al-Ḥasan b. al-Sirāj Abī Ḥafṣ b. al-Nūr b. ʿArab; he is better known by his kunya. He was born in 828 and served as deputy (judge) under al-ʿAlam al-Bulqīnī and those after him.

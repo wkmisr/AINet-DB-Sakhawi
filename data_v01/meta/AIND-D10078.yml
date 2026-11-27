@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n3
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
 persons:
 - id: p1
   label: عمر بن موسى
@@ -37,9 +35,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D10078#p1
+  active: m10
   passive: AIND-D10078
-  quote: العز بن جماعة
   note:
     ja: '規則3 (c'')。父 عمر بن موسى は汎用名で識別要素なし。初版の grandfather relation（موسى、#NEEDID）は父 desc にナサブとして含めるにとどめ除去（識別要素のない #NEEDID の祖父は立てない）。'
 - id: r2
@@ -52,13 +49,11 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m11
     orgs:
     - ref: wd:Q12241661
   works:
   - ref: wd:Q1023470
-  quote: null
   note:
     ja: '「وذكر الزين رضوان أنه سمع على العز بن جماعة مجالس من البخاري بالكاملية وغيرها من القاهرة」。العز بن جماعة は祖父 العز عبد العزيز（没767、TMP-P-001145）と孫 العز محمد（749–819、#AIND-D07198）の二人がいる（規則34）。本項主は 825 年にイブン・ハジャルの子へイジャーザを与えた高齢の伝承者で、カイロの الكاملية（ハディース学院）での『ブハーリー』聴聞という文脈は祖父に合うと判断し TMP-P-001145、cert medium（先例 D05963。§D158-4）。初版の TMP-P-000010（祖父と孫の混同番号、新規使用禁止）を置換。الكاملية＝wd:Q12241661（旧 Q25633535 はリダイレクト）。【集約 2026-11-05】規則60(e)（既登録 TMP-P に cert で寄せない）との関係を ★3 に回付。ID-Master TMP-P-001145 の Note は「マッカ・754年以前の聴聞・مناسك／تساعيات 関連は本番号、カイロ・معقولات・810年代は D07198」とし、本項の「بالكاملية وغيرها من القاهرة」はカイロの文脈。先例 D05963（cert medium で 001145）は本項主の 804 年没・790 年代の面会という年代の根拠があったが、本項にはない（825 年にイジャーザを与えたことのみ）。裁定まで校閲のまま。 / 裁定 2026-11-05 ★3 (c): #NEEDID。候補: TMP-P-001145（祖父 العز عبد العزيز بن جماعة、没767）／#AIND-D07198（孫 العز محمد بن أبي بكر بن جماعة、749–819）。ID-Master TMP-P-001145 の Note は「カイロ・معقولات・810年代は D07198」とし、本項の「بالكاملية وغيرها من القاهرة」はカイロの文脈。原文は裸の「العز بن جماعة」で年代の根拠もなく、どちらとも決められない。上の note の
       TMP-P-001145 cert medium は旧判断の記録。'
@@ -66,7 +61,7 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D10078
-  passive: AIND-D06758
+  passive: m6
   methods:
   - TMP-S-00004
   summary:
@@ -76,28 +71,67 @@ relations:
     date:
       ah: 825
       type: teaching
-  quote: لابن شيخنا
   note:
     ja: '「أجاز لابن شيخنا وغيره في سنة خمس وعشرين」＝イブン・ハジャルの息子 البدر محمد（#AIND-D06758、815生）にイジャーザ。825＝1422-01-04〜12-23、年精度 1422（h2g.py）。初版の幻番号 TMP-P-000277 → #AIND-D06758（名寄せ済み、規則36）、@when のヒジュラ値「0825」を when-custom に是正。「وغيره」は人物を立てない。'
-  norm: ابن شيخنا
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
-  quote: الخطيب
   note:
     ja: '見出し語「الشرف الخطيب」。説教師（خطيب＝wd:Q932945）。場所は原文に明記なし。規則5により persName full から職名を除外。初版の #NEEDID を置換。'
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03005
-    quote: الزين رضوان
-  quote: وذكر
+  - mention: m9
   note:
     ja: Pattern A（情報源としての言及）。الزين رضوان＝#AIND-D03005（رضوان بن محمد العقبي、852没）。初版の統制外 relation「informant」を event に変換。
   trigger: rule
-  norm: ذكر
   phrase: وذكر الزين رضوان أنه سمع على العز بن جماعة مجالس من البخاري بالكاملية وغيرها من القاهرة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: office
+  ref: wd:Q932945
+  quote: الخطيب
+- id: m6
+  kind: person
+  ref: AIND-D06758
+  quote: لابن شيخنا
+  norm: ابن شيخنا
+- id: m7
+  kind: year
+  value: '825'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: وذكر
+  norm: ذكر
+- id: m9
+  kind: person
+  ref: AIND-D03005
+  quote: الزين رضوان
+- id: m10
+  kind: person
+  ref: AIND-D10078#p1
+  quote: العز بن جماعة
+- id: m11
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: ムーサー・ブン・ウマル・ブン・ムーサー、アッ＝シャラフ、説教師（アル＝ハティーブ）。（8）25年に我らがシャイフ（イブン・ハジャル）の息子その他の者にイジャーザを与えた。アッ＝ザイン・リドワーンは、彼がカイロのアル＝カーミリーヤなどでアル＝イッズ・ブン・ジャマーアから『ブハーリー』の数回の講席を聴聞したと述べている。
   en: Mūsā b. ʿUmar b. Mūsā, al-Sharaf, the preacher (al-khaṭīb). He granted an ijāza to the son of our shaykh (Ibn Ḥajar) and others in the year (8)25. Al-Zayn Riḍwān mentioned that he had heard several sessions of (Ṣaḥīḥ) al-Bukhārī from al-ʿIzz b. Jamāʿa at al-Kāmiliyya and elsewhere in Cairo.

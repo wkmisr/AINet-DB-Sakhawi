@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02499
-    quote: البيسقي
+    mention: m2
   - id: n2
     type: ism
-    quote: خشكلدي
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد خشكلدي البيسقي
@@ -23,9 +22,8 @@ relations:
 - id: r1
   type: social
   subtype: predecessor
-  active: AIND-D10122
+  active: m6
   passive: AIND-D02833
-  quote: نانق المحمدي
   note:
     ja: '「ثم عمل شاد الشر بخاناة في آخر أيامه عوضا عن نانق المحمدي」＝シャード・アッ＝シャラブハーナ職の前任者。本伝 #AIND-D10122「نانق المحمدي الظاهري جقمق … فأمره الظاهر خشقدم عشرة ثم عمله أمير آخور ثاني ثم شاد الشر بخاناه ثم مقدما … ثم الأشرف قايتباي رأس نوبة النوب . وقتل في الوقعة السوارية سنة اثنتين وسبعين」（未受領）。名＋ニスバ一致、同職をフシュカダム治世に帯びたことが相手側で閉合するため cert なし。初版は #NEEDID。'
 - id: r2
@@ -33,34 +31,57 @@ relations:
   subtype: father
   active: AIND-D02833#p1
   passive: AIND-D02833
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00055
-  quote: الحسبة
   note:
     ja: '「وباشر وهو كذلك الحسبة في أيام الظاهر خشقدم」＝アミール・アシャラのままヒスバ職を務めた。時期＝アッ＝ザーヒル・フシュカダム（#AIND-D02830、在位865–872）の治世。ID-Master 登録 محتسب（TMP-O-00055）。初版は #NEEDID。初版の「sovereign」relation（#NEEDID）は治世の時期表現であり人物関係ではないため除去し、ここに記す。'
+  mention: m4
 - id: s3
   type: office
-  ref: TMP-O-00131
   orgs:
   - ref: TMP-I-00079
-  quote: شاد
   note:
     ja: 「ثم عمل شاد الشر بخاناة في آخر أيامه عوضا عن نانق المحمدي」＝フシュカダム治世の末期に、ナーナク・アル＝ムハンマディーの後任として就任。初版の affiliation employed（同施設）は state と二重符号化のため除去（規則8）。
+  mention: m5
 - id: s4
   type: office
-  ref: TMP-O-00092
-  quote: رأس نوبة النوب
   note:
     ja: '「ثم رأس نوبة النوب」。筆頭ラアス・ナウバ職＝ID-Master 登録 رأس نوبة كبير（TMP-O-00092）を先例 D02271「رأس نوبة النوب」どおり充当（汎用 TMP-O-00107 ではない）。初版は #NEEDID。就任時期は原文に無い（シャード職の後）。'
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: خشكلدي
+- id: m2
+  kind: name
+  ref: TMP-N-02499
+  quote: البيسقي
+- id: m3
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m4
+  kind: office
+  ref: TMP-O-00055
+  quote: الحسبة
+- id: m5
+  kind: office
+  ref: TMP-O-00131
+  quote: شاد
+- id: m6
+  kind: person
+  ref: AIND-D10122
+  quote: نانق المحمدي
+- id: m7
+  kind: office
+  ref: TMP-O-00092
+  quote: رأس نوبة النوب
   norm: راس نوبة النوب
 translation:
   ja: フシュカルディー・アル＝バイサキー。十人長（アミール・アシャラ）に叙せられ、その地位のままアッ＝ザーヒル・フシュカダムの治世にヒスバ（市場監督）職を務めた。ついでその治世の末期にナーナク・アル＝ムハンマディーの後任としてシャード・アッ＝シャラブハーナ（御酒膳房監督官）となり、ついでラアス・ナウバ・アン＝ヌワブ（筆頭ラアス・ナウバ）となった。

@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: laqab
-    quote: المادح
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: جعفر
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: حسب الله
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: جعفر بن حسب الله المدني
@@ -38,24 +37,46 @@ relations:
   subtype: father
   active: AIND-D07305#p1
   passive: AIND-D07305
-  quote: null
   note:
     ja: '父 جعفر بن حسب الله：汎用名のみ、corpus の حسب الله 見出し（D02502〜D02506）はマッカの別家系で本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07305
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m7
     phrase: ممن سمع مني بالمدينة
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: جعفر
+- id: m3
+  kind: name
+  quote: حسب الله
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: name
+  quote: المادح
+- id: m6
+  kind: person
+  ref: wd:Q4120128
   quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ムハンマド・ブン・ジャアファル・ブン・ハスブ・アッラー・アル＝マダニー・アル＝マーディフ（頌詩詠み）。マディーナで私から聴聞した者の一人。
   en: Muḥammad b. Jaʿfar b. Ḥasb Allāh al-Madanī al-Mādiḥ. He is among those who heard from me in Medina.

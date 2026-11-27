@@ -9,27 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05474
-    quote: العمري
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عنبر
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 842-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ja: 「مات بمكة في رجب سنة اثنتين وأربعين . أرخه ابن فهد」。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: عنبر
@@ -42,29 +39,61 @@ relations:
   subtype: father
   active: AIND-D05328#p1
   passive: AIND-D05328
-  quote: null
   note:
     ja: 父。裸名（規則3、#NEEDID）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00155
-  quote: لعمل العمر
   note:
     ja: 「العمري نسبة لعمل العمر」。マッカの代行ウムラ業（TMP-O-00155、先例 D03772）。職の場所は原文に明示がないため placeName を付けない（規則22(1)）。
-  norm: عمل العمر
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: Pattern A。没年 842 ≤ 871 のため ابن فهد 振り分け規則により التقي بن فهد（#AIND-D09211）、cert low。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: عنبر
+- id: m3
+  kind: name
+  ref: TMP-N-05474
+  quote: العمري
+- id: m4
+  kind: office
+  ref: TMP-O-00155
+  quote: لعمل العمر
+  norm: عمل العمر
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 7
+  quote: رجب
+- id: m7
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・アンバル・アル＝ウマリー、（アル＝ウマリーは）ウムラ代行業にちなむ呼称。842年ラジャブ月にマッカで没した。イブン・ファハドがその没年を記した。
   en: ʿAlī b. ʿAnbar al-ʿUmarī, (so called) in relation to the performance of ʿumras (on behalf of others). He died in Mecca in Rajab of the year 842. Ibn Fahd recorded his death date.

@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m2
   - id: n2
     type: ism
-    quote: خلف
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 857-03-08
   places:
-  - ref: TMP-I-00268
-    quote: بالبيمارستان النووي
-    norm: البيمارستان النووي
-  - ref: gn:170654
-    quote: دمشق
+  - mention: m3
+  - mention: m4
   note:
     ar: مات بالبيمارستان النووي من دمشق في ثامن ربيع الأول سنة سبع وخمسين
     ja: '857-03-08＝1453-03-28（h2g.py、月曜）。初版 @when="1453"（年精度）を日精度に。没地の施設「البيمارستان النووي」は刊本どおり（corpus 他所では「البيمارستان النوري」＝ダマスクスのヌール・アッ＝ディーン施療院、92313・116004 行等）。ID-Master 未登録（「بيمارستان」で grep: المنصوري TMP-I-00034・بمكة TMP-I-00131 のみ）→ TMP-I-00268。初版の affiliation other（#NEEDID）を placeName に統合。'
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد خلف المصري
@@ -39,7 +35,6 @@ relations:
   subtype: father
   active: AIND-D02867#p1
   passive: AIND-D02867
-  quote: null
   note:
     ja: '規則3（単名の項）。父の名は原文に出ない → #NEEDID。'
 events:
@@ -48,16 +43,45 @@ events:
   subtype: jāwara
   orgs:
   - ref: wd:Q183562
-  quote: مجاورا
   note:
     ja: 「مجاورا بجامع دمشق」＝原文に施設名があるので orgName を付ける（規則20・22(2)）。جامع دمشق＝ウマイヤ・モスク wd:Q183562（repo 9件の使用、ID-Master「الجامع الأموي」）。20年以上の滞在だが年号がないので日付属性なし（規則18、初版の無効値 when-custom="before 857" cert medium を除去）。初版の affiliation reside（#NEEDID、event と二重）を除去。
   trigger: rule
   phrase: وكان مجاورا بجامع دمشق أكثر من عشرين سنة
+  mention: m7
 - id: e2
   type: other
-  quote: يخدم العلماء والصلحاء
   note:
     ja: 学者・敬虔者への奉仕。相手の名がないので relation は立てない（規則14）。
+  phrase: يخدم العلماء والصلحاء
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خلف
+- id: m2
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m3
+  kind: place
+  quote: بالبيمارستان النووي
+  ref: TMP-I-00268
+  norm: البيمارستان النووي
+- id: m4
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: مجاورا
 translation:
   ja: ハラフ・アル＝ミスリー。857年ラビーウ・アル＝アウワル月8日にダマスクスのアン＝ナワウィー（ヌーリー）施療院で没した。20年以上ダマスクスの大モスクに滞在（ムジャーウィル）し、学者や敬虔者たちに仕えていた。神が彼に慈悲を垂れ、我々に彼の恩恵を与えてくださるように。
   en: Khalaf al-Miṣrī. He died in the Nawawī (Nūrī) hospital in Damascus on the 8th of Rabīʿ al-Awwal of the year 857. He had been a resident (mujāwir) at the Mosque of Damascus for more than twenty years, serving the scholars and the righteous. May God have mercy on him and benefit us through him.

@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو محمد
-    norm: ابو محمد
+    mention: m3
   - id: n2
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n3
     type: nasab
-    quote: روبك
     by: rule
-    ref: TMP-P-001716
+    mention: m2
 death:
   id: d
   date:
     ah: 835
   places:
-  - ref: TMP-L-00405
-    quote: نخل وادي زبيد
-  - ref: TMP-L-00405
-    role: burial
-    quote: نخل وادي زبيد
+  - mention: m9
+  - role: burial
+    mention: m9
   note:
     ja: '835年＝1431-09-18〜1432-09-05（h2g.py）、年精度で @when=1431（年初）。世紀は情報源 العفيف（#AIND-D04864）の活動期から 8xx。没地「نخل وادي زبيد」＝ワーディー・ザビードの椰子園地帯（#AIND-D02778 の本文にも「ولد … بنخل وادي زبيد من اليمن」）。ID-Master 未登録（زبيد＝TMP-L-00041 は町）＝仮番号 TMP-L-00405（初版の #NEEDID を置換）。「ودفن هناك」は照応副詞（規則22(3)）で同地に埋葬。'
-  quote: سنة
   phrase: مات سنة خمس وثلاثين في نخل وادي زبيد ودفن هناك
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001716
   passive: AIND-D10244
-  quote: null
   note:
     ja: '規則3。父 روبك は名のみだが珍しい名（corpus 全文で「روبك」は本項と通称索引 #AIND-D12356 のみ）＝それ自体が識別要素として仮番号 TMP-P-001716（⚠同名別人への流用禁止）。corpus に本伝なし。初版は father relation なし。'
   phrase: روبك
@@ -53,50 +47,88 @@ relations:
   summary:
     ar: ابن روبك يحيى
   cert: high
-  quote: null
   note:
     ja: '通称索引帯の #AIND-D12356「ابن روبك يحيى مات في سنة خمس وثلاثين .」は名（يحيى）・父名（روبك、corpus でこの2項のみ）・没年（835）が一致＝同一人物。D12356 には転送指示がない（名と没年を記す）ので絶対基準により二重立項型＝両項とも実項、possible_identity cert high（D12356 は repo 未収録＝鏡像は D12356 受領時。ISSUES §D164-4）。'
 events:
 - id: e1
   type: learning
   places:
-  - ref: TMP-L-00066
-    quote: بصنعاء
-    norm: صنعاء
+  - mention: m5
   methods:
   - TMP-S-00032
-  quote: تفقه
   trigger: rule
   phrase: تفقه بصنعاء
+  mention: m4
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00050
-    quote: تعز
-  quote: استوطن
+  - mention: m7
   trigger: rule
   phrase: ثم استوطن تعز
+  mention: m6
 - id: e3
   type: cultural
-  quote: ومدح الملوك وقامت له رياسة معهم . وكان على طريقة العرب في ارتجال الشعر
   note:
     ja: 諸王（名なし＝persName を立てない）を詩で称え、彼らのもとで重きをなした。アラブの流儀で即興詩をよくした。原文に地名なし＝初版が political event に付けた placeName（تعز、居住地からの補完）を除去（規則22(1)）。初版の2つの event（英文 desc のみ）を1つに統合。
-  norm: مدح الملوك وقامت له رياسة معهم . وكان علي طريقة العرب في ارتجال الشعر
+  phrase: ومدح الملوك وقامت له رياسة معهم . وكان على طريقة العرب في ارتجال الشعر
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D04864
-    quote: العفيف
-  quote: قاله
+  - mention: m11
   cert: medium
   note:
     ja: Pattern A。イエメン関係の項の「العفيف」＝العفيف الناشري（#AIND-D04864「عثمان بن عمر بن أبي بكر … العفيف الناشري المقري الشافعي」）、cert medium（B144-148 ★1 名寄せ、頻出確定ID。規則26 例外2）。初版の統制外 subtype「informant」relation（#TMP-P-000391＝新規使用不可の番号）を event に変換。
   trigger: rule
   phrase: قاله العفيف
+  mention: m10
 notes:
 - text: 「شيخ النحاة في عصره باليمن」は学識の評価（その時代のイエメンにおける文法学者の長）＝職ではないので state にしない（repo でも「شيخ النحاة」の state 先例なし）。「باليمن」は評価句の範囲であって居住・在職の event ではない＝placeName を立てない。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: TMP-P-001716
+  quote: روبك
+- id: m3
+  kind: name
+  quote: أبو محمد
+  norm: ابو محمد
+- id: m4
+  kind: event
+  quote: تفقه
+- id: m5
+  kind: place
+  quote: بصنعاء
+  ref: TMP-L-00066
+  norm: صنعاء
+- id: m6
+  kind: event
+  quote: استوطن
+- id: m7
+  kind: place
+  quote: تعز
+  ref: TMP-L-00050
+- id: m8
+  kind: year
+  value: '835'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: نخل وادي زبيد
+  ref: TMP-L-00405
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: AIND-D04864
+  quote: العفيف
 translation:
   ja: ヤフヤー・ブン・ルーバク、アブー・ムハンマド。その時代のイエメンにおける文法学者たちの長。サヌアーで法学を修め、ついでタイッズに住みついた。諸王を詩で称え、彼らのもとで重きをなした。アラブの流儀で即興に詩を詠む人であった。（8）35年にワーディー・ザビードの椰子園（ナフル）で没し、そこに葬られた。アル＝アフィーフがこれを述べている。
   en: Yaḥyā b. Rūbak, Abū Muḥammad, the shaykh of the grammarians of his age in Yemen. He studied law in Ṣanʿāʾ and then settled in Taʿizz. He praised the kings and attained a position of eminence with them, and he followed the manner of the Arabs in improvising poetry. He died in the year [8]35 in the palm groves (nakhl) of Wādī Zabīd and was buried there. Al-ʿAfīf said this.

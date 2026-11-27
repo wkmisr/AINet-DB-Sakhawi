@@ -9,47 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00561
-    quote: الفارسي
+    mention: m2
   - id: n2
     type: ism
-    quote: شاهين
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D03345
+  active: m3
   passive: AIND-D03293
-  quote: المؤيد
   note:
     ja: 'المؤيد ＝ المؤيد شيخ（#AIND-D03345、在位815–824）。初版は #NEEDID。'
-  norm: المءيد
   phrase: ممن أنشأه المؤيد إلى أن صيره أحد المقدمين
 - id: r2
   type: social
   subtype: other
   active: AIND-D03422
   passive: AIND-D03293
-  quote: null
   note:
     ja: ططر ＝ الظاهر ططر（#AIND-D03422）。摂政（نظام الملك）期＝824年に逮捕・投獄した側。
   phrase: قبض عليه ططر في أيام نظاميته وحبسه باسكندرية
 states:
 - id: s1
   type: office
-  ref: TMP-O-00083
-  quote: أحد المقدمين
-  norm: احد المقدمين
+  mention: m4
 - id: s2
   type: status
   label: كان من الفرسان ظنا
   label_latn: kāna min al-fursān ẓannan
   cert: medium
-  quote: وكان من الفرسان ظنا
   note:
     ja: 「ظنا」＝サハーウィーの推測 → cert medium。
-  norm: كان من الفرسان ظنا
+  mention: m8
 events:
 - id: e1
   type: political
@@ -58,11 +51,44 @@ events:
     type: political
   places:
   - ref: gn:361058
-  quote: قبض
   note:
     ja: 824年ムハッラム月＝1421年1月6日〜2月3日。
   trigger: rule
   phrase: قبض عليه ططر في أيام نظاميته وحبسه باسكندرية في المحرم سنة أربع وعشرين
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: شاهين
+- id: m2
+  kind: name
+  ref: TMP-N-00561
+  quote: الفارسي
+- id: m3
+  kind: person
+  ref: AIND-D03345
+  quote: المؤيد
+  norm: المءيد
+- id: m4
+  kind: office
+  ref: TMP-O-00083
+  quote: أحد المقدمين
+  norm: احد المقدمين
+- id: m5
+  kind: event
+  quote: قبض
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '824'
+  quote: سنة
+- id: m8
+  kind: office
+  quote: وكان من الفرسان ظنا
+  norm: كان من الفرسان ظنا
 translation:
   ja: シャーヒーン・アル＝ファーリスィー。アル＝ムアイヤド（・シャイフ）に取り立てられた者の一人で、ついには軍司令官（ムカッダム）の一人に任じられた。その後、タタルが摂政（ニザーム・アル＝ムルク）であった時期に彼に逮捕され、824年ムハッラム月にアレクサンドリアに投獄された。おそらく（勇敢な）騎士の一人であった。
   en: Shāhīn al-Fārisī. He was one of those whom al-Muʾayyad (Shaykh) raised, until he made him one of the commanders (muqaddams). Then Ṭaṭar seized him during the days of his regency and imprisoned him in Alexandria in Muḥarram of the year 824. He was, it is thought, one of the horsemen (fursān).

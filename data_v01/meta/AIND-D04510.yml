@@ -9,92 +9,138 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00268
-    quote: الشيبي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05659
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 831
   note:
     en: Died in 831 AH (831-01-01 = 1427-10-31, proleptic Gregorian).
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05659
+  active: m8
   passive: AIND-D04510
   summary:
     ar: علي بن موسى بن أبي بكر بن محمد الشيبي (الآتي أبوه)
-  quote: أبوه
   note:
     ja: '父「الآتي أبوه」= #AIND-D05659（علي بن موسى بن أبي بكر بن محمد الشيبي من بني شيبة حجبة الكعبة … مات سنة إحدى عشرة وخلفه ابنه عبد الله الماضي）。ナサブ4代一致・双方向で閉合。'
-  norm: ابوه
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D05659
+  active: m13
   passive: AIND-D04510
-  quote: أبيه
   note:
     en: He was installed after his father in the latter's zāwiya at al-Ḥusāmiyya.
-  norm: ابيه
   phrase: انتصب بعده في زاويته بالحسامية
 states:
 - id: s1
   type: office
-  ref: TMP-O-00265
   places:
-  - ref: TMP-L-00277
-    quote: بالحسامية
-    norm: الحسامية
+  - mention: m9
   orgs:
   - label: زاوية الشيبي
-  quote: شيخنا
   note:
     ja: '「انتصب بعده في زاويته بالحسامية」＝父 #AIND-D05659 のザーウィヤ運営を継承（先例 #AIND-D07378 の #TMP-O-00274「القيام بالزاوية」と同型、施設限定の職として新規 #TMP-O-00278）。地名「الحسامية」は本項原文に明記。父の本伝 D05659 は同ザーウィヤの所在を「وادي مور … منها الحسانية قرية أبي حسان بن محمد الأشعري」と記し、刊本の「الحسامية」は「الحسانية」の異綴と考えられる（イエメン・ワーディー・マウルの村）。ID-Master 未登録のため新規 #TMP-L-00277（登録名「الحسانية | الحسامية」）。'
+  mention: m12
 events:
 - id: e1
   type: cultural
-  quote: كان كثير التلاوة
+  phrase: كان كثير التلاوة
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は統制外 subtype「mentioned by」の relation にしていたため event 化。『إنباء الغمر』811年条の父（D05659）の伝記中での言及。
   trigger: rule
   phrase: ذكره شيخنا في ترجمة أبيه في سنة إحدى عشرة من إنبائه
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D05659
+  quote: علي
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  ref: TMP-N-00268
+  quote: الشيبي
+- id: m7
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m8
+  kind: person
+  ref: AIND-D05659
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: place
+  quote: بالحسامية
+  ref: TMP-L-00277
+  norm: الحسامية
+- id: m10
+  kind: year
+  value: '831'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: office
+  ref: TMP-O-00265
+  quote: شيخنا
+- id: m13
+  kind: person
+  ref: AIND-D05659
+  quote: أبيه
+  norm: ابيه
+- id: m14
+  kind: year
+  value: '911'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・アリー・ブン・ムーサー・ブン・アビー・バクル・ブン・ムハンマド・アッ＝シャイビー・アル＝ヤマーニー。父の伝記は後述される。父の没後、アル＝フサーミーヤにある父のザーウィヤ（の運営）に就いた。ヒジュラ暦831年に没した。クルアーンの朗誦を多く行う人物であった。我らがシャイフ（イブン・ハジャル）は『インバー・アル＝グムル』の811年の条にある父の伝記の中で彼に言及している。
   en: ʿAbd Allāh b. ʿAlī b. Mūsā b. Abī Bakr b. Muḥammad al-Shaybī al-Yamānī, whose father's biography is forthcoming. He was installed after his father in the latter's zāwiya at al-Ḥusāmiyya, and died in the year 831 AH. He recited the Qurʾān a great deal. Our shaykh (Ibn Ḥajar) mentioned him in the biography of his father under the year 811 AH of his Inbāʾ al-Ghumr.

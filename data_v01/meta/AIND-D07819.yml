@@ -9,45 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00754
-    quote: اللاري
+    mention: m9
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n3
     type: kunyah
-    quote: أبو نصر
-    norm: ابو نصر
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001620
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: العز
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: الشمس
     by: rule
+    mention: m8
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 birth:
   id: b
   date:
@@ -55,7 +51,7 @@ birth:
     cert: medium
   note:
     ja: 「وقال لي أن مولده في رمضان سنة تسع وأربعين وثمانمائة」＝本人の申告（قال لي）→ cert medium。849年ラマダーン月＝1445-12-10 開始（h2g.py）、月精度。初版の @when 1445 を 1445-12 に。
-  quote: سنة
+  mention: m15
 persons:
 - id: p1
   label: الأمير نظام الدين علاء الملك بن المعين جاهنشاه
@@ -68,13 +64,12 @@ relations:
   passive: AIND-D07819
   summary:
     ar: العز عبد الله بن الشمس محمد اللاري
-  quote: null
   note:
     ja: 見出しナサブ「عبد الله بن محمد بن عبد الله … العز بن الشمس اللاري」から復元（規則3：ラカブ العز・ニスバ・祖父名 الشمس محمد まで分かる）。corpus に見出しなし（hw.py「اللاري」で別家の D06652・D07262・D09406 等のみ）・ID-Master 未登録 → TMP-P-001620。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D07819
   methods:
   - TMP-S-00025
@@ -84,27 +79,22 @@ relations:
       ah: 871
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m12
     phrase: لقيني بمكة في سنة إحدى وسبعين وقرأ على الثلاثيات
   works:
   - ref: TMP-T-00018
-  quote: لقيني
   note:
     ja: 「وقرأ على الثلاثيات」の「على」は直後に書名が続くので「عليّ（私に）」と読む（規則2）。871年初＝1466-08-22（h2g.py）。初版の @when「0871」（ヒジュラ年）を修正、field الحديث（原文なし）を除去。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-001621
+  active: m16
   passive: AIND-D07819
   methods:
   - TMP-S-00008
   cert: medium
-  quote: الجمال المشهور بأخي
   note:
     ja: '「وأنه أخذ عن الجمال المشهور بأخي فنونا」＝本人の申告（قال لي … وأنه）→ cert medium。「الجمال المشهور بأخي」は corpus に見出しなし・ID-Master 未登録（hw.py「المشهور بأخي」「أخي」「الجمال」で該当なし）。ラカブ＋通称という識別要素があるため規則12により TMP-P-001621。初版 #NEEDID・desc「various sciences」（英語）を置換。'
-  norm: الجمال المشهور باخي
 affiliations:
 - id: a1
   type: madhhab
@@ -114,21 +104,86 @@ events:
   type: cultural
   persons:
   - ref: AIND-D07819#p1
-  quote: وعمل رسالة كتبها برسم الأمير نظام الدين علاء الملك بن المعين جاهنشاه وقرأ بعضها بحضرتي
   note:
     ja: リサーラの献呈先アミール（nasab から المعين جاهنشاه の子。ラール地方の有力者か）。corpus に見出しなし（hw.py「جاهنشاه」は黒羊朝 جاهنشاه بن قرا يوسف D02400 とその関係者のみで別人）・ID-Master 未登録。献呈は主従関係ではないので初版の patron relation は立てず、event 内 persName（#NEEDID）に留める（規則53 の趣旨）。
-  norm: عمل رسالة كتبها برسم الامير نظام الدين علاء الملك بن المعين جاهنشاه وقرا بعضها بحضرتي
+  phrase: وعمل رسالة كتبها برسم الأمير نظام الدين علاء الملك بن المعين جاهنشاه وقرأ بعضها بحضرتي
+  mention: null
 - id: e2
   type: cultural
   summary:
     ar: 'وكذا سمعته ينشد قوله : تركنا كل شيء غير ليلى %~% وأطلب وصلها يوما وليلا'
-  quote: null
   note:
     ja: 本項主自作の詩をサハーウィーが聴いた（871年のマッカでの面会時と読めるが原文に時・地の明示はないため日付・placeName は付けない）。
+  mention: null
 notes:
 - text: 初版の visit event（مكة 871、cert high）は teacher relation 内の learning event（「لقيني بمكة في سنة إحدى وسبعين」）と重複するため除去。詩の朗誦 event の placeName مكة・年（原文に明示なし）も除去（規則18・22）。「وهو من رؤساء ناحيته」＝出身地方の有力者（state にはしない）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001620
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: أبو نصر
+  norm: ابو نصر
+- id: m7
+  kind: name
+  quote: العز
+- id: m8
+  kind: name
+  quote: الشمس
+- id: m9
+  kind: name
+  ref: TMP-N-00754
+  quote: اللاري
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: لقيني
+- id: m12
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m13
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m14
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m15
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m16
+  kind: person
+  ref: TMP-P-001621
+  quote: الجمال المشهور بأخي
+  norm: الجمال المشهور باخي
+- id: m17
+  kind: person
+  label: cultural
+  quote: الأمير نظام الدين علاء الملك بن المعين جاهنشاه
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・アブドゥッラー、アッ＝シャムス・アブー・ナスル・ブン・アル＝イッズ・ブン・アッ＝シャムス・アッ＝ラーリー・アッ＝シャーフィイー。感じのよい、理解力に優れた青年で、871年にマッカで私と会い、私に『スラースィヤート』を読誦した。彼は私に、自分の生年は849年ラマダーン月で、アヒーとして知られるアル＝ジャマールから諸学を学んだと語った。アミール・ニザームッディーン・アラーウルムルク・ブン・アル＝ムイーン・ジャーハーンシャーのためにリサーラを著し、その一部を私の面前で読んだ。また、彼が自作の次の詩を吟じるのも聴いた。 「われらはライラー以外のすべてを捨てた／そして昼も夜も彼女との逢瀬を求める」 彼は自分の地方の有力者の一人である。
   en: 'Muḥammad b. ʿAbd Allāh b. Muḥammad b. ʿAbd Allāh, al-Shams Abū Naṣr b. al-ʿIzz b. al-Shams al-Lārī al-Shāfiʿī. A pleasant young man of good understanding; he met me in Mecca in the year [8]71 and read the Thulāthiyyāt before me. He told me that he was born in Ramaḍān 849 and that he had studied various disciplines under al-Jamāl known as Akhī. He composed a treatise written for the amir Niẓām al-Dīn ʿAlāʾ al-Mulk b. al-Muʿīn Jāhānshāh and read part of it in my presence; I also heard him recite his own verse: "We have left everything but Laylā / and I seek union with her day and night." He is one of the notables of his region.'

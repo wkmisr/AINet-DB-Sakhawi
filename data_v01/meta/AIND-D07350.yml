@@ -9,60 +9,54 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04550
-    quote: الصالي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-05514
-    quote: الدقاق
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الرحيم
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 803
   note:
     en: He died in "the great calamity" (al-kāʾina al-ʿuẓmā) of the year 803 AH, i.e. Tīmūr's sack of Damascus. The text names no place of death explicitly.
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000275
+  active: m9
   passive: AIND-D07350
   methods:
   - TMP-S-00028
   works:
   - ref: TMP-T-00182
-  quote: الحجار
   note:
     ja: 「بحضوره في الثالثة على الحجار」＝数え3歳のとき الحجار（#TMP-P-000275、8世紀の مسند أحمد بن أبي طالب الحجار、没730）のもとで聴講。precheck の汚染注意は他項での流用歴によるもので、本項では登録実体そのものが該当するため維持。
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D07350
-  passive: wd:Q471116
+  passive: m7
   methods:
   - TMP-S-00025
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00003
-      quote: بالصالحية
-      norm: الصالحية
+    - mention: m8
   works:
   - ref: TMP-T-00182
-  quote: شيخنا
   note:
     en: 'Ibn Ḥajar: "I met him in al-Ṣāliḥiyya and read to him the Akhbār Ibrāhīm b. Adham and other works" (active = the subject as transmitter, passive = Ibn Ḥajar as reader).'
 sources:
@@ -71,21 +65,62 @@ sources:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00104
-  quote: قال
   note:
     ja: Pattern A。
   trigger: rule
   phrase: قال شيخنا في معجمه لقيته بالصالحية فقرأت عليه أخبار إبراهيم بن أدهم وغيرها بحضوره في الثالثة على الحجار ومات في الكائنة العظمى سنة ثلاث
+  mention: m6
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m11
   works:
   - ref: TMP-T-00122
-  quote: وتبعه المقريزي في عقوده
   note:
     ja: 'Pattern A。初版の relation(biographer, #NEEDID) を置換。'
-  norm: تبعه المقريزي في عقوده
+  phrase: وتبعه المقريزي في عقوده
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: عبد الرحيم
+- id: m4
+  kind: name
+  ref: TMP-N-04550
+  quote: الصالي
+- id: m5
+  kind: name
+  ref: TMP-N-05514
+  quote: الدقاق
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: place
+  quote: بالصالحية
+  ref: TMP-L-00003
+  norm: الصالحية
+- id: m9
+  kind: person
+  ref: TMP-P-000275
+  quote: الحجار
+- id: m10
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ムハンマド・ブン・ハサン・ブン・アブド・アッラヒーム・アッ＝サーリー・アッ＝ダッカーク。我らが師（イブン・ハジャル）はその『ムウジャム』で述べている。「私は彼にサーリヒーヤで会い、彼に『イブラーヒーム・ブン・アドハム伝』その他を読んだ。（それらは）彼が（数え）3歳のときにアル＝ハッジャールのもとで聴講したものである。彼はヒジュラ暦803年の大災厄（ティムールのダマスクス侵攻）の際に没した」。アル＝マクリーズィーも『ウクード』でこれ（イブン・ハジャルの記述）に従っている。
   en: 'Muḥammad b. Ḥasan b. ʿAbd al-Raḥīm al-Ṣālī al-Daqqāq. Our shaykh (Ibn Ḥajar) said in his Muʿjam: "I met him in al-Ṣāliḥiyya and read to him the Akhbār Ibrāhīm b. Adham and other works, which he had attended [as a child] in his third year under al-Ḥajjār. He died in the great calamity (Tīmūr''s sack of Damascus) in the year 803." Al-Maqrīzī followed him in this in his ʿUqūd.'

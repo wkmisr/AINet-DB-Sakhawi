@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: null
     label: المغربي
+    mention: null
   - id: n2
     type: ism
-    quote: هلال
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -23,7 +23,7 @@ death:
   note:
     ar: ورأيت ابن عزم قال هلال البطاط مات سنة بضع وستين . فكأنه هذا
     ja: ابن عزم の「هلال البطاط 没86X」を本人と推定（サハーウィー「فكأنه هذا」）→865頃、cert low。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 865・単一の年）
-  quote: سنة بضع وستين
+  mention: m11
 persons:
 - id: p1
   label: هلال البطاط
@@ -33,21 +33,19 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D10176b
-  passive: wd:Q4120128
+  passive: m6
   methods:
   - TMP-S-00068
   summary:
     ar: السخاوي
-  quote: لي
   note:
     ar: فسمعته ينشد العلم البلقيني قوله وكتبه لي بخطه
     ja: サハーウィーの前で العلم البلقيني を称える詩（6行、原文参照）を吟じ、自筆で書き与えた。
 - id: r2
   type: identity
   subtype: possible_identity
-  active: AIND-D10176b#p1
+  active: m10
   passive: AIND-D10176b
-  quote: هلال البطاط
   note:
     ja: ابن عزم の記す هلال البطاط と同一人物の可能性（サハーウィー推定）。corpus に本伝なし→ref 未付与。
 events:
@@ -58,32 +56,70 @@ events:
     cert: medium
     type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m3
   cert: medium
   trigger: rule
   phrase: قدم القاهرة قريبا من سنة ستين
+  mention: m2
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03354
-    quote: العلم البلقيني
+  - mention: m5
   summary:
     ar: فسمعته ينشد العلم البلقيني قوله … شيخ الشيوخ إمامنا البلقيني
-  quote: قالوا
   note:
     ja: 詩の対象 العلم البلقيني = TMP-P-000199（صالح بن عمر البلقيني、没868）。
   trigger: rule
+  mention: m7
 - id: c2
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: قال
+  - mention: m8
   note:
     ja: Pattern A。
   trigger: rule
   phrase: ورأيت ابن عزم قال هلال البطاط مات سنة بضع وستين . فكأنه هذا
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: هلال
+- id: m2
+  kind: event
+  quote: قدم
+- id: m3
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m4
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m5
+  kind: person
+  ref: AIND-D03354
+  quote: العلم البلقيني
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m7
+  kind: source
+  quote: قالوا
+- id: m8
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
+- id: m9
+  kind: source
+  quote: قال
+- id: m10
+  kind: person
+  ref: AIND-D10176b#p1
+  quote: هلال البطاط
+- id: m11
+  kind: year
+  value: 861-869
+  quote: سنة بضع وستين
 translation:
   ja: ヒラール、学識と教養のあるマグリブ人。860年頃カイロに来た。私は彼がアラム・アル＝ブルキーニーを称える自作の詩を吟じるのを聞き、彼はそれを自筆で私に書いてくれた（6行、原文参照）。イブン・アズムが「ヒラール・アル＝バッタートは86X年に没した」と述べているのを見たが、これは本人のようである。
   en: Hilāl, a Maghribī of learning and accomplishment. He came to Cairo about 860; I heard him recite his verses in praise of al-ʿAlam al-Bulqīnī, which he wrote out for me in his own hand (six lines). I saw that Ibn ʿAzm said "Hilāl al-Baṭṭāṭ died in 86X" — apparently this man.

@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عجل
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: نعير آخر من أقربائه
     by: rule
-    norm: نعير اخر من اقرباءه
+    mention: m2
 death:
   id: d
   date:
     ah: 869
   places:
-  - ref: gn:170063
-    cert: medium
-    quote: أعمال حلب
-    norm: اعمال حلب
+  - cert: medium
+    mention: m5
   note:
     ja: '「مات وهو معزول عن الإمرة قريبا من أعمال حلب في سنة تسع وستين」。869 ＝ 1464（h2g.py、年精度は年初）。ハラブ管区の近くでの没のため gn:170063 を cert medium で充当（初版の #NEEDID を差し替え）。'
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: نعير
@@ -40,7 +37,6 @@ relations:
   subtype: father
   active: AIND-D04896#p1
   passive: AIND-D04896
-  quote: null
   note:
     ja: '父 نعير は裸名のみ。直前の #AIND-D04895（العجل بن نعير بن حيار … أمير آل فضل、816没）の父 نعير بن حيار（#AIND-D10146、808没）とは「آخر من أقربائه」（別人の親族）とされるため同一視できず #NEEDID（§D97-8）。'
 - id: r2
@@ -48,29 +44,51 @@ relations:
   subtype: relative
   active: AIND-D04895
   passive: AIND-D04896
-  quote: null
   note:
     ja: '「عجل بن نعير آخر من أقربائه」＝直前項 #AIND-D04895（العجل بن نعير بن حيار بن مهنا … أمير آل فضل بالشام والعراق）の親族のもう一人。'
   phrase: آخر من أقربائه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00159
   places:
-  - ref: TMP-L-00196
-    quote: بالبلاد الشامية
-    norm: البلاد الشامية
-  quote: أمير عرب آل فضل
+  - mention: m4
   note:
     ja: ID-Master 登録の職 TMP-O-00159（أمير العرب、آل فضل 家の世襲職）を充当。初版の不正な date type="retirement" when-custom="before 869" を除去（解任は political event に記録）。
-  norm: امير عرب ال فضل
+  mention: m3
 events:
 - id: e1
   type: political
-  quote: مات وهو معزول عن الإمرة
   note:
     ja: 没時にはアミール職を解任されていた。初版の placeName البلاد الشامية（原文の解任記述に地名なし）と英語 desc を除去。
-  norm: مات وهو معزول عن الامرة
+  phrase: مات وهو معزول عن الإمرة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عجل
+- id: m2
+  kind: name
+  quote: نعير آخر من أقربائه
+  norm: نعير اخر من اقرباءه
+- id: m3
+  kind: office
+  ref: TMP-O-00159
+  quote: أمير عرب آل فضل
+  norm: امير عرب ال فضل
+- id: m4
+  kind: place
+  quote: بالبلاد الشامية
+  ref: TMP-L-00196
+  norm: البلاد الشامية
+- id: m5
+  kind: place
+  quote: أعمال حلب
+  ref: gn:170063
+  norm: اعمال حلب
+- id: m6
+  kind: year
+  value: '869'
+  quote: سنة
 translation:
   ja: アジュル・ブン・ヌアイル。彼（前項のアル＝アジュル）の親族のもう一人で、シャーム地方におけるアーリ・ファドルのアラブのアミール。アミール職を解任された身で、（8）69年にハラブの管区の近くで没した。
   en: ʿAjl b. Nuʿayr, another of his relatives, amīr of the Arabs of Āl Faḍl in the Syrian lands. He died, having been removed from the emirate, near the districts of Aleppo in (8)69.

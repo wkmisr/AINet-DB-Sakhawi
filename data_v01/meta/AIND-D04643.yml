@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00755
-    quote: الساعاتي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -33,7 +32,7 @@ death:
     cert: medium
   note:
     ja: 「مات في ذي الحجة سنة إحدى」。一の位のみの年は規約（2026-09-24 Waka）により 801 と解し cert medium（イブン・ハジャル『الإنباء』に記載、80歳近く）。801年ズー・アル＝ヒッジャ月初＝1399-08-12（h2g.py。初版の 1398 は誤り）。没地は原文に記載なし。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: محمد
@@ -46,40 +45,67 @@ relations:
   subtype: father
   active: AIND-D04643#p1
   passive: AIND-D04643
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   orgs:
   - ref: wd:Q183562
-  quote: المؤذن
   note:
     ja: 「المؤذن بالجامع الأموي」。所在地（ダマスカス）は原文になく、施設の所在地からの補完は不可（規則22-1）。
-  norm: المءذن
+  mention: m4
 events:
 - id: e1
   type: cultural
   summary:
     en: Leadership in his craft came to rest with him.
-  quote: انتهت إليه الرياسة في فنه
   note:
     ja: 「فنه」の内容（ムアッズィンの技か時計術か）は原文に明記なし。
-  norm: انتهت اليه الرياسة في فنه
+  phrase: انتهت إليه الرياسة في فنه
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は subtype="mentioned by" の relation。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00755
+  quote: الساعاتي
+- id: m4
+  kind: office
+  ref: wd:Q239718
+  quote: المؤذن
+  norm: المءذن
+- id: m5
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m6
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・アッ＝サーアーティー、ウマイヤ・モスクのムアッズィン。その技芸における第一人者の地位は彼に帰した。801年ズー・アル＝ヒッジャ月に80歳近くで没した。我らの師（イブン・ハジャル）が『インバー』で彼に言及している。
   en: ʿAbd Allāh b. Muḥammad al-Sāʿātī, the muezzin at the Umayyad Mosque. Leadership in his craft came to rest with him. He died in Dhū al-Ḥijja of the year 801, having nearly reached eighty. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

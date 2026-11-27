@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00271
-    quote: المحمدي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: ism
-    quote: قجماس
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 802-03-08
     cert: medium
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   note:
     ja: 「قتل في وقعة إيتمش في ثامن ربيع الأول سنة اثنتين بالقاهرة」＝一の位のみの年は 80X＝802 年ラビーウ第一月 8 日（1399-11-16、h2g.py）にカイロでアイタミシュの戦いで殺された。年は cert medium（標準規則。وقعة إيتمش＝802 年の事件と整合）。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: والد قجماس المحمدي الظاهري
@@ -41,18 +37,16 @@ relations:
   subtype: father
   active: AIND-D06315#p1
   passive: AIND-D06315
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。ニスバ「الظاهري」はスルターン名を伴わないため patron relation は立てない。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00131
   orgs:
   - ref: TMP-I-00079
-  quote: شاد الشربخاناة
   note:
     ja: 見出し「شاد الشربخاناة」。初版の placeName القاهرة（没地からの補完、職の勤務地は原文になし）を除去（規則22(1)）。
+  mention: m4
 events:
 - id: e1
   type: political
@@ -60,29 +54,68 @@ events:
     ah: 802-03-08
     type: political
   persons:
-  - ref: AIND-D02089
-    quote: إيتمش
-    norm: ايتمش
+  - mention: m6
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: قتل
+  - mention: m9
   note:
     ja: アイタミシュの戦い（802 年、アタベク أيتمش البجاسي＝ID-Master 登録 TMP-P-000601 の反乱）でカイロで殺された。初版の統制外 subtype「rival」relation（TMP-P-000601）は、本項主と إيتمش の個人的対立を原文が述べないため除去し、戦いの名の人物として event 内 persName に留める。初版の cert="high" を除去。
   trigger: rule
   phrase: قتل في وقعة إيتمش في ثامن ربيع الأول سنة اثنتين بالقاهرة
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: أرخه
+  - mention: m11
   note:
     ja: Pattern A。المقريزي＝wd:Q293604（頻出確定ID）。「وغيره」は人物を立てない。初版の統制外 subtype「biographer」relation（#NEEDID）を event に。
   trigger: rule
-  norm: ارخه
   phrase: أرخه المقريزي وغيره
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: قجماس
+- id: m2
+  kind: name
+  ref: TMP-N-00271
+  quote: المحمدي
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: office
+  ref: TMP-O-00131
+  quote: شاد الشربخاناة
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: person
+  ref: AIND-D02089
+  quote: إيتمش
+  norm: ايتمش
+- id: m7
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m8
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: カジュマース・アル＝ムハンマディー・アッ＝ザーヒリー、シャード・アッ＝シャラブハーナ（御酒膳房監督官）。（8）02年ラビーウ第一月8日、カイロでアイタミシュの戦いにおいて殺された。アル＝マクリーズィーらがその没年を記録している。
   en: Qajmās al-Muḥammadī al-Ẓāhirī, shādd al-sharābkhānāh (supervisor of the royal buttery). He was killed in the battle of Aytamish on the 8th of Rabīʿ I of the year [80]2 in Cairo. Al-Maqrīzī and others recorded his death date.

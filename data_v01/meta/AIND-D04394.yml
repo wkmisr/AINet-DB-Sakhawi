@@ -9,81 +9,70 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00056
-    quote: التونسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00236
-    quote: المرجاني
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي العباس أحمد
     by: rule
-    ref: TMP-P-001048
-    norm: ابو العباس احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001145
+  active: m7
   passive: AIND-D04394
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: العز بن جماعة
   note:
     ja: العز بن جماعة ＝ TMP-P-000010。
   phrase: سمع من العز بن جماعة
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001038
+  active: m8
   passive: AIND-D04394
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: والفخر النويري
   note:
     ja: 'الفخر النويري ＝ 本バッチ新規 TMP-P-001038（الفخر عثمان بن أبي بكر النويري、D04257 と同じ定型）。初版は #NEEDID。'
-  norm: الفخر النويري
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000414
+  active: m9
   passive: AIND-D04394
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: والكمال بن حبيب
   note:
     ja: الكمال بن حبيب ＝ TMP-P-000414（ID-Master 登録済み）。
-  norm: الكمال بن حبيب
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D04394
-  passive: AIND-D09211
+  passive: m10
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00002
-  quote: التقي بن فهد
   note:
     ja: '弟子 التقي بن فهد ＝ #AIND-D09211（原文が التقي を明示）。'
   phrase: وأخذ عنه التقي بن فهد
@@ -94,7 +83,6 @@ relations:
   passive: AIND-D04394
   summary:
     ar: أبو العباس أحمد بن عبد الله بن يحيى التونسي المرجاني
-  quote: null
   note:
     ja: 父（クンヤ・ナサブ・ニスバあり）：corpus に本伝なし（D06469「محمد بن إبراهيم بن أبي العباس أحمد بن عبد الله التونسي الأصل المكي」は孫世代）、ID-Master 未登録 → 新規 TMP-P-001048。
 - id: r6
@@ -105,19 +93,63 @@ relations:
   summary:
     ar: محمد بن عبد الله بن أحمد التونسي الأصل المكي ويعرف بابن المرجاني
   cert: medium
-  quote: null
   note:
     ja: 子＝#AIND-D07754（B88 収録。786頃生・810没マッカ）。本項本文は子に言及しないが、D07754 の見出し（名・父名・التونسي・通称 ابن المرجاني・マッカ）が本項主を父として指すため、統一規則23により cert medium で補う（D07754 側の father relation と同じ cert）。
 sources:
 - id: c1
   persons:
   - ref: AIND-D09211
-  quote: وقال
   note:
     ja: Pattern A（التقي بن فهد の評言）。
   trigger: rule
-  norm: قال
   phrase: وأخذ عنه التقي بن فهد وقال أنه كان رجلا صالحا خيرا دينا ، ولم يزد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001048
+  quote: أبي العباس أحمد
+  norm: ابو العباس احمد
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m5
+  kind: name
+  ref: TMP-N-00056
+  quote: التونسي
+- id: m6
+  kind: name
+  ref: TMP-N-00236
+  quote: المرجاني
+- id: m7
+  kind: person
+  ref: TMP-P-001145
+  quote: العز بن جماعة
+- id: m8
+  kind: person
+  ref: TMP-P-001038
+  quote: والفخر النويري
+  norm: الفخر النويري
+- id: m9
+  kind: person
+  ref: TMP-P-000414
+  quote: والكمال بن حبيب
+  norm: الكمال بن حبيب
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
+- id: m11
+  kind: source
+  quote: وقال
+  norm: قال
 translation:
   ja: アブド・アッラー・ブン・アビー・アル＝アッバース・アフマド・ブン・アブド・アッラー・ブン・ヤフヤー・アッ＝トゥーニスィー・アル＝マルジャーニー。アル＝イッズ・ブン・ジャマーア、アル＝ファフル・アン＝ヌワイリー、アル＝カマール・ブン・ハビーブから聴聞した。アッ＝タキー・ブン・ファフドが彼から学び、彼は敬虔で善良で信心深い人であったと述べ、それ以上は加えなかった。
   en: ʿAbd Allāh b. Abī al-ʿAbbās Aḥmad b. ʿAbd Allāh b. Yaḥyā al-Tūnisī al-Marjānī. He heard from al-ʿIzz b. Jamāʿa, al-Fakhr al-Nuwayrī and al-Kamāl b. Ḥabīb; al-Taqī b. Fahd studied under him and said that he was a righteous, good and religious man, and added no more.

@@ -9,50 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00124
-    quote: الطبري
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m9
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D08538
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي اليمن محمد
     by: rule
-    norm: ابو اليمن محمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: الرضي إبراهيم
     by: rule
-    norm: الرضي ابراهيم
+    mention: m5
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D01067
+  active: m11
   passive: AIND-D05540
   methods:
   - TMP-S-00003
@@ -63,14 +56,12 @@ relations:
     date:
       ah: 818
       type: learning
-  quote: الشريف أحمد الفاسي
   note:
     ja: الشريف أحمد الفاسي = الشهاب أبو العباس أحمد بن علي بن محمد … الحسني الفاسي المكي المالكي والد التقي محمد（#AIND-D01067、生754）。
-  norm: الشريف احمد الفاسي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000249
+  active: m12
   passive: AIND-D05540
   methods:
   - TMP-S-00003
@@ -81,39 +72,94 @@ relations:
     date:
       ah: 818
       type: learning
-  quote: وابن سلامة
   note:
     ja: ابن سلامة（ID-Master 登録 TMP-P-000249 を維持）。メッカのムスニド البدر حسن بن أحمد بن سلامة（#AIND-D02520、生751）が候補だが ID-Master 側で未同定のため現状維持（要判断 §A）。
-  norm: ابن سلامة
   phrase: ابن سلامة
 - id: r3
   type: kin
   subtype: father
   active: AIND-D08538
   passive: AIND-D05540
-  quote: null
   note:
     ja: 父 = الولوي أبو عبد الله محمد بن محمد بن أحمد بن الرضي إبراهيم … بن أبي اليمن الطبري المكي（#AIND-D08538。娘の項 D13585 でも「أبي عبد الله محمد بن أبي اليمن」）。
   phrase: محمد بن أبي اليمن محمد
 - id: r4
   type: kin
   subtype: mother
-  active: AIND-D13636
+  active: m10
   passive: AIND-D05540
-  quote: فاطمة ابنة الشمس محمد بن علي بن سكر البكري
   note:
     ja: 母 = مؤنسة خاتون المدعوة فاطمة ابنة المحدث الشمس محمد بن علي … البكري … ابن سكر（#AIND-D13636、女性部）。
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: بيض
+  - cert: low
+    mention: m15
   note:
     ja: Pattern A（「بيض له」＝伝記の場所を空けたまま＝未完稿）。没年不明のため既定の التقي بن فهد=#AIND-D09211、cert="low"。初版は subtype="other" の relation。
   trigger: rule
   phrase: بيض له ابن فهد
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D08538
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي اليمن محمد
+  norm: ابو اليمن محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: الرضي إبراهيم
+  norm: الرضي ابراهيم
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m8
+  kind: name
+  ref: TMP-N-00124
+  quote: الطبري
+- id: m9
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m10
+  kind: person
+  ref: AIND-D13636
+  quote: فاطمة ابنة الشمس محمد بن علي بن سكر البكري
+- id: m11
+  kind: person
+  ref: AIND-D01067
+  quote: الشريف أحمد الفاسي
+  norm: الشريف احمد الفاسي
+- id: m12
+  kind: person
+  ref: TMP-P-000249
+  quote: وابن سلامة
+  norm: ابن سلامة
+- id: m13
+  kind: year
+  value: '818'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: بيض
+- id: m15
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アビー・アル＝ヤマン・ムハンマド・ブン・アフマド・ブン・アッ＝ラディー・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム・アッ＝タバリー・アル＝マッキー。母はアッ＝シャムス・ムハンマド・ブン・アリー・ブン・スッカル・アル＝バクリーの娘ファーティマ。818年にアッ＝シャリーフ・アフマド・アル＝ファースィーとイブン・サラーマから聴聞した。イブン・ファフドは彼の項を空白のままにした。
   en: ʿAlī b. Muḥammad b. Abī al-Yumn Muḥammad b. Aḥmad b. al-Raḍī Ibrāhīm b. Muḥammad b. Ibrāhīm al-Ṭabarī al-Makkī; his mother was Fāṭima, daughter of al-Shams Muḥammad b. ʿAlī b. Sukkar al-Bakrī. He heard from al-Sharīf Aḥmad al-Fāsī and Ibn Salāma in the year 818. Ibn Fahd left his entry blank.

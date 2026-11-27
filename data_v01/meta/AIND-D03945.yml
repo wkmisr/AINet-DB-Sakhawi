@@ -9,39 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02574
-    quote: المقراني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: null
     label: أبو نبيلة
+    mention: null
   - id: n4
     type: ism
-    quote: عبد الصمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
-    ref: AIND-D05858
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
@@ -52,13 +47,12 @@ relations:
   - TMP-S-00009
   fields:
   - wd:Q484181
-  quote: null
   note:
     ja: '「اشتغل على أبيه في الفقه وغيره」＝父が師。父 = #AIND-D05858。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D03945
   methods:
   - TMP-S-00025
@@ -70,16 +64,13 @@ relations:
       ah: 893-03
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m9
   works:
   - ref: TMP-T-00044
-  quote: ولقيني
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D03945
   methods:
   - TMP-S-00003
@@ -91,16 +82,12 @@ relations:
       ah: 893-03
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: لي
+    - mention: m9
 - id: r4
   type: kin
   subtype: father
   active: AIND-D05858
   passive: AIND-D03945
-  quote: null
   note:
     ja: '父 = #AIND-D05858（عمر بن عبد الرحمن بن أحمد المقراني اليماني الشافعي والد عبد الصمد الماضي … قرأ على الأهدل）で双方向閉合。父は الأهدل（#AIND-D11169）に学び、888年に76歳で没した（本項主の伝聞「ذكر لي」＝cert medium。父の項に反映）。'
   phrase: عمر بن عبد الرحمن بن أحمد المقراني
@@ -118,11 +105,61 @@ events:
   persons:
   - ref: wd:Q4120128
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: ولقيني بمكة في ربيع الأول سنة ثلاث وتسعين
-  norm: لقيني بمكة في ربيع الاول سنة ثلاث وتسعين
+  - mention: m9
+  phrase: ولقيني بمكة في ربيع الأول سنة ثلاث وتسعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الصمد
+- id: m2
+  kind: name
+  ref: AIND-D05858
+  quote: عمر
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  ref: TMP-N-02574
+  quote: المقراني
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: ولقيني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m11
+  kind: year
+  value: '893'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m13
+  kind: year
+  value: '988'
+  quote: سنة
 translation:
   ja: アブドゥッサマド・ブン・ウマル・ブン・アブドゥッラフマーン・ブン・アフマド・アル＝ムクラーニー・アル＝ヤマーニー・アッ＝シャーフィイー。アブー・ナビーラとして知られる。有徳の人物で、法学などを父のもとで学んだ。893年ラビーウ・アル＝アウワル月にメッカで私（サハーウィー）と会い、私のもとでナワウィーの『四十ハディース』を読誦し、それ以外を聴聞した。彼は私に、父が法学者でアル＝アフダルに学んだこと、888年に76歳で没したことを語った。
   en: ʿAbd al-Ṣamad b. ʿUmar b. ʿAbd al-Raḥmān b. Aḥmad al-Muqrānī al-Yamānī al-Shāfiʿī, known as Abū Nabīla. An accomplished man, he studied fiqh and other subjects under his father. He met me in Mecca in Rabīʿ I 893 AH and read to me al-Nawawī's Forty Hadiths, and heard other things. He told me that his father was a jurist who had studied under al-Ahdal and died in the year 888 AH at the age of seventy-six.

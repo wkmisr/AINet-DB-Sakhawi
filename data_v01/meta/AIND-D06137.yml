@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: فارس
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 810
   note:
     ja: 「مات سنة عشر」＝810年（年精度、1407-06-17 開始）。
-  quote: سنة
+  mention: m3
 persons:
 - id: p1
   label: والد فارس
@@ -28,7 +28,6 @@ relations:
   subtype: father
   active: AIND-D06137#p1
   passive: AIND-D06137
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
 - id: r2
@@ -37,18 +36,28 @@ relations:
   active: AIND-D02315
   passive: AIND-D06137
   cert: medium
-  quote: null
   note:
     ja: '「دوادار تنم نائب دمشق」＝主人 تنم＝ #AIND-D02315（تنم سيف الدين الحسني الظاهري برقوق … ولاه نيابة دمشق、802年没）。corpus で نيابة دمشق に就いた تنم の本伝はこの一人（【集約 2026-10-19】ほかに二重立項 #AIND-D02322「تنم وسمى تنبك نائب دمشق . مات سنة اثنتين وثمانمائة ، وأظنه الماضي قريبا」があるが、サハーウィー自身が D02315 と同人とみる＝同定結論は不変、内容A L）で、本項主の没年 810 とも整合するが、名＋職のみの同定のため cert medium（規則26）。初版の TMP-P-000000（無効番号）・subtype client を置換。'
   phrase: تنم نائب دمشق
 states:
 - id: s1
   type: office
-  ref: TMP-O-00063
-  quote: دوادار تنم نائب دمشق
   note:
     ja: 初版の placeName دمشق は主人の職（نائب دمشق）からの補完のため除去（規則22(1)）。
+  mention: m2
+mentions:
+- id: m1
+  kind: name
+  quote: فارس
+- id: m2
+  kind: office
+  ref: TMP-O-00063
+  quote: دوادار تنم نائب دمشق
   norm: دوادار تنم ناءب دمشق
+- id: m3
+  kind: year
+  value: '810'
+  quote: سنة
 translation:
   ja: ファーリス、ダマスクス総督タナムのダワーダール。810年に没した。
   en: Fāris, the dawādār of Tanam, the viceroy (nāʾib) of Damascus. He died in the year 810.

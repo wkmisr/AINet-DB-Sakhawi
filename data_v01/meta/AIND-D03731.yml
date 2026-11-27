@@ -9,66 +9,97 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00169
-    quote: الحجازي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00997
-    quote: الشريفي
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الجمال محمد
     by: rule
-    ref: AIND-D06750
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D09211
+  active: m10
   passive: AIND-D03731
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: التقي بن فهد
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D06750
+  active: m7
   passive: AIND-D03731
-  quote: أبوه
-  norm: ابوه
   phrase: الجمال محمد بن أحمد بن علي
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D04339
+  active: m9
   passive: AIND-D03731
-  quote: عبد اللطيف
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m8
+  mention: null
 notes:
 - text: 【校閲】原文「الحجازي الشريفي **العطار أبوه بمكة** شقيق عبد اللطيف الآتي」の العطار は**父の職**（類型6-1 係り先の誤り）。初版は伝主のニスバ（ref に ID-Master 未登録の捏造ニスバ番号（00000 番）を付与）と伝主の office（#TMP-O-00012）に付け替えていたため両者を削除した。父=#AIND-D06750（…الحجازي الشريفي **العطار بمكة** …ووالد عبد اللطيف الماضي）、同母兄弟=#AIND-D04339（…شقيق عبد الرحمن الماضي **العطار أبوهما**）で双方向に閉合。初版の subtype="uncle" は شقيق の誤読。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D06750
+  quote: الجمال محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  ref: TMP-N-00169
+  quote: الحجازي
+- id: m6
+  kind: name
+  ref: TMP-N-00997
+  quote: الشريفي
+- id: m7
+  kind: person
+  ref: AIND-D06750
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: person
+  ref: AIND-D04339
+  quote: عبد اللطيف
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
 translation:
   ja: アブドゥルラフマーン・ブン・アル＝ジャマール・ムハンマド・ブン・アフマド・ブン・アリー・アル＝ヒジャーズィー・アル＝シャリーフィー・アル＝アッタール。彼の父はマッカにおり、後述のアブドゥルラティーフの同母兄弟である。二人はアル＝タキー・イブン・ファハドから（ハディースを）聴聞した。
   en: Abd al-Rahman b. al-Jamal Muhammad b. Ahmad b. Ali al-Hijazi al-Sharifi al-Attar. His father, [who resided] in Mecca, was the full brother of Abd al-Latif, who is mentioned below. They both heard [hadith] from al-Taqi b. Fahd.

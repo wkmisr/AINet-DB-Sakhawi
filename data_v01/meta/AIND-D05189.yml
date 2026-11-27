@@ -9,22 +9,19 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: طوعان دوادار قانصوه خمسمائة
     by: rule
-    ref: AIND-D03443
-    norm: طوعان دوادار قانصوه خمسماءة
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03443
+  active: m3
   passive: AIND-D05189
   cert: medium
-  quote: والده
   note:
     ja: 「وأظن والده هو الماضي وأنه قتل في نيابة الكرك سنة ست وخمسين」＝直前の ط 部 D03443（طوغان السيفي دوادار السلطان بدمشق … استقر به في نيابة الكرك ولم يلبث أن قتل بها في سنة ست وخمسين）。相手側にも「قلت وأظن أنه والد علي دوادار قانصوه خمسمائة أميرآخور」と双方向で言及。「أظن」ゆえ cert medium。綴りは本項 طوعان／相手側 طوغان。
   phrase: طوعان
@@ -35,7 +32,6 @@ relations:
   passive: AIND-D05189
   summary:
     ar: مخدومه قانصوه خمسمائة
-  quote: null
   note:
     ja: '「دوادار قانصوه خمسمائة أمير آخور … تقدم عند مخدومه」。قانصوه خمسمائة = #AIND-D06289（قانصوه الأشرفي قايتباي ويعرف بخمسمائة … ثم أمير آخور）。「أمير آخور」は قانصوه の職であり伝主の職ではない。'
 states:
@@ -44,19 +40,38 @@ states:
   ref: TMP-O-00063
   persons:
   - ref: AIND-D06289
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-I-00157
-    quote: جامع بشتاك
-  quote: وسكنها
+  - mention: m4
   note:
     ja: ジャーミウ・バシュターク近くの大邸宅を（ワクフ）交換により取得して居住。جامع بشتاك は ID-Master 未登録→仮番号 TMP-I-00157。
   trigger: rule
-  norm: سكنها
   phrase: استبدل الدار العظيمة التي بالقرب من جامع بشتاك وسكنها
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D03443
+  quote: طوعان دوادار قانصوه خمسمائة
+  norm: طوعان دوادار قانصوه خمسماءة
+- id: m3
+  kind: person
+  ref: AIND-D03443
+  quote: والده
+- id: m4
+  kind: place
+  quote: جامع بشتاك
+  ref: TMP-I-00157
+- id: m5
+  kind: event
+  quote: وسكنها
+  norm: سكنها
 translation:
   ja: アリー・ブン・タウアーン。アミール・アーフール（厩舎長）のカーンスーフ・ハムスミア（「五百」の異名を持つカーンスーフ）のダワーダール。私は、彼の父が前述の人物（タウガーン）であり、856年にカラクの総督（ナーイブ）在任中に殺害された者だと考える。彼は主人のもとで昇進し、ジャーミウ・バシュターク（バシュターク・モスク）の近くにある大邸宅を交換取得してそこに住んだ。
   en: ʿAlī b. Ṭawʿān, the dawādār of Qānṣūh Khamsumiʾa ("Qānṣūh Five-Hundred"), the amīr ākhūr (master of the stables). I think that his father is the one mentioned above, and that he [the father] was killed while governor (nāʾib) of al-Karak in the year 856. He advanced in the service of his master, and acquired by exchange the great house near the mosque of Bashtāk and lived in it.

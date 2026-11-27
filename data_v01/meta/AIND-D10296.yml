@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: laqab
-    quote: النجم
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: ابن المدني
+    mention: m7
   - id: n4
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: الحسين
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   date:
@@ -47,13 +44,11 @@ death:
   date:
     ah: 852-10
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m14
   note:
     ar: مات معزولا بدمشق في شوال سنة اثنتين وخمسين عن نحو الستين
     ja: 852年シャウワール月＝1448-12-07 開始（h2g.py、月精度。初版 @when="1448" は年精度）。免職された身で没した。
-  quote: سنة
+  mention: m16
 persons:
 - id: p1
   label: محمد بن الحسين
@@ -64,49 +59,40 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D13339
+  active: m8
   passive: AIND-D10296
   methods:
   - TMP-S-00003
-  quote: عائشة ابنة ابن عبد الهادي
   note:
     ja: 「سمع على عائشة ابنة ابن عبد الهادي」＝#AIND-D13339（頻出確定ID、ID-Master「عائشة ابنة ابن عبد الهادي」）。初版の field（الحديث）は原文にない＝除去、相手名 desc を追加。
-  norm: عاءشة ابنة ابن عبد الهادي
 - id: r2
   type: kin
   subtype: father
   active: AIND-D10296#p1
   passive: AIND-D10296
-  quote: null
   note:
     ja: '【集約 2026-11-10】校閲の #AIND-D00684 cert medium を #NEEDID＋候補に改めた。規則10（v13.46 追記）「名の食い違う候補に cert medium を付けない」。規則3 の段階では、父 محمد بن الحسين は祖父名まで分かるが父自身の識別要素（ラカブ・クンヤ・職・珍しい名）が本項になく、家名 ابن المدني は識別要素に入らない（規則61(d)）＝#NEEDID（オーケストレーター決定4 は「祖父名まで分かる＝TMP-P 新規」とするが、規則3 の識別要素の条件を満たさないため #NEEDID とした。TMP-P を発行すると D00684 と二重番号になるおそれもある）。候補 #AIND-D00684 の扱いは ★2（機械 M）。以下は校閲の記述: 規則3。見出しの父は「محمد بن الحسين」。候補＝corpus 本伝 #AIND-D00684「أحمد بن الحسين بن إبراهيم محيي الدين المدني الأصل الدمشقي والد نجم الدين . ولد سنة إحدى أو اثنتين وخمسين وسبعمائة بدمشق وكان أبوه انتقل من المدينة إليها … ولي بها كتابة السر في أوائل سنة ثمان عشرة … مات في صفر سنة عشرين . ذكره شيخنا في أنبائه」（repo 未収録）。祖父名 الحسين・家名（المدني الأصل الدمشقي⇄ابن المدني）・「والد نجم الدين」（本項主のラカブ النجم）・ダマスクスの كتابة السر（父子とも）の4点が閉合するが、父のイスムが محمد（本項）と أحمد（D00684）で食い違う＝原文どおり desc は「محمد بن الحسين」とし、同定は cert medium（規則25・26、ISSUES §D166-4）。初版は father relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00008
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: كتابة سر
+  - mention: m10
   note:
     ja: '「وولي كتابة سر الشام」。كاتب السر＝TMP-O-00008（ID-Master 登録。初版は #NEEDID）。年の明記なし。'
-  norm: تابة سر
+  mention: m9
 - id: s2
   type: office
-  ref: TMP-O-00045
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: ونظر جيش
+  - mention: m12
   note:
     ja: '「ونظر جيش حلب」。نظر الجيش＝TMP-O-00045（ID-Master 登録。初版は #NEEDID）。'
-  norm: نظر جيش
+  mention: m11
 assessments:
 - id: v1
-  quote: فاضلا
   terms:
   - فاضل
   by: rule
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -114,26 +100,96 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: وقيل أنه خرج لنفسه معجما لطيفا
   cert: medium
   note:
     ja: 自分のために小さな『ムウジャム』（師の目録）を編んだ、という伝聞（قيل → cert medium。初版は cert なし・英語 desc のみ）。
-  norm: قيل انه خرج لنفسه معجما لطيفا
+  phrase: وقيل أنه خرج لنفسه معجما لطيفا
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D01457
-    quote: ابن أبي عذيبة
-    norm: ابن ابي عذيبة
-  quote: ذكره
+  - mention: m18
   note:
     ja: Pattern A。ابن أبي عذيبة＝#AIND-D01457（ID-Master「旧TMP-P-000561（名寄せ 2026-10-19。D01457 أحمد بن محمد بن عمر الشهاب المقدسي الشافعي『ويعرف بابن أبي عذيبة』…）」）。初版の幻番号 TMP-P-000561（precheck）と統制外 relation（subtype「mentioned by」）を置換。
   trigger: rule
   phrase: ذكره ابن أبي عذيبة
+  mention: m17
 notes:
 - text: 「وكان فاضلا يستحضر نبذة جيدة من التاريخ وفوائد」＝人物評（訳のみ）。初版の residence event（دمشق、ニスバ由来）を除去（規則22(1)・(6)。没地 دمشق は原文明記なので death に保持）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الحسين
+- id: m4
+  kind: name
+  quote: النجم
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: name
+  quote: ابن المدني
+- id: m8
+  kind: person
+  ref: AIND-D13339
+  quote: عائشة ابنة ابن عبد الهادي
+  norm: عاءشة ابنة ابن عبد الهادي
+- id: m9
+  kind: office
+  ref: TMP-O-00008
+  quote: كتابة سر
+  norm: تابة سر
+- id: m10
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
+- id: m11
+  kind: office
+  ref: TMP-O-00045
+  quote: ونظر جيش
+  norm: نظر جيش
+- id: m12
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m13
+  kind: assessment
+  quote: فاضلا
+- id: m14
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m15
+  kind: month
+  value: 10
+  quote: شوال
+- id: m16
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m17
+  kind: source
+  quote: ذكره
+- id: m18
+  kind: person
+  ref: AIND-D01457
+  quote: ابن أبي عذيبة
+  norm: ابن ابي عذيبة
 translation:
   ja: ヤフヤー・ブン・ムハンマド・ブン・アル＝フサイン、アン＝ナジュム、アッ＝ディマシュキー、シャーフィイー派、イブン・アル＝マダニー。アーイシャ・ビント・イブン・アブド・アル＝ハーディーに聴いた。自分のために小さな『ムウジャム』を編んだともいわれる。シャームの機密文書庁長官（キターバト・アッ＝スィッル）とアレッポの軍務庁監督（ナザル・アル＝ジャイシュ）を務めた。学識があり、歴史についてのかなりの知識と有益な話を諳んじていた。852年シャウワール月、免職された身のままダマスクスで、60歳ほどで没した。イブン・アビー・ウザイバが彼を記している。
   en: Yaḥyā b. Muḥammad b. al-Ḥusayn, al-Najm, al-Dimashqī, the Shāfiʿī, Ibn al-Madanī. He heard from ʿĀʾisha bt. Ibn ʿAbd al-Hādī, and it is said that he compiled a small muʿjam for himself. He held the office of confidential secretary (kitābat al-sirr) of Syria and the supervision of the army bureau of Aleppo. He was a learned man who could call to mind a good portion of history and useful notes. He died in Damascus, out of office, in Shawwāl 852, aged about sixty. Ibn Abī ʿUdhayba mentioned him.

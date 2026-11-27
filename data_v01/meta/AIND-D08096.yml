@@ -9,36 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00349
-    quote: الوفائي
-    norm: الوفاءي
+    mention: m5
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n3
     type: kunyah
-    quote: null
     label: أبو الفوز
+    mention: null
   - id: n4
     type: shuhrah
-    quote: ابن البريدي
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: عادل
     by: rule
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 persons:
 - id: p1
   label: علي بن عادل
@@ -51,13 +48,12 @@ relations:
   subtype: father
   active: AIND-D08096#p1
   passive: AIND-D08096
-  quote: null
   note:
     ja: 父 علي بن عادل は名＋父名のみで識別要素がなく、corpus に本伝なし・ID-Master 未登録（規則3 (c')）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D08096
   methods:
   - TMP-S-00025
@@ -68,7 +64,6 @@ relations:
     phrase: قرأ علي بمجلس يشبك الفقيه في السيرة النبوية للدمياطي
   works:
   - ref: TMP-T-00259
-  quote: علي
   note:
     ja: 「قرأ علي بمجلس يشبك الفقيه في السيرة النبوية للدمياطي」＝本項主がサハーウィーに読誦（規則2・15、active=サハーウィー）。場は يشبك الفقيه＝#AIND-D10358（يشبك من سلمان شاه المؤيدي الفقيه、没878。D10358 本文「وكاتبه فقرأ على بعض البخاري … بل وسمع من لفظي قديما القول البديع」＝サハーウィーが同人の邸で読誦した）の学問の集まり（مجلس）であり、場所・所属ではないので初版の affiliation（study「مجلس يشبك الفقيه」）と colleague relation（#NEEDID يشبك الفقيه）を除去し event 内 persName に。書名『السيرة النبوية للدمياطي』は ID-Master 未登録 → 新規 TMP-T-00259（corpus D03799 に「سيرة الدمياطي」）。初版の field「السيرة」（TMP-S-00062）は書名の重複なので除去。
 affiliations:
@@ -79,6 +74,40 @@ notes:
 - text: 「وكان فهما لا بأس به فيما أرى」＝サハーウィーの評価（まずまずの理解力）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عادل
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00349
+  quote: الوفائي
+  norm: الوفاءي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: name
+  quote: ابن البريدي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m9
+  kind: person
+  ref: AIND-D10358
+  label: learning
+  quote: يشبك الفقيه
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アーディル、ナースィル・アッ＝ディーン・アル＝ワファーイー・アル＝ハナフィー。アブー・アル＝ファウズ・イブン・アル＝バリーディーとして知られる。ヤシュバク・アル＝ファキーフの集会で、私にアッ＝ディムヤーティーの『預言者伝』を読誦した。私の見るところ、まずまずの理解力があった。
   en: Muḥammad b. ʿAlī b. ʿĀdil, Nāṣir al-Dīn al-Wafāʾī al-Ḥanafī, known as Abū al-Fawz Ibn al-Barīdī. He read to me al-Dimyāṭī's Sīra of the Prophet at the assembly of Yashbak al-Faqīh. He had a tolerable understanding, as far as I could see.

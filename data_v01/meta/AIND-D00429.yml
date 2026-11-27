@@ -11,35 +11,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00009
-    quote: النابلسي
+    mention: m6
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m4
   - id: n3
     type: kunyah
-    quote: أبو العباس
-    norm: ابو العباس
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بابن الدرويش
-    norm: ابن الدرويش
     label: ابن الدرويش
+    mention: m7
   - id: n5
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n7
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
 death:
   id: d
   date:
@@ -50,18 +44,17 @@ death:
       He lived until he granted an ijaza in the year '21 (likely 821 AH),
                   implying his death was after or in that year. The specific death date is not explicitly
                   stated.
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000173
+  active: m8
   passive: AIND-D00429
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00019
-  quote: الميدومي
 - id: r2
   type: scholarly
   subtype: teacher
@@ -71,7 +64,6 @@ relations:
   - TMP-S-00003
   works:
   - ref: TMP-T-00089
-  quote: null
 - id: r3
   type: scholarly
   subtype: teacher
@@ -82,17 +74,14 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00009
-      quote: بالصف
-      norm: الصف
+    - mention: m9
   works:
   - ref: TMP-T-00019
-  quote: null
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D00429
-  passive: AIND-D10816
+  passive: m10
   methods:
   - TMP-S-00030
   context:
@@ -100,13 +89,11 @@ relations:
     date:
       ah: 802
       type: teaching
-  quote: التقي أبو بكر القلقشندي
-  norm: التقي ابو بكر القلقشندي
 - id: r5
   type: scholarly
   subtype: teacher
   active: AIND-D00429
-  passive: AIND-D06758
+  passive: m13
   methods:
   - TMP-S-00004
   context:
@@ -114,7 +101,6 @@ relations:
     date:
       ah: 821
       type: teaching
-  quote: ابن شيخنا
 events:
 - id: e1
   type: cultural
@@ -126,14 +112,71 @@ events:
     en: |-
       Granted ijaza (license to transmit knowledge) in a request
                   (istidʿāʾ).
-  quote: أجاز
   cert: low
   note:
     en: |-
       The year is inferred as 821 AH based on the period of other mentioned
                   scholars.
   trigger: rule
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  quote: أبو العباس
+  norm: ابو العباس
+- id: m6
+  kind: name
+  ref: TMP-N-00009
+  quote: النابلسي
+- id: m7
+  kind: name
+  quote: بابن الدرويش
+  norm: ابن الدرويش
+- id: m8
+  kind: person
+  ref: TMP-P-000173
+  quote: الميدومي
+- id: m9
+  kind: place
+  quote: بالصف
+  ref: TMP-L-00009
+  norm: الصف
+- id: m10
+  kind: person
+  ref: AIND-D10816
+  quote: التقي أبو بكر القلقشندي
+  norm: التقي ابو بكر القلقشندي
+- id: m11
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m12
+  kind: event
+  quote: أجاز
   norm: اجاز
+- id: m13
+  kind: person
+  ref: AIND-D06758
+  quote: ابن شيخنا
+- id: m14
+  kind: year
+  value: '821'
+  quote: سنة
 translation:
   ja: アハマド・ブン・イブラーヒーム・ブン・イスマーイール。ラカブは「シハーブ」、クンヤは「アブー・アル＝アッバース」、ニスバは「アル＝ナーブルスィー」。イブン・アッ＝ダルウィーシュとしても知られる。彼はアル＝マイドゥーミーから『アル＝ムサルサル』などを聞いた。またイブン・アル＝カーリーからは『ジュズー・イブン・アッ＝タラーヤ』と、アル＝サッフで『アル＝ムサルサル』を聞いた。伝承を行い、我らがシャイフ（イブン・ハジャル）の弟子であるアッ＝タキー・アブー・バクル・アル＝カルカシャンディーらが802年に彼からこれ（伝承）を聞いた。彼は821年に我らがシャイフの子（イブン・ハジャルの息子）のためにイジャーザを授与するまで生きた。
   en: Aḥmad b. Ibrāhīm b. Ismāʿīl, al-Shihāb Abū al-ʿAbbās al-Nābulusī, also known as Ibn al-Darwīsh. He heard al-Musalsal and other works from al-Maydūmī, and Juzʾ Ibn al-Ṭalāya and al-Musalsal in al-Ṣaff from Ibn al-Qārī. He transmitted (ḥaddatha), and our shaykh (Ibn Ḥajar al-ʿAsqalānī)'s student, al-Taqī Abū Bakr al-Qalqashandī, and others heard that from him in the year '02 (802 AH). He lived until he granted an ijaza in a request in the year '21 (821 AH) for Ibn Shaykhinā (Ibn Ḥajar's son).

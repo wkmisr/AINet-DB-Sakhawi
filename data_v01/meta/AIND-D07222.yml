@@ -9,46 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m10
   - id: n2
     type: laqab
-    quote: البدر
+    mention: m9
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001508
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m5
   - id: n8
     type: nasab
-    quote: عمر
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m8
 death:
   id: d
   date:
@@ -60,14 +56,12 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001508
+  active: m13
   passive: AIND-D07222
   summary:
     ar: أبو بكر بن عمر بن عثمان بن أبي بكر الناشري
-  quote: أبيه
   note:
     ja: 父は見出しのナサブから復元（أبو بكر بن عمر بن عثمان بن أبي بكر بن عمر بن عبد الرحمن بن عبد الله الناشري）。原文「أبيه المتوفي في سنة ستين وسبعمائة」＝760年没（8世紀人物＝AIND 対象外）。corpus の الناشري 見出し（D00602・D05084・D05815・D10822 等の主流 …بن علي بن محمد بن أبي بكر بن عبد الله 系、D05453 の …بن عمر بن أبي بكر بن عمر بن عبد الرحمن 系）に本伝なし、ID-Master 未登録 → TMP-P-001508。
-  norm: ابيه
 - id: r2
   type: kin
   subtype: son
@@ -75,7 +69,6 @@ relations:
   passive: AIND-D07222
   summary:
     ar: أبو بكر بن محمد بن أبي بكر بن عمر الناشري
-  quote: null
   note:
     ja: '「والد أبي بكر وعلي」。corpus のクンヤ部 أبو بكر بن محمد الناشري は #AIND-D10822（أبو بكر بن محمد بن أبي بكر بن علي بن محمد …＝祖父が علي）のみで本項主の子（祖父 عمر بن عثمان）とは別人。初版の TMP-P-000064（登録実体＝D0031 の姻戚 أبو بكر、汚染番号）を解除し、ナサブ復元で新規 TMP-P-001509。'
 - id: r3
@@ -85,30 +78,83 @@ relations:
   passive: AIND-D07222
   summary:
     ar: علي بن محمد بن أبي بكر بن عمر الناشري
-  quote: null
   note:
     ja: 'corpus の علي بن محمد … الناشري 見出し（#AIND-D05400 علي بن محمد بن إسماعيل، #AIND-D05453 علي بن محمد بن عبد الله）はいずれも父名が異なり別人。初版の TMP-P-000530（登録実体＝D04287 の兄弟 علي、汚染番号）を解除し新規 TMP-P-001510。'
 events:
 - id: e2
   type: cultural
   persons:
-  - ref: TMP-P-001507
-    quote: المجاهد
-  quote: لما حج المجاهد مدحه بقصيدة ضمنها مناسك الحج
+  - mention: m15
   cert: low
   note:
     ja: 'المجاهد ＝ ラスール朝の الملك المجاهد علي بن المؤيد داود（corpus D13243「سلامة ابنة الملك المجاهد علي بن المؤيد داود」の父。8世紀人物）。ID-Master 未登録 → TMP-P-001507（wd は Waka 実照合）。巡礼の年は原文に無い。【集約】頌詩の主語（「أنه … مدحه」の「هو」）は本項主とも父（760没、TMP-P-001508）とも読める：逸話は الخزرجي による父の伝記の中にあり、本項主は語り手（「حكى عنه」）。المجاهد の巡礼は 742・751 年で、800 年以後没の本項主が詠んだとするとかなりの長命になる。主語を断定しないため event に cert="low"（内容B M）。初版の patron relation と placeName مكة（巡礼からの地名補完＝規則22(1)）を除去し、頌詩献呈を本 event のみで表現（先例 #AIND-D05997「فمدح بها الأكابر」）。'
+  phrase: لما حج المجاهد مدحه بقصيدة ضمنها مناسك الحج
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05108
-    quote: أبو الحسن الخزرجي
-    norm: ابو الحسن الخزرجي
-  quote: ترجمة
+  - mention: m11
   note:
     ja: 'Pattern A。أبو الحسن الخزرجي ＝ #AIND-D05108（علي بن الحسن بن أبي بكر … موفق الدين أبو الحسن الخزرجي الزبيدي اليمني المؤرخ、812没。先例 #AIND-D04630）。本項主の父（760没）の伝記中で本項主の語りを引く。初版の subtype="narrator" relation（#NEEDID）を mention event に変更。書名は原文に無いため bibl なし。'
   trigger: rule
   phrase: حكى عنه أبو الحسن الخزرجي في ترجمة أبيه المتوفي في سنة ستين وسبعمائة
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001508
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  quote: عثمان
+- id: m5
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  quote: عمر
+- id: m7
+  kind: name
+  quote: عبد الرحمن
+- id: m8
+  kind: name
+  quote: عبد الله
+- id: m9
+  kind: name
+  quote: البدر
+- id: m10
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m11
+  kind: person
+  ref: AIND-D05108
+  quote: أبو الحسن الخزرجي
+  norm: ابو الحسن الخزرجي
+- id: m12
+  kind: source
+  quote: ترجمة
+- id: m13
+  kind: person
+  ref: TMP-P-001508
+  quote: أبيه
+  norm: ابيه
+- id: m14
+  kind: year
+  value: '760'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: TMP-P-001507
+  quote: المجاهد
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ウマル・ブン・ウスマーン・ブン・アビー・バクル・ブン・ウマル・ブン・アブドゥッラフマーン・ブン・アブドゥッラー、アル＝バドル・アン＝ナーシリー。アブー・バクルとアリーの父。800年より後に没した。アブー・アル＝ハサン・アル＝ハズラジーが、760年に没した彼の父の伝記の中で彼から伝えるところでは、アル＝ムジャーヒドが巡礼した際に、彼（本項主あるいはその父）が巡礼の諸儀礼を詠み込んだカスィーダで彼（アル＝ムジャーヒド）を称えたという。
   en: Muḥammad b. Abī Bakr b. ʿUmar b. ʿUthmān b. Abī Bakr b. ʿUmar b. ʿAbd al-Raḥmān b. ʿAbd Allāh, al-Badr al-Nāshirī, the father of Abū Bakr and ʿAlī. He died after 800. Abū al-Ḥasan al-Khazrajī related on his authority, in the biography of his father, who died in the year 760, that when al-Mujāhid performed the pilgrimage he (the subject or his father) praised him with an ode into which he worked the rites of the ḥajj.

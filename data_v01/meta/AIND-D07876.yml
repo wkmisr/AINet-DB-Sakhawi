@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00692
-    quote: الحمامي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: عبد الله
@@ -31,13 +30,12 @@ relations:
   subtype: father
   active: AIND-D07876#p1
   passive: AIND-D07876
-  quote: null
   note:
     ja: '父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c'')）。初版の #TMP-P-000490（汚染番号）を除去。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m4
   passive: AIND-D07876
   methods:
   - TMP-S-00003
@@ -51,6 +49,20 @@ relations:
     phrase: ممن سمع مني قريب التسعين
     note:
       ja: 「قريب التسعين」＝890年頃（1485-01-27 開始、h2g.py）。「قريب الN」は年表現として基準年を置き cert low（規則4、先例 D04164・D02258）。初版の非ISO値 when="ca. 890" を修正。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00692
+  quote: الحمامي
+- id: m4
+  kind: person
+  ref: wd:Q4120128
   quote: مني
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝ハンマーミー。890年近くに私（サハーウィー）から聴聞した者の一人。

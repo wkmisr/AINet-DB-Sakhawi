@@ -9,38 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m4
   - id: n4
     type: shuhrah
-    quote: بالأدهمي
-    norm: الادهمي
     label: الأدهمي
+    mention: m8
   - id: n5
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 persons:
 - id: p1
   label: أحمد بن يوسف
@@ -53,33 +48,28 @@ relations:
   subtype: father
   active: AIND-D10446#p1
   passive: AIND-D10446
-  quote: null
   note:
     ja: 規則3 (c')。父は見出しナサブのみで識別要素なし。初版は父 relation なし＝追加。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D00278
+  active: m9
   passive: AIND-D10446
-  quote: بالبرهان بن الديري
   note:
     ja: '「اختص بالبرهان بن الديري」＝仕えた型（規則56）→ patron。البرهان بن الديري＝corpus 本伝 #AIND-D00278「إبراهيم بن محمد بن عبد الله بن سعد القاضي برهان الدين بن الشمس الديري المقدسي الحنفي نزيل القاهرة وأخو القاضي سعد الدين سعد الآتي ويعرف كسلفه بابن الديري … ومات في ليلة الجمعة تاسع المحرم سنة ست وسبعين」（未収録）。ラカブ・家名 ابن الديري・エルサレム出身のハナフィー派（本項主も المقدسي الحنفي）で閉合（規則57）。ابن الديري 家で البرهان を名乗る本伝は D00278 のみ（見出し検索「الديري」）。初版 #NEEDID。'
-  norm: البرهان بن الديري
   phrase: البرهان بن الديري
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D08486
+  active: m10
   passive: AIND-D10446
-  quote: محمد بن قانباي اليوسفي
   note:
     ja: '「ثم بالناصري محمد بن قانباي اليوسفي المهمندار」＝corpus 本伝 #AIND-D08486「محمد بن قانباي اليوسفي الماضي أبوه . ولي المهمندارية بعد أبيه … ثم اختص بالدوادار الكبير يشبك من مهدي」（未収録）。名・父名・ニスバ・職（المهمندار）で閉合。直前の #AIND-D08485「محمد بن قانباي الجركسي」（846年没）は別人。ブリーフ候補を本文で確認。初版 #NEEDID。'
 - id: r4
   type: social
   subtype: rival
-  active: AIND-D08367
+  active: m12
   passive: AIND-D10446
-  quote: الشمس بن المغربي الغزي
   note:
     ja: '「ورافع في قاضي الحنفية الشمس بن المغربي الغزي فلم يصل منه لغرضه」＝ハナフィー派カーディーを訴え出た（مرافعة）が目的を果たせなかった。corpus 本伝 #AIND-D08367「محمد بن عمر بن محمد بن مسعود الشمس أبو عبد الله بن الزين الغزي الحنفي ويعرف بابن المغربي . ولد سنة عشرين وثمانمائة بغزة」（未収録）。ラカブ・ニスバ・通称で閉合、#AIND-D08111「ابن المغربي الغزي قاضي الحنفية」が職を裏づける。ブリーフ候補を本文で確認。初版 #NEEDID。'
 states:
@@ -87,10 +77,9 @@ states:
   type: status
   label: تنزل في الجهات
   label_latn: tanazzala fī al-jihāt
-  quote: وتنزل في الجهات
   note:
     ja: 諸施設の有給ポスト（الجهات）に名を連ねた。施設名は原文になし。初版になし＝追加。
-  norm: تنزل في الجهات
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -100,10 +89,57 @@ events:
   type: political
   persons:
   - ref: AIND-D08367
-  quote: ورافع في قاضي الحنفية الشمس بن المغربي الغزي فلم يصل منه لغرضه
   note:
     ja: 「قاضي الحنفية」は相手の職＝本項主の state にしない。年・場所は原文になし。
-  norm: رافع في قاضي الحنفية الشمس بن المغربي الغزي فلم يصل منه لغرضه
+  phrase: ورافع في قاضي الحنفية الشمس بن المغربي الغزي فلم يصل منه لغرضه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m6
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: name
+  quote: بالأدهمي
+  norm: الادهمي
+- id: m9
+  kind: person
+  ref: AIND-D00278
+  quote: بالبرهان بن الديري
+  norm: البرهان بن الديري
+- id: m10
+  kind: person
+  ref: AIND-D08486
+  quote: محمد بن قانباي اليوسفي
+- id: m11
+  kind: office
+  quote: وتنزل في الجهات
+  norm: تنزل في الجهات
+- id: m12
+  kind: person
+  ref: AIND-D08367
+  quote: الشمس بن المغربي الغزي
 translation:
   ja: ユースフ・ブン・アフマド・ブン・ユースフ、アル＝ジャマール、ルームの出、アル＝マクディスィー、アル＝ハナフィー、アル＝アドハミーとして知られる。アル＝ブルハーン・ブン・アッ＝ダイリーに、ついでアン＝ナースィリー・ムハンマド・ブン・カーニバーイ・アル＝ユースフィー（ミフマンダール）に近侍した。諸施設の職に名を連ね、ハナフィー派のカーディーであるアッ＝シャムス・ブン・アル＝マグリビー・アル＝ガッズィーを訴え出たが、彼に対して目的を達することはできなかった。
   en: Yūsuf b. Aḥmad b. Yūsuf, al-Jamāl, of Rūmī origin, al-Maqdisī, al-Ḥanafī, known as al-Adhamī. He attached himself closely to al-Burhān b. al-Dīrī, then to al-Nāṣirī Muḥammad b. Qānibāy al-Yūsufī, the mihmandār. He obtained stipendiary positions in the institutions, and he brought a complaint against the Ḥanafī qāḍī al-Shams b. al-Maghribī al-Ghazzī, but did not attain his aim against him.

@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عطية
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -22,7 +22,7 @@ death:
   note:
     ar: وساءت سيرته فأمسكوه بعده وادعى عليه بما يوجب الكفر وخرج لتقام البينة فهجم العامة وسحبوه من رسله ثم ضربه بعضهم بسكين فقتله ثم أحرق وذلك في جمادى الآخرة سنة ثمان وستين
     ja: '死因: 不信仰（كفر）を構成する行為で告発され、証人尋問に出た際に群衆が襲い、護送人から引きずり出し、刃物で刺殺され、遺体は焼かれた。868-06＝1464-02-19〜03-18、月初 1464-02。没地は原文に明記なし（文脈上はダマスクスだが「فيها」の継続は規則22(1)により不可＝初版の placeName الشام を除去し本 note に留める）。「بعده」＝主人 تنم المؤيدي の死（868年ジュマーダー・アル＝ウーラー、#AIND-D02314）の後。'
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: عطية
@@ -35,59 +35,83 @@ relations:
   subtype: father
   active: AIND-D07970#p1
   passive: AIND-D07970
-  quote: null
   note:
     ja: 規則3。父 عطية は裸名で corpus に本伝なし。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02390
+  active: m3
   passive: AIND-D07970
-  quote: جانم الأشرفي
   note:
     ja: '「كان يخدم برددارا عند جانم الأشرفي بحلب ثم بالشام」＝仕えた型（規則56、active=主人）。جانم الأشرفي ＝ #AIND-D02390「جانم الأشرفي برسباي بل هو قريبه … ثم أعطاه نيابة حلب ثم الشام … قتله من مماليكه في ربيع الاول سنة سبع وستين」（ハラブ総督→ダマスクス総督、867年没、未収録）。ハラブ→ダマスクスの順が本項と一致。'
-  norm: جانم الاشرفي
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02314
+  active: m6
   passive: AIND-D07970
-  quote: تنم المؤيدي
   note:
     ja: '「وبعده استقر فيها أيضا عند تنم المؤيدي」（規則56）。تنم المؤيدي ＝ #AIND-D02314「تنم من عبد الرزاق الجركسي المؤيدي … واستقر به في نيابة الشام … إلى أن مات بها في جمادى الاولى سنة ثمان وستين」（جانم の後任のダマスクス総督、868年没、未収録）。'
-  norm: تنم المءيدي
 states:
 - id: s1
   type: office
   ref: TMP-O-00372
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
-  quote: null
+  - mention: m4
   note:
     ja: 「كان يخدم برددارا عند جانم الأشرفي بحلب」。برددار（アミールの門衛・取次役）は ID-Master の Office に未登録（語根 برد／دار で grep、人物 TMP-P-000918「الجرمكي البرددار」のみ）→ TMP-O-00372。
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00372
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
-  quote: null
+  - mention: m5
   note:
     ja: 「ثم بالشام وبعده استقر فيها أيضا عند تنم المؤيدي」。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
-  quote: وبعده استقر فيها أيضا
+  - mention: m5
   note:
     ja: 「فيها」＝直前の الشام。
-  norm: بعده استقر فيها ايضا
+  phrase: وبعده استقر فيها أيضا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عطية
+- id: m3
+  kind: person
+  ref: AIND-D02390
+  quote: جانم الأشرفي
+  norm: جانم الاشرفي
+- id: m4
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m5
+  kind: place
+  quote: بالشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m6
+  kind: person
+  ref: AIND-D02314
+  quote: تنم المؤيدي
+  norm: تنم المءيدي
+- id: m7
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m8
+  kind: year
+  value: '868'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アティーヤ。ジャーニム・アル＝アシュラフィーのもとでバルッダール（門衛・取次役）として、ハラブで、次いでシャーム（ダマスクス）で仕え、彼（ジャーニム）の後にはやはりそこでタナム・アル＝ムアイヤディーのもとに落ち着いた。素行が悪くなり、彼（タナム）の後に捕らえられ、不信仰にあたる事柄で告発され、証人尋問のために連れ出されたところ、民衆が襲いかかって彼を護送人の手から引きずり出し、その一人が刃物で刺して殺し、ついで（遺体は）焼かれた。それは868年ジュマーダー・アル＝アーヒラ月のことで、誰にも惜しまれなかった。彼は時代の悪徳、時世の醜行の一つであった。
   en: Muḥammad b. ʿAṭiyya. He served as barddār (doorkeeper-usher) under Jānim al-Ashrafī in Aleppo and then in Syria (Damascus), and after him he likewise settled there under Tanam al-Muʾayyadī. His conduct deteriorated; after the latter's death he was arrested and charged with something entailing unbelief. When he was brought out so that evidence could be given, the mob attacked him, dragged him away from his escorts, one of them stabbed him with a knife and killed him, and he was then burned. That was in Jumādā II of the year 868, unlamented, for he was one of the evils of the age and the abominations of the time.

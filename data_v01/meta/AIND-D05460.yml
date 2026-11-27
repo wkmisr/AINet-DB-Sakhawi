@@ -9,22 +9,20 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بالهنيدي
-    norm: الهنيدي
     label: الهنيدي
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد الله المؤذن بجامع
     by: rule
-    norm: عبد الله المءذن بجامع
+    mention: m3
 persons:
 - id: p1
   label: محمد بن عبد الله
@@ -35,18 +33,15 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D05460
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m6
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
   note:
     ja: 規則2（年の記載なし）。
 - id: r2
@@ -54,7 +49,6 @@ relations:
   subtype: father
   active: AIND-D05460#p1
   passive: AIND-D05460
-  quote: null
   note:
     ja: '規則3。裸の汎用名（ニスバもなし）、corpus に本伝なし → #NEEDID。'
 states:
@@ -63,9 +57,33 @@ states:
   ref: wd:Q239718
   orgs:
   - ref: TMP-I-00239
-  quote: null
   note:
     ja: '「المؤذن بجامع كمال」。جامع كمال（カイロ الحسينية のモスク。corpus D01454・D05834・D07930・D10292「جامع كمال من الحسينية」）は ID-Master 未登録 → 仮番号 TMP-I-00239（初版 #NEEDID）。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الله المؤذن بجامع
+  norm: عبد الله المءذن بجامع
+- id: m4
+  kind: name
+  quote: بالهنيدي
+  norm: الهنيدي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アブドゥッラー、ジャーミウ・カマールのムアッズィン。アル＝フナイディーとして知られる。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Muḥammad b. ʿAbd Allāh, the muezzin of Jāmiʿ Kamāl, known as al-Hunaydī. He was among those who heard from me (al-Sakhāwī) in Cairo.

@@ -9,49 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01985
-    quote: البرمي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-04688
-    quote: العلجوني
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m8
   - id: n4
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n5
     type: nisbah
-    ref: TMP-N-00072
-    quote: الكتبي
+    mention: m11
   - id: n6
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n7
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m2
   - id: n9
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m3
   - id: n10
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m4
   - id: n11
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m10
 birth:
   id: b
   places:
@@ -70,26 +63,24 @@ relations:
   subtype: father
   active: AIND-D07952#p1
   passive: AIND-D07952
-  quote: null
   note:
     ja: '父 عثمان بن عيسى بن سليمان は識別要素なし（corpus に本伝なし: hw.py「عثمان بن عيسى」該当は別人のみ）。規則3 (c'') で #NEEDID。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D07952
   methods:
   - TMP-S-00003
-  quote: مني
   note:
     ja: 「سمع مني」（規則2）。初版の field الحديث を除去。
 states:
 - id: s1
   type: office
   ref: TMP-O-00020
-  quote: null
   note:
     ja: 見出しの「الكتبي」＝書籍商（生業）。ID-Master の Office تكسب بالكتب＝TMP-O-00020 を充当。初版は nisbah のみ（state なし）。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -98,6 +89,51 @@ notes:
 - text: 「العلجوني الأصل」＝出自のニスバ（限定語 الأصل は出自＝event にしない）。初版の residence event دمشق はニスバ「الدمشقي」からの補完＝除去（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m4
+  kind: name
+  quote: سليمان
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  ref: TMP-N-01985
+  quote: البرمي
+- id: m7
+  kind: name
+  ref: TMP-N-04688
+  quote: العلجوني
+- id: m8
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m11
+  kind: name
+  ref: TMP-N-00072
+  quote: الكتبي
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・ウスマーン・ブン・イーサー・ブン・スライマーン、アッ＝シャムス、アル＝バルミー、出自はアル＝アルジューニー、生まれはアッ＝サーリヒー、アッ＝ディマシュキー、アル＝ハンバリー、書籍商（アル＝クトゥビー）。私（サハーウィー）から聴聞した。
   en: Muḥammad b. ʿUthmān b. ʿĪsā b. Sulaymān, al-Shams, al-Barmī, al-ʿAljūnī by origin, al-Ṣāliḥī by birth, al-Dimashqī, al-Ḥanbalī, al-Kutubī (the bookseller). He heard from me (al-Sakhāwī).

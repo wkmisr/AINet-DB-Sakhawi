@@ -10,18 +10,18 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00141
-    quote: null
+    mention: null
   - id: n2
     type: ism
-    quote: بك
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 872
   note:
     ja: '「قتل في وقعة سوار في سنة اثنتين وسبعين شابا」＝872年（1467-08-11 開始、年精度）、スワール（シャー・スワール）との戦いで若くして戦死。没地の記載なし。先例 #AIND-D02092（同じ「قتل في وقعة سوار سنة اثنتين وسبعين」）。'
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد بك بلاط الأشرفي
@@ -30,59 +30,80 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m2
   passive: AIND-D02206
   summary:
     ar: الأشرفي إينال
-  quote: الاشرفي إينال
   note:
     ja: '見出しのニスバ「الأشرفي إينال」＝主人（أستاذ）はアル＝アシュラフ・イーナール（#AIND-D02110）。本文「نفي بعد أستاذه」の أستاذ も同人。初版は #NEEDID。'
-  norm: الاشرفي اينال
 - id: r2
   type: kin
   subtype: father
   active: AIND-D02206#p1
   passive: AIND-D02206
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: الأمير
+  - mention: m4
   note:
     ja: 「نفي بعد أستاذه إلى طرابلس على إمرة بها إلى أن قتل」＝トリポリへの追放と同時にそこでのアミール職（位階の記載なし）を与えられ、戦死まで在任。
-  norm: الامير
+  mention: m7
 events:
 - id: e1
   type: political
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m4
   summary:
     ar: نفي بعد أستاذه إلى طرابلس على إمرة بها
-  quote: قتل
   note:
     ja: 主人イーナール（865年没）の死後にトリポリへ追放された。時期の明記なし。
   trigger: rule
+  mention: m5
 - id: e2
   type: political
   date:
     ah: 872
     type: political
-  quote: نفي
   note:
     ja: 「وقعة سوار」＝ズルカドル朝シャー・スワール（سوار）との戦い（872年）。場所の記載なし。
   trigger: rule
   phrase: قتل في وقعة سوار في سنة اثنتين وسبعين شابا
+  mention: m3
 notes:
 - text: 末尾「وبك هو الأمير」＝名の語釈（「ベク」はアミールの意）。称号ではないので persName（honorific・laqab）には立てない。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: بك
+- id: m2
+  kind: person
+  ref: AIND-D02110
+  quote: الاشرفي إينال
+  norm: الاشرفي اينال
+- id: m3
+  kind: event
+  quote: نفي
+- id: m4
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: year
+  value: '872'
+  quote: سنة
+- id: m7
+  kind: office
+  ref: TMP-O-00014
+  quote: الأمير
+  norm: الامير
 translation:
   ja: ベク・ブラート・アル＝アシュラフィー・イーナール。主人（イーナール）の死後にトリポリへ追放され、同地のアミール職を与えられていたが、872年のスワールの戦いで若くして戦死した。「ベク」とはアミールのことである。
   en: Bak Bulāṭ al-Ashrafī Īnāl. After his master's death he was banished to Tripoli, holding an amirate there, until he was killed, still a young man, in the battle of Suwār in the year 872. "Bak" means "amir".

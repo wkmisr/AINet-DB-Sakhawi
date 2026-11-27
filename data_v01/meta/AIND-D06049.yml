@@ -9,53 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m7
   - id: n2
     type: ism
-    quote: عنان
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05327
+    mention: m2
   - id: n4
     type: nasab
-    quote: عنان
     by: rule
-    ref: AIND-D06051
+    mention: m3
   - id: n5
     type: nasab
-    quote: مغامس
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: رميثة
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: أبي نمي
     by: rule
-    norm: ابو نمي
+    mention: m6
 death:
   id: d
   date:
     ah: 830
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m10
   note:
     ja: 「ومات بالقاهرة سنة ثلاثين」。830 ＝ 1426-11-11〜1427-10-30、年初 1426（初版は 1427）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D05327
   passive: AIND-D06049
-  quote: null
   note:
     ja: '見出しナサブ「عنان بن علي بن عنان بن مغامس بن رميثة بن أبي نمي」の父 ＝ #AIND-D05327「علي بن عنان بن مغامس بن رميثة بن أبي نمي العلاء أبو الحسن الحسني المكي」（827年マッカ太守）。ナサブ5代一致・corpus に同名別人なし。父・祖父は本項主自身の見出しナサブにある情報で規則23（他項にのみある情報）の対象外のため relation を立てる（規則3・10、D06082 と統一。検証後訂正 2026-10-10: 校閲は editorial note 留め、§D112-1）。ニスバの「الحسيني」（本項）と「الحسني」（D05327）の相違は原文どおり（規則25）。'
   phrase: علي بن عنان بن مغامس
@@ -64,14 +57,13 @@ relations:
   subtype: grandfather
   active: AIND-D06051
   passive: AIND-D06049
-  quote: null
   note:
     ja: '祖父 ＝ #AIND-D06051「عنان بن مغامس بن رميثة بن أبي نمي الزين أبو لجام الحسني المكي أميرها」（742年生、マッカ太守）。父 D05327 の見出し「علي بن عنان بن مغامس」と連鎖して一致（規則3・10。検証後訂正 2026-10-10）。'
   phrase: عنان بن مغامس
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D09163
+  active: m8
   passive: AIND-D06049
   methods:
   - TMP-S-00003
@@ -82,7 +74,6 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00219
-  quote: ابن الجزري
   note:
     ja: '「ممن سمع على ابن الجزري في سنة ثلاث وعشرين غالب كتابه الحصن الحصين」。ابن الجزري ＝ #AIND-D09163（Waka 裁定 2026-10-10。wd:Q4120093 は人物参照に使わない）。著書『الحصن الحصين』は ID-Master 未登録のため新規 TMP-T-00219。823 ＝ 1420-01-26〜1421-01-14、年初 1420。'
 notes:
@@ -92,15 +83,64 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m13
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 830（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版は death の note に英文で記すのみ。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عنان
+- id: m2
+  kind: name
+  ref: AIND-D05327
+  quote: علي
+- id: m3
+  kind: name
+  ref: AIND-D06051
+  quote: عنان
+- id: m4
+  kind: name
+  quote: مغامس
+- id: m5
+  kind: name
+  quote: رميثة
+- id: m6
+  kind: name
+  quote: أبي نمي
+  norm: ابو نمي
+- id: m7
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m8
+  kind: person
+  ref: AIND-D09163
+  quote: ابن الجزري
+- id: m9
+  kind: year
+  value: '823'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m11
+  kind: year
+  value: '830'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アナーン・ブン・アリー・ブン・アナーン・ブン・ムガーミス・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝フサイニー。（8）23年にイブン・アル＝ジャザリーのもとで、その著書『アル＝ヒスン・アル＝ハスィーン』の大部分を聴聞した者の一人。（8）30年にカイロで没した。イブン・ファハドがその没年を記している。
   en: ʿAnān b. ʿAlī b. ʿAnān b. Mughāmis b. Rumaytha b. Abī Numayy al-Ḥusaynī. He was among those who heard most of his book al-Ḥiṣn al-Ḥaṣīn from Ibn al-Jazarī in the year (8)23. He died in Cairo in the year (8)30. Ibn Fahd recorded his death date.

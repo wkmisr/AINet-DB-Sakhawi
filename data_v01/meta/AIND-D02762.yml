@@ -9,57 +9,87 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02010
-    quote: الاعزاري
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00322
-    quote: البسطامي
+    mention: m3
   - id: n3
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 825
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m6
+  - role: burial
+    mention: m8
   persons:
   - ref: AIND-D05981
     role: buried_near
   note:
     en: He died in Mecca and was buried in al-Mu'alla cemetery next to Shaykh 'Umar al-'Urabi. / The subject was buried next to him in al-Muʿallā cemetery.
     ja: عمر العرابي＝メッカの著名スーフィー。corpus内に D02940・D03085・D04138 等で頻出するが本伝未特定＝TMP発行。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D01239
+  active: m5
   passive: AIND-D02762
   methods:
   - TMP-S-00034
   cert: medium
-  quote: ابن الأطعاني
   note:
     ja: ابن الأطعاني = AIND-D01239（الشهاب بن البدر بن الشهاب بن الأطعاني الحلبي）と同定。息子 AIND-D00700 が「شيخ زاوية ابن الأطعاني بحارة المشارقة ظاهر حلب」であることから同家・同ザーウィヤ圏と確認。同名の家系複数世代のためcert="medium"。
-  norm: ابن الاطعاني
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00700
+  active: m4
   passive: AIND-D02762
-  quote: أحمد
   note:
     ja: 「والد أحمد الماضي」＝أحمد بن حسين البسطامي بن الإعزازي = AIND-D00700（ニスバ・ザーウィヤ・メッカ没で相互閉合）。
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  ref: TMP-N-02010
+  quote: الاعزاري
+- id: m3
+  kind: name
+  ref: TMP-N-00322
+  quote: البسطامي
+- id: m4
+  kind: person
+  ref: AIND-D00700
+  quote: أحمد
   norm: احمد
+- id: m5
+  kind: person
+  ref: AIND-D01239
+  quote: ابن الأطعاني
+  norm: ابن الاطعاني
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: year
+  value: '825'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m9
+  kind: person
+  ref: AIND-D05981
+  quote: عمر العرابي
 translation:
   ja: フサイン・アル＝アアザーリー・アル＝ビスターミー。以前言及されたアフマドの父。イブン・アル＝アトアーニーに同行（師事）した。ヒジュラ暦825年にメッカで亡くなり、シャイフ・ウマル・アル＝ウラービーの隣、アル＝ムアッラー墓地に埋葬された。
   en: Ḥusayn al-Aʿzārī al-Bisṭāmī, the father of the aforementioned Aḥmad. He accompanied Ibn al-Aṭʿānī. He died in Mecca in the year 825 and was buried in al-Muʿallā cemetery next to Shaykh ʿUmar al-ʿUrābī.

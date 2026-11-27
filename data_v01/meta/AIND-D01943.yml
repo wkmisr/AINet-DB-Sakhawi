@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00077
-    quote: الخوافي
+    mention: m4
   - id: n2
     type: ism
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر واسمه محمد
     by: rule
-    ref: AIND-D11632
-    norm: ابو بكر واسمه محمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m10
   passive: AIND-D01943
   methods:
   - label: anshada
@@ -43,21 +39,16 @@ relations:
       ah: 824
       type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: لشيخنا
-  norm: شيخنا
+    - mention: m7
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D11632
+  active: m5
   passive: AIND-D01943
   summary:
     ar: أبو بكر محمد بن علي الخوافي
-  quote: أبوه
   note:
     en: Father (الآتي), kunya Abū Bakr, ism Muḥammad, nisba al-Khawāfī. Identified as the kunya/nisba index entry D11632 "al-Khawāfī...Abū Bakr Muḥammad b. Muḥammad b. Muḥammad b. ʿAlī", matching kunya Abū Bakr + ism Muḥammad + nisba al-Khawāfī + ancestor ʿAlī. The original gives the shorter chain "Muḥammad b. ʿAlī" while the index entry gives a longer one; treated as the same person (index entries are often abbreviated). Gemini's TMP-P-000330 required ID-Master verification.
-  norm: ابوه
 events:
 - id: e1
   type: visit
@@ -66,11 +57,10 @@ events:
     cert: high
     type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m7
   cert: high
   trigger: rule
+  mention: m6
 - id: e2
   type: cultural
   date:
@@ -78,16 +68,56 @@ events:
     cert: high
     type: cultural
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m7
   summary:
     en: Composed and recited a poem to our shaykh (Ibn Ḥajar al-ʿAsqalānī) upon arriving in Cairo.
-  quote: فقال
   cert: high
   note:
     en: Date inferred from his arrival in Cairo.
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m2
+  kind: name
+  ref: AIND-D11632
+  quote: أبي بكر واسمه محمد
+  norm: ابو بكر واسمه محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00077
+  quote: الخوافي
+- id: m5
+  kind: person
+  ref: AIND-D11632
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: event
+  quote: قدم
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m8
+  kind: year
+  value: '824'
+  quote: سنة
+- id: m9
+  kind: event
+  quote: فقال
   norm: قال
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: لشيخنا
+  norm: شيخنا
 translation:
   ja: イスマーイール・ブン・アブー・バクル、彼のイスムはムハンマド、ブン・アリー・アル＝ハワーフィー。彼の父は後述される。 824年に彼と共にカイロにやって来て、我らがシャイフに言った： 「あなた様はエジプトの各地に滞在されました、おお、高位のサドルよ。 あなた様の声望は諸世界において隠れることなく、 世代から世代へと人類を飾り立てていらっしゃいます。 それゆえ、高官たちとアル＝ハワーフィー家を栄えさせました。」
   en: 'Ismāʿīl b. Abī Bakr (whose given name was Muḥammad) b. ʿAlī al-Khawāfī, whose father will be mentioned later. He came to Cairo with him in 824 H. He said to our shaykh (Ibn Ḥajar al-ʿAsqalānī): "You resided in Egypt, O Ṣadr al-Aʿālī, Your fame is not hidden in the worlds. And you adorned humanity generation after generation, So you honored the forebears and the Khawāfī." Father, Abū Bakr al-Khawāfī, is marked with الآتي, indicating a cross-reference to a later entry.'

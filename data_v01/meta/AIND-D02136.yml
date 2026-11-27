@@ -9,17 +9,16 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m2
   - id: n2
     type: ism
-    quote: بدر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000730
+  active: m3
   passive: AIND-D02136
   methods:
   - TMP-S-00008
@@ -27,7 +26,6 @@ relations:
     ar: أبو جمال الدين المغربي
   works:
   - ref: TMP-T-00095
-  quote: جمال الدين المغربي
   note:
     ja: 師=主人(سيده)アブー・ジャマール・アッ＝ディーン・アル＝マグリビー本人。クルアーンと諸書体(الخطوط المتنوعة)を教授。corpus独立立項なし=TMP-P-000730新規発行(本項のみ出現)。
 - id: r2
@@ -35,51 +33,68 @@ relations:
   subtype: patron
   active: TMP-P-000730
   passive: AIND-D02136
-  quote: null
   note:
     en: Badr was his slave (mawlā), raised and educated by him.
   phrase: مولى أبي جمال الدين المغربي
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D00104
+  active: m4
   passive: AIND-D02136
   cert: low
-  quote: ثم صار لابن عليبة
   note:
     ja: ابن عليبة=著名なカイロの商人البرهان إبراهيم بن حسن المناوي(#AIND-D00104、ويعرف بابن عليبة)に暫定比定。ただし同家は一族で「ابن عليبة」を称し(息子البدر حسن=D02507ほか)、個人の特定は本文からは確定できないためcert=low。
 states:
 - id: s1
   type: office
   ref: wd:Q215536
-  quote: null
+  mention: null
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:104515
-    role: destination
-    quote: لمكة
-    norm: مكة
-  quote: null
+  - role: destination
+    mention: m5
   note:
   - lang: ar
     type: frequency
     text: يكثر السفر
   - lang: en
     text: Frequent travels for trade.
+  mention: null
 - id: e2
   type: travel
   places:
   - ref: gn:361058
     role: destination
-  quote: null
   note:
   - lang: ar
     type: frequency
     text: يكثر السفر
   - lang: en
     text: Frequent travels for trade.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: بدر
+- id: m2
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m3
+  kind: person
+  ref: TMP-P-000730
+  quote: جمال الدين المغربي
+- id: m4
+  kind: person
+  ref: AIND-D00104
+  quote: ثم صار لابن عليبة
+- id: m5
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: バドル・アル＝ハバシー。アブー・ジャマール・アッ＝ディーン・アル＝マグリビーの奴隷（マウラー）。主人は彼を育て、クルアーンと様々な書体を、雄弁さとともに教えた。その後イブン・ウライバの所有となり、さらにスルターンの所有となった。スルターンは彼を大いに気に入り、諸事を彼に頼った。彼は分別と沈着さを備え、交易のためにマッカやアレクサンドリアへ頻繁に旅するようになった。
   en: Badr al-Ḥabashī, the slave (mawlā) of Abū Jamāl al-Dīn al-Maghribī. His master raised him and taught him the Qur'an and various styles of calligraphy along with eloquent speech. Later, he came into the possession of Ibn ʿUlayba, and then of the Sultan, who was highly pleased with him and relied upon him in many matters. He traveled frequently to Mecca and Alexandria for trade, possessing intelligence and deliberate calmness.

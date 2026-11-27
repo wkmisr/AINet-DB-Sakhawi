@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n2
     type: laqab
-    quote: البرهان
+    mention: m4
   - id: n3
     type: kunyah
-    quote: أبو إسحاق
-    norm: ابو اسحاق
+    mention: m5
   - id: n4
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n5
     type: nasab
-    quote: سلطان
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D00128
   methods:
   - TMP-S-00003
@@ -46,9 +42,7 @@ relations:
       ah: 890
       type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: مني
+    - mention: m8
 - id: r2
   type: scholarly
   subtype: teacher
@@ -62,9 +56,7 @@ relations:
       ah: 890
       type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: null
+    - mention: m8
 events:
 - id: e1
   type: visit
@@ -73,13 +65,50 @@ events:
     cert: medium
     type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m8
   cert: medium
   note:
     en: Refers to the first year of the tenth Hijri decade (i.e., 890 AH). Inferred from the context of al-Sakhāwī's lifetime.
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  quote: سلطان
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: البرهان
+- id: m5
+  kind: name
+  quote: أبو إسحاق
+  norm: ابو اسحاق
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: event
+  quote: قدم
+- id: m8
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m9
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: イブラーヒーム・ブン・スルターン・ブン・アフマド、ブルハーン、アブー・イスハーク、ダマスカス人。90年代の初めにカイロに来訪し、私（＝サハーウィー）から聴聞し、イジャーザを与えられた。
   en: Ibrāhīm b. Sulṭān b. Aḥmad, al-Burhān Abū Isḥāq al-Dimashqī, came to Cairo at the beginning of the year [8]90 AH. He heard from me (al-Sakhāwī), and I granted him ijāza.

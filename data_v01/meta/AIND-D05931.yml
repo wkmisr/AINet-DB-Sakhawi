@@ -9,116 +9,168 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: بابن بيسق
-    norm: ابن بيسق
     label: ابن بيسق
+    mention: m9
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06693
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 842
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   note:
     ja: 「ولد في سنة اثنتين وأربعين وثمانمائة بمكة」。842 ＝ 1438-07-03〜1439-06-22、年のみのため年初 1438（h2g.py）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06693
+  active: m8
   passive: AIND-D05931
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父は corpus `#AIND-D06693`（محمد بن أحمد بن عبد العزيز الدمشقي الأصل المكي المولد والدار ابن أخت أحمد الدوري وشيخ الفراشين بها ووالد عمر ويلقب بيسق … مات في ربيع الآخر سنة خمس وستين بمكة وخلفه ولده المذكور）。ナサブ・通称・職が一致し相手側も「والد عمر」「خلفه ولده」と名指し＝確実。初版の #NEEDID を差し替え。'
-  norm: ابوه
   phrase: محمد بن أحمد بن عبد العزيز
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D06693
+  active: m12
   passive: AIND-D05931
-  quote: والده
   note:
     ja: '「خلف والده في المشيخة المشار إليها」（規則29: active＝前任者）。父 #AIND-D06693 は865年没、その後に شيخ الفراشين を継承。'
-  norm: الده
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D00196
+  active: m13
   passive: AIND-D05931
-  quote: البرهاني القاضي
   note:
     ja: 「لازم خدمة البرهاني القاضي حيث دخل معه القاهرة حين خطبه الأشرف قايتباي للقدوم عليه وكذا زار معه المدينة النبوية」。البرهاني القاضي ＝ البرهان إبراهيم بن علي بن ظهيرة قاضي مكة（#AIND-D00196、825年生・891年没）。D00196 本伝にスルターンの召請でカイロに至った記事（888年ムハッラム）があり一致。初版の統制外 subtype「servant and companion」→ patron（repo 先例「لازم خدمة」＝patron）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00106
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: شيخ الفراشين
+  - mention: m11
   note:
     ja: 「شيخ الفراشين بها」の بها ＝ مكة（照応、規則22(3)）。父から継承（predecessor relation）。
+  mention: m7
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: ونشأ بها
-  norm: نشا بها
+  - mention: m11
+  phrase: ونشأ بها
+  mention: null
 - id: e2
   type: visit
   persons:
-  - ref: AIND-D06305
-    quote: الأشرف قايتباي
-    norm: الاشرف قايتباي
+  - mention: m15
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: زار
+  - mention: m14
   note:
     ja: البرهاني（#AIND-D00196）に随行してカイロに入った。カーイトバーイ＝#AIND-D06305（召請者として言及、relation は立てない）。
   trigger: rule
   phrase: دخل معه القاهرة حين خطبه الأشرف قايتباي للقدوم عليه
+  mention: m16
 - id: e3
   type: visit
   places:
-  - ref: gn:109223
-    quote: المدينة النبوية
-  quote: زارها
+  - mention: m17
   trigger: rule
   phrase: وكذا زار معه المدينة النبوية بل زارها غير مرة
+  mention: m18
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D06693
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عبد العزيز
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: office
+  ref: TMP-O-00106
+  quote: شيخ الفراشين
+- id: m8
+  kind: person
+  ref: AIND-D06693
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: name
+  quote: بابن بيسق
+  norm: ابن بيسق
+- id: m10
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: person
+  ref: AIND-D06693
+  quote: والده
+  norm: الده
+- id: m13
+  kind: person
+  ref: AIND-D00196
+  quote: البرهاني القاضي
+- id: m14
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m15
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m16
+  kind: event
+  quote: زار
+- id: m17
+  kind: place
+  quote: المدينة النبوية
+  ref: gn:109223
+- id: m18
+  kind: event
+  quote: زارها
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・アフマド・ブン・アブドゥルアズィーズ。ダマスクス出自で、マッカに生まれ、マッカに住む。同地（マッカ）のファッラーシュ（聖モスクの敷物係・従僕）の長。父については後述する。イブン・バイサクとして知られる。842年にマッカで生まれ、そこで育ち、上述の長職を父から継いだ。カーディーのアル＝ブルハーニーに専従して仕え、アル＝アシュラフ・カーイトバーイが彼（ブルハーニー）を自らのもとへ来るよう招請した際には彼とともにカイロに入り、同様に彼とともに預言者の都マディーナを参詣した。それどころか、（マディーナを）一度ならず参詣した。異邦人に対する礼儀と職務の遂行において、彼に非難すべき点はない。
   en: ʿUmar b. Muḥammad b. Aḥmad b. ʿAbd al-ʿAzīz, of Damascene origin, born and resident in Mecca, chief of the farrāshūn (attendants of the Sacred Mosque) there; his father is mentioned below. He is known as Ibn Baysaq. He was born in the year 842 in Mecca, grew up there and succeeded his father in the aforementioned office. He attended constantly on the qāḍī al-Burhānī, in whose company he entered Cairo when al-Ashraf Qāytbāy summoned him (al-Burhānī) to come to him; likewise he visited the Prophet's Medina with him, and indeed visited it more than once. There is nothing to be said against him as regards his courtesy towards strangers and the performance of his duties.

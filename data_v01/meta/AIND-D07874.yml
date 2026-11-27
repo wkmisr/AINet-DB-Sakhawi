@@ -9,31 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02182
-    quote: الججيني
+    mention: m3
   - id: n2
     type: laqab
-    quote: القطعة
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الله
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m4
 death:
   id: d
   date:
     ah: 816-09
   note:
     ja: 「مات في رمضان سنة ست عشرة」＝816年ラマダーン月＝1413-12-04 開始（h2g.py）、月精度。初版の @when 1413 を 1413-12 に。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: الله
@@ -46,7 +44,6 @@ relations:
   subtype: father
   active: AIND-D07874#p1
   passive: AIND-D07874
-  quote: null
   note:
     ja: '刊本の見出しは「محمد بن الله」で父名が欠けている（「محمد بن عبد الله」部の配列からみて「عبد」が脱落したと思われるが、規則25・45 により原文のまま符号化し、名を補わない）。父は #NEEDID。'
 affiliations:
@@ -56,15 +53,47 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版の relation「other」（wd:Q471116）を mention event に置換。
   trigger: rule
   phrase: 'ذكره شيخنا في إنبائه وقال : كان من أكثر الحنفية معرفة باستحضار الفروع مع جمود ذهنه وكونه رديء الخط إلى الغاية رث الهيئة خاملا'
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الله
+- id: m3
+  kind: name
+  ref: TMP-N-02182
+  quote: الججيني
+- id: m4
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m5
+  kind: name
+  quote: القطعة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '816'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アッラー（原文のまま）・アル＝ジャジーニー、ハナフィー派、アル＝キトア（切れ端）とあだ名された。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及して言う、「彼は、頭の硬さ、極めて悪筆であること、みすぼらしい身なり、無名であることにもかかわらず、（法学の）枝葉問題をそらで挙げることにおいてハナフィー派で最もよく知る者の一人であった」。816年ラマダーン月に没した。
   en: 'Muḥammad b. Allāh [sic] al-Jajjīnī, the Ḥanafī, nicknamed al-Qiṭʿa. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "He was among the Ḥanafīs most knowledgeable in recalling the subsidiary rulings (furūʿ), despite the rigidity of his mind, his extremely bad handwriting, his shabby appearance and his obscurity." He died in Ramaḍān [8]16.'

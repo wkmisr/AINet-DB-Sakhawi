@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالبوز
-    norm: البوز
     label: البوز
+    mention: m4
   - id: n3
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 881
   note:
     ja: 「ولم يلبث أن مات مطعونا في سنة إحدى وثمانين」＝ブハイラのカシュフに就任して間もなく、881 年（1476-05-05 開始、年精度）にペストで没した。没地の記載なし。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: والد قانباي الأشرفي
@@ -36,9 +33,8 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m3
   passive: AIND-D06257
-  quote: قيتباي
   note:
     ja: 見出しのニスバ「الأشرفي قيتباي」＝主人（أستاذ）はアル＝アシュラフ・カーイトバーイ（#AIND-D06305）。repo 先例（D02147 ほか）どおり patron。初版は relation なし。
   phrase: الأشرفي قيتباي
@@ -47,19 +43,45 @@ relations:
   subtype: father
   active: AIND-D06257#p1
   passive: AIND-D06257
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00070
   places:
-  - ref: TMP-L-00162
-    quote: البحيرة
-  quote: كشف
+  - mention: m6
   note:
     ja: 「استقر في كشف البحيرة」。就任時期は原文に無い（没年 881 の直前）。
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D06305
+  quote: قيتباي
+- id: m4
+  kind: name
+  quote: بالبوز
+  norm: البوز
+- id: m5
+  kind: office
+  ref: TMP-O-00070
+  quote: كشف
+- id: m6
+  kind: place
+  quote: البحيرة
+  ref: TMP-L-00162
+- id: m7
+  kind: year
+  value: '881'
+  quote: سنة
 translation:
   ja: カーンバーイ・アル＝アシュラフィー・カイトバーイ、アル＝ブーズとして知られる。ブハイラのカシュフ（地方監督職）に就任したが、間もなく881年にペストで没した。
   en: Qānbāy al-Ashrafī Qaytbāy, known as al-Būz. He was appointed to the kashf of al-Buḥayra, but shortly afterwards died of the plague in the year 881.

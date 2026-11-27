@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00125
-    quote: البكري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00381
-    quote: الطنبذي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أبو بكر بن محمد البكري الطنبذي
@@ -47,18 +44,15 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07263
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m8
     phrase: ممن سمع مني بالمدينة
-  quote: مني
   note:
     ja: 規則2。原文にない field الحديث を除去。
 - id: r2
@@ -66,7 +60,6 @@ relations:
   subtype: father
   active: AIND-D07263#p1
   passive: AIND-D07263
-  quote: null
   note:
     ja: '父。汎用名で本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r3
@@ -74,7 +67,6 @@ relations:
   subtype: grandfather
   active: AIND-D07263#p2
   passive: AIND-D07263
-  quote: null
   note:
     ja: 「حفيد الجمال والتاج البكري الطنبذي」。見出しナサブの祖父 محمد がラカブ الجمال の方と読める。corpus の الطنبذي 見出し（D01133 البدر أحمد بن عمر الطنبذي、D01419 ابن عرب 家など）に該当する「الجمال محمد」「التاج」の本伝なし。
 - id: r4
@@ -82,9 +74,39 @@ relations:
   subtype: grandfather
   active: AIND-D07263#p3
   passive: AIND-D07263
-  quote: null
   note:
     ja: もう一人の祖父（父方・母方の別は原文に明記なし）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00125
+  quote: البكري
+- id: m6
+  kind: name
+  ref: TMP-N-00381
+  quote: الطنبذي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド、アッ＝シャムス、アル＝ジャマールとアッ＝タージュの孫、アル＝バクリー・アッ＝タンバズィー。マディーナで私から聴聞した者の一人。
   en: Muḥammad b. Abī Bakr b. Muḥammad, al-Shams, grandson of al-Jamāl and al-Tāj, al-Bakrī al-Ṭanbadhī. He is among those who heard from me in Medina.

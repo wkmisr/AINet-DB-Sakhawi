@@ -9,47 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00236
-    quote: المرجاني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو الفتح
-    norm: ابو الفتح
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي السعود
     by: rule
-    ref: AIND-D09065
-    norm: ابو السعود
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي الفضل
     by: rule
-    norm: ابو الفضل
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D09065
+  active: m7
   passive: AIND-D07421
   summary:
     ar: أبو السعود محمد بن أبي الفضل محمد بن النجم المرجاني
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」＝父 أبو السعود の本伝は محمد 部の #AIND-D09065「510 محمد أبو السعود شقيق الذي قبله . ولد في فجر يوم الخميس ثاني عشرى شعبان سنة أربعين وثمانمائة . ومات وأنا بمكة في منتصف ربيع الآخر سنة ثلاث وتسعين」（「شقيق الذي قبله」＝直前項 #AIND-D09064「محمد بن محمد بن محمد بن أبي بكر بن علي بن يوسف المحب بن الكمال أبي الفضل بن النجم … ويعرف كسلفه بابن المرجاني」の同母同父の兄弟＝أبو السعود محمد بن الكمال أبي الفضل محمد بن النجم محمد）。ニスバ索引 #AIND-D12012「وابنا ثانيهم المحمدان أبو السعود ومحب الدين … ولأبي السعود ولد اسمه أبو الفتح محمد」で本項主と閉合（規則37、cert なし）。D09065 は محمد 部で本項より後＝「الآتي」。初版 #NEEDID → 校閲 取り下げた仮番号 B140-P05 → 集約で本伝に差し替え（機械 H、オーケストレーター決定1。取り下げた仮番号 B140-P05 は取り下げ）。'
-  norm: ابوه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D07421
   methods:
   - TMP-S-00003
@@ -59,11 +51,8 @@ relations:
       ah: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m9
     phrase: ممن سمع مني بمكة في سنة ست وثمانين
-  quote: مني
   note:
     ja: 886年＝1481-03-11 開始（年精度 1481）。初版の when="0886"（ヒジュラ年を @when に誤記）・原文にない field الحديث を修正。
 - id: r3
@@ -74,13 +63,55 @@ relations:
   summary:
     ar: أبو الفتح بن أبي السعود بن الكمال أبي الفضل محمد بن النجم محمد ابن أبي بكر المرجاني المكي
   cert: high
-  quote: null
   note:
     ja: 'クンヤ部 #AIND-D11025「389 أبو الفتح بن أبي السعود بن الكمال أبي الفضل محمد بن النجم محمد ابن أبي بكر المرجاني المكي الماضي أبوه . ممن سمع مني بمكة .」は本項主と名（クンヤ أبو الفتح）・父祖・ニスバ・サハーウィーからのマッカでの聴聞が一致。両項とも転送指示がないので二重立項型（双方向 possible_identity、断定的一致＝cert high）。D11025 は未受領のため鏡像は受領時（内容A H-2、オーケストレーター決定1）。'
 notes:
 - text: 'マッカの المرجاني 家（النجم محمد بن أبي بكر بن علي بن يوسف الأنصاري の一族。索引 #AIND-D12012、#AIND-D08722「أبو الفتح بن العلامة النجم … ويعرف بابن المرجاني」は未婚のまま 875 年没とあるので本項主の祖父 أبو الفضل とは別人）。生没年の記載なし。父＝#AIND-D09065（أبو السعود、840生・893没）、二重立項 #AIND-D11025（クンヤ部）との possible_identity cert high（集約 2026-10-26）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D09065
+  quote: أبي السعود
+  norm: ابو السعود
+- id: m3
+  kind: name
+  quote: أبي الفضل
+  norm: ابو الفضل
+- id: m4
+  kind: name
+  quote: أبو الفتح
+  norm: ابو الفتح
+- id: m5
+  kind: name
+  ref: TMP-N-00236
+  quote: المرجاني
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: person
+  ref: AIND-D09065
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: year
+  value: '886'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アビー・ッ＝スウード・ブン・アビー・ル＝ファドル、アブー・ル＝ファトフ・アル＝マルジャーニー・アル＝マッキー、父は後述する。886年にマッカで私から聴聞した者の一人。
   en: Muḥammad b. Abī al-Suʿūd b. Abī al-Faḍl, Abū al-Fatḥ al-Marjānī al-Makkī; his father will come below. He is among those who heard from me in Mecca in the year [8]86.

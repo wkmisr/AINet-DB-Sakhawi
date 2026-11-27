@@ -9,22 +9,20 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد اللطيف
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07471
+    mention: m2
   - id: n3
     type: nasab
-    quote: شاه رخ
     by: rule
-    ref: AIND-D03298
+    mention: m3
   - id: n4
     type: nasab
-    quote: تيمورلنك
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -32,32 +30,28 @@ death:
   note:
     ar: فعاجله عمه قبل تمام شهر وقتله وذلك في سنة أربع وخمسين
     ja: 854年＝1450年2月14日〜1451年2月2日。叔父に殺害された。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07471
+  active: m5
   passive: AIND-D04345
-  quote: قتل والده واستقر عوضه
   note:
     ja: '父 = #AIND-D07471（محمد بن شاه رخ بن تمرلنك ويعرف بألوغ بك صاحب سمرقند … قتله ولده عبد اللطيف في سنة أربع وخمسين）。初版の TMP-P-000529（汎用 محمد）は流用。'
 - id: r2
   type: social
   subtype: killer
   active: AIND-D04345
-  passive: AIND-D07471
-  quote: أبيه
+  passive: m8
   note:
     ja: 本項主が父 ألوغ بك を殺害（父側 D07471 も「قتله ولده عبد اللطيف」）。
-  norm: ابيه
   phrase: قتل والده
 - id: r3
   type: kin
   subtype: uncle
-  active: TMP-P-001043
+  active: m6
   passive: AIND-D04345
-  quote: فعاجله عمه قبل تمام شهر وقتله
   note:
     ja: 叔父＝父側 D07471 に「وقتله عمه هميان بن شاه رخ」と名が見える → هميان بن شاه رخ（corpus 本伝なし、ID-Master 未登録）→ 新規 TMP-P-001043。本項主を殺害した（killer）。
 - id: r4
@@ -65,14 +59,12 @@ relations:
   subtype: killer
   active: TMP-P-001043
   passive: AIND-D04345
-  quote: null
   phrase: وقتله
 - id: r5
   type: kin
   subtype: grandfather
   active: AIND-D03298
   passive: AIND-D04345
-  quote: null
   note:
     ja: '祖父 شاه رخ ＝ #AIND-D03298（本伝。D03272 は第2見出し、B69-73 §D-1）。'
   phrase: بن شاه رخ
@@ -82,9 +74,42 @@ events:
   date:
     ah: 854
     type: political
-  quote: قتل والده واستقر عوضه فعاجله عمه قبل تمام شهر وقتله
   note:
     ja: 父（ウルグ・ベク）を殺して代わって（サマルカンドの）支配者となったが、ひと月経たぬうちに叔父に殺された。「كما أشرت له في أبيه」＝父の項（D07471）参照。
+  phrase: قتل والده واستقر عوضه فعاجله عمه قبل تمام شهر وقتله
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد اللطيف
+- id: m2
+  kind: name
+  ref: AIND-D07471
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D03298
+  quote: شاه رخ
+- id: m4
+  kind: name
+  quote: تيمورلنك
+- id: m5
+  kind: person
+  ref: AIND-D07471
+  quote: قتل والده واستقر عوضه
+- id: m6
+  kind: person
+  ref: TMP-P-001043
+  quote: فعاجله عمه قبل تمام شهر وقتله
+- id: m7
+  kind: year
+  value: '854'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D07471
+  quote: أبيه
+  norm: ابيه
 translation:
   ja: アブド・アッ＝ラティーフ・ブン・ムハンマド・ブン・シャー・ルフ・ブン・ティームール・レンク。父を殺してその後を襲ったが、ひと月も経たぬうちに叔父が彼に先んじて彼を殺した。それは854年のことで、父の項で示したとおりである。
   en: ʿAbd al-Laṭīf b. Muḥammad b. Shāh Rukh b. Tīmūrlank. He killed his father and took his place, but his uncle forestalled him before a month was complete and killed him; that was in the year 854, as I indicated in (the entry of) his father.

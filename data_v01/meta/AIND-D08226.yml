@@ -9,35 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01039
-    quote: الحسناوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: كبا قال
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 825
   places:
-  - ref: TMP-L-00362
-    quote: بالجزائر
-    norm: الجزاءر
+  - mention: m6
   note:
     ja: 「مات بالجزائر وهو على قضائها سنة خمس وعشرين」。825＝1422-01-04〜1422-12-23（h2g.py、年精度）。الجزائر（アルジェ）＝ID-Master TMP-L-00362。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: علي بن كبا
@@ -53,7 +49,6 @@ relations:
   subtype: father
   active: AIND-D08226#p1
   passive: AIND-D08226
-  quote: null
   note:
     ja: 名＋父名のみ。父名 كبا は珍しいが本伝・ID-Master 登録ともになく、#AIND-D05271「علي بن عبد الملك البجائي الحسناوي . مات سنة بضع وعشرين」は父名が一致しないため候補に留める（規則3 (c')・26）。
 states:
@@ -61,24 +56,50 @@ states:
   type: office
   ref: wd:Q217029
   places:
-  - ref: TMP-L-00362
-    quote: بالجزائر
-    norm: الجزاءر
-  quote: null
+  - mention: m6
   note:
     ja: 「وهو على قضائها」＝الجزائر のカーディー在職中に没した（「ها」＝الجزائر、照応）。終期は没年と同じだが原文に明示がないので date 属性は置かない。
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D08226#p2
-  quote: قال الحسناوي نسبة لقبيلة بين بجاية والجزيرة تعرف ببني حسن
   cert: medium
   note:
     ja: 'Pattern A。「قال الحسناوي」を情報源の発言と読む（ブリーフ）。الحسناوي ＝ #AIND-D04657「عبد الله بن يوسف بن علي بن خلد الحسناوي البجائي المغربي المالكي لقيني بالمدينة النبوية فأخذ عني … ورجع إلى بلاده」（repo 収録済）＝ビジャーヤ出身でサハーウィーに直接会った唯一の الحسناوي（#AIND-D00737 では「صاحبنا عبد الله الحسناوي」）。ただし corpus には同郷の「سليمان بن يوسف الحسناوي」（#AIND-D09018、本伝なし）もおり、裸ニスバによる同定なので cert medium（ISSUES §D162-8）。【集約 2026-11-08】#AIND-D04657 への同定を外し #NEEDID に（内容B M、オーケストレーター決定6、規則26・61(c)・62）。裸の「الحسناوي」は corpus で複数人を指す: 候補 (1) #AIND-D04657 عبد الله بن يوسف بن علي بن خلد الحسناوي البجائي（サハーウィーの同時代人）、(2) その兄弟 سليمان بن يوسف الحسناوي（#AIND-D01404「عن سليمان بن يوسف الحسناوي」・#AIND-D09018・#AIND-D10015。本伝なし）、(3) #AIND-D05271「علي بن عبد الملك البجائي الحسناوي . مات سنة بضع وعشرين」（本項主（825没）と同時代）、(4) #AIND-D09017 の موسى بن إبراهيم الحسناوي・علي بن إبراهيم الحسناوي。同じ家（D04657 と سليمان）にも同じ呼び名がいるので特定しない。event の cert medium は「قال」の読み（情報源の発言か、本項主のニスバ説明か）の不確かさとして残す。ニスバの由来説明（بجاية・الجزيرة・بنو حسن）は event ではないので placeName を立てない（規則22(2)）。'
+  phrase: قال الحسناوي نسبة لقبيلة بين بجاية والجزيرة تعرف ببني حسن
+  mention: null
 notes:
 - text: 刊本の見出し「محمد بن علي بن كبا قال الحسناوي نسبة لقبيلة بين بجاية والجزيرة تعرف ببني حسن الفقيه المكي」は、本項主のニスバ الحسناوي を明示しないまま الحسناوي が「ニスバはバヌー・ハサン族に由来する」と説明する形になっている。説明されるニスバは本項主の الحسناوي と解し（الحسناوي の語が「يقال」の誤植、または本項主のニスバが脱落した可能性）、persName nisbah に الحسناوي を置いた。「المكي」はアルジェのカーディーとして没した人物のニスバとしては不審（المالكي の誤植の可能性）だが刊本どおり（規則25）。いずれも ISSUES §D162-8。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: كبا قال
+- id: m4
+  kind: name
+  ref: TMP-N-01039
+  quote: الحسناوي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: place
+  quote: بالجزائر
+  ref: TMP-L-00362
+  norm: الجزاءر
+- id: m7
+  kind: year
+  value: '825'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アリー・ブン・カバー。アル＝ハスナーウィーは言う、「（このニスバは）ビジャーヤとアル＝ジャズィーラの間にあるバヌー・ハサンとして知られる部族に由来する」。法学者、アル＝マッキー。825年、アルジェでそのカーディー在職中に没した。
   en: 'Muḥammad b. ʿAlī b. Kabā. Al-Ḥasnāwī said: [the nisba] refers to a tribe between Bijāya and al-Jazīra known as Banū Ḥasan. The jurist, al-Makkī. He died in al-Jazāʾir (Algiers) while holding its judgeship, in the year 825.'

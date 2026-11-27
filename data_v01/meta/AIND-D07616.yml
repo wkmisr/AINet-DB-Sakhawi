@@ -9,44 +9,38 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01846
-    quote: الصدقاوي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00264
-    quote: الزواوي
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: TMP-P-001184
+    mention: m2
   - id: n5
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: مهيب
     by: rule
+    mention: m6
   - id: n9
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m10
 birth:
   id: b
   date:
@@ -66,43 +60,93 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001184
+  active: m14
   passive: AIND-D07616
-  quote: التي قبلها
   note:
     ja: 父は見出しナサブから1段ずらして復元（統一規則3）。corpus 本伝なし・ID-Master 未登録→ TMP-P-001184 を発行（⚠汎用名）。
   phrase: عبد الرحمن بن يحيى بن أحمد بن سليمان بن مهيب الصدقاوي الزواوي
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00274
+  active: m11
   passive: AIND-D07616
-  quote: الماضي ابنه إبراهيم
   note:
     ja: 'إبراهيم = #AIND-D00274（إبراهيم بن محمد بن عبد الرحمن بن يحيى بن أحمد بن سليمان بن مهيب الصدقاوي الزواوي الأصل ثم البجائي المالكي نزيل مكة ووالد محمد الآتي ويعرف بالمصعصع、没882。同項「وأبوه ممن ولي القضاء بزواوة」）。転送見出し（corpus 行5926「إبراهيم الزواوي . هو ابن محمد بن عبد الرحمن بن يحيى」）も同人。'
-  norm: الماضي ابنه ابراهيم
 - id: r3
   type: kin
   subtype: grandson
-  active: AIND-D06547
+  active: m12
   passive: AIND-D07616
-  quote: وحفيده محمد
   note:
     ja: '孫 محمد = #AIND-D06547（刊本第921項 محمد بن إبراهيم بن محمد بن عبد الرحمن بن يحيى بن أحمد بن سليمان ابن مهيب الصدقاوي الزواوي الأصل ثم البجائي المالكي نزيل مكة ويلقب سراجا、生846）。初版の subtype="other"・TMP-P-000529（汚染番号、登録実体は إبراهيم بن عبد الله ابن جماعة の息子 محمد）を差し替え。'
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
   - ref: TMP-L-00282
-  quote: قاضيها
   note:
     ja: '「قاضيها」の代名詞はニスバ الزواوي の指す زواوة（ザワーワ、マグリブ中部のカビール地方）を受ける（規則22(3)）。息子 #AIND-D00274 の本伝「وأبوه ممن ولي القضاء بزواوة」で明示的にも確認。ID-Master にはニスバ الزواوي（TMP-N-00264）のみで地名は未登録→ TMP-L-00282 を発行。'
   phrase: الزواوي قاضيها المالكي
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001184
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: سليمان
+- id: m6
+  kind: name
+  quote: مهيب
+- id: m7
+  kind: name
+  ref: TMP-N-01846
+  quote: الصدقاوي
+- id: m8
+  kind: name
+  ref: TMP-N-00264
+  quote: الزواوي
+- id: m9
+  kind: office
+  ref: wd:Q217029
+  quote: قاضيها
+- id: m10
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m11
+  kind: person
+  ref: AIND-D00274
+  quote: الماضي ابنه إبراهيم
+  norm: الماضي ابنه ابراهيم
+- id: m12
+  kind: person
+  ref: AIND-D06547
+  quote: وحفيده محمد
+- id: m13
+  kind: year
+  value: '753'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: TMP-P-001184
+  quote: التي قبلها
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・ヤフヤー・ブン・アフマド・ブン・スライマーン・ブン・ムハイブ、アッ＝サダカーウィー・アッ＝ザワーウィー、その地（ザワーワ）のマーリク派カーディー。息子のイブラーヒームと孫のムハンマドは先述。853年またはその前年に63歳で没した。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Yaḥyā b. Aḥmad b. Sulaymān b. Muhayb al-Ṣadaqāwī al-Zawāwī, the Mālikī judge of that place (Zawāwa), whose son Ibrāhīm and grandson Muḥammad were mentioned previously. He died in 853 or the year before, aged sixty-three.

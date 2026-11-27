@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: شمس الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05583
+  active: m4
   passive: AIND-D07588
   methods:
   - TMP-S-00003
-  quote: أبي الحسن سبط الزبير
   note:
     ja: 'أبو الحسن سبط الزبير = #AIND-D05583（النور أبو الحسن علي بن محمد بن موسى المحلي المدني سبط الزبير）。兄2人（#AIND-D07586・D07587）と同じ師。'
-  norm: ابو الحسن سبط الزبير
   phrase: سمع على أبي الحسن سبط الزبير
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07586
+  active: m3
   passive: AIND-D07588
-  quote: اللذين قبله
   note:
     ja: '前々項 = #AIND-D07586（فتح الدين أبو الفتح محمد بن عبد الرحمن بن محمد بن صالح الكناني المدني、没860）。'
   phrase: أخو اللذين قبله
@@ -41,7 +38,6 @@ relations:
   subtype: brother
   active: AIND-D07587
   passive: AIND-D07588
-  quote: null
   note:
     ja: '前項 = #AIND-D07587（ولي الدين أبو عبد الله محمد بن صالح、没874）。'
   phrase: أخو اللذين قبله
@@ -53,9 +49,24 @@ relations:
   summary:
     ar: أبوه
   cert: medium
-  quote: null
   note:
     ja: '本項は父名を記さない。兄 #AIND-D07586 の見出しナサブにより父 = #AIND-D03752（ناصر الدين أبو الفرج عبد الرحمن بن محمد بن صالح الكناني المدني）。他項経由のため cert="medium"（規則23）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: شمس الدين
+- id: m3
+  kind: person
+  ref: AIND-D07586
+  quote: اللذين قبله
+- id: m4
+  kind: person
+  ref: AIND-D05583
+  quote: أبي الحسن سبط الزبير
+  norm: ابو الحسن سبط الزبير
 translation:
   ja: ムハンマド・シャムスッディーン。前二項の人物の兄弟。アブー・アル＝ハサン・スィブト・アッ＝ズバイルから聴聞した。
   en: Muḥammad Shams al-Dīn, the brother of the two preceding. He heard from Abū al-Ḥasan Sibṭ al-Zubayr.

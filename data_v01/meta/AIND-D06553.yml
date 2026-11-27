@@ -9,41 +9,36 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: العز
+    mention: m2
   - id: n2
     type: laqab
-    quote: الطيب
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00377
-    quote: الحكمي
+    mention: m8
   - id: n4
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m9
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: TMP-P-001673
-    norm: ابراهيم
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m6
   - id: n9
     type: nasab
-    quote: مطير
     by: rule
+    mention: m7
 death:
   id: d
   note:
@@ -59,19 +54,16 @@ relations:
   subtype: father
   active: TMP-P-001673
   passive: AIND-D06553
-  quote: null
   note:
     ja: '見出しナサブより（規則3）。父＝ID-Master 既登録 TMP-P-001673「ضياء الدين أبو إسحاق إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني」（Note に子として本項主 #AIND-D06553 を明記。repo #AIND-D10037 で使用）。corpus に本人の本伝はない（家の索引 #AIND-D12742「ولمحمد إبرهيم وموسى ولإبرهيم أولهما أحمد والطيب العز محمد وموسى وأبو بكر」）。初版は father relation なし。'
   phrase: إبراهيم بن محمد بن عيسى بن مطير
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00239
+  active: m10
   passive: AIND-D06553
-  quote: إبراهيم
   note:
     ja: '「والد إبراهيم الماضي」＝#AIND-D00239「إبراهيم بن محمد بن إبراهيم بن محمد بن عيسى الحكمي اليماني ثم الخيفي الآتي أبوه العز الطيب ويعرف بابن مطير … مات في المحرم سنة ثمانين بجدة」（相互閉合、repo 収録済み。相手側は本項主を father に持つ）。初版は #NEEDID。'
-  norm: ابراهيم
 - id: r3
   type: kin
   subtype: son
@@ -80,16 +72,14 @@ relations:
   summary:
     ar: أحمد
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には出ない子。#AIND-D01184「أحمد بن محمد الطيب بن إبراهيم بن محمد بن عيسى بن مطير الحكمي اليماني . تفقه بعمه أحمد وبالأزرق وغيرهما ومات بعد أبيه بنحو ثلاث سنين قاله الأهدل」の見出しナサブが本項主を一意に指す（repo 収録済み、相手側は本項主を father に持つ）。索引 #AIND-D12742「وللطيب أحمد ومحمد وإبرهيم」。他項にのみある関係＝cert medium（規則23）。'
 - id: r4
   type: kin
   subtype: son
-  active: AIND-D08531
+  active: m12
   passive: AIND-D06553
   cert: medium
-  quote: محمد
   note:
     ja: '本項の原文には出ない子。#AIND-D08531「محمد بن محمد بن إبرهيم بن محمد بن عيسى بن مطير العز بن الطيب الحكمي اليماني الشافعي أخو أحمد الماضي」（repo 未収録）の見出しナサブと索引 #AIND-D12742「وللطيب أحمد ومحمد وإبرهيم」による。他項にのみある関係＝cert medium（規則23）。'
 - id: r5
@@ -97,7 +87,6 @@ relations:
   subtype: brother
   active: AIND-D06553#p1
   passive: AIND-D06553
-  quote: null
   note:
     ja: '「ومات بعد أخيه محمد」の兄弟 محمد。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة 家の محمد、関係専用）を除去。家の索引 #AIND-D12742 が挙げる إبراهيم の子は「أحمد والطيب العز محمد وموسى وأبو بكر」の4人で、本項主のほかに محمد という兄弟は見えない（corpus 見出し「محمد بن إبراهيم بن محمد بن عيسى」も本項のみ）。兄弟の本伝は #AIND-D00452 أحمد（أبو القسم）・#AIND-D10037 موسى（828年没）・#AIND-D10639 أبو بكر。「محمد」がこのいずれか（أحمد の誤り、または أبو بكر の名）を指す可能性はあるが原文からは決まらない＝#NEEDID（ISSUES §D170-11）。'
 events:
@@ -105,12 +94,57 @@ events:
   type: learning
   methods:
   - TMP-S-00003
-  quote: وسمع
   note:
     ja: '法学を修め、ハディースとタフスィールを聴いた（師の名はない＝relation は立てない）。兄弟の項 #AIND-D10639 も同じ文言「تفقه وسمع الحديث والتفسير」。'
   trigger: rule
-  norm: سمع
   phrase: تفقه وسمع الحديث والتفسير
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: العز
+- id: m3
+  kind: name
+  quote: الطيب
+- id: m4
+  kind: name
+  ref: TMP-P-001673
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m7
+  kind: name
+  quote: مطير
+- id: m8
+  kind: name
+  ref: TMP-N-00377
+  quote: الحكمي
+- id: m9
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m10
+  kind: person
+  ref: AIND-D00239
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m11
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m12
+  kind: person
+  ref: AIND-D08531
+  quote: محمد
 translation:
   ja: ムハンマド・アル＝イッズ・アッ＝タイイブ・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イーサー・ブン・ムタイル、アル＝ハカミー、アル＝ヤマーニー。既出のイブラーヒームの父。法学を修め、ハディースとタフスィールを聴いた。兄弟ムハンマドの後に没した。
   en: Muḥammad al-ʿIzz al-Ṭayyib b. Ibrāhīm b. Muḥammad b. ʿĪsā b. Muṭayr al-Ḥakamī al-Yamānī, father of the Ibrāhīm mentioned above. He studied jurisprudence and heard ḥadīth and tafsīr. He died after his brother Muḥammad.

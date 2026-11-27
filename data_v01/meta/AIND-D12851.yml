@@ -9,65 +9,87 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدنية
+    mention: m4
   - id: n2
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00037
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: علبك
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 867-12-29
   note:
     ja: 「سلخ سنة سبع وستين」＝867年の最終日（ズー・ル＝ヒッジャ月末日）。867-12-29＝1463-09-23（h2g.py）。末日が29日か30日かは原文から決まらない（30日なら 1463-09-24）＝29日として記し、その旨を残す。初版は月精度（0867-12）・@when 1462（換算誤り）。
-  quote: سنة
   phrase: ماتت في ليلة الأربعاء سلخ سنة سبع وستين
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D00037
   passive: AIND-D12851
-  quote: null
   note:
     ja: '#AIND-D00037「إبراهيم بن أحمد بن غنام البعلي المدني أحد مؤذنيها المقرىء والد أحمد ومحمد الآتيين ويعرف بابن علبك」（見出しナサブ＋兄弟 أبو الفتح の「الماضي」で閉合。repo の #AIND-D00421 が同番号を father に使用）。初版は #NEEDID。'
   phrase: إبراهيم بن علبك
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D11015
+  active: m5
   passive: AIND-D12851
   summary:
     ar: أبو الفتح
-  quote: أبي الفتح
   note:
     ja: '「أخت أبي الفتح الماضي」。#AIND-D11015「أبو الفتح بن إبراهيم بن أحمد بن غنائم البعلي الأصل المدني الشافعي … واسمه محمد ويعرف بابن علبك」（889年没）。ID-Master の TMP-P-000102（محمد بن إبراهيم بن أحمد ابن علبك、「AIND-D0037の息子」）は同一人物＝名寄せ要（§D168-9）。初版は #NEEDID。'
-  norm: ابو الفتح
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D06931
+  active: m6
   passive: AIND-D12851
-  quote: محمد بن أحمد بن محمد بن محمد
   note:
     ja: '「وأم محمد بن أحمد بن محمد بن محمد الرئيس」。#AIND-D06931「محمد بن أحمد بن محمد بن محمد شمس الدين وجلال الدين أبو السعادات المصري الأصل المدني الشافعي الريس بن الريس سبط إبراهيم بن علبك المدني ووالد أحمد الماضي」（837年生）＝ナサブ・الرئيس・「سبط إبراهيم بن علبك」で閉合。ブリーフが候補に挙げた #AIND-D01245（أحمد بن محمد بن أحمد …、864年生）はこの息子の子＝本項主の孫であって、夫でも子でもない（ブリーフ誤り）。初版は #NEEDID。'
-  norm: محمد بن احمد بن محمد بن محمد
 notes:
 - text: '関連項（原文に続柄として出ない＝relation は立てない）: 兄弟 #AIND-D00421「أحمد بن إبراهيم بن أحمد بن غنائم … الماضي أبوه والآتي أخوه أبو الفتح ويعرف بابن علبك」（本項は名指ししない。父が AIND なので導出可、規則23）。夫は原文に出ない（規則14）が、息子のナサブから #AIND-D01534「أحمد بن محمد بن محمد بن محمد الشهاب … رئيس المؤذنين بالحرم النبوي كأبيه … وهو والد الشمس محمد وإبراهيم」とみられる。孫 #AIND-D01245。「علبك」は祖父 أحمد のラカブ（D00421「وهو لقب لجده أحمد … وكأنه مختصر من بعلبك」）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: name
+  ref: AIND-D00037
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: علبك
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدنية
+- id: m5
+  kind: person
+  ref: AIND-D11015
+  quote: أبي الفتح
+  norm: ابو الفتح
+- id: m6
+  kind: person
+  ref: AIND-D06931
+  quote: محمد بن أحمد بن محمد بن محمد
+  norm: محمد بن احمد بن محمد بن محمد
+- id: m7
+  kind: year
+  value: '867'
+  quote: سنة
 translation:
   ja: アーミナ・ビント・イブラーヒーム・ブン・アルバク、マディーナの人。既出のアブー・ル＝ファトフの姉妹で、ムハンマド・ブン・アフマド・ブン・ムハンマド・ブン・ムハンマド・アッ＝ライースの母。（8）67年の末日、水曜日の前夜（火曜の夜）に没した。
   en: Āmina, daughter of Ibrāhīm b. ʿAlbak, of Medina, sister of the aforementioned Abū al-Fatḥ and mother of Muḥammad b. Aḥmad b. Muḥammad b. Muḥammad al-Raʾīs. She died on the eve of Wednesday, the last day of the year [8]67.

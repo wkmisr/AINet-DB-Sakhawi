@@ -9,50 +9,70 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D03829
   methods:
   - TMP-S-00008
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: عني
+    - mention: m7
 states:
 - id: s1
   type: office
-  ref: TMP-O-00225
   places:
   - ref: gn:358048
-  quote: خادم الفقراء
+  mention: m4
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m7
   methods:
   - TMP-S-00008
-  quote: أخذ
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m4
+  kind: office
+  ref: TMP-O-00225
+  quote: خادم الفقراء
+- id: m5
+  kind: event
+  quote: أخذ
   norm: اخذ
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アブドゥルラフマーン・ブン・ユースフ・アッ＝ディムヤートィー。ダミエッタのフカラー（貧者・スーフィー）の奉仕者。カイロにて私（サハーウィー）から学問を修めた者の一人。
   en: Abd al-Rahman b. Yusuf al-Dimyati. Servant of the poor (Sufis) there [in Damietta]. He was among those who acquired knowledge from me [al-Sakhawi] in Cairo.

@@ -9,62 +9,54 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m9
   - id: n2
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: TMP-P-001458
-    norm: اسماعيل
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m5
   - id: n8
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m7
 death:
   id: d
   date:
     ah: 809
     cert: medium
   places:
-  - ref: TMP-L-00227
-    quote: بالكدراء
-    norm: الكدراء
+  - mention: m14
   note:
     ja: '「مات بالكدراء سنة تسع」。一の位のみの年＝809（cert medium、2026-09-24 Waka）。809年＝1406-06-27 開始、年精度 1406。الكدراء ＝ TMP-L-00227（初版 #NEEDID）。'
-  quote: سنة
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: paternal_uncle
-  active: TMP-P-000473
+  active: m11
   passive: AIND-D07107
-  quote: عمه
   note:
     ja: '父 إسماعيل بن عبد الله بن عمر の兄弟＝القاضي أبو عبد الله محمد بن عبد الله بن عمر بن أبي بكر الناشري。corpus に本伝なし（刊本は9世紀没者を収録、本人は没年不詳。兄弟項 #AIND-D04423 に「عميه القاضيين محمد بن عبد الله والشهاب أحمد بن أبي بكر」）。ID-Master 登録済み TMP-P-000473「محمد بن عبد الله (أبو عبد الله) الناشري」（#AIND-D01901 إسحاق بن أبي القسم بن محمد بن عبد الله بن عمر بن أبي بكر の祖父）とナサブが一致するため同番号を充てた。初版の subtype uncle・#NEEDID を是正。'
   phrase: القاضي أبو عبد الله
@@ -75,7 +67,6 @@ relations:
   passive: AIND-D07107
   summary:
     ar: إسماعيل بن عبد الله بن عمر الناشري
-  quote: null
   note:
     ja: '父 إسماعيل بن عبد الله بن عمر بن أبي بكر بن عبد الرحمن الناشري は見出しナサブから復元（規則3）。corpus に本伝なし・ID-Master 未登録 → 仮番号 TMP-P-001458。同じ父をもつ兄弟項 #AIND-D03856（عبد الرحيم بن إسماعيل بن عبد الله بن عمر）・#AIND-D04423（عبد الله بن إسماعيل بن عبد الله بن عمر）・孫項 #AIND-D01978 でも同番号を使うこと。'
 - id: r3
@@ -86,52 +77,115 @@ relations:
   summary:
     ar: إسماعيل بن محمد بن إسماعيل الناشري
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D01978（إسماعيل بن محمد بن إسماعيل بن عبد الله بن عمر بن أبي بكر بن عبد الرحمن ابن عبد الله الناشري الآتي أبوه、「ذكره العفيف في أبيه」）は本項主を父として名指し（repo の D01978 に father=#AIND-D07107 済み）。本項の原文には子への言及がないため規則23により補う。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: TMP-L-00338
-    quote: بسهام
-    norm: سهام
-  quote: وناب عن عمه في الأحكام
+  - mention: m18
   note:
     ja: '叔父（القاضي أبو عبد الله、TMP-P-000473）の代理として سهام で裁判を担当。سهام（イエメン・ティハーマの地、الكدراء の属する地域。D05453「خطابة كدرا سهام」）は ID-Master 未登録 → TMP-L-00338（初版 #NEEDID）。'
-  norm: ناب عن عمه في الاحكام
+  mention: m17
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000473
-    quote: القاضي أبو عبد الله
-    norm: القاضي ابو عبد الله
-  quote: قال
+  - mention: m12
   note:
     ja: Pattern A。叔父（上記 relation）の評言。
   trigger: rule
   phrase: 'قال عمه القاضي أبو عبد الله : كان فقيها فاضلا صالحا سليم الصدر مباركا له في معيشته'
+  mention: m10
 - id: c2
   persons:
-  - ref: AIND-D04864
-    quote: العفيف
-  quote: زاد العفيف وله حواش كثيرة دالة على فضله وحسن اشتغاله
+  - mention: m16
   note:
     ja: 'Pattern A。العفيف ＝ العفيف الناشري #AIND-D04864（عثمان بن عمر … العفيف الناشري、一族の伝記集の著者）。初版の幻番号 TMP-P-000694 は同 AIND に名寄せ済み、統制外 relation「cited authority」を event に改めた。'
-  norm: زاد العفيف وله حواش كثيرة دالة علي فضله وحسن اشتغاله
+  phrase: زاد العفيف وله حواش كثيرة دالة على فضله وحسن اشتغاله
+  mention: null
 assessments:
 - id: v1
-  quote: كان فقيها فاضلا صالحا سليم الصدر مباركا له في معيشته
   label: كان فقيها فاضلا صالحا سليم الصدر مباركا له في معيشته ، وكان آمرا بالمعروف ناهيا عن المنكر
   terms:
   - فاضل
   - صالح
   label_latn: kāna faqīhan fāḍilan ṣāliḥan salīm al-ṣadr mubārakan lahu fī maʿīshatihi, wa-kāna āmiran bi-l-maʿrūf nāhiyan ʿan al-munkar
+  mention: m13
 notes:
 - text: '同じ父（إسماعيل بن عبد الله بن عمر الناشري）をもつ兄弟として corpus に #AIND-D03856（عبد الرحيم）・#AIND-D04423（عبد الله、832没）があるが、本項の原文に言及がないため relation は立てない。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001458
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  quote: عبد الرحمن
+- id: m7
+  kind: name
+  quote: عبد الله
+- id: m8
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m9
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m10
+  kind: source
+  quote: قال
+- id: m11
+  kind: person
+  ref: TMP-P-000473
+  quote: عمه
+- id: m12
+  kind: person
+  ref: TMP-P-000473
+  quote: القاضي أبو عبد الله
+  norm: القاضي ابو عبد الله
+- id: m13
+  kind: assessment
+  quote: كان فقيها فاضلا صالحا سليم الصدر مباركا له في معيشته
+- id: m14
+  kind: place
+  quote: بالكدراء
+  ref: TMP-L-00227
+  norm: الكدراء
+- id: m15
+  kind: year
+  value: '809'
+  quote: سنة
+- id: m16
+  kind: person
+  ref: AIND-D04864
+  quote: العفيف
+- id: m17
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب عن عمه في الأحكام
+  norm: ناب عن عمه في الاحكام
+- id: m18
+  kind: place
+  quote: بسهام
+  ref: TMP-L-00338
+  norm: سهام
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・アブドゥッラー・ブン・ウマル・ブン・アビー・バクル・ブン・アブド・アッ＝ラフマーン・ブン・アブドゥッラー、アブー・アブドゥッラー・アン＝ナーシリー。彼の叔父であるカーディー・アブー・アブドゥッラーは言った。「法学者で有徳・敬虔、心が清らかで、生計に恵まれていた」。（8）09年にアル＝カドラーで没した。アル＝アフィーフは付け加えて（言う）、彼にはその学徳と勉学の良さを示す多くの注記（ハワーシー）があり、叔父の代理としてシハームで裁判を担当し、善を命じ悪を禁じる人であった。
   en: 'Muḥammad b. Ismāʿīl b. ʿAbd Allāh b. ʿUmar b. Abī Bakr b. ʿAbd al-Raḥmān b. ʿAbd Allāh, Abū ʿAbd Allāh al-Nāshirī. His paternal uncle the qāḍī Abū ʿAbd Allāh said: he was a jurist, virtuous, righteous, pure of heart, and blessed in his livelihood. He died in al-Kadrāʾ in the year (8)09. Al-ʿAfīf added: he had many glosses (ḥawāshī) indicating his merit and the quality of his studies; he deputized for his uncle in judicial affairs in Sihām, and he was one who enjoined good and forbade evil.'

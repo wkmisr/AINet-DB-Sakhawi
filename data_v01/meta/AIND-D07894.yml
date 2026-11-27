@@ -9,41 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00236
-    quote: المرجاني
+    mention: m6
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الملك
     by: rule
-    ref: TMP-P-001635
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الملك
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: الشيخ أبي محمد
     by: rule
-    norm: الشيخ ابي محمد
+    mention: m5
 death:
   id: d
   date:
     ah: 828
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: '「مات بمكة سنة ثمان وعشرين」。828年＝1424-12-02 開始（h2g.py: 828 -> 1424-12-02 .. 1425-11-21）→ 年のみ＝年初の西暦年 1424（規則18）。【集約 2026-10-31 訂正】校閲時の「年精度 1425」は誤り。'
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
@@ -52,7 +47,6 @@ relations:
   passive: AIND-D07894
   summary:
     ar: عبد الملك بن محمد بن عبد الملك بن أبي محمد المرجاني
-  quote: null
   note:
     ja: '父＝عبد الملك بن محمد بن عبد الملك بن الشيخ أبي محمد（عبد الله）البكري التونسي الأصل المكي「الشهير بالمرجاني」。本項主の見出しナサブと、娘 #AIND-D13712「أم الحسين سعادة ابنة عبد الملك بن محمد بن عبد الملك بن عبد الله ابن محمد بن محمد البكري التونسي الأصل الشهير أبوها بالمرجانى」のナサブが一致（曾祖父 أبو محمد＝عبد الله は #AIND-D03769「… بن الشيخ أبي محمد عبد الله بن محمد بن محمد … البكري المرجاني」で確認）。corpus に本伝なし（hw.py「عبد الملك بن محمد」該当なし）、ID-Master 未登録 → 仮 TMP-P-001635（規則3、ナサブ4代で識別）。'
 notes:
@@ -62,15 +56,52 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 828（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43）。初版の統制外 relation「chronicler」を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001635
+  quote: عبد الملك
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الملك
+- id: m5
+  kind: name
+  quote: الشيخ أبي محمد
+  norm: الشيخ ابي محمد
+- id: m6
+  kind: name
+  ref: TMP-N-00236
+  quote: المرجاني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: year
+  value: '828'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アブドゥルマリク・ブン・ムハンマド・ブン・アブドゥルマリク・ブン・アッ＝シャイフ・アビー・ムハンマド・アル＝マルジャーニー。828年にマッカで没した。イブン・ファハドがその没年を記した。
   en: Muḥammad b. ʿAbd al-Malik b. Muḥammad b. ʿAbd al-Malik b. al-Shaykh Abī Muḥammad al-Marjānī. He died in Mecca in the year 828. Ibn Fahd recorded his death date.

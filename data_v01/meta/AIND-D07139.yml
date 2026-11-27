@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الطنبغادوادار سودون المارداني
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -25,7 +25,7 @@ death:
     cert: medium
   note:
     ja: 「ومات تقريبا سنة اثنتين وسبعين شابا」＝872年頃（تقريبا → cert medium）、若くして。872年＝1467-08-11 開始 → 年精度 1467（h2g）。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -34,15 +34,13 @@ relations:
   passive: AIND-D07139
   summary:
     ar: الطنبغا دوادار سودون المارداني
-  quote: null
   note:
     ja: '見出し「محمد ناصر الدين بن الطنبغا دوادار سودون المارداني」＝「دوادار سودون المارداني」は父 الطنبغا の職（ブリーフ指示。本項主の state にしない）。سودون المارداني ＝ corpus #AIND-D03234。父は「سودون المارداني のダワーダール」という識別要素があるため TMP-P-001470 を発行（規則3・12。ID-Master・corpus に本伝なし）。初版の #NEEDID と統制外 relation「father''s patron」（#NEEDID、سودون المارداني）を是正。'
 - id: r2
   type: kin
   subtype: spouse
-  active: AIND-D13521
+  active: m8
   passive: AIND-D07139
-  quote: ستيتة ابنة الكمال بن شيرين
   note:
     ja: '「فاطمة التي تزوج أمها ستيتة ابنة الكمال بن شيرين」。ستيتة ＝ 女性部 #AIND-D13521「فاطمة المدعوة ستيتة … ابنة القاضي كمال الدين محمود ابن ... ابن شيراين الحنفي … وتزوجت الناصري محمد بن الطنبغا واستولدها ابنتها فاطمة وغيرها ثم مات عنها」＝本項主を夫として明記し、娘 فاطمة も一致（規則38 女性部探索）。初版の #NEEDID を差し替え。'
 - id: r3
@@ -50,42 +48,71 @@ relations:
   subtype: father-in-law
   active: AIND-D09881
   passive: AIND-D07139
-  quote: null
   note:
     ja: '妻の父 الكمال بن شيرين ＝ #AIND-D09881「محمود بن يوسف بن مسعود الكمال العجمي الأصل القاهري الحنفي والد أحمد وأخته الشاعرة ويعرف بابن شيرين」（D13521 の父）。初版は relation なし。'
   phrase: الكمال بن شيرين
 - id: r4
   type: kin
   subtype: daughter
-  active: TMP-P-001469
+  active: m7
   passive: AIND-D07139
-  quote: فاطمة
   note:
     ja: '「ووقفها على ابنته فاطمة」。母は ستيتة（#AIND-D13521、同項に「واستولدها ابنتها فاطمة」）。corpus 女性部に本伝なし（hw「فاطمة」「الطنبغا」）・ID-Master 未登録 → TMP-P-001469（規則12）。初版の #NEEDID を差し替え。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: ممن كان يتعانى التجارة
   note:
     ja: 商業に従事（تاجر ＝ wd:Q215536、ID-Master 登録）。
-  norm: ممن كان يتعاني التجارة
+  mention: m4
 - id: s2
   type: status
   label: مع عقل وتؤدة وبر وستر
   label_latn: maʿa ʿaql wa-tuʾada wa-birr wa-sitr
-  quote: مع عقل وتؤدة وبر وستر
-  norm: مع عقل وتءدة وبر وستر
+  mention: m5
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00044
-    quote: المحلة
-  quote: اشترى رزقة بأراضي المحلة ووقفها على ابنته فاطمة
+  - mention: m6
   note:
     ja: マハッラの土地にリズカ（俸禄地）を購入し娘ファーティマのためにワクフとした。初版の英語 desc を原文句に是正。
-  norm: اشتري رزقة باراضي المحلة ووقفها علي ابنته فاطمة
+  phrase: اشترى رزقة بأراضي المحلة ووقفها على ابنته فاطمة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: ناصر الدين
+- id: m3
+  kind: name
+  quote: الطنبغادوادار سودون المارداني
+- id: m4
+  kind: office
+  ref: wd:Q215536
+  quote: ممن كان يتعانى التجارة
+  norm: ممن كان يتعاني التجارة
+- id: m5
+  kind: office
+  quote: مع عقل وتؤدة وبر وستر
+  norm: مع عقل وتءدة وبر وستر
+- id: m6
+  kind: place
+  quote: المحلة
+  ref: TMP-L-00044
+- id: m7
+  kind: person
+  ref: TMP-P-001469
+  quote: فاطمة
+- id: m8
+  kind: person
+  ref: AIND-D13521
+  quote: ستيتة ابنة الكمال بن شيرين
+- id: m9
+  kind: year
+  value: '872'
+  quote: سنة
 translation:
   ja: ムハンマド・ナースィル・アッ＝ディーン・ブン・アッ＝トゥンブガー、（父は）スードゥーン・アル＝マーリダーニーのダワーダール。思慮と落ち着き、敬虔さと慎みをもって商業に従事した者の一人。アル＝マハッラの土地にリズカ（俸禄地）を購入し、それを娘のファーティマのためにワクフとした。彼はその（ファーティマの）母、アル＝カマール・ブン・シーリーンの娘スタイタを娶っていたのである。872年頃、若くして没した。
   en: Muḥammad Nāṣir al-Dīn b. al-Ṭunbughā, (his father being) the dawādār of Sūdūn al-Māridānī. He was among those who engaged in trade, with intelligence, composure, piety and decorum. He bought a rizqa (allotment of land) in the lands of al-Maḥalla and made it a waqf for his daughter Fāṭima, whose mother, Sutayta the daughter of al-Kamāl b. Shīrīn, he had married. He died in about 872, as a young man.

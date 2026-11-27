@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03612
-    quote: شركسي
+    mention: m3
   - id: n2
     type: ism
-    quote: خجا
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -36,19 +35,16 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D02117
+  active: m4
   passive: AIND-D02819
-  quote: بالشيخ اينال
   note:
     ja: 「ممن اختص بالشيخ اينال أحد المعتقدين」。الشيخ اينال＝#AIND-D02117「اينال معتقد لكثيرين تسلك به خجا بردي الآتي وكان حنفيا جركسيا من مماليك نوروز نائب الشام … ونزل بزاوية قريبة من مضارب الخيام بالرملة … مات … سنة أربع وستين ودفن بزاوية تلميذه المشار إليه عند مضارب الخيام من الرملة」（864没）。相手側本文が本項主を名指しで弟子（تسلك به・تلميذه）とするため、側近関係（اختص）を師弟（スーフィー修行の師）として teacher に符号化。初版の統制外 subtype「friend」（#NEEDID）を変換。
-  norm: الشيخ اينال
   phrase: الشيخ اينال
 - id: r2
   type: kin
   subtype: grandson
-  active: AIND-D10593
+  active: m7
   passive: AIND-D02819
-  quote: يونس بن محمد
   note:
     ja: '孫 يونس بن محمد ＝ #AIND-D10593「يونس بن محمد بن خجا بردى القاهري القادري المالكي الماضي جده … ونشأ في كنف أبيه وجده بزاويته التي بقرب مضارب الخيم من الرملة」（862年生）。見出しナサブで閉合（規則37）。初版の統制外 subtype「other」（#NEEDID）を変換。'
 - id: r3
@@ -56,16 +52,15 @@ relations:
   subtype: father
   active: AIND-D02819#p1
   passive: AIND-D02819
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: status
-  quote: null
   note:
     ja: الشيخ اينال のほか他の敬虔者たちとも交際した（相手不特定）。
   phrase: مع صحبة غيره من الصالحين
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -74,7 +69,7 @@ affiliations:
   type: affiliated
   ref: TMP-I-00249
   places:
-  - ref: TMP-L-00207
+  - mention: m2
   orgs:
   - label: الزاوية التي بالقرب من مضارب الخام من الرملة
   - label: al-Zāwiya allatī bi-l-qurb min maḍārib al-khām min al-Ramla
@@ -85,11 +80,39 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D10593
-  quote: قاله
   note:
     ja: 没年月日の情報源＝孫（#AIND-D10593）の口頭伝（規則44、mention event の persName）。
   trigger: rule
   phrase: قاله لي حفيده يونس بن محمد الآتي
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: خجا
+- id: m2
+  kind: place
+  quote: الرملة
+  ref: TMP-L-00207
+- id: m3
+  kind: name
+  ref: TMP-N-03612
+  quote: شركسي
+- id: m4
+  kind: person
+  ref: AIND-D02117
+  quote: بالشيخ اينال
+  norm: الشيخ اينال
+- id: m5
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m6
+  kind: source
+  quote: قاله
+- id: m7
+  kind: person
+  ref: AIND-D10593
+  quote: يونس بن محمد
 translation:
   ja: フジャー・バルディー、ラムラの天幕張り場（マダーリブ・アル＝ハーム）の近くにあるザーウィヤの主。チェルケス人、ハナフィー派。信奉された聖者の一人であるシャイフ・イーナールに親しく付き従った者の一人で、他の敬虔者たちとの交際もあった。881年ズー・アル＝カアダ月26日に80歳ほどで没した。後述する彼の孫ユーヌス・ブン・ムハンマドが私にそう語った。
   en: Khujā Bardī, master of the zāwiya near the tent-pitching ground (maḍārib al-khām) of al-Ramla; a Circassian and a Ḥanafī, one of those closely attached to Shaykh Īnāl, one of the venerated (saints), besides keeping company with other righteous men. He died at about eighty years of age on 26 Dhū al-Qaʿda of the year 881; so his grandson Yūnus b. Muḥammad (mentioned below) told me.

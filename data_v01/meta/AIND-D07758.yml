@@ -9,37 +9,34 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن الحاجب
-    norm: ابن الحاجب
     label: ابن الحاجب
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001201
+    mention: m2
   - id: n5
     type: nasab
-    quote: بكتمر
     by: rule
-    ref: TMP-P-001108
+    mention: m3
   - id: n6
     type: nasab
-    quote: جمال الدين
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 802-04-25
   note:
     ja: 「مات في خامس عشري ربيع الآخر سنة اثنتين . أرخه العيني … وأرخه شيخنا في إنبائه في ربيع الأول والأول هو الصواب」。サハーウィーは العيني の ربيع الآخر を正としているためこれを採る。802-04-25 ＝ 1400-01-02（h2g.py、初版の 1399 を是正）。イブン・ハジャル『الإنباء』の異伝（ربيع الأول 802 ＝ 1399-11-09〜12-08）は note に留める。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
@@ -48,7 +45,6 @@ relations:
   passive: AIND-D07758
   summary:
     ar: جمال الدين عبد الله بن بكتمر الحاجب
-  quote: null
   note:
     ja: '見出し「محمد بن عبد الله بن بكتمر ناصر الدين بن جمال الدين … ابن الحاجب」から復元。corpus には本伝なし（女性部 #AIND-D12883「ألف ابنة عبد الرحيم بن الناصري محمد بن الجمال عبد الله بن بكتمر الحاجب」・#AIND-D10428「الجمالي عبد الله بن بكتمر الحاجب صاحب الأوقاف الكثيرة والمدرسة بجوار الدار الهائلة خارج باب النصر」に言及）。ID-Master 未登録（祖父 بكتمر الحاجب は TMP-P-001108、本項主自身は TMP-P-001107 として D03644 から登録済み＝要名寄せ）。'
 - id: r2
@@ -58,7 +54,6 @@ relations:
   passive: AIND-D07758
   summary:
     ar: بكتمر الحاجب
-  quote: null
   note:
     ja: ID-Master 登録 TMP-P-001108（بكتمر الحاجب、バーブ・アン＝ナスルのマドラサ創建者・一族祖）。
 - id: r3
@@ -69,46 +64,98 @@ relations:
   summary:
     ar: الزيني عبد الرحيم بن ناصر الدين ابن جمال الدين بن الأمير الحاجب
   cert: medium
-  quote: null
   note:
     ja: '統一規則23による補完。#AIND-D03881「عبد الرحيم بن محمد بن عبد الله بن بكتمر الزيني بن ناصر الدين ابن جمال الدين بن الأمير الحاجب … ويعرف كسلفه بابن الحاجب」のナサブ・ラカブ列が本項主を一意に特定する（本項の原文には子の言及がないため cert medium）。合同索引 #AIND-D12243（ابن الحاجب عبد الرحيم وأمير علي وعمر بنو الناصري محمد بن الجمال عبد الله بن بكتمر）は規則11により relation に充てない（他の子 أمير علي・عمر は note のみ）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
   places:
-  - ref: TMP-L-00238
-    quote: بالديار المصرية
-    norm: الديار المصرية
-  quote: أمراء العشرات
-  norm: امراء العشرات
+  - mention: m8
   phrase: وكان من أمراء العشرات بالديار المصرية
+  mention: m7
 events:
 - id: e1
   type: political
-  quote: تقدم في ولاية صهره بالدوادارية
   note:
     ja: 「義理の縁者（صهر）がダワーダール職にあった時期に立身した」。صهر は無名のため relation を立てない（規則14）。初版の active 空欄 relation を除去。
+  phrase: تقدم في ولاية صهره بالدوادارية
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m12
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني وقال إنه خلف موجودا كثيرا
+  mention: m11
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m14
   works:
   - ref: TMP-T-00034
-  quote: وأرخه
   trigger: rule
-  norm: ارخه
   phrase: وأرخه شيخنا في إنبائه في ربيع الأول والأول هو الصواب
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001201
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-P-001108
+  quote: بكتمر
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  quote: جمال الدين
+- id: m6
+  kind: name
+  quote: بابن الحاجب
+  norm: ابن الحاجب
+- id: m7
+  kind: office
+  ref: TMP-O-00101
+  quote: أمراء العشرات
+  norm: امراء العشرات
+- id: m8
+  kind: place
+  quote: بالديار المصرية
+  ref: TMP-L-00238
+  norm: الديار المصرية
+- id: m9
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m10
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
+- id: m13
+  kind: source
+  quote: وأرخه
+  norm: ارخه
+- id: m14
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m15
+  kind: month
+  value: 3
+  quote: ربيع الأول
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・バクタムル、ナースィル・アッ＝ディーン・ブン・ジャマール・アッ＝ディーン。イブン・アル＝ハージブとして知られる。彼の姻族（スィフル）がダワーダール職にあった時期に立身し、エジプト領（アッ＝ディヤール・アル＝ミスリーヤ）の十人隊長（アミール・アシャラ）の一人であった。（8）02年ラビーウ・アル＝アーヒル月25日に没した。アル＝アイニーがその没年月日を記録し、多くの財産を遺したと述べている。我らがシャイフ（イブン・ハジャル）は『インバー』でその死をラビーウ・アル＝アウワル月としているが、前者（ラビーウ・アル＝アーヒル月）が正しい。
   en: Muḥammad b. ʿAbd Allāh b. Baktamur, Nāṣir al-Dīn b. Jamāl al-Dīn, known as Ibn al-Ḥājib. He rose to prominence while his in-law held the office of dawādār, and was one of the amirs of ten in the Egyptian realm. He died on 25 Rabīʿ II (8)02. Al-ʿAynī recorded his death and said that he left behind much property. Our shaykh (Ibn Ḥajar) dated it in his Inbāʾ to Rabīʿ I, but the former is correct.

@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: نجم الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04598
+  active: m4
   passive: AIND-D07822
   summary:
     ar: الجمال عبد الله بن محمد بن عبد الوهاب الزرندي
-  quote: الذي قبله
   note:
     ja: '「أخو الذي قبله」＝直前の項 #AIND-D07821（محمد بن عبد الله بن محمد بن عبد الوهاب بن علي بن يوسف المجد بن الجمال بن فتح الدين الأنصاري الزرندي المدني الحنفي الماضي أبوه وهو أكبر إخوته）の見出しナサブから父を復元（規則37）＝ #AIND-D04598（عبد الله بن محمد بن عبد الوهاب الجمال بن القاضي فتح الدين أبي الفتح … والد المحمدين الثلاثة、862年没。相手側で son #AIND-D07822 として閉合済み）。転送見出し #AIND-D07803「محمد بن عبد الله بن أبي الفتح . ثلاثة مجد الدين ونجم الدين وشمس الدين . يأتون فيمن جدهم محمد بن عبد الوهاب」も本項を指す。本項主のナサブ（محمد بن عبد الله بن محمد بن عبد الوهاب … الأنصاري الزرندي المدني الحنفي）は直前の項 D07821 による（原文にないため full には入れない）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07821
+  active: m3
   passive: AIND-D07822
   summary:
     ar: المجد محمد
-  quote: أخو
   note:
     ja: '「أخو الذي قبله」＝ #AIND-D07821（المجد، 852年生、「وهو أكبر إخوته」）。初版 #NEEDID を置換。弟 #AIND-D07823（محمد شمس الدين أخو الأولين）は相手側から閉合。'
-  norm: اخو
 - id: r3
   type: identity
   subtype: possible_identity
@@ -44,7 +41,6 @@ relations:
   summary:
     ar: نجم الدين بن عبد الله بن أبي الفتح الأنصاري الزرندي المدني
   cert: high
-  quote: null
   note:
     ja: 'ラカブ部の #AIND-D11153「نجم الدين بن عبد الله بن أبي الفتح الأنصاري الزرندي المدني ابن أخي قاضيها الحنفي ممن سمع مني بها」は同一人物（父 الجمال عبد الله بن أبي الفتح、叔父＝マディーナのハナフィー派カーディー سعد #AIND-D03092）。転送指示がないため二重立項型として両項とも実項のまま、possible_identity（cert high）を記録（D11153 側の逆方向は申し送り）。'
 events:
@@ -52,9 +48,26 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00162
-  quote: حفظ القدوري
   note:
     ja: 師の記載がないため teacher relation ではなく event（初版の active 空の relation を置換）。مختصر القدوري（ハナフィー派の綱要、TMP-T-00162）。
+  phrase: حفظ القدوري
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: نجم الدين
+- id: m3
+  kind: person
+  ref: AIND-D07821
+  quote: أخو
+  norm: اخو
+- id: m4
+  kind: person
+  ref: AIND-D04598
+  quote: الذي قبله
 translation:
   ja: ムハンマド・ナジュムッディーン、前の者の兄弟。『アル＝クドゥーリー』を暗記した。
   en: Muḥammad Najm al-Dīn, brother of the preceding one. He memorized al-Qudūrī.

@@ -9,14 +9,14 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الخباز
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: الضرير
+    mention: m3
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -24,39 +24,62 @@ death:
     cert: low
   note:
     ja: 「قريبا من سنة ستين أو بعدها」。「قريبا من N」型は年表現（規則4）＝ when-custom="0860"、「أو بعدها」の付加により cert low。860 ＝ 1455-12-20〜1456-12-07、年初 1455（h2g.py）。
-  quote: سنة
   phrase: مات قريبا من سنة ستين أو بعدها
+  mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00540
+  active: m4
   passive: AIND-D05748
   methods:
   - TMP-S-00010
   fields:
   - TMP-S-00013
-  quote: ابن أسد
   note:
     ja: '「تلا بالسبع على ابن أسد」。ابن أسد＝#AIND-D00540（أحمد بن أسد بن عبد الواحد الشهاب الأميوطي … القاهري الشافعي المقرئ ويعرف بابن أسد、カイロの七読誦の師）。初版の幻番号 TMP-P-000360 は ID-Master 上で既に #AIND-D00540 に統合済み（B88 §C-2）のため差し替え。'
-  norm: ابن اسد
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D05748
-  passive: AIND-D05922
+  passive: m6
   methods:
   - TMP-S-00025
-  quote: عمر بن قاسم
   note:
     ja: 「وكان ممن قرأ عليه عمر بن قاسم إمام مسجد قانم」。相手＝#AIND-D05922（عمر بن قاسم الأنصاري المصري الشافعي المقرئ ويعرف بالنشار … وتلا بالسبع على علي الخباز الضرير … أمام مدرسة قانم بالكبش）。相手側本伝が本項主を名指しで師とし、職（مسجد／مدرسة قانم のイマーム）も一致するため確定。「إمام مسجد قانم」は相手の職であり本項主の state にはしない。
 events:
 - id: e1
   type: teaching
-  quote: وأقرأ
   trigger: rule
-  norm: اقرا
   phrase: وأقرأ الطلبة
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: الخباز
+- id: m3
+  kind: name
+  quote: الضرير
+- id: m4
+  kind: person
+  ref: AIND-D00540
+  quote: ابن أسد
+  norm: ابن اسد
+- id: m5
+  kind: event
+  quote: وأقرأ
+  norm: اقرا
+- id: m6
+  kind: person
+  ref: AIND-D05922
+  quote: عمر بن قاسم
+- id: m7
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: アリー・アル＝ハッバーズ、盲目の（アッ＝ダリール）クルアーン読誦家。イブン・アサドのもとで七読誦法によって読誦し、学生たちに読誦を教えた。カーニム・モスクのイマームであるウマル・ブン・カースィムは彼のもとで読誦を学んだ者の一人である。（8）60年頃、あるいはそれ以後に没した。
   en: ʿAlī al-Khabbāz, the blind (al-Ḍarīr) Qurʾān reciter. He recited according to the seven readings under Ibn Asad and taught recitation to students. Among those who recited under him was ʿUmar b. Qāsim, imam of the Mosque of Qānim. He died around the year (8)60 or after it.

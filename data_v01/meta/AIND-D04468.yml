@@ -9,41 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00100
-    quote: الحضرمي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-01535
-    quote: التريمي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m7
   - id: n4
     type: laqab
-    quote: العفيف
+    mention: m3
   - id: n5
     type: kunyah
-    quote: أبو محمد
-    norm: ابو محمد
+    mention: m4
   - id: n6
     type: shuhrah
-    quote: بأفضل
-    norm: افضل
     label: أفضل
+    mention: m9
   - id: n7
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 persons:
 - id: p1
   label: عبد الرحمن
@@ -54,24 +48,20 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D04468
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m11
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: AIND-D04468#p1
   passive: AIND-D04468
-  quote: null
   note:
     ja: '父は裸名（عبد الرحمن）のみで祖父名も無く、corpus に本伝を特定できないため #NEEDID を維持（統一規則3）。'
 affiliations:
@@ -81,6 +71,49 @@ affiliations:
 notes:
 - text: 「ويعرف كسلفه بأفضل」＝先人と同じく「أفضل」の名で知られる。ハドラマウト（تريم／حضرموت）のシャーフィイー派学者一族名「بافضل（Bā Faḍl）」を刊本が「أفضل」と写した可能性が高いが、裁定 §D-2 により XML は刊本表記（أفضل）を維持し shuhrah に採る。別形 بافضل の併記は ID-Master 側で別名として行う（XML は بافضل に直さない）。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: العفيف
+- id: m4
+  kind: name
+  quote: أبو محمد
+  norm: ابو محمد
+- id: m5
+  kind: name
+  ref: TMP-N-00100
+  quote: الحضرمي
+- id: m6
+  kind: name
+  ref: TMP-N-01535
+  quote: التريمي
+- id: m7
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: name
+  quote: بأفضل
+  norm: افضل
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥッラー・ブン・アブドゥッラフマーン、アル＝アフィーフ、アブー・ムハンマド、アル＝ハドラミー、アッ＝タリーミー、アル＝ヤマーニー、アッ＝シャーフィイー。先人たちと同様に「アフダル」の名で知られる。マッカで私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd Allāh b. ʿAbd al-Raḥmān, al-ʿAfīf Abū Muḥammad al-Ḥaḍramī al-Tarīmī al-Yamānī al-Shāfiʿī, known, like his forebears, as Afḍal. He is among those who heard from me in Mecca.

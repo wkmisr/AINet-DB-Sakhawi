@@ -9,91 +9,79 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05481
-    quote: العزي
+    mention: m8
   - id: n2
     type: laqab
-    quote: خير الدين
+    mention: m5
   - id: n3
     type: kunyah
-    quote: أبو الخير
-    norm: ابو الخير
+    mention: m6
   - id: n4
     type: shuhrah
-    quote: بابن جبريل
-    norm: ابن جبريل
     label: ابن جبريل
+    mention: m11
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد القادر
     by: rule
-    ref: AIND-D04177
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: جبريل
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: المحيوي
     by: rule
+    mention: m7
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D07710
   methods:
   - TMP-S-00025
   works:
   - ref: TMP-T-00102
-  quote: علي
   note:
     ja: 「وقرأ علي قطعة من أول شرح ألفية العراقي للناظم」＝「عليّ（私に）」。『アルフィーヤ・アル＝イラーキー』の作者（al-ʿIrāqī）自身による注釈の冒頭部分を朗読。初版の field الحديث は規則2により除去。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D07710
   methods:
   - TMP-S-00014
-  quote: ولازمني
   note:
     ja: 「ولازمني في غير ذلك」。
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D04177
+  active: m10
   passive: AIND-D07710
   summary:
     ar: عبد القادر بن محمد بن جبريل المحيوي الغزي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父＝#AIND-D04177「عبد القادر بن محمد بن جبريل المحيوي العجلوني الأصل الغزي الشافعي ويعرف بابن جبريل … واستقل بالقضاء في سنة ثلاث وسبعين … وولي قضاء القدس」（未受領）。ナサブ・ラカブ المحيوي・通称 ابن جبريل が一致（規則37）。索引 #AIND-D12219「ابن جبريل اثنان … وشافعي اسمه عبد القادر بن محمد بن جبريل غزي」も同人。初版は #NEEDID。'
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
-  quote: القضاء
+  - mention: m15
   note:
     ja: '「وولي القضاء بغزة فيه」＝転向後の学派でガザのカーディー職に就いた。ref は repo 先例（D05713「قضاء غزة」）どおり汎用 قاض wd:Q217029。初版の #NEEDID を置換、初版の residence event（غزة＝職の勤務地からの補完、規則22(1)）を除去。'
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -101,13 +89,72 @@ affiliations:
 events:
 - id: e1
   type: religious
-  quote: تحول عن مذهبه لغيره
   note:
     ja: 自らの学派（見出しは الشافعي）から別の学派へ転向した。転向先は原文に明記されない（初版 desc の「likely Hanafi」は根拠のない推測のため除去。父 D04177 も「شفعه بعد أن كان حنفيا」とハナフィー派からシャーフィイー派に転じた経歴をもつが、本項の転向先の同定には使わない）。
+  phrase: تحول عن مذهبه لغيره
+  mention: null
 notes:
 - text: 「ممن اشتغل قليلا」＝少し学問に従事した。「وهو فهم」＝理解力がある（人物評）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04177
+  quote: عبد القادر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: جبريل
+- id: m5
+  kind: name
+  quote: خير الدين
+- id: m6
+  kind: name
+  quote: أبو الخير
+  norm: ابو الخير
+- id: m7
+  kind: name
+  quote: المحيوي
+- id: m8
+  kind: name
+  ref: TMP-N-05481
+  quote: العزي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D04177
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: name
+  quote: بابن جبريل
+  norm: ابن جبريل
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: ولازمني
+- id: m14
+  kind: office
+  ref: wd:Q217029
+  quote: القضاء
+- id: m15
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
 translation:
   ja: ムハンマド・ブン・アブド・アル＝カーディル・ブン・ムハンマド・ブン・ジブリール、ハイル・アッ＝ディーン、アブー・アル＝ハイル・ブン・アル＝ムヒユウィー、アル＝イッズィー、アッ＝シャーフィイー。父は前述。イブン・ジブリールとして知られる。少し学問に従事し、私（サハーウィー）に作者自身による『アル＝イラーキーのアルフィーヤ注釈』の冒頭の一部を読み、それ以外でも私に師事した。彼は理解力がある。自らの学派から別の学派に転向し、その（学派の）ガザのカーディー職に就いた。
   en: Muḥammad b. ʿAbd al-Qādir b. Muḥammad b. Jibrīl, Khayr al-Dīn, Abū al-Khayr b. al-Muḥyawī, al-ʿIzzī, al-Shāfiʿī; his father has been mentioned above. He is known as Ibn Jibrīl. He engaged a little in study, read to me a portion from the beginning of the commentary on the Alfiyya of al-ʿIrāqī by its author, and attended me closely in other matters. He is intelligent. He changed from his madhhab to another and held the judgeship of Gaza in it.

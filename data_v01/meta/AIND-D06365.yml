@@ -9,18 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00557
-    quote: الإسحاقي
-    norm: الاسحاقي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m3
   - id: n3
     type: ism
-    quote: قلمطاي
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -34,7 +30,7 @@ death:
     ah: 877-01-10
   note:
     ja: 「مات ليلة الأربعاء عاشر المحرم سنة سبع وسبعين عن نحو السبعين」。877年ムハッラム10日＝1472-06-26（h2g.py、水曜と検証）。「ليلة الأربعاء」は水曜の前夜。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: والد قلمطاي الإسحاقي
@@ -45,47 +41,80 @@ relations:
   subtype: father
   active: AIND-D06365#p1
   passive: AIND-D06365
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: kin
   subtype: relative
-  active: AIND-D10460
+  active: m5
   passive: AIND-D06365
   cert: medium
-  quote: الجمال يوسف بن تغرى بردى
   note:
     ja: '【★2 (b) 2026-10-26: 「صهر」の向きが原文から決まらないので subtype を relative に（Waka 裁定）。】「صهر الجمال يوسف بن تغرى بردى」＝史家イブン・タグリービルディー（#AIND-D10460、813年生）。صهر は婿・義兄弟の両義で、本項主（807年頃生）は相手より年長なので姉妹の夫（brother-in-law）の可能性もある。subtype は repo 先例 D02131（「صهر يشبك الفقيه」→ father-in-law cert medium）に揃え、ISSUES §D138-2 に上げた。初版の subtype other #NEEDID を置換。'
-  norm: الجمال يوسف بن تغري بردي
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m4
   passive: AIND-D06365
-  quote: برسباي
   note:
     ja: 見出しのニスバ「الأشرفي برسباي」＝主人はアル＝アシュラフ・バルスバーイ（#AIND-D02168）。repo 先例どおり patron。「الإسحاقي」は先の帰属ニスバだが原文に名指しなし（relation なし）。初版は relation なし。
   phrase: الأشرفي برسباي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمراء العشرات
   note:
     ja: '初版の #NEEDID → TMP-O-00101、placeName القاهرة（原文に無い）を除去。'
-  norm: امراء العشرات
+  mention: m6
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   note:
     ja: 2度巡礼した。placeName مكة は規則20の例外として保持。
   trigger: rule
   phrase: حج مرتين
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: قلمطاي
+- id: m2
+  kind: name
+  ref: TMP-N-00557
+  quote: الإسحاقي
+  norm: الاسحاقي
+- id: m3
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m4
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m5
+  kind: person
+  ref: AIND-D10460
+  quote: الجمال يوسف بن تغرى بردى
+  norm: الجمال يوسف بن تغري بردي
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: أمراء العشرات
+  norm: امراء العشرات
+- id: m7
+  kind: event
+  quote: حج
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '877'
+  quote: سنة
 translation:
   ja: カラムターイ・アル＝イスハーキー・アル＝アシュラフィー・バルスバーイ、アル＝ジャマール・ユースフ・ブン・タグリー・ビルディーの姻戚で、十人隊アミールの一人。2度巡礼し、善人として語られる者であった。877年ムハッラム月10日水曜の夜に約70歳で没した。アッラーよ彼を憐れみたまえ。
   en: Qalamṭāy al-Isḥāqī al-Ashrafī Barsbāy, relative by marriage (ṣihr) of al-Jamāl Yūsuf b. Taghrī Birdī, and one of the amirs of ten. He performed the pilgrimage twice and was among those spoken of with approval. He died on the eve of Wednesday, 10 Muḥarram 877, aged about seventy. May God have mercy on him.

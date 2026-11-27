@@ -9,23 +9,20 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00006
-    quote: البصري
+    mention: m2
   - id: n2
     type: ism
-    quote: كرد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 884-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 「مات في شعبان سنة أربع وثمانين بمكة」。884年シャアバーン月＝1479-10-27〜11-24（h2g.py）→ 月初 1479-10。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: والد كرد مير البصري
@@ -36,35 +33,65 @@ relations:
   subtype: father
   active: AIND-D06389#p1
   passive: AIND-D06389
-  quote: null
   note:
     ja: '父の名は原文に無い → #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00138
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: TMP-L-00036
-    quote: وجدة
-    norm: جدة
-  quote: البزار
+  - mention: m4
+  - mention: m5
   note:
     ja: 「البزار بمكة وجدة」（ID-Master 既登録 TMP-O-00138 بزار、D03387「كان بزارا بجدة」と同語）。マッカとジッダ（TMP-L-00036）の両地が原文に明記。初版の二重の state と、同じ地名の residence event（職の勤務地からの補完、規則22）を整理。
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: medium
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 884（871＜884≤885）→ 振り分け規則により #AIND-D05979（النجم عمر بن فهد）、cert medium（規則43）。初版の統制外 subtype「chronicler」relation（D09211）を event に置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: كرد
+- id: m2
+  kind: name
+  ref: TMP-N-00006
+  quote: البصري
+- id: m3
+  kind: office
+  ref: TMP-O-00138
+  quote: البزار
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: place
+  quote: وجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m6
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m7
+  kind: year
+  value: '884'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: クルド・ミール・アル＝バスリー、マッカとジッダの種子商（バッザール）。884年シャアバーン月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Kurd Mīr al-Baṣrī, the bazzār (seed-merchant) in Mecca and Jedda. He died in Shaʿbān of the year 884 in Mecca. Ibn Fahd recorded the date of his death.

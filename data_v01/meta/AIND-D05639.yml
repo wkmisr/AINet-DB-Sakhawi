@@ -9,62 +9,95 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 840-02
   note:
     en: He died in Safar 840 AH.
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02560
+  active: m6
   passive: AIND-D05639
-  quote: السيد حسن
   note:
     en: He entered the service of al-Sayyid Hasan, at which point he changed his name from Umar to Ali.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00191
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
+  - mention: m5
   orgs:
   - ref: TMP-I-00134
-  quote: مستوفي الديوان
+  mention: m4
 events:
 - id: e1
   type: other
   summary:
     en: He changed his name from Umar to Ali when he entered the service of al-Sayyid Hasan.
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: ذكره
+    mention: m10
   note:
     en: He was mentioned by Ibn Fahd.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
   phrase: ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m4
+  kind: office
+  ref: TMP-O-00191
+  quote: مستوفي الديوان
+- id: m5
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m6
+  kind: person
+  ref: AIND-D02560
+  quote: السيد حسن
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・ムハンマド・アル＝ヤマニー。ジェッダのディーワーンの会計官（ムスタウフィー）。もともとの名はウマルであったが、アッ＝サイイド・ハサンに仕えた際にアリーに改名した。ハジュリー暦840年サファル月に死去。イブン・ファハドが彼について言及している。
   en: Ali b. Muhammad al-Yamani, the financial officer (mustawfi) of the diwan in Jidda. His name was originally Umar, but he changed it to Ali when he entered the service of al-Sayyid Hasan. He died in Safar, the year 840 AH. He was mentioned by Ibn Fahd.

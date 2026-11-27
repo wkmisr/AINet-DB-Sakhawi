@@ -9,27 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00244
-    quote: العباسي
+    mention: m2
   - id: n2
     type: ism
-    quote: عبد الرحيم
     by: rule
+    mention: m1
   - id: n3
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m3
 relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D10718
+  active: m4
   passive: AIND-D03894
-  quote: للبدري
   note:
     ja: '本項主が البدري の詩文集に推薦文（تقريظ）を寄せた（本項主が能動）。البدري = #AIND-D10718（أبو بكر بن عبد الله التقي ابن البدري。本伝に「أوقفني على مجموع سماه غرر الصباح … قرضه له الشعراء … ألفه بدمشق سنة خمس وستين」）。初版は nisbah 番号 TMP-N-00174 を person 位置に流用し subtype も統制外（recipient of commendation）だった。repo の D02489（قرض لجعفر）と同型の subtype="other"。'
-  norm: لبدري
   phrase: ممن قرض للبدري مجموعه
 affiliations:
 - id: a1
@@ -46,10 +42,28 @@ events:
   - ref: AIND-D10718
   works:
   - ref: TMP-T-00115
-  quote: ممن قرض للبدري مجموعه قريب السبعين
   cert: low
   note:
     ja: 「قريب السبعين」= 870年頃（D10718 本伝の「ألفه بدمشق سنة خمس وستين」と整合）。
+  phrase: ممن قرض للبدري مجموعه قريب السبعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحيم
+- id: m2
+  kind: name
+  ref: TMP-N-00244
+  quote: العباسي
+- id: m3
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m4
+  kind: person
+  ref: AIND-D10718
+  quote: للبدري
+  norm: لبدري
 translation:
   ja: アブドゥッラヒーム・アル＝アッバースィー・アッ＝シャーフィイー。アル＝バドリーの詩文集（マジュムーウ）に対して、［ヒジュラ暦8］70年頃に推薦文（タクリーズ）を寄せた人物の一人。
   en: ʿAbd al-Raḥīm al-ʿAbbāsī al-Shāfiʿī. He was one of those who composed a commendation (taqrīẓ) for al-Badrī's compilation (majmūʿ) around [the year] seventy [870 AH].

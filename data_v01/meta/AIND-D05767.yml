@@ -9,60 +9,94 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 882-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m6
   note:
     ja: 「مات بمكة في ذي القعدة سنة اثنتين وثمانين」。882-11 ＝ 1478-02-13〜03-14、月初 1478-02（h2g.py）。
-  quote: سنة
+  mention: m8
 states:
 - id: s1
   type: office
   ref: TMP-O-00012
   places:
-  - ref: TMP-L-00217
-    quote: بباب السلام
-    norm: باب السلام
-  quote: null
+  - mention: m4
   note:
     ja: 「العطار بباب السلام」。TMP-O-00012 は Office「العطار（薬種商）」の登録どおり。باب السلام ＝ TMP-L-00217（マッカ・聖モスクの門）。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-I-00201
-    quote: برباط العباس
-    norm: رباط العباس
-  quote: الساكن برباط العباس
+  - mention: m5
   note:
     ja: رباط العباس ＝ マッカのリバート（ID-Master に未登録 → 新規 TMP-I-00201）。初版の affiliation type="reside"（#NEEDID）を residence event に変換。初版のニスバ由来の residence event（المحلة TMP-L-00044・مكة）は除去（規則22(1)）。
+  phrase: الساكن برباط العباس
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: medium
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 882（871＜882≤885）→ 振り分け規則により النجم عمر بن فهد＝#AIND-D05979、cert medium。初版の統制外 subtype「chronicled_by」relation（#AIND-D09211）を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: place
+  quote: بباب السلام
+  ref: TMP-L-00217
+  norm: باب السلام
+- id: m5
+  kind: place
+  quote: برباط العباس
+  ref: TMP-I-00201
+  norm: رباط العباس
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m8
+  kind: year
+  value: '882'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アリー・アル＝マハッリー、のちにアル＝マッキー。バーブ・アッ＝サラームの薬種商（アッタール）で、リバート・アル＝アッバースに住んでいた。祝福された人であった。（8）82年ズー・アル＝カアダ月にマッカで没した。イブン・ファハドがその没年月を記録している。
   en: ʿAlī al-Maḥallī, then al-Makkī, the druggist (al-ʿaṭṭār) at Bāb al-Salām, who resided in Ribāṭ al-ʿAbbās. He was a blessed man. He died in Mecca in Dhū al-Qaʿda (8)82. Ibn Fahd recorded his death.

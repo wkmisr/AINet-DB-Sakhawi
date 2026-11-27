@@ -9,40 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00390
-    quote: الفتحي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000752
+    mention: m2
   - id: n5
     type: nasab
-    quote: الشيخ حسين
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: حسن
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 891-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m10
   note:
     ja: 「ولد في ذي القعدة سنة إحدى وتسعين وثمانمائة بمكة」。891-11 ＝ 1486-11-07〜12-06、月初 1486-11（h2g.py）。初版の 1486 を月精度に。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   for: r2
@@ -50,19 +45,16 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-000752
+  active: m7
   passive: AIND-D05950
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父は ID-Master 既登録の TMP-P-000752「محمد بن حسين بن حسن الفتحي」（Note「D05950(息子عمر)の父。本伝未特定=特定時に名寄せ」）に当たるため、校閲時の新規仮番号 TMP-P-NEW108-06（取り下げ） を取り下げて既登録番号を使用（集約時、内容検証B H-3）。父 محمد بن حسين بن حسن الفتحي المكي は祖父 #AIND-D02697（حسين بن حسن … الشيرازي الأصل المكي … ويعرف بالفتحي）の息子で、ニスバ索引 #AIND-D11894「الفتحي حسين بن حسن وبنوه محمد وأحمد وأبو البركات اسمعيل」に載るが、corpus の محمد 部に本伝の見出しを確認できず（hw.py「محمد بن الشيخ حسين」「محمد بن حسين الفتحي」該当なし）・ID-Master 未登録 → TMP-P-NEW108-06（取り下げ）（§D108-7）。叔父（父の兄弟）أحمد ＝ #AIND-D00687、أبو البركات إسماعيل（بركات）＝ #AIND-D10610／#AIND-D02182。'
-  norm: ابوه
   phrase: محمد بن الشيخ حسين بن حسن الفتحي
 - id: r2
   type: kin
   subtype: uncle
   active: AIND-D05950#p1
   passive: AIND-D05950
-  quote: null
   note:
     ja: '「وسمع بها مع أبيه وعمه علي أنشأه الله صالحا」。校閲時は「叔父のアリー」と読んだが、「سمع … علي」の直後に人名が続かず祈願句が続くため、標準規則（人名が来ない「سمع على」は「عليّ＝私に」）により「父と叔父とともに私（サハーウィー）から聴聞した」と読み、叔父は名不詳（#NEEDID 維持、規則12）とする（集約時、内容検証B M-9）。ニスバ索引 #AIND-D11894 が挙げる الفتحي 家の息子（محمد・أحمد・أبو البركات إسماعيل）に علي はおらず、叔父 أحمد ＝ #AIND-D00687 は「وسمع علي」とサハーウィーの聴聞者で、891年生の本項主がマッカ滞在中（892〜894）のサハーウィーから幼児として聴聞した記事と整合する。初版の汚染番号 TMP-P-000530（D04287 の兄弟 علي 専用）を差し替え。'
 - id: r3
@@ -75,13 +67,50 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m10
     phrase: وسمع بها مع أبيه وعمه علي
     note:
       ja: بها ＝ مكة（照応）。規則2（「سمع عليّ」型）。集約時に追加（内容検証B M-9）。
-  quote: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-000752
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الشيخ حسين
+- id: m4
+  kind: name
+  quote: حسن
+- id: m5
+  kind: name
+  ref: TMP-N-00390
+  quote: الفتحي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: person
+  ref: TMP-P-000752
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m9
+  kind: year
+  value: '891'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・アッ＝シャイフ・フサイン・ブン・ハサン、アル＝ファトヒー、アル＝マッキー。父については後述する。891年ズー・アル＝カアダ月にマッカで生まれ、そこで父および叔父とともに私から聴聞した。神が彼を敬虔な者に育てられるように。
   en: ʿUmar b. Muḥammad b. al-Shaykh Ḥusayn b. Ḥasan al-Fatḥī al-Makkī; his father is mentioned below. He was born in Dhū al-Qaʿda of the year 891 in Mecca, and heard from me there together with his father and his paternal uncle. May God raise him up righteous.

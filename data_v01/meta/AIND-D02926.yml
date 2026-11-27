@@ -9,45 +9,72 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m2
   - id: n2
     type: ism
-    quote: خميس
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 849-09
   places:
-  - ref: gn:104515
-    quote: خارج مكة
+  - mention: m4
   - ref: wd:Q42004
     role: burial
   note:
     ja: 「خارج مكة」は「マッカの外」という相対表現で固有地名ではないため、独立の地名IDは発行せず مكة（gn:104515）を参照させたうえで本noteで限定する（§4-17）。
     en: Died outside Mecca in the month of Ramaḍān, 849 AH, and was carried to Mecca for burial. His death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02560
+  active: m3
   passive: AIND-D02926
-  quote: السيد حسن بن عجلان القائد المكي
   note:
     en: He was the mawlā (client) of al-Sayyid Ḥasan b. ʿAjlān, the commander of Mecca.
     ja: حسن بن عجلان بن رميثة السيد البدر أبو المعالي الحسني المكي أميرها = AIND-D02560。
-  norm: السيد حسن بن عجلان القاءد المكي
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: خميس
+- id: m2
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m3
+  kind: person
+  ref: AIND-D02560
+  quote: السيد حسن بن عجلان القائد المكي
+  norm: السيد حسن بن عجلان القاءد المكي
+- id: m4
+  kind: place
+  quote: خارج مكة
+  ref: gn:104515
+- id: m5
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m6
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ハミース・ジルバーシュ・アル＝ハサニー。メッカの司令官アッ＝サイイド・ハサン・ブン・アジュラーンの解放奴隷（マウラー）。ハジュリー暦849年ラマダーン月にメッカ郊外で死去し、メッカに運ばれてアル＝ムアッラー墓地に埋葬された。イブン・ファハドが彼の死去を記録している。
   en: Khamīs Jirbāsh al-Ḥasanī, the client (mawla) of al-Sayyid Ḥasan b. ʿAjlān, the commander of Mecca. He died outside Mecca in Ramaḍān 849 AH, and was carried to Mecca where he was buried in al-Muʿallā. His death was recorded by Ibn Fahd.

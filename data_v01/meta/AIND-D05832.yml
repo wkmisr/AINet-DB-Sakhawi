@@ -9,38 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00074
-    quote: البقاعي
+    mention: m5
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الرباط حسن
     by: rule
-    ref: TMP-P-001374
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
 birth:
   id: b
   date:
     notBefore: 780
     cert: medium
   places:
-  - ref: TMP-L-00314
-    quote: خربة روحا
-  - ref: TMP-L-00073
-    quote: البقاع العزيزي
-  - ref: gn:277130
-    quote: بعلبك
+  - mention: m8
+  - mention: m9
+  - mention: m10
   note:
     ja: '「قال ابنه أنه ولد بعد سنة ثمانين وسبعمائة تقريبا بقرية خربة روحا من البقاع العزيزي من عمل بعلبك」。息子 البقاعي の証言（قال ابنه）＝ cert medium。「بعد سنة ثمانين تقريبا」のため notBefore 780（＝1378-05-08 起点、年初 1378）とし @when は置かない（初版は when-custom="0780" when="1378" と確定年扱い）。خربة روحا はビカーの村（ID-Master 未登録→ TMP-L-00314）、البقاع العزيزي ＝ #TMP-L-00073、بعلبك ＝ gn:277130（いずれも原文明記、規則22(2)）。'
 death:
@@ -50,37 +44,85 @@ death:
     cert: medium
   note:
     ja: 「وأنه قتل في شعبان سنة إحدى وعشرين هو وجماعة من أخوته وبني عمه」（息子の記述に依る＝ cert medium）。821-08 ＝ 1418-09-12〜10-10、月初 1418-09（h2g.py。初版は年精度 1418）。殺害の経緯（兄弟・従兄弟ら多数とともに）は death の desc に収め、初版の重複する political event を削除。
-  quote: سنة
   phrase: قتل في شعبان سنة إحدى وعشرين هو وجماعة من أخوته وبني عمه
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001374
   passive: AIND-D05832
-  quote: null
   note:
     ja: 見出しナサブから（規則3、祖父名まで復元）。#AIND-D00207 の見出し「إبراهيم بن عمر بن حسن الرباط بضم الراء بعدها موحدة خفيفة ابن علي بن أبي بكر」により الرباط は حسن のラカブ。corpus の حسن 部に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001374 を発行。初版の汚染番号 TMP-P-000204（登録実体は D0106 の息子 حسن）を差し替え。
   phrase: الرباط حسن بن علي بن أبي بكر البقاعي
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00207
+  active: m6
   passive: AIND-D05832
-  quote: إبراهيم
   note:
     ja: '「والد إبراهيم صاحب تلك الأفاعيل」。息子 ＝ #AIND-D00207「إبراهيم بن عمر بن حسن الرباط … برهان الدين … الخرباوي البقاعي نزيل القاهرة ثم دمشق وصاحب تلك العجائب والنوائب … ولد … سنة تسع وثمانمائة بقرية خربة روحا من عمل البقاع」（885年没、著名な البقاعي）。初版の #NEEDID を解消。'
-  norm: ابراهيم
 sources:
 - id: c1
   persons:
   - ref: AIND-D00207
   summary:
     ar: قال ابنه أنه ولد … وذكر له ترجمة طنانة
-  quote: ترجمة
   note:
     ja: Pattern A。息子 البقاعي（#AIND-D00207）が父に大仰な伝記を書いた（「ذكر له ترجمة طنانة」）。本項の生年・没年・出生地はすべてこの息子の記述に依る。
   trigger: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001374
+  quote: الرباط حسن
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  ref: TMP-N-00074
+  quote: البقاعي
+- id: m6
+  kind: person
+  ref: AIND-D00207
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m7
+  kind: year
+  value: '780'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: خربة روحا
+  ref: TMP-L-00314
+- id: m9
+  kind: place
+  quote: البقاع العزيزي
+  ref: TMP-L-00073
+- id: m10
+  kind: place
+  quote: بعلبك
+  ref: gn:277130
+- id: m11
+  kind: source
+  quote: ترجمة
+- id: m12
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m13
+  kind: year
+  value: '821'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アッ＝ルバート・ハサン・ブン・アリー・ブン・アビー・バクル・アル＝ビカーイー、あの所業の主イブラーヒームの父。その息子によれば、彼は（7）80年より後の頃に、バアラバック管区のビカー・アル＝アズィーズィーにある村ヒルバト・ルーハーで生まれた。息子は彼に大仰な伝記を書き、彼が（8）21年シャアバーン月に、兄弟や従兄弟の一団とともに殺されたと記している。
   en: ʿUmar b. al-Rubāṭ Ḥasan b. ʿAlī b. Abī Bakr al-Biqāʿī, the father of Ibrāhīm, the author of those notorious doings. His son said that he was born approximately after the year (7)80 in the village of Khirbat Rūḥā in al-Biqāʿ al-ʿAzīzī, in the district of Baʿlabakk. The son wrote a grandiloquent biography of him and stated that he was killed in Shaʿbān (8)21 together with a group of his brothers and cousins.

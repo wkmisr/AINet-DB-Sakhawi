@@ -9,29 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00094
-    quote: الصنهاجي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m6
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: يوسف
     by: rule
-    ref: TMP-P-001312
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
 birth:
   id: b
   date:
@@ -39,72 +36,116 @@ birth:
     cert: medium
   note:
     ja: 「ولد تقريبا سنة خمس وتسعين وسبعمائة」。795 ＝ 1392（h2g.py、年精度は年初。初版の 1393 を是正）。تقريبا のため cert medium。
-  quote: سنة
+  mention: m10
 death:
   id: d
   date:
     ah: 863
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m8
   note:
     ja: 「مات بمكة سنة ثلاث وستين」。863 ＝ 1458（h2g.py、年精度は年初。初版の 1459 を是正）。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001312
   passive: AIND-D04884
-  quote: null
   note:
     ja: 見出し「عثمان بن يوسف بن محمد بن علي الصنهاجي المغربي」から1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行。
   phrase: يوسف بن محمد بن علي الصنهاجي المغربي
 assessments:
 - id: v1
-  quote: وأحد المعتقدين
-  norm: احد المعتقدين
   label: أحد المعتقدين
   terms:
   - معتقد
   label_latn: aḥad al-muʿtaqadīn
   note:
     ja: 「وأحد المعتقدين … وتزايد اعتقاد الناس فيه مع انجماعه عنهم وجمعه بين العلم والدين والصلاح」。
+  mention: m9
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m8
   orgs:
   - ref: TMP-I-00082
-  quote: نزيل
   note:
     ja: رباط الموفق（TMP-I-00082）。校閲版の affiliation type="reside" と本 event の二重符号化を、B94 D04754 と同じく event への orgName 統合で解消（集約時）。
   trigger: rule
   phrase: نزيل مكة في رباط الموفق منها
+  mention: m7
 - id: e2
   type: religious
   subtype: hajj
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: حاجا
+  - mention: m8
   trigger: rule
   phrase: قدم مكة حاجا
+  mention: m12
 - id: e3
   type: visit
   places:
-  - ref: gn:104515
-    quote: مكة
-  - ref: gn:109223
-    quote: المدينة
-  quote: وقدم
+  - mention: m8
+  - mention: m13
   note:
     ja: بينها の先行詞は直前の مكة（規則22-3）。
   trigger: rule
-  norm: قدم
   phrase: تردد بينها وبين المدينة زمانا
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-P-001312
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  ref: TMP-N-00094
+  quote: الصنهاجي
+- id: m6
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: assessment
+  quote: وأحد المعتقدين
+  norm: احد المعتقدين
+- id: m10
+  kind: year
+  value: '795'
+  quote: سنة
+- id: m11
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m12
+  kind: event
+  quote: حاجا
+- id: m13
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m14
+  kind: year
+  value: '863'
+  quote: سنة
 translation:
   ja: ウスマーン・ブン・ユースフ・ブン・ムハンマド・ブン・アリー・アッ＝サンハージー・アル＝マグリビー、マッカに寄留し同地のリバート・アル＝ムワッファクに住んだ人で、人々の崇敬を集めた者の一人。795年頃に生まれ、巡礼者としてマッカに来て、しばらくの間マッカとマディーナの間を往来した。人々から離れて隠棲し、学問と信仰と敬虔さを兼ね備えていたので、人々の彼への崇敬はいよいよ高まった。（8）63年にマッカで没した。
   en: ʿUthmān b. Yūsuf b. Muḥammad b. ʿAlī al-Ṣanhājī al-Maghribī, resident of Mecca in its Ribāṭ al-Muwaffaq, and one of those held in veneration. He was born around 795, came to Mecca as a pilgrim, and for a time went back and forth between Mecca and Medina. People's veneration for him grew, together with his withdrawal from them and his combining of learning, religion and righteousness. He died in Mecca in (8)63.

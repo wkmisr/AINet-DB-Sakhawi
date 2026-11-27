@@ -9,80 +9,69 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m9
   - id: n3
     type: shuhrah
-    quote: بالسلاوي
-    norm: السلاوي
     label: السلاوي
+    mention: m12
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01215
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عمر
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: رضوان
     by: rule
+    mention: m7
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D01215
+  active: m11
   passive: AIND-D05800
   summary:
     ar: أحمد السلاوي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 ＝ #AIND-D01215「أحمد بن محمد بن أحمد بن عمر بن رضوان شهاب الدين الدمشقي الشافعي سبط الشمس محمد بن عمر السلاوي ولذا يعرف بالسلاوي وهو والد عمر الآتي」（738年頃生）。相互参照・通称 السلاوي・祖先 رضوان が一致。ただし D01215 の見出しナサブは「أحمد بن محمد بن أحمد بن عمر」で、本項の「أحمد بن محمد بن أحمد بن محمد بن عمر」より1代（محمد）少ない（刊本の揺れとして note に留める、規則25）。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: ancestor
-  active: TMP-P-001371
+  active: m13
   passive: AIND-D05800
-  quote: محمد بن عمر السلاوي
   note:
     ja: '「لكون أبيه سبط محمد بن عمر السلاوي」＝ 父 #AIND-D01215 の母方祖父（本項主の曽祖父）。D01215 では「الشمس محمد بن عمر السلاوي」。corpus に本伝なし・ID-Master 未登録（TMP-P-000711・000309 の السلاوي はチュニスの別人）→ 新規 TMP-P-001371。初版の subtype「other」#NEEDID を差し替え。'
 - id: r3
   type: social
   subtype: patron
-  active: TMP-P-001372
+  active: m16
   passive: AIND-D05800
   cert: medium
-  quote: ابن مزهر
   note:
     ja: '「وصفه البقاعي بخادم ابن مزهر」（البقاعي の記述に基づくため cert medium）。【集約】校閲時の #AIND-D10854（الزين أبو بكر بن مزهر、831年生）は年代不整合: 父 #AIND-D01215 は738年頃生・813年没、本項主は البقاعي によれば840年以前にカイロにいた人物で、D10854 はその時期に幼児。同時期の「ابن مزهر」は #AIND-D08653（البدر محمد بن محمد بن أحمد بن مزهر、786年生、828年から كاتب السر、832年没）が有力だが、一族に他の者（D09039 الجلال、D01487 الشهاب）もいるため規則26により新規 TMP-P-001372 を発行し候補を記録。初版の #NEEDID を解消。'
 affiliations:
@@ -97,25 +86,88 @@ events:
     cert: medium
     type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: كان بالقاهرة قبل الأربعين أو نحو ذلك
+  - mention: m17
   cert: medium
   note:
     ja: البقاعي の記述。「قبل الأربعين أو نحو ذلك」→ notAfter 840（840 ＝ 〜1437-07-13、年末 1437）、cert medium。
-  norm: كان بالقاهرة قبل الاربعين او نحو ذلك
+  phrase: كان بالقاهرة قبل الأربعين أو نحو ذلك
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: وصفه
+  - mention: m15
   note:
     ja: 'Pattern A。البقاعي ＝ #AIND-D00207（頻出確定ID）。初版の統制外 subtype「biographer」relation（wd:Q12198099）を event に変換。'
   trigger: rule
-  norm: صفه
   phrase: وصفه البقاعي بخادم ابن مزهر وأنه كان بالقاهرة قبل الأربعين أو نحو ذلك ولم يذكر فيه شيئا
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D01215
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عمر
+- id: m7
+  kind: name
+  quote: رضوان
+- id: m8
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m9
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: AIND-D01215
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: name
+  quote: بالسلاوي
+  norm: السلاوي
+- id: m13
+  kind: person
+  ref: TMP-P-001371
+  quote: محمد بن عمر السلاوي
+- id: m14
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m15
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
+- id: m16
+  kind: person
+  ref: TMP-P-001372
+  quote: ابن مزهر
+- id: m17
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ウマル・ブン・アフマド・ブン・ムハンマド・ブン・アフマド・ブン・ムハンマド・ブン・ウマル・ブン・リドワーン・アッ＝ディマシュキー・アル＝ハリーリー・アッ＝シャーフィイー。父は前述。父がムハンマド・ブン・ウマル・アッ＝サラーウィーの娘の子であることから、父と同じくアッ＝サラーウィーとして知られる。アル＝ビカーイーは彼をイブン・ムズヒルの従者（ハーディム）と評し、（8）40年頃かそれ以前にカイロにいたとするが、それ以上のことは何も述べていない。
   en: ʿUmar b. Aḥmad b. Muḥammad b. Aḥmad b. Muḥammad b. ʿUmar b. Riḍwān al-Dimashqī al-Ḥarīrī al-Shāfiʿī; his father was mentioned above. Like his father he is known as al-Salāwī, because his father was the daughter's son of Muḥammad b. ʿUmar al-Salāwī. Al-Biqāʿī described him as a servant of Ibn Muzhir and said that he was in Cairo before the (eight hundred and) forties or thereabouts, but mentioned nothing further about him.

@@ -9,48 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00124
-    quote: الطبري
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m7
   - id: n4
     type: ism
-    quote: ناصر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06599
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: الرضى إبرهيم
     by: rule
-    norm: الرضي ابرهيم
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: إبرهيم
     by: rule
-    norm: ابرهيم
+    mention: m6
   - id: n10
     type: nasab
-    quote: أبي اليمن
     by: rule
-    norm: ابو اليمن
+    mention: m8
 birth:
   id: b
   date:
@@ -58,7 +51,7 @@ birth:
     cert: low
   note:
     ja: 逆算生年（「مات … سنة إحدى عن عشرين سنة أو زيادة」＝801−20＝781 年頃かそれ以前）。頃・cert low。781年初＝1379-04-27（h2g.py）→ @when 1379。初版は birth なし。
-  quote: سنة
+  mention: m16
 death:
   id: d
   date:
@@ -75,56 +68,48 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06599
+  active: m11
   passive: AIND-D10116
   summary:
     ar: محمد بن أحمد بن الرضي إبراهيم الطبري
-  quote: لأبيه
   note:
     ja: '見出しナサブ（規則37）。父＝#AIND-D06599「962 محمد بن أحمد بن الرضي إبراهيم بن محمد بن إبراهيم بن أبي بكر … الأمين وقال المقريزي : الزين أبو اليمن بن الشهاب أبي المكارم … الطبري المكي الشافعي」（ナサブ5代・クンヤ أبو اليمن・الطبري المكي で閉合、頻出確定ID）。初版は #NEEDID。'
-  norm: ابيه
 - id: r2
   type: kin
   subtype: mother
   active: AIND-D10116#p1
   passive: AIND-D10116
-  quote: null
   note:
     ja: 「أمه فتاة لأبيه حبشية」＝母は父の所有するアビシニア人の女奴隷。名不詳＝#NEEDID（desc は「أم＋本項主の呼称」書式、規則31）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D06599
+  active: m12
   passive: AIND-D10116
   methods:
   - TMP-S-00003
   summary:
     ar: محمد بن أحمد بن الرضي إبراهيم الطبري
-  quote: أبيه
   note:
     ja: '「سمع من أبيه」＝父（#AIND-D06599）から聴いた。初版は #NEEDID、原文にない field（الحديث）を付していた＝除去。'
-  norm: ابيه
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-000191
+  active: m13
   passive: AIND-D10116
   methods:
   - TMP-S-00004
-  quote: النشاوري
   note:
     ja: '「وأجازه النشاوري وابن حاتم وغيرهما」（規則55。「وغيرهما」は人物を立てない）。النشاوري＝ID-Master 既登録 TMP-P-000191（先例 #AIND-D10040）。'
 - id: r5
   type: scholarly
   subtype: teacher
-  active: TMP-P-000540
+  active: m14
   passive: AIND-D10116
   methods:
   - TMP-S-00004
-  quote: وابن حاتم
   note:
     ja: 'ابن حاتم＝既登録 TMP-P-000540（التقي بن حاتم。先例 #AIND-D10040）。初版の TMP-P-000291 は ID-Master 上「旧TMP-P-000291（名寄せ 2026-11-04）」として TMP-P-000540 に統合済みの番号（規則36）。'
-  norm: ابن حاتم
   phrase: ابن حاتم
 notes:
 - text: '女性部 #AIND-D13611「764 مريم ابنة أبي المين محمد بن أحمد بن الرضى إبراهيم بن محمد بن إبراهيم الطبرى المكية ، أمها حبشية لأبيها」は同じ父の娘（母も「حبشية لأبيها」）＝本項主の姉妹。相手側は本項主を名指ししない（規則23）ので relation は立てず、共通の父 #AIND-D06599 で導出できる。初版の shuhrah「ابن أبي اليمن」（「ويعرف بـ」のない父称）と residence event（مكة、ニスバからの補完）は除去。'
@@ -133,13 +118,84 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m18
   note:
     ja: Pattern A。الفاسي＝التقي الفاسي（#AIND-D06757、頻出確定ID。マッカ史の著者）。書名は原文にない＝bibl なし。初版の統制外 subtype「mentioned」relation を event に変換。
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m17
+mentions:
+- id: m1
+  kind: name
+  quote: ناصر
+- id: m2
+  kind: name
+  ref: AIND-D06599
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الرضى إبرهيم
+  norm: الرضي ابرهيم
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: إبرهيم
+  norm: ابرهيم
+- id: m7
+  kind: name
+  quote: ناصر الدين
+- id: m8
+  kind: name
+  quote: أبي اليمن
+  norm: ابو اليمن
+- id: m9
+  kind: name
+  ref: TMP-N-00124
+  quote: الطبري
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: person
+  ref: AIND-D06599
+  quote: لأبيه
+  norm: ابيه
+- id: m12
+  kind: person
+  ref: AIND-D06599
+  quote: أبيه
+  norm: ابيه
+- id: m13
+  kind: person
+  ref: TMP-P-000191
+  quote: النشاوري
+- id: m14
+  kind: person
+  ref: TMP-P-000540
+  quote: وابن حاتم
+  norm: ابن حاتم
+- id: m15
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m16
+  kind: year
+  value: '781'
+  quote: سنة
+- id: m17
+  kind: source
+  quote: ذكره
+- id: m18
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ナースィル・ブン・ムハンマド・ブン・アフマド・ブン・アッ＝ラディー・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム、ナースィル・アッ＝ディーン、イブン・アビー・アル＝ユムン、アッ＝タバリー・アル＝マッキー。母は父の所有するアビシニア人の女奴隷であった。父から聴き、アン＝ナシャーウィリー、イブン・ハーティムその他から免状（イジャーザ）を受けた。（80）1年シャアバーン月朔日に、20歳かそれ以上で没した。アル＝ファースィーが彼に言及している。
   en: Nāṣir b. Muḥammad b. Aḥmad b. al-Raḍī Ibrāhīm b. Muḥammad b. Ibrāhīm, Nāṣir al-Dīn, Ibn Abī al-Yumn, al-Ṭabarī al-Makkī. His mother was an Abyssinian slave girl of his father. He heard (ḥadīth) from his father, and al-Nashāwirī, Ibn Ḥātim and others granted him ijāzas. He died on the first of Shaʿbān of the year [80]1, aged twenty or more. Al-Fāsī mentioned him.

@@ -9,57 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02169
-    quote: السجزي
+    mention: m11
   - id: n2
     type: laqab
-    quote: شجاع الدين
+    mention: m8
   - id: n3
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m9
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001563
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي الفتح
     by: rule
-    norm: ابو الفتح
+    mention: m3
   - id: n7
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n10
     type: nasab
-    quote: محمد
     by: rule
+    mention: m7
   - id: n11
     type: nasab
-    quote: الإمام نجيب الدين
     by: rule
-    norm: الامام نجيب الدين
+    mention: m10
   - id: n12
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m12
 death:
   id: d
   date:
@@ -67,29 +59,26 @@ death:
     cert: low
   note:
     ja: 「سنة ست」＝一の位のみの年。基本規則（80X）により806年ラジャブ月（1404-01-23 開始、月精度）と読むが、サハーウィーは「هكذا أرخه أبو البقاء بن الضياء」と伝聞で記し、ابن فهد がこれを誤りとして「والده حدث في سنة ست عشرة وستمائة بتاريخ الأزرقي」（父は616年に『تاريخ الأزرقي』を伝承した＝子が806年に没するのは年代が合わない）と述べているため cert low。原文どおり「سنة ست」を保持し（規則25）、7世紀（6X6）の可能性は note 留め（ISSUES §D130-4）。
-  quote: سنة
   phrase: مات في رجب سنة ست . هكذا أرخه أبو البقاء بن الضياء ووهمه صاحبنا ابن فهد
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001563
+  active: m20
   passive: AIND-D07228
   summary:
     ar: الإمام نجيب الدين أبو بكر بن أبي الفتح بن عمر السجزي
-  quote: والده
   note:
     ja: '父＝「أبي بكر بن أبي الفتح بن عمر بن علي … الإمام نجيب الدين السجزي」。ラカブ（نجيب الدين・الإمام）と祖父名以下のナサブで識別できるが corpus に本伝なし（hw.py「أبو بكر بن أبي الفتح」は D10792 الكازروني＝別人のみ）、ID-Master 未登録 → TMP-P-001563（規則3）。ابن فهد によれば616年に『تاريخ الأزرقي』を伝承した（「قال إن والده حدث في سنة ست عشرة وستمائة بتاريخ الأزرقي」）。初版の #NEEDID を是正。'
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
   orgs:
   - ref: wd:Q428858
-  quote: إمام المسجد الحرام
   note:
     ja: 見出し「إمام المسجد الحرام」＝マッカ聖モスク（wd:Q428858）のイマーム。職は汎用 الإمامة（wd:Q125482）＋施設 orgName。初版の placeName مكة（原文に地名なし、施設からの補完＝規則22(1)）と、同内容の affiliation type="employed"（二重符号化、規則8）を除去。
-  norm: امام المسجد الحرام
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -97,36 +86,120 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06911
-    cert: medium
-    quote: أبو البقاء بن الضياء
-    norm: ابو البقاء بن الضياء
-  quote: وترجمه
+  - cert: medium
+    mention: m17
   note:
     ja: أبو البقاء بن الضياء＝マッカのハナフィー派カーディー البهاء أبو البقاء محمد بن أحمد بن الضياء المكي الحنفي（#AIND-D06911、789生）と読む（マッカ聖モスクのイマームの没年を記録した文脈、同家は D13112 等で「القاضي أبي البقاء محمد بن أحمد بن الضياء」）。corpus には同名の الولوي أبو البقاء بن الضياء（#AIND-D08853、المحلي المالكي）もあるため cert medium（規則26）。初版の統制外 relation「chronicler」#NEEDID を本 event に置換。
   trigger: rule
-  norm: ترجمه
   phrase: هكذا أرخه أبو البقاء بن الضياء
+  mention: m22
 - id: c2
   persons:
-  - ref: AIND-D05979
-    quote: صاحبنا ابن فهد
-  quote: أرخه
+  - mention: m18
   note:
     ja: 「صاحبنا ابن فهد」＝النجم عمر بن فهد（#AIND-D05979、呼称階層 صاحبنا＝同世代）。ابن فهد は أبو البقاء の没年記載を誤りとし、本項主の父が616年に『تاريخ الأزرقي』を伝承したと述べた。『تاريخ الأزرقي』は ID-Master 未登録のため bibl を置かず note に留める。初版の colleague relation（#AIND-D09211）を本 event に置換（規則43、ابن فهد は Pattern A）。
   trigger: rule
-  norm: ارخه
   phrase: ووهمه صاحبنا ابن فهد وقال إن والده حدث في سنة ست عشرة وستمائة بتاريخ الأزرقي
+  mention: m16
 - id: c3
   persons:
-  - ref: AIND-D06757
-    quote: التقي الفاسي
-  quote: وقال
+  - mention: m23
   note:
     ja: التقي الفاسي＝#AIND-D06757（頻出確定ID）。初版の統制外 relation「biographer」#NEEDID を本 event に置換。
   trigger: rule
-  norm: قال
   phrase: وترجمه التقي الفاسي
+  mention: m19
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001563
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: أبي الفتح
+  norm: ابو الفتح
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: محمد
+- id: m8
+  kind: name
+  quote: شجاع الدين
+- id: m9
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m10
+  kind: name
+  quote: الإمام نجيب الدين
+  norm: الامام نجيب الدين
+- id: m11
+  kind: name
+  ref: TMP-N-02169
+  quote: السجزي
+- id: m12
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m13
+  kind: office
+  ref: wd:Q125482
+  quote: إمام المسجد الحرام
+  norm: امام المسجد الحرام
+- id: m14
+  kind: month
+  value: 7
+  quote: رجب
+- id: m15
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m16
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m17
+  kind: person
+  ref: AIND-D06911
+  quote: أبو البقاء بن الضياء
+  norm: ابو البقاء بن الضياء
+- id: m18
+  kind: person
+  ref: AIND-D05979
+  quote: صاحبنا ابن فهد
+- id: m19
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m20
+  kind: person
+  ref: TMP-P-001563
+  quote: والده
+- id: m21
+  kind: year
+  value: '616'
+  quote: سنة
+- id: m22
+  kind: source
+  quote: وترجمه
+  norm: ترجمه
+- id: m23
+  kind: person
+  ref: AIND-D06757
+  quote: التقي الفاسي
 translation:
   ja: ムハンマド・ブン・アブー・バクル・ブン・アブー・アル＝ファトフ・ブン・ウマル・ブン・アリー・ブン・アフマド・ブン・ムハンマド、シュジャーウ・アッ＝ディーン、アブー・アブドゥッラー、イマーム・ナジーブ・アッ＝ディーン・アッ＝スィジズィー・アル＝ハナフィーの子、聖モスク（アル＝マスジド・アル＝ハラーム）のイマーム。（某世紀の）6年ラジャブ月に没した（原文は一の位のみ。世紀は不明、下記参照）。アブー・アル＝バカー・イブン・アッ＝ディヤーはそのように没年を記しているが、我らが同輩イブン・ファハドは彼の誤りであるとし、彼（本項主）の父は616年にアル＝アズラキーの『歴史』を伝承していると述べた。アッ＝タキー・アル＝ファースィーが彼の伝記を書いている。
   en: Muḥammad b. Abī Bakr b. Abī al-Fatḥ b. ʿUmar b. ʿAlī b. Aḥmad b. Muḥammad, Shujāʿ al-Dīn Abū ʿAbd Allāh, son of the imām Najīb al-Dīn al-Sijzī al-Ḥanafī, imām of the Sacred Mosque. He died in Rajab of the year [?]06 (the century is not stated; see below). So Abū al-Baqāʾ Ibn al-Ḍiyāʾ dated him, but our companion Ibn Fahd held him to be mistaken, saying that his father transmitted the Taʾrīkh of al-Azraqī in the year 616. Al-Taqī al-Fāsī wrote his biography.

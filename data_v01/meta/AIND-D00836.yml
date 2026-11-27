@@ -9,34 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00093
-    quote: العثماني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00056
-    quote: التونسي
+    mention: m6
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد النور
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07181
+  active: m9
   passive: AIND-D00836
   methods:
   - TMP-S-00003
@@ -48,21 +45,56 @@ relations:
       ah: 856
       type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: الفتح المراغي
+    - mention: m8
   note:
     ja: 師=أبو الفتح المراغي(TMP-P-000003)。サハーウィーは朗誦者(بقراءتي)であり師ではない。Geminiのactive=サハーウィーを是正。
 events:
 - id: e1
   type: cultural
   persons:
-  - ref: wd:Q4120128
-    role: reader
-    quote: بقراءتي
-  quote: null
+  - role: reader
+    mention: m7
   note:
     en: al-Sakhāwī recited (bi-qirāʾatī) the session at which D00836 heard from al-Marāghī.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد النور
+- id: m5
+  kind: name
+  ref: TMP-N-00093
+  quote: العثماني
+- id: m6
+  kind: name
+  ref: TMP-N-00056
+  quote: التونسي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: بقراءتي
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: person
+  ref: AIND-D07181
+  quote: الفتح المراغي
+- id: m10
+  kind: year
+  value: '856'
+  quote: سنة
 translation:
   ja: アフマド・ブン・アブド・アッ＝ラフマーン・ブン・ムハンマド・ブン・アブド・アン＝ヌール・アル＝ウスマーニー・アッ＝トゥーニシー。ヒジュラ暦856年、メッカにて私（＝サハーウィー）の朗誦(بقراءتي)により、アブー・アル＝ファトフ・アル＝マラーギーから聴聞した。
   en: Aḥmad b. ʿAbd al-Raḥmān b. Muḥammad b. ʿAbd al-Nūr al-ʿUthmānī al-Tūnisī. He heard my (al-Sakhāwī's) recitation in Mecca in the year 856, on the authority of Abū al-Fatḥ al-Marāghī.

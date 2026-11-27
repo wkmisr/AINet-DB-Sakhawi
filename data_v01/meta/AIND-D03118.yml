@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: سعيد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 860-04
   places:
-  - ref: TMP-L-00395
-    role: burial
-    quote: ببعض بساتين الطريق الجديدة
-    norm: بعض بساتين الطريق الجديدة
+  - role: burial
+    mention: m6
   note:
     ja: 860年ラビーウ・アル＝アーヒル月＝1456-03-18〜1456-04-15（h2g.py）、月精度で @when=1456-03（初版 1456 は年精度で不一致）。没地の記載はなく、初版の死地 بولاق は居住句「المقيمين ببولاق」からの補完＝除去（規則22(1)）。埋葬地「بعض بساتين الطريق الجديدة」の الطريق الجديدة は ID-Master・repo・corpus 他所に未登録（corpus 出現は本項のみ）→ 新規 TMP-L-00395（カイロ近郊、ブーラーク方面の道路名とみられるが所在は未確認）。
-  quote: سنة
   phrase: مات في ربيع الآخر سنة ستين ، ودفن ببعض بساتين الطريق الجديدة
+  mention: m5
 persons:
 - id: p1
   label: والد سعيد
@@ -34,36 +32,65 @@ relations:
   subtype: father
   active: AIND-D03118#p1
   passive: AIND-D03118
-  quote: null
   note:
     ja: 規則3（単名の項）。父の名は原文に出ない。
 assessments:
 - id: v1
-  quote: أحد المعتقدين
-  norm: احد المعتقدين
   terms:
   - معتقد
   label_latn: aḥad al-muʿtaqadīn
   note:
     ja: '人々に崇敬された聖者の一人（先例 #AIND-D04884 の state status）。初版の note personalia を state に置換。'
+  mention: m2
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00061
-    quote: ببولاق
-    norm: بولاق
-  quote: المقيمين ببولاق
+  - mention: m3
+  phrase: المقيمين ببولاق
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000342
-    quote: المنير
-  quote: قاله
+  - mention: m8
   note:
     ja: Pattern A。المنير＝ID-Master 既登録 TMP-P-000342（ابن المنير の略記。D06044「أرخه المنير」ほか、repo で mention event の persName として使用済み）。初版の統制外 subtype「informant」relation を mention event に変換。
   trigger: rule
   phrase: قاله المنير
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: سعيد
+- id: m2
+  kind: assessment
+  quote: أحد المعتقدين
+  norm: احد المعتقدين
+- id: m3
+  kind: place
+  quote: ببولاق
+  ref: TMP-L-00061
+  norm: بولاق
+- id: m4
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m5
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: ببعض بساتين الطريق الجديدة
+  ref: TMP-L-00395
+  norm: بعض بساتين الطريق الجديدة
+- id: m7
+  kind: source
+  quote: قاله
+- id: m8
+  kind: person
+  ref: TMP-P-000342
+  quote: المنير
 translation:
   ja: サイード。ブーラークに住む、人々に崇敬された者（ムウタカド）の一人。860年ラビーウ・アル＝アーヒル月に没し、アッ＝タリーク・アル＝ジャディーダの庭園のひとつに埋葬された。アル＝ムニールがそう述べている。
   en: Saʿīd, one of the revered men residing in Būlāq. He died in Rabīʿ al-Ākhir of the year 860 and was buried in one of the gardens of al-Ṭarīq al-Jadīda. So said al-Munīr.

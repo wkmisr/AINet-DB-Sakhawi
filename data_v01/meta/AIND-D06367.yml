@@ -10,18 +10,18 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00114
-    quote: null
+    mention: null
   - id: n2
     type: ism
-    quote: قمش
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 817
   note:
     ja: 「ممن قتله المؤيد سنة سبع عشرة」＝アル＝ムアイヤド・シャイフに殺された。817年＝1414-04-01 開始（h2g.py、年精度）。没地の記載なし。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: والد قمش
@@ -32,36 +32,31 @@ relations:
   subtype: father
   active: AIND-D06367#p1
   passive: AIND-D06367
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m2
   passive: AIND-D06367
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: 「أحد الأمراء المقدمين من الظاهرية برقوق」＝الظاهر برقوق（#AIND-D02178）のマムルーク（ニスバ الظاهري）。repo 先例どおり主人 patron。初版は relation なし。
 states:
 - id: s1
   type: office
   ref: TMP-O-00083
-  quote: null
   note:
     ja: 「أحد الأمراء المقدمين」＝مقدم ألف（規則48）。初版の state「أمير」（O-00014）と「مقدم」（#NEEDID）の2本を1本に統合。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: ونائب
+  - mention: m4
   note:
     ja: ref は汎用 نائب（TMP-O-00053、repo 先例「نائب طرابلس」）。
-  norm: ناءب
+  mention: m3
 events:
 - id: e1
   type: political
@@ -69,26 +64,59 @@ events:
     ah: 817
     type: political
   persons:
-  - ref: AIND-D03345
-    quote: المؤيد
-    norm: المءيد
-  quote: قتله
+  - mention: m6
   note:
     ja: 'المؤيد＝アル＝ムアイヤド・シャイフ（#AIND-D03345、在位815–824）。初版の「rival」relation（汚染番号 #TMP-P-000844）を event の persName に変換（規則14・31）。'
   trigger: rule
   phrase: ممن قتله المؤيد سنة سبع عشرة
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m9
   note:
     ja: 'Pattern A。初版の統制外 relation（chronicler #NEEDID）を変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: قمش
+- id: m2
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m3
+  kind: office
+  ref: TMP-O-00053
+  quote: ونائب
+  norm: ناءب
+- id: m4
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m5
+  kind: event
+  quote: قتله
+- id: m6
+  kind: person
+  ref: AIND-D03345
+  quote: المؤيد
+  norm: المءيد
+- id: m7
+  kind: year
+  value: '817'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: クムシュ、アッ＝ザーヒル・バルクークのマムルーク出身の千人隊アミール（ムカッダム）の一人で、トリポリの副王。817年にアル＝ムアイヤドに殺された者の一人。アル＝アイニーが没年を記している。
   en: Qumush, one of the commanders of a thousand (muqaddam) from among the mamlūks of al-Ẓāhir Barqūq, and viceroy of Tripoli. He was among those whom al-Muʾayyad had killed in the year 817. Al-ʿAynī recorded his death.

@@ -9,52 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00271
-    quote: المحمدي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00877
-    quote: اليزدي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n4
     type: laqab
-    quote: علاء الدين
+    mention: m5
   - id: n5
     type: shuhrah
-    ref: TMP-N-00781
-    quote: بالتزمنتي
-    norm: التزمنتي
+    mention: m11
   - id: n6
     type: laqab
-    quote: بشيخ المشايخ
-    norm: شيخ المشايخ
     label: شيخ المشايخ
+    mention: m12
   - id: n7
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001360
-    norm: احمد
+    mention: m2
   - id: n9
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m3
   - id: n10
     type: nasab
-    quote: هارون
     by: rule
+    mention: m4
   - id: n11
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m9
 birth:
   id: b
   date:
@@ -69,28 +60,24 @@ death:
   places:
   - role: burial
     label: منزله بالقرب من جامع آل ملك
-    quote: بمنزله بالقرب من جامع آل ملك
-    norm: منزله بالقرب من جامع ال ملك
+    mention: m16
   - role: burial
     label: manziluhu bi-l-qurb min Jāmiʿ Āl Malik
-    quote: بمنزله بالقرب من جامع آل ملك
-    norm: منزله بالقرب من جامع ال ملك
+    mention: m16
   - ref: TMP-I-00194
   note:
     ja: '「ومات بالطاعون في المحرم سنة ثلاث وثلاثين عن أزيد من تسعين سنة ودفن بمنزله بالقرب من جامع آل ملك」。ペストで没。没地は原文に明記されないため初版の القاهرة（ニスバ由来）を除去（規則22(1)）。埋葬地は自宅（固有名なし #NEEDID）で、その位置の目印 جامع آل ملك（カイロ、corpus に14回出現）は ID-Master 未登録 → 新規 TMP-I-00194（【集約】規則22(2) により埋葬地の目印として placeName ref に使用。埋葬地そのものは自宅）。833-01 ＝ 1429-10-09〜11-07、月初 1429-10（h2g.py）。'
-  quote: سنة
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001360
+  active: m13
   passive: AIND-D04970
   summary:
     ar: أحمد بن سعيد بن هارون المحمدي اليزدي
-  quote: أبيه
   note:
     ja: 見出しナサブから復元（規則3）。corpus の أحمد 部に「أحمد بن سعيد بن هارون」の本伝なし・ID-Master 未登録 → 新規 TMP-P-001360。
-  norm: ابيه
 - id: r2
   type: scholarly
   subtype: teacher
@@ -98,23 +85,85 @@ relations:
   passive: AIND-D04970
   methods:
   - TMP-S-00008
-  quote: null
   note:
     ja: 「أخذ عن أبيه وغيره」。師＝父（TMP-P-001360）。「وغيره」は相手の描写がないため relation を立てない（規則14）。
   phrase: أبيه
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D05287
+  active: m10
   passive: AIND-D04970
-  quote: العلاء علي الآتي
   note:
     ja: '「والد العلاء علي الآتي」。息子 ＝ #AIND-D05287「علي بن علي بن أحمد بن سعيد بن هرون العلاء بن العلاء المحمدي اليزدي الأصل ثم القاهري الحنفي الماضي أبوه ويعرف بالتزمنتي」。ニスバ索引 #AIND-D11539「التزمنتي والعلاء علي بن علي بن أحمد بن سعيد بن هرون وأبوه」とも整合。'
-  norm: العلاء علي الاتي
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001360
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: سعيد
+- id: m4
+  kind: name
+  quote: هارون
+- id: m5
+  kind: name
+  quote: علاء الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00271
+  quote: المحمدي
+- id: m7
+  kind: name
+  ref: TMP-N-00877
+  quote: اليزدي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m10
+  kind: person
+  ref: AIND-D05287
+  quote: العلاء علي الآتي
+  norm: العلاء علي الاتي
+- id: m11
+  kind: name
+  ref: TMP-N-00781
+  quote: بالتزمنتي
+  norm: التزمنتي
+- id: m12
+  kind: name
+  quote: بشيخ المشايخ
+  norm: شيخ المشايخ
+- id: m13
+  kind: person
+  ref: TMP-P-001360
+  quote: أبيه
+  norm: ابيه
+- id: m14
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m15
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بمنزله بالقرب من جامع آل ملك
+  norm: منزله بالقرب من جامع ال ملك
 translation:
   ja: アリー・ブン・アフマド・ブン・サイード・ブン・ハールーン、アラー・アッ＝ディーン、アル＝ムハンマディー、ヤズド出自でのちにアル＝カーヒリー、ハナフィー派。後述するアル＝アラー・アリーの父。アッ＝タズマンティーとして知られ、シャイフ・アル＝マシャーイフ（長老たちの長老）と称された。父などに学んだ。（8）33年ムハッラム月にペストで90歳あまりで没し、ジャーミウ・アール・マリク（アール・マリク・モスク）の近くの自宅に埋葬された。
   en: ʿAlī b. Aḥmad b. Saʿīd b. Hārūn, ʿAlāʾ al-Dīn al-Muḥammadī, of Yazdī origin, then al-Qāhirī, the Ḥanafī, father of al-ʿAlāʾ ʿAlī, who is mentioned below. He was known as al-Tazmantī and bore the title Shaykh al-Mashāyikh. He studied under his father and others. He died of the plague in Muḥarram (8)33, aged over ninety, and was buried in his house near the Mosque of Āl Malik.

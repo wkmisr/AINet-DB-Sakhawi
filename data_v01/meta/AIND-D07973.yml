@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00039
-    quote: البجائي
-    norm: البجاءي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عقيل ظافر
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: عقيل ظافر
@@ -32,19 +30,33 @@ relations:
   subtype: father
   active: AIND-D07973#p1
   passive: AIND-D07973
-  quote: null
   note:
     ja: 規則3。見出し「محمد بن عقيل ظافر」の「ظافر」は父の第二の名か祖父名（بن の脱落）か原文からは決まらない（規則25、原文どおり）。父は corpus に本伝なし・ID-Master 未登録。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m4
   passive: AIND-D07973
   methods:
   - TMP-S-00003
-  quote: شيخنا
   note:
     ja: 「ممن سمع من شيخنا」＝イブン・ハジャルから聴講（規則2 と同型、field は付けない）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عقيل ظافر
+- id: m3
+  kind: name
+  ref: TMP-N-00039
+  quote: البجائي
+  norm: البجاءي
+- id: m4
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アキール・ザーフィル・アル＝ビジャーイー。我らが師（イブン・ハジャル）から聴講した者の一人。
   en: Muḥammad b. ʿAqīl Ẕāfir al-Bijāʾī. One of those who heard from our shaykh (Ibn Ḥajar).

@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00098
-    quote: النويري
+    mention: m5
   - id: n2
     type: laqab
-    quote: السراج
+    mention: m3
   - id: n3
     type: kunyah
-    quote: أبو حفص
-    norm: ابو حفص
+    mention: m4
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001434
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   date:
@@ -44,12 +40,11 @@ death:
   date:
     ah: 833-06
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m9
   note:
     ja: 「مات فيها مطعونا في جمادى الآخرة سنة ثلاث وثلاثين」。فيها ＝ 直前の قضاء طرابلس の طرابلس（照応、規則22(3)）。ペストで没。833年ジュマーダー・アル＝アーヒラ月 ＝ 1430-03-06〜1430-04-04（h2g.py、月のみ→月初）。
-  quote: سنة
   phrase: مات فيها مطعونا
+  mention: m12
 relations:
 - id: r1
   type: scholarly
@@ -60,7 +55,6 @@ relations:
   - TMP-S-00008
   summary:
     ar: الجمال بن خطيب المنصورية
-  quote: null
   note:
     ja: '「وأخذ عن الجمالين بن خطيب المنصورية والطيماني」（双数「الجمالين」＝二人のジャマール）。師1 ＝ #AIND-D10463「يوسف بن الحسن بن محمد … الجمال أبو المحاسن الحموي الشافعي ويعرف بابن خطيب المنصورية」（737年生、ハマー。ニスバ索引 #AIND-D12302）。初版の #NEEDID を解消。'
 - id: r2
@@ -72,39 +66,32 @@ relations:
   - TMP-S-00008
   summary:
     ar: الجمال الطيماني
-  quote: null
   note:
     ja: '師2 ＝ #AIND-D04575「عبد الله بن محمد بن طيمان … الجمال الطيماني ثم الدمشقي الشافعي」（770年頃生、ダマスクス。索引 #AIND-D11823）。ID-Master の TMP-P-001262「الجمال الطيماني」（篠田氏、D01464）は同人 → 名寄せ要（ISSUES §D110-2）。初版の #NEEDID を解消。'
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-001434
+  active: m10
   passive: AIND-D05989
-  quote: أبيه
   note:
     ja: 父 محمد النويري（本項主の前任のトリポリのカーディー）。corpus محمد 部に本伝なし（hw.py「محمد」「النويري」「طرابلس」）、ID-Master 未登録 → 職（قاضي طرابلس）で識別できるため TMP-P-001434 を発行（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。
-  norm: ابيه
   phrase: محمد
 - id: r4
   type: social
   subtype: predecessor
-  active: TMP-P-001434
+  active: m14
   passive: AIND-D05989
-  quote: أبيه
   note:
     ja: 「وولي قضاء طرابلس بعد أبيه」＝父の後任としてトリポリのカーディー（規則29）。
-  norm: ابيه
   phrase: محمد
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: قضاء
+  - mention: m9
   note:
     ja: '「وولي قضاء طرابلس بعد أبيه وكانت مباشرته جيدة لا بأس بها」。索引 #AIND-D12794「ابن النويري السراج عمر ابن محمد قاضي طرابلس」、転送見出し #AIND-D06024「عمر السراج النويري الطرابلسي قاضيها الشافعي . فيمن أبوه محمد」（B111）も本項を指す。'
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -112,25 +99,81 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: حفظ كتبا
+  phrase: حفظ كتبا
+  mention: null
 - id: e2
   type: cultural
-  quote: وجمع مختصرا فيه مسائل كثيرة
   note:
     ja: 多くの問題を収めた簡約書（書名不明）を編んだ。
-  norm: جمع مختصرا فيه مساءل كثيرة
+  phrase: وجمع مختصرا فيه مسائل كثيرة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: كتبا
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、أنباء ＝ TMP-T-00034『إنباء الغمر』（父名なしで簡略に記載）。初版は訳文のみで未符号化。
   trigger: rule
   phrase: وهو في أنباء شيخنا باختصار بدون اسم أبيه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001434
+  quote: محمد
+- id: m3
+  kind: name
+  quote: السراج
+- id: m4
+  kind: name
+  quote: أبو حفص
+  norm: ابو حفص
+- id: m5
+  kind: name
+  ref: TMP-N-00098
+  quote: النويري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: source
+  quote: كتبا
+- id: m8
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m9
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m10
+  kind: person
+  ref: TMP-P-001434
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m12
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m14
+  kind: person
+  ref: TMP-P-001434
+  quote: أبيه
+  norm: ابيه
 translation:
   ja: ウマル・ブン・ムハンマド・アッ＝シラージュ・アブー・ハフス・アン＝ヌワイリー・アッ＝シャーフィイー。諸書を暗記し、二人のジャマール、すなわちイブン・ハティーブ・アル＝マンスーリーヤとアッ＝タイマーニーから学んだ。多くの問題を収めた簡約書を編んだ。父の後にタラーブルス（トリポリ）のカーディー職に就き、その職務ぶりは良好で問題なかった。（8）33年ジュマーダー・アル＝アーヒラ月に同地でペストにかかって没した。50歳に近かった。我らがシャイフ（イブン・ハジャル）の『インバー』には、父の名なしに簡略に載っている。
   en: ʿUmar b. Muḥammad al-Sirāj Abū Ḥafṣ al-Nuwayrī al-Shāfiʿī. He memorized books and studied under the two Jamāls, Ibn Khaṭīb al-Manṣūriyya and al-Ṭaymānī, and compiled an abridgement containing many questions. He held the judgeship of Tripoli after his father, and his conduct of the office was good and unobjectionable. He died there of the plague in Jumādā al-Ākhira of the year (8)33, when he was close to fifty. He appears in our shaykh's Inbāʾ, briefly and without his father's name.

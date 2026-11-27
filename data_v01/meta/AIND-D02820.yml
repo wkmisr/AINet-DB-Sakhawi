@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05524
-    quote: الفلح
+    mention: m3
   - id: n2
     type: ism
-    quote: خرص
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: علي الفلح
@@ -31,18 +30,32 @@ relations:
   subtype: father
   active: AIND-D02820#p1
   passive: AIND-D02820
-  quote: null
   note:
     ja: '裸の汎用名（علي）＋ニスバのみ → #NEEDID（規則3）。corpus・ID-Master に該当なし。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: جرده ابن فهد هكذا
+  - mention: m4
   cert: low
   note:
     ja: 'Pattern A。「جرده … هكذا」＝イブン・ファハドが（名のみを）このように裸で書き出した。没年なしの ابن فهد → #AIND-D09211（cert low、規則43）。初版の統制外 subtype「other」relation を変換。'
+  phrase: جرده ابن فهد هكذا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خرص
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  ref: TMP-N-05524
+  quote: الفلح
+- id: m4
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ハルス・ブン・アリー・アル＝ファラフ。イブン・ファハドは彼を（名だけ）このように書き出している。
   en: Kharṣ b. ʿAlī al-Falaḥ. Ibn Fahd listed him bare, just so.

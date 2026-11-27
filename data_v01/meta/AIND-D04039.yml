@@ -9,78 +9,68 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00239
-    quote: التلواني
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m9
   - id: n3
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m10
   - id: n4
     type: ism
-    quote: عبد الغفار
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: nasab
-    quote: عبد الملك
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عبد الواحد
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: الشيخ معالي
     by: rule
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m12
   passive: AIND-D04039
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: شيخنا
   note:
     ja: 「ممن سمع على شيخنا」= ابن حجر。
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D05168
+  active: m11
   passive: AIND-D04039
-  quote: علي
   note:
     ja: '兄弟「الآتي」= #AIND-D05168（علي بن سليمان بن يوسف بن أحمد بن عبد الملك … بن الشيخ معاني … نور الدين الأنصاري الهوريني）＝ナサブ一致。初版の TMP-P-000530（汎用「علي」＝別人登録）は汚染流用。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00067
   places:
-  - ref: TMP-L-00193
-    quote: بالقلعة
-    norm: القلعة
-  quote: نقيب الفقهاء
+  - mention: m14
   note:
     ja: カイロ城塞の法学者団のナキーブ。ID-Master 未登録 → 新規 TMP-O-00210。
+  mention: m13
 events:
 - id: e1
   type: cultural
@@ -88,21 +78,78 @@ events:
   - ref: wd:Q23975647
   works:
   - ref: wd:Q1023470
-  quote: وفي البخاري بالظاهرية وغير ذلك
   note:
     ja: 初版は ابن حجر の relation 内に『البخاري』と「مدرسة الظاهرية بيبرس」を置いていたが、原文は「سمع على شيخنا」と「（سمع）في البخاري بالظاهرية」を並列しており、ザーヒリーヤでの『ブハーリー』聴聞は師を特定しない → 独立 event へ。
+  phrase: وفي البخاري بالظاهرية وغير ذلك
+  mention: null
 - id: e2
   type: cultural
-  quote: وحضر الدروس قليلا وتنزل في الجهات
-  norm: حضر الدروس قليلا وتنزل في الجهات
+  phrase: وحضر الدروس قليلا وتنزل في الجهات
+  mention: null
 - id: e3
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
   phrase: وحج غير مرة
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغفار
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عبد الملك
+- id: m6
+  kind: name
+  quote: عبد الواحد
+- id: m7
+  kind: name
+  quote: الشيخ معالي
+- id: m8
+  kind: name
+  ref: TMP-N-00239
+  quote: التلواني
+- id: m9
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m10
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m11
+  kind: person
+  ref: AIND-D05168
+  quote: علي
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: office
+  ref: TMP-O-00067
+  quote: نقيب الفقهاء
+- id: m14
+  kind: place
+  quote: بالقلعة
+  ref: TMP-L-00193
+  norm: القلعة
+- id: m15
+  kind: event
+  quote: وحج
 translation:
   ja: アブドゥルガッファール・ブン・スライマーン・ブン・ユースフ・ブン・アフマド・ブン・アブドゥルマリク・ブン・アブドゥルワーヒド・イブン・アッ＝シャイフ・マアーリー・アッ＝タルワーニー・アル＝カーヒリー・アル＝アズハリー。後述のアリーの兄弟。我らがシャイフ（イブン・ハジャル）から聴聞し、ザーヒリーヤで『ブハーリー』などを聴聞した者の一人。講義に少し出席し、諸々の禄を得て、城塞で法学者のナキーブを務め、幾度もハッジを行った。
   en: ʿAbd al-Ghaffār b. Sulaymān b. Yūsuf b. Aḥmad b. ʿAbd al-Malik b. ʿAbd al-Wāḥid b. al-Shaykh Maʿālī al-Tilwānī al-Qāhirī al-Azharī, brother of ʿAlī, who is mentioned below. He was among those who heard from our shaykh (Ibn Ḥajar), and heard al-Bukhārī at the Ẓāhiriyya and other things; he attended lessons a little, held stipends, served as naqīb of the jurists at the Citadel, and performed the Ḥajj more than once.

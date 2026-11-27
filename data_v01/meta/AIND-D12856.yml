@@ -9,14 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
   - id: n2
     type: nasab
-    quote: إسماعيل الخازن تأتي في
     by: rule
-    norm: اسماعيل الخازن تاتي في
+    mention: m2
 death:
   id: d
   date:
@@ -24,8 +22,8 @@ death:
     cert: low
   note:
     ja: '条件つきの没年: 「وأظنها المدعوة ستيتة فان تكن هي فقد ماتت …」＝ستيتة と呼ばれる女性と同一人物であれば、の話＝cert low。875年ジュマーダー第1月15日＝1470-11-18（h2g.py）。初版は cert なし・@when 1470。'
-  quote: سنة
   phrase: فان تكن هي فقد ماتت في يوم الجمعة منتصف جمادى الأولى سنة خمس وسبعين
+  mention: m7
 persons:
 - id: p1
   label: إسماعيل الخازن
@@ -39,29 +37,24 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D12856#p1
+  active: m5
   passive: AIND-D12856
-  quote: ستيتة
   note:
     ja: '父 إسماعيل الخازن（無名項 #AIND-D13857 は「إسماعيل بن الخازن」）。職名はあるが祖父名まで復元できない＝#NEEDID（規則3）。'
 - id: r2
   type: kin
   subtype: spouse
-  active: AIND-D00491
+  active: m3
   passive: AIND-D12856
-  quote: الولوي الأسيوطي
   note:
     ja: '「تزوجها جماعة منهم الولوي الأسيوطي وأبو الفضل خطيب مكة」。#AIND-D00491「أحمد بن أحمد بن عبد الخالق … القاضي ولي الدين بن الشهاب بن السراج الأسيوطي الأصل القاهري الناصري الشافعي」（813年生・891年没。父の項 #AIND-D00805 に「والد الولوي أحمد الماضي」。corpus の「الولوي الأسيوطي」はこの人物の固定呼称＝D01254・D07492・D09617）。#AIND-D13857 によればこちらが先の夫（「وقبله الولي الأسيوطي」）。初版は #NEEDID。'
-  norm: الولوي الاسيوطي
 - id: r3
   type: kin
   subtype: spouse
-  active: AIND-D08636
+  active: m4
   passive: AIND-D12856
-  quote: وأبو الفضل
   note:
     ja: '「أبو الفضل خطيب مكة」＝#AIND-D08636「محمد الكمال أبو الفضل الخطيب شقيق اللذين قبله … وهو أيضا بكنيته أعرف」（النويري、827年マッカ生、マッカのハティーブ、873年没）。その本文に「وتزوج ابنة ابن الخازن فكانت تبالغ في التأنق له في اصطناع الأطعمة」とあり、無名項 #AIND-D13857「تزوجها الخطيب أبو الفضل النويري」とも対応＝クンヤ・職・「ابنة ابن الخازن」で閉合。初版は #NEEDID。'
-  norm: ابو الفضل
   phrase: أبو الفضل
 - id: r4
   type: identity
@@ -71,7 +64,6 @@ relations:
   summary:
     ar: ابنة إسماعيل بن الخازن البكتمرية واسمها آمنة
   cert: high
-  quote: null
   note:
     ja: '「تأتي في المبهمات」＝著者自身の指示。女性部の無名項 #AIND-D13857「ابنة إسماعيل بن الخازن البكتمرية واسمها آمنة . تزوجها الخطيب أبو الفضل النويري وقبله الولي الأسيوطي」（父・名・夫2人が一致）。転送の語はあるが、本項のほうが内容が多い（ستيتة との同定の推測と没年）ので暫定で実項のまま、相手への possible_identity とした（絶対基準との関係は §D168-1 で裁定を仰ぐ）。D13857 は未収録＝鏡像は受領時。 【集約 2026-11-10】実項のまま（暫定形）で ★3 に回付（オーケストレーター決定17）。(a) 実項＋possible_identity（現状）／(b) REF 方式X の2案。'
 - id: r5
@@ -80,9 +72,39 @@ relations:
   active: AIND-D12856#p2
   passive: AIND-D12856
   cert: medium
-  quote: null
   note:
     ja: 「وأظنها المدعوة ستيتة」＝著者の推測（cert medium）。相手は呼び名のみ。女性部の ستيتة／ستيت 見出し（D13194〜D13211 ほか）に、父 إسماعيل・875年ジュマーダー第1月没の項は見当たらない＝#NEEDID。初版は「ستيتة」を本項主の shuhrah として断定していたので除去。
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: name
+  quote: إسماعيل الخازن تأتي في
+  norm: اسماعيل الخازن تاتي في
+- id: m3
+  kind: person
+  ref: AIND-D00491
+  quote: الولوي الأسيوطي
+  norm: الولوي الاسيوطي
+- id: m4
+  kind: person
+  ref: AIND-D08636
+  quote: وأبو الفضل
+  norm: ابو الفضل
+- id: m5
+  kind: person
+  ref: AIND-D12856#p1
+  quote: ستيتة
+- id: m6
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m7
+  kind: year
+  value: '875'
+  quote: سنة
 translation:
   ja: アーミナ・ビント・イスマーイール・アル＝ハーズィン。「無名の女性たち」（ムブハマート）の部に出てくる。そこには、ワリー・ッディーン・アル＝アスユーティーやマッカのハティーブ、アブー・ル＝ファドルら何人かが彼女を娶ったことも記す。私は、彼女がスタイタと呼ばれる女性であると思う。もしそうであれば、彼女は（8）75年ジュマーダー第1月の半ば、金曜日に没している。
   en: Āmina, daughter of Ismāʿīl al-Khāzin. She will come among the unnamed women (al-mubhamāt), where it is also said that several men married her, among them al-Walawī al-Asyūṭī and Abū al-Faḍl, the khaṭīb of Mecca. I think she is the woman called Sutayta; if so, she died on Friday, in the middle of Jumādā I of the year [8]75.

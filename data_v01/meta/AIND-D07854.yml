@@ -9,47 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02819
-    quote: الباسكندي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-01278
-    quote: الهرموزي
+    mention: m8
   - id: n3
     type: laqab
-    quote: الصدر
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001624
+    mention: m2
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: التاج
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: النور
     by: rule
+    mention: m6
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D07854
-  passive: AIND-D00235
+  passive: m12
   methods:
   - TMP-S-00008
   context:
@@ -58,16 +54,13 @@ relations:
       notBefore: 850
       type: learning
     phrase: ممن أخذ عنهما إبراهيم بن محمد بن إبراهيم وكان بعد الخمسين
-  quote: إبراهيم بن محمد بن إبراهيم
   note:
     ja: '学生 إبراهيم بن محمد بن إبراهيم＝#AIND-D00235「إبراهيم بن محمد بن إبراهيم بن عبد الله بن محمد بن أبي الوفاء عز الدين أبو الفضل … الباسكندري … الهرموزي المولد الشافعي」（824年ホルムズ生、未収録）。同項本文「فأخذ في الفقه وغيره عن قاضيها نور الدين يوسف بن صلاح الدين محمد بن نور الدين يوسف وابن عمه المولى صدر الدين محمد بن تاج الدين عبد الله وقرأ عليه الحصن الحصين لابن الجزري في سنة اثنتين وخمسين」で本項主（صدر الدين محمد بن تاج الدين عبد الله）とその従兄弟 يوسف の2人を師とすることが閉合。「وكان بعد الخمسين」は学習の時期（850年以後、repo 先例どおり notBefore-custom=850＝年初 1446-04-07）で、D00235 側は852年と明記。初版の passive #NEEDID・event「when="after 850"」を置換。'
-  norm: ابراهيم بن محمد بن ابراهيم
 - id: r2
   type: kin
   subtype: cousin
-  active: AIND-D10544
+  active: m11
   passive: AIND-D07854
-  quote: يوسف بن محمد بن يوسف
   note:
     ja: '「ابن عم يوسف بن محمد بن يوسف الآتي」＝#AIND-D10544「يوسف بن محمد بن يوسف نور الدين بن صلاح الدين بن نور الدين الباسكندي الهرموزي قاضيها الشافعي」（未収録）。両者の祖父が النور يوسف で一致（父同士 التاج عبد الله と صلاح الدين محمد が兄弟）。初版の #NEEDID を置換。'
 - id: r3
@@ -77,23 +70,66 @@ relations:
   passive: AIND-D07854
   summary:
     ar: التاج عبد الله بن يوسف
-  quote: null
   note:
     ja: 父「التاج عبد الله بن النور يوسف الباسكندي الهرموزي」（D00235 本文では「تاج الدين عبد الله」）。ラカブ التاج という識別要素があり祖父名まで復元できるので規則3・12 により仮番号 TMP-P-001624 を発行。corpus の عبد الله 部に本伝なし（「الهرموزي」「الباسكندي」で検索）、ID-Master 未登録。
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
   - ref: TMP-L-00172
     cert: medium
-  quote: قاضيها
   note:
     ja: 「قاضيها」の「ها」はニスバ الهرموزي が指す هرموز（TMP-L-00172）＝先行詞がニスバなので cert medium（規則22(3)）。
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001624
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: الصدر
+- id: m5
+  kind: name
+  quote: التاج
+- id: m6
+  kind: name
+  quote: النور
+- id: m7
+  kind: name
+  ref: TMP-N-02819
+  quote: الباسكندي
+- id: m8
+  kind: name
+  ref: TMP-N-01278
+  quote: الهرموزي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: office
+  ref: wd:Q217029
+  quote: قاضيها
+- id: m11
+  kind: person
+  ref: AIND-D10544
+  quote: يوسف بن محمد بن يوسف
+- id: m12
+  kind: person
+  ref: AIND-D00235
+  quote: إبراهيم بن محمد بن إبراهيم
+  norm: ابراهيم بن محمد بن ابراهيم
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ユースフ、アッ＝サドル・ブン・アッ＝タージュ・ブン・アン＝ヌール、アル＝バースカンディー・アル＝フルムーズィー・アッ＝シャーフィイー。そこ（ホルムズ）のカーディーで、後出のユースフ・ブン・ムハンマド・ブン・ユースフの従兄弟。イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒームは彼ら二人から学んだ者の一人で、それは（8）50年より後のことであった。
   en: Muḥammad b. ʿAbd Allāh b. Yūsuf, al-Ṣadr b. al-Tāj b. al-Nūr, al-Bāskandī al-Hurmūzī al-Shāfiʿī, its (Hormuz's) qāḍī, and the paternal cousin of Yūsuf b. Muḥammad b. Yūsuf, who follows. Ibrāhīm b. Muḥammad b. Ibrāhīm was among those who studied under the two of them, and that was after [8]50.

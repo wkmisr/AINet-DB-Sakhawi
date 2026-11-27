@@ -9,58 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00205
-    quote: الزرندي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: laqab
-    quote: الزين
+    mention: m4
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001760
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D03563
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m10
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D06689
+  active: m8
   passive: AIND-D03563
-  quote: محمد الآتي
   note:
     en: Al-Shams Muḥammad b. Aḥmad b. ʿAbd al-Raḥmān al-Zarandī al-Madanī al-Ḥanafī (AIND-D06689, "al-ātī"). The registered TMP-P-000529 (a different Muḥammad, son of Ibrāhīm b. ʿAbd Allāh Ibn Jamāʿa) was wrongly reused here.
-  norm: محمد الاتي
 - id: r3
   type: kin
   subtype: father
@@ -68,7 +58,6 @@ relations:
   passive: AIND-D03563
   summary:
     ar: أحمد بن عبد الرحمن الزرندي المدني
-  quote: null
   note:
     ja: '見出しナサブ「عبد الرحمن بن أحمد بن عبد الرحمن … الزرندي المدني」。父は corpus に本伝なし＝TMP-P-001760（兄弟 #AIND-D06689 と共有）。'
 affiliations:
@@ -79,10 +68,49 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m10
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-001760
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: الزين
+- id: m5
+  kind: name
+  ref: TMP-N-00205
+  quote: الزرندي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: person
+  ref: AIND-D06689
+  quote: محمد الآتي
+  norm: محمد الاتي
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブドゥルラフマーン・ブン・アフマド・ブン・アブドゥルラフマーン・アッ＝ザイン・アッ＝ザランディー・アル＝マダニー・アル＝ハナフィー。後述のムハンマドの兄弟。マディーナで私（サハーウィー）から聴聞した者の一人である。
   en: ʿAbd al-Raḥmān b. Aḥmad b. ʿAbd al-Raḥmān Zayn al-Dīn al-Zarandī al-Madanī al-Ḥanafī. He is the brother of Muḥammad, who is mentioned below. He was among those who heard from me (al-Sakhāwī) in Medina.

@@ -9,75 +9,102 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: تغرى
     by: rule
-    norm: تغري
+    mention: m1
 death:
   id: d
   date:
     ah: 813
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: client
-  active: AIND-D03345
+  active: m3
   passive: AIND-D02278
-  quote: شيخ
   note:
     en: Subject served as his majordomo (ustādār), then rebelled against him.
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m4
   passive: AIND-D02278
-  quote: الناصر
   note:
     en: Appointed the subject as majordomo (ustādār) in Syria.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00064
-  quote: أستادار
-  norm: استادار
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00064
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
-  quote: الاستادارية
+  - mention: m6
+  mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
-  quote: null
+  - mention: m6
   note:
     en: Served as majordomo (ustādār) in Syria.
+  mention: null
 - id: e2
   type: political
   summary:
     en: Rebelled against Amir Shaykh [al-Maḥmūdī] and joined al-Nāṣir [Faraj].
-  quote: null
+  mention: null
 - id: e3
   type: political
   summary:
     en: He was imprisoned, punished, and had his wealth confiscated by al-Nāṣir until he died.
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: تغرى
+  norm: تغري
+- id: m2
+  kind: office
+  ref: TMP-O-00064
+  quote: أستادار
+  norm: استادار
+- id: m3
+  kind: person
+  ref: AIND-D03345
+  quote: شيخ
+- id: m4
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m5
+  kind: office
+  ref: TMP-O-00064
+  quote: الاستادارية
+- id: m6
+  kind: place
+  quote: بالشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m7
+  kind: year
+  value: '813'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: タグリー・ビルミシュ。シャイフ［・アル＝マフムーディー］のウスターダール（家政長官）であったが、彼に反旗を翻して［スルタン・］アン＝ナースィル［・ファラジュ］に寝返った。アン＝ナースィルは彼をシャーム（シリア）のウスターダールに任命したが、彼は極めて過酷な圧政を行った。そのため、神はシャイフに彼に対する権力を与え、シャイフは彼を糾問して財産を没収し、処罰し続けた結果、彼は［ヒジュラ暦］813年に没した。我らがシャイフ（イブン・ハジャル）がその著作『インバー・アル＝ゴムル』において彼について言及している。
   en: Taghrī Birmish. He was the ustādār (majordomo) of Shaykh [al-Maḥmūdī], but rebelled against him and joined al-Nāṣir [Faraj], who appointed him to the ustādāriyya (office of majordomo) in Syria. He was excessively oppressive in his rule, so God empowered Shaykh over him, who confiscated his wealth and punished him until he died in the year 813 AH. Our shaykh (Ibn Ḥajar) mentioned him in his work Inbāʾ [al-Ghumr].

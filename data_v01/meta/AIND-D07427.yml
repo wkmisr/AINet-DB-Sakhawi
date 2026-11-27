@@ -9,55 +9,76 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00262
-    quote: القباني
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سعيد
     by: rule
-    ref: TMP-P-001610
+    mention: m2
   - id: n4
     type: nasab
-    quote: فلاح
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001610
   passive: AIND-D07427
-  quote: null
   note:
     ja: '父 سعيد بن فلاح بن عمر القباني：子 #AIND-D10297 の本伝「ويعرف بالقباني حرفة جده」により秤（قبان）業が識別要素、祖父名 فلاح・曾祖父名 عمر まで復元可 → 新規 TMP-P-001610（規則3）。corpus に本伝なし（hw.py「سعيد بن فلاح」該当なし）、ID-Master 未登録。'
   phrase: سعيد بن فلاح بن عمر القباني
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D10297
+  active: m7
   passive: AIND-D07427
-  quote: يحيى
   note:
     ja: '「له ذكر في ولده يحيى」。息子＝#AIND-D10297「يحيى بن محمد بن سعيد بن فلاح بن عمر الشرف العبسي القاهري الشافعي ويعرف بالقباني حرفة جده وأما أبوه فكان من تجار الكارم … ومات سنة إحدى وخمسين」（未収録）。ナサブ4代（محمد بن سعيد بن فلاح بن عمر）と父の商人業（التاجر／من تجار الكارم）が一致（規則37）。ニスバ索引 #AIND-D11914・#AIND-D12623 も同人。初版の汚染番号 TMP-P-000596（登録実体＝D01585 の兄 يحيى）を置換。'
-  norm: يحيي
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: التاجر
   note:
     ja: 商人＝ID-Master Office「تاجر」wd:Q215536。D10297 側では「من تجار الكارم」（カーリミー商人）。
+  mention: m6
 notes:
 - text: '子 يحيى の項 #AIND-D10297 に本項主（父）について「وأما أبوه فكان من تجار الكارم . ممن يقرأ القرآن ويكثر تلاوته بل قيل أنه قرأ ربع المنهاج . ومات سنة إحدى وخمسين عن نحو ثلاث وستين ونشأ ابنه」とある（カーリム商人、851 年に約63歳で没）。他項にのみある情報のため death・生年は立てない（規則23。集約 2026-10-26、内容A L-4）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001610
+  quote: سعيد
+- id: m3
+  kind: name
+  quote: فلاح
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  ref: TMP-N-00262
+  quote: القباني
+- id: m6
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m7
+  kind: person
+  ref: AIND-D10297
+  quote: يحيى
+  norm: يحيي
 translation:
   ja: ムハンマド・ブン・サイード・ブン・ファラーフ・ブン・ウマル・アル＝カッバーニー、商人。その息子ヤフヤー（の項）に彼への言及がある。
   en: Muḥammad b. Saʿīd b. Falāḥ b. ʿUmar al-Qabbānī, the merchant. He is mentioned in (the entry of) his son Yaḥyā.

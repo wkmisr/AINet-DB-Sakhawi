@@ -9,29 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04687
-    quote: السيلاوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m5
 persons:
 - id: p1
   label: عثمان بن علي
@@ -44,23 +41,19 @@ relations:
   subtype: father
   active: AIND-D07950#p1
   passive: AIND-D07950
-  quote: null
   note:
     ja: '父 عثمان بن علي は汎用名で識別要素なし。corpus に本伝なし（hw.py「السيلاوي」は本項のみ）。規則3 (c'') で #NEEDID。初版の grandfather relation（汚染番号 #TMP-P-000530＝関係専用の汎用 علي）は除去。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07950
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m8
   note:
     ja: 「ممن سمع مني بالقاهرة」（規則2）。初版の field الحديث を除去。
 affiliations:
@@ -71,6 +64,37 @@ notes:
 - text: 「السيلاوي نسبة للسيلة بلد بنابلس」＝ニスバの由来説明（ナーブルス地方の町 السيلة）。event ではないので placeName を作らない（規則22(2)）。初版の residence event نابلس（ニスバ由来地）・القاهرة（ニスバ「ثم القاهري」）はいずれも補完＝除去（規則22(1)）。السيلة は ID-Master 未登録だが event を立てないため TMP-L は発行しない。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-04687
+  quote: السيلاوي
+- id: m5
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・ウスマーン・ブン・アリー、アッ＝シーラーウィー——ナーブルスの町アッ＝シーラに由来する——、アル＝ハンバリー、のちアル＝カーヒリー。カイロで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿUthmān b. ʿAlī, al-Sīlāwī—after al-Sīla, a town of Nablus—, al-Ḥanbalī, then al-Qāhirī. He is among those who heard from me (al-Sakhāwī) in Cairo.

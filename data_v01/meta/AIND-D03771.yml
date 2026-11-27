@@ -9,57 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00167
-    quote: اليافعي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m8
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07914
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الوهاب
     by: rule
-    ref: AIND-D04775
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أسعد الوجيه
     by: rule
-    norm: اسعد الوجيه
+    mention: m5
   - id: n8
     type: nasab
-    quote: الجمال
     by: rule
+    mention: m6
 birth:
   id: b
   date:
     ah: 831-12
   places:
-  - ref: TMP-L-00201
-    quote: بمنى
-    norm: مني
-  quote: سنة
+  - mention: m13
+  mention: m12
 death:
   id: d
   date:
     ah: 878-02
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: سنة
+  - mention: m17
+  mention: m19
 relations:
 - id: r1
   type: scholarly
@@ -77,29 +68,23 @@ relations:
       type: learning
   works:
   - ref: wd:Q4721943
-  quote: null
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D07914
+  active: m9
   passive: AIND-D03771
-  quote: أبوه
-  norm: ابوه
   phrase: محمد
 - id: r3
   type: kin
   subtype: grandfather
-  active: AIND-D04775
+  active: m10
   passive: AIND-D03771
-  quote: وجده
-  norm: جده
   phrase: عبد الوهاب
 - id: r4
   type: kin
   subtype: relative
   active: TMP-P-000406
   passive: AIND-D03771
-  quote: null
   note:
     ja: '原文「حفيد العفيف اليافعي」＝遠祖（高祖父 عبد الله بن أسعد اليافعي、没768）。直接の祖父は #AIND-D04775（عبد الوهاب）であるため subtype を relative に変更。ID-Master 既登録 TMP-P-000406「اليافعي」（#AIND-D00418 が768年メッカで الصحيح を聴聞した師＝العفيف اليافعي 本人）を充当。'
   phrase: العفيف اليافعي
@@ -107,40 +92,119 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: TMP-L-00039
-    quote: الهند
-  quote: ودخل
+  - mention: m16
   trigger: rule
-  norm: دخل
+  mention: m15
 - id: e2
   type: residence
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: null
+  - mention: m17
   note:
     en: Returned to Mecca and resided there until his death.
+  mention: null
 - id: e3
   type: other
   places:
-  - ref: TMP-L-00039
-    quote: الهند
+  - mention: m16
   summary:
     en: He entered India and became wealthy because of the local population's deep devotion to his ancestors (the lineage of al-Yāfiʿī).
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m21
   cert: medium
   note:
     ja: 初版はこの言及を一切エンコードしていなかった（Pattern A完全欠落）。没878は 871<878≦885 のため §5③により النجم عمر(#AIND-D05979)、cert="medium"。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m20
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D07914
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D04775
+  quote: عبد الوهاب
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: أسعد الوجيه
+  norm: اسعد الوجيه
+- id: m6
+  kind: name
+  quote: الجمال
+- id: m7
+  kind: name
+  ref: TMP-N-00167
+  quote: اليافعي
+- id: m8
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m9
+  kind: person
+  ref: AIND-D07914
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: AIND-D04775
+  quote: وجده
+  norm: جده
+- id: m11
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m12
+  kind: year
+  value: '831'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بمنى
+  ref: TMP-L-00201
+  norm: مني
+- id: m14
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m15
+  kind: event
+  quote: ودخل
+  norm: دخل
+- id: m16
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m17
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m18
+  kind: month
+  value: 2
+  quote: صفر
+- id: m19
+  kind: year
+  value: '878'
+  quote: سنة
+- id: m20
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m21
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アブドゥッラフマーン・ブン・ムハンマド・ブン・アブドゥルワッハーブ・ブン・アブドゥッラー・ブン・アスアド・アル＝ワジーフ・ブン・アル＝ジャマール。アル＝アフィーフ・アル＝ヤーフィイーの末裔で、メッカの生まれ。父と祖父の伝記は後述される。ヒジュラ暦831年ズー・アル＝ヒッジャ月にミナーで生まれ、文法の『アルフィーヤ』を暗記し、844年にアブー・ハーミド・ブン・アッ＝ディヤーーに提示（暗誦確認）した。インドに入り、現地の人々が彼の祖先に対して抱く信仰心によって富を築いた。その後メッカに戻り、そこでヒジュラ暦878年サファル月に死去した。神が彼を赦されますように。イブン・ファハドが彼の没年を記録している。
   en: ʿAbd al-Raḥmān b. Muḥammad b. ʿAbd al-Wahhāb b. ʿAbd Allāh b. Asʿad al-Wajīh b. al-Jamāl, a descendant of al-ʿAfīf al-Yāfiʿī, originally from Mecca. His father and grandfather are mentioned below. He was born in Dhu al-Ḥijja, the year 831, in Minā. He memorized the Alfiyya on grammar and presented it to Abū Ḥāmid b. al-Ḍiyāʾ in the year 844. He entered India and became wealthy due to their devotion to his ancestors, then returned to Mecca where he resided until his death in Ṣafar, the year 878. May God forgive him. His obituary was recorded by Ibn Fahd.

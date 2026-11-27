@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بولد أبي العطار
-    norm: ولد ابي العطار
     label: ولد أبي العطار
+    mention: m2
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 880-07
   note:
     ja: 「مات في رجب سنة ثمانين」。880年ラジャブ月＝1475-11-09〜1475-12-07。没地は原文に記載なし（ニスバ المكي からの補完はしない）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: أبو العطار
@@ -41,21 +38,50 @@ relations:
   subtype: father
   active: AIND-D05734#p1
   passive: AIND-D05734
-  quote: null
   note:
     ja: '父は通称「أبو العطار」（クンヤのみ）で名・ナサブ不明。corpus に「أبو العطار」の本伝は見当たらず、識別要素が無いため #NEEDID 維持（規則3・12）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: medium
   note:
     ja: Pattern A（没年記録）。没880年（871＜880≤885）→ 振り分け規則により النجم عمر بن فهد（#AIND-D05979）、cert medium。初版の統制外 subtype「biographer」relation（#AIND-D09211）を是正。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: بولد أبي العطار
+  norm: ولد ابي العطار
+- id: m3
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: month
+  value: 7
+  quote: رجب
+- id: m6
+  kind: year
+  value: '880'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アリー、「アブー・アル＝アッタールの息子（ワラド・アビー・アル＝アッタール）」として知られる、アル＝ミスリー、アル＝マッキー。880年ラジャブ月に没した。イブン・ファハドがその没年を記録した。
   en: ʿAlī, known as "the son of Abū al-ʿAṭṭār", al-Miṣrī al-Makkī. He died in Rajab of the year 880. Ibn Fahd recorded his death.

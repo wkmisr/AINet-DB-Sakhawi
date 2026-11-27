@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00741
-    quote: السودوني
+    mention: m2
   - id: n2
     type: laqab
-    quote: null
     label: الزراف
+    mention: null
   - id: n3
     type: ism
-    quote: قطلوبغا
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m4
 persons:
 - id: p1
   label: والد قطلوبغا السودوني
@@ -34,39 +32,59 @@ relations:
   subtype: father
   active: AIND-D06359#p1
   passive: AIND-D06359
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D06236
+  active: m6
   passive: AIND-D06359
-  quote: وابنه
   note:
     ja: '「والد الزين قاسم الحنفي الماضي」＝ #AIND-D06236（قاسم بن قطلوبغا الزين … السودوني نسبة لمعتق أبيه سودون الشيخوني … الآتي أبوه ويعرف بقاسم الحنفي、802年生・879年没）。相手側は「الآتي أبوه」で閉合。初版の幻番号 #TMP-P-000811（ID-Master 未登録）を置換。'
-  norm: ابنه
   phrase: الزين قاسم الحنفي
 - id: r3
   type: social
   subtype: patron
-  active: TMP-P-001598
+  active: m3
   passive: AIND-D06359
-  quote: سودون الشيخوني
   note:
     ja: '見出しのニスバ「السودوني سودون الشيخوني」＝主人。子 #AIND-D06236 の本伝に「نسبة لمعتق أبيه سودون الشيخوني نائب السلطنة」とあり、本項主の解放者（معتق）。سودون الشيخوني（نائب السلطنة。corpus では #AIND-D08056 本文に「واستقدمه سودون الشيخوني نائب السلطنة في خدود التسعين」とあるのみ）は corpus に見出しなし・ID-Master 未登録 → TMP-P-001598。初版の #NEEDID を置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00107
   cert: medium
-  quote: رءوس النوب
   note:
     ja: 「يقال أنه كان من رءوس النوب」＝伝聞（يقال）につき cert medium。ref は汎用 رأس نوبة（TMP-O-00107、規則48：رأس نوبة にのみ使用）。
+  mention: m5
 notes:
 - text: '「مات وابنه صغير」＝没年の記載なし（death 要素は作らない、規則45）。子 #AIND-D06236 の本伝では「ولد … في المحرم سنة اثنتين وثمانمائة بالقاهرة ومات أبوه وهو صغير」とあり、没年は802年以降の9世紀初頭と推定されるが、他項由来の情報につき note に留める（規則23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قطلوبغا
+- id: m2
+  kind: name
+  ref: TMP-N-00741
+  quote: السودوني
+- id: m3
+  kind: person
+  ref: TMP-P-001598
+  quote: سودون الشيخوني
+- id: m4
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m5
+  kind: office
+  ref: TMP-O-00107
+  quote: رءوس النوب
+- id: m6
+  kind: person
+  ref: AIND-D06236
+  quote: وابنه
+  norm: ابنه
 translation:
   ja: クトルブガー・アッ＝スードゥーニー、（主人は）スードゥーン・アッ＝シャイフーニー。前述のザイン・カースィム・アル＝ハナフィーの父。ラアス・ナウバの一人であったと言われ、アッ＝ザッラーフとあだ名された。息子がまだ幼いうちに没した。
   en: Quṭlūbughā al-Sūdūnī, (mamlūk of) Sūdūn al-Shaykhūnī, father of al-Zayn Qāsim al-Ḥanafī mentioned above. It is said that he was one of the heads of the guard (ruʾūs al-nuwab), and he was nicknamed al-Zarrāf. He died while his son was still small.

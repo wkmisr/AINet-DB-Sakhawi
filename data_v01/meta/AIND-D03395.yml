@@ -9,28 +9,27 @@ name:
   elements:
   - id: n1
     type: honorific
-    quote: شيخ
+    mention: m6
   - id: n2
     type: ism
-    quote: صعب
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: عبد القادر
     by: rule
+    mention: m5
 death:
   id: d
   cert: low
@@ -47,35 +46,60 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: null
+    - mention: m9
 states:
 - id: s1
   type: office
   ref: TMP-O-00273
   places:
-  - ref: gn:282615
-    quote: نابلس
-  quote: null
+  - mention: m7
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:282615
-    quote: نابلس
-  quote: null
+  - mention: m7
+  mention: null
 - id: e2
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: صعب
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: عبد القادر
+- id: m6
+  kind: name
+  quote: شيخ
+- id: m7
+  kind: place
+  quote: نابلس
+  ref: gn:282615
+- id: m8
+  kind: event
+  quote: سمع
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: サアブ・ブン・アフマド・ブン・ハサン・ブン・アリー・ブン・アブドゥルカーディル。ナブルスのシャイフ。カイロで私（サハーウィー）から（ハディースを）聴聞した者の一人であり、既に没した。
   en: Ṣaʿb b. Aḥmad b. Ḥasan b. ʿAlī b. ʿAbd al-Qādir, the Shaykh of Nablus. He was among those who heard (ḥadīth) from me in Cairo, and he has passed away.

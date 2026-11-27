@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01712
-    quote: الأرغون شاوي
-    norm: الارغون شاوي
+    mention: m2
   - id: n2
     type: ism
-    quote: كزل
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 822-01
   note:
     ja: 822年ムハッラム月（1419-02-06〜03-07、h2g.py）、長患いの末、シリアに到着する前に没。没地は原文に無い（placeName なし）。
-  quote: سنة
   phrase: فمات قبل وصوله إلى الشام بعد مرض طويل في المحرم سنة اثنتين وعشرين
+  mention: m11
 persons:
 - id: p1
   label: والد كزل الأرغون شاوي
@@ -34,77 +32,123 @@ relations:
   subtype: father
   active: AIND-D06392#p1
   passive: AIND-D06392
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: kin
   subtype: father-in-law
-  active: AIND-D08903
+  active: m7
   passive: AIND-D06392
-  quote: الناصري بن البارزي
   note:
     ja: 「بسفارة والد زوجته الناصري بن البارزي」＝妻の父（岳父）＝ナースィルッディーン・ムハンマド・ブン・アル＝バーリズィー（#AIND-D08903「محمد بن محمد بن عثمان … ناصر الدين أبو عبد الله … ويعرف كسلفه بابن البارزي」、المؤيد شيخ の كاتب السر、769生）。妻の名は原文に無い（spouse relation は立てない、規則14）。subtype・向きは規則52（active=岳父）。初版の空の spouse relation と統制外 subtype「other」（#NEEDID）を置換。
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D01850
+  active: m3
   passive: AIND-D06392
-  quote: وأرغون شاه
   note:
     ja: 主人ニスバ「الأرغون شاوي وأرغون شاه أمير مجلس」＝主人は أرغون شاه أمير مجلس＝#AIND-D01850「أرغون شاه البيدمري الظاهري برقوق … ثم قدمه وجعله أمير مجلس … وقتل مع أيتمش في شعبان سنة اثنتين بقلعة دمشق」（802没）（規則51）。「أمير مجلس」は主人の職であり本項主の職ではない（初版の state أمير مجلس＋placeName القاهرة を除去）。
-  norm: ارغون شاه
   phrase: أرغون شاه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00052
-    quote: الكرك
-  quote: نيابة
+  - mention: m6
   note:
     ja: '「ثم ولاه نيابة الكرك بسفارة والد زوجته الناصري بن البارزي ثم عزله」＝アル＝ムアイヤド（・シャイフ、#AIND-D03345）が岳父の仲介で任じ、のち解任。主人でないスルターンによる任免は patron にせず（規則53、初版の patron المؤيد شيخ #NEEDID を除去）、下の event に persName で記す。年は原文に無い。'
+  mention: m5
 - id: s2
   type: office
   ref: TMP-O-00053
   places:
-  - ref: gn:361058
-    quote: إسكندرية
-    norm: اسكندرية
+  - mention: m14
   cert: medium
-  quote: null
   note:
     ja: イブン・ハジャル『インバー』の記述として引かれる（「وقال أنه ناب … ثم في إسكندرية ثم عزل」）。サハーウィー自身の本文には無い伝聞のため cert medium。
+  mention: null
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03345
-    quote: المؤيد
-    norm: المءيد
+  - mention: m4
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: عزله
+  - mention: m9
   note:
     ja: アル＝ムアイヤド・シャイフ（#AIND-D03345、815〜824在位）の時代にアミールに昇進、カラク副官に任免され、ダマスクスの مقدم（ألف）に任じられたがシリア到着前に没した。就任に至らない内定は state でなく event（規則47）＝初版の state「مقدم」（#NEEDID、placeName دمشق）を除去。初版の residence القاهرة（原文に無い）・visit الكرك／الاسكندرية（state と重複）を除去。
   trigger: rule
   phrase: ترقى في أيام المؤيد إلى أن صار أميرا ثم ولاه نيابة الكرك بسفارة والد زوجته الناصري بن البارزي ثم عزله وجعله مقدما بدمشق
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: وذكره
   note:
     ja: Pattern A。初版の統制外 subtype「other」relation（wd:Q471116）を event に置換。
   trigger: rule
-  norm: ذكره
   phrase: وذكره شيخنا في أنبائه وقال أنه ناب في الكرك ثم في إسكندرية ثم عزل
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: كزل
+- id: m2
+  kind: name
+  ref: TMP-N-01712
+  quote: الأرغون شاوي
+  norm: الارغون شاوي
+- id: m3
+  kind: person
+  ref: AIND-D01850
+  quote: وأرغون شاه
+  norm: ارغون شاه
+- id: m4
+  kind: person
+  ref: AIND-D03345
+  quote: المؤيد
+  norm: المءيد
+- id: m5
+  kind: office
+  ref: TMP-O-00053
+  quote: نيابة
+- id: m6
+  kind: place
+  quote: الكرك
+  ref: TMP-L-00052
+- id: m7
+  kind: person
+  ref: AIND-D08903
+  quote: الناصري بن البارزي
+- id: m8
+  kind: event
+  quote: عزله
+- id: m9
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m10
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m11
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m14
+  kind: place
+  quote: إسكندرية
+  ref: gn:361058
+  norm: اسكندرية
 translation:
   ja: クズル・アル＝アルグーンシャーウィー——（主人は）アミール・マジュリスのアルグーン・シャー。アル＝ムアイヤドの時代に昇進してアミールとなり、次いで彼（アル＝ムアイヤド）は妻の父ナースィリー・イブン・アル＝バーリズィーの仲介により彼をカラクの副官に任じ、次いで解任してダマスクスのムカッダムとしたが、シリアに到着する前に長患いの末、822年ムハッラム月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及し、カラク、次いでアレクサンドリアの副官を務めてのち解任されたと述べている。
   en: Kuzul al-Arghūnshāwī, (mamlūk of) Arghūn Shāh the amīr majlis. He rose in the days of al-Muʾayyad until he became an amir; then he (al-Muʾayyad) appointed him governor (nāʾib) of al-Karak through the mediation of his father-in-law al-Nāṣirī b. al-Bārizī, then dismissed him and made him a muqaddam in Damascus, but he died before reaching Syria, after a long illness, in Muḥarram of the year 822. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said that he served as governor of al-Karak, then of Alexandria, and was then dismissed.

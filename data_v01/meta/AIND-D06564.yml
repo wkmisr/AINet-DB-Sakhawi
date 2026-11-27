@@ -9,60 +9,51 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: البدر
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n4
     type: shuhrah
-    quote: بابن الحموي
-    norm: ابن الحموي
     label: ابن الحموي
+    mention: m13
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00331
-    norm: ابراهيم
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمود
     by: rule
-    ref: AIND-D09846
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد الرحيم
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m6
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 birth:
   id: b
   date:
     ah: 847
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m15
   note:
     ja: '847年＝1443-05-10 開始（h2g.py、年精度）。父の本伝 #AIND-D00331 に「ولد في ذي القعدة سنة خمس وعشرين وثمانمائة بحماة … ثم تحول صحبة أبيه إلى القاهرة في أول أيام الظاهر جقمق」＝年代・地とも合う。'
-  quote: سنة
   phrase: ولد في سنة سبع وأربعين بالقاهرة
+  mention: m14
 persons:
 - id: p1
   label: محمد
@@ -75,44 +66,37 @@ relations:
   passive: AIND-D06564
   methods:
   - TMP-S-00004
-  quote: null
   note:
     ja: '「واستجازني」＝私（サハーウィー）にイジャーザを求めた（先例 #AIND-D03454）。'
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D00331
+  active: m11
   passive: AIND-D06564
-  quote: أبوه
   note:
     ja: 「الماضي أبوه」＝#AIND-D00331「إبراهيم بن محمود بن عبد الرحيم بن أبي بكر بن محمود … الحموي الأصل القاهري الشافعي الواعظ الآتي أبوه وجده وابناه محمد ومحمود … وسلك طريق جده في الوعظ」（ナサブ・ニスバ・職＋相手側「وابناه محمد ومحمود」で閉合、repo 未収録）。初版は幻番号 TMP-P-000000。
-  norm: ابوه
   phrase: إبراهيم بن محمود بن عبد الرحيم
 - id: r3
   type: kin
   subtype: grandfather
-  active: AIND-D09846
+  active: m12
   passive: AIND-D06564
-  quote: وجده
   note:
     ja: 「الماضي … وجده」＝#AIND-D09846「محمود بن عبد الرحيم بن أبي بكر بن محمود … النور بن الزين بن التقي الحموي ثم القاهري الشافعي الماضي أبوه وابنه إبرهيم … وتصدى للوعظ بعد والده」（repo 未収録）。刊本の配列では محمود は本項より後（「الآتي」が正しい位置）だが、原文「الماضي」のまま。初版は幻番号 TMP-P-000000。
-  norm: جده
   phrase: محمود بن عبد الرحيم
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D06564#p1
+  active: m10
   passive: AIND-D06564
-  quote: محمد
   note:
     ja: '見出し「أخو محمد الآتي」。後出の兄弟で本伝のあるのは #AIND-D09824「محمود بن إبرهيم بن محمود … الماضي أبوه وأخوه محمد」のみで、刊本の「محمد」が「محمود」の誤りである可能性はあるが、誤読と断定しない（Waka 裁定 2026-11-19、B169-173 確認依頼15a）。候補 #AIND-D09824（相手側が本項主を「أخوه محمد」と名指しする＝D09824 受領時にその側から brother relation を立てる）。父の項 #AIND-D00331「وابناه محمد ومحمود」、索引 #AIND-D11608 も参照。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00080
-  quote: الوعظ
   note:
     ja: 「وعقد الوعظ بعد أبيه وفي حياته」＝父の後に、また父の存命中にも説教（ワアズ）の席を設けた。واعظ＝TMP-O-00080（初版は幻番号 TMP-O-00000）。場所は原文にない＝初版の placeName القاهرة を除去（規則22(1)）。
+  mention: m16
 affiliations:
 - id: a1
   type: madhhab
@@ -122,15 +106,83 @@ events:
   type: cultural
   summary:
     ar: رجل ذو أولاد … واشتغل
-  quote: null
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
   phrase: وحج غير مرة
+  mention: m17
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00331
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: AIND-D09846
+  quote: محمود
+- id: m4
+  kind: name
+  quote: عبد الرحيم
+- id: m5
+  kind: name
+  quote: البدر
+- id: m6
+  kind: name
+  quote: البرهان
+- id: m7
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D06564#p1
+  quote: محمد
+- id: m11
+  kind: person
+  ref: AIND-D00331
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: person
+  ref: AIND-D09846
+  quote: وجده
+  norm: جده
+- id: m13
+  kind: name
+  quote: بابن الحموي
+  norm: ابن الحموي
+- id: m14
+  kind: year
+  value: '847'
+  quote: سنة
+- id: m15
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m16
+  kind: office
+  ref: TMP-O-00080
+  quote: الوعظ
+- id: m17
+  kind: event
+  quote: وحج
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・マフムード・ブン・アブドゥッラヒーム、アル＝バドル・ブン・アル＝ブルハーン、ハマー出自、アル＝カーヒリー、アッ＝シャーフィイー。後出のムハンマドの兄弟で、父と祖父は既出。イブン・アル＝ハマウィーの名で知られる。子どものいる男である。47年にカイロで生まれ、学問に従事し、父の後に、また父の存命中にも説教（ワアズ）の席を設けた。私にイジャーザを求め、一度ならず巡礼した。
   en: Muḥammad b. Ibrāhīm b. Maḥmūd b. ʿAbd al-Raḥīm, al-Badr b. al-Burhān, al-Ḥamawī by origin, al-Qāhirī al-Shāfiʿī, brother of the Muḥammad who will come below, and whose father and grandfather have been mentioned above; known as Ibn al-Ḥamawī. A man with children. He was born in the year 47 in Cairo, studied, and held preaching sessions after his father and during his lifetime. He asked me for an ijāza, and performed the pilgrimage more than once.

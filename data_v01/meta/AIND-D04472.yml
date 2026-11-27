@@ -9,22 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00100
-    quote: الحضرمي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الرحيم
     by: rule
+    mention: m2
 death:
   id: d
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     en: Died in Mecca in Ṣafar; the year is left blank in the text.
   phrase: مات بمكة في صفر سنة ...
@@ -38,19 +35,41 @@ relations:
 - id: r1
   type: kin
   subtype: maternal_uncle
-  active: AIND-D04238
+  active: m4
   passive: AIND-D04472
   cert: medium
-  quote: ابن أخت عبد الكبير
   note:
     ja: '母方の叔父 عبد الكبير（「ابن أخت عبد الكبير」）＝#AIND-D04238（刊本第821項 عبد الكبير بن عبد الله بن محمد … أبو حميد الأنصاري … الحضرمي اليماني نزيل مكة、869年シャアバーン28日マッカ没）と推定。本項主も الحضرمي でマッカ没であり、corpus で「عبد الكبير الحضرمي」（マッカの著名な聖者、سوق الليل に邸宅）として複数回言及される人物に一致するが、原文はニスバを伴わない裸名のため cert medium。初版は #NEEDID・subtype uncle。'
-  norm: ابن اخت عبد الكبير
 - id: r2
   type: kin
   subtype: father
   active: AIND-D04472#p1
   passive: AIND-D04472
-  quote: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  ref: TMP-N-00100
+  quote: الحضرمي
+- id: m4
+  kind: person
+  ref: AIND-D04238
+  quote: ابن أخت عبد الكبير
+  norm: ابن اخت عبد الكبير
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 2
+  quote: صفر
 translation:
   ja: アブドゥッラー・ブン・アブドゥッラヒーム・アル＝ハドラミー。アブドゥルカビールの姉妹の息子。サファル月に…年、マッカで没した。
   en: ʿAbd Allāh b. ʿAbd al-Raḥīm al-Ḥaḍramī, the sister's son of ʿAbd al-Kabīr. He died in Mecca in Ṣafar of the year ...

@@ -9,102 +9,154 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: سيف الدين
+    mention: m9
   - id: n2
     type: ism
-    quote: مهار
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: فيروز شاه
     by: rule
-    ref: AIND-D06194
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد تم
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: بهم تم
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: جرد
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: شاه
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: طغلق
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: طبق شاه
     by: rule
+    mention: m8
   - id: n10
     type: nasab
-    quote: قطب الدين صاحب جزيرة
     by: rule
+    mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06194
+  active: m14
   passive: AIND-D10029
-  quote: أباه
   note:
     ja: '父＝corpus 本伝 #AIND-D06194「فيروز شاه قطب الدين بن تهمتم بن جردن شاه بن طغلق بن طبق شاه صاحب هرمز والبحرين والحسا والقطيف . مات في سنة تسع وثلاثين」（repo 収録済み。同項に本項主の son relation・killer relation（cert medium）あり）。名 فيروز شاه＋ラカブ قطب الدين（本項「سيف الدين بن قطب الدين」）＋君主位 صاحب هرمز والبحرين で閉合。ナサブの綴りは両項で異なる（本項「محمد تم بن بهم تم بن جرد بن شاه بن طغلق ابن طبق شاه」／D06194「تهمتم بن جردن شاه بن طغلق بن طبق شاه」）が規則25により各項の原文どおり保持。祖父以上は相手側 TMP-P-001552（تهمتم）との対応が綴りの食い違いで確定できないため relation を立てない（note のみ）。「قتل أباه」（下の event）。'
-  norm: اباه
   phrase: فيروز شاه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00354
-    quote: هرمز
-  quote: بالملك
+  - mention: m11
   note:
     ja: '「صاحب جزيرة هرمز والبحرين」。父の項 D06194 と同じく在地君主職 TMP-O-00163（صاحب＋地名）を地ごとに分けて置く。هرمز＝TMP-L-00354（ID-Master 登録済み、Note に本項の出現あり）。初版の #NEEDID を置換。'
-  norm: الملك
+  mention: m15
 - id: s2
   type: office
   ref: TMP-O-00163
   places:
-  - ref: TMP-L-00013
-    quote: والبحرين
-    norm: البحرين
-  quote: null
+  - mention: m12
   note:
     ja: البحرين は ID-Master に TMP-L-00072（熊倉）と TMP-L-00013（篠田、D06194 で使用）の2行が併存。初版の TMP-L-00072 を維持し、統合を ISSUES（§D153-2）に。
+  mention: null
 events:
 - id: e1
   type: political
   persons:
   - ref: AIND-D06194
-  quote: قتل
   note:
     ja: 父 فيروز شاه（#AIND-D06194）を殺して王権を独占した。年は原文になし（日付属性を置かない、規則18）。初版の placeName هرمز（原文の event 本文に地名なし、職の所在からの補完）を除去（規則22）。父の項 D06194 は「مات في سنة تسع وثلاثين」とのみ記す。
   trigger: rule
   phrase: قتل أباه واستبد بالملك وعظم قدره وفخم أمره
+  mention: m13
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m17
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   note:
     ja: Pattern A。المقريزي『درر العقود الفريدة』（TMP-T-00122）。没年を記していないため death を置かない。初版の統制外 subtype「mentioned by」relation を event に変換。
   trigger: rule
   phrase: ذكره المقريزي في عقوده مطولا ولم يؤرخ وفاته
+  mention: m16
 notes:
 - text: ホルムズの繁栄（インド・中国の船、ホラーサーン・サマルカンドの商人の来航、国庫の充実）は訳文のみ。「الزيرك من بلاد الصين」は刊本どおり（「الزيرك」の語は未詳、読み替えない＝規則25）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: مهار
+- id: m2
+  kind: name
+  ref: AIND-D06194
+  quote: فيروز شاه
+- id: m3
+  kind: name
+  quote: محمد تم
+- id: m4
+  kind: name
+  quote: بهم تم
+- id: m5
+  kind: name
+  quote: جرد
+- id: m6
+  kind: name
+  quote: شاه
+- id: m7
+  kind: name
+  quote: طغلق
+- id: m8
+  kind: name
+  quote: طبق شاه
+- id: m9
+  kind: name
+  quote: سيف الدين
+- id: m10
+  kind: name
+  quote: قطب الدين صاحب جزيرة
+- id: m11
+  kind: place
+  quote: هرمز
+  ref: TMP-L-00354
+- id: m12
+  kind: place
+  quote: والبحرين
+  ref: TMP-L-00013
+  norm: البحرين
+- id: m13
+  kind: event
+  quote: قتل
+- id: m14
+  kind: person
+  ref: AIND-D06194
+  quote: أباه
+  norm: اباه
+- id: m15
+  kind: office
+  ref: TMP-O-00163
+  quote: بالملك
+  norm: الملك
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: マハール・ブン・ファイルーズ・シャー・ブン・ムハンマド・タム・ブン・バハム・タム・ブン・ジュルド・ブン・シャー・ブン・トゥグルク・イブン・タバク・シャー、サイフ・アッ＝ディーン・ブン・クトゥブ・アッ＝ディーン、ホルムズ島とバフライン（バーレーン）の君主。父を殺して王権を独占し、その地位は大きく、その威勢は盛んとなった。彼の時代にホルムズは世界の港（バンダル）となり、インド諸国の船やザイラク（？）が中国の地から来航し、ホラーサーンやサマルカンドなどの商人がそこを目指した。こうして彼の国庫は満ち、その治世は称えられ、その国は栄えた。アル＝マクリーズィーが『ウクード』で彼について詳しく述べているが、没年は記していない。
   en: 'Mahār b. Fīrūz Shāh b. Muḥammad Tam b. Baham Tam b. Jurd b. Shāh b. Ṭughluq ibn Ṭabaq Shāh, Sayf al-Dīn b. Quṭb al-Dīn, lord of the island of Hurmuz and of al-Baḥrayn. He killed his father and seized sole rule; his standing grew great and his power became splendid. In his days Hurmuz became the port (bandar) of the world: ships of the kingdoms of India and the "Zīrak" from the lands of China came to it, and merchants of Khurāsān, Samarqand and elsewhere sought it out, so his treasuries were filled, his conduct was praised and his lands flourished. Al-Maqrīzī mentioned him at length in his ʿUqūd but did not record his death.'

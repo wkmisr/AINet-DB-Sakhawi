@@ -9,101 +9,137 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الأمير دقماق
     by: rule
-    ref: AIND-D02970
-    norm: الامير دقماق
+    mention: m2
 death:
   id: d
   date:
     ah: 833
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m12
   note:
     ar: واستمر بها حتى مات في طاعون سنة ثلاث وثلاثين
     ja: 没地はカイロ（「أنعم عليه بأمرة عشرة بالقاهرة واستمر بها حتى مات」の بها＝القاهرة）。833年＝1429-10-09〜1430-09-27、年精度のため年初 1429。
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02970
+  active: m4
   passive: AIND-D07382
-  quote: أبوه
   note:
     ja: 父＝#AIND-D02970（دقماق المحمدي الظاهري برقوق والد محمد الآتي）。corpus で「والد محمد الآتي」と双方向に閉合。
-  norm: ابوه
   phrase: محمد بن الأمير دقماق ناصر الدين الماضي أبوه
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m5
   passive: AIND-D07382
-  quote: الأشرف برسباي
   note:
     ja: '初版の wd:Q381208 を repo 確定ID #AIND-D02168（الأشرف برسباي）へ差し替え。'
-  norm: الاشرف برسباي
   phrase: ولاه الأشرف برسباي نيابة المرقب وأنعم عليه بأمرة طبلخاناه بطرابلس بعد أن استقدمه من حلب وبالغ في إكرامه لكونه منسوبا إلى أبيه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00276
-    quote: المرقب
-  quote: نيابة
+  - mention: m7
   phrase: ولاه الأشرف برسباي نيابة المرقب
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: طبلخاناه
+  - mention: m10
   phrase: وأنعم عليه بأمرة طبلخاناه بطرابلس
+  mention: m9
 - id: s3
   type: office
-  ref: TMP-O-00101
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: بأمرة
-  norm: امرة
+  - mention: m12
   phrase: ثم عزله وأنعم عليه بأمرة عشرة بالقاهرة
+  mention: m8
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: بعد أن استقدمه من حلب
-  norm: بعد ان استقدمه من حلب
+  - mention: m11
+  phrase: بعد أن استقدمه من حلب
+  mention: null
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00276
-    quote: المرقب
-  quote: فدام بالمرقب مدة ثم عزله
-  norm: دام بالمرقب مدة ثم عزله
+  - mention: m7
+  phrase: فدام بالمرقب مدة ثم عزله
+  mention: null
 - id: e3
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: وأنعم عليه بأمرة عشرة بالقاهرة ، واستمر بها حتى مات
-  norm: انعم عليه بامرة عشرة بالقاهرة ، واستمر بها حتي مات
+  - mention: m12
+  phrase: وأنعم عليه بأمرة عشرة بالقاهرة ، واستمر بها حتى مات
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D02970
+  quote: الأمير دقماق
+  norm: الامير دقماق
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: person
+  ref: AIND-D02970
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف برسباي
+  norm: الاشرف برسباي
+- id: m6
+  kind: office
+  ref: TMP-O-00053
+  quote: نيابة
+- id: m7
+  kind: place
+  quote: المرقب
+  ref: TMP-L-00276
+- id: m8
+  kind: office
+  ref: TMP-O-00101
+  quote: بأمرة
+  norm: امرة
+- id: m9
+  kind: office
+  ref: TMP-O-00016
+  quote: طبلخاناه
+- id: m10
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m11
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m12
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m13
+  kind: year
+  value: '833'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アル＝アミール・ドゥクマーク、ナースィル・アッ＝ディーン。その父は前述。アル＝アシュラフ・バルスバーイは彼をハラブ（アレッポ）から呼び寄せたうえで、アル＝マルカブのナーイブ（副王）に任じ、タラーブルス（トリポリ）でタブルハーナのアミール職を授け、前述のとおり彼がその父〔ドゥクマーク〕の子であるがゆえに極めて厚遇した。彼はしばらくアル＝マルカブに留まったが、のちに解任され、カイロで十人隊のアミール職を授けられた。そして833年の疫病で没するまで同地に留まった。容姿端麗で、弓射の第一人者であった。
   en: Muḥammad b. al-Amīr Duqmāq, Nāṣir al-Dīn; his father has been mentioned above. Al-Ashraf Barsbāy appointed him nāʾib of al-Marqab and granted him an amirate of ṭablkhānāh in Tripoli after summoning him from Aleppo, and treated him with great honour because of his connection to his father, as mentioned earlier. He remained in al-Marqab for a time, then was dismissed and granted an amirate of ten in Cairo, where he stayed until he died in the plague of the year 833. He was handsome in appearance and a leading archer.

@@ -9,62 +9,54 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00206
-    quote: الجندي
+    mention: m4
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بشوربة
-    norm: شوربة
     label: شوربة
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: تغري برمش
     by: rule
-    ref: TMP-P-001573
+    mention: m2
 birth:
   id: b
   date:
     ah: 817
   note:
     ja: 「فولد في سنة سبع عشرة وثمانمائة」。817年＝1414-04-01〜1415-03-21（年精度→1414）。
-  quote: سنة
+  mention: m9
 death:
   id: d
   date:
     ah: 875-02
   places:
-  - ref: TMP-L-00352
-    role: burial
-    quote: بحوش البيبرسية
-    norm: حوش البيبرسية
+  - role: burial
+    mention: m12
   note:
     ja: '「ومات في صفر سنة خمس وسبعين ودفن بحوش البيبرسية」。875年サファル月＝1470-08-08開始（月精度→1470-08、h2g.py。初版の 1470 を月精度に）。埋葬地 حوش البيبرسية ＝ ID-Master TMP-L-00352（カイロのバイバルス・ハーンカー付属墓域。初版 #NEEDID）。没地の明記はない。'
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001573
+  active: m6
   passive: AIND-D07294
   summary:
     ar: تغري برمش المؤيدي أحد حجاب حماة
-  quote: أبوه
   note:
     ja: 「كان أبوه مؤيديا أحد حجاب حماة」。父 تغري برمش（المؤيد شيخ のマムルーク、ハマーのハージブの一人）は corpus の تغري برمش 見出し5件（D02274 التركماني الاقحالي・D02275 الجلالي الناصري ثم المؤيدي نائب القلعة・D02276 السيفي قراقجا・D02277 اليشبكي الزردكاش・D02278 أستادار شيخ）のいずれにもハマーのハージブの記述がなく同定できない → TMP-P-001573（主人・職が識別要素、規則3）。
-  norm: ابوه
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D13540
+  active: m7
   passive: AIND-D07294
-  quote: فرح خاتون ابنة ناظر الجيش كريم الدين عبد الكريم
   note:
     ja: '「وأمه فرح خاتون ابنة ناظر الجيش كريم الدين عبد الكريم أخت جهة شيخنا」。母 ＝ #AIND-D13540「فرج ابنة عبد الكريم بن أحمد بن عبد العزيز الأصيلة أم محمد القشتمرية أخت أنس جهة شيخنا وغيرها وأم الشريفة فاطمة . ولدت سنة ثمانين وسبعمائة … وماتت في ربيع الآخر سنة ثلاث وستين」（女性部、未収録）。D13540 の綴りは فرج、本項・D13532 は فرح（同一人物：父・姉妹 أنس が一致、「أم محمد」は本項主を指す）。'
 - id: r3
@@ -72,22 +64,69 @@ relations:
   subtype: maternal_grandfather
   active: AIND-D04246
   passive: AIND-D07294
-  quote: null
   note:
     ja: '母方祖父 ＝ #AIND-D04246「عبد الكريم بن أحمد بن عبد العزيز بن أبي طالب بن علي بن سيدهم كريم الدين النستراوي الأصل المصري . والد أنس جهة شيخنا واخوتها ويعرف بابن عبد العزيز … ترقى لنظر الجيش في سنة اثنتين وتسعين … مات في أواخر ربيع الأول سنة سبع」（没807）。見出しナサブ（母の父）＋職 ناظر الجيش＋「والد أنس جهة شيخنا」で閉合（規則37）。'
   phrase: ناظر الجيش كريم الدين عبد الكريم
 - id: r4
   type: kin
   subtype: maternal_aunt
-  active: AIND-D12898
+  active: m8
   passive: AIND-D07294
-  quote: جهة شيخنا
   note:
     ja: '「أخت جهة شيخنا」＝母はイブン・ハジャルの妻の姉妹 → イブン・ハジャルの妻（جهة شيخنا）は本項主の母方叔母。جهة شيخنا ＝ #AIND-D12898「أنس ابنة عبد الكريم بن أحمد بن عبد العزيز … أم الكرم ابنة الكريمي اللخمي النستراوي … وزوج شيخنا」（没867）。イブン・ハジャル（wd:Q471116）は叔母の夫にあたるが統制語彙に該当する subtype がないため relation にしない（初版の統制外「family connection to teacher」relation を除去）。'
 notes:
 - text: '通称は「ويدعى بشوربة」の بـ が前置詞なので شوربة（索引 #AIND-D11276「شوربة محمد بن تغرى برمش」で確認。初版の「بشوربة」を是正）。「الجندي」は軍人（兵士）を示す呼称でニスバとして保持（ID-Master に職登録なし）。「لا يذكر وإنما أثبته لبيتوتة」＝本来記すに値しないが家柄（بيتوتة）ゆえに立項した、との著者注記。関連項（relation は立てず note のみ、規則23）: 母 فرح（D13540）の娘「الشريفة فاطمة」＝#AIND-D13532「فاطمة ابنة الشريف الفخرى أم محمد بن جاجق ، وأمها فرح ابنة ناظر الجيش كريم الدين عبد الكريم」は本項主の（異父）姉妹、その子 #AIND-D07296 محمد بن جاجق は甥にあたる（D13532・D07296 は本項主を名指ししない）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001573
+  quote: تغري برمش
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00206
+  quote: الجندي
+- id: m5
+  kind: name
+  quote: بشوربة
+  norm: شوربة
+- id: m6
+  kind: person
+  ref: TMP-P-001573
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: AIND-D13540
+  quote: فرح خاتون ابنة ناظر الجيش كريم الدين عبد الكريم
+- id: m8
+  kind: person
+  ref: AIND-D12898
+  quote: جهة شيخنا
+- id: m9
+  kind: year
+  value: '817'
+  quote: سنة
+- id: m10
+  kind: month
+  value: 2
+  quote: صفر
+- id: m11
+  kind: year
+  value: '875'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بحوش البيبرسية
+  ref: TMP-L-00352
+  norm: حوش البيبرسية
 translation:
   ja: ムハンマド・ブン・タグリー・ビルミシュ、ナースィル・アッ＝ディーン、アル＝ジュンディー（軍人）、シュールバ（スープ）と呼ばれた。父はムアイヤド（シャイフ）のマムルークでハマーのハージブ（侍従）の一人、母はナーズィル・アル＝ジャイシュ（軍務監）のカリーム・アッ＝ディーン・アブド・アル＝カリームの娘ファラフ・ハートゥーンで、我らがシャイフ（イブン・ハジャル）の妻の姉妹である。彼は817年に生まれ、875年サファル月に没してバイバルスィーヤの墓域（ハウシュ）に葬られた。彼は自らに対してひどく放埒で、本来言及するに値しないが、私は家柄のゆえに彼を記した。彼が悔い改めていたことを願う。アッラーが彼と我々を赦し給うように。
   en: Muḥammad b. Taghrī Birmish, Nāṣir al-Dīn, al-Jundī (the soldier), called Shūrba. His father was a Muʾayyadī (mamlūk of al-Muʾayyad Shaykh), one of the chamberlains (ḥujjāb) of Ḥamāh, and his mother was Faraḥ Khātūn, daughter of the nāẓir al-jaysh Karīm al-Dīn ʿAbd al-Karīm and sister of our shaykh's (Ibn Ḥajar's) wife. He was born in 817. He died in Ṣafar 875 and was buried in the Ḥawsh al-Baybarsiyya. He was extremely profligate towards himself and would not deserve mention; I have recorded him only on account of his family. May he have repented; may God pardon him and us.

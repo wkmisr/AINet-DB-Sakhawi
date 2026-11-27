@@ -9,64 +9,57 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00120
-    quote: الكازروني
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00830
-    quote: البلياني
+    mention: m11
   - id: n3
     type: nisbah
-    ref: TMP-N-00015
-    quote: الشيرازي
+    mention: m12
   - id: n4
     type: laqab
-    quote: النور
+    mention: m8
   - id: n5
     type: honorific
-    quote: null
     label: العلامة
+    mention: null
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: الجنيد
     by: rule
-    ref: AIND-D02448
+    mention: m2
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001123
-    norm: احمد
+    mention: m3
   - id: n9
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n10
     type: nasab
-    quote: عمر
     by: rule
+    mention: m5
   - id: n11
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n12
     type: nasab
-    quote: عمر
     by: rule
+    mention: m7
   - id: n13
     type: nasab
-    quote: أبي القسم
     by: rule
-    norm: ابو القسم
+    mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m19
   passive: AIND-D07318
   methods:
   - TMP-S-00004
@@ -78,30 +71,24 @@ relations:
       ah: 848
       type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: بشيخنا
+    - mention: m16
   note:
     ja: 原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「أذن له في الرواية عنه」＝伝承許可（イジャーザ）。初版の field（الحديث）は原文に明示がないため除去。初版の @when="0848" はヒジュラ年を @when に入れた誤りで when-custom に移し、西暦 1444（848-01-01＝1444-04-29、グレゴリオ暦）を付与。
     ar: واجتمع بشيخنا صحبة حسين الفتحي … وأذن له في الرواية عنه ووصف بالعلامة
-  norm: شيخنا
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D02448
+  active: m13
   passive: AIND-D07318
-  quote: أبوه
   note:
     ar: الماضي أبوه
     ja: '父＝#AIND-D02448（الجنيد بن أحمد بن محمد بن عمر بن محمد بن عمر بن محمد بن أبي طالب عفيف الدين أبو عبد الله بن جلال الدين أبي الفتوح الكازروني البلياني الأصل الشيرازي、746年生・809年没）。ナサブ7代一致。同本伝末尾に「أفادنا عنه ولده الشيخ نور الدين محمد لما قدم رسولا عن ملك الشرق بكسوة الكعبة في سنة ثمان وأربعين」と本項主が明記されている。初版は #NEEDID。'
-  norm: ابوه
   phrase: الجنيد بن أحمد
 - id: r3
   type: kin
   subtype: grandfather
-  active: TMP-P-001123
+  active: m14
   passive: AIND-D07318
-  quote: جده
   note:
     ar: والمذكور جده في الثامنة
     ja: '祖父＝أحمد بن محمد بن عمر … جلال الدين أبو الفتوح الكازروني（父の本伝 D02448「المذكور أبوه في المائة قبلها」＝8世紀＝『الدرر الكامنة』所載）。「الثامنة」＝المائة الثامنة。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001123 を発行（規則12）。初版は #NEEDID。'
@@ -109,20 +96,18 @@ relations:
 - id: r4
   type: social
   subtype: companion
-  active: TMP-P-000751
+  active: m20
   passive: AIND-D07318
   cert: medium
-  quote: حسين الفتحي
   note:
     ar: واجتمع بشيخنا صحبة حسين الفتحي
     ja: 'حسين الفتحي＝#TMP-P-000751（الشيخ حسين بن حسن الفتحي、マッカのファトヒー家家長。corpus に本伝未特定。「الجمال حسين الفتحي … من أصحابنا」として L4914・L97542 等に頻出し、イブン・ハジャルの許可状（استدعاء）を筆写した人物＝L82369）。cert medium。初版は #NEEDID（subtype「friend」）。'
 - id: r5
   type: social
   subtype: patron
-  active: AIND-D03298
+  active: m18
   passive: AIND-D07318
   cert: medium
-  quote: ملك الشرق
   note:
     ar: قدم القاهرة في سنة ثمان وأربعين رسولا عن ملك الشرق بكسوة الكعبة
     ja: 'ملك الشرق＝シャー・ルフ #AIND-D03298（corpus L33650「شاه رخ بن تيمور ملك الشرق」、ID-Master の TMP-L-00249 メモ「ملك الشرق」）。848年のカアバ覆布（كسوة）派遣はシャー・ルフの事績として知られる。原文は君主名を記さないため cert medium。初版は #NEEDID。'
@@ -136,13 +121,12 @@ events:
   - ref: AIND-D03298
     cert: medium
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m16
   note:
     ja: 東方の王（シャー・ルフ）の使節としてカアバの覆布を携えてカイロに到来。848年＝1444-04-29 起点（グレゴリオ暦）。初版の state「رسول」（職名でない）を本 event に統合。
   trigger: rule
   phrase: قدم القاهرة في سنة ثمان وأربعين رسولا عن ملك الشرق بكسوة الكعبة
+  mention: m15
 - id: e2
   type: cultural
   date:
@@ -151,25 +135,105 @@ events:
     type: cultural
   persons:
   - ref: wd:Q471116
-  - ref: AIND-D09163
-    quote: لابن الجزري
-    norm: ابن الجزري
+  - mention: m21
   works:
   - ref: TMP-T-00179
   - ref: TMP-T-00180
-  quote: وصنف لأجله جزءا في الأذكار وآخر في إصلاح مشيخة أبيه لابن الجزري
   cert: medium
   note:
     ja: '著作2点（イブン・ハジャルのために著した『アズカールに関する一部』と、イブン・アル＝ジャザリー（wd:Q4120093）が編んだ父のマシュヤハの訂正）。「صنف لأجله」の主語は文脈上本項主（父の師承を知る立場にあり、直後に「وصف بالعلامة」と評される）と解したが、イブン・ハジャルを主語とする読みも排除できないため cert medium（ISSUES §Db-3）。父のマシュヤハは D02448「خرج لهم عنهم الشمس الجزري مشيخة」に対応。 / §D-8（2026-09-21 Waka 裁定）: 「وصنف لأجله」の主語は本項主。イブン・ハジャル（773–852）は848年に存命だが75歳前後の最晩年であり、来訪した使節のために新たに2つのジュズウを起こす蓋然性は低い。また「إصلاح مشيخة أبيه لابن الجزري」は父の師承録の訂正であり、家の師承を知る息子にこそ可能な仕事。構文上は「وأذن له」で主語が交替するが、サハーウィーの文体では通常の交替。cert は medium を維持。'
-  norm: صنف لاجله جزءا في الاذكار واخر في اصلاح مشيخة ابيه لابن الجزري
+  phrase: وصنف لأجله جزءا في الأذكار وآخر في إصلاح مشيخة أبيه لابن الجزري
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
-  quote: ووصف بالعلامة
   note:
     ja: Pattern A。受動態「وصف」の主体は文脈上イブン・ハジャル。
-  norm: وصف بالعلامة
+  phrase: ووصف بالعلامة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D02448
+  quote: الجنيد
+- id: m3
+  kind: name
+  ref: TMP-P-001123
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عمر
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: عمر
+- id: m8
+  kind: name
+  quote: النور
+- id: m9
+  kind: name
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m10
+  kind: name
+  ref: TMP-N-00120
+  quote: الكازروني
+- id: m11
+  kind: name
+  ref: TMP-N-00830
+  quote: البلياني
+- id: m12
+  kind: name
+  ref: TMP-N-00015
+  quote: الشيرازي
+- id: m13
+  kind: person
+  ref: AIND-D02448
+  quote: أبوه
+  norm: ابوه
+- id: m14
+  kind: person
+  ref: TMP-P-001123
+  quote: جده
+- id: m15
+  kind: event
+  quote: قدم
+- id: m16
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m17
+  kind: year
+  value: '848'
+  quote: سنة
+- id: m18
+  kind: person
+  ref: AIND-D03298
+  quote: ملك الشرق
+- id: m19
+  kind: person
+  ref: wd:Q471116
+  quote: بشيخنا
+  norm: شيخنا
+- id: m20
+  kind: person
+  ref: TMP-P-000751
+  quote: حسين الفتحي
+- id: m21
+  kind: person
+  ref: AIND-D09163
+  quote: لابن الجزري
+  norm: ابن الجزري
 translation:
   ja: ムハンマド・ブン・アル＝ジュナイド・ブン・アフマド・ブン・ムハンマド・ブン・ウマル・ブン・ムハンマド・ブン・ウマル、アン＝ヌール・ブン・アビー・アル＝カースィム、アル＝カーザルーニー、バリヤーン出身、アッ＝シーラーズィー。その父は前述、その祖父は第8（世紀の部）に記されている。848年、東方の王の使節としてカアバの覆布（キスワ）を携えてカイロに来た。フサイン・アル＝ファトヒーに伴われて我らのシャイフ（イブン・ハジャル）と面会し、彼のために『アズカール（祈願句）に関する一部』と、イブン・アル＝ジャザリーが編んだ父のマシュヤハ（師承録）の訂正に関する一部を著した。（イブン・ハジャルは）彼に自分からの伝承を許可し、（彼は）「アッラーマ（大学者）」と評された。
   en: Muḥammad b. al-Junayd b. Aḥmad b. Muḥammad b. ʿUmar b. Muḥammad b. ʿUmar, al-Nūr b. Abī al-Qāsim, al-Kāzarūnī, of Balyānī origin, al-Shīrāzī. His father has been mentioned above and his grandfather is recorded in the eighth [century]. He came to Cairo in the year 848 as an envoy of the King of the East, bringing the covering of the Kaʿba. He met our shaykh (Ibn Ḥajar) in the company of Ḥusayn al-Fatḥī and composed for him a fascicle on the adhkār and another on the correction of his father's mashyakha compiled by Ibn al-Jazarī. He (Ibn Ḥajar) authorised him to transmit on his authority, and he was described as al-ʿAllāma.

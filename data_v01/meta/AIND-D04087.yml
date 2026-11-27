@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00679
-    quote: اللامي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الفتاح
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي القسم
     by: rule
-    norm: ابو القسم
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07655
+  active: m7
   passive: AIND-D04087
   methods:
   - TMP-S-00008
-  quote: اشتغل عند القاضي محمد بن عبد السلام
   note:
     ja: القاضي محمد بن عبد السلام = محمد بن عبد السلام (ويسمى أيضا عمر) بن أبي بكر الجمال الزبيري اليماني الناشري الشافعي أحد قضاة زبيد（#AIND-D07655。D05896「قاضي زبيد محمد بن عبد السلام」）。
   phrase: ممن اشتغل عند القاضي محمد بن عبد السلام
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D04087
   methods:
   - TMP-S-00003
@@ -60,12 +55,10 @@ relations:
       ah: 897
       type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m8
     phrase: سمع مني المسلسل وكتبت له
   works:
   - ref: TMP-T-00019
-  quote: مني
 affiliations:
 - id: a1
   type: madhhab
@@ -79,26 +72,73 @@ events:
     cert: high
     type: religious
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: فحج
+  - mention: m8
   cert: high
   trigger: rule
   phrase: قدم مكة فحج في سنة سبع وتسعين
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: AIND-D02778
-    quote: حمزة
-  quote: وأثنى
+  - mention: m13
   note:
     ja: Pattern A（第三者評価）。حمزة = التقي حمزة بن عبد الله بن محمد الناشري الزبيدي（#AIND-D02778。ザビードのナーシリー家史家、サハーウィーの情報提供者。D00494「قال حمزة الناشري」・D04864「أفادنيه حمزة الناشري」）。初版は subtype="praised by" の relation にしていた。
   trigger: rule
-  norm: اثني
   phrase: أثنى عليه حمزة بأنه فقيه من أفضل الطلبة رجل صالح نبيه فاضل عارف
+  mention: m12
 notes:
 - text: 「اللامي نسبة للامية بالقرب من زبيد」＝ザビード近郊の اللامية に因むニスバ。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الفتاح
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m4
+  kind: name
+  ref: TMP-N-00679
+  quote: اللامي
+- id: m5
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: AIND-D07655
+  quote: اشتغل عند القاضي محمد بن عبد السلام
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: event
+  quote: فحج
+- id: m10
+  kind: year
+  value: '897'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: source
+  quote: وأثنى
+  norm: اثني
+- id: m13
+  kind: person
+  ref: AIND-D02778
+  quote: حمزة
 translation:
   ja: アブドゥルファッターフ・ブン・アブドゥッラー・ブン・アビー・アル＝カースィム・アッ＝ラーミー（ザビード近郊のアッ＝ラーミーヤに因む）、アン＝ナーシリー、シャーフィイー派。カーディーのムハンマド・ブン・アブドゥッサラームのもとで学業に励んだ者の一人。マッカに来て897年に巡礼を行い、私（サハーウィー）から『ムサルサル』を聴聞し、私は彼のために（イジャーザを）書いた。ハムザ（アン＝ナーシリー）は彼を「最も優秀な学生の一人たる法学者で、敬虔・聡明・有徳・博識の人」と称賛した。
   en: ʿAbd al-Fattāḥ b. ʿAbd Allāh b. Abī al-Qāsim al-Lāmī (the nisba refers to al-Lāmiyya near Zabīd), al-Nāshirī, al-Shāfiʿī. He was among those who studied under the qāḍī Muḥammad b. ʿAbd al-Salām. He came to Mecca and performed the pilgrimage in the year 897, heard al-Musalsal from me, and I wrote (an ijāza) for him. Ḥamza (al-Nāshirī) praised him as a jurist, one of the best students, a righteous, intelligent, virtuous and knowledgeable man.

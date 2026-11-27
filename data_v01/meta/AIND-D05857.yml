@@ -9,24 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m3
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الحميد
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D09163
+  active: m5
   passive: AIND-D05857
   methods:
   - TMP-S-00003
@@ -37,7 +36,6 @@ relations:
       type: learning
   works:
   - ref: wd:Q4120006
-  quote: ابن الجزري
   note:
     ja: 「سمع على ابن الجزري الشفا في ثلاث وعشرين وضبط الأسماء」。ابن الجزري ＝ wd:Q4120093（ID-Master・repo の慣行、D01309・D02766・D03646 等）。الشفا ＝ wd:Q4120006（القاضي عياض『الشفا』、ID-Master 登録）。823 ＝ 1420-01-26〜1421-01-14（h2g.py、年のみ→年初）。初版は event の @when にヒジュラ値 0823 を置いていた → when-custom/when に分離。場所の明記はない（ニスバ المدني から補完しない）。
 events:
@@ -46,10 +44,28 @@ events:
   date:
     ah: 823
     type: cultural
-  quote: وضبط الأسماء
   note:
     ja: 『الشفا』聴聞の際に（聴聞記録の）人名を校正・確定した（ضبط الأسماء）。初版の en desc（判断句を含む）を原文の言及句に置換。
-  norm: ضبط الاسماء
+  phrase: وضبط الأسماء
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عبد الحميد
+- id: m3
+  kind: name
+  quote: الزين
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D09163
+  quote: ابن الجزري
 translation:
   ja: ウマル・ブン・アブド・アル＝ハミード、アッ＝ザイン・アル＝マダニー。（8）23年にイブン・アル＝ジャザリーから『シファー』を聴聞し、（その）人名を校正した。
   en: ʿUmar b. ʿAbd al-Ḥamīd, al-Zayn al-Madanī. He heard al-Shifāʾ from Ibn al-Jazarī in the year (8)23 and fixed the correct reading of the names.

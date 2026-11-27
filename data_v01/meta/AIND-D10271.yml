@@ -9,43 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00162
-    quote: الأسيوطي
-    norm: الاسيوطي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: nisbah
     ref: TMP-N-00042
-    quote: null
+    mention: null
   - id: n4
     type: shuhrah
-    quote: بابن الشريفة
-    norm: ابن الشريفة
     label: ابن الشريفة
+    mention: m5
   - id: n5
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n6
     type: nasab
-    quote: عجلان
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 873
   places:
-  - ref: gn:360630
-    quote: والقاهرة
-    norm: القاهرة
+  - mention: m9
   note:
     ja: 873年初＝1468-07-31（h2g.py、年精度）。873年のペストによる死。
-  quote: سنة
   phrase: مات بالقاهرة في طاعون سنة ثلاث وسبعين
+  mention: m14
 persons:
 - id: p1
   label: عجلان
@@ -59,9 +52,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D10271#p1
+  active: m13
   passive: AIND-D10271
-  quote: طي
   note:
     ja: 規則3 (c')。父 عجلان は名のみで祖父名も不明、corpus に本伝なし（hw.py「عجلان|الأسيوطي」は本項のみ）。
 - id: r2
@@ -69,19 +61,17 @@ relations:
   subtype: ancestor
   active: AIND-D10271#p2
   passive: AIND-D10271
-  quote: null
   note:
     ja: 「ويقال له الطائي نسبة لجد له اسمه طي」＝طي という名の祖先（جد له＝世代は不明）にちなむニスバ。初版は grandfather（#NEEDID）としていたが、祖父とは限らない＝ancestor に（repo 実勢の subtype）。名のみ＝#NEEDID。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m12
   passive: AIND-D10271
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「وهو ممن سمع من شيخنا」。شيخنا＝イブン・ハジャル（wd:Q471116、師としての شيخنا）。初版の field（الحديث）は原文にない＝除去、desc に相手名を補った。
 events:
@@ -92,31 +82,82 @@ events:
   - ref: TMP-T-00065
   methods:
   - TMP-S-00003
-  quote: سمع
   note:
     ja: 初版は未符号化。المنهاج＝TMP-T-00065（マッカのシャーフィイー派の暗記書とみた。学派は原文に明記なし）。
   trigger: rule
   phrase: ممن حفظ القرآن والمنهاج
+  mention: m11
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00054
-    quote: الحبشة
-  - ref: TMP-L-00039
-    quote: والهند
-    norm: الهند
-  - ref: gn:360630
-    quote: والقاهرة
-    norm: القاهرة
-  - ref: TMP-L-00002
-    quote: والشام
-    norm: الشام
-  quote: وسافر
+  - mention: m7
+  - mention: m8
+  - mention: m9
+  - mention: m10
   note:
     ja: '生計を求めての旅（repo 先例 #AIND-D10823a「ودخل غير مرة اليمن للاسترزاق」＝travel）。稼ぎは入るそばから使い果たした。初版は visit event 4本＝1つに統合。'
   trigger: rule
-  norm: سافر
   phrase: وسافر إلى الحبشة والهند والقاهرة والشام للاسترزاق ، وكان ينفد ما يدخل عليه أولا فأولا
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: عجلان
+- id: m3
+  kind: name
+  ref: TMP-N-00162
+  quote: الأسيوطي
+  norm: الاسيوطي
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: name
+  quote: بابن الشريفة
+  norm: ابن الشريفة
+- id: m6
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m7
+  kind: place
+  quote: الحبشة
+  ref: TMP-L-00054
+- id: m8
+  kind: place
+  quote: والهند
+  ref: TMP-L-00039
+  norm: الهند
+- id: m9
+  kind: place
+  quote: والقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: place
+  quote: والشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m11
+  kind: event
+  quote: سمع
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: person
+  ref: AIND-D10271#p1
+  quote: طي
+- id: m14
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: ヤフヤー・ブン・アジュラーン、アスユート出自のアル＝マッキー。イブン・アッ＝シャリーファとして知られる。クルアーンと『ミンハージュ』を暗記した者の一人で、生計を求めてハバシャ（エチオピア）、インド、カイロ、シャームへ旅したが、入ってくるものを次から次へと使い果たしていた。彼は我らがシャイフ（イブン・ハジャル）から聴聞した者の一人である。タイイという名の祖先にちなんでアッ＝ターイーとも呼ばれる。（8）73年のペストでカイロにおいて没した。
   en: Yaḥyā b. ʿAjlān, of Asyūṭī origin, al-Makkī, known as Ibn al-Sharīfa. He was among those who memorized the Qurʾān and the Minhāj, and he travelled to Abyssinia, India, Cairo and Syria to seek a livelihood, but he used to spend whatever came in to him as fast as it came. He is among those who heard from our shaykh (Ibn Ḥajar). He is also called al-Ṭāʾī, a nisba to an ancestor of his named Ṭayy. He died in Cairo in the plague of the year [8]73.

@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01904
-    quote: النفياني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عز الدين
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -30,7 +28,7 @@ death:
     cert: medium
   note:
     en: Died in 892 or 893 AH (سنة اثنتين أو ثلاث وتسعين).
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: ابنة أحمد بن الحتاتي
@@ -39,42 +37,35 @@ relations:
 - id: r1
   type: kin
   subtype: spouse
-  active: AIND-D04028#p1
+  active: m9
   passive: AIND-D04028
-  quote: أحمد بن الحتاتي
   note:
     ja: 名不詳・立項なし。
-  norm: احمد بن الحتاتي
 - id: r2
   type: kin
   subtype: father-in-law
   active: AIND-D00422
   passive: AIND-D04028
   cert: medium
-  quote: null
   note:
     ja: '岳父 أحمد بن الحتاتي = #AIND-D00422（أحمد بن إبراهيم بن أحمد بن محمد الشهاب بن الحتاتي … التاجر ابن التاجر）とみられる（ابن الحتاتي 家で أحمد は本項のみ）。cert="medium"。'
   phrase: أحمد بن الحتاتي
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02831
+  active: m6
   passive: AIND-D04028
-  quote: لخشقدم الزمام
   note:
     ja: '【旧注記】「أحد المنتمين لخشقدم الزمام」。宦官の大官 خشقدم الزمام（corpus D02221/D02467/D05676 に頻出、مدرسة خشقدم الزمام の主）は خ 部に本伝を特定できず → 欠番WL。 / #AIND-D02831「خشقدم الظاهري جقمق الرومي اللالا … استقر خازندارا زماما بعد موت جوهر شراقطلي 882」（没894）。#AIND-D06210（قاسم شغيتة）の「تعين خشقدم الزمام وباشرا」、#AIND-D05676 の「مدرسة خشقدم الزمام بنواحي الرميلة」が D02831 本文と対応。没839 の #AIND-D02829 は世代不一致（再調査 2026-09-03。欠番WL解消）。'
-  norm: خشقدم الزمام
   phrase: خشقدم الزمام
 states:
 - id: s1
   type: office
-  ref: TMP-O-00171
   orgs:
   - ref: TMP-I-00068
-  quote: وقراءته
   note:
     ja: 「قراءته في الجوق لحسن صوته لكن مع نقص قوته」。
-  norm: قراءته
+  mention: m8
 affiliations:
 - id: a1
   type: founded
@@ -88,22 +79,63 @@ events:
 - id: e1
   type: residence
   subtype: jāwara
-  quote: جاور
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。
   trigger: rule
   phrase: جاور غير مرة
+  mention: m7
 - id: e2
   type: cultural
   places:
-  - ref: TMP-L-00167
-    quote: باب القرافة
+  - mention: m5
   orgs:
   - ref: TMP-I-00124
-  quote: المجتمع فيها القراء في ليلة السابع عشر من كل شهر
+  phrase: المجتمع فيها القراء في ليلة السابع عشر من كل شهر
+  mention: null
 notes:
 - text: 「ويذكر بمال كثير وربما سمعت من يثني عليه مع تودد ظاهر」＝富裕と伝えられ、称賛する声も聞いた。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  quote: عز الدين
+- id: m3
+  kind: name
+  ref: TMP-N-01904
+  quote: النفياني
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: place
+  quote: باب القرافة
+  ref: TMP-L-00167
+- id: m6
+  kind: person
+  ref: AIND-D02831
+  quote: لخشقدم الزمام
+  norm: خشقدم الزمام
+- id: m7
+  kind: event
+  quote: جاور
+- id: m8
+  kind: office
+  ref: TMP-O-00171
+  quote: وقراءته
+  norm: قراءته
+- id: m9
+  kind: person
+  ref: AIND-D04028#p1
+  quote: أحمد بن الحتاتي
+  norm: احمد بن الحتاتي
+- id: m10
+  kind: year
+  value: '892'
+  quote: سنة
 translation:
   ja: アブドゥルアズィーズ・ブン・イッズ・アッ＝ディーン・アン＝ナフヤーニー・アル＝ミスリー。カラーファ門近くのマドラサの主で、そこでは毎月17日の夜に朗誦者たちが集まった。またハシュカダム・アッ＝ザマームに帰属する者の一人。幾度もメッカに滞在（ジワール）し、多くの財を持つと伝えられ、明らかな親しみやすさゆえに彼を称賛する声を私も聞いたことがある。声が美しく合唱朗誦隊（ジャウク）で朗誦したが、声量は足りなかった。アフマド・ブン・アル＝ハターティーの娘と結婚した。892年または893年に没した。神が彼を赦したまえ。
   en: ʿAbd al-ʿAzīz b. ʿIzz al-Dīn al-Nafyānī al-Miṣrī, owner of the madrasa near Bāb al-Qarāfa in which the reciters gather on the seventeenth night of every month, and one of those attached to Khushqadam al-Zimām. He performed jiwār more than once, is said to have had much wealth, and I have heard people praise him for his evident amiability and his recitation in the jawq thanks to his fine voice, though it lacked strength. He married the daughter of Aḥmad b. al-Ḥatātī. He died in 892 or 893 AH; may God pardon him.

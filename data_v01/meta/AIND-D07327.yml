@@ -9,22 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: laqab
-    quote: جمال الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: الزعيم
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: حسب الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -32,7 +31,7 @@ death:
   note:
     ar: مات في ثالث جمادى الأولى سنة اثنتين
     ja: 802年ジュマーダー・アル＝ウーラー月3日＝1400-01-09（グレゴリオ暦・独立再計算）。初版の when="1399" は誤り。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: حسب الله
@@ -45,7 +44,6 @@ relations:
   subtype: father
   active: AIND-D07327#p1
   passive: AIND-D07327
-  quote: null
   note:
     ja: '父 حسب الله は裸名のみ・祖父名復元不可のため統一規則3により #NEEDID。'
 - id: r2
@@ -56,29 +54,62 @@ relations:
   summary:
     ar: أحمد بن محمد بن حسب الله القرشي المكي ويعرف بابن الزعيم
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D01311（أحمد بن محمد بن حسب الله القرشي المكي ويعرف بابن الزعيم、809年マッカ没・30歳余。「مات أبوه وهو صغير فاستولى أخوه على ماله」）は名・父名・ニスバ المكي・شهرة الزعيم が本項主と一致し、富裕な父の遺産をめぐる記述も本項の「واسع المال جدا」と整合するため息子と同定（cert medium。本項の原文には子への言及がない）。同じく D01311 の兄 #TMP-P-001011 も本項主の子となるが、本項に記述がないため relation を立てない。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: وكان
   note:
     ja: '商人。placeName は原文にニスバ المكي 以外の地名がないため付けない（規則16）。初版の #NEEDID を ID-Master の تاجر=wd:Q215536 に。'
-  norm: كان
+  mention: m10
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。初版は統制外 subtype「source」の relation。
   trigger: rule
   phrase: 'قال شيخنا في أنبائه : مات في ثالث جمادى الأولى سنة اثنتين وكان واسع المال جدا معروفا بالمعاملات وضبط من ماله بعده أكثر من عشرين ألف دينار سوى ما أخفى'
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: حسب الله
+- id: m3
+  kind: name
+  quote: جمال الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: name
+  quote: الزعيم
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m10
+  kind: office
+  ref: wd:Q215536
+  quote: وكان
+  norm: كان
 translation:
   ja: ムハンマド・ブン・ハサブッラー、ジャマール・アッ＝ディーン、アル＝マッキー、アッ＝ザイーム、商人。我らのシャイフ（イブン・ハジャル）は『インバー』で次のように述べている。「802年ジュマーダー・アル＝ウーラー月3日に没した。非常に富裕で商取引で知られ、死後、隠していた分を除いても2万ディーナール以上の財産が彼の遺産から差し押さえられた。」
   en: 'Muḥammad b. Ḥasab Allāh, Jamāl al-Dīn, al-Makkī, al-Zaʿīm, the merchant. Our shaykh (Ibn Ḥajar) said in his Inbāʾ: "He died on 3 Jumādā al-Ūlā 802. He was extremely wealthy and well known for commercial dealings; after his death more than twenty thousand dinars of his property were seized, apart from what he had concealed."'

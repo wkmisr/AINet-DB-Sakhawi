@@ -9,45 +9,37 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الرداد
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بابن الزين
-    norm: ابن الزين
     label: ابن الزين
+    mention: m6
   - id: n3
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001690
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001690
+  active: m7
   passive: AIND-D10046
   summary:
     ar: زين العابدين أحمد بن موسى بن أحمد الرداد
-  quote: أبيه
   note:
     ja: '見出しナサブから1段ずらして復元（規則3）。「ويعرف بابن الزين لقب أبيه زين العابدين」＝父のラカブ زين العابدين。ラカブ＋家名 ابن الرداد（ザビードの ابن الرداد 家＝#AIND-D00617 أحمد بن أبي بكر بن محمد … ويعرف بابن الرداد の子孫）で識別できるので TMP-P を発行。corpus に本伝なし（hw.py「الرداد」の見出しに أحمد بن موسى はない）。ID-Master 未登録（idsearch「زين العابدين」「الرداد」該当なし）。⚠ 次の possible_identity（#AIND-D10091）が成立するなら、その父「زين العابدين محمد بن موسى بن أحمد بن أبي بكر」と同一人物（名が أحمد／محمد で食い違う）＝ISSUES に記録。【集約 2026-11-05】父のナサブ「زين العابدين أحمد بن موسى بن أحمد الرداد」は #AIND-D10289「موسى بن زين العابدين أحمد بن موسى بن أحمد الرداد ويعرف بابن الزين」で裏づけられる（ラカブ زين العابدين＝識別要素、規則3）＝TMP-P 維持（決定18）。'
-  norm: ابيه
 - id: r2
   type: identity
   subtype: possible_identity
@@ -56,7 +48,6 @@ relations:
   summary:
     ar: موسى بن محمد بن موسى بن أحمد بن أبي بكر بن محمد الكمال بن زين العابدين
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D10091「799 موسى بن محمد بن موسى بن أحمد بن أبي بكر بن محمد الكمال بن زين العابدين الصديقي البكري المكي الأصل اليماني الزبيدي الشافعي الشهير جده بابن الرداد المشهور ويعرف هو بابن زين العابدين لقب أبيه … وكتب على الإرشاد شرحا لم يبرزه إلى الآن … ولم يكمل إلى الآن الخمسين」（未収録＝本バッチにも Individuals にもない）と、①通称 ابن (الـ)زين＝父のラカブ زين العابدين、②家名 ابن الرداد、③『الإرشاد』の注釈執筆中、④イエメンの法学者で9世紀末に存命、の4点が一致し、父名（أحمد／محمد）だけが食い違う。転送指示がないので両項とも実項（二重立項型、Waka 裁定 2026-09-08）とし possible_identity cert medium。鏡像は不要（片方向）。【集約 2026-11-05】corpus の傍証: #AIND-D10289「وعن الفقيه موسى بن زين العابدين أحمد بن موسى بن أحمد الرداد ويعرف بابن الزين ، ممن هو الآن حي مشتغل بشرح الإرشاد」は本項のナサブ（父＝أحمد）をそのまま裏づけ、#AIND-D01356「اشتغل في الفقه عند الكمال موسى ابن زين العابدين بن الرداد」は D10091 のラカブ الكمال と父のラカブ زين العابدين を併せ持つ＝同一人物の二重立項の可能性が高く cert medium を維持。父名の食い違い（أحمد／محمد）は D10289 が أحمد 側を支持。D10091 は未収録のため片方向のまま＝D10091 収録時に鏡像の possible_identity を立て、父 TMP-P-001690 の共用を検討する（HANDOVER 申し送り、内容B L、決定18）。'
 events:
@@ -66,30 +57,67 @@ events:
     ah: 897
     type: other
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: من فقهاء اليمن الأحياء في سنة سبع وتسعين
+  - mention: m8
   note:
     ja: 897年に存命（floruit）。没年は作らない（ブリーフ）。897＝1491-11-13〜1492-10-31（年精度 1491）。اليمن は原文に明記（規則22(2)）。
-  norm: من فقهاء اليمن الاحياء في سنة سبع وتسعين
+  phrase: من فقهاء اليمن الأحياء في سنة سبع وتسعين
+  mention: null
 - id: e2
   type: teaching
-  quote: ممن يدرس الفقه ويقرئ القراءات
   note:
     ja: '法学の教授とクルアーン読誦の教授（規則50: type="teaching"）。年なし＝日付属性を持たない（規則18）。初版の state「تدريس」（wd:Q352842、原文にない appointment date 897）を置換。'
-  norm: ممن يدرس الفقه ويقرء القراءات
+  phrase: ممن يدرس الفقه ويقرئ القراءات
+  mention: null
 - id: e3
   type: cultural
   works:
   - ref: TMP-T-00253
-  quote: وهو مشتغل بشرح الإرشاد
   note:
     ja: الإرشاد ＝ TMP-T-00253（إرشاد الغاوي في مسالك الحاوي، ابن المقري。イエメンのシャーフィイー派法学の文脈、#AIND-D10091 も「كتب على الإرشاد شرحا」）。初版の TMP-T 未指定と原文にない placeName・日付を除去。
-  norm: وهو مشتغل بشرح الارشاد
+  phrase: وهو مشتغل بشرح الإرشاد
+  mention: null
 notes:
 - text: '「الرداد」は #AIND-D00611「الرداد ليس اسم أب له بل هو لقب」のとおりラカブ（家名）なので persName type="laqab" とした（初版は nisbah #NEEDID）。初版の residence event（اليمن、897）は floruit の event に統合。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  ref: TMP-P-001690
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: الرداد
+- id: m6
+  kind: name
+  quote: بابن الزين
+  norm: ابن الزين
+- id: m7
+  kind: person
+  ref: TMP-P-001690
+  quote: أبيه
+  norm: ابيه
+- id: m8
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m9
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・アフマド・ブン・ムーサー・ブン・アフマド・アッ＝ラッダード。イブン・アッ＝ザイン（父のラカブ、ザイン・アル＝アービディーンによる）として知られる。897年に存命のイエメンの法学者の一人で、法学を教え、クルアーン読誦法を教授しており、『イルシャード』の注釈に取り組んでいる。
   en: Mūsā b. Aḥmad b. Mūsā b. Aḥmad al-Raddād, known as Ibn al-Zayn (after his father's laqab Zayn al-ʿĀbidīn). One of the jurists of Yemen alive in the year 897, who teaches jurisprudence and gives instruction in the Qurʾānic readings, and he is engaged in writing a commentary on al-Irshād.

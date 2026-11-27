@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01512
-    quote: التجيبي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00576
-    quote: الجزائري
-    norm: الجزاءري
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بالعطار
-    norm: العطار
     label: العطار
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: سعدون
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -40,7 +36,7 @@ death:
   note:
     ar: مات سنة عشر
     ja: 810＝1407-06-17 開始、年精度 1407。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: علي بن سعدون
@@ -53,7 +49,6 @@ relations:
   subtype: father
   active: AIND-D08081#p1
   passive: AIND-D08081
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن سعدون التجيبي は corpus に本伝なし（hw.py「سعدون」の見出しは D02951・D05478・D04257 のみ）、ID-Master 未登録、識別要素なし → #NEEDID。'
 - id: r2
@@ -64,7 +59,6 @@ relations:
   summary:
     ar: علي بن محمد بن علي بن سعدون
   cert: medium
-  quote: null
   note:
     ja: '子 ＝ #AIND-D05478「علي بن محمد بن علي بن سعدون التجيبي الجرائري قاضيها . مات سنة بضع وخمسين」（収録済み。repo 側が本項主を父として cert medium で参照、B124-128 §D124-6）。見出しナサブ4要素が一致し没年順も整合するが、ニスバの綴りが الجزائري⇄الجرائري と異なるため cert medium（規則25・37）。'
 - id: r3
@@ -75,9 +69,35 @@ relations:
   summary:
     ar: داود بن علي بن سعدون
   cert: medium
-  quote: null
   note:
     ja: '兄弟候補 ＝ #AIND-D02951「داود بن علي بن سعدون التجيبي الجزيري . مات سنة أربع」（804没、収録済み）。同じナサブ「بن علي بن سعدون التجيبي」で、相手側に名指しはないが父が #NEEDID のため cert medium で立てる（規則23、B119-123 ★4 (j)）。ニスバの綴り الجزائري⇄الجزيري は原文どおり（規則25）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: سعدون
+- id: m4
+  kind: name
+  ref: TMP-N-01512
+  quote: التجيبي
+- id: m5
+  kind: name
+  ref: TMP-N-00576
+  quote: الجزائري
+  norm: الجزاءري
+- id: m6
+  kind: name
+  quote: بالعطار
+  norm: العطار
+- id: m7
+  kind: year
+  value: '810'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アリー・ブン・サアドゥーン、アッ＝トゥジービー、アル＝ジャザーイリー、アル＝アッタールとして知られる。（8）10年に没した。
   en: Muḥammad b. ʿAlī b. Saʿdūn al-Tujībī al-Jazāʾirī, known as al-ʿAṭṭār. He died in the year (8)10.

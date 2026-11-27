@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن المزين
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 persons:
 - id: p1
   label: أحمد
@@ -40,29 +37,50 @@ relations:
   subtype: father
   active: AIND-D07078#p1
   passive: AIND-D07078
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D07078
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m6
   note:
     ja: 「ممن سمع مني بالقاهرة」（規則2）。field は付けない。
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アフマド・アル＝カーヒリー・アル＝ガッズィー・アル＝ハナフィー、イブン・アル＝ムザイインとして知られる。カイロで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Aḥmad al-Qāhirī al-Ghazzī al-Ḥanafī, known as Ibn al-Muzayyin. He was among those who heard from me (al-Sakhāwī) in Cairo.

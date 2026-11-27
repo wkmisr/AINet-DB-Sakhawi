@@ -9,23 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00270
-    quote: العقبي
+    mention: m5
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -39,7 +37,7 @@ death:
     ah: 815-05
   note:
     ja: 「مات في جمادى الأولى سنة خمس عشرة عن ثلاث وستين」＝815年ジュマーダー1月＝1412-08-18〜1412-09-16（h2g.py）→ 月精度 1412-08。没地は原文になし。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: عبد الله
@@ -50,13 +48,12 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000742
+  active: m9
   passive: AIND-D07867
   methods:
   - TMP-S-00034
   summary:
     ar: أبو بكر الموصلي
-  quote: بكر الموصلي
   note:
     ja: 「ولبس بزي الصوفية وصحب أبا بكر الموصلي」。أبو بكر الموصلي（著名なスーフィー、797没）＝ID-Master TMP-P-000742（Note に「D10447『صحب أبا بكر الموصلي』等に頻出」）。同一人物が TMP-P-000255「الشيخ أبي بكر الموصلي」としても登録されており（D01748 で使用）、二重登録＝§D144-4。初版の field التصوف（原文は「بزي الصوفية」で学習分野の明記なし）を除去。
 - id: r2
@@ -64,33 +61,28 @@ relations:
   subtype: father
   active: AIND-D07867#p1
   passive: AIND-D07867
-  quote: null
   note:
     ja: '父 عبد الله は裸名で本伝・識別要素なし → #NEEDID（規則3 (c'')）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00122
-  quote: null
   note:
     ja: 「كان جنديا」＝TMP-O-00122（من الاجناد／جندي）。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00064
   cert: medium
-  quote: يباشر في الاستادارية
   note:
     ja: 「يباشر في الاستادارية」＝アスタダール職（の部局）に勤務。ID-Master の أستادار＝TMP-O-00064 を cert medium で充てる（アスタダール本人か部局の実務官か原文からは決まらない）。
+  mention: m8
 - id: s3
   type: office
-  ref: TMP-O-00265
   places:
-  - ref: TMP-L-00379
-    quote: بالعقبة الصغرى
-    norm: العقبة الصغري
-  quote: شيخنا
+  - mention: m10
   note:
     ja: 「وعمل شيخها」。施設限定の شيخ زاوية 職は個別番号とする repo 慣行（TMP-O-00265・00274・00278・00334）に従い TMP-O-00366。العقبة الصغرى は原文どおりの綴りで新規 TMP-L-00379（規則25・46）。ID-Master TMP-L-00212「العقيبة الصغرى」（ダマスクス、D05705「نزيل العقيبة الصغرى بدمشق」）は同地の可能性が高いが、綴り違い（العقبة／العقيبة）と地域の一致のみ＝候補に留める（規則57、★1 候補）。施設は affiliation founded（TMP-I-00256）に符号化済みなので state 内の orgName は除去（規則8。職番号 TMP-O-00366 がこのザーウィヤ限定の شيخ 職）（集約 2026-10-31、内容A L・機械 M、オーケストレーター決定14）。
+  mention: m7
 affiliations:
 - id: a1
   type: founded
@@ -103,28 +95,75 @@ affiliations:
 events:
 - id: e1
   type: religious
-  quote: ثم ترك ذلك ولبس بزي الصوفية
   note:
     ja: 軍務を離れスーフィーの装いをした。初版の state صوفي（wd:Q2892720＝職ではない）を event に。
+  phrase: ثم ترك ذلك ولبس بزي الصوفية
+  mention: null
 - id: e2
   type: other
   places:
   - ref: TMP-I-00256
-  quote: وأنزل بها فقراء فكان يطعمهم فكثر أتباعه وصار يتكسب من المستأجرات
   note:
     ja: 「بها」＝自身のザーウィヤ（照応）。
-  norm: انزل بها فقراء فكان يطعمهم فكثر اتباعه وصار يتكسب من المستاجرات
+  phrase: وأنزل بها فقراء فكان يطعمهم فكثر أتباعه وصار يتكسب من المستأجرات
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。本項の記述全体がイブン・ハジャル『إنباء』の引用。初版の統制外 relation「cited by」を event に置換。
   trigger: rule
   phrase: قال شيخنا في إنبائه
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: name
+  ref: TMP-N-00270
+  quote: العقبي
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: office
+  ref: TMP-O-00265
+  quote: شيخنا
+- id: m8
+  kind: office
+  ref: TMP-O-00064
+  quote: يباشر في الاستادارية
+- id: m9
+  kind: person
+  ref: TMP-P-000742
+  quote: بكر الموصلي
+- id: m10
+  kind: place
+  quote: بالعقبة الصغرى
+  ref: TMP-L-00379
+  norm: العقبة الصغري
+- id: m11
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m12
+  kind: year
+  value: '815'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー、ナースィルッディーン・アッ＝ディマシュキー・アル＝アカビー。我らがシャイフ（イブン・ハジャル）は『インバー』で言う。彼は軍人でアスタダール職（の部局）に勤めていたが、のちにそれを捨ててスーフィーの装いをまとい、アブー・バクル・アル＝マウスィリーに随従した。その後アル＝アカバ・アッ＝スグラーにザーウィヤを建ててそのシャイフとなり、そこに貧者（修行者）たちを住まわせて食事を与えたので、彼の信従者は増えた。そして賃貸物件（の収入）で生計を立てるようになった。容姿と髭が美しく、見目のよい人であった。815年ジュマーダー・アル＝ウーラー月に63歳で没した。
   en: 'Muḥammad b. ʿAbd Allāh, Nāṣir al-Dīn al-Dimashqī al-ʿUqbī. Our shaykh (Ibn Ḥajar) said in his Inbāʾ: he was a soldier serving in the ustādāriyya; then he gave that up, put on the garb of the Sufis and kept the company of Abū Bakr al-Mawṣilī. He then built a zāwiya at al-ʿUqba al-Ṣughrā and became its shaykh, and lodged poor (devotees) there whom he fed, so his followers multiplied; and he came to earn his living from rented properties. He was of handsome appearance and beard, fine to look upon. He died in Jumādā I of the year 815, aged sixty-three.'

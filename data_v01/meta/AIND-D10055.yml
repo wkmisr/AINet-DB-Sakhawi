@@ -9,39 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00050
-    quote: الكناني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-02182
-    quote: الججيني
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n5
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m8
 birth:
   id: b
   date:
@@ -49,14 +42,14 @@ birth:
     cert: medium
   note:
     ja: 「ولد تقريبا سنة ست وستين وسبعمائة」＝766年頃（تقريبا＝cert medium）。766＝1364-10-06〜1365-09-25、年精度は年初の 1364（初版の 1365 は誤り、規則18）。
-  quote: سنة
+  mention: m9
 death:
   id: d
   date:
     ah: 844-09
   note:
     ja: 「مات في رمضان سنة أربع واربعين」。844-09＝1441-02-02〜1441-03-03（月精度）。没地は原文になし（初版の placeName دمشق はニスバ・在職地からの補完＝除去、規則22(1)）。
-  quote: سنة
+  mention: m17
 persons:
 - id: p1
   label: إسماعيل بن أحمد
@@ -69,7 +62,6 @@ relations:
   subtype: father
   active: AIND-D10055#p1
   passive: AIND-D10055
-  quote: null
   note:
     ja: 規則3 (c')。父 إسماعيل بن أحمد الكناني الججيني は裸の汎用名で識別要素なし。hw.py「إسماعيل بن أحمد」＋「الكناني」に本伝なし。ID-Master 未登録。
 - id: r2
@@ -80,39 +72,32 @@ relations:
   summary:
     ar: يوسف بن محمد بن أحمد الججيني
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D10521「1243 يوسف بن محمد بن أحمد الجمال أبو المحاسن الججيني الدمشقي الصالحي الحنفي القطان بسوقها وأظنه ابن عم موسى بن إسماعيل بن أحمد الحنفي الماضي … وسمع على أبي الهول الجزري ومن لفظ المحب الصامت أشياء」が本項主を名指しして「أظنه ابن عم」とする＝相手側からの補完（規則23）、サハーウィー自身の推定（أظنه）なので cert medium。祖父 أحمد が共通（ابن عم）。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000411
+  active: m10
   passive: AIND-D10055
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00264
-  quote: المحب الصامت
   note:
     ja: '「وسمع من لفظ المحب الصامت ثاني الثقفيات」。المحب الصامت ＝ ID-Master 既登録 TMP-P-000411（repo で #AIND-D00418・D03734・D04112・D04632・D06088 ほかの師として使用。corpus に本伝なし＝hw.py「المحب الصامت」該当なし）。『الثقفيات』は ID-Master 未登録（corpus 8回出現）＝TMP-T-00264。原文にない field「الحديث」を除去。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00218
-  quote: وكتب المنسوب
   note:
     ja: '「وكتب المنسوب」＝TMP-O-00218（先例 #AIND-D01608）。初版の placeName دمشق（この句にはない）を除去。'
-  norm: كتب المنسوب
+  mention: m12
 - id: s2
   type: office
-  ref: TMP-O-00386
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: شيخ الكتاب
+  - mention: m14
   note:
     ja: 「بل كان شيخ الكتاب بدمشق」＝ダマスクスの書家（カッターブ）の長。ID-Master の Office に未登録（語根 كتب の既登録 كاتب المنسوب O-00218・المكتب O-00269・التكسب بالكتابة O-00299 とは別実体）＝TMP-O-00386。دمشق は原文に明記。
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -120,22 +105,90 @@ affiliations:
 events:
 - id: e1
   type: teaching
-  quote: وحدث
   note:
     ja: ハディースの伝授（حدث）。聴講者「الفضلاء」は名なし＝relation を立てない（規則14）。初版の student relation（passive=TMP-P-000183「الفضلاء」＝人名でない登録の流用）を除去。
   trigger: rule
-  norm: حدث
   phrase: وحدث سمع منه الفضلاء
+  mention: m11
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00398
-    quote: بحارة جامع تنكز
-    norm: حارة جامع تنكز
-  quote: وينزل بحارة جامع تنكز
+  - mention: m15
   note:
     ja: ダマスクスのタンキズ・モスク街区。ID-Master 未登録（idsearch「تنكز」は Nisbah التنكزي と المدرسة التنكزية (القدس) のみ）＝TMP-L-00398。初版の affiliation type="reside"（جامع تنكز）は placeName と二重なので除去（規則8）。
-  norm: ينزل بحارة جامع تنكز
+  phrase: وينزل بحارة جامع تنكز
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00050
+  quote: الكناني
+- id: m6
+  kind: name
+  ref: TMP-N-02182
+  quote: الججيني
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m9
+  kind: year
+  value: '766'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000411
+  quote: المحب الصامت
+- id: m11
+  kind: event
+  quote: وحدث
+  norm: حدث
+- id: m12
+  kind: office
+  ref: TMP-O-00218
+  quote: وكتب المنسوب
+  norm: كتب المنسوب
+- id: m13
+  kind: office
+  ref: TMP-O-00386
+  quote: شيخ الكتاب
+- id: m14
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m15
+  kind: place
+  quote: بحارة جامع تنكز
+  ref: TMP-L-00398
+  norm: حارة جامع تنكز
+- id: m16
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m17
+  kind: year
+  value: '844'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・イスマーイール・ブン・アフマド、アッ＝シャラフ・アル＝キナーニー・アル＝ジャッジーニー（二つのジームで、第二のジームはシャッダ付き）・アッ＝ディマシュキー・アル＝ハナフィー。766年頃に生まれ、アル＝ムヒッブ・アッ＝サーミトの口述から『サカフィーヤート』の第二部を聴聞した。（ハディースを）伝え、学識者たちが彼から聴聞した。マンスーブ体を書き、それどころかダマスクスの書家たちの長であった。タンキズ・モスクの街区に住んでいた。844年ラマダーン月に没した。
   en: Mūsā b. Ismāʿīl b. Aḥmad, al-Sharaf al-Kinānī al-Jajjīnī (with two jīms, the second doubled) al-Dimashqī al-Ḥanafī. He was born around the year 766 and heard the second part of al-Thaqafiyyāt from the dictation of al-Muḥibb al-Ṣāmit. He transmitted (ḥadīth), and men of learning heard from him. He wrote the proportioned (mansūb) script and was indeed the shaykh of the scribes in Damascus, and he resided in the quarter of the Tankiz Mosque. He died in Ramaḍān of the year 844.

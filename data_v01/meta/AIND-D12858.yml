@@ -9,46 +9,40 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
   - id: n2
     type: nasab
-    quote: الخواجا البدر حسن
     by: rule
-    ref: AIND-D02635
+    mention: m2
   - id: n3
     type: nasab
-    quote: محمد الطاهر
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 868-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: '868年シャアバーン月＝1464-04-18〜05-16（h2g.py）、月精度で @when=1464-04（初版 1463 は誤り）。「ماتت معه」は「彼の妻のまま没した」の意（夫 #AIND-D09454 は 886年没＝同時に死んだのではない）。初版の英文 note「Died alongside her husband」は誤読。'
-  quote: سنة
   phrase: وماتت معه في شعبان سنة ثمان وستين بمكة
+  mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D02635
   passive: AIND-D12858
-  quote: null
   note:
     ja: '#AIND-D02635「حسن بن محمد بن قاسم بن علي بن أحمد التاجر الكبير بدر الدين الصعدي اليمني نزيل مكة ووالد الجمال محمد وعلي الآتيين ويعرف بالطاهر … مات في جمادى الأولى سنة إحدى وسبعين بمكة」（名・父名・ラカブ البدر・通称 الطاهر・マッカの大商人＝الخواجا で閉合。兄弟項 #AIND-D03621・#AIND-D10688 の見出し「بن الخواجا البدر حسن بن محمد」も同じ形。repo の D03621 が同番号を father に使用）。初版は #NEEDID。'
   phrase: حسن بن محمد
 - id: r2
   type: kin
   subtype: spouse
-  active: AIND-D09454
+  active: m4
   passive: AIND-D12858
-  quote: الجمال محمد بن مهدي
   note:
     ja: '「تزوجها الجمال محمد بن مهدي」。#AIND-D09454「محمد بن مهدي بن حسن الخواجا جمال الدين الطائي المكي ويعرف بابن مهدي صهر الجمال محمد بن الطاهر … مات بمكة في ربيع الأول سنة ست وثمانين ودفن بتربة صهره من المعلاة」（名・父名・ラカブ الجمال・マッカ・「صهر … بن الطاهر」＝本項主の兄弟 الجمال محمد の姻戚、で閉合）。初版は #NEEDID。'
 notes:
@@ -58,15 +52,50 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخها
+  - mention: m9
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・没年 868（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 relation「chronicler」を置換。
   trigger: rule
-  norm: ارخها
   phrase: أرخها ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: name
+  ref: AIND-D02635
+  quote: الخواجا البدر حسن
+- id: m3
+  kind: name
+  quote: محمد الطاهر
+- id: m4
+  kind: person
+  ref: AIND-D09454
+  quote: الجمال محمد بن مهدي
+- id: m5
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m6
+  kind: year
+  value: '868'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: source
+  quote: أرخها
+  norm: ارخها
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アーミナ・ビント・アル＝ハワージャー・アル＝バドル・ハサン・ブン・ムハンマド・アッ＝ターヒル。ジャマール・ムハンマド・ブン・マフディーが彼女を娶った。（8）68年シャアバーン月にマッカで、彼の妻のまま没した。イブン・ファハドがその没年を記している。
   en: Āmina, daughter of the khawājā al-Badr Ḥasan b. Muḥammad al-Ṭāhir. Al-Jamāl Muḥammad b. Mahdī married her, and she died while still his wife, in Shaʿbān of the year [8]68 in Mecca. Ibn Fahd recorded her death.

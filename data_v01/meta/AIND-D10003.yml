@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: ملج
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 892-04
   note:
     ja: 「في منتصف ربيع الثاني」＝892年ラビーウ2月の半ば。「منتصف」は日付語ではないので月精度（0892-04＝1487-04-05〜05-03、h2g）。初版の日付精度 0892-04-15 と年精度 @when 1487 を月精度に揃えた（規則18）。
-  quote: سنة
   phrase: مات في منتصف ربيع الثاني سنة اثنتين وتسعين
+  mention: m7
 persons:
 - id: p1
   label: والد ملج الظاهري
@@ -33,17 +32,15 @@ relations:
   subtype: father
   active: AIND-D10003#p1
   passive: AIND-D10003
-  quote: null
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m3
   passive: AIND-D10003
   summary:
     ar: الظاهر جقمق
-  quote: جقمق
   note:
     ja: '主人ニスバ「الظاهري جقمق」＝الظاهر جقمق #AIND-D02423（規則51）。'
 - id: r3
@@ -54,24 +51,49 @@ relations:
   summary:
     ar: شاذ بك الأشرفي
   cert: medium
-  quote: null
   note:
     ja: 本項「واستقر بعده」は後任の名を欠くが、#AIND-D03257「1104 شاذ بك الأشرفي قايتباي … ثم ناب عن ملج في نيابة القلعة ثم استقل بها بعد وفاته فلما عاد من التجريدة سنة أربع وتسعين استقر به دوادارا ثانيا」が「نائب القلعة ملج の没後に後任」と本項主を一意に特定（corpus の ملج 見出しで نائب القلعة は本項のみ）→ 規則23 により cert medium で補う。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00338
   places:
-  - ref: TMP-L-00193
-    quote: القلعة
-  quote: نائب
+  - mention: m5
   note:
     ja: '汎用 نائب（TMP-O-00053）＋ラベル（先例 #AIND-D06312「نائب قلعة الجبل」方式。ID-Master の TMP-O-00338 は「نائب القلعة (بدمشق)」で別）。placeName القلعة＝TMP-L-00006（初版どおり）。初版は #NEEDID。'
-  norm: ناءب
+  mention: m4
 notes:
 - text: '同名の見出し #AIND-D10002「ملج قيل أنه أخ للظاهر جقمق …」とは原文に同一視の指示がなく、関係づけない（ブリーフ指示）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ملج
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02423
+  quote: جقمق
+- id: m4
+  kind: office
+  ref: TMP-O-00338
+  quote: نائب
+  norm: ناءب
+- id: m5
+  kind: place
+  quote: القلعة
+  ref: TMP-L-00193
+- id: m6
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m7
+  kind: year
+  value: '892'
+  quote: سنة
 translation:
   ja: マラジュ・アッ＝ザーヒリー・ジャクマク、城塞の代官（ナーイブ・アル＝カルア）。892年ラビーウ第二月の半ばに没し、彼の後には〔後任者の名、原文に記載なし〕が就任した。
   en: Malaj al-Ẓāhirī Jaqmaq, deputy (nāʾib) of the Citadel. He died in the middle of Rabīʿ II 892, and after him [name lacking in the text] was installed.

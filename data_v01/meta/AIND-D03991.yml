@@ -9,49 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00719
-    quote: النمراوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن صالح
-    norm: ابن صالح
     label: ابن صالح
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07488
+    mention: m2
   - id: n6
     type: nasab
-    quote: صالح
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 891-10
   places:
-  - ref: wd:Q312342
-    role: funeral
-    quote: بالأزهر
-    norm: الازهر
+  - role: funeral
+    mention: m12
   note:
     en: He died in Shawwāl 891 AH; the funeral prayer was performed for him after the Friday prayer at al-Azhar.
     ar: وصلى عليه بعد صلاة الجمعة بالأزهر
     ja: 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D03991
   methods:
   - TMP-S-00003
@@ -60,24 +54,69 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D07488
+  active: m6
   passive: AIND-D03991
   summary:
     ar: محمد بن صالح النمراوي ثم القاهري
-  quote: أبوه
   note:
     ja: '父「الآتي أبوه」= #AIND-D07488（محمد بن صالح النمراوي ثم القاهري والد عبد العزيز الماضي ويعرف بابن صالح）で双方向閉合。'
-  norm: ابوه
 notes:
 - text: 「وباسمه بعض جهات منتقلة له عن أبيه وغيره」＝父などから引き継いだ禄（جهات）を名義上有した。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  ref: AIND-D07488
+  quote: محمد
+- id: m3
+  kind: name
+  quote: صالح
+- id: m4
+  kind: name
+  ref: TMP-N-00719
+  quote: النمراوي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: person
+  ref: AIND-D07488
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: name
+  quote: بابن صالح
+  norm: ابن صالح
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: month
+  value: 10
+  quote: شوال
+- id: m11
+  kind: year
+  value: '891'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بالأزهر
+  ref: wd:Q312342
+  norm: الازهر
 translation:
   ja: アブドゥルアズィーズ・ブン・ムハンマド・ブン・サーリフ、ナムラー出身でカイロの人。父は後述され、彼も父と同じく「イブン・サーリフ」として知られる。上品さと物静かさ、隠遁を好む青年で、カイロで私（サハーウィー）から聴聞した者の一人であり、父などから引き継いだいくつかの禄（ジハート）を名義上有していた。ヒジュラ暦891年シャウワール月に没し、金曜礼拝の後にアズハル（・モスク）で葬儀の礼拝が行われた。
   en: ʿAbd al-ʿAzīz b. Muḥammad b. Ṣāliḥ, of Namrā origin, al-Qāhirī, whose father is mentioned below; like him he was known as Ibn Ṣāliḥ. A young man inclined to refinement, quiet and seclusion, he was among those who heard from me in Cairo, and some stipendiary posts (jihāt) transferred from his father and others were held in his name. He died in Shawwāl 891 AH, and the funeral prayer was performed for him after the Friday prayer at al-Azhar.

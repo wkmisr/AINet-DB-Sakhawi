@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00011
-    quote: النووي
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
 states:
 - id: s1
   type: office
   ref: wd:Q352842
   cert: medium
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00050
   cert: medium
-  quote: بالشهادة
-  norm: الشهادة
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -41,9 +38,9 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   cert: medium
   trigger: rule
+  mention: m8
 - id: e2
   type: cultural
   date:
@@ -52,25 +49,54 @@ events:
     type: cultural
   summary:
     en: Witnessed the ijāza of al-Nūbī
-  quote: null
   cert: high
+  mention: null
 - id: e3
   type: cultural
   subtype: ijaza
   persons:
-  - ref: TMP-P-000833
-    role: witness
-    quote: النوبي
-  quote: إجازة
+  - role: witness
+    mention: m5
   note:
     en: Witnessed his ijāza in 865 AH
   trigger: rule
-  norm: اجازة
+  mention: m4
 notes:
 - text: بلغني
   lang: ar
 - text: 原文「وبلغني أنه ممن يدرس الفقه ويتكسب بالشهادة … وحج」＝サハーウィーへの伝聞(情報源не明示)。教職・公証人職・ハッジの3件は伝聞に基づくため cert="medium"。イジャーザへの証人署名(下記event)はサハーウィー自身の直接叙述のため cert 不要。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  ref: TMP-N-00011
+  quote: النووي
+- id: m4
+  kind: event
+  quote: إجازة
+  norm: اجازة
+- id: m5
+  kind: person
+  ref: TMP-P-000833
+  quote: النوبي
+- id: m6
+  kind: year
+  value: '865'
+  quote: سنة
+- id: m7
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m8
+  kind: event
+  quote: وحج
 translation:
   ja: アリー・ブン・ユースフ・アン＝ナワウィー。優れたシャーフィイー派の法学者。865年にアン＝ヌービーのイジャーザ（授権状）に証人として署名した。彼について、法学を教え、つつましく満足した暮らしを送りながら、公証人（シャハーダ）として生計を立て、ハッジ（巡礼）を行ったと私に届いている。
   en: ʿAlī b. Yūsuf al-Nawawī. A virtuous Shāfiʿī jurist. He witnessed the ijāza of al-Nūbī in the year 865 AH. I was informed that he teaches jurisprudence and earns his living as a notary (shahāda) while maintaining goodness, simplicity, and contentment, and he performed the pilgrimage (Hajj).

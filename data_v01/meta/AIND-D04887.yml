@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02645
-    quote: الدخيسي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m3
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
 assessments:
 - id: v1
   label: صالح عالم
@@ -27,43 +25,71 @@ assessments:
   label_latn: ṣāliḥ ʿālim
   note:
     ja: 「كان صالحا عالما」。
-  quote: صالحا
   by: rule
+  mention: m4
 death:
   id: d
   date:
     ah: 866
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ja: 「جاور بمكة سنين ومات بها في سنة ست وستين」。866 ＝ 1461（h2g.py、年精度は年初。初版の 1462 を是正）。بها は直前の بمكة を受ける照応（規則22-3）。
-  quote: سنة
+  mention: m6
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: جاور بمكة سنين
+  - mention: m5
   note:
     ja: 原文に بمكة の明示があるため placeName を保持（規則22-2。規則20 の「جاور に placeName を付けない」は地名の明示がない場合の規定）。初版の統制外 subtype="jāwara" を除去し desc に原文を置く。
+  phrase: جاور بمكة سنين
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D04887#p1
-  quote: أرخه
   note:
     ja: 'Pattern A。没年を伝えた人物はサハーウィーの弟子のマグリブ人で無名のため #NEEDID。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه لي بعض المغاربة ممن أخذ عني
+  mention: m7
 persons:
 - id: p1
   label: بعض المغاربة ممن أخذ عني
   for: e2
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-N-02645
+  quote: الدخيسي
+- id: m3
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m4
+  kind: assessment
+  quote: صالحا
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: year
+  value: '866'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  label: mention
+  quote: بعض المغاربة ممن أخذ عني
 translation:
   ja: ウスマーン・アッ＝ドゥハイスィー・アル＝マグリビー。敬虔な学者であった。マッカに数年間隣留（ジャーワラ）し、（8）66年に同地で没した。私（サハーウィー）から学んだマグリブ人の一人が、その没年を私に伝えた。
   en: ʿUthmān al-Dukhaysī al-Maghribī. He was a righteous scholar. He sojourned (jāwara) in Mecca for some years and died there in (8)66. One of the Maghribīs who studied under me gave me the date of his death.

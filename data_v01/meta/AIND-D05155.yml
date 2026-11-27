@@ -9,75 +9,110 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سالم
     by: rule
-    ref: AIND-D03056
+    mention: m2
   - id: n4
     type: nasab
-    quote: ذاكر
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 882-09
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m6
+  - role: burial
+    mention: m9
   note:
     ar: مات بها في رمضان سنة اثنتين وثمانين ودفن بالمعلاة
     ja: 882年ラマダーン月＝1477年12月7日〜1478年1月4日。メッカで没、マアラー墓地に埋葬。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03056
   passive: AIND-D05155
-  quote: null
   note:
     ja: '父 ＝ #AIND-D03056（سالم بن ذاكر بن محمد بن عبد المؤمن … الكازروني الأصل المكي المؤذن الصائغ والد محمد وعلي وعبد العزيز）。「والد … علي」で閉合。兄 محمد بن سالم بن ذاكر ＝ #AIND-D07407（同じく882年没、「قريب الرئيس محمد بن أبي الخير」）。初版は relation なし。'
   phrase: سالم بن ذاكر
 - id: r2
   type: kin
   subtype: relative
-  active: AIND-D10946
+  active: m5
   passive: AIND-D05155
   cert: medium
-  quote: رئيس المؤذنين
   note:
     ja: '「قريب رئيس المؤذنين بمكة」。※兄項 D07407「قريب الرئيس محمد بن أبي الخير」の名形は D10946 の父 محمد بن أبي الخير（TMP-P-000863、857年まで在職）にも合致するため両説あり（独立検証パス L-3）。882年当時のメッカ（マスジド・ハラーム）のムアッズィン長 ＝ أبو الخير محمد بن محمد بن أبي الخير الكازروني ＝ #AIND-D10946（857年に父の後任として就任、889年没）。兄の項 D07407「قريب الرئيس محمد بن أبي الخير」・ニスバ索引 D12335「ابن ذاكر جماعة من أقارب رئيس المؤذنين بمكة أبي الخير」で同定。「قريب」＝ relative（cert medium、規約3）。初版は subtype other・#NEEDID。'
-  norm: رءيس المءذنين
   phrase: رئيس المؤذنين بمكة
 states:
 - id: s1
   type: office
   ref: TMP-O-00178
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخهما
+  - mention: m11
   cert: medium
   note:
     ja: 'Pattern A（没年記録。「هما」＝前項 D05154 علي بن زيد الصناني と本項）。没年 882（871＜882≦885）→ 規約11により النجم بن فهد ＝ #AIND-D05979、cert medium。初版は統制外 subtype「biographer」の relation。'
   trigger: rule
-  norm: ارخهما
   phrase: أرخهما ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D03056
+  quote: سالم
+- id: m3
+  kind: name
+  quote: ذاكر
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: person
+  ref: AIND-D10946
+  quote: رئيس المؤذنين
+  norm: رءيس المءذنين
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m8
+  kind: year
+  value: '882'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m10
+  kind: source
+  quote: أرخهما
+  norm: ارخهما
+- id: m11
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・サーリム・ブン・ザーキル・アル＝マッキー・アッ＝サーイグ（金細工師）。メッカのムアッズィン長の親族。882年ラマダーン月にメッカで没し、マアラー墓地に埋葬された。イブン・ファハドが両者（前項の人物と彼）の没年を記録している。
   en: ʿAlī b. Sālim b. Dhākir al-Makkī al-Ṣāʾigh (the goldsmith), a relative of the chief of the muezzins in Mecca. He died there in Ramaḍān of the year 882 AH and was buried in al-Muʿallā. Ibn Fahd recorded the death dates of both of them (the preceding person and him).

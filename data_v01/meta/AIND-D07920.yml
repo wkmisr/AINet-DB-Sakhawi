@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00205
-    quote: الزرندي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m8
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الوهاب
     by: rule
-    ref: AIND-D04791
+    mention: m2
   - id: n6
     type: nasab
-    quote: المحب محمد
     by: rule
-    ref: TMP-P-001284
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
@@ -50,26 +44,23 @@ relations:
   passive: AIND-D07920
   summary:
     ar: عبد الوهاب بن المحب محمد بن علي بن يوسف التاج الزرندي
-  quote: null
   note:
     ja: '父は corpus 本伝 #AIND-D04791「عبد الوهاب بن المحب محمد بن النور علي بن يوسف التاج الزرندي المدني الشافعي كأبيه أخو عمر ومحمد الآتيين . سمع على الزين أبي بكر المراغي」（ナサブ4代・ニスバ一致）。初版は父 relation なし。同じ父をもつ兄弟の本伝: #AIND-D03925（عبد السلام）・#AIND-D04744（عبد الواحد）・#AIND-D09949（معاذ、「سمع على جده لأمه الجمال الكازروني」）。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: TMP-P-001284
+  active: m10
   passive: AIND-D07920
-  quote: جده
   note:
     ja: '父方祖父。ID-Master 既登録 TMP-P-001284（Note に孫 D07920 を列挙済み。corpus に本伝なし、子 #AIND-D04791・#AIND-D05962・#AIND-D08970）。'
   phrase: المحب محمد بن علي بن يوسف الأنصاري الزرندي
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D06936
+  active: m9
   passive: AIND-D07920
   summary:
     ar: الجمال محمد بن أحمد بن محمد الكازروني
-  quote: الجمال الكازروني
   note:
     ja: '「سبط الجمال الكازروني … جده لأمه」＝母方祖父 #AIND-D06936（محمد بن أحمد بن محمد بن محمود … الجمال … الكازروني الأصل المدني الشافعي、マディーナのカーディー、757 生）。初版は subtype grandfather → maternal_grandfather。'
 - id: r4
@@ -79,13 +70,51 @@ relations:
   passive: AIND-D07920
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: 「سمع على جده لأمه」。聴聞内容は原文に明示なし（初版の field الحديث を除去）。
 notes:
 - text: 'ザランディー家（マディーナ、ニスバ索引 #AIND-D11693）。父方の従兄弟に #AIND-D03499・#AIND-D03795（عبد الباسط・عبد الرحمن بن البهاء محمد بن المحب محمد、いずれも「سبط الجمال الكازروني」）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04791
+  quote: عبد الوهاب
+- id: m3
+  kind: name
+  ref: TMP-P-001284
+  quote: المحب محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: يوسف
+- id: m6
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m7
+  kind: name
+  ref: TMP-N-00205
+  quote: الزرندي
+- id: m8
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m9
+  kind: person
+  ref: AIND-D06936
+  quote: الجمال الكازروني
+- id: m10
+  kind: person
+  ref: TMP-P-001284
+  quote: جده
 translation:
   ja: ムハンマド・ブン・アブド・アル＝ワッハーブ・ブン・アル＝ムヒッブ・ムハンマド・ブン・アリー・ブン・ユースフ、アル＝アンサーリー、アッ＝ザランディー、アル＝マダニー。アル＝ジャマール・アル＝カーザルーニーの外孫（娘の子）。母方の祖父から聴聞した。
   en: Muḥammad b. ʿAbd al-Wahhāb b. al-Muḥibb Muḥammad b. ʿAlī b. Yūsuf, al-Anṣārī, al-Zarandī, al-Madanī, daughter's son of al-Jamāl al-Kāzarūnī. He heard from his maternal grandfather.

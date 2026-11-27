@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: بدر الدين
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: بطيخ
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -36,8 +34,8 @@ death:
     cert: medium
   note:
     ja: 848年シャウワール月4日＝1445-01-23（h2g.py。初版は年のみの 1444）。「بها」の先行詞は地名ではなくニスバ「القاهري」しかない（「القاهري رئيس الأطباء بها … مات بها」）＝規則22(3) の所有代名詞の場合に準じ القاهرة、cert medium（ブリーフの D08129 の扱いに倣う。ISSUES §D172-6）。
-  quote: سنة
   phrase: مات بها في رابع شوال سنة ثمان وأربعين
+  mention: m9
 persons:
 - id: p1
   label: أحمد بن بطيخ
@@ -50,32 +48,63 @@ relations:
   subtype: father
   active: AIND-D06623#p1
   passive: AIND-D06623
-  quote: null
   note:
     ja: '規則3 (c'')。父の本伝は corpus にない。同家の医師 #AIND-D01287「305 أحمد بن محمد بن بطيخ شهاب الدين . أحد فضلاء الأطباء وخيارهم تنزل في الجهات … مات في وله ذكر في أخيه على ابن بطيخ .」は名が「أحمد بن محمد」で、本項主の父（أحمد بن بطيخ）とは決められない（#AIND-D04181 によれば الشهاب بن بطيخ の死は871年の少し前で、本項主の子の世代の可能性もある）。同定せず note に留める（規則26）。'
 - id: r2
   type: social
   subtype: rival
-  active: AIND-D06006
+  active: m7
   passive: AIND-D06623
-  quote: البهادري
   note:
     ja: 「ممن قدم في الرياسة على البهادري مع تقدم ذلك في الفن」＝医術では البهادري のほうが優れていたのに、医師頭の職では本項主が彼より先に立てられた。البهادري＝#AIND-D06006「432 عمر بن منصور بن عبد الله السراج القاهري الحنفي ويعرف بالبهادري … انتهت إليه الرياسة في الطب … وقد ترشح للرياسة في الأيام المؤيدية فتعصب ناصر الدين بن البارزي عليه … ومع هذا فأخرجت الرياسة عنه لابن بطيخ」（834年没、repo 未収録）。相手側本文が「ابن بطيخ」を名指しして閉合（ブリーフ ★どおり）。初版はニスバ番号 TMP-N-01555 を人物位置に置いていた（precheck カテゴリ不一致）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00314
   places:
   - ref: gn:360630
     cert: medium
-  quote: رئيس الأطباء
   note:
     ja: 「رئيس الأطباء بها」。医師頭＝TMP-O-00314（رياسة الطب | رئيس الأطباء、初版どおり）。「بها」は death と同じくニスバ「القاهري」を受ける＝cert medium。#AIND-D06006 によれば就任は المؤيد の治世（「في الأيام المؤيدية」）だが、本項に年の記載はない。
-  norm: رءيس الاطباء
+  mention: m6
 notes:
 - text: '初版の residence event（القاهرة、ニスバからの補完）を除去した（規則22(1)）。同家にはほかに盲目の読誦者 #AIND-D05073「علي بن بطيخ القاهري الضرير أحد رؤساء قراء الجوق」（転送見出し #AIND-D05708）がいる。本項主との続柄は原文にない。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: بطيخ
+- id: m4
+  kind: name
+  quote: بدر الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: office
+  ref: TMP-O-00314
+  quote: رئيس الأطباء
+  norm: رءيس الاطباء
+- id: m7
+  kind: person
+  ref: AIND-D06006
+  quote: البهادري
+- id: m8
+  kind: month
+  value: 10
+  quote: شوال
+- id: m9
+  kind: year
+  value: '848'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ビッティーフ、バドル・アッ＝ディーン・アル＝カーヒリー、同地の医師頭。その術ではアル＝バハードゥリーのほうが先んじていたのに、頭職でアル＝バハードゥリーより先に立てられた者である。（8）48年シャウワール月4日に同地で没した。
   en: Muḥammad b. Aḥmad b. Biṭṭīkh, Badr al-Dīn al-Qāhirī, chief of the physicians there. He was one who was given precedence in the headship over al-Bahādurī, despite the latter’s precedence in the art. He died there on 4 Shawwāl of the year [8]48.

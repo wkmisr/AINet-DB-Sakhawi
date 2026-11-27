@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00027
-    quote: الهاشمي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05661
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: قريش
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -42,7 +38,7 @@ death:
     cert: medium
   note:
     ja: '「مات بها في صفر سنة اثنتين وخمسين」。「بها」の先行詞は本項内にはなく見出しのニスバ المكي（および前項 #AIND-D08207「مات بمكة」）に依る＝B149-153 D08129 の裁定（ニスバしか先行詞がない「بها」は規則22(3) の所有代名詞に準じて cert medium）に揃えて مكة cert medium。852-02＝1448-04-15〜1448-05-13（月精度）。'
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
@@ -51,7 +47,6 @@ relations:
   passive: AIND-D08208
   summary:
     ar: علي بن موسى بن علي بن قريش بن داود الهاشمي الحارثي المكي
-  quote: null
   note:
     ja: '父＝#AIND-D05661「121 علي بن موسى بن علي بن قريش بن داود الهاشمي الحارثي المكي … مات في المحرم من التي بعدها [846] عن خمس وسبعين ظنا . ذكره ابن فهد وأسقط عليا من نسبه في موضع آخر」。本項の見出し「علي بن موسى بن قريش」は D05661 末尾の「أسقط عليا من نسبه」どおり1段省略した形で、転送見出し #AIND-D05663「علي بن موسى بن قريش المكي . فيمن جده علي قريبا」も同じ省略形を D05661 に送る。ナサブ・ニスバ（الهاشمي المكي）で閉合（規則37・57）。repo 先例: #AIND-D04511（عبد الله بن علي بن موسى بن علي بن قريش）の父にも D05661 を充てている。'
 notes:
@@ -61,15 +56,52 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخهما
+  - mention: m10
   cert: low
   note:
     ja: 'Pattern A。「أرخهما」（双数）は前項 #AIND-D08207（833没）と本項（852没）を指す（規則60(a)）。遅い方の没年 852（≤871）＝振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の統制外 relation「chronicled by」を置換。'
   trigger: rule
-  norm: ارخهما
   phrase: أرخهما ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05661
+  quote: علي
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: قريش
+- id: m5
+  kind: name
+  ref: TMP-N-00027
+  quote: الهاشمي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخهما
+  norm: ارخهما
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ムーサー・ブン・クライシュ・アル＝ハーシミー・アル＝マッキー。852年サファル月に同地（マッカ）で没した。イブン・ファハドが二人（前項の人物と本項主）の没年を記録している。
   en: Muḥammad b. ʿAlī b. Mūsā b. Quraysh al-Hāshimī al-Makkī. He died there (in Mecca) in Ṣafar of the year 852. Ibn Fahd recorded the dates of death of both of them (the preceding entry and this one).

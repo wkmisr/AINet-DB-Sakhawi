@@ -9,62 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00093
-    quote: العثماني
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n3
     type: ism
-    quote: سعيد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: AIND-D04615
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي عبد الله محمد
     by: rule
-    norm: ابو عبد الله محمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: الرضى محمد
     by: rule
-    norm: الرضي محمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m5
   - id: n8
     type: nasab
-    quote: خليل
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m7
   - id: n10
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m8
 death:
   id: d
   date:
     ah: 837-02
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m19
   note:
     ja: 837年サファル月＝1433-09-26〜1433-10-24（h2g.py）、月精度で @when=1433-09（初版 1433 は年精度で不一致）。没地 مكة は原文明記。
-  quote: سنة
   phrase: مات في صفر سنة سبع وثلاثين بمكة
+  mention: m18
 relations:
 - id: r1
   type: kin
@@ -73,23 +63,21 @@ relations:
   passive: AIND-D03102
   summary:
     ar: عبد الله بن أبي عبد الله محمد بن الرضي محمد
-  quote: null
   note:
     ja: '見出しナサブ「عبد الله بن أبي عبد الله محمد بن الرضى محمد بن أبي بكر بن خليل」＝#AIND-D04615「عبد الله بن أبي عبد الله محمد بن الرضي محمد بن أبي بكر بن خليل العسقلاني المكي . سمع التقي الحرازي وأجاز له عيسى الحجي والزين الطبري … مات في ربيع الآخر سنة خمس بمكة ودفن بالمعلاة وقد بلغ السبعين أو جازها . قاله الفاسي」（刊本 عبد الله 部 230 番、未収録）。ナサブ5代＋المكي が一致（規則37）。ニスバ「العسقلاني」は本家系の「العثماني」と食い違うが、repo では兄弟 #AIND-D07827 の father・甥 #AIND-D04591 の grandfather として既に #AIND-D04615 が充てられている（D04591 側 note「العسقلاني は العثماني の誤植とみられる」）＝先例どおり cert なし。初版は father なし。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D03637
+  active: m14
   passive: AIND-D03102
   summary:
     ar: عبد الرحمن
-  quote: ابن
   note:
     ja: 子＝#AIND-D03637「عبد الرحمن بن سعيد بن عبد الله بن أبي عبد الله محمد بن الرضي محمد بن أبي بكر بن خليل العثماني نزيل وادي مر . مات في غرة جمادى الآخرة سنة ثمان وسبعين بمكة」（収録済み、B58）。子の見出しナサブ6代が本項主を一意に指す（規則37）。D03637 側には father relation が未設定（申し送り）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D00271
+  active: m12
   passive: AIND-D03102
   methods:
   - TMP-S-00004
@@ -101,13 +89,12 @@ relations:
       type: learning
     cert: medium
     phrase: أجاز له في سنة خمس
-  quote: ابن صديق
   note:
     ja: '「أجاز له في سنة خمس ابن صديق والزين المراغي وعائشة ابنة ابن عبد الهادي والعراقي والهيثمي」（規則55）。「سنة خمس」＝一の位のみ→805 cert medium（805年初＝1402-08-10。初版は @when にヒジュラ値 0805）。兄弟 #AIND-D07827 も同年・同じ5人からイジャーザ。ابن صديق＝頻出確定ID #AIND-D00271。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m13
   passive: AIND-D03102
   methods:
   - TMP-S-00004
@@ -118,10 +105,8 @@ relations:
       cert: medium
       type: learning
     cert: medium
-  quote: والزين المراغي
   note:
     ja: 'الزين المراغي＝頻出確定ID #AIND-D10690（أبو بكر بن الحسين … الزين … المراغي … نزيل المدينة）。'
-  norm: الزين المراغي
   phrase: الزين المراغي
 - id: r5
   type: scholarly
@@ -137,14 +122,13 @@ relations:
       cert: medium
       type: learning
     cert: medium
-  quote: null
   note:
     ja: عائشة ابنة ابن عبد الهادي＝#AIND-D13339（عائشة ابنة محمد بن عبد الهادي … مسندة الدنيا、723生）。
   phrase: عائشة ابنة ابن عبد الهادي
 - id: r6
   type: scholarly
   subtype: teacher
-  active: wd:Q4664581
+  active: m15
   passive: AIND-D03102
   methods:
   - TMP-S-00004
@@ -155,15 +139,13 @@ relations:
       cert: medium
       type: learning
     cert: medium
-  quote: والعراقي
   note:
     ja: 'العراقي＝頻出確定ID wd:Q4664581（الزين العراقي、没806）。初版の #NEEDID を置換。'
-  norm: العراقي
   phrase: العراقي
 - id: r7
   type: scholarly
   subtype: teacher
-  active: wd:Q4725309
+  active: m16
   passive: AIND-D03102
   methods:
   - TMP-S-00004
@@ -174,15 +156,92 @@ relations:
       cert: medium
       type: learning
     cert: medium
-  quote: والهيثمي
   note:
     ja: 'الهيثمي＝頻出確定ID wd:Q4725309（نور الدين الهيثمي、没807）。初版の #NEEDID を置換。'
-  norm: الهيثمي
   phrase: الهيثمي
 notes:
 - text: 'بنو خليل العثماني 家（マッカ）: 兄弟 #AIND-D07827「محمد بن عبد الله بن أبي عبد الله محمد بن الرضى محمد بن أبي بكر بن خليل القرشي الأموي العثماني المكي … أجاز له في سنة خمس العراقي والهيثمي وابن صديق والزين المراغي وعائشة ابنة ابن عبد الهادي」（830/831没）は同じ父 #AIND-D04615 の子だが、相手側に本項主への名指しがないため brother relation は立てない（規則23。父が AIND なので共通の父で導出できる。D07827 側も同じ扱い）。甥 #AIND-D04591、甥の子 #AIND-D07816、兄弟の娘 #AIND-D13177 も同家。初版の residence event（مكة）はニスバ المكي 由来で居住記述がないため除去（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: سعيد
+- id: m2
+  kind: name
+  ref: AIND-D04615
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: أبي عبد الله محمد
+  norm: ابو عبد الله محمد
+- id: m4
+  kind: name
+  quote: الرضى محمد
+  norm: الرضي محمد
+- id: m5
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  quote: خليل
+- id: m7
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m8
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m9
+  kind: name
+  ref: TMP-N-00093
+  quote: العثماني
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: AIND-D00271
+  quote: ابن صديق
+- id: m13
+  kind: person
+  ref: AIND-D10690
+  quote: والزين المراغي
+  norm: الزين المراغي
+- id: m14
+  kind: person
+  ref: AIND-D03637
+  quote: ابن
+- id: m15
+  kind: person
+  ref: wd:Q4664581
+  quote: والعراقي
+  norm: العراقي
+- id: m16
+  kind: person
+  ref: wd:Q4725309
+  quote: والهيثمي
+  norm: الهيثمي
+- id: m17
+  kind: month
+  value: 2
+  quote: صفر
+- id: m18
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m19
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: サイード・ブン・アブドゥッラー・ブン・アビー・アブドゥッラー・ムハンマド・ブン・アッ＝ラディー・ムハンマド・ブン・アビー・バクル・ブン・ハリール・ブン・イブラーヒーム・ブン・ヤフヤー・アル＝ウスマーニー・アル＝マッキー。（8）05年にイブン・スィッディーク、アッ＝ザイン・アル＝マラーギー、アーイシャ・ビント・イブン・アブドゥルハーディー、アル＝イラーキー、アル＝ハイサミーが彼にイジャーザを与えた。837年サファル月にマッカで没した。
   en: Saʿīd b. ʿAbd Allāh b. Abī ʿAbd Allāh Muḥammad b. al-Raḍī Muḥammad b. Abī Bakr b. Khalīl b. Ibrāhīm b. Yaḥyā al-ʿUthmānī al-Makkī. In the year [8]05 Ibn Ṣiddīq, al-Zayn al-Marāghī, ʿĀʾisha bint Ibn ʿAbd al-Hādī, al-ʿIrāqī, and al-Haythamī granted him an ijāza. He died in Ṣafar of the year 837 in Mecca.

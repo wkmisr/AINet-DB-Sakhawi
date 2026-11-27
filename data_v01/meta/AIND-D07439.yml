@@ -9,54 +9,47 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: سلامة
     by: rule
-    ref: TMP-P-001612
+    mention: m2
   - id: n3
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00271
+  active: m4
   passive: AIND-D07439
   methods:
   - TMP-S-00003
-  quote: ابن صديق
   note:
     ja: ابن صديق＝#AIND-D00271（إبراهيم بن محمد بن صديق … الدمشقي … نزيل الحرم、頻出確定ID）。corpus の「سمع عل」は「على」の誤植とみられる（規則25 により source note は原文のまま）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D07784
+  active: m5
   passive: AIND-D07439
   methods:
   - TMP-S-00003
   cert: medium
-  quote: وابن ظهيرة
   note:
     ja: '「ابن ظهيرة」は通称のみだが、同家（本項主＝#AIND-D07243 の推測による）の兄弟 #AIND-D02531 に「فسمع هناك علي ابن صديق الصحيح وعلي الجمال بن ظهيرة」と本項と同じ師の組（ابن صديق＋ابن ظهيرة）が明記される → الجمال محمد بن عبد الله بن ظهيرة（#AIND-D07784、マッカのカーディー、817没）に cert medium で充当（集約 2026-10-26、内容A M-4、決定3。校閲時は #NEEDID）。'
-  norm: ابن ظهيرة
   phrase: ابن ظهيرة
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-001612
+  active: m6
   passive: AIND-D07439
   summary:
     ar: أبو بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة
   cert: medium
-  quote: بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة
   note:
     ja: '「وكأنه ابن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة الماضي نسب لجده الأعلى」＝サハーウィーの同定推測（وكأنه → cert medium）。父候補 أبو بكر بن محمد بن عثمان … بن سلامة المارديني は #AIND-D02531「الحسن بن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة البدر … المارديني ثم الحلبي الحنفي … وكان أبوه مدرسها（＝ماردين）」・#AIND-D07243「محمد بن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة البدر المارديني ثم الحلبي الحنفي عالم حلب」の父（マーリディーンの教授）。corpus に本伝なし（hw.py「أبو بكر بن محمد بن عثمان」は子2件と転送見出し D07241 のみ）、ID-Master 未登録 → 新規 TMP-P-001612（規則3・12）。「الماضي」は أبو بكر 自身の本伝ではなく「ابن أبي بكر … بن سلامة」＝既出の #AIND-D07243（محمد بن أبي بكر … بن سلامة、「ويختصر من نسبه فيقال ابن أبي بكر بن سلامة」）を指す＝本推測が正しければ本項主＝D07243（D02531 の兄弟）。下記 possible_identity を参照。父 relation は D07243 と共有する父として cert medium で維持（D07243 は repo 未収録で既存の父 ID なし）。【集約 2026-10-26 訂正: 校閲時の「D02531・D07243 は本項主の兄弟」は誤読（内容A H-3、決定3）】初版の汚染番号 TMP-P-000064（登録実体＝D0031 の姻戚 أبو بكر）を置換。'
-  norm: بكر بن محمد بن عثمان بن احمد بن عمر بن سلامة
 - id: r4
   type: identity
   subtype: possible_identity
@@ -65,13 +58,38 @@ relations:
   summary:
     ar: محمد بن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة
   cert: medium
-  quote: null
   note:
     ja: '「وكأنه ابن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة الماضي نسب لجده الأعلى」＝サハーウィーの同定推測（وكأنه → cert medium）。#AIND-D07243「محمد بن أبي بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة البدر المارديني ثم الحلبي الحنفي عالم حلب واخو حسن الماضي ، ويختصر من نسبه فيقال ابن أبي بكر بن سلامة」と名 محمد・ハナフィー派・既出（الماضي）・遠祖 سلامة への帰属が一致し、兄 #AIND-D02531 の師（ابن صديق・الجمال بن ظهيرة）も本項と同じ。両項とも転送指示がないので二重立項型（双方向。D07243 は未受領のため鏡像は受領時）。集約 2026-10-26 で追加（内容A H-3、決定3）。'
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001612
+  quote: سلامة
+- id: m3
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m4
+  kind: person
+  ref: AIND-D00271
+  quote: ابن صديق
+- id: m5
+  kind: person
+  ref: AIND-D07784
+  quote: وابن ظهيرة
+  norm: ابن ظهيرة
+- id: m6
+  kind: person
+  ref: TMP-P-001612
+  quote: بكر بن محمد بن عثمان بن أحمد بن عمر بن سلامة
+  norm: بكر بن محمد بن عثمان بن احمد بن عمر بن سلامة
 translation:
   ja: ムハンマド・ブン・サラーマ・アル＝ハナフィー。イブン・スィッディークとイブン・ザヒーラから聴聞した。彼は既述のイブン・アビー・バクル・ブン・ムハンマド・ブン・ウスマーン・ブン・アフマド・ブン・ウマル・ブン・サラーマ〔その人〕であり、遠祖〔サラーマ〕にちなんで呼ばれているようである。
   en: Muḥammad b. Salāma al-Ḥanafī. He heard from Ibn Ṣiddīq and Ibn Ẓahīra. He seems to be Ibn Abī Bakr b. Muḥammad b. ʿUthmān b. Aḥmad b. ʿUmar b. Salāma, mentioned above, being named after his remote ancestor.

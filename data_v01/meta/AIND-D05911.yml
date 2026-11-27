@@ -9,46 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: shuhrah
-    quote: بابن السيرجي
-    norm: ابن السيرجي
     label: ابن السيرجي
+    mention: m9
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05476
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: خليل
     by: rule
+    mention: m5
 birth:
   id: b
   date:
     notAfter: 849
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m13
   note:
     ja: 「قبل الخمسين」＝850年より前 → notAfter 849（849 ＝ 1445-04-18〜1446-04-06、年末 1446。h2g.py）。出生地 مكة は原文に明記。
   phrase: ولد قبل الخمسين بمكة
@@ -56,73 +50,60 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05476
+  active: m12
   passive: AIND-D05911
   summary:
     ar: النور علي بن محمد بن علي بن خليل ابن السيرجي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 = #AIND-D05476（علي بن محمد بن علي بن خليل نور الدين بن الشمس القاهري الأصل المكي والد عمر الآتي وأبوه ويعرف كهو بابن السيرجي、807年マッカ生）。ナサブ4代一致。初版の #NEEDID を差し替え。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D05310
+  active: m8
   passive: AIND-D05911
   summary:
     ar: علي بن عمر بن علي ابن السيرجي
-  quote: والد
   note:
     ja: '「والد علي الماضي」。息子 = #AIND-D05310（علي بن عمر بن علي بن محمد بن علي بن خليل المصري الأصل المكي الشافعي الآتي أبوه وجده ويعرف كهو بابن السيرجي、882年マッカ生）。ナサブ5代一致。初版の汚染番号 TMP-P-000530（登録=علي、D04287 の兄弟）を差し替え。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m15
   passive: AIND-D05911
   methods:
   - TMP-S-00025
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m13
   works:
   - ref: TMP-T-00044
-  quote: علي
   note:
     ja: 「وقرأ علي بها الأربعين النووية وغيرها」。「علي」は直後に人名が続かないため「عليّ（私に）」。「بها」＝直前の مكة（規則22(3)）。field（الحديث）は規則2により除去。
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m16
   passive: AIND-D05911
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: علي
+    - mention: m13
   note:
     ja: 「وسمع علي غير ذلك」。聴聞（سماع）は朗読（قراءة）と性質が異なるため別 relation（規則2）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00353
   places:
-  - ref: TMP-L-00319
-    quote: بزقاق الحجر
-    norm: زقاق الحجر
+  - mention: m11
   orgs:
   - ref: TMP-I-00207
   - ref: TMP-I-00208
-  quote: خادم قبة الوحي ودار أم المؤمنين خديجة
   note:
     ja: マッカの「啓示のクッバ」（قبة الوحي）と「信徒の母ハディージャの家」（ファーティマ・アッ＝ザフラー生誕地として知られる、زقاق الحجر 所在）の奉仕者（خادم）。いずれも ID-Master 未登録 → Office TMP-O-00309、Institution TMP-I-00207／05、Location TMP-L-00319。初版の state 2件・affiliation 2件（#NEEDID、二重符号化）を一本化。placeName مكة（施設所在地の補完）は除去（規則22）。
-  norm: خادم قبة الوحي ودار ام المءمنين خديجة
+  mention: m10
 events:
 - id: e1
   type: learning
@@ -131,21 +112,91 @@ events:
   - ref: TMP-T-00065
   methods:
   - TMP-S-00025
-  quote: وقرأ
   note:
     ja: 幼時にクルアーンと『المنهاج』（منهاج الطالبين、シャーフィイー派法学書と解した）の全部または一部を読んだが、のち学問から離れた。
   trigger: rule
-  norm: قرا
   phrase: وكان في صغره قرأ القرآن والمنهاج أو بعضه ثم تشاغل عن ذلك
+  mention: m14
 - id: e2
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وقدم
+  - mention: m18
   trigger: rule
-  norm: قدم
   phrase: وقدم القاهرة
+  mention: m17
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D05476
+  quote: علي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: خليل
+- id: m6
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: person
+  ref: AIND-D05310
+  quote: والد
+- id: m9
+  kind: name
+  quote: بابن السيرجي
+  norm: ابن السيرجي
+- id: m10
+  kind: office
+  ref: TMP-O-00353
+  quote: خادم قبة الوحي ودار أم المؤمنين خديجة
+  norm: خادم قبة الوحي ودار ام المءمنين خديجة
+- id: m11
+  kind: place
+  quote: بزقاق الحجر
+  ref: TMP-L-00319
+  norm: زقاق الحجر
+- id: m12
+  kind: person
+  ref: AIND-D05476
+  quote: أبوه
+  norm: ابوه
+- id: m13
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m14
+  kind: event
+  quote: وقرأ
+  norm: قرا
+- id: m15
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m16
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m17
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m18
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: ウマル・ブン・アリー・ブン・ムハンマド・ブン・アリー・ブン・ハリール、エジプト出自のマッカ人。前述のアリーの父で、イブン・アッ＝サイラジーとして知られる。「啓示のクッバ」と、ズカーク・アル＝ハジャルにあるファーティマ・アッ＝ザフラー生誕地として知られる信徒の母ハディージャの家の奉仕者。父も前述。（8）50年より前にマッカで生まれ、そこで私に『ナワウィーの四十ハディース』などを朗読し、そのほかを私から聴聞した。幼時にはクルアーンと『ミンハージュ』の全部または一部を読んだが、のちそれから離れた。カイロに来たが、彼は移り気がはなはだしく理解力に乏しく、マッカの人々の間では神のみぞ知る諸事で噂されている。
   en: ʿUmar b. ʿAlī b. Muḥammad b. ʿAlī b. Khalīl, of Egyptian origin, the Meccan; father of the aforementioned ʿAlī, known as Ibn al-Sayrajī; servant (khādim) of the Dome of Revelation (Qubbat al-Waḥy) and of the house of the Mother of the Believers Khadīja, known as the birthplace of the Lady Fāṭima al-Zahrāʾ, in Zuqāq al-Ḥajar; his father was also mentioned above. He was born before (8)50 in Mecca, where he read to me al-Arbaʿīn al-Nawawiyya and other works and heard other things from me. In his childhood he had read the Qurʾān and the Minhāj, or part of it, but then turned away from that. He came to Cairo; he is extremely erratic and lacking in understanding, and is spoken of among the people of Mecca for matters of which God knows best.

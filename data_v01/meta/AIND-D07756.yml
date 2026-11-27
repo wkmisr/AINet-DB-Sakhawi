@@ -9,55 +9,79 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00224
-    quote: الخانكي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00145
-    quote: البلبيسي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن التاجر
-    norm: ابن التاجر
     label: ابن التاجر
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001200
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001200
   passive: AIND-D07756
-  quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。corpus の別の「ابن التاجر」家（#AIND-D08183／D08184「البلبيسي الأصل الخانكي … ويعرف بابن التاجر لكون أبيه كان تاجرا」＝بنو علي بن محمد、索引 #AIND-D12206）とはニスバ・通称が一致するが父名（علي）が異なるため同一家系か不明。'
   phrase: عبد الله بن أحمد الخانكي البلبيسي الأصل
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07756
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001200
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00224
+  quote: الخانكي
+- id: m5
+  kind: name
+  ref: TMP-N-00145
+  quote: البلبيسي
+- id: m6
+  kind: name
+  quote: بابن التاجر
+  norm: ابن التاجر
+- id: m7
+  kind: person
+  ref: wd:Q4120128
   quote: مني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・アフマド・アル＝ハーンキー、ビルベイス出自。イブン・アッ＝タージル（商人の子）として知られる。カイロで私（サハーウィー）から聴聞した一人。
   en: Muḥammad b. ʿAbd Allāh b. Aḥmad al-Khānkī, of Bilbays origin, known as Ibn al-Tājir. He was among those who heard from me (al-Sakhāwī) in Cairo.

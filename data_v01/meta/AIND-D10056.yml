@@ -9,23 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00606
-    quote: الطائفي
-    norm: الطاءفي
+    mention: m4
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n3
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمود
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: إسماعيل بن محمود
@@ -38,19 +34,38 @@ relations:
   subtype: father
   active: AIND-D10056#p1
   passive: AIND-D10056
-  quote: null
   note:
     ja: 規則3 (c')。父 إسماعيل بن محمود الطائفي は裸の汎用名で識別要素なし。hw.py「إسماعيل بن محمود」「الطائفي」に本伝なし。ID-Master 未登録。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D10056
   methods:
   - TMP-S-00003
-  quote: مني
   note:
     ja: 「ممن سمع مني」（規則2）。
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: محمود
+- id: m4
+  kind: name
+  ref: TMP-N-00606
+  quote: الطائفي
+  norm: الطاءفي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムーサー・ブン・イスマーイール・ブン・マフムード・アッ＝ターイフィー。私（サハーウィー）から聴聞した者の一人。
   en: Mūsā b. Ismāʿīl b. Maḥmūd al-Ṭāʾifī. He was among those who heard from me (al-Sakhāwī).

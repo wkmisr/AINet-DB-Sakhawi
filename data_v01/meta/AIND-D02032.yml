@@ -9,44 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01969
-    quote: التماسيحي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00232
-    quote: تركي
+    mention: m11
   - id: n4
     type: ism
-    quote: أقبردي
     by: rule
-    norm: اقبردي
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: spouse
-  active: TMP-P-000642
+  active: m10
   passive: AIND-D02032
-  quote: أم الحسن ابنة التقي البلقيني
   note:
     en: 'His (second) wife Umm al-Ḥasan, daughter of al-Taqī al-Bulqīnī (= Muḥammad b. Muḥammad b. ʿUmar b. Ruslān, #AIND-D08988). Placeholder #TMP-P-000642. Replaces #TMP-P-000594, which is registered in the ID-Master as an unrelated person (al-Nūr b. Yaftaḥ Allāh, a shaykh from D01575) — a mis-assignment.'
-  norm: ام الحسن ابنة التقي البلقيني
 states:
 - id: s1
   type: office
-  ref: TMP-O-00099
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   dates:
   - ah: 895
     type: appointment
-  quote: أمير الراكز
-  norm: امير الراكز
+  mention: m4
 events:
 - id: e1
   type: visit
@@ -55,13 +45,10 @@ events:
     cert: high
     type: visit
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: وقدمها
+  - mention: m5
   cert: high
   trigger: rule
-  norm: قدمها
+  mention: m6
 - id: e2
   type: residence
   date:
@@ -69,13 +56,11 @@ events:
     cert: medium
     type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m5
   cert: medium
   note:
     en: He remained there (in Mecca) after his arrival in 895 H.
+  mention: null
 - id: e3
   type: other
   date:
@@ -84,18 +69,65 @@ events:
     type: other
   summary:
     en: His wife died.
-  quote: null
   cert: high
+  mention: null
 - id: e4
   type: other
   summary:
     en: Married Umm al-Ḥasan, daughter of al-Taqī al-Bulqīnī. Al-Sakhāwī saw him rejoicing with her.
-  quote: وتزوج
   cert: low
   note:
     en: Occurred after 897 H, when his previous wife died.
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: أقبردي
+  norm: اقبردي
+- id: m2
+  kind: name
+  ref: TMP-N-01969
+  quote: التماسيحي
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: office
+  ref: TMP-O-00099
+  quote: أمير الراكز
+  norm: امير الراكز
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: event
+  quote: وقدمها
+  norm: قدمها
+- id: m7
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m8
+  kind: year
+  value: '897'
+  quote: سنة
+- id: m9
+  kind: event
+  quote: وتزوج
   norm: تزوج
+- id: m10
+  kind: person
+  ref: TMP-P-000642
+  quote: أم الحسن ابنة التقي البلقيني
+  norm: ام الحسن ابنة التقي البلقيني
+- id: m11
+  kind: name
+  ref: TMP-N-00232
+  quote: تركي
 translation:
   ja: アクバルディー・アッ＝ティマーシーヒー・アッ＝ザーヒリー・ジャクマク。マッカのアミール・アッ＝ラーキズ職をアズダマルに代わって引き継ぎ、895年にキャラバンと共に同地に入った。その後その職に長く留まったが、897年の途中に妻が死去した。その後、タキー・アル＝ブルキーニーの娘であるウンム・アル＝ハサンと結婚し、私 (サハーウィー) は彼が彼女といるのを喜んでいるのを見た。彼は純粋なトルコ人で、災いは彼の指揮下の者たちと従者たちから生じた。
   en: Aqbirdī al-Timāsīḥī al-Ẓāhirī Jaqmaq. He was appointed Amīr al-Rākiz in Mecca, replacing Azdmar, and arrived there with the caravan in 895 H. He remained in office for a long time, and his wife died during 897 H. He then married Umm al-Ḥasan, daughter of al-Taqī al-Bulqīnī, and I (al-Sakhāwī) saw him rejoicing with her. He was a pure Turk, and the trouble came from those under his command and his followers.

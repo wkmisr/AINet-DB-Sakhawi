@@ -9,80 +9,108 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05491
-    quote: الركاب
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 863-08
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m4
   - ref: TMP-I-00112
     role: burial
   note:
     en: Died in Sha'ban 863 H. Buried in his zawiya on the road at the head of Maydan al-Qamh. Chronicled by al-Munir.
-  quote: سنة
+  mention: m6
 states:
 - id: s1
   type: office
-  ref: TMP-O-00192
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: ركاب السلطان
+  - mention: m4
+  mention: m8
 affiliations:
 - id: a1
   type: affiliated
   ref: TMP-I-00112
   places:
-  - ref: TMP-L-00209
+  - mention: m7
   orgs:
   - label: زاويته
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: null
+  - mention: m4
   note:
     en: Resided in Cairo as an ecstatic (majdhūb)
+  mention: null
 - id: e2
   type: religious
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m4
   summary:
     en: He experienced a state of spiritual attraction (jadhba) and became an ecstatic (majdhūb), leaving his previous career as a royal equerry.
-  quote: null
   note:
     en: Before 863 H
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000342
-    role: mentioner
-    quote: المنير
-  quote: أرخه
+  - role: mentioner
+    mention: m10
   note:
     en: Recorded and dated the life and death of the subject.
     ja: 第三者による言及・記録(Pattern A)。
   trigger: rule
-  norm: ارخه
   phrase: المنير
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-05491
+  quote: الركاب
+- id: m4
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m5
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m6
+  kind: year
+  value: '863'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: ميدان القمح
+  ref: TMP-L-00209
+- id: m8
+  kind: office
+  ref: TMP-O-00192
+  quote: ركاب السلطان
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: TMP-P-000342
+  quote: المنير
 translation:
   ja: アリー・ブン・ムハンマド・アッ＝リッカーブ。カイロの狂実者（マジュズーブ）の一人。863年シャアバーン月（1459年6月）に死去し、マイダーン・アッ＝カムフ（小麦広場）の起点近くの道沿いにあった自身のザーウィヤに埋葬された。彼はその法悦状態（ジャズバ）に入る前、スルターンの乗馬係（リッカーブ）であった。アル＝ムニールが彼の伝記を記録している。
   en: ʿAlī b. Muḥammad al-Rikkāb, one of the ecstatics (majdhūbs) in Cairo. He died in Shaʿbān 863 H (June 1459) and was buried in his zawiya on the road at the head of Maydan al-Qamh (Wheat Square). Before his spiritual attraction (jadhba), he had served as an equerry (rikkāb) of the Sultan. His biography was recorded by al-Munir.

@@ -9,22 +9,20 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: جار
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 894
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: سنة
+  - mention: m8
+  mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D02332
   methods:
   - TMP-S-00003
@@ -34,26 +32,21 @@ relations:
       ah: 894
       type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: مني
+    - mention: m4
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m4
   trigger: rule
+  mention: m3
 - id: e2
   type: other
   places:
-  - ref: TMP-L-00154
-    quote: وادي أبي عروة
-    norm: وادي ابي عروة
-  quote: null
+  - mention: m2
   note:
     en: Originally from Wādī Abī ʿUrwa.
+  mention: null
 - id: e3
   type: political
   date:
@@ -61,14 +54,44 @@ events:
     cert: high
     type: political
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
+  - mention: m8
   summary:
     en: Killed in Jeddah, and his blood went unavenged/unrequited.
-  quote: قتل
   cert: high
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: جار
+- id: m2
+  kind: place
+  quote: وادي أبي عروة
+  ref: TMP-L-00154
+  norm: وادي ابي عروة
+- id: m3
+  kind: event
+  quote: نزيل
+- id: m4
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: قتل
+- id: m8
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
 translation:
   ja: ジャー・アッラー・ブン・ブハイール。ワーディー・アビー・ウルワの出身で、後にメッカに居住した。894年にメッカで私（サハーウィー）から聴聞したが、間もなくジッダで殺され、その血は報われぬままとなった。
   en: Jār Allāh b. Buḥayr, originally from Wādī Abī ʿUrwa, later resided in Mecca. He heard from me (al-Sakhāwī) there in the year 894, and shortly thereafter was killed in Jeddah, his blood going unavenged.

@@ -9,67 +9,97 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00205
-    quote: الزرندي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m8
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001761
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد اللطيف
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001761
   passive: AIND-D06697
-  quote: null
   note:
     ja: '父 أحمد بن عبد اللطيف は corpus に本伝なし（hw.py「أحمد بن عبد اللطيف」18件に الزرندي なし）。本伝のある兄弟 #AIND-D04392 と共有する父＝仮 TMP-P-001761（規則3 (c'')）。初版は父 relation なし。'
   phrase: أحمد بن عبد اللطيف بن محمد بن يوسف الأنصاري الزرندي المدني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04392
+  active: m9
   passive: AIND-D06697
-  quote: عبد الله
   note:
     ja: '「أخو عبد الله الماضي」＝corpus 本伝 #AIND-D04392「عبد الله بن أحمد بن عبد اللطيف بن محمد بن يوسف أنصاري الزرندي المدني أخو محمد الآتي . سمع على الزين المراغي」（repo 収録済み。相互に名指し・ナサブ5代一致で閉合、ブリーフの番号を本文で確認）。初版の幻番号 TMP-P-000000 を置換。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m10
   passive: AIND-D06697
   methods:
   - TMP-S-00003
-  quote: الزين المراغي
   note:
     ja: 「سمع على الزين المراغي」。#AIND-D10690（أبو بكر بن الحسين … الزين … المراغي … نزيل المدينة النبوية、頻出確定ID・本文で確認）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001761
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عبد اللطيف
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: يوسف
+- id: m6
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m7
+  kind: name
+  ref: TMP-N-00205
+  quote: الزرندي
+- id: m8
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m9
+  kind: person
+  ref: AIND-D04392
+  quote: عبد الله
+- id: m10
+  kind: person
+  ref: AIND-D10690
+  quote: الزين المراغي
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・アブド・アッ＝ラティーフ・ブン・ムハンマド・ブン・ユースフ、アル＝アンサーリー・アッ＝ザランディー・アル＝マダニー。前出のアブド・アッラーの兄弟。アッ＝ザイン・アル＝マラーギーに聴聞した。
   en: Muḥammad b. Aḥmad b. ʿAbd al-Laṭīf b. Muḥammad b. Yūsuf, al-Anṣārī al-Zarandī al-Madanī, brother of the aforementioned ʿAbd Allāh. He heard from al-Zayn al-Marāghī.

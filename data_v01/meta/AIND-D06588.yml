@@ -9,21 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00359
-    quote: العرضي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 persons:
 - id: p1
   label: إبراهيم
@@ -36,13 +33,12 @@ relations:
   subtype: father
   active: AIND-D06588#p1
   passive: AIND-D06588
-  quote: null
   note:
     ja: 規則3 (c')。「وبلغني أن والده من فضلاء حلب المتعيشين في حانوت البز بها」＝父はアレッポの学識ある人々の一人で、同地の布地店で生計を立てているという（伝聞）。名＋ニスバのみで本伝なし（hwm.py「إبراهيم」＋「العرضي」＋「الحلبي」は本項のみ）。父の生業は父の属性なので本項主の state にしない。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D06588
   methods:
   - TMP-S-00025
@@ -53,13 +49,40 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00274
-  quote: علي
   note:
     ja: '「قرأ علي التوجه للرب في شوال سنة ست وتسعين」。896年シャウワール月＝1491-08-16〜09-13（h2g.py）、月精度で @when=1491-08（初版は @when にヒジュラ年月「0896-10」）。『التوجه للرب』＝サハーウィー自身の著作『التوجه للرب بدعوات الكرب』（著者の本伝 #AIND-D07578 の著作目録「التوجه للرب بدعوات الكرب」、#AIND-D01697「قرأ على التوجه للرب بدعوات الكرب من تصنيفي」）。ID-Master 未登録＝仮番号 TMP-T-00274（初版 #NEEDID）。場所は原文になし。'
 notes:
 - text: 「العرضي نسبة للعرضي من نواحي حلب」はニスバの由来説明で、出来事ではないので placeName を作らない（規則22(2)）。初版の residence event（حلب、gn:170063）は、ニスバ الحلبي と父の店の所在（「بها」＝حلب）からの補完なので除去（規則22(1)）。「شاب」＝執筆時に若者。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-00359
+  quote: العرضي
+- id: m4
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m6
+  kind: month
+  value: 10
+  quote: شوال
+- id: m7
+  kind: year
+  value: '896'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・アル＝アルディー（アレッポ近郊のアル＝アルディーにちなむニスバ）・アル＝ハラビー。若者で、（8）96年シャウワール月に私のもとで『アッ＝タワッジュフ・リッ＝ラッブ』を読んだ。聞くところでは、彼の父はアレッポの学識ある人々の一人で、同地の布地店で生計を立てているという。
   en: Muḥammad b. Ibrāhīm al-ʿArḍī—a nisba to al-ʿArḍī in the environs of Aleppo—al-Ḥalabī. A young man who read al-Tawajjuh li-l-Rabb with me in Shawwāl of the year [8]96. I have been told that his father is one of the learned men of Aleppo who make their living in a cloth shop there.

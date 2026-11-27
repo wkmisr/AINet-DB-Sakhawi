@@ -9,24 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m5
   - id: n2
     type: ism
-    quote: ضغيم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: خشرم
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: ثابت
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: نعير
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: إبراهيم بن سليمان
@@ -37,55 +36,101 @@ relations:
   subtype: successor
   active: AIND-D03401#p1
   passive: AIND-D03401
-  quote: null
   note:
     en: Succeeded him as the governor of Medina in 769 AH, and whom Daghaym subsequently succeeded in 774 AH after his death.
 - id: r2
   type: social
   subtype: successor
-  active: AIND-D06345
+  active: m14
   passive: AIND-D03401
   cert: high
-  quote: بقسيطل بن زهير
   note:
     en: Succeeded him as the governor of Medina in Ramadan 783 AH. Identified with AIND-D06345 (قسيطل بن زهير بن سليمان الحسيني), whose own entry states "وليها بعد انفصال ضغيم في سنة ثلاث وثمانين" — a direct mutual cross-reference.
-  norm: قسيطل بن زهير
   phrase: قسيطل بن زهير
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m7
   dates:
   - ah: 769-10
     type: appointment
   - ah: 769
     type: retirement
-  quote: أمير
-  norm: امير
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00163
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m7
   dates:
   - ah: 774
     type: appointment
   - ah: 783-09
     type: retirement
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: فأقام
+  - mention: m7
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: ضغيم
+- id: m2
+  kind: name
+  quote: خشرم
+- id: m3
+  kind: name
+  quote: ثابت
+- id: m4
+  kind: name
+  quote: نعير
+- id: m5
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m6
+  kind: office
+  ref: TMP-O-00163
+  quote: أمير
+  norm: امير
+- id: m7
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m8
+  kind: month
+  value: 10
+  quote: شوال
+- id: m9
+  kind: year
+  value: '769'
+  quote: سنة
+- id: m10
+  kind: event
+  quote: فأقام
   norm: اقام
+- id: m11
+  kind: year
+  value: '774'
+  quote: سنة
+- id: m12
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m13
+  kind: year
+  value: '783'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: AIND-D06345
+  quote: بقسيطل بن زهير
+  norm: قسيطل بن زهير
 translation:
   ja: ダガイム・ブン・ハシュラム・ブン・サービト・ブン・ヌアイル・アル＝フサイニー。マディーナのアミール。769年シャウワール（1368年5/6月）にマディーナの支配者（アミール）に任命されたが、約4か月間留まった後にイブラーヒーム・ブン・スライマーンに取って代わられた。その後、イブラーヒームの死後の774年（1372/73年）に再任され、783年ラマダーン（1381年11/12月）までその職を務めたが、カスィイタル・ブン・ズハイルに取って代わられて罷免された。
   en: Ḍaghaym b. Khashram b. Thābit b. Nuʿayr al-Ḥusaynī, Amir of Medina. He was appointed as its governor in Shawwāl 769 AH, remaining in office for about four months before being replaced by Ibrāhīm b. Sulaymān. He was reinstated after Ibrāhīm's death in the year 774 AH and continued until Ramaḍān 783 AH, when he was dismissed and replaced by Qusayṭal b. Zuhayr.

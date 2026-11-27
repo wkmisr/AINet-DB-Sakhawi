@@ -9,41 +9,66 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: العريان
+    mention: m2
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 855-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     ja: 855-11 ＝ 1451-12-04〜1452-01-01、月初 1451-12（h2g.py）。
-  quote: سنة
   phrase: مات بمكة في ذي القعدة سنة خمس وخمسين
+  mention: m5
 events:
 - id: e1
   type: cultural
-  quote: كانت له معرفة حسنة بالتعبير
   note:
     ja: 夢解釈（تعبير）に通じていた。
+  phrase: كانت له معرفة حسنة بالتعبير
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 855（≤871）→ ابن فهد 振り分け規則により التقي محمد بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「biographer」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: العريان
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m5
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・アル＝ウルヤーン。夢解釈に優れた知識をもっていた。（8）55年ズー・アル＝カアダ月にマッカで没した。イブン・ファハドがその没年月を記録している。
   en: ʿAlī al-ʿUryān. He had a good knowledge of dream interpretation. He died in Mecca in Dhū al-Qaʿda (8)55. Ibn Fahd recorded his death.

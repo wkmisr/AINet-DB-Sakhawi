@@ -9,87 +9,75 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n2
     type: laqab
-    quote: محيي الدين
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن الفوال
-    norm: ابن الفوال
     label: ابن الفوال
+    mention: m9
   - id: n4
     type: honorific
-    quote: null
     label: المقرئ
+    mention: null
   - id: n5
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00200
-    norm: ابراهيم
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m5
   - id: n9
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D04092
   methods:
   - TMP-S-00008
-  quote: عني
   phrase: أخذ عني يسيرا
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D00200
+  active: m8
   passive: AIND-D04092
   summary:
     ar: إبراهيم بن علي البرهان (الماضي أبوه)
-  quote: أبوه
   note:
     ja: 父 = إبراهيم بن علي بن نصير بن عطاء الله برهان الدين … المالكي المقرئ في الجوق والد الفاضل عبد القادر ويعرف بابن الفوال（#AIND-D00200。同項が本項主を息子として明記）。初版の TMP-P-000571 は D00445（العسلقي）の父で別人＝汚染流用。
-  norm: ابوه
 - id: r3
   type: social
   subtype: colleague
-  active: AIND-D00200
+  active: m10
   passive: AIND-D04092
-  quote: أبيه
   note:
     ja: 父とともに朗誦団（الجوق）で読誦し、子供へのクルアーン教授を父と分担した（師弟ではなく共同従事）。初版は teacher relation（قرأ）にしていた。
-  norm: ابيه
   phrase: قرأ مع أبيه في الجوق بل شاركه في إقراء الأبناء
 states:
 - id: s1
   type: office
-  ref: TMP-O-00029
-  quote: إقراء الأبناء
   note:
     ja: 子供へのクルアーン教授（父 D00200 の「تأديب الأطفال」と同職）= ID-Master 登録済み TMP-O-00029（تأديب الأطفال）を充当（独立検証パスで補正。校閲初稿は新規 TMP-O を発行していた）。
-  norm: اقراء الابناء
+  mention: m11
 - id: s2
   type: office
   ref: wd:Q2892720
-  quote: null
   phrase: تنزل في بعض التصوفات
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -103,17 +91,70 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: اشتغل بالفقه والعربية قليلا وفهم ونسخ
+  phrase: اشتغل بالفقه والعربية قليلا وفهم ونسخ
+  mention: null
 - id: e2
   type: learning
   methods:
   - TMP-S-00008
-  quote: أخذ
   note:
     ja: 師名なし（「بعض المسندين」）のため relation 化しない。
   trigger: rule
-  norm: اخذ
   phrase: وربما قرأ على بعض المسندين
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D00200
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: محيي الدين
+- id: m5
+  kind: name
+  quote: البرهان
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m8
+  kind: person
+  ref: AIND-D00200
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: name
+  quote: بابن الفوال
+  norm: ابن الفوال
+- id: m10
+  kind: person
+  ref: AIND-D00200
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: office
+  ref: TMP-O-00029
+  quote: إقراء الأبناء
+  norm: اقراء الابناء
+- id: m12
+  kind: event
+  quote: أخذ
+  norm: اخذ
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
 translation:
   ja: アブドゥルカーディル・ブン・イブラーヒーム・ブン・アリー、ムヒー・アッ＝ディーン、イブン・アル＝ブルハーン、アル＝カーヒリー、マーリキー派、クルアーン朗誦家。父は先述で、彼も父と同じくイブン・アル＝ファウワールとして知られる。法学とアラビア語学を少し学んで理解し、写本を行い、父とともに朗誦団（ジャウク）で読誦し、さらに子供たちへの朗誦教授を父と分担した。いくつかのスーフィー（扶持）職を得、ときに一部のムスニド（ハディース伝承家）のもとで読誦し、私（サハーウィー）からもわずかに学んだ。悪くない人物である。
   en: ʿAbd al-Qādir b. Ibrāhīm b. ʿAlī, Muḥyī al-Dīn b. al-Burhān, al-Qāhirī, al-Mālikī, the Qurʾān reciter; his father was mentioned above, and he, like him, is known as Ibn al-Fawwāl. He studied a little fiqh and Arabic, understood, copied manuscripts, recited with his father in the jawq (recitation group), and even shared with him the teaching of children. He obtained some Sufi stipends, occasionally read under some musnids, and took a little from me (al-Sakhāwī); he is acceptable.

@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00357
-    quote: المنزلي
+    mention: m2
   - id: n2
     type: ism
-    quote: عبيد
     by: rule
+    mention: m1
   - id: n3
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m3
 birth:
   id: b
   date:
@@ -27,8 +25,8 @@ birth:
     cert: medium
   note:
     ja: 「تقريبا」につき cert medium。813年初＝1410-05-15（h2g 検証）、@when 1410。
-  quote: سنة
   phrase: ولد سنة ثلاث عشرة وثمانمائة تقريبا
+  mention: m6
 persons:
 - id: p1
   label: عبد الرحمن
@@ -43,16 +41,14 @@ relations:
   - TMP-S-00040
   fields:
   - TMP-S-00046
-  quote: null
   note:
     ja: 本項主が自作の詩をサハーウィーに吟詠（repo 先例 D03801 と同型）。場所は「بمجلس شيخنا」のみで地名は原文に無いため placeName（القاهرة）を除去（規則22(1)）。
   phrase: فأنشد من لفظه وأنا أسمع قوله
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D04815#p1
+  active: m5
   passive: AIND-D04815
-  quote: عبد الرحمن
   note:
     ja: '「سمي والده عبد الرحمن」。裸名のため #NEEDID 維持。'
 states:
@@ -60,10 +56,9 @@ states:
   type: status
   label: المولى الأسود
   label_latn: al-mawlā al-aswad
-  quote: المولى الأسود
   note:
     ja: 「黒人のマウラー（解放奴隷）」。ラカブではなく身分の形容のため status とする（初版は laqab に置いていた）。
-  norm: المولي الاسود
+  mention: m4
 affiliations:
 - id: a1
   type: madhhab
@@ -73,17 +68,47 @@ events:
   type: cultural
   subtype: meeting
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: لقيته
+  - mention: m8
   note:
     ja: サハーウィーがイブン・ハジャルの講席で本項主に会った。原文は本項主がイブン・ハジャルに師事したとは述べていないため、初版の teacher relation（wd:Q471116、حضر・الحديث）は削除。
   trigger: rule
   phrase: لقيته بمجلس شيخنا
+  mention: m7
 notes:
 - text: 詩は文法用語の掛詞（تورية）で、نحو（方向／文法）・جر（引く／属格）・عدل（逸れること／語形の転換＝非三段変化の要因 أسباب منع الصرف の一つ）・صرف（去らせる／格変化）・إضافة（付加／属格支配）・ينصرف（立ち去る／三段変化する）が二重の意味をもつ。訳文は表面の意味のみを示した。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عبيد
+- id: m2
+  kind: name
+  ref: TMP-N-00357
+  quote: المنزلي
+- id: m3
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m4
+  kind: office
+  quote: المولى الأسود
+  norm: المولي الاسود
+- id: m5
+  kind: person
+  ref: AIND-D04815#p1
+  quote: عبد الرحمن
+- id: m6
+  kind: year
+  value: '813'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: لقيته
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウバイドゥッラー・アル＝マンズィリー、マーリク派、黒人のマウラー。その父はアブドゥッラフマーンと名づけられていた。813年頃に生まれた。私は我らが師（イブン・ハジャル）の講席で彼に会い、彼は自らの口で〔次の詩を〕吟じ、私はそれを聴いた。 「あなた方の高位を敬して大地に口づけする、一人の僕（しもべ）が――あなた方のもとへと、熱情が彼を引き寄せたのだ。 あなたが彼から逸れた（アドル）ことの諸原因が、〔彼の〕立ち去ること（サルフ）を妨げた。それでは彼には、それによって立ち去れる（ヤンサリフ）ような付加（イダーファ）があるだろうか。」
   en: 'ʿUbayd Allāh al-Manzilī, the Mālikī, the black mawlā (freedman). His father was named ʿAbd al-Raḥmān. He was born in about 813. I met him at the assembly of our shaykh (Ibn Ḥajar), and he recited from his own lips, while I listened, his verses: "A servant kisses the ground in reverence for your high rank – a servant whom passion has drawn towards you. The causes of your turning away (ʿadl) from him have prevented his departure (ṣarf); so has he any additions (iḍāfāt) by which he might depart (yanṣarif)?"'

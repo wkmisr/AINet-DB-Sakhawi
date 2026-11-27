@@ -10,21 +10,19 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00141
-    quote: null
+    mention: null
   - id: n2
     type: ism
-    quote: تنم
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: successor
-  active: TMP-P-000669
+  active: m4
   passive: AIND-D02317
-  quote: لبرد بك الماضي
   note:
     en: Replaced the subject in the deputyship of Jeddah.
-  norm: برد بك الماضي
   phrase: برد بك الماضي
 - id: r2
   type: kin
@@ -33,39 +31,51 @@ relations:
   passive: AIND-D02317
   summary:
     ar: أخوه طرباي الأشرفي قايتباي — استخلفه حين سفره بعد قضاء أمر جدة سنة896
-  quote: null
   note:
     ja: B34逆relation追記(D03418「استخلفه أخوه تنم」)。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00036
-    quote: جدة
-  quote: لنيابة
-  norm: نيابة
+  - mention: m3
+  mention: m2
 events:
 - id: e1
   type: visit
   places:
-  - ref: TMP-L-00036
-    quote: جدة
-  quote: null
+  - mention: m3
   cert: low
   note:
     en: repeatedly
+  mention: null
 - id: e2
   type: political
   places:
-  - ref: TMP-L-00036
-    quote: جدة
+  - mention: m3
   summary:
     en: He was appointed to the deputyship of Jeddah (receiving the robe of honor), then dismissed and replaced by Bard Bek (mentioned previously).
-  quote: null
   cert: low
   note:
     en: In the third year (reference year unspecified), he was appointed to the deputyship of Jeddah, then dismissed and replaced by Bard Bek (mentioned previously).
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: تنم
+- id: m2
+  kind: office
+  ref: TMP-O-00053
+  quote: لنيابة
+  norm: نيابة
+- id: m3
+  kind: place
+  quote: جدة
+  ref: TMP-L-00036
+- id: m4
+  kind: person
+  ref: TMP-P-000669
+  quote: لبرد بك الماضي
+  norm: برد بك الماضي
 translation:
   ja: タナム・アル=アシュラフィー・カーイトバーイ。彼の師が彼を何度もジッダの副知事として派遣し、その後3年目には、彼にその職位の栄誉の衣装（خلعة）を与えた後、それを剥奪し、既出のバルド・ベクに着せた。
   en: Tanm al-Ashrafī Qāytbāy. His master sent him repeatedly as deputy of Jeddah. Then, in the third year, after vesting him with the robe of honor for it, he stripped it from him and vested it upon Bard Bek, the aforementioned.

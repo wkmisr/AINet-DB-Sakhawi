@@ -9,77 +9,68 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: laqab
-    quote: البهلوان
+    mention: m4
   - id: n3
     type: ism
-    quote: خير
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873-10
   note:
     en: Killed in the Battle of Suwar (Sawar) against Shahsuwar of Dulkadir in Shawwal 873 H, being in his fifties.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m3
   passive: AIND-D02929
   corresp: AIND-D02168
   summary:
     ar: الأشرف برسباي
-  quote: برسباي
   note:
     en: His ustādh (the sultan who purchased and manumitted him), hence the nisbah al-Ashrafī Barsbāy.
     ja: D-3形式（#AIND-D02168 + corresp=wd:Q557812）。ustādhであるためrelation化する。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00083
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m9
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m9
   note:
     en: Settled in Damascus after his exile by Khushqadam.
+  mention: null
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02830
-    quote: الظاهر خشقدم
+  - mention: m7
   places:
-  - ref: TMP-L-00196
-    quote: البلاد الشامية
-  quote: تأمر
+  - mention: m8
   note:
     ja: '初版は خشقدم を subtype="rival" のrelationにしていたが、非ustādhスルターンによる処分はrelation化せずevent内 persName で表現する（D02116方式）。خشقدم = #AIND-D02830。'
   trigger: rule
-  norm: تامر
   phrase: ثم نفاه الظاهر خشقدم إلى البلاد الشامية
+  mention: m5
 - id: e3
   type: political
-  quote: تأمر عشرة في دولة إينال
   note:
     ja: '初版は إينال を subtype="patron" のrelationにしていたが、「في دولة إينال」は治世を示す時間表現でありpatron関係の根拠にならない（本人のニスバは الأشرفي برسباي）。relationを破棄しeventのnoteに留める。الأشرف إينال = #AIND-D02110（+corresp wd:Q286532）。'
-  norm: تامر عشرة في دولة اينال
+  phrase: تأمر عشرة في دولة إينال
+  mention: null
 - id: e4
   type: political
   date:
@@ -88,8 +79,52 @@ events:
     type: political
   summary:
     en: Killed in the Battle of Suwar (Sawar) against Shahsuwar of Dulkadir.
-  quote: null
   cert: high
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خير
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m4
+  kind: name
+  quote: البهلوان
+- id: m5
+  kind: event
+  quote: تأمر
+  norm: تامر
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m7
+  kind: person
+  ref: AIND-D02830
+  quote: الظاهر خشقدم
+- id: m8
+  kind: place
+  quote: البلاد الشامية
+  ref: TMP-L-00196
+- id: m9
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m10
+  kind: month
+  value: 10
+  quote: شوال
+- id: m11
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: ハイル・ベク・アル＝アシュラフィー・バルスバーイ・アル＝バフラワーン。イーナールの治世下で10人長（アミール・アシャラ）に任じられ、その後、アッ＝ザーヒル・ホシュカダムによってシリア地方（シャーム）へ追放されたが、のちにダマスクスの有力指揮官（ムカッダム）の一人となった。873年シャウワール月のスワール（シャースワール）の戦いにおいて、50代で戦死した。
   en: Khayr Bak al-Ashrafī Barsbāy al-Bahlawān. He was appointed as an Amir of Ten during the reign of Īnāl, and was subsequently exiled by al-Ẓāhir Khushqadam to the Syrian lands, where he later became one of the commanders (muqaddams) of Damascus. He was killed in the battle of Suwar (Sawar) in Shawwāl, the year 873 H, being in his fifties.

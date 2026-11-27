@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو اليمن
-    norm: ابو اليمن
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 858
   note:
     ja: 「مات عن ثمانية أشهر سنة ثمان وخمسين」。858年＝1454-01-10 開始（年精度 → 1454）。生後8か月での幼児死（生年は 857 か 858 だが原文に明記がなく birth は作らない）。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05550
+  active: m4
   passive: AIND-D08169
   summary:
     ar: علي بن أبي اليمن محمد بن محمد بن علي نور الدين النويري المكي
-  quote: الذي قبله
   note:
     ja: '「شقيق الذي قبله」＝直前の項 #AIND-D08168「محمد بن علي بن أبي اليمن محمد بن محمد بن علي بن أحمد بن عبد العزيز أبو الميامن النويري المكي」の見出しナサブから父を復元（規則37）＝#AIND-D05550「علي بن محمد بن محمد بن علي بن أحمد بن عبد العزيز … نور الدين أبو الحسن بن الأمين أبي اليمن … النويري المكي المالكي … ويعرف بابن أبي اليمن」（未収録）。初版なし。'
 - id: r2
@@ -40,23 +38,41 @@ relations:
   passive: AIND-D08169
   summary:
     ar: أبو اليمن محمد بن محمد بن علي الأمين النويري المكي
-  quote: null
   note:
     ja: 同じく D08168 のナサブから祖父＝#AIND-D08912「… الأمين أبو اليمن بن الجمال أبي الخير … النويري المكي الشافعي والد علي وعمر الماضيين」（未収録）。本項主のクンヤ أبو اليمن は祖父と同じ。初版なし。
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D08168
+  active: m3
   passive: AIND-D08169
   summary:
     ar: محمد أبو الميامن بن علي بن أبي اليمن النويري
-  quote: شقيق
   note:
     ja: '「شقيق الذي قبله」＝直前の項 #AIND-D08168（同父同母の兄、852没、本チャンク。cert なし、規則37）。初版の空 relation（active=""、desc 空）を修正。'
 notes:
 - text: 'マッカの النويري 家。母は原文になし（D08168 と同母＝شقيق、父の妻 #AIND-D13462 فاطمة は候補にとどまる）。同父の幼児死の姉妹 #AIND-D13009・D13453 は note。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبو اليمن
+  norm: ابو اليمن
+- id: m3
+  kind: person
+  ref: AIND-D08168
+  quote: شقيق
+- id: m4
+  kind: person
+  ref: AIND-D05550
+  quote: الذي قبله
+- id: m5
+  kind: year
+  value: '858'
+  quote: سنة
 translation:
   ja: ムハンマド・アブー・アル＝ヤマン、直前の人物の同父同母の弟。（8）58年に生後8か月で没した。
   en: Muḥammad Abū al-Yaman, full brother of the preceding one. He died at eight months (of age) in the year [8]58.

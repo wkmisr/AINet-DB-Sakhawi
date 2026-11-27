@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: فخر الدين
     by: rule
-    ref: TMP-P-000889
+    mention: m2
   - id: n4
     type: nasab
-    quote: تقي الدين
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 803-03
   note:
     en: Died in Rabīʿ al-Awwal 803 H.
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: نقيب الأشراف
@@ -41,7 +39,6 @@ relations:
   subtype: brother
   active: AIND-D03830#p1
   passive: AIND-D03830
-  quote: null
 - id: r2
   type: kin
   subtype: father
@@ -49,19 +46,47 @@ relations:
   passive: AIND-D03830
   summary:
     ar: نقيب الأشراف
-  quote: null
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「فخر الدين بن تقي الدين الحسني」（原文「وابن نقيبهم」）。兄弟のナキーブは名不詳のため #NEEDID 維持。'
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ذكره
+  - mention: m8
   note:
     ja: 初版は subtype="mentioned by"（空白入りの統制外語彙）の personal relation（Pattern A違反）。
   trigger: rule
   phrase: ذكره شيخنا
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-000889
+  quote: فخر الدين
+- id: m3
+  kind: name
+  quote: تقي الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラフマーン・ブン・ファフル・アッ＝ディーン・ブン・タキー・アッ＝ディーン・アル＝ハサニー。ナキーブ・アル＝アシュラーフ（聖裔会総監）の兄弟であり、彼らのナキーブの息子。803年ラビーウ・アル＝アウワル月に没した。我らがシャイフ（イブン・ハジャル）が彼に言及している。
   en: Abd al-Rahman bin Fakhr al-Din bin Taqi al-Din al-Hasani. He was the brother of the Naqib al-Ashraf (marshal of the nobility) and the son of their Naqib. He died in Rabi' al-Awwal in the year 803 AH. Our shaykh (Ibn Hajar) mentioned him.

@@ -9,43 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01762
-    quote: الحميضي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: جسار
     by: rule
-    ref: TMP-P-001576
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 837-07
   places:
-  - ref: TMP-L-00203
-    quote: ببلاد الشرق
-    norm: بلاد الشرق
-  - ref: TMP-L-00203
-    role: burial
-    quote: ببلاد الشرق
-    norm: بلاد الشرق
+  - mention: m7
+  - role: burial
+    mention: m7
   note:
     ja: 「قتل … ببلاد الشرق في رجب سنة سبع وثلاثين ودفن هناك」。837年ラジャブ ＝ 1434-02-20〜03-21、月初 1434-02。埋葬地「هناك」は照応副詞（規則22(3)）＝بلاد الشرق（TMP-L-00203、先例 D03018・D02441）。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001576
   passive: AIND-D07304
-  quote: null
   note:
     ja: 父 جسار بن علي الحميضي：珍しい名＋祖父名で復元可（規則3）。corpus の جسار 見出し（D02965・D03185・D03301・D04566・D05102・D09995）はいずれも العمري 家の القواد で本人の本伝なし。ID-Master の TMP-P-001556「جسار الحسني (والد قاسم بن جسار الحسني)」（D06213）はニスバが異なり同定不可 → 新規 TMP-P-001576。
   phrase: جسار بن علي الحميضي
@@ -56,29 +49,67 @@ events:
     ah: 837-07
     type: political
   persons:
-  - ref: AIND-D03018
-    quote: السيد رميثة بن محمد بن عجلان
+  - mention: m6
   places:
-  - ref: TMP-L-00203
-    quote: ببلاد الشرق
-    norm: بلاد الشرق
-  quote: قتل
+  - mention: m7
   note:
     ja: 'رميثة بن محمد بن عجلان ＝ #AIND-D03018（「فقتل في المعركة في رجب سنة سبع وثلاثين」ببلاد الشرق、同戦闘）。同行の戦死は relation でなく event の persName で表現（初版の統制外 subtype「companion in death」relation を除去）。'
   trigger: rule
   phrase: قتل مع السيد رميثة بن محمد بن عجلان ببلاد الشرق في رجب سنة سبع وثلاثين
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   cert: low
   note:
     ja: '没年 837（≤871）→ 振り分け規則により #AIND-D09211（cert low）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001576
+  quote: جسار
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-01762
+  quote: الحميضي
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: person
+  ref: AIND-D03018
+  quote: السيد رميثة بن محمد بن عجلان
+- id: m7
+  kind: place
+  quote: ببلاد الشرق
+  ref: TMP-L-00203
+  norm: بلاد الشرق
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・ジャッサール・ブン・アリー・アル＝フマイディー。837年ラジャブ月、東方の地（ビラード・アッ＝シャルク）でサイイド・ルマイサ・ブン・ムハンマド・ブン・アジュラーンと共に殺害され、その地に葬られた。イブン・ファハドが彼の没年を記録している。
   en: Muḥammad b. Jassār b. ʿAlī al-Ḥumayḍī. He was killed together with al-Sayyid Rumaytha b. Muḥammad b. ʿAjlān in Bilād al-Sharq in Rajab 837 and was buried there. Ibn Fahd recorded his death date.

@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00495
-    quote: الفخري
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
     ah: 857-06
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 「مات بمكة في جمادى الثانية سنة سبع وخمسين」。857年ジュマーダー第二月 ＝ 1453-06-18〜07-16、月初 1453-06。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: أحمد
@@ -43,21 +39,51 @@ relations:
   subtype: father
   active: AIND-D07080#p1
   passive: AIND-D07080
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m8
   note:
     ja: 'Pattern A。ابن فهد 振り分け規則: 没年 857（≤871）→ التقي بن فهد #AIND-D09211（cert low）。初版の統制外 subtype「chronicler」relation を event 化。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00495
+  quote: الفخري
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m6
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アフマド・アル＝ファフリー。857年ジュマーダー第二月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Muḥammad b. Aḥmad al-Fakhrī. He died in Mecca in Jumādā II of the year 857. Ibn Fahd recorded his death date.

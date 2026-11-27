@@ -9,54 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00108
-    quote: الفاسي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n4
     type: laqab
-    quote: الرضي
+    mention: m2
   - id: n5
     type: kunyah
-    quote: أبو حامد
-    norm: ابو حامد
+    mention: m3
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D07733
   methods:
   - TMP-S-00006
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: فعرض علي
+    - mention: m8
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07733
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: مني
+    - mention: m8
   phrase: وسمع مني
 - id: r3
   type: kin
@@ -65,7 +57,6 @@ relations:
   passive: AIND-D07733
   summary:
     ar: شقيق اللذين قبله (الأول)
-  quote: null
   note:
     ja: 同母兄＝#AIND-D07731（項番142 القطب أبو الخير محمد بن السراج عبد اللطيف بن أبي السرور محمد الحسني الفاسي المكي المالكي、843年生）。「قدم القاهرة مع أول أخويه」の「最初の兄」もこの人物（D07731 本文にカイロ来訪 856年・863年以降が記される）。
 - id: r4
@@ -75,7 +66,6 @@ relations:
   passive: AIND-D07733
   summary:
     ar: شقيق اللذين قبله (الثاني)
-  quote: null
   note:
     ja: 同母兄＝#AIND-D07732（項番143 محمد أبو عبد الله الحسني الفاسي المكي شقيق الذي قبله、852年生）。
 - id: r5
@@ -86,7 +76,6 @@ relations:
   summary:
     ar: '[أبوه: السراج عبد اللطيف بن أبي السرور الفاسي]'
   cert: medium
-  quote: null
   note:
     ja: '本項の原文に父の名は無いが、同母兄 #AIND-D07731 の見出し「محمد بن عبد اللطيف بن أبي السرور واسمه محمد بن … التقي عبد الرحمن … الماضي أبوه وجده」により父＝#AIND-D04346（السراج عبد اللطيف بن أبي السرور محمد بن التقي عبد الرحمن الحسني الفاسي المكي المالكي、803年生・864年マディーナ没）と特定できる（規則23により cert medium で補填）。D07731 の母 أم الخير ابنة عبد القادر بن أبي الفتح الفاسي も شقيق ゆえ本項主の母と推定されるが、ID-Master 未登録・本項に記載なしのため relation は立てない。'
 events:
@@ -94,17 +83,54 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: ممن حفظ القرآن وغيره
-  norm: ممن حفظ القران وغيره
+  phrase: ممن حفظ القرآن وغيره
+  mention: null
 - id: e2
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وقدم
+  - mention: m8
   trigger: rule
-  norm: قدم
   phrase: وقدم القاهرة مع أول أخويه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الرضي
+- id: m3
+  kind: name
+  quote: أبو حامد
+  norm: ابو حامد
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: name
+  ref: TMP-N-00108
+  quote: الفاسي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m8
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: فعرض علي
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド、アッ＝ラディー、アブー・ハーミド、アル＝ハサニー・アル＝ファースィー・アル＝マッキー。前の二人の同母兄弟。クルアーンその他を暗記した者の一人で、二人の兄のうち最初の者と共にカイロに来て、私（サハーウィー）に（暗記したものを）提示し、私から聴聞した。
   en: Muḥammad, al-Raḍī, Abū Ḥāmid, al-Ḥasanī al-Fāsī al-Makkī, full brother of the two preceding. He was among those who memorized the Qurʾān and other works; he came to Cairo with the first of his two brothers, presented (his memorized texts) to me (al-Sakhāwī) and heard from me.

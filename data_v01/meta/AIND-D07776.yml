@@ -9,58 +9,87 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001207
+    mention: m2
   - id: n4
     type: nasab
-    quote: سلام
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 803-07
   note:
     ja: 「مات في رجب سنة ثلاث بعد انفصال التمرية」。803-07 ＝ 1401-02-24〜03-25（h2g.py、初版の 1400 を是正）。「ティムール軍の（ダマスカスからの）撤収後」は時期の説明であり没地の明示ではないため、初版の placeName دمشق（ニスバ由来）は規則22により除去。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001207
   passive: AIND-D07776
-  quote: null
   note:
     ja: '兄 #AIND-D05253 の見出し「علي بن عبد الله بن محمد بن الحسين بن علي بن إسحق بن سلام بن عبد الوهاب بن الحسن بن سلام … الدمشقي … ويعرف بابن سلام」により、父は عبد الله بن محمد بن الحسين بن علي بن إسحق بن سلام الدمشقي（ابن سلام）と復元できる。corpus に本伝なし・ID-Master 未登録のため仮番号発行。'
   phrase: عبد الله بن سلام الدمشقي
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D05253
+  active: m5
   passive: AIND-D07776
-  quote: أخو
   note:
     ja: 'علاء الدين ＝ #AIND-D05253（علي بن عبد الله بن محمد بن الحسين … بن سلام العلاء أبو الحسن الدمشقي الشافعي ويعرف بابن سلام بالتشديد、755/756 生・829 没。ティムールのダマスカス占領時に捕虜となり脱走）。無番号索引「علي بن سلام . في ابن عبد الله بن محمد بن الحسين بن علي بن إسحق بن سلام」も同人。本項主は弟（الأصغر）。'
-  norm: اخو
   phrase: أخو علاء الدين وهو الأصغر
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: قاله
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001207
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: سلام
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: person
+  ref: AIND-D05253
+  quote: أخو
+  norm: اخو
+- id: m6
+  kind: month
+  value: 7
+  quote: رجب
+- id: m7
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: قاله
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・サッラーム・アッ＝ディマシュキー。アラー・アッ＝ディーンの兄弟で、年少の方。（8）03年ラジャブ月、ティムール軍の撤収後に没した。我らがシャイフ（イブン・ハジャル）が『インバー』でそう述べている。
   en: Muḥammad b. ʿAbd Allāh b. Sallām al-Dimashqī, brother of ʿAlāʾ al-Dīn and the younger of the two. He died in Rajab (8)03, after the withdrawal of Timur's forces; so said our shaykh (Ibn Ḥajar) in his Inbāʾ.

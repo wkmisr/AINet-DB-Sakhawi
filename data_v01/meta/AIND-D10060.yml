@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشرف
+    mention: m2
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n3
     type: nasab
-    quote: البدر حسن واستقر في
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: البدر حسن
@@ -31,43 +30,65 @@ relations:
   subtype: father
   active: AIND-D10060#p1
   passive: AIND-D10060
-  quote: null
   note:
     ja: 規則3 (c')。父はラカブ البدر＋名 حسن のみで、ニスバ・祖父名・職がなく識別できない（hw.py「البدر حسن」＋「موسى」の該当は本項のみ、全文「موسى بن البدر حسن」「الشرف موسى بن حسن」該当なし）。ID-Master 未登録。
 - id: r2
   type: social
   subtype: successor
-  active: AIND-D06210
+  active: m5
   passive: AIND-D10060
-  quote: بقاسم شغيتة
   note:
     ja: '「واستقر في نظر الدولة ثم انفصل عنها بقاسم شغيتة」＝نظر الدولة の後任。قاسم شغيتة ＝ #AIND-D06210「609 قاسم بن أحمد بن القرافي ثم القاهري شغيتة … فاستقر به عنده صيرفيا فلما ترقى مخدومه للوزر استقر في حمل عقدة الوزر … إلى أن استقر معه عبد القادر بن إبراهيم الطباخ في نظر الدولة」（名＋通称 شغيتة＋国庫（الدولة）行政の文脈で閉合）。初版の #NEEDID を置換。'
-  norm: قاسم شغيتة
   phrase: قاسم شغيتة
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D03500
+  active: m7
   passive: AIND-D10060
   summary:
     ar: الشرف عبد الباسط بن يحيى بن البقري
-  quote: الشرف بن البقري
   note:
     ja: '「ثم في نظر الأحباس والأوقاف بعد الشرف بن البقري」＝前任者。الشرف بن البقري ＝ #AIND-D03500「97 عبد الباسط بن يحيى شرف الدين بن العلم بن البقري … فلما مات العبادي استقر عوضه في نظر الاحباس ثم ألزمه السلطان بعد مدة بنظر الأوقاف بعد ابن العظمة … وأعطاه أيضا نظر الدولة … مات … في ربيع الثاني سنة ثلاث وتسعين」、索引 #AIND-D11138「شرف الدين بن البقري عبد الباسط」。ラカブ الشرف＋家名 ابن البقري＋職（نظر الأحباس・نظر الأوقاف）の3点で閉合（規則57）。初版の TMP-P-000768（ID-Master 登録「الشرف بن البقري … corpus本伝未特定」）は D03500 と同一人物＝名寄せ要（ISSUES §D157）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00024
-  quote: نظر الدولة
   note:
     ja: 「واستقر في نظر الدولة ثم انفصل عنها بقاسم شغيتة」。年なし＝日付属性なし。
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00388
-  quote: نظر الأحباس والأوقاف
   note:
     ja: 「ثم في نظر الأحباس والأوقاف بعد الشرف بن البقري وبئس البديل」。ID-Master には ناظر الأوقاف（TMP-O-00113）はあるが نظر الأحباس（ديوان الأحباس の監督）は未登録で、原文は両者を一つの職として記すため TMP-O-00388（نظر الأحباس والأوقاف）を発行（ISSUES に O-00113 との関係を記録）。「وبئس البديل」（なんと悪い後任か）はサハーウィーの評語＝訳文のみ。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: الشرف
+- id: m3
+  kind: name
+  quote: البدر حسن واستقر في
+- id: m4
+  kind: office
+  ref: TMP-O-00024
+  quote: نظر الدولة
+- id: m5
+  kind: person
+  ref: AIND-D06210
+  quote: بقاسم شغيتة
+  norm: قاسم شغيتة
+- id: m6
+  kind: office
+  ref: TMP-O-00388
+  quote: نظر الأحباس والأوقاف
   norm: نظر الاحباس والاوقاف
+- id: m7
+  kind: person
+  ref: AIND-D03500
+  quote: الشرف بن البقري
 translation:
   ja: ムーサー、アッ＝シャラフ・ブン・アル＝バドル・ハサン。ナザル・アッ＝ダウラ（国庫監督職）に就いたが、のちカースィム・シュガイタと交代してそれを離れ、次いでアッ＝シャラフ・ブン・アル＝バクリーの後にアフバースとワクフの監督職（ナザル・アル＝アフバース・ワ・ル＝アウカーフ）に就いた。なんと悪い後任であることか。
   en: Mūsā, al-Sharaf b. al-Badr Ḥasan. He was appointed to the supervision of the state treasury (naẕar al-dawla), then was removed from it in favour of Qāsim Shughayta; then (he was appointed) to the supervision of the aḥbās and the awqāf after al-Sharaf b. al-Baqarī—and what a bad replacement!

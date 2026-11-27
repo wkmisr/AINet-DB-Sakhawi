@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00438
-    quote: النوبي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بالفيل
-    norm: الفيل
     label: الفيل
+    mention: m5
   - id: n4
     type: ism
-    quote: ريحان
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 849-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m6
   note:
     en: His death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02560
+  active: m4
   passive: AIND-D03030
-  quote: حسن بن عجلان
   note:
     en: Rayḥān was a freed slave (ʿatīq) of al-Sayyid Ḥasan b. ʿAjlān.
 states:
@@ -49,34 +43,69 @@ states:
   type: office
   ref: TMP-O-00094
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m6
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m6
   note:
     en: He settled in Mecca, indicated by his nisbah al-Makkī.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m10
   note:
     en: Ibn Fahd recorded his death.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: ريحان
+- id: m2
+  kind: name
+  ref: TMP-N-00438
+  quote: النوبي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: person
+  ref: AIND-D02560
+  quote: حسن بن عجلان
+- id: m5
+  kind: name
+  quote: بالفيل
+  norm: الفيل
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m8
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: レイハーン・アン＝ヌービー、のちにアル＝マッキー。アル＝カーイド（指揮官）。アル＝サイイド・ハサン・ブン・アジュラーンの解放奴隷。アル＝フィール（「象」の意）の通称で知られる。ハジュラ暦849年ジュマーダー・アル＝ウーラー（第5月）にマッカで没した。イブン・ファハドが彼の死を記録している。
   en: Rayḥān al-Nūbī, later al-Makkī. He was a commander (al-Qāʾid) and a freed slave (ʿatīq) of al-Sayyid Ḥasan b. ʿAjlān, and was known by the epithet al-Fīl (the Elephant). He died in Mecca in Jumada al-Ula, 849 AH. His death was recorded by Ibn Fahd.

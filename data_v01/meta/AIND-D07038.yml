@@ -9,34 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00001
-    quote: الكيلاني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m6
   - id: n7
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m8
 persons:
 - id: p1
   label: أحمد
@@ -49,21 +44,19 @@ relations:
   subtype: father
   active: AIND-D07038#p1
   passive: AIND-D07038
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D03736
+  active: m9
   passive: AIND-D07038
-  quote: عبد الرحمن
   note:
     ja: '「والد عبد الرحمن الماضي」＝ #AIND-D03736（عبد الرحمن بن الجمال محمد بن أحمد العجمي الكيلاني الأصل المكي الحنبلي . ممن سمع مني بمكة وسافر للهند …、収録済み）。父のラカブ الجمال・ニスバ・学派・インド渡航が一致。規則37。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D07038
   methods:
   - TMP-S-00003
@@ -73,31 +66,25 @@ relations:
       ah: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m14
     phrase: سمع مني بمكة في سنة ست وثمانين يسيرا
-  quote: مني
   note:
     ja: 規則2。886 ＝ 1481-03-11 開始、年初 1481（h2g.py）。初版の field الحديث（原文になし）と @when="0886"（ヒジュラ年を @when に記載）を是正。
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: wd:Q125482
   orgs:
   - ref: TMP-I-00225
-  quote: نائب الإمام بالمقام
   note:
     ja: 見出し「نائب الإمام بالمقام الحنبلي」。ID-Master の先例 نائب إمام مقام الحنفية（TMP-O-00285）・مقام الحنفية (بالمسجد الحرام)（TMP-I-00176）に倣い、ハンバリー派用に TMP-O-00325・TMP-I-00225 を発行。初版の placeName مكة（ニスバからの補完）と affiliation employed（#NEEDID）の二重符号化を解消（規則8・22）。
-  norm: ناءب الامام بالمقام
+  mention: m7
 assessments:
 - id: v1
-  quote: إنسان خير ساكن
-  norm: انسان خير ساكن
   terms:
   - خير
   label_latn: insān khayyir sākin
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
@@ -106,40 +93,114 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: دخل
+  - mention: m12
   trigger: rule
   phrase: قدم القاهرة
+  mention: m19
 - id: e2
   type: travel
   date:
     ah: 894
     type: travel
   places:
-  - ref: TMP-L-00039
-    quote: الهند
-  quote: وسافر
+  - mention: m18
   note:
     ja: 894年の途中（894 ＝ 1488-12-14 開始、年初 1488）。それ以前にも一度インドへ渡航（「بعد أن كان سافر إليها قبل ذلك」、年不明＝別 event にしない）。初版の cert medium は根拠がないため除去。
   trigger: rule
-  norm: سافر
   phrase: سافر في أثناء سنة أربع وتسعين إلى الهند للاسترزاق وكتبت معه ما أرجو انتفاعه به وعاد مجبورا
+  mention: m16
 - id: e3
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  - ref: gn:170654
-    quote: ودمشق
-    norm: دمشق
-  quote: قدم
+  - mention: m12
+  - mention: m20
   trigger: rule
   phrase: ثم دخل أيضا القاهرة ودمشق
+  mention: m11
 notes:
 - text: ID-Master の TMP-P-000246「محمد الكيلاني」（D00687「زوج ابنة الشمس محمد الكيلاني نائب الإمام بمقام الحنبلي」の岳父）は、同じ職「نائب الإمام بالمقام الحنبلي」のキーラーニー家の人物で本項主と同一の可能性があるが、ラカブが الشمس⇄الجمال で食い違うため名寄せせず §D115-6 に記録。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00001
+  quote: الكيلاني
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m7
+  kind: office
+  ref: wd:Q125482
+  quote: نائب الإمام بالمقام
+  norm: ناءب الامام بالمقام
+- id: m8
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m9
+  kind: person
+  ref: AIND-D03736
+  quote: عبد الرحمن
+- id: m10
+  kind: assessment
+  quote: إنسان خير ساكن
+  norm: انسان خير ساكن
+- id: m11
+  kind: event
+  quote: قدم
+- id: m12
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m14
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m15
+  kind: year
+  value: '886'
+  quote: سنة
+- id: m16
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m17
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m18
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m19
+  kind: event
+  quote: دخل
+- id: m20
+  kind: place
+  quote: ودمشق
+  ref: gn:170654
+  norm: دمشق
 translation:
   ja: ムハンマド・ブン・アフマド・アル＝ジャマール・アル＝キーラーニー・アル＝マッキー・アル＝ハンバリー、ハンバリー派のマカームにおけるイマーム代理で、前述のアブド・アッ＝ラフマーンの父。善良で物静かな人物。カイロに来訪し、886年にマッカで私から少しばかり聴聞し、894年の途中に生計を求めてインドへ旅立った。私は彼が役立てることを願うものを書いて持たせた。彼は〔損失を〕埋め合わせて帰還したが、それ以前にも一度そこへ旅していた。その後さらにカイロとダマスクスにも入った。
   en: Muḥammad b. Aḥmad al-Jamāl al-Kīlānī al-Makkī al-Ḥanbalī, deputy of the imam at the Ḥanbalī station (al-Maqām al-Ḥanbalī) and the father of ʿAbd al-Raḥmān, mentioned above. A good, quiet man. He came to Cairo, and heard a little from me in Mecca in the year 886. In the course of the year 894 he travelled to India in search of a livelihood, and I wrote for him to take along something I hoped would be of use to him. He returned with his losses made good, having travelled there once before that; then he also entered Cairo and Damascus.

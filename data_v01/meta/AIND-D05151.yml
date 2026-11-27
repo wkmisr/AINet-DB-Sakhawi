@@ -9,72 +9,107 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01240
-    quote: التعكري
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: ريحان
     by: rule
-    ref: AIND-D03021
+    mention: m2
 death:
   id: d
   date:
     ah: 878-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ar: مات بمكة في المحرم سنة ثمان وسبعين
     ja: 878年ムハッラム月＝1473年5月29日〜6月26日。メッカで没。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03021
   passive: AIND-D05151
-  quote: null
   note:
     ja: '父 ريحان ＝ #AIND-D03021（ريحان الحبشي التعكري لكونه عتيق الجمال محمد بن عمر بن مسعود التعكري والد علي وزينب … وأم هاني أم أبي بكر بن عبد الغني المرشدي، 826年メッカ没）。「والد علي」と、姉妹 أم هاني が أبو بكر بن عبد الغني المرشدي の母であること（＝本項主が同人の خال）が父側原文で二重に閉合。初版は relation なし。'
   phrase: ريحان
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D10734
+  active: m4
   passive: AIND-D05151
   summary:
     ar: أبو بكر بن عبد الغني المرشدي
-  quote: بكر بن عبد الغني المرشدي
   note:
     ja: '「خال أبي بكر بن عبد الغني المرشدي」＝本項主が母方オジ（active）、甥 أبو بكر（passive）＝ #AIND-D10734（أبو بكر بن عبد الغني بن عبد الواحد … المرشدي المكي الحنفي، 832年生）。D03021「أم هاني أم أبي بكر بن عبد الغني المرشدي」により母方であることも確認。初版は subtype siblings_child・向き逆・#NEEDID。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00039
-    quote: بالهند
-    norm: الهند
-  quote: أقام
+  - mention: m6
   trigger: rule
-  norm: اقام
   phrase: ممن أقام بالهند مدة
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   cert: medium
   note:
     ja: 'Pattern A（没年記録）。没年 878（871＜878≦885）→ 規約11により النجم بن فهد ＝ #AIND-D05979、cert medium。初版は subtype「other」の relation（D09211＝871年没で不可）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد أيضا
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D03021
+  quote: ريحان
+- id: m3
+  kind: name
+  ref: TMP-N-01240
+  quote: التعكري
+- id: m4
+  kind: person
+  ref: AIND-D10734
+  quote: بكر بن عبد الغني المرشدي
+- id: m5
+  kind: event
+  quote: أقام
+  norm: اقام
+- id: m6
+  kind: place
+  quote: بالهند
+  ref: TMP-L-00039
+  norm: الهند
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '878'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・ライハーン・アッ＝タアカリー。アブー・バクル・ブン・アブド・アル＝ガニー・アル＝ムルシディーの母方の叔父。インドにしばらく滞在した者の一人。878年ムハッラム月にマッカ（メッカ）で没した。イブン・ファハドも彼の没年を記録している。
   en: ʿAlī b. Rayḥān al-Taʿkarī, the maternal uncle of Abū Bakr b. ʿAbd al-Ghanī al-Murshidī. He was among those who resided in India for a period. He died in Mecca in Muḥarram of the year 878 AH. Ibn Fahd also recorded his death.

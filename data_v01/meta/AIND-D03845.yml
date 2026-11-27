@@ -9,53 +9,73 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 846-10
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     en: Died in Shawwāl 846 AH. His date of death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m5
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   orgs:
   - ref: TMP-I-00131
-  quote: شيخ البيمارستان
+  mention: m2
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m3
   note:
     en: Resided in Mecca where he served as the director of its hospital.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
+  - mention: m7
   summary:
     ar: أرخه ابن فهد
-  quote: أرخهما
   cert: low
   note:
     ja: 初版は subtype="biographer" の personal relation（Pattern A違反）。没846≦871のため §5④により التقي محمد(#AIND-D09211)、cert="low"。
   trigger: rule
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: office
+  ref: wd:Q7492880
+  quote: شيخ البيمارستان
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 10
+  quote: شوال
+- id: m5
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخهما
   norm: ارخهما
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥルラフマーン。マッカの病院のシャイフ（院長）。ハジュリー暦846年シャウワール月にマッカで没した。イブン・ファハドが彼の死亡日を記録している。
   en: ʿAbd al-Raḥmān, the shaykh (director) of the hospital in Mecca. He died there in Shawwāl, 846 AH. His date of death was recorded by Ibn Fahd.

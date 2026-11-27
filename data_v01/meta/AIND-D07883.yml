@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01430
-    quote: المازوني
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 866
   note:
     ja: 「مات سنة ست وستين」＝866年＝1461-10-15 開始（h2g.py）、年精度。初版の @when 1462 を 1461 に。初版の death placeName تلمسان は「نزيل تلمسان」（居住）からの補完で、没地は原文に明記されないため除去（規則22-1）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: عبد الله
@@ -38,18 +37,38 @@ relations:
   subtype: father
   active: AIND-D07883#p1
   passive: AIND-D07883
-  quote: null
   note:
     ja: '父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c'')）。初版の #TMP-P-000490（汚染番号）を除去。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00064
-    quote: تلمسان
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل تلمسان
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-01430
+  quote: المازوني
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: تلمسان
+  ref: TMP-L-00064
+- id: m6
+  kind: year
+  value: '866'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝マーズーニー、ティレムサーンの寄留者。866年に没した。
   en: Muḥammad b. ʿAbd Allāh al-Māzūnī, resident of Tilimsān. He died in [8]66.

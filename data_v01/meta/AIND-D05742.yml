@@ -9,45 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01386
-    quote: الثقفي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بعلي بدوي
-    norm: علي بدوي
     label: علي بدوي
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 881-01
   note:
     ja: 「مات في المحرم سنة إحدى وثمانين」。881年ムハッラム月＝1476-05-05〜1476-06-02。没地は原文に記載なし（初版の placeName مكة はニスバ・職地からの補完のため除去、規則22(1)）。
-  quote: سنة
+  mention: m6
 states:
 - id: s1
   type: office
   ref: TMP-O-00302
   places:
   - ref: gn:104515
-  quote: null
   note:
     ja: 「السمان بها」＝マッカで乳脂（サムン）商を営んだ。「بها」の先行詞はニスバ المكي の指すマッカ（規則22(3)、B89-93 裁定により cert 不要）。職は ID-Master 未登録のため仮 TMP-O-00302。
+  mention: null
 assessments:
 - id: v1
-  quote: وكان يحب خدمة الصالحين والعلماء ويقضي حوائجهم
-  norm: كان يحب خدمة الصالحين والعلماء ويقضي حواءجهم
   label: كان يحب خدمة الصالحين والعلماء ويقضي حوائجهم
   terms:
   - صالح
   label_latn: kāna yuḥibbu khidmat al-ṣāliḥīn wa-l-ʿulamāʾ wa-yaqḍī ḥawāʾijahum
+  mention: m8
 events:
 - id: e2
   type: cultural
@@ -56,27 +52,64 @@ events:
   - ref: wd:Q4120128
   summary:
     ar: وقد رأيته … وكنت ممن فعل معي ذلك
-  quote: رأيته
   note:
     ja: サハーウィーは本項主に会っており、本項主の「善人・学者への奉仕と用事の代行」をサハーウィー自身も受けた。初版の subtype「friend」を是正（友人関係は原文にない）。
   trigger: rule
-  norm: رايته
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: medium
   note:
     ja: Pattern A（没年記録）。没881年（871＜881≤885）→ 振り分け規則により النجم عمر بن فهد（#AIND-D05979）、cert medium。初版の統制外 subtype「chronicler」relation（#AIND-D09211）を是正。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
 notes:
 - text: '本バッチ内の転送見出し #AIND-D05736「علي بدوي . يأتي في علي الثقفي قريبا」（REF、方式X）の転送先が本項。通称「علي بدوي」で引かれる。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-N-01386
+  quote: الثقفي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: name
+  quote: بعلي بدوي
+  norm: علي بدوي
+- id: m5
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m6
+  kind: year
+  value: '881'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: رأيته
+  norm: رايته
+- id: m8
+  kind: assessment
+  quote: وكان يحب خدمة الصالحين والعلماء ويقضي حوائجهم
+  norm: كان يحب خدمة الصالحين والعلماء ويقضي حواءجهم
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アリー・アッ＝サカフィー・アル＝マッキー、同地（マッカ）の乳脂商（サンマーン）で、アリー・バダウィーとして知られる。881年ムハッラム月に没した。私は彼に会ったことがある。彼は善人や学者に奉仕し、彼らの用事を果たすことを好み、私もそのようにしてもらった者の一人であった。イブン・ファハドがその没年を記録した。
   en: ʿAlī al-Thaqafī al-Makkī, the clarified-butter seller (sammān) there (in Mecca), known as ʿAlī Badawī. He died in Muḥarram of the year 881. I saw him; he loved to serve the righteous and the scholars and to attend to their needs, and I was among those for whom he did so. Ibn Fahd recorded his death.

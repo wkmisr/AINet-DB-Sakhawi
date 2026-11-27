@@ -9,52 +9,71 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الجمال
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00136
+  active: m4
   passive: AIND-D06501
   summary:
     ar: إبراهيم بن عبد الرحمن بن حسين بن قاسم
-  quote: الذي قبله
   note:
     ja: '「أخو الذي قبله」＝直前の項 #AIND-D06500（محمد بن إبراهيم بن عبد الرحمن … الشمس بن البرهان … الماضي أبوه）の兄弟＝父は同じ #AIND-D00136（إبراهيم بن عبد الرحمن … برهان الدين … ابن القطان、819年生・898年没）。文脈で確定する父（規則3）。次項 #AIND-D06502「محمد الصلاح أخو اللذين قبله … وقرأ على والده صحيح مسلم … ودخل القاهرة مع أبيه」も同じ父を前提にする。初版は father relation なし。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D06500
+  active: m3
   passive: AIND-D06501
-  quote: أخو
   note:
     ja: '「أخو الذي قبله وذاك الأكبر」＝直前の項 #AIND-D06500（الشمس محمد、891年没、本バッチ B169）の弟（「ذاك」＝D06500 が年長）。初版は active・desc とも空。'
-  norm: اخو
   phrase: محمد
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D06501
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m6
   note:
     ja: 「ممن سمع مني بالمدينة أيضا」（規則2。「أيضا」＝兄と同じく）。
 notes:
 - text: 'ナサブ・ニスバ・通称（ابن القطان）は直前の項に譲られており、本項の見出しは「محمد الجمال」のみ＝persName に補わない。兄弟 #AIND-D06502（الصلاح محمد、871年生）・#AIND-D03542（الزين عبد الرحمن）は本項に名指しがない（父が AIND で共通＝relation なし、規則23）。初版の event type="study"（المدينة）は teacher relation 内の event と重複＝除去。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الجمال
+- id: m3
+  kind: person
+  ref: AIND-D06500
+  quote: أخو
+  norm: اخو
+- id: m4
+  kind: person
+  ref: AIND-D00136
+  quote: الذي قبله
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ムハンマド・アル＝ジャマール。前項の人物の兄弟で、あちらが年長である。彼もまたマディーナで私から聴いた者の一人。
   en: Muḥammad al-Jamāl, brother of the preceding, who is the elder. He too was among those who heard from me in Medina.

@@ -9,63 +9,55 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01230
-    quote: الاطفيحي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m10
   - id: n3
     type: laqab
-    quote: الزين
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بابن يعقوب
-    norm: ابن يعقوب
     label: ابن يعقوب
+    mention: m14
   - id: n5
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01700
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n9
     type: nasab
-    quote: عبد المنعم
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n11
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m16
   passive: AIND-D04108
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: شيخنا
 - id: r2
   type: kin
   subtype: father
@@ -73,61 +65,120 @@ relations:
   passive: AIND-D04108
   summary:
     ar: أحمد بن يعقوب بن أحمد بن عبد المنعم الشهاب
-  quote: null
   note:
     ja: '父 = #AIND-D01700（أحمد بن يعقوب … الشهاب أبو العباس ابن الشرف الأطفيحي … ويعرف بابن يعقوب、生790）。'
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: wd:Q4664581
+  active: m11
   passive: AIND-D04108
-  quote: الزين العراقي
   note:
     ja: 「سبط」＝母方の孫。الزين العراقي = الحافظ زين الدين عبد الرحيم العراقي（wd:Q4664581、ID-Master 登録済み）。
   phrase: سبط الزين العراقي
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D07012
+  active: m12
   passive: AIND-D04108
-  quote: المحب محمد
   note:
     ja: 'المحب محمد = #AIND-D07012（محمد بن أحمد بن يعقوب … المحب … سبط الزين العراقي）。「شقيق」＝同母兄弟。'
   phrase: شقيق المحب محمد
 - id: r5
   type: kin
   subtype: brother
-  active: AIND-D03855
+  active: m13
   passive: AIND-D04108
   summary:
     ar: شقيق عبد الرحيم
-  quote: وعبد الرحيم
   note:
     ja: 'عبد الرحيم = #AIND-D03855（عبد الرحيم بن أحمد بن يعقوب … الزين أبو الفضل بن الشهاب）。'
-  norm: عبد الرحيم
 states:
 - id: s1
   type: status
   label: تنزل في الجهات
   label_latn: tanazzala fī al-jihāt
-  quote: وتنزل في الجهات
   note:
     ja: 諸ワクフ職禄の受給者。
-  norm: تنزل في الجهات
+  mention: m17
 events:
 - id: e1
   type: residence
-  quote: null
   note:
     en: Grew up in Cairo under his parents' care.
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈ニスバ القاهري（نشأ في كنف أبويه に地名なし）〉からの補完で原文に地名の明示なし。
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D01700
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: يعقوب
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عبد المنعم
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: الزين
+- id: m8
+  kind: name
+  quote: الشهاب
+- id: m9
+  kind: name
+  ref: TMP-N-01230
+  quote: الاطفيحي
+- id: m10
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m11
+  kind: person
+  ref: wd:Q4664581
+  quote: الزين العراقي
+- id: m12
+  kind: person
+  ref: AIND-D07012
+  quote: المحب محمد
+- id: m13
+  kind: person
+  ref: AIND-D03855
+  quote: وعبد الرحيم
+  norm: عبد الرحيم
+- id: m14
+  kind: name
+  quote: بابن يعقوب
+  norm: ابن يعقوب
+- id: m15
+  kind: event
+  quote: وحج
+- id: m16
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m17
+  kind: office
+  quote: وتنزل في الجهات
+  norm: تنزل في الجهات
 translation:
   ja: アブドゥル・カーディル・ブン・アフマド・ブン・ヤアクーブ・ブン・アフマド・ブン・アブドゥル・ムンイム・ブン・アフマド・アッ＝ザイン・イブン・アッ＝シハーブ。アトフィーハを起源とし、カイロに住む。アッ＝ザイン・アル＝イラーキーの外孫であり、アル＝ムヒッブ・ムハンマドおよびアブドゥル・ラヒームの同母兄弟。父と同様にイブン・ヤアクーブ（ヤアクーブの子）として知られる。両親の庇護のもとで育ち、ハッジ（メッカ巡礼）を行い、我らがシャイフ（イブン・ハジャル）らからハディースを聴聞し、複数の人々からイジャーザを授かった。諸々の官職や金員を支給されたが、独自の生き方を貫き、時にはその原因となった行いによって非難されることもあったため、生存と地位の面で二人の兄弟に後れをとった。
   en: ʿAbd al-Qādir b. Aḥmad b. Yaʿqūb b. Aḥmad b. ʿAbd al-Munʿim b. Aḥmad, al-Zayn b. al-Shihāb. He was of Aṭfīḥī origin, resided in Cairo, and was the maternal grandson of al-Zayn al-ʿIrāqī, and the full brother of al-Muḥibb Muḥammad and ʿAbd al-Raḥīm. Like his father, he was known as Ibn Yaʿqūb. He was raised under the care of his parents, performed the Hajj, and heard Hadith from our shaykh (Ibn Ḥajar) and others, and received ijazas from a group of scholars. He held stipendiary posts, but fell behind his two brothers in longevity and status due to his peculiar lifestyle and behaviors occasionally attributed to him.

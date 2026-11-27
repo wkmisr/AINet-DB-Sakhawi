@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00054
-    quote: البعلي
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: بابن التركماني
-    norm: ابن التركماني
     label: ابن التركماني
+    mention: m4
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -38,7 +36,7 @@ death:
     cert: medium
   note:
     ja: 「مات في ثامن عشر المحرم سنة إحدى」。一の位のみの年「إحدى」＝801（イブン・ハジャル『إنباء』の記事、cert medium）。801年ムハッラム月18日 ＝ 1398-10-08（h2g.py）。没地は原文に明記なし（初版の بعلبك は職の勤務地からの補完のため除去、規則22(1)）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: محمد
@@ -51,7 +49,6 @@ relations:
   subtype: father
   active: AIND-D05995#p1
   passive: AIND-D05995
-  quote: null
   note:
     ja: '父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。初版の汚染番号 TMP-P-000529 を破棄。'
 states:
@@ -59,30 +56,63 @@ states:
   type: office
   ref: TMP-O-00050
   places:
-  - ref: gn:277130
-    quote: ببعلبك
-    norm: بعلبك
-  quote: null
+  - mention: m7
   note:
     ja: 「أحد الشهود ببعلبك ممن لا يشاقق رفقته ولا يشاطط في الأجرة」（イブン・ハジャルの評）。証人（公証人）＝ TMP-O-00050（ブリーフ指定）。場所 بعلبك は原文に明記。
+  mention: null
 events:
 - id: e2
   type: cultural
-  quote: وله نظم نازل
   note:
     ja: イブン・ハジャルの評「低調な詩作があった」。
+  phrase: وله نظم نازل
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m6
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の統制外 subtype「biographer」relation を event に変換。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه فقال
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00054
+  quote: البعلي
+- id: m4
+  kind: name
+  quote: بابن التركماني
+  norm: ابن التركماني
+- id: m5
+  kind: source
+  quote: ذكره
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m7
+  kind: place
+  quote: ببعلبك
+  ref: gn:277130
+  norm: بعلبك
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '801'
+  quote: سنة
 translation:
   ja: ウマル・ブン・ムハンマド・アル＝バアリー、イブン・アッ＝トゥルクマーニーとして知られる。我らがシャイフ（イブン・ハジャル）が『インバー』で彼を挙げて次のように述べている。「バアルバックの証人の一人で、同僚と争わず、報酬を法外に求めない者であり、低調な詩作があった。」（8）01年ムハッラム月18日に、80歳を超えて没した。神が彼を憐れみたまわんことを。
   en: 'ʿUmar b. Muḥammad al-Baʿlī, known as Ibn al-Turkumānī. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "One of the witnesses of Baʿlabakk, among those who did not quarrel with their colleagues nor overcharge in their fees; he had some poor verse." He died on the eighteenth of Muḥarram of the year (8)01, having passed eighty. May God have mercy on him.'

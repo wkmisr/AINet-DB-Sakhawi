@@ -9,52 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00112
-    quote: البغدادي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m6
 birth:
   id: b
   date:
     notBefore: 751
     notAfter: 759
   places:
-  - ref: TMP-L-00043
-    quote: ببغداد
-    norm: بغداد
+  - mention: m10
   note:
     ja: 「ولد سنة بضع وخمسين وسبعمائة ببغداد」＝751〜759 の範囲（notBefore 751＝1350-03-19 開始 → 1350、notAfter 759 の年末＝1358-12-10 → 1358）。
-  quote: سنة بضع وخمسين وسبعمائة
+  mention: m9
 death:
   id: d
   date:
     ah: 814-12
   places:
-  - ref: gn:360630
-    cert: medium
-    quote: والقاهرة
-    norm: القاهرة
+  - cert: medium
+    mention: m14
   note:
     ja: 「ومات بها في ذي الحجة سنة أربع عشرة」。814年ズー・アル＝ヒッジャ月＝1412-03-24 開始（月精度 → 1412-03。初版の @when 1411 は誤り）。「بها」の先行詞は直前に列挙された「… والحجاز والقاهرة」の最後の القاهرة と読む（見出しの「نزيل دمشق」の دمشق の可能性も残るため cert medium、規則22(3)）。
-  quote: سنة
+  mention: m16
 persons:
 - id: p1
   label: علي بن عمر
@@ -67,7 +61,6 @@ relations:
   subtype: father
   active: AIND-D08145#p1
   passive: AIND-D08145
-  quote: null
   note:
     ja: '見出しナサブのみ（汎用名、識別要素なし）、corpus に本伝なし → #NEEDID（規則3 (c'')）。初版なし。'
 affiliations:
@@ -78,49 +71,112 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: نزيل
+  - mention: m8
   trigger: rule
   phrase: نزيل دمشق
+  mention: m7
 - id: e2
   type: other
-  quote: وكف بصره
+  phrase: وكف بصره
+  mention: null
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00037
-    quote: كاليمن
-    norm: اليمن
-  - ref: TMP-L-00039
-    quote: والهند
-    norm: الهند
-  - ref: gn:109600
-    quote: والحجاز
-    norm: الحجاز
-  - ref: gn:360630
-    quote: والقاهرة
-    norm: القاهرة
-  quote: وجال في البلاد كاليمن والهند والحجاز والقاهرة
+  - mention: m11
+  - mention: m12
+  - mention: m13
+  - mention: m14
   note:
     ja: 初版の visit event ×4 を原文句つきの travel event 1件に統合（地名はすべて原文どおり、ID-Master 登録済）。
-  norm: جال في البلاد كاليمن والهند والحجاز والقاهرة
+  phrase: وجال في البلاد كاليمن والهند والحجاز والقاهرة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m18
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   note:
     ja: Pattern A。المقريزي＝wd:Q293604、『درر العقود الفريدة』＝TMP-T-00122。初版の colleague relation を言及 event に改めた。
   trigger: rule
   phrase: ذكره المقريزي في عقوده وحكي عنه حكاية
+  mention: m17
 notes:
 - text: 見出しの「الزعيم」は呼称（称号か通称か不明）のため full persName にのみ残し、別要素にしない。「وكانت لديه فضائل」は人物評（訳のみ）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00112
+  quote: البغدادي
+- id: m6
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m9
+  kind: year
+  value: 751-759
+  quote: سنة بضع وخمسين وسبعمائة
+- id: m10
+  kind: place
+  quote: ببغداد
+  ref: TMP-L-00043
+  norm: بغداد
+- id: m11
+  kind: place
+  quote: كاليمن
+  ref: TMP-L-00037
+  norm: اليمن
+- id: m12
+  kind: place
+  quote: والهند
+  ref: TMP-L-00039
+  norm: الهند
+- id: m13
+  kind: place
+  quote: والحجاز
+  ref: gn:109600
+  norm: الحجاز
+- id: m14
+  kind: place
+  quote: والقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m15
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m16
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m17
+  kind: source
+  quote: ذكره
+- id: m18
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ウマル、アッ＝シャムス・アル＝バグダーディー・アル＝ハンバリー・アッ＝ザイーム、ダマスクス在住。750年代（7）5X年にバグダードで生まれ、失明し、イエメン・インド・ヒジャーズ・カイロなどの諸国を遍歴した。そこ（カイロ）で（8）14年ズー・アル＝ヒッジャ月に没した。彼には美点があった。アル＝マクリーズィーが『ウクード』で彼に言及し、彼から一つの逸話を伝えている。
   en: Muḥammad b. ʿAlī b. ʿUmar, al-Shams al-Baghdādī al-Ḥanbalī al-Zaʿīm, resident of Damascus. He was born in the 750s (seven hundred fifty-odd) in Baghdad; he lost his sight and travelled through the lands, such as Yemen, India, the Hijaz and Cairo. He died there (in Cairo) in Dhū al-Ḥijja of the year [8]14, and he had merits. Al-Maqrīzī mentioned him in his ʿUqūd and related an anecdote on his authority.

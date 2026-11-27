@@ -9,52 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m5
   - id: n2
     type: nisbah
     ref: TMP-N-00027
-    quote: null
+    mention: null
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: داود
     by: rule
-    ref: AIND-D02949
+    mention: m2
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 863-03
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     en: He died in Mecca in Rabīʿ al-Awwal 863 AH (= January 1459); dated by Ibn Fahd.
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02949
+  active: m7
   passive: AIND-D07374
   summary:
     ar: داود بن عثمان بن علي (ويعرف بالنظام)
-  quote: أبوه
   note:
     ja: 父=#AIND-D02949（داود بن عثمان بن علي النظام الهاشمي العدني التاجر、没827 جدة）。「ويعرف أبوه بالنظام」と一致。
-  norm: ابوه
 - id: r2
   type: kin
   subtype: brother
@@ -62,7 +56,6 @@ relations:
   passive: AIND-D07374
   summary:
     ar: أخ اسمه عبد الله (سمع في سنة أربع عشرة على الزين المراغي)
-  quote: null
   note:
     ja: '兄弟 عبد الله بن داود بن عثمان بن علي الهاشمي。corpus の عبد الله 部に本伝なし。初版の #TMP-P-000490（=al-Zuhrī の祖父 عبد الله）は別人のため、新規 #TMP-P-001135 を発行（規則12）。814年に الزين المراغي から聴聞したのは兄弟であり本項主ではない。'
 states:
@@ -70,23 +63,72 @@ states:
   type: office
   ref: TMP-O-00390
   places:
-  - ref: TMP-L-00036
-    quote: جدة
-  quote: null
+  - mention: m6
   note:
     ja: 'ジッダの行政実務官（مباشر）の一人。ID-Master に該当職名がないため新規 #TMP-O-00272 を発行。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m12
   cert: low
   note:
     ja: Pattern A。没年863≤871 のため ابن فهد＝التقي(#AIND-D09211) cert low（ブリーフの振り分け基準）。初版の relation(chronicled by) を置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D02949
+  quote: داود
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m6
+  kind: place
+  quote: جدة
+  ref: TMP-L-00036
+- id: m7
+  kind: person
+  ref: AIND-D02949
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m10
+  kind: year
+  value: '863'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m13
+  kind: year
+  value: '914'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ダーウード・ブン・ウスマーン・ブン・アリー・アル＝クラシー・アル＝ハーシミー、ジッダの行政実務官（ムバーシル）の一人。彼の父はアン＝ニザームとして知られる。ヒジュラ暦863年ラビーウ・アルアウワル月にマッカで没した。イブン・ファハドが彼の没年を記録している。彼にはアブドゥッラーという名の兄弟がおり、（その兄弟は）814年にアッ＝ザイン・アル＝マラーギーから聴聞した。二人の父は「シャイフ」と称されていた。
   en: Muḥammad b. Dāwūd b. ʿUthmān b. ʿAlī al-Qurashī al-Hāshimī, one of the administrators (mubāshirūn) of Jedda. His father was known as al-Niẓām. He died in Mecca in Rabīʿ al-Awwal of the year 863 AH. Ibn Fahd recorded his date. He had a brother named ʿAbd Allāh, who heard [hadith] in the year 814 AH from al-Zayn al-Marāghī, and their father was described as "al-Shaykh".

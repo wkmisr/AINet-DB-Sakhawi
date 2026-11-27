@@ -9,53 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01931
-    quote: البربهاري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-05474
-    quote: العمري
+    mention: m7
   - id: n4
     type: laqab
-    quote: وجيه الدين
+    mention: m4
   - id: n5
     type: shuhrah
-    quote: بابن عثمان
-    norm: ابن عثمان
     label: ابن عثمان
+    mention: m9
   - id: n6
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001539
+    mention: m2
   - id: n8
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n9
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m8
 death:
   id: d
   date:
     ah: 882-09
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   note:
     en: He died in the month of Ramadan.
-  quote: سنة
+  mention: m17
 relations:
 - id: r1
   type: kin
@@ -64,23 +56,19 @@ relations:
   passive: AIND-D03772
   summary:
     ar: محمد بن عثمان البربهاري المكي
-  quote: null
   note:
     ja: 規則3・37。見出しナサブの父。兄弟 D01399・D05467 と共用の TMP-P-001539（B124-128 で発行）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D03772
   methods:
   - TMP-S-00008
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: عني
+    - mention: m11
 - id: r3
   type: scholarly
   subtype: teacher
@@ -91,18 +79,15 @@ relations:
   context:
   - type: learning
     places:
-    - ref: TMP-L-00002
-      quote: الشام
-  quote: null
+    - mention: m14
   note:
     ja: حميد الدين=#AIND-D06830(#98 محمد بن أحمد حميد الدين أبو المعالي النعماني الفرغاني الدمشقي الحنفي ويعرف بحميد الدين)。シャームのハナフィー派学頭で、本項主(ハナフィー)のシャーム師として整合。転送項D07040も同人を指す。
   phrase: ومن شيوخه في الشام حميد الدين لازمه
 - id: r4
   type: social
   subtype: friend
-  active: AIND-D05979
+  active: m12
   passive: AIND-D03772
-  quote: واختص بصاحبنا النجم بن فهد
   note:
     ja: النجم بن فهد=#AIND-D05979(#409 عمر بن محمد النجم أبو القسم الهاشمي المكي、صاحبنا/مفيدنا)。
 states:
@@ -110,10 +95,8 @@ states:
   type: office
   ref: TMP-O-00155
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m11
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -122,29 +105,91 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m11
+  mention: null
 - id: e2
   type: visit
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: ودخل
+  - mention: m14
   note:
     en: Entered Syria.
   trigger: rule
-  norm: دخل
+  mention: m13
 - id: e3
   type: visit
   places:
-  - ref: gn:352261
-    quote: ومصر
-    norm: مصر
-  quote: null
+  - mention: m15
   note:
     en: Entered Egypt.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-001539
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: وجيه الدين
+- id: m5
+  kind: name
+  ref: TMP-N-01931
+  quote: البربهاري
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: TMP-N-05474
+  quote: العمري
+- id: m8
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m9
+  kind: name
+  quote: بابن عثمان
+  norm: ابن عثمان
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: person
+  ref: AIND-D05979
+  quote: واختص بصاحبنا النجم بن فهد
+- id: m13
+  kind: event
+  quote: ودخل
+  norm: دخل
+- id: m14
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
+- id: m15
+  kind: place
+  quote: ومصر
+  ref: gn:352261
+  norm: مصر
+- id: m16
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m17
+  kind: year
+  value: '882'
+  quote: سنة
 translation:
   ja: アブドゥルラフマーン・ブン・ムハンマド・ブン・ウースマーン、ワジーフ・アッ＝ディーン。バルバハール（イラクの村）を祖とし、マッカに居住した。代行ウムラ業（アマル・アル＝ウマル）に由来するアル＝ウマリーのニスバを持つ。ハナフィー派。イブン・ウースマーンとして知られる。マッカで私（サハーウィー）から学び、少し学業に携わった。我らの同僚であるナジュム・ブン・ファハドと親交を結び、シリアやエジプトなどを訪れた。シリアでの彼の師の中には、彼が付き従ったハミード・アッ＝ディーンがいる。代行ウムラで生計を立て、ヤルブガーの講義などの給費枠に登録された。ヒジュラ暦882年ラマダーン月にマッカで没した。
   en: Abd al-Rahman b. Muhammad b. Uthman, Wajih al-Din, of Barbahari origin, then of Mecca, known as al-Umari due to his work with the Umrah arrangements, a Hanafi also known as Ibn Uthman. He studied under me (al-Sakhawi) in Mecca, engaged in studies for a short while, and was closely associated with our companion Najm b. Fahd. He traveled to Syria, Egypt, and elsewhere. Among his teachers in Syria was Hamid al-Din, whom he accompanied closely. He made a living through Umrah services and was appointed to a position in the lectures of Yalbugha, among others. He died in Mecca in Ramadan, 882 AH.

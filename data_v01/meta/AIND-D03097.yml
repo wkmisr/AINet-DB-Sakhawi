@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00277
-    quote: بالسمنودي
-    norm: السمنودي
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: null
     label: السمنودي
+    mention: null
   - id: n3
     type: ism
-    quote: سعد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 838
   places:
-  - ref: TMP-L-00273
-    quote: برابغ
-    norm: رابغ
+  - mention: m5
   note:
     en: He died after getting lost in Rābigh while traveling to Cairo.
-  quote: سنة
+  mention: m6
 events:
 - id: e1
   type: travel
@@ -39,14 +35,38 @@ events:
     cert: high
     type: travel
   places:
-  - ref: gn:360630
-    quote: للقاهرة
-    norm: لقاهرة
-  quote: توجهه
+  - mention: m4
   cert: high
   note:
     en: While traveling to Cairo
   trigger: rule
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: سعد
+- id: m2
+  kind: name
+  ref: TMP-N-00277
+  quote: بالسمنودي
+  norm: السمنودي
+- id: m3
+  kind: event
+  quote: توجهه
+- id: m4
+  kind: place
+  quote: للقاهرة
+  ref: gn:360630
+  norm: لقاهرة
+- id: m5
+  kind: place
+  quote: برابغ
+  ref: TMP-L-00273
+  norm: رابغ
+- id: m6
+  kind: year
+  value: '838'
+  quote: سنة
 translation:
   ja: サード、アル＝サムヌーディーとして知られる。彼は838年にカイロへ向かう途中、ラービグで迷子になり死亡した。
   en: Saʿd, known as al-Samanūdī. He died in the year 838 after getting lost in Rābigh while traveling to Cairo.

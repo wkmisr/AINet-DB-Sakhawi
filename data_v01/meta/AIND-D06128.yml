@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: فارح
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: جاء الخير
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: جاء الخير
@@ -27,21 +27,33 @@ relations:
   subtype: father
   active: AIND-D06128#p1
   passive: AIND-D06128
-  quote: null
   note:
     ja: '規則3。父名 جاء الخير は珍しい名だが祖父名が復元できず、corpus に本伝なし（「جاء الخير」は本項のみ）→ #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
   places:
-  - ref: gn:266826
-    cert: medium
-    quote: طرابلس
-  quote: قائد
+  - cert: medium
+    mention: m4
   note:
     ja: '職 القائد＝TMP-O-00094（初版 #NEEDID）。طرابلس は無限定で、ID-Master 標準の gn:266826（シリアのトリポリ）を充てるが、「القائد」はマグリブ・ヒジャーズで多い称号で前後の項（D06129 マリーン朝の القائد）からトリポリ（リビア、gn:2210247、repo 先例 D01805）の可能性もあるため cert medium（ISSUES §D125-1）。'
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: فارح
+- id: m2
+  kind: name
+  quote: جاء الخير
+- id: m3
+  kind: office
+  ref: TMP-O-00094
+  quote: قائد
   norm: قاءد
+- id: m4
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
 translation:
   ja: ファーリフ・ブン・ジャー・アル＝ハイル。トリポリのカーイド（隊長）。
   en: Fāriḥ b. Jāʾ al-Khayr, the qāʾid (commander) of Tripoli.

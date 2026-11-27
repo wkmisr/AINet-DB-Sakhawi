@@ -9,27 +9,26 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: برهان الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: حيدر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q764947
+  active: m5
   passive: AIND-D02799
   methods:
   - TMP-S-00008
-  quote: التفتازاني
   note:
     ja: 初版は person 位置に nisbah 番号 TMP-N-00230（=التفتازاني）を流用していた（カテゴリ不一致）。سعد الدين التفتازاني（没792）は9世紀外＝corpus立項なしのため wd:Q764947（WebSearch実item照合済）を採用。
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D02799
-  passive: AIND-D00900
+  passive: m6
   methods:
   - TMP-S-00004
   context:
@@ -37,20 +36,16 @@ relations:
     date:
       ah: 801
       type: teaching
-  quote: الطاووسي
   note:
     ja: 初版は person 位置に nisbah 番号 TMP-N-00266（=الطاووسي）を流用（カテゴリ不一致）。報告者「الطاووسي」＝أحمد بن عبد الله … نور الدين أبو الفتوح الطاوسي الأبرقوهي الشيرازي = AIND-D00900（§D-1裁定 Waka 2026-08-18で確定。既存repoの D01778/D02705/D02707/D03407 も一括是正済、TMP-P-000696・000720はD00900へ統合）。active=見出し人物＝授与者（أجاز لي）。
 states:
 - id: s1
   type: office
-  ref: wd:Q352842
   places:
-  - ref: TMP-L-00055
-    quote: بشيراز
-    norm: شيراز
+  - mention: m4
   orgs:
   - ref: TMP-I-00099
-  quote: مدرس
+  mention: m3
 affiliations:
 - id: a1
   type: teach
@@ -62,10 +57,36 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00055
-    quote: بشيراز
-    norm: شيراز
-  quote: null
+  - mention: m4
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حيدر
+- id: m2
+  kind: name
+  quote: برهان الدين
+- id: m3
+  kind: office
+  ref: wd:Q352842
+  quote: مدرس
+- id: m4
+  kind: place
+  quote: بشيراز
+  ref: TMP-L-00055
+  norm: شيراز
+- id: m5
+  kind: person
+  ref: wd:Q764947
+  quote: التفتازاني
+- id: m6
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسي
+- id: m7
+  kind: year
+  value: '801'
+  quote: سنة
 translation:
   ja: ハイダル・ブルハーン・アッ＝ディーン。シーラーズのアル＝カッザーリーヤ・マドラサの教授。アッ＝タフターザーニーから学んだ。アッ＝ターウースィーは「（ヒジュラ暦）801年に自身にイジャーザを授けてくれた」と述べている。
   en: 'Ḥaydar Burhān al-Dīn, teacher of al-Qazzāriyya in Shīrāz. He was among those who took from al-Taftāzānī. Al-Ṭāwūsī said: ''He granted me ijāza in the year 801 AH.'''

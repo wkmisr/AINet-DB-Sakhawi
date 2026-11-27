@@ -9,59 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01280
-    quote: البسطيني
+    mention: m5
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00236
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06535
+    mention: m3
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
 birth:
   id: b
   date:
     ah: 882-09-08
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: سنة
+  - mention: m10
+  mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10715
+  active: m13
   passive: AIND-D00448
   methods:
   - TMP-S-00006
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: لمكة
-      norm: مكة
-  quote: التقي بن قاضي عجلون
+    - mention: m12
   note:
     ar: 'وعرض بعضها على التقي بن قاضي عجلون حين جاور (المحفوظات: القرآن وأربعي النووي والبردة وألفية النحو والمنهاج — البعض غير محدد)'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m14
   passive: AIND-D00448
   methods:
   - TMP-S-00003
@@ -73,12 +62,9 @@ relations:
       ah: 897
       type: learning
     places:
-    - ref: gn:104515
-      quote: لمكة
-      norm: مكة
+    - mention: m12
   works:
   - ref: wd:Q4120006
-  quote: علي
 - id: r3
   type: scholarly
   subtype: teacher
@@ -94,16 +80,13 @@ relations:
       ah: 897
       type: learning
     places:
-    - ref: gn:104515
-      quote: لمكة
-      norm: مكة
+    - mention: m12
   works:
   - ref: wd:Q1023470
-  quote: null
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-000574
+  active: m17
   passive: AIND-D00448
   methods:
   - TMP-S-00003
@@ -112,15 +95,11 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة النبوية
-      norm: المدينة النبوية
+    - mention: m16
   works:
   - ref: wd:Q4120006
-  quote: محمد بن أبي الفرج
   note:
     ar: بقراءة أبيه
-  norm: محمد بن ابي الفرج
 - id: r5
   type: scholarly
   subtype: teacher
@@ -133,26 +112,20 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة النبوية
-      norm: المدينة النبوية
+    - mention: m16
   works:
   - ref: wd:Q1023470
-  quote: null
 - id: r6
   type: kin
   subtype: father
-  active: AIND-D00236
+  active: m6
   passive: AIND-D00448
-  quote: أبوه
-  norm: ابوه
   phrase: إبراهيم بن محمد بن إبراهيم البسطيني
 - id: r7
   type: kin
   subtype: grandfather
-  active: AIND-D06535
+  active: m7
   passive: AIND-D00448
-  quote: جده
   phrase: محمد بن إبراهيم البسطيني
 events:
 - id: e1
@@ -162,14 +135,12 @@ events:
     cert: medium
     type: residence
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: تحول
+  - mention: m12
   cert: medium
   note:
     en: Moved from Jeddah to Mecca one month after birth.
   trigger: rule
+  mention: m11
 notes:
 - text: 母親は父に属するハバシュ人の女奴隷（ḥabashiyya li-abīhi）
   lang: ja
@@ -177,6 +148,80 @@ notes:
 - text: His mother was an Abyssinian slave woman belonging to his father (ḥabashiyya li-abīhi).
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D00236
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: AIND-D06535
+  quote: محمد
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  ref: TMP-N-01280
+  quote: البسطيني
+- id: m6
+  kind: person
+  ref: AIND-D00236
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: AIND-D06535
+  quote: جده
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '882'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m11
+  kind: event
+  quote: تحول
+- id: m12
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m13
+  kind: person
+  ref: AIND-D10715
+  quote: التقي بن قاضي عجلون
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m15
+  kind: year
+  value: '897'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بالمدينة النبوية
+  ref: gn:109223
+  norm: المدينة النبوية
+- id: m17
+  kind: person
+  ref: TMP-P-000574
+  quote: محمد بن أبي الفرج
+  norm: محمد بن ابي الفرج
 translation:
   ja: アハマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム・アル＝バスティーニー。その父については既述、その祖父については後述。882年ラマダーン8日にジッダで生まれた。彼の母は父に属するハバシュ（アビシニア）人の女奴隷であった。1ヶ月後、両親とともにマッカへ転居した。クルアーン、『アルバイーン・アン＝ナワウィー』、『ブルダ』、『アルフィーヤ・アン＝ナフウ』、『アル＝ミンハージュ』を記憶し、マッカに滞在していた際に、アッ＝タキー・ブン・カーディー・アジュルーンにそれらの一部を提示（朗誦して確認してもらった）。その滞在期間中、さらに897年に、私（サハーウィー）から『アッ＝シファー』と『サヒーフ・アル＝ブハーリー』を聴聞した。同様に、預言者の町マディーナでは、父の朗誦によりシャイフ・ムハンマド・ブン・アビー・アル＝ファラジュから『アッ＝シファー』の一部と『サヒーフ・アル＝ブハーリー』の一部を聴聞した。文法学やその他の学問について、貴顕の人々（アアヤーン）らのもとで学んだ。
   en: Aḥmad b. Ibrāhīm b. Muḥammad b. Ibrāhīm al-Basṭīnī. His father was mentioned previously, and his grandfather will be mentioned later. He was born on the 8th of Ramaḍān in the year 882 AH in Jeddah. His mother was an Abyssinian slave woman of his father. One month later, he moved with his parents to Mecca. He memorized the Qurʾān, al-Nawawī's al-Arbaʿīn, al-Burda, Alfiyyat al-Naḥw, and al-Minhāj. He presented some of these works to al-Taqī b. Qāḍī ʿAjlūn when he resided in Mecca. During that sojourn, and again in 897 AH, he heard al-Shifāʾ and al-Bukhārī from me (al-Sakhāwī). Likewise, in the Prophetic City of Medina, he heard parts of al-Shifāʾ and al-Bukhārī from Shaykh Muḥammad b. Abī al-Faraj, with his father reciting. He studied grammar and other subjects under notables (aʿyān, written عيان) and others.

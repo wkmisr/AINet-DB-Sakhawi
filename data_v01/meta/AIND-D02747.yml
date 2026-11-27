@@ -10,78 +10,107 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00309
-    quote: null
+    mention: null
   - id: n2
     type: nisbah
     ref: TMP-N-00002
-    quote: null
+    mention: null
   - id: n3
     type: kunyah
-    quote: أبو النور
-    norm: ابو النور
+    mention: m5
   - id: n4
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D08946
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: على
     by: rule
-    norm: علي
+    mention: m4
   - id: n8
     type: nasab
-    quote: أبي الخير
     by: rule
-    norm: ابو الخير
+    mention: m6
   - id: n9
     type: nasab
-    quote: الجمال الفاكهى المكى الآتى
     by: rule
-    norm: الجمال الفاكهي المكي الاتي
+    mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D08946
+  active: m8
   passive: AIND-D02747
   summary:
     ar: الآتي أبوه أسمعه أبوه بمكة بقراءته وقراءة غيره
-  quote: أبوه
   note:
     ja: 父=#AIND-D08946(#396 محمد بن محمد بن علي بن محمد بن عمر بن عبد الله أبو الخير الفاكهي المكي الشافعي)。「الآتي أبوه」に対応・ナサブ一致で閉合。سماعの相手(師)は本文で名指しされない(「أسمعه أبوه على بمكة」の「على」の後が欠落した可能性=corpus異常として申し送り)ため、teacher relationは立てない。
-  norm: ابوه
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m9
   works:
   - ref: TMP-T-00005
   methods:
   - TMP-S-00025
   summary:
     ar: أسمعه أبوه بمكة بقراءته وقراءة غيره ومن ذلك بعض ترجمة النووي
-  quote: وقراءة
   trigger: rule
-  norm: قراءة
+  mention: m10
 - id: e2
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m9
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  ref: AIND-D08946
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: على
+  norm: علي
+- id: m5
+  kind: name
+  quote: أبو النور
+  norm: ابو النور
+- id: m6
+  kind: name
+  quote: أبي الخير
+  norm: ابو الخير
+- id: m7
+  kind: name
+  quote: الجمال الفاكهى المكى الآتى
+  norm: الجمال الفاكهي المكي الاتي
+- id: m8
+  kind: person
+  ref: AIND-D08946
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: event
+  quote: وقراءة
+  norm: قراءة
 translation:
   ja: フサイン・ブン・ムハンマド・ブン・ムハンマド・ブン・アリー、アブー・アン＝ヌール・ブン・アビー・アル＝ハイル・ブン・アル＝ジャマール・アル＝ファーキヒー・アル＝マッキー。父（アブー・アル＝ハイル・アル＝ファーキヒー）は後出する。父はマッカで、自らの読誦と他者の読誦により彼に聴聞させた。そのうちには『ナワウィー伝』の一部も含まれる。
   en: Ḥusayn b. Muḥammad b. Muḥammad b. ʿAlī, Abū al-Nūr b. Abī al-Khayr b. al-Jamāl al-Fākihī al-Makkī. His father, whose biography is mentioned below, made him hear in Mecca, through his own recitation and the recitation of others, including a portion of the biography of al-Nawawī.

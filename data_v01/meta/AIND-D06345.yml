@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m4
   - id: n2
     type: ism
-    quote: قسيطل
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: زهير
     by: rule
-    ref: AIND-D03045
+    mention: m2
   - id: n4
     type: nasab
-    quote: سليمان
     by: rule
-    ref: AIND-D03175
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03045
   passive: AIND-D06345
-  quote: null
   note:
     ja: '父 زهير بن سليمان الحسيني＝corpus 本伝 #AIND-D03045「زهير بن سليمان بن هبة بن جماز بن منصور الحسيني أمير المدينة」（873年サファル月没。本文「انفصل في شوال سنة تسع وستين نحو أربعة أشهر بضغيم بن خشرم」）。本項の見出しナサブ（بن زهير بن سليمان）＋ニスバ・マディーナ首長家で一致（規則37）。初版の #NEEDID を置換。'
   phrase: زهير بن سليمان
@@ -40,50 +36,85 @@ relations:
   subtype: grandfather
   active: AIND-D03175
   passive: AIND-D06345
-  quote: null
   note:
     ja: '祖父 سليمان＝父 D03045 の見出しナサブ「زهير بن سليمان بن هبة بن جماز」により corpus 本伝 #AIND-D03175「سليمان بن هبة بن جماز بن منصور الحسيني أمير المدينة」（817年末、カイロの獄中で没）に確定（規則37）。初版の #NEEDID を置換。'
   phrase: سليمان
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D03401
+  active: m8
   passive: AIND-D06345
-  quote: ضغيم
   note:
     ja: '「وليها بعد انفصال ضغيم في سنة ثلاث وثمانين」。前任 ضغيم＝corpus 本伝 #AIND-D03401「ضغيم بن خشرم بن ثابت بن نعير الحسيني أمير المدينة … ثم أعيد بعد موته في سنة أربع وسبعين فاستمر إلى رمضان سنة ثلاث وثمانين فانفصل بقسيطل بن زهير」＝本項主を名指しして閉合。ID-Master の関係専用行 TMP-P-001109（ضغيم、D03404 の兄弟用）は使わない。初版の #NEEDID を置換。D03401 本文により本項主の就任は 883年ラマダーン月。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m6
   dates:
   - ah: 883
     type: appointment
   - ah: 887
     type: retirement
-  quote: أمير
   note:
     ja: 883年（1478-04-13 開始）に「بمعاونة صاحب الحجاز」（ヒジャーズの主＝マッカのシャリーフ、名なし＝relation なし）の助力で就任し、887年（1482-03-01 開始）の「أثناء」（年の途中）に罷免。初版の 783／787 は世紀誤り（本項主の父 D03045 は873年没、前任 D03401 の本文も 883年）。「أثناء سنة سبع وثمانين」は年精度。
-  norm: امير
+  mention: m5
 events:
 - id: e1
   type: political
   date:
     ah: 887
     type: political
-  quote: وليها
   note:
     ja: '887年の途中に罷免。理由: エジプトの主（スルターン、名なし）がヒジャーズ諸地の事務を「彼」（＝صاحب الحجاز）に委ねたので、「前記の者」（＝ضغيم）に代償（復職）を与えるとの口実による。صاحب مصر・صاحب الحجاز は名が無いので relation を立てない。初版の政治 event 2件（任命・罷免、placeName المدينة 付き）をこの1件に統合し placeName を除去（罷免の地は原文にない）。'
   trigger: rule
-  norm: ليها
   phrase: ثم انفصل بدعوى بتعويض المشار إليه لإضافة صاحب مصر أمر بلاد الحجاز إليه
+  mention: m7
 notes:
 - text: '兄弟: #AIND-D03271「شامان بن زهير بن سليمان السيد الحسيني خال صاحب مكة الجمالي محمد」（883年ムハッラム月没）は見出しナサブから本項主の兄弟だが、相手側が本項主に触れないため relation は立てない（規則23。父が AIND なので共通の父で導出可）。没年の記載なし。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قسيطل
+- id: m2
+  kind: name
+  ref: AIND-D03045
+  quote: زهير
+- id: m3
+  kind: name
+  ref: AIND-D03175
+  quote: سليمان
+- id: m4
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m5
+  kind: office
+  ref: TMP-O-00163
+  quote: أمير
+  norm: امير
+- id: m6
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m7
+  kind: event
+  quote: وليها
+  norm: ليها
+- id: m8
+  kind: person
+  ref: AIND-D03401
+  quote: ضغيم
+- id: m9
+  kind: year
+  value: '883'
+  quote: سنة
+- id: m10
+  kind: year
+  value: '887'
+  quote: سنة
 translation:
   ja: クサイティル・ブン・ズハイル・ブン・スライマーン・アル＝フサイニー、マディーナのアミール。ダガイムの罷免の後、883年にヒジャーズの主（マッカのシャリーフ）の助力を得てその職に就き、887年の途中まで在職した。その後、エジプトの主がヒジャーズ諸地の事務を彼（ヒジャーズの主）に委ねたことから、前記の者（ダガイム）に代償を与えるという口実で罷免された。
   en: Qusayṭil b. Zuhayr b. Sulaymān al-Ḥusaynī, amir of Medina. He assumed its governorship after the removal of Ḍughaym in the year 883, with the assistance of the lord of the Ḥijāz, and remained until partway through the year 887; then he was removed on the pretext of compensating the aforementioned (Ḍughaym), because the lord of Egypt had added the affairs of the lands of the Ḥijāz to him (the lord of the Ḥijāz).

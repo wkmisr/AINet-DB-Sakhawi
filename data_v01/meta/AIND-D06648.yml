@@ -9,57 +9,47 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-01670
-    quote: الشويكي
+    mention: m8
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m5
   - id: n4
     type: shuhrah
-    ref: TMP-N-00156
-    quote: بالقادري
-    norm: القادري
+    mention: m10
   - id: n5
     type: shuhrah
-    quote: وبالصارم
-    norm: الصارم
     label: الصارم
+    mention: m11
   - id: n6
     type: shuhrah
-    ref: TMP-N-02715
-    quote: وبالطواقي
-    norm: الطواقي
+    mention: m12
   - id: n7
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001758
-    norm: احمد
+    mention: m2
   - id: n9
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n10
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n11
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m6
   - id: n12
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 relations:
 - id: r1
   type: kin
@@ -68,24 +58,20 @@ relations:
   passive: AIND-D06648
   summary:
     ar: الشهاب أحمد بن حسن بن عمر الدمشقي الشويكي
-  quote: null
   note:
     ja: '見出し「ناصر الدين بن الشهاب」＝父はラカブ الشهاب をもつ أحمد بن حسن بن عمر。corpus に本伝なし（hw.py「أحمد بن حسن بن عمر」「الشويكي」＝該当は本項のみ。D01583・D06943 は الشويكي الأصل الخليلي の別家、D02252 は الفارابي ثم الشويكي）、ID-Master 未登録 → 仮 TMP-P-001758（規則3: ラカブ＋祖父名まで復元可。先例 TMP-P-001677＝B154 の仮番号 NEW154-02）。初版は父 relation なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D06648
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m14
     phrase: ممن سمع مني بمكة كثيرا
-  quote: مني
 - id: r3
   type: scholarly
   subtype: teacher
@@ -95,7 +81,6 @@ relations:
   - TMP-S-00004
   works:
   - ref: TMP-T-00271
-  quote: null
   note:
     ja: '「وكتبت له إجازة وأودعت محصلها التاريخ الكبير」＝サハーウィーがイジャーザを書き、その要旨を自著『التاريخ الكبير』（TMP-T-00271）に収めた。収録先を bibl に置く（先例 #AIND-D10455）。イジャーザの場所は原文にない＝初版の event（placeName مكة）を除去。'
 affiliations:
@@ -106,6 +91,62 @@ notes:
 - text: 「الشويكي نسبة لحارة بها」＝ニスバの由来説明（ダマスクスの街区 الشويكة。#AIND-D02252「نسبة إلى الشويكة مكان ظاهر دمشق」）。event ではないので placeName は立てない（規則22(2) 末尾）。「ويعرف بالقادري وبالصارم وبالطواقي」の3つは通称として shuhrah にした（初版は القادري・الطواقي を nisbah）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001758
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: ناصر الدين
+- id: m6
+  kind: name
+  quote: الشهاب
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: TMP-N-01670
+  quote: الشويكي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: name
+  ref: TMP-N-00156
+  quote: بالقادري
+  norm: القادري
+- id: m11
+  kind: name
+  quote: وبالصارم
+  norm: الصارم
+- id: m12
+  kind: name
+  ref: TMP-N-02715
+  quote: وبالطواقي
+  norm: الطواقي
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m14
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ハサン・ブン・ウマル、ナースィル・アッ＝ディーン、アッ＝シハーブの子、アッ＝ディマシュキー・アッ＝シュワイキー（ダマスクスの街区にちなむニスバ）、シャーフィイー派。アル＝カーディリー、アッ＝サーリム、アッ＝タワーキーの名で知られる。マッカで私（サハーウィー）から多くを聴聞した者の一人。私は彼にイジャーザを書き与え、その要旨を『大史（アッ＝ターリーフ・アル＝カビール）』に収めた。
   en: Muḥammad b. Aḥmad b. Ḥasan b. ʿUmar, Nāṣir al-Dīn b. al-Shihāb, al-Dimashqī al-Shuwaykī (a nisba to a quarter there), the Shāfiʿī, known as al-Qādirī, as al-Ṣārim and as al-Ṭawāqī. One of those who heard much from me in Mecca; I wrote an ijāza for him and deposited its gist in al-Taʾrīkh al-kabīr.

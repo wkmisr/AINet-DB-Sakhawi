@@ -9,15 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00211
-    quote: القرافي
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: السواق
+    mention: m2
   - id: n3
     type: ism
-    quote: سليمان
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -26,7 +25,7 @@ death:
   note:
     ar: مات في ربيع الأول سنة اثنتين
     ja: 「سنة اثنتين」＝一の位のみ → 802 cert medium（2026-09-24 Waka、先例 D07006・D07072）。802年ラビーウ1月＝1399-11-09〜12-08（月精度、h2g.py）。初版の @when="1399"（年精度）を是正。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد سليمان السواق
@@ -37,7 +36,6 @@ relations:
   subtype: father
   active: AIND-D03179#p1
   passive: AIND-D03179
-  quote: null
   note:
     ja: '規則3。父の名は原文に出ない → #NEEDID。'
 states:
@@ -45,30 +43,58 @@ states:
   type: status
   label: المجذوب
   label_latn: al-majdhūb
-  quote: كان للناس فيه اعتقاد زائد وله مكاشفات عديدة
   note:
     ja: 見出しの「المجذوب」（恍惚状態の聖者）。repo 先例どおり status state（初版は shuhrah）。
-  norm: كان للناس فيه اعتقاد زاءد وله مكاشفات عديدة
+  mention: m4
 - id: s2
   type: status
   label: كان للناس فيه اعتقاد زائد وله مكاشفات عديدة
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』TMP-T-00034）。初版の統制外 subtype「biographer」relation を mention event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه ، وسماه غيره سليم
+  mention: m7
 notes:
 - text: 「السواق」は職業的な呼称（ID-Master 未登録、初版の偽番号 TMP-N-00000 nisbah を除去し shuhrah のみに）。「وسماه غيره سليم」＝他の者は名を سليم と記す（名の異伝。persName には立てず note）。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: سليمان
+- id: m2
+  kind: name
+  quote: السواق
+- id: m3
+  kind: name
+  ref: TMP-N-00211
+  quote: القرافي
+- id: m4
+  kind: office
+  quote: كان للناس فيه اعتقاد زائد وله مكاشفات عديدة
+  norm: كان للناس فيه اعتقاد زاءد وله مكاشفات عديدة
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: スライマーン・アッ＝サウワーク、アル＝カラーフィー、アル＝マジュズーブ（恍惚の人）。人々は彼に過度の信仰を寄せ、彼には多くの霊的開示（ムカーシャファ）があった。（8）02年ラビーウ・アル＝アウワル月に没した。我らの師（イブン・ハジャル）が『インバーゥ』に彼の没年を記し、他の者は彼をサリームと名づけている。
   en: Sulaymān al-Sawwāq al-Qarāfī al-Majdhūb. People held an excessive belief in him, and he had numerous mystical disclosures. He died in Rabīʿ I of the year [8]02. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ, and others named him Salīm.

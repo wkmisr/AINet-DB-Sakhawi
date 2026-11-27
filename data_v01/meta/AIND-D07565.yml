@@ -9,37 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m6
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: TMP-P-001180
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: منصور
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D08850
+  active: m9
   passive: AIND-D07565
   methods:
   - TMP-S-00003
@@ -47,61 +45,105 @@ relations:
   - TMP-S-00002
   works:
   - ref: wd:Q4120006
-  quote: ابن الكويك
   phrase: وسمع على الشرف ابن الكويك في الشفا وغيره
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m10
   passive: AIND-D07565
   methods:
   - TMP-S-00028
-  quote: شيخنا
   phrase: وكان يحضر عند شيخنا وغيره
 - id: r3
   type: kin
   subtype: father
   active: TMP-P-001180
   passive: AIND-D07565
-  quote: null
   note:
     ja: 父は見出しナサブ「محمد بن عبد الرحمن بن علي بن يوسف بن منصور الشمس القاهري」から1段ずらして復元（統一規則3）。corpus 本伝なし（#AIND-D03705 عبد الرحمن بن علي بن يوسف بن الحسن は別ナサブ）・ID-Master 未登録→ TMP-P-001180 を発行（⚠汎用名）。
   phrase: عبد الرحمن بن علي بن يوسف بن منصور
 - id: r4
   type: kin
   subtype: son
-  active: AIND-D08814
+  active: m14
   passive: AIND-D07565
-  quote: ولده
   note:
     ja: 'الكمال محمد = #AIND-D08814（刊本第259項 محمد بن محمد بن عبد الرحمن بن علي بن يوسف بن منصور الكمال أبو محمد بن الشمس بن التاج بن النور … إمام الكاملية、ナサブ6代一致）。'
   phrase: الكمال محمد إمام الكاملية الآتي
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
   orgs:
   - ref: wd:Q12241661
-  quote: إمام
-  norm: امام
   phrase: وأم بالكاملية
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: AIND-D07528
-    quote: البرماوي
-  quote: وصفه
+  - mention: m13
   note:
     ja: البرماوي = الشمس محمد بن عبد الدائم بن موسى البرماوي（#AIND-D07528、没831）。ID-Master の TMP-P-000462「الشمس البرماوي」は同人（名寄せ要、ISSUES §De-4）。第三者言及は Pattern A（初版の relation subtype="praised by"・TMP-N-00096＝ニスバ番号の person 位置流用を是正）。
   trigger: rule
-  norm: صفه
   phrase: وصفه البرماوي في إجازة ولده بالعلم والفضل
+  mention: m12
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001180
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: يوسف
+- id: m5
+  kind: name
+  quote: منصور
+- id: m6
+  kind: name
+  quote: الشمس
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: office
+  ref: wd:Q125482
+  quote: إمام
+  norm: امام
+- id: m9
+  kind: person
+  ref: AIND-D08850
+  quote: ابن الكويك
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: assessment
+  quote: خيرا
+- id: m12
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m13
+  kind: person
+  ref: AIND-D07528
+  quote: البرماوي
+- id: m14
+  kind: person
+  ref: AIND-D08814
+  quote: ولده
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・アリー・ブン・ユースフ・ブン・マンスール、アッ＝シャムス・アル＝カーヒリー。後述のアル＝カーミリーヤのイマーム、アル＝カマール・ムハンマドの父。クルアーンを読誦し、わずかに学問に従事し、アッ＝シャラフ・イブン・アル＝クワイクから『アッ＝シファー』などを聴聞した。いくつかの職（ジハート）に任ぜられ、我らがシャイフ（イブン・ハジャル）らのもとに出席し、アル＝カーミリーヤでイマームを務めた。善良な人物で、アル＝ビルマーウィーは彼の息子へのイジャーザの中で彼を学識と徳をもって評した。
   en: Muḥammad b. ʿAbd al-Raḥmān b. ʿAlī b. Yūsuf b. Manṣūr, al-Shams al-Qāhirī, the father of al-Kamāl Muḥammad, the imam of al-Kāmiliyya, who is mentioned below. He recited the Qurʾān, studied a little, and heard al-Shifāʾ and other works from al-Sharaf Ibn al-Kuwayk. He was appointed to some posts (jihāt), attended the sessions of our shaykh (Ibn Ḥajar) and others, and served as imam at al-Kāmiliyya. He was a good man; al-Birmāwī described him, in the ijāza he wrote for his son, as possessing learning and virtue.

@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00739
-    quote: النفطي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الكافي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي الفضل
     by: rule
-    norm: ابو الفضل
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D04235
   methods:
   - TMP-S-00003
@@ -41,16 +38,12 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m8
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03928
+  active: m6
   passive: AIND-D04235
-  quote: عبد السلام الماضي
   note:
     ja: '= #AIND-D03928（عبد السلام بن محمد بن أبي الفضل النفطي المدني أخو عبد الكافي الآتي、閉合）。'
   phrase: أخو عبد السلام الماضي
@@ -58,10 +51,40 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكافي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي الفضل
+  norm: ابو الفضل
+- id: m4
+  kind: name
+  ref: TMP-N-00739
+  quote: النفطي
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: AIND-D03928
+  quote: عبد السلام الماضي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブドゥルカーフィー・ブン・ムハンマド・ブン・アビール・ファドル・アン＝ナフティー・アル＝マダニー。前述のアブドゥルサラームの兄弟。マディーナ（メディナ）にて私から（ハディースを）聴聞した者の一人。
   en: ʿAbd al-Kāfī b. Muḥammad b. Abī al-Faḍl al-Nafṭī al-Madanī, the brother of the aforementioned ʿAbd al-Salām. He is among those who heard from me (al-Sakhāwī) in Medina.

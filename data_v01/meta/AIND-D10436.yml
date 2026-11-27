@@ -9,89 +9,79 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n2
     type: shuhrah
-    quote: ابن الصائغ
-    norm: ابن الصاءغ
+    mention: m11
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي اليسر أحمد
     by: rule
-    ref: AIND-D00916
-    norm: ابو اليسر احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: عبد القادر
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: عبد الخالق
     by: rule
+    mention: m8
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 death:
   id: d
   date:
     ah: 814-01
   note:
     ja: 814年ムハッラム月＝1411-05-04〜06-02（h2g.py）、月精度で @when=1411-05（初版 1411 を訂正）。没地は原文になし。
-  quote: سنة
   phrase: مات في المحرم سنة أربع عشرة
+  mention: m18
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00916
+  active: m12
   passive: AIND-D10436
   summary:
     ar: أبو اليسر أحمد بن عبد الله
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父＝corpus 本伝 #AIND-D00916「أحمد بن عبد الله بن محمد بن محمد بن محمد بن عبد القادر بن عبد الخالق بن خليل بن مقلد بن سالم بن جابر محيي الدين أبو اليسر بن التقي … الأنصاري الدمشقي الشافعي نزيل الصالحية ويعرف بابن الصائع وهو بكنيته أشهر」（未収録）。ナサブ6代・クンヤ أبو اليسر・通称 ابن الصائغ で閉合（規則37、cert なし）。初版の #NEEDID を置換。通称索引 #AIND-D12455 は合同索引のため不使用。'
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: wd:Q352842
   orgs:
   - ref: TMP-I-00285
-  quote: تدريس الدماعية
   note:
     ja: '「ولي تدريس الدماعية」（イブン・ハジャルの引用中）。刊本の綴り「الدماعية」のまま（規則25）。ダマスクスのマドラサ「الدماغية」（corpus #AIND-D00727「ودرس بالدماغية」・#AIND-D09378「تدريس الدماغية」）の異綴とみられるが読み替えない。ID-Master 未登録 → 仮 TMP-I-00285。初版の placeName دمشق（原文になし、規則22(1)）と重複 affiliation（type=teach、規則8）を除去。'
+  mention: m15
 - id: s2
   type: office
-  ref: TMP-O-00032
   orgs:
   - ref: TMP-I-00286
-  quote: ونظر الرباط الناصري
   note:
     ja: '「ونظر الرباط الناصري」。汎用 ناظر＝TMP-O-00032（初版 #NEEDID）。الرباط الناصري は corpus #AIND-D01906「غربي الرباط الناصري من سفح قاسيون」と同じ施設とみられる（ダマスクス・カースィユーン山麓）。ID-Master 未登録 → 仮 TMP-I-00286。所在地は本項に明記なし＝placeName を付けない。初版の重複 affiliation（type=affiliated）を除去。'
-  norm: نظر الرباط الناصري
+  mention: m16
 affiliations:
 - id: a1
   type: madhhab
@@ -99,15 +89,82 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m14
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』＝TMP-T-00034）。人物評「كان ثقيل البدن خفيف الروح كثير المجون حسن المذاكرة」と職歴は引用。初版の統制外 relation「biographer」を event に変換。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  ref: AIND-D00916
+  quote: أبي اليسر أحمد
+  norm: ابو اليسر احمد
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: عبد القادر
+- id: m8
+  kind: name
+  quote: عبد الخالق
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: name
+  quote: ابن الصائغ
+  norm: ابن الصاءغ
+- id: m12
+  kind: person
+  ref: AIND-D00916
+  quote: أبوه
+  norm: ابوه
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m15
+  kind: office
+  ref: wd:Q352842
+  quote: تدريس الدماعية
+- id: m16
+  kind: office
+  ref: TMP-O-00032
+  quote: ونظر الرباط الناصري
+  norm: نظر الرباط الناصري
+- id: m17
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m18
+  kind: year
+  value: '814'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・アビー・アル＝ユスル・アフマド・ブン・アブド・アッラー・ブン・ムハンマド・ブン・ムハンマド・ブン・ムハンマド・ブン・アブド・アル＝カーディル・ブン・アブド・アル＝ハーリク、アッ＝ディマシュキー、アッ＝シャーフィイー、イブン・アッ＝サーイグ。その父は既出。我らの師（イブン・ハジャル）が『インバー』で彼に言及し、こう述べている。「体は重いが気性は軽やかで、冗談が多く、談論に巧みであった。ダマーイーヤの教授職とナースィリー・リバートの監督職に就いた」。（8）14年ムハッラム月に没した。
   en: 'Yūsuf b. Abī al-Yusr Aḥmad b. ʿAbd Allāh b. Muḥammad b. Muḥammad b. Muḥammad b. ʿAbd al-Qādir b. ʿAbd al-Khāliq, al-Dimashqī, al-Shāfiʿī, Ibn al-Ṣāʾigh, whose father has been mentioned above. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "He was heavy of body, light of spirit, much given to jesting and good in scholarly conversation. He held the teaching post of al-Dimāʿiyya and the supervision of al-Ribāṭ al-Nāṣirī." He died in al-Muḥarram of the year [8]14.'

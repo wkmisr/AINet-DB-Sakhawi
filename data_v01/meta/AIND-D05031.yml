@@ -9,87 +9,133 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00134
-    quote: الغمري
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: laqab
-    quote: العلاء
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بابن عبد الحق
-    norm: ابن عبد الحق
     label: ابن عبد الحق
+    mention: m11
   - id: n5
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01341
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد الحق
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D05031
   methods:
   - TMP-S-00003
-  quote: مني
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D01341
+  active: m9
   passive: AIND-D05031
   summary:
     ar: أحمد بن محمد بن عبد الحق الشهاب الغمري
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝父 أحمد بن محمد بن عبد الحق الشهاب الغمري ثم القاهري الخطيب التاجر「أخو علي الآتي」（#AIND-D01341、生820頃・没888。同伝「تكسب كأبيه بالتجارة في البز」＝一族の生業が商業で本項と整合。同伝の「علي الآتي」は弟 #AIND-D05438 で本項主とは別人）。索引 D12501「ابن عبد الحق علي وأحمد ابنا الغمريان」。初版は #NEEDID。'
-  norm: ابوه
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-001052
+  active: m10
   passive: AIND-D05031
-  quote: محمد
   note:
     ja: 「والآتي أخوه محمد」＝弟（兄）محمد بن أحمد بن محمد بن عبد الحق الغمري القاهري。「الآتي」だが corpus の محمد 部（محمد بن أحمد بن محمد بن عبد الحق）に見出しなし、ID-Master 未登録 → 祖父名まで復元できる近親として新規 TMP-P-001052（欠番ウォッチ）。初版は汚染番号 TMP-P-000529（汎用 محمد）。
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: ممن
   note:
     ja: 「وتكسب بالتجارة」。
+  mention: m12
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: وسافر
+  - mention: m15
   trigger: rule
-  norm: سافر
   phrase: وسافر فيها إلى الشام وغيرها
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D01341
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الحق
+- id: m5
+  kind: name
+  quote: العلاء
+- id: m6
+  kind: name
+  quote: الشهاب
+- id: m7
+  kind: name
+  ref: TMP-N-00134
+  quote: الغمري
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: person
+  ref: AIND-D01341
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: TMP-P-001052
+  quote: محمد
+- id: m11
+  kind: name
+  quote: بابن عبد الحق
+  norm: ابن عبد الحق
+- id: m12
+  kind: office
+  ref: wd:Q215536
+  quote: ممن
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m14
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m15
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
 translation:
   ja: アリー・ブン・アフマド・ブン・ムハンマド・ブン・アブド・アル＝ハック、アル＝アラー・ブン・アッ＝シハーブ、ガムル出自のカイロの人。父は既述、兄弟のムハンマドは後述。父と同じくイブン・アブド・アル＝ハックとして知られる。クルアーンを読誦し、私（サハーウィー）から聴聞した者の一人。商業で生計を立て、そのためにシャーム（シリア）などへ旅した。私の望むところでは彼に害はなく、兄弟よりも間違いなく善良である。
   en: ʿAlī b. Aḥmad b. Muḥammad b. ʿAbd al-Ḥaqq, al-ʿAlāʾ b. al-Shihāb, of Ghamr origin, al-Qāhirī; his father has been mentioned above and his brother Muḥammad follows. Like his father he is known as Ibn ʿAbd al-Ḥaqq. He was among those who recited the Qurʾān and heard from me (al-Sakhāwī). He earned his living by trade and travelled for it to Syria and elsewhere. There is no harm in him, as I hope; he is decidedly better than his brother.

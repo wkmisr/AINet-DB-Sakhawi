@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قوزي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873-05
   places:
-  - ref: TMP-L-00151
-    role: funeral
-    quote: بالمؤمني
-    norm: المءمني
+  - role: funeral
+    mention: m11
   persons:
   - ref: AIND-D06305
     role: funeral_attendee
   note:
     ja: 「فعاد مريضا إلى أن مات في جمادى الأولى سنة ثلاث وسبعين وهو في الكهولة」。873年ジュマーダー・アル＝ウーラー＝1468-11-26〜12-25（h2g.py、月精度）。没地の明示なし（初版の placeName القاهرة を除去。葬礼の地 المؤمني は埋葬地ではなく funeral event に）。「في الكهولة」＝壮年期。 / 873年ジュマーダー・アル＝ウーラーの「السلطان」＝الأشرف قايتباي（#AIND-D06305、即位872年ラジャブ）。المؤمني＝مصلى المؤمني（TMP-L-00151、登録綴り المومني＝表記差。実体一致、先例 D09970「حضر خاله الصلاة عليه بالمؤمني」）。初版は death の burial placeName としていたが葬礼の地なので funeral event に移した。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
     ar: وحضر السلطان الصلاة عليه بالمؤمني
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: والد قوزي الظاهري
@@ -41,72 +38,115 @@ relations:
   subtype: father
   active: AIND-D06373#p1
   passive: AIND-D06373
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m3
   passive: AIND-D06373
   summary:
     ar: الظاهر جقمق
-  quote: جقمق
   note:
     ja: 「الظاهري جقمق من مماليكه قبل تملكه فلما تملك عمله خاصكيا ثم ساقيا ثم أمير عشرة」＝主人（#AIND-D02423）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيا
+  mention: m4
 - id: s2
   type: office
   ref: TMP-O-00121
-  quote: null
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: ジャクマクのもとで十人隊アミール、「امتحن」の後に خشقدم が再び十人隊アミールに任じた（2度の任官を1 state にまとめた）。
-  norm: امير عشرة
+  mention: m5
 - id: s4
   type: office
   ref: TMP-O-00107
-  quote: null
   note:
     ja: ref は汎用 رأس نوبة（TMP-O-00107、規則48：実体一致）。初版の各 state の placeName القاهرة（原文に無い）を除去。
+  mention: null
 assessments:
 - id: v1
-  quote: ساكنا
   terms:
   - ساكن
   by: rule
+  mention: m12
 events:
 - id: e1
   type: political
-  quote: ثم امتحن
   note:
     ja: 失脚・試練（詳細の記載なし）。初版の英文 desc（「im امتحن」の混入）を原文句に置換。
+  phrase: ثم امتحن
+  mention: null
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02830
-    quote: خشقدم
-  quote: إلى أن أمره خشقدم عشرة وجعله من رؤوس النوب
+  - mention: m6
   note:
     ja: アッ＝ザーヒル・フシュカダム（#AIND-D02830）が再び十人隊アミールとし、ラアス・ナウバの一人とした（職は state n=3・n=4）。主人（ジャクマク）ではないスルターンによる任官は patron にせず event 内 persName で表す（集約 2026-10-26 オーケストレーター決定4。校閲時の patron n=2 を移した）。
-  norm: الي ان امره خشقدم عشرة وجعله من رءوس النوب
+  phrase: إلى أن أمره خشقدم عشرة وجعله من رؤوس النوب
+  mention: null
 - id: e3
   type: political
   persons:
-  - ref: AIND-D03198
-    quote: لسوار
-    norm: سوار
-  quote: وتجرد لسوار فعاد مريضا
+  - mention: m7
   note:
     ja: سوار＝شاه سوار（ذو القادر 朝、#AIND-D03198、repo 先例）への遠征（872–873年）に従軍し病んで帰還。初版の英文 desc を原文句に置換、persName を追加。
-  norm: تجرد لسوار فعاد مريضا
+  phrase: وتجرد لسوار فعاد مريضا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قوزي
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02423
+  quote: جقمق
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيا
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m6
+  kind: person
+  ref: AIND-D02830
+  quote: خشقدم
+- id: m7
+  kind: person
+  ref: AIND-D03198
+  quote: لسوار
+  norm: سوار
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: AIND-D06305
+  quote: السلطان
+- id: m11
+  kind: place
+  quote: بالمؤمني
+  ref: TMP-L-00151
+  norm: المءمني
+- id: m12
+  kind: assessment
+  quote: ساكنا
 translation:
   ja: クーズィー・アッ＝ザーヒリー・ジャクマク。ジャクマクが即位する前からそのマムルークで、即位するとハーッサキーに、次いでサーキーに、次いで十人隊アミールにした。その後失脚したが、やがてフシュカダムが彼を十人隊アミールに任じ、ラアス・ナウバの一人とした。サワールへの遠征に出て病を得て帰還し、873年ジュマーダー・アル＝ウーラー月、壮年のうちに没した。スルターンはアル＝ムウミニー（礼拝所）での葬礼に臨席した。物静かで、容姿が美しく、穏やかな人であった。
   en: Qūzī al-Ẓāhirī Jaqmaq. He was one of Jaqmaq's mamlūks before the latter's accession; when he became sultan he made him a khāṣṣakī, then a cupbearer (sāqī), then an amīr of ten. He then fell into disgrace, until Khushqadam made him an amīr of ten and one of the heads of the guard (ruʾūs al-nuwab). He went out on the expedition against Sawār and returned ill, until he died in Jumādā al-Ūlā 873 while still in middle age. The sultan attended the funeral prayer over him at al-Muʾminī. He was quiet, handsome and gentle.

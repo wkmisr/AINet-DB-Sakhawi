@@ -9,39 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00121
-    quote: البساطي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00142
-    quote: المقسي
+    mention: m8
   - id: n4
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الغني
     by: rule
-    ref: AIND-D04073
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06729
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m5
 birth:
   id: b
   date:
@@ -50,7 +44,7 @@ birth:
   note:
     ar: ولد سنة بضع وثمانين
     ja: 「بضع وثمانين」＝883〜889年（883 = 1478-04-04〜、889 = 〜1485-01-17）。初版の when 885 は不正。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 883〜889）
-  quote: سنة بضع وثمانين
+  mention: m13
 death:
   id: d
   date:
@@ -58,7 +52,7 @@ death:
   note:
     ar: ثم مات بالطاعون في سنة سبع وتسعين
     ja: 897年＝1491年11月4日〜1492年10月22日。死因ペスト。
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: أمه أمة لأبيه
@@ -73,7 +67,6 @@ relations:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: null
   phrase: وسمع على أبيه
 - id: r2
   type: scholarly
@@ -88,7 +81,6 @@ relations:
   - ref: TMP-T-00019
   - label: بعض أجوبتي
   - label: baʿḍ ajwibatī
-  quote: null
   note:
     ja: 「وكذا عليّ المسلسل وبعض أجوبتي」＝私（サハーウィー）から『المسلسل』と私の回答（أجوبة）の一部を聴聞。初版は「على المسلسل」を別の師（#NEEDID）と誤読。أجوبة السخاوي は ID-Master 未登録のため bibl に ref を付けない。
   phrase: وكذا على المسلسل وبعض أجوبتي
@@ -97,43 +89,93 @@ relations:
   subtype: father
   active: AIND-D04073
   passive: AIND-D04267
-  quote: null
   note:
     ja: '父 = #AIND-D04073（عبد الغني بن محمد بن أحمد بن عثمان … الزين أبو محمد بن الشمس البساطي القاهري المالكي）。ID-Master の TMP-P-000587（عبد الغني البساطي、D00866 の師）は同一人物 → 名寄せ提案（§A-2）。'
   phrase: عبد الغني
 - id: r4
   type: kin
   subtype: mother
-  active: AIND-D04267#p1
+  active: m12
   passive: AIND-D04267
-  quote: أمه أمة لأبيه
   note:
     ja: '母は名不詳（父の女奴隷）→ #NEEDID。'
-  norm: امه امة لابيه
 - id: r5
   type: kin
   subtype: grandfather
-  active: AIND-D06729
+  active: m9
   passive: AIND-D04267
-  quote: حفيد العالم الشهير البساطي
   note:
     ja: '祖父 = #AIND-D06729（محمد بن أحمد بن عثمان بن نعيم … الشمس البساطي المالكي、マーリキー派大法官、没842）。ID-Master には wd:Q12219083（البساطي）も登録。'
 - id: r6
   type: kin
   subtype: brother
-  active: AIND-D07692
+  active: m10
   passive: AIND-D04267
-  quote: البدر محمد الآتي
   note:
     ja: '= #AIND-D07692（محمد بن عبد الغني بن محمد بن أحمد بن عثمان بن نعيم بدر الدين البساطي … ويلقب دبيس）。'
-  norm: البدر محمد الاتي
   phrase: وأخو البدر محمد الآتي
 states:
 - id: s1
   type: status
   label: طفل مرجو
   label_latn: ṭifl marjuww
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  ref: AIND-D04073
+  quote: عبد الغني
+- id: m3
+  kind: name
+  ref: AIND-D06729
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عثمان
+- id: m6
+  kind: name
+  ref: TMP-N-00121
+  quote: البساطي
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: name
+  ref: TMP-N-00142
+  quote: المقسي
+- id: m9
+  kind: person
+  ref: AIND-D06729
+  quote: حفيد العالم الشهير البساطي
+- id: m10
+  kind: person
+  ref: AIND-D07692
+  quote: البدر محمد الآتي
+  norm: البدر محمد الاتي
+- id: m11
+  kind: office
   quote: طفل مرجو
+- id: m12
+  kind: person
+  ref: AIND-D04267#p1
+  quote: أمه أمة لأبيه
+  norm: امه امة لابيه
+- id: m13
+  kind: year
+  value: 881-889
+  quote: سنة بضع وثمانين
+- id: m14
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: アブド・アル＝カリーム・ブン・アブド・アル＝ガニー・ブン・ムハンマド・ブン・アフマド・ブン・ウスマーン、アル＝ビサーティー家の出でカイロの人、マクス地区の人。高名な学者アル＝ビサーティーの孫であり、後述のアル＝バドル・ムハンマドの兄弟である。将来を嘱望された子供で、母は父の女奴隷であった。880年代（883〜889年）に生まれ、父から、また私（サハーウィー）から『アル＝ムサルサル』と私の回答（アジュウィバ）の一部を聴聞した。その後、897年にペストで没した。
   en: ʿAbd al-Karīm b. ʿAbd al-Ghanī b. Muḥammad b. Aḥmad b. ʿUthmān, of Bisāṭī origin, the Cairene, al-Maqsī, grandson of the famous scholar al-Bisāṭī and brother of al-Badr Muḥammad (mentioned below). A promising child; his mother was a slave-girl of his father. He was born in the year eighty-odd and heard from his father, and likewise from me al-Musalsal and some of my responsa. Then he died of the plague in the year 897.

@@ -9,26 +9,24 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بابن درباس
-    norm: ابن درباس
     label: ابن درباس
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 death:
   id: d
   date:
     ah: 891-03
   note:
     ja: 891年ラビーウ・アル＝アウワル月＝1486-03-16〜04-14（h2g.py）、月精度で @when=1486-03（初版は年のみの 1486）。「عن سن عالية」＝高齢で（年齢の数字なし＝生年は作らない）。
-  quote: سنة
   phrase: مات في ربيع الأول سنة إحدى وتسعين عن سن عالية
+  mention: m7
 persons:
 - id: p1
   label: إبراهيم
@@ -41,22 +39,47 @@ relations:
   subtype: father
   active: AIND-D06582#p1
   passive: AIND-D06582
-  quote: null
   note:
     ja: 規則3 (c')。父 إبراهيم は名のみで識別要素なし。通称 ابن درباس の家の本伝（#AIND-D00500・#AIND-D05035 など）に إبراهيم の名の人はなく、本伝なし。初版は父 relation なし。
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00007
-    quote: الحسينية
-  quote: نزيل
+  - mention: m4
   trigger: rule
   phrase: نزيل الحسينية
+  mention: m3
 notes:
 - text: '通称索引 #AIND-D12321「ابن درباس أحمد بن أحمد بن محمد بن علي ومحمد بن إبرهيم نزيل الحسينية .」が本項主を挙げる（2人を束ねた索引項）。同じ通称の #AIND-D06473「856 محمد بن إبراهيم بن أحمد بن أبي الفتح بن درباس الشمس بن البرهان ابن الشهاب القدسي ويعرف بابن درباس وبابن الشحنة」はエルサレムの人でイブン・ハジャルの『معجم』に載る別人（索引も別に数えない）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: event
+  quote: نزيل
+- id: m4
+  kind: place
+  quote: الحسينية
+  ref: TMP-L-00007
+- id: m5
+  kind: name
+  quote: بابن درباس
+  norm: ابن درباس
+- id: m6
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m7
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム、フサイニーヤの住人、イブン・ディルバースとして知られる。（8）91年ラビーウ・アル＝アウワル月に高齢で没した。
   en: Muḥammad b. Ibrāhīm, resident of al-Ḥusayniyya, known as Ibn Dirbās. He died in Rabīʿ I of the year [8]91 at an advanced age.

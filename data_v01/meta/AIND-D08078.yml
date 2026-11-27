@@ -9,40 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01065
-    quote: الريفي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: سالم
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 868-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: TMP-L-00146
-    role: burial
-    quote: بالشبيكة
-    norm: الشبيكة
+  - mention: m7
+  - role: burial
+    mention: m10
   note:
     ar: مات بها في شعبان سنة ثمان وستين ودفن بالشبيكة
     ja: 「بها」の先行詞は直前の「العطار بمكة」の مكة（照応、cert 不要）。868-08＝1464-04-18 開始、月精度 1464-04。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: علي بن سالم
@@ -55,20 +49,56 @@ relations:
   subtype: father
   active: AIND-D08078#p1
   passive: AIND-D08078
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن سالم（الريفي）は裸名で corpus に本伝なし、ID-Master 未登録 → #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00012
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: العطار
+  - mention: m7
   note:
     ja: 「العطار بمكة」。TMP-O-00012（登録実体＝Office العطار、実体一致）。placeName مكة は原文明記。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: سالم
+- id: m4
+  kind: name
+  ref: TMP-N-01065
+  quote: الريفي
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: office
+  ref: TMP-O-00012
+  quote: العطار
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m9
+  kind: year
+  value: '868'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بالشبيكة
+  ref: TMP-L-00146
+  norm: الشبيكة
 translation:
   ja: ムハンマド・ブン・アリー・ブン・サーリム、アッ＝リーフィー、アル＝ミスリー、マッカの薬種商（アッタール）。868年シャアバーン月にそこ（マッカ）で没し、アッ＝シャビーカに葬られた。
   en: Muḥammad b. ʿAlī b. Sālim al-Rīfī al-Miṣrī, the druggist (ʿaṭṭār) in Mecca. He died there in Shaʿbān of the year 868 and was buried in al-Shabīka.

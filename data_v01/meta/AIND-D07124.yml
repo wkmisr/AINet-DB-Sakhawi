@@ -9,43 +9,38 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00077
-    quote: الخوافي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الركن
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: TMP-P-001467
-    norm: اسماعيل
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمود
     by: rule
+    mention: m3
 birth:
   id: b
   date:
     ah: 746-11-05
   note:
     ja: 「ولد في خامس ذي القعدة سنة ست وأربعين وسبعمائة」＝746年ズー・アル＝カアダ月5日＝1346-03-07（h2g.py）。初版の when 1345 を是正。
-  quote: سنة
+  mention: m8
 death:
   id: d
   date:
     ah: 834-10-28
   places:
-  - ref: TMP-L-00077
-    quote: بهراة
-    norm: هراة
+  - mention: m15
   note:
     ja: 「ومات بهراة يوم الأحد ثامن عشرى شوال سنة أربع وثلاثين」＝834年シャウワール月28日＝1431-07-18（h2g.py。グレゴリオ暦換算では月曜。曜日は暦判別に使わない）。初版の when 1430 を是正。
-  quote: سنة
+  mention: m17
 persons:
 - id: p1
   label: سبط شارح اللباب
@@ -55,20 +50,19 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D07124
-  passive: AIND-D00900
+  passive: m9
   methods:
   - TMP-S-00008
   works:
   - ref: TMP-T-00229
   - ref: TMP-T-00230
-  quote: الطاووسي
   note:
     ja: '「وأخذ عنه الطاووسي شرح المختصر له والمواقف للايجي」＝本項主が師（active）、الطاووسي ＝ #AIND-D00900（أبو الفتوح الطاووسي。同項に「وعن الركن الخوافي شرحه للمختصر الأصلي والمواقف للأيجي」「لبس الخرقة من … الركن الخوافي」）が学生（passive）。初版は汚染番号 TMP-N-00266（ニスバ番号 الطاووسي）を person 位置に置き、subtype も student（向き逆）だった。「شرح المختصر له」＝本項主自身による『المختصر（الأصلي、ابن الحاجب）』註釈 → TMP-T-00229、『المواقف』（الإيجي）→ TMP-T-00230（いずれも ID-Master 未登録）。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D07124
-  passive: AIND-D04736
+  passive: m13
   methods:
   - TMP-S-00008
   fields:
@@ -79,14 +73,9 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-    - ref: TMP-L-00041
-      quote: وزبيد
-      norm: زبيد
+    - mention: m11
+    - mention: m12
     phrase: ممن أخذ عنه بمكة وزبيد الجلال عبد الواحد المرشدي النحو والأصول والمعاني والبيان
-  quote: الجلال عبد الواحد المرشدي
   note:
     ja: 'الجلال عبد الواحد المرشدي ＝ #AIND-D04736（عبد الواحد بن إبراهيم بن أحمد … جلال الدين … المكي الحنفي ويعرف بالمرشدي、780生。同項「ومن شيوخه أيضا الركن محمد بن إسماعيل بن محمود الخوافي … وسافر معه لزبيد وأجاز له … في ربيع الأول سنة ثلاث وثمانمائة」と相互に整合）。初版の TMP-P-000417 は同 AIND に名寄せ済み。初版の分野別・地名別 8 relation（subtype student、向き逆）を 1 relation に統合。'
 - id: r3
@@ -102,7 +91,6 @@ relations:
       ah: 803
       type: teaching
     phrase: وكتب له إجازة بليغة بخط حسن في سنة ثلاث وثمانمائة
-  quote: null
   note:
     ja: 803年＝1400-08-31 開始、年精度 1400（D04736 側は「ربيع الأول سنة ثلاث وثمانمائة」）。初版の bibl「إجازة」（#TMP-S-00004、カテゴリ不一致＝方法）を method desc に一本化。
   phrase: الجلال عبد الواحد المرشدي
@@ -118,7 +106,6 @@ relations:
   summary:
     ar: أبو الفتوح الطاووسي
   cert: medium
-  quote: null
   note:
     ja: 'ヒルカ授与。相手側 #AIND-D00900 本文「ولبس الخرقة من غير واحد من الأكابر كالركن الخوافي」＝本項主から الطاووسي へのヒルカ（スーフィーの衣）授与。本項の原文にはないため規則23 により cert medium（active=授与者＝本項主）。学問の伝授（n=1）とは性質が異なるため別 relation。【集約】内容B L の指摘で追加。'
 - id: r5
@@ -128,15 +115,13 @@ relations:
   passive: AIND-D07124
   summary:
     ar: إسماعيل بن محمود الخوافي
-  quote: null
   note:
     ja: 父は見出しナサブ「إسماعيل بن محمود」（祖父名まで復元可、規則3）。corpus に本伝なし・ID-Master 未登録（#AIND-D01943 إسماعيل بن أبي بكر الخوافي は別人）→ 仮番号 TMP-P-001467。
 - id: r6
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D07124#p1
+  active: m6
   passive: AIND-D07124
-  quote: شارح اللباب
   note:
     ja: '「سبط شارح اللباب」＝『اللباب』註釈者の外孫。註釈者の名は記されず、『اللباب』も複数ある（ID-Master に該当書名の登録なし）ため特定不能 → #NEEDID。初版の subtype grandfather を maternal_grandfather（سبط）に是正。'
 notes:
@@ -147,12 +132,81 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D00900
-  quote: وقال
   note:
     ja: Pattern A。直前の主語 الطاووسي（#AIND-D00900）による評言。
   trigger: rule
-  norm: قال
   phrase: وقال كان رأسا في سائر العلوم محققا لطيف الطبع
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001467
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: محمود
+- id: m4
+  kind: name
+  quote: الركن
+- id: m5
+  kind: name
+  ref: TMP-N-00077
+  quote: الخوافي
+- id: m6
+  kind: person
+  ref: AIND-D07124#p1
+  quote: شارح اللباب
+- id: m7
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m8
+  kind: year
+  value: '746'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسي
+- id: m10
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: place
+  quote: وزبيد
+  ref: TMP-L-00041
+  norm: زبيد
+- id: m13
+  kind: person
+  ref: AIND-D04736
+  quote: الجلال عبد الواحد المرشدي
+- id: m14
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m15
+  kind: place
+  quote: بهراة
+  ref: TMP-L-00077
+  norm: هراة
+- id: m16
+  kind: month
+  value: 10
+  quote: شوال
+- id: m17
+  kind: year
+  value: '834'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・マフムード、アッ＝ルクン・アル＝ハワーフィー、『アッ＝ルバーブ』註釈者の外孫。746年ズー・アル＝カアダ月5日に生まれた。アッ＝ターウースィーは彼から、彼自身の『シャルフ・アル＝ムフタサル』とアル＝イージーの『アル＝マワーキフ』を学び、「あらゆる学問において第一人者で、精確な考証家、温和な性質であった」と述べている。マッカとザビードで彼に学んだ者の一人にアル＝ジャラール・アブド・アル＝ワーヒド・アル＝ムルシディーがおり、文法学・法学原理論・意味論・明解論を学び、彼は803年に美しい筆跡で雄弁なイジャーザを彼に書き与えた。834年シャウワール月28日日曜日にヘラートで没した。
   en: 'Muḥammad b. Ismāʿīl b. Maḥmūd, al-Rukn al-Khawāfī, maternal grandson of the commentator of al-Lubāb. He was born on 5 Dhū al-Qaʿda 746. Al-Ṭāwūsī took from him his own commentary on al-Mukhtaṣar and al-Mawāqif of al-Ījī, and said: he was a leading authority in all the sciences, a thorough scholar of gentle disposition. Among those who took from him in Mecca and Zabīd was al-Jalāl ʿAbd al-Wāḥid al-Murshidī, who learned grammar, uṣūl, maʿānī and bayān, and for whom he wrote an eloquent ijāza in a fine hand in the year 803. He died in Herat on Sunday 28 Shawwāl 834.'

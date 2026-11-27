@@ -9,19 +9,19 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 birth:
   id: b
   date:
     ah: 791
-  quote: سنة
   phrase: ولد سنة إحدى وتسعين وسبعمائة
+  mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07360
+  active: m4
   passive: AIND-D07742
   methods:
   - TMP-S-00003
@@ -36,16 +36,14 @@ relations:
     cert: medium
   works:
   - ref: TMP-T-00082
-  quote: الفرسيسي
   note:
     ja: 'الفرسيسي＝#AIND-D07360（項番567 محمد بن حسن بن علي بن عبد الرحمن الشمس الفرسيسي المصري الصوفي المقرىء、719年生）。初版はニスバ番号 TMP-N-00251 を person 位置に流用しており是正（ID-Master の TMP-P-000319「الشمس الفرسيسي」も本伝 D07360 に名寄せ要、ISSUES §Dg-4）。السيرة＝兄 #AIND-D07741 の本伝「سمع على الفرسيسي معظم سيرة ابن سيد الناس … في سنة ست وتسعين」により سيرة ابن سيد الناس（TMP-T-00082）と特定。「في الخامسة」＝5歳時＝791＋5＝796年（D07741 の「سنة ست وتسعين」と一致、cert medium）。初版の書式不正 TMP-S-000003 → TMP-S-00003、bibl の TMP-S-00062（subject 番号）→ TMP-T-00082。'
   phrase: وسمع في الخامسة على الفرسيسي مع أخيه مسموعه من السيرة
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07741
+  active: m2
   passive: AIND-D07742
-  quote: الذي قبله
   note:
     ja: 兄＝#AIND-D07741（項番152 محمد بن عبد الله بن إبراهيم بن عبد الرحمن بن علي بن سنان بن رميح محي الدين أبو نافع بن الجمال بن البرهان السعدي القاهري الشافعي ويعرف بالأزهري وبابن الريفي、789年生、870年没）。初版は active 空の relation。
   phrase: أخو الذي قبله
@@ -57,9 +55,24 @@ relations:
   summary:
     ar: '[أبوه: الجمال عبد الله بن البرهان إبراهيم السعدي]'
   cert: medium
-  quote: null
   note:
     ja: '本項の原文に父の名は無いが、兄 #AIND-D07741 の見出しナサブ「محمد بن عبد الله بن إبراهيم بن عبد الرحمن بن علي بن سنان بن رميح … بن الجمال بن البرهان السعدي القاهري」により父＝الجمال عبد الله بن البرهان إبراهيم السعدي القاهري と特定できる（規則23により cert medium）。corpus に父の本伝なし・ID-Master 未登録 → TMP-P-001197 を新規発行。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: person
+  ref: AIND-D07741
+  quote: الذي قبله
+- id: m3
+  kind: year
+  value: '791'
+  quote: سنة
+- id: m4
+  kind: person
+  ref: AIND-D07360
+  quote: الفرسيسي
 translation:
   ja: ムハンマド。前項の人物の兄弟。ヒジュラ暦791年に生まれ、5歳のときに兄と共にアル＝ファルスィースィーから、兄が聴聞した『シーラ（預言者伝）』の部分を聴聞した。それ以上のことを私（サハーウィー）は知らない。
   en: Muḥammad, brother of the preceding. He was born in the year 791 and, in his fifth year, heard from al-Farsīsī, together with his brother, what the latter heard of the Sīra. I (al-Sakhāwī) know nothing more about him.

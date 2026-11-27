@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00353
-    quote: الرحبي
+    mention: m2
   - id: n2
     type: ism
-    quote: قيت
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد قيت الرحبي
@@ -25,24 +24,37 @@ relations:
   subtype: father
   active: AIND-D06376#p1
   passive: AIND-D06376
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D06375
+  active: m3
   passive: AIND-D06376
-  quote: الذي قبله
   note:
     ja: '「استقر بعد الذي قبله في الولاية」＝前項 #AIND-D06375（قيت الساقي الأشرفي الوالي、897年ペスト没）の後任としてワーリー職に就いた。初版は relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00069
-  quote: الولاية
   note:
     ja: 'ref は既登録 والي（TMP-O-00069）。初版の #NEEDID を置換。就任時期は原文に無い（前任者の没 897 年以降）。'
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: قيت
+- id: m2
+  kind: name
+  ref: TMP-N-00353
+  quote: الرحبي
+- id: m3
+  kind: person
+  ref: AIND-D06375
+  quote: الذي قبله
+- id: m4
+  kind: office
+  ref: TMP-O-00069
+  quote: الولاية
 translation:
   ja: カイト・アッ＝ラフビー。前項の人物の後にワーリー職に就いた。
   en: Qayt al-Raḥbī. He was appointed to the office of wālī after the preceding one.

@@ -9,42 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n2
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي الفتح
     by: rule
-    ref: AIND-D08857
-    norm: ابو الفتح
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: حمام
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04536
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m7
     phrase: ممن سمع علي بمكة
-  quote: علي
   note:
     ja: 「سمع علي」＝「عليّ（私＝サハーウィーに）」と読む（B87 §D-18 先例。直後に人名が続かない）。
 - id: r2
@@ -54,9 +48,36 @@ relations:
   passive: AIND-D04536
   summary:
     ar: أبو الفتح بن محمد بن حمام المكي
-  quote: null
   note:
     ja: '父 = #AIND-D08857（محمد بن محمد بن عبد الله بن إبراهيم الخواجا أبو الفتح بن حمام الدمشقي الأصل المكي … تاجرا سفارا إلى الهند … مات بمكة … سنة خمس وسبعين）。クンヤ أبو الفتح＋父名 محمد＋家名 ابن حمام＋المكي が一致し、corpus に他の「أبو الفتح بن حمام」はない（索引 L122576「أبو الفتح بن حمام في محمد بن محمد بن عبد الله」も同人を指す）。本項のナサブ「بن محمد بن حمام」は عبد الله بن إبراهيم を省いた略記。'
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D08857
+  quote: أبي الفتح
+  norm: ابو الفتح
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: حمام
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥッラー・ブン・アビー・アル＝ファトフ・ブン・ムハンマド・ブン・ハンマーム・アル＝マッキー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd Allāh b. Abī al-Fatḥ b. Muḥammad b. Ḥammām al-Makkī. He is among those who heard from me in Mecca.

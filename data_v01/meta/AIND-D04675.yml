@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00552
-    quote: السحولي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -27,8 +25,8 @@ death:
   - ref: gn:104515
   note:
     ja: 「بها」の先行詞は「المنقطع برباط ربيع منها」の「منها」と同じく、ニスバ المكي の地 مكة のみ（他に候補なし）。先行詞がニスバに限られるため規則22(3) に準じ cert="medium" で保持。860年サファル月＝1456-01-19〜02-16（グレゴリオ暦）。@when を月初の 1456-01 に精密化（初版は 1456）。
-  quote: سنة
   phrase: مات بها في صفر سنة ستين
+  mention: m5
 affiliations:
 - id: a1
   type: reside
@@ -42,19 +40,45 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: 'Pattern A（没年記録）。初版は統制外 subtype「biographer」の relation。没年 860（≦871・限定なし）→ 振り分け規則により التقي بن فهد ＝ #AIND-D09211、cert low。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
 notes:
 - text: corpus レコード末尾に転送見出し 2 本（『عبد الله الشامي . هو ابن علي بن أحمد بن محمد بن محمد .』『عبد الله الضرير . في ابن علي بن شعيب .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-N-00552
+  quote: السحولي
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: month
+  value: 2
+  quote: صفر
+- id: m5
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥッラー・アッ＝サフーリー・アル＝マッキー。祝福された人々の一人で、同地（マッカ）のリバート・ラビーウに籠って世を離れていた。860年サファル月に同地で没した。イブン・ファハドがその没年を記録している。
   en: ʿAbd Allāh al-Saḥūlī al-Makkī, one of the blessed men, who lived in seclusion at Ribāṭ Rabīʿ there [in Mecca]. He died there in Ṣafar of the year 860. Ibn Fahd recorded his death date.

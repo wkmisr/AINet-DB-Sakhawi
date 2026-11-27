@@ -9,23 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00187
-    quote: المؤيدي
-    norm: المءيدي
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالساقي
-    norm: الساقي
     label: الساقي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: وبقراسقل
-    norm: قراسقل
     label: قراسقل
+    mention: m5
   - id: n4
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -42,7 +38,7 @@ death:
   - label: al-Baḥr al-Māliḥ
   note:
     ja: '「مات في توجهه إلى الجولان في البحر المالح سنة ثلاث وستين」＝863 年（1458-11-17 開始、年精度）、ジャウラーンへ向かう途上、海上（البحر المالح＝塩の海）で没した。البحر المالح は固有の海名でないため ref なしで保持（先例 D01050）。初版の #NEEDID ×2 を除去。'
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: والد قانباي المؤيدي شيخ
@@ -51,9 +47,8 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D03345
+  active: m3
   passive: AIND-D06273
-  quote: شيخ
   note:
     ja: 見出しのニスバ「المؤيدي شيخ」＝主人はアル＝ムアイヤド・シャイフ（#AIND-D03345、824 没）。repo 先例どおり patron。初版は relation なし。
   phrase: المؤيدي شيخ
@@ -62,33 +57,26 @@ relations:
   subtype: father
   active: AIND-D06273#p1
   passive: AIND-D06273
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: 「تأمر عشرة في أيام الأشرف إينال أو قبلها يسير」＝アル＝アシュラフ・イーナール（#AIND-D02110、857〜865 在位）の治世またはその少し前に十人長となった。「في أيام」は時期の表現であり主人関係ではないため、初版の統制外 subtype「colleague」relation（#NEEDID）と appointment date「ca. 857」（無効値）を除去し note に留める。
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00107
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: رأس نوبة
+  - mention: m8
   note:
     ja: 「وصار رأس نوبة بطرابلس」＝汎用 رأس نوبة（TMP-O-00107、規則48）。
-  norm: راس نوبة
+  mention: m7
 - id: s3
   type: status
   label: وكان متوسط السيرة مسرفا على نفسه
   label_latn: kāna mutawassiṭ al-sīra musrifan ʿalā nafsihi
-  quote: وكان متوسط السيرة مسرفا على نفسه
-  norm: وكان متوسط السيرة مسرفا علي نفسه
+  mention: m13
 events:
 - id: e1
   type: travel
@@ -96,13 +84,66 @@ events:
     ah: 863
     type: travel
   places:
-  - ref: TMP-L-00358
-    quote: الجولان
-  quote: توجهه
+  - mention: m10
   note:
     ja: 'الجولان（ジャウラーン高原、シリア南部）は ID-Master 未登録（ニスバ الجولاني TMP-N-04260 のみ）→ TMP-L-00358。初版は #NEEDID、cert="high" 属性を除去。海路でジャウラーンへ向かう記述は地理的に不自然だが原文どおり（規則25）。'
   trigger: rule
   phrase: مات في توجهه إلى الجولان في البحر المالح
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: name
+  ref: TMP-N-00187
+  quote: المؤيدي
+  norm: المءيدي
+- id: m3
+  kind: person
+  ref: AIND-D03345
+  quote: شيخ
+- id: m4
+  kind: name
+  quote: بالساقي
+  norm: الساقي
+- id: m5
+  kind: name
+  quote: وبقراسقل
+  norm: قراسقل
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m7
+  kind: office
+  ref: TMP-O-00107
+  quote: رأس نوبة
+  norm: راس نوبة
+- id: m8
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m9
+  kind: event
+  quote: توجهه
+- id: m10
+  kind: place
+  quote: الجولان
+  ref: TMP-L-00358
+- id: m11
+  kind: place
+  quote: البحر المالح
+  ref: None
+- id: m12
+  kind: year
+  value: '863'
+  quote: سنة
+- id: m13
+  kind: office
+  quote: وكان متوسط السيرة مسرفا على نفسه
+  norm: وكان متوسط السيرة مسرفا علي نفسه
 translation:
   ja: カーンバーイ・アル＝ムアイヤディー・シャイフ、アッ＝サーキー（酌人）およびカラーサクルとして知られる。アル＝アシュラフ・イーナールの治世、あるいはその少し前に十人隊アミール（アミール・アシャラ）となり、トリポリのラアス・ナウバとなった。863年、ジャウラーンへ向かう途上、海上で没した。60歳近くであった。並の生き方をし、自らに対して放埒であった。
   en: Qānbāy al-Muʾayyadī Shaykh, known as al-Sāqī (the cupbearer) and as Qarāsaqul. He was made an amīr of ten in the days of al-Ashraf Īnāl, or a little before, and became a raʾs nawba in Tripoli. He died in the year 863 at sea (al-Baḥr al-Māliḥ) while on his way to al-Jawlān, having nearly reached sixty. He was of middling conduct and dissolute toward himself.

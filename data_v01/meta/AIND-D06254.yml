@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02732
-    quote: الدمني
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m3
   - id: n3
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m4
 death:
   id: d
   date:
     ah: 832
   note:
     ja: '「مات في سنة اثنتين وثلاثين」＝832 年（1428-10-20 開始、年精度）。没地は原文に記載なし（初版の تعز は職の勤務地からの補完のため除去、規則22(1)）。相手側 #AIND-D07242 本文「رياسة الفتوى بتعز بعد موت قاسم الدمني المتوفي في سنة اثنتين وثلاثين」と没年が一致。'
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: والد قاسم الدمني اليماني
@@ -39,9 +36,8 @@ relations:
 - id: r1
   type: social
   subtype: successor
-  active: AIND-D07242
+  active: m8
   passive: AIND-D06254
-  quote: الجمال بن الخياط
   note:
     ja: 「وخلفه بتعز الجمال بن الخياط الآتي」。الجمال بن الخياط＝#AIND-D07242「محمد بن أبي بكر بن محمد بن صالح بن محمد الجمال أبو عبد الله بن الرضي الهمذاني الجبلي … التعزي الشافعي ويعرف بابن الخياط」（839 没。同項本文「وكذلك رياسة الفتوى بتعز بعد موت قاسم الدمني المتوفي في سنة اثنتين وثلاثين」で閉合。索引 D12314）。初版の無効番号 TMP-P-000000 を置換。
 - id: r2
@@ -49,24 +45,53 @@ relations:
   subtype: father
   active: AIND-D06254#p1
   passive: AIND-D06254
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
   places:
-  - ref: TMP-L-00050
-    quote: بتعز
-    norm: تعز
-  quote: المفتي
+  - mention: m6
   note:
     ja: 見出し「المفتي بتعز」・本文「انتهت إليه رياسة الفتوى فيها」＝タイッズのムフティーで、同地のファトワー発行の首位が彼に帰した。ID-Master 登録 مفتي（TMP-O-00004）を充当（初版は無効番号 TMP-O-00000）。初版の retirement date 832（没年の流用）は除去し、没年は death に。「العلامة الفقيه」は称賛語のため state にしない。
+  mention: m5
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: TMP-N-02732
+  quote: الدمني
+- id: m3
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m4
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m5
+  kind: office
+  ref: TMP-O-00004
+  quote: المفتي
+- id: m6
+  kind: place
+  quote: بتعز
+  ref: TMP-L-00050
+  norm: تعز
+- id: m7
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D07242
+  quote: الجمال بن الخياط
 translation:
   ja: カースィム・アッ＝ダマニー・アル＝ヤマーニー・アッ＝シャーフィイー、大学者（アッラーマ）、法学者、タイッズのムフティー。同地におけるファトワー（発行）の首位は彼に帰した。832年に没し、タイッズでは後述のアル＝ジャマール・イブン・アル＝ハイヤートが彼の後を継いだ。
   en: Qāsim al-Damanī al-Yamānī al-Shāfiʿī, the erudite scholar, jurist and muftī of Taʿizz. The leadership in issuing fatwās there passed to him. He died in the year 832, and al-Jamāl Ibn al-Khayyāṭ, who will be mentioned below, succeeded him in Taʿizz.

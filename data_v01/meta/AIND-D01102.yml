@@ -9,54 +9,75 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001707
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001707
   passive: AIND-D01102
-  quote: null
   note:
     ja: '父。兄弟項 #AIND-D08242（B159-163）と共用の TMP-P-001707。'
   phrase: علي السكندري المدني
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D01102
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m7
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D08242
+  active: m5
   passive: AIND-D01102
-  quote: محمد
   note:
     ja: 元TMP-P-000521破棄（ID-Master登録済=別人「عبد القادر」との衝突）。محمد السكندري المدني الآتي。要照合。
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-001707
+  quote: علي
+- id: m3
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D08242
+  quote: محمد
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アハマド・ブン・アリー・アッ＝スカンダリー・アル＝マダニー。後に伝記が記載されるムハンマドの兄弟。 メディーナで私（サハーウィー）からハディースを聴聞した一人。
   en: Aḥmad b. ʿAlī al-Sakandarī al-Madanī, brother of Muḥammad, whose biography will follow. He was among those who heard from me (al-Sakhāwī) in Medina.

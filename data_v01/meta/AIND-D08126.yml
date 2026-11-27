@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00078
-    quote: البرلسي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن المصري
-    norm: ابن المصري
     label: ابن المصري
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 persons:
 - id: p1
   label: علي بن عبد الله
@@ -49,26 +45,54 @@ relations:
   subtype: father
   active: AIND-D08126#p1
   passive: AIND-D08126
-  quote: null
   note:
     ja: 父 علي بن عبد الله は識別要素のない汎用名、corpus に本伝なし（規則3 (c')）。通称「ابن المصري」は本項主のもの。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D08126
   methods:
   - TMP-S-00003
   context:
   - type: learning
     phrase: ممن سمع مني
-  quote: مني
   note:
     ja: 「ممن سمع مني」（規則2）。場所・年なし。
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: name
+  ref: TMP-N-00078
+  quote: البرلسي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: name
+  quote: بابن المصري
+  norm: ابن المصري
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アブドゥッラー・アル＝ミスリー、のちアル＝ブルッルスィー、ハナフィー派、イブン・アル＝ミスリーとして知られる。私から聴聞した者の一人。
   en: Muḥammad b. ʿAlī b. ʿAbd Allāh al-Miṣrī, then al-Burullusī, al-Ḥanafī, known as Ibn al-Miṣrī. He was among those who heard from me.

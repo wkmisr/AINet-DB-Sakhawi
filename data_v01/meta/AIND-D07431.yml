@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -25,7 +25,7 @@ death:
   note:
     ar: مات في جمادى الثانية سنة ثمان وثمانين وما أظنه بلغ الخمسين
     ja: 888年ジュマーダー・アッ＝サーニヤ月＝1483-07（月初 1483-07-16、グレゴリオ暦・独立再計算）。「50歳に達していなかったと思う」（أظنه＝著者の推測）は生年の逆算には用いない。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: الوراق أبوه
@@ -39,36 +39,63 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07431#p1
+  active: m4
   passive: AIND-D07431
-  quote: الوراق أبوه
   note:
     ja: '原文「محمد بن سعيد الشمس الوراق أبوه وأحد التجار هو」＝本項主はアッ＝シャムス（ムハンマドの通例のラカブ شمس الدين）で、父はワッラーク（紙商・写本商）、本人は商人の一人（要判断_B88 §D-b1。同構文の D01257「أحمد بن محمد بن أحمد الشهاب الذهبي أبوه … ويعرف بابن الذهبي」でも見出し直後のラカブは本項主のもの）。父は職名のみで名不詳（「أظنه نسب لجده」により سعيد は祖父の名）。corpus に該当本伝なし（「الشمس الوراق الحنبلي」D09238 の師はハマー系で別人。TMP-P-000927「الشمس محمد بن أحمد الوراق المؤذن」は D04173 の父＝ナサブ不一致、TMP-P-000396「الوراق」は D01099 の師＝マーリク派法学者で別人）。職名のみのため #NEEDID 維持（規則3）。'
-  norm: الوراق ابوه
 - id: r2
   type: kin
   subtype: grandfather
   active: AIND-D07431#p2
   passive: AIND-D07431
   cert: medium
-  quote: null
   note:
     ja: 「وأظنه نسب لجده」＝著者は本項主が祖父の名で呼ばれている（「ابن سعيد」の سعيد は父ではなく祖父）と推測する。よって سعيد を祖父として cert medium（أظنه）で置く。初版は active 空欄・desc 空欄。
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: وكان
-  norm: كان
   phrase: وأحد التجار هو
+  mention: m8
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: سافر لمكة وغيرها
+  - mention: m5
+  phrase: سافر لمكة وغيرها
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: سعيد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: person
+  ref: AIND-D07431#p1
+  quote: الوراق أبوه
+  norm: الوراق ابوه
+- id: m5
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m7
+  kind: year
+  value: '888'
+  quote: سنة
+- id: m8
+  kind: office
+  ref: wd:Q215536
+  quote: وكان
+  norm: كان
 translation:
   ja: ムハンマド・ブン・サイード・アッ＝シャムス。父はワッラーク（紙商）であり、彼自身は商人の一人であった。マッカなどへ旅した。私（サハーウィー）は、彼が祖父の名にちなんで呼ばれているのだと思う。888年ジュマーダー・アッ＝サーニヤ月に没した。50歳には達していなかったと思う。軽率な人物であった。神よ彼に慈悲を。
   en: Muḥammad b. Saʿīd, al-Shams. His father was a paper-seller (warrāq), and he himself was one of the merchants. He travelled to Mecca and elsewhere, and I think he was named after his grandfather. He died in Jumādā al-Thāniya of the year 888, and I do not think he had reached fifty. He was a reckless man; may God have mercy on him.

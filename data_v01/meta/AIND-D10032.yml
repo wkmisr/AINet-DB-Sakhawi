@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00112
-    quote: البغدادي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n3
     type: ism
-    quote: مهنا
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: حسين
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 birth:
   id: b
   date:
@@ -40,8 +39,8 @@ death:
     cert: low
   note:
     ja: 「في حدود سنة عشر」＝810年頃（規則4 に準じ when-custom=810、cert low）。810年初＝1407-06-17（h2g.py、年精度）。約80歳。
-  quote: سنة
   phrase: مات في حدود سنة عشر عن نحو ثمانين سنة
+  mention: m9
 persons:
 - id: p1
   label: حسين بن علي
@@ -54,15 +53,13 @@ relations:
   subtype: father
   active: AIND-D10032#p1
   passive: AIND-D10032
-  quote: null
   note:
     ja: 規則3 (c')。父 حسين بن علي は識別要素のない名のみで corpus に見出しなし。
 - id: r2
   type: social
   subtype: companion
-  active: wd:Q293604
+  active: m8
   passive: AIND-D10032
-  quote: المقريزي
   note:
     ja: 「قال المقريزي في عقوده صحبني سنين」＝本項主が数年にわたり المقريزي に随伴した（引用中の一人称は引用元の著者 المقريزي、規則59(f)）。初版の統制外 subtype「colleague」を repo 語彙「companion」に。
 states:
@@ -70,21 +67,52 @@ states:
   type: status
   label: أحد شيوخ علماء الحرف
   label_latn: aḥad shuyūkh ʿulamāʾ al-ḥarf
-  quote: أحد شيوخ علماء الحرف
   note:
     ja: 見出し句「أحد شيوخ علماء الحرف」（文字学〔ハルフ学〕の学者の長老の一人）。職ではなく学統上の地位の形容のため state type="status"（ref なし）。初版は訳文のみ。
-  norm: احد شيوخ علماء الحرف
+  mention: m6
 sources:
 - id: c1
   persons:
   - ref: wd:Q293604
   works:
   - ref: TMP-T-00122
-  quote: قال
   note:
     ja: Pattern A。المقريزي『درر العقود الفريدة』（TMP-T-00122）。初版の desc（英語・内部ID混入）を原文句に置換。
   trigger: rule
   phrase: قال المقريزي في عقوده صحبني سنين وكانت عنده فوائد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: مهنا
+- id: m2
+  kind: name
+  quote: حسين
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00112
+  quote: البغدادي
+- id: m6
+  kind: office
+  quote: أحد شيوخ علماء الحرف
+  norm: احد شيوخ علماء الحرف
+- id: m7
+  kind: source
+  quote: قال
+- id: m8
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m9
+  kind: year
+  value: '810'
+  quote: سنة
 translation:
   ja: ムハンナー・ブン・フサイン・ブン・アリー、アッ＝シャラフ、アル＝バグダーディー、文字学（ハルフ学）の学者の長老の一人。アル＝マクリーズィーは『ウクード』で「彼は数年にわたって私に随伴し、有益な知識を持っていた」と述べている。（8）10年頃に約80歳で没した。
   en: 'Muhannā b. Ḥusayn b. ʿAlī, al-Sharaf, al-Baghdādī, one of the senior masters of the scholars of the science of letters (ʿilm al-ḥarf). Al-Maqrīzī said in his ʿUqūd: "He kept my company for years, and he possessed useful pieces of knowledge." He died around the year [8]10, aged about eighty.'

@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01278
-    quote: الهرموزي
+    mention: m2
   - id: n2
     type: ism
-    quote: فتح
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: عبد الله بن نصر الله الهرموزي
@@ -29,9 +28,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06149#p1
+  active: m5
   passive: AIND-D06149
-  quote: الهرموزية
   note:
     ja: '父 عبد الله は見出しナサブのみの汎用名（マウラーの慣用的父名の可能性もある）。corpus の الهرموزي 見出し（D00235・D07321・D07854・D10128・D10544）に本伝なし → 規則3により #NEEDID。初版の #TMP-P-000490（登録実体＝al-Zuhrī の祖父 عبد الله）は別人の流用のため解除。'
 - id: r2
@@ -39,45 +37,66 @@ relations:
   subtype: grandfather
   active: AIND-D06149#p2
   passive: AIND-D06149
-  quote: null
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D06149
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m4
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r4
   type: social
   subtype: patron
   active: AIND-D06149#p3
   passive: AIND-D06149
-  quote: null
   note:
     ja: '「مولى الهرموزية」＝アル＝フルムーズィーヤのマウラー。【集約 2026-10-19】-ية は女性形のニスバで呼ばれる主人（名不詳の女性）とも、集合名（フルムーズ家／ホルムズ人たち）とも読め、本項主のニスバ الهرموزي もそこから来るとみられる＝主人は特定できない（内容B L）。corpus に「الهرموزية」は本項のみ・ID-Master 未登録。名不詳のため #NEEDID を保持（規則12）。初版の subtype「client」は repo 実勢（مولى／فتى の主人＝patron、active=主人）に揃えた。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00299
-  quote: تكسب بالكتابة
   note:
     ja: 「تكسب بالكتابة」＝書写（代書）で生計を立てた。ID-Master 既登録 التكسب بالكتابة（TMP-O-00299、D00353 の先例）を充て、初版の汎用 كاتب（TMP-O-00010）と placeName مكة（居住地からの補完、規則22(1)）を改めた。
+  mention: m6
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m4
   trigger: rule
   phrase: نزيل مكة
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: فتح
+- id: m2
+  kind: name
+  ref: TMP-N-01278
+  quote: الهرموزي
+- id: m3
+  kind: event
+  quote: نزيل
+- id: m4
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m5
+  kind: person
+  ref: AIND-D06149#p1
+  quote: الهرموزية
+- id: m6
+  kind: office
+  ref: TMP-O-00299
+  quote: تكسب بالكتابة
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ファトフッラー・ブン・アブドゥッラー・ブン・ナスルッラー・アル＝フルムーズィー。マッカの寓居者で、アル＝フルムーズィーヤ（フルムーズ家、あるいはその名で呼ばれる女性）のマウラー。書写で生計を立てた。マッカで私から聴聞した者の一人。
   en: Fatḥ Allāh b. ʿAbd Allāh b. Naṣr Allāh al-Hurmūzī, resident of Mecca and mawlā of al-Hurmūziyya (the Hurmūzī family, or a woman so called). He earned his living by copying. He is one of those who heard from me in Mecca.

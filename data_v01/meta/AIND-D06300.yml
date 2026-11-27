@@ -9,19 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قانم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 891-07
   note:
     ja: 「مات في رجب سنة إحدى وتسعين」＝891 年ラジャブ月（月初 1486-07-12、月精度）。初版の @when 1486（年精度）を月精度に。没地の記載なし。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قانم الظاهري
@@ -32,23 +31,41 @@ relations:
   subtype: father
   active: AIND-D06300#p1
   passive: AIND-D06300
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。ニスバ「الظاهري」はスルターン名を伴わない（ジャクマクかフシュカダムか不明）ため patron relation は立てない（規則26）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير
   note:
     ja: '「أحد العشرات」＝أمير عشرة（TMP-O-00101、規則48）。初版は #NEEDID。'
-  norm: امير
+  mention: m3
 - id: s2
   type: office
   ref: TMP-O-00114
-  quote: null
   note:
     ja: 「وممن عمل أمير شكار وقتا」＝一時期狩猟長官を務めた。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قانم
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير
+  norm: امير
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: カーニム・アッ＝ザーヒリー、十人長（アミール・アシャラ）の一人で、一時期狩猟長官（アミール・シカール）を務めた者の一人。891年ラジャブ月に没した。
   en: Qānim al-Ẓāhirī, one of the amīrs of ten and one of those who served for a time as amīr shikār (master of the hunt). He died in Rajab of the year 891.

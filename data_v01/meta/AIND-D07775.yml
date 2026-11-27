@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01505
-    quote: الكلبشاوي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001206
+    mention: m2
   - id: n5
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
@@ -35,30 +33,56 @@ relations:
   passive: AIND-D07775
   summary:
     ar: عبد الله بن سعيد الكلبشاوي
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。ID-Master の TMP-P-000871（التاج محمد الكلبشاوي قاضي كلبشا وخطيبها、#AIND-D04045 の父）はカルバシャーのハティーブ家だが名が異なるため充当しない。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07775
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m8
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
-  quote: الخطيب
   note:
     ja: 見出し末尾の「الخطيب」を職として state 化（B87a 先例）。勤務地は原文に明示がないため placeName を付けない（初版のニスバ由来 كلبشا は規則22により除去）。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001206
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: سعيد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-01505
+  quote: الكلبشاوي
+- id: m6
+  kind: office
+  ref: wd:Q932945
+  quote: الخطيب
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・サイード、アッ＝シャムス・アル＝カルバシャーウィー、ハティーブ（説教師）。カイロで私（サハーウィー）から聴聞した一人。
   en: Muḥammad b. ʿAbd Allāh b. Saʿīd, al-Shams al-Kalbashāwī, the preacher (khaṭīb), among those who heard from me (al-Sakhāwī) in Cairo.

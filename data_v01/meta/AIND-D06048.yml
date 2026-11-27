@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00665
-    quote: الخراساني
+    mention: m3
   - id: n2
     type: ism
-    quote: عميد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n4
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m4
 death:
   id: d
   date:
@@ -31,24 +29,22 @@ death:
     cert: medium
   note:
     ja: 「مات بعد رجوعه من الروم سنة خمس」。没年「سنة خمس」は一の位のみ＝805、cert medium（2026-09-24 Waka）。805 ＝ 1402-08-10〜1403-07-29、年初 1402。没地は明記なし。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: patron
   active: wd:Q8462
   passive: AIND-D06048
-  quote: null
   note:
     ja: 「قاضي تمرلنك」＝ ティムール（ID-Master 登録 تمرلنك ＝ wd:Q8462。repo 先例 D00401・D01788・D02072）のカーディーを務めた。初版の統制外 subtype「other」を主従関係の patron に。
   phrase: تمرلنك
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
-  quote: قاضي تمرلنك
   note:
     ja: 'ref は汎用 قاض（wd:Q217029）。零番号 #TMP-O-00000 を是正。'
+  mention: m5
 affiliations:
 - id: a1
   type: madhhab
@@ -61,25 +57,58 @@ events:
     cert: medium
     type: travel
   places:
-  - ref: TMP-L-00038
-    quote: الروم
-  quote: بعد رجوعه من الروم
+  - mention: m6
   cert: medium
   note:
     ja: 'ルーム（小アジア）からの帰還。原文「مات بعد رجوعه من الروم سنة خمس」の年は没年で帰還年ではないため、帰還は没年 805 以前＝notAfter 805（805 の年末 ＝ 1403-07-29）。cert medium は没年の一の位表記に準ずる（検証後訂正 2026-10-10: 校閲の @when 805／1402 を notAfter に）。'
+  phrase: بعد رجوعه من الروم
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、『إنباء الغمر』（#TMP-T-00034）。初版の relation（subtype other）を event に置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عميد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00665
+  quote: الخراساني
+- id: m4
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m5
+  kind: office
+  ref: wd:Q217029
+  quote: قاضي تمرلنك
+- id: m6
+  kind: place
+  quote: الروم
+  ref: TMP-L-00038
+- id: m7
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アミード・ブン・アブドゥッラー・アル＝フラーサーニー・アル＝ハナフィー。ティムール（タムルランク）のカーディー。ルームから帰還したのち、（8）05年に没した。我らのシャイフ（イブン・ハジャル）が『インバー』においてその没年を記している。
   en: ʿAmīd b. ʿAbd Allāh al-Khurāsānī al-Ḥanafī, the qāḍī of Tamerlane (Tamurlank). He died after his return from al-Rūm in the year (8)05. Our shaykh (Ibn Ḥajar) recorded his death date in his Inbāʾ.

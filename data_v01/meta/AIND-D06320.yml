@@ -9,37 +9,31 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قرا
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 889-02
   note:
     ja: '「قتل صبرا في المشاققة التي بين العسكر المصري وعلى دولات في صفر سنة تسع وثمانين」＝889 年サファル月（月初 1484-03-09、月精度）、エジプト軍とアリー・ダウラート（علاء الدولة）との抗争において捕らえられて処刑された（قتل صبرا＝拘束下での殺害）。没地は原文に無い（同じ戦いで没した #AIND-D03265 は戦場を الأندرين と記すが他項の情報のため note のみ＝規則23）。'
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001594
+  active: m2
   passive: AIND-D06320
-  quote: أوزار
   note:
     ja: '見出し「قرا بك بن أوزار أمير التركمان بالجون」の父。corpus に「أوزار」の見出し・言及は本項のみ（hw.py）、ID-Master 未登録。珍しい名で、子がアル＝ジャウンのトルクメン首長という識別要素があるため TMP-P-001594（規則3・12）。初版は #NEEDID。'
-  norm: اوزار
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
-  - ref: TMP-L-00156
-    quote: بالجون
-    norm: الجون
-  quote: أمير التركمان
+  - mention: m4
   note:
     ja: '見出し「أمير التركمان بالجون」＝アル＝ジャウン（TMP-L-00156）のトルクメンの首長。ID-Master の أمير التركمان 系は部族固有の「أمير التركمان الكبكية」（TMP-O-00154）のみのため、汎用 أمير（TMP-O-00014）＋ラベルとした（初版は #NEEDID）。'
-  norm: امير التركمان
+  mention: m3
 events:
 - id: e1
   type: political
@@ -47,14 +41,47 @@ events:
     ah: 889-02
     type: political
   persons:
-  - ref: wd:Q4895760
-    quote: وعلى دولات
-    norm: علي دولات
-  quote: قتل
+  - mention: m6
   note:
     ja: على دولات＝علاء الدولة بن سليمان ذو القدر（ドゥルカディル侯 Alāʾ al-Dawla Bozkurt、wd:Q4895760、ID-Master 登録済・repo 先例 D03265）。本項主とアリー・ダウラートの個人的対立は原文にないため、初版の統制外 subtype「rival」relation（#NEEDID）は除去し event 内 persName に留める（同じ 889 年サファルの戦いは corpus の D03265・D06279・D10381 にも見える）。初版の cert="high" を除去。
   trigger: rule
   phrase: قتل صبرا في المشاققة التي بين العسكر المصري وعلى دولات في صفر سنة تسع وثمانين
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: قرا
+- id: m2
+  kind: person
+  ref: TMP-P-001594
+  quote: أوزار
+  norm: اوزار
+- id: m3
+  kind: office
+  ref: TMP-O-00014
+  quote: أمير التركمان
+  norm: امير التركمان
+- id: m4
+  kind: place
+  quote: بالجون
+  ref: TMP-L-00156
+  norm: الجون
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: person
+  ref: wd:Q4895760
+  quote: وعلى دولات
+  norm: علي دولات
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '889'
+  quote: سنة
 translation:
   ja: カラー・ベク・ブン・アウザール、アル＝ジャウンのトルクメンの首長（アミール）。889年サファル月、エジプト軍とアリー・ダウラートとの抗争において捕らえられて殺された。
   en: Qarā Bak b. Awzār, amīr of the Turkmens in al-Jawn. He was put to death in captivity (qutila ṣabran) in the conflict between the Egyptian army and ʿAlī Dawlāt (ʿAlāʾ al-Dawla) in Ṣafar of the year 889.

@@ -9,63 +9,98 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00917
-    quote: الكلاعي
+    mention: m4
   - id: n2
     type: kunyah
-    quote: أبو بكر
-    norm: ابو بكر
+    mention: m3
   - id: n3
     type: ism
-    quote: عتيق
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 852-11-22
   note:
     en: Died on 22 Dhu al-Qaʿda 852 H.
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001294
+  active: m2
   passive: AIND-D04828
   summary:
     ar: عتيق بن قاسم الكلاعي
-  quote: عتيق بن قاسم
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001294 を発行。
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
-  - ref: gn:2517117
-    quote: غرناطة
-  quote: خطيب
+  - mention: m6
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00294
   places:
-  - ref: gn:2517117
-    quote: غرناطة
-  quote: ونحويها
+  - mention: m6
   note:
     ja: 原文「خطيب غرناطة ونحويها」。文法学者（نحوي）の職・称号は ID-Master に未登録のため、集約時に仮番号 TMP-O-00294 を発行（規則12、先例 B89-93 §D93-8。§D96-13）。
-  norm: نحويها
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: أرخه
+  - mention: m11
   note:
     ja: 'Pattern A（初版は統制外 subtype「chronicled by」の relation）。ابن عزم ＝ ニスバ索引見出し #AIND-D12540（統一規則11・先例）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن عزم
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عتيق
+- id: m2
+  kind: person
+  ref: TMP-P-001294
+  quote: عتيق بن قاسم
+- id: m3
+  kind: name
+  quote: أبو بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  ref: TMP-N-00917
+  quote: الكلاعي
+- id: m5
+  kind: office
+  ref: wd:Q932945
+  quote: خطيب
+- id: m6
+  kind: place
+  quote: غرناطة
+  ref: gn:2517117
+- id: m7
+  kind: office
+  ref: TMP-O-00294
+  quote: ونحويها
+  norm: نحويها
+- id: m8
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m9
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: アティーク・ブン・アティーク・ブン・カースィム、アブー・バクル、アル＝カラーイー。グラナダのハティーブ（説教師）にして同地の文法学者。852年ズー・ル＝カアダ月22日に没した。イブン・アズムが彼の没年を記録している。
   en: ʿAtīq b. ʿAtīq b. Qāsim, Abū Bakr, al-Kalāʿī, the preacher (khaṭīb) of Granada and its grammarian. He died on 22 Dhu al-Qaʿda 852. Ibn ʿAzm recorded his death date.

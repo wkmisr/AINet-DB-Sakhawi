@@ -9,66 +9,97 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن فخيرة
-    norm: ابن فخيرة
     label: ابن فخيرة
+    mention: m8
   - id: n3
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الغني
     by: rule
-    ref: AIND-D04080
+    mention: m2
   - id: n5
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: الفخر
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: الشرف
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04080
+  active: m9
   passive: AIND-D10268
-  quote: أبيه
   note:
     ja: '見出しナサブ（規則37）。#AIND-D04080「عبد الغني بن يعقوب الفخر بن الشرف . أحد كتاب المماليك ووالد عبد الكريم ويحيى ونصر الله وحمزة المذكورين في محالهم والمعروفين بابن فخيرة تصغير لقب أبيهم」（相手側が本項主を名指し、repo 収録済みで son relation に #AIND-D10268。ブリーフ候補を本文で確認）。初版の #NEEDID を置換。'
-  norm: ابيه
   phrase: عبد الغني بن يعقوب
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D09513
+  active: m7
   passive: AIND-D10268
   summary:
     ar: أبو الخير محمد
-  quote: الخير محمد
   note:
     ja: '「والد أبي الخير محمد الماضي」＝#AIND-D09513「محمد بن يحيى بن عبد الغني بن يعقوب خير الدين أبو الخير بن العلم بن الفخر القبطي أحد كتاب المماليك كأبيه وجده ويعرف بابن فخيرة」（ナサブ4代＋クンヤ＋職で閉合、未収録）。初版の #NEEDID を置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00028
-  quote: كتب في المماليك
   note:
     ja: '「ممن كتب في المماليك كأبيه وولده」＝父・子と同じくマムルーク登録の書記（TMP-O-00028 كاتب المماليك。父 #AIND-D04080・子 #AIND-D09513 も「أحد كتاب المماليك」）。初版の placeName القاهرة（原文になし、職の勤務地からの補完）を除去（規則22(1)）。'
+  mention: m10
 notes:
 - text: 'ابن فخيرة 家（コプト系書記、通称索引 #AIND-D12593「ابن فخيرة واشتهروا بذلك للفخر عبد الغني بن الشرف يعقوب … وله أربعة أولاد كريم الدين عبد الكريم نائب ناظر الخاص وعلم الدين يحيى أحد كتاب المماليك وشمس الدين نصر الله … وشرف الدين حمزة أحد كتاب المماليك」）。兄弟: #AIND-D04268 عبد الكريم・#AIND-D02780 حمزة・TMP-P-000898 نصر الله（本項原文に言及なし、父が AIND で共通＝note、規則23）。ラカブは本項の見出しでは「الشرف」だが、索引 D12593 は「علم الدين يحيى」、子の本伝 D09513 は「بن العلم」とする（D12593 で「شرف الدين」は兄弟 حمزة のラカブ）＝本項は原文どおり「الشرف」（規則25）。「ويعرف بابن فخيرة تصغير أبيه」＝父（のラカブ فخر）の縮小形による通称。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: AIND-D04080
+  quote: عبد الغني
+- id: m3
+  kind: name
+  quote: يعقوب
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  quote: الفخر
+- id: m6
+  kind: name
+  quote: الشرف
+- id: m7
+  kind: person
+  ref: AIND-D09513
+  quote: الخير محمد
+- id: m8
+  kind: name
+  quote: بابن فخيرة
+  norm: ابن فخيرة
+- id: m9
+  kind: person
+  ref: AIND-D04080
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: office
+  ref: TMP-O-00028
+  quote: كتب في المماليك
 translation:
   ja: ヤフヤー・ブン・アブド・アル＝ガニー・ブン・ヤアクーブ、アッ＝シャラフ・ブン・アル＝ファフル・ブン・アッ＝シャラフ。既出のアブー・アル＝ハイル・ムハンマドの父で、父（のラカブ）の縮小形であるイブン・フハイラとして知られる。父や息子と同じく、マムルーク（登録）の書記を務めた者の一人。
   en: Yaḥyā b. ʿAbd al-Ghanī b. Yaʿqūb, al-Sharaf b. al-Fakhr b. al-Sharaf, father of Abū al-Khayr Muḥammad, mentioned earlier, and known as Ibn Fukhayra, a diminutive of his father's (laqab). He was among those who served as secretary of the mamlūks, like his father and his son.

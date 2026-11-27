@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04037
-    quote: الذيراوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00017
-    quote: العجمي
+    mention: m5
   - id: n3
     type: laqab
-    quote: البهاء
+    mention: m3
   - id: n4
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمود
     by: rule
-    ref: TMP-P-001311
+    mention: m2
 death:
   id: d
   date:
     ah: 844-11
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m7
   note:
     ja: 「ومات بها في ذي القعدة سنة أربع وأربعين」。844-11 ＝ 1441-04（h2g.py、月精度は月初）。بها は「نزيل مكة」の مكة を受ける照応（規則22-3）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
@@ -45,15 +41,13 @@ relations:
   passive: AIND-D04883
   summary:
     ar: محمود الذيراوي العجمي
-  quote: null
   note:
     ja: '見出し「عثمان بن محمود البهاء الذيراوي العجمي」から復元（統一規則3）。初版の #TMP-P-000760 は D02751（حسين بن محمود）の父として登録された別人のため破棄。corpus に本伝なし・ID-Master 未登録のため仮番号発行。⚠汎用名（名のみで識別要素がニスバのみ）。'
 - id: r2
   type: social
   subtype: deputy
   active: AIND-D04883
-  passive: AIND-D01561
-  quote: الشهاب المعيد
+  passive: m8
   note:
     ja: '「أم بمقام الحنفية بها نيابة عن الشهاب المعيد」。الشهاب المعيد ＝ #AIND-D01561（أحمد بن محمد بن محمود … الشهاب الخوارزمي ثم المكي الحنفي إمام مقام الحنفية بمكة … ويعرف بابن المعيد、788生）。初版の #NEEDID・統制外 subtype「deputized_for」を是正。'
 states:
@@ -62,38 +56,80 @@ states:
   subtype: deputy
   ref: wd:Q125482
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m7
   orgs:
   - ref: TMP-I-00176
-  quote: null
   note:
     ja: 「أم بمقام الحنفية بها نيابة عن الشهاب المعيد」。ID-Master 登録の職 TMP-O-00285（D07657 と同構文）と施設 TMP-I-00176（مقام الحنفية بالمسجد الحرام）を充当。placeName مكة は بها の照応。初版の affiliation employed（二重符号化、規則8）を除去。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m7
   trigger: rule
   phrase: نزيل مكة
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m12
   note:
     ja: 'Pattern A。没年 844（≦871）のため ابن فهد の振り分け規則により #AIND-D09211（التقي ابن فهد）cert low。初版の統制外 subtype「biographer」relation を mention event に変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m11
 notes:
 - text: '学派: 原文に明記はない。「أم بمقام الحنفية بها نيابة عن الشهاب المعيد」（ハナフィー派マカームのイマーム代理）からハナフィー派と推定されるが、原文にない属性は付けない原則により affiliation は置かない（初版の毒wd Q160851、校閲版の cert medium affiliation を集約時に除去。§D97-4 回答）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-P-001311
+  quote: محمود
+- id: m3
+  kind: name
+  quote: البهاء
+- id: m4
+  kind: name
+  ref: TMP-N-04037
+  quote: الذيراوي
+- id: m5
+  kind: name
+  ref: TMP-N-00017
+  quote: العجمي
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m8
+  kind: person
+  ref: AIND-D01561
+  quote: الشهاب المعيد
+- id: m9
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m10
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウスマーン・ブン・マフムード、アル＝バハーウ・アッ＝ズィーラーウィー・アル＝アジャミー、マッカに寄留した人。アッ＝シハーブ・アル＝ムイードの代理として、マッカのハナフィー派マカーム（礼拝所）で礼拝を先導した。（8）44年ズー・アル＝カアダ月に同地で没した。イブン・ファハドがその没年を記録している。
   en: ʿUthmān b. Maḥmūd, al-Bahāʾ al-Dhīrāwī al-ʿAjamī, resident of Mecca. He led the prayer at the Ḥanafī station (maqām al-Ḥanafiyya) there as deputy for al-Shihāb al-Muʿīd, and died there in Dhū al-Qaʿda (8)44. Ibn Fahd recorded his death.

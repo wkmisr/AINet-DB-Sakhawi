@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m3
   - id: n2
     type: shuhrah
-    ref: TMP-N-05497
-    quote: الفوال
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: نصر
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 858-12
   places:
-  - ref: TMP-L-00211
-    role: burial
-    quote: باب النصر
+  - role: burial
+    mention: m8
   note:
     en: He died suddenly.
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去（ar-Latn 形も併せて除去）。根拠は〈ニスバ القاهري／施設 باب النصر の所在地（باب النصر 自体は保持）〉からの補完で原文に地名の明示なし。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: نصر
@@ -47,35 +44,69 @@ relations:
   subtype: father
   active: AIND-D05671#p1
   passive: AIND-D05671
-  quote: null
 states:
 - id: s1
   type: office
   ref: TMP-O-00189
   places:
-  - ref: TMP-L-00210
-    quote: حارة برجوان
-  quote: null
+  - mention: m5
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00210
-    quote: حارة برجوان
-  quote: null
+  - mention: m5
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000342
-    role: mentioner
-    quote: المنير
-  quote: أرخه
+  - role: mentioner
+    mention: m10
   note:
     en: Recorded his death date.
     ja: 第三者による言及・記録(Pattern A)。
   trigger: rule
-  norm: ارخه
   phrase: المنير
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: نصر
+- id: m3
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m4
+  kind: name
+  ref: TMP-N-05497
+  quote: الفوال
+- id: m5
+  kind: place
+  quote: حارة برجوان
+  ref: TMP-L-00210
+- id: m6
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m7
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: باب النصر
+  ref: TMP-L-00211
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: TMP-P-000342
+  quote: المنير
 translation:
   ja: アリ・ブン・ナスル・アル＝カーヒリー・アル＝ファウワール。バルジュワーン街の入り口の市場（に店を構えていた）。人々から（敬虔な人物として）信奉されていた一人。ズル＝ヒッジャ（ハジュの月）の858年に急死し、バーブ・アン＝ナスル（勝利門）の外に埋葬された。アル＝ムニールがその死を記録している。
   en: ʿAlī b. Naṣr al-Qāhirī al-Fawwāl, (who operated) in the market at the head of Barjawān Quarter. He was one of those in whose piety people believed. He died suddenly in Dhu al-Ḥijjah in the year 858 and was buried outside Bāb al-Naṣr. His death was recorded by al-Munīr.

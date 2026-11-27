@@ -9,38 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m2
   - id: n2
     type: ism
-    quote: سودون
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 827-11
   places:
-  - ref: TMP-L-00002
-    quote: الشام
+  - mention: m9
   note:
     en: Died in the beginning of Dhu al-Qaʿda, 827 AH.
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D02168
+  active: m6
   passive: AIND-D03211
-  quote: الأشرف
   note:
     en: Mamluk Sultan (al-Ashraf Barsbāy) who imprisoned and exiled the subject, and later appointed him to Damascus.
-  norm: الاشرف
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D06265
+  active: m10
   passive: AIND-D03211
-  quote: قانباي الحمزاوي
   note:
     en: Predecessor as Atabak and commander of Damascus.
 states:
@@ -48,82 +43,127 @@ states:
   type: office
   ref: TMP-O-00014
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: null
+  - mention: m5
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00083
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m3
   dates:
   - ah: 827
     type: retirement
-  quote: والتقدمة
-  norm: التقدمة
+  mention: m11
 - id: s3
   type: office
-  ref: TMP-O-00062
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m3
   dates:
   - ah: 827
     type: retirement
-  quote: وأتابكها
-  norm: اتابكها
+  mention: m4
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: null
+  - mention: m5
+  mention: null
 - id: e2
   type: visit
   places:
-  - ref: gn:358048
-    quote: دمياط
-  quote: null
+  - mention: m7
   note:
     en: Exiled there by Sultan al-Ashraf.
+  mention: null
 - id: e3
   type: residence
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m3
+  mention: null
 - id: e4
   type: political
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m5
   summary:
     en: Imprisoned and then exiled to Damietta by Sultan al-Ashraf (Barsbāy).
-  quote: حبسه
   trigger: rule
+  mention: m8
 - id: e5
   type: political
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m3
   summary:
     en: Appointed to Damascus as Atabak and commander (muqaddam), replacing Qānibāy al-Ḥamzāwī.
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m15
   trigger: rule
   phrase: ذكره العيني
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: سودون
+- id: m2
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m3
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m4
+  kind: office
+  ref: TMP-O-00062
+  quote: وأتابكها
+  norm: اتابكها
+- id: m5
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m6
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m7
+  kind: place
+  quote: دمياط
+  ref: gn:358048
+- id: m8
+  kind: event
+  quote: حبسه
+- id: m9
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
+- id: m10
+  kind: person
+  ref: AIND-D06265
+  quote: قانباي الحمزاوي
+- id: m11
+  kind: office
+  ref: TMP-O-00083
+  quote: والتقدمة
+  norm: التقدمة
+- id: m12
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m13
+  kind: year
+  value: '827'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: ذكره
+- id: m15
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: スードゥン・アル＝ハマウィー。ダマスクスの指揮官（ムカッダム）の一人であり、そのアタベク（総司令官）。これ以前はカイロのアミール（諸侯）の一人であったが、アシュラフ（スルタン・バルスバーイ）によって一時幽閉された後、ダミエッタへ流刑に処された。その後、カーニバーイ・アル＝ハムザーウィーの後任として、アタベク職および指揮官職（タカッドム）に任命されてシリアに送られた。そしてシリア（ダマスクス）において、827年ズー・アル＝カアダの初めに没した。アル＝アイニーが彼について言及している。
   en: Sūdūn al-Ḥamawī. One of the commanders (muqaddams) and the Atabak (commander-in-chief) of Damascus. Prior to that, he was one of the amirs of Cairo. Sultan al-Ashraf (Barsbāy) imprisoned him for a period and then exiled him to Damietta. Later, he was sent to al-Shām (Damascus) to replace Qānibāy al-Ḥamzāwī as Atabak and commander (muqaddam). He died there in early Dhu al-Qaʿda, in the year 827 AH. Al-ʿAynī mentioned him.

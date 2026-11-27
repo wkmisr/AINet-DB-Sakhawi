@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01334
-    quote: الشربيني
+    mention: m3
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m2
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D03838
-  passive: AIND-D07563
+  passive: m7
   methods:
   - TMP-S-00025
   context:
   - type: teaching
     places:
-    - ref: gn:358048
-      quote: دمياط
-  quote: التقي بن وكيل السلطان
+    - mention: m5
 affiliations:
 - id: a1
   type: madhhab
@@ -45,23 +41,51 @@ events:
 - id: e2
   type: residence
   places:
-  - ref: gn:358048
-    quote: دمياط
-  quote: أقام
+  - mention: m5
   note:
     en: He resided in Damietta for about three years.
   trigger: rule
-  norm: اقام
+  mention: m6
 sources:
 - id: c1
   persons:
   - ref: AIND-D07563
-  quote: ووصفه
   note:
     ja: 初版は subtype="testimony"（統制外語彙）の personal relation（Pattern A違反）。「وصفه بـ」＝第三者による評価。
   trigger: rule
-  norm: وصفه
   phrase: ووصفه بالقاضي العالم
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: الزين
+- id: m3
+  kind: name
+  ref: TMP-N-01334
+  quote: الشربيني
+- id: m4
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m5
+  kind: place
+  quote: دمياط
+  ref: gn:358048
+- id: m6
+  kind: event
+  quote: أقام
+  norm: اقام
+- id: m7
+  kind: person
+  ref: AIND-D07563
+  quote: التقي بن وكيل السلطان
+- id: m8
+  kind: source
+  quote: ووصفه
+  norm: وصفه
 translation:
   ja: アブド・アッラフマーン・アッ＝ザイン・アッ＝シャルビーニー・アッ＝シャーフィイー。ドミヤートの居留者。そこに約3年間滞在して教鞭を執った。彼に学んだ（読誦した）者にはタキー・ブヌ・ワキール・アッ＝スルターンがおり、タキーは彼を『博学なるカーディー』と評した。
   en: Abd al-Rahman al-Zayn al-Sharbini al-Shafi'i, a resident of Damietta. He stayed there for about three years and taught. Among those who read under him was al-Taqi b. Wakil al-Sultan, who described him as 'the learned judge'.

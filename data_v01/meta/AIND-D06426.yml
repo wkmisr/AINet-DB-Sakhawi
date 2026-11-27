@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: لولو
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -18,8 +18,8 @@ death:
     cert: medium
   note:
     ja: '「سنة ثلاث」＝一の位のみ → 803年、cert medium（2026-09-24 Waka 基準。先例 #AIND-D02894「صفر سنة ثلاث . أرخه العيني」＝803）。803年ジュマーダー第一月＝1400-12-27〜1401-01-25（h2g.py）、月精度で @when=1400-12（初版の 1400 は年精度で不一致）。'
-  quote: سنة
   phrase: مات في جمادى الأولى سنة ثلاث
+  mention: m4
 persons:
 - id: p1
   label: والد لولو خادم ابن يلبغا
@@ -31,9 +31,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06426#p1
+  active: m2
   passive: AIND-D06426
-  quote: ابن يلبغا
   note:
     ja: 規則3（単名の項。原文に父名なし）。
 - id: r2
@@ -41,7 +40,6 @@ relations:
   subtype: patron
   active: AIND-D06426#p2
   passive: AIND-D06426
-  quote: null
   note:
     ja: '「خادم ابن يلبغا」＝仕えた主人（規則56。خادم＝従者、マムルーク朝では宦官を指すことも多い）。「ابن يلبغا」は名を欠き、corpus の候補 #AIND-D01702「أحمد بن يلبغا شهاب الدين العمري الخاصكي … أستاذ الظاهر برقوق」・#AIND-D09552「محمد بن يلبغا ناصر الدين اليحياوي أحد الأمراء الصغار بدمشق … مات في المحرم سنة إحدى」・#AIND-D00526「أحمد بن أحمد بن يلبغا ويعرف بابن المرضعة」のいずれかに決められない（規則26）→ #NEEDID（候補は ISSUES §D160-4）。初版の幻番号 TMP-P-000000 を置換。'
 notes:
@@ -51,15 +49,37 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m6
   note:
     ja: 'Pattern A。初版の統制外 subtype「chronicler」relation（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に変換（先例 #AIND-D02894）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: لولو
+- id: m2
+  kind: person
+  ref: AIND-D06426#p1
+  quote: ابن يلبغا
+- id: m3
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m4
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m5
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m6
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: ルウルウ、イブン・ヤルブガーの従者（ハーディム）。（8）03年ジュマーダー第一月に没した。アル＝アイニーがその没年を記している。
   en: Luʾluʾ, servant (khādim) of Ibn Yalbughā. He died in Jumādā I of the year [8]03. Al-ʿAynī dated his death.

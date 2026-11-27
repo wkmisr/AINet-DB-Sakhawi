@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 846-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 846年シャアバーン月＝1442-12-14〜1443-01-11（h2g.py）、月精度で @when=1442-12。
-  quote: سنة
   phrase: مات في شعبان سنة ست وأربعين بمكة
+  mention: m3
 persons:
 - id: p1
   label: والد منصور الحكيم
@@ -33,32 +31,54 @@ relations:
   subtype: father
   active: AIND-D10023#p1
   passive: AIND-D10023
-  quote: null
   note:
     ja: 規則3（単名の項）。父の名は原文に出ない。
 states:
 - id: s1
   type: office
   ref: TMP-O-00108
-  quote: null
   note:
     ja: 見出し語「الحكيم」（医師）。repo 先例（「الحكيم」label → ID-Master の Office طبيب TMP-O-00108）に合わせた。初版の persName shuhrah「الحكيم」は職名のため state に置換（規則8）。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m6
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 846（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 subtype「chronicler」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m5
 notes:
 - text: '#AIND-D01655「أحمد بن منصور الحكيم . مات بمكة في رجب سنة اثنتين وستين」（862年没、マッカ）は本項主の子である可能性があるが、見出しの「الحكيم」が أحمد 自身の職か父の呼称かが決まらず（単名＋職のみ）、relation は立てない（規則26。§D153-1）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m3
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m6
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: マンスール、医師（アル＝ハキーム）。（8）46年シャアバーン月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Manṣūr al-Ḥakīm (the physician). He died in Shaʿbān of the year [8]46 in Mecca. Ibn Fahd recorded his death.

@@ -9,47 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00046
-    quote: الأذرعي
-    norm: الاذرعي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m10
   - id: n3
     type: laqab
-    quote: الكمال
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00665
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: الإمام الشهاب
     by: rule
-    norm: الامام الشهاب
+    mention: m8
 birth:
   id: b
   date:
@@ -64,8 +58,8 @@ death:
     ah: 895-01
   note:
     ja: 895年ムハッラム月＝1489-12-04 開始（h2g.py、月精度）。初版の @when 1490 を訂正。没地は原文になし＝初版の placeName بولاق（直前の「انجمع ببولاق」からの補完）を除去（規則22(1)）。
-  quote: سنة
   phrase: ومات في المحرم سنة خمس وتسعين عن بضع وخمسين تقريبا
+  mention: m14
 persons:
 - id: p1
   label: أم محمد بن أحمد الأذرعي
@@ -78,7 +72,6 @@ relations:
   passive: AIND-D06646
   summary:
     ar: أحمد بن حسن بن علي بن محمد بن عبد الرحمن الشهاب الأذرعي
-  quote: null
   note:
     ja: '見出しナサブ「بن الإمام الشهاب الأذرعي」（規則37）。父＝corpus 本伝 #AIND-D00665「أحمد بن حسن بن علي بن محمد بن عبد الرحمن الشهاب الأذرعي الدمشقي ثم المصري الشافعي … فقرره إمامه … مات … سنة إحدى وخمسين … وخلف ثلاثة عشر ذكرا سوى الإناث」（ナサブ5代・ラカブ・ニスバ・「الإمام」〔المؤيد のイマーム〕で閉合。娘の項 #AIND-D13475 も「الماضي أبوها وجدها」）。初版は父 relation なし。'
 - id: r2
@@ -86,23 +79,20 @@ relations:
   subtype: mother
   active: AIND-D06646#p1
   passive: AIND-D06646
-  quote: null
   note:
     ja: 「وأمه دمشقية」＝母はダマスクスの人。名不詳＝#NEEDID（規則12・60(d)、desc は「أم＋本項主の呼称」書式）。初版は active が空・desc も空。
 - id: r3
   type: kin
   subtype: daughter
-  active: AIND-D13475
+  active: m15
   passive: AIND-D06646
-  quote: فاطمة
   note:
     ja: '「وهو والد فاطمة زوج النجم بن حجي」。娘＝女性部の本伝 #AIND-D13475「فاطمة ابنة الكمال محمد بن الشهاب أحمد بن حسن الاذرعي الماضي أبوها وجدها ، تزوجها غير واحد من الآحاد ثم النجم بن حجي وولدت له عدة」（ブリーフの番号を本文で確認）。初版 #NEEDID。'
 - id: r4
   type: kin
   subtype: son-in-law
-  active: AIND-D10310
+  active: m16
   passive: AIND-D06646
-  quote: النجم بن حجي
   note:
     ja: '娘 فاطمة の夫＝本項主の娘婿（規則52、active=相手）。النجم بن حجي＝corpus 本伝 #AIND-D10310「يحيى بن محمد بن عمر بن حجي … النجم أبو زكريا بن البهاء بن النجم بن العلاء السعدي الحسباني الأصل الدمشقي ثم القاهري الشافعي سبط الكمال بن البارزي」。閉合: 通称索引 #AIND-D12252「ابن حجي … وابنه النجم يحيى وابناه البهاء محمد وحفصة ست القضاة أمهما فاطمة ابنة الكمال محمد بن الشهاب الأذرعي」、#AIND-D12959「حفصة ابنة النجمي يحيى بن البهاء محمد بن عمر بن حجي … أمها فاطمة ابنة الكمال محمد بن الشهاب أحمد الأذرعي」。初版は subtype other・#NEEDID。孫 #AIND-D09526（البهاء محمد、「سبط الكمال الأذرعي」）・#AIND-D12959（حفصة）は本項の原文に出ないので relation を立てない（規則23）。'
 events:
@@ -110,28 +100,87 @@ events:
   type: learning
   methods:
   - TMP-S-00025
-  quote: قرأ
   note:
     ja: '「سمع معنا」＝サハーウィーと同席して聴聞した（規則55: サハーウィーとの師弟 relation は立てない）。師の名は挙がらない（غير واحد）ので relation なし。'
   trigger: rule
-  norm: قرا
   phrase: قرأ القرآن وسمع معنا على غير واحد
+  mention: m11
 - id: e2
   type: cultural
   works:
   - ref: TMP-T-00090
-  quote: وكتب بخطه القول البديع
   note:
     ja: サハーウィーの『القول البديع』（TMP-T-00090）を自筆で書写した。初版は英語 desc のみで bibl なし。
-  norm: كتب بخطه القول البديع
+  phrase: وكتب بخطه القول البديع
+  mention: null
 - id: e3
   type: residence
   places:
-  - ref: TMP-L-00061
-    quote: ببولاق
-    norm: بولاق
-  quote: وخالط ذوي الظرف ثم انجمع ببولاق
-  norm: خالط ذوي الظرف ثم انجمع ببولاق
+  - mention: m12
+  phrase: وخالط ذوي الظرف ثم انجمع ببولاق
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00665
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عبد الرحمن
+- id: m7
+  kind: name
+  quote: الكمال
+- id: m8
+  kind: name
+  quote: الإمام الشهاب
+  norm: الامام الشهاب
+- id: m9
+  kind: name
+  ref: TMP-N-00046
+  quote: الأذرعي
+  norm: الاذرعي
+- id: m10
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m11
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m12
+  kind: place
+  quote: ببولاق
+  ref: TMP-L-00061
+  norm: بولاق
+- id: m13
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m14
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D13475
+  quote: فاطمة
+- id: m16
+  kind: person
+  ref: AIND-D10310
+  quote: النجم بن حجي
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ハサン・ブン・アリー・ブン・ムハンマド・ブン・アブド・アッ＝ラフマーン、アル＝カマール、イマームのアッ＝シハーブの子、出自はアル＝アズライー、アル＝カーヒリー。母はダマスクスの人。クルアーンを読み、私たちとともに複数の師に聴聞し、自筆で『アル＝カウル・アル＝バディーウ』を書写した。風雅の人々と交わり、のちブーラークに引きこもった。（8）95年ムハッラム月に、おおよそ50数歳で没した。彼はアン＝ナジュム・ブン・ヒッジーの妻ファーティマの父である。
   en: Muḥammad b. Aḥmad b. Ḥasan b. ʿAlī b. Muḥammad b. ʿAbd al-Raḥmān, al-Kamāl, son of the imam al-Shihāb, al-Adhraʿī by origin, al-Qāhirī; his mother was a Damascene. He read the Qurʾān, heard together with us from more than one [shaykh], and copied al-Qawl al-Badīʿ in his own hand. He mixed with people of wit and refinement, then withdrew to Būlāq. He died in al-Muḥarram of the year [8]95, aged approximately fifty-odd. He is the father of Fāṭima, the wife of al-Najm b. Ḥijjī.

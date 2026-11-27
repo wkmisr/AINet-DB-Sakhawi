@@ -9,55 +9,47 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: العز
+    mention: m7
   - id: n2
     type: kunyah
-    quote: أبو البقاء
-    norm: ابو البقاء
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00647
-    quote: الربعي
+    mention: m9
   - id: n4
     type: nisbah
-    ref: TMP-N-01346
-    quote: الحسفاوي
+    mention: m10
   - id: n5
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m11
   - id: n6
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n8
     type: nasab
-    quote: يوسف
     by: rule
-    ref: AIND-D10469a
+    mention: m3
   - id: n9
     type: nasab
-    quote: خلد
     by: rule
+    mention: m4
   - id: n10
     type: nasab
-    quote: أيوب
     by: rule
-    norm: ايوب
+    mention: m5
   - id: n11
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n12
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m12
 persons:
 - id: p1
   label: إبراهيم بن يوسف بن خلد
@@ -70,42 +62,98 @@ relations:
   subtype: father
   active: AIND-D06571#p1
   passive: AIND-D06571
-  quote: null
   note:
     ja: '「الماضي أبوه」とあるが、corpus に父 إبراهيم بن يوسف بن خلد（خالد）الحسفاوي の本伝は見当たらない（見出しが「إبراهيم بن يوسف」で始まる7件 #AIND-D00350〜#AIND-D00357 に該当なし、全文「الحسفاوي」6件は本項・祖父 #AIND-D10469a・叔父 #AIND-D10893・索引 #AIND-D11592 と他項の言及2件、索引 #AIND-D11592 も「العز محمد بن إبرهيم بن يوسف بن خالد وعمه أبو بكر بن يوسف」の二人しか挙げない）。父自身に識別要素（ラカブ・クンヤ・職）がない＝規則3 (c'')・61 (d) により #NEEDID（ISSUES §D170-12）。ID-Master も「الحسفاوي」「D06571」で未登録。初版も #NEEDID。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D10469a
+  active: m16
   passive: AIND-D06571
-  quote: وجده
   note:
     ja: '見出しナサブ「بن يوسف بن خلد بن أيوب … الحسفاوي」＋「وجده أيضا ممن ولي قضاءها」＝#AIND-D10469a「يوسف بن خلد بن أيوب الجمال الحسفاوي الحلبي الشافعي … ثم قضاء حلب مرة بعد أخرى … مات بطرابلس في ثالث عشر المحرم سنة تسع وعشرين」（ナサブ3代・ニスバ・アレッポのカーディー職で閉合、repo 収録済み。規則37）。祖父の職は祖父の項の state＝本項の state にしない。初版は #NEEDID。'
-  norm: جده
   phrase: يوسف بن خلد بن أيوب
 - id: r3
   type: kin
   subtype: paternal_uncle
-  active: AIND-D10893
+  active: m13
   passive: AIND-D06571
-  quote: بكر بن يوسف
   note:
     ja: '「والآتي عمه أبو بكر بن يوسف」＝#AIND-D10893「أبو بكر بن يوسف بن خالد بن أيوب بن محمد الشرف بن قاضي القضاة الجمال الربعي الحسفاوي الحلبي الشافعي عم العزابي البقاء محمد بن إبرهيم ابن يوسف قاضي القضاة … فلما أعيد ابن أخيه العز لقضاء حلب أرسل إليه من القاهرة يستخلفه ومات في سنة سبع وثمانين」（相互閉合、repo 未収録）。初版は #NEEDID（subtype uncle）。'
   phrase: أبو بكر بن يوسف
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: قضاء
+  - mention: m15
   note:
     ja: '「ممن ولي قضاء حلب في أيام الأشرف قايتياي مرة بعد أخرى بالبذل المستدان أكثره」＝アル＝アシュラフ・カーイトバーイ（#AIND-D06305。刊本の綴りは「قايتياي」）の治世に、大半を借金でまかなった献金（بذل）によって繰り返し就任。規則65 (b): 汎用 قاضي（wd:Q217029）＋placeName。初版は #NEEDID。「في أيام」は時期の表示で、主人関係でも任命の明示でもない＝初版の patron relation（#AIND-D06305）を除去（規則53）。'
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: AIND-D10469a
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: خلد
+- id: m5
+  kind: name
+  quote: أيوب
+  norm: ايوب
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: العز
+- id: m8
+  kind: name
+  quote: أبو البقاء
+  norm: ابو البقاء
+- id: m9
+  kind: name
+  ref: TMP-N-00647
+  quote: الربعي
+- id: m10
+  kind: name
+  ref: TMP-N-01346
+  quote: الحسفاوي
+- id: m11
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m12
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m13
+  kind: person
+  ref: AIND-D10893
+  quote: بكر بن يوسف
+- id: m14
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m15
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m16
+  kind: person
+  ref: AIND-D10469a
+  quote: وجده
+  norm: جده
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ユースフ・ブン・ハーリド・ブン・アイユーブ・ブン・ムハンマド、アル＝イッズ、アブー・アル＝バカー、アッ＝ラバイー、アル＝ハスファーウィー、アル＝ハラビー、アッ＝シャーフィイー。父は既出、父方おじアブー・バクル・ブン・ユースフは後出。アル＝アシュラフ・カーイトバーイの治世に、大半を借金でまかなった献金によって、繰り返しアレッポのカーディー職に就いた者の一人。彼の祖父もまた同地のカーディー職に就いた者の一人である。
   en: Muḥammad b. Ibrāhīm b. Yūsuf b. Khālid b. Ayyūb b. Muḥammad, al-ʿIzz Abū al-Baqāʾ, al-Rabaʿī al-Ḥasfāwī al-Ḥalabī al-Shāfiʿī, whose father has been mentioned above and whose paternal uncle Abū Bakr b. Yūsuf will come below. He was among those who held the judgeship of Aleppo in the days of al-Ashraf Qāytbāy, time after time, by means of payments most of which were borrowed. His grandfather, too, was among those who held its judgeship.

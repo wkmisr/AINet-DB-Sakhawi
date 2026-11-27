@@ -9,41 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00054
-    quote: البعلي
+    mention: m6
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: يحيى
     by: rule
-    ref: TMP-P-001437
-    norm: يحيي
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: عمرون
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000256
+  active: m7
   passive: AIND-D06011
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q1023470
-  quote: عبد الرحمن ابن محمد ابن الزعبوب
   note:
     ja: 「سمع من عبد الرحمن ابن محمد ابن الزعبوب صحيح البخاري」。師 ＝ ID-Master の TMP-P-000256「الزين عبد الرحمن ابن الزعبوب」（バアルバックの『صحيح البخاري』伝承者。corpus のバアルバック出身者の項に「سمع الصحيح على الزين عبد الرحمن بن الزعبوب」等が多数、D03314「سمع في سنة إحدى وثمانين وسبعمائة من عبد الرحمن بن الزعبوب」）。corpus に本伝なし（8世紀没）。初版の無効番号 TMP-P-000000 を差し替え。
 - id: r2
@@ -51,23 +47,54 @@ relations:
   subtype: father
   active: TMP-P-001437
   passive: AIND-D06011
-  quote: null
   note:
     ja: '父 يحيى بن عبد الله بن علي بن عمرون البعلي。corpus يحيى 部に見出しなし、ID-Master 未登録。4代（يحيى بن عبد الله بن علي بن عمرون）まで復元できるため TMP-P-001437 を発行（規則3。検証後訂正 2026-10-10: 校閲は #NEEDID 維持）。'
   phrase: يحيى بن عبد الله بن علي بن عمرون
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m9
   works:
   - ref: TMP-T-00138
-  quote: وذكره
   note:
     ja: 'Pattern A。原文に「التقي بن فهد … في معجمه」と明示 ＝ #AIND-D09211（cert 不要）、معجمه ＝ TMP-T-00138『معجم ابن فهد』。初版の統制外 subtype「mentioned by」relation を event に変換。'
   trigger: rule
-  norm: ذكره
   phrase: ذكره التقي بن فهد في معجمه بدون زيادة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001437
+  quote: يحيى
+  norm: يحيي
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: عمرون
+- id: m6
+  kind: name
+  ref: TMP-N-00054
+  quote: البعلي
+- id: m7
+  kind: person
+  ref: TMP-P-000256
+  quote: عبد الرحمن ابن محمد ابن الزعبوب
+- id: m8
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
 translation:
   ja: ウマル・ブン・ヤフヤー・ブン・アブドゥッラー・ブン・アリー・ブン・アムルーン・アル＝バアリー。アブド・アッ＝ラフマーン・ブン・ムハンマド・イブン・アッ＝ザアブーブから『サヒーフ・アル＝ブハーリー』を聴聞した。アッ＝タキー・イブン・ファハドが『ムウジャム』に、追記なしで彼を挙げている。
   en: ʿUmar b. Yaḥyā b. ʿAbd Allāh b. ʿAlī b. ʿAmrūn al-Baʿlī. He heard Ṣaḥīḥ al-Bukhārī from ʿAbd al-Raḥmān b. Muḥammad Ibn al-Zaʿbūb. Al-Taqī Ibn Fahd mentioned him in his Muʿjam without any addition.

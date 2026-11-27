@@ -109,12 +109,29 @@ def scalars(o, acc):
     return acc
 
 
+def resolve_mentions(y):
+    """what a pointer to a mention stands for: the mention's ref and words, once per pointer"""
+    M = {m['id']: m for m in y.get('mentions') or [] if isinstance(m, dict) and m.get('id')}
+    extra = []
+    def walk(o, key=None):
+        if isinstance(o, dict):
+            for kk, v in o.items():
+                if kk == 'mentions': continue
+                walk(v, kk)
+        elif isinstance(o, list):
+            for v in o: walk(v, key)
+        elif isinstance(o, str) and o in M and key in ('mention', 'active', 'passive'):
+            extra.extend(v for a, v in M[o].items() if a in ('ref', 'quote', 'norm') and v is not None)
+    walk(y)
+    return extra
+
+
 def audit(R, out_dir, report=None):
     C = collections.Counter(); EX = collections.defaultdict(list); DR = collections.Counter()
     for k, r in R.items():
         fn = f'{out_dir}/meta/{k}.yml'
         y = yaml.safe_load(open(fn, encoding='utf-8')) if os.path.exists(fn) else {}
-        sc = scalars(y, [])
+        sc = scalars(y, []) + resolve_mentions(y or {})
         cnt = collections.Counter(norm_atom(s) for s in sc)
         blob = '\u0001'.join(norm_text(s) for s in sc)
         need = collections.Counter(); where = {}

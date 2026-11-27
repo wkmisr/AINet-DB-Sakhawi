@@ -9,63 +9,99 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00262
-    quote: القباني
+    mention: m5
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: مفتاح
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: فطيس
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 864-08
   places:
-  - ref: TMP-L-00036
-    quote: بساحل جدة
-    norm: ساحل جدة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m10
+  - role: burial
+    mention: m11
   note:
     ar: مات في شعبان سنة أربع وستين بساحل جدة وحمل فدفن بالمعلاة
     ja: 'シャアバーン月864年＝1460年5月22日〜6月19日。没地「ساحل جدة」（ジッダの海岸）は جدة＝TMP-L-00036 に付す（初版 #NEEDID）。埋葬地 المعلاة＝wd:Q42004。'
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: son
-  active: AIND-D10745
+  active: m6
   passive: AIND-D05042
   summary:
     ar: أبو بكر
-  quote: أبي بكر
   note:
     ja: 「والد أبي بكر ومحمد」＝伝主が父（active）、子が passive。息子 أبو بكر＝أبو بكر بن علي بن أحمد بن مفتاح معلم القبانيين بجدة ويعرف بابن فطيس كسلفه（#AIND-D10745、没897）。初版は汚染番号 TMP-P-000064（汎用 أبو بكر）で向きも逆。
-  norm: ابو بكر
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001053
+  active: m7
   passive: AIND-D05042
-  quote: ومحمد
   note:
     ja: 息子 محمد بن علي بن أحمد بن مفتاح بن فطيس القباني。corpus の محمد 部に見出しなし（D09444 محمد بن مفتاح بن فطيس القباني は伝主の叔父世代の別人）、ID-Master 未登録 → 祖父名まで復元できる近親として新規 TMP-P-001053。初版は汚染番号 TMP-P-000529（汎用 محمد）。
-  norm: محمد
   phrase: محمد
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: مفتاح
+- id: m4
+  kind: name
+  quote: فطيس
+- id: m5
+  kind: name
+  ref: TMP-N-00262
+  quote: القباني
+- id: m6
+  kind: person
+  ref: AIND-D10745
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m7
+  kind: person
+  ref: TMP-P-001053
+  quote: ومحمد
+  norm: محمد
+- id: m8
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m9
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بساحل جدة
+  ref: TMP-L-00036
+  norm: ساحل جدة
+- id: m11
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: アリー・ブン・アフマド・ブン・ミフターフ・ブン・フタイス・アル＝カッバーニー、アブー・バクルとムハンマドの父。864年シャアバーン月にジッダの海岸で没し、（マッカへ）運ばれてアル＝ムアッラー（墓地）に埋葬された。
   en: ʿAlī b. Aḥmad b. Miftāḥ b. Fuṭays al-Qabbānī, the father of Abū Bakr and Muḥammad. He died in Shaʿbān of the year [8]64 on the coast of Jidda, and was carried (to Mecca) and buried in al-Muʿallā.

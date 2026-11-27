@@ -9,67 +9,93 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: ism
-    quote: عوض
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسب الله
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: مهاوش
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 899-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 「مات في ربيع الثاني سنة تسع وتسعين بمكة」。899-04 ＝ 1494-01-18〜02-15、月初 1494-01（初版は年精度 1494）。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D06057
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。field は付けない。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00321
   places:
-  - ref: gn:104515
-    cert: medium
-    quote: بمكة
-    norm: مكة
-  quote: التمار
+  - cert: medium
+    mention: m7
   note:
     ja: '「المكي التمار بها」＝マッカのナツメヤシ商。「بها」の先行詞はニスバ المكي の地 مكة のみのため規則22(3)に準じ cert medium で保持（先例 D04653）。ID-Master に未登録のため新規 TMP-O-00321（職業の先例: العطار TMP-O-00012）。'
+  mention: m5
 - id: s2
   type: status
   label: ذو ملاءة ثم افتقر
   label_latn: dhū malāʾa thumma iftaqara
-  quote: null
   note:
     ja: 「وكان ذا ملاءة ثم افتقر」＝裕福であったが、のちに困窮した。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عوض
+- id: m2
+  kind: name
+  quote: حسب الله
+- id: m3
+  kind: name
+  quote: مهاوش
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: office
+  ref: TMP-O-00321
+  quote: التمار
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m9
+  kind: year
+  value: '899'
+  quote: سنة
 translation:
   ja: アワド・ブン・ハスブッラー・ブン・ムハーウィシュ・アル＝マッキー、同地（マッカ）のナツメヤシ商。マッカで私（サハーウィー）から聴聞した者の一人で、裕福であったが、のちに困窮した。（8）99年ラビーウ・アッ＝サーニー月にマッカで没した。
   en: ʿAwaḍ b. Ḥasb Allāh b. Muhāwish al-Makkī, the date-seller there. He was among those who heard from me (al-Sakhāwī) in Mecca; he was wealthy, then fell into poverty. He died in Rabīʿ al-Thānī of the year (8)99 in Mecca.

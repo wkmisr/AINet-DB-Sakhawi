@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00254
-    quote: الحسباني
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: إسماعيل التاجر
     by: rule
-    norm: اسماعيل التاجر
+    mention: m3
 death:
   id: d
   date:
     ah: 826
   note:
     ja: 826年＝1422-12-24〜1423-12-13（h2g.py）、年精度・年初で @when=1422（初版の 1423 を是正）。
-  quote: سنة
   phrase: مات سنة ست وعشرين
+  mention: m5
 persons:
 - id: p1
   label: أحمد بن إسماعيل
@@ -45,16 +42,35 @@ relations:
   subtype: father
   active: AIND-D06619#p1
   passive: AIND-D06619
-  quote: null
   note:
     ja: '規則3 (c'')。父は名＋父名のみ。corpus の見出しで أحمد بن إسماعيل＋الحسباني は #AIND-D00547「أحمد بن إسماعيل بن خليفة بن عبد العالي الشهاب أبو العباس بن العماد أبي الفداء النابلسي الحسباني الأصل الدمشقي الشافعي」だけだが、同項に子 محمد や商人への言及はなく、名とニスバの一致だけなので同定しない（規則26・57）。初版は父 relation なし。'
 states:
 - id: s1
   type: office
   ref: wd:Q215536
-  quote: null
   note:
     ja: 見出しの「التاجر」（商人、wd:Q215536＝初版どおり）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: إسماعيل التاجر
+  norm: اسماعيل التاجر
+- id: m4
+  kind: name
+  ref: TMP-N-00254
+  quote: الحسباني
+- id: m5
+  kind: year
+  value: '826'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・イスマーイール、商人、アル＝フスバーニー。（8）26年に没した。
   en: Muḥammad b. Aḥmad b. Ismāʿīl, the merchant, al-Ḥusbānī. He died in the year [8]26.

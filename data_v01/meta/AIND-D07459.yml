@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00057
-    quote: الفيومي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: سليمان
@@ -31,34 +30,56 @@ relations:
   subtype: father
   active: AIND-D07459#p1
   passive: AIND-D07459
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00116
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   orgs:
   - ref: TMP-I-00167
-  quote: بواب
   note:
     ja: الزمامية＝マッカの施設（corpus D02583「الخانقاه الزمامية بمكة」、D00548「المدرسة الزمامية」、D00486「مشيخة الزمامية」）。ID-Master 未登録（Office زمام/زمام دار・Institution وقف الزمام は別実体）のため新規 TMP-I-00167。placeName مكة は原文「بمكة」による（規則22-2）。初版の重複 affiliation（employed、#NEEDID）と、ニスバ・職の所在地由来の residence event（مكة）を除去（規則8・22-1）。
   phrase: بواب الزمامية بمكة
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: ذكره
+  - mention: m7
   cert: low
   note:
     ja: Pattern A。「في معجمه」の明示なし・没年不明 → 規約により التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「mentioned_by」relation を event に置換。
   trigger: rule
   phrase: ذكره ابن فهد مجردا
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: سليمان
+- id: m3
+  kind: name
+  ref: TMP-N-00057
+  quote: الفيومي
+- id: m4
+  kind: office
+  ref: TMP-O-00116
+  quote: بواب
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・スライマーン・アル＝ファイユーミー、マッカのザマーミーヤ（学院）の門番。イブン・ファハドが（詳細なしに）名のみを挙げている。
   en: Muḥammad b. Sulaymān al-Fayyūmī, the doorkeeper of al-Zamāmiyya in Mecca. Ibn Fahd mentioned him with the bare name only.

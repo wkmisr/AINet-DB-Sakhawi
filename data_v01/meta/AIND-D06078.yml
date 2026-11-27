@@ -9,114 +9,179 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00088
-    quote: المخزومي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m6
   - id: n4
     type: nisbah
-    ref: TMP-N-01753
-    quote: المهجمي
+    mention: m7
   - id: n5
     type: laqab
-    quote: العماد
+    mention: m3
   - id: n6
     type: shuhrah
-    quote: بابن الهليس
-    norm: ابن الهليس
     label: ابن الهليس
+    mention: m10
   - id: n7
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 802-07
   places:
-  - ref: TMP-L-00225
-    quote: بأبيات حسين
-    norm: ابيات حسين
+  - mention: m18
   note:
     ja: '「مات في رجب سنة اثنتين بأبيات حسين」。802-07 ＝ 1400-03-07〜04-05、月初 1400-03（h2g.py。初版は 1399）。أبيات حسين ＝ TMP-L-00225（イエメン・ティハーマ、初版は #NEEDID）。'
-  quote: سنة
+  mention: m17
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D01950
+  active: m12
   passive: AIND-D06078
-  quote: الأشرف صاحب اليمن
   note:
     ja: '「ولاه الأشرف صاحب اليمن نظر عدن」。本項主は802年没のため、該当する「الأشرف」はラスール朝の الأشرف إسماعيل بن العباس（#AIND-D01950、在位778–803）。称号のみの言及だが、本項主の没年（802）以前に「الأشرف صاحب اليمن」に当たるのは同人のみ（先代の الأشرف عمر は696年没）で、D01950 本文も「اليمني ملكها」とするため一意＝cert を付けない（集約 2026-10-10、§D113-3。内容検証B の意見に従い校閲の cert medium を除去）。初版は #NEEDID。'
-  norm: الاشرف صاحب اليمن
 states:
 - id: s1
   type: office
-  ref: TMP-O-00032
   places:
-  - ref: TMP-L-00049
-    quote: عدن
-  quote: نظر
+  - mention: m14
   note:
     ja: '「ولاه الأشرف صاحب اليمن نظر عدن」。ناظر 汎用 ＝ TMP-O-00032（初版は #NEEDID）。'
+  mention: m13
 - id: s2
   type: office
-  ref: wd:Q215536
-  quote: من أعيان التجار
-  norm: من اعيان التجار
+  mention: m11
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m9
   trigger: rule
   phrase: نزيل مكة
+  mention: m8
 - id: e2
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: وجاور
+  - mention: m9
   note:
     ja: 原文に「بمكة」が明記されているため placeName を付す（規則22(2)。裸の جاور ではない）。
   trigger: rule
-  norm: جاور
   phrase: جاور بمكة سنين
+  mention: m15
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m20
   note:
     ja: Pattern A。الفاسي ＝ التقي الفاسي（#AIND-D06757、確定ID。初版の幻番号 TMP-P-000603 は名寄せ済み）。書名の記載なし。
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m19
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m21
   works:
   - ref: TMP-T-00034
-  quote: ثم شيخنا في أنبائه
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル、『إنباء الغمر』＝ TMP-T-00034。
-  norm: ثم شيخنا في انباءه
+  phrase: ثم شيخنا في أنبائه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: العماد
+- id: m4
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m5
+  kind: name
+  ref: TMP-N-00088
+  quote: المخزومي
+- id: m6
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m7
+  kind: name
+  ref: TMP-N-01753
+  quote: المهجمي
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m10
+  kind: name
+  quote: بابن الهليس
+  norm: ابن الهليس
+- id: m11
+  kind: office
+  ref: wd:Q215536
+  quote: من أعيان التجار
+  norm: من اعيان التجار
+- id: m12
+  kind: person
+  ref: AIND-D01950
+  quote: الأشرف صاحب اليمن
+  norm: الاشرف صاحب اليمن
+- id: m13
+  kind: office
+  ref: TMP-O-00032
+  quote: نظر
+- id: m14
+  kind: place
+  quote: عدن
+  ref: TMP-L-00049
+- id: m15
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m16
+  kind: month
+  value: 7
+  quote: رجب
+- id: m17
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m18
+  kind: place
+  quote: بأبيات حسين
+  ref: TMP-L-00225
+  norm: ابيات حسين
+- id: m19
+  kind: source
+  quote: ذكره
+- id: m20
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
+- id: m21
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: イーサー・ブン・アブドゥッラー、アル＝イマード・アル＝クラシー・アル＝マフズーミー・アル＝ヤマニー・アル＝マフジャミー、マッカ居住者、イブン・アル＝フライスとして知られる。有力商人の一人で、イエメンの支配者アル＝アシュラフが彼をアデンの監督官（ナーズィル）に任じた。マッカに数年間滞在（ムジャーワラ）した。（8）02年ラジャブ月にアビヤート・フサインで没した。アル＝ファースィーが彼について記し、次いで我らがシャイフ（イブン・ハジャル）がその『インバー』で記している。
   en: ʿĪsā b. ʿAbd Allāh, al-ʿImād al-Qurashī al-Makhzūmī al-Yamanī al-Mahjamī, resident of Mecca, known as Ibn al-Hulays. He was one of the leading merchants; al-Ashraf, the ruler of Yemen, appointed him supervisor (nāẓir) of Aden. He sojourned in Mecca for some years. He died in Rajab of the year (8)02 at Abyāt Ḥusayn. Al-Fāsī mentioned him, and then our shaykh (Ibn Ḥajar) in his Inbāʾ.

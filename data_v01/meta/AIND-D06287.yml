@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: قانصوه
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 897
   note:
     ja: 897年（1491-11-13 開始、年精度）のペストで没。
-  quote: سنة
   phrase: مات في طاعون سنة سبع وتسعين
+  mention: m5
 persons:
 - id: p1
   label: والد قانصوه الأشرفي إينال أخي سيباي
@@ -34,36 +32,54 @@ relations:
   subtype: father
   active: AIND-D06287#p1
   passive: AIND-D06287
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03248
+  active: m4
   passive: AIND-D06287
-  quote: سيباي نائب حماة
   note:
     ja: '「وأخو سيباي نائب حماة」＝#AIND-D03248「سيباي الأشرفي إينال نائب غزة ثم حاجب دمشق ثم نيابة حماة وهو أخو قانصوة . مات في التجريدة」（相手側も本項主を兄弟と名指し、主人・職が一致）。初版の #TMP-N-00938（ニスバ番号の人物位置への流用＝precheck カテゴリ不一致）を是正。'
-  norm: سيباي ناءب حماة
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m3
   passive: AIND-D06287
   summary:
     ar: الأشرف إينال
-  quote: إينال
   note:
     ja: 見出し「الأشرفي إينال」（「أيضا」＝前項 D06286 と同名同主人の別人）＝主人は الأشرف إينال（#AIND-D02110）。初版に主人 relation なし。
-  norm: اينال
 states:
 - id: s1
   type: office
   ref: TMP-O-00101
-  quote: null
   note:
     ja: '「أحد العشرات」＝十人隊アミール（別形、規則48）。初版の #NEEDID を是正。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قانصوه
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02110
+  quote: إينال
+  norm: اينال
+- id: m4
+  kind: person
+  ref: AIND-D03248
+  quote: سيباي نائب حماة
+  norm: سيباي ناءب حماة
+- id: m5
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: カーンスーフ・アル＝アシュラフィー・イーナール。同じく十人隊アミールの一人で、ハマー代官スィーバーイの兄弟。897年のペストで没した。
   en: Qānṣūh al-Ashrafī Īnāl, likewise one of the amirs of ten, and brother of Sībāy, governor of Ḥamāh. He died in the plague of the year 897.

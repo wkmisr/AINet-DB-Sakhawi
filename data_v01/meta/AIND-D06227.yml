@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04309
-    quote: الحيزاني
+    mention: m4
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: حسين
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: علي بن حسين الحيزاني
@@ -35,43 +34,68 @@ relations:
   subtype: father
   active: AIND-D06227#p1
   passive: AIND-D06227
-  quote: null
   note:
     ja: 父。名＋父名＋ニスバのみで識別要素なし（規則3）。初版は father relation 欠落。
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001561
+  active: m6
   passive: AIND-D06227
   summary:
     ar: إبراهيم بن قاسم بن علي بن حسين الحيزاني
-  quote: والد
   note:
     ja: 「والد إبراهيم الماضي」＝息子 إبراهيم は既出（إبراهيم 部）とされるが、corpus の إبراهيم 見出しに「الحيزاني」「بن قاسم بن علي」は見当たらない（点の揺れ الحيراني・الخيزاني・الجيزاني でも不検出）。ナサブで識別できるため TMP-P-001561（規則12）。本伝が見つかれば名寄せ（§D128-3）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03589
+  active: m7
   passive: AIND-D06227
   methods:
   - TMP-S-00025
   cert: medium
-  quote: ابن عياش
   note:
     ja: 「قرأ على ابن عياش」＝読誦法を ابن عياش に学んだ。corpus で読誦の師として「ابن عياش」単独で現れるのは الزين عبد الرحمن بن أحمد … ابن عياش المكي المقرئ（#AIND-D03589、生772・repo 先例 D04071）が主だが、父 الشهاب أحمد بن محمد … ابن عياش الدمشقي المقرئ（#AIND-D01543、生746）の可能性も残るため cert medium。ID-Master の TMP-P-000248「الزين بن عياش」は D03589 と同一人物（名寄せ要、D04071 の note にも同旨）。
 states:
 - id: s1
   type: office
-  ref: wd:Q3595924
-  quote: المقرئ
-  norm: المقرء
+  mention: m5
 events:
 - id: e1
   type: teaching
-  quote: وأقرأ
   note:
     ja: 自らも読誦を教授した。場所の記載なし。#AIND-D03808（عبد الرحمن بن محمد القزويني）に「تلا عليه الشيخ قاسم الحيراني المقرىء للسبع」（835年、エルサレム）とあり、綴り違い（الحيراني／الحيزاني）の同一人物の可能性があるが規則46により同定しない。
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: حسين
+- id: m4
+  kind: name
+  ref: TMP-N-04309
+  quote: الحيزاني
+- id: m5
+  kind: office
+  ref: wd:Q3595924
+  quote: المقرئ
+  norm: المقرء
+- id: m6
+  kind: person
+  ref: TMP-P-001561
+  quote: والد
+- id: m7
+  kind: person
+  ref: AIND-D03589
+  quote: ابن عياش
+- id: m8
+  kind: event
+  quote: وأقرأ
   norm: اقرا
 translation:
   ja: カースィム・ブン・アリー・ブン・フサイン、アル＝ハイザーニー、クルアーン読誦教師。既述のイブラーヒームの父。イブン・アイヤーシュのもとで読誦し、自らも読誦を教えた。

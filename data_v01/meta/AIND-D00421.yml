@@ -9,65 +9,53 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00054
-    quote: البعلي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n4
     type: laqab
-    quote: شهاب الدين
+    mention: m5
   - id: n5
     type: shuhrah
-    quote: بابن علبك
-    norm: ابن علبك
     label: ابن علبك
+    mention: m10
   - id: n6
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00037
-    norm: ابراهيم
+    mention: m2
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D12554
-    norm: احمد
+    mention: m3
   - id: n9
     type: nasab
-    quote: غنائم
     by: rule
-    norm: غناءم
+    mention: m4
 birth:
   id: b
   date:
     ah: 790
     cert: medium
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m12
   note:
     en: Born in 790 AH or a little before it.
-  quote: سنة
+  mention: m13
 death:
   id: d
   date:
     ah: 850
     cert: low
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m20
   note:
   - lang: en
     text: Died probably after the year 850 AH.
@@ -78,7 +66,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000097
+  active: m14
   passive: AIND-D00421
   methods:
   - TMP-S-00003
@@ -88,13 +76,11 @@ relations:
       ah: 797
       type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: البرهان بن فرحون
+    - mention: m12
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D00271
+  active: m15
   passive: AIND-D00421
   methods:
   - TMP-S-00003
@@ -104,14 +90,11 @@ relations:
       ah: 797
       type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: وابن صديق
-  norm: ابن صديق
+    - mention: m12
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m16
   passive: AIND-D00421
   methods:
   - TMP-S-00003
@@ -121,14 +104,11 @@ relations:
       ah: 797
       type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: والزين المراغي
-  norm: الزين المراغي
+    - mention: m12
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D03134
+  active: m17
   passive: AIND-D00421
   methods:
   - TMP-S-00003
@@ -138,43 +118,128 @@ relations:
       ah: 797
       type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: والعلم سليمان السقا
-  norm: العلم سليمان السقا
+    - mention: m12
 - id: r5
   type: kin
   subtype: father
-  active: AIND-D00037
+  active: m21
   passive: AIND-D00421
-  quote: أبيه
-  norm: ابيه
   phrase: إبراهيم بن أحمد بن غنائم
 - id: r6
   type: kin
   subtype: brother
-  active: AIND-D11015
+  active: m9
   passive: AIND-D00421
-  quote: أبو الفتح
-  norm: ابو الفتح
 - id: r7
   type: kin
   subtype: grandfather
-  active: AIND-D12554
+  active: m11
   passive: AIND-D00421
-  quote: أحمد
-  norm: احمد
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: فقطنها
+  - mention: m20
   cert: low
   note:
     en: Moved to Cairo and settled there after his father's death, remaining there until his own death.
   trigger: rule
+  mention: m22
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D00037
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: AIND-D12554
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: غنائم
+  norm: غناءم
+- id: m5
+  kind: name
+  quote: شهاب الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00054
+  quote: البعلي
+- id: m7
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: person
+  ref: AIND-D11015
+  quote: أبو الفتح
+  norm: ابو الفتح
+- id: m10
+  kind: name
+  quote: بابن علبك
+  norm: ابن علبك
+- id: m11
+  kind: person
+  ref: AIND-D12554
+  quote: أحمد
+  norm: احمد
+- id: m12
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m13
+  kind: year
+  value: '790'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: TMP-P-000097
+  quote: البرهان بن فرحون
+- id: m15
+  kind: person
+  ref: AIND-D00271
+  quote: وابن صديق
+  norm: ابن صديق
+- id: m16
+  kind: person
+  ref: AIND-D10690
+  quote: والزين المراغي
+  norm: الزين المراغي
+- id: m17
+  kind: person
+  ref: AIND-D03134
+  quote: والعلم سليمان السقا
+  norm: العلم سليمان السقا
+- id: m18
+  kind: year
+  value: '797'
+  quote: سنة
+- id: m19
+  kind: year
+  value: '815'
+  quote: سنة
+- id: m20
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m21
+  kind: person
+  ref: AIND-D00037
+  quote: أبيه
+  norm: ابيه
+- id: m22
+  kind: event
+  quote: فقطنها
   norm: قطنها
 translation:
   ja: アハマド・ブン・イブラーヒーム・ブン・アハマド・ブン・ガナーイム、シャハーブッディーン。バアリー出身、マダニー出身、次いでカーヒリー出身。彼の父は既述であり、兄弟のアブー・アル＝ファトフは後述する。彼はイブン・アッラバクとしても知られており、これは彼の祖父、マディーナに来たアハマドのラカブである。まるでバアラルバクの短縮形であるかのようだ。790年、あるいはその少し前にマディーナで生まれた。アル＝ブルハーン・ブン・ファルフーン、イブン・サディーキ、アッ＝ザイン・アル＝マラーギー、アル＝アラム・スライマーン・アッ＝サッカーから、797年、およびその前後、さらには815年まで（ハディースを）聴聞した。父の死後カイロに転居し、そこに定住した。カイロの指導者たちと交流し、威厳において昇進し、高価な馬に乗った。850年以降に亡くなるまでカイロにとどまった。彼の弟で先述のアブー・アル＝ファトフが彼を相続した。

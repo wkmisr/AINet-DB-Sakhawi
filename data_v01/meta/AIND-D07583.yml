@@ -9,71 +9,99 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00238
-    quote: الفاقوسي
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03746
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07346
+    mention: m3
   - id: n5
     type: nasab
-    quote: حسن
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03746
+  active: m6
   passive: AIND-D07583
-  quote: أبوه
   note:
     ja: '父 = #AIND-D03746（刊本第338項 عبد الرحمن بن محمد بن حسن بن سعد بن محمد بن يوسف بن حسن تقي الدين أو زين الدين بن ناصر الدين بن البدر القرشي الزبيري القاهري … ويعرف كهما بابن الفاقوسي、生786・没864）。ニスバ索引 #AIND-D11890「الفاقوسي … ناصر الدين محمد بن الحسن وابناه محمد وعبد الرحمن وابنا ثانيهما」。'
-  norm: ابوه
   phrase: عبد الرحمن بن محمد بن حسن الفاقوسي الماضي
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D07346
+  active: m7
   passive: AIND-D07583
-  quote: وجده
   note:
     ja: '祖父 = #AIND-D07346（刊本第553項 محمد بن حسن بن سعد بن محمد بن يوسف بن حسن ناصر الدين أبو محمد بن البدر … القرشي الزبيري القاهري الشافعي）。初版の TMP-P-000529（汚染番号、登録実体は إبراهيم بن عبد الله ابن جماعة の息子 محمد）を差し替え。'
-  norm: جده
   phrase: محمد بن حسن الفاقوسي الماضي
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-001181
+  active: m8
   passive: AIND-D07583
-  quote: وأخوه أحمد
   note:
     ja: 兄弟 أحمد بن عبد الرحمن بن محمد بن حسن الفاقوسي は corpus に本伝なし（ニスバ索引 D11890 の「ابنا ثانيهما」の一方）・ID-Master 未登録→ TMP-P-001181 を発行。
-  norm: اخوه احمد
   phrase: أخوه أحمد
 events:
 - id: e1
   type: cultural
   places:
-  - ref: wd:Q23975647
-    cert: medium
-    quote: بالظاهرية
-    norm: الظاهرية
+  - cert: medium
+    mention: m9
   works:
   - ref: wd:Q1023470
-  quote: ممن سمع هو وأخوه أحمد ختم البخاري بالظاهرية
   note:
     ja: '裸形「الظاهرية」はイブン・ハジャルの『صحيح البخاري』定例聴聞会場としての الظاهرية القديمة（wd:Q23975647）と解した（repo 先例 #AIND-D01135・D04039・D07681、B87 §D-26 裁定）。ただしカイロには البرقوقية（#TMP-I-00029）もあるため cert="medium"。本項は師名を記さないため teacher relation は立てず event のみとした。'
-  norm: ممن سمع هو واخوه احمد ختم البخاري بالظاهرية
+  phrase: ممن سمع هو وأخوه أحمد ختم البخاري بالظاهرية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D03746
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  ref: AIND-D07346
+  quote: محمد
+- id: m4
+  kind: name
+  quote: حسن
+- id: m5
+  kind: name
+  ref: TMP-N-00238
+  quote: الفاقوسي
+- id: m6
+  kind: person
+  ref: AIND-D03746
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: AIND-D07346
+  quote: وجده
+  norm: جده
+- id: m8
+  kind: person
+  ref: TMP-P-001181
+  quote: وأخوه أحمد
+  norm: اخوه احمد
+- id: m9
+  kind: place
+  quote: بالظاهرية
+  ref: wd:Q23975647
+  norm: الظاهرية
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・ムハンマド・ブン・ハサン・アル＝ファークースィー。父と祖父は先述。彼と兄弟のアフマドは、アッ＝ザーヒリーヤでの『ブハーリー』読了会（ハトム）を聴聞した者たちの一人である。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Muḥammad b. Ḥasan al-Fāqūsī, whose father and grandfather were mentioned previously. He and his brother Aḥmad were among those who heard the completion (khatm) of al-Bukhārī at al-Ẓāhiriyya.

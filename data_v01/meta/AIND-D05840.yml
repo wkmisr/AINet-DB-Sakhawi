@@ -9,44 +9,40 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: النجم
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00076
-    quote: السعدي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00090
-    quote: الحصني
+    mention: m7
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: حسين
     by: rule
-    ref: TMP-P-001377
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسام الدين
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: القاضي جمال الدين
     by: rule
+    mention: m5
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 death:
   id: d
   date:
     ah: 833
   note:
     ja: 「مات في سنة ثلاث وثلاثين بالطاعون」。833 ＝ 1429-10-09〜1430-09-27（h2g.py、年のみ→年初 1429）。ペスト（الطاعون）で没。
-  quote: سنة
+  mention: m13
 persons:
 - id: p1
   label: حسام الدين
@@ -57,19 +53,17 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m12
   passive: AIND-D05840
   methods:
   - TMP-S-00025
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      cert: medium
-      quote: القاهرة
+    - cert: medium
+      mention: m11
   works:
   - ref: wd:Q1023470
-  quote: شيخنا
   note:
     ja: '「قدم القاهرة فقرأ على شيخنا في البخاري」。شيخنا ＝ イブン・ハジャル（wd:Q471116）。البخاري ＝ صحيح البخاري（wd:Q1023470、初版 #NEEDID）。読誦の地は直前の「قدم القاهرة」に続く ف による連接からカイロと読み cert medium。初版の field（الحديث）は原文にないため除去。'
 - id: r2
@@ -79,7 +73,6 @@ relations:
   passive: AIND-D05840
   summary:
     ar: القاضي جمال الدين حسين بن حسام الدين
-  quote: null
   note:
     ja: 父。ラカブ連鎖「النجم بن القاضي جمال الدين」は名連鎖「عمر بن حسين」に対応し、جمال الدين は父 حسين のラカブ（甥 D05425 の見出し「… بن الجمال السعدي الحصني」とも整合）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001377（規則3、祖父名 حسام الدين まで判明）。
 - id: r3
@@ -87,15 +80,13 @@ relations:
   subtype: grandfather
   active: AIND-D05840#p1
   passive: AIND-D05840
-  quote: null
   note:
     ja: 初版 desc「حسام الدين النجم」の النجم は本項主のラカブ → 除去。
 - id: r4
   type: kin
   subtype: brother
-  active: TMP-P-001379
+  active: m9
   passive: AIND-D05840
-  quote: البدر محمد بن حسين
   note:
     ja: 「عم العلاء علي بن البدر محمد بن حسين」＝甥の父 البدر محمد بن حسين が本項主の兄弟。甥 D05425 の見出し「ابن أخي عمر بن حسين」が兄弟関係を明示。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001379。
 - id: r5
@@ -103,7 +94,6 @@ relations:
   subtype: siblings_child
   active: AIND-D05425
   passive: AIND-D05840
-  quote: null
   note:
     ja: '「عم العلاء علي بن البدر محمد بن حسين الماضي」。甥 ＝ #AIND-D05425（علي بن محمد بن حسين العلاء بن النجم أو البدر بن الجمال السعدي الحصني ثم القاهري الشافعي ابن أخي عمر بن حسين ووالد يحيى الآتيين）で双方向に閉合。初版 #NEEDID。'
   phrase: العلاء علي بن البدر محمد بن حسين
@@ -115,11 +105,58 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m11
   trigger: rule
   phrase: قدم القاهرة
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001377
+  quote: حسين
+- id: m3
+  kind: name
+  quote: حسام الدين
+- id: m4
+  kind: name
+  quote: النجم
+- id: m5
+  kind: name
+  quote: القاضي جمال الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00076
+  quote: السعدي
+- id: m7
+  kind: name
+  ref: TMP-N-00090
+  quote: الحصني
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: person
+  ref: TMP-P-001379
+  quote: البدر محمد بن حسين
+- id: m10
+  kind: event
+  quote: قدم
+- id: m11
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: year
+  value: '833'
+  quote: سنة
 translation:
   ja: ウマル・ブン・フサイン・ブン・フサーム・アッ＝ディーン、アン＝ナジュム・ブン・アル＝カーディー・ジャマール・アッ＝ディーン、アッ＝サアディー（サアド・ブン・アビー・ワッカースに由来する）・アル＝ヒスニー・アッ＝シャーフィイー。前述のアル＝アラー・アリー・ブン・アル＝バドル・ムハンマド・ブン・フサインの父方の叔父。カイロに来て、我らがシャイフ（イブン・ハジャル）のもとで『ブハーリー』を読んだ。徳と信仰心を兼ね備え、きわめて寛大であった。833年にペストで没した。アッラーが彼に慈悲を垂れられんことを。
   en: ʿUmar b. Ḥusayn b. Ḥusām al-Dīn, al-Najm b. al-Qāḍī Jamāl al-Dīn, al-Saʿdī (an attribution to Saʿd b. Abī Waqqāṣ) al-Ḥiṣnī al-Shāfiʿī, the paternal uncle of al-ʿAlāʾ ʿAlī b. al-Badr Muḥammad b. Ḥusayn, mentioned previously. He came to Cairo and read al-Bukhārī under our shaykh (Ibn Ḥajar). He was extremely generous, with merit and piety. He died of the plague in the year 833. May God have mercy on him.

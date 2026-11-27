@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -24,7 +23,7 @@ death:
     role: funeral_prayer
   note:
     ja: 「مات في منتصف صفر سنة ثمانين」＝880 年サファル月中旬（880-02-15＝1475-06-29 頃。月精度、1475-06-15 開始）。没地の記載なし。初版の @when 1475 → 1475-06。 / 「ونزل السلطان فصلى عليه」＝880 年の在位スルターン＝الأشرف قايتباي（#AIND-D06305、872〜901 在位）が葬儀の礼拝を行った。先例 D03249（同じく 880 年「ونزل السلطان فصلى عليه」→ subtype funeral、#AIND-D06305）に従う。初版の統制外 subtype「funeral prayer performed by」と corresp wd:Q557847 を改めた。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قانباي الظاهري الساقي
@@ -35,22 +34,44 @@ relations:
   subtype: father
   active: AIND-D06268#p1
   passive: AIND-D06268
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。ニスバ「الظاهري」の指すスルターンは原文から特定できないため patron relation は立てない。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00121
-  quote: null
   note:
     ja: '見出し「الساقي」＝酌人（ID-Master 登録 ساقي TMP-O-00121、規則48）。初版は #NEEDID。'
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00240
-  quote: حاجب ميسرة
   note:
     ja: '見出し「حاجب ميسرة」＝左翼ハージブ（ID-Master 登録 TMP-O-00240、先例 D03249）。初版は #NEEDID。'
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: office
+  ref: TMP-O-00240
+  quote: حاجب ميسرة
+- id: m4
+  kind: month
+  value: 2
+  quote: صفر
+- id: m5
+  kind: year
+  value: '880'
+  quote: سنة
+- id: m6
+  kind: person
+  ref: AIND-D06305
+  quote: السلطان
 translation:
   ja: カーンバーイ・アッ＝ザーヒリー・アッ＝サーキー（酌人）、左翼のハージブ。880年サファル月中旬に没し、スルターンが（城塞から）降りて来て彼の葬儀の礼拝を行った。
   en: Qānbāy al-Ẓāhirī al-Sāqī (the cupbearer), ḥājib of the left wing. He died in the middle of Ṣafar of the year 880, and the Sultan came down and performed the funeral prayer over him.

@@ -9,56 +9,50 @@ name:
   elements:
   - id: n1
     type: kunyah
-    quote: أبو الحسن
-    norm: ابو الحسن
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن درباس
+    mention: null
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01414
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي الخطيب
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: درباس
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m8
   passive: AIND-D05035
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「ممن سمع على شيخنا وغيره」。شيخنا＝Ibn Ḥajar（wd:Q471116）。وغيره は person 化しない。
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00500
+  active: m7
   passive: AIND-D05035
-  quote: الفخر أحمد
   note:
     ja: '「أخو الفخر أحمد الماضي」＝فخر الدين أبو إسحاق أحمد بن أحمد بن علي بن أبي بكر بن أيوب … بن درباس المازاني الكردي القاهري الحنبلي المحدث「ويعرف بابن درباس」（#AIND-D00500、没817）。同伝に「وزاد بعضهم بين أبيه وعلي محمد」＝父 أحمد と علي の間に محمد を挿む異伝があり、本項主のナサブ（علي بن أحمد بن محمد بن علي）と一致。転送見出し REF D00515（أحمد بن أحمد بن محمد بن علي بن أبي بكر بن أيوب بن درباس → D00500）も同じ。初版は #NEEDID。'
-  norm: الفخر احمد
 - id: r3
   type: kin
   subtype: father
@@ -66,9 +60,39 @@ relations:
   passive: AIND-D05035
   summary:
     ar: أحمد بن محمد بن علي بن درباس
-  quote: null
   note:
     ja: '父 ＝ #AIND-D01414「أحمد بن محمد بن علي بن درباس شهاب الدين بن علاء الدين المصري . ذكره البقاعي في شيوخه」。見出しナサブ「علي بن أحمد بن محمد بن علي … بن درباس」と完全一致（原文に関係記述はなく見出しナサブによる補填＝規約5 ②、Waka 裁定 2026-09-15 §D-9）。兄弟 الفخر أحمد（#AIND-D00500）とも整合。'
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D01414
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي الخطيب
+- id: m5
+  kind: name
+  quote: أبو الحسن
+  norm: ابو الحسن
+- id: m6
+  kind: name
+  quote: درباس
+- id: m7
+  kind: person
+  ref: AIND-D00500
+  quote: الفخر أحمد
+  norm: الفخر احمد
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アリー・ブン・アフマド・ブン・ムハンマド・ブン・アリー・アル＝ハティーブ、アブー・アル＝ハサン・イブン・ディルバース。既述のアル＝ファフル・アフマドの兄弟。我らがシャイフ（イブン・ハジャル）らから聴聞した者の一人。
   en: ʿAlī b. Aḥmad b. Muḥammad b. ʿAlī al-Khaṭīb, Abū al-Ḥasan b. Dirbās, brother of al-Fakhr Aḥmad, mentioned above. He was among those who heard from our shaykh (Ibn Ḥajar) and others.

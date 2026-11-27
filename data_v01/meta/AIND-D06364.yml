@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قطلو
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 833-05
   note:
     ja: 「مات في أواخر جمادى الأولى سنة ثلاث وثلاثين」。833年ジュマーダー・アル＝ウーラー＝1430-02-04〜03-05（h2g.py、月精度）。「أواخر」（月末頃）は日付精度に反映しない。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قطلو خجا
@@ -28,33 +28,56 @@ relations:
   subtype: father
   active: AIND-D06364#p1
   passive: AIND-D06364
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
-  norm: امير عشرة
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00102
-  quote: ورأس نوبة صغير
   note:
     ja: 'ref は既登録 رأس النوب الصغار（TMP-O-00102、repo 先例「أحد رؤوس النوب الصغار」）の単数形。初版の #NEEDID を置換。'
-  norm: راس نوبة صغير
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m7
   note:
     ja: 'Pattern A。العيني＝بدر الدين العيني（#AIND-D09832、wd:Q257745）。初版の統制外 relation（mentioned_by #NEEDID）を変換。'
   trigger: rule
   phrase: ذكره العيني
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: قطلو
+- id: m2
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m3
+  kind: office
+  ref: TMP-O-00102
+  quote: ورأس نوبة صغير
+  norm: راس نوبة صغير
+- id: m4
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m5
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: クトル・フジャー、十人隊アミールにして小ラアス・ナウバ。833年ジュマーダー・アル＝ウーラー月末頃に没した。アル＝アイニーが彼に言及している。
   en: Quṭlū Khujā, amīr of ten and junior head of the guard (raʾs nawba ṣaghīr). He died in the last days of Jumādā al-Ūlā 833. Al-ʿAynī mentioned him.

@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00752
-    quote: القبيباتي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الشيخ علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: علي بن عبد الله القبيباتي
@@ -39,26 +37,49 @@ relations:
   subtype: father
   active: AIND-D08125#p1
   passive: AIND-D08125
-  quote: null
   note:
     ja: '父「الشيخ علي بن عبد الله القبيباتي」。「الشيخ」は敬称で識別要素としては弱く、名＋父名＋ニスバのみ。corpus に本伝なし（hw.py「القبيباتي」の見出しに علي بن عبد الله なし）、ID-Master 未登録のため #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D08125
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m7
     phrase: ممن سمع مني بمكة
-  quote: مني
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。初版の独立 event「study」مكة は relation 内 event と二重なので除去。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الشيخ علي
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00752
+  quote: القبيباتي
+- id: m5
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アッ＝シャイフ・アリー・ブン・アブドゥッラー・アル＝クバイバーティー・アッ＝シャーミー。マッカで私から聴聞した者の一人。
   en: Muḥammad b. al-Shaykh ʿAlī b. ʿAbd Allāh al-Qubaybātī al-Shāmī. He was among those who heard from me in Mecca.

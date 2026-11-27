@@ -9,51 +9,72 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 897-06
   note:
     ja: 897年ジュマーダー2月＝1492-04-09〜05-07（h2g）→ @when は月精度 1492-04（初版の年精度 1492 を修正）。疫病（الطاعون）により没。
-  quote: سنة
   phrase: مات في جمادى الثانية سنة سبع وتسعين بالطاعون
+  mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02110
+  active: m2
   passive: AIND-D10020
   summary:
     ar: الأشرف إينال
-  quote: أبيه
   note:
     ja: '「منصور آخر أخ له من أبيه المؤيد أحمد بن إينال」＝「別のマンスール。المؤيد أحمد بن إينال の、父を同じくする兄弟」と読む（ブリーフ指示）。「له」は直前の項の人物ではなく、続く「المؤيد أحمد بن إينال」を指す（前項 D10019 は المؤيد أحمد の娘の子＝سبط であり、本項主がその異母兄弟ではありえない）。従って父＝الأشرف إينال #AIND-D02110（「اينال … الأشرف … وهو والد أحمد الماضي」）。初版の #NEEDID を解消。'
-  norm: ابيه
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00563
+  active: m3
   passive: AIND-D10020
-  quote: المؤيد أحمد بن إينال
   note:
     ja: '「أخ له من أبيه」＝父を同じくする（異母）兄弟。المؤيد أحمد＝#AIND-D00563（أحمد بن اينال المؤيد الشهاب أبو الفتح بن الأشرف أبي النصر）。初版の #NEEDID を解消。'
-  norm: المءيد احمد بن اينال
 states:
 - id: s1
   type: office
-  ref: TMP-O-00146
   orgs:
   - ref: TMP-I-00068
-  quote: يقرأ بالجوق رياسة
   note:
     ja: '「وكان يقرأ بالجوق رياسة」＝合同読誦（الجوق＝TMP-I-00068）の首席読誦者（رئيس الأجواق＝TMP-O-00146、先例 #AIND-D02578「كان يقرأ الأجواق رياسة」）。初版の affiliation type="employed"（同じ TMP-I-00068）は state との二重符号化のため除去（規則8）。'
-  norm: يقرا بالجوق رياسة
+  mention: m6
 notes:
 - text: '単名の項だが父は文脈で確定（الأشرف إينال）するため #NEEDID ではなく AIND（規則3「父が文脈で確定する項」）。「عوضه الله الجنة」は祈願句＝訳のみ。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: person
+  ref: AIND-D02110
+  quote: أبيه
+  norm: ابيه
+- id: m3
+  kind: person
+  ref: AIND-D00563
+  quote: المؤيد أحمد بن إينال
+  norm: المءيد احمد بن اينال
+- id: m4
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m5
+  kind: year
+  value: '897'
+  quote: سنة
+- id: m6
+  kind: office
+  ref: TMP-O-00146
+  quote: يقرأ بالجوق رياسة
+  norm: يقرا بالجوق رياسة
 translation:
   ja: 別のマンスール。アル＝ムアイヤド・アフマド・ブン・イーナールの、父を同じくする兄弟。897年ジュマーダー第二月にペストで没した。彼はジャウク（合同読誦）で首席として読誦していた。アッラーが彼に楽園をもって報いられますように。
   en: Another Manṣūr, a brother of al-Muʾayyad Aḥmad b. Īnāl on the father's side. He died of the plague in Jumādā II 897. He used to recite in the jawq (choral recitation) as its leader. May God recompense him with Paradise.

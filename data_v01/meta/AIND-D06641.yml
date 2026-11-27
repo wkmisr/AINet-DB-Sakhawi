@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01041
-    quote: الغانمي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: shuhrah
-    quote: بابن دامس
-    norm: ابن دامس
     label: ابن دامس
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: حبيب
     by: rule
+    mention: m3
 birth:
   id: b
   date:
@@ -64,35 +60,30 @@ relations:
   subtype: father
   active: AIND-D06641#p1
   passive: AIND-D06641
-  quote: null
   note:
     ja: 父 أحمد بن حبيب は汎用名で識別要素なし、corpus に本伝なし（hw.py「أحمد بن حبيب」「دامس」は本項のみ）＝#NEEDID（規則3 (c')）。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D00716
+  active: m9
   passive: AIND-D06641
   methods:
   - TMP-S-00003
   summary:
     ar: أبو الخير بن العلائي
   cert: medium
-  quote: الخير بن العلائي
   note:
     ja: '「وأخبرت أنه سمع على أبي الخير بن العلائي والشمس القلقشندي وغيرهما」＝伝聞（أخبرت أنه）なので cert medium。أبو الخير بن العلائي＝corpus 本伝 #AIND-D00716「أحمد بن خليل بن كيكلدي الشهاب أبو الخير بن الحافظ الصلاح أبي سعيد العلائي الدمشقي ثم المقدسي الشافعي خال الشمس محمد بن التقي إسماعيل القلقشندي … مات في ربيع الأول سنة اثنتين」（クンヤ・家名・エルサレムで閉合。ブリーフの番号を本文で確認）。初版の TMP-P-000094（ID-Master 登録「أبو الخير بن العلائي」、Note 空）は本伝のある人物＝AIND を充てた（ISSUES §D173-1）。'
-  norm: الخير بن العلاءي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D07109
+  active: m10
   passive: AIND-D06641
   methods:
   - TMP-S-00003
   cert: medium
-  quote: والشمس القلقشندي
   note:
     ja: '同上の伝聞（cert medium）。الشمس القلقشندي＝corpus 本伝 #AIND-D07109「محمد بن إسماعيل بن علي … الشمس أبو عبد الله بن التقي أبي الفدا القلقشندي المصري الأصل المقدسي الشافعي سبط الحافظ الصلاح العلائي … مات في بكرة يوم الجمعة ثاني عشر رجب سنة تسع」（ラカブ・ニスバ・エルサレム・العلائي の甥〔D00716「ابن أخته الشمس القلقشندي」〕で閉合、ニスバ索引 #AIND-D11945 の筆頭）。初版の TMP-P-000791（登録「الشمس القلقشندي」、Note「corpus本伝未特定」）は本伝のある人物＝AIND を充てた（ISSUES §D173-1）。'
-  norm: الشمس القلقشندي
   phrase: الشمس القلقشندي
 - id: r4
   type: scholarly
@@ -104,12 +95,9 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: gn:281184
-      quote: ببيت المقدس
-      norm: بيت المقدس
+    - mention: m8
     summary:
       ar: لقيته ببيت المقدس … وقرأت عليه بعض الأجزاء
-  quote: null
   note:
     ja: サハーウィーがエルサレムで本項主に会い、いくつかの جزء を読んだ（本項主が師）。初版は subtype="student"（旧規約）＝規則15 により teacher・active=本項主に統一。
 states:
@@ -117,22 +105,64 @@ states:
   type: office
   ref: wd:Q2892720
   places:
-  - ref: gn:281184
-    quote: ببيت المقدس
-    norm: بيت المقدس
+  - mention: m8
   orgs:
   - ref: TMP-I-00293
-  quote: null
   note:
     ja: '「وكان صوفيا بالصلاحية هناك」。「هناك」は先行する بيت المقدس を指す照応副詞（規則22(3)）。الصلاحية はスーフィーの在籍先＝エルサレムの الخانقاه الصلاحية（wd:Q4702696。ID-Master の Note「裸の الصلاحية は職種で振り分け（مشيخة التصوف→ここ、إعادة/تدريس→TMP-I-00177）」、先例 #AIND-D00438）。ブリーフは TMP-I-00177 とするが、スーフィーの文脈なので初版の Q4702696 を維持した（ISSUES §D173-2）。'
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00072
   orgs:
   - ref: wd:Q12192963
-  quote: وخازن الكتب
   note:
     ja: '「وخازن الكتب بالأقصى」＝アクサー・モスクの書庫係。汎用 خازن（TMP-O-00072。先例「خزن كتب مدرسة أم السلطان」）＋orgName المسجد الأقصى（wd:Q12192963）。初版は ref #NEEDID、placeName بيت المقدس（この句に地名はない）を付けていた＝除去。'
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: حبيب
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-01041
+  quote: الغانمي
+- id: m6
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m7
+  kind: name
+  quote: بابن دامس
+  norm: ابن دامس
+- id: m8
+  kind: place
+  quote: ببيت المقدس
+  ref: gn:281184
+  norm: بيت المقدس
+- id: m9
+  kind: person
+  ref: AIND-D00716
+  quote: الخير بن العلائي
+  norm: الخير بن العلاءي
+- id: m10
+  kind: person
+  ref: AIND-D07109
+  quote: والشمس القلقشندي
+  norm: الشمس القلقشندي
+- id: m11
+  kind: office
+  ref: TMP-O-00072
+  quote: وخازن الكتب
   norm: خازن الكتب
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ハビーブ、アッ＝シャムス・アル＝ガーニミー・アル＝マクディスィー。イブン・ダーミスとして知られる。クルアーンの徒である良きシャイフ。私はエルサレムで彼に会い、彼がアブー・アル＝ハイル・ブン・アル＝アラーイーやアッ＝シャムス・アル＝カルカシャンディーらに聴聞したと知らされた。私は彼にいくつかのジュズウを読んだ。彼はかの地のサラーヒーヤのスーフィーであり、アクサーの書庫係であった。生まれは（7）80年に至る十年のうち。（8）60年近く、おおよそその頃に没した。

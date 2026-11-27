@@ -9,93 +9,130 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-02040
-    quote: البلقسي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الحق
     by: rule
-    ref: AIND-D03519
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03519
+  active: m9
   passive: AIND-D05194
-  quote: أبوه
   note:
     ja: '「والماضي أبوه」＝ #AIND-D03519（عبد الحق بن علي بن الشريف الحسني البلقسي شيخها ووالد علي وأبي نصر وغيرهما、没891）。相手側でも「والد علي وأبي نصر」と本項主・弟を明記。'
-  norm: ابوه
   phrase: عبد الحق بن علي
 - id: r2
   type: kin
   subtype: brother
-  active: TMP-P-001066
+  active: m10
   passive: AIND-D05194
-  quote: أخوه بركات
   note:
     ja: 兄弟 بركات。父を同じくするため بركات بن عبد الحق بن علي الحسني البلقسي と祖父名まで復元可→仮番号 TMP-P-001066。corpus ب 部・ID-Master に本伝なし。「رافع فيه」＝伝主を告発した側。
-  norm: اخوه بركات
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-001067
+  active: m11
   passive: AIND-D05194
-  quote: لأخيه أبي نصر
   note:
     ja: 兄弟 أبو نصر。D03519 に「والد علي وأبي نصر」。復元形 أبو نصر بن عبد الحق بن علي الحسني البلقسي で仮番号 TMP-P-001067。corpus كنى 部に本伝なし。
-  norm: اخيه ابي نصر
   phrase: أخيه أبي نصر
 states:
 - id: s1
   type: office
-  ref: TMP-O-00273
   places:
   - ref: TMP-L-00265
-  quote: شيخها
   note:
     ja: 「البلقسي شيخها」＝ビルカス（ガルビーヤ地方の町）のシャイフ（在地長）。父 D03519 も同じく「شيخها」。شيخ نابلس（TMP-O-00139）方式で役職を仮登録（TMP-O-00257）、地名 بلقس は ID-Master 未登録→TMP-L-00265。
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00258
   places:
-  - ref: TMP-L-00266
-    quote: منى جعفر
-    norm: مني جعفر
+  - mention: m8
   orgs:
   - ref: TMP-I-00022
-  quote: والمتكلم على
   note:
     ja: 「المتكلم على منى جعفر بلد خانقاه سرياقوس」＝ハーンカー・シルヤークース（TMP-I-00022）領の村 منى جعفر の管理人。役職・村名ともに ID-Master 未登録→仮番号（المتكلم في الكسوة TMP-O-00174 と同型の役職名登録）。
-  norm: المتكلم علي
+  mention: m7
 events:
 - id: e1
   type: political
-  quote: ممن تعرض له بالغرامة غير مرة وبلغني أن من جملة من رافع فيه أخوه بركات
   note:
     ja: 度々罰金（غرامة）を課され、告発者の中に兄弟バラカートがいたと伝聞。
-  norm: ممن تعرض له بالغرامة غير مرة وبلغني ان من جملة من رافع فيه اخوه بركات
+  phrase: ممن تعرض له بالغرامة غير مرة وبلغني أن من جملة من رافع فيه أخوه بركات
+  mention: null
 - id: e2
   type: political
   places:
-  - ref: TMP-L-00268
-    quote: منية حلفا
-  quote: وأخذ لأخيه أبي نصر منية حلفا ورسم على صاحب الترجمة لعمل حساب للأماكن الثلاثة
+  - mention: m12
   note:
     ja: （バラカートは）兄弟アブー・ナスルのために منية حلفا を取得させ、伝主は三か所の会計報告を行うよう拘束（رسم عليه）された。منية حلفا は ID-Master の منية خلف（TMP-L-00260、D04294「منية خلفا」由来）の異綴と推定（cert medium、別名追記提案を pending に）。
-  norm: اخذ لاخيه ابي نصر منية حلفا ورسم علي صاحب الترجمة لعمل حساب للاماكن الثلاثة
+  phrase: وأخذ لأخيه أبي نصر منية حلفا ورسم على صاحب الترجمة لعمل حساب للأماكن الثلاثة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D03519
+  quote: عبد الحق
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: name
+  ref: TMP-N-02040
+  quote: البلقسي
+- id: m6
+  kind: office
+  ref: TMP-O-00273
+  quote: شيخها
+- id: m7
+  kind: office
+  ref: TMP-O-00258
+  quote: والمتكلم على
+  norm: المتكلم علي
+- id: m8
+  kind: place
+  quote: منى جعفر
+  ref: TMP-L-00266
+  norm: مني جعفر
+- id: m9
+  kind: person
+  ref: AIND-D03519
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: TMP-P-001066
+  quote: أخوه بركات
+  norm: اخوه بركات
+- id: m11
+  kind: person
+  ref: TMP-P-001067
+  quote: لأخيه أبي نصر
+  norm: اخيه ابي نصر
+- id: m12
+  kind: place
+  quote: منية حلفا
+  ref: TMP-L-00268
 translation:
   ja: アリー・ブン・アブド・アル＝ハック・ブン・アリー・アル＝ハサニー・アル＝ビルカスィー。同地（ビルカス）のシャイフで、ハーンカー・シルヤークース領の村ミナー・ジャアファルの管理人（ムタカッリム）。父については前述した。彼は度々罰金を課された者の一人で、彼を告発した者たちの中に兄弟のバラカートがいたと私に伝わっている。〔バラカートは〕兄弟のアブー・ナスルのためにミニヤト・ハルファーを手に入れ、本項の主は三か所の会計を行うよう拘束された。
   en: ʿAlī b. ʿAbd al-Ḥaqq b. ʿAlī al-Ḥasanī al-Bilqasī, the shaykh of that town [Bilqas] and the administrator (mutakallim) of Minā Jaʿfar, a village belonging to the khānqāh of Siryāqūs; his father has been mentioned above. He was among those who were subjected to fines more than once, and I was informed that among those who denounced him was his brother Barakāt, who obtained Minyat Ḥalfā for his brother Abū Naṣr, while the subject of this entry was placed under detention to render the accounts of the three places.

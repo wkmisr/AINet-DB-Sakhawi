@@ -9,20 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: الرضى
-    norm: الرضي
+    mention: m2
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -30,7 +27,7 @@ death:
   note:
     ar: ومات في ربيع الأول سنة اثنتين وتسعين
     ja: 892年ラビーウ・アル＝アウワル月＝1487年2月25日〜3月25日。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: kin
@@ -39,15 +36,13 @@ relations:
   passive: AIND-D05088
   summary:
     ar: الرضى أبو بكر بن محمد بن عبد اللطيف
-  quote: null
   note:
     ja: '父 ＝ #AIND-D10837「219 أبو بكر بن محمد بن عبد اللطيف بن محمد بن سالم الرضي اليمني الزبيدي والد عمر الماضي . ممن باشر باليمن ورأس فيها ثم بجدة … مات في ذي الحجة سنة أربع وأربعين بمكة」。名・ナサブ3代・ラカブ الرضي・イエメン→メッカの移動が一致。初版に relation なし（補填）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D05822
+  active: m5
   passive: AIND-D05088
-  quote: السراج عمر
   note:
     ja: '兄弟 السراج عمر ＝ #AIND-D05822「263 عمر بن الرضي أبي بكر بن محمد بن عبد اللطيف بن سالم السراج اليماني الأصل المكي ويعرف بابن الرضي . أحد مباشري جدة …」。初版は #NEEDID。'
 states:
@@ -55,12 +50,43 @@ states:
   type: office
   ref: TMP-O-00010
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  quote: null
+  - mention: m6
   note:
     ar: كتب بجدة يسيرا ثم ترك
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: الرضى
+  norm: الرضي
+- id: m3
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: person
+  ref: AIND-D05822
+  quote: السراج عمر
+- id: m6
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m7
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m8
+  kind: year
+  value: '892'
+  quote: سنة
 translation:
   ja: アリー・ブン・アッ＝リダー・アブー・バクル・ブン・ムハンマド・ブン・アブドゥッラティーフ・アル＝ヤマニー、のちにアル＝マッキー。アッ＝リダーとして知られる。アッ＝シラージュ・ウマルの兄弟。ジッダで少しの間書記を務めたが、のちにそれを辞めた。892年ラビーウ・アル＝アウワル月に亡くなった。
   en: ʿAlī b. al-Riḍā Abū Bakr b. Muḥammad b. ʿAbd al-Laṭīf al-Yamanī, then al-Makkī, known as al-Riḍā. He was the brother of al-Sirāj ʿUmar. He worked as a scribe in Jidda for a short while and then gave it up, and he died in Rabīʿ al-Awwal in the year 892 AH.

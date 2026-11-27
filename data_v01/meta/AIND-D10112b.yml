@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: الحسني
+    mention: m6
   - id: n2
     type: ism
-    quote: ميلب
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي سويد
     by: rule
-    norm: ابو سويد
+    mention: m3
   - id: n5
     type: nasab
-    quote: أبي دعيج
     by: rule
-    norm: ابو دعيج
+    mention: m4
   - id: n6
     type: nasab
-    quote: أبي نمي
     by: rule
-    norm: ابو نمي
+    mention: m5
 death:
   id: d
   date:
@@ -40,42 +37,84 @@ death:
   note:
     ar: قتل مع عمه علي بن أبي سويد في شعبان سنة تسع وعشرين
     ja: 829年シャアバーン、叔父とともに殺害。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: uncle
-  active: TMP-P-000951
+  active: m8
   passive: AIND-D10112b
-  quote: عمه علي بن أبي سويد
   note:
     ar: قتل مع عمه علي بن أبي سويد
     ja: 父方叔父 علي بن أبي سويد بن أبي دعيج الحسني（同時に殺害）。corpus には番号なし★スタブ「★علي★ بن أبي سويد بن أبي دعيج بن أبي نمى ...」（本文なし、ID なし）のみ→TMP-P-000951 新規（スタブに ID が付いた時点で付替え）。
-  norm: عمه علي بن ابي سويد
 events:
 - id: e1
   type: political
   date:
     ah: 829-08
     type: political
-  quote: قتل
   trigger: rule
   phrase: قتل مع عمه علي بن أبي سويد في شعبان سنة تسع وعشرين
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m12
   works:
   - label: ذيل سير النبلاء
-  quote: ذكره
   note:
     ja: Pattern A。『ذيل سير النبلاء』（التقي الفاسي）は ID-Master 未登録。
   trigger: rule
   phrase: ذكره الفاسي في ذيل سير النبلاء
+  mention: m11
 notes:
 - text: 「كان ينسب لشجاعة وشهامة」— 勇敢さと気概で知られた。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: ميلب
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي سويد
+  norm: ابو سويد
+- id: m4
+  kind: name
+  quote: أبي دعيج
+  norm: ابو دعيج
+- id: m5
+  kind: name
+  quote: أبي نمي
+  norm: ابو نمي
+- id: m6
+  kind: name
+  quote: الحسني
+- id: m7
+  kind: event
+  quote: قتل
+- id: m8
+  kind: person
+  ref: TMP-P-000951
+  quote: عمه علي بن أبي سويد
+  norm: عمه علي بن ابي سويد
+- id: m9
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m10
+  kind: year
+  value: '829'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: マイラブ・ブン・ムハンマド・ブン・アビー・スワイド・ブン・アビー・ドゥアイジュ・ブン・アビー・ヌマイイ・アル＝ハサニー。勇敢さと気概で知られた。829年シャアバーン月に叔父アリー・ブン・アビー・スワイドとともに殺された。ファースィーが『ザイル・スィヤル・アン＝ヌバラー』で彼に言及した。
   en: Maylab b. Muḥammad b. Abī Suwayd b. Abī Duʿayj b. Abī Numayy al-Ḥasanī. He was credited with courage and gallantry. He was killed with his uncle ʿAlī b. Abī Suwayd in Shaʿbān 829. Al-Fāsī mentioned him in the Dhayl Siyar al-Nubalāʾ.

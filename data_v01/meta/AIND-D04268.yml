@@ -9,36 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n2
     type: laqab
-    quote: كريم الدين
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن فخيرة
+    mention: null
   - id: n4
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الغني
     by: rule
-    ref: AIND-D04080
+    mention: m2
   - id: n6
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: فخر الدين
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: شرف الدين
     by: rule
+    mention: m6
 death:
   id: d
   date:
@@ -46,48 +44,92 @@ death:
   note:
     ar: مات في سادس رجب سنة خمسين
     ja: 850年ラジャブ月6日＝1446年9月27日（表計算・火曜。初版の 1446-10-06 は誤換算）。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04080
+  active: m10
   passive: AIND-D04268
-  quote: أبيه
   note:
     ja: '父 = #AIND-D04080（عبد الغني بن يعقوب الفخر بن الشرف أحد كتاب المماليك ووالد عبد الكريم ويحيى ونصر الله وحمزة … المعروفين بابن فخيرة تصغير لقب أبيهم）。通称 ابن فخيرة ＝ 父のラカブ فخر الدين の縮小形。'
-  norm: ابيه
   phrase: عبد الغني بن يعقوب
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D03903
+  active: m13
   passive: AIND-D04268
-  quote: عبد الرزاق الماضي
   note:
     ja: '息子 = #AIND-D03903（عبد الرزاق بن كريم الدين عبد الكريم بن عبد الغني بن يعقوب ابن فخيرة … أحد كتاب المماليك、没874）。'
   phrase: وهو والد عبد الرزاق الماضي
 - id: r3
   type: identity
   subtype: possible_identity
-  active: AIND-D04296
+  active: m9
   passive: AIND-D04268
   summary:
     ar: عبد الكريم كريم الدين بن فخيرة … والد عبد الرزاق الماضي وأحد الكتبة من الأقباط بل مستوفي الخاص
   cert: high
-  quote: بابن فخيرة
   note:
     ja: '同バッチの #AIND-D04296（項番879「عبد الكريم كريم الدين بن فخيرة … والد عبد الرزاق الماضي … مات في رجب سنة خمس وخمسين」）はサハーウィー自身の二重立項と判断（同一通称・同一の息子 عبد الرزاق・同じラジャブ月没。没年のみ 850／855 で相違）→ possible_identity cert high。2026-09-08 Waka 裁定（要判断 §D-1）: 転送指示のない二重立項は REF 化せず両項とも実項として保持、正本の選定は ID-Master 側で行う。'
-  norm: ابن فخيرة
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: TMP-O-00085
-  quote: أحد من ناب عن ناظر الخاص
   note:
     ja: ناظر الخاص（TMP-O-00085）の代理（نائب）。汎用 نائب（TMP-O-00053）で表現。
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  ref: AIND-D04080
+  quote: عبد الغني
+- id: m3
+  kind: name
+  quote: يعقوب
+- id: m4
+  kind: name
+  quote: كريم الدين
+- id: m5
+  kind: name
+  quote: فخر الدين
+- id: m6
+  kind: name
+  quote: شرف الدين
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: office
+  ref: TMP-O-00085
+  quote: أحد من ناب عن ناظر الخاص
   norm: احد من ناب عن ناظر الخاص
+- id: m9
+  kind: person
+  ref: AIND-D04296
+  quote: بابن فخيرة
+  norm: ابن فخيرة
+- id: m10
+  kind: person
+  ref: AIND-D04080
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: month
+  value: 7
+  quote: رجب
+- id: m12
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: AIND-D03903
+  quote: عبد الرزاق الماضي
 translation:
   ja: アブド・アル＝カリーム・ブン・アブド・アル＝ガニー・ブン・ヤアクーブ、カリーム・アッ＝ディーン・ブン・ファフル・アッ＝ディーン・ブン・シャラフ・アッ＝ディーン・アル＝カーヒリー。ナーズィル・アル＝ハーッス（内帑監督官）の代理を務めた者の一人で、父のラカブの縮小形であるイブン・フハイラの名で知られる。850年ラジャブ月6日に没した。前述のアブド・アッ＝ラッザークの父である。
   en: ʿAbd al-Karīm b. ʿAbd al-Ghanī b. Yaʿqūb, Karīm al-Dīn b. Fakhr al-Dīn b. Sharaf al-Dīn al-Qāhirī, one of those who deputized for the nāẓir al-khāṣṣ; he is known as Ibn Fukhayra, a diminutive of his father's laqab. He died on the sixth of Rajab of the year 850. He is the father of ʿAbd al-Razzāq, mentioned above.

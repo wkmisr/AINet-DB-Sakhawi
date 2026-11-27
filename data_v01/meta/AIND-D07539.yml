@@ -9,43 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00254
-    quote: الحسباني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m8
   - id: n3
     type: laqab
-    quote: الأمين
-    norm: الامين
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03590
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: الزين
     by: rule
+    mention: m6
   - id: n9
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m9
 death:
   id: d
   date:
@@ -53,7 +47,7 @@ death:
   note:
     ar: مات في الطاعون سنة سبع وتسعين
     ja: 897年＝1491-11-13〜1492-10-31 → 年初 1491（初版の 1492 を是正）。没地の記載なし。
-  quote: سنة
+  mention: m18
 persons:
 - id: p1
   label: زوجته التي كانت زوجا للشيخ خطاب
@@ -62,28 +56,24 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03590
+  active: m10
   passive: AIND-D07539
   summary:
     ar: الزين الحسباني الماضي أبوه
-  quote: أبوه
   note:
     ja: '父＝#AIND-D03590（عبد الرحمن بن أحمد بن محمد عبد الله الزين أبو هريرة بن الشهاب بن الجلال أبي عبد الله الحسباني الدمشقي الحنفي والد أمين الدين محمد الآتي ويلقب هامان、891年ズー・アル＝カアダ月にダマスカスのハナフィー派カーディー）。「والد أمين الدين محمد الآتي」で閉合。ニスバ索引 #AIND-D11591 も「استقر ابنه الأمين أبو السعادات محمد في كتابة سرها」と記す（クンヤ أبو السعادات は他項由来のため persName に補わない＝統一規則23）。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: spouse
-  active: AIND-D07539#p1
+  active: m17
   passive: AIND-D07539
-  quote: زوجته التي كانت زوجا للشيخ خطاب
   note:
     ja: '妻は無名（シャイフ خطاب の元妻としてのみ描写）→ #NEEDID。初版の空 relation（active=""）を補完。'
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D03553
+  active: m15
   passive: AIND-D07539
-  quote: بعد صرف الموفق الشريف الحموي ببذل كثير
   note:
     ja: 'الموفق الشريف الحموي＝#AIND-D03553（عبد الرحمن بن أحمد … موفق الدين أبو ذر … العباسي الحموي ثم الدمشقي الحنبلي。同項「ثم ولي كتابة سرها في سنة تسعين بعد النجم بن الخيضري ثم انفصل عنها في سنة اثنتين بأمين الدين الحسباني」＝本項主に閉合。「الشريف」はアッバース家の血統による）。交替年は本項 891 シャウワール／D03553 項 892 で異同（note）。初版の #NEEDID を解消。'
 - id: r4
@@ -91,7 +81,6 @@ relations:
   subtype: successor
   active: TMP-P-001174
   passive: AIND-D07539
-  quote: null
   note:
     ja: 後任は「الشهاب بن الفرفور（#AIND-D01637 أحمد بن محمود … الشهاب … ويعرف كسلفه بابن الفرفور）の甥」で名は記されないが、伯父の同定と職・年月で識別できるため仮番号 TMP-P-001174 を発行（統一規則12。⚠人名不詳）。
   phrase: ثم صرف في جمادى الآخرة من التي تليها بابن اخي الشهاب بن الفرفور
@@ -100,31 +89,99 @@ relations:
   subtype: other
   active: AIND-D02858
   passive: AIND-D07539
-  quote: null
   note:
     ja: الشيخ خطاب＝#AIND-D02858（خطاب بن عمر بن مهنى … الزيني الغزاوي … الدمشقي الشافعي، شيخ البلد بدمشق、878年没）。本項主の妻の前夫。初版の統制外 subtype「previous husband of wife」を subtype="other" に置換。ID-Master の TMP-P-000053（الزين خطاب）も同一人物とみられる（ISSUES §Dd-6）。
   phrase: وعاد ضرره على زوجته التي كانت زوجا للشيخ خطاب
 states:
 - id: s1
   type: office
-  ref: TMP-O-00008
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m12
   dates:
   - ah: 891-10
     type: appointment
   - ah: 892-06
     type: retirement
-  quote: كتابة السر
   note:
     ja: '「استقر في كتابة السر بدمشق في شوال سنة إحدى وتسعين … ثم صرف في جمادى الآخرة من التي تليها」。891年シャウワール月＝1486-10-09〜、892年ジュマーダー・アル＝アーヒラ月＝1487-06-03〜（h2g.py）。ref #NEEDID → TMP-O-00008（كاتب السر）。初版の political event（解任）は state の retirement と二重のため除去。'
-  norm: تابة السر
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D03590
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: الأمين
+  norm: الامين
+- id: m6
+  kind: name
+  quote: الزين
+- id: m7
+  kind: name
+  ref: TMP-N-00254
+  quote: الحسباني
+- id: m8
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m9
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m10
+  kind: person
+  ref: AIND-D03590
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: office
+  ref: TMP-O-00008
+  quote: كتابة السر
+  norm: تابة السر
+- id: m12
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m13
+  kind: month
+  value: 10
+  quote: شوال
+- id: m14
+  kind: year
+  value: '891'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D03553
+  quote: بعد صرف الموفق الشريف الحموي ببذل كثير
+- id: m16
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m17
+  kind: person
+  ref: AIND-D07539#p1
+  quote: زوجته التي كانت زوجا للشيخ خطاب
+- id: m18
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・アフマド・ブン・ムハンマド、アル＝アミーン・イブン・アッ＝ザイン、フスバーンを本貫とするアッ＝ディマシュキー・アル＝ハナフィー。その父は前述。（八百）九十一年シャウワール月、アル＝ムワッファク・アッ＝シャリーフ・アル＝ハマウィーが解任された後、多額の献金によってダマスカスの機密書記職（キターバト・アッ＝スィッル）に就いたが、その翌年のジュマーダー・アル＝アーヒラ月にアッ＝シハーブ・イブン・アル＝ファルフールの甥に代えられて解任された。負債を抱えたまま不遇のうちに過ごし、その災いは、かつてシャイフ・ハッターブの妻であった彼の妻にまで及んだ。（八百）九十七年の疫病で没した。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Aḥmad b. Muḥammad, al-Amīn b. al-Zayn, of Ḥusbān origin, al-Dimashqī al-Ḥanafī. His father has been mentioned above. He was installed in the secretaryship (kitābat al-sirr) of Damascus in Shawwāl (8)91, after the dismissal of al-Muwaffaq al-Sharīf al-Ḥamawī, by paying a large sum; then, in Jumādā II of the following year, he was dismissed in favour of the nephew of al-Shihāb b. al-Farfūr. He remained in obscurity under the burden of debts, and the harm of this extended to his wife, who had formerly been the wife of Shaykh Khaṭṭāb. He died in the plague of the year (8)97.

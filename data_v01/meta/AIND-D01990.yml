@@ -11,69 +11,56 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01966
-    quote: الرسولي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: سبط ابن الضياء
+    mention: m7
   - id: n4
     type: ism
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m1
   - id: n5
     type: nasab
-    quote: محيي الدين يحيى
     by: rule
-    ref: AIND-D10229
-    norm: محيي الدين يحيي
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D01990
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m11
 - id: r2
   type: kin
   subtype: father
   active: AIND-D10229
   passive: AIND-D01990
-  quote: null
   phrase: محيي الدين يحيى بن أحمد بن يحيى الرسولي
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-000475
+  active: m9
   passive: AIND-D01990
-  quote: عمر
 - id: r4
   type: kin
   subtype: grandfather
@@ -81,7 +68,6 @@ relations:
   passive: AIND-D01990
   summary:
     ar: ابن الضياء (الجمال أبو النجا محمد، قاضي الحنفية بمكة، جد لأم)
-  quote: null
 affiliations:
 - id: a1
   type: madhhab
@@ -96,29 +82,79 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ودخل
+  - mention: m13
   trigger: rule
-  norm: دخل
+  mention: m12
 - id: e2
   type: political
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   summary:
     en: |-
       He and his brother sustained themselves by seizing the Rasūlī schools in
                   Mecca and administering them as if they were private property.
-  quote: null
+  mention: null
 - id: e3
   type: political
   summary:
     en: |-
       This action resulted in the cessation of their endowments and an
                   encroachment upon the endowments and books of al-Baghdādī.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m2
+  kind: name
+  ref: AIND-D10229
+  quote: محيي الدين يحيى
+  norm: محيي الدين يحيي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m5
+  kind: name
+  ref: TMP-N-01966
+  quote: الرسولي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  quote: سبط ابن الضياء
+- id: m8
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m9
+  kind: person
+  ref: TMP-P-000475
+  quote: عمر
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: event
+  quote: ودخل
+  norm: دخل
+- id: m13
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: 961. イズマイル・ブン・ムヒー・アッ＝ディーン・ヤフヤー・ブン・アフマド・ブン・ヤフヤー・アッ＝ラスーリー・アル＝マッキー、イブン・アッ＝ディヤーの孫、ハナフィー派。そして後に記述されるウマルの兄弟。 私（サハーウィー）からマッカで聴聞し、カイロに入った人物である。彼と彼の兄弟はマッカのラスーリー家マドラサを占領し、まるで私有地のように管理することで生計を立てていた。このことから、それらのワクフ（寄進財産）は中断され、アッ＝バグダーディーのワクフと著書に対する侵害も起こった。アッラーの他に力はない。
   en: 961. Ismāʿīl b. Muḥyī al-Dīn Yaḥyā b. Aḥmad b. Yaḥyā al-Rasūlī al-Makkī, grandson of Ibn al-Ḍiyāʾ, al-Ḥanafī, and brother of the aforementioned ʿUmar. He was among those who heard from me (al-Sakhāwī) in Mecca. He later entered Cairo. He and his brother made a living by seizing the Rasūlī schools in Mecca and administering them as if they were private property. This resulted in the cessation of their endowments and an encroachment upon the endowments and books of al-Baghdādī. There is no power save in God.

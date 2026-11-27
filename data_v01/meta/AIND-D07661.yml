@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد السلام
     by: rule
-    ref: TMP-P-001192
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: سبط علي البواب
@@ -36,35 +34,61 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07661
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m8
   phrase: ممن سمع مني بالمدينة
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001192
   passive: AIND-D07661
-  quote: null
   note:
     ja: 父 عبد السلام بن محمد بن عبد العزيز المدني。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録 → TMP-P-001192 を新規発行（⚠汎用名）。
   phrase: عبد السلام بن محمد بن عبد العزيز
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D07661#p1
+  active: m6
   passive: AIND-D07661
-  quote: علي البواب
   note:
     ja: 'سبط＝娘方の孫。母方の祖父 علي البواب（裸名＋職名のみ。corpus に他の言及なし・ID-Master 未登録）→ #NEEDID。初版の subtype="grandfather" を maternal_grandfather に是正。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001192
+  quote: عبد السلام
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد العزيز
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: AIND-D07661#p1
+  quote: علي البواب
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ムハンマド・ブン・アブドゥッサラーム・ブン・ムハンマド・ブン・アブドゥルアズィーズ・アル＝マダニー。アリー・アル＝バウワーブの娘方の孫。マディーナで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿAbd al-Salām b. Muḥammad b. ʿAbd al-ʿAzīz al-Madanī, the daughter's son of ʿAlī al-Bawwāb. He was among those who heard from me (al-Sakhāwī) in Medina.

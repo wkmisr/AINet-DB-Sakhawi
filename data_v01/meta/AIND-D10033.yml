@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n2
     type: ism
-    quote: مهنا
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 820
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 820年初＝1417-02-27（h2g.py、年精度）。
-  quote: سنة
   phrase: مات بمكة في سنة عشرين
+  mention: m5
 persons:
 - id: p1
   label: عبد الله
@@ -43,21 +40,46 @@ relations:
   subtype: father
   active: AIND-D10033#p1
   passive: AIND-D10033
-  quote: null
   note:
     ja: 規則3 (c')。父 عبد الله は裸の汎用名で corpus に見出しなし。
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）。没年の情報源。初版は death の note にのみ記載＝event を追加。
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: مهنا
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: قاله
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンナー・ブン・アブドゥッラー・アル＝マッキー。大いなる敬虔な人々の一人であった。（8）20年にマッカで没した。われらがシャイフ（イブン・ハジャル）が『インバー』でそう述べている。
   en: Muhannā b. ʿAbd Allāh al-Makkī. He was one of the great righteous men. He died in Mecca in the year [8]20. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ.

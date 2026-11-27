@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الكمال
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سلطان
     by: rule
-    ref: TMP-P-001613
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: kin
@@ -36,59 +33,48 @@ relations:
   passive: AIND-D07440
   summary:
     ar: سلطان بن أحمد الدمشقي
-  quote: null
   note:
     ja: '父 سلطان بن أحمد الدمشقي：本伝を持つ3兄弟（إبراهيم #AIND-D00128・أبو بكر #AIND-D10700・本項主）に共有され、ニスバ索引 #AIND-D12403「وثلاثة إخوة دمشقيون بنو سلطان بن أحمد」でも一家として立項される（規則3）。corpus に本伝なし（hw.py「سلطان بن أحمد」は子3件のみ）、ID-Master 未登録 → 新規 TMP-P-001613。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00128
+  active: m6
   passive: AIND-D07440
-  quote: إبراهيم
   note:
     ja: 「أخو إبراهيم وأبي بكر المذكورين」。إبراهيم＝#AIND-D00128「إبراهيم بن سلطان بن أحمد البرهان أبو إسحاق الدمشقي」（repo 収録、ナサブ3代一致）。
-  norm: ابراهيم
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D10700
+  active: m7
   passive: AIND-D07440
   summary:
     ar: أبو بكر
-  quote: وأبي بكر
   note:
     ja: أبو بكر＝#AIND-D10700「أبو بكر بن سلطان بن أحمد التقي الدمشقي الشافعي أخو إبرهيم الماضي . ممن ينوب في القضاء بدمشق عن النجم بن الخيضري」（未収録、ナサブ3代一致）。初版の汚染番号 TMP-P-000064（登録実体＝D0031 の姻戚 أبو بكر）を置換。
-  norm: ابو بكر
 - id: r4
   type: kin
   subtype: son
-  active: TMP-P-001614
+  active: m10
   passive: AIND-D07440
-  quote: قطب الدين محمد
   note:
     ja: 「وأجزت لولديه قطب الدين محمد ومحيي الدين عبد القادر」＝サハーウィーが本項主の子2人にイジャーザを与えた（本項主自身へのイジャーザではない）。子 قطب الدين محمد بن محمد بن سلطان：ラカブ＋ナサブ3代＝識別要素、corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001614（規則12）。子からサハーウィーへの relation は子の側（TMP-P）に属するため本項には立てない。
 - id: r5
   type: kin
   subtype: son
-  active: TMP-P-001615
+  active: m11
   passive: AIND-D07440
-  quote: ومحيي الدين عبد القادر
   note:
     ja: 子 محيي الدين عبد القادر بن محمد بن سلطان：同上、新規 TMP-P-001615。サハーウィーからイジャーザを受けた（「أجزت لولديه」）。
-  norm: محيي الدين عبد القادر
   phrase: محيي الدين عبد القادر
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: ينوب في قضاء
+  - mention: m9
   note:
     ja: 裁判代理官＝カノニカル職 TMP-O-00096 نائب الحكم（Waka 2026-07-11。初版の TMP-O-00003 نائب القاضي は corpus 出現ゼロの legacy 登録）。地名 دمشق は原文「بدمشق」による。
   phrase: ممن ينوب في قضاء الحنفية بدمشق
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -96,6 +82,53 @@ affiliations:
   cert: medium
   note:
     ja: '原文に「الحنفي」の明記はなく、「ينوب في قضاء الحنفية بدمشق」（ハナフィー派裁判の代理）から推定（索引 #AIND-D12403「كمال الدين محمد ينوب عن متأخري حنفية دمشق」も同じ）。cert medium。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001613
+  quote: سلطان
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الكمال
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: person
+  ref: AIND-D00128
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m7
+  kind: person
+  ref: AIND-D10700
+  quote: وأبي بكر
+  norm: ابو بكر
+- id: m8
+  kind: office
+  ref: TMP-O-00096
+  quote: ينوب في قضاء
+- id: m9
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m10
+  kind: person
+  ref: TMP-P-001614
+  quote: قطب الدين محمد
+- id: m11
+  kind: person
+  ref: TMP-P-001615
+  quote: ومحيي الدين عبد القادر
+  norm: محيي الدين عبد القادر
 translation:
   ja: ムハンマド・ブン・スルターン・ブン・アフマド、アル＝カマール・アッ＝ディマシュキー。既述のイブラーヒームとアブー・バクルの兄弟。ダマスクスでハナフィー派の裁判の代理を務める者の一人で、私（サハーウィー）は彼の二人の息子、クトゥブ・アッ＝ディーン・ムハンマドとムヒー・アッ＝ディーン・アブド・アル＝カーディルにイジャーザを与えた。
   en: Muḥammad b. Sulṭān b. Aḥmad, al-Kamāl al-Dimashqī, brother of the aforementioned Ibrāhīm and Abū Bakr. He is among those who serve as deputy in the Ḥanafī judgeship in Damascus, and I (al-Sakhāwī) granted an ijāza to his two sons, Quṭb al-Dīn Muḥammad and Muḥyī al-Dīn ʿAbd al-Qādir.

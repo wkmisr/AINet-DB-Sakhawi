@@ -9,63 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00696
-    quote: الطهطاوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D00604
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: علي
+    - mention: m9
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04251
+  active: m6
   passive: AIND-D00604
   summary:
     ar: عبد الكريم بن أبي بكر بن علي الطهطاوي المكي
-  quote: أخو
-  norm: اخو
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m9
   methods:
   - TMP-S-00003
-  quote: سمع
   note:
     en: was among those who heard from al-Sakhāwī in Mecca
   trigger: rule
+  mention: m7
 notes:
 - text: サハーウィーは彼を立派なシャイフで、学識の優れた人物と評した。
   lang: ja
@@ -73,6 +62,43 @@ notes:
 - text: He was among those who heard from al-Sakhāwī in Mecca.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00696
+  quote: الطهطاوي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: AIND-D04251
+  quote: أخو
+  norm: اخو
+- id: m7
+  kind: event
+  quote: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブー・バクル・ブン・アリー・アル=タフターウィー・アル=マッキーの息子アフマド。後述のアブドゥルカリーム（＝AIND-D04251）の兄弟である。メッカで私（サハーウィー）からハディースを聴聞した一人。
   en: Ahmad b. Abī Bakr b. ʿAlī al-Ṭahṭāwī al-Makkī. Brother of ʿAbd al-Karīm (= AIND-D04251, forthcoming). He was among those who heard from me (al-Sakhāwī) in Mecca.

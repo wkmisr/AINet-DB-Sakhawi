@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بابن حميدان
-    norm: ابن حميدان
     label: ابن حميدان
+    mention: m8
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي الفرج محمد
     by: rule
-    ref: TMP-P-001524
-    norm: ابو الفرج محمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمود
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: حميدان
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 death:
   id: d
   note:
@@ -47,24 +42,20 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001524
+  active: m7
   passive: AIND-D05337
   summary:
     ar: أبو الفرج محمد بن محمود بن حميدان المدني الحنفي
-  quote: كأبيه
   note:
     ja: 父。見出しナサブから復元（規則3、祖父名 محمود・曾祖父名 حميدان まで判明、クンヤ أبو الفرج、「ويعرف كأبيه بابن حميدان」）。corpus に本伝なし（「محمد بن محمود بن حميدان」の見出しなし。D02793 حميدان بن محمد بن أحمد البرلسي は別人）・ID-Master 未登録 → 新規 TMP-P-001524。初版に father relation なし。
-  norm: ابيه
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   orgs:
   - ref: TMP-I-00120
-  quote: أحد المؤذنين
   note:
     ja: 「أحد المؤذنين بالحرم الشريف المدني」。施設＝マディーナの預言者モスク（TMP-I-00120 الحرم النبوي）。施設の所在地からの placeName（المدينة）は付けない（規則22(1)）。初版の affiliation（employed、同施設）は規則8により除去。
-  norm: احد المءذنين
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -74,8 +65,49 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: وممن يحفظ القرآن
-  norm: ممن يحفظ القران
+  phrase: وممن يحفظ القرآن
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001524
+  quote: أبي الفرج محمد
+  norm: ابو الفرج محمد
+- id: m3
+  kind: name
+  quote: محمود
+- id: m4
+  kind: name
+  quote: حميدان
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: person
+  ref: TMP-P-001524
+  quote: كأبيه
+  norm: ابيه
+- id: m8
+  kind: name
+  quote: بابن حميدان
+  norm: ابن حميدان
+- id: m9
+  kind: office
+  ref: wd:Q239718
+  quote: أحد المؤذنين
+  norm: احد المءذنين
+- id: m10
+  kind: month
+  value: 4
+  quote: ربيع الثاني
 translation:
   ja: アリー・ブン・アビー・アル＝ファラジュ・ムハンマド・ブン・マフムード・ブン・フマイダーン・アル＝マダニー・アル＝ハナフィー。父と同様にイブン・フマイダーンとして知られる。マディーナの聖なるハラムのムアッズィンの一人で、クルアーンを暗記している者の一人。ラビーウ第2月、（空白）年に没した。
   en: ʿAlī b. Abī al-Faraj Muḥammad b. Maḥmūd b. Ḥumaydān al-Madanī al-Ḥanafī, known like his father as Ibn Ḥumaydān. One of the muezzins of the Noble Sanctuary of Medina and one of those who have memorized the Qurʾān. He died in Rabīʿ II of the year (blank).

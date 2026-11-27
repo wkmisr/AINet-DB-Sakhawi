@@ -9,20 +9,20 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: مياج
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد شيخ ركب المغاربة
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 859-03
   note:
     ja: 859年ラビーウ第一月＝1455-02-28〜03-28（h2g.py）、月精度で @when=1455-02。原文は続けて「وفي موضع سنة ست وسبعين فغلط」＝（イブン・アズムが）別の箇所で 876 年としているのは誤り、とサハーウィーが判定する（876年＝1471-06-29 開始、h2g.py）。没地の記載なし。
-  quote: سنة
   phrase: مات في ربيع الأول سنة تسع وخمسين
+  mention: m4
 persons:
 - id: p1
   label: محمد
@@ -35,31 +35,55 @@ relations:
   subtype: father
   active: AIND-D10111#p1
   passive: AIND-D10111
-  quote: null
   note:
     ja: 規則3 (c')。父は裸の汎用名のみ＝#NEEDID。初版の TMP-P-000529（登録＝別人の محمد、関係専用の汚染番号）を除去。「كأسلافه」（先祖と同じく）とあるが先祖の名は出ない。
 states:
 - id: s1
   type: office
   ref: TMP-O-00396
-  quote: null
   note:
     ja: '「شيخ ركب المغاربة كأسلافه」＝マグリブ人の巡礼隊の長（先祖代々）。ID-Master の Office は قاضي الركب 系（TMP-O-00215・00237）・أمير الركب 系（TMP-O-00296・00329）のみで شيخ الركب の登録なし（語根 ركب で検索）＝仮番号 TMP-O-00396。corpus では #AIND-D03755「حج قاضيا على ركب المغاربة」・#AIND-D07849「وهو قاضي ركب المغاربة سنين」に同じ巡礼隊が出る。初版は #NEEDID。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: أرخه
+  - mention: m6
   note:
     ja: 'Pattern A。ابن عزم＝#AIND-D08351「محمد بن عمر بن محمد بن أحمد بن عزم الشمس أبو عبد الله التميمي التونسي ثم المكي المالكي … ويعرف بابن عزم」（816年チュニス生、頻出確定ID。3人合同索引 #AIND-D12540 は使わない＝規則11）。初版の統制外 subtype「biographer」relation（active=#AIND-D12540）を event に変換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن عزم
+  mention: m5
 notes:
 - text: 初版の persName nisbah「المغربي」（見出しにニスバはなく、職名「ركب المغاربة」からの作り込み）と honorific「شيخ」（職名の一部）は除去。「ممن يذكر بصلاح وشهرة」は訳のみ。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: مياج
+- id: m2
+  kind: name
+  quote: محمد شيخ ركب المغاربة
+- id: m3
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m4
+  kind: year
+  value: '859'
+  quote: سنة
+- id: m5
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m6
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
+- id: m7
+  kind: year
+  value: '876'
+  quote: سنة
 translation:
   ja: マイヤージュ・ブン・ムハンマド、先祖と同じくマグリブ人の巡礼隊の長（シャイフ）。敬虔さと名声をもって語られる者の一人。（8）59年ラビーウ第一月に没した。イブン・アズムがその没年を記しているが、別の箇所では（8）76年としており、それは誤りである。
   en: Mayyāj b. Muḥammad, shaykh of the caravan of the Maghribīs, like his forebears. He is one of those spoken of for piety and renown. He died in Rabīʿ I of the year [8]59. Ibn ʿAzm recorded his death; in another place he gave the year [8]76, which is an error.

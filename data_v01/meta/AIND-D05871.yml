@@ -9,48 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m8
   - id: n4
     type: shuhrah
-    quote: بابن زين الدين
-    norm: ابن زين الدين
     label: ابن زين الدين
+    mention: m11
   - id: n5
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: الزين عبد العزيز
     by: rule
-    ref: TMP-P-001382
+    mention: m2
   - id: n7
     type: nasab
-    quote: عبد الواحد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: عياذ بتحتانية ومعجمة
     by: rule
+    mention: m5
   - id: n10
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m9
 death:
   id: d
   date:
@@ -63,7 +56,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D06936
+  active: m13
   passive: AIND-D05871
   methods:
   - TMP-S-00003
@@ -72,36 +65,32 @@ relations:
     date:
       ah: 834
       type: learning
-  quote: الجمال الكازروني
   note:
     ja: '「اشتغل وسمع على الجمال الكازروني في سنة أربع وثلاثين」。الجمال الكازروني ＝ #AIND-D06936（محمد بن أحمد بن محمد بن محمود … الجمال … الكازروني الأصل المدني الشافعي、757年マディーナ生）。初版の幻番号 TMP-P-000352（ID-Master 未登録、→ D06936 に名寄せ済み）を差し替え。マッカの D08619 は別人。834 ＝ 1430-09-28〜1431-09-17（年のみ→年初）。初版は @when にヒジュラ値 0834 を置いていた。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D07181
+  active: m15
   passive: AIND-D05871
   methods:
   - TMP-S-00003
   summary:
     ar: أبو الفتح المراغي
-  quote: الفتح المراغي
   note:
     ja: '「وعلى أبي الفتح المراغي」。أبو الفتح المراغي ＝ #AIND-D07181（محمد الشرف أبو الفتح … المراغي、775年生・859年没、マディーナ）。初版の幻番号 TMP-P-000003（ID-Master 未登録）を差し替え。「في سنة أربع وثلاثين」は الكازروني の聴聞にかかるため、こちらには年を付けない（初版は両方に 834）。'
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-001382
+  active: m17
   passive: AIND-D05871
-  quote: التي قبلها
   note:
     ja: '父 الزين عبد العزيز بن عبد الواحد بن عمر بن عياذ（عياد）الأنصاري المغربي الأصل المدني。corpus の عبد العزيز 部に本伝なし（同じ父を持つ أحمد #AIND-D00856「أحمد بن عبد العزيز بن عبد الواحد بن عمر بن عياد … أخو محمد الآتي」・الكمال محمد #AIND-D07676 の見出しに名が見えるのみ）・ID-Master 未登録 → 新規 TMP-P-001382。初版は father relation なし。同父の أحمد・محمد は本項主の兄弟にあたるが本項に記述がないため relation は立てない。通称「ابن زين الدين」はこの父のラカブ الزين に由来。'
   phrase: الزين عبد العزيز بن عبد الواحد بن عمر بن عياذ
 - id: r4
   type: kin
   subtype: son
-  active: AIND-D02608
+  active: m10
   passive: AIND-D05871
-  quote: حسن
   note:
     ja: '「والد حسن الماضي」＝ #AIND-D02608（حسن بن عمر بن الزين عبد العزيز بن عبد الواحد بن عمر بن عياد … البدر الأنصاري المغربي الأصل المدني المالكي ويعرف بابن زين الدين、847年生）で双方向に閉合。初版の汚染番号 TMP-P-000204（D0106 の息子 حسن）を差し替え。'
 - id: r5
@@ -112,7 +101,6 @@ relations:
   summary:
     ar: عبد الله مطيري
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D04519「عبد الله مطيري بن عمر بن الزين عبد العزيز بن عبد الواحد المدني أخو حسن وعبد الباسط」が本項主を父と一意に明記（repo 側は father relation に #AIND-D05871 を置く）→ 規則23により cert medium で補う。本項に記述なし。'
 - id: r6
@@ -123,7 +111,6 @@ relations:
   summary:
     ar: عبد الباسط
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D03490「عبد الباسط بن عمر بن عبد العزيز الأنصاري المدني أخو البدر حسن الماضي」＝ حسن（D02608）の兄弟として本項主を父と明記 → 規則23により cert medium で補う。本項に記述なし。'
 states:
@@ -131,13 +118,78 @@ states:
   type: status
   label: من بيت فيه فضلاء
   label_latn: min bayt fīhi fuḍalāʾ
-  quote: من بيت فيه فضلاء
   note:
     ja: 「من بيت فيه فضلاء」＝学識者を輩出した家の出。
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001382
+  quote: الزين عبد العزيز
+- id: m3
+  kind: name
+  quote: عبد الواحد
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: عياذ بتحتانية ومعجمة
+- id: m6
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m7
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m8
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m9
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m10
+  kind: person
+  ref: AIND-D02608
+  quote: حسن
+- id: m11
+  kind: name
+  quote: بابن زين الدين
+  norm: ابن زين الدين
+- id: m12
+  kind: office
+  quote: من بيت فيه فضلاء
+- id: m13
+  kind: person
+  ref: AIND-D06936
+  quote: الجمال الكازروني
+- id: m14
+  kind: year
+  value: '834'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D07181
+  quote: الفتح المراغي
+- id: m16
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m17
+  kind: person
+  ref: TMP-P-001382
+  quote: التي قبلها
 translation:
   ja: ウマル・ブン・アッ＝ザイン・アブド・アル＝アズィーズ・ブン・アブド・アル＝ワーヒド・ブン・ウマル・ブン・イヤーズ（ʿIyādh：ヤー、次いで点付きのザール）、アル＝アンサーリー、マグリブ系でマディーナ住のマーリキー派。前述のハサンの父。イブン・ザイン・アッ＝ディーンとして知られる。学識者を輩出した家の出である。学問に携わり、834年にアル＝ジャマール・アル＝カーザルーニーから、またアブー・アル＝ファトフ・アル＝マラーギーから聴聞した。858年またはその前年に没した。アッラーが彼に慈悲を垂れられんことを。
   en: ʿUmar b. al-Zayn ʿAbd al-ʿAzīz b. ʿAbd al-Wāḥid b. ʿUmar b. ʿIyādh (with yāʾ and then dotted dhāl), al-Anṣārī, of Maghribī origin, resident of Medina, Mālikī, the father of Ḥasan, mentioned previously, and known as Ibn Zayn al-Dīn, from a family of learned men. He studied and heard from al-Jamāl al-Kāzarūnī in the year 834 and from Abū al-Fatḥ al-Marāghī. He died in the year 858 or the year before. May God have mercy on him.

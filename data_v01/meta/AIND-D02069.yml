@@ -9,48 +9,75 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00161
-    quote: الكركي
+    mention: m2
   - id: n2
     type: ism
-    quote: الياس
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 834-09
-  quote: سنة
+  mention: m6
 states:
 - id: s1
   type: office
   ref: TMP-O-00065
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m3
+  mention: null
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   cert: low
   note:
     en: Performed repeatedly with the Syrian caravan.
   trigger: rule
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00710
-    quote: ابن اللبودي
-  quote: أرخه
+  - mention: m8
   note:
     ja: '§D-3裁定(Waka 2026-08-18)により、「ابن اللبودي」のcanonicalを転送見出し #AIND-D12697 から本伝 **#AIND-D00710**(أحمد بن خليل بن أحمد بن إبراهيم بن أبي بكر الشهاب الدمشقي الصالحي الشافعي … ويعرف بابن اللبودي وابن عرعر)に付け替え。「corpus headwordを最終根拠に」「反復する情報源は単一canonicalに集約」の原則による。 / 初版の persName は中身が空だったため、原文の呼称「ابن اللبودي」を補って実体化した。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن اللبودي
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: الياس
+- id: m2
+  kind: name
+  ref: TMP-N-00161
+  quote: الكركي
+- id: m3
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m4
+  kind: event
+  quote: حج
+- id: m5
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m6
+  kind: year
+  value: '834'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D00710
+  quote: ابن اللبودي
 translation:
   ja: イリヤース・アル＝カラキーはダマスクスの侍従の一人。シリア巡礼隊と共に幾度も巡礼を行った。834年ラマダーン月に死去した。イブン・アル＝ルブーディーが彼の死を記録した。
   en: Ilyās al-Karakī was one of the chamberlains in Damascus. He performed the Hajj repeatedly with the Syrian caravan. He died in Ramadan of the year 834 H. Ibn al-Lubūdī recorded his death.

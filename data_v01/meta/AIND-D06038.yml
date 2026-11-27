@@ -9,51 +9,77 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m2
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 861-01
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m4
   note:
     ja: 「مات بها في المحرم سنة إحدى وستين」。بها＝直前の مكة（照応、規則22(3)）。861年ムハッラム月＝1456-12-08〜（h2g.py）。
-  quote: سنة
+  mention: m6
 states:
 - id: s1
   type: status
   label: الضرير
   label_latn: al-ḍarīr
-  quote: null
   note:
     ja: 盲人（repo 先例に倣い status state）。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m4
   trigger: rule
   phrase: نزيل مكة
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、没年 861（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版の統制外 relation「chronicled_by」を除去。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m3
+  kind: event
+  quote: نزيل
+- id: m4
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m5
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m6
+  kind: year
+  value: '861'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウマル・アッ＝ダリール（盲人）・アル＝ミスリー、マッカの寄留者。861年ムハッラム月に同地（マッカ）で没した。イブン・ファハドがその没年月を記録している。
   en: ʿUmar al-Ḍarīr (the blind) al-Miṣrī, resident of Mecca. He died there in Muḥarram 861. Ibn Fahd recorded his death date.

@@ -9,23 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04369
-    quote: المروستي
+    mention: m5
   - id: n2
     type: laqab
-    quote: صفي الدين
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: القصار
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 birth:
   id: b
   date:
@@ -45,14 +43,13 @@ relations:
   subtype: father
   active: AIND-D06579#p1
   passive: AIND-D06579
-  quote: null
   note:
     ja: 規則3 (c')。父 إبراهيم は名のみで識別要素なし。corpus 全文で「المروستي」は本項のみ。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D06579
-  passive: AIND-D00900
+  passive: m6
   methods:
   - TMP-S-00004
   context:
@@ -60,20 +57,45 @@ relations:
     date:
       ah: 833
       type: teaching
-  quote: الطاووسي
   note:
     ja: '「لقيه الطاووسي في سنة ثلاث وثلاثين بمزار … فاستجازه」＝الطاووسي が本項主に会い、イジャーザを求めた。本項主が授ける側（active）、الطاووسي＝#AIND-D00900（أبو الفتوح الطاوسي、790年頃生・871年頃没。同型の先例 #AIND-D02705・#AIND-D02707「لقيه الطاووسي … فاستجازه」）。「سنة ثلاث وثلاثين」＝833（الطاووسي の活動年代）＝1429-10-09〜1430-09-27（h2g.py）、年精度 1429。「بمزار」は地名とも普通名詞（参詣所・聖廟）とも読める。【集約 2026-11-18】普通名詞の可能性を排せないので placeName は立てない（オーケストレーター決定8、ISSUES §D171-3）。校閲者の仮番号 取り下げた仮番号 B171-L01 は取り下げた。初版は subtype student（旧規約）、event の @when にヒジュラ年「0833」を入れ、placeName は #NEEDID、同じ内容の cultural event を重ねていた＝是正・統合。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00410
-  quote: null
   note:
     ja: 【集約 2026-11-18】見出しの「القصار」（布晒し職人）。職業・生業も state（規則65(a)）。見出し位置にだけ出る職業語を state にする repo の多数（49件対40件）と、本バッチの D06596 النجار・D06605・D06619・D06638・D06661 に揃えた（オーケストレーター決定2）。ID-Master の Office に「قصار」の登録がない（語根 قصر で grep）＝仮番号 TMP-O-00410。本人の生業か家の呼び名かは原文から決まらない（確認依頼）。
+  mention: null
 notes:
 - text: '「القصار」（布晒し職人）は名の一部としてのみ現れ、本人の生業か家の呼び名かは原文から決まらない。persName（shuhrah、先例 #AIND-D01328）に残し、【集約 2026-11-18】職の state も立てた（上記、決定2）。初版は nisbah（ref #NEEDID）。本項の情報は الطاووسي の『مشيخة』によるとみられるが、原文に「ذكره」等の言及句がないので Pattern A の mention event は置かない（先例 #AIND-D02705 も同じ扱い）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: صفي الدين
+- id: m4
+  kind: name
+  quote: القصار
+- id: m5
+  kind: name
+  ref: TMP-N-04369
+  quote: المروستي
+- id: m6
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسي
+- id: m7
+  kind: year
+  value: '833'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム、サフィー・アッディーン・アル＝カッサール・アル＝マルワスティー。霊的開示（ムカーシャファート）の持ち主の一人であった。アッ＝ターウースィーが（8）33年にマザール（「参詣所」の意とも読める）で彼に会い、そのとき彼は117歳であった。そこで彼にイジャーザを求めた。
   en: 'Muḥammad b. Ibrāhīm, Ṣafī al-Dīn al-Qaṣṣār al-Marwastī. He was one of those endowed with spiritual unveilings (mukāshafāt). Al-Ṭāwūsī met him in the year [8]33 at Mazār (or: at a shrine, mazār), when he was a hundred and seventeen years old, and asked him for an ijāza.'

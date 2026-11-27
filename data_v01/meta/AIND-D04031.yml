@@ -9,61 +9,79 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00103
-    quote: البلقيني
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد العظيم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-000869
-    norm: احمد
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D04031
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: مني
   note:
     ja: 「كان بها ممن سمع مني」の「بها」は直前のニスバの地 بلقينة を指すとみられる（サハーウィーの同地訪問時か）。
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-000869
+  active: m4
   passive: AIND-D04031
-  quote: أبوه
   note:
     ja: '【旧注記】父は（بلقينة の）خطيب。立項なし。 / TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。著名なバルキーニー家（#AIND-D06221 等）とは別系統の可能性が高い。'
-  norm: ابوه
   phrase: أحمد البلقيني الخطيب
 states:
 - id: s1
   type: office
   ref: wd:Q239718
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m6
   orgs:
   - ref: TMP-I-00072
-  quote: null
   note:
     ja: 「ويؤذن بجامع الغمري احتسابا」＝無償奉仕として。「وربما قرأ يوم الجمعة سورة الكهف」。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وكان يتكسب في القاهرة بالحرير
-  norm: كان يتكسب في القاهرة بالحرير
+  - mention: m6
+  phrase: وكان يتكسب في القاهرة بالحرير
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العظيم
+- id: m2
+  kind: name
+  ref: TMP-P-000869
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00103
+  quote: البلقيني
+- id: m4
+  kind: person
+  ref: TMP-P-000869
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: アブドゥルアズィーム・ブン・アフマド・アル＝ブルキーニー。父は説教師（ハティーブ）。彼は同地で私（サハーウィー）から聴聞した者の一人で、カイロで絹（の商い）で生計を立て、無償奉仕としてガムリー・モスクでムアッズィンを務め、ときに金曜日には『洞窟章』を朗誦した。
   en: ʿAbd al-ʿAẓīm b. Aḥmad al-Bulqīnī, whose father was the preacher (khaṭīb). He was there among those who heard from me; he earned his living in Cairo in the silk trade, gave the call to prayer at the Ghamrī Mosque voluntarily, and would sometimes recite Sūrat al-Kahf on Fridays.

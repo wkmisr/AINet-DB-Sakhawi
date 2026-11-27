@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: ولي الله
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الشهاب أحمد
     by: rule
-    norm: الشهاب احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: ناصر الدين
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: الفقيه
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: أحمد بن ناصر الدين
@@ -43,7 +41,6 @@ relations:
   subtype: father
   active: AIND-D07008#p1
   passive: AIND-D07008
-  quote: null
   note:
     ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
 - id: r2
@@ -60,18 +57,44 @@ relations:
       cert: low
       type: learning
     cert: low
-  quote: null
   note:
     ja: 「ممن سمع على قرب التسعين」＝「سمع عليّ」（サハーウィーから聴聞。سمع على の直後に人名が来ないため「عليّ（私に）」と読む）。年「قرب التسعين」は規則4 により when-custom=890（cert low）。890年＝1485-01-27 開始（年精度 → 1485）。初版は relation を欠く。
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: نزيل
+  - mention: m7
   trigger: rule
   phrase: نزيل القاهرة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الشهاب أحمد
+  norm: الشهاب احمد
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  quote: الفقيه
+- id: m5
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m8
+  kind: name
+  quote: ولي الله
 translation:
   ja: ムハンマド・ブン・アッ＝シハーブ・アフマド・ブン・ナースィルッディーン・ブン・アル＝ファキーフ・アッ＝ディムヤーティー、カイロの寄留者、「ワリーユッラー」と呼ばれる。〔8〕90年近くに私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. al-Shihāb Aḥmad b. Nāṣir al-Dīn b. al-Faqīh al-Dimyāṭī, resident of Cairo, called Walī Allāh. He was among those who heard from me (al-Sakhāwī) around the year [8]90.

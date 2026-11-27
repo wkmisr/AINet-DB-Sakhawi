@@ -9,77 +9,65 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: نيطقس البدر
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: الشمس
     by: rule
+    mention: m5
   - id: n6
     type: nasab
-    quote: الصلاح الحنفى
     by: rule
-    norm: الصلاح الحنفي
+    mention: m6
 birth:
   id: b
   date:
     ah: 722-12
   places:
-  - ref: TMP-L-00007
-    quote: بالحسينية
-    norm: الحسينية
+  - mention: m9
   note:
     en: Born in Dhu al-Hijjah 722 AH.
-  quote: سنة
+  mention: m8
 death:
   id: d
   date:
     ah: 814
   places:
-  - ref: gn:293100
-    quote: بصفد
-    norm: صفد
+  - mention: m13
   note:
     en: Died in 814 AH.
-  quote: سنة
+  mention: m15
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: بالشهادة
-  norm: الشهادة
+  - mention: m10
+  mention: m11
 - id: s2
   type: office
-  ref: TMP-O-00261
   places:
-  - ref: gn:293100
-    quote: بصفد
-    norm: صفد
+  - mention: m13
   dates:
   - notBefore: 781
     notAfter: 789
     type: appointment
   - ah: 814
     type: retirement
-  quote: لقضاء الحنفية
   note:
     ja: 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 783〜789）
-  norm: قضاء الحنفية
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -88,22 +76,86 @@ events:
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00007
-    quote: بالحسينية
-    norm: الحسينية
-  quote: null
+  - mention: m9
   note:
     en: Grew up there.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m17
   works:
   - label: عقوده
-  quote: ذكره
   trigger: rule
   phrase: ذكره المقريزي في عقوده
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: نيطقس البدر
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: الصلاح الحنفى
+  norm: الصلاح الحنفي
+- id: m7
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m8
+  kind: year
+  value: '722'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالحسينية
+  ref: TMP-L-00007
+  norm: الحسينية
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m12
+  kind: office
+  ref: TMP-O-00261
+  quote: لقضاء الحنفية
+  norm: قضاء الحنفية
+- id: m13
+  kind: place
+  quote: بصفد
+  ref: gn:293100
+  norm: صفد
+- id: m14
+  kind: year
+  value: 781-789
+  quote: سنة بضع وثمانين
+- id: m15
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ハサン・ブン・ムハンマド・ブン・ユースフ・ブン・ナイタクス・アル＝バドル・ブン・アッ＝シャムス・ブン・アッ＝サラーフ・アル＝ハナフィー。ヒジュラ暦722年ズー・アル＝ヒッジャ月にカイロ郊外のアル＝フサイニーヤで生まれ、そこで育った。法学を学び、長い間公証人（シャーヒド）として生計を立てた。その後、サファドのハナフィー派判事（カーディー）に指名され、ヒジュラ暦780年代にその職に就いた。そこで判事として留まり、ヒジュラ暦814年に没した。マクリーズィーがその著書『ウクード』において彼について言及している。
   en: Ḥasan b. Muḥammad b. Yūsuf b. Nayṭaqus, al-Badr b. al-Shams b. al-Ṣalāḥ, al-Ḥanafī. He was born in Dhu al-Hijjah 722 AH in al-Ḥusayniyya outside Cairo and grew up there. He studied jurisprudence and earned his living as a notary (shāhid) for a long time. Then he was designated for the Hanafi judgeship of Safad, which he assumed in the 780s AH. He continued as a judge there until he died in 814 AH. Al-Maqrīzī mentioned him in his work al-ʿUqūd.

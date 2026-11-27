@@ -9,69 +9,105 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00161
-    quote: الكركي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بطاز الخازندار
-    norm: طاز الخازندار
     label: طاز الخازندار
+    mention: m4
   - id: n4
     type: ism
-    quote: أقباي
     by: rule
-    norm: اقباي
+    mention: m1
 death:
   id: d
   date:
     ah: 895-05-14
   places:
-  - ref: TMP-L-00149
-    role: burial
-    quote: بحوش الظاهر ظاهر باب النصر
-    norm: حوش الظاهر ظاهر باب النصر
+  - role: burial
+    mention: m10
   note:
     en: 'Died after a prolonged illness. The bare year ''five'' is read as 895 H (9th century of al-Sakhāwī''s biographical scope). Funeral prayer was held the day after his death. Burial place: the al-Ẓāhir Barqūq cemetery enclosure (Ḥawsh al-Ẓāhir) outside Bāb al-Naṣr, Cairo (#TMP-L-00149; replaces the hallucinated #TMP-L-00014, which is unregistered in the ID-Master).'
-  quote: سنة
+  mention: m9
 states:
 - id: s1
   type: office
-  ref: TMP-O-00083
   orgs:
   - ref: AIND-D06160
-  quote: تقدمته
+  mention: m7
 - id: s2
   type: office
   ref: TMP-O-00073
-  quote: null
+  mention: null
 events:
 - id: e1
   type: political
   places:
-  - ref: gn:361058
-    quote: بالاسكندرية
-    norm: الاسكندرية
+  - mention: m6
   summary:
     en: Imprisoned in Alexandria.
-  quote: سجن
   cert: low
   note:
     en: Exact date not specified, but occurred after his appointment under al-Nāṣir Faraj.
   trigger: rule
+  mention: m5
 sources:
 - id: c1
   persons:
   - ref: AIND-D09832
     corresp: wd:Q257745
-  quote: ذكره
   note:
     en: 'Mentioned by al-Badr al-ʿAynī and others. Converted from a spurious "colleague" relation (Pattern A: ذكره = third-party mention, not a personal relation).'
   trigger: rule
   phrase: ذكره العيني وغيره
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: أقباي
+  norm: اقباي
+- id: m2
+  kind: name
+  ref: TMP-N-00161
+  quote: الكركي
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: name
+  quote: بطاز الخازندار
+  norm: طاز الخازندار
+- id: m5
+  kind: event
+  quote: سجن
+- id: m6
+  kind: place
+  quote: بالاسكندرية
+  ref: gn:361058
+  norm: الاسكندرية
+- id: m7
+  kind: office
+  ref: TMP-O-00083
+  quote: تقدمته
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بحوش الظاهر ظاهر باب النصر
+  ref: TMP-L-00149
+  norm: حوش الظاهر ظاهر باب النصر
+- id: m11
+  kind: source
+  quote: ذكره
 translation:
   ja: アクバーイ・アル＝カラキー・アッ＝ザーヒリー・バルクーク。ターズ・アル＝ハーザンダールとしても知られる。ナースィル・ファラジュの時期にタクディマ（大アミール職）に就いたが、後にアレクサンドリアに投獄された。その後、元の役職に復帰したが、長きにわたる病の末、895年ジュマーダー・アル＝ウーラー14日土曜の夜に亡くなり、翌日、バーブ・アン＝ナスル外のザーヒル家墓地（ハウシュ・アッ＝ザーヒル）に埋葬された。アル＝アイニーらが彼について言及している。
   en: Aqbay al-Karakī al-Ẓāhirī Barqūq, known as Tāz al-Khāzindār. He received a taqdima (command of a hundred) under al-Nāṣir Faraj, then was imprisoned in Alexandria. He was later reinstated to his position, but did not live long, dying after a prolonged illness on the night of Saturday, the 14th of Jumādā al-Ūlā in the year 895. He was buried the following day in Ḥawsh al-Ẓāhir, outside Bāb al-Naṣr. Al-ʿAynī and others mentioned him.

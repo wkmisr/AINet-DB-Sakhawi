@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02153
-    quote: العصامي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-01762
-    quote: الحميضي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n4
     type: ism
-    quote: كبيش
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: مظفر
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: مبارك
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 844-01
   places:
-  - ref: gn:104515
-    quote: خارج مكة
-  - ref: gn:104515
-    role: burial
-    quote: خارج مكة
+  - mention: m10
+  - role: burial
+    mention: m10
   note:
     ja: '844年ムハッラム月（1440-06-11〜07-10、h2g.py）にマッカの外で没し、運ばれてマッカ（بها＝مكة、照応）に葬られた。「خارج مكة」は repo 先例（D04959 等）に倣い gn:104515 を付す。初版の #NEEDID（خارج مكة）と ar-Latn の重複 placeName を整理。'
-  quote: سنة
   phrase: مات في المحرم سنة أربع وأربعين خارج مكة وحمل فدفن بها
+  mention: m9
 persons:
 - id: p1
   label: مظفر بن محمد بن مبارك العصامي الحميضي
@@ -61,28 +56,70 @@ relations:
   subtype: father
   active: AIND-D06385#p1
   passive: AIND-D06385
-  quote: null
   note:
     ja: '見出しナサブから復元。corpus に本伝なし（hw.py「مظفر بن محمد」で該当なし）、ID-Master 未登録。父自身の識別要素（ラカブ・職）が原文に無いので #NEEDID（規則3）。初版は father relation なし。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
-  quote: null
   note:
     ja: 見出しの「القائد المكي」（ID-Master 既登録 TMP-O-00094）。「المكي」はニスバであり職の勤務地明記ではないので placeName は置かない（規則22）。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: بن فهد
-  quote: أرخه
+  - mention: m12
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 844（≤871）→ 振り分け規則により #AIND-D09211（التقي بن فهد）、cert low（規則43）。初版の統制外 subtype「other」relation を event に置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه بن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: كبيش
+- id: m2
+  kind: name
+  quote: مظفر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: مبارك
+- id: m5
+  kind: name
+  ref: TMP-N-02153
+  quote: العصامي
+- id: m6
+  kind: name
+  ref: TMP-N-01762
+  quote: الحميضي
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: خارج مكة
+  ref: gn:104515
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: بن فهد
 translation:
   ja: クバイシュ・ブン・ムザッファル・ブン・ムハンマド・ブン・ムバーラク、アル＝イサーミー・アル＝フマイディー、カーイド、アル＝マッキー。844年ムハッラム月にマッカの外で没し、運ばれてそこ（マッカ）に葬られた。イブン・ファハドがその没年を記している。
   en: Kubaysh b. Muẓaffar b. Muḥammad b. Mubārak al-ʿIṣāmī al-Ḥumayḍī, the qāʾid, al-Makkī. He died in Muḥarram of the year 844 outside Mecca, and was carried and buried there (in Mecca). Ibn Fahd recorded the date of his death.

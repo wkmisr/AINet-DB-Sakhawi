@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: جار الله
     by: rule
-    ref: TMP-P-000766
+    mention: m2
   - id: n5
     type: nasab
-    quote: حمزة
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: راجح
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي نمى
     by: rule
-    norm: ابو نمي
+    mention: m5
 birth:
   id: b
   date:
@@ -49,23 +45,18 @@ death:
   date:
     ah: 816-11-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m11
+  - role: burial
+    mention: m12
   note:
     ja: 「مات في آخر سابع ذي القعدة سنة ست عشرة بمكة ودفن بالمعلاة عن ثلاثين سنة أو أزيد ذكره الفاسي」。816年ズー・アル＝カアダ月7日の末＝1414年2月7日（月曜、h2g.py。初版の @when 1413 は誤り）。没地 مكة・埋葬地 المعلاة はいずれも原文明記。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000766
   passive: AIND-D07297
-  quote: null
   note:
     ja: '父 ＝ ID-Master TMP-P-000766「جار الله بن حمزة بن راجح」（兄弟 #AIND-D02774 حمزة بن جار الله بن حمزة بن راجح の父として登録済み。Note に「息子 محمد بن جار الله=AIND-D07297 は立項あり」）。corpus に本伝なし（جار الله 見出し D02331〜D02339 に該当なし）。初版は father relation 自体が欠落。'
   phrase: جار الله بن حمزة بن راجح
@@ -74,24 +65,77 @@ states:
   type: status
   label: من أعيان الأشراف ذوي أبي نمى
   label_latn: min aʿyān al-ashrāf dhawī Abī Numayy
-  quote: من أعيان الأشراف ذوي أبي نمى
   note:
     ja: 「كان من أعيان الأشراف ذوي أبي نمى」＝マッカのシャリーフ、アブー・ヌマイ家（ذوو أبي نمى）の有力者の一人。ID-Master に家門の登録なし（職 رأس أشراف آل أبي نمى TMP-O-00161 は兄弟 D02774 の職＝別）。
-  norm: من اعيان الاشراف ذوي ابي نمي
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m14
   note:
     ja: 'Pattern A。الفاسي ＝ التقي الفاسي #AIND-D06757（幻番号 TMP-P-000603 の名寄せ先）。初版の統制外 mentioned_by relation を置換。'
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m13
 notes:
 - text: '兄弟 ＝ #AIND-D02774「حمزة بن جار الله بن حمزة بن راجح بن أبي نمى الحسني المكي . كان رأس أشراف آل أبي نمى بعد أبيه … مات في المحرم سنة ست عشرة بمكة ، ودفن بالمعلاة … قاله الفاسي」（同年816年没。D02774 は本項主を名指ししないため brother relation は立てず、共通の父 TMP-P-000766 で導出、規則23）。初版のニスバ由来 residence event مكة を除去（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-000766
+  quote: جار الله
+- id: m3
+  kind: name
+  quote: حمزة
+- id: m4
+  kind: name
+  quote: راجح
+- id: m5
+  kind: name
+  quote: أبي نمى
+  norm: ابو نمي
+- id: m6
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: office
+  quote: من أعيان الأشراف ذوي أبي نمى
+  norm: من اعيان الاشراف ذوي ابي نمي
+- id: m9
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m10
+  kind: year
+  value: '816'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ムハンマド・ブン・ジャーッラー・ブン・ハムザ・ブン・ラージフ・ブン・アビー・ヌマイ・アル＝ハサニー・アル＝マッキー。アブー・ヌマイ家のシャリーフたちの有力者の一人であった。816年ズー・アル＝カアダ月7日の末にマッカで没し、アル＝マアラー（墓地）に葬られた。30歳かそれ以上であった。アル＝ファースィーが彼に言及している。
   en: Muḥammad b. Jār Allāh b. Ḥamza b. Rājiḥ b. Abī Numayy al-Ḥasanī al-Makkī. He was one of the notables of the sharīfs of the house of Abū Numayy. He died at the end of 7 Dhū al-Qaʿda 816 in Mecca and was buried at al-Muʿallā, aged thirty or more. Al-Fāsī mentioned him.

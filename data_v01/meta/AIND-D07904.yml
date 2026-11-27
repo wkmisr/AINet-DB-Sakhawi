@@ -9,47 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00352
-    quote: الاخنائي
-    norm: الاخناءي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m9
   - id: n3
     type: laqab
-    quote: تقي الدين
+    mention: m6
   - id: n4
     type: shuhrah
-    quote: ابن زكي الدين
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الواحد
     by: rule
-    ref: TMP-P-001637
+    mention: m2
   - id: n7
     type: nasab
-    quote: العماد محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: العلم أحمد
     by: rule
-    norm: العلم احمد
+    mention: m4
   - id: n9
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m5
   - id: n10
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m10
 birth:
   id: b
   date:
@@ -62,12 +55,10 @@ death:
   date:
     ah: 830-12-06
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m14
   note:
     ja: 「مات في سادس ذي الحجة سنة ثلاثين بمكة … عن ثلاث وستين」＝830年ズー・アル＝ヒッジャ月6日（＝1427-10-07）、マッカ、享年63。
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
@@ -76,17 +67,14 @@ relations:
   passive: AIND-D07904
   summary:
     ar: زكي الدين عبد الواحد بن العماد محمد بن العلم أحمد الاخنائي
-  quote: null
   note:
     ja: '父＝زكي الدين عبد الواحد بن العماد محمد بن العلم أحمد بن أبي بكر الأخنائي（マーリク派カーディーの الأخنائي 家）。ラカブ زكي الدين＋家名＋祖父・曾祖父名で識別（規則3）。corpus に本伝なし（hw.py「عبد الواحد بن محمد」「الاخنائي」／「الأخنائي」該当なし。ニスバ索引 #AIND-D11417 にも父の名はない）、ID-Master 未登録 → 仮 TMP-P-001637。初版なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
-  quote: نائب الحكم
   note:
     ja: 「نائب الحكم كان من خيار القضاة」。TMP-O-00096 はこの語形のカノニカル職（precheck の汚染注意は実体一致＝維持）。初版の placeName القاهرة は原文になし（ニスバ由来）→ 除去（規則22(1)）。
-  norm: ناءب الحكم
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -96,30 +84,93 @@ events:
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: جاور
+  - mention: m14
   note:
     ja: 「وكان جاور بها」の بها＝直前の مكة（照応、cert 不要、規則22(3)）。
   trigger: rule
   phrase: وكان جاور بها
+  mention: m15
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m17
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation「other」（wd:Q471116）と ref のない cultural event を統合。
   trigger: rule
   phrase: ذكره شيخنا في أنبائه باختصار
+  mention: m16
 notes:
 - text: '「وهو من بيت فضل وعلم ورياسة」＝الأخنائي 家（アレクサンドリア近郊 أخنا 出身のカーディー一族、ニスバ索引 #AIND-D11417「البهاء محمد بن العلم محمد بن أحمد بن محمد بن أبي بكر بن عيسى …」）。本項主のナサブ（… بن العلم أحمد بن أبي بكر）は索引側の「أحمد بن محمد بن أبي بكر」と1段ずれる可能性があるが、原文どおり符号化（規則25）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001637
+  quote: عبد الواحد
+- id: m3
+  kind: name
+  quote: العماد محمد
+- id: m4
+  kind: name
+  quote: العلم أحمد
+  norm: العلم احمد
+- id: m5
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  quote: تقي الدين
+- id: m7
+  kind: name
+  quote: ابن زكي الدين
+- id: m8
+  kind: name
+  ref: TMP-N-00352
+  quote: الاخنائي
+  norm: الاخناءي
+- id: m9
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m10
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m11
+  kind: office
+  ref: TMP-O-00096
+  quote: نائب الحكم
+  norm: ناءب الحكم
+- id: m12
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m13
+  kind: year
+  value: '830'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m15
+  kind: event
+  quote: جاور
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アブドゥルワーヒド・ブン・アル＝イマード・ムハンマド・ブン・アル＝アラム・アフマド・ブン・アビー・バクル、タキー・アッ＝ディーン・イブン・ザキー・アッ＝ディーン・アル＝イフナーイー・アル＝カーヒリー・アル＝マーリキー、法官代理（ナーイブ・アル＝フクム）。優れたカーディーの一人であった。830年ズー・アル＝ヒッジャ月6日にマッカで没した。彼はそこに滞在（ジャーワラ）していたのであり、享年63であった。彼は徳・学問・名望の家の出である。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に簡潔に言及している。
   en: Muḥammad b. ʿAbd al-Wāḥid b. al-ʿImād Muḥammad b. al-ʿAlam Aḥmad b. Abī Bakr, Taqī al-Dīn Ibn Zakī al-Dīn al-Ikhnāʾī al-Qāhirī al-Mālikī, deputy judge. He was among the best of judges. He died on 6 Dhū al-Ḥijja of the year 830 in Mecca, where he had been residing (jāwara), aged sixty-three. He was from a house of virtue, learning and leadership. Our shaykh (Ibn Ḥajar) mentioned him briefly in his Inbāʾ.

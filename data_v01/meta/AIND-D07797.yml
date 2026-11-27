@@ -9,37 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02576
-    quote: البزوري
+    mention: m6
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n3
     type: honorific
-    quote: الخواجا
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 833-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 「مات بمكة في رجب سنة ثلاث وثلاثين」＝833 年ラジャブ月（月初 1430-04-04、月精度）にマッカで没。初版の @when 1430（年精度）を 1430-04 に（規則18）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: عبد الله بن علي البزوري
@@ -52,21 +49,59 @@ relations:
   subtype: father
   active: AIND-D07797#p1
   passive: AIND-D07797
-  quote: null
   note:
     ja: '見出しナサブのみ（識別要素なし）。corpus に該当見出しなし → #NEEDID（規則3）。初版なし。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   cert: low
   note:
     ja: Pattern A。没年 833（≤871）→ 振り分け規則により التقي بن فهد（#AIND-D09211）、cert low（規則43、cert は event 側）。初版の統制外 subtype「chronicled by」relation を event に。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: الخواجا
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  ref: TMP-N-02576
+  quote: البزوري
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アブド・アッラー・ブン・アリー、アル＝ハワージャー、アッ＝シャムス、アル＝バズーリー。833年ラジャブ月にマッカで没した。イブン・ファハドがその没年月を記した。
   en: Muḥammad b. ʿAbd Allāh b. ʿAlī, al-Khawājā, al-Shams, al-Bazūrī. He died in Mecca in Rajab of the year 833; Ibn Fahd recorded the date.

@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00931
-    quote: الخشبي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m7
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m4
   - id: n7
     type: nasab
-    quote: سالم
     by: rule
+    mention: m5
 birth:
   id: b
   date:
@@ -44,18 +41,16 @@ birth:
   - ref: gn:109223
   note:
     en: Born in Medina in Jumādā II 781 AH.
-  quote: سنة
+  mention: m9
 death:
   id: d
   date:
     ah: 833
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m16
   note:
     en: Died in Cairo in the plague of 833 AH.
-  quote: سنة
+  mention: m17
 persons:
 - id: p1
   label: إخوته (أجاز له في جملة إخوته)
@@ -64,7 +59,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000912
+  active: m11
   passive: AIND-D05567
   methods:
   - TMP-S-00004
@@ -73,13 +68,12 @@ relations:
     date:
       ah: 797
       type: learning
-  quote: محمد بن عبد الله البهنسي
   note:
     ja: 8世紀末のムスニド。ID-Master 未登録・corpus 本伝なし → 新規 TMP-P-000912。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000091
+  active: m12
   passive: AIND-D05567
   methods:
   - TMP-S-00004
@@ -88,15 +82,13 @@ relations:
     date:
       ah: 797
       type: learning
-  quote: ومحمد بن أبي البقاء السبكي
   note:
     ja: = البدر محمد بن أبي البقاء السبكي（ID-Master 登録 TMP-P-000091）。
-  norm: محمد بن ابي البقاء السبكي
   phrase: محمد بن أبي البقاء السبكي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03095
+  active: m13
   passive: AIND-D05567
   methods:
   - TMP-S-00004
@@ -105,15 +97,13 @@ relations:
     date:
       ah: 797
       type: learning
-  quote: وسعد بن يوسف النووي
   note:
     ja: = سعد بن يوسف بن إسماعيل … سعد الدين النووي ثم الخليلي الشافعي نزيل دمشق（#AIND-D03095、生729）。
-  norm: سعد بن يوسف النووي
   phrase: سعد بن يوسف النووي
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-000913
+  active: m14
   passive: AIND-D05567
   methods:
   - TMP-S-00004
@@ -122,15 +112,13 @@ relations:
     date:
       ah: 797
       type: learning
-  quote: ومحمد بن اسحق الابرقوهي
   note:
     ja: ID-Master 未登録・corpus 本伝なし → 新規 TMP-P-000913。
-  norm: محمد بن اسحق الابرقوهي
   phrase: محمد بن اسحق الابرقوهي
 - id: r5
   type: scholarly
   subtype: teacher
-  active: TMP-P-000914
+  active: m15
   passive: AIND-D05567
   methods:
   - TMP-S-00004
@@ -139,30 +127,103 @@ relations:
     date:
       ah: 797
       type: learning
-  quote: ومحمد بن أبي بكر البكري
   note:
     ja: ID-Master 未登録・corpus 本伝なし → 新規 TMP-P-000914。
-  norm: محمد بن ابي بكر البكري
   phrase: محمد بن أبي بكر البكري
 - id: r6
   type: kin
   subtype: brother
   active: AIND-D05567#p1
   passive: AIND-D05567
-  quote: null
   note:
     ja: '名不詳の兄弟たち（同時にイジャーザを受けた）→ #NEEDID 維持。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m19
   note:
     ja: Pattern A。「في معجمه」→ 規則①により التقي بن فهد=#AIND-D09211。初版は biographer relation。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد في معجمه
+  mention: m18
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m5
+  kind: name
+  quote: سالم
+- id: m6
+  kind: name
+  ref: TMP-N-00931
+  quote: الخشبي
+- id: m7
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m8
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m9
+  kind: year
+  value: '781'
+  quote: سنة
+- id: m10
+  kind: year
+  value: '797'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: TMP-P-000912
+  quote: محمد بن عبد الله البهنسي
+- id: m12
+  kind: person
+  ref: TMP-P-000091
+  quote: ومحمد بن أبي البقاء السبكي
+  norm: محمد بن ابي البقاء السبكي
+- id: m13
+  kind: person
+  ref: AIND-D03095
+  quote: وسعد بن يوسف النووي
+  norm: سعد بن يوسف النووي
+- id: m14
+  kind: person
+  ref: TMP-P-000913
+  quote: ومحمد بن اسحق الابرقوهي
+  norm: محمد بن اسحق الابرقوهي
+- id: m15
+  kind: person
+  ref: TMP-P-000914
+  quote: ومحمد بن أبي بكر البكري
+  norm: محمد بن ابي بكر البكري
+- id: m16
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m17
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m18
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m19
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・ムハンマド・ブン・ムハンマド・ブン・ヤフヤー・ブン・サーリム・アル＝ハシャビー・アル＝マダニー。781年ジュマーダー・アル＝アーヒラ月にマディーナで生まれた。797年、兄弟たちとともに、ムハンマド・ブン・アブドゥッラー・アル＝バフナシー、ムハンマド・ブン・アビー・アル＝バカー・アッ＝スブキー、サアド・ブン・ユースフ・アン＝ナワウィー、ムハンマド・ブン・イスハーク・アル＝アブラクーヒー、ムハンマド・ブン・アビー・バクル・アル＝バクリーらからイジャーザを授けられた。833年のペストでカイロで没した。イブン・ファフドがその『ムウジャム』に没年を記録している。
   en: ʿAlī b. Muḥammad b. Muḥammad b. Yaḥyā b. Sālim al-Khashabī al-Madanī. He was born there in Jumādā II 781. In 797, together with his brothers, he was granted ijāza by Muḥammad b. ʿAbd Allāh al-Bahnasī, Muḥammad b. Abī al-Baqāʾ al-Subkī, Saʿd b. Yūsuf al-Nawawī, Muḥammad b. Isḥāq al-Abraqūhī, Muḥammad b. Abī Bakr al-Bakrī and others. He died in Cairo in the plague of 833. Ibn Fahd recorded his death in his Muʿjam.

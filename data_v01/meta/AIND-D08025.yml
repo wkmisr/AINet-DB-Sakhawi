@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00264
-    quote: الزواوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00262
-    quote: القباني
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001582
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 death:
   id: d
   date:
@@ -43,25 +39,50 @@ relations:
   subtype: father
   active: TMP-P-001582
   passive: AIND-D08025
-  quote: null
   note:
     ja: '父 علي بن أحمد：本伝のある兄弟 #AIND-D03313 と共有する父で、D03313 本文「وكان كل من أبيه وأخيه يتعانى وضع القبان」により秤（قبان）製作者と分かる（識別要素あり）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001582（規則3）。【集約 2026-10-26（機械[25]、オーケストレーター決定9）】候補 #AIND-D05042「علي بن أحمد بن مفتاح بن فطيس القباني والد أبي بكر ومحمد . مات في شعبان سنة أربع وستين بساحل جدة وحمل فدفن بالمعلاة」を原文で確認した。名・父名・القباني と「والد … ومحمد」は合うが、(1) 子に本項主の兄 شعبان（D03313）を挙げず أبو بكر（#AIND-D10745「أبو بكر بن علي بن أحمد بن مفتاح معلم القبانيين بجدة ويعرف بابن فطيس كسلفه」）を挙げる、(2) 家名「بن مفتاح بن فطيس」と居所（ジッダ・マッカ）が本項主・D03313 の「المغربي الزواوي الأصل القاهري … بالجودرية」と合わない。規則37 の閉合を満たさないので別の秤職人の家とみて TMP-P-001582 を維持する。'
   phrase: علي بن أحمد الزواوي القباني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03313
+  active: m7
   passive: AIND-D08025
-  quote: شعبان
   note:
     ja: 「أخو شعبان الماضي . له ذكر فيه」＝#AIND-D03313「شعبان بن علي بن أحمد المغربي الزواوي الأصل القاهري القباني ، ويعرف بالزواوي ولد سنة عشرين وثمانمائة تقريبا … وصار شيخ الجماعة … وكان أخوه محمد إذ ذاك معلما فعز ذلك عليه ورافع فيه بحيث أحضر في الحديد ، وكان ابتداء سعده فإنه استقر حينئذ وصرف أخوه وذلك قريب الخمسين … مات في مستهل سنة خمس وتسعين」（未受領）。D03313 側は本項主を「أخوه محمد」として名指しし、850年頃に親方（معلم）の地位を本項主から引き継いだと記す。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00357
-  quote: شيخ جماعته
   note:
     ja: 「شيخ جماعته」＝秤製作者の同業者集団（جماعة）の長。D03313 の「وصار شيخ الجماعة والمشار إليه بينهم عند الاختلاف」と同じ職。ID-Master の Office に「شيخ الجماعة」未登録（القباني＝TMP-O-00034 は職人本体）→ TMP-O-00357（→ISSUES §D134-2）。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001582
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00264
+  quote: الزواوي
+- id: m5
+  kind: name
+  ref: TMP-N-00262
+  quote: القباني
+- id: m6
+  kind: office
+  ref: TMP-O-00357
+  quote: شيخ جماعته
+- id: m7
+  kind: person
+  ref: AIND-D03313
+  quote: شعبان
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド・アッ＝ザワーウィー・アル＝カッバーニー、その同業者集団のシャイフで、前述のシャアバーンの兄弟。彼（シャアバーン）の項に言及がある。860年頃に没した。
   en: Muḥammad b. ʿAlī b. Aḥmad al-Zawāwī al-Qabbānī, the shaykh of his guild and the brother of Shaʿbān, mentioned above; he is mentioned in his [brother's] entry. He died around [the year] sixty.

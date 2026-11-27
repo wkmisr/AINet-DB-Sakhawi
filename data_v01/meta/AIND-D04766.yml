@@ -9,45 +9,38 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n2
     type: laqab
-    quote: التاج
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن الحمال
+    mention: null
   - id: n4
     type: ism
-    quote: عبد الوهاب
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   date:
     ah: 857-10-29
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  - ref: TMP-L-00294
-    role: burial
-    quote: بمقبرة باب الفراديس
-    norm: مقبرة باب الفراديس
+  - mention: m6
+  - role: burial
+    mention: m9
   note:
     ja: 「بها」＝دمشق（直前の「نواب الحكم بدمشق」の照応、規則22(3)）。「سلخ شوال」＝シャウワール月末日。表式暦ではシャウワール（第10月）は29日のため 857-10-29 ＝ 1453-11-11（h2g.py。先例 D04283「سلخ شعبان」＝0876-08-29）。埋葬地 مقبرة باب الفراديس（ダマスクス）は ID-Master 未登録 → 新規仮番号 TMP-L-00294。
-  quote: سنة
   phrase: مات بها في سلخ شوال سنة سبع وخمسين ودفن من الغد بمقبرة باب الفراديس
+  mention: m8
 persons:
 - id: p1
   label: أبو بكر
@@ -60,7 +53,6 @@ relations:
   subtype: father
   active: AIND-D04766#p1
   passive: AIND-D04766
-  quote: null
   note:
     ja: '見出しナサブの父。裸名のみで識別要素がないため #NEEDID（規則3・12）。'
 states:
@@ -68,16 +60,51 @@ states:
   type: office
   ref: TMP-O-00096
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m6
   note:
     ja: TMP-O-00096（نائب الحكم、corpus 固有のカノニカル職）に合致。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوهاب
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: التاج
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m7
+  kind: month
+  value: 10
+  quote: شوال
+- id: m8
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بمقبرة باب الفراديس
+  ref: TMP-L-00294
+  norm: مقبرة باب الفراديس
 translation:
   ja: アブドゥルワッハーブ・ブン・アビー・バクル、アッ＝タージュ、アッ＝ディマシュキー、ハナフィー派、イブン・アル＝ハンマール（ハー無点・シャッダ付き）。ダマスクスの裁判代理官（ナーイブ・アル＝フクム）の一人。（8）57年シャウワール月末日に同地（ダマスクス）で没し、翌日バーブ・アル＝ファラーディース墓地に埋葬された。神が彼に慈悲を垂れたまわんことを。
   en: ʿAbd al-Wahhāb b. Abī Bakr, al-Tāj al-Dimashqī al-Ḥanafī, Ibn al-Ḥammāl (with undotted ḥāʾ and shadda), one of the deputy judges (nuwwāb al-ḥukm) in Damascus. He died there on the last day of Shawwāl (8)57 and was buried the next day in the cemetery of Bāb al-Farādīs. May God have mercy on him.

@@ -9,38 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-01368
-    quote: الجلجولي
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00156
-    quote: القادري
+    mention: m6
   - id: n4
     type: nisbah
-    ref: TMP-N-00157
-    quote: الصوفي
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: سالم
     by: rule
+    mention: m3
 birth:
   id: b
   places:
-  - ref: TMP-L-00390
-    quote: بجلجوليا
-    norm: جلجوليا
+  - mention: m8
   note:
     ar: ولد بجلجوليا
     ja: 生年は原文になし。جلجوليا（パレスチナ、ナーブルス〜ラムラ間の町）は ID-Master 未登録（Nisbah الجلجولي TMP-N-01368 のみ）→ TMP-L-00390。
@@ -56,32 +50,64 @@ relations:
   subtype: father
   active: AIND-D08079#p1
   passive: AIND-D08079
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن سالم（الغزي الجلجولي）は裸名で corpus に本伝なし、ID-Master 未登録 → #NEEDID。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00390
-    quote: بجلجوليا
-    norm: جلجوليا
-  quote: وأقام
+  - mention: m8
   note:
     ja: 「بها」＝直前の جلجوليا（照応）。
   trigger: rule
-  norm: اقام
   phrase: وأقام بها
+  mention: m9
 - id: e2
   type: other
   date:
     ah: 890
     cert: low
     type: other
-  quote: وهو حي قريب التسعين
   cert: low
   note:
     ja: '執筆時点で存命、「قريب التسعين」＝890年頃（規則4: when-custom=890、cert low。890＝1485-01-27 開始、年精度 1485）。没年は作らない（規則18、ブリーフ）。【集約 2026-11-03】「وهو حي قريب التسعين」は (a)「（8）90年頃に存命」（年。D08080「سمع علي قريب التسعين」型）と (b)「存命で90歳近い」（年齢。規則59(d)「قارب السبعين」型の状態描写）の両読みがある。event は (a) で cert low のまま保持し、(b) なら生年は 800 年前後（執筆時からの逆算、cert low）となる。訳にも両読みを示した（内容A L、オーケストレーター決定18）。'
+  phrase: وهو حي قريب التسعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: سالم
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: name
+  ref: TMP-N-01368
+  quote: الجلجولي
+- id: m6
+  kind: name
+  ref: TMP-N-00156
+  quote: القادري
+- id: m7
+  kind: name
+  ref: TMP-N-00157
+  quote: الصوفي
+- id: m8
+  kind: place
+  quote: بجلجوليا
+  ref: TMP-L-00390
+  norm: جلجوليا
+- id: m9
+  kind: event
+  quote: وأقام
+  norm: اقام
 translation:
   ja: ムハンマド・ブン・アリー・ブン・サーリム、アル＝ガッズィー、アル＝ジュルジューリー、アル＝カーディリー、アッ＝スーフィー。ジュルジューリヤーに生まれ、そこに住んだ。（8）90年近くの時点で存命である〔または「存命で90歳近い」とも読める〕。
   en: 'Muḥammad b. ʿAlī b. Sālim al-Ghazzī al-Juljūlī al-Qādirī al-Ṣūfī. He was born in Juljūliyā and lived there; he was still alive around the year (8)90 [or: he is alive, nearly ninety years old].'

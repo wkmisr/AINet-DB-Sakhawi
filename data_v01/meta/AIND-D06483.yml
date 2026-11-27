@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بابن الطواب
-    norm: ابن الطواب
     label: ابن الطواب
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 death:
   id: d
   date:
     ah: 876-02
   note:
     ja: 「مات في صفر سنة ست وسبعين بعد تعلله مدة وقد أسن」。876-02＝1471-07-29〜1471-08-26（h2g.py、月精度）。没地の記載なし。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: إبراهيم بن أحمد
@@ -45,32 +42,28 @@ relations:
   subtype: father
   active: AIND-D06483#p1
   passive: AIND-D06483
-  quote: null
   note:
     ja: 裸名のみ（規則3 (c')）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D06483
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「تصرف في باب شيخنا والعلم البلقيني وسمع عليهما」。شيخنا＝イブン・ハジャル（wd:Q471116）。【集約 2026-11-08】desc を呼称「شيخنا」から名「ابن حجر」に（規則31、機械 L、決定14）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03354
+  active: m7
   passive: AIND-D06483
   methods:
   - TMP-S-00003
-  quote: والعلم البلقيني
   note:
     ja: 'العلم البلقيني ＝ #AIND-D03354（ブリーフ頻出ID）。'
-  norm: العلم البلقيني
   phrase: العلم البلقيني
 - id: r4
   type: social
@@ -79,7 +72,6 @@ relations:
   passive: AIND-D06483
   summary:
     ar: ابن حجر
-  quote: null
   note:
     ja: 「تصرف في باب شيخنا」＝イブン・ハジャル（カーディー）の法廷（باب）で رسول として勤務した（仕えた型、規則56）。【集約 2026-11-08】desc「شيخنا」→「ابن حجر」（規則31、決定14）。state الرسلية と対応。
 - id: r5
@@ -87,17 +79,15 @@ relations:
   subtype: patron
   active: AIND-D03354
   passive: AIND-D06483
-  quote: null
   note:
     ja: 「تصرف في باب … العلم البلقيني」（同上）。
   phrase: العلم البلقيني
 states:
 - id: s1
   type: office
-  ref: TMP-O-00264
-  quote: الرسلية
   note:
     ja: 「وتقلل من الرسلية」＝法廷使者（رسول）の務めを減らした。ID-Master TMP-O-00264（先例 D04416「كان يتصرف بالرسلية」）。
+  mention: m9
 affiliations:
 - id: a1
   type: reside
@@ -112,26 +102,69 @@ events:
   type: learning
   methods:
   - TMP-S-00003
-  quote: وسمع
   note:
     ja: 晩年になって聴講（ذلك＝السماع）に意欲を示した。
   trigger: rule
-  norm: سمع
   phrase: ورغب في ذلك بأخرة
+  mention: m8
 - id: e2
   type: religious
   places:
-  - ref: TMP-I-00002
-    quote: للمدرسة المنكوتمرية
-    norm: لمدرسة المنكوتمرية
-  quote: ولزم الجماعة بالمدرسة المذكورة وتقلل من الرسلية وأناب
+  - mention: m5
   note:
     ja: 「المدرسة المذكورة」＝المنكوتمرية（照応）。「أناب」＝（神に）立ち返った、の意に読む。
-  norm: لزم الجماعة بالمدرسة المذكورة وتقلل من الرسلية واناب
+  phrase: ولزم الجماعة بالمدرسة المذكورة وتقلل من الرسلية وأناب
+  mention: null
 notes:
 - text: '通称索引 #AIND-D12486「ابن الطواب جماعة منهم محمد بن إبرهيم بن وقريبه عبد المغيث بن محمد ابن أحمد ومحمد بن خليل نزيل مكة」＝本項主と、その親類（قريبه）#AIND-D04704「عبد المغيث بن محمد بن أحمد بن الطواب」（孫 #AIND-D07892）。続柄が不明のため relation は立てない。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: بابن الطواب
+  norm: ابن الطواب
+- id: m5
+  kind: place
+  quote: للمدرسة المنكوتمرية
+  ref: TMP-I-00002
+  norm: لمدرسة المنكوتمرية
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m7
+  kind: person
+  ref: AIND-D03354
+  quote: والعلم البلقيني
+  norm: العلم البلقيني
+- id: m8
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m9
+  kind: office
+  ref: TMP-O-00264
+  quote: الرسلية
+- id: m10
+  kind: month
+  value: 2
+  quote: صفر
+- id: m11
+  kind: year
+  value: '876'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アフマド、イブン・アッ＝タウワーブとして知られる。マンクータムリーヤ学院に寄寓する者の一人。我らがシャイフ（イブン・ハジャル）とアル＝アラム・アル＝ブルキーニーの法廷で（使者として）勤め、両者から聴講し、晩年にはそれ（聴講）に意欲を示した。前記の学院で集団礼拝を欠かさず、使者職の務めを減らし、（神に）立ち返った。しばらく病んだのち、876年サファル月に高齢で没した。
   en: Muḥammad b. Ibrāhīm b. Aḥmad, known as Ibn al-Ṭawwāb, one of those residing at al-Madrasa al-Mankūtamuriyya. He served at the court (bāb) of our shaykh [Ibn Ḥajar] and of al-ʿAlam al-Bulqīnī and heard from them both, and late in life he took a liking to that. He kept to the congregational prayers at the said madrasa, reduced his work as a court messenger (rusuliyya), and turned [to God] in repentance. He died in Ṣafar of the year 876, after a period of illness and at an advanced age.

@@ -9,38 +9,58 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n2
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: معيبد وزير اليمن
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 824
-  quote: سنة
+  mention: m4
 states:
 - id: s1
   type: office
   ref: wd:Q175240
   places:
   - ref: TMP-L-00037
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: ذكره
+  - mention: m6
   cert: medium
   trigger: rule
   phrase: ذكره ابن عزم
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  quote: معيبد وزير اليمن
+- id: m4
+  kind: year
+  value: '824'
+  quote: سنة
+- id: m5
+  kind: source
+  quote: ذكره
+- id: m6
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: アフマド・ブン・ウマル・ブン・ムアイビド。イエメンのワズィール（大臣）。824年に死去した。イブン・アズムが彼について言及している。
   en: Aḥmad b. ʿUmar b. Muʿaybid, the vizier of Yemen. He died in the year 824. Ibn ʿAzm mentioned him.

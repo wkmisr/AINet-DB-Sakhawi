@@ -9,37 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m8
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001204
+    mention: m2
   - id: n7
     type: nasab
-    quote: حسين
     by: rule
-    ref: AIND-D02702
+    mention: m3
   - id: n8
     type: nasab
-    quote: العفيف
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: kin
@@ -48,31 +43,26 @@ relations:
   passive: AIND-D07769
   summary:
     ar: العفيف عبد الله بن حسين (بن عبد الرحمن الأهدل)
-  quote: null
   note:
     ja: '見出し「الجمال أبو عبد الله بن العفيف … حفيد البدر الأهدل」から復元。ニスバ索引 #AIND-D11169（الأهدل البدر أبو محمد حسين بن عبد الرحمن …「وله أولاد منهم … والعفيف عبد الله ومحمد وهما حيان في سنة ثلاث وتسعين … ولعبد الله الجمال محمد أحد الآخذين عني في الأحياء」）が本項主を「العفيف عبد الله の子 الجمال محمد、サハーウィーの弟子、存命」と明記し、父＝العفيف عبد الله بن البدر حسين الأهدل と確定。corpus に本伝なし・ID-Master 未登録のため仮番号発行（ラカブ＋ナサブで識別可）。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D02702
+  active: m9
   passive: AIND-D07769
-  quote: حفيد البدر الأهدل
   note:
     ja: 'البدر الأهدل ＝ #AIND-D02702（حسين بن عبد الرحمن بن محمد بن علي بن أبي بكر … الأهدل البدر أبو محمد … الحسني … اليماني الشافعي、779頃生、「جد الذي قبله〔D02701〕ووالد صديق」）。ニスバ索引 #AIND-D11169 も同一人物。'
-  norm: حفيد البدر الاهدل
 - id: r3
   type: kin
   subtype: cousin
-  active: AIND-D02701
+  active: m10
   passive: AIND-D07769
-  quote: وابن عم حسين بن صديق
   note:
     ja: 'حسين بن صديق ＝ #AIND-D02701（حسين بن صديق بن حسين بن عبد الرحمن … الأهدل البدر أبو محمد حفيد شيخنا البدر الحسيني اليماني، 850 生）。父同士（صديق と العفيف عبد الله）が البدر الأهدل の子で従兄弟。'
-  norm: ابن عم حسين بن صديق
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D07769
   methods:
   - TMP-S-00003
@@ -82,19 +72,16 @@ relations:
       ah: 886
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m12
   note:
     ja: 初版の active「TMP-P-000001」（ID-Master 登録＝السراج معمر بن عبد القوي、別人）は「سمع مني」の主体を取り違えた汚染流用 → wd:Q4120128（サハーウィー）に是正。
   phrase: سمع مني بمكة في سنة ست وثمانين أشياء
 assessments:
 - id: v1
-  quote: ونعم الرجل خيرا وسكونا وتقنعا
   terms:
   - خير
   label_latn: wa-niʿma al-rajul khayran wa-sukūnan wa-taqannuʿan
+  mention: m19
 events:
 - id: e1
   type: travel
@@ -102,22 +89,19 @@ events:
     ah: 888
     type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وسافر
+  - mention: m14
   note:
     ja: 複数回のカイロ来訪のうち年が明示された 888 年を @when に置く。
   trigger: rule
-  norm: سافر
   phrase: وقدم القاهرة غير مرة منها في سنة ثمان وثمانين
+  mention: m16
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00045
-    quote: الصعيد
-  quote: عاد
+  - mention: m17
   trigger: rule
   phrase: وسافر منها إلى الصعيد فحصل رزيقا ثم عاد
+  mention: m18
 - id: e3
   type: cultural
   subtype: meeting
@@ -127,14 +111,94 @@ events:
   persons:
   - ref: wd:Q4120128
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: لقيني
+  - mention: m12
   note:
     ja: 894 年の再会は伝授の記述ではないため teacher relation ではなく meeting event とする（初版の relation n=2「لقي」を変換）。894-01-01 ＝ 1488-12-14。
   trigger: rule
   phrase: ثم لقيني بمكة أيضا في سنة أربع وتسعين
+  mention: m20
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001204
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: AIND-D02702
+  quote: حسين
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m6
+  kind: name
+  quote: العفيف
+- id: m7
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m8
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m9
+  kind: person
+  ref: AIND-D02702
+  quote: حفيد البدر الأهدل
+  norm: حفيد البدر الاهدل
+- id: m10
+  kind: person
+  ref: AIND-D02701
+  quote: وابن عم حسين بن صديق
+  norm: ابن عم حسين بن صديق
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m13
+  kind: year
+  value: '886'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m15
+  kind: year
+  value: '888'
+  quote: سنة
+- id: m16
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m17
+  kind: place
+  quote: الصعيد
+  ref: TMP-L-00045
+- id: m18
+  kind: event
+  quote: عاد
+- id: m19
+  kind: assessment
+  quote: ونعم الرجل خيرا وسكونا وتقنعا
+- id: m20
+  kind: event
+  quote: لقيني
+- id: m21
+  kind: year
+  value: '894'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・フサイン、アル＝ジャマール・アブー・アブドゥッラー・ブン・アル＝アフィーフ・アル＝ハサニー・アル＝ヤマーニー。アル＝バドル・アル＝アフダルの孫で、フサイン・ブン・スィッディークの従兄弟。（8）86年にマッカで私（サハーウィー）からいくつかのものを聴聞した。カイロには幾度か来ており、そのうちの一回は888年で、そこから上エジプト（サイード）へ旅してわずかな糧を得てから戻った。善良さ・物静かさ・寡欲において実に立派な人物である。その後894年にもマッカで私と再会した。
   en: Muḥammad b. ʿAbd Allāh b. Ḥusayn, al-Jamāl Abū ʿAbd Allāh b. al-ʿAfīf al-Ḥasanī al-Yamānī, grandson of al-Badr al-Ahdal and cousin of Ḥusayn b. Ṣiddīq. He heard some things from me (al-Sakhāwī) in Mecca in (8)86. He came to Cairo more than once, including in 888, and travelled from there to Upper Egypt (al-Ṣaʿīd), where he obtained a small livelihood, and then returned. What a fine man he is in goodness, tranquillity and contentment. He then met me again in Mecca in 894.

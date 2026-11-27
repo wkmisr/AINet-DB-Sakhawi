@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
 persons:
 - id: p1
   label: إبراهيم بن أبي بكر الحلبي
@@ -40,13 +37,12 @@ relations:
   subtype: father
   active: AIND-D06492#p1
   passive: AIND-D06492
-  quote: null
   note:
     ja: 名＋父名＋ニスバのみ（規則3 (c')）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D05452
+  active: m7
   passive: AIND-D06492
   methods:
   - TMP-S-00003
@@ -58,22 +54,51 @@ relations:
     phrase: في طبقة سماع السيرة على الفوي في سنة عشرين
   works:
   - ref: TMP-T-00265
-  quote: الفوي
   note:
     ja: 'الفوي ＝ #AIND-D05452「علي بن محمد بن عبد الكريم النور أبو الحسن الفوي القاهري الشافعي … ويعرف بالفوي … وعلى الجمال ابن نباتة سيرة ابن هشام」（827没。ID-Master「النور بن الفوي」＝AIND-D05452 名寄せ済）。初版の TMP-P-000282 は ID-Master Note「D00104 の聖者 الفوي 専用」で別人＝置換。同じ聴講会は #AIND-D05172「سمع على النور الفوي ختم السيرة الهشامية في رجب سنة عشرين」で確認でき、『السيرة』＝イブン・ヒシャームの預言者伝と特定できる → bibl に仮番号 TMP-T-00265（ID-Master に سيرة ابن هشام の Text 登録なし）。月（رجب）は他項の情報なので日付に取らない（規則23）。820＝1417-02-27〜1418-02-16。'
 - id: r3
   type: social
   subtype: other
-  active: AIND-D05172
+  active: m6
   passive: AIND-D06492
-  quote: العلاء علي بن سودون الإبراهيمي
   note:
     ja: '「رأيت العلاء علي بن سودون الإبراهيمي نسب إليه في طبقة سماع السيرة على الفوي في سنة عشرين وأنه كان معه」＝聴講記録で علي بن سودون が本項主に帰属させられ（نسب إليه）、本項主と同席していた。帰属の性質（従者・縁者）は原文から決まらないため subtype other。＝ #AIND-D05172「علي بن سودون العلاء الإبراهيمي القاهري الحنفي نزيل الشيخونية … سمع على النور الفوي ختم السيرة الهشامية في رجب سنة عشرين」（880没、未収録。ブリーフ D08086 でも「العلاء الابراهيمي」＝D05172）。ラカブ・名・父名・ニスバの完全一致＋同じ聴講会で閉合。'
-  norm: العلاء علي بن سودون الابراهيمي
 notes:
 - text: 「ما علمته」＝サハーウィーは本項主について（聴講記録以外に）知らない。生没年・職の記載なし。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m6
+  kind: person
+  ref: AIND-D05172
+  quote: العلاء علي بن سودون الإبراهيمي
+  norm: العلاء علي بن سودون الابراهيمي
+- id: m7
+  kind: person
+  ref: AIND-D05452
+  quote: الفوي
+- id: m8
+  kind: year
+  value: '820'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アビー・バクル、アッ＝シャムス・アル＝ハラビー。私は彼のことを知らないが、820年のアル＝フウウィーのもとでの『スィーラ（預言者伝）』聴講記録（タバカ）において、アル＝アラー・アリー・ブン・スードゥーン・アル＝イブラーヒーミーが彼に帰属する者として記され、彼と同席していたのを見た。
   en: Muḥammad b. Ibrāhīm b. Abī Bakr, al-Shams al-Ḥalabī. I know nothing of him, except that I saw al-ʿAlāʾ ʿAlī b. Sūdūn al-Ibrāhīmī ascribed to him in the attendance record (ṭabaqa) of the audition of the Sīra under al-Fuwwī in the year 820, and that he [Ibn Sūdūn] was with him.

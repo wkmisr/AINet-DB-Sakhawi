@@ -9,38 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بالأزهري
-    norm: الازهري
     label: الأزهري
+    mention: m8
   - id: n4
     type: shuhrah
-    quote: وبابن السقاء
-    norm: ابن السقاء
     label: ابن السقاء
+    mention: m9
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 death:
   id: d
   date:
@@ -49,7 +45,7 @@ death:
   note:
     ar: مات تقريبا سنة سبع وستين
     ja: 「تقريبا」＝概数のため cert low。867＝1462-10-05 開始、年精度 1462。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: علي بن حسن
@@ -62,33 +58,30 @@ relations:
   subtype: father
   active: AIND-D08061#p1
   passive: AIND-D08061
-  quote: null
   note:
     ja: 規則3 (c')。父 علي بن حسن は識別要素のない汎用名で corpus に本伝なし（hw.py「علي بن حسن」＋「الحنفي」は D08058・本項のみ）。初版・校閲で欠落していた father relation を集約で追加（2026-11-03、内容A H・機械 M、オーケストレーター決定1）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D06729
+  active: m10
   passive: AIND-D08061
   corresp: wd:Q12219083
   methods:
   - TMP-S-00025
   fields:
   - TMP-S-00021
-  quote: البساطي
   note:
     ja: '「قرأ على البساطي في الأصول وغيره」。البساطي ＝ #AIND-D06729（محمد بن أحمد بن عثمان بن نعيم … الشمس أبو عبد الله البساطي ثم القاهري المالكي عالم العصر、マーリク派大カーディー、842没。repo D02805・D04267・D07692 と同じ）。ID-Master の「البساطي」行は wd:Q12219083 のため corresp に添えた（العيني の先例と同型）。初版は wd 単独。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D09832
+  active: m7
   passive: AIND-D08061
   corresp: wd:Q257745
   methods:
   - TMP-S-00025
   works:
   - ref: TMP-T-00256
-  quote: البدر العيني
   note:
     ja: 「وعلى صهره شرحه للشواهد وغيره」＝姻戚 البدر العيني（#AIND-D09832、corresp wd:Q257745）に العيني 自身の『شرح الشواهد』等を読んだ。書名は ID-Master 未登録 → TMP-T-00256（corpus 7330・10330・55310・60885 行等「شرح الشواهد للعيني」「عن مؤلفه العيني」）。
 - id: r4
@@ -101,7 +94,6 @@ relations:
   - TMP-S-00067
   works:
   - ref: TMP-T-00257
-  quote: null
   note:
     ja: 「وحصل شرحه للبخاري」＝العيني のブハーリー注釈（D09832 本文「شرح البخاري في أحد وعشرين مجلدا سماه عمدة القاري」、corpus 109882 行）を入手した。ID-Master 未登録（TMP-T-00242 はサハーウィー自著の『عمدة القاري في ختم البخاري』＝別書） → TMP-T-00257。初版の field الحديث（原文になし）は除去。
   phrase: البدر العيني
@@ -111,7 +103,6 @@ relations:
   active: AIND-D09832
   passive: AIND-D08061
   corresp: wd:Q257745
-  quote: null
   note:
     ja: 「صهر البدر العيني」「وعلى صهره」＝姻戚。婿か舅か義兄弟かは原文から決まらない（規則52 ★2 (b)）ため subtype relative。初版の subtype other を置換。
   phrase: البدر العيني
@@ -121,20 +112,17 @@ relations:
   active: AIND-D09832
   passive: AIND-D08061
   corresp: wd:Q257745
-  quote: null
   note:
     ja: 「وباشر عنده في الأحباس وغيرها」＝العيني（ناظر الأحباس、D09832 本文「صرفه عن نظر الأحباس」）の下で الأحباس 等の実務に従事（規則56「仕えた」型＝patron）。
   phrase: البدر العيني
 states:
 - id: s1
   type: office
-  ref: TMP-O-00390
   orgs:
   - label: الأحباس
-  quote: وباشر
   note:
     ja: '「باشر عنده في الأحباس وغيرها」。ID-Master の Office を語根 بشر・حبس で grep: مباشر 系（O-00162 الاسطبل・O-00227 سقاية العباس・O-00272 جدة・O-00281 الجوالي・O-00340 الدولة）に الأحباس はなし → TMP-O-00375。初版の placeName القاهرة（原文になし）・orgName #NEEDID を除去。'
-  norm: باشر
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -142,10 +130,56 @@ affiliations:
 events:
 - id: e1
   type: other
-  quote: رأيته ساكنا
   note:
     ja: サハーウィーの人物評（穏やかな人柄）。
-  norm: رايته ساكنا
+  phrase: رأيته ساكنا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: person
+  ref: AIND-D09832
+  quote: البدر العيني
+- id: m8
+  kind: name
+  quote: بالأزهري
+  norm: الازهري
+- id: m9
+  kind: name
+  quote: وبابن السقاء
+  norm: ابن السقاء
+- id: m10
+  kind: person
+  ref: AIND-D06729
+  quote: البساطي
+- id: m11
+  kind: office
+  ref: TMP-O-00390
+  quote: وباشر
+  norm: باشر
+- id: m12
+  kind: year
+  value: '867'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ハサン、アッ＝シャムス、アル＝カーヒリー、ハナフィー派。アル＝バドル・アル＝アイニーの姻戚（スィフル）で、アル＝アズハリーおよびイブン・アッ＝サッカーとして知られる。アル＝ビサーティーにウスール（法学原理論）などを読み、姻戚（アル＝アイニー）には彼の『シャワーヒド注釈』などを読み、彼の『ブハーリー注釈』を入手した。彼（アル＝アイニー）のもとでアフバース（ワクフ財）などの実務に携わった。私は彼が物静かな人であるのを見た。867年頃に没した。
   en: Muḥammad b. ʿAlī b. Ḥasan, al-Shams al-Qāhirī al-Ḥanafī, a relative by marriage (ṣihr) of al-Badr al-ʿAynī, known as al-Azharī and as Ibn al-Saqqāʾ. He read uṣūl and other subjects under al-Bisāṭī, and under his relative by marriage (al-ʿAynī) the latter's commentary on the Shawāhid and other works; he obtained his commentary on al-Bukhārī and served under him in the administration of the aḥbās (endowments) and other matters. I found him to be a quiet man. He died in about the year 867.

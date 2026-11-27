@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: صبيح
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D03753
   methods:
   - TMP-S-00003
@@ -36,28 +35,49 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m7
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D07182
+  active: m5
   passive: AIND-D03753
   summary:
     ar: أبو الفرج المراغي
-  quote: الفرج المراغي
   note:
     en: Servant (khādim) of the shaykh Abū al-Faraj al-Marāghī and his household.
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m7
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: صبيح
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D07182
+  quote: الفرج المراغي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブドゥルラフマーン・ブン・ムハンマド・ブン・サビーフ・アル＝マダニー。シャイフ・アブー・アル＝ファラジュ・アル＝マラーギーとその家族の従者。マディーナにて私（サハーウィー）から（ハディースを）聴聞した人物。
   en: ʿAbd al-Raḥmān b. Muḥammad b. Ṣabīḥ al-Madanī. Servant of the shaykh Abū al-Faraj al-Marāghī and his household. He was among those who heard Hadith from me (al-Sakhāwī) in Medina.

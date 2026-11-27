@@ -9,61 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00125
-    quote: البكري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الوارث
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001277
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الوارث
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m6
 death:
   id: d
   date:
     ah: 814-01
   places:
-  - ref: TMP-L-00081
-    quote: بينبع
-    norm: ينبع
+  - mention: m10
   note:
     ja: 814-01 ＝ 1411-05-04〜06-02、月初 1411-05（h2g.py）。巡礼からの帰途にヤンブウで没。
-  quote: سنة
   phrase: مات في المحرم سنة أربع عشرة بينبع في رجوعه من الحج
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001277
   passive: AIND-D04750
-  quote: null
   note:
     ja: '見出しナサブから復元（統一規則3）。兄弟 #AIND-D05463・子 #AIND-D03671 の見出しから الجمال محمد بن عبد الوارث بن محمد بن عبد العظيم القرشي التيمي البكري と復元できるが、corpus に本伝なし・ID-Master 未登録 → 新規仮番号 TMP-P-001277。'
   phrase: محمد بن عبد الوارث البكري المصري
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D05463
+  active: m7
   passive: AIND-D04750
-  quote: النور علي الآتي
   note:
     ja: 「أخو النور علي الآتي」＝#AIND-D05463「علي بن محمد بن عبد الوارث بن محمد بن عبد العظيم النور بن الجمال بن الزين القرشي التيمي البكري الشافعي عم النجم عبد الرحمن بن عبد الوارث」（743生・806没、ミスルの ḥisba を歴任）。相手側が本項主の子 النجم عبد الرحمن の叔父と明記。
-  norm: النور علي الاتي
 - id: r3
   type: kin
   subtype: son
@@ -72,7 +63,6 @@ relations:
   summary:
     ar: عبد الرحمن بن عبد الوارث بن محمد بن عبد الوارث النجم البكري المصري المالكي
   cert: medium
-  quote: null
   note:
     ja: '規則23: #AIND-D03671「عبد الرحمن بن عبد الوارث بن محمد بن عبد الوارث بن محمد بن عبد العظيم … النجم أبو الخير بن الزين أبي محمد بن الجمال القرشي البكري المصري المالكي … ويعرف بابن عبد الوارث」（783年ミスル生）のナサブが本項主を一意に指し、兄弟 #AIND-D05463 の「عم النجم عبد الرحمن بن عبد الوارث」とも整合。本項本文に言及がないため cert medium。本項主のラカブは相手側から الزين أبو محمد と知れるが属性は補わない。'
 affiliations:
@@ -89,12 +79,56 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: الحج
   cert: medium
   note:
     ja: 814年ムハッラム月の帰途に没したことから、巡礼は 813年ズー・アル＝ヒッジャ月と解される（逆算のため cert medium）。placeName مكة は規則20 の例外（حج）。813 ＝ 1410-05-15〜1411-05-03、年初 1410。
   trigger: rule
   phrase: في رجوعه من الحج
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوارث
+- id: m2
+  kind: name
+  ref: TMP-P-001277
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الوارث
+- id: m4
+  kind: name
+  ref: TMP-N-00125
+  quote: البكري
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m7
+  kind: person
+  ref: AIND-D05463
+  quote: النور علي الآتي
+  norm: النور علي الاتي
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بينبع
+  ref: TMP-L-00081
+  norm: ينبع
+- id: m11
+  kind: event
+  quote: الحج
 translation:
   ja: アブドゥルワーリス・ブン・ムハンマド・ブン・アブドゥルワーリス、アル＝バクリー・アル＝ミスリー、マーリキー派。後述のアン＝ヌール・アリーの兄弟。（8）14年ムハッラム月、巡礼からの帰途にヤンブウで没した。
   en: ʿAbd al-Wārith b. Muḥammad b. ʿAbd al-Wārith, al-Bakrī al-Miṣrī al-Mālikī, brother of al-Nūr ʿAlī who will be mentioned below. He died in Muḥarram (8)14 at Yanbuʿ on his way back from the pilgrimage.

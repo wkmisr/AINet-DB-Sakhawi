@@ -9,52 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00374
-    quote: التميمي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: خضر
     by: rule
-    ref: TMP-P-001059
+    mention: m2
   - id: n5
     type: nasab
-    quote: جمعة
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D05135
   methods:
   - TMP-S-00008
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m8
     phrase: ممن أخذ عني بالقاهرة
-  quote: عني
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001059
   passive: AIND-D05135
-  quote: null
   note:
     ja: 父 خضر بن جمعة التميمي المقدسي：見出しナサブから祖父名まで復元可（規約5）。corpus の خ 部に見出しなし・ID-Master 未登録 → 新規 TMP-P-001059。
   phrase: خضر بن جمعة
@@ -62,6 +54,38 @@ affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001059
+  quote: خضر
+- id: m3
+  kind: name
+  quote: جمعة
+- id: m4
+  kind: name
+  ref: TMP-N-00374
+  quote: التميمي
+- id: m5
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アリー・ブン・ヒドル・ブン・ジュムア・アッ＝タミーミー・アル＝マクディスィー・アル＝ハナフィー。カイロで私（サハーウィー）から学んだ者の一人。
   en: ʿAlī b. Khiḍr b. Jumʿa al-Tamīmī al-Maqdisī al-Ḥanafī. He was among those who took (knowledge) from me (al-Sakhāwī) in Cairo.

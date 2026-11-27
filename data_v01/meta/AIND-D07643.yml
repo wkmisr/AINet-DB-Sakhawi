@@ -9,85 +9,113 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00023
-    quote: الموصلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الرحيم
     by: rule
-    ref: TMP-P-001187
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001187
+  active: m8
   passive: AIND-D07643
   methods:
   - TMP-S-00011
-  quote: أبيه
   note:
     ja: 父の詩句を伝承した（ハディースではなく詩の伝承のため field は付けない）。
-  norm: ابيه
   phrase: روى عن أبيه قوله مضاهيا للزيدونية
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001187
   passive: AIND-D07643
-  quote: null
   note:
     ja: '父＝見出しナサブから復元した عبد الرحيم بن محمد الموصلي الدمشقي（イブン・ザイドゥーンのヌーニーヤに擬した詩句の作者）。corpus に本伝なし、ID-Master 未登録のため新規 #TMP-P-001187（⚠汎用名。同名別人への流用禁止）。'
   phrase: أبيه
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   orgs:
   - ref: wd:Q183562
-  quote: المؤذن
   note:
     ja: ウマイヤ・モスクのムアッズィン。placeName دمشق は原文に明記がない（ニスバ・施設所在地からの補完は規則22で禁止）ため付けない。初版の affiliation type="employed"（同一機関）は state と二重のため除去（規則8）。
-  norm: المءذن
+  mention: m7
 events:
 - id: e1
   type: cultural
   summary:
     ar: 'روى عن أبيه قوله مضاهيا للزيدونية : بكى الزمان علينا من تنائينا ~ وكان يضحك حينا من تدانينا'
-  quote: null
   note:
     ja: الزيدونية＝イブン・ザイドゥーン（Ibn Zaydūn、463/1071年没）のヌーニーヤ「أضحى التنائي بديلا من تدانينا」。父の詩句はこれに擬したもの。
+  mention: null
 - id: e2
   type: cultural
-  quote: أجاز ، ويحرر من الاستدعاء
   cert: low
   note:
     ja: 「ويحرر」＝要検証のため cert low。イジャーザを与えた相手の記載なし。
-  norm: اجاز ، ويحرر من الاستدعاء
+  phrase: أجاز ، ويحرر من الاستدعاء
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000941
-    cert: medium
-    quote: العجلوني
-  quote: ففي كلام العجلوني لبس
+  - cert: medium
+    mention: m9
   note:
     ja: Pattern A。العجلوني＝イジャーザ依頼状（استدعاء）に関わる人物として、ダマスクスで850年頃に諸師のイジャーザを取り次ぎ紹介文を書いた إبراهيم العجلوني（#TMP-P-000941、D05503・D05515「استجازه لي إبراهيم العجلوني وترجمه」）と同定（cert medium）。初版のニスバ番号 TMP-N-00040 の person 位置流用と統制外 subtype「mentioned_in_critique」を是正。ID-Master には別に TMP-P-001081「البرهان العجلوني」（＝إبراهيم の可能性）もあり要照合（ISSUES §Df-4）。
+  phrase: ففي كلام العجلوني لبس
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001187
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m5
+  kind: name
+  ref: TMP-N-00023
+  quote: الموصلي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: office
+  ref: wd:Q239718
+  quote: المؤذن
+  norm: المءذن
+- id: m8
+  kind: person
+  ref: TMP-P-001187
+  quote: أبيه
+  norm: ابيه
+- id: m9
+  kind: person
+  ref: TMP-P-000941
+  quote: العجلوني
 translation:
   ja: ムハンマド・ブン・アブドゥッラヒーム・ブン・ムハンマド、アブー・アブドゥッラー、アル＝マウスィリー・アッ＝ディマシュキー、ウマイヤ・モスクのムアッズィン。父から、ザイドゥーニーヤ（イブン・ザイドゥーンの詩）に擬した父の詩句を伝承した。 「時は我らの隔たりゆえに我らの上に泣いた／かつては我らの近しさにしばし笑っていたのに」 イジャーザを与えた。ただし〔イジャーザの〕依頼状（イスティドアー）から検証を要する。アル＝アジュルーニーの言葉には混同があるからである。
   en: 'Muḥammad b. ʿAbd al-Raḥīm b. Muḥammad, Abū ʿAbd Allāh, al-Mawṣilī al-Dimashqī, the muezzin of the Umayyad Mosque. He transmitted from his father the latter''s verses composed in imitation of the Zaydūniyya: "Time wept over us for our separation, / whereas once it laughed at our closeness." He granted an ijāza; but this must be verified from the request for ijāza (istidʿāʾ), for there is confusion in what al-ʿAjlūnī says.'

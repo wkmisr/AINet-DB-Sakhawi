@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد العزيز زعيم تونس
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -23,7 +23,7 @@ death:
   note:
     ar: مات سنة ثمان وثلاثين . كذا كتبه ابن عزم
     ja: 没年は ابن عزم の記述に拠るもので、サハーウィー自身が「وإن لم تكن وفاته كذلك」と留保するため cert medium。838年＝1434-08-16〜1435-08-04 → 年初 1434。
-  quote: سنة
+  mention: m3
 persons:
 - id: p1
   label: عبد العزيز
@@ -36,39 +36,58 @@ relations:
   subtype: father
   active: AIND-D07686#p1
   passive: AIND-D07686
-  quote: null
   note:
     ja: '裸名のみ。#AIND-D07668 と同一人物であれば父はハフス朝スルターン أبو فارس عبد العزيز（#AIND-D03958）だが、本項の原文からは確定できないため #NEEDID。'
 - id: r2
   type: identity
   subtype: possible_identity
-  active: AIND-D07668
+  active: m6
   passive: AIND-D07686
   cert: medium
-  quote: وأظنه الماضي فيمن جده أحمد بن محمد بن أبي بكر وإن لم تكن وفاته كذلك
   note:
     ja: サハーウィー自身の推測（أظنه＝cert medium）による同定。相手＝#AIND-D07668（محمد بن عبد العزيز بن أحمد بن محمد بن أبي بكر أبو عبد الله بن صاحب المغرب أبي فارس ووالد المنتصر محمد … مات في حياة أبيه سنة خمس وثلاثين وثمانمائة بزاويته التي أنشأها بطرابلس المغرب وكان ولي عهده）。没年（835 対 838）が食い違うため著者も断定していない。転送指示ではないので二重立項型（両項とも実項）として双方向 possible_identity。D07668 側の逆方向 relation は要追記（要判断 §Dd-1）。
-  norm: واظنه الماضي فيمن جده احمد بن محمد بن ابي بكر وان لم تكن وفاته كذلك
 states:
 - id: s1
   type: office
   ref: TMP-O-00277
   places:
   - ref: gn:2464470
-  quote: null
   note:
     ja: 見出しの職名句「زعيم تونس」。ID-Master 未登録のため仮番号 TMP-O-00277（صاحب فاس=TMP-O-00151 等の地域限定君主号と同型）。統一規則5により full からは除外。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: كتبه
+  - mention: m5
   cert: medium
   note:
     ja: Pattern A。初版の統制外 subtype「source」relation を mention event に変換。
   trigger: rule
   phrase: كذا كتبه ابن عزم
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد العزيز زعيم تونس
+- id: m3
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m4
+  kind: source
+  quote: كتبه
+- id: m5
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
+- id: m6
+  kind: person
+  ref: AIND-D07668
+  quote: وأظنه الماضي فيمن جده أحمد بن محمد بن أبي بكر وإن لم تكن وفاته كذلك
+  norm: واظنه الماضي فيمن جده احمد بن محمد بن ابي بكر وان لم تكن وفاته كذلك
 translation:
   ja: ムハンマド・ブン・アブドゥルアズィーズ、チュニスの首長。838年に没した。イブン・アズムはそのように記したが、私は、たとえ没年がそのとおりでないにせよ、彼は前述の、祖父がアフマド・ブン・ムハンマド・ブン・アビー・バクルである者のことだと思う。
   en: Muḥammad b. ʿAbd al-ʿAzīz, chief of Tunis. He died in the year 838. So Ibn ʿAzm wrote it, and I think he is the one mentioned above among those whose grandfather is Aḥmad b. Muḥammad b. Abī Bakr, even if his death was not as stated there.

@@ -9,13 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الله شيخ أبشية
     by: rule
-    norm: عبد الله شيخ ابشية
+    mention: m2
 death:
   id: d
   date:
@@ -23,8 +22,8 @@ death:
   note:
     en: He was murdered in the year 871 AH.
     ja: 被疑者2人が871年シャアバーンに処刑された（#AIND-D01952）ため、殺害はそれ以前。
-  quote: سنة
   phrase: مات مقتولا في سنة إحدى وسبعين
+  mention: m4
 persons:
 - id: p1
   label: عبد الله
@@ -35,46 +34,66 @@ relations:
 - id: r1
   type: social
   subtype: killer
-  active: TMP-P-001028
+  active: m5
   passive: AIND-D04485
   summary:
     ar: واتهم به عبد الرحمن بن التاجر … فسلخا
   cert: medium
-  quote: عبد الرحمن بن التاجر
   note:
     ja: '殺害の嫌疑をかけられ皮剥ぎ刑に処された عبد الرحمن بن التاجر ＝ #TMP-P-001028（ID-Master 登録「عبد الرحمن بن التاجر شيخ سفط أبي تراب」、#AIND-D01952 の父）。D01952 の本文「سلخ كل منهما في شعبان سنة إحدى وسبعين لاتهامهما بقتل شيخ أبشيه الملق」が本項と完全に対応する。「اتهم」＝嫌疑のため cert medium。初版の #TMP-P-000000（不正な零番号）・subtype「accused murderer」（統制外）を是正。'
 - id: r2
   type: social
   subtype: killer
-  active: AIND-D01952
+  active: m6
   passive: AIND-D04485
   cert: medium
-  quote: وابنه إسماعيل فسلخا
   note:
     ja: 'إسماعيل（عبد الرحمن بن التاجر の子）＝ #AIND-D01952（刊本第924項 إسماعيل بن عبد الرحمن بن التاجر شيخ سفط أبي تراب أبوه . سلخ كل منهما في شعبان سنة إحدى وسبعين لاتهامهما بقتل شيخ أبشيه الملق）。逆側からの完全閉合。'
-  norm: وابنه اسماعيل فسلخا
 - id: r3
   type: kin
   subtype: father
   active: AIND-D04485#p1
   passive: AIND-D04485
-  quote: null
 states:
 - id: s1
   type: office
   ref: TMP-O-00273
   places:
   - ref: TMP-L-00234
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
   - ref: TMP-L-00234
-  - ref: TMP-L-00046
-    quote: الغربية
-  quote: شيخ أبشية الملق من الغربية
-  norm: شيخ ابشية الملق من الغربية
+  - mention: m3
+  phrase: شيخ أبشية الملق من الغربية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: عبد الله شيخ أبشية
+  norm: عبد الله شيخ ابشية
+- id: m3
+  kind: place
+  quote: الغربية
+  ref: TMP-L-00046
+- id: m4
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m5
+  kind: person
+  ref: TMP-P-001028
+  quote: عبد الرحمن بن التاجر
+- id: m6
+  kind: person
+  ref: AIND-D01952
+  quote: وابنه إسماعيل فسلخا
+  norm: وابنه اسماعيل فسلخا
 translation:
   ja: アブドゥッラー・ブン・アブドゥッラー、ガルビーヤ地方のアブシーヤト・アル＝マラク村のシャイフ。ヒジュラ暦871年に殺害され、アブドゥッラフマーン・ブン・アッ＝タージルとその息子イスマーイールがその嫌疑をかけられて、二人とも皮剥ぎの刑に処された。
   en: ʿAbd Allāh b. ʿAbd Allāh, shaykh of Abshiyyat al-Malaq in al-Gharbiyya. He was murdered in the year 871; ʿAbd al-Raḥmān b. al-Tājir and his son Ismāʿīl were accused of it, and both were flayed.

@@ -9,32 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-01341
-    quote: الجرائحي
-    norm: الجراءحي
+    mention: m4
   - id: n3
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 883-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ja: 「مات بمكة في ربيع الثاني سنة ثلاث وثمانين」＝883年ラビーウ2月（月初 1478-07-11）、マッカ。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: عبد الله
@@ -47,7 +42,6 @@ relations:
   subtype: father
   active: AIND-D06166#p1
   passive: AIND-D06166
-  quote: null
   note:
     ja: '父 عبد الله は裸名（識別要素なし）・本伝なし → 規則3により #NEEDID。'
 notes:
@@ -57,15 +51,50 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخهما
+  - mention: m9
   cert: medium
   note:
     ja: 'Pattern A。「أرخهما」（双数）は直前の項 #AIND-D06165（فرج عبد الله الشرابي الحبشي المكي）と本項の2人を指す（転送ではない）。本項の没年 883 は 871＜883≦885 → 規則43 の振り分けにより النجم عمر بن فهد ＝ #AIND-D05979、cert medium。初版の統制外 relation「other」（#AIND-D09211）を event に改めた。'
   trigger: rule
-  norm: ارخهما
   phrase: أرخهما ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m4
+  kind: name
+  ref: TMP-N-01341
+  quote: الجرائحي
+  norm: الجراءحي
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m7
+  kind: year
+  value: '883'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخهما
+  norm: ارخهما
+- id: m9
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ファラジュ・ブン・アブドゥッラー・アル＝マグリビー・アル＝ジャラーイヒー。883年ラビーウ2月にマッカで没した。イブン・ファハドが（前項の人物と）二人の没年を記した。
   en: Faraj b. ʿAbd Allāh al-Maghribī al-Jarāʾiḥī. He died in Mecca in Rabīʿ II 883. Ibn Fahd dated the two of them (him and the preceding).

@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00472
-    quote: المارديني
+    mention: m4
   - id: n2
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بتمنع
-    norm: تمنع
     label: تمنع
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 806-09
     cert: medium
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m12
   note:
     ja: 「مات في رمضان سنة ست بدمشق」。一の位のみの年「سنة ست」は規約（2026-09-24 Waka）により 806 と解し cert medium（イブン・ハジャル『الإنباء』引用のため 806〜846 のいずれも可能、ISSUES §D91-6）。806年ラマダーン月初＝1404-03-22（h2g.py。初版の 1403 は誤り）。没地 دمشق は原文明記。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: محمد
@@ -51,7 +47,6 @@ relations:
   subtype: father
   active: AIND-D04637#p1
   passive: AIND-D04637
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。初版の #TMP-P-000529（汚染番号: 実体は ابن جماعة の息子 محمد）を差し替え。'
 events:
@@ -59,33 +54,76 @@ events:
   type: other
   summary:
     en: He was one of the sons of the wealthy and inherited abundant property, which he spent on charitable works; then he became poor and took to begging with written petitions, sometimes composing a couplet on the matter, and he used to keep company with notables.
-  quote: فورث
   note:
     ja: イブン・ハジャル『الإنباء』からの引用（「قال شيخنا في الإنباء」）。
   trigger: rule
-  norm: ورث
   phrase: كان من أولاد الأغنياء فورث مالا جزيلا فأنفقه في الخيرات ثم افتقر فصار يكدى بالأوراق وينظم البيتين في ذلك أحيانا وكان يعاشر الرؤساء
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。初版には言及 event なし。
   trigger: rule
   phrase: قال شيخنا في الإنباء
+  mention: m6
 - id: c2
   persons:
-  - ref: TMP-P-001248
-    quote: وللعز الموصلي
-    norm: لعز الموصلي
-  quote: وللعز الموصلي فيه نظم
+  - mention: m9
   note:
     ja: 'Pattern A（第三者による詩の言及）。العز الموصلي（詩人。corpus #AIND-D05264「فلازم العز الموصلي فتخرج به」にも登場、8世紀人物で本伝なし）は ID-Master 未登録のため新規 #TMP-P-001248。初版は subtype="poetic associate"（統制外）の relation #NEEDID。'
-  norm: للعز الموصلي فيه نظم
+  phrase: وللعز الموصلي فيه نظم
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00472
+  quote: المارديني
+- id: m5
+  kind: name
+  quote: بتمنع
+  norm: تمنع
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: event
+  quote: فورث
+  norm: ورث
+- id: m9
+  kind: person
+  ref: TMP-P-001248
+  quote: وللعز الموصلي
+  norm: لعز الموصلي
+- id: m10
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m11
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
 translation:
   ja: アブドゥッラー・ブン・ムハンマド、アル＝ジャマール・アル＝マーリディーニー、タマンナウとして知られる。我らの師（イブン・ハジャル）は『インバー』で言う。「富裕な者たちの子で、莫大な財産を相続したが、それを善行に費やし、その後困窮して、嘆願書によって物乞いをするようになり、時にそのことについて二行詩を詠んだ。有力者たちと交際していた。アル＝イッズ・アル＝マウスィリーが彼について詠んだ詩がある。」806年ラマダーン月にダマスカスで没した。
   en: 'ʿAbd Allāh b. Muḥammad, al-Jamāl al-Māridīnī, known as Tamannuʿ. Our shaykh (Ibn Ḥajar) said in al-Inbāʾ: "He was one of the sons of the wealthy and inherited abundant property, which he spent on charitable works; then he became poor and took to begging with written petitions, sometimes composing a couplet on the matter. He used to keep company with the notables, and al-ʿIzz al-Mawṣilī has verses about him." He died in Ramaḍān of the year 806 in Damascus.'

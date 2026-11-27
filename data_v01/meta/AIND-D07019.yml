@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: البدر
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن يوسف
-    norm: ابن يوسف
     label: ابن يوسف
+    mention: m9
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 death:
   id: d
   date:
@@ -57,31 +53,25 @@ relations:
   subtype: father
   active: AIND-D07019#p1
   passive: AIND-D07019
-  quote: null
   note:
     ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D13827
+  active: m10
   passive: AIND-D07019
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q1023470
-  quote: أم هانئ الهورينية
   note:
     ja: '「ومما سمعه ختم البخاري عند أم هانئ الهورينية ورفقتها」。أم هانئ الهورينية ＝ #AIND-D13827（أم هانئ ابنة … علي بن … عبد الرحمن … الهورينية الأصل المصرية الشافعية、778年生、女性部。repo 先例 #AIND-D04280）。「ورفقتها」（同席の伝承者たち）は個人特定不可。初版は #NEEDID、原文にない field（الحديث）を除去、『ختم البخاري』#NEEDID → wd:Q1023470（صحيح البخاري、repo 先例3件）。'
-  norm: ام هانء الهورينية
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
   places:
-  - ref: TMP-L-00216
-    quote: بسوق أمير الجيوش
-    norm: سوق امير الجيوش
-  quote: التاجر
+  - mention: m8
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -89,7 +79,48 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: ممن اشتغل وتميز وسمع الحديث قليلا
+  phrase: ممن اشتغل وتميز وسمع الحديث قليلا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: البدر
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m8
+  kind: place
+  quote: بسوق أمير الجيوش
+  ref: TMP-L-00216
+  norm: سوق امير الجيوش
+- id: m9
+  kind: name
+  quote: بابن يوسف
+  norm: ابن يوسف
+- id: m10
+  kind: person
+  ref: AIND-D13827
+  quote: أم هانئ الهورينية
+  norm: ام هانء الهورينية
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ユースフ、アル＝バドル・アル＝カーヒリー、シャーフィイー派、アミール・アル＝ジュユーシュ市場の商人で、イブン・ユースフとして知られる。学問に励んで頭角を現し、ハディースを少しく聴聞した者の一人で、彼が聴聞したものには、ウンム・ハーニ・アル＝ハウリーニーヤとその同席者たちのもとでの『ブハーリー』読了（ハトム）がある。思慮深く物静かで、身なりがよかった。若くして、おそらく〔8〕70年より前に没した。
   en: Muḥammad b. Aḥmad b. Yūsuf, al-Badr al-Qāhirī, the Shāfiʿī, the merchant in Sūq Amīr al-Juyūsh, known as Ibn Yūsuf. He was among those who studied and distinguished themselves, and he heard a little ḥadīth; among what he heard was the completion (khatm) of al-Bukhārī with Umm Hāniʾ al-Hawrīniyya and her fellow transmitters. He was sensible, quiet, and well dressed. He died young, before [8]70, I suppose.

@@ -9,54 +9,75 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00357
-    quote: المنزلي
+    mention: m5
   - id: n2
     type: laqab
-    quote: زين الدين
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الغني
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: يوسف
     by: rule
-    ref: TMP-P-000900
+    mention: m2
   - id: n5
     type: nasab
-    quote: يس
     by: rule
-    ref: TMP-P-000901
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D04083
   methods:
   - TMP-S-00003
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-000900
   passive: AIND-D04083
-  quote: null
   note:
     ja: 父 يوسف بن يس المنزلي（ナサブから復元）は corpus に本伝なし → 新規 TMP-P-000900。
   phrase: يوسف
 - id: r3
   type: kin
   subtype: grandfather
-  active: TMP-P-000901
+  active: m6
   passive: AIND-D04083
   summary:
     ar: يس (ويعرف بجده)
-  quote: بجده
   note:
     ja: 祖父 يس المنزلي（本項主は祖父の名で「ابن يس」と呼ばれた）は corpus に本伝なし → 新規 TMP-P-000901。初版の TMP-P-000630 は D02193 の兄弟 يس（別人・別家系）の流用。
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغني
+- id: m2
+  kind: name
+  ref: TMP-P-000900
+  quote: يوسف
+- id: m3
+  kind: name
+  ref: TMP-P-000901
+  quote: يس
+- id: m4
+  kind: name
+  quote: زين الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00357
+  quote: المنزلي
+- id: m6
+  kind: person
+  ref: TMP-P-000901
+  quote: بجده
   norm: جده
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: アブドゥルガニー・ブン・ユースフ・ブン・ヤーシーン、ザイン・アッ＝ディーン・アル＝マンジリー。祖父の名（イブン・ヤーシーン）で知られる。彼もまた私（サハーウィー）から聴聞した者の一人である。
   en: ʿAbd al-Ghanī b. Yūsuf b. Yāsīn, Zayn al-Dīn al-Manzilī, known by his grandfather's name (Ibn Yāsīn). He too was among those who heard from me (al-Sakhāwī).

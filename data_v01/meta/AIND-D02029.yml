@@ -9,68 +9,87 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: أقبردي
     by: rule
-    norm: اقبردي
+    mention: m1
 death:
   id: d
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m6
   note:
     en: Died before reaching fifty years of age.
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m4
   passive: AIND-D02029
-  quote: أستاذه
   note:
     en: 'Served as amīr akhūr thālith during the time of his unnamed master/patron (ustādh). Active left empty: master not named in the source.'
-  norm: استاذه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00097
-  quote: أمير أخور ثالث
-  norm: امير اخور ثالث
+  mention: m3
 - id: s2
   type: office
   ref: TMP-O-00014
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: null
+  - mention: m6
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: فأقام
+  - mention: m6
   note:
     en: Resided there from his expulsion until his death.
   trigger: rule
-  norm: اقام
+  mention: m7
 - id: e2
   type: political
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m6
   summary:
     en: Expelled to Tripoli by Sultan al-Ẓāhir.
-  quote: أخرجه
   cert: low
   note:
     en: 'Date not specified, occurred after holding the office of amīr akhūr thālith. "al-Ẓāhir" is unnamed in the source; given the chronology (mamluk of al-Ashraf Barsbāy, d. before age 50) the expelling sultan is most plausibly al-Ẓāhir Jaqmaq (wd:Q647942 = #AIND-D02423), left unattributed here for lack of an explicit name.'
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: أقبردي
+  norm: اقبردي
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: office
+  ref: TMP-O-00097
+  quote: أمير أخور ثالث
+  norm: امير اخور ثالث
+- id: m4
+  kind: person
+  ref: AIND-D02168
+  quote: أستاذه
+  norm: استاذه
+- id: m5
+  kind: event
+  quote: أخرجه
   norm: اخرجه
+- id: m6
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m7
+  kind: event
+  quote: فأقام
+  norm: اقام
 translation:
   ja: アクバルディー・アル＝アシュラフィー・バルスバーイは、彼の主君（ウスターズ）の時代には第三のアーミール・アフール（厩舎長）であった。その後、アッ＝ザーヒル（スルタン）によってトリポリへアミールとして追放され、そこで50歳になる前に亡くなった。
   en: Aqburdī al-Ashrafī Barsbāy was a third-rank amīr akhūr (master of the horse) in the days of his master. Al-Ẓāhir later expelled him to Tripoli as an amīr there, where he resided until his death before the age of fifty.

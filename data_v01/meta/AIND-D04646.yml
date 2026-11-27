@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00201
-    quote: القاري
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m4
 persons:
 - id: p1
   label: محمد
@@ -36,19 +34,17 @@ relations:
   subtype: father
   active: AIND-D04646#p1
   passive: AIND-D04646
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
   - ref: TMP-L-00290
     cert: medium
-  quote: خطيب
   note:
     ja: '「خطيب القارة」。القارة は corpus D04292「خطيب جامع قارا … ثم القاري」・D04888「يعرف بالقاري نسبة لقارا」の قارا（ダマスカス北方の町）と同一と解し cert medium（ISSUES §D91-8）。ID-Master 未登録のため新規 #TMP-L-00290（登録名「قارا | القارة」）。'
+  mention: m5
 affiliations:
 - id: a1
   type: madhhab
@@ -56,15 +52,40 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m7
   works:
   - ref: TMP-T-00138
-  quote: ذكره
   note:
     ja: 'Pattern A。「في معجمه」→ التقي بن فهد ＝ #AIND-D09211（振り分け規則）。初版は subtype="biographer" の relation。'
   trigger: rule
   phrase: ذكره التقي بن فهد في معجمه مجردا
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00201
+  quote: القاري
+- id: m4
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m5
+  kind: office
+  ref: wd:Q932945
+  quote: خطيب
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・アル＝カーリー・アッ＝シャーフィイー、アル＝カーラの説教師（ハティーブ）。アッ＝タキー・ブン・ファハドが『ムウジャム』で彼を名のみで挙げている。
   en: ʿAbd Allāh b. Muḥammad al-Qārī al-Shāfiʿī, the preacher (khaṭīb) of al-Qāra. Al-Taqī b. Fahd mentioned him in his Muʿjam by name only.

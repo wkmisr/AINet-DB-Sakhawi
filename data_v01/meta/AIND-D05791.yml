@@ -9,53 +9,85 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00159
-    quote: الزبيدي
+    mention: m5
   - id: n2
     type: laqab
-    quote: التقي
+    mention: m4
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الواحد
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 822
   note:
     ja: 「مات في سنة اثنتين وعشرين」。822 ＝ 1419-02-06〜1420-01-25、年のみのため年初 1419（h2g.py）。没地は原文にない。
-  quote: سنة
+  mention: m8
 states:
 - id: s1
   type: office
-  ref: TMP-O-00131
   places:
-  - ref: TMP-L-00041
-    quote: زبيد
-  quote: شاد
+  - mention: m7
   note:
     ja: 「شاد زبيد」。TMP-O-00131（شاد、監督官）。初版の residence event（زبيد）は職の勤務地からの補完のため除去（規則22(1)）。
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m10
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の統制外 subtype「mentioned in chronicle」relation を event に変換。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عبد الواحد
+- id: m4
+  kind: name
+  quote: التقي
+- id: m5
+  kind: name
+  ref: TMP-N-00159
+  quote: الزبيدي
+- id: m6
+  kind: office
+  ref: TMP-O-00131
+  quote: شاد
+- id: m7
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m8
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウマル・ブン・アフマド・ブン・アブド・アル＝ワーヒド・アッ＝タキー・アッ＝ザビーディー、ザビードのシャード（監督官）。学問に関心を寄せていた。（8）22年に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: ʿUmar b. Aḥmad b. ʿAbd al-Wāḥid al-Taqī al-Zabīdī, the shādd (superintendent) of Zabīd. He took an interest in learning. He died in the year (8)22. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

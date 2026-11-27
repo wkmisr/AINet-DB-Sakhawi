@@ -9,95 +9,128 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: أركماس
     by: rule
-    norm: اركماس
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m2
   passive: AIND-D01862
   corresp: AIND-D06305
-  quote: الأشرف قايتباي
   note:
     en: Served as one of Sultan al-Ashraf Qāytbāy's khāṣṣakīya.
-  norm: الاشرف قايتباي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيته
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: نائب
-  norm: ناءب
+  - mention: m4
+  mention: m9
 - id: s3
   type: office
-  ref: TMP-O-00063
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
-  quote: لدواداريته
-  norm: دواداريته
+  - mention: m6
+  mention: m5
 - id: s4
   type: office
-  ref: TMP-O-00063
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
-  quote: لدواداريته
-  norm: دواداريته
+  - mention: m11
+  mention: m10
 events:
 - id: e1
   type: political
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
+  - mention: m6
   summary:
     en: Transferred to his dawādārīya (chancery) in Aleppo following the killing of Azdmar, nāʾib of Tarsus.
-  quote: قتل
   cert: low
   note:
     en: Occurred after the killing of Azdmar, nāʾib of Tarsus.
   trigger: rule
+  mention: m7
 - id: e2
   type: political
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
+  - mention: m11
   summary:
     en: Transferred to his dawādārīya (chancery) in al-Shām following the death of Jānbak al-Ṭawīl.
-  quote: null
   cert: low
   note:
     en: Occurred after the death of Jānbak al-Ṭawīl.
+  mention: null
 - id: e3
   type: political
   persons:
-  - ref: AIND-D01884
-    role: participant
-    quote: ازدمر
-  quote: null
+  - role: participant
+    mention: m8
   note:
     en: Azdmar, nāʾib of Tarsus (then dawādār of Aleppo), whose killing led to Arkamās's appointment as dawādār in Aleppo.
+  mention: null
 - id: e4
   type: political
   persons:
-  - ref: AIND-D02366
-    role: participant
-    quote: جانبك الطويل
-  quote: null
+  - role: participant
+    mention: m12
   note:
     en: Jānbak al-Ṭawīl, whose death led to Arkamās's appointment as dawādār in al-Shām.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أركماس
+  norm: اركماس
+- id: m2
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m3
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+- id: m4
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m5
+  kind: office
+  ref: TMP-O-00063
+  quote: لدواداريته
+  norm: دواداريته
+- id: m6
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m7
+  kind: event
+  quote: قتل
+- id: m8
+  kind: person
+  ref: AIND-D01884
+  quote: ازدمر
+- id: m9
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m10
+  kind: office
+  ref: TMP-O-00063
+  quote: لدواداريته
+  norm: دواداريته
+- id: m11
+  kind: place
+  quote: بالشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m12
+  kind: person
+  ref: AIND-D02366
+  quote: جانبك الطويل
 translation:
   ja: スルタン・アル＝アシュラフ・カーイトバーイの親衛隊員の一人であったアルカマース・ミン・トルバーイは、その後トリポリの副知事職に左遷された。タールスース副知事のイーズディマルが殺害された後、アレッポの書記長官職に転任し、ジャンバク・アル＝タウィールが死亡した後にはシャームの書記長官職に転任し、派遣部隊とともに旅をした。
   en: Arkamās min Turbāy, one of al-Ashraf Qāytbāy's khāṣṣakīya (royal retainers), was then transferred to the vice-regency of Tripoli. He was subsequently moved to his dawādārīya (chancery) in Aleppo after Azdmar, the nāʾib of Tarsus, was killed. He was later transferred to his dawādārīya in al-Shām after the death of Jānbak al-Ṭawīl and traveled with the detachments.

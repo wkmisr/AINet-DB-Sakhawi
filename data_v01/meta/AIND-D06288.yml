@@ -9,18 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالألفي
-    norm: الالفي
     label: الألفي
+    mention: m4
   - id: n3
     type: ism
-    quote: قانصوه
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد قانصوه الأشرفي قايتباي الألفي
@@ -31,26 +28,41 @@ relations:
   subtype: father
   active: AIND-D06288#p1
   passive: AIND-D06288
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m3
   passive: AIND-D06288
   summary:
     ar: الأشرف قايتباي
-  quote: قايتباي
   note:
     ja: 見出し「الأشرفي قايتباي」＝主人は الأشرف قايتباي（#AIND-D06305）。初版の corresp 属性（wd:Q557847）は repo 先例（D06138）どおり除去。
 states:
 - id: s1
   type: office
   ref: TMP-O-00083
-  quote: null
   note:
     ja: '「ترقى إلى أن صار أحد المقدمين」＝「أحد المقدمين」は مقدم ألف の別形（規則48、ID-Master TMP-O-00083 المقدم「أحد المقدمين بمصر」）。初版の #NEEDID を是正。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قانصوه
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي
+- id: m4
+  kind: name
+  quote: بالألفي
+  norm: الالفي
 translation:
   ja: カーンスーフ・アル＝アシュラフィー・カーイトバーイ、アル＝アルフィーとして知られる。昇進してムカッダムの一人となった。
   en: Qānṣūh al-Ashrafī Qāytbāy, known as al-Alfī. He rose until he became one of the muqaddams.

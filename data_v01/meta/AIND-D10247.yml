@@ -9,56 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00212
-    quote: التركماني
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: كور
+    mention: m2
   - id: n3
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n4
     type: nasab
-    quote: سليمان
     by: rule
-    ref: AIND-D03170
+    mention: m3
   - id: n5
     type: nasab
-    quote: دلغادر
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 877-03-19
   places:
-  - ref: TMP-L-00406
-    quote: بباب زويلة
-    norm: باب زويلة
+  - mention: m8
   note:
     ja: '877年ラビーウ第一月19日＝1472-09-02（h2g.py。h2g の曜日は月曜で原文「يوم الثلاثاء」と1日ずれるが、曜日は暦の判別に使わない＝規則18）。初版の @when 1472（年精度）を日精度に。باب زويلة は ID-Master 未登録（「زويلة」該当は حارة زويلة TMP-L-00383 のみ）→ 新規 TMP-L-00406（初版 #NEEDID）。repo の #AIND-D00559 は باب زويلة に TMP-L-00140 を充てているが ID-Master の TMP-L-00140 は「المهجم」＝ISSUES §D165-2。'
-  quote: سنة
   phrase: علق في الكلاليب مع أخيه بباب زويلة حتى مات بعده بيوم في يوم الثلاثاء تاسع عشر ربيع الأول سنة سبع وسبعين
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03170
   passive: AIND-D10247
-  quote: null
   note:
     ja: '見出しナサブ「بن سليمان بن دلغادر」と「أخو سوار الماضي」より（規則37）。兄 سوار＝#AIND-D03198「سوار بن سليمان بن ناصر الدين يك بن دلغادر التركماني」の父は #AIND-D03170「سليمان بن ناصر الدين بك محمد بن دلغادر نائب الابلستين وأمير التركمان … في رمضان سنة ثمان وخمسين」（repo 収録済み、son relation に #AIND-D03198）。本項の見出しは祖父 ناصر الدين محمد（TMP-P-000683）を省いた形。ID-Master の TMP-P-000683 の Note は「息子=سليمان(AIND-D03170)・يحيى كور(D10247)」と本項主を ناصر الدين محمد の子とするが、本項の原文は「بن سليمان」＝ISSUES §D165-3。初版の #NEEDID と、ナサブ上の「دلغادر」を祖父とする relation（#NEEDID。دلغادر は家祖で祖父ではない）を是正。'
   phrase: سليمان بن دلغادر
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03198
+  active: m6
   passive: AIND-D10247
-  quote: أخو
   note:
     ja: '「أخو سوار الماضي」＝#AIND-D03198（「ويقال له شاه سوار نائب الابلستين ومرعش」）。初版の #NEEDID を置換。'
-  norm: اخو
   phrase: سوار
 - id: r3
   type: identity
@@ -68,23 +60,60 @@ relations:
   summary:
     ar: أخو سوار بن سليمان بن دلغادر التركماني
   cert: high
-  quote: null
   note:
     ja: '二重立項。第11巻の無名項 #AIND-D12832「أخو سوار بن سليمان بن دلغادر التركماني كان أحدب ممن علق في الكلاليب بباب زويلة مع أخيه ولم يلبث أن اجتاز به الدوادار فتوسل إليه … فشفع فيه وتسلمه الوالي وأخذ في مداواته رجاء أن يعيش فما تم يومه حتى مات وذلك بعد أخيه بيوم في يوم الثلاثاء تاسع عشر ربيع الأول سنة سبع وسبعين」（未収録）は、続柄（سوار の兄弟）・処刑の場所と方法（باب زويلة の鉤吊り）・「兄の一日後」・没年月日・曜日がすべて本項と一致＝同一人物。両項とも転送指示がないので実項のまま（絶対基準）。cert high は先例 #AIND-D08133⇄#AIND-D08233 に倣う（ISSUES §D165-1）。鏡像は D12832 受領時に立てる。'
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03198
-    quote: سوار
+  - mention: m7
   places:
-  - ref: TMP-L-00406
-    quote: بباب زويلة
-    norm: باب زويلة
-  quote: كان ممن علق في الكلاليب مع أخيه بباب زويلة
+  - mention: m8
   note:
     ja: 兄 سوار とともにバーブ・ズワイラで鉤に吊るされた（処刑）。吊るされた日は原文に明記がない（没日は兄の一日後）＝日付属性を置かない（規則18 (e)。初版の when-custom 0877-03-19 cert high を除去）。
-  norm: كان ممن علق في الكلاليب مع اخيه بباب زويلة
+  phrase: كان ممن علق في الكلاليب مع أخيه بباب زويلة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: كور
+- id: m3
+  kind: name
+  ref: AIND-D03170
+  quote: سليمان
+- id: m4
+  kind: name
+  quote: دلغادر
+- id: m5
+  kind: name
+  ref: TMP-N-00212
+  quote: التركماني
+- id: m6
+  kind: person
+  ref: AIND-D03198
+  quote: أخو
+  norm: اخو
+- id: m7
+  kind: person
+  ref: AIND-D03198
+  quote: سوار
+- id: m8
+  kind: place
+  quote: بباب زويلة
+  ref: TMP-L-00406
+  norm: باب زويلة
+- id: m9
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m10
+  kind: year
+  value: '877'
+  quote: سنة
 translation:
   ja: ヤフヤー・クール・ブン・スライマーン・ブン・ドゥルガーディル・アッ＝トゥルクマーニー。既出のスワールの兄弟。兄弟とともにバーブ・ズワイラで鉤に吊るされた者の一人で、兄弟の一日後、（8）77年ラビーウ第一月19日火曜日に没した。
   en: Yaḥyā Kūr b. Sulaymān b. Dulghādir al-Turkumānī, brother of Sawār, mentioned earlier. He was among those hung on the hooks with his brother at Bāb Zuwayla, until he died a day after him, on Tuesday 19 Rabīʿ I of the year [8]77.

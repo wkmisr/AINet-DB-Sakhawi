@@ -9,74 +9,110 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بالجعجاع
-    norm: الجعجاع
     label: الجعجاع
+    mention: m11
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: بدر
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D01117
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: مني
+    - mention: m8
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D06783
+  active: m9
   passive: AIND-D01117
-  quote: محمد
   note:
     ja: 元TMP-P-000066破棄（AIND-D08850登録済の衝突）。الآتي。要ID-Master照合。
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D08294
+  active: m10
   passive: AIND-D01117
-  quote: وأخو
   note:
     ja: 元TMP-P-000087破棄（Ibn Fahd=AIND-D09211登録済の衝突）。الآتي。要ID-Master照合。
-  norm: اخو
   phrase: محمد
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: التاجر
+  mention: m6
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m8
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  quote: بدر
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: person
+  ref: AIND-D06783
+  quote: محمد
+- id: m10
+  kind: person
+  ref: AIND-D08294
+  quote: وأخو
+  norm: اخو
+- id: m11
+  kind: name
+  quote: بالجعجاع
+  norm: الجعجاع
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: アハマド・ブン・ウマル・ブン・バドル、ラカブはアッ＝シハーブ、ニスバはアッ＝ディマシュキー。商人。メッカの居住者であり、後述するムハンマドという息子と、同じく後述する兄弟ムハンマドがいる。アル＝ジャアジャーウとして知られる。私（サハーウィー）からメッカで聴聞した者の一人である。
   en: Aḥmad b. ʿUmar b. Badr, al-Shihāb al-Dimashqī, the merchant. A resident of Mecca and father of Muḥammad, and brother of Muḥammad (mentioned below). He was known as al-Jaʿjāʿ. He was among those who heard from me (al-Sakhāwī) in Mecca.

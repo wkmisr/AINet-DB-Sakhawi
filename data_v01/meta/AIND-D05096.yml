@@ -9,54 +9,47 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00150
-    quote: الديمي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00292
-    quote: الصحراوي
+    mention: m6
   - id: n4
     type: laqab
-    quote: نور الدين
+    mention: m3
   - id: n5
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
 death:
   id: d
   date:
     ah: 871-11
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m10
   note:
     ar: ومات بعد زيارته المدينة النبوية ووصوله مكة بها في ذي القعدة سنة إحدى وسبعين رحمه الله
     ja: 871年ズー・アル＝カアダ月＝1467年6月4日〜7月2日。没地「بها」＝マッカ。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D04915
+  active: m8
   passive: AIND-D05096
-  quote: الأمير الركب علان
   note:
     ja: '原文「كان إماما الأمير الركب علان」。علان ＝ #AIND-D04915「521 علان من ططخ الأشرفي برسباي أحد أمراء العشرات وأمير ركب الرجبية في سنة إحدى وسبعين …」（871年のラジャブ巡礼団長＝本項の巡礼年と一致）。初版は #NEEDID。'
-  norm: الامير الركب علان
 states:
 - id: s1
   type: office
   ref: wd:Q125482
-  quote: null
+  mention: null
 events:
 - id: e1
   type: religious
@@ -65,22 +58,68 @@ events:
     ah: 871
     type: religious
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: حج
+  - mention: m10
   note:
     ja: 巡礼年は没年（871年ズー・アル＝カアダ月にマッカ到着後没）と D04915（871年のラジャブ団長）から871年。
   trigger: rule
   phrase: حج مع الرجبية
+  mention: m7
 - id: e2
   type: visit
   date:
     ah: 871
     type: visit
   places:
-  - ref: gn:109223
-    quote: المدينة النبوية
-  quote: زيارته المدينة النبوية
+  - mention: m9
+  phrase: زيارته المدينة النبوية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: نور الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00150
+  quote: الديمي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00292
+  quote: الصحراوي
+- id: m7
+  kind: event
+  quote: حج
+- id: m8
+  kind: person
+  ref: AIND-D04915
+  quote: الأمير الركب علان
+  norm: الامير الركب علان
+- id: m9
+  kind: place
+  quote: المدينة النبوية
+  ref: gn:109223
+- id: m10
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m11
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m12
+  kind: year
+  value: '871'
+  quote: سنة
 translation:
   ja: アリー・ブン・アブー・バクル、ヌール・アッ＝ディーン、アッ＝ダイミー、のちにアル＝カーヒリー、アッ＝サフラーウィー。ラジャブ月の巡礼団（ラジャビーヤ）とともにハッジを行い、巡礼団長（アミール・アッ＝ラクブ）アッラーンのイマームを務めた。預言者の町マディーナを参詣してマッカに到着した後、871年ズー・アル＝カアダ月に同地（マッカ）で没した。アッラーの慈悲あれ。
   en: ʿAlī b. Abī Bakr, Nūr al-Dīn, al-Daymī, then al-Qāhirī, al-Ṣaḥrāwī. He performed the pilgrimage with the Rajab caravan (al-Rajabiyya) and served as the imam of the caravan commander (amīr al-rakb) ʿAllān. He died there (in Mecca) in Dhū al-Qaʿda 871 AH, after visiting the Prophet's City (Medina) and arriving in Mecca. May God have mercy on him.

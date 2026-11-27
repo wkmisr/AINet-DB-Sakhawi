@@ -9,64 +9,57 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: آسية
     by: rule
-    norm: اسية
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الملك
     by: rule
-    ref: AIND-D04709
+    mention: m2
   - id: n3
     type: nasab
-    quote: عبد اللطيف
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: الجيعان
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 835-02
   note:
     ja: 835年サファル月＝1431-10-18〜11-15（h2g.py）、月精度で @when=1431-10（初版 1431）。弟 عبد اللطيف は 837年サファル月生（D04327）、محمد は 841年生（D10628）。
-  quote: سنة
   phrase: ولدت في صفر سنة خمس وثلاثين
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D04709
   passive: AIND-D12847
-  quote: null
   note:
     ja: '#AIND-D04709「عبد الملك بن عبد اللطيف بن شاكر بن ماجد … المجد بن التاج بن العلم القاهري الشافعي ويعرف كسلفه بابن الجيعان . ولد في سنة اثنتين وتسعين … مات في سابع عشري رمضان سنة ست وخمسين … واستقر في جهاته بعده ابناه عبد اللطيف وأبو البقاء」（見出しナサブ＋兄弟2人の名で閉合、規則37）。初版は #NEEDID。'
   phrase: عبد الملك بن عبد اللطيف بن الجيعان
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04327
+  active: m5
   passive: AIND-D12847
-  quote: عبد اللطيف
   note:
     ja: '「أخت عبد اللطيف ومحمد」。#AIND-D04327「عبد اللطيف بن عبد الملك بن عبد اللطيف التاج بن الجيعان أخو المحب أبي البقاء محمد الآتي وأبوهما」。初版は #NEEDID。'
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D10628
+  active: m6
   passive: AIND-D12847
-  quote: ومحمد
   note:
     ja: '#AIND-D10628「أبو البقاء بن الجيعان آخر . هو المحب محمد بن عبد الملك بن عبد اللطيف الماضي أبوه وأخوه عبد اللطيف」。初版の TMP-P-000529（汎用 محمد、汚染番号）を除去。'
-  norm: محمد
   phrase: محمد
 - id: r4
   type: kin
   subtype: spouse
-  active: TMP-P-001739
+  active: m10
   passive: AIND-D12847
-  quote: عبد الباسط بن كاتب اقباي
   note:
     ja: '「وتزوجت عبد الباسط بن كاتب اقباي」。corpus 見出し・全文とも本項のみ（hw.py・全文走査「اقباي」「عبد الباسط」）、ID-Master 未登録 → 仮番号。初版は #NEEDID。'
 - id: r5
@@ -76,25 +69,21 @@ relations:
   passive: AIND-D12847
   summary:
     ar: الأمين أبو سعيد محمد
-  quote: null
   note:
     ja: '「واستولدها الأمين أبا سعيد محمدا」。corpus に本伝なし → 仮番号（ラカブ・クンヤ・父名）。初版は #NEEDID。'
 - id: r6
   type: kin
   subtype: daughter
-  active: TMP-P-001741
+  active: m11
   passive: AIND-D12847
-  quote: وازدان
   note:
     ja: '娘 ازدان（يونس بن جقمق の妻）。女性部 #AIND-D12870「أزدان رومية استولدها عبد الرحيم بن الحاجب …」は同名の別人（ルーム系のジャーリヤ）。本伝なし → 仮番号（珍しい名＋父名＋夫）。初版は #NEEDID。'
-  norm: ازدان
   phrase: ازدان
 - id: r7
   type: kin
   subtype: son-in-law
-  active: TMP-P-001742
+  active: m12
   passive: AIND-D12847
-  quote: يونس بن جقمق
   note:
     ja: '「وازدان زوج يونس بن جقمق الحاجب الحنفي أحد من يشتغل」＝娘の夫（規則52、active=相手）。「الحاجب」は父 جقمق にかかると読む（女性部 #AIND-D13866「ابنة سيدي وكانت زوجا لجقمق الحاجب」）。「الحنفي أحد من يشتغل」は يونس。corpus に本伝なし → 仮番号。初版は統制外 subtype「other」＋日本語 desc。'
 events:
@@ -104,23 +93,74 @@ events:
   - ref: TMP-T-00273
   methods:
   - TMP-S-00025
-  quote: وقرأت
   note:
     ja: 書くことを習い、ガザーリーの信条書を読んだ。ID-Master には『إحياء』（TMP-T-00148、注記に部分書名「قواعد العقائد」「عقيدة الإسلام」）があるが、「عقيدة الغزالي」がどの書かは原文から決まらない＝新規仮番号とし候補を記す（規則57、§D168-6）。初版の英語 desc を置換。
   trigger: rule
-  norm: قرات
   phrase: وتعلمت الكتابة وقرأت عقيدة الغزالي
+  mention: m9
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحجت
   note:
     ja: placeName مكة は規則20 の例外。
   trigger: rule
-  norm: حجت
   phrase: وحجت آسية غير مرة
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: آسية
+  norm: اسية
+- id: m2
+  kind: name
+  ref: AIND-D04709
+  quote: عبد الملك
+- id: m3
+  kind: name
+  quote: عبد اللطيف
+- id: m4
+  kind: name
+  quote: الجيعان
+- id: m5
+  kind: person
+  ref: AIND-D04327
+  quote: عبد اللطيف
+- id: m6
+  kind: person
+  ref: AIND-D10628
+  quote: ومحمد
+  norm: محمد
+- id: m7
+  kind: month
+  value: 2
+  quote: صفر
+- id: m8
+  kind: year
+  value: '835'
+  quote: سنة
+- id: m9
+  kind: event
+  quote: وقرأت
+  norm: قرات
+- id: m10
+  kind: person
+  ref: TMP-P-001739
+  quote: عبد الباسط بن كاتب اقباي
+- id: m11
+  kind: person
+  ref: TMP-P-001741
+  quote: وازدان
+  norm: ازدان
+- id: m12
+  kind: person
+  ref: TMP-P-001742
+  quote: يونس بن جقمق
+- id: m13
+  kind: event
+  quote: وحجت
+  norm: حجت
 translation:
   ja: アースィヤ・ビント・アブドゥルマリク・ブン・アブドゥッラティーフ・ブン・アル＝ジーアーン。アブドゥッラティーフとムハンマドの姉妹。（8）35年サファル月に生まれ、書くことを習い、ガザーリーの『アキーダ』を読んだ。アブドゥルバースィト・ブン・カーティブ・アクバーイと結婚し、彼は彼女との間にアミーン・アブー・サイード・ムハンマドとアズダーンをもうけた。アズダーンは、ハージブのジャクマクの子で、ハナフィー派の、学問に携わる者の一人であるユーヌスの妻である。アースィヤは幾度も巡礼した。
   en: Āsiya, daughter of ʿAbd al-Malik b. ʿAbd al-Laṭīf Ibn al-Jīʿān, sister of ʿAbd al-Laṭīf and Muḥammad. She was born in Ṣafar of the year [8]35, learned to write, and read al-Ghazālī's creed (ʿAqīda). She married ʿAbd al-Bāsiṭ b. Kātib Aqbāy, who had by her al-Amīn Abū Saʿīd Muḥammad and Azdān, the wife of Yūnus, son of Jaqmaq the chamberlain (ḥājib), a Ḥanafī and one of those engaged in study. Āsiya made the pilgrimage more than once.

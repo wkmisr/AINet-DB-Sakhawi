@@ -9,69 +9,62 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00202
-    quote: العلوي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m11
   - id: n3
     type: ism
-    quote: العجل
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عجلان
     by: rule
-    ref: AIND-D04892
+    mention: m2
   - id: n5
     type: nasab
-    quote: نعير
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: منصور
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: جماز
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: منصور
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: جماز
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: شيحة
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: هاشم
     by: rule
+    mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04892
+  active: m12
   passive: AIND-D04894
-  quote: أبوه
   note:
     ja: '「الماضي أبوه قريبا」＝直前の #AIND-D04892（عجلان بن نعير بن منصور بن جماز بن منصور بن شيحة بن هاشم … العلوي الحسيني أمير المدينة النبوية、832没）。初版の #NEEDID を差し替え。'
-  norm: ابوه
   phrase: عجلان بن نعير
 - id: r2
   type: social
   subtype: rival
-  active: AIND-D05353
+  active: m14
   passive: AIND-D04894
-  quote: وعلي بن مانع
   note:
     ja: '「تنازع بعد قتل مانع بن علي في إمرة للمدينة هو وعلي بن مانع في سنة تسع وثلاثين」。علي بن مانع ＝ #AIND-D05353（علي بن مانع بن علي بن عطية … الحسيني المدني أخو أميان الماضي … وتجاذب في سنة تسع وثلاثين هو والعجل بن عجلان الماضي فيها）。本項主を明記。初版の #NEEDID を差し替え。'
-  norm: علي بن مانع
   phrase: علي بن مانع
 events:
 - id: e1
@@ -80,14 +73,71 @@ events:
     ah: 839
     type: political
   places:
-  - ref: gn:109223
-    quote: للمدينة
-    norm: لمدينة
-  quote: استقر
+  - mention: m13
   note:
     ja: '839 ＝ 1435（h2g.py、年精度は年初）。مانع بن علي ＝ #AIND-D06436（مانع بن علي بن عطية … أمير المدينة ووالد أميرها أميان … قتله حيدر بن دوغان … سنة تسع وثلاثين … واستقر ابنه بعده في الإمرة بعد تنازع بين علي بن مانع والعجل بن عجلان）。「ابنه الآخر أميان」の ابنه は مانع を指し、أميان（マディーナのアミール）は مانع の子であって本項主の兄弟ではない。初版の brother relation（أميان）は誤読のため除去。'
   trigger: rule
   phrase: تنازع بعد قتل مانع بن علي في إمرة للمدينة هو وعلي بن مانع في سنة تسع وثلاثين ولم تحصل لواحد منهما بل استقر بعده ابنه الآخر أميان
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: العجل
+- id: m2
+  kind: name
+  ref: AIND-D04892
+  quote: عجلان
+- id: m3
+  kind: name
+  quote: نعير
+- id: m4
+  kind: name
+  quote: منصور
+- id: m5
+  kind: name
+  quote: جماز
+- id: m6
+  kind: name
+  quote: منصور
+- id: m7
+  kind: name
+  quote: جماز
+- id: m8
+  kind: name
+  quote: شيحة
+- id: m9
+  kind: name
+  quote: هاشم
+- id: m10
+  kind: name
+  ref: TMP-N-00202
+  quote: العلوي
+- id: m11
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m12
+  kind: person
+  ref: AIND-D04892
+  quote: أبوه
+  norm: ابوه
+- id: m13
+  kind: place
+  quote: للمدينة
+  ref: gn:109223
+  norm: لمدينة
+- id: m14
+  kind: person
+  ref: AIND-D05353
+  quote: وعلي بن مانع
+  norm: علي بن مانع
+- id: m15
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m16
+  kind: event
+  quote: استقر
 translation:
   ja: アル＝アジュル・ブン・アジュラーン・ブン・ヌアイル・ブン・マンスール・ブン・ジャンマーズ・ブン・マンスール・ブン・ジャンマーズ・ブン・シーハ・ブン・ハーシム・アル＝アラウィー・アル＝フサイニー。父については少し前に既述。マーニウ・ブン・アリーの殺害後、（8）39年に彼とアリー・ブン・マーニウとがマディーナのアミール職をめぐって争ったが、どちらも手にすることはなく、彼（マーニウ）の後にはそのもう一人の息子アミヤーンが（アミール職に）確定した。
   en: al-ʿAjl b. ʿAjlān b. Nuʿayr b. Manṣūr b. Jammāz b. Manṣūr b. Jammāz b. Shīḥa b. Hāshim al-ʿAlawī al-Ḥusaynī; his father was mentioned shortly above. After the killing of Māniʿ b. ʿAlī, he and ʿAlī b. Māniʿ contended for the emirate of Medina in (8)39, but neither of them obtained it; rather, his (Māniʿ's) other son Amyān was confirmed in it after him.

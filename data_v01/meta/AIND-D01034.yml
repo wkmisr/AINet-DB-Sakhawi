@@ -9,51 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن السكري
-    norm: ابن السكري
     label: ابن السكري
+    mention: m6
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001664
+    mention: m2
   - id: n6
     type: nasab
-    quote: خيل
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001664
+  active: m7
   passive: AIND-D01034
   summary:
     ar: علي بن علي السكري
-  quote: أبيه
   note:
     ja: '父＝علي بن علي（السكري は父の職「حرفة أبيه」）。見出しは「أحمد بن علي بن خيل」だが、ニスバ索引 #AIND-D12401「ابن السكري وشهاب الدين أحمد بن علي بن علي بن خليل」で父のナサブ2代と職が #AIND-D08139（محمد بن علي بن علي السكري أبوه）の父と閉合（B149-153 ★1-6）。兄弟 D08139 とは relation を立てず note（父が TMP-P のため、規則23）。'
-  norm: ابيه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D03042
+  active: m8
   passive: AIND-D01034
   methods:
   - label: ishtaghala
     lang: en
-  quote: الزين زكريا
 - id: r3
   type: scholarly
   subtype: teacher
@@ -62,17 +55,14 @@ relations:
   methods:
   - label: ishtaghala
     lang: en
-  quote: null
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D08580
+  active: m9
   passive: AIND-D01034
   methods:
   - label: nazala
     lang: en
-  quote: للكمال الطويل
-  norm: لكمال الطويل
 - id: r5
   type: scholarly
   subtype: teacher
@@ -81,7 +71,6 @@ relations:
   methods:
   - label: taraddada
     lang: en
-  quote: null
 affiliations:
 - id: a1
   type: affiliated
@@ -95,8 +84,8 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   trigger: rule
+  mention: m10
 notes:
 - text: 穏やかで高潔な人物であった。
   lang: ja
@@ -104,6 +93,46 @@ notes:
 - text: He possessed tranquillity and good manners (adab).
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-001664
+  quote: علي
+- id: m3
+  kind: name
+  quote: خيل
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  quote: بابن السكري
+  norm: ابن السكري
+- id: m7
+  kind: person
+  ref: TMP-P-001664
+  quote: أبيه
+  norm: ابيه
+- id: m8
+  kind: person
+  ref: AIND-D03042
+  quote: الزين زكريا
+- id: m9
+  kind: person
+  ref: AIND-D08580
+  quote: للكمال الطويل
+  norm: لكمال الطويل
+- id: m10
+  kind: event
+  quote: حج
 translation:
   ja: アフマド・ブン・アリー・ブン・ハイル、シャハーブ・アッ＝カーヒリー。サイード・アッ＝スアダーの（スーフィー）の一人。父親の職業からイブン・アッ＝スッカリーとしても知られている。ザイン・ザカリーヤーとアル＝バクリーのもとで学んだ者の一人で、その後、カマール・アッ＝タウィールなどと一緒に過ごした。彼は巡礼を行い、（サハーウィー）私のもとを頻繁に訪れ、穏やかで高潔な人物であった。
   en: Aḥmad b. ʿAlī b. Khayl, Shihāb al-Qāhirī. One of the Sufis of Saʿīd al-Suʿadāʾ, known as Ibn al-Sukkarī, after his father's craft. He studied under al-Zayn Zakariyyā and al-Bakarī, and then settled with al-Kamāl al-Ṭawīl and others. He performed the pilgrimage and frequented me (al-Sakhāwī), possessing tranquility and good manners.

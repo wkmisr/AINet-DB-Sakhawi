@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00350
-    quote: الأحمدي
-    norm: الاحمدي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: ism
-    quote: كمشبغا
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 838-03-11
   note:
     ja: 838年ラビーウ第一月11日＝1434-10-24（h2g.py。h2g の曜日は金曜で原文の「ليلة الاثنين」と合わないが、曜日は暦の判別に使わない、規則18）。「وهو في عشر الستين」＝50代（年齢表現、規則59(d)）＝生年は作らない。
-  quote: سنة
   phrase: مات في ليلة الاثنين حادي عشر ربيع الأول سنة ثمان وثلاثين كما أرخه العيني وهو في عشر الستين
+  mention: m10
 persons:
 - id: p1
   label: والد كمشبغا الأحمدي الظاهري
@@ -38,68 +35,109 @@ relations:
   subtype: father
   active: AIND-D06405#p1
   passive: AIND-D06405
-  quote: null
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m4
   passive: AIND-D06405
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: 「من أصاغر مماليكه」＝主人ニスバ「الظاهري برقوق」の الظاهر برقوق（#AIND-D02178、頻出確定ID）の年少のマムルーク（規則51）。初版の幻番号 TMP-P-000000 を置換。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00107
-  quote: رءوس النوب
   note:
     ja: '「استقر به الأشرف رءوس النوب」。刊本の語形は複数形「رءوس النوب」で、筆頭職 رأس نوبة النوب（repo では TMP-O-00092）か一般の رأس نوبة の一人（TMP-O-00107、先例 #AIND-D06353・#AIND-D06359「من رءوس النوب」）かが語形からは決まらない。規則48 どおり汎用 رأس نوبة（TMP-O-00107）とし、ISSUES §D160-2 に記した。任官者 الأشرف（برسباي）は event n=2 の persName（規則53）。'
+  mention: m8
 - id: s2
   type: office
   ref: TMP-O-00132
-  quote: null
   note:
     ja: '「وساق المحمل باشا」＝バーシュ（隊長）としてマフマル（巡礼行列）を率いた。ID-Master 既登録 باش（TMP-O-00132）を先例 #AIND-D06311（label「باش المحمل | ممن ساق المحمل باشا سنين」）に揃えて充当（初版は幻番号 TMP-O-00000）。原文に地名・حج の語がないので placeName・hajj event は置かない（規則20・22）。'
+  mention: null
 events:
 - id: e1
   type: political
-  quote: تأمر
   note:
     ja: المؤيد＝المؤيد شيخ（#AIND-D03345、没824）。その死後にアミールとなった。原文に年の記載はなく、他項の没年から年を写さない（規則18 v13.44(e)）＝初版の when-custom 0824 cert medium を除去。
   trigger: rule
-  norm: تامر
   phrase: تأمر بعد موت المؤيد
+  mention: m5
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02168
-    quote: الأشرف
-    norm: الاشرف
-  quote: استقر
+  - mention: m7
   note:
     ja: 任官者 الأشرف＝المؤيد شيخ の死（824）と本項主の没年（838）の間に在位した الأشرف برسباي（#AIND-D02168、在位825–841）。主人ではないスルターンによる任官は patron にせず event 内 persName（規則53）。年の記載なし＝日付属性なし。
   trigger: rule
   phrase: ثم استقر به الأشرف رءوس النوب وساق المحمل باشا
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m12
   note:
     ja: 'Pattern A。初版の統制外 subtype「chronicler」relation（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に変換（先例 #AIND-D02894・#AIND-D10025）。'
   trigger: rule
-  norm: ارخه
   phrase: كما أرخه العيني
+  mention: m11
 notes:
 - text: 「تركي الجنس」はトルコ系という出自の記述で見出しの名の一部ではないため、初版の persName nisbah「التركي」（TMP-N-00232）を除去し訳文に留めた。「وكان خفيف اللحية شهما قوي النفس مقداما له قدرة على بغض الجراكسة」は人物評＝訳文のみ。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: كمشبغا
+- id: m2
+  kind: name
+  ref: TMP-N-00350
+  quote: الأحمدي
+  norm: الاحمدي
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m5
+  kind: event
+  quote: تأمر
+  norm: تامر
+- id: m6
+  kind: event
+  quote: استقر
+- id: m7
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m8
+  kind: office
+  ref: TMP-O-00107
+  quote: رءوس النوب
+- id: m9
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m10
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: クムシュブガー・アル＝アフマディー・アッ＝ザーヒリー・バルクーク。トルコ系で、彼（アッ＝ザーヒル・バルクーク）の年少のマムルークの一人。次いでアル＝ムアイヤド（シャイフ）の死後にアミールとなり、次いでアル＝アシュラフ（バルスバーイ）が彼をラアス・ナウバ（複数のラアス・ナウバの一人）に任じ、バーシュ（隊長）としてマフマル（巡礼行列）を率いた。髭が薄く、気概があり、意志が強く勇敢で、チェルケス人を憎む性向があった。アル＝アイニーが記すとおり838年ラビーウ第一月11日の月曜の夜に、50代で没した。
   en: Kumushbughā al-Aḥmadī al-Ẓāhirī Barqūq. Of Turkic stock, one of the junior mamlūks of (al-Ẓāhir Barqūq). He then became an amir after the death of al-Muʾayyad (Shaykh); then al-Ashraf (Barsbāy) appointed him among the ruʾūs al-nuwab (heads of the guard), and he led the maḥmal (pilgrimage procession) as bāsh. He was thin-bearded, high-minded, strong-willed and bold, and had a capacity for hating the Circassians. He died on the night of Monday, 11 Rabīʿ I of the year 838, as al-ʿAynī dated it, while in his fifties.

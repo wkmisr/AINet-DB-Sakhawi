@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02007
-    quote: الدلي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشريف
+    mention: m3
   - id: n3
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمود
     by: rule
-    ref: TMP-P-000760
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D02751
   methods:
   - TMP-S-00003
@@ -36,16 +34,12 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m7
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-000760
   passive: AIND-D02751
-  quote: null
   note:
     ja: ナサブ要素のみ。corpus独立立項なし＝TMP発行。
   phrase: محمود
@@ -53,13 +47,38 @@ events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m7
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  ref: TMP-P-000760
+  quote: محمود
+- id: m3
+  kind: name
+  quote: الشريف
+- id: m4
+  kind: name
+  ref: TMP-N-02007
+  quote: الدلي
+- id: m5
+  kind: event
+  quote: سمع
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: フサイン・ブン・マフムード・アッ＝シャリーフ・アッ＝ドゥリー。カイロで私（サハーウィー）から（ハディースを）聴聞した者。
   en: Ḥusayn b. Maḥmūd al-Sharīf al-Dullī. He was among those who heard (ḥadīth) from me (al-Sakhāwī) in Cairo.

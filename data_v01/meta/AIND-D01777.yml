@@ -9,73 +9,98 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00192
-    quote: باليمني
-    norm: اليمني
+    mention: m3
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m2
   - id: n3
     type: shuhrah
-    quote: null
     label: اليمني
+    mention: null
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
 death:
   id: d
   date:
     ah: 825-02
   note:
     en: He died in Ṣafar 825 AH, and left no one after him who read in his style.
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000639
+  active: m5
   passive: AIND-D01777
   methods:
   - TMP-S-00009
-  quote: لابن الطباخ
   note:
     en: 'His teacher Ibn al-Ṭabbākh, a Qurʾān reciter (qāriʾ) of the Jawq in Cairo, with whom he recited and whom he imitated. Placeholder #TMP-P-000639. Scrutiny (B15): the only headword "Ibn al-Ṭabbākh" in the corpus is ʿAlī b. Abī Bakr b. ʿAbd Allāh b. Abī al-Barakāt al-Ashmūnī (#AIND-D05079; the stub #AIND-D12477 is merely its ابن-cross), but he is a Shāfiʿī faqīh, not attested as a Jawq reciter — profile mismatch, so NOT identified as the teacher. The teacher is more likely an unheadworded member of the Cairene Banū al-Ṭabbākh family (associated with Jāmiʿ Ibn al-Ṭabbākh, a locus of Qurʾān recitation). Kept as placeholder; requires repo/printed-edition specification. Replaces the contamination number #TMP-P-000066 (= al-Sharaf b. al-Kuwayk / #AIND-D08850).'
-  norm: ابن الطباخ
 states:
 - id: s1
   type: office
   ref: wd:Q3595924
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m4
   orgs:
   - ref: TMP-I-00068
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: null
+  - mention: m4
   cert: low
   note:
     en: Implied by his profession as a reader in Cairo.
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     en: Reported by our shaykh Ibn Ḥajar al-ʿAsqalānī in his Inbāʾ al-Ghumr.
   trigger: rule
   phrase: قاله شيخنا في أنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: الشهاب
+- id: m3
+  kind: name
+  ref: TMP-N-00192
+  quote: باليمني
+  norm: اليمني
+- id: m4
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m5
+  kind: person
+  ref: TMP-P-000639
+  quote: لابن الطباخ
+  norm: ابن الطباخ
+- id: m6
+  kind: month
+  value: 2
+  quote: صفر
+- id: m7
+  kind: year
+  value: '825'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: قاله
 translation:
   ja: アフマド、ラカブはアッ＝シハーブ、通称アル＝ヤマニー。カイロのジョウクの朗誦家の一人。イブン・アッ＝タッバーフの弟子で、彼と一緒に朗誦し、彼を模倣した。人々は彼の朗誦に並々ならぬ熱意を示した。825年サファル月に死去し、彼以降に彼の方式で朗誦する者はいなかった。我らがシャイフ（イブン・ハジャル）が『インバーウ（＝インバーウ・アル＝グムル）』で述べた。
   en: Aḥmad, known as al-Shihāb, commonly known as al-Yamanī, was one of the readers of the Jawq in Cairo. He was a student of Ibn al-Ṭabbākh, read with him, and imitated his style. People showed great enthusiasm for his recitations. He died in Ṣafar 825 AH and left no one after him who read in his style, as stated by our shaykh (Ibn Ḥajar) in his 『Inbāʾ al-Ghumr』.

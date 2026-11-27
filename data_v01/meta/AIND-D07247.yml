@@ -9,33 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m7
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: التقي محمد
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: صلح
     by: rule
+    mention: m6
 persons:
 - id: p1
   label: أبو بكر بن محمد بن علي بن التقي محمد بن صالح المدني
@@ -48,55 +46,87 @@ relations:
   subtype: father
   active: AIND-D07247#p1
   passive: AIND-D07247
-  quote: null
   note:
     ja: '父（初版は欠落）。名＋ナサブのみで父自身の識別要素（ラカブ・職）がなく corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00353
   places:
   - ref: gn:109223
     cert: medium
   orgs:
   - ref: TMP-I-00244
-  quote: وخادم ضريح السيد حمزة
   note:
     ja: 「وخادم ضريح السيد حمزة بها」。ضريح السيد حمزة（マディーナ近郊ウフドのハムザ廟）は ID-Master 未登録 → 新規 TMP-I-00244、その奉仕人職は先例 خادم قبة العباس（TMP-O-00153）に倣い新規 TMP-O-00350。「بها」はニスバ照応のみ → cert medium。初版の affiliation employed（二重符号化、規則8）を除去。
-  norm: خادم ضريح السيد حمزة
+  mention: m8
 events:
 - id: e1
   type: residence
   places:
   - ref: gn:109223
     cert: medium
-  quote: نشأ بها
   note:
     ja: 「بها」の先行詞は見出しのニスバ المدني（および「قضاتها」「بها」の照応）のみ → cert medium（規則22(3)）。
-  norm: نشا بها
+  phrase: نشأ بها
+  mention: null
 - id: e2
   type: cultural
   works:
   - ref: TMP-T-00065
   - ref: TMP-T-00112
   - ref: TMP-T-00080
-  quote: فحفظ المنهاج الفرعي والأصلي وألفية النحو واشتغل
   note:
     ja: المنهاج الفرعي＝منهاج الطالبين（TMP-T-00065）、المنهاج الأصلي＝TMP-T-00112（ID-Master 登録名そのまま。同書と思われる『منهاج الوصول』TMP-T-00232 との名寄せは §D131-3）、ألفية النحو＝ألفية ابن مالك（TMP-T-00080）。初版は訳文のみで event を欠いていた。
-  norm: حفظ المنهاج الفرعي والاصلي والفية النحو واشتغل
+  phrase: فحفظ المنهاج الفرعي والأصلي وألفية النحو واشتغل
+  mention: null
 - id: e3
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وقدم
+  - mention: m10
   trigger: rule
-  norm: قدم
   phrase: وقدم القاهرة
+  mention: m9
 notes:
 - text: '「ابن عم بني صالح قضاتها」＝マディーナのカーディー家 بنو صالح（الكناني المدني、祖 التقي محمد بن صالح＝本項主の高祖父。#AIND-D03752 ناصر الدين عبد الرحمن بن محمد بن صالح بن إسماعيل・#AIND-D10260・#AIND-D07586・#AIND-D00273 など「ويعرف كسلفه بابن صالح」）の従兄弟。家（複数人）への関係のため relation は立てず note に留める（初版の cousin #NEEDID relation を除去）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: التقي محمد
+- id: m6
+  kind: name
+  quote: صلح
+- id: m7
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m8
+  kind: office
+  ref: TMP-O-00353
+  quote: وخادم ضريح السيد حمزة
+  norm: خادم ضريح السيد حمزة
+- id: m9
+  kind: event
+  quote: وقدم
+  norm: قدم
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アリー・ブン・アッ＝タキー・ムハンマド・ブン・サーリフ、アル＝マダニー。そこ（マディーナ）のカーディーたちであるバヌー・サーリフの従兄弟で、同地のサイイド・ハムザ廟の奉仕人。そこで育ち、『ミンハージュ』の法学（フルーウ）書と法源学（ウスール）書、および文法の『アルフィーヤ』を暗記し、学問に励み、カイロに来た。
   en: Muḥammad b. Abī Bakr b. Muḥammad b. ʿAlī b. al-Taqī Muḥammad b. Ṣāliḥ al-Madanī, cousin of the Banū Ṣāliḥ, its (Medina's) judges, and servant of the shrine of al-Sayyid Ḥamza there. He grew up there, memorized the 'Minhāj' of law (furūʿ) and that of legal theory (uṣūl) and the 'Alfiyya' of grammar, studied, and came to Cairo.

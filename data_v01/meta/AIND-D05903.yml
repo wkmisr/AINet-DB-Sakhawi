@@ -9,83 +9,73 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01036
-    quote: الحواري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m7
   - id: n3
     type: laqab
-    quote: الزين
+    mention: m4
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05283
+    mention: m2
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: العلاء
     by: rule
+    mention: m5
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 birth:
   id: b
   date:
     ah: 803
-  quote: سنة
+  mention: m10
 death:
   id: d
   date:
     ah: 874-03-20
   note:
     ja: 874-03-20 ＝ 1469-10-06（h2g.py、水曜日と整合）。初版の 1469（年のみ）を日付精度に揃えた。没地は原文にない。
-  quote: سنة
   phrase: مات في يوم الأربعاء عشري ربيع الأول سنة أربع وسبعين
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05283
+  active: m9
   passive: AIND-D05903
   summary:
     ar: العلاء علي بن عثمان الحواري
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 = #AIND-D05283（علي بن عثمان العلاء الحواري الخليلي والد عمر الآتي、没833）。ニスバ索引項 #AIND-D11611「الحواري … والعلاء علي بن عثمان وابنه الزين عمر」でも閉合。初版の #NEEDID を差し替え。'
-  norm: ابوه
 - id: r2
   type: social
   subtype: predecessor
-  active: AIND-D05283
+  active: m11
   passive: AIND-D05903
   summary:
     ar: العلاء علي بن عثمان الحواري
-  quote: أبيه
   note:
     ja: 「واستقر في جميع وظائف أبيه كالهكارية والبدرية واللؤلؤية والإعادة بالصلاحية」＝父の全職を継いだ（規則29、先例 D04045）。
-  norm: ابيه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00243
   orgs:
   - ref: TMP-I-00177
-  quote: والإعادة
   note:
     ja: 復習教師職（معيد／إعادة = TMP-O-00243）。「الصلاحية」はエルサレムの المدرسة الصلاحية（#TMP-I-00177。ID-Master には同一実体とみられる「الصلاحية بالقدس」wd:Q4702696 も登録されており二重登録＝統合は Waka の wd 照合後、ID-Master要対応に記載。内容検証B L-25）。父の本伝「وأعاد في الصلاحية」と一致。初版の wd:Q7404512（カイロの المدرسة الصالحية、サーリフ・ナジュムッディーン建立）は別実体のため差し替え（2026-09-24 Waka 裁定 ★6-2 と同じ）。初版の affiliation n=4（الصلاحية、二重符号化）は除去（規則8）。
-  norm: الاعادة
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -114,6 +104,62 @@ affiliations:
   - label: al-Luʾluʾiyya
   note:
     ja: 'エルサレムのマドラサ（父 #AIND-D05283 の本伝参照）。ID-Master 未登録 → TMP-I-00206。'
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D05283
+  quote: علي
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: الزين
+- id: m5
+  kind: name
+  quote: العلاء
+- id: m6
+  kind: name
+  ref: TMP-N-01036
+  quote: الحواري
+- id: m7
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: person
+  ref: AIND-D05283
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D05283
+  quote: أبيه
+  norm: ابيه
+- id: m12
+  kind: office
+  ref: TMP-O-00243
+  quote: والإعادة
+  norm: الاعادة
+- id: m13
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m14
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アリー・ブン・ウスマーン、アッ＝ザイン・ブン・アル＝アラー、アル＝ハワーリー・アル＝マクディスィー・アッ＝シャーフィイー。父は前述。803年に生まれ、ハッカーリーヤ、バドリーヤ、ルウルウイーヤ（の職）およびサラーヒーヤの復習教師職（イアーダ）など、父のすべての職に就いた。874年ラビーウ・アル＝アウワル月20日水曜日に没した。
   en: ʿUmar b. ʿAlī b. ʿUthmān, al-Zayn b. al-ʿAlāʾ, al-Ḥawārī al-Maqdisī al-Shāfiʿī; his father was mentioned above. He was born in the year 803 and was installed in all of his father's posts, such as those at al-Hakkāriyya, al-Badriyya and al-Luʾluʾiyya, and the post of repetitor (iʿāda) at al-Ṣalāḥiyya. He died on Wednesday, 20 Rabīʿ al-Awwal 874.

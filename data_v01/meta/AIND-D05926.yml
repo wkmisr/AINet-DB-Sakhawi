@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ركن الدين
+    mention: m3
   - id: n2
     type: kunyah
-    quote: أبو حفص
-    norm: ابو حفص
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن قيماز
+    mention: null
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: قيماز
     by: rule
-    ref: TMP-P-001399
+    mention: m2
   - id: n6
     type: nasab
-    quote: الأمير سيف الدين
     by: rule
-    norm: الامير سيف الدين
+    mention: m5
 birth:
   id: b
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m6
   phrase: ولد بالقاهرة
 death:
   id: d
@@ -45,14 +40,12 @@ death:
     ah: 809-07-01
     cert: medium
   places:
-  - ref: gn:170063
-    cert: medium
-    quote: بحلب
-    norm: حلب
+  - cert: medium
+    mention: m13
   note:
     ja: 「سنة تسع」は一の位のみ → 809、cert medium（2026-09-24 裁定。العيني・المقريزي が記す年代と整合）。809-07-01 ＝ 1406-12-21（h2g.py では日曜。原文は月曜）。初版の when="1406" を日付精度に。没地 حلب は المقريزي の付加（「زاد المقريزي بحلب」）のため cert medium。初版の burial placeName（サビールと墓廟）は「صاحب السبيل والتربة」＝建立者であって埋葬の明記ではないため除去。
-  quote: سنة
   phrase: مات في يوم الاثنين مستهل رجب سنة تسع . ذكره العيني وغيره ، زاد المقريزي بحلب
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -61,22 +54,20 @@ relations:
   passive: AIND-D05926
   summary:
     ar: الأمير سيف الدين قيماز
-  quote: null
   note:
     ja: '父 الأمير سيف الدين قيماز。アミールの称号＋名で識別できるため TMP-P-001399（規則12）。corpus に本伝なし・ID-Master 未登録。初版の #NEEDID を差し替え。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00064
-  quote: استادارية السلطان
   note:
     ja: 「وباشر وظائف كثيرة منها استادارية السلطان مرارا ولم ينتج أمره」＝スルターンのウスタダール職を複数回。汎用 أستادار（TMP-O-00064）。初版の placeName القاهرة（根拠なし）を除去（規則22）。
+  mention: m7
 affiliations:
 - id: a1
   type: founded
   ref: TMP-I-00210
   places:
-  - ref: TMP-L-00321
+  - mention: m14
   orgs:
   - label: السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
   - label: Sabīl Ibn Qaymāz wa-turbatuhu tijāh Khalīj al-Zaʿfarān
@@ -85,26 +76,81 @@ affiliations:
 events:
 - id: e1
   type: political
-  quote: وخدم جماعة من أعيان الأمراء وباشر وظائف كثيرة
-  norm: خدم جماعة من اعيان الامراء وباشر وظاءف كثيرة
+  phrase: وخدم جماعة من أعيان الأمراء وباشر وظائف كثيرة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m11
   note:
     ja: Pattern A。العيني ＝ بدر الدين العيني（wd:Q257745）。
   trigger: rule
   phrase: ذكره العيني وغيره
+  mention: m10
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: زاد المقريزي بحلب وهو صاحب السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
+  - mention: m12
   note:
     ja: Pattern A。المقريزي（wd:Q293604）。書名は原文にないため bibl は付さない。
+  phrase: زاد المقريزي بحلب وهو صاحب السبيل والتربة تجاه خليج الزعفران المعروف بسبيل ابن قيماز
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001399
+  quote: قيماز
+- id: m3
+  kind: name
+  quote: ركن الدين
+- id: m4
+  kind: name
+  quote: أبو حفص
+  norm: ابو حفص
+- id: m5
+  kind: name
+  quote: الأمير سيف الدين
+  norm: الامير سيف الدين
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m7
+  kind: office
+  ref: TMP-O-00064
+  quote: استادارية السلطان
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '809'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
+- id: m12
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m13
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m14
+  kind: place
+  quote: خليج الزعفران
+  ref: TMP-L-00321
 translation:
   ja: ウマル・ブン・カイマーズ、ルクン・アッ＝ディーン、アブー・ハフス、アミール・サイフ・アッ＝ディーンの息子。カイロで生まれ、有力アミールたちの一団に仕え、スルターンのウスタダール職（数度）など多くの職務に当たったが、その身は大成しなかった。（80）9年ラジャブ月初日の月曜日に没した。アル＝アイニーほかが彼に言及している。アル＝マクリーズィーは「アレッポで」と付け加え、彼がザアファラーン運河の向かいにある、イブン・カイマーズのサビールとして知られるサビール（給水所）と墓廟の建立者であるとする。
   en: ʿUmar b. Qaymāz, Rukn al-Dīn Abū Ḥafṣ, son of the amīr Sayf al-Dīn. He was born in Cairo, served a number of leading amirs and held many offices, among them the post of ustādār of the Sultan several times, but his affairs did not prosper. He died on Monday, the first of Rajab of the year (80)9. Al-ʿAynī and others mentioned him; al-Maqrīzī added "in Aleppo", and that he was the founder of the sabīl (public fountain) and the turba (mausoleum) facing the Khalīj al-Zaʿfarān, known as the Sabīl of Ibn Qaymāz.

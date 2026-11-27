@@ -9,31 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00698
-    quote: الجدي
+    mention: m4
   - id: n2
     type: laqab
-    quote: بكريم الدين
-    norm: كريم الدين
     label: كريم الدين
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عوض
     by: rule
+    mention: m3
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: أحد التجار المتمولين ممن له عقار
-  norm: احد التجار المتمولين ممن له عقار
+  mention: m5
 events:
 - id: e3
   type: other
@@ -41,38 +37,84 @@ events:
     ah: 847
     type: other
   places:
-  - ref: TMP-L-00201
-    quote: بمنى
-    norm: مني
-  quote: أنشأ بمنى في سنة سبع وأربعين سبيلا
+  - mention: m12
   note:
     ja: 847年＝1443年5月1日〜1444年4月18日。منى ＝ TMP-L-00201（ID-Master 登録。repo には gn:104889 の使用も1件あり → 要統一）。
-  norm: انشا بمني في سنة سبع واربعين سبيلا
+  phrase: أنشأ بمنى في سنة سبع وأربعين سبيلا
+  mention: null
 sources:
 - id: c1
   date:
     ah: 858
     type: cultural
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: أرخه
+  - mention: m6
   note:
     ja: 'Pattern A。ابن عزم ＝ #AIND-D12540（repo 運用の canonical）。「زعيم جدة」は ابن عزم の形容であり職名としては立てない。858年＝1454年1月1日〜12月20日。初版は統制外 subtype「described by」の relation。'
   trigger: rule
-  norm: ارخه
   phrase: وصفه ابن عزم بكريم الدين زعيم جدة سنة ثمان وخمسين
+  mention: m9
 - id: c2
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: وقال
+  - mention: m10
   cert: low
   note:
     ja: 'Pattern A（没年記録）。本文に没年の記載がないため規則により #AIND-D09211 cert low。初版は統制外 subtype「chronicled by」の relation。'
   trigger: rule
-  norm: قال
   phrase: أرخه ابن فهد وقال أنه أنشأ بمنى في سنة سبع وأربعين سبيلا
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عوض
+- id: m4
+  kind: name
+  ref: TMP-N-00698
+  quote: الجدي
+- id: m5
+  kind: office
+  ref: wd:Q215536
+  quote: أحد التجار المتمولين ممن له عقار
+  norm: احد التجار المتمولين ممن له عقار
+- id: m6
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
+- id: m7
+  kind: name
+  quote: بكريم الدين
+  norm: كريم الدين
+- id: m8
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m11
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m12
+  kind: place
+  quote: بمنى
+  ref: TMP-L-00201
+  norm: مني
+- id: m13
+  kind: year
+  value: '847'
+  quote: سنة
 translation:
   ja: アブド・アル＝カリーム・ブン・ムハンマド・ブン・アワド・アル＝ジュッディー。不動産を持つ富裕な商人の一人。イブン・アズムは858年に彼を「カリーム・アッ＝ディーン、ジッダの首領（ザイーム）」と形容した。イブン・ファフドがその没年を記録し、847年にミナーにサビール（給水所）を建てたと述べている。
   en: ʿAbd al-Karīm b. Muḥammad b. ʿAwaḍ al-Juddī, one of the wealthy merchants who owned real estate. Ibn ʿAzm described him, in the year 858, as Karīm al-Dīn, the chief (zaʿīm) of Jidda. Ibn Fahd recorded his death and said that he built a public fountain (sabīl) at Minā in the year 847.

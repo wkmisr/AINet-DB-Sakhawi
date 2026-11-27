@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: خان جهان
+    mention: m3
   - id: n2
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n3
     type: nasab
-    quote: غريب شاه ويلقب
     by: rule
-    ref: TMP-P-001720
+    mention: m2
 death:
   id: d
   date:
@@ -27,49 +25,79 @@ death:
   note:
     ar: قتل في سنة أربع عشرة
     ja: 814年に殺害された。814年＝1411-05-04 開始（h2g.py、年精度）。殺害者・場所は原文になし。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001720
   passive: AIND-D10287
-  quote: null
   note:
     ja: '規則3。父 غريب شاه は corpus に本伝なし（hw.py「غريب شاه」＝本項のみ）・ID-Master 未登録。珍しい名はそれ自体が識別要素（先例 D10029 の فيروز شاه）＝仮番号 TMP-P-001720。初版は #NEEDID。'
   phrase: غريب شاه
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02021
+  active: m6
   passive: AIND-D10287
-  quote: أعظم شاه بن إسكندر شاه
   note:
     ja: 「وزير صاحب الهند الغياث أبي المظفر أعظم شاه بن إسكندر شاه」＝仕えた君主（規則56、patron）＝#AIND-D02021「أعظم شاه بن اسكندر شاه بن شمس الدين غياث الدين أبو المظفر السجستاني الأصل صاحب منجالة من بلاد الهند … مات في سنة أربع عشرة أو التي تليها . ترجمه الفاسي في مكة مطولا وكذا المقريزي في عقوده」（ブリーフ候補。名＋父名＋ラカブ الغياث＋クンヤ أبو المظفر で閉合。repo 未収録）。君主の称号「صاحب الهند」は相手の職＝本項主の state にしない。初版は統制外 subtype「client」・#NEEDID。
-  norm: اعظم شاه بن اسكندر شاه
 states:
 - id: s1
   type: office
-  ref: wd:Q175240
   places:
-  - ref: TMP-L-00039
-    quote: الهند
-  quote: وزير
+  - mention: m5
   note:
     ja: 「وزير صاحب الهند」。وزير＝wd:Q175240（ID-Master 登録値）。地は原文の「الهند」（TMP-L-00039）のまま。君主の項 D02021 は「صاحب منجالة من بلاد الهند」（ベンガル）とするが、本項にない地名は補わない（規則23）。
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。初版の統制外 relation（subtype chronicled_by）を置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: TMP-P-001720
+  quote: غريب شاه ويلقب
+- id: m3
+  kind: name
+  quote: خان جهان
+- id: m4
+  kind: office
+  ref: wd:Q175240
+  quote: وزير
+- id: m5
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m6
+  kind: person
+  ref: AIND-D02021
+  quote: أعظم شاه بن إسكندر شاه
+  norm: اعظم شاه بن اسكندر شاه
+- id: m7
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ヤフヤー・ブン・ガリーブ・シャー、ハーン・ジャハーンとあだ名される。インドの君主アル＝ギヤース・アブー・アル＝ムザッファル・アアザム・シャー・ブン・イスカンダル・シャーの宰相。814年に殺害された。我らの師（イブン・ハジャル）が『インバー』にその没年を記録した。
   en: Yaḥyā b. Gharīb Shāh, who bore the title Khān Jahān, vizier of the ruler of India, al-Ghiyāth Abū al-Muẓaffar Aʿẓam Shāh b. Iskandar Shāh. He was killed in the year 814. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

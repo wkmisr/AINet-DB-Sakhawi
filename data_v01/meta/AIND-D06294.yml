@@ -9,16 +9,16 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قانصوه
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873
   note:
     ja: 873年（1468-07-31 開始、年精度）、سوار 討伐の遠征軍とともに戦死。地名の明記なし。
-  quote: سنة
   phrase: وقتل مع المجردين لسوار سنة ثلاث وسبعين
+  mention: m7
 persons:
 - id: p1
   label: والد قانصوه أحد الطبلخاناه بدمشق
@@ -29,31 +29,23 @@ relations:
   subtype: father
   active: AIND-D06294#p1
   passive: AIND-D06294
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、アミール）→ #NEEDID（規則3）。主人の表示もなし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: الطبلخاناه
+  - mention: m3
   note:
     ja: 「أحد الطبلخاناه بدمشق」＝ダマスクスのタブルハーナ級アミールの一人（規則48、TMP-O-00016）。地名は原文明記。
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00120
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: وحاجبها الثاني
+  - mention: m3
   note:
     ja: 「وحاجبها الثاني」＝ダマスクスの第二ハージブ（ها＝دمشق、照応）。ID-Master TMP-O-00120。初版の date type="retirement"（没年の流用）を除去。
-  norm: حاجبها الثاني
+  mention: m4
 events:
 - id: e1
   type: political
@@ -61,15 +53,43 @@ events:
     ah: 873
     type: political
   persons:
-  - ref: AIND-D03198
-    quote: لسوار
-    norm: سوار
-  quote: وقتل
+  - mention: m6
   note:
     ja: سوار＝شاه سوار بن سليمان بن دلغادر（#AIND-D03198）。遠征地は名指しされないため placeName を付けない。
   trigger: rule
-  norm: قتل
   phrase: وقتل مع المجردين لسوار سنة ثلاث وسبعين
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: قانصوه
+- id: m2
+  kind: office
+  ref: TMP-O-00016
+  quote: الطبلخاناه
+- id: m3
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m4
+  kind: office
+  ref: TMP-O-00120
+  quote: وحاجبها الثاني
+  norm: حاجبها الثاني
+- id: m5
+  kind: event
+  quote: وقتل
+  norm: قتل
+- id: m6
+  kind: person
+  ref: AIND-D03198
+  quote: لسوار
+  norm: سوار
+- id: m7
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: カーンスーフ。ダマスクスのタブルハーナ級アミールの一人で、同地の第二ハージブ。873年、サワール討伐の遠征軍とともに戦死した。
   en: Qānṣūh, one of the amirs of ṭablkhānāh in Damascus and its second ḥājib. He was killed with the expeditionary force sent against Sawār in the year 873.

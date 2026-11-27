@@ -9,58 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: المسرطن
+    mention: m7
   - id: n3
     type: ism
-    quote: ازدمر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m3
   passive: AIND-D01882
   summary:
     ar: الظاهر جقمق
-  quote: جقمق
 - id: r2
   type: kin
   subtype: father-in-law
-  active: AIND-D10358
+  active: m6
   passive: AIND-D01882
   summary:
     ar: صهر الأمير يشبك الفقيه على ابنته
-  quote: يشبك الفقيه
   note:
     ja: يشبك الفقيه=#AIND-D10358(يشبك من سلمان شاه المؤيدي الفقيه)。D10358本文「وحمل...لبيت أزدمر المسرطن زوج ابنته」で相互確認(本項の通称المسرطنと一致)。旧TMP-P-000087汚染解消。
 states:
 - id: s1
   type: office
   ref: TMP-O-00073
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00083
-  quote: أحد المقدمين
-  norm: احد المقدمين
+  mention: m4
 - id: s3
   type: office
-  ref: TMP-O-00134
   dates:
   - ah: 890
     type: appointment
-  quote: الأمير
   note:
     ja: 2026-09-24 Waka 裁定（★3 E5）により placeName مكة（gn:104515）を除去。أمير الحج（إمرة الحج）は巡礼隊を率いる職でマッカに勤務する職ではなく、規則20（حج＝مكة）は hajj イベントに限る。
-  norm: الامير
+  mention: m5
 - id: s4
   type: office
   ref: TMP-O-00053
-  quote: null
+  mention: null
 events:
 - id: e1
   type: political
@@ -70,10 +63,50 @@ events:
     type: political
   summary:
     en: Went out with the campaigners (al-Mujarradīn).
-  quote: وخرج
   cert: high
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: ازدمر
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02423
+  quote: جقمق
+- id: m4
+  kind: office
+  ref: TMP-O-00083
+  quote: أحد المقدمين
+  norm: احد المقدمين
+- id: m5
+  kind: office
+  ref: TMP-O-00134
+  quote: الأمير
+  norm: الامير
+- id: m6
+  kind: person
+  ref: AIND-D10358
+  quote: يشبك الفقيه
+- id: m7
+  kind: name
+  quote: المسرطن
+- id: m8
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m9
+  kind: event
+  quote: وخرج
   norm: خرج
+- id: m10
+  kind: year
+  value: '895'
+  quote: سنة
 translation:
   ja: アズドマル・ミン・マフムード・シャー・アッ＝ザーヒリー・ジャクマク、ハーズィンダール（宝庫係）。ムカッダム（指揮官）の一人であり、アミール・ヤシュバク・アル＝ファキーフの娘婿である。「アル＝ムサルタン」と呼ばれた。890年にハッジの指揮官（アミール・アル＝ハッジ）を務め、895年には遠征軍（ムジャッラドゥーン）とともに出征した。その後、ある地方にナーイブ（代官）として派遣された。やや吝嗇ではあったが、良い人物として語られている。
   en: Azdumar min Maḥmūd Shāh al-Ẓāhirī Jaqmaq, al-Khāzindār. He was one of the Muqaddams (commanders) and the son-in-law of Amir Yashbak al-Faqīh. He was also called al-Muṣaraṭan. In the year 890 AH, he was appointed Amir al-Hajj, and in the year 895 AH, he went out with the campaigners (al-Mujarradīn). Later, he was sent as a deputy (nāʾib) to several regions. He is remembered favorably, though with some parsimony.

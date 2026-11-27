@@ -9,53 +9,75 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00735
-    quote: الحجاري
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: TMP-P-001748
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001748
+  active: m5
   passive: AIND-D06507
-  quote: أبوه
   note:
     ja: '「الحجاري العطار أبوه」＝「العطار」は父の属性（規則66 (h)「X أبوه」型）。父は職（العطار）という識別要素をもち祖父名まで復元できる＝規則3 により仮番号 TMP-P-001748（إبراهيم بن عبد العزيز الحجاري العطار）。corpus 見出し「إبراهيم بن عبد العزيز」は #AIND-D00436（父祖の名に含むだけの別人）と本項のみ、ID-Master 未登録。初版は幻番号 TMP-P-000000。'
-  norm: ابوه
   phrase: إبراهيم بن عبد العزيز
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D06507
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
   note:
     ja: 「سمع مني بمكة」（規則2）。
 notes:
 - text: '「العطار」（薬種商）は父の職であり、本項主の state にしない。マッカには別に #AIND-D05378「علي بن محمد بن أحمد بن علي المكي العطار ويعرف بالحجاري」（837年に聴講）がいるが、ナサブがつながらず父とは別人。初版の event type="visit"（مكة）は teacher relation 内の event と重複し、訪問の記述は原文にない＝除去。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001748
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: عبد العزيز
+- id: m4
+  kind: name
+  ref: TMP-N-00735
+  quote: الحجاري
+- id: m5
+  kind: person
+  ref: TMP-P-001748
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アブド・アル＝アズィーズ・アル＝ハッジャーリー。父は薬種商であった。マッカで私から聴いた。
   en: Muḥammad b. Ibrāhīm b. ʿAbd al-ʿAzīz al-Ḥajjārī; his father was the druggist (al-ʿAṭṭār). He heard from me in Mecca.

@@ -9,54 +9,83 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01931
-    quote: البربهاري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001539
+    mention: m2
   - id: n5
     type: nasab
-    quote: عثمان
     by: rule
-    ref: TMP-P-001017
+    mention: m3
 death:
   id: d
   date:
     ah: 777-08
     cert: low
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: سنة
+  - mention: m7
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001539
   passive: AIND-D01399
-  quote: null
   note:
     ja: 規則3・37。見出しナサブの父。兄弟 D03772・D05467 と共用の TMP-P-001539（B124-128 で発行）。
   phrase: محمد بن عثمان البربهاري المكي
 - id: r2
   type: kin
   subtype: grandfather
-  active: TMP-P-001017
+  active: m6
   passive: AIND-D01399
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-001539
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-P-001017
+  quote: عثمان
+- id: m4
+  kind: name
+  ref: TMP-N-01931
+  quote: البربهاري
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: TMP-P-001017
   quote: بجده
   norm: جده
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m9
+  kind: year
+  value: '777'
+  quote: سنة
 translation:
   ja: アハマド・ブン・ムハンマド・ブン・ウスマーン・アル＝バルバハーリー・アル＝マッキー・アル＝ダフハーン。彼は祖父の名で知られる。777年シャアバーンにマッカで亡くなった。
   en: Aḥmad b. Muḥammad b. ʿUthmān al-Barbahārī al-Makkī al-Dahhān. He was known by his grandfather's name. He died in Makka in Shaʿbān 777 AH.

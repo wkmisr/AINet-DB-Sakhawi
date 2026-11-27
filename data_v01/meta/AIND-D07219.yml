@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-05468
-    quote: الصواف
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أبو بكر بن علي الشامي الصواف
@@ -38,17 +35,15 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07219
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m7
     phrase: ممن سمع مني القاهرة أيضا
-  quote: مني
   note:
     ja: 刊本「سمع مني القاهرة」は前置詞 بـ の脱落（直前の D07218「ممن سمع مني بالقاهرة」の「أيضا」）。placeName القاهرة を保持。
 - id: r2
@@ -56,9 +51,35 @@ relations:
   subtype: father
   active: AIND-D07219#p1
   passive: AIND-D07219
-  quote: null
   note:
     ja: '父は見出しのナサブのみ → #NEEDID（規則3）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m5
+  kind: name
+  ref: TMP-N-05468
+  quote: الصواف
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アリー・アッ＝シャーミー・アッ＝サウワーフ。同じくカイロで私（サハーウィー）に聴聞した者の一人。
   en: Muḥammad b. Abī Bakr b. ʿAlī al-Shāmī al-Ṣawwāf. He too is among those who heard from me in Cairo.

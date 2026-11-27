@@ -9,81 +9,113 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بابن البارزي
-    norm: ابن البارزي
     label: ابن البارزي
+    mention: m8
   - id: n3
     type: ism
-    quote: عبد الباسط
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
-    ref: AIND-D05980
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D09332
+    mention: m3
   - id: n6
     type: nasab
-    quote: هبة الله
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D03491
   methods:
   - TMP-S-00028
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: عندي
+    - mention: m10
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D05980
+  active: m6
   passive: AIND-D03491
-  quote: أبوه
   note:
     en: Al-Sirāj ʿUmar b. Muḥammad b. Muḥammad b. Hibat Allāh Ibn al-Bārizī (AIND-D05980), whose entry explicitly mentions sojourning in Mecca in 887 with his son ʿAbd al-Bāsiṭ.
-  norm: ابوه
   phrase: عمر بن محمد بن هبة الله
 - id: r3
   type: kin
   subtype: grandfather
-  active: AIND-D09332
+  active: m7
   passive: AIND-D03491
-  quote: وجده
   note:
     en: Al-Ṣadr Muḥammad b. Muḥammad b. Hibat Allāh Ibn al-Bārizī (AIND-D09332), explicitly "wālid ʿUmar al-māḍī" in his entry.
-  norm: جده
   phrase: محمد بن هبة الله
 events:
 - id: e1
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: جاور
+  - mention: m10
   trigger: rule
+  mention: m9
 - id: e2
   type: other
   summary:
     en: A marriage contract was drawn for him with a relative of his.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الباسط
+- id: m2
+  kind: name
+  ref: AIND-D05980
+  quote: عمر
+- id: m3
+  kind: name
+  ref: AIND-D09332
+  quote: محمد
+- id: m4
+  kind: name
+  quote: هبة الله
+- id: m5
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m6
+  kind: person
+  ref: AIND-D05980
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: AIND-D09332
+  quote: وجده
+  norm: جده
+- id: m8
+  kind: name
+  quote: بابن البارزي
+  norm: ابن البارزي
+- id: m9
+  kind: event
+  quote: جاور
+- id: m10
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
 translation:
   ja: アブドゥルバースィト・ブン・ウマル・ブン・ムハンマド・ブン・ヒバトゥッラー・アル＝ハマウィー。彼の父と祖父は後述される。先祖と同様にイブン・アル＝バーリズィーとして知られる。若者。父親とともにマッカに隣住（ジャーワラ）した。そこで少し学問に従事し、時に父親とともに私（サハーウィー）の講義に出席した。また、彼の親戚の女性との婚姻契約が彼のために結ばれた。
   en: ʿAbd al-Bāsiṭ b. ʿUmar b. Muḥammad b. Hibat Allāh al-Ḥamawī. His father and grandfather are mentioned below. Like his predecessors, he is known as Ibn al-Bārizī. A young man, he stayed as a neighbor (jāwara) in Mecca alongside his father. He engaged in some minor studies there, and occasionally attended my classes with his father. A marriage contract was also drawn up for him with a female relative of his.

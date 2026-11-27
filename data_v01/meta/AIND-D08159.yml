@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00849
-    quote: القطبي
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05527
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m4
 birth:
   id: b
   date:
     ah: 817
   note:
     ja: 「ولدا في بطن سنة سبع عشرة وثمانمائة」＝兄 إبراهيم と双子。817年＝1414-04-01 開始（年精度 → 1414）。兄の項 D00195 では「في المحرم سنة سبع عشرة」（月精度）だが本項は年のみ（規則23＝他項の精度を補わない）。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
@@ -44,31 +41,27 @@ relations:
   passive: AIND-D08159
   summary:
     ar: علي بن محمد بن عيسى العلاء القطبي
-  quote: null
   note:
     ja: '父＝#AIND-D05527「علي بن محمد بن عيسى العلاء الدمشقي ثم المحلي النمراوي … الشافعي والد إبراهيم وأخيه ويعرف بالقطبي نسبة لشيخه قطب الدين الأصفهبندي」（未収録）。見出しナサブ3代＋ニスバ القطبي＋「والد إبراهيم وأخيه」で閉合（規則37）。ニスバ索引 #AIND-D11937「القطبي … نسبة لقطب الدين علي بن محمد بن عيسى وابناه إبرهيم ومحمد وهما في بطن دفعة ضريران」も一致。兄の項 D00195「الآتي أبوه … ومات والدهما سنة إحدى وثلاثين」。初版なし。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00195
+  active: m6
   passive: AIND-D08159
   summary:
     ar: إبراهيم بن علي بن محمد بن عيسى البرهان القطبي
-  quote: أخو
   note:
     ja: '「أخو إبراهيم الماضي . ولدا في بطن」＝双子の兄弟 #AIND-D00195「إبراهيم بن علي بن محمد بن عيسى البرهان بن العلاء الشامي الأصل القاهري الصحراوي الشافعي الآتي أبوه ويعرف بالقطبي … ولد تقريبا هو وأخوه محمد في بطن في المحرم سنة سبع عشرة وثمانمائة」（未収録。相互に名指し）。初版の #NEEDID を解消。'
-  norm: اخو
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03922
+  active: m9
   passive: AIND-D08159
   methods:
   - TMP-S-00008
   context:
   - type: learning
     phrase: وأخذ مع أخيه عن العز عبد السلام البغدادي كما هناك
-  quote: العز عبد السلام البغدادي
   note:
     ja: 'العز عبد السلام البغدادي＝#AIND-D03922「عبد السلام بن أحمد بن عبد المنعم … العز المجد أبو محمد … القيلوي … البغدادي ثم القاهري الحنبلي ثم الحنفي」（repo で D03853・D04814 等に同人として使用）。「كما هناك」＝兄の項 D00195（「قرأ على العز عبد السلام البغدادي في الملحة والعمدة」）を参照。初版の #NEEDID を解消。'
 - id: r4
@@ -81,19 +74,17 @@ relations:
   context:
   - type: learning
     phrase: وتردد إلي للسماع وغيره مع أخيه وبانفراده
-  quote: null
   note:
     ja: 「تردد إلي للسماع」＝学習を伴う通学（規則56）＝サハーウィーの teacher relation。初版の relation 内 placeName القاهرة（原文に地名なし）を除去（規則22(1)）。
 states:
 - id: s1
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00018
-  quote: صوفية
   note:
     ja: '先例 #AIND-D07958・D05050 どおり state に一本化。初版の affiliation employed TMP-I-00018（state と二重符号化、規則8）と placeName القاهرة（施設所在地の補完、規則22(1)）を除去。'
   phrase: وتنزل في صوفية سعيد السعداء
+  mention: m12
 events:
 - id: e1
   type: learning
@@ -101,31 +92,76 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00008
-  quote: وأخذ
   trigger: rule
-  norm: اخذ
   phrase: وقرأ القرآن
+  mention: m8
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: 年なし。placeName مكة は規則20 の例外。
   trigger: rule
+  mention: m10
 - id: e3
   type: teaching
-  quote: وأقرأ
   note:
     ja: '子供たちに（クルアーンを）教えた。先例 #AIND-D07863「ممن أقرأ الأبناء」どおり teaching event（初版の state TMP-O-00029 تأديب الأطفال を置換）。'
   trigger: rule
-  norm: اقرا
   phrase: وأقرأ الأبناء
+  mention: m11
 notes:
 - text: 「الضرير」（盲目）は見出しの呼称として full persName に残す（索引 D11937「ضريران」＝双子とも盲目）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05527
+  quote: علي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m5
+  kind: name
+  ref: TMP-N-00849
+  quote: القطبي
+- id: m6
+  kind: person
+  ref: AIND-D00195
+  quote: أخو
+  norm: اخو
+- id: m7
+  kind: year
+  value: '817'
+  quote: سنة
+- id: m8
+  kind: event
+  quote: وأخذ
+  norm: اخذ
+- id: m9
+  kind: person
+  ref: AIND-D03922
+  quote: العز عبد السلام البغدادي
+- id: m10
+  kind: event
+  quote: وحج
+- id: m11
+  kind: event
+  quote: وأقرأ
+  norm: اقرا
+- id: m12
+  kind: office
+  ref: wd:Q2892720
+  quote: صوفية
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・イーサー・アル＝クトゥビー、盲目の人、既述のイブラーヒームの兄弟。二人は817年に双子として生まれた。クルアーンを読み、兄弟とともにアル＝イッズ・アブドゥッサラーム・アル＝バグダーディーから学んだ——あちら（兄の項）に述べたとおりである。巡礼し、子供たちに（クルアーンを）教え、サイード・アッ＝スアダーのスーフィーの職を得た。兄弟とともに、また単独で、聴聞などのために私のもとに通った。
   en: Muḥammad b. ʿAlī b. Muḥammad b. ʿĪsā al-Quṭbī, the blind, the brother of the aforementioned Ibrāhīm. The two were born as twins in the year 817. He read the Qurʾān and, together with his brother, studied under al-ʿIzz ʿAbd al-Salām al-Baghdādī, as (stated) there. He performed the pilgrimage, taught children (the Qurʾān), obtained a Sufi post at Saʿīd al-Suʿadāʾ, and frequented me for audition (of ḥadīth) and other things, both with his brother and on his own.

@@ -9,40 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00378
-    quote: الأيوبي
-    norm: الايوبي
+    mention: m8
   - id: n2
     type: ism
-    quote: ناصر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: خليل
     by: rule
-    ref: AIND-D02883
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n5
     type: nasab
-    quote: سليمان العادل
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: الكامل
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: الأشرف
     by: rule
-    norm: الاشرف
+    mention: m6
   - id: n8
     type: nasab
-    quote: العادل
     by: rule
+    mention: m7
 death:
   id: d
   date:
@@ -50,55 +45,47 @@ death:
     cert: medium
   note:
     ja: 没年は原文に明記されない。「ربيع الأول سنة ست وخمسين」に父を殺して城を領し「نحو سبعة أشهر」で殺された＝856年シャウワール月前後（856-10-01＝1452-10-24、h2g.py）と算出されるので、年精度 856（年初＝1452-02-01）・cert medium とした（「نحو」＝約。初版は cert なしの 0856、political event に 0856-10）。没地は原文にない＝初版の placeName（حصن كيفا）を除去（規則22(1)：在位地を死地に継続させない）。
-  quote: سنة
   phrase: وملك الحصن فدام نحو سبعة أشهر ثم وثب عليه ابن عمه وربيب المقتول حسن ابن عثمان فقتله حمية
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02883
+  active: m9
   passive: AIND-D10115
-  quote: أبيه
   note:
     ja: '見出しナサブ＋本文「وثب على أبيه فقتله صبرا في ربيع الأول سنة ست وخمسين كما أسلفته فيه」（規則37）。父＝#AIND-D02883「734 خليل بن أحمد بن سليمان بن غازي … الملك الصالح ثم الكامل أبو المكارم بن الأشرف أبي المحامد ابن العادل أبي المفاخر الأيوبي … استقر في مملكة حصن كيفا … واستمر في المملكة حتى وثب عليه ابنه فقتله صبرا في ربيع الأول سنة ست وخمسين」（ナサブ・出来事・年月が一致）。初版は #NEEDID。'
-  norm: ابيه
   phrase: خليل بن أحمد بن سليمان
 - id: r2
   type: kin
   subtype: cousin
-  active: AIND-D02559
+  active: m15
   passive: AIND-D10115
   summary:
     ar: حسن بن عثمان
-  quote: ابن عمه
   note:
     ja: '「ابن عمه وربيب المقتول حسن ابن عثمان」＝#AIND-D02559「416 الحسن بن السلطان عثمان بن العادل سليمان الأيوبي صاحب مدينة حصن كيفا . قتله ابن عمه سنة تسع وخمسين واستقر في المملكة عوضه」（repo 収録済み。名 حسن بن عثمان・アイユーブ家（共通の祖 العادل سليمان）・حصن كيفا の3点で閉合）。「ربيب المقتول」＝殺された者（＝父 خليل）の継子。初版は #NEEDID。ブリーフは「見出し検索では本伝なし」とするが、見出し「الحسن بن السلطان عثمان」で本伝あり。'
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D00711
+  active: m18
   passive: AIND-D10115
   summary:
     ar: أحمد بن خليل
-  quote: بأحمد
   note:
     ja: '「واستدعى بأحمد أخي المقتول … للخوف من ناصر هذا فتملك الحصن كما أسلفته في الهمزة」＝#AIND-D00711「أحمد بن خليل بن أحمد بن سليمان الكامل بن الكامل بن الأشرف الأيوبي الآتي أبوه . فر إلى جاهنشاه بتبريز خوفا من ابن أخيه ناصر فلم يلبث أن قتل ناصر وجيء بهذا وتمكن الحصن」（人物は名・出来事・「الهمزة」の部で閉合）。続柄は両義: (a) D00711 の見出し（أحمد بن خليل … الآتي أبوه）と #AIND-D02865「الكامل أحمد بن خليل الماضي」では خليل の子＝本項主の兄弟、(b) D00711 の本文「ابن أخيه ناصر」では本項主の叔父。本項の「أخي المقتول」は「المقتول」が直前に殺された ناصر なら (a)、先の「ربيب المقتول」と同じく父 خليل なら (b)。見出し2件が一致する (a) を採り cert medium（ISSUES §D164-3）。初版は #NEEDID の brother。【集約 2026-11-10】brother を維持し cert medium を外した（オーケストレーター決定14、§D164-3）。根拠: (1) D00711 の見出し「أحمد بن خليل بن أحمد بن سليمان الكامل بن الكامل … الآتي أبوه」の父は #AIND-D02883 で、本項主の父と同一（ナサブ・「الآتي أبوه」で閉合）＝兄弟関係は双方の見出しで決まる。(2) #AIND-D02865「وثب على ابن عمه وابن أخته الكامل أحمد بن خليل الماضي」も خليل の子とする。(3) 父 خليل の本伝 #AIND-D02883 が خليل の兄弟として挙げるのは「والآتي أخوه يحيى」の يحيى のみで、أحمد を挙げない。反証は D00711 本文の「خوفا من ابن أخيه
       ناصر」（أحمد を ناصر の叔父とする）1点のみ＝食い違いとして記録する。D00711 は未収録＝受領時に同じ判断を。'
-  norm: احمد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00173
-    quote: الحصن
+  - mention: m14
   dates:
   - ah: 856-03
     type: appointment
-  quote: وملك
   note:
     ja: '「وملك الحصن فدام نحو سبعة أشهر」＝ヒスン・カイファーの君主位（TMP-O-00145 صاحب حصن كيفا）。「الحصن」＝حصن كيفا（TMP-L-00173。父の本伝 #AIND-D02883「مملكة حصن كيفا」）。在位は856年ラビーウ第一月から約7か月。退位（＝死）の月は原文に明記されないので、初版の date type="retirement" when-custom="0856-10" を除去。'
-  norm: ملك
+  mention: m13
 events:
 - id: e1
   type: political
@@ -107,36 +94,111 @@ events:
     type: political
   persons:
   - ref: AIND-D02883
-  quote: فقتله
   note:
     ja: 856年ラビーウ第一月＝1452-03-31 開始（h2g.py）、月精度で @when=1452-03。「كما أسلفته فيه」＝父の項（#AIND-D02883）で既述。初版の英文 desc・cert high・placeName（原文にない）を是正。
   trigger: rule
-  norm: قتله
   phrase: وثب على أبيه فقتله صبرا في ربيع الأول سنة ست وخمسين
+  mention: m10
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02559
-    quote: حسن ابن عثمان
+  - mention: m16
   - ref: AIND-D00711
-  - ref: AIND-D02450
-    quote: السلطان جاهنشاه
+  - mention: m19
   places:
-  - ref: TMP-L-00060
-    quote: بتبريز
-    norm: تبريز
-  - ref: TMP-L-00173
-    quote: الحصن
-  quote: فقتله
+  - mention: m20
+  - mention: m14
   note:
     ja: '本項主の殺害と、その後の أحمد の即位。年月の明記なし＝日付属性なし（規則18。初版の when-custom 0856-10 は算出値）。السلطان جاهنشاه＝#AIND-D02450「جهانشاه بن قرا يوسف بن قرا محمد التركماني … صاحب العراقين وملك الشرق」（repo 先例 #AIND-D06374 と同じ番号。同人の一行だけの二重立項 #AIND-D02400「جاهنشاه بن قرا يوسف والد بداق الماضي」もあり、ブリーフは D02400 を挙げる）。أحمد を匿った人物であって本項主との直接の関係ではない＝初版の統制外 relation「host of his brother」（#NEEDID）を除去し persName に。'
   trigger: rule
-  norm: قتله
   phrase: ثم وثب عليه ابن عمه وربيب المقتول حسن ابن عثمان فقتله حمية واستدعى بأحمد أخي المقتول حين كونه ملتجئا عند السلطان جاهنشاه بتبريز للخوف من ناصر هذا فتملك الحصن
+  mention: m17
 notes:
 - text: 'ラカブ索引 #AIND-D11383「الناصر فرج بن برقوق وابن الكامل خليل بن أحمد بن سليمان الماضي أبوه قتل أباه وبايع لنفسه في التملك بحصن كيفا ولم يلبث أن قتل أيضا …」の後半は本項主を指す（2人合同の索引項＝relation には使わない、規則11）。初版の residence event（حصن كيفا、state と二重）は除去。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ناصر
+- id: m2
+  kind: name
+  ref: AIND-D02883
+  quote: خليل
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: سليمان العادل
+- id: m5
+  kind: name
+  quote: الكامل
+- id: m6
+  kind: name
+  quote: الأشرف
+  norm: الاشرف
+- id: m7
+  kind: name
+  quote: العادل
+- id: m8
+  kind: name
+  ref: TMP-N-00378
+  quote: الأيوبي
+  norm: الايوبي
+- id: m9
+  kind: person
+  ref: AIND-D02883
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: event
+  quote: فقتله
+  norm: قتله
+- id: m11
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m12
+  kind: year
+  value: '856'
+  quote: سنة
+- id: m13
+  kind: office
+  ref: TMP-O-00163
+  quote: وملك
+  norm: ملك
+- id: m14
+  kind: place
+  quote: الحصن
+  ref: TMP-L-00173
+- id: m15
+  kind: person
+  ref: AIND-D02559
+  quote: ابن عمه
+- id: m16
+  kind: person
+  ref: AIND-D02559
+  quote: حسن ابن عثمان
+- id: m17
+  kind: event
+  quote: فقتله
+  norm: قتله
+- id: m18
+  kind: person
+  ref: AIND-D00711
+  quote: بأحمد
+  norm: احمد
+- id: m19
+  kind: person
+  ref: AIND-D02450
+  quote: السلطان جاهنشاه
+- id: m20
+  kind: place
+  quote: بتبريز
+  ref: TMP-L-00060
+  norm: تبريز
 translation:
   ja: ナースィル・ブン・ハリール・ブン・アフマド・ブン・スライマーン、アル＝アーディル・ブン・アル＝カーミル・ブン・アル＝アシュラフ・ブン・アル＝アーディル、アル＝アイユービー。（8）56年ラビーウ第一月に父を襲い、縛ったまま処刑した。これはその（父の）項で既に述べたとおりである。彼は城（アル＝ヒスン）を領し、約7か月続いた。ついで、彼の従兄弟で、殺された者の継子であるハサン・ブン・ウスマーンが彼を襲い、義憤から彼を殺した。そして殺された者の兄弟アフマドを呼び寄せた。アフマドは、このナースィルを恐れてタブリーズのスルターン・ジャーハーンシャーのもとに身を寄せていたのであり、こうして城を領した。これはハムザの部で既に述べたとおりである。
   en: Nāṣir b. Khalīl b. Aḥmad b. Sulaymān, al-ʿĀdil b. al-Kāmil b. al-Ashraf b. al-ʿĀdil, al-Ayyūbī. He fell upon his father and put him to death in captivity in Rabīʿ I of the year [8]56, as I have related in his (father’s) entry, and took possession of al-Ḥiṣn, where he lasted about seven months. Then his cousin and the stepson of the murdered man, Ḥasan b. ʿUthmān, fell upon him and killed him out of indignation, and sent for Aḥmad, the brother of the murdered man, who was at the time a refugee with Sultan Jāhānshāh in Tabrīz for fear of this Nāṣir; he then took possession of al-Ḥiṣn, as I have related under the letter hamza.

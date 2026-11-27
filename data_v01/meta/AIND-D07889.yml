@@ -9,45 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00028
-    quote: النحوي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: shuhrah
-    quote: بالعجيمي
-    norm: العجيمي
     label: العجيمي
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الأحد
     by: rule
-    norm: عبد الاحد
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 822-08-20
   places:
-  - ref: TMP-L-00335
-    role: burial
-    quote: بالصوفية
-    norm: الصوفية
+  - role: burial
+    mention: m20
   note:
     ja: 「مات في عشري شعبان سنة اثنتين وعشرين ودفن بالصوفية وكانت جنازته حافلة」＝822年シャアバーン月20日＝1419-09-20（h2g.py）。初版の @when 1419 を日付精度に。埋葬地「الصوفية」＝既登録 TMP-L-00335 مقبرة الصوفية（D07032「دفن … بمقبرة الصوفية」と同じ、都市名は原文になし）。初版の placeName القاهرة（没地は原文に明記なし、ニスバ由来）を除去（規則22-1）。
-  quote: سنة
+  mention: m19
 persons:
 - id: p1
   label: عبد الأحد بن علي
@@ -60,30 +54,27 @@ relations:
   subtype: father
   active: AIND-D07889#p1
   passive: AIND-D07889
-  quote: null
   note:
     ja: '父 عبد الأحد بن علي。「وسمي العيني والده عبد الأحد」＝العيني は父を عبد الأحد と呼んだ（父名に異伝があることを示す。転送見出し #AIND-D07518「محمد بن عبد الأحد العجيمي . في ابن عبد الماجد」と、本項が corpus 上「عبد الله」と「عبد المجيد」の間＝「عبد الماجد」の配列位置にあることから、別伝は عبد الماجد）。corpus に父の本伝なし、識別要素なし → #NEEDID（規則3）。'
 - id: r2
   type: kin
   subtype: maternal_grandfather
-  active: TMP-P-001630
+  active: m7
   passive: AIND-D07889
-  quote: ابن هشام
   note:
     ja: '「سبط ابن هشام」＝母方祖父は文法学者 الجمال عبد الله بن يوسف بن هشام الأنصاري（没761、『مغني اللبيب』の著者）。母方叔父「خاله المحب بن هشام」＝ابن هشام の子 المحب محمد（TMP-P-001619）であることから閉合。ニスバ索引 #AIND-D12798「ابن هشام المحب محمد وعبد الرحمن ابنا الجمال عبد الله بن يوسف بن هشام …」。本人は corpus に見出しなし・ID-Master 未登録 → 新規 TMP-P-001630。初版の subtype「grandfather」#NEEDID を置換。'
 - id: r3
   type: kin
   subtype: maternal_uncle
-  active: TMP-P-001619
+  active: m13
   passive: AIND-D07889
-  quote: خاله
   note:
     ja: 「خاله المحب بن هشام」＝既登録 TMP-P-001619（المحب محمد بن الجمال عبد الله بن يوسف بن هشام الأنصاري القاهري الحنبلي、D07817 の祖父）。初版の subtype「uncle」#NEEDID を置換。
   phrase: المحب بن هشام
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-001619
+  active: m14
   passive: AIND-D07889
   methods:
   - TMP-S-00008
@@ -91,59 +82,130 @@ relations:
   - wd:Q484181
   - TMP-S-00021
   - TMP-S-00001
-  quote: المحب بن هشام
   note:
     ja: 「أخذ عن خاله المحب بن هشام ومهر في الفقه والأصول والعربية」（イブン・ハジャルの引用）。初版の分野別3本（#NEEDID）を1本に統合。
 - id: r5
   type: scholarly
   subtype: teacher
-  active: AIND-D09233
+  active: m15
   passive: AIND-D07889
   methods:
   - TMP-S-00014
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m16
     phrase: ولازم العلاء البخاري لما قدم القاهرة
-  quote: العلاء البخاري
   note:
     ja: 'العلاء البخاري ＝ #AIND-D09233（محمد بن محمد بن محمد … العلاء أبو عبد الله البخاري العجمي الحنفي、779年生・841年没）。「لما قدم القاهرة」＝العلاء のカイロ来訪時（地名は原文に明示）。初版 #NEEDID を置換。'
 - id: r6
   type: scholarly
   subtype: teacher
-  active: AIND-D07221
+  active: m17
   passive: AIND-D07889
   methods:
   - TMP-S-00014
-  quote: البدر الدماميني
   note:
     ja: '「وكذا لازم البدر الدماميني」＝ #AIND-D07221（محمد بن أبي بكر بن عمر … البدر … الدماميني、没827、文法学者。ニスバ索引 D12328「ابن الدماميني البدر محمد بن أبي بكر بن عمر」）。初版 #NEEDID を置換。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m9
   note:
     ja: Pattern A。初版の統制外 relation「biographer」（wd:Q257745 単独）を mention event（#AIND-D09832 corresp wd:Q257745）に置換。
   trigger: rule
   phrase: وسمي العيني والده عبد الأحد
+  mention: m10
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
   summary:
     ar: 'ذكره شيخنا في إنبائه وقال : … وكان كثير الأدب فائقا في معرفة العربية ملازما للعبادة وقورا ساكنا'
-  quote: وقال
   note:
     ja: Pattern A。初版の統制外 relation「biographer」（wd:Q471116）を mention event に置換。
   trigger: rule
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الأحد
+  norm: عبد الاحد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00028
+  quote: النحوي
+- id: m7
+  kind: person
+  ref: TMP-P-001630
+  quote: ابن هشام
+- id: m8
+  kind: name
+  quote: بالعجيمي
+  norm: العجيمي
+- id: m9
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: source
+  quote: وقال
   norm: قال
+- id: m13
+  kind: person
+  ref: TMP-P-001619
+  quote: خاله
+- id: m14
+  kind: person
+  ref: TMP-P-001619
+  quote: المحب بن هشام
+- id: m15
+  kind: person
+  ref: AIND-D09233
+  quote: العلاء البخاري
+- id: m16
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m17
+  kind: person
+  ref: AIND-D07221
+  quote: البدر الدماميني
+- id: m18
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m19
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m20
+  kind: place
+  quote: بالصوفية
+  ref: TMP-L-00335
+  norm: الصوفية
 translation:
   ja: ムハンマド・ブン・アブド・アル＝アハド・ブン・アリー、アッ＝シャムス・アル＝カーヒリー、文法学者（アン＝ナフウィー）、イブン・ヒシャームの外孫、アル＝ウジャイミーとして知られる。アル＝アイニーは彼の父をアブド・アル＝アハドと呼んだ。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及して言う、「母方の叔父アル＝ムヒッブ・ブン・ヒシャームに学び、法学・法学原理論・アラビア語学に熟達した。アル＝アラー・アル＝ブハーリーがカイロに来た時には彼に密着して師事し、同じくアル＝バドル・アッ＝ダマーミーニーにも密着して師事した。礼節に富み、アラビア語学の知識に秀で、礼拝に励み、重厚で静かな人であった」。822年シャアバーン月20日に没し、スーフィー墓地に埋葬された。葬列は盛大であった。神が彼と我々を慈しまれんことを。
   en: 'Muḥammad b. ʿAbd al-Aḥad b. ʿAlī, al-Shams al-Qāhirī, the grammarian, grandson (through his mother) of Ibn Hishām, known as al-ʿUjaymī; al-ʿAynī named his father ʿAbd al-Aḥad. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: "He studied under his maternal uncle al-Muḥibb b. Hishām and became skilled in jurisprudence, legal theory and Arabic; he attached himself to al-ʿAlāʾ al-Bukhārī when the latter came to Cairo, and likewise to al-Badr al-Damāmīnī. He was most courteous, outstanding in his knowledge of Arabic, assiduous in worship, dignified and calm." He died on 20 Shaʿbān [8]22 and was buried at al-Ṣūfiyya; his funeral was crowded. May God have mercy on him and on us.'

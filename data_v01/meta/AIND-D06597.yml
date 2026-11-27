@@ -9,60 +9,53 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الجلال
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: ابن جماعة
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00438
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00161
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: المحب
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: القاضي البرهان
     by: rule
+    mention: m7
 death:
   id: d
   date:
     ah: 897
   places:
-  - ref: gn:281184
-    cert: medium
-    quote: بالقدس
-    norm: القدس
+  - cert: medium
+    mention: m11
   note:
     ja: '897年＝1491-11-13〜1492-10-31（h2g.py）、年精度で @when=1491（初版の 1492 を是正）。「سنة سبع وتسعين」は百の位を欠くが、父 #AIND-D00438 が889年没で、897年はシリア・エジプトの疫病の年＝897 と読む（ブリーフどおり）。「فيه」の先行詞は男性名詞の「القدس」か直前の「الأقصى」で両義。エルサレムで没したと読み placeName は القدس、cert medium（規則22(3)）。死因は疫病（الطاعون）。初版は placeName の ref が #NEEDID。'
-  quote: سنة
   phrase: ومات فيه بالطاعون في سنة سبع وتسعين
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00438
+  active: m12
   passive: AIND-D06597
   summary:
     ar: أحمد بن إبراهيم بن عبد الله المحب بن جماعة
-  quote: والده
   note:
     ja: 父＝#AIND-D00438「أحمد بن إبراهيم بن عبد الله بن محمد بن عبد الرحمن بن إبراهيم المحب ابن البرهان بن الجمال المقدسي بن جماعة … واستقر في ربع الخطابة بالأقصى ونصف مشيخة التصوف بالصلاحية … مات في ليلة السبت خامس رمضان سنة تسع وثمانين」。見出しのナサブ・ラカブ（المحب بن البرهان）と、本項主が父から継いだ二つの職の持ち分（説教職の四分の一・スーフィー長職の半分）が相手側本文と一致（規則37、ブリーフ ★どおり）。初版は零番号 TMP-P-000000。
 - id: r2
@@ -72,7 +65,6 @@ relations:
   passive: AIND-D06597
   summary:
     ar: إبراهيم بن عبد الله البرهان بن جماعة
-  quote: null
   note:
     ja: '見出し「بن القاضي البرهان ابن جماعة」＝祖父 #AIND-D00161「إبراهيم بن عبد الله بن محمد بن عبد الرحمن بن سعد الدين بن جماعة البرهان ابن شيخنا الجمال الكناني المقدسي الشافعي … ووالد العماد إسماعيل والنجم محمد شيخ الصلاحية والخطيب المحب أحمد الآتي ذكرهم … وولي قضاء بلده وخطابتها … مات في آخر صفر سنة اثنتين وسبعين」（repo 未収録）。ナサブ・ラカブ・「القاضي」が一致し、相手側が子として「الخطيب المحب أحمد」を挙げる（規則37）。初版は祖父 relation なし。'
 - id: r3
@@ -82,30 +74,25 @@ relations:
   passive: AIND-D06597
   summary:
     ar: أحمد بن إبراهيم بن عبد الله المحب بن جماعة
-  quote: null
   note:
     ja: 「واستقر في نصف مشيخة التصوف بالخانقاه بالقدس عن والده وكذا في ربع الخطابة بالأقصى」＝父の後を継いで二つの職に就いた（規則29）。
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   places:
-  - ref: gn:281184
-    quote: بالقدس
-    norm: القدس
+  - mention: m11
   orgs:
   - ref: TMP-I-00293
-  quote: مشيخة التصوف
   note:
     ja: '「نصف مشيخة التصوف بالخانقاه بالقدس عن والده」＝持ち分は半分（父から継承）。施設のマシュヤハ＝汎用 wd:Q7492880＋orgName（規則65 (g)）。「الخانقاه بالقدس」は父 #AIND-D00438 の「نصف مشيخة التصوف بالصلاحية」と同じ職＝エルサレムの الخانقاه الصلاحية（wd:Q4702696。ID-Master の Note「裸の الصلاحية は職種で振り分け（مشيخة التصوف→ここ）」）。初版は ref TMP-O-00077（施設に属さない شيخ الصوفية）と、原文にない退任年 0897 を付けていた＝是正・除去（規則18）。'
+  mention: m10
 - id: s2
   type: office
-  ref: wd:Q932945
   orgs:
   - ref: wd:Q12192963
-  quote: الخطابة
   note:
     ja: 「وكذا في ربع الخطابة بالأقصى」＝持ち分は四分の一（父から継承）。初版の placeName القدس は原文のこの句にない（施設の所在地からの補完、規則22(1)）ので除去、退任年 0897 も除去。
+  mention: m13
 events:
 - id: e1
   type: learning
@@ -115,16 +102,69 @@ events:
     cert: medium
   methods:
   - TMP-S-00077
-  quote: واشتغل
   note:
     ja: 『المنهاج』＝منهاج الطالبين（TMP-T-00065）。裸の「الألفية」は、続く「واشتغل في النحو والفقه」が『ミンハージュ』＝法学・『アルフィーヤ』＝文法学と対応するので ألفية ابن مالك（TMP-T-00080）と読み、cert medium（ألفية الحديث の可能性は残る）。師の名はない＝relation を立てない。初版は event type="cultural"・英語 desc・bibl なし。
   trigger: rule
-  norm: اشتغل
   phrase: حفظ المنهاج والألفية واشتغل في النحو والفقه
+  mention: m9
 notes:
 - text: 原文は「واستقر بعده .」で終わり、後任者の名が欠けている（規則45。名を補わない）。初版の residence event（القدس、原文に居住の記述なし）・affiliation（employed）2件（state と二重、規則8）・死亡の event（death と二重）は除去した。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00438
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: AIND-D00161
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: الجلال
+- id: m6
+  kind: name
+  quote: المحب
+- id: m7
+  kind: name
+  quote: القاضي البرهان
+- id: m8
+  kind: name
+  quote: ابن جماعة
+- id: m9
+  kind: event
+  quote: واشتغل
+  norm: اشتغل
+- id: m10
+  kind: office
+  ref: wd:Q7492880
+  quote: مشيخة التصوف
+- id: m11
+  kind: place
+  quote: بالقدس
+  ref: gn:281184
+  norm: القدس
+- id: m12
+  kind: person
+  ref: AIND-D00438
+  quote: والده
+- id: m13
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة
+- id: m14
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・イブラーヒーム・ブン・アブドゥッラー、アル＝ジャラール・ブン・アル＝ムヒッブ・ブン・アル＝カーディー・アル＝ブルハーン、イブン・ジャマーア。『ミンハージュ』と『アルフィーヤ』を暗記し、文法学と法学を学んだ。父の後を継いでエルサレムのハーンカーのスーフィー長職の半分に就き、同じくアクサーの説教職の四分の一にも就いた。（8）97年にそこで疫病により没し、彼の後には〔後任者の名、原文に記載なし〕が就いた。
   en: Muḥammad b. Aḥmad b. Ibrāhīm b. ʿAbd Allāh, al-Jalāl b. al-Muḥibb b. al-Qāḍī al-Burhān, Ibn Jamāʿa. He memorized the Minhāj and the Alfiyya and studied grammar and law. He was installed, in succession to his father, in half of the headship of the Sufis at the khānqāh in Jerusalem, and likewise in a quarter of the preachership at al-Aqṣā. He died there of the plague in the year [8]97, and after him [name lacking in the text] was installed.

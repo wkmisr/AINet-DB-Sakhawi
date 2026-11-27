@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بالحجاري
-    norm: الحجاري
     label: الحجاري
+    mention: m7
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: محمد بن أحمد بن علي
@@ -45,13 +42,12 @@ relations:
   subtype: father
   active: AIND-D05378#p1
   passive: AIND-D05378
-  quote: null
   note:
     ja: '見出しナサブのみ・ニスバ المكي のみで識別要素が乏しいため #NEEDID（規則3）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000017
+  active: m9
   passive: AIND-D05378
   methods:
   - TMP-S-00003
@@ -61,43 +57,81 @@ relations:
       ah: 837
       type: learning
     phrase: سمع في سنة سبع وثلاثين مع ابن فهد على ابن الطحان وغيره
-  quote: ابن الطحان
   note:
     ja: ابن الطحان ＝ ID-Master TMP-P-000017（ダマスクスの伝承者。corpus では ابن ناظر الصاحبة・ابن بردس と並んで聴聞先として頻出、「أحضر ابن ناظر الصاحبة وابن الطحان وابن بردس من الشام إلى مصر فأسمعوا」。repo D00449・D07009・D07748 で同番号）。同時聴聞者「ابن فهد」（837年）は التقي بن فهد（#AIND-D09211、787生）か النجم عمر بن فهد（#AIND-D05979、812生、830年代にエジプト・シャームへ遊学）か確定できないため relation を立てず note に留める（規則26、§D123-3）。初版の colleague relation（#AIND-D09211）を除去。「وغيره」の他の師は不特定。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00012
-  quote: العطار
   note:
     ja: 見出しの「المكي العطار」＝薬種商（職業呼称）。TMP-O-00012（Office العطار）と実体一致。
+  mention: m6
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:352261
-    role: destination
-    quote: لمصر
-    norm: مصر
-  quote: وتكرر دخوله لمصر والشام وغيرهما
+  - role: destination
+    mention: m10
   note:
   - lang: ar
     type: frequency
     text: تكرر دخوله
-  norm: تكرر دخوله لمصر والشام وغيرهما
+  phrase: وتكرر دخوله لمصر والشام وغيرهما
+  mention: null
 - id: e2
   type: visit
   places:
-  - ref: TMP-L-00002
-    role: destination
-    quote: والشام
-    norm: الشام
-  quote: وتكرر دخوله لمصر والشام وغيرهما
+  - role: destination
+    mention: m11
   note:
   - lang: ar
     type: frequency
     text: تكرر دخوله
-  norm: تكرر دخوله لمصر والشام وغيرهما
+  phrase: وتكرر دخوله لمصر والشام وغيرهما
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: office
+  ref: TMP-O-00012
+  quote: العطار
+- id: m7
+  kind: name
+  quote: بالحجاري
+  norm: الحجاري
+- id: m8
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: TMP-P-000017
+  quote: ابن الطحان
+- id: m10
+  kind: place
+  quote: لمصر
+  ref: gn:352261
+  norm: مصر
+- id: m11
+  kind: place
+  quote: والشام
+  ref: TMP-L-00002
+  norm: الشام
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アフマド・ブン・アリー・アル＝マッキー・アル＝アッタール。アル＝ヒジャーリーとして知られる。837年にイブン・ファハドとともにイブン・アッ＝タッハーンらから聴聞した。ミスルやシャームなどに繰り返し入った。
   en: ʿAlī b. Muḥammad b. Aḥmad b. ʿAlī al-Makkī al-ʿAṭṭār, known as al-Ḥijārī. In the year 837 he heard from Ibn al-Ṭaḥḥān and others together with Ibn Fahd, and he repeatedly entered Egypt, Syria and elsewhere.

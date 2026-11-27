@@ -9,22 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00164
-    quote: الكردي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00327
-    norm: ابراهيم
+    mention: m2
 relations:
 - id: r1
   type: kin
@@ -34,29 +30,51 @@ relations:
   summary:
     ar: إبراهيم بن محمد برهان الدين الكردي ثم المكي
   cert: medium
-  quote: null
   note:
     ja: 父の候補＝#AIND-D00327「إبراهيم بن محمد برهان الدين الكردي ثم المكي نزيل الحرمين والد محمد مؤدب الأبناء بمكة ويعرف والده بشمس العقري … مات بمكة في يوم الثلاثاء ثاني عشري المحرم سنة ثلاث وخمسين」（repo 未収録）。相手側が「والد محمد مؤدب الأبناء بمكة」と子 محمد を挙げ、名・父名・ニスバの連なり「الكردي ثم المكي」・マッカ在住が本項主と一致する。corpus でこのニスバの連なりを持つ محمد بن إبراهيم は本項のみ（もう一人の الكردي … المكي ＝#AIND-D06513 は祖父 عبد الله・811年没の別人）。ただし本項は「مؤدب الأبناء」に触れず、相手側も「الآتي」と言わない＝ナサブとニスバによる同定なので cert medium（ISSUES §D171-4）。ID-Master には D00327 の子として TMP-P-001336「محمد」（Note「AIND-D00327の息子でマッカの子供たちの教師」）が登録されており、同定が正しければ本項と名寄せになる。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D06591
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m6
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。年の記載なし。
 notes:
 - text: '直前の転送見出し #AIND-D06590（الكردي、「فيمن جده عبد الله」）の指す #AIND-D06513 は747年生・811年没で、サハーウィーに聴講できない＝本項とは別人（possible_identity は立てない。ブリーフどおり）。初版の residence event（مكة）はニスバ「ثم المكي」からの補完なので除去（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00327
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-00164
+  quote: الكردي
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・アル＝クルディー、のちアル＝マッキー。マッカで私から聴いた者の一人。
   en: Muḥammad b. Ibrāhīm al-Kurdī, then al-Makkī. One of those who heard from me in Mecca.

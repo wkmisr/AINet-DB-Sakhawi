@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02134
-    quote: النجاري
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 persons:
 - id: p1
   label: علي بن أحمد النجاري
@@ -36,30 +34,27 @@ relations:
   subtype: father
   active: AIND-D08030#p1
   passive: AIND-D08030
-  quote: null
   note:
     ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: social
   subtype: other
-  active: AIND-D01456
+  active: m5
   passive: AIND-D08030
   summary:
     ar: أبو العباس بن الغمري
-  quote: العباس بن الغمري
   note:
     ja: '「أحد جماعة أبي العباس بن الغمري」＝門人・同志の一人。أبو العباس بن الغمري ＝ #AIND-D01456（أحمد بن محمد بن عمر الشهاب أبو العباس بن الشمس أبي عبد الله الغمري الأصل المحلي الشافعي ويعرف بأبي العباس الغمري）。統制内に「門人」がないため other（repo 先例 D05030・D01056 が同人を other で参照）。初版は associate・#NEEDID。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D08030
   methods:
   - TMP-S-00003
   context:
   - type: learning
     phrase: سمع مني في الإملاء وغيره
-  quote: مني
 events:
 - id: e1
   type: learning
@@ -67,23 +62,55 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00025
-  quote: قرأ
   trigger: rule
-  norm: قرا
   phrase: قرأ القرآن وحصل بعض الدروس
+  mention: m6
 - id: e2
   type: residence
   subtype: jāwara
   places:
-  - ref: TMP-L-00033
-    quote: بالحرمين
-    norm: الحرمين
-  quote: وجاور
+  - mention: m9
   note:
     ja: '「بالحرمين」は原文明記（規則22(2)）。الحرمين（مكة والمدينة）＝TMP-L-00033（repo 4件で使用。ID-Master には同実体の TMP-L-00197 も登録されており重複）。初版は #NEEDID。'
   trigger: rule
-  norm: جاور
   phrase: جاور بالحرمين مدة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-02134
+  quote: النجاري
+- id: m5
+  kind: person
+  ref: AIND-D01456
+  quote: العباس بن الغمري
+- id: m6
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m9
+  kind: place
+  quote: بالحرمين
+  ref: TMP-L-00033
+  norm: الحرمين
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド・アン＝ナッジャーリー、アブー・アル＝アッバース・ブン・アル＝ガムリーの門人集団の一人。クルアーンを読み、いくつかの講義を修め、私（サハーウィー）から口述（イムラー）その他を聴聞し、両聖地にしばらく隣住（ムジャーワラ）した。
   en: Muḥammad b. ʿAlī b. Aḥmad al-Najjārī, one of the circle of Abū al-ʿAbbās b. al-Ghamrī. He read the Qurʾān, acquired some lessons, heard from me at the dictation sessions and elsewhere, and sojourned in the two sanctuaries (Mecca and Medina) for a period.

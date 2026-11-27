@@ -9,34 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00712
-    quote: العزيزي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m6
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m3
   - id: n5
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 persons:
 - id: p1
   label: محمد
@@ -49,27 +43,25 @@ relations:
   subtype: father
   active: AIND-D10096#p1
   passive: AIND-D10096
-  quote: null
   note:
     ja: 父 محمد は裸名で識別要素なし（規則3 (c')）。初版の TMP-P-000529（登録＝別実体の汎用 محمد、汚染常習番号）を除去。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D05841
+  active: m8
   passive: AIND-D10096
   methods:
   - label: أذن له في التدريس والإفتاء
   cert: medium
-  quote: العبادي
   note:
     ja: 「ممن أذن له العبادي في التدريس والإفتاء」＝العبادي が本項主に教授とファトワー発行の許可（إذن）を与えた（師＝active）。العبادي＝#AIND-D05841 السراج عمر العبادي（cert medium。B159-163 ★1-17 (a) 裁定 2026-11-09 で旧 TMP-P-000085 から名寄せ。許可の文脈の裸の「العبادي」はこの人物に固定、規則26 例外2）。
 states:
 - id: s1
   type: office
   ref: TMP-O-00096
-  quote: null
   note:
     ja: 見出し「أحد النواب」。
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00368
@@ -77,20 +69,59 @@ states:
   - notBefore: 891
     notAfter: 899
     type: appointment
-  quote: null
   note:
     ja: '「ولي قضاء المحمل سنة بضع وتسعين」＝89X年（بضع＝3〜9、規則4: notBefore-custom 0893／notAfter-custom 0899。893＝1487-12-26 開始、899 の年末＝1494-10-10、h2g.py）。ID-Master 既登録 TMP-O-00368 قاضي المحمل（先例 #AIND-D07906）。初版の ref #NEEDID と when-custom="890s" を置換。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 893〜899）'
+  mention: null
 - id: s3
   type: status
   label: مهمل
   label_latn: muhmal
-  quote: مهمل
   note:
     ja: 「وهو مهمل」＝（学問に）無頓着・おざなりな人物、というサハーウィーの評。初版の訳「詳細な伝記は省略されている」は誤読。
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الشرف
+- id: m4
+  kind: name
+  ref: TMP-N-00712
+  quote: العزيزي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D05841
+  quote: العبادي
+- id: m9
+  kind: office
+  quote: مهمل
+- id: m10
+  kind: year
+  value: 891-899
+  quote: سنة بضع وتسعين
 translation:
   ja: ムーサー・ブン・ムハンマド、アッ＝シャラフ・アル＝アズィーズィー、のちアル＝カーヒリー、アル＝アズハリー、アッ＝シャーフィイー、代理カーディーの一人。アル＝アッバーディーから教授とファトワー発行の許可を与えられた者の一人であるが、彼は無頓着な人物である。（8）90年代の某年にマフマル（巡礼隊）のカーディー職に就いた。
   en: Mūsā b. Muḥammad, al-Sharaf al-ʿAzīzī, then al-Qāhirī, al-Azharī, al-Shāfiʿī, one of the deputy judges. He was among those whom al-ʿAbbādī authorized to teach and issue fatwās, but he is a careless man. He held the judgeship of the pilgrimage caravan (maḥmal) in the year [8]90-something.

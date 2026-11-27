@@ -9,27 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m2
   - id: n2
     type: honorific
-    quote: null
     label: الشيخ
+    mention: null
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m3
   passive: AIND-D04673
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00196
-  quote: شيخنا
   note:
     ja: شيخنا＝ابن حجر（wd:Q471116）。その口述録『الأمالي القديمة』（初期のアマーリー）は ID-Master 未登録（TMP-T-00030 はサハーウィー自身の الأمالي、TMP-T-00186 は الولي العراقي のもの）のため仮番号 TMP-T-00196 を発行。corpus では D05457 にも「بعض الأمالي القديمة」として出現。
   phrase: ممن أثبت شيخنا اسمه فيمن سمعه منه في الأمالي القديمة
@@ -48,12 +46,27 @@ sources:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00196
-  quote: ووصفه
   note:
     ja: Pattern A（وصفه 型）。
   trigger: rule
-  norm: وصفه
   phrase: ممن أثبت شيخنا اسمه فيمن سمعه منه في الأمالي القديمة ووصفه بالشيخ
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m3
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m4
+  kind: source
+  quote: ووصفه
+  norm: وصفه
 translation:
   ja: アブドゥッラー・アッ＝ルーミー、バイバルスィーヤの住人。我らが師（イブン・ハジャル）が『初期のアマーリー』において自分から聴聞した者の中にその名を記し、「シャイフ」と形容した人物の一人。
   en: ʿAbd Allāh al-Rūmī, resident of al-Baybarsiyya. He is one of those whose name our shaykh [Ibn Ḥajar] recorded among those who heard from him in the early Amālī, describing him as "the Shaykh".

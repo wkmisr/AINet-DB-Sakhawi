@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00735
-    quote: الحجاري
+    mention: m4
   - id: n2
     type: ism
-    quote: راجح
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسين
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D02983
   methods:
   - TMP-S-00003
@@ -36,34 +35,58 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: علي
+    - mention: m8
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D02983
-  passive: TMP-P-000792
-  quote: يحيى بن أبي البركات بن ظهيرة
+  passive: m6
   note:
     ja: active=見出し人物＝家庭教師（مؤدب）。يحيى بن أبي البركات بن ظهيرة（メッカのظهيرة家）はcorpus本伝未特定＝TMP発行。
-  norm: يحيي بن ابي البركات بن ظهيرة
   phrase: مؤدب يحيى بن أبي البركات بن ظهيرة
 states:
 - id: s1
   type: office
-  ref: TMP-O-00029
-  quote: مؤدب
-  norm: مءدب
+  mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: راجح
+- id: m2
+  kind: name
+  quote: حسين
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  ref: TMP-N-00735
+  quote: الحجاري
+- id: m5
+  kind: office
+  ref: TMP-O-00029
+  quote: مؤدب
+  norm: مءدب
+- id: m6
+  kind: person
+  ref: TMP-P-000792
+  quote: يحيى بن أبي البركات بن ظهيرة
+  norm: يحيي بن ابي البركات بن ظهيرة
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ラージフ・ブン・フサイン・ブン・ムハンマド・アル＝ハッジャーリー。ヤフヤー・ブン・アビー・アル＝バラカート・ブン・ザヒーラの家庭教師（ムアッディブ）。メッカに居住する善良で穏やかな人物で、メッカで私（サハーウィー）からハディースを聴聞した。
   en: Rājiḥ b. Ḥusayn b. Muḥammad al-Ḥajjārī, the tutor of Yaḥyā b. Abī al-Barakāt b. Ẓuhayra. A good and quiet resident who heard from me (al-Sakhāwī) in Mecca.

@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -18,7 +18,7 @@ birth:
   note:
     ar: ولد في ذي الحجة سنة اثنتين وأربعين وثمانمائة
     ja: 842年ズー・アル＝ヒッジャ月＝1439-05-24〜06-22 → 月初 1439（初版の 1438 を是正）。
-  quote: سنة
+  mention: m6
 death:
   id: d
   note:
@@ -28,31 +28,26 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03605
+  active: m3
   passive: AIND-D07542
   cert: medium
-  quote: الذي قبله
   note:
     ja: '父＝#AIND-D03605（عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … وجيه الدين … المكي）。前項 #AIND-D07541 の同父兄弟であることに加え、母 #AIND-D13356 の本伝「تزوجها ابن عمها عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … واستولدها」で父を確認（女性部 #AIND-D13572 كمالية ابنة عبد الرحمن بن أبي بكر … أمها علما ابنة المحب ابن ظهيرة も同母の姉妹）。'
   phrase: أخو الذي قبله
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D13356
+  active: m4
   passive: AIND-D07542
-  quote: وأمه علما ابنة المحب بن ظهيرة
   note:
     ja: '母＝#AIND-D13356（علما ابنة المحب أحمد بن محمد بن عبد الله بن ظهيرة … أم محمد القرشية、818年生・882年没、「تزوجها ابن عمها عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة」）。クンヤ أم محمد も本項主に合致。初版の #NEEDID を解消。'
-  norm: وامه علما ابنة المحب بن ظهيرة
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D07541
+  active: m2
   passive: AIND-D07542
-  quote: أخو
   note:
     ja: '前項 #AIND-D07541（محمد بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة、母 خديجة ابنة القاضي سليمان بن علي بن الجنيد）。同父異母の兄弟。初版の空 relation（active=""）を補完。'
-  norm: اخو
   phrase: محمد أخو الذي قبله
 notes:
 - text: '見出しは「محمد أخو الذي قبله」のみで、ナサブは前項 #AIND-D07541（محمد بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … القرشي المكي）に依る。他項由来の属性は persName に補わず（統一規則23）、父・母・兄弟の relation で表す。'
@@ -61,14 +56,46 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: بيض
+  - cert: low
+    mention: m8
   note:
     ja: 'Pattern A（بيض له＝第三者による記載）。ابن فهد は限定語なし・本項主は幼少で没（生842）→ ブリーフの振り分け（≤871・不明）により التقي بن فهد ＝ #AIND-D09211、cert low。'
   trigger: rule
   phrase: بيض له ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: person
+  ref: AIND-D07541
+  quote: أخو
+  norm: اخو
+- id: m3
+  kind: person
+  ref: AIND-D03605
+  quote: الذي قبله
+- id: m4
+  kind: person
+  ref: AIND-D13356
+  quote: وأمه علما ابنة المحب بن ظهيرة
+  norm: وامه علما ابنة المحب بن ظهيرة
+- id: m5
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m6
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: بيض
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド、前項の人物の兄弟。母はアル＝ムヒッブ・イブン・ザヒーラの娘アルマー。842年ズー・アル＝ヒッジャ月に生まれ、彼もまた幼くして没した者の一人である。イブン・ファハドは彼のために（記載を）空白のままにした。
   en: Muḥammad, brother of the preceding. His mother was ʿAlamā, daughter of al-Muḥibb b. Ẓahīra. He was born in Dhū al-Ḥijja 842, and he too was among those who died young. Ibn Fahd left his entry blank.

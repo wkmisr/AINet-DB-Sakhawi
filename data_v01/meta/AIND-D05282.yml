@@ -9,46 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: الشمس لولو
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 726
   note:
     en: Born in 726 AH.
-  quote: سنة
+  mention: m8
 death:
   id: d
   date:
     ah: 801-01
   places:
-  - ref: TMP-L-00271
-    quote: ببيت لهيا
-    norm: بيت لهيا
+  - mention: m11
   note:
     en: Died in al-Muharram 801 AH at his home in Bayt Lahyā.
-  quote: سنة
+  mention: m13
 persons:
 - id: p1
   label: زينب
@@ -57,7 +53,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000275
+  active: m9
   passive: AIND-D05282
   methods:
   - TMP-S-00028
@@ -65,7 +61,6 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00183
-  quote: الحجار
 - id: r2
   type: scholarly
   subtype: teacher
@@ -77,25 +72,22 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00174
-  quote: null
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D05282
-  passive: wd:Q471116
+  passive: m10
   methods:
   - TMP-S-00004
   fields:
   - TMP-S-00002
   works:
   - ref: TMP-T-00104
-  quote: شيخنا
 - id: r4
   type: kin
   subtype: sister
-  active: AIND-D05282#p1
+  active: m7
   passive: AIND-D05282
-  quote: زينب
 - id: r5
   type: identity
   subtype: possible_identity
@@ -104,9 +96,58 @@ relations:
   summary:
     ar: علي بن عمر بن محمد بن الشمس لولو الحلبي ثم الدمشقي
   cert: low
-  quote: null
   note:
     ja: '#AIND-D05319（立項番号906「على بن عمر بن محمد بن الشمس لولو الحلبي ثم الدمشقي أخو زينب」）は父名（عمر／عثمان）のみ異なり、祖父名・لولو・ニスバ・妹 زينب・生年726・الحجار・没年月（801年ムハッラム）・没地 بيت لهيا が一致。D05319 末尾「وينظر إن كان في كتابي」はサハーウィー自身の留保＝二重立項型として両項を実項のまま保持（B119-123 §D122-1 の鏡像）。'
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: الشمس لولو
+- id: m5
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: person
+  ref: AIND-D05282#p1
+  quote: زينب
+- id: m8
+  kind: year
+  value: '726'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: TMP-P-000275
+  quote: الحجار
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: place
+  quote: ببيت لهيا
+  ref: TMP-L-00271
+  norm: بيت لهيا
+- id: m12
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m13
+  kind: year
+  value: '801'
+  quote: سنة
 translation:
   ja: アリー・ブン・ウスマーン・ブン・ムハンマド・ブン・アッ＝シャムス・ルウルウ、ハラブ出身、のちにダマスカスに居住。ザイナブの兄弟。ヒジュラ暦726年に生まれた。アル＝ハッジャールに師事して『ブハーリーの三伝ハディース集（スラーシヤート）』および『アブー・アル＝ジャフムの部（ジュズウ）』を聴聞した。我らのシャイフ（イブン・ハジャル）を含む複数名が彼からハディースを伝承しており、我らのシャイフは自身の『ムアジャム』において彼について言及し、「彼は我々にイジャーザ（伝承許可）を与えた」と述べている。ヒジュラ暦801年のムハッラム月に、バイト・ラヒヤーの自宅で逝去した。神の慈悲があらんことを。
   en: 'ʿAlī b. ʿUthmān b. Muḥammad b. al-Shams Luʾluʾ al-Ḥalabī, later al-Dimashqī, the brother of Zaynab. He was born in the year 726 AH. He attended the readings of the Thulāthiyyāt of al-Bukhārī and the Juzʾ of Abū al-Jahm under al-Ḥajjār. Several people narrated from him, including our shaykh (Ibn Ḥajar), who mentioned him in his Muʿjam and said: ''He granted us an ijāza.'' He passed away at his home in Bayt Lahyā in al-Muḥarram, the year 801 AH. May God have mercy on him.'

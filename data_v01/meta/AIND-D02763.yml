@@ -10,44 +10,41 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-05472
-    quote: null
+    mention: null
   - id: n2
     type: shuhrah
-    quote: شيخ سروعة
+    mention: m2
   - id: n3
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 886
   places:
-  - ref: TMP-L-00191
-    role: burial
-    quote: بدر
+  - role: burial
+    mention: m6
   note:
     ja: 没地「بين بدر والينبع」（バドルとヤンブーの間の道中）は地点名ではなく区間表現のため placeName ref を付さず prose/note に留める（§4-17）。
     en: He died while traveling to visit the Sayyid, ruler of the Hijaz, between Badr and al-Yanbuʿ. He was carried to Badr and buried there.
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05528
+  active: m8
   passive: AIND-D02763
-  quote: علي بن محمد بن غضنفر
   note:
     ja: corpus独立立項なし＝TMP発行。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00095
   places:
   - ref: TMP-L-00192
-  quote: شيخها
   note:
     ja: 在地首長職はproject既登録の TMP-O-00095（شيخ عرب | شيخ العرب）に集約し、対象は placeName で表現する。
+  mention: m3
 events:
 - id: e1
   type: travel
@@ -56,25 +53,53 @@ events:
     cert: high
     type: travel
   places:
-  - ref: TMP-L-00191
-    quote: بدر
-  quote: توجهه
+  - mention: m6
   cert: high
   note:
     en: He died on the road between Badr and al-Yanbuʿ during this journey and was carried to Badr.
   trigger: rule
+  mention: m4
 - id: e2
   type: travel
   persons:
-  - ref: AIND-D07156
-    role: intended_host
-    quote: للسيد صاحب الحجاز
-    norm: لسيد صاحب الحجاز
-  quote: null
+  - role: intended_host
+    mention: m5
   cert: medium
   note:
     en: He was travelling to visit him when he died.
     ja: 886年時点の「صاحب الحجاز」＝السيد محمد بن بركات بن حسن بن عجلان = AIND-D07156（在位859頃–903）。年次からの同定のためcert="medium"。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  quote: شيخ سروعة
+- id: m3
+  kind: office
+  ref: TMP-O-00095
+  quote: شيخها
+- id: m4
+  kind: event
+  quote: توجهه
+- id: m5
+  kind: person
+  ref: AIND-D07156
+  quote: للسيد صاحب الحجاز
+  norm: لسيد صاحب الحجاز
+- id: m6
+  kind: place
+  quote: بدر
+  ref: TMP-L-00191
+- id: m7
+  kind: year
+  value: '886'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D05528
+  quote: علي بن محمد بن غضنفر
 translation:
   ja: フサイン。サルウアのシャイフであり、そのシャイフの息子。ヒジャーズの支配者であるサイイドのもとへ向かう途中、バドルとヤンブーの間で没した。遺体はバドルに運ばれ、そこに埋葬された。没年は（ヒジュラ暦）886年。彼は東洋と西洋において極めて重んじられた人物であった。アシュラーフ（預言者の末裔）の一人であるアリー・ブン・ムハンマド・ブン・ガザンファルの息子。神が彼を赦されますように。
   en: Ḥusayn, the shaykh of Sarūʿa and the son of its shaykh. He died on his way to the Sayyid, the ruler of the Hijaz, between Badr and al-Yanbuʿ. He was then carried to Badr and buried there in the year 886 AH. He was highly revered in the East and the West, may God forgive him. He was the son of ʿAlī b. Muḥammad b. Ghaḍanfar, from the Ashrāf (noble descendants of the Prophet).

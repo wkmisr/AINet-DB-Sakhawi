@@ -9,33 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00139
-    quote: الدميري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الواحد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001275
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -44,37 +41,78 @@ death:
   - ref: gn:104515
   note:
     ja: 「مات بها في رجب سنة خمس وثمانين」。「بها」＝مكة（ニスバ المكي の照応、規則22(3)）。885-07 ＝ 1480-09-15〜10-14、月初 1480-09（h2g.py）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001275
   passive: AIND-D04747
-  quote: null
   note:
     ja: '見出しナサブから復元（統一規則3）。叔父 #AIND-D04283 の兄弟にあたる。corpus の محمد بن محمد بن محمد بن عبد الله 項（D09117〜D09125）に الدميري の本伝なし・ID-Master 未登録 → 新規仮番号 TMP-P-001275（⚠汎用名。識別要素はニスバ الدميري المكي と弟 عبد الكريم のみ）。'
   phrase: محمد بن محمد بن محمد بن عبد الله الدميري المكي
 - id: r2
   type: kin
   subtype: uncle
-  active: AIND-D04283
+  active: m8
   passive: AIND-D04747
-  quote: عبد الكريم بن محمد الماضي
   note:
     ja: 「ابن أخي عبد الكريم بن محمد الماضي」＝#AIND-D04283「عبد الكريم بن محمد بن عبد الله بن محمد بن موسى الدميري المكي العطار … مات بمكة في سلخ شعبان سنة ست وسبعين . أرخه ابن فهد」。同じ الدميري المكي で、相手側本文に「والصواب أن جده محمد بن عبد الله بن موسى بن عيسى」とナサブの揺れが記されており、本項主のナサブ（بن محمد بن محمد بن محمد بن عبد الله）と整合する（訂正後は عبد الكريم بن محمد بن محمد بن عبد الله بن موسى となり、本項主の父 محمد بن محمد بن محمد بن عبد الله の弟。曾祖父 محمد بن عبد الله بن موسى ＝ ID-Master TMP-P-001039）。校閲時の「世代が一致しない」は誤認（集約時に訂正）。サハーウィーが「عبد الكريم بن محمد الماضي」として指すのは corpus 中この項のみ。
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m12
   cert: medium
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 885（871＜885≤885）→ ブリーフの振り分けにより النجم عمر بن فهد＝#AIND-D05979、cert medium。初版の統制外 subtype「death chronicler」relation（#AIND-D09211）を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الواحد
+- id: m2
+  kind: name
+  ref: TMP-P-001275
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عبد الله
+- id: m6
+  kind: name
+  ref: TMP-N-00139
+  quote: الدميري
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: person
+  ref: AIND-D04283
+  quote: عبد الكريم بن محمد الماضي
+- id: m9
+  kind: month
+  value: 7
+  quote: رجب
+- id: m10
+  kind: year
+  value: '885'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アブドゥルワーヒド・ブン・ムハンマド・ブン・ムハンマド・ブン・ムハンマド・ブン・アブドゥッラー、アッ＝ダミーリー・アル＝マッキー。既述のアブドゥルカリーム・ブン・ムハンマドの甥（兄弟の息子）。（8）85年ラジャブ月に同地（マッカ）で没した。イブン・ファハドがその没年月を記録している。
   en: ʿAbd al-Wāḥid b. Muḥammad b. Muḥammad b. Muḥammad b. ʿAbd Allāh, al-Damīrī al-Makkī, nephew (brother's son) of ʿAbd al-Karīm b. Muḥammad mentioned above. He died there (in Mecca) in Rajab (8)85; Ibn Fahd recorded his death.

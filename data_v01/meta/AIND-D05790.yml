@@ -9,42 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00833
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03742
+    mention: m3
   - id: n6
     type: nasab
-    quote: الجمال
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 851
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     ja: 「ولد في سنة إحدى وخمسين بمكة」。851 ＝ 1447-03-28〜1448-03-15、年のみのため年初 1447（h2g.py）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: ولد البرهاني
@@ -56,11 +49,10 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001331
+  active: m11
   passive: AIND-D05790
   methods:
   - TMP-S-00028
-  quote: البرهاني
   note:
     ja: '「دخل القاهرة غير مرة وحضر دروس البرهاني وولده وأخيه」。البرهاني は通称のみ。ID-Master の TMP-P-001331「البرهاني」（出現 D04910: マッカ出身で892年カイロ没の عفان بن ظهيرة が「ممن حضر في درس البرهاني」——本項と同じくマッカ人のカイロでの聴講）と同一文脈のため同番号を充てる。候補 #AIND-D00196（البرهان بن ظهيرة）等への同定は保留（規則26）。【集約】「القاهرة」は「دخل」の目的語であり「حضر」の場所句ではないため、3本の relation 内 event の placeName القاهرة を除去（規則22。内容検証B M-2）。同型句 D00236「حضر دروسهم مع دروس البرهاني وأخيه وابنه」・D01406「كالبرهاني بن ظهيرة وولده」・D01509「حضر دروس قاضيها البرهاني」はいずれもマッカの البرهان بن ظهيرة の講義を指し、本項主もマッカ人なので、講義地をカイロとする根拠はない（候補 D00196 の傍証、§D103-5）。初版のニスバ番号 TMP-N-00215 の person 位置流用を是正。'
 - id: r2
@@ -70,7 +62,6 @@ relations:
   passive: AIND-D05790
   methods:
   - TMP-S-00028
-  quote: null
   note:
     ja: 'البرهاني（TMP-P-001331）の息子。名不詳のため #NEEDID 維持（規則12）。'
 - id: r3
@@ -80,17 +71,15 @@ relations:
   passive: AIND-D05790
   methods:
   - TMP-S-00028
-  quote: null
   note:
     ja: 'البرهاني（TMP-P-001331）の兄弟。名不詳のため #NEEDID 維持（規則12）。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D05790
   methods:
   - TMP-S-00003
-  quote: مني
   note:
     ja: 「وسمع مني」（規則2。field は付けない。場所は原文に明示されない）。
 - id: r5
@@ -98,7 +87,6 @@ relations:
   subtype: father
   active: AIND-D00833
   passive: AIND-D05790
-  quote: null
   note:
     ja: '見出しナサブから。父 ＝ #AIND-D00833「أحمد بن عبد الرحمن بن محمد بن أبي بكر بن علي بن يوسف الشهاب بن الوجيه الأنصاري المكي الآتي أبوه ويعرف كهو بابن الجمال المصري」（873年没）。الجمال المصري ＝ 曽祖父 محمد بن أبي بكر（#AIND-D07579 の見出し「محمد بن عبد الرحمن بن الجمال المصري محمد بن أبي بكر بن علي بن يوسف」）で、本項の4代ナサブと整合。兄 #AIND-D04977「علي بن أحمد بن عبد الرحمن … أخو محمد وعمر الآتيين ويعرف كل منهم بابن الجمال المصري」も本項主を名指しする。初版には父 relation なし。'
   phrase: أحمد بن عبد الرحمن بن الجمال المصري
@@ -107,7 +95,6 @@ relations:
   subtype: grandfather
   active: AIND-D03742
   passive: AIND-D05790
-  quote: null
   note:
     ja: '祖父 ＝ #AIND-D03742「عبد الرحمن بن محمد بن أبي بكر بن علي بن يوسف … وجيه الدين أبو الفرج بن الجمال أبي الطاهر الانصاري الذروي ثم المكي الشافعي ويعرف بابن الجمال المصري」（父 D00833 の「الآتي أبوه」）。'
   phrase: عبد الرحمن بن الجمال المصري
@@ -119,7 +106,6 @@ relations:
   summary:
     ar: علي بن أحمد بن عبد الرحمن بن الجمال المصري
   cert: medium
-  quote: null
   note:
     ja: '相手側本伝 #AIND-D04977（832/833年生）が「أخو محمد وعمر الآتيين」と本項主を一意に名指しするため、規則23により cert medium で補う。同じ父の子として #AIND-D03561 عبد الرحمن・#AIND-D04390 عبد الله・#AIND-D04837 عثمان（いずれも「بن أحمد بن عبد الرحمن بن الجمال المصري المكي」）もいるが、本項主への言及がないため relation は立てない。'
 - id: r8
@@ -130,7 +116,6 @@ relations:
   summary:
     ar: محمد بن أحمد بن عبد الرحمن بن الجمال المصري
   cert: medium
-  quote: null
   note:
     ja: '相手側本伝 #AIND-D06688「محمد بن أحمد بن عبد الرحمن بن محمد بن أبي بكر بن علي بن يوسف الجمال الأنصاري المكي الشافعي ابن حفيد الجمال المصري وأخو علي وعمر المذكورين」（848年生）が本項主を名指しするため、規則23により cert medium で補う。'
 events:
@@ -141,21 +126,71 @@ events:
   - ref: TMP-T-00065
   methods:
   - TMP-S-00003
-  quote: وسمع
   note:
     ja: 暗記（師の記載なし）。初版は active="" の teacher relation 2本として符号化していたが、repo 先例に倣い learning event に変換。暗記の場所は原文に明示されない（初版の placeName مكة は出生地からの補完のため除去、規則22(1)）。
   trigger: rule
-  norm: سمع
   phrase: حفظ القرآن والمنهاج
+  mention: m12
 - id: e2
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ودخل
+  - mention: m10
   trigger: rule
-  norm: دخل
   phrase: دخل القاهرة غير مرة
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D00833
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: AIND-D03742
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: year
+  value: '851'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: event
+  quote: ودخل
+  norm: دخل
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: person
+  ref: TMP-P-001331
+  quote: البرهاني
+- id: m12
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ウマル・ブン・アフマド・ブン・アブド・アッ＝ラフマーン・ブン・アル＝ジャマール・アル＝ミスリー・アル＝マッキー。（8）51年にマッカで生まれ、クルアーンと『ミンハージュ』を暗記した。何度もカイロに入り、アル＝ブルハーニーとその息子および兄弟の講義に出席し、私から聴聞した。
   en: ʿUmar b. Aḥmad b. ʿAbd al-Raḥmān b. al-Jamāl al-Miṣrī al-Makkī. He was born in the year (8)51 in Mecca and memorised the Qurʾān and the Minhāj. He entered Cairo more than once, attended the lessons of al-Burhānī, his son and his brother, and heard from me.

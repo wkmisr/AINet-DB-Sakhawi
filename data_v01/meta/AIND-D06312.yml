@@ -11,23 +11,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00355
-    quote: النوروزي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00306
-    quote: الجركسي
+    mention: m3
   - id: n3
     type: ism
-    quote: قجق
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 844
   note:
     ja: 「مات سنة أربع وأربعين」＝844 年（年初 1440-06-11、年精度）。没地の記載なし。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد قجق النوروزي
@@ -38,7 +36,6 @@ relations:
   subtype: father
   active: AIND-D06312#p1
   passive: AIND-D06312
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。ニスバ「النوروزي」は主人（نوروز）の名指しではないため patron relation は立てない。'
 - id: r2
@@ -49,24 +46,45 @@ relations:
   summary:
     ar: ممجق النوروزي
   cert: low
-  quote: null
   note:
     ja: 「ويحرر فكأنه ممجق」（要確認、ممجق であるらしい）＝サハーウィー自身が別見出しとの同一を示唆（يحرر＝possible_identity cert low、標準規則）。#AIND-D10005「ممجق النوروزي نسبة لنوروز الحافظي . تنقلت به الأحوال إلى أن عمله الظاهر جقمق عشرة ثم ولاه نيابة القلعة ودام حتى مات في سلخ جمادى الثانية أو مستهل رجب سنة أربع واربعين」とニスバ（النوروزي）・職（نيابة القلعة）・没年 844 が一致。両項とも転送指示がないので二重立項型（双方向 possible_identity。鏡像は D10005 受領時）。集約 2026-10-26 で追加（内容B F01、オーケストレーター決定2）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00338
   places:
-  - ref: TMP-L-00193
-    quote: قلعة الجبل
-  quote: نائب
+  - mention: m5
   note:
     ja: '「نائب قلعة الجبل」＝カイロ城塞（TMP-L-00193）の代官。汎用 نائب（TMP-O-00053）＋ラベル（先例 D05921「نائب قلعة حلب」方式。ID-Master の TMP-O-00338 は「نائب القلعة (بدمشق)」とダマスクス固有のため使わない）。初版は #NEEDID。'
-  norm: ناءب
+  mention: m4
 notes:
 - text: '「ويحرر فكأنه ممجق」＝（名は）要確認、ممجق（Mamjaq）であるように思われる、とサハーウィーが名の読みに留保を付す → persName に cert low、別形 ممجق をここに記す（規則25：見出しは原文どおり قجق）。見出し「ممجق」の項 #AIND-D10005 への possible_identity（cert low）を listRelation に置いた（集約 2026-10-26、決定2）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قجق
+- id: m2
+  kind: name
+  ref: TMP-N-00355
+  quote: النوروزي
+- id: m3
+  kind: name
+  ref: TMP-N-00306
+  quote: الجركسي
+- id: m4
+  kind: office
+  ref: TMP-O-00338
+  quote: نائب
+  norm: ناءب
+- id: m5
+  kind: place
+  quote: قلعة الجبل
+  ref: TMP-L-00193
+- id: m6
+  kind: year
+  value: '844'
+  quote: سنة
 translation:
   ja: クジャク・アン＝ナウルーズィー・アル＝ジャルカスィー、山の城塞（カイロ城塞）の代官（ナーイブ）。844年に没した。（名は）要確認で、ママジャクであるように思われる。
   en: Qujaq al-Nawrūzī al-Jarkasī, deputy (nāʾib) of Qalʿat al-Jabal (the Citadel of Cairo). He died in the year 844. It is to be verified; it seems that he is Mamjaq.

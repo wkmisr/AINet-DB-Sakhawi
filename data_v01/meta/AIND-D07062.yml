@@ -9,21 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m4
   - id: n2
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
@@ -31,7 +28,7 @@ death:
     cert: low
   note:
     ja: '「ومات قبل وفاة شيخه المذكور في حدود سنة أربع عشرة」。「في حدود」＝814年頃（cert low、ブリーフ指定）。814年＝1411-05-04〜1412-04-21（h2g.py）。師 #AIND-D00602 の没年 815 と整合。'
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: أحمد
@@ -42,12 +39,10 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07062#p1
+  active: m5
   passive: AIND-D07062
-  quote: أحمد
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
-  norm: احمد
 - id: r2
   type: scholarly
   subtype: teacher
@@ -57,7 +52,6 @@ relations:
   - TMP-S-00032
   fields:
   - wd:Q484181
-  quote: null
   note:
     ja: '「تفقه بالقاضي أحمد بن أبي بكر الناشري」＝ #AIND-D00602「أحمد بن أبي بكر بن علي … الشهاب أبو العباس … الناشري … الزبيدي الشافعي」（742〜815）。'
   phrase: القاضي أحمد بن أبي بكر الناشري
@@ -65,8 +59,7 @@ relations:
   type: social
   subtype: deputy
   active: AIND-D07062
-  passive: AIND-D05084
-  quote: القاضي موفق الدين
+  passive: m7
   note:
     ja: '「وناب عن القاضي موفق الدين في أحكام زبيد」＝ #AIND-D05084「علي بن أبي بكر بن علي … موفق الدين أبو الحسن … اليماني الزبيدي الشافعي ويعرف بالناشري」（没844、ザビードのカーディー。ブリーフ指定）。本項主が代理（نائب）。'
 states:
@@ -74,17 +67,52 @@ states:
   type: status
   label: فقيه عالم
   label_latn: faqīh ʿālim
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: TMP-L-00041
-    quote: زبيد
-  quote: وناب
+  - mention: m8
   note:
     ja: 「ناب عن القاضي موفق الدين في أحكام زبيد فكان الناس إذا علموا أنه القاعد لذلك تحاموه لغلظته」。زبيد は原文に明記（TMP-L-00041）。初版の residence event زبيد は職務地からの補完のため除去（規則22(1)）。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m5
+  kind: person
+  ref: AIND-D07062#p1
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
   norm: ناب
+- id: m7
+  kind: person
+  ref: AIND-D05084
+  quote: القاضي موفق الدين
+- id: m8
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m9
+  kind: year
+  value: '814'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・アブー・アブドゥッラー・アル＝ジャバルティー。法学者にして学者で、カーディーのアフマド・ブン・アビー・バクル・アン＝ナーシリーについて法学を修め、ザビードの裁判においてカーディーのムワッファク・アッ＝ディーンの代理を務めた。人々は、彼がその（裁判の）ために座しているのだと知ると、その峻厳さのゆえに彼を避けたものだった。前述の師の死の前、（8）14年頃に没した。
   en: Muḥammad b. Aḥmad Abū ʿAbd Allāh al-Jabartī. He was a learned jurist who studied fiqh with the qāḍī Aḥmad b. Abī Bakr al-Nāshirī and deputized for the qāḍī Muwaffaq al-Dīn in the judicial affairs of Zabīd; when people learned that it was he who was sitting for that, they avoided him because of his harshness. He died before the death of his aforementioned shaykh, around the year (8)14.

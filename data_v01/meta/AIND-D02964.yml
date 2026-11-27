@@ -10,61 +10,53 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00079
-    quote: null
+    mention: null
   - id: n2
     type: shuhrah
-    quote: أمير الينبوع
-    norm: امير الينبوع
+    mention: m3
   - id: n3
     type: ism
-    quote: دراج
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: معزى الحسنى
     by: rule
-    ref: TMP-P-000705
-    norm: معزي الحسني
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000705
   passive: AIND-D02964
-  quote: null
   note:
     ja: الشريف معزى صاحب ينبع = TMP-P-000705（B35発行・ID-Master注記に「息子=D02964(دراج بن معزى)」）。corpus AIND-D03068 は本項を「دراج ابن مفري」と綴る異綴り。
   phrase: معزى
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D07156
+  active: m6
   passive: AIND-D02964
   cert: medium
-  quote: صاحب الحجاز
   note:
     en: The ruler of the Hijaz delegated the affairs of Yanbuʿ to the subject, appointing him as his deputy.
     ja: 887年時点の「صاحب الحجاز」＝السيد محمد بن بركات = AIND-D07156。年次からの同定のためcert="medium"。
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D03068
+  active: m5
   passive: AIND-D02964
-  quote: سبع
   note:
     en: Sabʿ was the predecessor of the subject as emir of Yanbuʿ.
     ja: سبع بن هجان بن محمد بن مسعود الحسني أمير الينبوع = AIND-D03068。当該項に「مات في ذي الحجة سنة سبع وثمانين واستقر بعده دراج ابن مفري بتقرير من صاحب الحجاز لتفويض أمره إليه」とあり本項と逐語で相互閉合。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
   - ref: TMP-L-00081
   dates:
   - ah: 887
     type: appointment
-  quote: أمره
-  norm: امره
+  mention: m7
 events:
 - id: e1
   type: residence
@@ -74,21 +66,55 @@ events:
     type: residence
   places:
   - ref: TMP-L-00081
-  quote: null
   cert: high
   note:
     en: Established as Emir of Yanbuʿ in late 887 H.
+  mention: null
 - id: e2
   type: visit
   date:
     ah: 898
     cert: high
     type: visit
-  quote: ورأيته اذ ذاك في سنة ثمان وتسعين
   cert: high
   note:
     ja: '初版はこれを السخاوي との subtype="other" relation にしていたが、「رأيته」は非採用（B44-48継続方針: رأيته・اجتمع بي は relation 化しない）。relationを破棄し本eventのdescに留める。　規則22-1（2026-09-21 Waka 裁定）により placeName ينبع（#TMP-L-00081）を除去。根拠は〈職（أمير الينبوع）の勤務地（ورأيته اذ ذاك、地名なし）〉からの補完で原文に地名の明示なし。'
-  norm: رايته اذ ذاك في سنة ثمان وتسعين
+  phrase: ورأيته اذ ذاك في سنة ثمان وتسعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: دراج
+- id: m2
+  kind: name
+  ref: TMP-P-000705
+  quote: معزى الحسنى
+  norm: معزي الحسني
+- id: m3
+  kind: name
+  quote: أمير الينبوع
+  norm: امير الينبوع
+- id: m4
+  kind: year
+  value: '887'
+  quote: سنة
+- id: m5
+  kind: person
+  ref: AIND-D03068
+  quote: سبع
+- id: m6
+  kind: person
+  ref: AIND-D07156
+  quote: صاحب الحجاز
+- id: m7
+  kind: office
+  ref: TMP-O-00014
+  quote: أمره
+  norm: امره
+- id: m8
+  kind: year
+  value: '898'
+  quote: سنة
 translation:
   ja: ダッラージュ・ブン・ムアッザー・アル＝ハサニー、ヤンブーの首長。ヒジャーズの支配者が彼に事務を委ねた際、その代理として、前述のサブウの跡を継いで887年の後半にヤンブーの首長に就任した。私はその時、898年に現地で彼に会った。
   en: Darrāj b. Muʿzā al-Ḥasanī, the emir of Yanbuʿ. He was established in this position in the late year 887 H as a deputy of the ruler of Hejaz, who delegated his affairs to him, succeeding the aforementioned Sabaʿ. I saw him then in the year 898 H.

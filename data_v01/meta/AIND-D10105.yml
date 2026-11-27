@@ -9,25 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m2
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
 death:
   id: d
   date:
     ah: 865-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     ja: 865年ジュマーダー第一月＝1461-02-21 開始（h2g.py）、月精度で @when=1461-02。世紀の明記はなく、8xx は al-Ḍawʾ の対象世紀による。
-  quote: سنة
   phrase: مات بمكة في جمادى الأولى سنة خمس وستين
+  mention: m5
 persons:
 - id: p1
   label: والد موسى المغربي الخياط
@@ -38,16 +34,37 @@ relations:
   subtype: father
   active: AIND-D10105#p1
   passive: AIND-D10105
-  quote: null
   note:
     ja: 規則3（単名の項。原文に父名なし）。
 states:
 - id: s1
   type: office
   ref: wd:Q242468
-  quote: null
   note:
     ja: 見出し語「الخياط」（仕立屋）。ID-Master Office「الخياطة」＝wd:Q242468。初版が併置していた nisbah（#NEEDID）「الخياط」は生業の呼称なので除去（規則8）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m5
+  kind: year
+  value: '865'
+  quote: سنة
 translation:
   ja: ムーサー・アル＝マグリビー、仕立屋（アル＝ハイヤート）。（8）65年ジュマーダー第一月にマッカで没した。
   en: Mūsā al-Maghribī al-Khayyāṭ (the tailor). He died in Mecca in Jumādā I of the year [8]65.

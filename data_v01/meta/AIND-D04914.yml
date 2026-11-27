@@ -9,61 +9,56 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m10
   - id: n2
     type: ism
-    quote: عقيل
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: وبير
     by: rule
-    ref: AIND-D10188
+    mention: m2
   - id: n4
     type: nasab
-    quote: نخبار
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: مقبل
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: راجح
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: إدريس
     by: rule
-    norm: ادريس
+    mention: m7
   - id: n9
     type: nasab
-    quote: حسن
     by: rule
+    mention: m8
   - id: n10
     type: nasab
-    quote: أبي عزيز قتادة
     by: rule
-    norm: ابو عزيز قتادة
+    mention: m9
 death:
   id: d
   date:
     ah: 844
   note:
     ja: 「ومات سنة أربع وأربعين」。844年＝1440-06-11〜1441-05-30。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D10188
   passive: AIND-D04914
-  quote: null
   note:
     ja: '父 ＝ #AIND-D10188「وبير بن نخبار بن محمد بن عقيل بن راجح … الحسيني والد هلمان وهجار وسنقر وعقيل … فاستقر عقيل بن وبير مكانه」（814年に殺害されたヤンブウのアミール）。相手側本伝が本項主を子として明記（規則3・23）。集約時に追加（校閲版は父 relation 欠落）。ナサブ中間（نخبار بن مقبل بن محمد ／ نخبار بن محمد بن عقيل）は刊本で揺れるが同一人物。'
   phrase: وبير بن نخبار
@@ -72,24 +67,20 @@ relations:
   subtype: successor
   active: AIND-D03365
   passive: AIND-D04914
-  quote: null
   note:
     ja: 'صخرة ＝ #AIND-D03365（صخرة بن مقبل بن نخبار أمير الينبوع、846年没）。842年にヤンブウのアミール職を本項主から解き、صخرة が後任となった＝successor。初版の #NEEDID・subtype「rival」を是正。'
   phrase: وصرف عنها في سنة اثنتين وأربعين بصخرة الماضي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00081
-    quote: ينبوغ
+  - mention: m12
   dates:
   - ah: 842
     type: retirement
-  quote: أمير
   note:
     ja: 「ينبوغ」＝ينبع（ID-Master TMP-L-00081「ينبع | الينبوع」）。職 أمير الينبع ＝ TMP-O-00182（登録済み）。842年＝1438-07-03〜1439-06-22 に解任。
-  norm: امير
+  mention: m11
 events:
 - id: e1
   type: political
@@ -97,10 +88,61 @@ events:
     ah: 842
     type: political
   places:
-  - ref: TMP-L-00081
-    quote: ينبوغ
-  quote: وصرف عنها في سنة اثنتين وأربعين بصخرة الماضي
-  norm: صرف عنها في سنة اثنتين واربعين بصخرة الماضي
+  - mention: m12
+  phrase: وصرف عنها في سنة اثنتين وأربعين بصخرة الماضي
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عقيل
+- id: m2
+  kind: name
+  ref: AIND-D10188
+  quote: وبير
+- id: m3
+  kind: name
+  quote: نخبار
+- id: m4
+  kind: name
+  quote: مقبل
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: راجح
+- id: m7
+  kind: name
+  quote: إدريس
+  norm: ادريس
+- id: m8
+  kind: name
+  quote: حسن
+- id: m9
+  kind: name
+  quote: أبي عزيز قتادة
+  norm: ابو عزيز قتادة
+- id: m10
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m11
+  kind: office
+  ref: TMP-O-00163
+  quote: أمير
+  norm: امير
+- id: m12
+  kind: place
+  quote: ينبوغ
+  ref: TMP-L-00081
+- id: m13
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m14
+  kind: year
+  value: '844'
+  quote: سنة
 translation:
   ja: アキール・ブン・ワビール・ブン・ナフバール・ブン・ムクビル・ブン・ムハンマド・ブン・ラージフ・ブン・イドリース・ブン・ハサン・ブン・アビー・アズィーズ・カターダ、アル＝ハサニー、ヤンブウのアミール。842年に前述のサフラに代えられてその職を解かれた。844年に没した。
   en: ʿAqīl b. Wabīr b. Nakhbār b. Muqbil b. Muḥammad b. Rājiḥ b. Idrīs b. Ḥasan b. Abī ʿAzīz Qatāda al-Ḥasanī, amīr of Yanbuʿ. He was removed from it in the year 842 in favour of the aforementioned Ṣakhra. He died in the year 844.

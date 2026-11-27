@@ -9,41 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00779
-    quote: القيمري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00043
-    quote: الخليلي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m5
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: الشرف عيسى
     by: rule
-    ref: TMP-P-000562
-    norm: الشرف عيسي
+    mention: m2
 birth:
   id: b
   date:
     ah: 756
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D01155
-  passive: wd:Q4120128
+  passive: m8
   methods:
   - TMP-S-00004
-  quote: لنا
   note:
   - lang: ja
     type: review
@@ -53,7 +46,6 @@ relations:
   subtype: father
   active: TMP-P-000562
   passive: AIND-D01155
-  quote: null
   note:
   - lang: ja
     type: review
@@ -65,22 +57,61 @@ events:
   summary:
     ar: سمع الكثير وحدث وروى وأجاز لنا
     en: He listened much, transmitted and narrated ḥadīth, and granted ijāza to al-Sakhāwī.
-  quote: وسمع
   trigger: rule
-  norm: سمع
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D01457
-    quote: ابن أبي عذيبة
-    norm: ابن ابي عذيبة
-  quote: قاله
+  - mention: m10
   note:
   - lang: ja
     type: review
     text: '情報源の言及（Pattern A）。「قاله ابن أبي عذيبة」=イブン・アビー・ウザイバがこれを述べた。ابن أبي عذيبة は本文中に頻出する情報提供者だが独立本伝を一意特定できず、新規 #TMP-P-000561 を発行（ID-Master照合推奨）。'
   trigger: rule
   phrase: قاله ابن أبي عذيبة
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-000562
+  quote: الشرف عيسى
+  norm: الشرف عيسي
+- id: m3
+  kind: name
+  ref: TMP-N-00779
+  quote: القيمري
+- id: m4
+  kind: name
+  ref: TMP-N-00043
+  quote: الخليلي
+- id: m5
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m6
+  kind: year
+  value: '756'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: لنا
+- id: m9
+  kind: source
+  quote: قاله
+- id: m10
+  kind: person
+  ref: AIND-D01457
+  quote: ابن أبي عذيبة
+  norm: ابن ابي عذيبة
 translation:
   ja: アフマド・ブン・アッ＝シャラフ・イーサー・アル＝カイマリー・アル＝ハリーリー・アル＝ガッズィー。756年生まれ。多くを聴聞し、ハディースを伝え・語り、そして我々（＝サハーウィー）にイジャーザを与えた。イブン・アビー・ウザイバがこれを述べた。
   en: Aḥmad b. al-Sharaf ʿĪsā al-Qaymarī al-Khalīlī al-Ghazzī. Born in 756 AH. He listened much, transmitted and narrated ḥadīth, and granted us (al-Sakhāwī) ijāza. Ibn Abī ʿUdhayba said this.

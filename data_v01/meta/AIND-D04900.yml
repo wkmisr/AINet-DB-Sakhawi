@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الزين
+    mention: m4
   - id: n2
     type: ism
-    quote: عرفات
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001316
+    mention: m2
   - id: n4
     type: nasab
-    quote: خليل
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: خليل
@@ -35,7 +34,6 @@ relations:
   subtype: father
   active: TMP-P-001316
   passive: AIND-D04900
-  quote: null
   note:
     ja: 見出し「عرفات بن محمد بن خليل الزين خطيب منية حمل من الشرقية」から1段ずらして復元（統一規則3）。初版の汚染番号 TMP-P-000529（إبراهيم بن عبد الله ابن جماعة の息子 محمد＝別人）を破棄。corpus に本伝なし・ID-Master の同名3件（القدسي・ابن المنمنم・الكردي）はいずれも別人のため仮番号発行。⚠汎用名（名＋父名のみ）。
   phrase: محمد بن خليل
@@ -44,39 +42,67 @@ relations:
   subtype: grandfather
   active: AIND-D04900#p1
   passive: AIND-D04900
-  quote: null
   note:
     ja: '祖父。見出し「عرفات بن محمد بن خليل」。裸名のみのため #NEEDID（規則3・12。校閲時に削除した初版の relation を集約時に復元）。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04900
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
-  - ref: TMP-L-00300
-    quote: منية حمل
-  - ref: TMP-L-00048
-    quote: الشرقية
-  quote: خطيب
+  - mention: m6
+  - mention: m7
   note:
     ja: 「خطيب منية حمل من الشرقية」。منية حمل（シャルキーヤ県の村）は ID-Master 未登録のため、集約時に仮番号 TMP-L-00300 を発行（規則12。§D97-10）。
+  mention: m5
 notes:
 - text: corpus レコード末尾に転送見出し 1 本（『★عرفات★ . في محمد بن خضر .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عرفات
+- id: m2
+  kind: name
+  ref: TMP-P-001316
+  quote: محمد
+- id: m3
+  kind: name
+  quote: خليل
+- id: m4
+  kind: name
+  quote: الزين
+- id: m5
+  kind: office
+  ref: wd:Q932945
+  quote: خطيب
+- id: m6
+  kind: place
+  quote: منية حمل
+  ref: TMP-L-00300
+- id: m7
+  kind: place
+  quote: الشرقية
+  ref: TMP-L-00048
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アラファート・ブン・ムハンマド・ブン・ハリール、アッ＝ザイン、シャルキーヤ地方のミンヤト・ハマルの説教師（ハティーブ）。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿArafāt b. Muḥammad b. Khalīl, al-Zayn, preacher (khaṭīb) of Minyat Ḥamal in al-Sharqiyya. He was among those who heard from me (al-Sakhāwī) in Cairo.

@@ -9,51 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00277
-    quote: السمنودي
+    mention: m9
   - id: n3
     type: laqab
-    quote: عز الدين
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بعزيز
-    norm: عزيز
     label: عزيز
+    mention: m12
   - id: n5
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000868
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 relations:
 - id: r1
   type: scholarly
@@ -62,7 +56,6 @@ relations:
   passive: AIND-D04000
   methods:
   - TMP-S-00009
-  quote: null
   note:
     ja: 「واشتغل على ابن عمه」＝師は従兄弟 الجلال محمد بن أحمد المحلي（下記）と同一人物。
 - id: r2
@@ -72,30 +65,25 @@ relations:
   passive: AIND-D04000
   summary:
     ar: الجلال محمد بن أحمد المحلي
-  quote: null
   note:
     ja: '従兄弟「الآتي」= #AIND-D06814（محمد بن أحمد بن محمد بن إبراهيم بن أحمد بن هاشم الجلال أبو عبد الله … المحلي الأصل … ويعرف بالجلال المحلى、生791没864＝著名な الجلال المحلي）。ニスバ索引項 #AIND-D12005・娘 #AIND-D13222 とナサブ一致。（独立検証パスで補正）'
 - id: r3
   type: kin
   subtype: father
-  active: TMP-P-000868
+  active: m11
   passive: AIND-D04000
   summary:
     ar: محمد بن علي بن محمد المحلي السمنودي قاضي سمنود
-  quote: محمد بن أحمد
   note:
     ja: '【旧注記】初版の TMP-P-000529（汎用「محمد」＝別人登録）は流用 → #NEEDID（§D-4）。父も سمنود のカーディー（「ولي كأبيه قضاء سمنود」）。 / TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。'
-  norm: محمد بن احمد
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: TMP-L-00226
-    quote: سمنود
-  quote: قضاء
+  - mention: m14
   note:
     ja: سمنود（ガルビーヤ地方の町）は ID-Master 未登録 → 新規 TMP-L-00226（GeoNames 候補 349715 は Waka 側で要照合）。
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -106,10 +94,63 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: TMP-T-00065
-  quote: حفظ القرآن والمنهاج أو غالبه
   note:
     ja: 初版は active="" の空 teacher relation 2件（method حفظ）にしていた → cultural event へ。『المنهاج』はシャーフィイー派の暗記書 منهاج الطالبين=TMP-T-00065（初版の wd:Q6806081 はナワウィーの『ムスリム注釈』で別書）。
-  norm: حفظ القران والمنهاج او غالبه
+  phrase: حفظ القرآن والمنهاج أو غالبه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  ref: TMP-P-000868
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: عز الدين
+- id: m8
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m9
+  kind: name
+  ref: TMP-N-00277
+  quote: السمنودي
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: person
+  ref: TMP-P-000868
+  quote: محمد بن أحمد
+  norm: محمد بن احمد
+- id: m12
+  kind: name
+  quote: بعزيز
+  norm: عزيز
+- id: m13
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m14
+  kind: place
+  quote: سمنود
+  ref: TMP-L-00226
 translation:
   ja: アブドゥルアズィーズ・ブン・ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・アリー・ブン・アフマド、イッズ・アッ＝ディーン・アル＝マハッリー・アッ＝サマンヌーディー・アッ＝シャーフィイー。後述のアル＝ジャラール・ムハンマド・ブン・アフマドの従兄弟で、「アズィーズ」（無点のアイン、その間にヤーを挟む二つの点付きザーイ）として知られる。クルアーンと『ミンハージュ』（あるいはその大部分）を暗記し、従兄弟のもとで学び、父と同じくサマンヌードとその管区のカーディー職を務めた。
   en: ʿAbd al-ʿAzīz b. Muḥammad b. ʿAlī b. Muḥammad b. ʿAlī b. Aḥmad ʿIzz al-Dīn al-Maḥallī al-Samannūdī al-Shāfiʿī, the cousin of al-Jalāl Muḥammad b. Aḥmad, who is mentioned below, and known as ʿAzīz. He memorized the Qurʾān and the Minhāj, or most of it, studied under his cousin, and, like his father, held the judgeship of Samannūd and its district.

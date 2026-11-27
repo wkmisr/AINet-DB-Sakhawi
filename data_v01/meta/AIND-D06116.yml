@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m2
   - id: n2
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
 death:
   id: d
   date:
     ah: 854-10
   note:
     ja: 「مات في شوال سنة أربع وخمسين」＝854年シャウワール月（月精度。854-10 は 1450-11-16 開始。【集約 2026-10-19】h2g.py で訂正、内容A L）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: محمد التجاني
@@ -31,10 +29,9 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06116#p1
+  active: m7
   passive: AIND-D06116
   cert: medium
-  quote: محمد التجاني
   note:
     ja: '「وأظنه ابن محمد التجاني الماضي」＝「彼は先述の（عيسى）ابن محمد التجاني だと思う」。父名はこの推定同定（أظنه）から得られるため cert medium。父自身は裸名＋ニスバで本伝なし → #NEEDID（規則3。#AIND-D06097 側の父も #NEEDID）。'
 - id: r2
@@ -45,18 +42,14 @@ relations:
   summary:
     ar: عيسى بن محمد الشرف التجاني المغربي المالكي
   cert: medium
-  quote: null
   note:
     ja: '「وأظنه ابن محمد التجاني الماضي」＝ #AIND-D06097（عيسى بن محمد الشرف التجاني المغربي المالكي、「ولي قضاء طرابلس ثم القدس … وأظنه عيسى المغربي الآتي قريبا」）。双方が أظنه で相互に指す二重立項型（転送指示なし＝REF 化しない）。D06097 側には既に鏡像あり。cert medium。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00180
   places:
-  - ref: gn:281184
-    quote: ببيت المقدس
-    norm: بيت المقدس
-  quote: قاضي المالكية
+  - mention: m4
+  mention: m3
 affiliations:
 - id: a1
   type: madhhab
@@ -65,6 +58,36 @@ notes:
 - text: 原文末尾の「| حرف الغين المعجمة」は刊本の章区切りで本文ではないため source から除いた。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m3
+  kind: office
+  ref: TMP-O-00180
+  quote: قاضي المالكية
+- id: m4
+  kind: place
+  quote: ببيت المقدس
+  ref: gn:281184
+  norm: بيت المقدس
+- id: m5
+  kind: month
+  value: 10
+  quote: شوال
+- id: m6
+  kind: year
+  value: '854'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: AIND-D06116#p1
+  quote: محمد التجاني
 translation:
   ja: イーサー・アル＝マグリビー。エルサレムのマーリキー派カーディー。854年シャウワール月に没した。私の思うに、彼は先述のイブン・ムハンマド・アッ＝ティジャーニーである。
   en: ʿĪsā al-Maghribī, the Maliki judge in Jerusalem. He died in Shawwāl of the year 854. I think he is Ibn Muḥammad al-Tijānī, mentioned earlier.

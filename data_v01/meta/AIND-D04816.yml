@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01735
-    quote: الزعفراني
+    mention: m3
   - id: n2
     type: ism
-    quote: عبيد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 death:
   id: d
   date:
     ah: 891-02-27
   note:
     ja: 891年サファル月27日＝1486-03-13（土曜、h2g 検証）。初版の年精度 @when 1486 を日付精度に。母も急死したとあるが母は無名・無描写のため relation は立てない（規則14）。
-  quote: سنة
   phrase: مات في ليلة سابع عشري صفر سنة إحدى وتسعين فجأة كأمه
+  mention: m9
 persons:
 - id: p1
   label: إبراهيم الزعفراني
@@ -40,37 +38,68 @@ relations:
   subtype: father
   active: AIND-D04816#p1
   passive: AIND-D04816
-  quote: null
   note:
     ja: '父。名＋ニスバのみで祖父名がなく、規則3 の「裸名のみ／一族ニスバのみ」に当たるため #NEEDID（校閲版は父 relation 欠落。集約時に追加）。'
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001285
+  active: m5
   passive: AIND-D04816
-  quote: بركات الحريري
   note:
     ja: 「والد بركات الحريري」。corpus の بركات 部に本伝なし（D02180〜D02190 はいずれも別人）、ID-Master 未登録。通称 الحريري という識別要素があるため TMP-P-001285（بركات بن عبيد بن إبراهيم الزعفراني الحريري）を発行（規則12）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00083
   cert: medium
-  quote: المقدم
   note:
     ja: 「عبيد بن إبراهيم الزعفراني المقدم」の المقدم は職名と解し、初版の laqab から state（office）へ。ただし原文は「الزعفراني المقدم」のみで、軍職の مقدم（ID-Master TMP-O-00083「軍事指揮官」）か同業組合・スーフィー等の مقدم かは決められないため、集約時に cert medium を付し、訳は「ムカッダム」に留める（内容検証A）。
+  mention: m4
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00295
-    quote: الكداشين
-  quote: ونزيل
+  - mention: m7
   note:
     ja: الكداشين＝カイロ近郊（خانقاه سرياقوس 付近、D03489「زاوية العصياتي بالقرب من الكداشين」・D08323「زاوية الشيخ تركي من الكداشين … بالقرب من خانقاه سرياقوس」）の地区名。ID-Master 未登録のため TMP-L-00295 を発行。
   trigger: rule
-  norm: نزيل
   phrase: نزيل الكداشين
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبيد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-01735
+  quote: الزعفراني
+- id: m4
+  kind: office
+  ref: TMP-O-00083
+  quote: المقدم
+- id: m5
+  kind: person
+  ref: TMP-P-001285
+  quote: بركات الحريري
+- id: m6
+  kind: event
+  quote: ونزيل
+  norm: نزيل
+- id: m7
+  kind: place
+  quote: الكداشين
+  ref: TMP-L-00295
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ウバイド・ブン・イブラーヒーム・アッ＝ザアファラーニー、ムカッダム。バラカート・アル＝ハリーリーの父で、アル＝キダーシーンの寓居者。〔8〕91年サファル月27日の夜に、母と同じく急死した。
   en: ʿUbayd b. Ibrāhīm al-Zaʿfarānī, al-muqaddam, father of Barakāt al-Ḥarīrī and resident of al-Kidāshīn. He died suddenly, like his mother, on the night of the 27th of Ṣafar of the year [8]91.

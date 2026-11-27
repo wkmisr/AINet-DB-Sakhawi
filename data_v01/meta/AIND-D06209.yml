@@ -9,70 +9,61 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشرف
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بابن هاشم
-    norm: ابن هاشم
     label: ابن هاشم
+    mention: m10
   - id: n5
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001554
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: الخواجا الشهاب
     by: rule
+    mention: m6
   - id: n10
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001554
+  active: m12
   passive: AIND-D06209
   summary:
     ar: الخواجا الشهاب أحمد بن محمد بن يعقوب الدمشقي
-  quote: وأبوه
   note:
     ja: '父。見出しナサブ「قاسم بن أحمد بن محمد بن يعقوب الشرف بن الخواجا الشهاب الدمشقي」から復元。称号 الخواجا الشهاب・ダマスクス出身の商人という識別要素あり（規則3）。corpus に本伝なし（D01579 أحمد بن محمد بن يعقوب الشهاب الشيباني المكي はマッカのシャイバーニー家＝別人）。原文「وأبوه صهر ابن الشيخ علي المقري」＝父は「ابن الشيخ علي المقري」の婿（または姻戚）。候補 #AIND-D01036（أحمد بن علي الشهاب القمني المقرئ ويعرف بابن الشيخ علي）だが確証なし。父の姻戚関係であり本項主の relation ではないため立てない。'
-  norm: ابوه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D06209
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00019
   - ref: wd:Q1023470
-  quote: مني
   note:
     ja: 「سمع مني المسلسل وثلاثة أحاديث من البخاري」（規則2）。『البخاري』からは3つのハディースのみ。初版の field（الحديث）は原文になく除去、2本の relation を1本に統合。
 states:
@@ -80,16 +71,65 @@ states:
   type: office
   ref: wd:Q215536
   places:
-  - ref: TMP-L-00355
-    quote: بسوق الباسطية
-    norm: سوق الباسطية
-  quote: null
+  - mention: m11
   note:
     ja: 「أحد التجار بسوق الباسطية」。سوق الباسطية は ID-Master 未登録（الخانقاه الباسطية TMP-I-00021 は別実体）→ TMP-L-00355。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: TMP-P-001554
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: يعقوب
+- id: m5
+  kind: name
+  quote: الشرف
+- id: m6
+  kind: name
+  quote: الخواجا الشهاب
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m10
+  kind: name
+  quote: بابن هاشم
+  norm: ابن هاشم
+- id: m11
+  kind: place
+  quote: بسوق الباسطية
+  ref: TMP-L-00355
+  norm: سوق الباسطية
+- id: m12
+  kind: person
+  ref: TMP-P-001554
+  quote: وأبوه
+  norm: ابوه
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: カースィム・ブン・アフマド・ブン・ムハンマド・ブン・ヤアクーブ、アッ＝シャラフ・ブン・アル＝ハワージャ・アッ＝シハーブ、アッ＝ディマシュキー、のちにアル＝カーヒリー、ハナフィー派。イブン・ハーシムとして知られる。バースィティーヤ市場の商人の一人で、その父はイブン・アッ＝シャイフ・アリー・アル＝ムクリーの婿（姻戚）であった。私から『ムサルサル』と『ブハーリー』のうちの三つのハディースを聴聞した。
   en: Qāsim b. Aḥmad b. Muḥammad b. Yaʿqūb, al-Sharaf b. al-Khawājā al-Shihāb, al-Dimashqī then al-Qāhirī, the Ḥanafī, known as Ibn Hāshim. One of the merchants of Sūq al-Bāsiṭiyya; his father was the son-in-law (ṣihr) of Ibn al-Shaykh ʿAlī al-Muqrī. He heard from me al-Musalsal and three ḥadīths from al-Bukhārī.

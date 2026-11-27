@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الوهاب
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 persons:
 - id: p1
   label: أحمد الدمشقي
@@ -32,29 +30,50 @@ relations:
   subtype: father
   active: AIND-D04759#p1
   passive: AIND-D04759
-  quote: null
   note:
     ja: '見出しナサブの父。裸名＋汎用ニスバ الدمشقي のみで識別要素がないため #NEEDID 維持（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
-  - ref: TMP-L-00302
-    quote: حجراء
-  quote: خطيب
+  - mention: m5
   note:
     ja: '「خطيب حجراء」。حجراء は corpus でこの1例のみ。ID-Master 登録の村 حجيرا（TMP-L-00145、D01748「كان أبوه خطيب قرية حجيرا」・ニスバ الحجيراني）の綴り揺れ（刊本の誤植）の可能性があるが、規則22(1)「原文の地名を別の地に読み替えない」により ref は #NEEDID とし同定仮説は note に留める（§D94-3。校閲版の TMP-L-00145 cert medium を集約時に差し戻し）。同村の خطيب であった D01748 の父 TMP-P-001023（名不詳）と同一人物の可能性もあるが名が合致せず裏付けなし。刊本で حجيرا と確認できれば TMP-L-00145 を充当。'
+  mention: m4
 events:
 - id: e1
   type: cultural
   date:
     ah: 873
     type: cultural
-  quote: كتب على استدعاء فيه بعض الأولاد سنة ثلاث وسبعين
   note:
     ja: 873年に、数人の子弟の名を載せたイジャーザ申請書（استدعاء）に書き付けた（イジャーザを与えた）。873 ＝ 1468-07-31〜1469-07-19、年初 1468（h2g.py）。
-  norm: كتب علي استدعاء فيه بعض الاولاد سنة ثلاث وسبعين
+  phrase: كتب على استدعاء فيه بعض الأولاد سنة ثلاث وسبعين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوهاب
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m4
+  kind: office
+  ref: wd:Q932945
+  quote: خطيب
+- id: m5
+  kind: place
+  quote: حجراء
+  ref: TMP-L-00302
+- id: m6
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: アブドゥルワッハーブ・ブン・アフマド・アッ＝ディマシュキー、フジュラーの説教師（ハティーブ）。（8）73年に、数人の子弟の名を載せたイジャーザ申請書（イスティドアー）に書き付けた。彼の経歴について私は何も知らない。
   en: ʿAbd al-Wahhāb b. Aḥmad al-Dimashqī, preacher (khaṭīb) of Ḥujrāʾ. He wrote (an ijāza) on a petition (istidʿāʾ) listing some children in (8)73, and I know nothing of his circumstances.

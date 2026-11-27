@@ -9,49 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m3
 death:
   id: d
   date:
     notBefore: 871
     notAfter: 879
   places:
-  - ref: TMP-L-00038
-    quote: الروم
+  - mention: m14
   note:
     ar: فمات بها يقال مسموما سنة بضع وسبعين
     ja: 「بضع وسبعين」＝873〜879年（873 = 1468-07-22〜、879 = 〜1475-05-06）。毒殺は「يقال」（伝聞）。 / 「بضع」は1〜9として幅で記録（Waka 裁定 2026-11-22。旧値 873〜879）
-  quote: سنة بضع وسبعين
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D04799
+  active: m5
   passive: AIND-D04209
-  quote: عبد الوهاب الآتي
   note:
     ja: '= #AIND-D04799（عبد الوهاب بن محمد بن يعقوب … التاج … المدني المالكي والد النجم محمد الآتي）。'
-  norm: عبد الوهاب الاتي
   phrase: أخو عبد الوهاب الآتي
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D07921
+  active: m6
   passive: AIND-D04209
-  quote: وعم قاضي الماليكة بمكة النجم محمد
   note:
     ja: '甥 = #AIND-D07921（محمد بن عبد الوهاب بن محمد بن يعقوب … النجم أبو المعالي … المدني）。初版の TMP-P-000095（別家系「النجم محمد」）は流用。'
 - id: r3
@@ -59,7 +54,6 @@ relations:
   subtype: brother-in-law
   active: AIND-D08358
   passive: AIND-D04209
-  quote: null
   note:
     ja: '= #AIND-D08358（محمد بن عمر بن المحب محمد بن علي بن يوسف الشمس الزرندي المدني الشافعي）。その姉妹を娶った。'
   phrase: صاهر محمد بن عمر بن المحب الزرندي على أخته
@@ -70,54 +64,104 @@ relations:
   passive: AIND-D04209
   summary:
     ar: أخت محمد بن عمر بن المحب الزرندي
-  quote: null
   note:
     ja: '妻 = #AIND-D13050（رقية ابنة السراج عمر بن المحب محمد الزرندي المدني أخت محمد الماضي . تزوجها عبد القادر بن يعقوب عم النجم محمد المالكي، 没887）。D08358「صاهره السيد السمهودي على أخته رقية بعد عبد القادر عم النجم بن يعقوب」でも閉合。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00060
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: التوكل في أوقاف
+  - mention: m13
   note:
     ja: 汎用 وكيل（TMP-O-00060）に充当。
-  norm: التوكل في اوقاف
+  mention: m12
 - id: s2
   type: status
   label: رأس بالكرم والاحتشام
   label_latn: raʾasa bi-l-karam wa-l-iḥtishām
-  quote: ورأس بالكرم والاحتشام
-  norm: راس بالكرم والاحتشام
+  mention: m7
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:352261
-    quote: مصر
-  quote: دخل
+  - mention: m10
   trigger: rule
   phrase: دخل مصر والشام بسبب التوكل في أوقاف المدينة
+  mention: m9
 - id: e2
   type: visit
   places:
-  - ref: TMP-L-00002
-    quote: والشام
-    norm: الشام
-  quote: null
+  - mention: m11
+  mention: null
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00038
-    quote: الروم
+  - mention: m14
   summary:
     ar: وسافر … إلى الروم ولم يسلم أوقاف الحرمين إلى العجم
-  quote: وسافر
   note:
     ja: ルーム（アナトリア）へ赴き、両聖都のワクフをアジャム（ペルシア人）に引き渡さなかった。
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: يعقوب
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D04799
+  quote: عبد الوهاب الآتي
+  norm: عبد الوهاب الاتي
+- id: m6
+  kind: person
+  ref: AIND-D07921
+  quote: وعم قاضي الماليكة بمكة النجم محمد
+- id: m7
+  kind: office
+  quote: ورأس بالكرم والاحتشام
+  norm: راس بالكرم والاحتشام
+- id: m8
+  kind: event
+  quote: وسافر
   norm: سافر
+- id: m9
+  kind: event
+  quote: دخل
+- id: m10
+  kind: place
+  quote: مصر
+  ref: gn:352261
+- id: m11
+  kind: place
+  quote: والشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m12
+  kind: office
+  ref: TMP-O-00060
+  quote: التوكل في أوقاف
+  norm: التوكل في اوقاف
+- id: m13
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m14
+  kind: place
+  quote: الروم
+  ref: TMP-L-00038
+- id: m15
+  kind: year
+  value: 871-879
+  quote: سنة بضع وسبعين
 translation:
   ja: アブド・アル＝カーディル・ブン・ムハンマド・ブン・ヤアクーブ・アル＝マダニー。後述のアブド・アル＝ワッハーブの兄弟で、マッカのマーリキー派カーディーであるアン＝ナジュム・ムハンマドの叔父。ムハンマド・ブン・ウマル・ブン・アル＝ムヒッブ・アッ＝ザランディーの姉妹を娶って姻戚となり、寛大さと品位によって人々の長となった。マディーナのワクフの代理職（タワックル）のためにエジプトとシャームに入った後、ルームへ旅し、両聖都（ハラマイン）のワクフをアジャムに引き渡さなかった。そして同地で、毒殺されたとも言われるが、870年代（873〜879年）に没した。
   en: ʿAbd al-Qādir b. Muḥammad b. Yaʿqūb al-Madanī, brother of ʿAbd al-Wahhāb (mentioned below) and paternal uncle of al-Najm Muḥammad, the Mālikī qadi of Mecca. He became related by marriage to Muḥammad b. ʿUmar b. al-Muḥibb al-Zarandī through his sister, and was a leading man in generosity and dignity. After entering Egypt and Syria on account of the agency (tawakkul) for the endowments of Medina, he travelled to Rūm and did not surrender the endowments of the two Sanctuaries to the ʿAjam; he died there, reportedly poisoned, in the year seventy-odd.

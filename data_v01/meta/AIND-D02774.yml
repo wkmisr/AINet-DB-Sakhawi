@@ -9,90 +9,134 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: حمزة
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: جار الله
     by: rule
-    ref: TMP-P-000766
+    mention: m2
   - id: n5
     type: nasab
-    quote: حمزة
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: راجح
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي نمى
     by: rule
-    norm: ابو نمي
+    mention: m5
 death:
   id: d
   date:
     ah: 816-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m12
+  - role: burial
+    mention: m13
   note:
     en: Died in Muharram 816 AH in Mecca. He was estimated to be in his late forties.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-000766
+  active: m9
   passive: AIND-D02774
-  quote: أبيه
   note:
     ja: corpus本伝未特定（兄弟 محمد بن جار الله = AIND-D07297 は立項あり）＝TMP発行。
-  norm: ابيه
   phrase: جار الله بن حمزة بن راجح
 states:
 - id: s1
   type: office
-  ref: TMP-O-00161
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: رأس أشراف آل أبي نمى
-  norm: راس اشراف ال ابي نمي
+  - mention: m12
+  mention: m8
 events:
 - id: e2
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m12
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
+  - mention: m15
   works:
   - ref: TMP-T-00037
-  quote: قاله
   note:
     ja: 初版は person 位置に nisbah 番号 TMP-N-00108（=الفاسي）を流用していた（カテゴリ不一致）。人物IDは TMP-P-000603（التقي محمد الفاسي）に是正のうえ Pattern A のevent化。
   trigger: rule
   phrase: قاله الفاسي في مكة
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: حمزة
+- id: m2
+  kind: name
+  ref: TMP-P-000766
+  quote: جار الله
+- id: m3
+  kind: name
+  quote: حمزة
+- id: m4
+  kind: name
+  quote: راجح
+- id: m5
+  kind: name
+  quote: أبي نمى
+  norm: ابو نمي
+- id: m6
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: office
+  ref: TMP-O-00161
+  quote: رأس أشراف آل أبي نمى
+  norm: راس اشراف ال ابي نمي
+- id: m9
+  kind: person
+  ref: TMP-P-000766
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m11
+  kind: year
+  value: '816'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m13
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m14
+  kind: source
+  quote: قاله
+- id: m15
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ハムザ・ブン・ジャール・アッラー・ブン・ハムザ・ブン・ラージフ・ブン・アビー・ヌマイ・アル＝ハサニー・アル＝マッキー。父の後を継いでアブー・ヌマイ家のシャリーフの長となり、その知性と寛大さで知られた。ヒジュラ暦816年のムハッラム月にマッカで没し、アル＝ムアッラー墓地に埋葬された。私の推測では40代後半（50歳の10年間の中）であった。これはアル＝ファースィーがマッカに関する著作の中で述べている。
   en: Ḥamza ibn Jār Allāh ibn Ḥamza ibn Rājiḥ ibn Abī Numayy al-Ḥasanī al-Makkī. He was the head of the sharifs of the Abū Numayy clan after his father, known for his intellect and generosity. He died in Muharram in the year 816 AH in Mecca, and was buried in al-Muʿallā. He was in his late forties, in my estimation. This was stated by al-Fāsī in his book on Mecca.

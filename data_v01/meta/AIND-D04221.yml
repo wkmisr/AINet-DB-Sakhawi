@@ -9,58 +9,74 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الطباخ
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بابن إبراهيم
-    norm: ابن ابراهيم
     label: ابن إبراهيم
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: brother-in-law
   active: AIND-D09739
   passive: AIND-D04221
-  quote: null
   note:
     ja: 'البباوي = #AIND-D09739（محمد البباوي … ولاه السلطان نظر الدولة、宰相）。本項主の姉妹（名不詳）を娶った義兄。初版はニスバ番号 TMP-N-01155 を人物 ID に流用。subtype brother-in-law は repo 既存。'
   phrase: فصاهره البباوي على أخته واستقر به في نظر الدولة
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D09377
+  active: m6
   passive: AIND-D04221
-  quote: واستولد البباوي أخته ولده صلاح الدين محمد
   note:
     ja: '= #AIND-D09377（محمد بن محمد صلاح الدين بن الوزير شمس الدين الببائي وأمه أخت عبد القادر ناظر الدولة、閉合）。سليمان الخازن（甥の岳父・ハーズィン職の前任、corpus 本伝なし → 新規 TMP-P-000934）は本項主との直接関係でないため relation は立てない。'
-  norm: واستولد البباوي اخته ولده صلاح الدين محمد
 states:
 - id: s1
   type: office
   ref: TMP-O-00252
   places:
-  - ref: TMP-L-00193
-    quote: بالقلعة
-    norm: القلعة
-  quote: null
+  - mention: m4
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00024
-  quote: نظر الدولة
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈職 نظر الدولة の勤務地／施設 القلعة（地名なし）〉からの補完で原文に地名の明示なし。
+  mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00193
-    quote: بالقلعة
-    norm: القلعة
-  quote: null
+  - mention: m4
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: الطباخ
+- id: m3
+  kind: name
+  quote: بابن إبراهيم
+  norm: ابن ابراهيم
+- id: m4
+  kind: place
+  quote: بالقلعة
+  ref: TMP-L-00193
+  norm: القلعة
+- id: m5
+  kind: office
+  ref: TMP-O-00024
+  quote: نظر الدولة
+- id: m6
+  kind: person
+  ref: AIND-D09377
+  quote: واستولد البباوي أخته ولده صلاح الدين محمد
+  norm: واستولد البباوي اخته ولده صلاح الدين محمد
 translation:
   ja: アブドゥルカーディル・アッ＝タッバーフ。イブン・イブラーヒームとして知られる。城塞（カルア）の料理人であったが、アル＝ビバーウィーが彼の姉妹を娶り、彼をナザル・アッ＝ダウラ（国家財務監督職）に就かせた。アル＝ビバーウィーはその姉妹との間に息子のサラーフ・アッ＝ディーン・ムハンマドを儲け、スレイマーン・アル＝ハーズィンは父の死からしばらくして、その娘をサラーフ・アッ＝ディーンに娶らせた。スレイマーンが亡くなると、その婿（サラーフ・アッ＝ディーン）が代わってその職（ハーズィン職）に就いた。
   en: ʿAbd al-Qādir al-Ṭabbākh, known as Ibn Ibrāhīm. He was a cook in the Citadel (al-Qalʿa), then al-Bībāwī married his sister and established him in the office of Naẓar al-Dawla. Al-Bībāwī had a son with his sister named Ṣalāḥ al-Dīn Muḥammad, whom Sulaymān al-Khāzin married to his daughter some time after his father's death. When Sulaymān died, his son-in-law (Ṣalāḥ al-Dīn) was established in his place.

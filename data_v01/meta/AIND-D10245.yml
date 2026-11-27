@@ -9,92 +9,79 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01319
-    quote: السنيكي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m10
   - id: n3
     type: laqab
-    quote: محيي الدين
+    mention: m6
   - id: n4
     type: kunyah
-    quote: أبو السعود
-    norm: ابو السعود
+    mention: m7
   - id: n5
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n6
     type: nasab
-    quote: زكريا
     by: rule
-    ref: AIND-D03042
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n9
     type: nasab
-    quote: زكريا
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: الزيني
     by: rule
+    mention: m8
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m11
 death:
   id: d
   date:
     ah: 897-07
   note:
     ja: 897年ラジャブ月＝1492-05-08 開始（h2g.py）、月精度で @when=1492-05（初版の 1492 を月精度に）。疫病（طاعون）による死。没地の記載なし。
-  quote: سنة
   phrase: ومات في طاعون سنة سبع وتسعين في رجبها وفجع به أبوه
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03042
+  active: m13
   passive: AIND-D10245
-  quote: أبيه
   note:
     ja: 「الماضي أخوه وأبوهما」（規則37）。父＝#AIND-D03042「892 زكريا بن محمد بن أحمد بن زكريا الزين الأنصاري السنبكي القاهري الأزهري الشافعي القاضي」（ナサブ4代・ラカブ الزين（本項「بن الزيني」）で閉合）。
-  norm: ابيه
   phrase: زكريا بن محمد بن أحمد بن زكريا
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07396
+  active: m12
   passive: AIND-D10245
   summary:
     ar: محمد بن زكريا
-  quote: أخوه
   note:
     ja: 「الماضي أخوه」＝#AIND-D07396「602 محمد بن زكريا بن محمد بن أحمد بن زكريا المحب أبو الفتوح بن الزيني السنيكي الأصل القاهري الشافعي الماضي أبوه الآتي أخوه يحيى」（相手側が本項主を名指し＝cert なし）。初版は active が空。
-  norm: اخوه
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D03042
+  active: m15
   passive: AIND-D10245
   methods:
   - TMP-S-00003
-  quote: أبوه
   note:
     ja: 「ممن سمع على أبيه」＝父（#AIND-D03042）に就いて聴いた。直後に人名「أبيه」が来るので「عليّ」とは読まない。
-  norm: ابوه
   phrase: زكريا بن محمد بن أحمد بن زكريا
 affiliations:
 - id: a1
@@ -104,6 +91,66 @@ notes:
 - text: 「السنيكي الأصل القاهري」＝出自ニスバと居住ニスバ。出生・居住の event は原文にない＝placeName を立てない。父の本伝の刊本表記は「السنبكي」、本項と兄弟の項は「السنيكي」（規則25、原文どおり）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: AIND-D03042
+  quote: زكريا
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: زكريا
+- id: m6
+  kind: name
+  quote: محيي الدين
+- id: m7
+  kind: name
+  quote: أبو السعود
+  norm: ابو السعود
+- id: m8
+  kind: name
+  quote: الزيني
+- id: m9
+  kind: name
+  ref: TMP-N-01319
+  quote: السنيكي
+- id: m10
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m11
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m12
+  kind: person
+  ref: AIND-D07396
+  quote: أخوه
+  norm: اخوه
+- id: m13
+  kind: person
+  ref: AIND-D03042
+  quote: أبيه
+  norm: ابيه
+- id: m14
+  kind: year
+  value: '897'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D03042
+  quote: أبوه
+  norm: ابوه
 translation:
   ja: ヤフヤー・ブン・ザカリーヤー・ブン・ムハンマド・ブン・アフマド・ブン・ザカリーヤー、ムフイー・アッ＝ディーン、アブー・アッ＝スウード、アッ＝ザイニーの子、出自はアッ＝スナイキー、アル＝カーヒリー、アッ＝シャーフィイー。彼の兄弟と、二人の父（ザカリーヤー）は既出。父に就いて聴いた者の一人。（8）97年の疫病で、そのラジャブ月に没し、父は彼を失って深く悲しんだ。
   en: Yaḥyā b. Zakariyyā b. Muḥammad b. Aḥmad b. Zakariyyā, Muḥyī al-Dīn, Abū al-Suʿūd, son of al-Zaynī, al-Sunaykī by origin, al-Qāhirī, al-Shāfiʿī. His brother and their father have been mentioned above. He was one of those who heard (ḥadīth) from his father. He died in the plague of the year [8]97, in its Rajab, and his father was grief-stricken at his loss.

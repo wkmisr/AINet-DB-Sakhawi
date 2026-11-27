@@ -9,39 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: AIND-D01993
-    norm: اسماعيل
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي يزيد
     by: rule
-    norm: ابو يزيد
+    mention: m3
 birth:
   id: b
   date:
     ah: 875
   places:
-  - ref: gn:104515
-    cert: medium
-    quote: بمكة
-    norm: مكة
+  - cert: medium
+    mention: m9
   note:
     ja: 「ولد بها في سنة خمس وسبعين」。875年＝1470-07-09 開始、年精度 1470。「بها」の先行詞は見出しのニスバ「المكي」の指すマッカ（先行する地名の明示がないため cert medium、規則22(3)）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: القاضي
@@ -50,7 +43,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D07125
   methods:
   - TMP-S-00003
@@ -58,16 +51,11 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-    - ref: TMP-L-00031
-      quote: وبالروضة النبوية
-      norm: الروضة النبوية
+    - mention: m9
+    - mention: m10
     phrase: ممن سمع مني دراية ورواية بل قرأ على الشمائل بمكة وبالروضة النبوية أيضا وغير ذلك
   works:
   - ref: TMP-T-00093
-  quote: مني
   note:
     ja: 「سمع مني دراية ورواية」（理解と伝承の両面で聴聞）＋「قرأ عليّ الشمائل بمكة وبالروضة النبوية」（「على」の直後に人名がないので「عليّ」＝私に）。『الشمائل』（الترمذي）は ID-Master に TMP-T-00093「بعض الشمائل للترمذي」しかなく、repo 先例に従い同番号を充てた（§D118-4）。初版の地名別 2 relation を 1 relation に統合、field（الحديث）を除去（規則2）。
 - id: r2
@@ -77,26 +65,70 @@ relations:
   passive: AIND-D07125
   methods:
   - TMP-S-00014
-  quote: null
   note:
     ja: '「ملازم دروس القاضي كأبيه」。「القاضي」はマッカのカーディー（父 #AIND-D01993 の師 الفخر أبو بكر بن ظهيرة、またはその甥 الجمال أبو السعود بن ظهيرة）と推定されるが、本項主（875生）の年代と父項の記述（父は الفخر أبو بكر に師事し、のち الجمال أبو السعود にも学んだ）からどちらか確定できないため #NEEDID（規則26）。'
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D01993
+  active: m6
   passive: AIND-D07125
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝ #AIND-D01993（إسماعيل بن أبي يزيد منسوب لجده فهو ابن محمد بن أبي يزيد بن الشيخ جمال الدين التوريزي الأصل الزبيدي اليماني ثم المكي الشافعي ويعرف بابن بنت غنا、「بورك فيه وفي بنيه」）。初版の #NEEDID を解消（規則37）。'
-  norm: ابوه
   phrase: إسماعيل بن أبي يزيد
 assessments:
 - id: v1
-  quote: وهو متميز فاضل ملازم دروس القاضي كأبيه
-  norm: وهو متميز فاضل ملازم دروس القاضي كابيه
   terms:
   - فاضل
   label_latn: wa-huwa mutamayyiz fāḍil mulāzim durūs al-qāḍī ka-abīhi
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D01993
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  quote: أبي يزيد
+  norm: ابو يزيد
+- id: m4
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: AIND-D01993
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: year
+  value: '875'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: place
+  quote: وبالروضة النبوية
+  ref: TMP-L-00031
+  norm: الروضة النبوية
+- id: m11
+  kind: assessment
+  quote: وهو متميز فاضل ملازم دروس القاضي كأبيه
+  norm: وهو متميز فاضل ملازم دروس القاضي كابيه
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・アビー・ヤズィード、イエメン出身でマッカの人。父については前述した。（8）75年にそこ（マッカ）で生まれた。私（サハーウィー）から理解と伝承の両面で聴聞した者の一人であり、それどころかマッカで、また預言者の庭（ラウダ・ナバウィーヤ）でも私に『シャマーイル』などを読誦した。彼は抜きん出た有徳の人で、父と同じくカーディーの講義に常時出席している。
   en: Muḥammad b. Ismāʿīl b. Abī Yazīd, of Yemeni origin, al-Makkī; his father has been mentioned above. He was born there in the year (8)75. He was among those who heard from me with both understanding and transmission (dirāya wa-riwāya); indeed he read al-Shamāʾil to me in Mecca and also at the Prophet's Rawḍa, and other things besides. He is distinguished and accomplished, a constant attendant at the qāḍī's lessons like his father.

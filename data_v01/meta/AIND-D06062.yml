@@ -9,62 +9,101 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عويد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: منصور
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: راجح
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m5
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 846-02
   places:
-  - ref: TMP-L-00036
-    role: burial
-    quote: جدة
+  - role: burial
+    mention: m10
   note:
     ja: 846-02 ＝ 1442-06-20〜07-18、月初 1442-06（初版は年精度 1442）。殺戮の場所（没地）は原文に明記なし。埋葬地「بها」は直前の ساحل جدة を指す（規則22(3)、ID-Master 登録「جدة | ساحل جدة」＝TMP-L-00036）。
-  quote: سنة
   phrase: مات في مقتلة كانت في صفر سنة ست وأربعين وقطع رأسه وطيف به في ساحل جدة ثم دفن مع جسده بها
+  mention: m9
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m7
   note:
     ja: 'ref は既登録 TMP-O-00094（القائد、マッカの隊長）。初版の #NEEDID を解消。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m12
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 846（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版の統制外 subtype「biographer」relation を event に置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عويد
+- id: m2
+  kind: name
+  quote: منصور
+- id: m3
+  kind: name
+  quote: راجح
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عبد الله
+- id: m6
+  kind: name
+  quote: عمر
+- id: m7
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: جدة
+  ref: TMP-L-00036
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウワイド・ブン・マンスール・ブン・ラージフ・ブン・ムハンマド・ブン・アブドゥッラー・ブン・ウマル。マッカの隊長（カーイド）たちの一人。（8）46年サファル月に起きた殺戮のなかで死に、その首は切られてジッダの海岸で引き回され、その後そこで胴体とともに埋葬された。イブン・ファハドがその没年月を記している。
   en: ʿUwayd b. Manṣūr b. Rājiḥ b. Muḥammad b. ʿAbd Allāh b. ʿUmar, one of the commanders (quwwād) of Mecca. He died in a massacre that took place in Ṣafar of the year (8)46; his head was cut off and paraded on the coast of Jidda, then buried there together with his body. Ibn Fahd recorded his death date.

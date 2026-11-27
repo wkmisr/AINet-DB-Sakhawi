@@ -9,39 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن سابق
+    mention: null
   - id: n3
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00280
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m6
 birth:
   id: b
   date:
@@ -55,10 +51,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00280
+  active: m8
   passive: AIND-D00008
-  quote: بابن سابق
-  norm: ابن سابق
   phrase: إبراهيم
 states:
 - id: s1
@@ -66,19 +60,15 @@ states:
   ref: wd:Q239718
   orgs:
   - ref: TMP-I-00002
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00229
   orgs:
   - ref: TMP-I-00002
-  quote: والوقيد
-  norm: الوقيد
+  mention: m11
 - id: s3
   type: office
-  ref: wd:Q125482
-  quote: إمامتها
-  norm: امامتها
+  mention: m12
 affiliations:
 - id: a1
   type: employed
@@ -98,51 +88,104 @@ events:
   type: residence
   places:
   - ref: gn:360630
-  quote: null
   note:
     en: His place of birth and residence.
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   cert: low
   trigger: rule
+  mention: m13
 - id: e3
   type: cultural
   summary:
     en: Memorized the Qurʾān.
-  quote: وحفظ
   cert: low
   note:
     en: Early life, after 860 H.
   trigger: rule
-  norm: حفظ
+  mention: m9
 - id: e4
   type: cultural
   summary:
     en: Recited parts of 『al-Minhāj』 (likely *Minhāj al-ṭālibīn*) by heart or with explanation.
-  quote: وقرأ
   cert: low
   note:
     en: Early life, after 860 H.
   trigger: rule
-  norm: قرا
+  mention: m10
 - id: e5
   type: other
   summary:
     en: His father arranged his marriage.
-  quote: null
   cert: low
   note:
     en: After 860 H.
+  mention: null
 - id: e6
   type: other
   summary:
     en: He was  sometimes working as a tailor and as an accountant
-  quote: حاسبا
   trigger: rule
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  ref: AIND-D00280
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: مسعود
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: person
+  ref: AIND-D00280
+  quote: بابن سابق
+  norm: ابن سابق
+- id: m9
+  kind: event
+  quote: وحفظ
+  norm: حفظ
+- id: m10
+  kind: event
+  quote: وقرأ
+  norm: قرا
+- id: m11
+  kind: office
+  ref: TMP-O-00229
+  quote: والوقيد
+  norm: الوقيد
+- id: m12
+  kind: office
+  ref: wd:Q125482
+  quote: إمامتها
+  norm: امامتها
+- id: m13
+  kind: event
+  quote: وحج
+- id: m14
+  kind: event
+  quote: حاسبا
 translation:
   ja: イブラーヒーム・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・マスウード。カイロ生まれ、カイロ居住。その父は後述される。彼も父も「イブン・サービク」として知られる。860年以降に生まれ、クルアーンを暗記し、『ミンハージュ』（の解説）を暗唱や理解によって少し学んだ。その後、父が彼を結婚させ、彼はマンクータムリーヤ学院でのアザーンや夜警などの仕事に専念した。むしろ、父の死後、イマーム職やサラーヒーヤ学院などの他の職務を引き継いだ。ハッジを行い、バブ・アル＝カンタラ近くのいくつかの店で生計を立て、時には仕立て屋として働いたり、会計士の仕事もした。アッラーが彼に法学の知識を授けられた。
   en: Ibrāhīm b. Ibrāhīm b. Muḥammad b. ʿAbd Allāh b. Muḥammad b. Masʿūd al-Qāhirī by birth and residence. His father will be mentioned later. Both he and his father were known as Ibn Sābiq. He was born after 860 H., memorized the Qurʾān, and studied a little of al-Minhāj (likely *Minhāj al-ṭālibīn*) by memorization or explanation. Then his father married him, and he became preoccupied with the call to prayer (adhān) and night watchman (waqīd) duties, and similar roles at al-Mankūtamurīya. Indeed, he took its imamate and other offices, such as at al-Ṣalāḥīya and others, after his father. He performed the Hajj and earned a living in some shops near Bāb al-Qanṭara, sometimes working as a tailor and as an accountant. May God grant him understanding of jurisprudence.

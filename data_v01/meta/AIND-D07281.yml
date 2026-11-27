@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04532
-    quote: الوانسرتي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
 death:
   id: d
   date:
@@ -39,28 +37,55 @@ relations:
   subtype: father
   active: AIND-D07281#p1
   passive: AIND-D07281
-  quote: null
   note:
     ja: 父。見出しの「بن أبي بكر」のみで識別要素なし（規則3 (c')）。
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:2464470
-    quote: تونس
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل تونس
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: ذكره
+  - mention: m7
   note:
     ja: 'Pattern A。ابن عزم ＝ #AIND-D08351（محمد بن عمر بن محمد بن أحمد بن عزم الشمس التونسي ثم المكي، ブリーフ指定。合同索引 D12540 は使わない）。初版の統制外 biographer relation（#AIND-D12540）を置換。'
   trigger: rule
   phrase: ذكره ابن عزم وأرخه سنة بضع وخمسين
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: TMP-N-04532
+  quote: الوانسرتي
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: تونس
+  ref: gn:2464470
+- id: m6
+  kind: source
+  quote: ذكره
+- id: m7
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
+- id: m8
+  kind: year
+  value: 851-859
+  quote: سنة بضع وخمسين
 translation:
   ja: ムハンマド・ブン・アブー・バクル・アル＝ワーンサルティー、チュニスの寓居者。イブン・アズムが彼に言及し、（没年を）850年代の某年とした。
   en: Muḥammad b. Abī Bakr al-Wānsartī, resident of Tunis. Ibn ʿAzm mentioned him and dated him (his death) to the year fifty-odd (850s).

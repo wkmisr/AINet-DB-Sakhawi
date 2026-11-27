@@ -9,20 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01711
-    quote: الدواداري
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00474
-    quote: الملكي
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m4
   - id: n4
     type: ism
-    quote: خشكلدي
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد خشكلدي الدواداري
@@ -31,13 +28,12 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D02834
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00054
-  quote: شيخنا
   note:
     ja: '「أثبته الفتحي فيمن سمع من مسند الدارمي بقراءته على شيخنا」＝イブン・ハジャル（wd:Q471116）のもとで『ダーリミーのムスナド』を聴聞した（読み手は الفتحي）。مسند الدارمي＝ID-Master 登録『سنن الدارمي』（TMP-T-00054、同書の別称）を充当（初版は #NEEDID）。初版の desc field（الحديث）は repo 先例（D07296）どおり付けない。'
 - id: r2
@@ -45,18 +41,40 @@ relations:
   subtype: father
   active: AIND-D02834#p1
   passive: AIND-D02834
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。主人は「الملكي الظاهري」とのみあり、どのアッ＝ザーヒルかは原文に無いため patron relation は立てない（規則26）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D02697
-    quote: الفتحي
-  quote: أثبته الفتحي فيمن سمع من مسند الدارمي بقراءته على شيخنا
+  - mention: m5
   note:
     ja: 'Pattern A。الفتحي＝本伝 #AIND-D02697「حسين بن حسن بن حسين … الشيرازي المقرىء الشافعي نزيل الحرمين ويعرف بالفتحى … وقطن القاهرة مدة وفي إقامته بها ملازما لشيخنا … فمما قرأه من مروياته مسند الدارمي」（895 没、未収録）＝イブン・ハジャルのもとで『مسند الدارمي』を読んだ本人であり閉合する（cert なし）。初版の「other」relation（#TMP-P-000584「الفتحي」＝ID-Master の関係専用番号）は Pattern A に置き換え。TMP-P-000584 は本伝 D02697 と名寄せ要（ISSUES §D136-1）。「بقراءته」の「ه」＝الفتحي（読み手）であり師ではない（規則33）。'
-  norm: اثبته الفتحي فيمن سمع من مسند الدارمي بقراءته علي شيخنا
+  phrase: أثبته الفتحي فيمن سمع من مسند الدارمي بقراءته على شيخنا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خشكلدي
+- id: m2
+  kind: name
+  ref: TMP-N-01711
+  quote: الدواداري
+- id: m3
+  kind: name
+  ref: TMP-N-00474
+  quote: الملكي
+- id: m4
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m5
+  kind: person
+  ref: AIND-D02697
+  quote: الفتحي
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: フシュカルディー・アッ＝ダワーダーリー・アル＝マリキー・アッ＝ザーヒリー。アル＝ファトヒーが、我らがシャイフ（イブン・ハジャル）のもとで自身（アル＝ファトヒー）の朗読によって『ダーリミーのムスナド』を聴聞した者たちの中に彼を記録している。
   en: Khushkaldī al-Dawādārī al-Malikī al-Ẓāhirī. Al-Fatḥī recorded him among those who heard the Musnad of al-Dārimī through his (al-Fatḥī's) reading before our shaykh (Ibn Ḥajar).

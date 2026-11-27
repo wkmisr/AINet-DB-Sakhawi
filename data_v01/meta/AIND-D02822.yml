@@ -9,49 +9,47 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m9
   - id: n2
     type: ism
-    quote: خشرم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: دوغان
     by: rule
-    ref: TMP-P-001591
+    mention: m2
   - id: n4
     type: nasab
-    quote: جعفر
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: هبة
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: جماز
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: منصور
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: جماز
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: شيحة
     by: rule
+    mention: m8
 death:
   id: d
   date:
     ah: 832
   note:
     ja: 832年（1428-10-20 開始、年精度）に殺害された。没地・殺害者の記載なし。情報源はイブン・ハジャル『إنباء الغمر』の عجلان بن نعير の項。
-  quote: سنة
   phrase: قتل في سنة اثنتين وثلاثين
+  mention: m11
 relations:
 - id: r1
   type: kin
@@ -60,15 +58,13 @@ relations:
   passive: AIND-D02822
   summary:
     ar: دوغان بن جعفر بن هبة الحسيني
-  quote: null
   note:
     ja: '見出しナサブから復元。珍しい名（دوغان）＋マディーナ首長家（آل جماز）のナサブ＝識別要素あり、兄弟 #AIND-D02796 と共有する父。corpus に本伝なし・ID-Master 未登録 → TMP-P-001591（規則3）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02796
+  active: m10
   passive: AIND-D02822
-  quote: حيدرة
   note:
     ja: '兄弟 حيدرة ＝ #AIND-D02796「حيدرة بن دوغان بن جعفر بن هبة بن جماز بن منصور الحسيني . ناب في إمرة المدينة …」（846没）。ナサブ一致。corpus #AIND-D06436（مانع بن علي … أمير المدينة）本文「إلى أن قتله حيدر بن دوغان الماضي بدم أخيه حشرم في عاشر جمادى الآخرة سنة تسع وثلاثين」＝兄弟 حيدرة が本項主（綴り حشرم）の血の報復として839年に مانع を殺した、と記す（note 留め）。初版は #NEEDID。'
 notes:
@@ -78,15 +74,59 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）の عجلان بن نعير（＝#AIND-D04892、ذو الحجة 832 年に戦死したマディーナ首長）の項での言及。初版の統制外 subtype「mentioned by」relation を変換。
   trigger: rule
   phrase: كما ذكره شيخنا في عجلان بن نعير من أنبائه
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: خشرم
+- id: m2
+  kind: name
+  ref: TMP-P-001591
+  quote: دوغان
+- id: m3
+  kind: name
+  quote: جعفر
+- id: m4
+  kind: name
+  quote: هبة
+- id: m5
+  kind: name
+  quote: جماز
+- id: m6
+  kind: name
+  quote: منصور
+- id: m7
+  kind: name
+  quote: جماز
+- id: m8
+  kind: name
+  quote: شيحة
+- id: m9
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m10
+  kind: person
+  ref: AIND-D02796
+  quote: حيدرة
+- id: m11
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: ذكره
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ハシュラム・ブン・ドゥーガーン・ブン・ジャアファル・ブン・ヒバ・ブン・ジャンマーズ・ブン・マンスール・ブン・ジャンマーズ・ブン・シーハ・アル＝フサイニー。前述のハイダラの兄弟。我らの師（イブン・ハジャル）がその『インバー』のアジュラーン・ブン・ヌアイルの項で述べているとおり、832年に殺された。ナービト・ブン・ヌアイル（の項）で言及されている者は彼だと私は思う。
   en: Khashram b. Dūghān b. Jaʿfar b. Hiba b. Jammāz b. Manṣūr b. Jammāz b. Shīḥa al-Ḥusaynī, brother of the aforementioned Ḥaydara. He was killed in the year 832, as our shaykh mentioned in the entry on ʿAjlān b. Nuʿayr in his Inbāʾ; and I think he is the one mentioned under Nābit b. Nuʿayr.

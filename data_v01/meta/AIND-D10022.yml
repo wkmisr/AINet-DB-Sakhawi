@@ -9,24 +9,20 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00585
-    quote: الجزيري
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m3
   - id: n3
     type: honorific
-    quote: الأديب
-    norm: الاديب
+    mention: m4
   - id: n4
     type: honorific
-    quote: مؤرخ المغرب
-    norm: مءرخ المغرب
+    mention: m5
   - id: n5
     type: ism
-    quote: منصور
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد منصور الجزيري المغربي
@@ -37,21 +33,18 @@ relations:
   subtype: father
   active: AIND-D10022#p1
   passive: AIND-D10022
-  quote: null
   note:
     ja: 規則3（単名の項）。父の名は原文に出ない。
 - id: r2
   type: social
   subtype: companion
-  active: AIND-D04266
+  active: m7
   passive: AIND-D10022
   summary:
     ar: عبد الكريم بن عبد الغني بن إبراهيم
   cert: medium
-  quote: عبد الكريم بن عبد الغني بن إبرهيم
   note:
     ja: '相手側本伝 #AIND-D04266「عبد الكريم بن عبد الغني بن إبراهيم بن عبد الله … المحب الكندي الورفلي الاطرابلسي المغربي المالكي」（806年生）に「وقدم علينا حاجا فكتبت عنه في صفر سنة إحدى وخمسين ما أنشدنيه لفظا عن صاحبه الأديب مؤرخ المغرب منصور الجريري فيما أنشده لنفسه في واقعة قال وهو الآن في قيد الحياة」とあり、本項主を「صاحبه」として一意に名指しする＝規則23 により companion relation を cert medium で補う。本項自身は「له نظم في عبد الكريم …」と詩の対象として挙げるのみ（下の event）。'
-  norm: عبد الكريم بن عبد الغني بن ابرهيم
 - id: r3
   type: identity
   subtype: possible_identity
@@ -60,7 +53,6 @@ relations:
   summary:
     ar: منصور بن علي الحلبي الجزيري
   cert: low
-  quote: null
   note:
     ja: '#AIND-D10013「منصور بن علي الحلبي الجزيري . هكذا رأيته بخط بعضهم ويحرر قوله الحلبي فسيأتي قريبا منصور الجزيري وهو مغربي」＝サハーウィーが D10013 の「الحلبي」に留保を付して本項主（منصور الجزيري、マグリブ人）との異同を要確認とする「يحرر」型＝possible_identity cert low。【集約 2026-11-03】D10013 側だけにあった relation を双方向に（機械 M、オーケストレーター決定12）。'
 events:
@@ -69,22 +61,51 @@ events:
   date:
     ah: 851
     type: other
-  quote: كان حيا في سنة إحدى وخمسين
   note:
     ja: '851年に存命（没年を作らない）。851年初＝1447-03-28（h2g.py、年精度）。相手側 #AIND-D04266 によれば、この情報は 851年サファル月に عبد الكريم がサハーウィーに「وهو الآن في قيد الحياة」と伝えたもの。'
-  norm: كان حيا في سنة احدي وخمسين
+  phrase: كان حيا في سنة إحدى وخمسين
+  mention: null
 - id: e2
   type: cultural
   persons:
   - ref: AIND-D04266
-  quote: وله نظم في عبد الكريم بن عبد الغني بن إبرهيم
   note:
     ja: '「وله نظم في عبد الكريم بن عبد الغني بن إبرهيم ومنه」。عبد الكريم بن عبد الغني بن إبراهيم＝#AIND-D04266（ナサブ3代＋マグリブ人＋相手側本文での本項主の名指しで閉合）。相手側 #AIND-D04266 では同じ2行が「فكتبت عنه في صفر سنة إحدى وخمسين ما أنشدنيه لفظا عن صاحبه الأديب مؤرخ المغرب منصور الجريري فيما أنشده لنفسه في واقعة」＝本項主が「ある出来事について自ら詠んだ詩」を عبد الكريم がサハーウィーに伝えたものとして引かれ、詩の内容も عبد الكريم 宛てではない。このため「في عبد الكريم」は (a)「عبد الكريم の項に（彼の伝承として）引いた」の相互参照、(b)「عبد الكريم について（宛てて）詠んだ」の2読みがあり、(a) が相手側原文と整合する。persName は詩の伝承者（または対象）として保持し、どちらとも断定しない（訳も留保つき）。詩語の異同: 本項「حفضي」「يؤثروا」「زمانهم」、D04266「خفضي」「تؤثروا」「زمانكم」＝刊本どおり保持（規則25）。【集約 2026-11-03】校閲時の「詩の対象＝عبد الكريم」の読みを両読みに改めた（内容B M×2、オーケストレーター決定5）。初版の統制外 subtype「recipient of dedicated poetry」relation（#NEEDID）は校閲で除去済み。'
-  norm: وله نظم في عبد الكريم بن عبد الغني بن ابرهيم
+  phrase: وله نظم في عبد الكريم بن عبد الغني بن إبرهيم
+  mention: null
 notes:
 - text: 'ニスバの綴り: 本項「الجزيري」、相手側 #AIND-D04266 では「الجريري」（ز／ر の揺れ。規則46により原文どおり保持、名寄せしない）。同チャンク外の #AIND-D10013「منصور بن علي الحلبي الجزيري … ويحرر قوله الحلبي فسيأتي قريبا منصور الجزيري وهو مغربي」は本項を指す「يحرر」型＝possible_identity（cert low）を双方向に立てた（集約 2026-11-03、決定12）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: منصور
+- id: m2
+  kind: name
+  ref: TMP-N-00585
+  quote: الجزيري
+- id: m3
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m4
+  kind: name
+  quote: الأديب
+  norm: الاديب
+- id: m5
+  kind: name
+  quote: مؤرخ المغرب
+  norm: مءرخ المغرب
+- id: m6
+  kind: year
+  value: '851'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: AIND-D04266
+  quote: عبد الكريم بن عبد الغني بن إبرهيم
+  norm: عبد الكريم بن عبد الغني بن ابرهيم
 translation:
   ja: マンスール・アル＝ジャズィーリー・アル＝マグリビー、文人（アディーブ）、マグリブの歴史家。（8）51年には存命であった。彼にはアブドゥルカリーム・ブン・アブドゥルガニー・ブン・イブラーヒームに関わる詩があり〔同人の項に、同人が伝えたものとして引かれる詩とも、同人について詠んだ詩とも読める〕、その一部は次のとおり。 「あなた方の門の従僕たちのもとで私の低い身分（ハフド）が長引き、彼らが（私を）引き上げる（ラフウ）ためには私の蔵（財）しか顧みないのなら、 私は彼らの時代の勘定（ヒサーブ）に我が生涯を費やし、諸学の修得に対して私の蔵を閉ざすであろう。」
   en: 'Manṣūr al-Jazīrī al-Maghribī, the litterateur (adīb), historian of the Maghrib. He was alive in the year [8]51. He has verses connected with ʿAbd al-Karīm b. ʿAbd al-Ghanī b. Ibrāhīm [either cited in the latter''s entry as transmitted by him, or composed about him], among them: "If my lowly standing (khafḍ) at the servants of your gate is prolonged, and for raising (rafʿ) they favour nothing but my storerooms, then I shall spend my life in the reckoning (ḥisāb) of their time, and shut my storerooms against the acquisition of the sciences."'

@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: سيباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -25,36 +24,29 @@ death:
   note:
     en: He died in Ramaḍān 880 AH; the sultan (Qāytbāy) came down and prayed over him at Muṣallā al-Muʾminī.
     ja: 880年の在位スルターン＝الأشرف قايتباي（#AIND-D06305）が葬儀の礼拝を行った。初版の統制外 subtype「funeral_prayer_attendee」を repo 既存の「funeral」に。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m7
   passive: AIND-D03249
-  quote: السلطان
   note:
     ja: 'الظاهر جقمق = #AIND-D02423（確定ID）。ニスバ الظاهري جقمق による主人関係。'
   phrase: الظاهري جقمق
 states:
 - id: s1
   type: office
-  ref: TMP-O-00097
-  quote: أميراخور
   note:
     ja: 登録済み أميراخور（TMP-O-00097）を充当（第三厩舎長）。
-  norm: اميراخور
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00240
-  quote: وحاجب ميسرة
   note:
     ja: 左翼侍従。ID-Master に該当なし（حاجب O-00065／حاجب ثاني O-00120／حاجب صغير O-00133 は別）→ 新規 TMP-O-00240。
-  norm: حاجب ميسرة
+  mention: m4
 assessments:
 - id: v1
-  quote: وكان فيما قيل خيرا
-  norm: كان فيما قيل خيرا
   label: كان فيما قيل خيرا
   terms:
   - خير
@@ -62,17 +54,55 @@ assessments:
   cert: medium
   note:
     ja: 「فيما قيل」＝伝聞のため cert="medium"。
+  mention: m9
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00151
-    quote: سبيل المؤمني
-    norm: سبيل المءمني
-  quote: صلى عليه في سبيل المؤمني
+  - mention: m8
   note:
     ja: سبيل المؤمني = 登録済み مصلى المومني（TMP-L-00151、D02098「حضر الناصر جنازته بمصلى المومني」）。カイロの葬礼場。
-  norm: صلي عليه في سبيل المءمني
+  phrase: صلى عليه في سبيل المؤمني
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: سيباي
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: office
+  ref: TMP-O-00097
+  quote: أميراخور
+  norm: اميراخور
+- id: m4
+  kind: office
+  ref: TMP-O-00240
+  quote: وحاجب ميسرة
+  norm: حاجب ميسرة
+- id: m5
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m6
+  kind: year
+  value: '880'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: AIND-D02423
+  quote: السلطان
+- id: m8
+  kind: place
+  quote: سبيل المؤمني
+  ref: TMP-L-00151
+  norm: سبيل المءمني
+- id: m9
+  kind: assessment
+  quote: وكان فيما قيل خيرا
+  norm: كان فيما قيل خيرا
 translation:
   ja: スィーバーイ・アッ＝ザーヒリー・ジャクマク、第三厩舎長（アミール・アーフール・サーリス）かつ左翼侍従（ハージブ・マイサラ）。880年ラマダーン月に没し、スルターンが自ら下って来てサビール・アル＝ムウミニーで彼のために葬礼を行った。伝えられるところでは善良な人物であった。
   en: Sībāy al-Ẓāhirī Jaqmaq, third amīr ākhūr and chamberlain of the left (ḥājib maysara). He died in Ramaḍān 880; the sultan came down and prayed over him at Sabīl (Muṣallā) al-Muʾminī. He was, it is said, a good man.

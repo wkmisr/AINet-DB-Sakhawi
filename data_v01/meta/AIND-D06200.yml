@@ -9,25 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-02310
-    quote: العرامي
+    mention: m3
   - id: n3
     type: ism
-    quote: فيروز
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 850
     cert: low
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   note:
     ja: 「في حدود الخمسين」＝850年頃。repo 先例（「حدود الأربعين」→ when-custom 0840 cert medium、「حدود الخمسين」→ 0850）どおり when-custom=0850（850年初＝1446-04-07）。「حدود」は幅の広い概数表現のため cert low。
   phrase: مات بالقاهرة في حدود الخمسين
@@ -41,51 +37,82 @@ relations:
   subtype: father
   active: AIND-D06200#p1
   passive: AIND-D06200
-  quote: null
   note:
     ja: '父の名は原文に無い（ルーム出身のマムルーク）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: TMP-P-001553
+  active: m4
   passive: AIND-D06200
   summary:
     ar: الغرس خليل بن عرام نائب إسكندرية
-  quote: للغرس خليل بن عرام نائب إسكندرية
   note:
     ja: 「العرامي نسبة للغرس خليل بن عرام نائب إسكندرية」＝主人（ニスバの由来）。corpus に خليل بن عرام の見出しなし（#AIND-D06141「فارس … أصله من مماليك خليل بن عرام اشتراه … بإسكندرية」にも主人として言及）、ID-Master 未登録（ニスバ العرامي TMP-N-02310 のみ）→ TMP-P-001553。初版のプレースホルダ TMP-P-000000 を是正。
-  norm: لغرس خليل بن عرام ناءب اسكندرية
 states:
 - id: s1
   type: status
   label: عمر دهرا طويلا
   label_latn: ʿummira dahran ṭawīlan
-  quote: عمر دهرا طويلا
   note:
     ja: 「عمر دهرا طويلا وكانت له مشاركة في الجملة ويحفظ بعض تاريخ」。
+  mention: m5
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00058
-    quote: رشيد
-  quote: أنشأ برجا بثغر رشيد ووقف عليه وقفا
+  - mention: m6
   note:
     ja: ラシード港に塔を建設しワクフを設定。年は無い。初版の重複する visit event を統合。
-  norm: انشا برجا بثغر رشيد ووقف عليه وقفا
+  phrase: أنشأ برجا بثغر رشيد ووقف عليه وقفا
+  mention: null
 - id: e2
   type: cultural
   persons:
-  - ref: AIND-D10372
-    quote: الأتابكي يشبك الشعباني
-    norm: الاتابكي يشبك الشعباني
-  - ref: AIND-D06160
-    cert: medium
-    quote: الناصر
-  quote: عمل كتابا في الأتابكي يشبك الشعباني وما وقع له مع الناصر زعم أنه نظم وليس بكلام منتظم فضلا عن النظم
+  - mention: m7
+  - cert: medium
+    mention: m8
   note:
     ja: 'يشبك الشعباني＝corpus 本伝 #AIND-D10372（الأتابكي الظاهري برقوق、الناصر فرج の لالا）。「الناصر」＝文脈（يشبك الشعباني との確執）から الناصر فرج（#AIND-D06160）だが裸のラカブのため cert medium（規則26）。「زعم أنه نظم」＝本人は韻文だと称した（زعم＝cert low 相当の著者の留保）。書名は無いため bibl なし。初版の非統制 relation（subject of his book／historical figure in his book）を本 event の persName に統合。'
-  norm: عمل كتابا في الاتابكي يشبك الشعباني وما وقع له مع الناصر زعم انه نظم وليس بكلام منتظم فضلا عن النظم
+  phrase: عمل كتابا في الأتابكي يشبك الشعباني وما وقع له مع الناصر زعم أنه نظم وليس بكلام منتظم فضلا عن النظم
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: فيروز
+- id: m2
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m3
+  kind: name
+  ref: TMP-N-02310
+  quote: العرامي
+- id: m4
+  kind: person
+  ref: TMP-P-001553
+  quote: للغرس خليل بن عرام نائب إسكندرية
+  norm: لغرس خليل بن عرام ناءب اسكندرية
+- id: m5
+  kind: office
+  quote: عمر دهرا طويلا
+- id: m6
+  kind: place
+  quote: رشيد
+  ref: TMP-L-00058
+- id: m7
+  kind: person
+  ref: AIND-D10372
+  quote: الأتابكي يشبك الشعباني
+  norm: الاتابكي يشبك الشعباني
+- id: m8
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: フィールーズ・アッ＝ルーミー・アル＝アッラーミー——（このニスバは）アレクサンドリア代官アル＝ガルス・ハリール・ブン・アッラームにちなむ。長寿を保ち、ラシード港に塔を建ててそのためにワクフを設定した。学問にひととおりの関わりがあり、歴史をいくらか記憶していた。それどころか、アターバク・ヤシュバク・アッ＝シャアバーニーと、彼とアン＝ナースィルとの間に起こったことについての書物を著し、それを韻文であると称したが、整った文章ですらなく、まして韻文ではなかった。（8）50年頃にカイロで没した。
   en: Fīrūz al-Rūmī al-ʿArrāmī, so called after al-Ghars Khalīl b. ʿArrām, governor of Alexandria. He lived to a great age, built a tower at the port of Rashīd (Rosetta) and endowed a waqf for it. He had some general acquaintance with learning and remembered some history; indeed he composed a book on the atābak Yashbak al-Shaʿbānī and what befell him with al-Nāṣir, which he claimed was in verse, though it was not even orderly prose, let alone verse. He died in Cairo around the year [8]50.

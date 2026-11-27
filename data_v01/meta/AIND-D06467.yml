@@ -9,58 +9,50 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00784
-    quote: النيني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بالفتوحي
-    norm: الفتوحي
     label: الفتوحي
+    mention: m12
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00023
-    norm: ابراهيم
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: خلف
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m6
   - id: n10
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m9
 death:
   id: d
   date:
     ah: 885
   places:
-  - ref: TMP-L-00036
-    quote: جدة
+  - mention: m18
   note:
     ja: 「فكانت منيته بها في أحد الربيعين سنة خمس وثمانين」。「بها」＝直前の جدة（照応、規則22(3)）。月は「أحد الربيعين」（ラビーウ第1月か第2月か不明）のため年精度。885＝1480-03-22〜1481-03-10（h2g.py）。
-  quote: سنة
+  mention: m19
 persons:
 - id: p1
   label: ابن المرجوشي
@@ -69,55 +61,45 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D00023
+  active: m10
   passive: AIND-D06467
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 ＝ #AIND-D00023「إبراهيم بن أحمد بن خلف البني ثم القاهري المالكي التاجر بسوق العمى خارج باب الفتوح ووالد أحمد ومحمد الآتيين」（868没、未収録）。ナサブ3代・المالكي・باب الفتوح（＝الفتوحي）・「والد أحمد ومحمد」で閉合。ニスバの綴りは本項「النيني」、D00023「البني」（刊本どおり、規則25）。ID-Master の TMP-P-000187「محمد بن إبراهيم بن أحمد البني」（Note「AIND-D00023の息子」）は本項主自身＝名寄せ要（ISSUES §D162-1）。'
-  norm: ابوه
   phrase: إبراهيم بن أحمد بن خلف
 - id: r2
   type: kin
   subtype: brother
-  active: TMP-P-000186
+  active: m11
   passive: AIND-D06467
-  quote: أحمد
   note:
     ja: '「وأخوه أحمد」（الماضي）。兄弟 أحمد の本伝は corpus 見出しに見つからない（hw.py「أحمد بن إبراهيم」＋「خلف」「الفتوحي」「البني」「النيني」「المرجوشي」いずれも該当なし）。子 #AIND-D10937「أبو الخير بن أحمد بن إبرهيم خير الدين محمد بن الشهاب بن البرهان الفتوحي لسكناه باب الفتوح ثم المرجوشي المالكي الماضي أبوه وجده」から الشهاب أحمد بن إبراهيم بن أحمد بن خلف الفتوحي المالكي と復元できる。ID-Master 既登録 TMP-P-000186「أحمد بن إبراهيم بن أحمد البني」（Note「AIND-D00023の息子」）を使用（新規発行せず）。'
-  norm: احمد
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D06467#p1
+  active: m15
   passive: AIND-D06467
-  quote: كابن المرجوشي
   note:
     ja: '「يتكسب بالتجارة لنفسه ثم لغيره كابن المرجوشي」＝ابن المرجوشي のために商業に従事した（仕えた型、規則56）。通称索引 #AIND-D12723「ابن المرجوشي محمد بن حسن بن علي وأبوه وابنه الذي كحل وقطع لسانه في سنة خمس وتسعين」＝この通称は محمد بن حسن بن علي المرجوشي（ID-Master TMP-P-000708「محمد بن البدر حسن المرجوشي」、#AIND-D02603「حسن بن علي البدر المرجوشي والد محمد الآتي … تاجرا في الشرب」の子。サハーウィーの隣人、D12713・D13809「جارنا」）とその父・子の3人が帯びる。本項主（885没）の雇い主としては محمد بن حسن（TMP-P-000708）が最有力だが、3人のうち誰かを原文から確定できず、既登録 TMP-P に cert で寄せない規則60(e) により #NEEDID（ISSUES §D162-2）。【集約 2026-11-08】オーケストレーター決定7（TMP-P-000708 cert medium）は、集約者が索引を読んだ結果、適用を保留した: ニスバ索引 #AIND-D12013「المرجوشي … والبدر حسن بن علي وابنه محمد ويقال له ابن المرجوشي وله ابن قطع لسانه وكحل في سنة خمس وتسعين」は呼び名を محمد بن حسن に当てるが、通称索引 #AIND-D12723「ابن المرجوشي محمد بن حسن بن علي وأبوه وابنه الذي كحل وقطع لسانه في سنة خمس وتسعين」は同じ見出しの下に父と子（895年に存命）も挙げる＝同家に同じ呼び名の候補が残る（規則61(c)・62）。裁定まで #NEEDID のまま（要判断 ★2）。'
-  norm: ابن المرجوشي
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D01435
+  active: m16
   passive: AIND-D06467
   cert: medium
-  quote: ابن الجندي
   note:
     ja: 「وصهر ابن الجندي وسافر له إلى جدة」。#AIND-D01435「أحمد بن محمد بن علي الشهاب بن الشمس القاهري الفاضلي الضرير … ويعرف بصهر ابن الجندي وبابن الرقيق . كان أحد أهل الشرب ممن يتجر」（887没）は「صهر ابن الجندي」を通称とし、同時代（本項主 885没）のカイロの商人で、文脈（商業の雇い主）が合う。通称による同定なので cert medium（規則26 例外2、ISSUES §D162-2）。
   phrase: صهر ابن الجندي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00171
-  quote: قرأ
   note:
     ja: '「وصار بعد أن كان يقرأ في الأجواق يتكسب بالتجارة」＝商業に転じる前は合唱朗誦隊（الأجواق）で朗誦していた。先例 #AIND-D03004（TMP-O-00171）。'
-  norm: قرا
+  mention: m13
 - id: s2
   type: office
-  ref: wd:Q215536
-  quote: كان
   note:
     ja: 「يتكسب بالتجارة لنفسه ثم لغيره」。
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -129,23 +111,99 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00025
-  quote: قرأ القرآن
-  norm: قرا القران
+  phrase: قرأ القرآن
+  mention: null
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00036
-    quote: جدة
-  quote: وسافر
+  - mention: m18
   note:
     ja: صهر ابن الجندي のためにジッダへ赴き、そこで没した。年は death と同じ 885 だが、旅の年は原文に明示がないため event に日付を置かない（規則18 (e)）。
   trigger: rule
-  norm: سافر
   phrase: وسافر له إلى جدة فكانت منيته بها
+  mention: m17
 notes:
 - text: 'ニスバ索引 #AIND-D11895「الفتوحي بضم أوله وثانيه نسبة لباب الفتوح」。甥 #AIND-D10937（兄弟 أحمد の子 أبو الخير）は本項主を名指ししないため relation は立てない（規則23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00023
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: خلف
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: البرهان
+- id: m7
+  kind: name
+  ref: TMP-N-00784
+  quote: النيني
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m10
+  kind: person
+  ref: AIND-D00023
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: person
+  ref: TMP-P-000186
+  quote: أحمد
+  norm: احمد
+- id: m12
+  kind: name
+  quote: بالفتوحي
+  norm: الفتوحي
+- id: m13
+  kind: office
+  ref: TMP-O-00171
+  quote: قرأ
+  norm: قرا
+- id: m14
+  kind: office
+  ref: wd:Q215536
+  quote: كان
+- id: m15
+  kind: person
+  ref: AIND-D06467#p1
+  quote: كابن المرجوشي
+  norm: ابن المرجوشي
+- id: m16
+  kind: person
+  ref: AIND-D01435
+  quote: ابن الجندي
+- id: m17
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m18
+  kind: place
+  quote: جدة
+  ref: TMP-L-00036
+- id: m19
+  kind: year
+  value: '885'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アフマド・ブン・ハラフ、アッ＝シャムス・ブン・アル＝ブルハーン、原籍はニーン、のちカイロの人、マーリク派。その父と兄弟のアフマドは前述した。アル＝フトゥーヒーとして知られる。クルアーンを読み、合唱朗誦隊（アジュワーク）で朗誦していたのち、商業で生計を立てるようになった。はじめは自身のため、次いでイブン・アル＝マルジューシーやイブン・アル＝ジュンディーの婿といった他人のためである。彼（イブン・アル＝ジュンディーの婿）のためにジッダへ旅し、885年の二つのラビーウ月のいずれかに同地で最期を迎えた。神が彼を憐れみ、赦したまわんことを。
   en: Muḥammad b. Ibrāhīm b. Aḥmad b. Khalaf, al-Shams b. al-Burhān, of Nīnī origin, then of Cairo, the Mālikī. His father and his brother Aḥmad have been mentioned above. He is known as al-Futūḥī. He read the Qurʾān and, after having recited in the choral groups (al-ajwāq), came to earn his living by trade, first for himself and then for others such as Ibn al-Marjūshī and the son-in-law of Ibn al-Jundī. He travelled for him to Jidda, and his death came there in one of the two Rabīʿ months of the year 885. May God have mercy on him and pardon him.

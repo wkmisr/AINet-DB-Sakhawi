@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: محمود جند على
+    mention: null
   - id: n2
     type: ism
-    quote: محمود
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -28,7 +28,7 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D09851a
-  passive: AIND-D00900
+  passive: m2
   methods:
   - TMP-S-00004
   context:
@@ -37,25 +37,39 @@ relations:
       ah: 828
       type: learning
     places:
-    - ref: TMP-L-00055
-      quote: بشيراز
-      norm: شيراز
-  quote: الطاووسی
+    - mention: m4
   note:
     ar: لقيه الطاووسی في سنة ثمان وعشرين بشيراز وقال انه يومئذ ابن مائة وست عشرة سنة فاستجازه
     ja: 'الطاووسي = #AIND-D00900（أبو الفتوح الطاووسي）が828年シーラーズ（TMP-L-00055）で面会しイジャーザを求めた。'
-  norm: الطاووسي
 states:
 - id: s1
   type: status
   label: شيخ معمر
   label_latn: shaykh muʿammar
-  quote: null
   note:
     ja: 長寿のシャイフ。
+  mention: null
 notes:
 - text: 見出しはペルシア文字綴り（علی・ابی بکر・شیخ）で記録されている。name_only はアラビア文字に正規化。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: محمود
+- id: m2
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسی
+  norm: الطاووسي
+- id: m3
+  kind: year
+  value: '828'
+  quote: سنة
+- id: m4
+  kind: place
+  quote: بشيراز
+  ref: TMP-L-00055
+  norm: شيراز
 translation:
   ja: マフムード・ブン・アリー・ブン・アビー・バクル、長寿のシャイフで、マフムード・ジャンド・アリーとして知られる。ターウースィーが828年にシーラーズで彼に会い、その時116歳であると語ったので、イジャーザを求めた。
   en: Maḥmūd b. ʿAlī b. Abī Bakr, a long-lived shaykh known as Maḥmūd Jand ʿAlī. Al-Ṭāwūsī met him in Shiraz in 828; he said he was then 116 years old, so al-Ṭāwūsī asked him for ijāza.

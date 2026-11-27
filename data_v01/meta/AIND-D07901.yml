@@ -9,30 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00153
-    quote: المرشدي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: الجلال أبي المحامد عبد
     by: rule
-    ref: AIND-D04736
-    norm: الجلال ابي المحامد عبد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 birth:
   id: b
   date:
@@ -40,42 +35,37 @@ birth:
     cert: medium
   note:
     ja: 「ولد في صفر سنة ثمان」＝808年サファル月（808-02-01＝1405-08-07、月精度）。年は「ثمان」のみ＝一の位のみの年は 80X（Waka 2026-09-24）で 808、cert medium（846 没と矛盾しない）。【集約 2026-10-31 訂正】校閲時の「846 の没で 38 歳＝808 で確定」は原文に年齢の記載がなく根拠なし。出生地は原文に明記なし（初版の placeName مكة を除去、規則22）。
-  quote: سنة
+  mention: m9
 death:
   id: d
   date:
     ah: 846-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m13
   note:
     ja: 「مات في ربيع الآخر سنة ست وأربعين بمكة」。846-04-01＝1442-08-18（月精度）。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04736
+  active: m3
   passive: AIND-D07901
   summary:
     ar: الجلال أبو المحامد عبد الواحد بن إبراهيم المرشدي
-  quote: ابن عبد
   note:
     ja: 父＝#AIND-D04736「عبد الواحد بن إبراهيم بن أحمد بن أبي بكر بن عبد الوهاب جلال الدين وضياء الدين أبو المحامد بن البرهان الوجيه الفوي الأصل ثم المكي الحنفي والد عبد الغني … ويعرف بالمرشدي . ولد … سنة ثمانين وسبعمائة بمكة」（未収録。ナサブ5代・ラカブ・クンヤが一致、規則37）。ID-Master の TMP-P-000417「الجلال عبد الواحد」は Note に「名寄せ済=AIND-D04736」とあるが E 列は未置換（repo の D00418・D07124 で使用中）＝ISSUES §D146-2。初版の TMP-P-000417 を AIND に置換。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D04736
+  active: m10
   passive: AIND-D07901
   methods:
   - TMP-S-00009
   summary:
     ar: الجلال أبو المحامد عبد الواحد بن إبراهيم المرشدي
-  quote: أبيه
   note:
     ja: '「واشتغل على أبيه」＝父のもとで学んだ（師＝父 #AIND-D04736）。初版の relation 内 event placeName مكة（原文に場所なし）を除去（規則22）。'
-  norm: ابيه
 affiliations:
 - id: a1
   type: madhhab
@@ -83,19 +73,79 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m15
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・没年 846（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版なし。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m14
 notes:
 - text: '「ولم يتزوج ولا سافر」＝結婚も旅もしなかった（居住 event は立てない。マッカ在住はニスバ・死地からの推定になるため、規則22(1)）。同父の兄弟: #AIND-D00168「إبراهيم بن عبد الواحد بن إبراهيم … البرهان بن الجلال المرشدي」・#AIND-D04066「عبد الغني بن عبد الواحد بن إبراهيم …」。父の妻 #AIND-D13759「أم سلمة ابنة الكمال محمد بن موسى الدميري . تزوجها الجلال عبد الواحد بن إبراهيم المرشدي وأستولدها عبد الغني وإبراهيم ومجمد（محمد）وأم …」は本項主の母である可能性が高いが、「محمد」だけでは一意に特定できないため relation は立てない（規則23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04736
+  quote: الجلال أبي المحامد عبد
+  norm: الجلال ابي المحامد عبد
+- id: m3
+  kind: person
+  ref: AIND-D04736
+  quote: ابن عبد
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  ref: TMP-N-00153
+  quote: المرشدي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: AIND-D04736
+  quote: أبيه
+  norm: ابيه
+- id: m11
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m12
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m14
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m15
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アル＝ジャラール・アビー・アル＝マハーミド・アブドゥルワーヒド・ブン・イブラーヒーム・ブン・アフマド・ブン・アビー・バクル・イブン・アブドゥルワッハーブ、アル＝ジャマール・アル＝ムルシディー・アル＝マッキー・アル＝ハナフィー。（80）8年サファル月に生まれ、父のもとで学んだ。結婚もせず旅もせず、祝福された静かな人物であった。846年ラビーウ・アル＝アーヒル月にマッカで没した。イブン・ファハドがその没年を記した。
   en: Muḥammad b. al-Jalāl Abī al-Maḥāmid ʿAbd al-Wāḥid b. Ibrāhīm b. Aḥmad b. Abī Bakr b. ʿAbd al-Wahhāb, al-Jamāl al-Murshidī al-Makkī al-Ḥanafī. He was born in Ṣafar of the year (80)8 and studied under his father. He neither married nor travelled, and was a blessed, quiet man. He died in Rabīʿ al-Ākhir of the year 846 in Mecca. Ibn Fahd recorded his death date.

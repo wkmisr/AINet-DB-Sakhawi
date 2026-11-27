@@ -9,126 +9,177 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00885
-    quote: النطوبسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: التاج عبد الوهاب
     by: rule
-    ref: AIND-D04782
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: حسن
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04782
+  active: m9
   passive: AIND-D07916
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝#AIND-D04782「عبد الوهاب بن علي بن حسن التاج بن الخطيب نور الدين النطوبسي ثم القاهري المالكي المقري نزيل الظاهرية القديمة ويعرف في بلده بابن المكين وفي القاهرة بالتاج السكندري … ولد في سنة خمس عشرة وثمانمائة تقريبا」（未受領。ナサブ3代・ラカブ التاج・ニスバ・住居 الظاهرية القديمة が一致、規則37）。初版の #NEEDID を解消。'
-  norm: ابوه
   phrase: التاج عبد الوهاب بن علي بن حسن النطوبسي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D02414
+  active: m10
   passive: AIND-D07916
   methods:
   - TMP-S-00010
   fields:
   - wd:Q1817983
-  quote: الزين جعفر السنهوري
   note:
     ja: 「وتلا بالقراآت على الزين جعفر السنهوري」＝#AIND-D02414（جعفر بن إبراهيم بن جعفر … الزين أبو الفتح … السنهوري القاهري الازهري الشافعي المقرئ、810頃生）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D07916
   methods:
   - TMP-S-00028
   context:
   - type: learning
     places:
-    - ref: wd:Q23975647
-      cert: medium
-      quote: الظاهرية القديمة
-  quote: عندي
+    - cert: medium
+      mention: m8
   note:
     ja: サハーウィーが الزين جعفر السنهوري の代講（نيابتي عنه）としてハディース講義を行った際に出席した（規則2。サハーウィーと جعفر の関係は立てない。field（الحديث）は規則2 により付けず desc に残す）。「بمحل سكنه」＝本項主の住居＝「نزيل الظاهرية القديمة」の الظاهرية القديمة と読み、所有代名詞付き名詞のため cert medium（規則22(3)）。
   phrase: وحضر عندي حين نيابتي عنه في تدريس الحديث بمحل سكنه دروسا
 states:
 - id: s1
   type: office
-  ref: wd:Q352842
   orgs:
   - ref: wd:Q23975647
-  quote: تدريس الحديث
   note:
     ja: 「ثم باشرها（＝دروس تدريس الحديث）مع تصدير القراآت بها」＝الظاهرية القديمة でのハディース教授職（元は الزين جعفر السنهوري の職）を自ら務めた。職 ref は تدريس wd:Q352842（ID-Master に تدريس الحديث の個別登録なし。قراءة الحديث TMP-O-00007 は別職）。初版の placeName القاهرة（原文になし）を除去。
+  mention: m12
 - id: s2
   type: office
-  ref: TMP-O-00364
   orgs:
   - ref: wd:Q23975647
-  quote: تصدير القراآت
   note:
     ja: '「مع تصدير القراآت بها」＝朗誦学の教授席（تصدير）＝ID-Master TMP-O-00364（تصدير | مصدر、先例 D06372）。بها＝الظاهرية القديمة（照応）。初版の #NEEDID を解消。'
-  norm: تصدير القراات
+  mention: m14
 - id: s3
   type: office
-  ref: TMP-O-00113
   orgs:
   - ref: wd:Q23975647
-  quote: وتحدث عن الناظر في أوقافها
   note:
     ja: '「بل وتحدث عن الناظر في أوقافها」＝الظاهرية القديمة のワクフの管財人（ناظر）に代わって管理した＝管財人代理。ID-Master に該当職なし（نائب الناظر・متحدث 未登録）のため、repo 先例 D02706（نائب ناظر البيمارستان → نظر البيمارستان TMP-O-00148）に倣い ناظر الأوقاف TMP-O-00113 を ref とし、代理であることを note に残す。初版の #NEEDID を解消。'
-  norm: تحدث عن الناظر في اوقافها
+  mention: m15
 - id: s4
   type: office
-  ref: wd:Q932945
   orgs:
   - ref: TMP-I-00251
-  quote: الخطابة
   note:
     ja: 「وكذا باشر الخطابة بتربة الظاهر خشقدم」＝خطيب wd:Q932945。تربة الظاهر خشقدم＝ID-Master TMP-I-00251（先例 D06399）。初版の affiliation type="employed"（同施設、#NEEDID）は二重符号化のため除去（規則8）、placeName القاهرة を除去。
+  mention: m16
 events:
 - id: e1
   type: residence
   places:
-  - ref: wd:Q23975647
-    quote: الظاهرية القديمة
-  quote: سكنه
+  - mention: m8
   note:
     ja: الظاهرية القديمة＝مدرسة الظاهر بيبرس（ID-Master Institution wd:Q23975647、カイロ）。初版の affiliation type="reside"（同じ施設）は二重符号化のため除去（規則8）。初版の residence event القاهرة・مكة（ニスバ由来）は除去（規則22(1)）。
   trigger: rule
   phrase: نزيل الظاهرية القديمة
+  mention: m13
 - id: e2
   type: learning
   methods:
   - TMP-S-00077
-  quote: اشتغل
   trigger: rule
   phrase: نشأ فحفظ القرآن وغيره واشتغل قليلا
+  mention: m17
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04782
+  quote: التاج عبد الوهاب
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: حسن
+- id: m5
+  kind: name
+  ref: TMP-N-00885
+  quote: النطوبسي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: place
+  quote: الظاهرية القديمة
+  ref: wd:Q23975647
+- id: m9
+  kind: person
+  ref: AIND-D04782
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: AIND-D02414
+  quote: الزين جعفر السنهوري
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
+- id: m12
+  kind: office
+  ref: wd:Q352842
+  quote: تدريس الحديث
+- id: m13
+  kind: event
+  quote: سكنه
+- id: m14
+  kind: office
+  ref: TMP-O-00364
+  quote: تصدير القراآت
+  norm: تصدير القراات
+- id: m15
+  kind: office
+  ref: TMP-O-00113
+  quote: وتحدث عن الناظر في أوقافها
+  norm: تحدث عن الناظر في اوقافها
+- id: m16
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة
+- id: m17
+  kind: event
+  quote: اشتغل
 translation:
   ja: ムハンマド・ブン・アッ＝タージュ・アブドゥルワッハーブ・ブン・アリー・ブン・ハサン・アン＝ナトゥーブスィー、（ナトゥーブス）出自、カイロの人、マッカの人、旧ザーヒリーヤ学院の住人。その父は既述。成長してクルアーンなどを暗記し、少し学問に携わり、アッ＝ザイン・ジャアファル・アッ＝サンフーリーのもとで諸朗誦法によって（クルアーンを）誦んだ。私が彼（ジャアファル）の代講として彼（本項主）の住む所でハディースの講義を行った際、私のもとに出席した。その後、彼はその講義を自ら務め、同所での朗誦学の教授席も兼ね、さらにそのワクフの管財人に代わって（管理を）担い、同じくザーヒル・フシュカダム廟の説教職も務めた。彼は巧みで機敏であり、もし学問に励めば大成したであろうが、自らを台無しにした。
   en: Muḥammad b. al-Tāj ʿAbd al-Wahhāb b. ʿAlī b. Ḥasan al-Naṭūbisī by origin, the Cairene, the Meccan, resident of the old Ẕāhiriyya; his father was mentioned above. He grew up, memorized the Qurʾān and other texts, studied a little, and recited (the Qurʾān) in the various readings under al-Zayn Jaʿfar al-Sanhūrī. He attended my lessons when I was deputizing for him (Jaʿfar) in the teaching of ḥadīth at his (the subject's) place of residence; then he took over those lessons himself, together with the chair of the readings there, and even acted on behalf of the supervisor of its endowments; likewise he served as preacher at the tomb of al-Ẕāhir Khushqadam. He is clever and quick-witted, and had he applied himself he would have amounted to something, but he wasted himself.

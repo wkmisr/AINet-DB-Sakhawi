@@ -9,37 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: مكية
+    mention: m2
   - id: n4
     type: shuhrah
-    quote: بابنة القوصي
-    norm: ابنة القوصي
     label: ابنة القوصي
+    mention: m6
   - id: n5
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
 death:
   id: d
   date:
     ah: 863-08
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m9
   note:
     ja: 863年シャアバーン月＝1459-06-12〜07-10（h2g.py）、月精度で @when=1459-06（初版 1459）。
-  quote: سنة
   phrase: ماتت في شعبان سنة ثلاث وستين بمكة
+  mention: m8
 persons:
 - id: p1
   label: عيسى بن محمد
@@ -48,12 +42,10 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D12861#p1
+  active: m3
   passive: AIND-D12861
-  quote: عيسى بن محمد
   note:
     ja: 父 عيسى بن محمد الشامي المكي。「ابنة القوصي」の القوصي が父か先祖の通称かは原文から決まらない。corpus 見出し・全文に該当なし（「عيسى بن محمد」＋「القوصي」、「ابن القوصي」）。名＋父名＋ニスバのみで、本伝のある兄弟とも共有しない＝#NEEDID（規則3 (c')）。
-  norm: عيسي بن محمد
 notes:
 - text: 原文「وتعرب بابنة القوصي」の「تعرب」は「تعرف」の崩れとみられるが、source note は刊本の綴りのまま（規則25）。通称は「ابنة القوصي」。初版は full に「وتدعى مكية」「وتعرب بابنة القوصي」の句まで入れ、القوصي を本項主のニスバ（TMP-N-05476）としていた＝full を名とナサブ・ニスバに限り、القوصي は通称の一部として shuhrah のみに残した。
   lang: ja
@@ -61,15 +53,59 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخها
+  - mention: m11
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・没年 863（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 relation「biographer」を置換。
   trigger: rule
-  norm: ارخها
   phrase: أرخها ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: name
+  quote: مكية
+- id: m3
+  kind: person
+  ref: AIND-D12861#p1
+  quote: عيسى بن محمد
+  norm: عيسي بن محمد
+- id: m4
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: name
+  quote: بابنة القوصي
+  norm: ابنة القوصي
+- id: m7
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m8
+  kind: year
+  value: '863'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: source
+  quote: أرخها
+  norm: ارخها
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アーミナ、またの名をマッキーヤ。イーサー・ブン・ムハンマド・アッ＝シャーミー・アル＝マッキーの娘で、「イブナ・アル＝クースィー」（クースィーの娘）の名で知られる。（8）63年シャアバーン月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Āmina, also called Makkiyya, daughter of ʿĪsā b. Muḥammad al-Shāmī al-Makkī, known as Ibnat al-Qūṣī. She died in Shaʿbān of the year [8]63 in Mecca. Ibn Fahd recorded her death.

@@ -9,66 +9,99 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: حسام الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 842-12
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: سنة
+  - mention: m3
+  mention: m5
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
-  quote: وولي
-  norm: ولي
+  - mention: m9
+  mention: m8
 - id: s2
   type: office
   ref: TMP-O-00053
   places:
-  - ref: gn:281184
-    quote: القدس
-  quote: null
+  - mention: m7
+  mention: null
 events:
 - id: e2
   type: residence
   places:
-  - ref: gn:281184
-    quote: القدس
-  quote: null
+  - mention: m7
   note:
     en: Resided there before arriving in Cairo.
+  mention: null
 - id: e3
   type: visit
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: قدم
+  - mention: m3
   note:
     en: Arrived in Cairo from Jerusalem.
   trigger: rule
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: قاله
+  - mention: m11
   note:
     en: Al-Maqrīzī is the source of the biographical information. Al-Sakhāwī adds his own conjecture (aẓunnuhu) that the subject is the nāẓir of Jerusalem and founder of the madrasa there mentioned in the entry of Ibn Ruslān; being conjectural, this identification is kept in prose only.
   trigger: rule
   phrase: قاله المقريزي وأظنه ناظر القدس وصاحب المدرسة به المذكور في ابن رسلان
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: حسام الدين
+- id: m3
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m4
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m5
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m6
+  kind: event
+  quote: قدم
+- id: m7
+  kind: place
+  quote: القدس
+  ref: gn:281184
+- id: m8
+  kind: office
+  ref: TMP-O-00053
+  quote: وولي
+  norm: ولي
+- id: m9
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ハサン・フサーム・アッ＝ディーン。ズー・アル＝ヒッジャ月842年にカイロで没した。彼はエルサレムから来訪し、ナースィル・ファラジュの治世およびそれ以降に、ガザやエルサレムなどの複数の副知事職（ニヤーバ）を務めた。マクリーズィーがこのように述べており、私は、彼がエルサレムの監督官（ナーズィル）であり、イブン・ルスラーンの伝記中で言及されている、同地（エルサレム）のマドラサの創立者ではないかと考えている。
   en: Ḥasan Ḥusām al-Dīn. He died in Cairo in Dhu al-Hijjah, the year 842. He had come from Jerusalem and had held several deputy governorships in Gaza, Jerusalem, and elsewhere during the reign of al-Nasir Faraj and afterwards. Al-Maqrizi mentioned this, and I believe him to be the superintendent (nāẓir) of Jerusalem and the founder of the madrasa there, who is mentioned in the biography of Ibn Ruslan.

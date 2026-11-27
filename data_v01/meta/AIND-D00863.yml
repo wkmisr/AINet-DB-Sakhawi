@@ -9,42 +9,38 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: null
     label: الشهاب
+    mention: null
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الغني
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد الرزاق
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: أبي الفرج الشهابي
     by: rule
-    norm: ابو الفرج الشهابي
+    mention: m4
   - id: n6
     type: nasab
-    quote: الأمير فخر الدين
     by: rule
-    norm: الامير فخر الدين
+    mention: m5
   - id: n7
     type: nasab
-    quote: الوزير تاج الدين ولي
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 857-01
   places:
-  - ref: TMP-L-00142
-    quote: قطيا
+  - mention: m7
   - role: burial
     label: مدفنهم من المدرسة
   - role: burial
@@ -52,23 +48,64 @@ death:
   note:
     en: He died in middle age in early Muḥarram. He was transferred and buried in their cemetery from the madrasa.
     ja: Gemini幻番号TMP-L-00014/00015(Master未登録・قطياに2番号併存)破棄。地名قطيا=新規TMP-L-00142(Waka指示)。laqabの「تاج الدين」は曾祖父(الوزير تاج الدين)の称号のため本人laqab=الشهابに是正。
-  quote: سنة
+  mention: m10
 states:
 - id: s1
   type: office
   ref: TMP-O-00069
   places:
-  - ref: TMP-L-00142
-    quote: قطيا
-  quote: null
+  - mention: m7
+  mention: null
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عبد الغني
+- id: m3
+  kind: name
+  quote: عبد الرزاق
+- id: m4
+  kind: name
+  quote: أبي الفرج الشهابي
+  norm: ابو الفرج الشهابي
+- id: m5
+  kind: name
+  quote: الأمير فخر الدين
+  norm: الامير فخر الدين
+- id: m6
+  kind: name
+  quote: الوزير تاج الدين ولي
+- id: m7
+  kind: place
+  quote: قطيا
+  ref: TMP-L-00142
+- id: m8
+  kind: event
+  quote: وحج
+- id: m9
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m10
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m11
+  kind: place
+  quote: بمدفنهم من المدرسة
+  ref: None
+  norm: مدفنهم من المدرسة
 translation:
   ja: アフマド・ブン・アブドゥルガニー・ブン・アブドゥルラッザーク・ブン・アビー・ルファラジュ・アッ＝シハーブィー・ブン・アルアミール・ファフルッディーン・ブン・アルワズィール・タージュッディーン。彼はキトヤーの統治者を務め、ハッジを行った。彼はヒジュラ暦857年ムハッラムの初めにキトヤーで熟年期に死去し、移送されマドラサの彼らの墓地に埋葬された。
   en: Aḥmad b. ʿAbd al-Ghanī b. ʿAbd al-Razzāq b. Abī al-Faraj al-Shihābī b. al-Amīr Fakhr al-Dīn b. al-Wazīr Tāj al-Dīn. He governed Qiṭyā and performed the Hajj. He died in middle age in Qiṭyā in early Muḥarram 857 H. He was transported and buried in their cemetery adjacent to the madrasa.

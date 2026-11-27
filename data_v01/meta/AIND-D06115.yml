@@ -9,28 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00201
-    quote: القاري
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m3
   - id: n3
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
 death:
   id: d
   date:
     ah: 895-08
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m7
   note:
     ja: 「مات بدمشق في أواخر شعبان سنة خمس وتسعين」＝895年シャアバーン月末（月精度。895-08 は 1490-06-29 開始＝@when 1490-06。【集約 2026-10-19】規則18「月のみ→月初」により @when を 1490-07→1490-06 に訂正（機械[4] H・内容A M）。「أواخر」（月末＝1490-07 下旬）は精度外として note に留める（D05420「أواخر رجب」と同じ扱い）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: والد عيسى القاري الدمشقي
@@ -42,9 +37,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06115#p1
+  active: m11
   passive: AIND-D06115
-  quote: ولده
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3「父の名が原文に全く出ない項も #NEEDID で立て、desc に原文の呼称を入れる」）。【集約 2026-10-19】書式は B127 の「والد ＋本項主の呼称」に統一（要判断 ★1 で事後承認）。'
 - id: r2
@@ -52,56 +46,95 @@ relations:
   subtype: son
   active: AIND-D06115#p2
   passive: AIND-D06115
-  quote: null
   note:
     ja: '「ثم أخذ من ولده بعد موته مع قرب」＝名不詳の息子（本項主の死後まもなく金銭を徴収された）。名不詳のため #NEEDID（規則12）。初版は active 空欄。'
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
   places:
-  - ref: gn:170654
-    cert: medium
-    quote: بدمشق
-    norm: دمشق
-  quote: ممن
+  - cert: medium
+    mention: m7
   note:
     ja: 「أحد أعيان تجارها」＝ダマスクスの有力商人の一人。「ها」はニスバ الدمشقي を受ける所有代名詞のため規則22(3)により cert medium。
+  mention: m4
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   note:
     ja: 「حج … غير مرة」＝複数回の巡礼。مكة は規則20 の例外。
   trigger: rule
   phrase: ممن حج وجاور غير مرة
+  mention: m5
 - id: e2
   type: residence
   subtype: jāwara
-  quote: وجاور
   note:
     ja: 「جاور」に地名の明記なし→ placeName を付けない（規則20）。初版の مكة を除去。
   trigger: rule
-  norm: جاور
   phrase: جاور غير مرة
+  mention: m6
 - id: e3
   type: political
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: أخذ منه حين طلب إلى القاهرة مبلغ كبير
+  - mention: m10
   note:
     ja: カイロに召喚された際に多額の金銭を徴収された（没年895年より前）。初版の重複する visit event を本 event に統合。
-  norm: اخذ منه حين طلب الي القاهرة مبلغ كبير
+  phrase: أخذ منه حين طلب إلى القاهرة مبلغ كبير
+  mention: null
 - id: e4
   type: political
-  quote: ثم أخذ من ولده بعد موته مع قرب
   note:
     ja: 本項主の死後まもなく息子からも徴収された。原文に地名なし（初版の دمشق を除去、規則22）。
-  norm: ثم اخذ من ولده بعد موته مع قرب
+  phrase: ثم أخذ من ولده بعد موته مع قرب
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  ref: TMP-N-00201
+  quote: القاري
+- id: m3
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m4
+  kind: office
+  ref: wd:Q215536
+  quote: ممن
+- id: m5
+  kind: event
+  quote: حج
+- id: m6
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m7
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m8
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m9
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: person
+  ref: AIND-D06115#p1
+  quote: ولده
 translation:
   ja: イーサー・アル＝カーリー・アッ＝ディマシュキー。ダマスクスの有力商人の一人で、複数回にわたり巡礼し留錫（ムジャーワラ）した。余所者（新来者）であったにもかかわらず、善行・敬虔・施しの人であった。895年シャアバーン月末にダマスクスで没したが、それはカイロに召喚された際に多額の金銭を徴収された後のことであり、さらに彼の死後まもなく息子からも徴収された。
   en: ʿĪsā al-Qārī al-Dimashqī, one of the notable merchants of Damascus, who performed the Hajj and resided in the holy city (jāwara) more than once. He was a man of goodness, piety, and charity, despite being an outsider. He died in Damascus in late Shaʿbān of the year 895, after a large sum had been taken from him when he was summoned to Cairo; then, shortly after his death, more was taken from his son.

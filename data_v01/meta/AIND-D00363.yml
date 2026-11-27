@@ -10,17 +10,15 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00326
-    quote: null
+    mention: null
   - id: n2
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n3
     type: nasab
-    quote: الأصبهاني الخياط
     by: rule
-    norm: الاصبهاني الخياط
+    mention: m2
 death:
   id: d
   date:
@@ -28,7 +26,7 @@ death:
   note:
     ar: مات في شعبان سنة أربع وتسعين
     ja: 894年シャアバーン＝1489-07-09〜08-06（月精度、h2g.py）。初版の @when="1489"（年精度）・cert="high" を是正。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: الأصبهاني
@@ -41,46 +39,71 @@ relations:
   subtype: father
   active: AIND-D00363#p1
   passive: AIND-D00363
-  quote: null
   note:
     ja: '規則3 (c'')。父は「الأصبهاني」の呼称のみで名が出ない。corpus 見出しの الأصبهاني（#AIND-D00539 الجلال الأصبهاني الخانكي・#AIND-D02666・#AIND-D02750・#AIND-D03965 等）に仕立屋の家の人物はなく、ID-Master 未登録 → #NEEDID。'
 states:
 - id: s1
   type: office
   ref: wd:Q242468
-  quote: null
   note:
     ja: '見出しの職名。ID-Master「الخياطة」wd:Q242468（先例 #AIND-D02875）。初版の nisbah「الخياط」（同じ wd、state と二重）を除去し、state 内の placeName الخشابين（職の勤務地ではなく仕事場の位置）を event n=2 に移した。'
+  mention: null
 assessments:
 - id: v1
-  quote: أحد المعتبرين في صنعته مع خير وعصبية ومحافظة على الصلوات واعتقادا للعلماء والصالحين
-  norm: احد المعتبرين في صنعته مع خير وعصبية ومحافظة علي الصلوات واعتقادا للعلماء والصالحين
   terms:
   - خير
   - صالح
   note:
     ja: 人物評（その手仕事で信頼される者の一人。善良、身内への義理堅さ、礼拝の厳守、学者・義人への信心）。
+  mention: m3
 events:
 - id: e1
   type: other
-  quote: بعد أن عرض له في رجليه ما اقتضى عدم مشيه إلا اليسير معتمدا على العصا
   note:
     ja: 没前に脚を患い、杖に頼ってわずかしか歩けなくなった（年なし）。
-  norm: بعد ان عرض له في رجليه ما اقتضي عدم مشيه الا اليسير معتمدا علي العصا
+  phrase: بعد أن عرض له في رجليه ما اقتضى عدم مشيه إلا اليسير معتمدا على العصا
+  mention: null
 - id: e2
   type: other
   persons:
-  - ref: AIND-D02273
-    quote: الاستادار تغري بردي
+  - mention: m6
   places:
-  - ref: TMP-L-00400
-    quote: الخشابين
+  - mention: m7
   orgs:
   - ref: TMP-I-00276
-  quote: وكانت ورشته تجاه المسجد الذي جدده الاستادار تغري بردي من الخشابين
   note:
     ja: '仕事場（ورشة）の位置。الخشابين（カイロの街区・市場。corpus では「جامع الخشابين」「عمارته في البندقانيين والخشابين」等）は ID-Master 未登録（「خشاب」該当は TMP-I-00101 الخشابية＝別の機関）→ TMP-L-00400。モスク＝「المسجد الذي جدده الاستادار تغري بردي」は #AIND-D02273「تغرى بردي من يلباي الظاهري القادري الحنفي الخازنداري بل الاستادار … وجدد أشياء أو كملها من المساجد والجوامع كجامع الخشابين والمسجد المقارب له」の「المسجد المقارب له」＝ ID-Master 未登録 → TMP-I-00276（#AIND-D09158 にも「أسكنه الاستادار في المسجد الذي جدده بالخشابين وجعل له إمامته」）。改修者 الاستادار تغري بردي＝ #AIND-D02273（名・職・الخشابين の改修で閉合、repo 先例 #AIND-D04013・#AIND-D04838）。本項主との関係ではないので persName のみ（relation なし）。初版の personalia note（ja）を本 event に統合。'
-  norm: كانت ورشته تجاه المسجد الذي جدده الاستادار تغري بردي من الخشابين
+  phrase: وكانت ورشته تجاه المسجد الذي جدده الاستادار تغري بردي من الخشابين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  quote: الأصبهاني الخياط
+  norm: الاصبهاني الخياط
+- id: m3
+  kind: assessment
+  quote: أحد المعتبرين في صنعته مع خير وعصبية ومحافظة على الصلوات واعتقادا للعلماء والصالحين
+  norm: احد المعتبرين في صنعته مع خير وعصبية ومحافظة علي الصلوات واعتقادا للعلماء والصالحين
+- id: m4
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m5
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m6
+  kind: person
+  ref: AIND-D02273
+  quote: الاستادار تغري بردي
+- id: m7
+  kind: place
+  quote: الخشابين
+  ref: TMP-L-00400
 translation:
   ja: イブラーヒーム・ブン・アル＝アスバハーニー、仕立屋（アル＝ハイヤート）。その手仕事において信頼される者の一人で、善良さ、身内への義理堅さ、礼拝の厳守、学者と義人への信心を備えていた。894年シャアバーン月に没した。それ以前に両脚を患い、杖に頼ってわずかしか歩けなくなっていた。彼の仕事場はハッシャービーンにある、ウスターダール・タグリー・ビルディーが改修したモスクの向かいにあった。神よ彼に慈悲を。
   en: Ibrāhīm b. al-Aṣbahānī al-Khayyāṭ (the tailor), one of the respected men of his craft, with goodness, loyalty to his kin, strict observance of the prayers, and belief in the scholars and the righteous. He died in Shaʿbān of the year 894, after an ailment had befallen his legs that left him unable to walk except a little, leaning on a stick. His workshop was opposite the mosque in al-Khashshābīn that the ustādār Taghrī Birdī had renovated. May God have mercy on him.

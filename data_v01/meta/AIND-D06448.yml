@@ -9,44 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: honorific
-    quote: شريف
+    mention: m7
   - id: n4
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عطيفة
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أبي نمى
     by: rule
-    norm: ابو نمي
+    mention: m4
 death:
   id: d
   date:
     ah: 799
     cert: medium
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m10
   note:
     ar: ولم يلبث أن مات في أواخر سنة تسع بظاهر القاهرة
     ja: 「سنة تسع」は一の位のみ。文脈（797年にカイロで捕縛され、同行した حسن بن عجلان は798年ラビーウ第二月にマッカへ帰還（#AIND-D02560「ووصل مكة في ربيع الآخر سنة ثمان وتسعين」）、本項主はその後カイロ→アレクサンドリアで投獄、釈放後「ولم يلبث أن مات」）から直後の 799 と読み cert medium（初版の 809 は根拠がなく是正）。799＝1396-10-13〜1397-10-01（h2g.py）、「أواخر السنة」でも @when は年初の年精度 1396（規則33）。没地「بظاهر القاهرة」（カイロ郊外）は相対表現なので「خارج مكة」の慣行に倣い gn:360630 を付して原文句のまま。
-  quote: سنة
+  mention: m16
 persons:
 - id: p1
   label: محمد بن عطيفة بن أبي نمى
@@ -59,7 +55,6 @@ relations:
   subtype: father
   active: AIND-D06448#p1
   passive: AIND-D06448
-  quote: null
   note:
     ja: '規則3 (c'')。父 محمد بن عطيفة بن أبي نمي الحسني は corpus に本伝なし（hw.py「عطيفة」該当は本項と #AIND-D06080 عيسى بن عطيفة … العتبي الحلوي＝別家のみ）、ID-Master 未登録。父自身に識別要素なし → #NEEDID（初版どおり）。'
 events:
@@ -69,51 +64,116 @@ events:
     ah: 797
     type: travel
   persons:
-  - ref: AIND-D02560
-    quote: حسن
+  - mention: m8
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: توجه
+  - mention: m10
   note:
     ja: '797＝1394-11-04 開始、年精度 1394。حسن بن عجلان ＝ #AIND-D02560「حسن بن عجلان بن رميثة بن أبي نمى … السيد البدر أبو المعالي الحسني المكي أميرها ونائب السلطنة بالبلاد الحجازية … وكان أول ما ولى الامرة بعد قتل أخيه علي في ذي القعدة سنة سبع وتسعين」（829没、repo 収録済み）。「صاحب مكة」は相手の職なので state にしない。初版の colleague relation（#NEEDID）は同行の記述のみで関係語がないため event の persName に（規則14・53）。'
   trigger: rule
   phrase: توجه إلى القاهرة سنة سبع وتسعين مع السيد حسن بن عجلان صاحب مكة
+  mention: m9
 - id: e2
   type: political
   persons:
   - ref: AIND-D02560
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: فسجن
+  - mention: m10
   note:
     ja: カイロで حسن بن عجلان とともに捕縛され、حسن は釈放されたが本項主はカイロで投獄され続けた。年は旅行（797）に続く記述だが event 自体に年の明記がないので日付属性を置かない（規則18 (e)）。初版の cert="high"・when-custom 0797 を除去。
   trigger: rule
-  norm: سجن
   phrase: فقبض عليهما ثم أطلق حسن واستمر هذا محبوسا بالقاهرة
+  mention: m15
 - id: e3
   type: political
   places:
-  - ref: gn:361058
-    quote: إسكندرية
-    norm: اسكندرية
-  quote: فقبض
+  - mention: m14
   note:
     ja: アレクサンドリアに移送され、一団とともに投獄されたのち釈放された。年の明記なし（初版の when-custom 0797・cert medium を除去）。
   trigger: rule
-  norm: قبض
   phrase: ثم نقل إلى إسكندرية فسجن بها في جماعة إلى أن أطلق
+  mention: m13
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m19
   note:
     ja: 'Pattern A。الفاسي ＝ التقي الفاسي #AIND-D06757（頻出確定ID）。初版の統制外 subtype「biographer」の relation を event に変更。'
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m18
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عطيفة
+- id: m4
+  kind: name
+  quote: أبي نمى
+  norm: ابو نمي
+- id: m5
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  quote: شريف
+- id: m8
+  kind: person
+  ref: AIND-D02560
+  quote: حسن
+- id: m9
+  kind: event
+  quote: توجه
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: year
+  value: '797'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: AIND-D02560
+  quote: السيد حسن بن عجلان صاحب مكة
+- id: m13
+  kind: event
+  quote: فقبض
+  norm: قبض
+- id: m14
+  kind: place
+  quote: إسكندرية
+  ref: gn:361058
+  norm: اسكندرية
+- id: m15
+  kind: event
+  quote: فسجن
+  norm: سجن
+- id: m16
+  kind: year
+  value: '799'
+  quote: سنة
+- id: m17
+  kind: place
+  quote: بظاهر القاهرة
+  ref: gn:360630
+  norm: ظاهر القاهرة
+- id: m18
+  kind: source
+  quote: ذكره
+- id: m19
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ムバーラク・ブン・ムハンマド・ブン・ウタイファ・ブン・アビー・ヌマイ・アル＝ハサニー・アル＝マッキー。容姿の整ったシャリーフ。797年、マッカの主サイイド・ハサン・ブン・アジュラーンとともにカイロへ赴いたが、二人とも捕縛された。その後ハサンは釈放されたが、彼はカイロで投獄されたままとなり、次いでアレクサンドリアへ移されて一団とともに投獄され、やがて釈放されたが、ほどなく［7］99年の末にカイロ郊外で没した。アル＝ファースィーが彼に言及している。
   en: Mubārak b. Muḥammad b. ʿUṭayfa b. Abī Numayy al-Ḥasanī al-Makkī, a sharīf of handsome appearance. In the year [7]97 he went to Cairo with al-Sayyid Ḥasan b. ʿAjlān, the lord of Mecca, and both were arrested; Ḥasan was then released, while he remained imprisoned in Cairo. He was then transferred to Alexandria and imprisoned there with a group until he was released, and not long afterwards he died at the end of the year [7]99 on the outskirts of Cairo. Al-Fāsī mentioned him.

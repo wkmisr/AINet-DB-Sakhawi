@@ -9,73 +9,65 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m11
   - id: n3
     type: kunyah
-    quote: أبو الفتح
-    norm: ابو الفتح
+    mention: m9
   - id: n4
     type: shuhrah
-    quote: null
     label: ابن ظهيرة
+    mention: null
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
-    ref: AIND-D04846
+    mention: m2
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n11
     type: nasab
-    quote: عطية
     by: rule
+    mention: m7
   - id: n12
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m8
 birth:
   id: b
   date:
     ah: 832
   note:
     ja: 「ولد سنة اثنتين وثلاثين وثمانمائة」。832 年＝1428-10-20 開始 → 年精度 1428（初版 1429 を是正）。
-  quote: سنة
+  mention: m13
 death:
   id: d
   date:
     ah: 878-09
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m16
   note:
     ja: 「ومات بمكة في رمضان سنة ثمان وسبعين」。878 年ラマダーン月＝1474-01-29〜02-27 → 月精度 1474-01。
-  quote: سنة
+  mention: m18
 relations:
 - id: r1
   type: kin
@@ -84,26 +76,22 @@ relations:
   passive: AIND-D07938
   summary:
     ar: عثمان بن أبي بكر بن عبد الله بن ظهيرة القرشي المكي
-  quote: null
   note:
     ja: '父＝corpus 本伝 #AIND-D04846「عثمان بن أبي بكر بن عبد الله بن ظهيرة بن أحمد بن عطية بن ظهيرة القرشي . المكي والد عفان الآتي ولد في سنة ست وثمانمائة بزبيد …」（ナサブ7代一致、見出しナサブで確定＝規則37）。同じ父の兄弟の本伝（本項で名指しなし＝note のみ）: #AIND-D00004（أبان）・#AIND-D04910（عفان、「أمه من زبيد」）・#AIND-D10926（أبو حامد、「أمه زبيدية」）・#AIND-D10942（أبو الخير）。初版は父 relation なし。'
 - id: r2
   type: kin
   subtype: mother
-  active: TMP-P-001639
+  active: m12
   passive: AIND-D07938
-  quote: سلامة ابنة محمد
   note:
     ja: '「وأمه شريفة زبيدية اسمها سلامة ابنة محمد」。女性部（D13xxx）に本伝なし（hw.py「سلامة」）、ID-Master 未登録 → 識別要素（名・父名・ザビードのシャリーファ）があるので新規 TMP-P-001639（規則12）。初版は #NEEDID。'
 - id: r3
   type: kin
   subtype: relative
-  active: AIND-D09205
+  active: m15
   passive: AIND-D07938
-  quote: المحب محمد بن أبي حامد بن ظهيرة
   note:
     ja: '「قريبه المحب محمد بن أبي حامد بن ظهيرة」＝corpus 本伝 #AIND-D09205「721 محمد بن محمد بن محمد المحب أبو الخير بن الرضى أبي حامد بن القطب أبي الخير بن الجمال أبي السعود القرشي الشافعي بن ظهيرة … ولد في آخر ليلة الجمعة ثالث عشر رجب سنة ست وثلاثين وثمانمائة بمكة」。名 محمد・ラカブ المحب・父クンヤ أبو حامد・家名 ابن ظهيرة が完全一致し、836 年生は「أجاز له في سنة ست وثلاثين من أجاز قريبه」（同年に親族へイジャーザを与えた者たちが本項主にも与えた）と整合（cert なし）。校閲時の #AIND-D01373（أحمد、789生）cert medium は名が合わず別人（内容B H、オーケストレーター決定3）。初版は統制外 subtype「other」・#NEEDID。'
-  norm: المحب محمد بن ابي حامد بن ظهيرة
 events:
 - id: e1
   type: learning
@@ -112,14 +100,84 @@ events:
     type: learning
   persons:
   - ref: AIND-D09205
-  quote: وأجاز له في سنة ست وثلاثين من أجاز قريبه المحب محمد بن أبي حامد بن ظهيرة
   note:
     ja: 836 年に、親族 المحب にイジャーザを与えた師たちが本項主にもイジャーザを与えた（師の名指しなし＝teacher relation は立てない）。836 年＝1432-09-06 開始 → 年精度 1432。初版の cert="high" を除去。
-  norm: اجاز له في سنة ست وثلاثين من اجاز قريبه المحب محمد بن ابي حامد بن ظهيرة
+  phrase: وأجاز له في سنة ست وثلاثين من أجاز قريبه المحب محمد بن أبي حامد بن ظهيرة
+  mention: null
 notes:
 - text: マッカの ابن ظهيرة 家。初版の residence event مكة はニスバからの補完＝除去（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04846
+  quote: عثمان
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: ظهيرة
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: عطية
+- id: m8
+  kind: name
+  quote: ظهيرة
+- id: m9
+  kind: name
+  quote: أبو الفتح
+  norm: ابو الفتح
+- id: m10
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m11
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m12
+  kind: person
+  ref: TMP-P-001639
+  quote: سلامة ابنة محمد
+- id: m13
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m14
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: AIND-D09205
+  quote: المحب محمد بن أبي حامد بن ظهيرة
+  norm: المحب محمد بن ابي حامد بن ظهيرة
+- id: m16
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m17
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m18
+  kind: year
+  value: '878'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ウスマーン・ブン・アビー・バクル・ブン・アブド・アッラー・ブン・ズハイラ・ブン・アフマド・ブン・アティーヤ・ブン・ズハイラ、アブー・アル＝ファトフ、アル＝クラシー、アル＝マッキー、イブン・ズハイラ。母はザビードのシャリーファで、名はサラーマ・ビント・ムハンマド。832年に生まれ、（8）36年に、彼の親族アル＝ムヒッブ・ムハンマド・ブン・アビー・ハーミド・イブン・ズハイラにイジャーザを与えた人々が彼にもイジャーザを与えた。（8）78年ラマダーン月にマッカで没した。
   en: Muḥammad b. ʿUthmān b. Abī Bakr b. ʿAbd Allāh b. Ẕahīra b. Aḥmad b. ʿAṭiyya b. Ẕahīra, Abū al-Fatḥ, al-Qurashī, al-Makkī, Ibn Ẕahīra; his mother was a sharīfa of Zabīd named Salāma bint Muḥammad. He was born in the year 832, and in the year [8]36 those who had licensed his relative al-Muḥibb Muḥammad b. Abī Ḥāmid b. Ẕahīra granted him an ijāza as well. He died in Mecca in Ramaḍān of the year [8]78.

@@ -9,64 +9,91 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m5
   - id: n2
     type: honorific
-    quote: القائد
-    norm: القاءد
+    mention: m4
   - id: n3
     type: ism
-    quote: عنان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: قنيد
     by: rule
-    ref: AIND-D06371
+    mention: m2
   - id: n5
     type: nasab
-    quote: مثقال
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06371
+  active: m6
   passive: AIND-D06050
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父 ＝ #AIND-D06371（قنيد بن مثقال القائد الحسني مولى السيد حسن بن عجلان نائب مكة ووالد مسعود وعنان、865年没）。相手側本伝で「والد مسعود وعنان」と名指し。初版の #NEEDID を解消。'
-  norm: ابوه
   phrase: قنيد بن مثقال
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D09921
+  active: m7
   passive: AIND-D06050
-  quote: مسعود
   note:
     ja: '「وأخوه مسعود」（الآتي）。兄弟 ＝ #AIND-D09921（مسعود بن قنيد بن مثقال الحسني … وزير مكة وابن وزيرها）。ナサブ一致。初版の #NEEDID を解消。'
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: TMP-O-00053
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نيابة
+  - mention: m9
   note:
     ja: 「ممن ناب عن أخيه في نيابة مكة」＝兄弟 مسعود の代理としてマッカの نيابة を務めた。ref は汎用 نائب（TMP-O-00053。precheck の[名前不一致]は見かけ上）。 兄 مسعود が持つナーイブ職の代理なので subtype="deputy"（2026-11-17 Waka 了承）。
+  mention: m8
 - id: s2
   type: office
   ref: TMP-O-00069
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m9
   note:
     ja: 「بل هو واليها」。ref は汎用 والي（TMP-O-00069）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عنان
+- id: m2
+  kind: name
+  ref: AIND-D06371
+  quote: قنيد
+- id: m3
+  kind: name
+  quote: مثقال
+- id: m4
+  kind: name
+  quote: القائد
+  norm: القاءد
+- id: m5
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m6
+  kind: person
+  ref: AIND-D06371
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: AIND-D09921
+  quote: مسعود
+- id: m8
+  kind: office
+  ref: TMP-O-00053
+  quote: نيابة
+- id: m9
+  kind: place
+  quote: مكة
+  ref: gn:104515
 translation:
   ja: アナーン・ブン・クナイド・ブン・ミスカール、アル＝カーイド、アル＝ハサニー。その父と兄弟マスウードは後述。兄弟の代理としてマッカの副知事職（ニヤーバ）を務めた者の一人で、むしろ彼こそがその知事（ワーリー）であり、兄弟より圧政が軽かった。
   en: ʿAnān b. Qunayd b. Mithqāl, al-Qāʾid, al-Ḥasanī; his father and his brother Masʿūd are mentioned below. He was among those who deputized for his brother in the deputy-governorship (niyāba) of Mecca; indeed he was its governor (wālī), and was lighter-handed than his brother.

@@ -9,12 +9,12 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: null
     label: المؤيدي
+    mention: null
   - id: n2
     type: ism
-    quote: يشبك
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -22,42 +22,63 @@ death:
   note:
     ar: ومات بعد أشهر في ليلة الخميس منتصف شعبان سنة ثلاث وسبعين
     ja: 873年シャアバーン15日の夜。表計算暦では1469年2月28日（火曜）で原文の الخميس と2日ずれ→日付は換算値、曜日差を記録。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D00563
+  active: m2
   passive: AIND-D10379a
-  quote: المؤيدى احمد بن إينال
   note:
     ar: المؤيدى احمد بن إينال . كان خاز نداره
     ja: '主人 المؤيد أحمد بن إينال = #AIND-D00563（أحمد بن اينال المؤيد الشهاب أبو الفتح بن الأشرف）。その خازندار。'
-  norm: المءيدي احمد بن اينال
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m4
   passive: AIND-D10379a
-  quote: الأشرف قايتباي
   note:
     ar: ثم تأمر في إيام الأشرف قايتباي
     ja: 'الأشرف قايتباي = #AIND-D06305。'
-  norm: الاشرف قايتباي
 states:
 - id: s1
   type: office
   ref: TMP-O-00073
-  quote: null
   note:
     ja: المؤيد أحمد の خازندار。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00014
-  quote: تأمر
   note:
     ja: 「تأمر في أيام الأشرف قايتباي」— 872年以降、数か月で没。
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: يشبك
+- id: m2
+  kind: person
+  ref: AIND-D00563
+  quote: المؤيدى احمد بن إينال
+  norm: المءيدي احمد بن اينال
+- id: m3
+  kind: office
+  ref: TMP-O-00014
+  quote: تأمر
   norm: تامر
+- id: m4
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m5
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m6
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: ヤシュバク・アル＝ムアイヤディー、〔ムアイヤド・〕アフマド・ブン・イーナールの〔マムルーク〕。その財務官（ハーズィンダール）であり、次いでアシュラフ・カーイトバーイの時代にアミールとなったが、数か月後の873年シャアバーン月15日木曜の夜に没した。
   en: Yashbak al-Muʾayyadī, mamluk of (al-Muʾayyad) Aḥmad b. Īnāl. He was his treasurer (khāzindār), then became an amir in the days of al-Ashraf Qāytbāy, and died months later on the night of Thursday, mid-Shaʿbān 873.

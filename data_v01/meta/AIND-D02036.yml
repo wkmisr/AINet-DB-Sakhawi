@@ -9,14 +9,12 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: بطعام
-    norm: طعام
     label: طعام
+    mention: m2
   - id: n2
     type: ism
-    quote: أقبردي
     by: rule
-    norm: اقبردي
+    mention: m1
 death:
   id: d
   date:
@@ -27,40 +25,56 @@ death:
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   orgs:
   - label: الدولة المؤيدية
-  quote: أمير
-  norm: امير
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: طبلخاناه
+  - mention: m3
+  mention: m5
 - id: s3
   type: office
   ref: TMP-O-00120
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m3
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m3
   cert: low
   note:
     en: Transferred to Damascus after serving as an amir of the Muʾayyadī state.
+  mention: null
 - id: e2
   type: other
   summary:
     en: Was given the nickname 'Ṭaʿām'.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أقبردي
+  norm: اقبردي
+- id: m2
+  kind: name
+  quote: بطعام
+  norm: طعام
+- id: m3
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m4
+  kind: office
+  ref: TMP-O-00014
+  quote: أمير
+  norm: امير
+- id: m5
+  kind: office
+  ref: TMP-O-00016
+  quote: طبلخاناه
 translation:
   ja: アクバルディー・マントゥー、渾名はタアーム。ムアイヤド朝期のマムルーク軍人。その後ダマスカスに転任し、アミール・タブールハーナー（軍楽隊長）兼第二ハージブを務め、830年後までその職にあった。
   en: Aqbardī Mantū, nicknamed Ṭaʿām. He was one of the amirs of the Muʾayyadī state. He was then transferred to Damascus, serving as Amīr Ṭablakhānāh and second Ḥājib until his death after the year 830 H.

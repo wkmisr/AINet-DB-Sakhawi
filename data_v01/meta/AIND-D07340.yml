@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00699
-    quote: النشيلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: حسن
     by: rule
-    ref: TMP-P-001128
+    mention: m2
   - id: n6
     type: nasab
-    quote: حاتم
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
@@ -43,7 +39,7 @@ death:
   note:
     ar: مات في شعبان سنة إحدى وتسعين
     ja: 891年シャアバーン月＝1486-08-11 起点（月初、グレゴリオ暦）。初版の when="1486" を月精度に。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: بواب سعيد السعداء
@@ -56,17 +52,15 @@ relations:
   passive: AIND-D07340
   summary:
     ar: حسن بن حاتم النشيلي
-  quote: null
   note:
     ja: 父。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001128 を発行。初版は父 relation なし。
 - id: r2
   type: social
   subtype: other
-  active: AIND-D07340#p1
+  active: m8
   passive: AIND-D07340
   relationship_type:
     ja: 継父（本項主は ربيب）
-  quote: بواب سعيد السعداء
   note:
     ar: ربيب بواب سعيد السعداء
     ja: '継父＝サイード・アッ＝スアダー・ハーンカー（#TMP-I-00018）の門番。固有名がなく職名のみのため #NEEDID を維持（規則12・14）。既存慣例（#AIND-D01205）に倣い subtype other＋relationship_type。初版の affiliation（سعيد السعداء）は継父の勤務先であって本項主の所属ではないため除去。'
@@ -79,9 +73,50 @@ events:
   type: learning
   methods:
   - TMP-S-00077
-  quote: اشتغل
   trigger: rule
   phrase: ممن اشتغل
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001128
+  quote: حسن
+- id: m3
+  kind: name
+  quote: حاتم
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00699
+  quote: النشيلي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D07340#p1
+  quote: بواب سعيد السعداء
+- id: m9
+  kind: event
+  quote: اشتغل
+- id: m10
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m11
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・ハサン・ブン・ハーティム、アッ＝シャムス・アン＝ナシーリー、のちアル＝カーヒリー、アッ＝シャーフィイー。サイード・アッ＝スアダー（ハーンカー）の門番の継子。学問に励んだ者の一人。891年シャアバーン月に没した。
   en: Muḥammad b. Ḥasan b. Ḥātim, al-Shams al-Nashīlī, then al-Qāhirī, al-Shāfiʿī, the stepson of the doorkeeper of (the khānqāh of) Saʿīd al-Suʿadāʾ. He was among those who engaged in study. He died in Shaʿbān 891.

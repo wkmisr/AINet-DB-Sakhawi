@@ -9,26 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01337
-    quote: الدمرداشي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشجاع
+    mention: m3
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: حسين
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 822
   note:
     ja: 「مات في سنة اثنتين وعشرين」。822 ＝ 1419-02-06〜1420-01-25（h2g.py、年のみ→年初）。没地の記載なし。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: حسين
@@ -41,20 +40,43 @@ relations:
   subtype: father
   active: AIND-D05844#p1
   passive: AIND-D05844
-  quote: null
   note:
     ja: '父は裸名のみ → #NEEDID 維持（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
-  - ref: TMP-L-00041
-    quote: زبيد
-  quote: أمير
+  - mention: m6
   note:
     ja: 「أمير زبيد」。原文に明記された地名のため placeName を保持（規則22(2)）。
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: حسين
+- id: m3
+  kind: name
+  quote: الشجاع
+- id: m4
+  kind: name
+  ref: TMP-N-01337
+  quote: الدمرداشي
+- id: m5
+  kind: office
+  ref: TMP-O-00014
+  quote: أمير
   norm: امير
+- id: m6
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m7
+  kind: year
+  value: '822'
+  quote: سنة
 translation:
   ja: ウマル・ブン・フサイン、アッ＝シュジャーウ・アッ＝ダマルダーシー、ザビードのアミール。822年に没した。
   en: ʿUmar b. Ḥusayn, al-Shujāʿ al-Damardāshī, amīr of Zabīd. He died in the year 822.

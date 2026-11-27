@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00450
-    quote: المحرقي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن صدقة
-    norm: ابن صدقة
     label: ابن صدقة
+    mention: m9
   - id: n4
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: صدقة
     by: rule
-    ref: AIND-D03374
+    mention: m2
 birth:
   id: b
   date:
@@ -42,35 +38,31 @@ death:
     ah: 895
   note:
     ja: 895年＝1489-12-04 開始（h2g.py、年精度。初版 1490 を訂正）。「بالتجريدة」＝遠征軍（التجريدة）の途上での死＝地名ではないので placeName にしない。
-  quote: سنة
   phrase: مات بالتجريدة سنة خمس وتسعين قبل إكمال الستين
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03374
   passive: AIND-D10474
-  quote: null
   note:
     ja: '父＝corpus 本伝 #AIND-D03374「صدقة بن سري الدين محمد بن صدقة المحرقي ثم القاهري الأزهري والد الفاضل عبد الرحيم وأخيه عبد القادر . كان خيرا يتكسب بالخياطة ، مات … سنة ست وثمانين」（repo 収録済み）。本項主は「يوسف بن صدقة المحرقي الأصل القاهري أخو عبد القادر وعبد الرحيم الماضيين」＝父名・ニスバ・兄弟2人で閉合（規則37）。初版は父 relation なし＝追加。'
   phrase: صدقة
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D04124
+  active: m5
   passive: AIND-D10474
-  quote: عبد القادر
   note:
     ja: '「أخو عبد القادر وعبد الرحيم الماضيين」。corpus 本伝 #AIND-D04124「عبد القادر بن صدقة بن الشرف محمد المحرقي الأصل القاهري الأزهري أخو عبد الرحيم … مات في ربيع الأول سنة ست وتسعين」（未収録）。ブリーフ候補を本文で確認。初版の #AIND-D04089 は誤り（番号違い）＝訂正。'
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D03862
+  active: m6
   passive: AIND-D10474
-  quote: وعبد الرحيم
   note:
     ja: 'corpus 本伝 #AIND-D03862「عبد الرحيم بن صدقة بن محمد بن أيوب الزين … المحرقي الأصل القاهري الأزهري الشافعي أخو عبد القادر ويونس الآتيين ويعرف بابن صدقة . ولد سنة أربع وأربعين وثمانمائة」（未収録）。ブリーフ候補を本文で確認。初版 #NEEDID。'
-  norm: عبد الرحيم
   phrase: عبد الرحيم
 - id: r4
   type: identity
@@ -80,25 +72,63 @@ relations:
   summary:
     ar: يونس بن صدقة المحرقي الأصل القاهري
   cert: high
-  quote: null
   note:
     ja: '二重立項（転送指示なし＝両項とも実項）。#AIND-D10589「يونس بن صدقة المحرقي الأصل القاهري أخو عبد القادر وعبد الرحيم الماضيين ويعرف بابن صدقة . ممن تشبه بالترك وخدم وسافر للجون وفي عدة تجاريد . ومات في التي في سنة خمس وتسعين منها ولم يبلغ الستين ، وكان أحد الزردكاشية」（未収録）は、父名・ニスバ・兄弟2人・通称・「تشبه بالترك」・「الزردكاشية」・895年の遠征での死・60歳未満、のすべてが本項と一致し、名だけが يوسف／يونس（字形の近い2語）と異なる。兄 #AIND-D03862 の見出し「أخو عبد القادر ويونس الآتيين」と通称索引 #AIND-D12460「عبد الرحيم الفاضل وعبد القادر ويونس بنو صدقة المحرقي」は يونس だけを挙げ يوسف を挙げない＝同一人物が يوسف の名でも立項されたとみられる。サハーウィー自身の指示はなく校閲者の判断（ISSUES §D167-1）。D10589 側の鏡像は同項の受領時。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00400
-  quote: وأحد الزردكاشية
   note:
     ja: '「وأحد الزردكاشية」＝武具係（زردكاش）の一人（規則48）。ID-Master の Office を語根 زرد で grep: 既登録は شاد الزردخاناه（TMP-O-00363、武器庫監督＝別職）のみ、Nisbah الزردكاشي（TMP-N-05381）は職ではない → 仮 TMP-O-00400（初版 #NEEDID）。corpus に「الزردكاشية」10箇所。'
-  norm: احد الزردكاشية
+  mention: m8
 - id: s2
   type: status
   label: المتشبه بالترك
   label_latn: al-mutashabbih bi-l-Turk
-  quote: والمتشبه بالترك
   note:
     ja: 「والمتشبه بالترك」＝トルコ人（軍人）風の身なり・生き方をした者。初版になし＝追加。
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  ref: AIND-D03374
+  quote: صدقة
+- id: m3
+  kind: name
+  ref: TMP-N-00450
+  quote: المحرقي
+- id: m4
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m5
+  kind: person
+  ref: AIND-D04124
+  quote: عبد القادر
+- id: m6
+  kind: person
+  ref: AIND-D03862
+  quote: وعبد الرحيم
+  norm: عبد الرحيم
+- id: m7
+  kind: office
+  quote: والمتشبه بالترك
   norm: المتشبه بالترك
+- id: m8
+  kind: office
+  ref: TMP-O-00400
+  quote: وأحد الزردكاشية
+  norm: احد الزردكاشية
+- id: m9
+  kind: name
+  quote: بابن صدقة
+  norm: ابن صدقة
+- id: m10
+  kind: year
+  value: '895'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・サダカ、ムハッラクの出、アル＝カーヒリー、既出のアブド・アル＝カーディルとアブド・アッ＝ラヒームの兄弟。トルコ人（軍人）のまねをした者で、武具係（ザルドカーシュ）の一人。イブン・サダカとして知られる。（8）95年に、60歳に満たずして遠征の途上で没した。
   en: Yūsuf b. Ṣadaqa, of Muḥarraq origin, al-Qāhirī, brother of ʿAbd al-Qādir and ʿAbd al-Raḥīm, both mentioned above; one who imitated the Turks and one of the armourers (zardkāshiyya), known as Ibn Ṣadaqa. He died on the military expedition in the year [8]95, before completing sixty years of age.

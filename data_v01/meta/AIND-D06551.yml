@@ -9,45 +9,42 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن المعتمد
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m6
   - id: n10
     type: nasab
-    quote: المعتمد
     by: rule
+    mention: m8
 birth:
   id: b
   date:
@@ -60,13 +57,11 @@ death:
   date:
     ah: 873-04
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m13
   note:
     ja: '873年ラビーウ第二月＝1468-10-28 開始（h2g.py、月精度）。初版の @when 1468（年精度）を月精度に。子の本伝 #AIND-D00238 にも「ووالد صاحب الترجمة مات في سنة ثلاث وسبعين وثمانمائة عن تسع وخمسين كما سيأتي」。'
-  quote: سنة
   phrase: مات في ربيع الثاني سنة ثلاث وسبعين بدمشق عن تسع وخمسين
+  mention: m12
 persons:
 - id: p1
   label: إبراهيم بن محمد بن علي
@@ -79,22 +74,68 @@ relations:
   subtype: father
   active: AIND-D06551#p1
   passive: AIND-D06551
-  quote: null
   note:
     ja: '規則3 (c'')。父 إبراهيم بن الشرف محمد بن علي（ابن المعتمد。祖父のラカブは子 #AIND-D00238 の見出しナサブ「إبراهيم بن محمد بن إبراهيم بن الشرف محمد بن علي بن الشرف محمد بن إبراهيم」による）は父自身に識別要素がなく、corpus 見出しに本伝なし（hw.py「المعتمد」14件、見出しが「إبراهيم بن محمد بن علي」で始まる2件〔#AIND-D00286・#AIND-D00288〕に該当なし）、ID-Master 未登録（「المعتمد」「D06551」）。家名は識別要素に入らない（規則61 (d)）。初版は father relation なし。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D00238
+  active: m10
   passive: AIND-D06551
-  quote: إبراهيم
   note:
     ja: 「والد إبراهيم الماضي」＝#AIND-D00238「إبراهيم بن محمد بن إبراهيم بن الشرف محمد بن علي بن الشرف محمد بن إبراهيم … البرهان بن القاضي شمس الدين الدمشقي الصالحي الشافعي … ويعرف كسلفه بابن المعتمد … ووالد صاحب الترجمة مات في سنة ثلاث وسبعين وثمانمائة عن تسع وخمسين كما سيأتي」（ナサブ・家名・父の没年と享年で閉合、843年生、repo 未収録）。初版は幻番号 TMP-P-000000。
-  norm: ابراهيم
 notes:
 - text: '子の本伝 #AIND-D00238 は本項主を「القاضي شمس الدين」と呼び、墓碑の詩に「محمد المعتمد」とある（他項にのみある属性＝本項には立てない、規則23）。ニスバ由来の residence event（دمشق）は除去（規則22(1)。没地 دمشق は原文に明記）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m7
+  kind: name
+  quote: الشمس
+- id: m8
+  kind: name
+  quote: المعتمد
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: person
+  ref: AIND-D00238
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m11
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m12
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・イブラーヒーム、アッ＝シャムス・ブン・アル＝ムウタミド、アッ＝ディマシュキー。既出のイブラーヒームの父。73年ラビーウ第二月にダマスクスで、59歳で没した。
   en: Muḥammad b. Ibrāhīm b. Muḥammad b. ʿAlī b. Muḥammad b. Ibrāhīm, al-Shams Ibn al-Muʿtamid, al-Dimashqī, father of the Ibrāhīm mentioned above. He died in Rabīʿ II of the year 73 in Damascus, aged fifty-nine.

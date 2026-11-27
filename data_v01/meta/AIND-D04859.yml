@@ -9,24 +9,23 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: بالفيل
-    norm: الفيل
     label: الفيل
+    mention: m3
   - id: n2
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله ويلقب
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 805-05
   note:
     en: He died in Jumādā al-Ūlā 805. The place of death is not stated.
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: عبد الله
@@ -39,32 +38,59 @@ relations:
   subtype: father
   active: AIND-D04859#p1
   passive: AIND-D04859
-  quote: null
   note:
     ja: '父は裸名（عبد الله）のみで識別要素がないため #NEEDID（統一規則3・12）。初版の汚染番号 TMP-P-000490（登録実体は al-Zuhrī の祖父 عبد الله）を破棄。'
 events:
 - id: e1
   type: cultural
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
-  quote: أحد من كان يعتقد بمصر
+  - mention: m4
   note:
     ja: エジプト（مصر）で崇敬されていた（聖者とみなされた）人物の一人。原文明記の地名のため placeName を保持（規則22(2)）。
-  norm: احد من كان يعتقد بمصر
+  phrase: أحد من كان يعتقد بمصر
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A（初版は統制外 subtype「predecessor」の relation）。شيخنا ＝ ابن حجر（wd:Q471116）、『إنباء الغمر』＝ TMP-T-00034。
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  quote: عبد الله ويلقب
+- id: m3
+  kind: name
+  quote: بالفيل
+  norm: الفيل
+- id: m4
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m5
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m6
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: قاله
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウスマーン・ブン・アブドゥッラー、アル＝フィール（象）とラカブされる。エジプトで崇敬されていた者の一人。805年ジュマーダー・アル＝ウーラー月に没した。我らの師（イブン・ハジャル）が『インバー』でそう述べている。
   en: ʿUthmān b. ʿAbd Allāh, nicknamed al-Fīl (the Elephant), one of those who were held in veneration in Egypt. He died in Jumādā al-Ūlā 805. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ.

@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m3
   - id: n2
     type: honorific
-    quote: الخواجا
+    mention: m2
   - id: n3
     type: ism
-    quote: كمال
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 846-01
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m6
+  - role: burial
+    mention: m7
   note:
     ja: 846年ムハッラム月＝1442-05-21〜06-19（h2g.py）、月精度で @when=1442-05（初版の 1442 は年精度で不一致）。没地 جدة（TMP-L-00036）、搬送されて المعلاة（wd:Q42004）に埋葬（規則60(g)）。原文に مكة の語はないので搬送先 placeName は置かない。
-  quote: سنة
   phrase: مات في المحرم سنة ست وأربعين بجدة وحمل فدفن بالمعلاة
+  mention: m5
 persons:
 - id: p1
   label: والد كمال الخواجا الرومي
@@ -44,7 +39,6 @@ relations:
   subtype: father
   active: AIND-D06403#p1
   passive: AIND-D06403
-  quote: null
   note:
     ja: 規則3（原文に父名なし）。
 sources:
@@ -53,10 +47,39 @@ sources:
   - ref: AIND-D09211
   summary:
     ar: أرخهما ابن فهد
-  quote: null
   cert: low
   note:
     ja: 'Pattern A。次項 #AIND-D06404（كمال الخواجا الكيلاني、847年没）末尾の「أرخهما ابن فهد」（双数）は本項と D06404 の2人を指す。2人のうち最も遅い没年 847 ≤ 871 → التقي بن فهد #AIND-D09211、cert low（規則43・58・60(a)、cert は event 側）。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: كمال
+- id: m2
+  kind: name
+  quote: الخواجا
+- id: m3
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m4
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m5
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m7
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: カマール・アル＝ハワージャー・アッ＝ルーミー。846年ムハッラム月にジッダで没し、運ばれてマアラー墓地に葬られた。
   en: Kamāl al-Khawājā al-Rūmī. He died in Muḥarram of the year 846 at Jidda, and was carried and buried at al-Muʿallā.

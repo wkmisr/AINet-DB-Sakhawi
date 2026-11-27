@@ -9,27 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00277
-    quote: السمنودي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: تاج الدين
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 847-02
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 「مات بمكة في صفر سنة سبع وأربعين . أرخه ابن فهد」。847年サファル月＝1443-06-09開始（月精度→1443-06、h2g.py。初版の 1443 を月精度に）。地名は原文明記。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: تاج الدين
@@ -42,7 +39,6 @@ relations:
   subtype: father
   active: AIND-D07293#p1
   passive: AIND-D07293
-  quote: null
   note:
     ja: '父。見出しの「بن تاج الدين」（ラカブのみ）→ #NEEDID（規則3）。同一人物候補 #AIND-D09267 の見出しでは「محمد بن محمد بن محمد الجمال بن التاج السمنودي」＝父は التاج محمد بن محمد（本項では確定しない）。'
 - id: r2
@@ -53,21 +49,50 @@ relations:
   summary:
     ar: محمد بن محمد بن محمد الجمال بن التاج السمنودي الأصل المكي ويعرف بابن تاج الدين
   cert: medium
-  quote: null
   note:
     ja: '#AIND-D09267「محمد بن محمد بن محمد الجمال بن التاج السمنودي الأصل المكى ويعرف بابن تاج الدين . سمع من ابن صديق جزء أبى الجهم وأجاز له في سنة خمس العراقي والهيثمي … مات بمكة في صفر سنة سبع وأربعين . أرخه ابن فهد」は、通称（ابن تاج الدين）・ニスバ（السمنودي）・没地（مكة）・没年月（847年サファル月）・記録者（ابن فهد）がすべて一致し、同一人物の可能性が高い。本項に転送指示はないため二重立項型として両項を実項のまま保持し possible_identity cert medium（→ISSUES §D132-3。D09267 は未収録、鏡像は統合時に）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: low
   note:
     ja: 規則43（没847 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外 chronicler relation を Pattern A に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: تاج الدين
+- id: m3
+  kind: name
+  ref: TMP-N-00277
+  quote: السمنودي
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: month
+  value: 2
+  quote: صفر
+- id: m6
+  kind: year
+  value: '847'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・タージュ・アッ＝ディーン・アッ＝サマンヌーディー。847年サファル月にマッカで没した。イブン・ファハドがその没年を記している。
   en: Muḥammad b. Tāj al-Dīn al-Samannūdī. He died in Mecca in Ṣafar 847. Ibn Fahd recorded his death date.

@@ -9,44 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-05509
-    quote: العقاد
+    mention: m6
   - id: n4
     type: ism
-    quote: عبد الغني
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 887-11
   note:
     en: Died in Dhū al-Qaʿda 887 AH, aged under eighty.
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10313
+  active: m9
   passive: AIND-D04076
   methods:
   - TMP-S-00003
-  quote: الشرف المناوي
   note:
     ja: الشرف المناوي = يحيى بن محمد بن محمد بن محمد بن أحمد بن مخلوف الشرف أبو زكريا المناوي القاهري الشافعي（#AIND-D10313、大カーディー・没871）。ID-Master の TMP-P-000321「المناوي」（repo 3ファイルで師として使用）は同一人物の可能性が高い → 名寄せ提案（要判断 §A-2）。
   phrase: سمع على الشرف المناوي وغيره
@@ -57,27 +53,24 @@ relations:
   passive: wd:Q4120128
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: サハーウィーが本項主から（自宅で）その俗体詩を聴聞＝本項主が伝達者（active）。初版の bibl「نظمه」（#NEEDID）は書名ではないため desc に戻した。
   phrase: سمعت منه وهو بمنزلي أشياء من نظمه على طريقة العوام
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D03649
+  active: m7
   passive: AIND-D04076
   summary:
     ar: عبد الرحمن (الماضي ابنه)
-  quote: عبد الرحمن
   note:
     ja: 息子 = عبد الرحمن بن عبد الغني بن محمد بن عبد الرحمن القاهري الحريري العقاد（#AIND-D03649、索引項 D12551「ابن العقاد」）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00233
-  quote: صناعة الحرير
   note:
     ja: 「يتكسب في صناعة الحرير」。ID-Master に絹製造業の職登録なし（TMP-O-00019 は صناعة الفراء＝毛皮業で別物）→ 新規 TMP-O-00233。
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -88,15 +81,60 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: TMP-T-00110
-  quote: حفظ القرآن والعمدة
-  norm: حفظ القران والعمدة
+  phrase: حفظ القرآن والعمدة
+  mention: null
 - id: e2
   type: cultural
   summary:
     en: Composed verse in the manner of the common people (colloquial style).
-  quote: نظمه
   trigger: rule
   phrase: من نظمه على طريقة العوام
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغني
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m5
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m6
+  kind: name
+  ref: TMP-N-05509
+  quote: العقاد
+- id: m7
+  kind: person
+  ref: AIND-D03649
+  quote: عبد الرحمن
+- id: m8
+  kind: office
+  ref: TMP-O-00233
+  quote: صناعة الحرير
+- id: m9
+  kind: person
+  ref: AIND-D10313
+  quote: الشرف المناوي
+- id: m10
+  kind: event
+  quote: نظمه
+- id: m11
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m12
+  kind: year
+  value: '887'
+  quote: سنة
 translation:
   ja: アブドゥルガニー・ブン・ムハンマド・ブン・アブドゥッラフマーン、アル＝カーヒリー・アル＝ハリーリー・アル＝アッカード（絹糸・紐職人）。先述のアブドゥッラフマーンの父。恵み深い長老で、クルアーンと『ウムダ』を暗記した。ハンバリー派で、絹の製造で生計を立てていた。アッ＝シャラフ・アル＝ムナーウィーらのもとで（ハディースを）聴聞した。私（サハーウィー）は、彼が我が家にいたとき、庶民の流儀による彼の詩作をいくつか彼から聴いた。887年ズー・アル＝カアダ月に80歳未満で没した。
   en: ʿAbd al-Ghanī b. Muḥammad b. ʿAbd al-Raḥmān al-Qāhirī al-Ḥarīrī al-ʿAqqād (the silk-cord maker), father of the previously mentioned ʿAbd al-Raḥmān. A blessed shaykh, he memorized the Qurʾān and al-ʿUmda. He was a Ḥanbalī and earned his living in the silk trade. He heard (ḥadīth) from al-Sharaf al-Manāwī and others. I heard from him, while he was at my house, some of his verse composed in the manner of the common people. He died in Dhū al-Qaʿda 887, aged under eighty.

@@ -9,62 +9,52 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قجماس
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: قرقماس
     by: rule
-    ref: AIND-D06339
+    mention: m2
 death:
   id: d
   date:
     ah: 841-10
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m8
   note:
     ja: 「مات بالقاهرة في شوال سنة إحدى وأربعين مطعونا」＝841 年シャウワール月（月初 1438-04-06、月精度）にカイロでペストにより没した。初版の @when 1437 を 1438-04 に是正（h2g.py）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06339
+  active: m3
   passive: AIND-D06313
   summary:
     ar: قرقماس المعروف بسيدي الكبير
-  quote: أبوه
   note:
     ja: '見出し「قجماس بن قرقماس المعروف أبوه بسيدي الكبير」。父＝#AIND-D06339「قرقماس المدعو سيدي الكبير تمييزا له عن أخيه تغرى بردى فذاك سيدي الصغير . قدما مع أمهما بطلب من عمهما دمرداش المحمدي」（未受領）。通称 سيدي الكبير・兄弟 تغرى بردى・叔父 دمرداش で閉合（規則37）。初版は #NEEDID。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: paternal_uncle
-  active: AIND-D02266
+  active: m4
   passive: AIND-D06313
-  quote: تغرى بردى
   note:
     ja: 「وعمه تغرى بردى」＝父方の叔父。#AIND-D02266「تغرى بردي الظاهري ويعرف بسيدي صغير . مات قتيلا … سنة ست عشرة … وهو أخو قرقماس الآتي … وهما معا ابنا أخي دمرداش المحمدي الماضي」（repo 収録済）。初版の subtype「uncle」（#NEEDID）を統制語彙 paternal_uncle（規則35）に。
-  norm: تغري بردي
 - id: r3
   type: kin
   subtype: relative
-  active: AIND-D02972
+  active: m5
   passive: AIND-D06313
-  quote: دمرداش المحمدي
   note:
     ja: 「وعمهما دمرداش المحمدي」＝父と叔父の叔父＝本項主の大叔父。#AIND-D02972「دمرداش المحمدي الظاهري برقوق ويعرف بالخاصكي وهو عم تغري بردى وقرقماس … وقتل باسكندرية في المحرم سنة ثمان عشرة」（repo 収録済）。subtype granduncle は先例 D03664・D07220。初版は「other」#NEEDID。 / 大叔父（祖父母の兄弟）。統制語彙に該当語がないため relative（2026-11-22 裁定）。
 - id: r4
   type: social
   subtype: friend
-  active: AIND-D10460
+  active: m6
   passive: AIND-D06313
-  quote: بالجمالي يوسف بن تغرى بردى
   note:
     ja: '「وعظم اختصاصه بالجمالي يوسف بن تغرى بردى」＝歴史家イブン・タグリービルディー（#AIND-D10460「يوسف بن تغرى بردى الجمال أبو المحاسن بن الأتابكي … الماضي أبوه . ولد في شوال … سنة ثلاث عشرة وثمانمائة」、未受領）との親密な交際。「اختص بـ」の repo 先例（D03772・D04784）どおり friend。初版は #NEEDID。本項主が「彼より数か月年長」＝813 年頃の生まれ（他項由来の推定なので birth は立てない）。'
-  norm: الجمالي يوسف بن تغري بردي
   phrase: الجمالي يوسف بن تغرى بردى
 notes:
 - text: 「كان أعظم من أبيه وعمه تغرى بردى وعمهما دمرداش المحمدي في الشجاعة والكرم إلا أنه لم يعط حظهم」＝勇敢さと気前のよさでは父・叔父・大叔父に勝ったが、彼らほどの幸運（地位）は与えられなかった（人物評）。
@@ -74,12 +64,55 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D10460
-  quote: وقال
   note:
     ja: Pattern A。イブン・タグリービルディーが「本項主は自分より数か月年長であった」と述べた（「قال أنه」＝伝聞のため cert medium 相当の内容は note のみ）。
   trigger: rule
-  norm: قال
   phrase: وقال أنه كان أسن منه بأشهر
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: قجماس
+- id: m2
+  kind: name
+  ref: AIND-D06339
+  quote: قرقماس
+- id: m3
+  kind: person
+  ref: AIND-D06339
+  quote: أبوه
+  norm: ابوه
+- id: m4
+  kind: person
+  ref: AIND-D02266
+  quote: تغرى بردى
+  norm: تغري بردي
+- id: m5
+  kind: person
+  ref: AIND-D02972
+  quote: دمرداش المحمدي
+- id: m6
+  kind: person
+  ref: AIND-D10460
+  quote: بالجمالي يوسف بن تغرى بردى
+  norm: الجمالي يوسف بن تغري بردي
+- id: m7
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m9
+  kind: month
+  value: 10
+  quote: شوال
+- id: m10
+  kind: year
+  value: '841'
+  quote: سنة
 translation:
   ja: カジュマース・ブン・カルクマース。父はスィーディー・アル＝カビールとして知られた。彼は勇敢さと気前のよさにおいて、父、叔父のタグリー・ビルディー、そして二人の叔父であるディマルダーシュ・アル＝ムハンマディーに勝っていたが、彼らほどの幸運は与えられなかった。アル＝ジャマーリー・ユースフ・ブン・タグリー・ビルディーとの交際がきわめて親密で、ユースフは、彼（カジュマース）が自分より数か月年長であったと述べている。841年シャウワール月、カイロでペストにより没した。
   en: Qajmās b. Qurqumās, whose father was known as Sīdī al-Kabīr. He surpassed his father, his paternal uncle Taghrī Birdī, and their uncle Dimirdāsh al-Muḥammadī in bravery and generosity, yet he was not granted their good fortune. He was very closely attached to al-Jamālī Yūsuf b. Taghrī Birdī, who said that he (Qajmās) was older than himself by some months. He died of the plague in Cairo in Shawwāl of the year 841.

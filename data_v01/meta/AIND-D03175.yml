@@ -9,44 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m5
   - id: n2
     type: ism
-    quote: سليمان
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: هبة
     by: rule
-    ref: TMP-P-001602
+    mention: m2
   - id: n4
     type: nasab
-    quote: جماز
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: منصور
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 817-12
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m10
   note:
     ja: 817年ズー・アルヒッジャ月＝1415-02-20 開始（h2g.py、月精度。「آخر」でも月初を書く＝規則33）。初版の @when 1414 は誤り（817-12 は 1415年）。「في عشر الأربعين」＝年齢（30代、規則59 (d)）＝生年を作らない。
-  quote: سنة
   phrase: حتى مات في سجنه بالقاهرة في آخر ذي الحجة سنة سبع عشرة وهو في عشر الأربعين
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001602
   passive: AIND-D03175
-  quote: null
   note:
     ja: 見出しナサブ（規則3）。父＝ID-Master 既登録 TMP-P-001602「هبة بن جماز بن منصور الحسيني (والد جماز وسليمان وكبيش، أمراء المدينة)」（Note「統合時に D02443・D03175 の父としても同番号を充てること」）。corpus に本伝なし。初版なし。
   phrase: هبة بن جماز بن منصور الحسيني
@@ -57,41 +52,81 @@ relations:
   passive: AIND-D03175
   summary:
     ar: زهير
-  quote: null
   note:
     ja: '相手側の見出しナサブで閉合（規則37）: #AIND-D03045「زهير بن سليمان بن هبة بن جماز بن منصور الحسيني أمير المدينة . وليها بعد زبيري الماضي في آخر سنة خمس وستين … مات في صفر سنة ثلاث وسبعين」（repo 収録済み）。本項原文には言及なし。孫 #AIND-D06345（repo で grandfather #AIND-D03175 を付与済み）は note のみ。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: أمير
+  - mention: m7
   note:
     ja: 「أمير المدينة . وليها مرة ثم عزل」。ID-Master 既登録 TMP-O-00144。
-  norm: امير
+  mention: m6
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03345
-    quote: المؤيد شيخ
-    norm: المءيد شيخ
+  - mention: m9
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: وليها
+  - mention: m10
   note:
     ja: スルターンによる解任・逮捕・投獄＝patron ではなく event 内 persName（規則53）。المؤيد شيخ＝#AIND-D03345（頻出確定ID、在位815-824＝817年没の本項主と整合）。初版の統制外 relation（subtype captor、#NEEDID）を置換。原文に就任・解任の年なし＝日付属性を持たない。
   trigger: rule
-  norm: ليها
   phrase: وليها مرة ثم عزل وقبض عليه المؤيد شيخ وسجنه حتى مات في سجنه بالقاهرة
+  mention: m8
 notes:
 - text: 'マディーナのフサイン家アミール（آل جماز）: 兄弟 #AIND-D02443「جماز بن هبة بن جماز بن منصور الحسيني أمير المدينة ، مات مقتولا … سنة اثنتي عشرة وثمانمائة」・#AIND-D06383 كبيش（父 TMP-P-001602 cert medium）、兄弟 جعفر の子 دوغان（TMP-P-001591）の子 #AIND-D02796 حيدرة・#AIND-D02822 خشرم。いずれも本項原文に言及なし＝relation を立てず note（規則23、父が TMP-P で共通）。初版の residence event ×2（المدينة＝職の勤務地、القاهرة＝獄死の地）は原文に居住の記述がないため除去（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: سليمان
+- id: m2
+  kind: name
+  ref: TMP-P-001602
+  quote: هبة
+- id: m3
+  kind: name
+  quote: جماز
+- id: m4
+  kind: name
+  quote: منصور
+- id: m5
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m6
+  kind: office
+  ref: TMP-O-00163
+  quote: أمير
+  norm: امير
+- id: m7
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m8
+  kind: event
+  quote: وليها
+  norm: ليها
+- id: m9
+  kind: person
+  ref: AIND-D03345
+  quote: المؤيد شيخ
+  norm: المءيد شيخ
+- id: m10
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m11
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m12
+  kind: year
+  value: '817'
+  quote: سنة
 translation:
   ja: スライマーン・ブン・ヒバ・ブン・ジャンマーズ・ブン・マンスール・アル＝フサイニー、マディーナのアミール。一度マディーナを統治したが、のち解任され、アル＝ムアイヤド・シャイフが彼を逮捕して投獄し、（8）17年ズー・アルヒッジャ月末、カイロの獄中で没した。40歳に向かう十年（30代）であった。
   en: Sulaymān b. Hiba b. Jammāz b. Manṣūr al-Ḥusaynī, amīr of Medina. He governed it once, then was deposed; al-Muʾayyad Shaykh seized and imprisoned him until he died in his prison in Cairo at the end of Dhū al-Ḥijja of the year [8]17, in his thirties (in the decade leading to forty).

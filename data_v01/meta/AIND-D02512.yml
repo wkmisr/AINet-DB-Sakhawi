@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03550
-    quote: السي
+    mention: m3
   - id: n2
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 relations:
 - id: r1
   type: social
   subtype: correspondent
-  active: wd:Q471116
+  active: m6
   passive: AIND-D02512
-  quote: شيخنا
   note:
     en: He wrote part of his history to Ibn Ḥajar in the [8]20s. The first-person "ilayya" is Ibn Ḥajar's, since the whole report is quoted from his muʿjam ("qāla shaykhunā fī muʿjamih"); al-Sakhāwī (b. 831) was not yet born.
   phrase: كتب إلي ببعضه سنة بضع وعشرين
@@ -34,33 +31,61 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: wd:Q756957
-    quote: حصن كيفا
-  quote: null
+  - mention: m4
   note:
     en: From the people of Ḥiṣn Kayfā (Hasankeyf). The transmitted gn:295470 could not be verified; wd:Q756957 (Hasankeyf) verified instead.
+  mention: null
 - id: e2
   type: cultural
   places:
-  - ref: wd:Q756957
-    quote: حصن كيفا
+  - mention: m4
   summary:
     en: Compiled a history for Ḥiṣn Kayfā.
-  quote: null
   cert: low
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: وكتب إلي ببعضه @YY821-829[3] سنة بضع
-    norm: كتب الي ببعضه @YY821-829[3] سنة بضع
+  - mention: m7
   works:
   - ref: TMP-T-00104
-  quote: قال
   note:
     en: Mentioned by Ibn Ḥajar in his muʿjam (al-Muʿjam al-mufahras, TMP-T-00104); the year "biḍʿ wa-ʿishrīn" = the [8]20s.
   trigger: rule
   phrase: قال شيخنا في معجمه انه جمع لها تاريخا وكتب إلي ببعضه سنة بضع وعشرين
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-03550
+  quote: السي
+- id: m4
+  kind: place
+  quote: حصن كيفا
+  ref: wd:Q756957
+- id: m5
+  kind: source
+  quote: قال
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: وكتب إلي ببعضه @YY821-829[3] سنة بضع
+  norm: كتب الي ببعضه @YY821-829[3] سنة بضع
+- id: m8
+  kind: year
+  value: 821-829
+  quote: سنة بضع وعشرين
 translation:
   ja: ハサン・ブン・イブラーヒーム・アッ＝スィー。ヒスン・カイファーの人。我らがシャイフ（イブン・ハジャル）はその『ムウジャム』の中で、彼が同地（ヒスン・カイファー）のための歴史書を編纂したこと、そして820年代に自分（イブン・ハジャル）宛てにその一部を書き送ってきたことを述べている。
   en: Ḥasan b. Ibrāhīm al-Sī, from the people of Ḥiṣn Kayfā. Our shaykh (Ibn Ḥajar) said in his muʿjam that he compiled a history for it (Ḥiṣn Kayfā) and wrote some of it to him (Ibn Ḥajar) in the [8]20s.

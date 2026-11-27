@@ -9,48 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: shuhrah
-    quote: ابن قيم الجوزية
+    mention: m8
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m5
 death:
   id: d
   date:
     ah: 873
   places:
-  - ref: gn:360630
-    quote: القاهرة
+  - mention: m12
   note:
     en: He, his two sons, and his brother died in the plague.
-  quote: سنة
+  mention: m13
 persons:
 - id: p1
   for: r2
@@ -62,17 +56,14 @@ relations:
 - id: r1
   type: kin
   subtype: spouse
-  active: TMP-P-000990
+  active: m9
   passive: AIND-D00813
-  quote: أبي البقاء بن الضياء
-  norm: ابو البقاء بن الضياء
   phrase: ابنة أبي البقاء بن الضياء
 - id: r2
   type: kin
   subtype: son
   active: AIND-D00813#p1
   passive: AIND-D00813
-  quote: null
   note:
     ja: 原文「ارتحل بولديه」の息子2人は名がない（#NEEDID 維持、規則12）。
 - id: r3
@@ -80,7 +71,6 @@ relations:
   subtype: son
   active: AIND-D00813#p2
   passive: AIND-D00813
-  quote: null
   note:
     ja: 原文「ارتحل بولديه」の息子2人は名がない（#NEEDID 維持、規則12）。
 - id: r4
@@ -88,7 +78,6 @@ relations:
   subtype: brother
   active: AIND-D00813#p3
   passive: AIND-D00813
-  quote: null
   note:
     ja: 原文「وأخيه」の兄弟は名がない（#NEEDID 維持、規則12）。
 states:
@@ -96,30 +85,81 @@ states:
   type: office
   ref: TMP-O-00012
   places:
-  - ref: TMP-L-00217
-    quote: بباب السلام
-    norm: باب السلام
-  quote: null
+  - mention: m10
+  mention: null
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ارتحل
+  - mention: m12
   cert: low
   note:
     en: Traveled to Cairo with his two sons and brother, before 873 H.
   trigger: rule
+  mention: m11
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: null
+  - mention: m14
   cert: low
   note:
     en: Traveled from Cairo to Syria, before 873 H.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: name
+  quote: ابن قيم الجوزية
+- id: m9
+  kind: person
+  ref: TMP-P-000990
+  quote: أبي البقاء بن الضياء
+  norm: ابو البقاء بن الضياء
+- id: m10
+  kind: place
+  quote: بباب السلام
+  ref: TMP-L-00217
+  norm: باب السلام
+- id: m11
+  kind: event
+  quote: ارتحل
+- id: m12
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m13
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
 translation:
   ja: アフマド・ブン・アブドゥッラフマーン・ブン・アフマド・ブン・ムハンマド・ブン・イブラーヒーム。出自はダマスクス人でメッカ在住。父と同様にイブン・カイイム・アル＝ジャウズィーヤとして有名であった。父の遺産を受け継ぎ、アブー・アル＝バカー・ブン・アル＝ディヤーウの娘と結婚して子どもをもうけたが、彼女は彼の在世中に亡くなった。その後、彼の状況は悪化し、バブ・アッ＝サラームで香料商となった。やがて、息子二人と兄弟と共にカイロへと移り、カイロからシャームへと入った後、神よ彼を赦したまえ、873年の疫病で彼らはカイロで亡くなった。
   en: Aḥmad b. ʿAbd al-Raḥmān b. Aḥmad b. Muḥammad b. Ibrāhīm, originally from Damascus, residing in Mecca, famous like his father, Ibn Qayyim al-Jawziyya. He inherited from his father and married the daughter of Abū al-Baqāʾ b. al-Ḍiyāʾ, by whom he had children, but she died while he was still alive. His circumstances then deteriorated, and he became a perfumer at Bāb al-Salām. Eventually, he traveled with his two sons and his brother to Cairo. After his journey from Cairo to Syria, they died in Cairo in the plague of 873 H. May God have mercy on him.

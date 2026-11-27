@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00929
-    quote: المصمودي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m4
   - id: n3
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n4
     type: nasab
-    quote: علال
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m5
 death:
   id: d
   date:
@@ -36,7 +32,7 @@ death:
     cert: medium
   note:
     ja: 「ومات قريبا من سنة عشرين」＝820年頃。規則4により when-custom=820、cert medium。820 ＝ 1417-02-27〜1418-02-16、年初 1417（h2g.py）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: علال
@@ -49,34 +45,29 @@ relations:
   subtype: father
   active: AIND-D06087#p1
   passive: AIND-D06087
-  quote: null
   note:
     ja: '裸名のみ（祖父名なし）のため #NEEDID 維持（規則3）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q125482
   orgs:
   - ref: wd:Q12204282
-  quote: إمام جامع القرويين الأعظم
   note:
     ja: 見出し「إمام جامع القرويين الأعظم」。جامع القرويين ＝ wd:Q12204282（ID-Master 確定、フェズ）。初版の affiliation（employed、#NEEDID）との二重符号化を state に統合（規則8）。所在地 فاس は原文に明記がないため placeName にしない（規則22(1)）。
-  norm: امام جامع القرويين الاعظم
+  mention: m6
 - id: s2
   type: office
-  ref: wd:Q217029
-  quote: القضاء
   note:
     ja: '「ولي القضاء」。任地の記載なし（初版は #NEEDID）。'
+  mention: m8
 assessments:
 - id: v1
-  quote: وكان زاهدا ورعا
-  norm: كان زاهدا ورعا
   label: كان زاهدا ورعا
   terms:
   - زاهد
   - ورع
   label_latn: kāna zāhidan wariʿan
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -86,14 +77,51 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00225
-  quote: له تعليقة على مختصر ابن عرفة
   note:
     ja: '本項主自身の著作（『مختصر ابن عرفة』への注記 تعليقة）。対象書 مختصر ابن عرفة（ابن عرفة ＝ #AIND-D09141 のマーリク派法学要約書）は ID-Master 未登録（TMP-T-00003『جزء ابن عرفة』は別物）のため仮 TMP-T-00225 を発行。'
-  norm: له تعليقة علي مختصر ابن عرفة
+  phrase: له تعليقة على مختصر ابن عرفة
+  mention: null
 notes:
 - text: 「أفاده لي بعض أصحابنا المغاربة」＝情報提供者は無名のマグリブ人の同輩のため、relation・Pattern A の人物を立てない（ブリーフの指示）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: علال
+- id: m3
+  kind: name
+  ref: TMP-N-00929
+  quote: المصمودي
+- id: m4
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m5
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m6
+  kind: office
+  ref: wd:Q125482
+  quote: إمام جامع القرويين الأعظم
+  norm: امام جامع القرويين الاعظم
+- id: m7
+  kind: assessment
+  quote: وكان زاهدا ورعا
+  norm: كان زاهدا ورعا
+- id: m8
+  kind: office
+  ref: wd:Q217029
+  quote: القضاء
+- id: m9
+  kind: year
+  value: '820'
+  quote: سنة
 translation:
   ja: イーサー・ブン・アッラール・アル＝マスムーディー・アル＝マグリビー・アル＝マーリキー、カラウィイーン大ジャーミウのイマーム。イブン・アラファの『ムフタサル』に対する注記（タアリーカ）がある。禁欲的で謹厳な人物であり、カーディー職に就いた。（8）20年頃に没した。我々のマグリブ人の同輩の一人が私にこのことを伝えてくれた。
   en: ʿĪsā b. ʿAllāl al-Maṣmūdī al-Maghribī al-Mālikī, imam of the Great Mosque of al-Qarawiyyīn. He has a set of glosses (taʿlīqa) on the Mukhtaṣar of Ibn ʿArafa. He was ascetic and scrupulous, and held the office of judge. He died around the year (8)20. One of our Maghribi companions informed me of this.

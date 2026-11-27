@@ -9,31 +9,28 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بابن الحاجب
-    norm: ابن الحاجب
     label: ابن الحاجب
+    mention: m7
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الرحيم
     by: rule
-    ref: AIND-D03881
+    mention: m2
   - id: n4
     type: nasab
-    quote: ناصر الدين محمد
     by: rule
-    ref: AIND-D07758
+    mention: m3
   - id: n5
     type: nasab
-    quote: جمال الدين عبد الله
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: صاحب المدرسة والدار المجاورة
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -43,7 +40,7 @@ death:
     role: burial
   note:
     en: Died on Friday, 8 Rajab 850 AH (which corresponds to 8 October 1446 in the proleptic Gregorian calendar). Some sources dated his death to the plague year of 853 AH, but the former is more correct. He entrusted his will to al-Badr al-Birmāwī.
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: قانباي الجركسي
@@ -55,41 +52,91 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03881
+  active: m13
   passive: AIND-D03644
-  quote: والده
   phrase: عبد الرحيم
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D07758
+  active: m12
   passive: AIND-D03644
-  quote: جده
   phrase: ناصر الدين محمد
 - id: r3
   type: social
   subtype: other
-  active: TMP-P-001108
+  active: m6
   passive: AIND-D03644
-  quote: بكتمر الحاجب
 - id: r4
   type: social
   subtype: companion
-  active: AIND-D03644#p1
+  active: m11
   passive: AIND-D03644
-  quote: للبدر البرماوي
   note:
     en: The subject was closely associated with Emir Qānibāy al-Jarkasī for a time.
-  norm: لبدر البرماوي
 events:
 - id: e1
   type: other
   persons:
   - role: executor
     ref: AIND-D03644#p2
-  quote: null
   note:
     en: The subject entrusted his last will and testament to him.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D03881
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  ref: AIND-D07758
+  quote: ناصر الدين محمد
+- id: m4
+  kind: name
+  quote: جمال الدين عبد الله
+- id: m5
+  kind: name
+  quote: صاحب المدرسة والدار المجاورة
+- id: m6
+  kind: person
+  ref: TMP-P-001108
+  quote: بكتمر الحاجب
+- id: m7
+  kind: name
+  quote: بابن الحاجب
+  norm: ابن الحاجب
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m10
+  kind: year
+  value: '853'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D03644#p1
+  quote: للبدر البرماوي
+  norm: لبدر البرماوي
+- id: m12
+  kind: person
+  ref: AIND-D07758
+  quote: جده
+- id: m13
+  kind: person
+  ref: AIND-D03881
+  quote: والده
+- id: m14
+  kind: person
+  label: companion
+  quote: قانباي الجركسي
 translation:
   ja: アブドゥル・ラフマーン・ブン・アブドゥル・ラヒーム・ブン・ナースィル・アッ＝ディーン・ムハンマド・ブン・ジャマール・アッ＝ディーン・アブドゥッラー。バーブ・アッ＝ナスル（凱旋門）にあるマドラサとその隣接する邸宅の所有者であったバクトゥムル・アル＝ハージブ（その父の伝記は後述）の末裔であり、先祖と同様に「イブン・アル＝ハージブ」として知られる。ヒジュラ暦850年ラジャブ月8日の金曜日に没した。一部の者は彼が853年のペスト（タアウーン）の年に没したと記録しているが、最初の説（850年没）の方がより正しいようである。彼はアル＝バドル・アル＝ビルマーウィーに遺言を託し、前述の祖父（先祖）のマドラサの近くにある彼らの墓所に埋葬された。彼は精神的な執着（ワスワース）において父親に似ており、一時期アミール・カーニバーイ・アル＝ジャルカスィーの側近であった。アッラーが彼を赦されますように。
   en: ʿAbd al-Raḥmān b. ʿAbd al-Raḥīm b. Nāṣir al-Dīn Muḥammad b. Jamāl al-Dīn ʿAbd Allāh, a descendant of Baqtumur al-Ḥājib (whose father's biography is forthcoming), the owner of the madrasa and its adjacent house at Bāb al-Naṣr. Like his predecessors, he was known as Ibn al-Ḥājib. He died on Friday, 8 Rajab 850 AH, though some dated his death to the plague of 853 AH; the first date seems more correct. He entrusted his will to al-Badr al-Birmāwī and was buried in their family tomb near his ancestor's aforementioned madrasa. He succeeded his father in having obsessive thoughts (al-waswās) and was closely associated with the Emir Qānibāy al-Jarkasī for a time. May Allah forgive him.

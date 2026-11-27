@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: البدر
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن القزازي
-    norm: ابن القزازي
     label: ابن القزازي
+    mention: m8
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05614
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 relations:
 - id: r1
   type: kin
@@ -45,28 +41,56 @@ relations:
   passive: AIND-D08181
   summary:
     ar: علي بن محمد النور القزازي
-  quote: null
   note:
     ja: 規則37。#AIND-D05614「84 علي بن محمد النور القزازي المقري جد التقي محمد بن البدر محمد القزازي الحنفي . ذكر لي أنه قرأ القرآن على الشمس العسقلاني …」＝本項主の子 التقي محمد（#AIND-D08957）の祖父＝本項主の父。ナサブ（علي بن محمد）・家名 القزازي・孫の名（التقي محمد بن البدر محمد）の3点が閉合。D08957 の「وكان جده من أهل القرآن فيما زعم」も D05614「المقري」と整合。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D08957
+  active: m6
   passive: AIND-D08181
-  quote: التقي محمد
   note:
     ja: '「والد التقي محمد الحنفي الآتي」＝ #AIND-D08957「407 محمد بن محمد بن علي بن محمد التقي بن البدر القاهري الحنفي الماضي أبوه ويعرف كهو بابن القزازي」（「الماضي أبوه」で閉合、規則37）。通称索引 #AIND-D12642「ابن القزازي التقي محمد بن محمد بن علي النقيب وأبوه البدر الوكيل」は父子2名の合同索引のため ID には使わない。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00060
-  quote: null
   note:
     ja: 'ID-Master Office「وكيل」TMP-O-00060（repo 先例あり）。初版は #NEEDID。'
+  mention: null
 notes:
 - text: 「مات .」＝没年の記載なし（欠）＝death 要素は立てない（規則45）。「ممن ترقى في صناعته وتمول مع حشمة وعقل」は評価句＝訳文のみ。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05614
+  quote: علي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: البدر
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: person
+  ref: AIND-D08957
+  quote: التقي محمد
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: name
+  quote: بابن القزازي
+  norm: ابن القزازي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ムハンマド、アル＝バドル、アル＝カーヒリー、ワキール（代理人）。後述のアッ＝タキー・ムハンマド・アル＝ハナフィーの父で、イブン・アル＝カッザーズィーとして知られる。自らの生業において出世し、品位と分別を備えつつ財を成した者の一人。没した（年の記載なし）。
   en: Muḥammad b. ʿAlī b. Muḥammad, al-Badr al-Qāhirī, the wakīl (agent), father of al-Taqī Muḥammad al-Ḥanafī who comes below, known as Ibn al-Qazzāzī. One of those who rose in their trade and grew wealthy, with dignity and good sense. He died (no date given).

@@ -9,48 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00102
-    quote: المناوي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m6
   - id: n4
     type: shuhrah
-    quote: بالشويهد
-    norm: الشويهد
     label: الشويهد
+    mention: m12
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001650
+    mention: m2
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n8
     type: nasab
-    quote: إسمعيل
     by: rule
-    norm: اسمعيل
+    mention: m4
   - id: n9
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 death:
   id: d
   date:
@@ -65,36 +58,30 @@ relations:
   subtype: father
   active: TMP-P-001650
   passive: AIND-D07977
-  quote: null
   note:
     ja: '規則3。父 علي بن إبراهيم بن إسمعيل بن محمد المناوي は corpus に本伝なし・ID-Master 未登録だが、本伝のある兄弟 #AIND-D00973 أحمد・#AIND-D00176 إبراهيم と共有する父（規則3 (c'') の #NEEDID 条件外）→ TMP-P-001650。'
   phrase: علي بن إبراهيم بن إسمعيل
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D00973
+  active: m10
   passive: AIND-D07977
-  quote: أحمد
   note:
     ja: '「أخو أحمد وإبراهيم الماضيين وهذا الأكبر」。أحمد ＝ #AIND-D00973「أحمد بن علي بن إبراهيم بن إسماعيل بن محمد الشهاب أبو محمد المناوي الأصل القاهري الشافعي أخو إبراهيم الماضي ومحمد الآتي」（790年頃生、未収録）。相手側も本項主を名指し。本項主が長兄。'
-  norm: احمد
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D00176
+  active: m11
   passive: AIND-D07977
-  quote: وإبراهيم
   note:
     ja: 'إبراهيم ＝ #AIND-D00176「إبراهيم بن علي بن إبراهيم بن إسماعيل بن محمد برهان الدين المناوي الأصل القاهري أخو أحمد ومحمد الشويهد」（未収録）。相手側が通称 الشويهد で本項主を名指し。'
-  norm: ابراهيم
   phrase: إبراهيم
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
-  quote: وجلس مع الشهود
   note:
     ja: 証人（公証人）＝TMP-O-00050（初版の TMP-O-00044 は統合済み・使用不可）。
+  mention: m13
 - id: s2
   type: status
   label: وتنزل في بعض الجهات كسعيد السعداء والسابقية
@@ -102,9 +89,9 @@ states:
   orgs:
   - ref: TMP-I-00018
   - ref: TMP-I-00012
-  quote: وتنزل في بعض الجهات كسعيد السعداء والسابقية
   note:
     ja: 職禄（repo 先例「تنزل في الجهات」= state status）。初版の affiliation「affiliated」×2 は state と二重のため統合（規則8）。
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
@@ -114,12 +101,67 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: حفظ القرآن
-  norm: حفظ القران
+  phrase: حفظ القرآن
+  mention: null
 notes:
 - text: '妻: 女性部 #AIND-D13367「غالية ابنة الحاج يوسف الاميوطي … تزوجها شمس الدين الشويهد واستولدها」（896年没）は本項主の妻とみられるが、本項原文に言及がないため relation は立てない（規則23、相手側収録時に立てる）。ラカブ部 #AIND-D11277「الشويهد محمد بن علي بن إبرهيم」は本項主の索引見出し。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001650
+  quote: علي
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: إسمعيل
+  norm: اسمعيل
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: الشمس
+- id: m7
+  kind: name
+  ref: TMP-N-00102
+  quote: المناوي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: AIND-D00973
+  quote: أحمد
+  norm: احمد
+- id: m11
+  kind: person
+  ref: AIND-D00176
+  quote: وإبراهيم
+  norm: ابراهيم
+- id: m12
+  kind: name
+  quote: بالشويهد
+  norm: الشويهد
+- id: m13
+  kind: office
+  ref: TMP-O-00050
+  quote: وجلس مع الشهود
+- id: m14
+  kind: office
+  quote: وتنزل في بعض الجهات كسعيد السعداء والسابقية
 translation:
   ja: ムハンマド・ブン・アリー・ブン・イブラーヒーム・ブン・イスマーイール・ブン・ムハンマド、アッ＝シャムス、アル＝ムナーウィー、のちアル＝カーヒリー、シャーフィイー派。既出のアフマドとイブラーヒームの兄弟で、彼が最年長。アッ＝シュワイヒド（点のある字〔shīn〕にダンマ、末尾は無点の字〔dāl〕、縮小形）として知られる。クルアーンを暗記し、証人たちとともに（公証人として）座り、サイード・アッ＝スアダー（ハーンカー）やサービキーヤ（学院）などいくつかの機関で職禄を得た。老齢に達し、手にしていたものを少しずつ手放すようになったのちに没した。私の思うところでは870年より前である。
   en: Muḥammad b. ʿAlī b. Ibrāhīm b. Ismāʿīl b. Muḥammad al-Shams al-Munāwī, then al-Qāhirī, al-Shāfiʿī, brother of Aḥmad and Ibrāhīm, both mentioned above, and the eldest of them; known as al-Shuwayhid (with ḍamma on the dotted shīn and an undotted dāl at the end, a diminutive). He memorized the Qurʾān, sat with the notaries, and held stipendiary posts in some institutions such as Saʿīd al-Suʿadāʾ and al-Sābiqiyya. He died after growing old and gradually relinquishing what he held, before 870, as I suppose.

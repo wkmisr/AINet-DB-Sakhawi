@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m2
   - id: n2
     type: ism
-    quote: قردم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 814
   note:
     ja: 814年（1411-05-04 開始、年精度）。「أربع عشرة」は十の位つきなので 814（cert 不要）。没地の記載なし。情報源は العيني（「قاله العيني」）。
-  quote: سنة
   phrase: مات سنة أربع عشرة
+  mention: m3
 persons:
 - id: p1
   label: والد قردم الحسني
@@ -31,33 +30,54 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06335#p1
+  active: m6
   passive: AIND-D06335
-  quote: قردم الحسني
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00268
-  quote: null
   note:
     ja: 'ID-Master の Office を語根 خزن で grep → 既登録 TMP-O-00268「الخازندارية الكبرى」（D03434）に一致。初版の #NEEDID を置換。時期の明記なし。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: قاله
+  - corresp: wd:Q257745
+    mention: m5
   note:
     ja: Pattern A。العيني＝#AIND-D09832（corresp wd:Q257745、B59-63 §D-12 形）。初版の統制外 subtype「informant」relation（#NEEDID）を mention event に変換。
   trigger: rule
   phrase: قاله العيني
+  mention: m4
 notes:
 - text: '「كان مقداما」＝果敢・勇猛（人物評。مقدم（職）ではない）。「ولم يكن به بأس」＝悪くない人物。末尾「وفي المائة قبلها قردم الحسني」＝前世紀（8世紀）にも同名の قردم الحسني がいるというサハーウィーの注記（別人、本項の人物情報ではない）。corpus の #AIND-D05347「علي بن قردم العلائي المذكور وأبوه في المائة قبلها」はニスバが異なり関係は立てない。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قردم
+- id: m2
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m3
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m4
+  kind: source
+  quote: قاله
+- id: m5
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
+- id: m6
+  kind: person
+  ref: AIND-D06335#p1
+  quote: قردم الحسني
 translation:
   ja: クルダム・アル＝ハサニー。果敢な人物で、大ハーズィンダール（財務官）も務めた。814年に没した。悪くない人物であった。アル＝アイニーがそう述べた。前の世紀にも（別の）クルダム・アル＝ハサニーがいる。
   en: Qurdum al-Ḥasanī. He was bold, and also served as grand khāzindār (treasurer). He died in the year 814; there was nothing wrong with him. So said al-ʿAynī. In the preceding century there is (another) Qurdum al-Ḥasanī.

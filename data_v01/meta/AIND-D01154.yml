@@ -9,75 +9,65 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00630
-    quote: الهواري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-01295
-    quote: البنداري
+    mention: m7
   - id: n3
     type: shuhrah
-    quote: بابن عمر
-    norm: ابن عمر
     label: ابن عمر
+    mention: m10
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m2
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 882
   note:
     en: Died in the beginning of 882 H.
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D03164
+  active: m12
   passive: AIND-D01154
-  quote: سليمان
   note:
     ja: '校閲: Gemini幻番号TMP-P-000066を破棄し#AIND-D03164（سليمان بن عيسى بن يوسف بن عمر بن عبد العزيز الهواري البنداري）へ同定。D03164本文「ثم صرف بأخيه أحمد」で双方向閉合。'
 - id: r2
   type: kin
   subtype: siblings_child
-  active: TMP-P-000556
+  active: m14
   passive: AIND-D01154
-  quote: ابن أخيه
   note:
     ja: '校閲: Gemini幻番号TMP-P-000087を破棄。corpusのداودヘッダ全走査で本伝不在を確認（D02954 داود بن عيسى شيخ هوار は兄弟世代の別人）のため新規TMP-P-000556を発行。'
-  norm: ابن اخيه
   phrase: داود بن سليمان
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
   places:
   - label: هوارة
   orgs:
   - label: عرب هوارة
-  quote: أمير
-  norm: امير
+  mention: m8
 events:
 - id: e1
   type: political
@@ -85,16 +75,74 @@ events:
     ah: 882
     type: political
   persons:
-  - ref: TMP-P-000556
-    quote: داود بن سليمان
+  - mention: m15
   places:
   - label: هوارة
   summary:
     en: Succeeded in the emirate by his nephew Dāwūd b. Sulaymān.
-  quote: استقر
   note:
     en: Occurred after his death in 882 H.
   trigger: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: عبد العزيز
+- id: m6
+  kind: name
+  ref: TMP-N-00630
+  quote: الهواري
+- id: m7
+  kind: name
+  ref: TMP-N-01295
+  quote: البنداري
+- id: m8
+  kind: office
+  ref: TMP-O-00014
+  quote: أمير
+  norm: امير
+- id: m9
+  kind: place
+  quote: هوارة
+  ref: None
+- id: m10
+  kind: name
+  quote: بابن عمر
+  norm: ابن عمر
+- id: m11
+  kind: event
+  quote: استقر
+- id: m12
+  kind: person
+  ref: AIND-D03164
+  quote: سليمان
+- id: m13
+  kind: year
+  value: '882'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: TMP-P-000556
+  quote: ابن أخيه
+  norm: ابن اخيه
+- id: m15
+  kind: person
+  ref: TMP-P-000556
+  quote: داود بن سليمان
 translation:
   ja: アフマド・ブン・イーサー・ブン・ユースフ・ブン・ウマル・ブン・アブドゥルアズィーズ・アル＝ハワーリー・アル＝バンダーリー。ハワーラ・アラブ族の長（アミール）。イブン・ウマルとして知られた。後述される兄弟スライマーンの解任後に（アミール職に）就任し、882年初頭に死去するまで在職した。彼は兄弟よりも良い状態にあった。彼が亡くなった後、甥のダーウード・ブン・スライマーンがアミール職を継いだ。
   en: Aḥmad b. ʿĪsā b. Yūsuf b. ʿUmar b. ʿAbd al-ʿAzīz al-Hawwārī al-Bandārī, Amīr of the Hawwāra Arabs, known as Ibn ʿUmar. He was installed (in the emirate) after the dismissal of his brother Sulaymān (to be mentioned later), and remained until he died in the beginning of 882 H. He was in a better condition than his brother. His nephew Dāwūd b. Sulaymān succeeded him in the emirate.

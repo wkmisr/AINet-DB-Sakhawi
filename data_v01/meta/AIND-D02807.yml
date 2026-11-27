@@ -9,55 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00499
-    quote: المنهلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m6
   - id: n3
     type: ism
-    quote: خالد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001588
+    mention: m2
   - id: n5
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عياد بالتحتانية
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001588
+  active: m8
   passive: AIND-D02807
   summary:
     ar: سليمان بن داود بن عياد المنهلي
-  quote: أبيهما
   note:
     ja: '見出しナサブから復元（弟の本伝 #AIND-D03639 では「سليمان بن داود بن عياذ بتحتانية بن عبد الجليل ابن خلفون」）。弟 D03639「ومات أبوه وهو صغير」＝弟（829年生）の幼少時に没。corpus に本伝なし・ID-Master 未登録 → TMP-P-001588。'
-  norm: ابيهما
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D03639
+  active: m7
   passive: AIND-D02807
-  quote: عبد الرحمن
   note:
     ja: '弟 عبد الرحمن ＝ #AIND-D03639「عبد الرحمن بن سليمان بن داود بن عياذ … الزين المنهلي ثم القاهري الشافعي」（829年生）。同項本文「ومات أبوه وهو صغير فنشأ في كفالة أخيه خالد الماضي وأقام معه برواق ابن معمر من الأزهر」で閉合。本項主が年長（الأكبر）で、父の死後に弟を養育した（كفله）。初版は #NEEDID。'
 states:
 - id: s1
   type: status
-  quote: null
   phrase: خيرا صالحا
+  mention: null
 affiliations:
 - id: a1
   type: reside
@@ -70,14 +63,46 @@ affiliations:
 events:
 - id: e1
   type: other
-  quote: هو الذي كفله بعد موت أبيهما
   note:
     ja: 弟 عبد الرحمن（#AIND-D03639）を父の死後に養育した。
-  norm: هو الذي كفله بعد موت ابيهما
+  phrase: هو الذي كفله بعد موت أبيهما
+  mention: null
 notes:
 - text: 「مات قبل أخيه بكثير」＝弟（#AIND-D03639）よりずっと前に没したとあるのみで没年の記載なし → death 要素は立てない（規則45・先例 D05203 は相手の没年が本文に明記される場合のみ notAfter）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: خالد
+- id: m2
+  kind: name
+  ref: TMP-P-001588
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  quote: عياد بالتحتانية
+- id: m5
+  kind: name
+  ref: TMP-N-00499
+  quote: المنهلي
+- id: m6
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m7
+  kind: person
+  ref: AIND-D03639
+  quote: عبد الرحمن
+- id: m8
+  kind: person
+  ref: TMP-P-001588
+  quote: أبيهما
+  norm: ابيهما
 translation:
   ja: ハーリド・ブン・スライマーン・ブン・ダーウード・ブン・イヤード（「イヤード」は下点二つのヤー）、アル＝マンハリー・アル＝アズハリー。後述するアブドゥッラフマーンの兄で、彼が年長であり、むしろ父の死後に弟を養育したのは彼である。ジャーミウ・アル＝アズハルのリワーク・イブン・ムアンマルに住み、善良で敬虔であった。弟よりずっと前に没した。
   en: Khālid b. Sulaymān b. Dāwūd b. ʿAyyād (with a yāʾ), al-Manhalī al-Azharī, brother of ʿAbd al-Raḥmān (mentioned below); he was the elder, indeed it was he who took charge of him after the death of their father. He resided in the Riwāq Ibn Muʿammar of the al-Azhar Mosque and was a good and righteous man. He died long before his brother.

@@ -9,21 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00492
-    quote: المحمودي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00712
-    quote: العزيزي
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m4
   - id: n4
     type: ism
-    quote: قطلباي
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -38,8 +34,8 @@ death:
     ah: 872
   note:
     ja: 872年（1467-08-11 開始、年精度）、الوقعة السوارية（シャーフ・スワール（ドゥルカディル朝）との戦闘）で戦死。戦闘地は原文にない（placeName なし）。
-  quote: سنة
   phrase: إلى أن مات قتيلا في الوقعة السوارية في سنة اثنتين وسبعين ولم يكمل السبعين
+  mention: m10
 persons:
 - id: p1
   label: والد قطلباي المحمودي العزيزي الأشرفي
@@ -50,25 +46,22 @@ relations:
   subtype: father
   active: AIND-D06353#p1
   passive: AIND-D06353
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: kin
   subtype: father-in-law
-  active: AIND-D10413
+  active: m9
   passive: AIND-D06353
-  quote: الظاهر بلباي
   note:
     ja: '「بسفارة حموه الظاهر بلباي」＝舅はスルターン الظاهر يلباي＝#AIND-D10413「يلباي الإينالي المؤيدي . جركسي الجنس الملك الظاهر … فلما مات الظاهر ارتقى إلى السلطنة في آخر يوم السبت … عاشر ربيع الأول سنة اثنتين وسبعين ولقب بالظاهر أبي سعيد」（索引 #AIND-D11302「الظاهر … خشقدم ثم يلباي ثم تمربغا」）。原文「بلباي」と見出し「يلباي」は ب/ي の点の揺れ（規則10③）。原文の綴りは変えない（規則25）。称号 الظاهر・スルターン・本項主がフシュカダム期（865〜872年）に昇進した時期で一意。向きは repo 実勢（active＝舅、passive＝本項主）。校閲時に発行した 取り下げた仮番号 B137-P03 は取り下げ（集約 2026-10-26、内容B F02・機械[25]、オーケストレーター決定1）。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m5
   passive: AIND-D06353
   summary:
     ar: الأشرف برسباي
-  quote: برسباي
   note:
     ja: '「الأشرفي برسباي ، من مشترواته」＝アル＝アシュラフ・バルスバーイ（#AIND-D02168）が購入したマムルーク。初版の #NEEDID を置換。'
 - id: r4
@@ -78,33 +71,70 @@ relations:
   passive: AIND-D06353
   summary:
     ar: العزيز يوسف
-  quote: null
   note:
     ja: '「الذين أعتقهم ابنه」＝バルスバーイの子 العزيز يوسف（#AIND-D10456「يوسف بن برسباي العزيز الجمال أبو المحاسن بن الأشرف」）が解放した。ニスバ「العزيزي」の由来。解放者＝主人 relation（規則51）。初版の #NEEDID を置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيا
+  mention: m6
 - id: s2
   type: office
   ref: TMP-O-00121
-  quote: null
   note:
     ja: 「في الأيام الإينالية」＝アル＝アシュラフ・イーナール（#AIND-D02110、857〜865年在位）の時代（時代指示、relation なし）。
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: 「في الخشقدمية بسفارة حموه الظاهر بلباي」＝アッ＝ザーヒル・フシュカダム（#AIND-D02830、865〜872年在位）の時代に舅 بلباي（＝#AIND-D10413 الظاهر يلباي、点の揺れ）の口添えで。
-  norm: امير عشرة
+  mention: m7
 - id: s4
   type: office
-  ref: TMP-O-00107
-  quote: رءوس النوب
   note:
     ja: 汎用 رأس نوبة（TMP-O-00107、規則48で رأس نوبة に限り可）。
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: قطلباي
+- id: m2
+  kind: name
+  ref: TMP-N-00492
+  quote: المحمودي
+- id: m3
+  kind: name
+  ref: TMP-N-00712
+  quote: العزيزي
+- id: m4
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m5
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m6
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيا
+- id: m7
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m8
+  kind: office
+  ref: TMP-O-00107
+  quote: رءوس النوب
+- id: m9
+  kind: person
+  ref: AIND-D10413
+  quote: الظاهر بلباي
+- id: m10
+  kind: year
+  value: '872'
+  quote: سنة
 translation:
   ja: クトルバーイ・アル＝マフムーディー・アル＝アズィーズィー・アル＝アシュラフィー・バルスバーイ。彼（バルスバーイ）が購入し、その子（アル＝アズィーズ・ユースフ）が解放したマムルークの一人。ハースィキーとなり、次いでイーナール時代にサーキー（酌人）、次いでフシュカダム時代に舅アッ＝ザーヒル・ヤルバーイ（原文の綴りはビルバーイ）の口添えによって十人長（アミール・アシャラ）およびラアス・ナウバの一人となり、872年のスワール戦（アル＝ワクア・アッ＝スワーリーヤ）で戦死するまで（その地位にあった）。70歳には達していなかった。
   en: Quṭlubāy al-Maḥmūdī al-ʿAzīzī al-Ashrafī Barsbāy. He was one of those he (Barsbāy) had purchased and whom his son (al-ʿAzīz Yūsuf) manumitted. He became a khāṣṣakī, then a cupbearer (sāqī) in the days of Īnāl, then an amir of ten and one of the ruʾūs al-nuwab in the days of Khushqadam through the intercession of his father-in-law al-Ẓāhir Yalbāy (spelled Bilbāy in the text), until he was killed in the battle against Suwār (al-waqʿa al-Suwāriyya) in the year 872, not having completed seventy years.

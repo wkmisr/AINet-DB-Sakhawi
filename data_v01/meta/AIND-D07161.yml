@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00752
-    quote: القبيباتي
+    mention: m4
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: بكتمر
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 birth:
   id: b
   date:
@@ -34,14 +32,14 @@ birth:
     cert: medium
   note:
     ja: 「ولد تقريبا سنة تسعين وسبعمائة」＝790年頃（تقريبا＝cert medium）。790年＝1388-01-19 開始（年精度 1388）。
-  quote: سنة
+  mention: m7
 death:
   id: d
   date:
     ah: 875-05
   note:
     ja: 「مات في جمادى الأولى سنة خمس وسبعين」＝875年ジュマーダー1月（月初 1470-11-04）。「وأوصى أن يغسل بالطهر الشيخوني في الخانقاه」＝シャイフーニーヤ（#TMP-I-00027）の浄め水で同ハーンカーにおいて湯灌されるよう遺言した。没地は明記されていない。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: بكتمر
@@ -54,36 +52,32 @@ relations:
   subtype: father
   active: AIND-D07161#p1
   passive: AIND-D07161
-  quote: null
   note:
     ja: '父は裸名 بكتمر。corpus に本伝なし・ID-Master 未登録 → 規則3により #NEEDID。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D05404
+  active: m6
   passive: AIND-D07161
   summary:
     ar: نور الدين علي بن محمد بن بكتمر القبيباتي
-  quote: والد
   note:
     ja: '「والد على الماضي」＝ #AIND-D05404「علي بن محمد بن بكتمر نور الدين بن ناصر الدين القبيباتي الحنفي نزيل الشيخونية」（823生）。ニスバ索引 D11916「ولقبيبات مصر محمد بن بكتمر وابنه علي」とも整合。初版の汚染番号 #TMP-P-000530（登録＝別人の علي）を差し替え。'
 states:
 - id: s1
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00027
-  quote: صوفيتها
   note:
     ja: 「وكان من صوفيتها」＝シャイフーニーヤのスーフィー（給費者）の一人。
+  mention: m9
 assessments:
 - id: v1
-  quote: وعرف بمزيد الوسواس مع العبادة والتلاوة ووظائف الخير
-  norm: وعرف بمزيد الوسواس مع العبادة والتلاوة ووظاءف الخير
   terms:
   - خير
   note:
     ja: 過度の潔癖（الوسواس）と信仰実践で知られた、との人物評。
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
@@ -93,20 +87,65 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: وحفظ القرآن
-  norm: حفظ القران
+  phrase: وحفظ القرآن
+  mention: null
 - id: e2
   type: learning
   orgs:
   - ref: TMP-I-00027
   methods:
   - TMP-S-00027
-  quote: وحفظ
   note:
     ja: 師名の明記はないため relation を立てない。初版の affiliation「affiliated」（state 内 orgName との二重符号化、規則8）をこの event に改めた。
   trigger: rule
-  norm: حفظ
   phrase: وحضر دروس الشيخونية
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: بكتمر
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00752
+  quote: القبيباتي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: person
+  ref: AIND-D05404
+  quote: والد
+- id: m7
+  kind: year
+  value: '790'
+  quote: سنة
+- id: m8
+  kind: event
+  quote: وحفظ
+  norm: حفظ
+- id: m9
+  kind: office
+  ref: wd:Q2892720
+  quote: صوفيتها
+- id: m10
+  kind: assessment
+  quote: وعرف بمزيد الوسواس مع العبادة والتلاوة ووظائف الخير
+  norm: وعرف بمزيد الوسواس مع العبادة والتلاوة ووظاءف الخير
+- id: m11
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m12
+  kind: year
+  value: '875'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・バクトゥムル、ナースィル・アッ＝ディーン・アル＝クバイバーティー・アル＝ハナフィー、前述のアリーの父。790年頃に生まれ、クルアーンを暗記し、シャイフーニーヤの講義に出席し、そのスーフィーの一人であった。礼拝・読誦・善行の務めとともに、過度の潔癖（ワスワース）で知られ、そのまま875年ジュマーダー・アル＝ウーラーに没した。シャイフーニーヤの浄め水で、そのハーンカーにおいて湯灌されるよう遺言した。神が彼を憐れみたまえ。
   en: Muḥammad b. Baktamur, Nāṣir al-Dīn al-Qubaybātī al-Ḥanafī, the father of ʿAlī, mentioned above. He was born in about the year 790, memorized the Qurʾān, attended the lessons of al-Shaykhūniyya and was one of its Sufis. He was known for excessive scrupulosity (waswās) together with worship, recitation and pious duties, until he died in Jumādā al-Ūlā 875. He directed that he be washed with the purifying water of al-Shaykhūniyya in the khānqāh. May God have mercy on him.

@@ -9,22 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00165
-    quote: الهندي
+    mention: m4
   - id: n2
     type: laqab
-    quote: السراج
+    mention: m3
   - id: n3
     type: laqab
-    quote: الفافا
+    mention: m5
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -38,7 +37,7 @@ death:
     ah: 815-12
   note:
     ja: 「ومات في ذي الحجة سنة خمس عشرة عن سبعين سنة」。没地は原文に明記なし（直前の「أقام بمكة … يفيد الناس فيها」は居住の記述で、مات に بها は付かない）→ 初版の placeName مكة を除去。815-12 ＝ 1413-03-13〜04-11、月初 1413-03（初版の 1412 を修正）。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: عبد الله
@@ -51,32 +50,68 @@ relations:
   subtype: father
   active: AIND-D05886#p1
   passive: AIND-D05886
-  quote: null
   note:
     ja: '父は裸名 عبد الله のみで識別要素なし → #NEEDID 維持（規則3）。初版の汚染番号 TMP-P-000490（登録実体＝al-Zuhrī の祖父）を差し替え。'
 events:
 - id: e2
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: أقام
+  - mention: m9
   trigger: rule
-  norm: اقام
   phrase: أقام بمكة أزيد من أربعين سنة يفيد الناس فيها
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の統制外 subtype「other」relation（wd:Q471116）を event に変換。通称 الفافا（فاءين）はファーの音を多用したことに由来する綽名（原文「فلقب بذلك」）のため laqab とし、初版の shuhrah を改めた。
   trigger: rule
   phrase: 'قال شيخنا في إنبائه : كان كثير النطق بالفاء فلقب بذلك ، وكان عارفا بالفقه وأصوله والعربية'
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: السراج
+- id: m4
+  kind: name
+  ref: TMP-N-00165
+  quote: الهندي
+- id: m5
+  kind: name
+  quote: الفافا
+- id: m6
+  kind: source
+  quote: قال
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: event
+  quote: أقام
+  norm: اقام
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m11
+  kind: year
+  value: '815'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アブドゥッラー・アッ＝シラージュ・アル＝ヒンディー、アル＝ファーファー（ファーを二つ重ねる）。我らがシャイフは『インバー』で「彼はファーの音をしきりに発したので、そう綽名された。法学とその法源学、アラビア語に精通していた」と述べている。マッカに40年以上住んで同地で人々に益を与え、（8）15年ズー・ル＝ヒッジャ月に70歳で没した。
   en: 'ʿUmar b. ʿAbd Allāh al-Sirāj al-Hindī al-Fāfā (with two fāʾs). Our shaykh said in his Inbāʾ: he pronounced the letter fāʾ a great deal and was therefore so nicknamed; he was learned in jurisprudence, its principles, and Arabic. He lived in Mecca for more than forty years, benefiting people there, and died in Dhū al-Ḥijja (8)15 at the age of seventy.'

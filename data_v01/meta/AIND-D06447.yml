@@ -9,32 +9,30 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: عقبة المنور
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 861-06
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     ar: مات في جمادى الثانية سنة إحدى وستين بمكة
     ja: 861-06＝1457-05-05 開始、月精度 1457-05（h2g.py。初版 @when="1457" は年精度）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: محمد بن سعيد بن عقبة
@@ -47,21 +45,49 @@ relations:
   subtype: father
   active: AIND-D06447#p1
   passive: AIND-D06447
-  quote: null
   note:
     ja: '規則3 (c'')。父 محمد بن سعيد بن عقبة المنور は corpus に本伝なし（hw.py「عقبة」「المنور」該当は本項と #AIND-D05160「علي بن سعيد بن عقبة المنور مات في مستهل ذي الحجة سنة سبع وستين أرخه ابن فهد」のみ＝祖父 سعيد بن عقبة を共有する父の兄弟とみられるが、本項に名指しはないので relation は立てない）。父自身に識別要素なし → #NEEDID。初版は father relation なし。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D09082
+  active: m5
   passive: AIND-D06447
   summary:
     ar: أبو السعادات
   cert: medium
-  quote: أبي السعادات
   note:
     ja: '「ممن كان في خدمة أبي السعادات القاضي زائد الوجاهة عنده」＝仕えた型（規則56、patron）。マッカの「القاضي أبو السعادات」はサハーウィーが固定的に用いる呼称（#AIND-D00698「القاضي أبي السعادات بن ظهيرة」・#AIND-D08192「أبي السعادات بن ظهيرة」・repo #AIND-D05183「القاضي أبو السعادات بن ظهيرة」）＝ #AIND-D09082「محمد الجلال أبو السعادات بن ظهيرة شقيق الذي قبله ووالد المحب أحمد وعبد الكريم . ولد … سنة خمس وتسعين وسبعمائة بمكة … وناب في القضاء بمكة عن أبيه … ثم أعيد في محرم التي تليها واستمر حتى مات … مات ببلده في آخر يوم الخميس تاسع صفر سنة إحدى وستين … ودفن بالمعلاة」（マッカのカーディー、861年サファル没＝本項主（861年ジュマーダー第二月没）と同年。repo 未収録）。クンヤ＋職（القاضي）＋マッカ・年代の2点以上で閉合するが、本項は「ابن ظهيرة」を伴わない呼称なので規則26 例外2 により cert medium。同時代のマッカの別の أبو السعادات（#AIND-D04319 السراج عبد اللطيف … القرشي الحنبلي、850没）はカーディーでない。初版は #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: سعيد
+- id: m4
+  kind: name
+  quote: عقبة المنور
+- id: m5
+  kind: person
+  ref: AIND-D09082
+  quote: أبي السعادات
   norm: ابو السعادات
+- id: m6
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m7
+  kind: year
+  value: '861'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムバーラク・ブン・ムハンマド・ブン・サイード・ブン・ウクバ・アル＝ムナウワル。カーディーのアブー・アッ＝サアーダートに仕えた者の一人で、彼のもとで大いに重んじられた。861年ジュマーダー第二月にマッカで没した。
   en: Mubārak b. Muḥammad b. Saʿīd b. ʿUqba al-Munawwar. He was among those in the service of the Qāḍī Abū al-Saʿādāt and enjoyed great standing with him. He died in Jumādā II 861 in Mecca.

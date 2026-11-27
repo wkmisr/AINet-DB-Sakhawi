@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بالفقيه يوسف
-    norm: الفقيه يوسف
     label: الفقيه يوسف
+    mention: m5
   - id: n2
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: سالم شيخ الزيدية بوادي
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -36,8 +35,8 @@ death:
   - ref: TMP-L-00081
   note:
     ja: 876年ラビーウ・アッ＝サーニー月＝1471-09-26〜10-24（h2g.py）、月精度で @when=1471-09（初版 1471）。「بها」＝直前の وادي ينبوع（規則22(3)、cert 不要）＝ID-Master TMP-L-00081（ينبع | الينبوع）。地名表記を原文どおりに（初版「ينبع」）。
-  quote: سنة
   phrase: مات بها في ربيع الثاني سنة ست وسبعين عن سن عالية
+  mention: m7
 persons:
 - id: p1
   label: حسن بن محمد بن سالم
@@ -50,7 +49,6 @@ relations:
   subtype: father
   active: AIND-D10464#p1
   passive: AIND-D10464
-  quote: null
   note:
     ja: '規則3 (c'')。父は見出しナサブのみで識別要素なし、corpus に本伝なし（見出し検索「حسن بن محمد بن سالم」＝本項と索引 #AIND-D11707 のみ）。初版の汚染番号 TMP-P-000204（登録=حسن、関係専用）を除去。祖父 محمد の relation（汚染番号 TMP-P-000529、汎用 محمد）は識別要素のない祖父のため relation ごと除去（父の desc にナサブとして含む）。'
 states:
@@ -59,22 +57,48 @@ states:
   ref: TMP-O-00401
   places:
   - ref: TMP-L-00081
-  quote: null
   note:
     ja: '見出し「شيخ الزيدية بوادي ينبوع」（規則5 により persName full から除外）。ID-Master の Office を語根 شيخ・زيد で grep: 既登録は فقيه الزيدية（TMP-O-00255、法学者職）のみで「شيخ الزيدية」は未登録 → 仮 TMP-O-00401（初版 #NEEDID）。'
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
   label: Zaydi
 sources:
 - id: c1
-  quote: وقد سمعت الثناء عليه بذلك من غير واحد
   note:
     ja: サハーウィーが複数の人（名なし＝persName なし）から彼への称賛を聞いた。人物評「وكان مذكورا بالعلم سيما مذهبه وبه فيما أظن انقطع العارف بالجملة به」（学識、とくに自派の法学で知られ、彼をもってそれに通じた者は絶えたと私は思う）の「فيما أظن」はサハーウィーの推測。初版になし＝追加。
+  phrase: وقد سمعت الثناء عليه بذلك من غير واحد
+  mention: null
 notes:
 - text: '学派 Zaydi は「شيخ الزيدية」「سيما مذهبه」による（repo 先例どおり ref なし）。ニスバ索引 #AIND-D11707「الزيدي جماعة من رؤوسهم الفقيه يوسف بن حسن بن محمد بن سالم وابن أخته عبيد」は本項主と姉妹の子 عبيد を挙げるが、عبيد の本伝は corpus に見当たらず（見出し検索「عبيد」＋「الزيد」）、本項にも記載がない＝relation を立てない（規則23）。初版の residence event（ينبع）は state の地と重複するため除去。同じ通称「الفقيه يوسف」の #AIND-D10558（يوسف بن يونس الجبائي المقري、イエメン）は別人。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: سالم شيخ الزيدية بوادي
+- id: m5
+  kind: name
+  quote: بالفقيه يوسف
+  norm: الفقيه يوسف
+- id: m6
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m7
+  kind: year
+  value: '876'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・ハサン・ブン・ムハンマド・ブン・サーリム、ワーディー・ヤンブーのザイド派の長老、「法学者ユースフ」として知られる。（8）76年ラビーウ・アッ＝サーニー月に高齢で同地に没した。学識、とりわけ自派の学で知られ、私の思うところでは、それに総じて通じた者は彼をもって絶えた。私はそのことについて彼への称賛を複数の人から聞いた。神が我らと彼を赦されますように。
   en: Yūsuf b. Ḥasan b. Muḥammad b. Sālim, shaykh of the Zaydīs in Wādī Yanbūʿ, known as "the jurist Yūsuf". He died there in Rabīʿ II of the year [8]76 at an advanced age. He was noted for learning, especially in his own school, and with him, I think, those with a comprehensive knowledge of it came to an end; I heard him praised for this by more than one person. May God forgive us and him.

@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: الحسني
+    mention: m6
   - id: n2
     type: ism
-    quote: ميلب
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05354
+    mention: m2
   - id: n4
     type: nasab
-    quote: مبارك
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: رميئة
     by: rule
-    norm: رميءة
+    mention: m4
   - id: n6
     type: nasab
-    quote: أبي نمي
     by: rule
-    norm: ابو نمي
+    mention: m5
 death:
   id: d
   date:
@@ -47,33 +44,30 @@ death:
   note:
     ar: مات بخليص في ليلة الجمعة ساد عشرى رجب سنة تسع وثلاثين وحمل إلى مكة فدفن بالحجون بالقرب من قبر خاله وأمه
     ja: 「ساد عشرى رجب」を26日と読んだ場合、表計算暦では1436年2月14日（火曜）で原文の الجمعة と3日ずれる。「سادس عشر」（16日＝839-07-16＝1436-02-04 土曜）の可能性もあり（曜日は16日読みに近い）→要判断。خليص・الحجون は ID-Master 未登録→ref 未付与。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D05354
   passive: AIND-D10112a
-  quote: null
   note:
     ja: '父 = #AIND-D05354（علي بن مبارك بن رميثة بن أبي نمي الحسني المكي、没815 カイロの城塞で拘禁中）。'
   phrase: ميلب بن علي بن مبارك
 - id: r2
   type: kin
   subtype: mother
-  active: TMP-P-000950
+  active: m12
   passive: AIND-D10112a
-  quote: سعدانة ابنة عجلان بن رميثة
   note:
     ar: وأمه سعدانة ابنة عجلان بن رميثة
     ja: 母 سعدانة ابنة عجلان بن رميثة（#AIND-D02560 حسن بن عجلان の姉妹）。corpus 女性部に本伝未確認→TMP-P-000950 新規。
 - id: r3
   type: kin
   subtype: uncle
-  active: AIND-D02560
+  active: m11
   passive: AIND-D10112a
   cert: medium
-  quote: خاله
   note:
     ar: فدفن بالحجون بالقرب من قبر خاله
     ja: 母方叔父（خاله）= 母 سعدانة ابنة عجلان の兄弟。حسن بن عجلان（#AIND-D02560、没829、マッカ埋葬）と推定→cert medium（عجلان の他の子の可能性あり）。
@@ -83,14 +77,68 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m14
   note:
     ja: Pattern A。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: ميلب
+- id: m2
+  kind: name
+  ref: AIND-D05354
+  quote: علي
+- id: m3
+  kind: name
+  quote: مبارك
+- id: m4
+  kind: name
+  quote: رميئة
+  norm: رميءة
+- id: m5
+  kind: name
+  quote: أبي نمي
+  norm: ابو نمي
+- id: m6
+  kind: name
+  quote: الحسني
+- id: m7
+  kind: place
+  quote: بخليص
+  ref: None
+  norm: خليص
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بالحجون
+  ref: None
+  norm: الحجون
+- id: m11
+  kind: person
+  ref: AIND-D02560
+  quote: خاله
+- id: m12
+  kind: person
+  ref: TMP-P-000950
+  quote: سعدانة ابنة عجلان بن رميثة
+- id: m13
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: マイラブ・ブン・アリー・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝ハサニー。839年ラジャブ月26日金曜の夜にフライスで没し、マッカに運ばれてハジューンの母方叔父の墓の近くに葬られた。母はサアダーナ・ビント・アジュラーン・ブン・ルマイサ。イブン・ファフドが没年を記録した。
   en: Maylab b. ʿAlī b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī. He died at Khulayṣ on the night of Friday 26 Rajab 839 and was carried to Mecca and buried at al-Ḥajūn near the grave of his maternal uncle. His mother was Saʿdāna bt. ʿAjlān b. Rumaytha. Ibn Fahd recorded his death.

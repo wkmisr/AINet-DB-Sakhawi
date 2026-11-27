@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04313
-    quote: البرزنجي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00157
-    quote: الصوفي
+    mention: m5
   - id: n3
     type: laqab
-    quote: null
     label: ردادة القيم
+    mention: null
   - id: n4
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: فرح
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: حمزة الخياط الشاطر المثاقف
     by: rule
+    mention: m3
 birth:
   id: b
   date:
@@ -38,18 +36,16 @@ birth:
     cert: low
   note:
     ja: 「ولد في حدود سنة ثمانمائة」＝800年頃（「حدود」＝おおよそ。【集約 2026-10-19】ブリーフの例示と B127 D06200「في حدود الخمسين」に揃え cert low、内容B L）。800年＝1397-10-02 開始。
-  quote: سنة
+  mention: m6
 death:
   id: d
   date:
     ah: 855-12-21
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   note:
     ja: 「مات في يوم الجمعة حادي عشري ذي الحجة سنة خمس وخمسين بالقاهرة」＝855年ズー・アル＝ヒッジャ月21日金曜＝1452年1月23日（金曜、h2g.py で曜日一致を確認）。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: فرح بن حمزة
@@ -62,23 +58,19 @@ relations:
   subtype: father
   active: AIND-D06235#p1
   passive: AIND-D06235
-  quote: null
   note:
     ja: 父。名＋父名のみで識別要素なし（規則3）。初版は father relation 欠落。
 states:
 - id: s1
   type: office
-  ref: wd:Q242468
-  quote: الخياطة
   note:
     ja: 「أستاذا في الخياطة والثقاف」。見出し語 الخياط。
+  mention: m11
 - id: s2
   type: office
-  ref: TMP-O-00347
-  quote: والثقاف
   note:
     ja: 見出し語 المثاقف＝武術（槍・棒などの型稽古 ثقاف）の師範。ID-Master の Office を語根 ثقف で grep したが未登録 → TMP-O-00347。「الشاطر」は呼称（persName full に保持）で職として立てない。「وكان ودودا حسن العشرة … يلقب بينهم بردادة القيم」＝温厚で付き合いよく、仲間内で ردادة القيم と綽名された。
-  norm: الثقاف
+  mention: m12
 events:
 - id: e1
   type: religious
@@ -86,13 +78,60 @@ events:
     ah: 855-12-22
     type: religious
   places:
-  - ref: wd:Q312342
-    quote: الأزهر
-    norm: الازهر
-  quote: وصلى عليه من الغد في الأزهر
+  - mention: m10
   note:
     ja: 翌日（855年ズー・アル＝ヒッジャ22日＝1452-01-24）アズハル・モスクで葬礼。初版の affiliation other（الأزهر）を event に変換。
-  norm: صلي عليه من الغد في الازهر
+  phrase: وصلى عليه من الغد في الأزهر
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: فرح
+- id: m3
+  kind: name
+  quote: حمزة الخياط الشاطر المثاقف
+- id: m4
+  kind: name
+  ref: TMP-N-04313
+  quote: البرزنجي
+- id: m5
+  kind: name
+  ref: TMP-N-00157
+  quote: الصوفي
+- id: m6
+  kind: year
+  value: '800'
+  quote: سنة
+- id: m7
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m8
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: place
+  quote: الأزهر
+  ref: wd:Q312342
+  norm: الازهر
+- id: m11
+  kind: office
+  ref: wd:Q242468
+  quote: الخياطة
+- id: m12
+  kind: office
+  ref: TMP-O-00347
+  quote: والثقاف
+  norm: الثقاف
 translation:
   ja: カースィム・ブン・ファラフ・ブン・ハムザ、仕立屋（アル＝ハイヤート）、アッ＝シャーティル、武術師範（アル＝ムサーキフ）、アル＝バルザンジー、スーフィー。800年頃に生まれ、855年ズー・アル＝ヒッジャ月21日金曜日にカイロで没し、翌日アズハルで葬礼が行われた。温厚で付き合いのよい人物で、仕立てと武術（サカーフ）の師範であり、仲間内では「ラッダーダト・アル＝カイイム」と綽名されていた。神の慈悲あれ。
   en: Qāsim b. Faraḥ b. Ḥamza, the tailor (al-khayyāṭ), al-Shāṭir, the fencing-master (al-muthāqif), al-Barzanjī, the Ṣūfī. He was born around the year 800 and died on Friday 21 Dhū al-Ḥijja 855 in Cairo; the funeral prayer was performed over him the next day at al-Azhar. He was affable and good company, a master in tailoring and in thiqāf (weapons drill), and was nicknamed among his peers Raddādat al-Qayyim. May God have mercy on him.

@@ -9,74 +9,67 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00102
-    quote: المناوي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m10
   - id: n3
     type: laqab
-    quote: المحب
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10708
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: صدقة
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: الزكي
     by: rule
+    mention: m8
   - id: n11
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m11
 death:
   id: d
   date:
     ah: 880-10
   note:
     ja: '「مات في شوال سنة ثمانين بعد أبيه بيسير」。880年シャウワール＝1476-02-06〜03-05（月精度 1476-02、h2g.py）。父 #AIND-D10708 は同年ラジャブ没で整合。'
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D00143
+  active: m13
   passive: AIND-D07190
   relationship_type:
     ja: 側近・親交（اختص به）
-  quote: بالبرهان الكركي الإمام
   note:
     ja: '「واختص بالبرهان الكركي الإمام」。البرهان الكركي الإمام＝#AIND-D00143（إبراهيم بن عبد الرحمن … البرهان … الكركي الأصل القاهري … الحنفي إمام السلطان … ويعرف بابن الكركي、835年生）。初版は #NEEDID の teacher relation（method صحب＋空 field）としていたが、原文の動詞は اختص（親交・側近）で師弟の記述はないため subtype other とした。'
-  norm: البرهان الكركي الامام
   phrase: البرهان الكركي الإمام
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06643
+  active: m14
   passive: AIND-D07190
   summary:
     ar: قاضي الحنفية الشمس الأمشاطي
@@ -85,21 +78,17 @@ relations:
     orgs:
     - ref: TMP-I-00029
     phrase: وهو أحد المنعم عليهم من قبل قاضي الحنفية الأمشاطي حين استقراره في مشيخة البرقوقية بالوظائف
-  quote: الأمشاطي
   note:
     ja: 「قاضي الحنفية الأمشاطي」＝#AIND-D06643（محمد بن أحمد بن حسن … الشمس … الحنفي … ويعرف بالأمشاطي、ハナフィー派カーディー、「ثم قرره السلطان في مشيخة البرقوقية ونظرها بعد موت العضدي الصيرامي」、885没）。初版の TMP-P-000471（D00129 の言及者用の保留番号）を差し替え。弟 المظفر محمود（#AIND-D09828）は医師でカーディーでないため除外。
-  norm: الامشاطي
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D10708
+  active: m12
   passive: AIND-D07190
   summary:
     ar: الزكي أبو بكر بن صدقة المناوي
-  quote: أبوه
   note:
     ja: 「الآتي أبوه」＝#AIND-D10708（أبو بكر بن صدقة بن علي بن محمد بن عبد الرحمن الزكي … المناوي الأصل المصري القاهري الشافعي … ويعرف بالمناوي、880年ラジャブ没）。ナサブ5代一致（規則37）。初版の汚染番号 TMP-P-000064（汎用 أبو بكر）を差し替え。
-  norm: ابوه
 affiliations:
 - id: a1
   type: madhhab
@@ -107,13 +96,76 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: اشتغل في العلوم وتفنن وفضل
+  phrase: اشتغل في العلوم وتفنن وفضل
+  mention: null
 - id: e2
   type: cultural
-  quote: وتنزل في الجهات وربما أقرا الطلبة
   note:
     ja: 諸職（جهات）の俸給を得、時に学生に教授した。具体的な職名・施設名の記載はないため state にしない。
-  norm: تنزل في الجهات وربما اقرا الطلبة
+  phrase: وتنزل في الجهات وربما أقرا الطلبة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D10708
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: صدقة
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عبد الرحمن
+- id: m7
+  kind: name
+  quote: المحب
+- id: m8
+  kind: name
+  quote: الزكي
+- id: m9
+  kind: name
+  ref: TMP-N-00102
+  quote: المناوي
+- id: m10
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m11
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m12
+  kind: person
+  ref: AIND-D10708
+  quote: أبوه
+  norm: ابوه
+- id: m13
+  kind: person
+  ref: AIND-D00143
+  quote: بالبرهان الكركي الإمام
+  norm: البرهان الكركي الامام
+- id: m14
+  kind: person
+  ref: AIND-D06643
+  quote: الأمشاطي
+  norm: الامشاطي
+- id: m15
+  kind: month
+  value: 10
+  quote: شوال
+- id: m16
+  kind: year
+  value: '880'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・サダカ・ブン・アリー・ブン・ムハンマド・ブン・アブドゥッラフマーン、アル＝ムヒッブ・ブン・アッ＝ザキー、マナーウィー出身でミスルの人、ハナフィー派。父については後述する。諸学問に従事して多方面に通じ、優れた学識を得た。諸職（ジハート）の俸給を得、時に学生たちに教授した。イマームたるアル＝ブルハーン・アル＝カラキーと親しく結びついた。彼は、ハナフィー派カーディーのアル＝アムシャーティーがバルクーキーヤのシャイフ職に就任した際、同人から職務を授けられて恩恵を受けた者の一人である。（8）80年シャウワール月に、父の死からほどなくして没した。神が二人に慈悲を垂れたまわんことを。
   en: Muḥammad b. Abī Bakr b. Ṣadaqa b. ʿAlī b. Muḥammad b. ʿAbd al-Raḥmān, al-Muḥibb b. al-Zakī, of Manāwī origin, al-Miṣrī, the Ḥanafī; his father is mentioned below. He occupied himself with the sciences, became versatile in them and attained excellence. He obtained stipends in various posts and sometimes taught the students. He was closely attached to al-Burhān al-Karakī, the imām, and he was one of those on whom the Ḥanafī qāḍī al-Amshāṭī bestowed offices when the latter was appointed to the shaykhship of the Barqūqiyya. He died in Shawwāl (8)80, shortly after his father; may God have mercy on them both.

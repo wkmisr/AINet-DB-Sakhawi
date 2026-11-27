@@ -11,46 +11,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m8
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10822
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D00610
   methods:
   - TMP-S-00014
@@ -63,14 +57,11 @@ relations:
     - ref: gn:104515
     note:
       ja: 「المجاورة الثالثة بعد الثمانين」→ 881年以後（Waka 裁定 2026-11-22）
-  quote: ولازمني
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D10822
+  active: m9
   passive: AIND-D00610
-  quote: أبوه
-  norm: ابوه
   phrase: أبي بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر
 events:
 - id: e1
@@ -78,11 +69,11 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   cert: low
   note:
     en: with his father
   trigger: rule
+  mention: m10
 - id: e2
   type: residence
   subtype: jāwara
@@ -90,7 +81,6 @@ events:
     notBefore: 881
     cert: medium
     type: residence
-  quote: وجاور
   cert: medium
   note:
     en: |-
@@ -98,7 +88,54 @@ events:
                   after 880 H (المجاورة الثالثة بعد الثمانين).
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈جاور（規則20により جاور には placeName を付けない）〉からの補完で原文に地名の明示なし。 / 「المجاورة الثالثة بعد الثمانين」→ 881年以後（Waka 裁定 2026-11-22）
   trigger: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D10822
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m8
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m9
+  kind: person
+  ref: AIND-D10822
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: event
+  quote: وحج
+- id: m11
+  kind: event
+  quote: وجاور
   norm: جاور
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: ولازمني
 translation:
   ja: アフマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アリー・ブン・ムハンマド・ブン・アビー・バクル・アル＝ナーシリー。彼の父と祖父（後述）と共にハッジを行い、2年間メッカに滞在した。彼は（シャイフである）私（サハーウィー）の聴聞講義にも参加し、特に80年代（ヒジュラ暦880年代）後半の3度目のメッカ滞在中、その2年間私に師事した。
   en: Aḥmad b. Abī Bakr b. Muḥammad b. Abī Bakr b. ʿAlī b. Muḥammad b. Abī Bakr al-Nāshirī. His father and grandfather (forthcoming) performed Hajj with him and resided in Mecca for two years. He also accompanied me (al-Sakhāwī) in listening (to lectures) there during those two years, specifically during his third residency in Mecca after the eighties (880s AH).

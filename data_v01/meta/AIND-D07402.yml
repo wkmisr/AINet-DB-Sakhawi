@@ -9,53 +9,47 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-04568
-    quote: المرساوي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00501
-    quote: التباني
+    mention: m7
   - id: n4
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n5
     type: nisbah
-    ref: TMP-N-01341
-    quote: الجرائحي
-    norm: الجراءحي
+    mention: m9
   - id: n6
     type: shuhrah
-    quote: بابن الريفي
-    norm: ابن الريفي
     label: ابن الريفي
+    mention: m10
   - id: n7
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: زين
     by: rule
+    mention: m2
   - id: n9
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n10
     type: nasab
-    quote: الزين
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 842
   note:
     ja: 842年＝1438-07-03 開始（年精度 1438）。没地の記載なし（初版の القاهرة はニスバ由来のため除去）。「ادعى أنه جاز المائة ولكن قرائن الحال تشعر بأنها من المحال」＝百歳超の主張をサハーウィーが否定しているので生年を逆算しない。
-  quote: سنة
   phrase: مات في سنة اثنتين وأربعين بعد أن طعن في السن
+  mention: m18
 persons:
 - id: p1
   label: زين بن عبد الله
@@ -68,54 +62,118 @@ relations:
   subtype: father
   active: AIND-D07402#p1
   passive: AIND-D07402
-  quote: null
   note:
     ja: '父は汎用名のみで識別要素なし、corpus に本伝なし → #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00365
-  quote: الرياسة
   note:
     ja: 外科医頭。ID-Master を語根 جرح・رأس で grep、既登録 TMP-O-00314（رياسة الطب＝医師頭）とは別職（corpus D04458「رئيس الجرائحية … بن رئيس الأطباء」で並立）→ TMP-O-00365。初版の placeName القاهرة はニスバ由来のため除去。
   phrase: وتقدم في صناعته بحيث استقر في الرياسة
+  mention: m17
 events:
 - id: e2
   type: learning
-  quote: قرائن
   trigger: rule
-  norm: قراءن
   phrase: اشتغل في علم الجراحة
+  mention: m19
 - id: e3
   type: residence
   places:
-  - ref: TMP-L-00238
-    quote: الديار المصرية
-  quote: فسكن
+  - mention: m14
   trigger: rule
-  norm: سكن
   phrase: وتحول إلى الديار المصرية قديما
+  mention: m15
 - id: e4
   type: residence
   places:
-  - ref: TMP-L-00356
-    quote: التبانة
-  quote: وتحول
+  - mention: m16
   trigger: rule
-  norm: تحول
   phrase: فسكن التبانة
+  mention: m13
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。以下の記述は『إنباء』からの引用（「وقال إنه …」）。初版の relation「mentioned by」を event に改めた。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: زين
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  quote: الزين
+- id: m6
+  kind: name
+  ref: TMP-N-04568
+  quote: المرساوي
+- id: m7
+  kind: name
+  ref: TMP-N-00501
+  quote: التباني
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: TMP-N-01341
+  quote: الجرائحي
+  norm: الجراءحي
+- id: m10
+  kind: name
+  quote: بابن الريفي
+  norm: ابن الريفي
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: event
+  quote: وتحول
+  norm: تحول
+- id: m14
+  kind: place
+  quote: الديار المصرية
+  ref: TMP-L-00238
+- id: m15
+  kind: event
+  quote: فسكن
+  norm: سكن
+- id: m16
+  kind: place
+  quote: التبانة
+  ref: TMP-L-00356
+- id: m17
+  kind: office
+  ref: TMP-O-00365
+  quote: الرياسة
+- id: m18
+  kind: year
+  value: '842'
+  quote: سنة
+- id: m19
+  kind: event
+  quote: قرائن
+  norm: قراءن
 translation:
   ja: ムハンマド・ブン・ザイン・ブン・アブドゥッラー、アッ＝シャムス・ブン・アッ＝ザイン、アル＝ミルサーウィー出身で、アッ＝タッバーニー・アル＝カーヒリー、外科医、イブン・アッ＝リーフィーとして知られる。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及し、こう述べた。彼は外科の学に従事し、古くにエジプトの地へ移ってタッバーナに住み、その技術において頭角を現して、ついにその長（リヤーサ）の職に就いた。842年に、高齢に達した後に没した。彼は百歳を超えたと主張したが、状況の証拠はそれが不可能であることを示している。彼の髭の毛には黒い部分が多かったのである。
   en: Muḥammad b. Zayn b. ʿAbd Allāh, al-Shams b. al-Zayn, of Marsāwī origin, al-Tabbānī al-Qāhirī, the surgeon, known as Ibn al-Rīfī. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said that he occupied himself with the science of surgery, moved to the Egyptian lands long ago and settled in al-Tabbāna, and advanced in his craft to the point that he was established in the headship (of the surgeons). He died in the year [8]42 after reaching an advanced age; he claimed to have passed a hundred, but the circumstances indicate that this was impossible, for there was much black in the hair of his beard.

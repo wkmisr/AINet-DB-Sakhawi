@@ -9,40 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00377
-    quote: الحكمي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m8
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00452
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m5
   - id: n8
     type: nasab
-    quote: مطير
     by: rule
+    mention: m6
 death:
   id: d
   note:
@@ -53,36 +47,78 @@ relations:
   subtype: father
   active: AIND-D00452
   passive: AIND-D04949
-  quote: null
   note:
     ja: '父 ＝ #AIND-D00452（أحمد بن إبراهيم بن محمد بن عيسى بن مطر بن علي بن عثمان شهاب الدين أبو القسم بن ضياء الدين … ذكره ابن فهد وأنه أجاز لهم في سنة تسع عشرة）。مطر／مطير は綴り揺れ。兄弟項 #AIND-D04383（عبد الله … الماضي أبوه）・#AIND-D05785（عمر … أخو أبي القسم）と同じ扱い（repo 先例 D04383）。初版は father relation なし。'
   phrase: أحمد بن إبراهيم بن محمد بن عيسى بن مطير
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D11059
+  active: m9
   passive: AIND-D04949
-  quote: أخيه أبي القسم
   note:
     ja: 'أبو القسم ＝ #AIND-D11059（أبو القسم بن أحمد بن إبرهيم بن محمد بن عيسى بن مطير بن علي بن عثمان الشرف الحكمي … اليماني الشافعي … ويعرف كسلفه بابن مطير、773年生）。ナサブ6代が一致。「وغيره من إخوته」のその他の兄弟（corpus では عبد الله #AIND-D04383・عمر #AIND-D05785）は本項で名指しされないため relation を立てない。初版の #NEEDID を解消。'
-  norm: اخيه ابي القسم
 states:
 - id: s1
   type: status
   label: ممن لم يحكم الفقه
   label_latn: mimman lam yuḥkim al-fiqh
-  quote: ممن لم يحكم الفقه
+  mention: m10
 sources:
 - id: c1
   persons:
-  - ref: AIND-D02702
-    quote: الأهدل
-    norm: الاهدل
-  quote: قاله
+  - mention: m12
   note:
     ja: Pattern A。الأهدل ＝ البدر حسين بن عبد الرحمن الأهدل（#AIND-D02702、イエメンの歴史家。repo 先例 D04383・D05785）。初版の統制外 subtype「informant」の relation を event に。
   trigger: rule
   phrase: قاله الأهدل
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D00452
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m6
+  kind: name
+  quote: مطير
+- id: m7
+  kind: name
+  ref: TMP-N-00377
+  quote: الحكمي
+- id: m8
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m9
+  kind: person
+  ref: AIND-D11059
+  quote: أخيه أبي القسم
+  norm: اخيه ابي القسم
+- id: m10
+  kind: office
+  quote: ممن لم يحكم الفقه
+- id: m11
+  kind: source
+  quote: قاله
+- id: m12
+  kind: person
+  ref: AIND-D02702
+  quote: الأهدل
+  norm: الاهدل
 translation:
   ja: アリー・ブン・アフマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・イーサー・ブン・ムタイル、アル＝ハカミー、アル＝ヤマーニー。兄のアブー・アル＝カースィムほかの兄弟たちより年少で、法学を修めきらなかった者の一人であり、若くして没した。アル＝アフダルがそう述べた。
   en: ʿAlī b. Aḥmad b. Ibrāhīm b. Muḥammad b. ʿĪsā b. Muṭayr al-Ḥakamī al-Yamānī, younger than his brother Abū al-Qāsim and his other brothers; he was among those who did not master jurisprudence, and he died young. So said al-Ahdal.

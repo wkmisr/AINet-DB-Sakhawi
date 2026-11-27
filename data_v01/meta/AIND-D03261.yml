@@ -10,24 +10,22 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00141
-    quote: null
+    mention: null
   - id: n2
     type: ism
-    quote: شاذ
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m4
   passive: AIND-D03261
   corresp: AIND-D02168
   summary:
     ar: الأشرفي برسباي
-  quote: الأشرف
   note:
     ja: 'الأشرف برسباي = #AIND-D02168（確定ID）。'
-  norm: الاشرف
 - id: r2
   type: kin
   subtype: father
@@ -35,7 +33,6 @@ relations:
   passive: AIND-D03261
   summary:
     ar: بردبك المحمدي الطويل (عوضا عنه)
-  quote: null
   note:
     ja: بردبك المحمدي الطويل ابن عم الأشرف برسباي（#AIND-D02158）。同項「تأمر عشرة … واستقر في امرته ابنه شاذبك من صديق」＝本項主はその息子で十人長を継いだ。初版は predecessor のみ。
 - id: r3
@@ -43,41 +40,58 @@ relations:
   subtype: predecessor
   active: AIND-D02158
   passive: AIND-D03261
-  quote: null
   phrase: أحد العشرات عوضا عن بردبك المحمدي الطويل
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m5
   passive: AIND-D03261
   corresp: AIND-D06305
-  quote: قايتباي
   phrase: ممن رقاه الأشرف قايتباي للامرة وغيرها
 states:
 - id: s1
   type: office
-  ref: TMP-O-00241
-  quote: شاد العمائر السلطانية
   note:
     ja: ID-Master 未登録 → 新規 TMP-O-00241。
-  norm: شاد العماءر السلطانية
+  mention: m2
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: وأحد العشرات
   note:
     ja: 十人長 = 登録済み أمير عشرة（TMP-O-00101）。
-  norm: احد العشرات
+  mention: m3
 events:
 - id: e1
   type: political
   summary:
     en: Took part in military expeditions (tajārīd) more than once.
-  quote: وسافر في التجاريد غير مرة
-  norm: سافر في التجاريد غير مرة
+  phrase: وسافر في التجاريد غير مرة
+  mention: null
 notes:
 - text: 「من صديق」＝購入元（商人 صديق）による呼称。初版の TMP-P-000602「صديق」（=D01711 الأهدل 家の息子）は別人の流用のため除去し、人物 relation は立てない（名不詳の商人）。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: شاذ
+- id: m2
+  kind: office
+  ref: TMP-O-00241
+  quote: شاد العمائر السلطانية
+  norm: شاد العماءر السلطانية
+- id: m3
+  kind: office
+  ref: TMP-O-00101
+  quote: وأحد العشرات
+  norm: احد العشرات
+- id: m4
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m5
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي
 translation:
   ja: シャーズ・バク・ミン・スィッディーク・アル＝アシュラフィー・バルスバーイ。スルターン造営事業の監督官（シャーッド・アル＝アマーイル・アッ＝スルターニーヤ）で、バルドバク・アル＝ムハンマディー・アッ＝タウィールの後任として十人長の一人となった。アル＝アシュラフ・カーイトバーイがアミール職などに引き上げた者の一人で、幾度も遠征に出た。
   en: Shādh Bak min Ṣiddīq al-Ashrafī Barsbāy, superintendent of the royal buildings (shādd al-ʿamāʾir al-sulṭāniyya) and one of the amirs of ten, in place of Bardbak al-Muḥammadī al-Ṭawīl. He was among those whom al-Ashraf Qāytbāy promoted to an amirate and other posts, and he went out on expeditions more than once.

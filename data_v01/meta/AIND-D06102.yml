@@ -9,70 +9,110 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00057
-    quote: الفيومي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n3
     type: laqab
-    quote: الشرف
+    mention: m3
   - id: n4
     type: shuhrah
-    quote: بالعلاف
-    norm: العلاف
     label: العلاف
+    mention: m7
   - id: n5
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m2
 death:
   id: d
   date:
     ah: 865-03
   places:
-  - ref: TMP-L-00036
-    quote: بجدة
-    norm: جدة
-  - ref: TMP-L-00036
-    role: burial
-    quote: بجدة
-    norm: جدة
+  - mention: m10
+  - role: burial
+    mention: m10
   note:
     ja: 「مات في ربيع الأول سنة خمس وستين بجدة ودفن بها」。865-03 ＝ 1460-12-24〜1461-01-22、月初 1460-12（h2g.py。初版は年精度 1461）。埋葬地は「بها」＝ジッダ。
-  quote: سنة
+  mention: m9
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: التاجر السفار في البحر وغيره
   note:
     ja: 見出しの「التاجر السفار في البحر وغيره」＝海路その他を旅する商人。初版の travel event（placeName「البحر」#NEEDID）は特定の旅ではなく職業的性格の記述のため state に統合。
+  mention: m6
 - id: s2
   type: status
   label: كان لا بأس به
   label_latn: kāna lā baʾsa bih
-  quote: وكان لا بأس به
-  norm: كان لا باس به
+  mention: m11
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m13
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 865（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版は統制外 subtype「historian」の relation。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m3
+  kind: name
+  quote: الشرف
+- id: m4
+  kind: name
+  ref: TMP-N-00057
+  quote: الفيومي
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر السفار في البحر وغيره
+- id: m7
+  kind: name
+  quote: بالعلاف
+  norm: العلاف
+- id: m8
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m9
+  kind: year
+  value: '865'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بجدة
+  ref: TMP-L-00036
+  norm: جدة
+- id: m11
+  kind: office
+  quote: وكان لا بأس به
+  norm: كان لا باس به
+- id: m12
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: イーサー・ブン・ムーサー、アッ＝シャラフ・アル＝ファイユーミー・アル＝ミスリー、海路その他を旅する商人で、アル＝アッラーフとして知られる。（8）65年ラビーウ・アル＝アウワル月にジッダで没し、同地に埋葬された。悪くない人物であった。イブン・ファハドがその没年月を記録している。
   en: ʿĪsā b. Mūsā, al-Sharaf al-Fayyūmī al-Miṣrī, the merchant who travelled by sea and otherwise, known as al-ʿAllāf. He died in Rabīʿ al-Awwal of the year (8)65 in Jidda and was buried there. He was a decent man. Ibn Fahd recorded his death.

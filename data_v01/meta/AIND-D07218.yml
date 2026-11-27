@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00183
-    quote: الشطنوفي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: أبو بكر بن علي الشطنوفي
@@ -34,26 +32,22 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07218
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m7
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
 - id: r2
   type: kin
   subtype: cousin
-  active: AIND-D01181
+  active: m5
   passive: AIND-D07218
   summary:
     ar: الشهاب أحمد بن محمد بن إبراهيم الشطنوفي
-  quote: ابن عم
   note:
     ja: '「ابن عم الشهاب أحمد بن محمد بن إبراهيم الماضي」＝#AIND-D01181（أحمد بن محمد بن إبراهيم بن أبي بكر … الشهاب بن الشمس الشطنوفي الأصل القاهري、797生）。名・ナサブ3代・ニスバ・「الماضي」が一致。初版の #NEEDID を解消。なお両者の父（أبو بكر بن علي と محمد بن إبراهيم）は兄弟ではないため「ابن عم」は広義（同族）。'
 - id: r3
@@ -61,9 +55,36 @@ relations:
   subtype: father
   active: AIND-D07218#p1
   passive: AIND-D07218
-  quote: null
   note:
     ja: '父は見出しのナサブのみ。corpus に「أبو بكر بن علي … الشطنوفي」の見出しなし → #NEEDID（規則3）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00183
+  quote: الشطنوفي
+- id: m5
+  kind: person
+  ref: AIND-D01181
+  quote: ابن عم
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アリー・アッ＝シャトヌーフィー、前述のアッ＝シハーブ・アフマド・ブン・ムハンマド・ブン・イブラーヒームの従兄弟。カイロで私（サハーウィー）に聴聞した者の一人。
   en: Muḥammad b. Abī Bakr b. ʿAlī al-Shaṭnūfī, paternal cousin of al-Shihāb Aḥmad b. Muḥammad b. Ibrāhīm, mentioned above. He is among those who heard from me in Cairo.

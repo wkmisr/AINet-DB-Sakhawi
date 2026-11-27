@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: خشكلدي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 886-09
     cert: medium
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m3
   note:
     ja: 「أصيب في الحريق الكائن بها في رمضان سنة ست وثمانين」＝886 年ラマダーン月（月初 1481-11-02）にマディーナで起きた火災（預言者モスクの大火）で被災した。「أصيب」は死亡を明記しないため、repo 先例 D03335（同文「أصيب في الحريق الكائن بها … رحمه الله」を死亡と読む）に倣い death を立てつつ cert medium。「بها」＝見出しの المدينة النبوية（gn:109223）。同内容（desc・日付・地）の event type="other" n=1 と二重だったので、desc を death に移して event を削除（集約 2026-10-26、内容B F07）。
-  quote: سنة
   phrase: أصيب في الحريق الكائن بها في رمضان سنة ست وثمانين
+  mention: m5
 persons:
 - id: p1
   label: والد خشكلدي نائب المشيخة بالمدينة النبوية
@@ -34,22 +32,39 @@ relations:
   subtype: father
   active: AIND-D02841#p1
   passive: AIND-D02841
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: TMP-O-00093
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: نائب المشيخة
+  - mention: m3
   note:
     ja: '「نائب المشيخة بالمدينة النبوية」＝マディーナ（預言者モスクの奉仕者団）のシャイフ職の代理。ID-Master に同職なし（مشيخة 系は O-00011・O-00013・O-00077 等の施設固有職のみ）のため、汎用 نائب（TMP-O-00053）＋ラベル（先例 D05921「نائب قلعة حلب」方式）。初版は #NEEDID、placeName も #NEEDID → gn:109223。初版の date type=retirement（886-09）は原文に退任の記載がないため除去。'
+  mention: m2
+mentions:
+- id: m1
+  kind: name
+  quote: خشكلدي
+- id: m2
+  kind: office
+  ref: TMP-O-00093
+  quote: نائب المشيخة
   norm: ناءب المشيخة
+- id: m3
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m4
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m5
+  kind: year
+  value: '886'
+  quote: سنة
 translation:
   ja: フシュカルディー、預言者の町マディーナのシャイフ職の代理（ナーイブ・アル＝マシュヤハ）。886年ラマダーン月に同地で起きた火災で被災した（落命したとみられる）。
   en: Khushkaldī, deputy of the shaykh-ship (nāʾib al-mashyakha) in the Prophet's City (Medina). He was struck down in the fire that broke out there in Ramaḍān of the year 886.

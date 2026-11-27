@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00871
-    quote: الفاخوري
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشهاب
+    mention: m4
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m2
   - id: n6
     type: nasab
-    quote: رجب
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: علي（836年シャームで聴聞。原文「وكذا سمع بالشام في التي قبلها علي」。人物特定不能・要精査）
@@ -40,7 +36,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00112
+  active: m8
   passive: AIND-D01663
   methods:
   - TMP-S-00003
@@ -51,11 +47,10 @@ relations:
       type: learning
   works:
   - ref: wd:Q12217063
-  quote: شيخنا ابن خضر
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000449
+  active: m10
   passive: AIND-D01663
   methods:
   - TMP-S-00011
@@ -66,7 +61,6 @@ relations:
       type: learning
   works:
   - ref: wd:Q12217063
-  quote: البدر حسين البوصيري
 - id: r3
   type: scholarly
   subtype: teacher
@@ -80,10 +74,7 @@ relations:
       ah: 836
       type: learning
     places:
-    - ref: TMP-L-00002
-      quote: بالشام
-      norm: الشام
-  quote: null
+    - mention: m11
   note:
     ja: '監査20260907: 本文から相手を一意に特定できず #NEEDID'
 events:
@@ -94,20 +85,61 @@ events:
     cert: high
     type: learning
   places:
-  - ref: TMP-L-00002
-    quote: بالشام
-    norm: الشام
+  - mention: m11
   methods:
   - TMP-S-00003
-  quote: وسمع
   cert: high
   trigger: rule
-  norm: سمع
+  mention: m7
 - id: e2
   type: other
   summary:
     en: Sought temporary employment/livelihood for a period.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m3
+  kind: name
+  quote: رجب
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: TMP-N-00871
+  quote: الفاخوري
+- id: m7
+  kind: event
+  quote: وسمع
+  norm: سمع
+- id: m8
+  kind: person
+  ref: AIND-D00112
+  quote: شيخنا ابن خضر
+- id: m9
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000449
+  quote: البدر حسين البوصيري
+- id: m11
+  kind: place
+  quote: بالشام
+  ref: TMP-L-00002
+  norm: الشام
 translation:
   ja: アハマド・ブン・ムーサー・ブン・ラジャブ、ラカブはアッ＝シハーブ、ニスバはアッ＝ディマシュキー、アル＝ファークーリー。彼は一時職を求めて、837年に我らがシャイフ、イブン・ヒドルが朗誦するのを聞いて『スンアン・アッ＝ダーラクートニー』をアル＝バドル・フサイン・アル＝ブーシーリーから聞き、またその前年にはアッ＝シャームでアリーから聞き、そして死去した。
   en: Ahmad b. Mūsā b. Rajab, al-Shihāb al-Dimashqī al-Fākhūrī. He sought employment for a time and heard, by the reading of our shaykh Ibn Khiḍr, in the year 837, Sunan al-Dāraquṭnī from al-Badr Ḥusayn al-Būṣīrī. Likewise, he heard in al-Shām in the year prior to that (836) from ʿAlī, and then he died.

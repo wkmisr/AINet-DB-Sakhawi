@@ -9,76 +9,69 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m8
   - id: n2
     type: laqab
-    quote: السراج
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن الصيرفي
+    mention: null
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05280
+    mention: m2
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: العلاء
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: الصيرفي
     by: rule
+    mention: m7
   - id: n10
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07166
+  active: m17
   passive: AIND-D05902
   methods:
   - TMP-S-00008
-  quote: البدر بن قاضي شهبة
   note:
     ja: '「ومن شيوخه البدر بن قاضي شهبة」。البدر ＝ #AIND-D07166「محمد بن أبي بكر بن أحمد بن محمد بن عمر بن محمد بن عبد الوهاب الفقيه البدر أبو الفضل بن فقيه الشام التقي الأسدي الدمشقي الشافعي ويعرف كسلفه بابن قاضي شهبة」（798年生・874年没）。ID-Master の Q85461758 は父の التقي بن قاضي شهبة で別人。初版の #NEEDID を差し替え。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D05280
+  active: m14
   passive: AIND-D05902
   methods:
   - TMP-S-00008
   summary:
     ar: العلاء علي بن عثمان
   cert: low
-  quote: بابن الصيرفي
   note:
     ja: '「بل لا يبعد أخذه عن أبيه」＝サハーウィーの推測（父からも学んだ可能性が高い）→ cert low。相手は父 #AIND-D05280。初版の #NEEDID を差し替え。'
-  norm: ابن الصيرفي
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D10715
+  active: m15
   passive: AIND-D05902
-  quote: التقي بن قاضي عجلون
   note:
     ja: '「درس بالشامية البرانية لكون التقي بن قاضي عجلون رغب له عن الثلث فيها」＝التقي بن قاضي عجلون が الشامية البرانية の教授職の三分の一を本項主に譲った → 前任者（規則29 の「خلف … في」に準ずる）。相手 ＝ #AIND-D10715「أبو بكر بن عبد الله بن عبد الرحمن بن محمد بن محمد التقي الدمشقي الشافعي … ويعرف كسلفه بابن قاضي عجلون」（841年生）。初版の幻番号 TMP-P-000573 は ID-Master で #AIND-D10715 に名寄せ済みのため AIND に差し替え、統制外 subtype「colleague」を predecessor に。'
 - id: r4
@@ -88,21 +81,16 @@ relations:
   passive: AIND-D05902
   summary:
     ar: العلاء علي بن عثمان بن عمر بن الصيرفي
-  quote: null
   note:
     ja: '「والماضي أبوه」。父 ＝ #AIND-D05280「علي بن عثمان بن عمر بن صالح العلاء أبو الحسن الدمشقي ويعرف بابن الصيرفي」（778年生）。ニスバ索引 #AIND-D12472「ابن الصيرفي العلاء علي بن عثمان بن عمر الدمشقي وابنه عمر أحد نواب الشام」でも父子が確認できる。初版の #NEEDID を差し替え。なお D06021「عمر السراج بن الصيرفي الدمشقي أحد نواب الشافعية بها . فيمن اسم أبيه علي بن عثمان بن عمر」は本項への転送見出し。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: أحد نواب الشافعية
+  - mention: m11
   note:
     ja: 「أحد نواب الشافعية بدمشق」。シャーフィイー派法官の代理（副カーディー）＝ TMP-O-00003 نائب القاضي。場所 دمشق は原文に明記。
-  norm: احد نواب الشافعية
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
@@ -119,18 +107,81 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m13
   trigger: rule
   phrase: ممن قدم القاهرة غير مرة
+  mention: m12
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D05280
+  quote: علي
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: السراج
+- id: m6
+  kind: name
+  quote: العلاء
+- id: m7
+  kind: name
+  quote: الصيرفي
+- id: m8
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: office
+  ref: TMP-O-00096
+  quote: أحد نواب الشافعية
+  norm: احد نواب الشافعية
+- id: m11
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m12
+  kind: event
+  quote: قدم
+- id: m13
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m14
+  kind: person
+  ref: AIND-D05280
+  quote: بابن الصيرفي
+  norm: ابن الصيرفي
+- id: m15
+  kind: person
+  ref: AIND-D10715
+  quote: التقي بن قاضي عجلون
+- id: m16
+  kind: event
+  quote: وحج
+- id: m17
+  kind: person
+  ref: AIND-D07166
+  quote: البدر بن قاضي شهبة
 translation:
   ja: ウマル・ブン・アリー・ブン・ウスマーン・ブン・ウマル、アッ＝シラージュ・ブン・アル＝アラー・ブン・アッ＝サイラフィー、アッ＝ディマシュキー・アッ＝シャーフィイー。ダマスクスのシャーフィイー派副法官の一人で、その俊秀の一人。父は前述。何度もカイロに来た者の一人で、イブン・アッ＝サイラフィーとして知られる。アッ＝タキー・ブン・カーディー・アジュルーンがアッ＝シャーミーヤ・アル＝バッラーニーヤ（の教授職）の三分の一を彼に譲ったので、同校で教授した。巡礼を行った。彼の師にはアル＝バドル・ブン・カーディー・シュフバがおり、父から学んだとしても不思議ではない。
   en: ʿUmar b. ʿAlī b. ʿUthmān b. ʿUmar, al-Sirāj b. al-ʿAlāʾ b. al-Ṣayrafī, al-Dimashqī al-Shāfiʿī, one of the Shāfiʿī deputy judges of Damascus and one of its distinguished men; his father was mentioned above. He was among those who came to Cairo more than once, and he was known as Ibn al-Ṣayrafī. He taught at al-Shāmiyya al-Barrāniyya because al-Taqī b. Qāḍī ʿAjlūn ceded to him a third of it, and he performed the pilgrimage. Among his teachers was al-Badr b. Qāḍī Shuhba, and it is not unlikely that he also studied with his father.

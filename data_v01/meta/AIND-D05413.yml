@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00162
-    quote: الأسيوطي
-    norm: الاسيوطي
+    mention: m5
   - id: n2
     type: kunyah
-    quote: أبو النجا
-    norm: ابو النجا
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
 persons:
 - id: p1
   label: محمد بن أبي بكر الأسيوطي
@@ -39,18 +35,15 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D05413
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m7
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
   note:
     ja: 規則2（年の記載なし）。
 - id: r2
@@ -58,9 +51,37 @@ relations:
   subtype: father
   active: AIND-D05413#p1
   passive: AIND-D05413
-  quote: null
   note:
     ja: '規則3。見出しナサブのみの汎用名（識別要素なし）、corpus に本伝なし → #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: أبو النجا
+  norm: ابو النجا
+- id: m5
+  kind: name
+  ref: TMP-N-00162
+  quote: الأسيوطي
+  norm: الاسيوطي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アビー・バクル、アブー・アン＝ナジャー・アル＝アスユーティー。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Muḥammad b. Abī Bakr, Abū al-Najā al-Asyūṭī. He was among those who heard from me (al-Sakhāwī) in Cairo.

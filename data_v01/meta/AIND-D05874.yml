@@ -9,37 +9,35 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد العزيز
     by: rule
-    ref: AIND-D03985
+    mention: m2
   - id: n3
     type: nasab
-    quote: صاحبنا النجم عمر
     by: rule
-    ref: AIND-D05979
+    mention: m3
   - id: n4
     type: nasab
-    quote: التقي محمد
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n6
     type: nasab
-    quote: فهد
     by: rule
+    mention: m6
 birth:
   id: b
   date:
     ah: 889
   note:
     ja: 「تجدد في سنة تسع وثمانين」＝889年に生まれた（新たに生じた）。889 ＝ 1484-02-08〜1485-01-26、年初 1484。
-  quote: سنة
+  mention: m7
 death:
   id: d
   date:
@@ -51,7 +49,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05593
+  active: m8
   passive: AIND-D05874
   methods:
   - TMP-S-00004
@@ -62,10 +60,8 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00211
-  quote: لحفيد يوسف العجمي المسند علي
   note:
     ja: '「فأرسلت لحفيد يوسف العجمي المسند علي فأجاز له وكتب في طبقة مسند عمر للنجاد」。相手＝#AIND-D05593「علي بن محمد بن يوسف … النور … ويعرف بحفيد الشيخ يوسف العجمي」（890年没・晩年に伝承を多くした المسند）で名・通称・年代が一致。ID-Master の TMP-P-000289「حفيد الشيخ يوسف العجمي」（三浦氏、Note 空欄）は同一人物 → 統合時に #AIND-D05593 へ名寄せ要。書名『مسند عمر للنجاد』（أحمد بن سلمان النجاد 編の ʿUmar b. al-Khaṭṭāb 伝承集）は ID-Master 未登録 → 新規 TMP-T-00211。イジャーザはサハーウィーが手紙で依頼したもの（下の event）。初版の field（الحديث）は原文に無いため除去。'
-  norm: حفيد يوسف العجمي المسند علي
   phrase: حفيد يوسف العجمي المسند علي
 - id: r2
   type: kin
@@ -74,7 +70,6 @@ relations:
   passive: AIND-D05874
   summary:
     ar: عبد العزيز بن عمر بن محمد بن محمد بن فهد
-  quote: null
   note:
     ja: '父 ＝ #AIND-D03985「عبد العزيز بن عمر بن محمد بن محمد بن أبي الخير محمد العز أبو فارس … ابن صاحبنا النجم أبي القسم الهاشمي المكي … ويعرف كسلفه بابن فهد」（850年生）。ナサブ4代一致。'
 - id: r3
@@ -82,7 +77,6 @@ relations:
   subtype: grandfather
   active: AIND-D05979
   passive: AIND-D05874
-  quote: null
   note:
     ja: '祖父 ＝ #AIND-D05979「عمر بن محمد بن محمد بن أبي الخير محمد … صاحبنا بل مفيدنا … النجم … ابن شيخنا التقي … والد عبد العزيز ويحيى ويعرف كسلفه بابن فهد」（812年生）。初版の #NEEDID を差し替え。'
   phrase: النجم عمر بن التقي محمد بن محمد بن فهد
@@ -94,10 +88,40 @@ events:
     type: cultural
   persons:
   - ref: wd:Q4120128
-  quote: فأرسلت لحفيد يوسف العجمي المسند علي فأجاز له وكتب في طبقة مسند عمر للنجاد
   note:
     ja: 'サハーウィー（一人称「أرسلت」）が本項主のために #AIND-D05593 へイジャーザを依頼し、聴聞記録（طبقة）に名を記させた。初版の英語 desc（内部ID TMP-P-000289 を含む）を原文句に置換。'
-  norm: ارسلت لحفيد يوسف العجمي المسند علي فاجاز له وكتب في طبقة مسند عمر للنجاد
+  phrase: فأرسلت لحفيد يوسف العجمي المسند علي فأجاز له وكتب في طبقة مسند عمر للنجاد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D03985
+  quote: عبد العزيز
+- id: m3
+  kind: name
+  ref: AIND-D05979
+  quote: صاحبنا النجم عمر
+- id: m4
+  kind: name
+  quote: التقي محمد
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: فهد
+- id: m7
+  kind: year
+  value: '889'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D05593
+  quote: لحفيد يوسف العجمي المسند علي
+  norm: حفيد يوسف العجمي المسند علي
 translation:
   ja: ウマル・ブン・アブドゥルアズィーズ、我らが同僚ナジュム・ウマル・ブン・アッ＝タキー・ムハンマド・ブン・ムハンマド・ブン・ファハドの孫。（8）89年に生まれたので、私はムスニドであるユースフ・アル＝アジャミーの孫アリーに手紙を送ったところ、彼にイジャーザを与え、アン＝ナッジャードの『ムスナド・ウマル』の聴聞記録（タバカ）に書き記した。ほどなくして彼は没した。
   en: ʿUmar b. ʿAbd al-ʿAzīz, grandson of our companion al-Najm ʿUmar b. al-Taqī Muḥammad b. Muḥammad b. Fahd. He was born in (8)89, so I wrote to ʿAlī, the grandson of Yūsuf al-ʿAjamī, the musnid, who granted him an ijāza and entered him in the audition record (ṭabaqa) of al-Najjād's Musnad ʿUmar. He did not live long and died.

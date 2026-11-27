@@ -9,55 +9,49 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: فضل
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عيسى
     by: rule
-    ref: TMP-P-001551
-    norm: عيسي
+    mention: m2
   - id: n3
     type: nasab
-    quote: رملة
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: جماز أمير آل علي
     by: rule
-    norm: جماز امير ال علي
+    mention: m4
 death:
   id: d
   date:
     ah: 816-11
   note:
     ja: 816-11-01＝1414-02-01、@when は月精度 1414-02。殺害地は原文に無い。
-  quote: سنة
   phrase: قتله نوروز في ذي القعدة سنة ست عشرة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001551
   passive: AIND-D06186
-  quote: null
   note:
     ja: 見出しナサブから復元（規則3）。corpus に「عيسى بن رملة」「رملة بن جماز」の見出しなし、ID-Master 未登録（本項主番号 D06186 で Note も検索）。ナサブ3代＋آل علي 首長家という識別要素があるため TMP-P-001551 を発行。
   phrase: عيسى بن رملة بن جماز
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m5
   passive: AIND-D06186
-  quote: برقوق
   note:
     ja: '「كان ممن نصر برقوق لما خرج من الكرك فصار وجيها عنده」。初版の wd:Q375664（要照合wd）→ 頻出確定ID #AIND-D02178。'
 - id: r3
   type: social
   subtype: killer
-  active: AIND-D10152
+  active: m8
   passive: AIND-D06186
-  quote: نوروز
   note:
     ja: '「إلى أن قتله نوروز في ذي القعدة سنة ست عشرة」。نوروز＝نوروز الحافظي（816年当時のシリア総督）。初版の TMP-P-000672（ID-Master 登録名 نوروز الحافظي、Note「corpus に本伝なし」）だが、corpus に本伝 #AIND-D10152「نوروز الحافظي الظاهري برقوق … قتل في ربيع الآخر سنة سبع عشرة」があり、repo でも D10152 が2件で参照済み → AIND を充当（規則32。TMP-P-000672 は AIND-D10152 と名寄せ要、§D127-3）。subtype は repo 統制語彙 killer（active＝加害者）。'
 states:
@@ -67,32 +61,76 @@ states:
   dates:
   - ah: 816-11
     type: retirement
-  quote: null
   note:
     ja: '「أمير آل علي دام في الإمرة خمسا وثلاثين سنة … إلى أن قتله نوروز」＝殺害（816）まで35年間在位（逆算すれば781年頃からだが原文に起年は無いので appointment は立てない）。آل علي（アラブ部族集団）の首長職は ID-Master 未登録（أمير العرب TMP-O-00159＝آل فضل 系、شيخ العرب TMP-O-00095 とは別実体）→ 仮番号 TMP-O-00343。初版の #TMP-O-00000（プレースホルダ）を是正。'
+  mention: null
 events:
 - id: e1
   type: political
   persons:
   - ref: AIND-D02178
   places:
-  - ref: TMP-L-00052
-    quote: الكرك
-  quote: قتله
+  - mention: m6
   trigger: rule
   phrase: كان ممن نصر برقوق لما خرج من الكرك فصار وجيها عنده
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版の chronicler relation を mention event に変更。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: فضل
+- id: m2
+  kind: name
+  ref: TMP-P-001551
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: رملة
+- id: m4
+  kind: name
+  quote: جماز أمير آل علي
+  norm: جماز امير ال علي
+- id: m5
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m6
+  kind: place
+  quote: الكرك
+  ref: TMP-L-00052
+- id: m7
+  kind: event
+  quote: قتله
+- id: m8
+  kind: person
+  ref: AIND-D10152
+  quote: نوروز
+- id: m9
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m10
+  kind: year
+  value: '816'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: ذكره
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ファドル・ブン・イーサー・ブン・ラムラ・ブン・ジャンマーズ、アール・アリーの首長（アミール）。35年間首長の座にあった。バルクークがアル＝カラクから出た際に彼を支援した者の一人であり、それによってバルクークのもとで重んじられた。（8）16年ズー・アル＝カアダ月にナウルーズに殺されるまでその地位にあり続けた。われらがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Faḍl b. ʿĪsā b. Ramla b. Jammāz, amīr of Āl ʿAlī. He held the emirate for thirty-five years. He was among those who supported Barqūq when he came out of al-Karak, and thereby became highly regarded by him. He continued thus until Nawrūz killed him in Dhū al-Qaʿda of the year [8]16. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

@@ -9,22 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
 death:
   id: d
   places:
-  - ref: gn:281184
-    quote: بيت المقدس
+  - mention: m5
   note:
     ja: 「والمتوفي به في ...」。没地は「به」（＝بيت المقدس）の照応による指示。没年は刊本で空欄（...）。
 persons:
@@ -39,18 +36,35 @@ relations:
   subtype: father
   active: AIND-D04948#p1
   passive: AIND-D04948
-  quote: null
   note:
     ja: '父は裸名（إبراهيم）＋ニスバのみで祖父名を復元できず、corpus に該当本伝も見当たらないため #NEEDID 維持（統一規則3・12）。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:281184
-    quote: بيت المقدس
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل بيت المقدس
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: بيت المقدس
+  ref: gn:281184
 translation:
   ja: アリー・ブン・イブラーヒーム・アル＝ガッズィー。エルサレム（バイト・アル＝マクディス）に住み着き、同地で……年に没した。
   en: ʿAlī b. Ibrāhīm al-Ghazzī, resident of Jerusalem (Bayt al-Maqdis), who died there in [the year is left blank].

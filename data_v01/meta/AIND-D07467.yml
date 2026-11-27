@@ -9,44 +9,40 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: سيف
     by: rule
-    ref: TMP-P-001162
+    mention: m2
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: بشارة
     by: rule
+    mention: m5
 death:
   id: d
   date:
     ah: 819-12
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m6
   note:
     ar: مات مقتولا بالقاهرة وحشي جلده تبنا وحمل إلى صفد في ذي الحجة سنة تسع عشرة
     ja: 819年ズー・アル＝ヒッジャ月＝1417-01（月初 1417-01-29、グレゴリオ暦・独立再計算）。カイロで殺害され、皮に藁を詰めてサファドへ運ばれた。صفد は埋葬地として記されていない（「حمل إلى」＝晒しのための移送）ため、初版の type="burial" placeName を除去し other event に移した。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001162
   passive: AIND-D07467
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（規則3）。بنو بشارة はサファド方面の عشير（部族民）の長の一族（corpus D02119「نجم الدين بن البدر بن ناصر الدين بن بشارة مقدم العشير ببلاد صيدا」、D12189「ابن بشارة أحد مشايخ العشير」）。corpus に父の本伝なし・ID-Master 未登録のため新規 TMP-P-001162。初版は father relation なし。
   phrase: سيف بن محمد بن عمر بن بشارة
@@ -57,20 +53,59 @@ events:
     ah: 819-12
     type: other
   places:
-  - ref: gn:293100
-    quote: صفد
-  quote: وحشي جلده تبنا وحمل إلى صفد
-  norm: حشي جلده تبنا وحمل الي صفد
+  - mention: m7
+  phrase: وحشي جلده تبنا وحمل إلى صفد
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ذكره
+  - mention: m11
   note:
     ja: Pattern A。「أيضا」は直前項（D07466「ذكره شيخنا في أنبائه」）を受けるが、本項原文に書名の明示がないため bibl は付けない。初版の統制外 subtype「mentioned_by」relation を event に置換。
   trigger: rule
   phrase: ذكره شيخنا أيضا
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001162
+  quote: سيف
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: بشارة
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m7
+  kind: place
+  quote: صفد
+  ref: gn:293100
+- id: m8
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m9
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・サイフ・ブン・ムハンマド・ブン・ウマル・ブン・ビシャーラ。カイロで殺害され、その皮に藁が詰められ、819年ズー・アル＝ヒッジャ月にサファドへ運ばれた。我らがシャイフ（イブン・ハジャル）も彼に言及している。
   en: Muḥammad b. Sayf b. Muḥammad b. ʿUmar b. Bishāra. He was killed in Cairo; his skin was stuffed with straw and carried to Ṣafad, in Dhū al-Ḥijja of the year 819. Our shaykh (Ibn Ḥajar) also mentioned him.

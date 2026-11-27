@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: زين الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: فياض
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 809
     cert: medium
   places:
-  - ref: TMP-L-00047
-    quote: آمد
-    norm: امد
+  - mention: m7
   note:
     ja: '「سنة تسع」＝一の位のみ→809（cert medium。文脈: جكم من عوض #AIND-D02428 のアーミド攻撃＝809年で確実。先例 #AIND-D07483「قتل في وقعة آمد مع جكم سنة تسع」→ 0809／1406）。809年初＝1406-06-27。死地はアーミド（会戦地）。'
-  quote: سنة
   phrase: قتل في وقعة جكم على آمد سنة تسع
+  mention: m8
 persons:
 - id: p1
   label: والد فياض زين الدين
@@ -37,19 +35,16 @@ relations:
   subtype: father
   active: AIND-D06193#p1
   passive: AIND-D06193
-  quote: null
   note:
     ja: '父の名は原文に無い → #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00065
   places:
-  - ref: TMP-L-00068
-    quote: ماردين
-  quote: حاجب صاحب
+  - mention: m4
   note:
     ja: 「حاجب صاحب ماردين」＝マールディーン君主の侍従。主君（صاحب ماردين）は名が無いため relation にしない。placeName ماردين は原文に明示。
+  mention: m3
 events:
 - id: e1
   type: political
@@ -58,30 +53,64 @@ events:
     cert: medium
     type: political
   persons:
-  - ref: AIND-D02428
-    quote: جكم
+  - mention: m6
   places:
-  - ref: TMP-L-00047
-    quote: آمد
-    norm: امد
-  quote: قتل
+  - mention: m7
   cert: medium
   note:
     ja: جكم＝جكم أبو الفرج الظاهري برقوق（جكم من عوض、#AIND-D02428。ID-Master で「جكم من عوض」→ AIND-D02428 に名寄せ済み）。本項主がどちらの陣営であったかは原文に無い。
   trigger: rule
   phrase: قتل في وقعة جكم على آمد سنة تسع
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m10
   note:
     ja: Pattern A。初版の非統制 relation（subtype「chronicled by」）を mention event に変更。
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: فياض
+- id: m2
+  kind: name
+  quote: زين الدين
+- id: m3
+  kind: office
+  ref: TMP-O-00065
+  quote: حاجب صاحب
+- id: m4
+  kind: place
+  quote: ماردين
+  ref: TMP-L-00068
+- id: m5
+  kind: event
+  quote: قتل
+- id: m6
+  kind: person
+  ref: AIND-D02428
+  quote: جكم
+- id: m7
+  kind: place
+  quote: آمد
+  ref: TMP-L-00047
+  norm: امد
+- id: m8
+  kind: year
+  value: '809'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: ファイヤード、ザイン・アッ＝ディーン。マールディーン君主の侍従（ハージブ）。（8）09年のジャカムによるアーミドの戦いで殺された。アル＝アイニーが彼の没年を記している。
   en: Fayyāḍ, Zayn al-Dīn, chamberlain (ḥājib) of the lord of Mārdīn. He was killed in Jakam's battle at Āmid in the year [8]09. Al-ʿAynī recorded his death date.

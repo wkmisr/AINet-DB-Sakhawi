@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: كرلبغا
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -30,35 +30,51 @@ relations:
   subtype: father
   active: AIND-D06391#p1
   passive: AIND-D06391
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 - id: r2
   type: social
   subtype: patron
-  active: TMP-P-001604
+  active: m2
   passive: AIND-D06391
-  quote: فيروز الساقي
   note:
     ja: '「وخدم عند فيروز الساقي」。corpus に「فيروز … الساقي」の本伝が2件: #AIND-D06196「فيروز الخازنداري الرومي الساقي」（الناصر فرج の側近、814没）と #AIND-D06198「فيروز الرومي الساقي الجاركسي … صار ساقيا في أواخر الأيام الناصرية فرج ثم في الولاية المؤيدية ودام إلى الأيام الأشرفية … مات في شعبان سنة ثمان وأربعين」。本項主（没 842〜857）の年代はどちらとも矛盾せず、呼称のみでは確定できない（規則26）→ 先例（TMP-P-001375 دولات باي）どおり仮番号 TMP-P-001604 を発行し候補を note に（ISSUES §D139-2）。初版 #NEEDID。 「仕えた・重用された」型（名指しされた個人への奉仕・帰属）は repo 先例（D06170「اختص ببرسباي قرا」、D05189「تقدم عند مخدومه」）どおり subtype="patron" に統一。規則53（任官・追放した主人でない君主＝event）とは別型（本人が仕えた相手）（集約 2026-10-26、オーケストレーター決定5）。'
 events:
 - id: e1
   type: religious
-  quote: ثم توجه للعبادة والتلاوة
+  phrase: ثم توجه للعبادة والتلاوة
+  mention: null
 - id: e2
   type: other
   places:
-  - ref: TMP-L-00367
-    quote: الخليج الحاكمي
-  - ref: TMP-L-00368
-    quote: شق الثعبان
-  - ref: TMP-L-00369
-    quote: وقنطرة سنقر
-    norm: قنطرة سنقر
-  quote: وبنى جامعا على الخليج الحاكمي بالقرب من شق الثعبان وقنطرة سنقر وانقطع به
+  - mention: m3
+  - mention: m4
+  - mention: m5
   note:
     ja: 'カイロのハーキム運河（الخليج الحاكمي）沿い、شق الثعبان と قنطرة سنقر の近くにモスクを建て、そこに籠った。3地名はいずれも ID-Master の Location に未登録（قنطرة سنقر は corpus に他4箇所: D03xxx「تحول لقنطرة سنقر」・「مسجد عبد اللطيف بقنطرة سنقر」×2・「بيته بقرب قنطرة سنقر」）→ 新規 TMP-L-00367〜03。モスク自体は名が無いので TMP-I は発行しない。初版の二重の affiliation（founded／reside、orgName の重複文字列）と英語 desc の event 2件を本 event に統合。placeName القاهرة（原文に無い）は除去（規則22）。'
-  norm: بني جامعا علي الخليج الحاكمي بالقرب من شق الثعبان وقنطرة سنقر وانقطع به
+  phrase: وبنى جامعا على الخليج الحاكمي بالقرب من شق الثعبان وقنطرة سنقر وانقطع به
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: كرلبغا
+- id: m2
+  kind: person
+  ref: TMP-P-001604
+  quote: فيروز الساقي
+- id: m3
+  kind: place
+  quote: الخليج الحاكمي
+  ref: TMP-L-00367
+- id: m4
+  kind: place
+  quote: شق الثعبان
+  ref: TMP-L-00368
+- id: m5
+  kind: place
+  quote: وقنطرة سنقر
+  ref: TMP-L-00369
+  norm: قنطرة سنقر
 translation:
   ja: クルルブガー。フィールーズ・アッ＝サーキーのもとで仕え、のち礼拝と（クルアーン）読誦に専念し、ハーキム運河沿いのシャック・アッ＝スウバーンとスンクル橋の近くにモスクを建ててそこに籠った。アッ＝ザーヒル・ジャクマクの時代に没した。
   en: Kurulbughā. He served under Fīrūz al-Sāqī, then devoted himself to worship and recitation, and built a mosque on al-Khalīj al-Ḥākimī near Shaqq al-Thuʿbān and Qanṭarat Sunqur, where he secluded himself. He died in the days of al-Ẓāhir Jaqmaq.

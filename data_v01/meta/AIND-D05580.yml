@@ -9,76 +9,65 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01381
-    quote: المسلمي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو الحسن
-    norm: ابو الحسن
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: مفضل
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m8
   passive: AIND-D05580
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: شيخنا
   phrase: سمع على شيخنا وغيره
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D01869
+  active: m13
   passive: AIND-D05580
   summary:
     ar: خالط غير واحد من الأمراء سيما أزبك الخازندار رأس نوبة النواب بحيث تكلم له في مشيخة سعيد السعداء بعد الكوراني
   cert: medium
-  quote: أزبك الخازندار
   note:
     ja: أزبك الخازندار رأس نوبة النواب = أزبك من ططخ الأشرفي ثم الظاهري جقمق（#AIND-D01869、のち أتابك。D10002「أزبك الخازندار رأس نوبة النوب بعد موت تنم」）。同名の أزبك اليوسفي الخازندار（#AIND-D01871、ناظر الخاص）と区別するため「رأس نوبة النواب」で同定、cert="medium"（要判断 B64-67 §D-5 の同名問題に関連）。
-  norm: ازبك الخازندار
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
-  quote: وناب
-  norm: ناب
   phrase: وناب في القضاء
+  mention: m10
 - id: s2
   type: office
-  ref: TMP-O-00032
   orgs:
   - ref: TMP-I-00126
-  quote: تكلم
+  mention: m14
 - id: s3
   type: status
   label: يذكر بثروة من جهة النساء
   label_latn: yudhkar bi-tharwa min jihat al-nisāʾ
-  quote: ويذكر بثروة من جهة النساء
-  norm: يذكر بثروة من جهة النساء
+  mention: m16
 affiliations:
 - id: a1
   type: madhhab
@@ -95,31 +84,91 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
+  mention: m9
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00244
-    quote: باب القنطرة
-  quote: وسكن
+  - mention: m12
   note:
     ja: باب القنطرة → 新規 TMP-L-00244。
   trigger: rule
-  norm: سكن
   phrase: سكن زاوية أبي السعود بموقف المكارية داخل باب القنطرة لكونها تحت نظره
+  mention: m11
 - id: e3
   type: political
   persons:
-  - ref: AIND-D04569
-    quote: الكوراني
+  - mention: m15
   orgs:
   - ref: TMP-I-00018
   summary:
     ar: تكلم له (أزبك) في مشيخة سعيد السعداء بعد الكوراني وطمحت نفسه لأعلى منها مع نقصه جدا
-  quote: null
   note:
     ja: الكوراني = الجمال عبد الله بن محمد بن خضر الكوراني ثم القاهري الشافعي شيخ سعيد السعداء（#AIND-D04569。ニスバ索引 D11980「شيخ سعيد السعداء」）。初版はニスバ番号 TMP-N-00257 を person 位置に流用し predecessor relation にしていたが、原文は「働きかけがあった」のみで就任は記されないため relation・office 化しない。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: مفضل
+- id: m4
+  kind: name
+  quote: أبو الحسن
+  norm: ابو الحسن
+- id: m5
+  kind: name
+  ref: TMP-N-01381
+  quote: المسلمي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m9
+  kind: event
+  quote: وحج
+- id: m10
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m11
+  kind: event
+  quote: وسكن
+  norm: سكن
+- id: m12
+  kind: place
+  quote: باب القنطرة
+  ref: TMP-L-00244
+- id: m13
+  kind: person
+  ref: AIND-D01869
+  quote: أزبك الخازندار
+  norm: ازبك الخازندار
+- id: m14
+  kind: office
+  ref: TMP-O-00032
+  quote: تكلم
+- id: m15
+  kind: person
+  ref: AIND-D04569
+  quote: الكوراني
+- id: m16
+  kind: office
+  quote: ويذكر بثروة من جهة النساء
+  norm: يذكر بثروة من جهة النساء
 translation:
   ja: アリー・ブン・ムハンマド・ブン・ムファッダル、アブー・アル＝ハサン・アル＝ムスリミー、のちにアル＝カーヒリー、シャーフィイー派。我らがシャイフ（イブン・ハジャル）らのもとで聴聞し、巡礼を行い、カーディー代理を務め、バーブ・アル＝カンタラの内側、御者たちの停留所にあるアブー・アッ＝スウードのザーウィヤに住んだ。それが彼の管財下にあったからである。アミールたちの幾人かと交わり、とりわけラアス・ナウバト・アン＝ヌウワーブのアズバク・アル＝ハーズィンダールとは、アル＝クーラーニーの後のサイード・アッ＝スアダーのシャイフ職について彼のために口を利いてもらうほどであった。彼は自らのはなはだしい欠陥にもかかわらず、それより上の地位を望んだ。女性たち（妻）由来の財産で富裕と噂される。
   en: ʿAlī b. Muḥammad b. Mufaḍḍal, Abū al-Ḥasan al-Muslimī, then al-Qāhirī, al-Shāfiʿī. He heard from our shaykh (Ibn Ḥajar) and others, performed the pilgrimage, served as deputy qāḍī, and lived in the Zāwiya of Abū al-Suʿūd at the muleteers' station inside Bāb al-Qanṭara, since it was under his supervision. He mixed with several amirs, especially Azbak al-Khāzindār, raʾs nawbat al-nuwwāb, to the point that the latter spoke on his behalf for the shaykhship of Saʿīd al-Suʿadāʾ after al-Kūrānī; and he aspired to even higher posts despite his great deficiency. He is said to be wealthy through (his) women.

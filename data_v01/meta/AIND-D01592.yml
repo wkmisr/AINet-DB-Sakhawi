@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشهاب
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن العطار
+    mention: null
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 801-10
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   for: r1
@@ -41,48 +40,42 @@ relations:
   - label: طلب الحديث
   fields:
   - TMP-S-00002
-  quote: null
   note:
     ja: 原文「وقد طلب الحديث وقتا رفيقا للشمس بن سيد وابن إمام المشهد」に師の名がない（両名は同学の仲間で師ではない。#NEEDID 維持、規則12）。
 - id: r2
   type: social
   subtype: colleague
-  active: TMP-P-000597
+  active: m5
   passive: AIND-D01592
   summary:
     ar: الشمس بن سيد
-  quote: للشمس بن سيد
   note:
     en: Companion (rafīq) of the subject in seeking ḥadīth.
-  norm: لشمس بن سيد
 - id: r3
   type: social
   subtype: colleague
-  active: AIND-D05479
+  active: m6
   passive: AIND-D01592
-  quote: وابن إمام المشهد
   note:
     en: Companion (rafīq) of the subject in seeking ḥadīth. = al-Bahāʾ ʿAlī b. Muḥammad al-Anṣārī, known as Ibn Imām al-Mashhad (AIND-D05479, b. 743; Damascus ḥadīth milieu).
-  norm: ابن امام المشهد
   phrase: ابن إمام المشهد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00082
   orgs:
   - ref: wd:Q183562
-  quote: مستوفي
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName دمشق（gn:170654）を除去。根拠は〈施設 الجامع الاموي の所在地／ニスバ الدمشقي〉からの補完で原文に地名の明示なし。
+  mention: m4
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m9
 notes:
 - text: ウマイヤ・モスクの会計官（ムスタウフィー）を務め、その責任者（マバーシル）の中で最も傑出した生き残りの一人であった。
   lang: ja
@@ -90,6 +83,42 @@ notes:
 - text: He served as accountant (mustawfī) of the Umayyad Mosque and was the most eminent of those remaining among its administrators (mubāshirūn).
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الشهاب
+- id: m4
+  kind: office
+  ref: TMP-O-00082
+  quote: مستوفي
+- id: m5
+  kind: person
+  ref: TMP-P-000597
+  quote: للشمس بن سيد
+  norm: لشمس بن سيد
+- id: m6
+  kind: person
+  ref: AIND-D05479
+  quote: وابن إمام المشهد
+  norm: ابن امام المشهد
+- id: m7
+  kind: month
+  value: 10
+  quote: شوال
+- id: m8
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
 translation:
   ja: アフマド・ブン・ムハンマド・アッ＝シハーブ・アッ＝ディマシュキー・イブン・アル＝アッタール。ウマイヤ・モスクの会計官（ムスタウフィー）を務め、その責任者たちの中で最も傑出した生き残りの一人であった。彼は一時期ハディースを学んだ。アッ＝シャムス・ブン・サイイドおよびイブン・イマーム・アル＝マシュハドの学友（同輩）であった。801年シャウワール月に死去した。我らがシャイフ（イブン・ハジャル）がその著『インバーウ（・アル＝グムル）』で彼に言及している。
   en: Aḥmad b. Muḥammad al-Shihāb al-Dimashqī b. al-ʿAṭṭār. He served as the accountant (mustawfī) of the Umayyad Mosque and was among the most eminent of its surviving administrators. He sought ḥadīth for a time, and was a companion (rafīq) of al-Shams b. Sayyid and Ibn Imām al-Mashhad. He died in Shawwāl of the year 801 H. Our shaykh (Ibn Ḥajar) mentioned him in his work Inbāʾ (al-Ghumr).

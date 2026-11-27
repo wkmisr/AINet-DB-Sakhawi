@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن عبد العزيز
+    mention: null
   - id: n3
     type: ism
-    quote: عبد السلام
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 death:
   id: d
   date:
@@ -44,7 +41,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m8
   passive: AIND-D03921
   methods:
   - TMP-S-00003
@@ -53,19 +50,16 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: شيخنا
+    - mention: m7
   note:
     ja: '「سمع على شيخنا」= ابن حجر（wd:Q471116）。初版は #NEEDID。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D00207
+  active: m9
   passive: AIND-D03921
   methods:
   - TMP-S-00034
-  quote: البقاعي
   note:
     ja: 'البقاعي = #AIND-D00207（corresp wd:Q12198099）。初版は wd 単独指定。'
 affiliations:
@@ -76,11 +70,44 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m7
   trigger: rule
   phrase: ممن قدم القاهرة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد السلام
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عبد العزيز
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: event
+  quote: قدم
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m9
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: アブドゥッサラーム・ブン・アフマド・ブン・アブドゥルアズィーズ・アル＝マダニー・アッ＝シャーフィイー。祖父の名（イブン・アブドゥルアズィーズ）で知られる。カイロに来て、我らがシャイフ（イブン・ハジャル）やその他の者たちに聴聞し、少し学問に従事し、アル＝ビカーイーと交わった。860年以降、あるいはその前後に没した。
   en: ʿAbd al-Salām b. Aḥmad b. ʿAbd al-ʿAzīz al-Madanī al-Shāfiʿī, known by his grandfather's name (Ibn ʿAbd al-ʿAzīz). He came to Cairo, heard from our shaykh (Ibn Ḥajar) and others, studied a little, and kept company with al-Biqāʿī. He died after the year 860 AH or thereabouts.

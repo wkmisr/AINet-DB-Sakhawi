@@ -9,37 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00298
-    quote: المعني
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بالمغاني
-    norm: المغاني
     label: المغاني
+    mention: m6
   - id: n3
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: جار الله
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 866-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m9
   note:
     ar: مات في ذي القعدة سنة ست وستين بمكة
     ja: 866-11＝1462-08-06 開始、月精度 1462-08（h2g.py。初版 @when="1462" は年精度）。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: علي بن جار الله
@@ -52,7 +48,6 @@ relations:
   subtype: father
   active: AIND-D06445#p1
   passive: AIND-D06445
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن جار الله は corpus の見出し「علي بن جار الله」2件（#AIND-D05100 … بن زائد بن يحيى السنبسي المكي ويعرف بابن زائد／#AIND-D05101 … بن صالح … الشيباني الطبري الأصل المكي الحنفي）のいずれともニスバ（المعني）で閉合しない＝同定せず #NEEDID（規則26・57）。ID-Master 未登録。初版は father relation なし。'
 states:
@@ -60,9 +55,43 @@ states:
   type: office
   label: شيخهم
   label_latn: shaykhuhum
-  quote: شيخهم
   note:
     ja: '原文「المعني شيخهم ويعرف بالمغاني」。「شيخهم（彼らの長）」の「هم」は直前のニスバ المعني（刊本の綴り。المغني＝歌手の可能性）が指す集団を受けるとみられ、通称 المغاني（女性部 #AIND-D12877「شيخة المغاني بمكة」・#AIND-D13033「رئيسة المغاني」に見えるマッカの歌い手の集団）と呼応する。集団名が原文で明示されないので職 ID は #NEEDID、綴りは規則25 により原文どおり（TMP-O-00022「المغني」・TMP-O-00357「شيخ الجماعة」は充てない）。初版は符号化なし。'
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: جار الله
+- id: m4
+  kind: name
+  ref: TMP-N-00298
+  quote: المعني
+- id: m5
+  kind: office
+  quote: شيخهم
+- id: m6
+  kind: name
+  quote: بالمغاني
+  norm: المغاني
+- id: m7
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m8
+  kind: year
+  value: '866'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムバーラク・ブン・アリー・ブン・ジャーッラッラー・アル＝マアニー、彼らの長で、アル＝マガーニーとして知られる。866年ズー・ル＝カアダ月にマッカで没した。
   en: Mubārak b. ʿAlī b. Jār Allāh al-Maʿnī, their shaykh, known as al-Maghānī. He died in Dhū al-Qaʿda 866 in Mecca.

@@ -9,75 +9,64 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m7
   - id: n2
     type: kunyah
-    quote: أبو الطيب
-    norm: ابو الطيب
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: بابن الشيخ
-    norm: ابن الشيخ
     label: ابن الشيخ
+    mention: m9
   - id: n4
     type: ism
-    quote: عبد الناصر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07204
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
 birth:
   id: b
   date:
     ah: 824-12
   note:
     ja: 「ولد في ذي الحجة سنة أربع وعشرين وثمانمائة」。824-12 ＝ 1421-12（h2g.py、月精度は月初）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07204
+  active: m8
   passive: AIND-D04727
   summary:
     ar: محمد بن أبي بكر بن عبد الوهاب بن أحمد المحلي
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」。父 ＝ #AIND-D07204（محمد بن أبي بكر بن عبد الوهاب بن أحمد بن عبد الوهاب … الشمس أبو عبد الله بن الزين القابسي الأصل النشيني ثم المحلى الشافعي「والد أبي الطيب عبد الناصر ويعرف بابن أبي الشيخ موفق الدين وبابن الشيخ أبي بكر」、777頃生・854/855没、マハッラの裁判官）。本項主を子として明記。'
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
-  quote: بالشهادة
   note:
     ja: 「وتكسب بالشهادة وتميز فيها مع ديانة وخير」。
-  norm: الشهادة
+  mention: m13
 - id: s2
   type: status
   label: وهو الآن في الأحياء
   label_latn: wa-huwa al-ān fī al-aḥyāʾ
-  quote: وهو الآن في الأحياء
   note:
     ja: 執筆時点で存命。
-  norm: وهو الان في الاحياء
+  mention: m14
 events:
 - id: e1
   type: learning
@@ -87,12 +76,68 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00027
-  quote: وحفظ
   note:
     ja: 暗記のみで師の記載がないため teacher relation にしない（初版の active 空欄 relation 3件を learning event に変換）。
   trigger: rule
-  norm: حفظ
   phrase: وحفظ مختصر أبي شجاع والرحبية وبعض القرآن
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الناصر
+- id: m2
+  kind: name
+  ref: AIND-D07204
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: عبد الوهاب
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  quote: أبو الطيب
+  norm: ابو الطيب
+- id: m7
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m8
+  kind: person
+  ref: AIND-D07204
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: name
+  quote: بابن الشيخ
+  norm: ابن الشيخ
+- id: m10
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m11
+  kind: year
+  value: '824'
+  quote: سنة
+- id: m12
+  kind: event
+  quote: وحفظ
+  norm: حفظ
+- id: m13
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m14
+  kind: office
+  quote: وهو الآن في الأحياء
+  norm: وهو الان في الاحياء
 translation:
   ja: アブドゥンナースィル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アブドゥルワッハーブ・ブン・アフマド、アブー・アッ＝タイイブ、アル＝マハッリー。その父は後述する。イブン・アッ＝シャイフとして知られる。824年ズー・アル＝ヒッジャ月に生まれ、『アブー・シュジャーウの摘要』『ラフビーヤ』とクルアーンの一部を暗記した。証人（公証）業で生計を立て、信仰心と善良さをもってその分野で頭角を現した。彼は今なお存命である。
   en: ʿAbd al-Nāṣir b. Muḥammad b. Abī Bakr b. ʿAbd al-Wahhāb b. Aḥmad, Abū al-Ṭayyib al-Maḥallī; his father will be mentioned below. He is known as Ibn al-Shaykh. He was born in Dhū al-Ḥijja 824, memorized the Mukhtaṣar of Abū Shujāʿ, the Raḥabiyya and part of the Qurʾān, earned his living as a notary witness and distinguished himself in it, with piety and goodness. He is now among the living.

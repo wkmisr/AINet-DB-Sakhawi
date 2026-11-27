@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عقيل
     by: rule
-    ref: AIND-D04913
+    mention: m2
   - id: n5
     type: nasab
-    quote: مبارك
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: رميثة
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي نمى
     by: rule
-    norm: ابو نمي
+    mention: m5
 death:
   id: d
   date:
@@ -45,30 +41,69 @@ death:
   - ref: gn:104515
   note:
     ja: 「بها」＝直前のニスバ المكي が指すマッカ。
-  quote: سنة
   phrase: مات بها في جمادى الأولى سنة ست وأربعين
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D04913
   passive: AIND-D04498
-  quote: null
   note:
     ja: 父＝#AIND-D04913（刊本第519項 عقيل بن مبارك بن رميثة بن أبي نمى الحسني المكي、マッカのシャリーフ、825年没）。ナサブ4代が完全一致。初版は father relation 無し。
   phrase: عقيل بن مبارك بن رميثة بن أبي نمى
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m11
   note:
     ja: 'Pattern A（没年記録）。初版は統制外 subtype「chronicler」の relation。限定句なし・没年846（≦871）→ 規約により التقي بن فهد ＝ #AIND-D09211、cert low。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D04913
+  quote: عقيل
+- id: m3
+  kind: name
+  quote: مبارك
+- id: m4
+  kind: name
+  quote: رميثة
+- id: m5
+  kind: name
+  quote: أبي نمى
+  norm: ابو نمي
+- id: m6
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥッラー・ブン・アキール・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイイ・アル＝ハサニー・アル＝マッキー。ヒジュラ暦846年ジュマーダー・アル＝ウーラー月に同地（マッカ）で没した。イブン・ファハドがその没年を記録している。
   en: ʿAbd Allāh b. ʿAqīl b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī al-Makkī. He died there (in Mecca) in Jumādā al-Ūlā of the year 846. Ibn Fahd recorded his death date.

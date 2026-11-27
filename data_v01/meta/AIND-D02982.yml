@@ -9,33 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m2
   - id: n2
     type: ism
-    quote: ذو
     by: rule
+    mention: m1
 events:
 - id: e2
   type: cultural
   subtype: meeting
   persons:
   - ref: wd:Q471116
-  quote: لقيه
   note:
     ja: 初版は subtype=student（active=本項＝師）としていたが、لقي は面会の記述であり教授関係を含意しない。subtype="met" に是正し方向性の含意を除去（面会の主体はشيخنا）。「سنة آمد」＝アーミド遠征の年。
   trigger: rule
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000790
-    quote: الزين عبد الرحمن القلقشندي
+  - mention: m3
   - ref: AIND-D07109
-  quote: قال
   note:
     ja: 第三者の伝聞・評価（حكى ... عن أبيه ... أنه قال）＝Pattern A。伝聞者（الزين عبد الرحمن）と原情報源（父الشمس）の双方を記録。いずれもcorpus本伝未特定＝TMP発行（⚠既登録のقلقشندي諸項 TMP-P-000115/000116・AIND-D10816 とは別実体）。
   trigger: rule
   phrase: حكى الزين عبد الرحمن القلقشندي عن أبيه الشمس أنه قال هو خفير تلك البلاد
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: ذو
+- id: m2
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m3
+  kind: person
+  ref: TMP-P-000790
+  quote: الزين عبد الرحمن القلقشندي
+- id: m4
+  kind: source
+  quote: قال
+- id: m5
+  kind: event
+  quote: لقيه
 translation:
   ja: ズン・ヌーン・アル＝ガッズィー、名はムハンマド・ブン・アブドゥッラー・ブン・サーリフ。彼は交易を営む偉大な人物であった。ザイン・アブドルラフマーン・アル＝カルカシャンディーがその父シャムスから聞いた話として、彼はあの地域の守護者（ハフィール）であったと語っている。我らがシャイフ（イブン・ハジャル）は彼にアーミド（への旅）の年に出会っている。
   en: 'Dhu al-Nun al-Ghazzi, his name is Muhammad b. Abd Allah b. Salih. He was a great man who engaged in trade. Zayn al-Din Abd al-Rahman al-Qalqashandi related from his father, al-Shams, that he said: ''He is the protector of those lands.'' Our shaykh (Ibn Hajar) met him in the year of Amid.'

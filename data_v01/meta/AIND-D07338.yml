@@ -9,42 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00034
-    quote: العامري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00035
-    quote: الحرضي
+    mention: m8
   - id: n4
     type: laqab
-    quote: جمال الدين
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: حسن
     by: rule
-    ref: TMP-P-001125
+    mention: m2
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 birth:
   id: b
   date:
@@ -56,7 +50,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07338
   methods:
   - TMP-S-00025
@@ -70,28 +64,23 @@ relations:
       ah: 894-01
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m13
   works:
   - ref: TMP-T-00044
   - ref: TMP-T-00019
-  quote: لقيني
   note:
     ja: '初版の relation 3件（書ごと）を1件に統合。「كتبت له」＝イジャーザの書付（既存慣例により method أجاز）。統一規則2に準じ field を付けない。書誌: الأربعين للنووي=TMP-T-00044、المسلسل=TMP-T-00019（precheck 名前不一致は登録名アラビア語 vs 記載名ラテン翻字の見かけ上の不一致。「سمع من لفظي المسلسل」は連鎖ハディース（المسلسل بالأولية）の口授で、書名としての Text 登録は妥当＝repo 20 ファイルで同用法）。894年ムハッラム月＝1488-12-14 起点（グレゴリオ暦）。初版の @when="0894-01" はヒジュラ暦の @when 混入。'
   phrase: فقرأ على الأربعين للنووي قراءة طالب علم وسمع من لفظي المسلسل وكتبت له
 - id: r2
   type: social
   subtype: other
-  active: AIND-D10240
+  active: m14
   passive: AIND-D07338
   relationship_type:
     ar: من جماعة الشيخ
-  quote: الشيخ يحيى العامري
   note:
     ar: وهو من جماعة الشيخ يحيى العامري
     ja: 'يحيى العامري＝#AIND-D10240（يحيى بن أبي بكر بن محمد بن يحيى بن محمد بن حسن العامري الحرضي اليماني محدثها بل شيخ تلك الناحية وصالح اليمن الشافعي）。同じ العامري الحرضي で一意。「من جماعته」＝その門下・一党の一人（師弟か同族かは不明のため subtype other）。ID-Master の #TMP-P-000038「يحيى بن أبي بكر بن محمد العامري」（D0074 の親族）は同一人物の可能性が高いが repo 未使用＝ISSUES §Db-7。初版は #NEEDID（subtype「colleague」）。'
-  norm: الشيخ يحيي العامري
 - id: r3
   type: kin
   subtype: father
@@ -99,7 +88,6 @@ relations:
   passive: AIND-D07338
   summary:
     ar: حسن بن أبي بكر بن محمد العامري الحرضي
-  quote: null
   note:
     ja: 父。見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001125 を発行。初版は父 relation なし。
 affiliations:
@@ -113,13 +101,67 @@ events:
     ah: 894-01
     type: visit
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: لقيني في المحرم سنة أربع وتسعين بمكة وسنه دون الأربعين بقليل
+  - mention: m13
   note:
     ja: 894年ムハッラム月＝1488-12-14 起点（グレゴリオ暦）。初版の cert="high" は既定値のため除去。
-  norm: لقيني في المحرم سنة اربع وتسعين بمكة وسنه دون الاربعين بقليل
+  phrase: لقيني في المحرم سنة أربع وتسعين بمكة وسنه دون الأربعين بقليل
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001125
+  quote: حسن
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: جمال الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00034
+  quote: العامري
+- id: m7
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m8
+  kind: name
+  ref: TMP-N-00035
+  quote: الحرضي
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: لقيني
+- id: m11
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m12
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m14
+  kind: person
+  ref: AIND-D10240
+  quote: الشيخ يحيى العامري
+  norm: الشيخ يحيي العامري
 translation:
   ja: ムハンマド・ブン・ハサン・ブン・アビー・バクル・ブン・ムハンマド、ジャマール・アッ＝ディーン・アル＝アーミリー・アル＝ヤマーニー・アル＝ハラディー・アッ＝シャーフィイー。894年ムハッラム月にマッカで私に会った。当時40歳を少し下回る年齢であった。彼は私のもとで、学徒らしい読み方でナワウィーの『四十ハディース』を朗読し、私の口から『ムサルサル』を聴聞し、私は彼に（イジャーザを）書いた。彼はシャイフ・ヤフヤー・アル＝アーミリーの門下の一人である。
   en: Muḥammad b. Ḥasan b. Abī Bakr b. Muḥammad, Jamāl al-Dīn al-ʿĀmirī al-Yamānī al-Ḥaraḍī al-Shāfiʿī. He met me in Muḥarram 894 in Mecca, when he was a little under forty years of age. He read to me al-Nawawī's Forty Ḥadīths with the reading of a student of learning, heard from my lips the Musalsal, and I wrote (an ijāza) for him. He is one of the circle of Shaykh Yaḥyā al-ʿĀmirī.

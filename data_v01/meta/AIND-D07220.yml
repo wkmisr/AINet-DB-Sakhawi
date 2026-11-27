@@ -9,31 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن بنت الحميري
-    norm: ابن بنت الحميري
     label: ابن بنت الحميري
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 persons:
 - id: p1
   label: أبو بكر بن علي الغزي
@@ -47,21 +43,19 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07220
   methods:
   - TMP-S-00025
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m9
     phrase: قرأ علي بعض قدماته الأذكار وأربعي النووي وعمدة القاري في ختم البخاري من تصانيفي
   works:
   - ref: TMP-T-00002
   - ref: TMP-T-00044
   - ref: TMP-T-00242
-  quote: علي
   note:
     ja: '「قرأ علي」の علي は「عليّ（私に）」（規則2）。場所はカイロ来訪中（「قدم القاهرة مرارا … في بعض قدماته」）。『عمدة القاري في ختم البخاري』はサハーウィー自著（「من تصانيفي」。自伝 #AIND-D07578 の著作目録に「عمدة القاري والسامع في ختم الصحيح الجامع」）＝ ID-Master 未登録 → TMP-T-00242。「وغير ذلك مما أثبته له في كراسة」（その他、冊子に書き付けたもの）は書名不明のため bibl にしない。初版の field（الحديث）は原文に根拠がないため除去。'
 - id: r2
@@ -74,12 +68,10 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m9
     phrase: وغالب شرحي على الهداية الجزرية في البحث
   works:
   - ref: TMP-T-00208
-  quote: null
   note:
     ja: 'サハーウィー自身の『ابن الجزري の الهداية 注釈』（TMP-T-00208、先例 #AIND-D05826「بحثا شرحي لهداية ابن الجزري」）の大部分を討究（بحث）の形で読んだ。初版の field（القراءات）は根拠がないため除去（الهداية は ابن الجزري のハディース学入門書で朗誦学書ではない）。'
 - id: r3
@@ -92,20 +84,17 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m9
     phrase: مع سماع باقيه
   works:
   - ref: TMP-T-00208
-  quote: null
   note:
     ja: 同書の残りは聴聞（سماع）。討究（بحث）とは性質の異なる伝授なので別 relation（規則2）。
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D07220#p1
+  active: m6
   passive: AIND-D07220
-  quote: العلاء الغزي
   note:
     ja: '父は見出しのナサブのみ。corpus の أبو بكر بن علي 見出し（クンヤ部）・ID-Master に الغزي の該当なし → #NEEDID（規則3）。'
 - id: r5
@@ -113,7 +102,6 @@ relations:
   subtype: maternal_grandfather
   active: AIND-D07220#p2
   passive: AIND-D07220
-  quote: null
   note:
     ja: '「سبط أخي العلاء الغزي」＝本項主は العلاء الغزي（#AIND-D05038 علي بن أحمد بن محمد العلاء البغدادي الأصل الغزي الحنفي … إمام إينال）の兄弟の娘の子。母方祖父＝ العلاء の兄弟（名不詳、…بن أحمد بن محمد الغزي）。通称「ابن بنت الحميري」からこの祖父が「الحميري」と呼ばれた可能性があるが、corpus に本伝なし・ID-Master 未登録 → #NEEDID。'
 - id: r6
@@ -123,16 +111,15 @@ relations:
   passive: AIND-D07220
   summary:
     ar: العلاء الغزي إمام الأشرف إينال
-  quote: null
   note:
     ja: '母方祖父の兄弟（大叔父）。#AIND-D05038「علي بن أحمد بن محمد العلاء البغدادي الأصل الغزي الحنفي نزيل القاهرة وإمام إينال ويعرف بالغزي」（810生・867没）＝原文の「إمام الأشرف إينال」と一致。subtype granduncle は先例 #AIND-D03664「حفيد أخي …」に倣う。 / 大叔父（祖父母の兄弟）。統制語彙に該当語がないため relative（2026-11-22 裁定）。'
 states:
 - id: s1
   type: office
   ref: wd:Q215536
-  quote: null
   note:
     ja: 「قدم القاهرة مرارا في التجارة وغيرها」から。初版の placeName القاهرة（交易地）は state から除き visit event に置く。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -141,17 +128,54 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m9
   trigger: rule
   phrase: قدم القاهرة مرارا في التجارة وغيرها
+  mention: m8
 - id: e2
   type: other
-  quote: وتشبه بالطلبة وقتا ثم تزوج واشتغل بما يهمه
   note:
     ja: 「ثم تزوج」は相手の記述がないため relation を立てない（規則14）。
-  norm: تشبه بالطلبة وقتا ثم تزوج واشتغل بما يهمه
+  phrase: وتشبه بالطلبة وقتا ثم تزوج واشتغل بما يهمه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: person
+  ref: AIND-D07220#p1
+  quote: العلاء الغزي
+- id: m7
+  kind: name
+  quote: بابن بنت الحميري
+  norm: ابن بنت الحميري
+- id: m8
+  kind: event
+  quote: قدم
+- id: m9
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アリー・アル＝ガッズィー・アル＝ハナフィー。アル＝アシュラフ・イーナールのイマームであったアル＝アラー・アル＝ガッズィーの兄弟の外孫（娘の子）で、この者は「イブン・ビント・アル＝ヒムヤリー」として知られる。交易などのために何度もカイロに来た。その来訪のいくつかの折に、私（サハーウィー）に『アズカール』、ナワウィーの『四十（ハディース）』、私の著作のうちの『ブハーリー読了におけるウムダ・アル＝カーリー』を読誦し、また私の『ヒダーヤ・ジャザリーヤ』注釈の大部分を討究の形で読み、残りを聴聞した。そのほかにも私が彼のために冊子に書き付けたものがある。一時期は学生のように振る舞ったが、その後結婚して自分の用事に専念した。
   en: Muḥammad b. Abī Bakr b. ʿAlī al-Ghazzī al-Ḥanafī, the daughter's son of the brother of al-ʿAlāʾ al-Ghazzī, the imām of al-Ashraf Īnāl; this man is known as Ibn Bint al-Ḥimyarī. He came to Cairo several times for trade and other business. On some of his visits he read to me al-Adhkār, al-Nawawī's Forty (Ḥadīth), and, of my own compositions, ʿUmdat al-Qārī fī Khatm al-Bukhārī, and most of my commentary on al-Hidāya al-Jazariyya by way of discussion, hearing the remainder, along with other things that I recorded for him in a notebook. For a time he fashioned himself after the students, then he married and busied himself with his own concerns.

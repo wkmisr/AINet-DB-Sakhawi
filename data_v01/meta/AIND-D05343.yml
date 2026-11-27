@@ -9,27 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00272
-    quote: المراكشي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي القسم
     by: rule
-    ref: AIND-D11097
-    norm: ابو القسم
+    mention: m2
   - id: n5
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m3
 persons:
 - id: p1
   label: يحيى بن عبد الله
@@ -44,7 +39,6 @@ relations:
   passive: AIND-D05343
   summary:
     ar: أبو القسم بن يحيى بن عبد الله المراكشي المغربي
-  quote: null
   note:
     ja: '父＝#AIND-D11097（クンヤ部 立項番号460「أبو القسم بن يحيى بن عبد الله المراكشي المغربي ممن سمع مني بمكة」、未受領）。名・父名・ニスバ2つ・サハーウィーからのマッカでの聴聞まで一致（規則37）。初版は #NEEDID。'
 - id: r2
@@ -52,25 +46,51 @@ relations:
   subtype: grandfather
   active: AIND-D05343#p1
   passive: AIND-D05343
-  quote: null
   note:
     ja: '祖父（父項 D11097 により曾祖父名 عبد الله が分かる）。corpus に本伝なし → #NEEDID。初版の TMP-P-000596（登録＝D01585 の兄 يحيى、別人）は汚染流用のため除去。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D05343
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。初版の field（الحديث）は原文になく除去。
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D11097
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m3
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: name
+  ref: TMP-N-00272
+  quote: المراكشي
+- id: m5
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アリー・ブン・アビー・アル＝カースィム・ブン・ヤフヤー・アル＝マッラークシー・アル＝マグリビー。マッカで私から聴聞した者の一人。
   en: ʿAlī b. Abī al-Qāsim b. Yaḥyā al-Marrākushī al-Maghribī. He is among those who heard from me in Mecca.

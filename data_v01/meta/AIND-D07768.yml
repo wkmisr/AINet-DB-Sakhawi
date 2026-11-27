@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: ابن المواز
+    mention: null
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001203
+    mention: m2
   - id: n4
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: المواز
     by: rule
+    mention: m4
 birth:
   id: b
   date:
@@ -41,35 +40,65 @@ death:
     ah: 832-03
   note:
     ja: 「مات فجأة في ربيع الأول سنة اثنتين وثلاثين عن نحو الستين」（急死）。832-03 ＝ 1428-12-18〜1429-01-16（h2g.py、初版の 1429 を月初に是正）。没地の記載なし。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001203
   passive: AIND-D07768
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名）。corpus の「حسن المواز」（#AIND-D02518 الحسن بن أحمد بن علي … الدمياطي ويعرف في دمياط بحسن المواز、752生）は名・世代が合わず祖父 حسن とは別人とみられる。
   phrase: عبد الله بن حسن بن المواز
 assessments:
 - id: v1
-  quote: دينا
   terms:
   - دين
   by: rule
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m8
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   note:
     ja: Pattern A。初版の統制外 subtype「biographer / contemporary」relation（#NEEDID）を mention event に変換（المقريزي ＝ wd:Q293604、『درر العقود الفريدة』＝ TMP-T-00122）。死後の夢の逸話（初版の独立 religious event）はマクリーズィーの言の一部であるため本 event に一本化。
   trigger: rule
   phrase: 'ذكره المقريزي في عقوده وقال : كان دينا صاحب نسك وتجرد وتقلل من الدنيا مع عصبية ومروءة ومحبة في الحديث وأهله واتباع للسنة وأنه رأى له بعد موته مناما فيه أنه سلم من عذاب القبر'
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001203
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: المواز
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m9
+  kind: assessment
+  quote: دينا
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ハサン・ブン・アル＝マウワーズ。（8）32年ラビーウ・アル＝アウワル月に60歳前後で急死した。アル＝マクリーズィーが『ウクード』で彼に言及し、こう述べている。「篤信で、修行と俗世からの離脱、現世に対する寡欲の人であり、それに加えて気骨と男気、ハディースとその徒への愛、スンナへの追従を備えていた」。また、彼の死後に彼について夢を見た者があり、その中で彼が墓の懲罰を免れたことが示された、とも述べている。
   en: 'Muḥammad b. ʿAbd Allāh b. Ḥasan b. al-Mawwāz. He died suddenly in Rabīʿ I (8)32, aged about sixty. Al-Maqrīzī mentioned him in his ʿUqūd and said: he was pious, a man of devotion, detachment and frugality towards this world, together with zeal, manliness, love of ḥadīth and its people, and adherence to the Sunna; and that someone saw a dream about him after his death in which he was shown to have been spared the torment of the grave.'

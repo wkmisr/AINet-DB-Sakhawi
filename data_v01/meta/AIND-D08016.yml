@@ -9,28 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00770
-    quote: الشغري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 persons:
 - id: p1
   label: علي بن أحمد الشغري الحلبي
@@ -43,38 +40,67 @@ relations:
   subtype: father
   active: AIND-D08016#p1
   passive: AIND-D08016
-  quote: null
   note:
     ja: '父 علي بن أحمد：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D08016
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m8
     phrase: سمع مني بها
-  quote: مني
   note:
     ja: 「بها」＝直前の مكة（نزيل مكة）を指す照応（規則22(3)、cert 不要）。
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m8
   trigger: rule
   phrase: نزيل مكة
+  mention: m7
 notes:
 - text: '#AIND-D06172「فرج الزنجي فتى محمد بن علي بن أحمد الشغري الآتي . اعتنى به سيده فحفظه عدة مقدمات … وعرض علي وسمع مني بمكة في مجاورتي الثالثة أشياء」＝本項主の奴隷（فتى）の項で、本項主を「الآتي」として名指しし主人とする。本項の原文に言及がないため relation は立てない（規則23）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00770
+  quote: الشغري
+- id: m6
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アフマド、アッ＝シャムス・アッ＝シュグリー・アル＝ハラビー、マッカの寄留者。そこ（マッカ）で私から聴聞した。
   en: Muḥammad b. ʿAlī b. Aḥmad, al-Shams al-Shughrī al-Ḥalabī, resident of Mecca. He heard from me there.

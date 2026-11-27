@@ -9,85 +9,77 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00138
-    quote: الناشري
+    mention: m11
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m12
   - id: n3
     type: ism
-    quote: سليمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001683
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m6
   - id: n9
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: عمر
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m9
   - id: n12
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m10
 birth:
   id: b
   date:
     ah: 771
   note:
     ja: 771年初＝1369-08-13（h2g.py、年精度）。
-  quote: سنة
   phrase: ولد سنة إحدى وسبعين وسبعمائة
+  mention: m13
 death:
   id: d
   date:
     ah: 818
     cert: medium
   places:
-  - ref: TMP-L-00041
-    quote: بزبيد
-    norm: زبيد
+  - mention: m14
   note:
     ja: 「في حدود سنة ثمان عشرة」＝818年頃（規則4 の「قريب」型に準じ when-custom=818、cert medium）。818年初＝1415-03-22（h2g.py、年精度）。初版は cert なし。
-  quote: سنة
   phrase: ومات بزبيد في حدود سنة ثمان عشرة
+  mention: m15
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001683
+  active: m18
   passive: AIND-D03169
   summary:
     ar: محمد بن أبي بكر بن علي بن محمد بن أبي بكر الناشري
-  quote: والده
   note:
     ja: '見出しナサブから復元（規則3）。ザビードの الناشري 家。同じ父を持つ兄弟 #AIND-D10822「أبو بكر بن محمد بن أبي بكر بن علي بن محمد بن أبي بكر بن عبد الله … الناشري اليماني」（773年生）があり、その子 #AIND-D00610・#AIND-D03408 は「الآتي أبوه وجده」と祖父（＝本項主の父）の本伝を予告するが、corpus の見出し・全文検索（hw.py・ナサブ6代の全文一致）に محمد بن أبي بكر بن علي … الناشري の本伝はなく、ID-Master にも未登録 → 新規 TMP-P-001683（識別要素: ナサブ9代・家名、本伝のある子2名）。初版なし。'
 notes:
@@ -97,13 +89,78 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D04864
-    quote: العفيف الناشري
-  quote: ذكره
+  - mention: m17
   note:
     ja: Pattern A。العفيف الناشري＝#AIND-D04864（عثمان بن عمر بن أبي بكر بن علي … العفيف الناشري、『البستان الزاهر في طبقات علماء بني ناشر』の著者、頻出確定ID）。「في والده」は「（本項主の）父の項で」とも「（العفيف 自身の）父 عمر بن أبي بكر＝#AIND-D05815 の項で」とも読め、原文から決まらないため訳文は「その父（の項）で」とした。書名は原文にないので bibl を立てない。初版の relation（subtype biographer）を mention event に置換。
   trigger: rule
   phrase: ذكره العفيف الناشري في والده
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: سليمان
+- id: m2
+  kind: name
+  ref: TMP-P-001683
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m7
+  kind: name
+  quote: عبد الله
+- id: m8
+  kind: name
+  quote: عمر
+- id: m9
+  kind: name
+  quote: عبد الرحمن
+- id: m10
+  kind: name
+  quote: عبد الله
+- id: m11
+  kind: name
+  ref: TMP-N-00138
+  quote: الناشري
+- id: m12
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m13
+  kind: year
+  value: '771'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: بزبيد
+  ref: TMP-L-00041
+  norm: زبيد
+- id: m15
+  kind: year
+  value: '818'
+  quote: سنة
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: AIND-D04864
+  quote: العفيف الناشري
+- id: m18
+  kind: person
+  ref: TMP-P-001683
+  quote: والده
 translation:
   ja: スライマーン・ブン・ムハンマド・ブン・アビー・バクル・ブン・アリー・ブン・ムハンマド・ブン・アビー・バクル・ブン・アブドゥッラー・ブン・ウマル・ブン・アブドゥッラフマーン・ブン・アブドゥッラー・アン＝ナーシリー・アル＝ヤマーニー。771年に生まれ、818年頃にザビードで没した。アル＝アフィーフ・アン＝ナーシリーがその父（の項）で彼に言及している。
   en: Sulaymān b. Muḥammad b. Abī Bakr b. ʿAlī b. Muḥammad b. Abī Bakr b. ʿAbd Allāh b. ʿUmar b. ʿAbd al-Raḥmān b. ʿAbd Allāh al-Nāshirī al-Yamānī. He was born in the year 771 and died in Zabīd around the year [8]18. Al-ʿAfīf al-Nāshirī mentioned him under his father.

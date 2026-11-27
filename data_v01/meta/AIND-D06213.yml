@@ -9,46 +9,69 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m3
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: جسار
     by: rule
-    ref: TMP-P-001556
+    mention: m2
 death:
   id: d
   date:
     ah: 839-07
   note:
     ja: 「مات في رجب سنة تسع وثلاثين من جراحة」＝839年ラジャブ月（1436年1〜2月）、負傷がもとで没。死地の明記なし。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001556
   passive: AIND-D06213
-  quote: null
   note:
     ja: 父。ハサン裔シャリーフの جسار。corpus に本伝なし（جسار 見出しは العمري 家の القواد D02965・D03185・D03301・D04566・D05102・D09995＝別家系）。#AIND-D07304「محمد بن جسار بن علي الحميضي」（رميثة بن محمد بن عجلان と共に戦死）の父 جسار بن علي الحميضي（ハサン裔 حميضة 家）と同一の可能性があるが確証なし → TMP-P-001556。
   phrase: جسار الحسني
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: 規則43（没839 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外 chronicler relation を Pattern A に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: TMP-P-001556
+  quote: جسار
+- id: m3
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: カースィム・ブン・ジャッサール・アル＝ハサニー。839年ラジャブ月に負傷がもとで没した。イブン・ファハドがその没年を記している。
   en: Qāsim b. Jassār al-Ḥasanī. He died in Rajab 839 from a wound. Ibn Fahd recorded his death date.

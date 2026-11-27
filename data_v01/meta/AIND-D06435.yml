@@ -9,13 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: ماميه
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد ماميه الأشرفي قايتباي
@@ -27,49 +25,70 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06435#p1
+  active: m4
   passive: AIND-D06435
-  quote: ابن عثمان
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m3
   passive: AIND-D06435
   summary:
     ar: الأشرف قايتباي
-  quote: قايتباي
   note:
     ja: '主人ニスバ「الأشرفي قايتباي」（規則51）。الأشرف قايتباي＝#AIND-D06305（頻出確定ID、先例 #AIND-D06288）。初版にはなし。'
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D03257
+  active: m6
   passive: AIND-D06435
-  quote: شاذ بك
   note:
     ja: '「وعمل الدوادارية الثانية بعد شاذ بك」＝第二ダワーダール職の前任者。#AIND-D03257「1104 شاذ بك الأشرفي قايتباي ويقال له شاذ بك آخوخ الطويل … فلما عاد من التجريدة سنة أربع وتسعين استقر به دوادارا ثانيا عوضا عن قانصوه الألفي … فصرف عنها بماميه」＝相手側が本項主を後任として名指し（名・職の2点で閉合。corpus の他の شاذ بك（D03255〜D03265）は第二ダワーダールではない）。初版は #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00063
-  quote: الدوادارية الثانية
   note:
     ja: '汎用 دوادار（TMP-O-00063）に序数付きラベル（repo 先例 #AIND-D02010・#AIND-D03286）。初版は #NEEDID。D03257 によれば就任は894年の遠征帰還後だが、本項の原文に年はないので日付は置かない（規則23）。'
+  mention: m5
 events:
 - id: e1
   type: political
   persons:
   - ref: AIND-D06435#p2
-  quote: سافر بعد الصلح مع ابن عثمان إليه بهدية ثم رجع
   note:
     ja: '「ابن عثمان」＝オスマン朝君主（家名による呼称、個人名なし）。corpus のオスマン家の本伝（#AIND-D09429 محمد بن مراد、#AIND-D09893 مراد بك、#AIND-D11124 أبو يزيد بن مراد）はいずれもカーイトバーイ期の講和（890年代）の相手ではなく、該当君主（バーヤズィード2世とみられる）の本伝は corpus にない → #NEEDID。講和・贈物使節の派遣は外交 event で、relation にしない（初版の統制外 subtype「diplomatic contact」relation を除去。先例 #AIND-D05068 は相手の本伝がある場合）。年の記載なし＝日付属性なし。'
-  norm: سافر بعد الصلح مع ابن عثمان اليه بهدية ثم رجع
+  phrase: سافر بعد الصلح مع ابن عثمان إليه بهدية ثم رجع
+  mention: null
 notes:
 - text: 「ويذكر بحذق وعقل」は人物評＝訳文のみ。没年の記載なし＝death を作らない（896年頃まで存命の記述）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ماميه
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي
+- id: m4
+  kind: person
+  ref: AIND-D06435#p1
+  quote: ابن عثمان
+- id: m5
+  kind: office
+  ref: TMP-O-00063
+  quote: الدوادارية الثانية
+- id: m6
+  kind: person
+  ref: AIND-D03257
+  quote: شاذ بك
 translation:
   ja: マーミヤ・アル＝アシュラフィー・カーイトバーイ。イブン・ウスマーン（オスマン朝君主）との講和の後、贈物を携えて彼のもとへ赴き、帰還した。そしてシャーズ・ベクの後任として第二ダワーダール職を務めた。機敏さと分別で知られる。
   en: Māmiya al-Ashrafī Qāytbāy. After the peace with Ibn ʿUthmān (the Ottoman ruler) he travelled to him with a gift and then returned, and he held the second dawādārship after Shādh Bak. He is spoken of for his skill and good sense.

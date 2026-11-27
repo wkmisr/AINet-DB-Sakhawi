@@ -9,11 +9,11 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: كمال الدين
+    mention: m2
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -21,15 +21,14 @@ death:
     cert: medium
   note:
     ja: '「سنة وستين」＝一の位が脱落した年表現（標準規則: 860、cert medium）。860年初＝1455-12-20 → 年精度 1455。幼くして没した。 860 の読みでは本項主は直前項 D07704（864年ズー・ル＝ヒッジャ生）より先に生まれ先に没した兄になる（集約 2026-10-26、内容A M-3）。'
-  quote: سنة
   phrase: مات صغيرا سنة وستين
+  mention: m4
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: AIND-D07704
+  active: m3
   passive: AIND-D07705
-  quote: الذي قبله
   note:
     ja: '「شقيق الذي قبله」＝直前の項 #AIND-D07704「محمد بن عبد القادر بن عبد الرحمن بن محمد بن أبي بكر بن عثمان بدر الدين السخاوي الأصل القاهري الشافعي الماضي أبوه وجده وجد أبيه وهو ابن أخي . ولد في ذي الحجة سنة أربع وستين وثمانمائة」（未受領）の同母同父の兄弟＝サハーウィーの甥（規則37）。「شقيق」は長幼を言わない（本項主の没年を標準読みの 860 とすれば 864 年生の D07704 より年長＝兄）。desc は D07704 の名「محمد」（規則31、集約 2026-10-26）。'
   phrase: محمد
@@ -40,7 +39,6 @@ relations:
   passive: AIND-D07705
   summary:
     ar: عبد القادر بن عبد الرحمن السخاوي
-  quote: null
   note:
     ja: 父は直前の項 D07704 のナサブ「محمد بن عبد القادر بن عبد الرحمن بن محمد بن أبي بكر بن عثمان … السخاوي」による（規則37）＝#AIND-D04129「عبد القادر بن عبد الرحمن بن محمد بن أبي بكر بن عثمان شقيق محيي الدين السخاوي الأصل القاهري الشافعي الغزولي المقري والد البدر محمد الآتي」（838生、サハーウィーの弟、未収録）。本項主のナサブ（بن عبد القادر بن عبد الرحمن）は原文になく、persName full には入れない。
 - id: r3
@@ -51,9 +49,23 @@ relations:
   summary:
     ar: السخاوي
   cert: medium
-  quote: null
   note:
     ja: 直前の項 D07704「وهو ابن أخي」により、同母同父の兄弟である本項主も著者サハーウィー（wd:Q4120128）の甥（他項の情報による補完＝cert medium、規則23）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: كمال الدين
+- id: m3
+  kind: person
+  ref: AIND-D07704
+  quote: الذي قبله
+- id: m4
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: ムハンマド、カマール・アッ＝ディーン。直前の項の人物の同母同父の兄弟。〔8〕60年に幼くして没した。
   en: Muḥammad Kamāl al-Dīn, full brother of the preceding one. He died young in the year [8]60.

@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00046
-    quote: الأذرعي
-    norm: الاذرعي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m10
   - id: n3
     type: laqab
-    quote: المحب
+    mention: m7
   - id: n4
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00665
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m8
 persons:
 - id: p1
   label: حرة
@@ -61,15 +56,13 @@ relations:
   passive: AIND-D10434
   summary:
     ar: الشهاب أحمد بن حسن بن علي الأذرعي
-  quote: null
   note:
     ja: 規則3・37。見出し「المحب بن الشهاب الأذرعي … أحد الأخوة」＝#AIND-D00665「أحمد بن حسن بن علي بن محمد بن عبد الرحمن الشهاب الأذرعي الدمشقي ثم المصري الشافعي . ولد باذرعات … فقرره إمامه … واستقر به وبذريته في إمامة جامعه」（ブリーフ候補、ナサブ5代＋ラカブ الشهاب＋ニスバで閉合。repo 未収録）。兄弟の項（#AIND-D00020「أحد الأخوة من بني الإمام شهاب الدين」ほか）も同じ父を指す。初版は father relation なし。
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D10434#p1
+  active: m11
   passive: AIND-D10434
-  quote: حرة
   note:
     ja: '「وأمه حرة ...」＝母は自由人の女性（兄弟の項は母を「تركية فتاة أبيه」「جركسية فتاة لأبيه」「حبشية فتاة أبيه」と女奴隷とするのに対する区別）。原文は「حرة」の後が欠けている（「...」）＝名・出自は補わない（規則45）。名不詳のため #NEEDID。初版は active 空・desc 空。'
 events:
@@ -81,15 +74,58 @@ events:
   - ref: wd:Q1023470
   methods:
   - TMP-S-00003
-  quote: سمع
   note:
     ja: 'ザーヒリーヤでの『サヒーフ・アル＝ブハーリー』の聴講（読み手・師は原文になし＝relation は立てない）。الظاهرية＝wd:Q23975647（مدرسة الظاهر بيبرس／الظاهرية القديمة）は repo 先例（兄弟の項 #AIND-D00020「ممن سمع في البخاري بالظاهرية」・#AIND-D02515「سمع ختم البخاري بالظاهرية」）に合わせた。原文は「الظاهرية」のみで القديمة／برقوق の別を言わない。初版の affiliation（type study、#NEEDID）を event に改めた。'
   trigger: rule
   phrase: ممن سمع في البخاري بالظاهرية
+  mention: m12
 notes:
 - text: '「أحد الأخوة」＝イマーム・アッ＝シハーブ・アル＝アズライーの息子たちの一人。兄弟の本伝: #AIND-D00020 إبراهيم・#AIND-D00488 أحمد・#AIND-D02515 الحسن・#AIND-D03554 عبد الرحمن・#AIND-D04245 عبد الكريم（いずれも「بن أحمد بن حسن بن علي بن محمد بن عبد الرحمن … الأذرعي」）。本項は兄弟を名指ししない＝relation は立てない（父が AIND で共通、規則23）。没年の記載なし。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  ref: AIND-D00665
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عبد الرحمن
+- id: m7
+  kind: name
+  quote: المحب
+- id: m8
+  kind: name
+  quote: الشهاب
+- id: m9
+  kind: name
+  ref: TMP-N-00046
+  quote: الأذرعي
+  norm: الاذرعي
+- id: m10
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m11
+  kind: person
+  ref: AIND-D10434#p1
+  quote: حرة
+- id: m12
+  kind: event
+  quote: سمع
 translation:
   ja: ユースフ・ブン・アフマド・ブン・ハサン・ブン・アリー・ブン・ムハンマド・ブン・アブド・アッ＝ラフマーン、アル＝ムヒッブ、アッ＝シハーブの子、アズリアート出身の家系でカイロの人。兄弟たちの一人で、母は自由人の女性（以下欠）。ザーヒリーヤで『アル＝ブハーリー』を聴いた者の一人。
   en: Yūsuf b. Aḥmad b. Ḥasan b. ʿAlī b. Muḥammad b. ʿAbd al-Raḥmān, al-Muḥibb, son of al-Shihāb, of Adhriʿāt origin, the Cairene, one of the brothers; his mother was a free woman … [lacuna]. He was among those who heard (part of) al-Bukhārī at the Ẓāhiriyya.

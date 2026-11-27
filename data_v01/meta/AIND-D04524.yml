@@ -9,53 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02546
-    quote: الشمري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-01011
-    quote: الملحاني
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو محمد
-    norm: ابو محمد
+    mention: m4
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
-    ref: TMP-P-001150
+    mention: m2
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
 death:
   id: d
   date:
     notAfter: 819
   places:
-  - ref: TMP-L-00222
-    role: burial
-    quote: مقابر الناشريين بزبيد
+  - role: burial
+    mention: m12
   note:
     en: '"tuwuffiya qabla al-ʿishrīn": died before 820 AH (end of 819 AH = 1417-02-26, proleptic Gregorian). His grave is at the cemetery of the Nāshirīs in Zabīd.'
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00602
+  active: m7
   passive: AIND-D04524
   methods:
   - TMP-S-00032
   fields:
   - wd:Q484181
-  quote: بالشهاب أحمد ابن أبي بكر الناشري
   note:
     ja: '師 = #AIND-D00602（أحمد بن أبي بكر بن علي بن محمد … الشهاب أبو العباس بن الرضي بن الموفق الناشري الزبيدي الشافعي、742年生）。ID-Master 登録どおり。'
-  norm: الشهاب احمد ابن ابي بكر الناشري
   phrase: الشهاب أحمد ابن أبي بكر الناشري
 - id: r2
   type: kin
@@ -64,7 +57,6 @@ relations:
   passive: AIND-D04524
   summary:
     ar: عمر بن عثمان الشمري الملحاني
-  quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（統一規則3）。兄弟 #AIND-D03712 と父を共有する。corpus に本伝なし・ID-Master 未登録のため新規 #TMP-P-001150（⚠汎用名）。'
 - id: r3
@@ -75,31 +67,74 @@ relations:
   summary:
     ar: عبد الرحمن بن عمر بن عثمان الشمري الملحاني
   cert: medium
-  quote: null
   note:
     ja: 本項原文に言及はないが、#AIND-D03712（عبد الرحمن بن عمر بن عثمان الشمري الملحاني أخو عبد الله الآتي … وقبره عند مقابر الناشريين بزبيد）が本項主を「أخو عبد الله الآتي」と一意に特定する（ナサブ・ニスバ・埋葬地一致）ため、規則23により cert medium で補う。D03712 側には既に本項主への brother relation あり。
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: TMP-L-00050
-    quote: بتعز
-    norm: تعز
-  quote: القضاء
+  - mention: m9
   note:
     ja: '「وولي القضاء بتعز」。ID-Master #TMP-O-00224（قاضي تعز）。'
+  mention: m8
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00049
-    quote: بعدن
-    norm: عدن
-  quote: أقام
+  - mention: m11
   trigger: rule
-  norm: اقام
   phrase: ثم أقام مدة بعدن
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001150
+  quote: عمر
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: أبو محمد
+  norm: ابو محمد
+- id: m5
+  kind: name
+  ref: TMP-N-02546
+  quote: الشمري
+- id: m6
+  kind: name
+  ref: TMP-N-01011
+  quote: الملحاني
+- id: m7
+  kind: person
+  ref: AIND-D00602
+  quote: بالشهاب أحمد ابن أبي بكر الناشري
+  norm: الشهاب احمد ابن ابي بكر الناشري
+- id: m8
+  kind: office
+  ref: wd:Q217029
+  quote: القضاء
+- id: m9
+  kind: place
+  quote: بتعز
+  ref: TMP-L-00050
+  norm: تعز
+- id: m10
+  kind: event
+  quote: أقام
+  norm: اقام
+- id: m11
+  kind: place
+  quote: بعدن
+  ref: TMP-L-00049
+  norm: عدن
+- id: m12
+  kind: place
+  quote: مقابر الناشريين بزبيد
+  ref: TMP-L-00222
 translation:
   ja: アブドゥッラー・ブン・ウマル・ブン・ウスマーン、アブー・ムハンマド、アッ＝シャンマリー・アル＝ミルハーニー。アッ＝シハーブ・アフマド・イブン・アビー・バクル・アン＝ナーシリーのもとで法学を修め、タイッズのカーディー職に就いた。その後しばらくアデンに滞在し、（八百）二十年より前に没した。彼の墓はザビードのナーシリー家の墓地にある。
   en: ʿAbd Allāh b. ʿUmar b. ʿUthmān, Abū Muḥammad al-Shammarī al-Milḥānī. He studied jurisprudence under al-Shihāb Aḥmad b. Abī Bakr al-Nāshirī and held the judgeship of Taʿizz, then resided for a time in Aden. He died before the year [8]20 AH, and his grave is at the cemetery of the Nāshirīs in Zabīd.

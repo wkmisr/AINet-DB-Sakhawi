@@ -9,86 +9,120 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن سيف
-    norm: ابن سيف
     label: ابن سيف
+    mention: m9
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001233
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الوهاب
     by: rule
-    ref: TMP-P-001234
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D04599
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m11
   note:
     ja: '「ممن سمع مني بالقاهرة」（統一規則2: field は付けない）。'
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001233
+  active: m7
   passive: AIND-D04599
   summary:
     ar: محمد بن عبد الوهاب الغزي الخطيب بجامع غزة الكبير
-  quote: كأبيه
   note:
     ja: 見出しナサブの父。「الخطيب بجامعها الكبير كأبيه وجده」により父もガザ大モスクのハティーブ。corpus に本伝なし・ID-Master 未登録（الغزي 家の登録者はいずれも別人）→ 新規 TMP-P-001233。初版の汚染番号 TMP-P-000529（ابن جماعة の子 محمد）を解消。
-  norm: ابيه
 - id: r3
   type: kin
   subtype: grandfather
-  active: TMP-P-001234
+  active: m8
   passive: AIND-D04599
   summary:
     ar: عبد الوهاب الغزي الخطيب بجامع غزة الكبير
-  quote: وجده
   note:
     ja: '「كأبيه وجده」により祖父もガザ大モスクのハティーブ（識別要素あり）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001234。初版 #NEEDID を解消。'
-  norm: جده
 states:
 - id: s1
   type: office
-  ref: wd:Q932945
   places:
   - ref: TMP-L-00042
   orgs:
   - ref: TMP-I-00178
-  quote: الخطيب بجامعها الكبير
   note:
     ja: 「الخطيب بجامعها الكبير كأبيه وجده」。「ها」の候補はニスバ الغزي の地 غزة 一つに定まるため placeName を cert medium で保持（規則22(3)）。ガザの大モスクは ID-Master 未登録（TMP-I-00032「الجامع الكبير」は repo D07357 でハラブの大モスクに使用済みの汎用名）→ 新規 TMP-I-00178。
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q82245
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001233
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-P-001234
+  quote: عبد الوهاب
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: office
+  ref: wd:Q932945
+  quote: الخطيب بجامعها الكبير
+- id: m7
+  kind: person
+  ref: TMP-P-001233
+  quote: كأبيه
+  norm: ابيه
+- id: m8
+  kind: person
+  ref: TMP-P-001234
+  quote: وجده
+  norm: جده
+- id: m9
+  kind: name
+  quote: بابن سيف
+  norm: ابن سيف
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥルワッハーブ、アル＝ガッズィー・アッ＝シャーフィイー。父・祖父と同じく同地（ガザ）の大モスクのハティーブ（説教師）で、イブン・サイフとして知られる。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd Allāh b. Muḥammad b. ʿAbd al-Wahhāb, al-Ghazzī al-Shāfiʿī, preacher (khaṭīb) at its (Gaza's) Great Mosque, like his father and grandfather; he is known as Ibn Sayf. He was among those who heard from me (al-Sakhāwī) in Cairo.

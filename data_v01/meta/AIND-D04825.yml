@@ -9,41 +9,64 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04022
-    quote: الفيخراني
+    mention: m2
   - id: n2
     type: ism
-    quote: عبيد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 840
     cert: medium
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m3
+  - role: burial
+    mention: m5
   note:
     ja: 「في حدود سنة أربعين」＝840年頃（規則4の近似表現、cert medium）。840年初＝1436-07-25（h2g 検証）、@when 1436。
-  quote: سنة
   phrase: مات بمكة في حدود سنة أربعين ودفن بالمعلاة
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m7
   note:
     ja: 'Pattern A。没年 840頃（≤871）につき #AIND-D09211（cert low）。初版の subtype「other」relation を event に変更。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبيد
+- id: m2
+  kind: name
+  ref: TMP-N-04022
+  quote: الفيخراني
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウバイド・アル＝ファイフラーニー。〔8〕40年頃にマッカで没し、アル＝マアラー〔墓地〕に埋葬された。イブン・ファハドが彼の没年を記録した。
   en: ʿUbayd al-Faykharānī. He died in Mecca around the year [8]40 and was buried at al-Muʿallā. Ibn Fahd recorded the date of his death.

@@ -9,61 +9,53 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00202
-    quote: العلوي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00503
-    quote: التعزي
+    mention: m11
   - id: n3
     type: nisbah
-    ref: TMP-N-00159
-    quote: الزبيدي
+    mention: m12
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001584
+    mention: m2
   - id: n6
     type: nasab
-    quote: إدريس
     by: rule
-    norm: ادريس
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عمر
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: علي
     by: rule
+    mention: m7
   - id: n11
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m8
   - id: n12
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m9
   - id: n13
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m13
 relations:
 - id: r1
   type: kin
@@ -72,29 +64,26 @@ relations:
   passive: AIND-D08031
   summary:
     ar: علي بن إدريس بن أحمد بن محمد بن عمر العلوي التعزي الزبيدي
-  quote: null
   note:
     ja: '父 علي بن إدريس：見出しナサブ（9代）から祖父 إدريس 以下まで復元でき、العلوي 家（子 #AIND-D08919 の項「نسبة لعلي بن راشد بن بولان」）のイエメン・ザビード／タイッズの学者家系＝識別要素あり。corpus に本伝なし（hw.py「علي بن إدريس」は D05056 الرومي のみ）・ID-Master 未登録 → 新規 TMP-P-001584（規則3）。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D08919
+  active: m14
   passive: AIND-D08031
   summary:
     ar: أبو الطاهر محمد
-  quote: الطاهر محمد
   note:
     ja: 「والد أبي الطاهر محمد الآتي」＝#AIND-D08919「محمد بن محمد بن علي بن إدريس بن أحمد بن محمد بن عمر بن علي بن أبي بكر ابن عبد الرحمن المجد أبو الطاهر العلوي … الزبيدي التعزي اليماني الشافعي . ولد … سنة ست وثمانمائة بزبيد … واشتغل على والده في الفقه وغيره وسمع عليه كثيرا … ومات … سنة أربعين … بالبيمارستان المنصوري من القاهرة」（未受領）。見出しナサブが本項主と完全一致（規則37）。
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D08031
-  passive: AIND-D08919
+  passive: m15
   methods:
   - TMP-S-00070
   fields:
   - wd:Q484181
-  quote: وسمع
   note:
     ja: '本項主が師（active）、子 أبو الطاهر محمد（#AIND-D08919）が学生。D08919 側も「واشتغل على والده في الفقه وغيره وسمع عليه كثيرا」と記す。初版は passive #NEEDID。'
   phrase: انتفع به ولده في الفقه وغيره
@@ -102,10 +91,9 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D08031
-  passive: AIND-D08919
+  passive: m16
   methods:
   - TMP-S-00003
-  quote: عليه كثيرا
   phrase: وسمع عليه كثيرا
 affiliations:
 - id: a1
@@ -115,6 +103,66 @@ notes:
 - text: 「وهو من أهل هذا القرن لكن ما رأيت ترجمته」＝サハーウィーは本項主を9世紀の人物とするが伝記を見ていないと留保。生没年・活動地は原文にないため作らない。子 D08919 が806年ザビード生であることから、本項主の活動は8世紀末〜9世紀前半と推定されるが note に留める。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001584
+  quote: علي
+- id: m3
+  kind: name
+  quote: إدريس
+  norm: ادريس
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عمر
+- id: m7
+  kind: name
+  quote: علي
+- id: m8
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m9
+  kind: name
+  quote: عبد الرحمن
+- id: m10
+  kind: name
+  ref: TMP-N-00202
+  quote: العلوي
+- id: m11
+  kind: name
+  ref: TMP-N-00503
+  quote: التعزي
+- id: m12
+  kind: name
+  ref: TMP-N-00159
+  quote: الزبيدي
+- id: m13
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m14
+  kind: person
+  ref: AIND-D08919
+  quote: الطاهر محمد
+- id: m15
+  kind: person
+  ref: AIND-D08919
+  quote: وسمع
+- id: m16
+  kind: person
+  ref: AIND-D08919
+  quote: عليه كثيرا
 translation:
   ja: ムハンマド・ブン・アリー・ブン・イドリース・ブン・アフマド・ブン・ムハンマド・ブン・ウマル・ブン・アリー・ブン・アビー・バクル・ブン・アブド・アッ＝ラフマーン・アル＝アラウィー・アッ＝タイッズィー・アッ＝ザビーディー・アッ＝シャーフィイー、後述するアブー・アッ＝ターヒル・ムハンマドの父。その子は彼から法学その他で益を得、彼から多くを聴聞した。彼はこの世紀の人であるが、私はその伝記を見ていない。
   en: Muḥammad b. ʿAlī b. Idrīs b. Aḥmad b. Muḥammad b. ʿUmar b. ʿAlī b. Abī Bakr b. ʿAbd al-Raḥmān al-ʿAlawī al-Taʿizzī al-Zabīdī al-Shāfiʿī, the father of Abū al-Ṭāhir Muḥammad, who will come below. His son benefited from him in jurisprudence and other subjects and heard much from him. He belongs to this century, but I have not seen a biography of him.

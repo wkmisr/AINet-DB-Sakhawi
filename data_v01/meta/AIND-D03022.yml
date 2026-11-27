@@ -9,28 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00214
-    quote: الحبشي
+    mention: m2
   - id: n2
     type: ism
-    quote: ريحان
     by: rule
+    mention: m1
 states:
 - id: s1
   type: office
-  ref: TMP-O-00012
-  quote: العطار
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: ابن فهد
+    mention: m4
   note:
     en: Listed the subject in his biographical work.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
+  phrase: ابن فهد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: ريحان
+- id: m2
+  kind: name
+  ref: TMP-N-00214
+  quote: الحبشي
+- id: m3
+  kind: office
+  ref: TMP-O-00012
+  quote: العطار
+- id: m4
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: レイハーン・アル＝ハバシー・アル＝アッタール。イブン・ファハドは（系譜などを加えず）単にこのように彼を記録している。
   en: Rayḥān al-Ḥabashī al-ʿAṭṭār. Thus Ibn Fahd listed him bare of lineage.

@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-05509
-    quote: العقاد
+    mention: m5
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n4
     type: laqab
-    quote: بالحنبلي
-    norm: الحنبلي
     label: الحنبلي
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
     ah: 863-02
   note:
     ja: 「مات في صفر سنة ثلاث وستين」。863年サファル月＝1458-12-17〜1459-01-14（h2g.py）。月精度。
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: أحمد
@@ -51,7 +47,6 @@ relations:
   subtype: father
   active: AIND-D07044#p1
   passive: AIND-D07044
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 states:
@@ -59,23 +54,61 @@ states:
   type: office
   ref: TMP-O-00326
   places:
-  - ref: TMP-L-00286
-    quote: بالوراقين
-    norm: الوراقين
-  quote: null
+  - mention: m6
   note:
     ja: 見出しの「العقاد بالوراقين」＝ワッラーキーン（カイロの書籍商街、ID-Master TMP-L-00286）で組紐職（عقاد）を営んだ。職「عقاد」は ID-Master 未登録（ニスバ العقاد TMP-N-05509 のみ）のため仮番号 TMP-O-00326 を発行。地名は原文に明記（規則22(2)）。
+  mention: null
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00336
-    quote: الجنينة
+  - mention: m7
   orgs:
   - ref: TMP-I-00226
-  quote: المجدد للجامع المعروف بابن مدين بالقرب من الجنينة
   note:
     ja: イブン・マディヤンのモスク（ジャーミウ）を改修（تجديد）した。施設 جامع ابن مدين・地名 الجنينة（カイロ）はいずれも ID-Master・corpus 他項に無いため仮番号 TMP-I-00226・TMP-L-00336 を発行。初版の affiliation（同モスクへの所属）は原文に根拠がなく除去。
+  phrase: المجدد للجامع المعروف بابن مدين بالقرب من الجنينة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m5
+  kind: name
+  ref: TMP-N-05509
+  quote: العقاد
+- id: m6
+  kind: place
+  quote: بالوراقين
+  ref: TMP-L-00286
+  norm: الوراقين
+- id: m7
+  kind: place
+  quote: الجنينة
+  ref: TMP-L-00336
+- id: m8
+  kind: name
+  quote: بالحنبلي
+  norm: الحنبلي
+- id: m9
+  kind: month
+  value: 2
+  quote: صفر
+- id: m10
+  kind: year
+  value: '863'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・アッ＝シャムス・アル＝ハリーリー・アル＝アッカード（組紐職人）、ワッラーキーンの。アル＝ジュナイナの近くにあるイブン・マディヤンの名で知られるモスクの改修者であり、アル＝ハンバリーと渾名されていた。863年サファル月に没した。
   en: Muḥammad b. Aḥmad al-Shams al-Ḥarīrī al-ʿAqqād (the cord-maker) in al-Warrāqīn, the renovator of the mosque known as Ibn Madyan near al-Junayna; he was nicknamed al-Ḥanbalī. He died in Ṣafar 863.

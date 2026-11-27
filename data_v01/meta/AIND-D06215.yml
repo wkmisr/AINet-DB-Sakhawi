@@ -9,83 +9,70 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00165
-    quote: الهندي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-02516
-    quote: الأحمد أبادي
-    norm: الاحمد ابادي
+    mention: m7
   - id: n3
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: داود
     by: rule
-    ref: AIND-D02957
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m4
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
   - id: n8
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m8
 birth:
   id: b
   date:
     ah: 869
   note:
     ja: 「ولد في سنة تسع وستين وثمانمائة」。出生地の明記なし（弟 راجح は D02984 で أحمدآباد 生まれ）。
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D02957
   passive: AIND-D06215
-  quote: null
   note:
     ja: 父＝#AIND-D02957「داود بن محمد بن عيسي بن أحمد الهندي المحمد ابادى أخو سليمان ووالد راجح الآتيين … ومات في سنة اثنتين وسبعين عن نحو ثلاثين سنة」（ナサブ5代一致、規則37）。初版は father relation 欠落。
   phrase: داود بن محمد بن عيسى بن أحمد الهندي
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02984
+  active: m9
   passive: AIND-D06215
   summary:
     ar: راجح بن داود بن محمد بن عيسى بن أحمد الهندي
-  quote: أخو
   note:
     ja: 「أخو راجح الماضي وهذا أسن」＝弟 راجح（#AIND-D02984、生871）より本項主が年長。D02984 に「قدم هو وأخوه قاسم وعمهما للحج（893年）」「لازمني … هو وأخوه حتى سمعا علي من أول البخاري …」「من نسخة حصلها الثلاثة بخطوطهم」とあり本項主を名指し。叔父 سليمان（#AIND-D03173）は本項に言及なしのため note のみ。初版の幻番号 TMP-P-000000 を差し替え。
-  norm: اخو
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D06215
   methods:
   - TMP-S-00008
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: عني
+    - mention: m12
   note:
     ja: 「وأنه ممن أخذ عني بمكة」（規則2）。弟の項 D02984 によれば893〜894年に兄弟でサハーウィーから『البخاري』の一部を聴聞（相手側情報は note 留め、規則23）。
 affiliations:
@@ -97,10 +84,60 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00033
-  quote: ساعده في كتابة شرحي للألفية
   note:
     ja: 弟 راجح がサハーウィーの『شرح ألفية الحديث』（فتح المغيث＝TMP-T-00033）を書写するのを手伝った（D02984「من نسخة حصلها الثلاثة بخطوطهم」）。
-  norm: ساعده في كتابة شرحي للالفية
+  phrase: ساعده في كتابة شرحي للألفية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: AIND-D02957
+  quote: داود
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  ref: TMP-N-00165
+  quote: الهندي
+- id: m7
+  kind: name
+  ref: TMP-N-02516
+  quote: الأحمد أبادي
+  norm: الاحمد ابادي
+- id: m8
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m9
+  kind: person
+  ref: AIND-D02984
+  quote: أخو
+  norm: اخو
+- id: m10
+  kind: year
+  value: '869'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
+- id: m12
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: カースィム・ブン・ダーウード・ブン・ムハンマド・ブン・イーサー・ブン・アフマド、アル＝ヒンディー・アル＝アフマダーバーディー、ハナフィー派。既述のラージフの兄弟で、こちらの方が年長である。869年に生まれ、少しばかり学問に携わった。彼については兄弟の項に言及があり、マッカで私から学んだ者の一人であること、また私のアルフィーヤ注釈の書写において彼（兄弟）を手伝ったことが記されている。
   en: 'Qāsim b. Dāwūd b. Muḥammad b. ʿĪsā b. Aḥmad al-Hindī al-Aḥmadābādī, the Ḥanafī, brother of the aforementioned Rājiḥ and the elder of the two. He was born in 869 and studied a little. He is mentioned in his brother''s entry: that he is among those who studied under me in Mecca, and that he assisted him (his brother) in copying my commentary on the Alfiyya.'

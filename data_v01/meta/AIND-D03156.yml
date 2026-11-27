@@ -9,51 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m7
   - id: n3
     type: laqab
-    quote: نفيس الدين
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو الربيع
-    norm: ابو الربيع
+    mention: m5
   - id: n5
     type: shuhrah
-    quote: بالجنيد
-    norm: الجنيد
     label: الجنيد
+    mention: m8
   - id: n6
     type: shuhrah
-    quote: ابن الجنيد
+    mention: m9
   - id: n7
     type: ism
-    quote: سليمان
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n9
     type: nasab
-    quote: أحمد القاضي
     by: rule
-    norm: احمد القاضي
+    mention: m3
 death:
   id: d
   date:
     ah: 821
   places:
-  - ref: TMP-L-00049
-    quote: عدن
+  - mention: m14
   note:
     ja: イブン・ハジャル『إنباء』の引用中。「بها」＝直前の عدن（照応、cert 不要）。821年初＝1418-02-17（h2g.py、年精度）。التقي بن فهد は『معجم』で同じ没年を記すが没地を زبيد とする（「لكن بزبيد」）＝異伝として mention event の placeName と note に留め、death の placeName は主文の عدن。
-  quote: سنة
   phrase: وبها مات سنة إحدى وعشرين
+  mention: m16
 persons:
 - id: p1
   label: علي بن أحمد
@@ -67,9 +61,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03156#p1
+  active: m12
   passive: AIND-D03156
-  quote: ابن شداد
   note:
     ja: '見出しナサブのみ（汎用名、識別要素なし）。「ويعرف بالجنيد أو ابن الجنيد」の الجنيد が父（または祖先）の名・通称である可能性はあるが原文から決まらない。corpus に本伝なし（hw.py「الجنيد」: イエメンの ابن الجنيد 家の本伝は本項以外になし）、ID-Master 未登録 → #NEEDID（規則3 (c'')）。初版なし。'
 - id: r2
@@ -80,7 +73,6 @@ relations:
   summary:
     ar: خديجة
   cert: medium
-  quote: null
   note:
     ja: 他項からの補完（規則23、cert medium）。#AIND-D07541「محمد بن عبد الرحمن بن أبي بكر بن عبد الله بن ظهيرة … القرشي المكي ، وأمه خديجة ابنة القاضي سليمان بن علي بن الجنيد . درج صغيرا」＝母 خديجة は ID-Master 既登録 TMP-P-001175（Note に「父＝#AIND-D03156」）。「القاضي سليمان بن علي بن الجنيد」は本項主（名・父名・القاضي・ابن الجنيد）に一意。D07541（マッカの ابن ظهيرة 家の幼児）は本項主の外孫＝note のみ。
 - id: r3
@@ -90,20 +82,17 @@ relations:
   passive: AIND-D03156
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: '「أنه سمع على ابن شداد وغيره」（イブン・ハジャルの引用）。イエメン（ザビード）の文脈で「ابن شداد」はサハーウィーが固定的に علي بن أبي بكر بن شداد الزبيدي（8世紀のムスニド、#AIND-D01004 の父）を指す呼称（corpus: D10295「سمع من علي ابن شداد」・D03809「وعلي بن شداد」・D00445「أخذه عن ابن شداد بزبيد」）＝規則26 例外2 により cert medium。repo 先例 D00445 は TMP-P-000366 を使用。ID-Master には同一人物とみられる TMP-P-000366「علي بن أبي بكر بن شداد」と TMP-P-000996「علي بن أبي بكر بن شداد الزبيدي」（D01004 の父）の2行があり名寄せ要（ISSUES §D156-1）。「وغيره」は人物を立てない。初版の #NEEDID・field（الحديث、原文になし）を是正。【集約 2026-11-05】corpus のイエメン文脈の「ابن شداد」は2人を指しうる: 父 علي بن أبي بكر بن شداد（D03130「وعلي بن أبي بكر بن شداد」・D03809「وعلي بن شداد」・D04312「علي ابن أبي بكر بن شداد」・D10295「علي ابن شداد」、ID-Master TMP-P-000366／000996）と子 أحمد بن علي بن أبي بكر بن شداد（#AIND-D01004、756 頃生「وحدث سمع منه الفضلاء」、D05979「ومن زبيد … وأحمد بن علي بن شداد」）。裸の「ابن شداد」は本項と D00445 の2件のみ。規則60(e) と規則26 例外2 の衝突として ★2 に回付（決定17）。裁定まで校閲の TMP-P-000366 cert medium のまま。 / 裁定 2026-11-05 ★2 (a): #NEEDID。候補: TMP-P-000996 علي بن أبي بكر بن شداد（父）／#AIND-D01004
       أحمد بن علي بن أبي بكر بن شداد（子）。原文は裸の「ابن شداد」で父子どちらとも決められない。上の note の TMP-P-000366 cert medium は旧判断の記録（000366 は ID-Master で 000996 に統合）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: TMP-L-00049
-    quote: عدن
-  quote: قضاء
+  - mention: m14
   note:
     ja: '「وولي قضاء عدن مدة」。ID-Master 既登録 TMP-O-00223（قاضي عدن）。初版の #NEEDID を置換。'
+  mention: m13
 events:
 - id: e2
   type: cultural
@@ -111,42 +100,108 @@ events:
   persons:
   - ref: wd:Q471116
   places:
-  - ref: TMP-L-00049
-    quote: عدن
-  quote: رأيته
+  - mention: m14
   note:
     ja: 引用中の一人称＝引用元の著者イブン・ハジャル（規則59 (f)。イブン・ハジャルは800年にイエメンに渡っている。サハーウィー（831年生）は821年没の本項主を見ていない）。「بها」＝عدن。初版の en 訳「I (al-Sakhāwī) saw him」と residence event（原文に居住の記述なし）は誤りとして除去・訂正。
   trigger: rule
-  norm: رايته
   phrase: رأيته بها
+  mention: m15
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。本項の師事・職・没年没地はすべてこの引用による。初版の relation（subtype predecessor）を mention event に置換。
   trigger: rule
-  norm: ارخه
   phrase: قال شيخنا في أنبائه أنه سمع على ابن شداد وغيره ، وولي قضاء عدن مدة رأيته بها ، وبها مات سنة إحدى وعشرين
+  mention: m17
 - id: c2
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m18
   places:
-  - ref: TMP-L-00041
-    quote: بزبيد
-    norm: زبيد
+  - mention: m19
   works:
   - ref: TMP-T-00138
-  quote: قال
   note:
     ja: Pattern A。「التقي」と「في معجمه」が明示＝#AIND-D09211（規則43 の振り分け「في معجمه→D09211」、cert 不要）、『معجم ابن فهد』＝TMP-T-00138。没地を زبيد とする異伝（原文の地名＝規則22(2) で placeName に残す）。初版の relation（subtype biographer）を mention event に置換。
   trigger: rule
   phrase: وكذا أرخه التقي بن فهد في معجمه لكن بزبيد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: سليمان
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد القاضي
+  norm: احمد القاضي
+- id: m4
+  kind: name
+  quote: نفيس الدين
+- id: m5
+  kind: name
+  quote: أبو الربيع
+  norm: ابو الربيع
+- id: m6
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m7
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m8
+  kind: name
+  quote: بالجنيد
+  norm: الجنيد
+- id: m9
+  kind: name
+  quote: ابن الجنيد
+- id: m10
+  kind: source
+  quote: قال
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: person
+  ref: AIND-D03156#p1
+  quote: ابن شداد
+- id: m13
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m14
+  kind: place
+  quote: عدن
+  ref: TMP-L-00049
+- id: m15
+  kind: event
+  quote: رأيته
+  norm: رايته
+- id: m16
+  kind: year
+  value: '821'
+  quote: سنة
+- id: m17
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m18
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
+- id: m19
+  kind: place
+  quote: بزبيد
+  ref: TMP-L-00041
+  norm: زبيد
 translation:
   ja: スライマーン・ブン・アリー・ブン・アフマド、カーディー、ナフィース・アッ＝ディーン、アブー・アッ＝ラビーウ、アル＝クラシー・アル＝ヤマニー。アル＝ジュナイド、またはイブン・アル＝ジュナイドとして知られる。我らがシャイフ（イブン・ハジャル）は『インバーゥ』で、彼がイブン・シャッダードらから聴聞したこと、一時期アデンのカーディー職を務め「私（イブン・ハジャル）は彼をそこで見た」こと、そして（8）21年に同地で没したことを述べている。アッ＝タキー・ブン・ファハドも『ムウジャム』で同じ没年を記しているが、（没地は）ザビードとしている。
   en: Sulaymān b. ʿAlī b. Aḥmad, the qāḍī Nafīs al-Dīn Abū al-Rabīʿ al-Qurashī al-Yamanī, known as al-Junayd or Ibn al-Junayd. Our shaykh (Ibn Ḥajar) said in his Inbāʾ that he heard from Ibn Shaddād and others, that he held the judgeship of Aden for a period—"I (Ibn Ḥajar) saw him there"—and that he died there in the year [8]21. Al-Taqī b. Fahd likewise recorded his death date in his Muʿjam, but (placed it) in Zabīd.

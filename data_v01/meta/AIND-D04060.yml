@@ -9,86 +9,127 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الفخر
+    mention: m6
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن الجيعان
+    mention: null
   - id: n3
     type: ism
-    quote: عبد الغني
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: شاكر
     by: rule
-    ref: TMP-P-000902
+    mention: m2
   - id: n5
     type: nasab
-    quote: ماجد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: يعقوب
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: العلم
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: الجيعان جد
     by: rule
+    mention: m8
 death:
   id: d
   date:
     ah: 808-05-25
   note:
     en: He died on 25 Jumādā I 808 AH.
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-000902
+  active: m9
   passive: AIND-D04060
   summary:
     ar: شاكر بن ماجد بن عبد الوهاب بن يعقوب العلم بن الجيعان
-  quote: الذي قبله
   note:
     ja: 父 = العلم شاكر بن ماجد ابن الجيعان（本項主のナサブ「الفخر بن العلم」から復元。corpus に本伝なし）→ 新規 TMP-P-000902。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D03270
+  active: m10
   passive: AIND-D04060
   summary:
     ar: شاكر (والد شاكر واخوته)
-  quote: ووالد
   note:
     ja: 息子 = العلمي شاكر بن عبد الغني بن شاكر بن ماجد ابن الجيعان（#AIND-D03270、生790頃）。「واخوته」＝その他の息子（إبراهيم=#AIND-D00151、المجد عبد الرحمن=#AIND-D03648 等）は原文に名がないため relation 化しない。
-  norm: والد
 - id: r3
   type: kin
   subtype: grandson
   active: AIND-D04059
   passive: AIND-D04060
-  quote: null
   note:
     ja: 「الذي قبله」＝直前項 عبد الغني بن شاكر بن عبد الغني بن شاكر بن ماجد（#AIND-D04059、生818）。本項主はその祖父。
   phrase: جد الذي قبله
 states:
 - id: s1
   type: office
-  ref: TMP-O-00232
-  quote: ككتابة الجيش
   note:
     ja: 「باشر في جهات ككتابة الجيش」。ID-Master に كتابة الجيش（軍務局書記）の登録なし（نظر الجيش=O-00045・ناظر الجيش=O-00031 とは別職）→ 新規 TMP-O-00232。
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغني
+- id: m2
+  kind: name
+  ref: TMP-P-000902
+  quote: شاكر
+- id: m3
+  kind: name
+  quote: ماجد
+- id: m4
+  kind: name
+  quote: عبد الوهاب
+- id: m5
+  kind: name
+  quote: يعقوب
+- id: m6
+  kind: name
+  quote: الفخر
+- id: m7
+  kind: name
+  quote: العلم
+- id: m8
+  kind: name
+  quote: الجيعان جد
+- id: m9
+  kind: person
+  ref: TMP-P-000902
+  quote: الذي قبله
+- id: m10
+  kind: person
+  ref: AIND-D03270
+  quote: ووالد
+  norm: والد
+- id: m11
+  kind: office
+  ref: TMP-O-00232
+  quote: ككتابة الجيش
   norm: كتابة الجيش
+- id: m12
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m13
+  kind: year
+  value: '808'
+  quote: سنة
 translation:
   ja: アブドゥルガニー・ブン・シャーキル・ブン・マージド・ブン・アブドゥルワッハーブ・ブン・ヤアクーブ、アル＝ファフル・ブン・アル＝アラム・イブン・アル＝ジーアーン。直前の項の人物の祖父であり、シャーキルとその兄弟たちの父である。書記実務に秀で、軍務局書記（キターバト・アル＝ジャイシュ）などの職務に従事した。808年ジュマーダー・アル＝ウーラー月25日に没した。
   en: ʿAbd al-Ghanī b. Shākir b. Mājid b. ʿAbd al-Wahhāb b. Yaʿqūb, al-Fakhr b. al-ʿAlam Ibn al-Jīʿān. He was the grandfather of the preceding person and the father of Shākir and his brothers. He excelled in secretarial writing and served in various posts such as the army chancery (kitābat al-jaysh). He died on 25 Jumādā I 808 AH.

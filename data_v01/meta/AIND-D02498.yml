@@ -9,89 +9,78 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: حزمان
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 814
   note:
     en: Executed by tawsīṭ (cut in two) on the order of al-Nāṣir [Faraj] in 814 H; place of execution not stated (he had been brought before al-Nāṣir).
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D02498
   summary:
     ar: الظاهري برقوق | أستاذه
-  quote: برقوق
   note:
     en: Mamluk of al-Ẓāhir Barqūq (AIND-D02178); he rose in the days of his master's son (ابن أستاذه = al-Nāṣir Faraj).
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
   - ref: gn:281184
-  quote: نائب القدس
-  norm: ناءب القدس
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00063
-  quote: دوادارا
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈職 دوادار ثاني の勤務地（原文に地名なし）〉からの補完で原文に地名の明示なし。
+  mention: m5
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: null
+  - mention: m7
   note:
     en: Fled to Damascus before 814 H
+  mention: null
 - id: e2
   type: political
   summary:
     en: Rebelled against the authority of al-Nāṣir [Faraj], his master's son, and fled towards Damascus.
-  quote: فأمسك
   note:
     en: Before/in 814 H
   trigger: rule
-  norm: امسك
   phrase: ثم خرج عن طاعته وفر قاصدا دمشق
+  mention: m8
 - id: e3
   type: political
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
+  - mention: m9
   summary:
     en: Was seized in Gaza.
-  quote: فحبسه
   note:
     en: Before 814 H
   trigger: rule
-  norm: حبسه
+  mention: m10
 - id: e4
   type: political
   persons:
-  - ref: AIND-D06160
-    quote: الناصر
+  - mention: m11
   summary:
     en: Was brought to al-Nāṣir and imprisoned for several days.
-  quote: خرج
   cert: medium
   note:
     en: Before/in 814 H. Cairo inferred (cert medium).
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈スルタン（الناصر）の所在（جيئ به فحبسه الناصر、地名なし）〉からの補完で原文に地名の明示なし。
   trigger: rule
+  mention: m6
 - id: e5
   type: political
   date:
@@ -102,9 +91,58 @@ events:
   - ref: AIND-D06160
   summary:
     en: Was cut in two (wussiṭa) on the order of al-Nāṣir in 814 H.
-  quote: ثم وسطه في سنة أربع عشرة
   cert: high
-  norm: ثم وسطه في سنة اربع عشرة
+  phrase: ثم وسطه في سنة أربع عشرة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حزمان
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب القدس
+  norm: ناءب القدس
+- id: m5
+  kind: office
+  ref: TMP-O-00063
+  quote: دوادارا
+- id: m6
+  kind: event
+  quote: خرج
+- id: m7
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m8
+  kind: event
+  quote: فأمسك
+  norm: امسك
+- id: m9
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
+- id: m10
+  kind: event
+  quote: فحبسه
+  norm: حبسه
+- id: m11
+  kind: person
+  ref: AIND-D06160
+  quote: الناصر
+- id: m12
+  kind: year
+  value: '814'
+  quote: سنة
 translation:
   ja: ハズマーン（第一音節はファトハで発音）。チェルケス系の名前である。アッ＝ザーヒル・バルクーク（のマムルーク）。主人の子（アン＝ナースィル・ファラジュ）の時代に出世を重ね、イェルサレムのナーイブ（代官）を務めた後、第二ダワーダールとなった。その後、その（ナースィルへの）服従を離れてダマスクスを目指して逃亡したが、ガザで捕らえられて連行された。アン＝ナースィルは彼を数日間監禁した後、814年に胴斬り（タウスィート）に処した。
   en: Ḥazmān (with fatḥ), a Circassian name; [a mamluk] of al-Ẓāhir Barqūq. He was among those who rose through the ranks in the days of his master's son (al-Nāṣir Faraj), serving as nāʾib of Jerusalem and then becoming second dawādār. Afterward he abandoned his (al-Nāṣir's) obedience and fled, making for Damascus; he was seized in Gaza and brought back. Al-Nāṣir imprisoned him for some days, then had him cut in two (wassaṭahu) in the year 814.

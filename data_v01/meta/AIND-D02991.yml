@@ -9,37 +9,48 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: ربيع
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D10491
+  active: m3
   passive: AIND-D02991
-  quote: الجمالي ناظر الخاص
   note:
     en: Founder of the Sufi establishment at al-Kawm al-Abyaḍ where Rabīʿ served as shaykh.
     ja: الجمالي ناظر الخاص ＝ الجمال يوسف بن كاتب جكم（corpus内では AIND-D03192「سنقر الجمالي ناظر الخاص يوسف بن كاتب جكم」・AIND-D03276・AIND-D01712 に主人／父として言及）。本伝未特定＝TMP発行。
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   places:
-  - ref: TMP-L-00199
-    quote: بالكوم الأبيض
-    norm: الكوم الابيض
-  quote: شيخ صوفية
+  - mention: m4
   note:
     ja: 初版は「المكان الذي بناه الجمالي بالكوم الأبيض」（＝「ジャマーリーがカウム・アル＝アブヤドに建てた施設」）を機関名として orgName 化し ID を求めていたが、これは固有名ではなく記述句であるため機関IDを発行せず、所在地（TMP-L-00199）と創建者relation（TMP-P-000794）で表現するに留める（§4-17）。
+  mention: m2
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00199
-    quote: بالكوم الأبيض
-    norm: الكوم الابيض
-  quote: null
+  - mention: m4
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: ربيع
+- id: m2
+  kind: office
+  ref: wd:Q7492880
+  quote: شيخ صوفية
+- id: m3
+  kind: person
+  ref: AIND-D10491
+  quote: الجمالي ناظر الخاص
+- id: m4
+  kind: place
+  quote: بالكوم الأبيض
+  ref: TMP-L-00199
+  norm: الكوم الابيض
 translation:
   ja: ラビーウ。アル＝カウム・アル＝アブヤドにある、ナージル・アル＝ハアッス（特別管財人）のアル＝ジャマーリーが建立した施設（場所）のスーフィーのシャイフ。
   en: Rabīʿ, the shaykh of the Sufis at the place built by al-Jamālī, the Nāẓir al-Khāṣṣ (Superintendent of the Privy Purse), in al-Kawm al-Abyaḍ.

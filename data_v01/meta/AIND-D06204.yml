@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01704
-    quote: الراشدي
+    mention: m4
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: إبراهيم بن محمد الراشدي
@@ -36,26 +34,46 @@ relations:
   subtype: father
   active: AIND-D06204#p1
   passive: AIND-D06204
-  quote: null
   note:
     ja: '見出しナサブから（規則3）。corpus の الراشدي 見出し（#AIND-D02646・D09761・索引 D11670）に本伝なし、ID-Master 未登録。汎用名のため #NEEDID。初版の #NEEDED（誤記）を是正。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D06204
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m6
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
   note:
     ja: 規則2。初版の field（الحديث）は原文に無いため除去。
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  ref: TMP-N-01704
+  quote: الراشدي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: カースィム・ブン・イブラーヒーム・ブン・ムハンマド・アッ＝ラーシディー。カイロで私（サハーウィー）から聴聞した者の一人。
   en: Qāsim b. Ibrāhīm b. Muḥammad al-Rāshidī. He is among those who heard from me (al-Sakhāwī) in Cairo.

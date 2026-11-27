@@ -9,18 +9,18 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: قشير
+    mention: m2
   - id: n2
     type: ism
-    quote: قانم
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 881
   note:
     ja: 「مات سنة إحدى وثمانين」＝881 年（年初 1476-05-05、年精度）。没地の記載なし（初版の placeName إسكندرية は在職地からの補完のため除去＝規則22(1)）。死因・様態は原文に明記されない（末尾の縊死の記事は本項主ではなく دوادار にかかる読み。下記 event の note）。【集約 2026-10-26 §D136-2 自己裁定】別解として、「مات سنة إحدى وثمانين」の死因説明として末尾が続き、召喚された本項主自身が縊死したと読む可能性もある（内容B）。主語は原文から決まらないので death には死因を入れず、別解をここに記すに留める。D02340「تلقى أقطاع نائب اسكندرية قائم قشير عنه」は881年に本項主の إقطاع が他者に移ったことを示し、どちらの読みとも整合する。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قانم قشير نائب إسكندرية
@@ -29,10 +29,9 @@ relations:
 - id: r1
   type: social
   subtype: predecessor
-  active: AIND-D06314
+  active: m6
   passive: AIND-D06301
   cert: medium
-  quote: قجماس
   note:
     ja: '「وكان استقراره في النيابة بعد قجماس」＝アレクサンドリア副官職の前任者。corpus で نيابة إسكندرية を帯びた قجماس は #AIND-D06314「قجماس الإسحاقي الظاهري جقمق نائب الشام … فلما استقر الأشرف قايتباي رقاه … ثم استقر به في نيابة إسكندرية وأضاف إليه وهو بها تقدمة ثم نقله من النيابة لإمرة آخور」（未受領）のみで、カーイトバーイ治世（872〜）に本項主（881 没）の直前にこの職にあったことと整合するが、原文は裸名のため cert medium（規則26）。初版の TMP-P-000645（ID-Master 登録＝الظاهر برقوق の兄弟 قجماس、9 世紀初頭没の関係専用番号）は実体不一致のため除去。'
 - id: r2
@@ -40,32 +39,52 @@ relations:
   subtype: father
   active: AIND-D06301#p1
   passive: AIND-D06301
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:361058
-    quote: إسكندرية
-    norm: اسكندرية
-  quote: نائب
+  - mention: m4
   note:
     ja: '見出し「نائب إسكندرية」。「استقراره في النيابة بعد قجماس」。初版の placeName #NEEDID → gn:361058（ID-Master 登録 الاسكندرية）。初版の date type=retirement（881）は原文に無いため除去（没時まで在職かは明記されない）。'
-  norm: ناءب
+  mention: m3
 events:
 - id: e1
   type: other
-  quote: وكثر التشكي من دواداره بحيث كتب بطلبه فبادر فيما قيل لشنق نفسه
   note:
     ja: 彼のダワーダールへの苦情が多くなり、（ダワーダールの）召喚が書面で命じられたので、（ダワーダールは）伝えられるところでは（فيما قيل）急いで首を吊った。「بطلبه」「فبادر」の「ه」・主語は直前の دواداره に取る読み（ブリーフの指示）。本項主自身の縊死と読む別解もあり得るため ISSUES §D136-2 に記す。「فيما قيل」の留保を訳に残す。初版の death note・political event（本項主が召喚され自殺したとする en desc、cert high、placeName إسكندرية）を置換。
-  norm: كثر التشكي من دواداره بحيث كتب بطلبه فبادر فيما قيل لشنق نفسه
+  phrase: وكثر التشكي من دواداره بحيث كتب بطلبه فبادر فيما قيل لشنق نفسه
+  mention: null
 notes:
 - text: 'ID-Master の関係専用番号 TMP-P-000671「قائم قشير | قايم قشير」（出現: #AIND-D02340「تلقى أقطاع نائب اسكندرية قائم قشير عنه ولم يلبث أن مات مطعونا في سنة احدى وثمانين」・#AIND-D09403「خدم عند قائم قشير بالكتابة」）は、職（نائب إسكندرية）・通称 قشير・年代（881）が本項主と一致し、同一人物の可能性が高い（綴りは قانم／قائم／قايم で揺れる＝規則25・46により各原文どおり保持）。名寄せは ISSUES §D136-3。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قانم
+- id: m2
+  kind: name
+  quote: قشير
+- id: m3
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m4
+  kind: place
+  quote: إسكندرية
+  ref: gn:361058
+  norm: اسكندرية
+- id: m5
+  kind: year
+  value: '881'
+  quote: سنة
+- id: m6
+  kind: person
+  ref: AIND-D06314
+  quote: قجماس
 translation:
   ja: カーニム・クシャイル、アレクサンドリアの副官（ナーイブ）。881年に没した。彼の副官職への就任はカジュマースの後であった。彼のダワーダールに対する苦情が多くなり、ついに（ダワーダールの）召喚が書面で命じられたため、伝えられるところでは、（ダワーダールは）急いで首を吊ったという。
   en: Qānim Qushayr, deputy (nāʾib) of Alexandria. He died in the year 881. His appointment to the deputyship came after Qajmās. Complaints against his dawādār multiplied to the point that a summons for him was written, whereupon, as was said, he (the dawādār) hastened to hang himself.

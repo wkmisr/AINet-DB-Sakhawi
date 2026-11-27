@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01280
-    quote: البطيني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: محمد
@@ -33,32 +31,28 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04641
   methods:
   - TMP-S-00003
   context:
   - type: learning
     phrase: ممن سمع مني
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: AIND-D04641#p1
   passive: AIND-D04641
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00029
   orgs:
   - ref: TMP-I-00002
-  quote: مؤدب الأبناء
   note:
     ja: '「مؤدب الأبناء بالمنكوتمرية」。職は ID-Master 既存の المؤدب | مؤدب（#TMP-O-00111、先例「مؤدب الأبناء」3件）、施設は #TMP-I-00002（المدرسة المنكوتمرية）。所在地（カイロ）は原文になく、ニスバからの補完は不可（規則22-1）。'
-  norm: مءدب الابناء
+  mention: m5
 events:
 - id: e1
   type: religious
@@ -68,23 +62,57 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: 896年初＝1490-11-23（h2g.py）。حج の placeName مكة は規則20の例外。
   trigger: rule
   phrase: وحج وجاور سنة ست وتسعين
+  mention: m7
 - id: e2
   type: residence
   subtype: jāwara
   date:
     ah: 896
     type: residence
-  quote: وجاور
   note:
     ja: جاور には placeName を付けない（規則20）。
   trigger: rule
-  norm: جاور
   phrase: وجاور سنة ست وتسعين
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-01280
+  quote: البطيني
+- id: m4
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m5
+  kind: office
+  ref: TMP-O-00029
+  quote: مؤدب الأبناء
+  norm: مءدب الابناء
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: event
+  quote: وحج
+- id: m8
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m9
+  kind: year
+  value: '896'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・アル＝ブタイニー、のちアル＝カーヒリー。マンクータムリーヤの子弟教師（ムアッディブ）。私（サハーウィー）から聴聞した者の一人で、896年に巡礼し、（マッカに）滞在した。
   en: ʿAbd Allāh b. Muḥammad al-Buṭaynī, then al-Qāhirī, tutor of the boys at al-Mankūtamuriyya. He is among those who heard from me; he performed the pilgrimage and stayed as a mujāwir in the year 896.

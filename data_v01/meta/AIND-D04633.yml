@@ -9,40 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n2
     type: laqab
-    quote: العز
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001246
+    mention: m2
   - id: n5
     type: nasab
-    quote: التقي تقي الدين
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: قاضي الشام
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m7
 death:
   id: d
   date:
     ah: 815-09
   note:
     ja: 「ومات في رمضان سنة خمس عشرة」。815年ラマダーン月初＝1412-12-14（h2g.py）。没地は原文に記載なし（初版の طرابلس は在職地の継続で不可、規則22-1）。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: التقي
@@ -53,43 +50,84 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001246
+  active: m8
   passive: AIND-D04633
   summary:
     ar: محمد بن التقي ابن قاضي الشام الدمشقي الحنبلي
-  quote: أبيه
   note:
     ja: '見出し「عبد الله بن محمد بن التقي … بن قاضي الشام … الدمشقي الحنبلي」から復元（統一規則3）。「درس بعد أبيه」＝父はダマスカスのハンバリー派教授職にあった。corpus に本伝なし（「قاضي الشام」で全文検索、該当なし）・ID-Master 未登録のため新規 #TMP-P-001246（⚠汎用名。識別要素は「ابن قاضي الشام」の家名とハンバリー派のみ）。'
-  norm: ابيه
 - id: r2
   type: kin
   subtype: grandfather
   active: AIND-D04633#p1
   passive: AIND-D04633
-  quote: null
   note:
     ja: '祖父はラカブ「التقي（تقي الدين）」のみで名不詳のため #NEEDID 維持（規則12）。見出しの「بن التقي تقي الدين بن قاضي الشام」は刊本の重複表記（ラカブ＋その正式形）と解し、「قاضي الشام」を曾祖父以上の称号と読む（ISSUES §D91-4）。'
 states:
 - id: s1
   type: office
   ref: wd:Q352842
-  quote: null
   note:
     ja: 「درس بعد أبيه فلم ينجب」＝父の後を継いで教授したが大成しなかった。機関名・地名は原文に明記なし。
+  mention: null
 - id: s2
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: القضاء
+  - mention: m10
   note:
     ja: 「ثم ولي القضاء بعد الفتنة بطرابلس」。الفتنة（ティムールのシリア侵攻、803年）は原文に年の明記がないため就任年は付けない（初版の date when-custom="after 803" は推測のため除去）。
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q233387
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001246
+  quote: محمد
+- id: m3
+  kind: name
+  quote: التقي تقي الدين
+- id: m4
+  kind: name
+  quote: قاضي الشام
+- id: m5
+  kind: name
+  quote: العز
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m8
+  kind: person
+  ref: TMP-P-001246
+  quote: أبيه
+  norm: ابيه
+- id: m9
+  kind: office
+  ref: wd:Q217029
+  quote: القضاء
+- id: m10
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m11
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m12
+  kind: year
+  value: '815'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アッ＝タキー〔タキー・アッディーン〕・ブン・カーディー・アッ＝シャーム、アル＝イッズ・アッ＝ディマシュキー・アル＝ハンバリー。父の後を継いで教授したが大成せず、その後、動乱（フィトナ）の後にタラーブルス（トリポリ）の裁判職に就いた。815年ラマダーン月に没した。
   en: ʿAbd Allāh b. Muḥammad b. al-Taqī (Taqī al-Dīn) b. Qāḍī al-Shām, al-ʿIzz al-Dimashqī al-Ḥanbalī. He taught after his father but did not distinguish himself; then, after the fitna, he was appointed to the judgeship in Tripoli. He died in Ramaḍān of the year 815.

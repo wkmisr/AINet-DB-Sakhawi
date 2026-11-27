@@ -9,15 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00195
-    quote: التبريزي
+    mention: m3
   - id: n2
     type: laqab
-    quote: برهان الدين
+    mention: m10
   - id: n3
     type: ism
-    quote: عبيد
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: يوسف
@@ -26,52 +25,84 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D04814
   methods:
   - TMP-S-00008
-  quote: شيخنا
   phrase: ممن أخذ عن شيخنا
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D04814#p1
+  active: m2
   passive: AIND-D04814
-  quote: يوسف
   note:
     ja: '裸名のため #NEEDID 維持。イブン・ハジャルの形容「برهان الدين بن الإمام عز الدين」により父のラカブは عز الدين と知られるが、識別要素として不十分。'
 - id: r3
   type: social
   subtype: colleague
-  active: AIND-D03922
+  active: m7
   passive: AIND-D04814
-  quote: رفيقا للعز عبد السلام البغدادي
   note:
     ja: イブン・ハジャルの下での同学（رفيق）。العز عبد السلام البغدادي＝#AIND-D03922（عبد السلام بن أحمد بن عبد المنعم … العز … البغدادي ثم القاهري الحنبلي ثم الحنفي。repo 先例 D03853 と同じ同定）。
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل القاهرة
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ووصفه
+  - mention: m9
   note:
     ja: Pattern A（وصفه）。初版では訳文のみで未符号化。
   trigger: rule
-  norm: وصفه
   phrase: ووصفه شيخنا بالإمام العلامة الأوحد المحقق المفنن برهان الدين بن الإمام عز الدين
+  mention: m8
 notes:
 - text: corpus レコード末尾に転送見出し1本（『عبيد الله الأردبيلي . في ابن عوض .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: عبيد
+- id: m2
+  kind: person
+  ref: AIND-D04814#p1
+  quote: يوسف
+- id: m3
+  kind: name
+  ref: TMP-N-00195
+  quote: التبريزي
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m7
+  kind: person
+  ref: AIND-D03922
+  quote: رفيقا للعز عبد السلام البغدادي
+- id: m8
+  kind: source
+  quote: ووصفه
+  norm: وصفه
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: name
+  quote: برهان الدين
 translation:
   ja: ウバイドゥッラー・ブン・ユースフ・アッ＝タブリーズィー、カイロの寓居者。我らが師（イブン・ハジャル）から学んだ者の一人で、アル＝イッズ・アブドゥッサラーム・アル＝バグダーディーの同学であった。我らが師は彼を「イマーム、大学者、当代無比の人、精査者、諸学に通じた人、ブルハーン・アッ＝ディーン・ブン・アル＝イマーム・イッズ・アッ＝ディーン」と形容した。
   en: ʿUbayd Allāh b. Yūsuf al-Tabrīzī, resident of Cairo. He was among those who studied under our shaykh (Ibn Ḥajar), as a fellow student of al-ʿIzz ʿAbd al-Salām al-Baghdādī. Our shaykh described him as "the imām, the most learned, the unique, the verifier, the master of many disciplines, Burhān al-Dīn, son of the imām ʿIzz al-Dīn".

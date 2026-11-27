@@ -9,24 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الخالق
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: رمضان
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: مرهف
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -39,32 +38,58 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D08850
+  active: m7
   passive: AIND-D07526
   methods:
   - TMP-S-00003
-  quote: ابن الكويك
   note:
     ja: 'ابن الكويك＝#AIND-D08850（الشرف أبو الطاهر بن الكويك、ID-Master 統合済）。「على ابن الكويك」は聴聞の同席を意味するため method は سمع（同学 #AIND-D07363 の本伝「سمع بها … على الشرف بن الكويك」と整合）。初版の #NEEDID を解消。'
   phrase: رفيق أبي الطيب بن البدراني على ابن الكويك
 - id: r2
   type: social
   subtype: colleague
-  active: AIND-D07363
+  active: m6
   passive: AIND-D07526
-  quote: رفيق أبي الطيب بن البدراني
   note:
     ja: 'أبو الطيب بن البدراني＝#AIND-D07363（محمد الشمس أبو الطيب … ويعرف بابن الفقيه حسن、782年生・منية بدران 出身・ダミエッタ定住、「سمع بها … على الشرف بن الكويك」）。父 #AIND-D02582「حسن بن علي … البدراني والد المحمدين الثلاثة」の三子のうち أبو الطيب を名乗るのは同項のみ。本項主も الدمياطي で整合。初版の #NEEDID を解消。'
-  norm: رفيق ابي الطيب بن البدراني
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03005
-    quote: الزين رضوان
-  quote: أثبته الزين رضوان فيمن يؤخذ عنه
+  - mention: m8
   note:
     ja: Pattern A（第三者による記載）。初版の統制外 subtype="certifier" relation を event に変換。الزين رضوان＝#AIND-D03005（رضوان بن محمد بن يوسف … الزين … العقبي）。
-  norm: اثبته الزين رضوان فيمن يءخذ عنه
+  phrase: أثبته الزين رضوان فيمن يؤخذ عنه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الخالق
+- id: m3
+  kind: name
+  quote: رمضان
+- id: m4
+  kind: name
+  quote: مرهف
+- id: m5
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m6
+  kind: person
+  ref: AIND-D07363
+  quote: رفيق أبي الطيب بن البدراني
+  norm: رفيق ابي الطيب بن البدراني
+- id: m7
+  kind: person
+  ref: AIND-D08850
+  quote: ابن الكويك
+- id: m8
+  kind: person
+  ref: AIND-D03005
+  quote: الزين رضوان
 translation:
   ja: ムハンマド・ブン・アブドゥルハーリク・ブン・ラマダーン・ブン・ムルヒフ・アッ＝ディムヤーティー。イブン・アル＝クワイクのもとでアブー・アッ＝タイイブ・イブン・アル＝バドラーニーの同学であった。アッ＝ザイン・リドワーンは彼を「伝承を受けるべき人々」の中に記載している。840年より前に没したようである。
   en: Muḥammad b. ʿAbd al-Khāliq b. Ramaḍān b. Murhif al-Dimyāṭī, companion of Abū al-Ṭayyib b. al-Badrānī in study under Ibn al-Kuwayk. Al-Zayn Riḍwān recorded him among those from whom transmission may be received. He seems to have died before 840.

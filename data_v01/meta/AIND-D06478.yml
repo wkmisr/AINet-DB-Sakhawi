@@ -9,41 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02154
-    quote: الخفري
+    mention: m7
   - id: n2
     type: laqab
-    quote: القطب
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: TMP-P-001705
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: الكافي
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: الفخر
     by: rule
+    mention: m6
 birth:
   id: b
   date:
     ah: 732-02-29
   note:
     ja: 「ولد في سلخ صفر سنة اثنتين وثلاثين وسبعمائة」。سلخ＝月末日。表暦ではサファル月は29日＝732-02-29＝1331-12-09（h2g.py）。月が30日の年なら1日ずれる。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -52,7 +48,6 @@ relations:
   passive: AIND-D06478
   summary:
     ar: الكافي إبراهيم بن الفخر أحمد الخفري
-  quote: null
   note:
     ja: 見出しナサブ「محمد بن إبراهيم بن أحمد القطب بن الكافي بن الفخر الخفري」から1段ずらして復元（規則3）。父はラカブ الكافي、祖父はラカブ الفخر をもち識別可能 → 仮番号 TMP-P-001705。corpus に本伝なし（hw.py「الخفري」「الكافي」＋「الخفري」は本項のみ）。ID-Master 未登録（idsearch「الخفري」は Nisbah TMP-N-02154 のみ、「الكافي」該当なし）。
 events:
@@ -63,28 +58,78 @@ events:
     ah: 819
     type: cultural
   persons:
-  - ref: AIND-D00900
-    quote: الطاووسي
+  - mention: m11
   places:
-  - ref: TMP-L-00055
-    quote: بشيراز
-    norm: شيراز
-  quote: ولقيه
+  - mention: m13
   note:
     ja: 'أبو الفتوح الطاووسي ＝ #AIND-D00900（ブリーフ頻出ID）。学習を伴わない面会は relation でなく event（規則56、先例 cultural/meeting「لقيه ابن عربشاه بقرم」）。初版の colleague relation を置換。819＝1416-03-10〜1417-02-26（年精度）。'
   trigger: rule
-  norm: لقيه
   phrase: ولقيه الطاووسي في سنة تسع عشرة وثمانمائة بشيراز
+  mention: m10
 sources:
 - id: c1
   persons:
   - ref: AIND-D00900
-  quote: وقال
   note:
     ja: Pattern A。الطاووسي の評言。「عاش أكثر من تسعين سنة」は年齢の言及で没年の記載ではないため death は立てない（732年生＋90歳超＝822年以降の没と推定されるが、原文にないので属性にしない）。
   trigger: rule
-  norm: قال
   phrase: وقال إنه كان شيخا فاضلا مكاشفا عاش أكثر من تسعين سنة وسافر كثيرا وأدرك جمعا من كبار الشيوخ
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001705
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: القطب
+- id: m5
+  kind: name
+  quote: الكافي
+- id: m6
+  kind: name
+  quote: الفخر
+- id: m7
+  kind: name
+  ref: TMP-N-02154
+  quote: الخفري
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '732'
+  quote: سنة
+- id: m10
+  kind: event
+  quote: ولقيه
+  norm: لقيه
+- id: m11
+  kind: person
+  ref: AIND-D00900
+  quote: الطاووسي
+- id: m12
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بشيراز
+  ref: TMP-L-00055
+  norm: شيراز
+- id: m14
+  kind: source
+  quote: وقال
+  norm: قال
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アフマド、アル＝クトゥブ・ブン・アル＝カーフィー・ブン・アル＝ファフル・アル＝ハフリー。732年サファル月の末日に生まれた。アッ＝ターウースィーが819年にシーラーズで彼に会い、「高徳で霊的開示（ムカーシャファ）を得たシャイフであり、90年以上生き、多く旅をし、大シャイフたちの一群に出会った」と述べている。神が彼を憐れみたまわんことを。
   en: Muḥammad b. Ibrāhīm b. Aḥmad, al-Quṭb b. al-Kāfī b. al-Fakhr al-Khafrī. He was born on the last day of Ṣafar of the year 732. Al-Ṭāwūsī met him in Shīrāz in the year 819 and said that he was a virtuous shaykh possessed of spiritual unveiling, who lived more than ninety years, travelled much, and met a host of the great shaykhs. May God have mercy on him.

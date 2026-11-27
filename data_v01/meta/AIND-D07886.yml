@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00137
-    quote: المقري
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 839
   note:
     ja: 「مات سنة تسع وثلاثين」＝839年＝1435-08-05 開始（h2g.py）、年精度。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: عبد الله
@@ -38,51 +37,80 @@ relations:
   subtype: father
   active: AIND-D07886#p1
   passive: AIND-D07886
-  quote: null
   note:
     ja: 父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c')）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001628
+  active: m6
   passive: AIND-D07886
   methods:
   - TMP-S-00032
   fields:
   - TMP-S-00024
-  quote: بالجمال محمد بن أبي القسم الضراسي
   note:
     ja: '「وكان عارفا بالفرائض والحساب ممن تفقه فيه بالجمال محمد بن أبي القسم الضراسي」。「فيه」（単数）は直前の الفرائض（والحساب を一体の学科として）を受ける＝field は الفرائض（TMP-S-00024）（集約 2026-10-31、初版以来の field「الفقه」wd:Q484181 は係り先の読み違い。内容A L）。corpus に見出しなし（hw.py「الضراسي」: D01168 أحمد بن أبي القسم الضراسي ثم اليمني المكي الشافعي（785年生）は同じ父名・ニスバで兄弟の可能性、D10558 の師「الشهاب الضراسي」も同人物か）。ID-Master 未登録 → 新規 TMP-P-001628。初版 #NEEDID を置換。'
-  norm: الجمال محمد بن ابي القسم الضراسي
   phrase: الجمال محمد بن أبي القسم الضراسي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
   places:
-  - ref: TMP-L-00050
-    quote: بتعز
-    norm: تعز
-  quote: أحد المفتين
+  - mention: m5
   note:
     ja: 「أحد المفتين بتعز」。初版の residence event تعز は職の勤務地からの補完にあたるため除去（規則22-1、地名は state 側に保持）。
-  norm: احد المفتين
+  mention: m4
 events:
 - id: e1
   type: cultural
-  quote: وكان عارفا بالفرائض والحساب
-  norm: كان عارفا بالفراءض والحساب
+  phrase: وكان عارفا بالفرائض والحساب
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D04864
-    quote: العفيف
-  quote: ذكره
+  - mention: m9
   cert: medium
   note:
     ja: 'Pattern A。「العفيف」＝イエメン人物の項でサハーウィーが定型的に引く伝記作者 العفيف الناشري #AIND-D04864（عثمان بن عمر … العفيف الناشري المقري الشافعي、『البستان الزاهر』の著者）。corpus に「ذكره العفيف الناشري」12例・「ذكره العفيف」35例、repo 先例（D04864 cert medium）に従い cert medium（規則26 例外2）。初版の統制外 relation「mentioned_by」（#TMP-P-000391）を置換。'
   trigger: rule
   phrase: ذكره العفيف
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00137
+  quote: المقري
+- id: m4
+  kind: office
+  ref: TMP-O-00004
+  quote: أحد المفتين
+  norm: احد المفتين
+- id: m5
+  kind: place
+  quote: بتعز
+  ref: TMP-L-00050
+  norm: تعز
+- id: m6
+  kind: person
+  ref: TMP-P-001628
+  quote: بالجمال محمد بن أبي القسم الضراسي
+  norm: الجمال محمد بن ابي القسم الضراسي
+- id: m7
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: AIND-D04864
+  quote: العفيف
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝ムクリー、タイッズのムフティーの一人。相続分割法と算術に通じ、それ（相続分割法）をアル＝ジャマール・ムハンマド・ブン・アビー・アル＝カースィム・アッ＝ディラースィーのもとで修めた者の一人。839年に没した。アル＝アフィーフが彼に言及している。
   en: Muḥammad b. ʿAbd Allāh al-Muqrī, one of the muftīs of Taʿizz. He was knowledgeable in the law of inheritance and arithmetic, and was among those who studied it (the law of inheritance) under al-Jamāl Muḥammad b. Abī al-Qāsim al-Ḍirāsī. He died in [8]39. Al-ʿAfīf mentioned him.

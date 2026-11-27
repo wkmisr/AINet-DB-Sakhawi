@@ -9,61 +9,85 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05470
-    quote: الشاذلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو الجود
-    norm: ابو الجود
+    mention: m4
   - id: n4
     type: ism
-    quote: رمضان
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D03009
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m9
 states:
 - id: s1
   type: office
-  ref: TMP-O-00080
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: الواعظ
+  - mention: m9
+  mention: m7
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m9
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: رمضان
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: أبو الجود
+  norm: ابو الجود
+- id: m5
+  kind: name
+  ref: TMP-N-05470
+  quote: الشاذلي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: office
+  ref: TMP-O-00080
+  quote: الواعظ
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ラマダーン・ブン・アリー・ブン・アフマド、アブー・アル＝ジュード・アッ＝シャーズィリー・アル＝マダニー。説教師。マディーナにて私（サハーウィー）から聴聞した者の一人である。
   en: Ramaḍān b. ʿAlī b. Aḥmad Abū al-Jūd al-Shādhilī al-Madanī, the preacher. He was among those who heard (hadith) from me in Medina.

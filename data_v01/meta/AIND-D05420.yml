@@ -9,36 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00885
-    quote: النطوبسي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: laqab
-    quote: النور
+    mention: m5
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001537
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسن
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: الشمس بركات
     by: rule
+    mention: m6
 relations:
 - id: r1
   type: scholarly
@@ -55,29 +52,73 @@ relations:
     phrase: عرض على العمدة في أواخر رجب سنة تسعين بحضرة أبيه
   works:
   - ref: TMP-T-00110
-  quote: null
   note:
     ja: 「عرض على العمدة」の「على」は「عليّ（私＝サハーウィーに）」（直後に人名が来ない）。العمدة は書名（#TMP-T-00110、bibl）であり人物ではない。初版は書名番号を active（人物位置）に置いていた（カテゴリ不一致）。890年ラジャブ末＝1485-07-23〜08-20（月精度 1485-07）。
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001537
+  active: m11
   passive: AIND-D05420
   summary:
     ar: الشمس محمد بن حسن بن علي بركات النطوبسي
-  quote: أبوه
   note:
     ja: 規則3。父は「الشمس بركات」（بركات は父の通称）、「المؤقت أبوه بجامع الزيني الاستادار」＝ブーラークのザイニー・ウスターダール・モスクの時刻係（父の職なので本項主の state にしない）。見出しナサブから祖父 حسن・曾祖父 علي まで復元でき識別要素（ラカブ・通称・職）がある → 仮番号 TMP-P-001537。corpus に本伝なし（「محمد بن حسن بن علي」「النطوبسي」「المؤقت」で検索。D07141「محمد بن أمير حاج المؤقت」はハラブの ابن أمير حاج 家で別人）。初版の汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を差し替え。
-  norm: ابوه
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00061
-    quote: بولاق
-  quote: نزيل
+  - mention: m10
   trigger: rule
   phrase: نزيل بولاق
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001537
+  quote: محمد
+- id: m3
+  kind: name
+  quote: حسن
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: النور
+- id: m6
+  kind: name
+  quote: الشمس بركات
+- id: m7
+  kind: name
+  ref: TMP-N-00885
+  quote: النطوبسي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: event
+  quote: نزيل
+- id: m10
+  kind: place
+  quote: بولاق
+  ref: TMP-L-00061
+- id: m11
+  kind: person
+  ref: TMP-P-001537
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: month
+  value: 7
+  quote: رجب
+- id: m13
+  kind: year
+  value: '890'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・ハサン・ブン・アリー、アン＝ヌール・ブン・アッ＝シャムス・バラカート、ナトゥーバス出自のカイロ人、ブーラークの住人。その父はザイニー・アル＝ウスターダール・モスクの時刻係（ムワッキト）である。890年ラジャブ月末、父の同席のもとで私（サハーウィー）に『ウムダ』を暗誦提示した。
   en: ʿAlī b. Muḥammad b. Ḥasan b. ʿAlī, al-Nūr b. al-Shams Barakāt, of Naṭūbas origin, al-Qāhirī, resident of Būlāq; his father is the timekeeper (muwaqqit) at the mosque of al-Zaynī al-Ustādār. He recited al-ʿUmda to me (al-Sakhāwī) from memory in late Rajab of the year 890, in the presence of his father.

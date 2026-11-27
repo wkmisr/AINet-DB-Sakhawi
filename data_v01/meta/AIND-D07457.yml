@@ -9,26 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001160
+    mention: m2
   - id: n4
     type: nasab
-    quote: وهبان
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10690
+  active: m6
   passive: AIND-D07457
   methods:
   - TMP-S-00003
@@ -37,15 +35,13 @@ relations:
     date:
       ah: 815
       type: learning
-  quote: الزين المراغي
   note:
     ja: الزين المراغي＝#AIND-D10690（الزين أبو بكر المراغي、マディーナのハディース学者、没816）。815年の聴聞は存命期間に合致。初版の event @when="0815"（ヒジュラ年混入）を when-custom="0815" when="1412" に是正。
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D03159
+  active: m5
   passive: AIND-D07457
-  quote: سليمان الماضي
   note:
     ar: عم سليمان الماضي
     ja: '本項主は「先述の سليمان」の父方の叔父。سليمان＝#AIND-D03159（سليمان بن علي بن سليمان بن وهبان المدني）＝ナサブ上、本項主の兄弟 علي بن سليمان بن وهبان の息子で整合。初版 #NEEDID を是正。兄弟 علي 本人への relation は本項原文に記述がないため立てない。'
@@ -54,10 +50,36 @@ relations:
   subtype: father
   active: TMP-P-001160
   passive: AIND-D07457
-  quote: null
   note:
     ja: 見出しナサブ「محمد بن سليمان بن وهبان المدني」から1段ずらして復元（規則3）。#AIND-D03159 の祖父でもある。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001160。初版は father relation なし。
   phrase: سليمان بن وهبان المدني
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001160
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: وهبان
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: person
+  ref: AIND-D03159
+  quote: سليمان الماضي
+- id: m6
+  kind: person
+  ref: AIND-D10690
+  quote: الزين المراغي
+- id: m7
+  kind: year
+  value: '815'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・スライマーン・ブン・ワフバーン・アル＝マダニー。先述のスライマーンの（父方の）叔父。815年にアッ＝ザイン・アル＝マラーギーのもとで聴聞した。
   en: Muḥammad b. Sulaymān b. Wahbān al-Madanī, the paternal uncle of the aforementioned Sulaymān. He heard from al-Zayn al-Marāghī in the year 815.

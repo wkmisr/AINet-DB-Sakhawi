@@ -9,38 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00043
-    quote: الخليلي
+    mention: m6
   - id: n2
     type: laqab
-    quote: تاج الدين
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد الوهاب
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001288
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
 death:
   id: d
   date:
     ah: 874
   note:
     ja: 874年初＝1469-07-20（h2g 検証）、@when 1469。没年は息子（#AIND-D03977）がサハーウィーに語った情報。
-  quote: سنة
   phrase: مات سنة أربع وسبعين فيما قاله لي ولده
+  mention: m9
 relations:
 - id: r1
   type: kin
@@ -49,7 +45,6 @@ relations:
   passive: AIND-D04785
   summary:
     ar: محمد بن إبراهيم بن أبي بكر الخليلي
-  quote: null
   note:
     ja: '父。見出しナサブから復元（統一規則3）。corpus 見出し（父の名＋ニスバ）・ID-Master を再検索し本伝・既登録なし。集約時に追加（校閲版は父 relation 欠落。B94・B97 と同じ基準に統一）。 孫 #AIND-D03977・索引 #AIND-D12775 のナサブとも一致。'
 - id: r2
@@ -60,32 +55,70 @@ relations:
   summary:
     ar: قريبه الشمس محمد بن أحمد بن عمر بن إبراهيم بن أبي بكر الخليلي ابن الموقت
   cert: medium
-  quote: null
   note:
     ja: '索引 #AIND-D12775「ابن الموقت الخليلي الشمس محمد بن أحمد بن عمر بن إبرهيم بن أبي بكر وقريبه عبد الوهاب بن محمد بن إبرهيم وابنه عبد العزيز」が本項主を #AIND-D06780 の「قريب」と明記（規則23、cert medium。D03977 も「يلتقي معه في إبراهيم」）。集約時に追加。'
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D03977
+  active: m8
   passive: AIND-D04785
-  quote: عبد العزيز
   note:
     ja: '「والد عبد العزيز الماضي」＝#AIND-D03977（عبد العزيز بن عبد الوهاب بن محمد بن إبراهيم بن أبي بكر العز بن التاج الخليلي الشافعي ويعرف بابن الموقت。ナサブ5代・父のラカブ التاج・ムワッキト職が一致）。初版の #TMP-P-000813 は ID-Master 登録実体 عبد العزيز بن سالم الكازروني（D03056 の息子）で別人＝流用。'
 states:
 - id: s1
   type: office
-  ref: wd:Q12227702
-  quote: الموقت
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03977
-    quote: ولده
-  quote: قاله
+  - mention: m11
   note:
     ja: Pattern A（情報提供者＝息子 عبد العزيز）。
   trigger: rule
   phrase: فيما قاله لي ولده
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الوهاب
+- id: m2
+  kind: name
+  ref: TMP-P-001288
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  quote: تاج الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00043
+  quote: الخليلي
+- id: m7
+  kind: office
+  ref: wd:Q12227702
+  quote: الموقت
+- id: m8
+  kind: person
+  ref: AIND-D03977
+  quote: عبد العزيز
+- id: m9
+  kind: year
+  value: '874'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: AIND-D03977
+  quote: ولده
 translation:
   ja: アブドゥルワッハーブ・ブン・ムハンマド・ブン・イブラーヒーム・ブン・アビー・バクル、タージュ・アッ＝ディーン、アル＝ハリーリー、ムワッキト（礼拝時刻計算員）。前出のアブドゥルアズィーズの父。〔8〕74年に没した――彼の息子が私に語ったところによる。
   en: ʿAbd al-Wahhāb b. Muḥammad b. Ibrāhīm b. Abī Bakr, Tāj al-Dīn al-Khalīlī, the muwaqqit (timekeeper), father of ʿAbd al-ʿAzīz, mentioned above. He died in the year [8]74, according to what his son told me.

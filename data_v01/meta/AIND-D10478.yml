@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: الضرير
+    mention: m4
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   date:
@@ -33,8 +32,8 @@ death:
     cert: medium
   note:
     ja: '「سنة تسع」＝一の位のみの年 → 809、cert medium（標準規則）。809年＝1406-06-27 開始（h2g.py、年精度）。次項 #AIND-D10479 でサハーウィーは「ويختلج في ظني أنه الذي قبله والصواب في وفاته تسع عشرة لا تسع」＝本項と同一人物で、没年は 819 が正しく 809 は誤りと推測する。本項の死は刊本どおり 809 とする（ブリーフ）。「وقد جاز الخمسين」は没時の年齢（50歳を越えていた、規則59(d)）＝没年自体に異説があるため逆算 birth は作らない。'
-  quote: سنة
   phrase: مات في سنة تسع وقد جاز الخمسين
+  mention: m6
 persons:
 - id: p1
   label: عبد الله
@@ -47,7 +46,6 @@ relations:
   subtype: father
   active: AIND-D10478#p1
   passive: AIND-D10478
-  quote: null
   note:
     ja: 規則3 (c')。父 عبد الله は裸名。初版の汚染番号 TMP-P-000490（登録=عبد الله、al-Zuhrī の祖父）を除去。
 - id: r2
@@ -58,7 +56,6 @@ relations:
   summary:
     ar: يوسف بن عبد الله الجمال المارديني الحنفي
   cert: medium
-  quote: null
   note:
     ja: '二重立項（本項に転送指示なし＝両項とも実項）。次項 #AIND-D10479「يوسف بن عبد الله الجمال المارديني الحنفي أخو أبي بكر الآتي . قدم القاهرة ووعظ الناس بالجامع الأزهر … مات بالطاعون في سنة تسع عشرة وقد جاز الخمسين … ذكره شيخنا أيضا ويختلج في ظني أنه الذي قبله والصواب في وفاته تسع عشرة لا تسع」（B168 担当、本バッチ収録）。名・父名・ラカブ・学派・「جاز الخمسين」・情報源（イブン・ハジャル）が一致。サハーウィー自身の推測（يختلج في ظني＝أظنه 相当）→ cert medium。鏡像は B168 が D10479 側に立てる（ブリーフ）。初版になし＝追加。'
 affiliations:
@@ -68,19 +65,46 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版の統制外 relation「historian」を event に変換。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m7
 notes:
 - text: 「أحد الفضلاء في مذهبه」＝自派（ハナフィー派）の優れた学者の一人（人物評）。「الضرير」（盲人）は見出しの呼称＝shuhrah（repo 先例5件）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  quote: الضرير
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: year
+  value: '809'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ユースフ・ブン・アブド・アッラー、アル＝ジャマール、盲人、アル＝ハナフィー、その学派の優れた学者の一人。（80）9年に、50歳を越えて没した。我らの師（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Yūsuf b. ʿAbd Allāh, al-Jamāl, the blind, al-Ḥanafī, one of the accomplished scholars of his school. He died in the year [80]9, having passed fifty. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

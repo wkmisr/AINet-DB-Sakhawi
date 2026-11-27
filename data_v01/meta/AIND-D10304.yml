@@ -9,19 +9,16 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n2
     type: nasab
-    quote: الأمير محمد الملقب بالمسعود
     by: rule
-    norm: الامير محمد الملقب بالمسعود
+    mention: m2
   - id: n3
     type: nasab
-    quote: صاحب المغرب أبي عمر
     by: rule
-    norm: صاحب المغرب ابي عمر
+    mention: m3
 relations:
 - id: r1
   type: kin
@@ -30,17 +27,15 @@ relations:
   passive: AIND-D10304
   summary:
     ar: محمد المسعود
-  quote: null
   note:
     ja: '「يحيى بن الأمير محمد الملقب بالمسعود ابن صاحب المغرب أبي عمرو عثمان」＝#AIND-D07955「محمد بن عثمان بن محمد بن أبي فارس المسعود بالله بن صاحب تونس المتوكل على الله الماضي أبوه . … وكان ولي عهده من بعده وأجل أولاده」（ブリーフ候補、名＋ラカブ المسعود＋父 عثمان＋祖父 محمد＋أبو فارس で閉合。repo 収録済み）。初版は #NEEDID。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D04873
+  active: m6
   passive: AIND-D10304
   summary:
     ar: أبو عمرو عثمان
-  quote: جده
   note:
     ja: '「صاحب المغرب أبي عمرو عثمان بن الأمير أبي عبد الله محمد بن أبي فارس」＝#AIND-D04873「عثمان بن محمد بن عبد العزيز بن أحمد … المتوكل على الله أبو عمرو وقيل أبو سعيد بن أبي عبد الله بن أبي فارس بن أبي العباس الهنتاتي … الحفصي … صاحب المغرب … عهد لولده مسعود فمات في شعبان سنة ثلاث وتسعين فحزن عليه جدا وعهد ليحيى بن مسعود المذكور ، ولم يلبث أن مات صاحب الترجمة في ليلة عيد الفطر منها」（repo 未収録、D07955・D03978 が father に使用）。クンヤ أبو عمرو・称号 صاحب المغرب・父 أبو عبد الله محمد・祖父 أبو فارس（＝عبد العزيز のクンヤ）が閉合し、相手側本文が本項主（يحيى بن مسعود）への譲位と 893 年の死を記す。**ブリーフ誤り**: ブリーフは D04873 を「別系の عثمان بن محمد بن عبد العزيز … المتوكل」とするが、本文を読むとこれがハフス朝の أبو عمرو عثمان 本人である。初版は #NEEDID。'
 - id: r3
@@ -50,7 +45,6 @@ relations:
   passive: AIND-D10304
   summary:
     ar: أبو عمرو عثمان
-  quote: null
   note:
     ja: 「ولي المغرب بعد جده」＝祖父が前任者（規則29 の型、active=前任者）。
 - id: r4
@@ -61,27 +55,57 @@ relations:
   summary:
     ar: يحيى بن محمد بن مسعود بن عثمان بن محمد بن أبي فارس
   cert: high
-  quote: null
   note:
     ja: '二重立項。同じチャンクの #AIND-D10315「يحيى بن محمد بن مسعود بن عثمان بن محمد بن أبي فارس . استقر بعد جده ثم قتله ابن عمه عبد المؤمن بن إبرهيم بن عثمان واستقر عوضه …」は、名 يحيى・祖父 عثمان بن محمد بن أبي فارس・「祖父の後を継いだ」が本項と一致する。祖父の項 D04873 も後継者を「يحيى بن مسعود」一人とする＝同一人物（D10315 の見出し「بن محمد بن مسعود」は「محمد المسعود」の崩れとみられる）。両項とも転送指示がないので実項のまま（絶対基準）。サハーウィー自身の同定の言はなく、校閲者の判断による cert high（先例 D08133⇄D08233。ISSUES §D166-5）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
-  - ref: TMP-L-00040
-    quote: المغرب
+  - mention: m5
   dates:
   - ah: 893-10
     type: appointment
-  quote: الأمير
   note:
     ja: '「ولي المغرب بعد جده في شوال سنة ثلاث وتسعين」。893年シャウワール月＝1488-09-17 開始（h2g.py、月精度）。職は在地君主号 TMP-O-00163（صاحب＋地名。同じ文が祖父を「صاحب المغرب」と呼ぶ）、地は原文の المغرب（TMP-L-00040）。初版は #NEEDID。初版が同じ就任を residence event・political event にも重ねていたのを除去（重複）。'
-  norm: الامير
+  mention: m4
 notes:
 - text: 'ハフス朝（チュニス）の君主。見出しの corpus 表記「أبي عمر وعثمان」は「أبي عمرو عثمان」の分かち書きの崩れ（祖父の項 D04873「المتوكل على الله أبو عمرو」）＝source note は corpus のまま、persName full は「أبي عمرو عثمان」と読んだ。ラカブ「المسعود」は父のもの（「محمد الملقب بالمسعود」）で、初版が本項主の laqab としていたのを除去。full は敬称（الأمير）・称号句（صاحب المغرب）を除いた。父方おじ #AIND-D03978（عبد العزيز بن عثمان … أخو المسعود محمد）・#AIND-D10741 は本項に名指しがない＝relation を立てない（規則23、D10315 と揃えた）。曾祖父 أبو عبد الله محمد（#AIND-D07668 が候補）・أبو فارس も relation は立てない（初版の subtype other ×2 を除去）。没年は本項になし（殺害は D10315 に記載）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: الأمير محمد الملقب بالمسعود
+  norm: الامير محمد الملقب بالمسعود
+- id: m3
+  kind: name
+  quote: صاحب المغرب أبي عمر
+  norm: صاحب المغرب ابي عمر
+- id: m4
+  kind: office
+  ref: TMP-O-00163
+  quote: الأمير
+  norm: الامير
+- id: m5
+  kind: place
+  quote: المغرب
+  ref: TMP-L-00040
+- id: m6
+  kind: person
+  ref: AIND-D04873
+  quote: جده
+- id: m7
+  kind: month
+  value: 10
+  quote: شوال
+- id: m8
+  kind: year
+  value: '893'
+  quote: سنة
 translation:
   ja: ヤフヤー、アル＝マスウードとあだ名されるアミール・ムハンマドの子。ムハンマドはマグリブの君主アブー・アムル・ウスマーン（アミール・アブー・アブド・アッラー・ムハンマド・ブン・アビー・ファーリスの子）の子。893年シャウワール月に、祖父の後を継いでマグリブを治めた。
   en: Yaḥyā, son of the amir Muḥammad, who bore the title al-Masʿūd and was the son of the ruler of the Maghrib Abū ʿAmr ʿUthmān, son of the amir Abū ʿAbd Allāh Muḥammad b. Abī Fāris. He assumed rule over the Maghrib after his grandfather in Shawwāl 893.

@@ -9,39 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00020
-    quote: القدسي
+    mention: m4
   - id: n2
     type: kunyah
-    quote: أبو الفضل
-    norm: ابو الفضل
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بابن النجار
-    norm: ابن النجار
     label: ابن النجار
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 death:
   id: d
   date:
     ah: 887-08
   note:
     ja: 887年シャアバーン月＝1482-09-24〜10-22（h2g.py）。月精度。没地は原文に明記なし（初版の placeName القدس は補完のため除去、規則22(1)）。「في الكهولة」＝壮年期（40〜50歳代）に没。
-  quote: سنة
   phrase: مات في الكهولة في شعبان سنة سبع وثمانين
+  mention: m17
 persons:
 - id: p1
   label: أحمد (النجار)
@@ -54,85 +49,73 @@ relations:
   subtype: father
   active: AIND-D07064#p1
   passive: AIND-D07064
-  quote: null
   note:
     ja: '「ويعرف بابن النجار حرفة أبيه」＝父は大工（نجار）。裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D06437
+  active: m7
   passive: AIND-D07064
   methods:
   - TMP-S-00008
-  quote: ماهر
   note:
     ja: '「نشأ فأخذ عن ماهر」＝ #AIND-D06437「ماهر بن عبد الله بن نجم … الزين أبو الجود الأنصاري … القاهري الشافعي نزيل بيت المقدس」（corpus 本伝、エルサレム在住の学者。規則10）。初版の TMP-P-000056「الزين ماهر」（ID-Master 関係専用、repo 16件で使用）は同一人物＝名寄せ要。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D00018
+  active: m8
   passive: AIND-D07064
   methods:
   - TMP-S-00008
   cert: medium
-  quote: البرهان العجلوني
   note:
     ja: '「ثم عن البرهان العجلوني」。同名2人のうち、エルサレムの学者で自身も الزين ماهر に学んだ #AIND-D00018「إبراهيم بن أحمد بن حسن … برهان الدين العجلوني ثم المقدسي الشافعي」（ماهر・ابن أبي شريف と並ぶ文脈）と読み cert medium（#AIND-D00019 ابن الغرس はダマスクスの人）。ID-Master の TMP-P-001081「البرهان العجلوني」（同名2人未判別）は本項では用いない。'
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D08720
+  active: m9
   passive: AIND-D07064
   methods:
   - TMP-S-00008
-  quote: والكمال بن أبي شريف
   note:
     ja: '「والكمال بن أبي شريف」＝ #AIND-D08720（頻出確定ID）。'
-  norm: الكمال بن ابي شريف
   phrase: الكمال بن أبي شريف
 - id: r5
   type: social
   subtype: patron
-  active: AIND-D08360
+  active: m13
   passive: AIND-D07064
-  quote: ابن الزمن
   note:
     ja: '「واستقر به ابن الزمن شيخ مدرسته بالقدس」＝ #AIND-D08360「محمد بن عمر بن محمد بن عمر الزمن … الخواجا الشمس … الدمشقي ثم القاهري الشافعي … ويعرف بابن الزمن」（本文に「وأنشأ مدرسة ببيت المقدس」あり＝「مدرسته بالقدس」と一致。D04276 عبد الكريم ابن الزمن は商人でマドラサの記述なし）。'
 - id: r6
   type: social
   subtype: successor
-  active: AIND-D09875
+  active: m18
   passive: AIND-D07064
-  quote: النور محمود بن العصياتي
   note:
     ja: '「واستقر في المشيخة النور محمود بن العصياتي」＝ #AIND-D09875「محمود بن محمد بن محمد بن إبرهيم … النور بن الشمس ابن البدر الحمصي الشافعي الواعظ … ويعرف كهما بابن العصياتي」（843年生）が本項主の後任（subtype successor は repo 統制語彙、active=後任者）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
-  quote: والإفتاء
   note:
     ja: 「تصدى … للإفتاء … ترك الإفتاء بأخرة」＝晩年にファトワー発給を辞めた。
-  norm: الافتاء
+  mention: m11
 - id: s3
   type: office
-  ref: wd:Q7492880
   places:
-  - ref: gn:281184
-    quote: بالقدس
-    norm: القدس
+  - mention: m15
   orgs:
   - ref: TMP-I-00227
-  quote: شيخ مدرسته
   note:
     ja: 「واستقر به ابن الزمن شيخ مدرسته بالقدس」。施設 مدرسة ابن الزمن（エルサレム）は ID-Master 未登録（رباط ابن الزمن TMP-I-00179 はマッカのリバートで別実体）のため仮番号 TMP-I-00227 を発行。القدس は原文に明記（gn:281184）。初版の affiliation（同施設）は state との二重符号化（規則8）のため除去、date type="retirement"（没月を退任日とした作り込み）も除去。
+  mention: m14
 assessments:
 - id: v1
-  quote: ورعا متواضعا فقيرا قانعا
   terms:
   - ورع
   - متواضع
   label_latn: wariʿan mutawāḍiʿan faqīran qāniʿan
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -140,10 +123,83 @@ affiliations:
 events:
 - id: e1
   type: teaching
-  quote: وتصدى
   trigger: rule
-  norm: تصدي
   phrase: تصدى للإقراء والإفتاء
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أبو الفضل
+  norm: ابو الفضل
+- id: m4
+  kind: name
+  ref: TMP-N-00020
+  quote: القدسي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: name
+  quote: بابن النجار
+  norm: ابن النجار
+- id: m7
+  kind: person
+  ref: AIND-D06437
+  quote: ماهر
+- id: m8
+  kind: person
+  ref: AIND-D00018
+  quote: البرهان العجلوني
+- id: m9
+  kind: person
+  ref: AIND-D08720
+  quote: والكمال بن أبي شريف
+  norm: الكمال بن ابي شريف
+- id: m10
+  kind: event
+  quote: وتصدى
+  norm: تصدي
+- id: m11
+  kind: office
+  ref: TMP-O-00004
+  quote: والإفتاء
+  norm: الافتاء
+- id: m12
+  kind: assessment
+  quote: ورعا متواضعا فقيرا قانعا
+- id: m13
+  kind: person
+  ref: AIND-D08360
+  quote: ابن الزمن
+- id: m14
+  kind: office
+  ref: wd:Q7492880
+  quote: شيخ مدرسته
+- id: m15
+  kind: place
+  quote: بالقدس
+  ref: gn:281184
+  norm: القدس
+- id: m16
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m17
+  kind: year
+  value: '887'
+  quote: سنة
+- id: m18
+  kind: person
+  ref: AIND-D09875
+  quote: النور محمود بن العصياتي
 translation:
   ja: ムハンマド・ブン・アフマド・アブー・アル＝ファドル・アル＝クドスィー・アッ＝シャーフィイー、父の生業（大工）からイブン・アン＝ナッジャールとして知られる。成長してマーヒルに学び、次いでアル＝ブルハーン・アル＝アジュルーニーとアル＝カマール・イブン・アビー・シャリーフに学んで、秀でて諸学芸で抜きん出るに至り、教授とファトワー発給にあたった。敬虔で謙虚、清貧で足るを知る人物であり、晩年にはファトワー発給を辞めた。イブン・アッ＝ザマンが彼をエルサレムにある自分のマドラサのシャイフに据えた。壮年のうちに（8）87年シャアバーン月に没し、そのシャイフ職にはアン＝ヌール・マフムード・イブン・アル＝イスヤーティーが就いた。
   en: Muḥammad b. Aḥmad Abū al-Faḍl al-Qudsī al-Shāfiʿī, known as Ibn al-Najjār after his father's trade. He grew up and studied under Māhir, then under al-Burhān al-ʿAjlūnī and al-Kamāl Ibn Abī Sharīf, until he excelled and distinguished himself in the sciences, and he devoted himself to teaching and giving fatwās. He was scrupulous, humble, poor and content; he gave up issuing fatwās toward the end of his life. Ibn al-Zaman installed him as shaykh of his madrasa in Jerusalem. He died in middle age in Shaʿbān (8)87, and al-Nūr Maḥmūd Ibn al-ʿAṣyātī was installed in the shaykhship.

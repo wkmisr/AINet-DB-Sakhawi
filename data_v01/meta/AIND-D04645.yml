@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01443
-    quote: الظفاري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: محمد
@@ -33,33 +31,56 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04645
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m7
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: AIND-D04645#p1
   passive: AIND-D04645
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00288
-  quote: دلال الرقيق
   note:
     ja: '「دلال الرقيق」（奴隷仲買人）。ID-Master には汎用 الدلال（#TMP-O-00188）と対象限定の دلال الكتب（O-00217）・دلال العقارات（O-00221）があり、対象限定の先例に倣い新規 #TMP-O-00288 を発行。勤務地は原文に明記なし（「بمكة」は聴聞の場所）のため placeName を付けない（規則22-1）。'
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-01443
+  quote: الظفاري
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: office
+  ref: TMP-O-00288
+  quote: دلال الرقيق
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・アッ＝ザファーリー・アル＝マッキー、奴隷仲買人。マッカで私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd Allāh b. Muḥammad al-Ẓafārī al-Makkī, the slave broker. He is among those who heard from me in Mecca.

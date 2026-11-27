@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00220
-    quote: المرداوي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m8
   - id: n4
     type: laqab
-    quote: الزين
+    mention: m5
   - id: n5
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n8
     type: nasab
-    quote: عباس
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -50,7 +46,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001400
+  active: m10
   passive: AIND-D05928
   methods:
   - TMP-S-00003
@@ -63,13 +59,12 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00142
-  quote: الزين عبد الرحمن بن محمد بن الرشيد
   note:
     ja: '「سمع في سنة ثلاث وتسعين على الزين عبد الرحمن بن محمد بن الرشيد نسخة أبي مسهر وما معها」。793 ＝ 1390-12-17〜1391-12-06、年初 1390。師は corpus に本伝なし（#AIND-D07951 でも794年の師として同名で出現）・ID-Master 未登録 → TMP-P-001400。نسخة أبي مسهر ＝ TMP-T-00142。初版の #NEEDID（師・bibl）を差し替え、@when の暦（ヒジュラ年を when に入れていた）を是正。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D04440
+  active: m11
   passive: AIND-D05928
   methods:
   - TMP-S-00003
@@ -82,14 +77,13 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00212
-  quote: عبد الله بن خليل الحرستاني
   note:
     ja: '「وعلى عبد الله بن خليل الحرستاني النصف الثاني من الأول من مسند عمار ليعقوب بن شيبة وغيره」。師 = #AIND-D04440（عبد الله بن خليل بن أبي الحسن بن ظاهر … التقي … الحرستاني ثم الدمشقي الصالحي الحنبلي المؤدب、727/728生）。初版の TMP-P-000350（同名の関係専用番号、ID-Master 登録あり）は本伝 #AIND-D04440 と名寄せ要（§D107-11）。『مسند عمار』（يعقوب بن شيبة）は ID-Master 未登録 → TMP-T-00212。年は前文の793年を受けると解した（同一文中）。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D05928
-  passive: wd:Q4120128
+  passive: m13
   methods:
   - TMP-S-00004
   context:
@@ -97,18 +91,69 @@ relations:
     date:
       ah: 852
       type: learning
-  quote: لي
   note:
     ja: 「أجاز لي في سنة اثنتين وخمسين」＝本項主がサハーウィーにイジャーザ（active=本項主、規則15）。852 ＝ 1448-03-16〜1449-03-04、年初 1448。初版の subtype student・@when="0852"（ヒジュラ年）を是正。
 events:
 - id: e1
   type: teaching
-  quote: وحدث
   note:
     ja: ハディースを伝え、優れた学者たちが彼から聴聞した。初版の TMP-P-000183「الفضلاء」（人物ではない集合名）への student relation を除去し event に。
   trigger: rule
-  norm: حدث
   phrase: وحدث سمع منه الفضلاء
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: عباس
+- id: m5
+  kind: name
+  quote: الزين
+- id: m6
+  kind: name
+  ref: TMP-N-00220
+  quote: المرداوي
+- id: m7
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m8
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m9
+  kind: year
+  value: '793'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-001400
+  quote: الزين عبد الرحمن بن محمد بن الرشيد
+- id: m11
+  kind: person
+  ref: AIND-D04440
+  quote: عبد الله بن خليل الحرستاني
+- id: m12
+  kind: event
+  quote: وحدث
+  norm: حدث
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m14
+  kind: year
+  value: '852'
+  quote: سنة
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・イブラーヒーム・ブン・アッバース、アッ＝ザイン、アル＝マルダーウィー・アル＝マクディスィー・アッ＝サーリヒー。（7）93年にアッ＝ザイン・アブド・アッ＝ラフマーン・ブン・ムハンマド・ブン・アッ＝ラシードから『アブー・ムスヒルのヌスハ』とそれに付随するものを、またアブドゥッラー・ブン・ハリール・アル＝ハラスターニーからヤアクーブ・ブン・シャイバの『アンマールのムスナド』第1部の後半などを聴聞した。ハディースを伝え、優れた学者たちが彼から聴聞した。（8）52年に私にイジャーザを与え、その後に没した。神よ彼を憐れみたまえ。
   en: ʿUmar b. Muḥammad b. Ibrāhīm b. ʿAbbās, al-Zayn, al-Mardāwī al-Maqdisī al-Ṣāliḥī. In the year (7)93 he heard from al-Zayn ʿAbd al-Raḥmān b. Muḥammad b. al-Rashīd the Nuskha of Abū Mushir and what goes with it, and from ʿAbd Allāh b. Khalīl al-Ḥarastānī the second half of the first part of the Musnad of ʿAmmār by Yaʿqūb b. Shayba, and other things. He transmitted ḥadīth, and learned men heard from him. He granted me ijāza in the year (8)52 and died after that; may God have mercy on him.

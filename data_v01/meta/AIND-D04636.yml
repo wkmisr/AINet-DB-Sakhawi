@@ -9,31 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00211
-    quote: القرافي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 826-03
   note:
     ja: 「مات في ربيع الأول سنة ست وعشرين」。826年ラビーウ・アル＝アウワル月初＝1423-02-21（h2g.py。初版は 1423）。没地は原文に記載なし。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001247
+  active: m5
   passive: AIND-D04636
   methods:
   - TMP-S-00008
@@ -41,67 +40,113 @@ relations:
   - TMP-S-00001
   summary:
     ar: أبو الحسن الأندلسي
-  quote: الحسن الأندلسي
   note:
     ja: '「أخذ عن أبي الحسن الأندلسي العربية ومهر فيها」。corpus に本伝なし（#AIND-D03197 سهل بن إبراهيم أبو الحسن الأندلسي الغرناطي الأديب は814・818年にカイロへ来訪した文人で、826年没の本項主がアラビア語学を修めた師とは時期的に合いにくい。D01375 の「أبي الحسن الأندلسي المعروف بسمعت」はチュニスの師で別人）・ID-Master 未登録のため新規 #TMP-P-001247（ISSUES §D91-5）。'
-  norm: الحسن الاندلسي
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D04636
-  passive: AIND-D00112
+  passive: m8
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00001
-  quote: ابن خضر
   note:
     ja: '「وانتفع به جماعة منهم شيخنا ابن خضر」。شيخنا ابن خضر ＝ #AIND-D00112（إبراهيم بن خضر … البرهان … القاهري الشافعي ويعرف بابن خضر、794年生。Individuals の先例 D01663・D01935 も同定済）。「من لم يسم」部（corpus L123975〜）にも「والقرافي النحوي كان ماهرا في الإعراب حسن التدريب فيه انتفع به شيخنا ابن خضر وغيره」とあり閉合。規則15: 師＝active。'
   phrase: شيخنا ابن خضر
 - id: r3
   type: social
   subtype: successor
-  active: AIND-D01185
+  active: m13
   passive: AIND-D04636
   cert: medium
-  quote: شيخنا الحناوي
   note:
     ja: '「وأظن المتلقى للطنبذية عنه شيخنا الحناوي」＝著者の推測（أظن）で cert medium。شيخنا الحناوي ＝ #AIND-D01185（أحمد بن محمد بن إبراهيم الشهاب أبو العباس الأنصاري الفيشي ثم القاهري المالكي … ويعرف بالحناوي、763年生。ニスバ索引 #AIND-D11609「الحناوي نسبة أحمد بن محمد بن إبرهيم النحوي」も同人）。「من لم يسم」部の القرافي النحوي の項は「واستقر بعده في الطنبدية شيخنا الشهاب الحناوي」と断定するが、本項自身の hedge を優先し medium 維持。初版はニスバ番号 #TMP-N-00235 を person 位置に流用していた。'
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   places:
-  - ref: TMP-L-00289
-    quote: بالصحراء
-    norm: الصحراء
+  - mention: m10
   orgs:
   - ref: TMP-I-00180
-  quote: مشيخة
   note:
     ja: '「وولي مشيخة الطنبدية بالصحراء」。الطنبدية（＝التربة الطنبذية、corpus D02617「مشيخة التربة الطنبذية بعد شيخنا الحناوي」）はカイロ北墓地（الصحراء）の廟。施設は ID-Master 未登録のため新規 #TMP-I-00180、الصحراء（カイロの砂漠墓地）は Location 未登録のため新規 #TMP-L-00289。職は汎用 مشيخة（wd:Q7492880）。'
+  mention: m9
 events:
 - id: e1
   type: cultural
   summary:
     en: He composed a fine introduction (muqaddima) by which one reaches knowledge of iʿrāb (grammatical analysis) by the easiest route.
-  quote: وعمل
   trigger: rule
-  norm: عمل
   phrase: وعمل مقدمة لطيفة يتوصل بها إلى معرفة الإعراب بأسهل طريق
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: وترجمه
   note:
     ja: Pattern A。初版は subtype="biographer" の relation。
   trigger: rule
-  norm: ترجمه
   phrase: وترجمه شيخنا في إنبائه باختصار
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00211
+  quote: القرافي
+- id: m5
+  kind: person
+  ref: TMP-P-001247
+  quote: الحسن الأندلسي
+  norm: الحسن الاندلسي
+- id: m6
+  kind: event
+  quote: وعمل
+  norm: عمل
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: person
+  ref: AIND-D00112
+  quote: ابن خضر
+- id: m9
+  kind: office
+  ref: wd:Q7492880
+  quote: مشيخة
+- id: m10
+  kind: place
+  quote: بالصحراء
+  ref: TMP-L-00289
+  norm: الصحراء
+- id: m11
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m12
+  kind: year
+  value: '826'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: AIND-D01185
+  quote: شيخنا الحناوي
+- id: m14
+  kind: source
+  quote: وترجمه
+  norm: ترجمه
 translation:
   ja: アブドゥッラー・ブン・ムハンマド、アル＝ジャマール・アル＝カラーフィー。アブー・アル＝ハサン・アル＝アンダルスィーからアラビア語学を学んで熟達し、最も容易な道筋でイウラーブ（語尾変化の解析）の知識に到達できる簡潔な入門書を著した。多くの人々が彼から益を受け、そのなかには我らの師イブン・ヒドルがいる。サハラー（カイロの砂漠墓地）のタンバディーヤの長（シャイフ職）に就いた。826年ラビーウ・アル＝アウワル月に没した。タンバディーヤを彼から引き継いだのは我らの師アル＝ヒンナーウィーであると私は思う。我らの師（イブン・ハジャル）は『インバー』で彼の伝記を簡潔に記している。
   en: ʿAbd Allāh b. Muḥammad, al-Jamāl al-Qarāfī. He took Arabic grammar from Abū al-Ḥasan al-Andalusī and became proficient in it, and he composed a fine introduction by which one reaches knowledge of iʿrāb by the easiest route. A number of people benefited from him, among them our shaykh Ibn Khiḍr. He held the shaykhship of al-Ṭanbadiyya in the Ṣaḥrāʾ (the desert cemetery of Cairo). He died in Rabīʿ al-Awwal of the year 826. I think the one who took over al-Ṭanbadiyya after him was our shaykh al-Ḥannāwī. Our shaykh (Ibn Ḥajar) gave him a brief biography in his Inbāʾ.

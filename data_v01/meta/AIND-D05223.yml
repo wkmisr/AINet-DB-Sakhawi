@@ -9,55 +9,48 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00324
-    quote: الجرجاني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-05511
-    quote: البحري
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05223
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m7
   works:
   - ref: TMP-T-00044
-  quote: علي
   note:
     ar: شاب سمع علي بمكة أربعي النووي وغيرها
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001068
+  active: m2
   passive: AIND-D05223
-  quote: الخواجا عبد السلام بن حسن
   note:
     ja: 父 الخواجا عبد السلام بن حسن الجرجاني。corpus の عبد السلام بن حسن は D03923（العز الخالدي ويعرف بالكذاب、没843）のみでニスバ不一致＝別人。兄弟項 D07656 でも「الشمس بن الخواجا الجرجاني الأصل」。ナサブ・称号・ニスバを持つため仮番号 TMP-P-001068 を発行。
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D07656
+  active: m8
   passive: AIND-D05223
   summary:
     ar: شقيقه محمد الآتي
-  quote: محمد
   note:
     ja: '「والآتي شقيقه محمد」＝ #AIND-D07656（محمد بن عبد السلام بن حسن الشمس بن الخواجا الجرجاني الأصل البحري الشافعي نزيل مكة وأخو علي شاه الماضي）。双方向に言及。初版の汚染番号 TMP-P-000529（汎用 محمد）を解消。'
 affiliations:
@@ -68,11 +61,45 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m7
   trigger: rule
   phrase: نزيل مكة
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: person
+  ref: TMP-P-001068
+  quote: الخواجا عبد السلام بن حسن
+- id: m3
+  kind: name
+  ref: TMP-N-00324
+  quote: الجرجاني
+- id: m4
+  kind: name
+  ref: TMP-N-05511
+  quote: البحري
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m8
+  kind: person
+  ref: AIND-D07656
+  quote: محمد
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
 translation:
   ja: アリー・シャー・ブン・アル＝ハワージャー・アブド・アッ＝サラーム・ブン・ハサン、ジュルジャーン出自のアル＝バフリー・アッ＝シャーフィイー、マッカ寄留者。同母弟ムハンマドについては後述する。若者で、マッカで私（サハーウィー）から『ナワウィーの四十〔ハディース〕』などを聴聞し、少し学問に励んだ。理性的で、悪くない人物である。
   en: ʿAlī Shāh b. al-Khawājā ʿAbd al-Salām b. Ḥasan, of Jurjānī origin, al-Baḥrī al-Shāfiʿī, resident of Mecca; his full brother Muḥammad follows below. A young man who heard from me in Mecca the Forty [Ḥadīths] of al-Nawawī and other works, and studied a little; he is sensible and not bad.

@@ -9,93 +9,82 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: العز
+    mention: m7
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن الكويك
+    mention: null
   - id: n3
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07597
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n9
     type: nasab
-    quote: الشمس
     by: rule
+    mention: m8
   - id: n10
     type: nasab
-    quote: الكويك
     by: rule
+    mention: m9
 birth:
   id: b
   date:
     ah: 830
     cert: medium
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m12
   note:
     en: Born around 830 AH (قريب الثلاثين وثمانمائة) in Cairo.
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00540
+  active: m13
   passive: AIND-D03992
   methods:
   - TMP-S-00009
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m12
   works:
   - ref: TMP-T-00095
-  quote: ابن أسد
   note:
     ja: '「مكتب ابن أسد」の主 ابن أسد = #AIND-D00540（أحمد بن أسد … الشهاب … القاهري الشافعي المقرئ … ويعرف بابن أسد、生808。サハーウィー自身の少年期の師）。初版の TMP-P-000360（ID-Master「ابن أسد」・repo 4ファイル）は同一人物 → 名寄せ提案 §A。原文は「حفظ القرآن وغيره」のみで القراءات の field は明示されないため除去。'
-  norm: ابن اسد
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D07597
+  active: m10
   passive: AIND-D03992
   summary:
     ar: الشمس محمد بن عبد الرحمن بن الكويك
-  quote: أبوه
   note:
     ja: '父「الآتي أبوه」= #AIND-D07597（محمد بن عبد الرحمن بن محمد بن علي بن أحمد الشمس بن الشرف … القباني أخو قاسم ووالد عبد العزيز الماضيين ويعرف كسلفه بابن الكويك）で双方向閉合。'
-  norm: ابوه
 - id: r3
   type: kin
   subtype: uncle
-  active: AIND-D06222
+  active: m11
   passive: AIND-D03992
-  quote: قاسم
   note:
     ja: '叔父「عمه قاسم الآتي」= #AIND-D06222（قاسم بن عبد الرحمن بن محمد بن علي بن أحمد الزين … أخو محمد الآتي ويعرف كسلفه بابن الكويك）。'
 - id: r4
@@ -103,24 +92,21 @@ relations:
   subtype: colleague
   active: wd:Q4120128
   passive: AIND-D03992
-  quote: null
   note:
     ja: ابن أسد のクッターブでサハーウィーと短期間机を並べた学友。
   phrase: ورافقني يسيرا في مكتب ابن أسد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00205
   cert: medium
-  quote: الحيك
   note:
     ja: 「ثم تعانى الحيك ظنا وقتا」＝一時期織物業に従事した（「ظنا」＝推測 → §D-5 cert="medium"）。حائك = TMP-O-00205（本バッチ D03968 で発行）。
+  mention: m14
 - id: s2
   type: office
-  ref: TMP-O-00058
-  quote: التوقيع
   note:
     ja: 「ثم التوقيع وصار من جملتهم」。كاتب التوقيع = TMP-O-00043。
+  mention: m15
 affiliations:
 - id: a1
   type: study
@@ -134,11 +120,66 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: ونشأ بها
-  norm: نشا بها
+  - mention: m12
+  phrase: ونشأ بها
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  ref: AIND-D07597
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: العز
+- id: m8
+  kind: name
+  quote: الشمس
+- id: m9
+  kind: name
+  quote: الكويك
+- id: m10
+  kind: person
+  ref: AIND-D07597
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: person
+  ref: AIND-D06222
+  quote: قاسم
+- id: m12
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m13
+  kind: person
+  ref: AIND-D00540
+  quote: ابن أسد
+  norm: ابن اسد
+- id: m14
+  kind: office
+  ref: TMP-O-00205
+  quote: الحيك
+- id: m15
+  kind: office
+  ref: TMP-O-00058
+  quote: التوقيع
 translation:
   ja: アブドゥルアズィーズ・ブン・ムハンマド・ブン・アブドゥッラフマーン・ブン・ムハンマド・ブン・アリー・ブン・アフマド、アル＝イッズ・ブン・アッ＝シャムス・ブン・アル＝クワイク。父と叔父のカースィムは後述される。830年頃にカイロで生まれ、そこで育ってクルアーンなどを暗記し、イブン・アサドのクッターブ（初等学校）で私（サハーウィー）としばらく机を並べた。その後、おそらく一時期織物業に携わり、次いで署名書記（タウキーウ）の職に就いてその一員となった。時には詩も詠む。
   en: ʿAbd al-ʿAzīz b. Muḥammad b. ʿAbd al-Raḥmān b. Muḥammad b. ʿAlī b. Aḥmad, al-ʿIzz b. al-Shams b. al-Kuwayk; his father and his paternal uncle Qāsim are mentioned below. He was born around 830 AH in Cairo and grew up there, memorized the Qurʾān and other texts, and was briefly my companion in the kuttāb of Ibn Asad. He then, I think, practised weaving for a time, then took up the tawqīʿ (secretarial signing) and became one of its clerks. He sometimes composes poetry.

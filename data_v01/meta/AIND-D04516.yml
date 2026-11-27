@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00503
-    quote: التعزي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 death:
   id: d
   date:
     ah: 891-03
   note:
     en: Died in Rabīʿ I 891 AH (891-03-01 = 1486-03-16, proleptic Gregorian).
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: علي
@@ -47,18 +44,16 @@ relations:
   subtype: father
   active: AIND-D04516#p1
   passive: AIND-D04516
-  quote: null
   note:
     ja: '父は裸名（علي）のみで祖父名も無く、corpus に本伝を特定できないため #NEEDID（統一規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00353
   orgs:
   - label: البيمارستان
-  quote: خادم البيمارستان
   note:
     ja: '職名 خادم البيمارستان は ID-Master 未登録（既存の خادم 系 O-00153/00184/00200/00213/00225、施療院系 O-00025/00148/00226 とは別職）→ 新規 #TMP-O-00279。施設は原文で「البيمارستان」とのみ記され所在の明示がない（ニスバ المدني からの補完は規則22-1により不可）ため orgName は #NEEDID。'
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -69,8 +64,39 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: TMP-T-00065
-  quote: ممن يحفظ القرآن وكذا حفظ المنهاج
-  norm: ممن يحفظ القران وكذا حفظ المنهاج
+  phrase: ممن يحفظ القرآن وكذا حفظ المنهاج
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  ref: TMP-N-00503
+  quote: التعزي
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: office
+  ref: TMP-O-00353
+  quote: خادم البيمارستان
+- id: m7
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m8
+  kind: year
+  value: '891'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・アリー・アッ＝タイッズィー・アル＝マダニー・アッ＝シャーフィイー。ビーマーリスターン（施療院）の奉仕人（ハーディム）。クルアーンを暗記している者で、同様に『ミンハージュ』も暗記した。ヒジュラ暦891年ラビーウ・アル＝アウワル月に没した。
   en: ʿAbd Allāh b. ʿAlī al-Taʿizzī al-Madanī al-Shāfiʿī, servant (khādim) of the bīmāristān. He is among those who memorized the Qurʾān, and he likewise memorized al-Minhāj. He died in Rabīʿ al-Awwal of the year 891 AH.

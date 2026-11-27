@@ -9,42 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01967
-    quote: المهاجري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00164
-    quote: الكردي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-02437
-    quote: السنهوتي
+    mention: m7
   - id: n4
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n5
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n6
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n8
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m3
   - id: n9
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m9
 death:
   id: d
   date:
@@ -52,7 +45,7 @@ death:
   note:
     ar: مات سنة اثنتين وخمسين
     ja: 852年＝1448-03-16 開始（h2g.py、年精度）。
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: علي بن يحيى
@@ -63,49 +56,41 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05910
+  active: m12
   passive: AIND-D10279
   methods:
   - TMP-S-00008
-  quote: قارئ الهداية
   note:
     ja: '「ممن أخذ عن قارئ الهداية」＝corpus 本伝 #AIND-D05910「عمر بن علي بن فارس السراج أبو حفص الكناني القاهري الحسيني الحنفي ويعرف بقاري الهداية تمييزا له بذلك عن سراج آخر …」（repo 未収録）。通称＋ハナフィー派＋カイロで閉合（corpus の「قارئ الهداية」見出し10件はすべてこの السراج を指す）。初版は #NEEDID。'
-  norm: قارء الهداية
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D03717
+  active: m13
   passive: AIND-D10279
-  quote: بالبوتيجي
   note:
     ja: 「واختص بالبوتيجي وغيره من الأكابر」＝「اختص بـX」型は patron（規則56）。البوتيجي＝#AIND-D03717「عبد الرحمن بن عنبر … الزين العثماني البوتيجي ثم القاهري الشافعي الفرضي ويعرف بالبوتيجي」（頻出確定ID、相手側本文を確認。没「ثالث عشري شوال سنة أربع وستين」）。「وغيره من الأكابر」は人物を立てない。初版は teacher（method لازم）＝原文に師弟の語はない。
-  norm: البوتيجي
   phrase: البوتيجي
 - id: r3
   type: kin
   subtype: father
   active: AIND-D10279#p1
   passive: AIND-D10279
-  quote: null
   note:
     ja: 規則3 (c')。父 علي بن يحيى المهاجري は corpus に本伝なし（hw.py「المهاجري」「السنهوتي」＝本項と子 D01992 のみ、#AIND-D05637 علي بن محمد المهاجري المقري は父名が合わない）。識別要素のない汎用名＝#NEEDID。初版は father relation なし。
 - id: r4
   type: kin
   subtype: son
-  active: AIND-D09522
+  active: m10
   passive: AIND-D10279
-  quote: محمد
   note:
     ja: 「والد محمد وإسمعيل الماضيين」＝#AIND-D09522「محمد بن يحيى بن علي بن يحيى الشمس القاهري الحنفي أخو إسماعيل الشطرنجي الماضي والآتي أبوهما ويعرف بابن يحيى . مات فجأة في شعبان سنة ثمان وسبعين」（ブリーフ候補、相手側本文で閉合を確認。repo 未収録）。初版の汚染番号 TMP-P-000529（precheck）を置換。
 - id: r5
   type: kin
   subtype: son
-  active: AIND-D01992
+  active: m11
   passive: AIND-D10279
-  quote: وإسمعيل
   note:
     ja: '#AIND-D01992「إسماعيل بن يحيى بن علي بن يحيى مجد الدين بن شرف الدين المهاجري الكردي السنهوتي … الأصل القاهري الحنفي الشطرنجي أخو أحد نواب الحنفية الشمس محمد المعروف بابن يحيى」（ブリーフ候補、ナサブ4代＋ニスバ3つ＋父のラカブ شرف الدين で閉合）。初版は #NEEDID。'
-  norm: اسمعيل
   phrase: إسمعيل
 affiliations:
 - id: a1
@@ -114,20 +99,78 @@ affiliations:
 events:
 - id: e1
   type: other
-  quote: وتنزل في الجهات
   note:
     ja: 諸職（الجهات＝俸給つきのポスト）に登録された。具体の職名・施設は原文になし。
-  norm: تنزل في الجهات
+  phrase: وتنزل في الجهات
+  mention: null
 - id: e2
   type: other
-  quote: وكان موثوقا بضبطه وتقييده لكثير من الأمراء
   note:
     ja: 多くのアミールのために記録・帳簿づけ（ضبط・تقييد）を行い、その正確さを信頼された。アミールは名指しされない。
-  norm: كان موثوقا بضبطه وتقييده لكثير من الامراء
+  phrase: وكان موثوقا بضبطه وتقييده لكثير من الأمراء
+  mention: null
 notes:
 - text: 「الماضيين」は二人の子が既出の意（訳文に反映）。ニスバ「السنهوتي الأصل」の綴りは子の項 D01992 に「بمهملة مفتوحة ثم نون ساكنة بعدها هاء مضمومة وآخره تاء مثناة」とある（サンフート）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-01967
+  quote: المهاجري
+- id: m6
+  kind: name
+  ref: TMP-N-00164
+  quote: الكردي
+- id: m7
+  kind: name
+  ref: TMP-N-02437
+  quote: السنهوتي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m10
+  kind: person
+  ref: AIND-D09522
+  quote: محمد
+- id: m11
+  kind: person
+  ref: AIND-D01992
+  quote: وإسمعيل
+  norm: اسمعيل
+- id: m12
+  kind: person
+  ref: AIND-D05910
+  quote: قارئ الهداية
+  norm: قارء الهداية
+- id: m13
+  kind: person
+  ref: AIND-D03717
+  quote: بالبوتيجي
+  norm: البوتيجي
+- id: m14
+  kind: year
+  value: '852'
+  quote: سنة
 translation:
   ja: ヤフヤー・ブン・アリー・ブン・ヤフヤー、アッ＝シャラフ、アル＝ムハージリー・アル＝クルディー、サンフート出身の家系でカイロの人、ハナフィー派。既出のムハンマドとイスマーイールの父。カーリウ・アル＝ヒダーヤに学んだ者の一人で、アル＝ブーティージーをはじめとする大物たちに親しく仕え、諸職に就いた。多くのアミールのための記録と帳簿づけの正確さで信頼されていた。852年に没した。
   en: Yaḥyā b. ʿAlī b. Yaḥyā, al-Sharaf, al-Muhājirī al-Kurdī, of Sanhūt origin, the Cairene, the Ḥanafī, father of Muḥammad and Ismāʿīl, both mentioned above. He was among those who studied under Qāriʾ al-Hidāya, attached himself closely to al-Būtījī and other eminent men, and was enrolled in salaried posts. He was trusted by many of the amirs for the accuracy of his record-keeping and registering. He died in the year 852.

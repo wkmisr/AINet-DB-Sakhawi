@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن البرددار
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: البرددار
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: أحمد
@@ -43,24 +41,44 @@ relations:
   subtype: father
   active: AIND-D07041#p1
   passive: AIND-D07041
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ（通称 البرددار は父か祖先の職名に由来か）→ #NEEDID 維持（規則3・12）。'
 events:
 - id: e1
   type: cultural
   persons:
-  - ref: AIND-D10224
-    quote: يحيى بن أحمد بن عمر بن العطار
-    norm: يحيي بن احمد بن عمر بن العطار
-  quote: له نظم في ترجمة يحيى بن أحمد بن عمر بن العطار
+  - mention: m6
   note:
     ja: '本項主が詩を詠んだ対象 يحيى بن أحمد بن عمر بن العطار ＝ #AIND-D10224（الشرف يحيى بن أحمد بن عمر بن يوسف … التنوخي الحموي الأصل الكركي المولد القاهري、通称索引 #AIND-D12547「ابن العطار … والشرف يحيى بن أحمد بن عمر ابن يوسف」）。詩の対象であって師弟・親族関係ではないため relation は立てず（初版の統制外 subtype「biographical subject」relation を event 内 persName に置換）。'
-  norm: له نظم في ترجمة يحيي بن احمد بن عمر بن العطار
+  phrase: له نظم في ترجمة يحيى بن أحمد بن عمر بن العطار
+  mention: null
 notes:
 - text: 「وينظر إن كان سبق فيمن سمى جده」＝祖父名を挙げた部に既出かどうかはサハーウィー自身が未確認（ينظر＝cert low）。corpus の محمد بن أحمد بن … 部に「ابن البرددار」「الحلبي」で一致する項はなく（hw.py「البرددار」）、相手が特定できないため possible_identity は立てない（ブリーフ指定）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  quote: البرددار
+- id: m5
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m6
+  kind: person
+  ref: AIND-D10224
+  quote: يحيى بن أحمد بن عمر بن العطار
+  norm: يحيي بن احمد بن عمر بن العطار
 translation:
   ja: ムハンマド・ブン・アフマド・アッ＝シャムス・ブン・アル＝バルダダール・アル＝ハラビー。ヤフヤー・ブン・アフマド・ブン・ウマル・ブン・アル＝アッタールの伝記に〔記した〕詩がある。祖父の名を挙げた者たち（の部）に既出かどうかは要検討。
   en: Muḥammad b. Aḥmad al-Shams b. al-Barddār al-Ḥalabī. He has verses [recorded] in the biography of Yaḥyā b. Aḥmad b. ʿUmar b. al-ʿAṭṭār; it should be checked whether he has already appeared among those whose grandfather is named.

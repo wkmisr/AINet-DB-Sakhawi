@@ -9,41 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05472
-    quote: الشريف
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00035
-    quote: الحرضي
+    mention: m7
   - id: n4
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n8
     type: nasab
-    quote: وهاس
     by: rule
+    mention: m4
   - id: n9
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m9
 persons:
 - id: p1
   label: عبد الله بن محمد بن وهاس الحسني الحرضي
@@ -56,13 +51,12 @@ relations:
   subtype: father
   active: AIND-D07836#p1
   passive: AIND-D07836
-  quote: null
   note:
     ja: '見出しナサブによる。corpus に見出しなし（hw.py「وهاس」は別人 D05108・D06450 のみ）・ID-Master 未登録。識別要素のない汎用名のため #NEEDID（規則3）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D07836
   methods:
   - TMP-S-00003
@@ -72,16 +66,11 @@ relations:
       ah: 894-12
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-    - ref: wd:Q428858
-      quote: بحرمها
-      norm: حرمها
+    - mention: m11
+    - mention: m14
     phrase: ممن لقيني بمكة في ذي الحجة سنة أربع وتسعين فسمع مني بحرمها المسلسل
   works:
   - ref: TMP-T-00019
-  quote: لقيني
   note:
     ja: 規則2。894年ズー・アル＝ヒッジャ月＝1489-11-04 開始（h2g.py）、月精度。初版の @when「0894-12」（ヒジュラ暦を @when に）を修正、field الحديث（原文なし）を除去。「بحرمها」＝マッカの聖域（الحرم）＝ wd:Q428858（المسجد الحرام、ID-Master）。
 affiliations:
@@ -92,6 +81,61 @@ notes:
 - text: 初版の visit event（مكة 894-12 cert high）と affiliation type="study"（المسجد الحرام）は teacher relation 内の learning event と重複・二重符号化のため除去（規則8）。「وهو من الخيار」＝評価句。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: وهاس
+- id: m5
+  kind: name
+  ref: TMP-N-05472
+  quote: الشريف
+- id: m6
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m7
+  kind: name
+  ref: TMP-N-00035
+  quote: الحرضي
+- id: m8
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m9
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: لقيني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m13
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: بحرمها
+  ref: wd:Q428858
+  norm: حرمها
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・ワッハース、アッ＝シャリーフ・アル＝ハサニー・アル＝ハラディー・アル＝ヤマーニー・アッ＝シャーフィイー。894年ズー・アル＝ヒッジャ月にマッカで私と会い、その聖域で私から『ムサルサル』を聴聞した者の一人。善良な人々の一人である。
   en: Muḥammad b. ʿAbd Allāh b. Muḥammad b. Wahhās, al-Sharīf al-Ḥasanī al-Ḥaraḍī al-Yamānī al-Shāfiʿī. He was among those who met me in Mecca in Dhū al-Ḥijja [8]94 and heard the Musalsal from me in its sanctuary. He is one of the good people.

@@ -9,64 +9,90 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: ابن الجيعان
+    mention: null
   - id: n2
     type: ism
-    quote: عبد الرحيم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محيي الدين
     by: rule
-    ref: TMP-P-000862
+    mention: m2
   - id: n4
     type: nasab
-    quote: الجيعان وأبوه
     by: rule
-    norm: الجيعان وابوه
+    mention: m3
 death:
   id: d
   date:
     ah: 855
   note:
     en: Died in the year 855 AH.
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-000862
+  active: m5
   passive: AIND-D03890
-  quote: والده
   note:
     ja: '【旧注記】corpus に「محيي الدين … ابن الجيعان」の立項なし。原文により العلمي شاكر(#AIND-D03270)の従兄弟。 / TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。ابن الجيعان 家（#AIND-D10229 等）の一員だが本人の立項なし。'
   phrase: محيي الدين بن الجيعان
 - id: r2
   type: social
   subtype: other
-  active: AIND-D03270
+  active: m4
   passive: AIND-D03890
-  quote: العلمي شاكر
   note:
     ja: '父の従兄弟（「وأبوه ابن عم العلمي شاكر」）。العلمي شاكر = #AIND-D03270（شاكر بن عبد الغني بن شاكر بن ماجد … علم الدين … ابن الجيعان）。'
 - id: r3
   type: social
   subtype: successor
-  active: AIND-D03486
+  active: m8
   passive: AIND-D03890
-  quote: الزين عبد الباسط بن العلمي
   note:
     ja: '後任（استيفاء البيمارستان）。= #AIND-D03486（عبد الباسط بن شاكر بن عبد الغني … الزين بن العلم ابن الجيعان。本伝に「تكلم في جهات … وبالبيمارستان」）。「المشار إليه」は العلمي شاكر を指す。初版の重複 subtype="other" relation は削除。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00082
   orgs:
   - ref: TMP-I-00034
-  quote: استيفاء البيمارستان
   note:
     ja: 父の死後に継承し、855年の本人の死まで在職（原文「باشر بعد والده … إلى أن مات」）。初版の date type="retirement" は没年と同義のため除去。البيمارستان = マンスーリー病院 TMP-I-00034、職 = TMP-O-00025（مستوفي البيمارستان المنصوري）。
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحيم
+- id: m2
+  kind: name
+  ref: TMP-P-000862
+  quote: محيي الدين
+- id: m3
+  kind: name
+  quote: الجيعان وأبوه
+  norm: الجيعان وابوه
+- id: m4
+  kind: person
+  ref: AIND-D03270
+  quote: العلمي شاكر
+- id: m5
+  kind: person
+  ref: TMP-P-000862
+  quote: والده
+- id: m6
+  kind: office
+  ref: TMP-O-00082
+  quote: استيفاء البيمارستان
+- id: m7
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D03486
+  quote: الزين عبد الباسط بن العلمي
 translation:
   ja: アブドゥルラヒーム・ブン・ムヒュッディーン・ブン・アル＝ジーアーン。彼の父はアル＝アラミー・シャーキルの従兄弟であった。彼は父の死後、病院（ビーマーリスターン）の会計監督職（イスティーファー）およびその他の彼の職を引き継ぎ、これを855年に亡くなるまで務めた。彼の死後、会計監督職には先述のアル＝アラミー（・シャーキル）の息子、ザイン・アブドゥルバースィトが就任した。
   en: ʿAbd al-Raḥīm bin Muḥyī al-Dīn bin al-Jīʿān. His father was the cousin of al-ʿAlamī Shākir. He succeeded his father as the comptroller (istīfāʾ) of the Bīmāristān and in his other offices until his death in the year 855 AH. After his death, al-Zayn ʿAbd al-Bāsiṭ, the son of the aforementioned al-ʿAlamī, succeeded him in the comptrollership.

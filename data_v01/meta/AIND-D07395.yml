@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الزبير
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: الزبير المقدسي
@@ -31,30 +30,49 @@ relations:
   subtype: father
   active: AIND-D07395#p1
   passive: AIND-D07395
-  quote: null
   note:
     ja: '父 الزبير は名のみで識別要素が無い（hw.py「الزبير」「المقدسي」で本伝なし）→ #NEEDID（規則3）。初版は father relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00012
   places:
   - ref: gn:281184
-  quote: العطار بها
   note:
     ja: 「العطار بها」の「ها」はニスバ المقدسي の地（エルサレム、gn:281184）を指す照応（規則22(3)、先例 D04959「ها＝مكة（ニスバ المكي の照応）」）。職は ID-Master 既登録 TMP-O-00012 العطار（薬種商、実体一致）。
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: التقي بن فهد
+  - mention: m6
   works:
   - ref: TMP-T-00138
-  quote: ذكره
   note:
     ja: Pattern A。「التقي بن فهد في معجمه」＝#AIND-D09211 の『معجم』（TMP-T-00138、規則49）。初版の統制外 subtype「other」relation を mention event に置換。
   trigger: rule
   phrase: ذكره التقي بن فهد في معجمه هكذا
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الزبير
+- id: m3
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m4
+  kind: office
+  ref: TMP-O-00012
+  quote: العطار بها
+- id: m5
+  kind: source
+  quote: ذكره
+- id: m6
+  kind: person
+  ref: AIND-D09211
+  quote: التقي بن فهد
 translation:
   ja: ムハンマド・ブン・アッ＝ズバイル・アル＝マクディスィー、そこ（エルサレム）の薬種商。アッ＝タキー・ブン・ファハドが『ムウジャム』でこのように彼に言及している。
   en: Muḥammad b. al-Zubayr al-Maqdisī, the druggist (ʿaṭṭār) there (in Jerusalem). Al-Taqī b. Fahd mentioned him thus in his Muʿjam.

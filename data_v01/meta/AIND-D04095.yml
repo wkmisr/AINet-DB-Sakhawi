@@ -9,32 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00551
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D04095
   methods:
   - TMP-S-00003
@@ -43,20 +39,49 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m8
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D00551
+  active: m6
   passive: AIND-D04095
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」= #AIND-D00551（أحمد بن إسماعيل بن عبد الله الدمشقي。同じくマッカでサハーウィーから聴聞）。'
-  norm: ابوه
   phrase: أحمد بن إسماعيل بن عبد الله الدمشقي الماضي
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D00551
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: person
+  ref: AIND-D00551
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥルカーディル・ブン・アフマド・ブン・イスマーイール・ブン・アブドゥッラー・アッ＝ディマシュキー。その父は（前に）先述。マッカにおいて私（＝サハーウィー）から（ハディースを）聴聞した者の一人である。
   en: Abd al-Qadir ibn Ahmad ibn Isma'il ibn Abd Allah al-Dimashqi. His father was mentioned previously. He was among those who heard (hadith) from me in Mecca.

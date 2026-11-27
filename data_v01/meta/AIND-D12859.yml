@@ -9,17 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00018
-    quote: اللخمي
+    mention: m3
   - id: n2
     type: ism
-    quote: آمنة
     by: rule
-    norm: امنة
+    mention: m1
   - id: n3
     type: nasab
-    quote: القاضي كريم الدين عبد
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -33,33 +31,28 @@ death:
   date:
     ah: 865-11-01
   places:
-  - ref: TMP-L-00335
-    role: burial
-    quote: بالصوفية
-    norm: الصوفية
+  - role: burial
+    mention: m9
   note:
     ja: '865年ズー・ル＝カアダ月1日＝1461-08-17（h2g.py）。初版の @when 1461 を日付精度に。埋葬地「الصوفية」＝既登録 TMP-L-00335 مقبرة الصوفية（先例 #AIND-D07889「دفن بالصوفية」。姉妹 خديجة＝D13003 も「دفنت بالصوفية」）。初版は #NEEDID。'
-  quote: سنة
   phrase: ماتت في ليلة السبت مستهل ذي القعدة سنة خمس وستين عن نيف وتسعين سنة ودفنت بالصوفية
+  mention: m8
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D04246
   passive: AIND-D12859
-  quote: null
   note:
     ja: '#AIND-D04246「عبد الكريم بن أحمد بن عبد العزيز بن أبي طالب بن علي بن سيدهم كريم الدين النستراوي الأصل المصري . والد أنس جهة شيخنا واخوتها ويعرف بابن عبد العزيز … وخلف خمس بنات」（見出しナサブ・ラカブで閉合、規則37。repo の #AIND-D07294 が同番号を maternal_grandfather に使用）。初版は #NEEDID。'
   phrase: كريم الدين عبد الكريم بن أحمد بن عبد العزيز
 - id: r2
   type: kin
   subtype: sister
-  active: AIND-D12898
+  active: m4
   passive: AIND-D12859
-  quote: أنس
   note:
     ja: '「أخت أنس زوج شيخنا」。#AIND-D12898「أنس ابنة عبد الكريم بن أحمد بن عبد العزيز … اللخمي النستراوي الأصل القاهري أخت آمنة الماضية قريبا وزوج شيخنا」（相互に名指し）。初版は #NEEDID。'
-  norm: انس
 - id: r3
   type: kin
   subtype: sister
@@ -68,31 +61,66 @@ relations:
   summary:
     ar: خديجة
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には名が出ない（「أصح إخوتها بدنا」のみ）。相手側 #AIND-D13003「خديجة ابنة عبد الكريم بن أحمد بن عبد العزيز اللخمي النستراوي الاصل أخت أنس وآمنة وفاطمة … وهي أول أولاد أبيها」が本項主を名指し＝規則23 により cert medium で補う。'
 - id: r4
   type: kin
   subtype: spouse
-  active: AIND-D06506
+  active: m6
   passive: AIND-D12859
-  quote: ابن مطيع
   note:
     ja: '「وهي زوج ابن مطيع」。#AIND-D06506「محمد بن إبراهيم بن عبد الرحيم الصلاح القاهري الشافعي الحريري ويعرف بابن مطيع … مات … سنة أربع وأربعين … ولم يكن له وارث إلا زوجه … وكان زوجا لأخت زوجة شيخنا」（通称＋「イブン・ハジャルの妻の姉妹の夫」で閉合。844年没で年代も合う）。初版は #NEEDID。'
 - id: r5
   type: kin
   subtype: brother-in-law
-  active: wd:Q471116
+  active: m5
   passive: AIND-D12859
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 【集約 2026-11-10】desc「شيخنا」→「ابن حجر」（規則31。原文の呼称「شيخنا」は note に。前バッチ D06483 と同じ扱い、機械 L、決定6）。「أخت أنس زوج شيخنا」＝イブン・ハジャルは姉妹 أنس の夫＝本項主の義兄弟（規則52、先例 D08151「كان الموفق زوج أخته」＝brother-in-law）。姻戚は親族なので @n なし（初版の n="1" を除去）。
 notes:
 - text: '他の姉妹（本項は名指しせず、相手側も本項主を名指ししない＝relation は立てない）: #AIND-D13540「فرج ابنة عبد الكريم بن أحمد بن عبد العزيز … أخت أنس جهة شيخنا وغيرها」。D13003 の挙げる姉妹 فاطمة は女性部の見出しに見当たらない。「كانت سمراء تشبه أبناء الاماء」は容貌の記述。「ممتعة بحواسها بل كانت أصح إخوتها بدنا」＝最期まで五感が健在で、きょうだいのなかで最も丈夫だった。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: آمنة
+  norm: امنة
+- id: m2
+  kind: name
+  quote: القاضي كريم الدين عبد
+- id: m3
+  kind: name
+  ref: TMP-N-00018
+  quote: اللخمي
+- id: m4
+  kind: person
+  ref: AIND-D12898
+  quote: أنس
+  norm: انس
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m6
+  kind: person
+  ref: AIND-D06506
+  quote: ابن مطيع
+- id: m7
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m8
+  kind: year
+  value: '865'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالصوفية
+  ref: TMP-L-00335
+  norm: الصوفية
 translation:
   ja: アーミナ・ビント・アル＝カーディー・カリーム・ッディーン・アブドゥルカリーム・ブン・アフマド・ブン・アブドゥルアズィーズ、アッ＝ラフミー。我らがシャイフ（イブン・ハジャル）の妻アナスの姉妹。色が浅黒く、女奴隷の子らに似ていた。イブン・ムティーウの妻である。（8）65年ズー・ル＝カアダ月の朔日、土曜日の前夜（金曜の夜）に、90余歳で没し、スーフィーヤ（墓地）に葬られた。五感は最期まで健在で、それどころか、きょうだいのなかで最も身体が丈夫であった。
   en: Āmina, daughter of the qāḍī Karīm al-Dīn ʿAbd al-Karīm b. Aḥmad b. ʿAbd al-ʿAzīz, al-Lakhmī, sister of Anas, the wife of our shaykh (Ibn Ḥajar). She was dark-skinned, resembling the children of slave women, and she was the wife of Ibn Muṭīʿ. She died on the eve of Saturday, the first of Dhū al-Qaʿda of the year [8]65, aged ninety-odd, and was buried in the Ṣūfiyya [cemetery], still in possession of her senses; indeed she was the soundest in body of her siblings.

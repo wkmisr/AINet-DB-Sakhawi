@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: أويس
     by: rule
-    norm: اويس
+    mention: m1
   - id: n2
     type: nasab
-    quote: شاه
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 830
   places:
-  - ref: TMP-L-00043
-    quote: بغداد
+  - mention: m3
   note:
     en: The year 'thirty' (ثلاثين) is inferred to be 830 AH, within the context of al-Sakhāwī's writing.
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: rival
-  active: AIND-D08489
+  active: m5
   passive: AIND-D02086
-  quote: محمد شاه بن قرا يوسف
   note:
     en: Opponent in the war in which Uways was killed.
 events:
@@ -43,15 +40,14 @@ events:
     cert: medium
     type: political
   places:
-  - ref: TMP-L-00043
-    quote: بغداد
+  - mention: m3
   summary:
     en: Killed in a war against Muḥammad Shāh b. Qara Yūsuf.
-  quote: قتل
   cert: medium
   note:
     en: Inferred from 'سنة ثلاثين' (year thirty).
   trigger: rule
+  mention: m4
 - id: e2
   type: political
   date:
@@ -59,24 +55,49 @@ events:
     cert: medium
     type: political
   places:
-  - ref: TMP-L-00043
-    quote: بغداد
+  - mention: m3
   summary:
     en: Muḥammad Shāh recaptured Baghdad after the war.
-  quote: null
   cert: medium
   note:
     en: Inferred from 'سنة ثلاثين' (year thirty).
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: وأرخه
   trigger: rule
-  norm: ارخه
   phrase: قاله شيخنا في أنبائه وأرخه سنة ثلاثين
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: أويس
+  norm: اويس
+- id: m2
+  kind: name
+  quote: شاه
+- id: m3
+  kind: place
+  quote: بغداد
+  ref: TMP-L-00043
+- id: m4
+  kind: event
+  quote: قتل
+- id: m5
+  kind: person
+  ref: AIND-D08489
+  quote: محمد شاه بن قرا يوسف
+- id: m6
+  kind: source
+  quote: وأرخه
+  norm: ارخه
+- id: m7
+  kind: year
+  value: '830'
+  quote: سنة
 translation:
   ja: ウワイス・ブン・シャー・ワラド・ブン・シャー・ザーダ・ブン・ウワイス。（曾祖父の）ウワイスはバグダードの領主であった。彼はムハンマド・シャー・ブン・カラー・ユースフとの間の戦争で殺され、ムハンマド・シャーは再びバグダードを奪回した。このことは我らがシャイフ（イブン・ハジャル）がその『インバーウ（インバーウ・アル＝グムル）』で述べ、830年のことと記している。
   en: Uways b. Shāh Walad b. Shāh Zāda b. Uways, whose (great-grandfather) Uways was the lord of Baghdad. He was killed in a war between him and Muḥammad Shāh b. Qara Yūsuf, and Muḥammad Shāh recaptured Baghdad again. Our shaykh (Ibn Ḥajar) mentioned this in his Inbāʾ (al-Ghumr) and dated it to the year 830.

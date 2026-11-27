@@ -9,38 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01248
-    quote: الرمثاوي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n3
     type: laqab
-    quote: البدر
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n7
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 death:
   id: d
   date:
@@ -48,8 +42,8 @@ death:
     cert: medium
   note:
     ja: 「سنة إحدى」＝一の位のみ → 801（cert medium、2026-09-24 裁定。イブン・ハジャル『إنباء』に載ること、兄弟 موسى（760年頃生・816年没）との整合からも 801）。801年ラビーウ1月＝1398-11-19〜12-18（月精度 → 1398-11）。「وقد جاز الأربعين」から逆算すると生年は 760 年以前（cert low、birth 要素は立てない）。
-  quote: سنة
   phrase: ومات في ربيع الأول سنة إحدى وقد جاز الأربعين
+  mention: m13
 persons:
 - id: p1
   label: أحمد بن موسى
@@ -62,18 +56,15 @@ relations:
   subtype: father
   active: AIND-D07006#p1
   passive: AIND-D07006
-  quote: null
   note:
     ja: '父の本伝は corpus 見出しに見当たらず、識別要素もナサブのみ → #NEEDID（Waka 裁定 2026-10-17 ★4: 父 relation は必ず立てる）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D10051
+  active: m14
   passive: AIND-D07006
-  quote: موسى
   note:
     ja: '「خلافا لأخيه موسى」。兄弟 موسى（長幼は原文になく不明）＝ #AIND-D10051（موسى بن أحمد بن موسى الشهاب الرمثاوي ثم الدمشقي الشافعي、760年頃生・816年没、ナサブ3代＋ニスバ一致、規則37）。初版は #NEEDID。'
-  norm: موسي
 affiliations:
 - id: a1
   type: madhhab
@@ -81,46 +72,103 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: اشتغل كثيرا وفضل ونسخ بخطه الكثير
+  phrase: اشتغل كثيرا وفضل ونسخ بخطه الكثير
+  mention: null
 - id: e2
   type: teaching
   orgs:
   - ref: TMP-I-00016
   - ref: TMP-I-00222
-  quote: ودرس
   note:
     ja: 'ダマスカスの2マドラサで教授した。初版の affiliation type="teach" ×2 を teaching event に（先例 #AIND-D05887）。الأكرية は ID-Master 未登録のため TMP-I-00222 を発行。施設の所在地（دمشق）からの placeName 補完はしない（規則22(1)）。'
   trigger: rule
-  norm: درس
   phrase: ودرس بالعصرونية والأكرية
+  mention: m9
 - id: e3
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   note:
     ja: 規則20 により حج の placeName مكة を認める。
   trigger: rule
+  mention: m10
 - id: e4
   type: residence
   subtype: jāwara
-  quote: وجاور
   note:
     ja: 規則20 により جاور には placeName を付けない（原文に地名の明示なし）。初版の placeName مكة を除去。
   trigger: rule
-  norm: جاور
+  mention: m11
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
-  quote: ذكر
   note:
     ja: Pattern A。「سيخنا」は刊本の誤植（＝شيخنا）だが原文どおり残す。初版の統制外 relation（mentioned by）を mention event に変更。
   trigger: rule
   phrase: ذكر سيخنا في إنبائه باختصار عن هذا
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: البدر
+- id: m5
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m6
+  kind: name
+  ref: TMP-N-01248
+  quote: الرمثاوي
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: event
+  quote: ودرس
+  norm: درس
+- id: m10
+  kind: event
+  quote: وحج
+- id: m11
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m12
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m13
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: AIND-D10051
+  quote: موسى
+  norm: موسي
+- id: m15
+  kind: source
+  quote: ذكر
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ムーサー、アル＝バドル・アブー・アブドゥッラー・アッ＝ラムサーウィー・アッ＝ディマシュキー、法学者、シャーフィイー派。大いに学問に励んで秀で、自筆で多くを筆写し、アル＝アスルーニーヤとアル＝アクリーヤで教授した。巡礼を行い、（聖地に）滞在した。〔8〕01年ラビーウ第一月に、40歳を過ぎたところで没した。人々から離れて引きこもり、悪事とは無縁で、むしろそれから遠い人であった――兄弟のムーサーとは異なって。我らがシャイフ（イブン・ハジャル）はその『インバー』でこの人物について簡略に記している。
   en: Muḥammad b. Aḥmad b. Mūsā, al-Badr Abū ʿAbd Allāh al-Ramthāwī al-Dimashqī, the jurist, the Shāfiʿī. He studied much, excelled, and copied a great deal in his own hand; he taught at al-ʿAṣrūniyya and al-Akriyya, performed the pilgrimage and sojourned (in the Holy City). He died in Rabīʿ I of the year [8]01, having passed forty. He kept apart from people and was of little harm—indeed far from it—unlike his brother Mūsā. Our shaykh (Ibn Ḥajar) mentioned this man briefly in his Inbāʾ.

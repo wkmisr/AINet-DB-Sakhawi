@@ -9,48 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00083
-    quote: الجراحي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: honorific
-    quote: الشيخ
+    mention: m4
   - id: n4
     type: laqab
-    quote: نور الدين
+    mention: m5
   - id: n5
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001538
+    mention: m2
   - id: n7
     type: nasab
-    quote: طعيمة
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D00844
+  active: m8
   passive: AIND-D05436
   methods:
   - TMP-S-00014
   works:
   - ref: TMP-T-00186
-  quote: الولي العراقي
   note:
     ja: '「ممن لازم الولي العراقي في أماليه وغيرها」。الولي العراقي ＝ #AIND-D00844（初版の幻番号 TMP-P-000011 は名寄せ済み、規則36）。『أماليه』は الولي العراقي 自身の口述録 #TMP-T-00186（初版の TMP-T-00030 はサハーウィー自身の أمالي の番号）。「وشيخه كل منهما」＝両師（الولي العراقي とイブン・ハジャル）が彼をシャイフと認めた（شيَّخه）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m9
   passive: AIND-D05436
   methods:
   - TMP-S-00014
@@ -59,7 +55,6 @@ relations:
     ar: ابن حجر
   works:
   - ref: TMP-T-00201
-  quote: شيخنا
   note:
     ja: '原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「وكذا لازم شيخنا مما سمعه عليه متبايناته وشيخه كل منهما」。شيخنا＝イブン・ハジャル。『متبايناته』＝イブン・ハジャル『الأربعون المتباينة』#TMP-T-00201（初版 #NEEDID）。初版の重複する2本（سمع／لازم）を1本に統合。'
 - id: r3
@@ -69,7 +64,6 @@ relations:
   passive: AIND-D05436
   summary:
     ar: محمد بن طعيمة الجراحي
-  quote: null
   note:
     ja: 規則3。祖父名 طعيمة は珍しい名（それ自体が識別要素）で祖父名まで復元できる → 仮番号 TMP-P-001538。corpus に本伝なし（「طعيمة」は本項と索引見出し「علي بن طعيمة . يأتي في ابن محمد بن طعيمة」＝本項への転送のみ）、ID-Master 未登録。初版は relation なし。
 notes:
@@ -79,15 +73,54 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03560
-    quote: الجلال القمصي
+  - mention: m11
   works:
   - ref: wd:Q4120006
-  quote: قاله
   note:
     ja: '規則44（「قاله لي X」型の口頭情報源は mention event の persName）。الجلال القمصي ＝ #AIND-D03560（عبد الرحمن بن أحمد … الجلال أبو المعالي … القمصي、792生）。初版の relation「informant」#NEEDID と en のみの cultural event を本 event に統合。『الشفا』＝ wd:Q4120006（ID-Master 既登録）。'
   trigger: rule
   phrase: كان كما قاله لي الجلال القمصي يحفظ الشفا لعياض
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001538
+  quote: محمد
+- id: m3
+  kind: name
+  quote: طعيمة
+- id: m4
+  kind: name
+  quote: الشيخ
+- id: m5
+  kind: name
+  quote: نور الدين
+- id: m6
+  kind: name
+  ref: TMP-N-00083
+  quote: الجراحي
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: person
+  ref: AIND-D00844
+  quote: الولي العراقي
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: source
+  quote: قاله
+- id: m11
+  kind: person
+  ref: AIND-D03560
+  quote: الجلال القمصي
 translation:
   ja: アリー・ブン・ムハンマド・ブン・トゥアイマ、シャイフ・ヌール・アッ＝ディーン・アル＝ジャッラーヒー・アル＝カーヒリー。祖父に帰して（イブン・トゥアイマと）呼ばれることもある。アル＝ワリー・アル＝イラーキーに師事してその『アマーリー』などを聴いた者の一人であり、同じく我らがシャイフ（イブン・ハジャル）にも師事し、彼から聴いたものの中にはその『ムタバーイナート』がある。両者とも彼をシャイフと認めた。それどころか、アル＝ジャラール・アル＝クムスィーが私（サハーウィー）に語ったところでは、彼はイヤードの『シファー』を暗記していたという。
   en: ʿAlī b. Muḥammad b. Ṭuʿayma, the shaykh Nūr al-Dīn al-Jarrāḥī al-Qāhirī; he is sometimes attributed to his grandfather (as Ibn Ṭuʿayma). He was among those who attended closely upon al-Walī al-ʿIrāqī in his Amālī and elsewhere, and likewise attended closely upon our shaykh (Ibn Ḥajar), among what he heard from him being his Mutabāyināt; each of the two recognized him as a shaykh. Indeed, as al-Jalāl al-Qumṣī told me (al-Sakhāwī), he knew by heart the Shifāʾ of ʿIyāḍ.

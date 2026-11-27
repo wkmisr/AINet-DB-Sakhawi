@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00067
-    quote: المالقي
+    mention: m3
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: محمد
@@ -31,7 +30,6 @@ relations:
   subtype: father
   active: AIND-D06000#p1
   passive: AIND-D06000
-  quote: null
   note:
     ja: '父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。'
 states:
@@ -40,12 +38,29 @@ states:
   label: شاعر الأندلس
   label_latn: shāʿir al-Andalus
   places:
-  - ref: TMP-L-00063
-    quote: الأندلس
-    norm: الاندلس
-  quote: شاعر
+  - mention: m5
   note:
     ja: 見出しの記述句「شاعر الأندلس」。原文は名と この句のみで、末尾は「...」（刊本の省略）。初版は shuhrah として符号化していたが通称ではないため status に変更。
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00067
+  quote: المالقي
+- id: m4
+  kind: office
+  quote: شاعر
+- id: m5
+  kind: place
+  quote: الأندلس
+  ref: TMP-L-00063
+  norm: الاندلس
 translation:
   ja: ウマル・ブン・ムハンマド・アル＝マーラキー、アンダルスの詩人。……
   en: ʿUmar b. Muḥammad al-Mālaqī, the poet of al-Andalus. …

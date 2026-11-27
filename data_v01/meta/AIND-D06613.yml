@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00128
-    quote: الجوجري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 persons:
 - id: p1
   label: أحمد بن أحمد
@@ -44,35 +40,63 @@ relations:
   subtype: father
   active: AIND-D06613#p1
   passive: AIND-D06613
-  quote: null
   note:
     ja: 規則3 (c')。父は名＋父名のみで識別要素なし、corpus の見出し（أحمد بن أحمد＋الجوجري）に該当なし。初版は父 relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m7
   passive: AIND-D06613
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「ممن سمع من شيخنا」＝イブン・ハジャルから聴いた。原文に分野の語はない＝初版の field（الحديث）を除去。【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D06613
   methods:
   - TMP-S-00003
-  quote: مني
   note:
     ja: 「ثم مني」＝のちサハーウィーから（規則2）。場所・年の記載なし。初版の field（الحديث）を除去。
 notes:
 - text: '「قريب زوجة شيخنا」＝イブン・ハジャルの妻の親族。続柄も相手の名も原文にない＝relation を立てず note に留める（ブリーフどおり。初版の統制外 relation「other」・#NEEDID を除去）。通称索引 #AIND-D12507 には、別人（محمد بن محمد بن أحمد بن عبد العزيز）について同じ句「قريب زوجة شيخنا ابنة ناظر الجيش الكريمي عبد الكريم ابن أحمد بن عبد العزيز」がある。本項の言う妻がこの ناظر الجيش の娘と同一かは原文から決まらない（【集約 2026-11-18】他人の項の記述による特定を外した、内容B L4・オーケストレーター決定23）。「وكان فقيرا عسيرا」は人物評（符号化しない）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00128
+  quote: الجوجري
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・アフマド、アッ＝シャムス・アル＝ジャウジャリー・アル＝カーヒリー、我らがシャイフの妻の親族。我らがシャイフから、のちに私から聴いた者の一人。貧しく、暮らしに窮していた。
   en: Muḥammad b. Aḥmad b. Aḥmad, al-Shams al-Jawjarī al-Qāhirī, a relative of the wife of our shaykh. He was one of those who heard from our shaykh and then from me. He was poor and in straitened circumstances.

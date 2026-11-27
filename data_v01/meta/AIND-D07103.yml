@@ -9,53 +9,44 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m7
   - id: n3
     type: nisbah
-    ref: TMP-N-00159
-    quote: الزبيدي
+    mention: m8
   - id: n4
     type: laqab
-    quote: الجمال
+    mention: m4
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: إسماعيل
     by: rule
-    ref: AIND-D01941
-    norm: اسماعيل
+    mention: m2
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10678
-    norm: ابو بكر
+    mention: m3
   - id: n8
     type: nasab
-    quote: الشرف
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D01941
+  active: m9
   passive: AIND-D07103
   methods:
   - label: خدم عن
   summary:
     ar: الشرف إسماعيل
-  quote: أبيه
   note:
     ja: 「خدم عن أبيه」＝父（#AIND-D01941）からスーフィーの道統（خدمة）を受けた。初版は汚染番号 TMP-P-000528（登録実体＝ابن جماعة の息子 إسماعيل）を充てていた。
-  norm: ابيه
 - id: r2
   type: kin
   subtype: father
@@ -63,7 +54,6 @@ relations:
   passive: AIND-D07103
   summary:
     ar: الشرف إسماعيل بن أبي بكر الجبرتي
-  quote: null
   note:
     ja: '父＝ #AIND-D01941（إسماعيل بن أبي بكر بن إسماعيل بن إبراهيم بن عبد الصمد الشرف أبو المعروف بن الرضي الجبرتي اليماني、808生・875没、ザビードのスーフィーの長）。見出しの「بن الشرف」とナサブ2代が一致。初版の #NEEDID を解消（規則37）。'
 - id: r3
@@ -73,31 +63,25 @@ relations:
   passive: AIND-D07103
   summary:
     ar: أبو بكر بن إسماعيل الجبرتي
-  quote: null
   note:
     ja: '祖父＝ #AIND-D10678（أبو بكر بن إسماعيل بن إبرهيم الجبرتي اليماني الماضي أبوه وولده إسماعيل خلفه في رياسته、823/824没）。父 D01941 のナサブと一致。初版の汚染番号 TMP-P-000064（登録実体＝別人の أبو بكر）を差し替え。'
 - id: r4
   type: kin
   subtype: relative
-  active: AIND-D01919
+  active: m11
   passive: AIND-D07103
   cert: medium
-  quote: والداعية إسماعيل الجبرتي
   note:
     ja: '曾祖父（祖父 #AIND-D10678 أبو بكر بن إسماعيل بن إبرهيم の父）。#AIND-D01919（إسماعيل بن إبراهيم بن عبد الصمد … الجبرتي ثم الزبيدي）は、父 #AIND-D01941 本文「حفيد الداعية الماضي」と祖父 D10678 のナサブで一意。系譜は他項にのみあるため規則23 により cert medium。統制語彙に曾祖父の subtype が無いため relative（先例 D07088 の D08903）。【集約】内容B L の指摘で追加。'
-  norm: الداعية اسماعيل الجبرتي
   phrase: الداعية إسماعيل الجبرتي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00077
   places:
-  - ref: TMP-L-00041
-    quote: بزبيد
-    norm: زبيد
-  quote: شيخ الصوفية
+  - mention: m15
   note:
     ja: '「أنه شيخ الصوفية الآن بزبيد」（الكازروني の伝聞）。職 ref を #NEEDID → TMP-O-00170（شيخ صوفية）。'
+  mention: m14
 events:
 - id: e1
   type: cultural
@@ -105,28 +89,88 @@ events:
   persons:
   - ref: AIND-D01941
     role: transmitter
-  - ref: AIND-D09365
-    role: transmitter
-    quote: الجمال محمد بن محمد المزجاجي
+  - role: transmitter
+    mention: m10
   - ref: AIND-D01919
     role: transmitter
   summary:
     ar: خدم عن أبيه وأبوه عن الجمال محمد بن محمد المزجاجي عن الداعية إسماعيل الجبرتي
-  quote: null
   note:
     ja: 'スーフィーの道統（خدمة）の系譜。الجمال محمد بن محمد المزجاجي ＝ #AIND-D09365（محمد بن محمد الجمال المزجاجي اليماني الصوفي الحنفي、752生、「سلك على يد إسماعيل الجبرتي」）。الداعية إسماعيل الجبرتي ＝ #AIND-D01919（إسماعيل بن إبراهيم بن عبد الصمد الهاشمي العقيلي الجبرتي ثم الزبيدي、本項主の曾祖父）。父以外の2人は本項主の直接の師ではないため relation にせず上位系譜として記録。'
+  mention: null
 - id: e2
   type: cultural
   subtype: meeting
   persons:
-  - ref: AIND-D04494
-    quote: عبد الله بن عبد الوهاب الكازروني المدني
-  quote: ولقيه
+  - mention: m13
   note:
     ja: 'عبد الله بن عبد الوهاب الكازروني المدني ＝ #AIND-D04494（عبد الله بن عبد الوهاب بن أبي البركات … عفيف الدين وجمال الدين أبو محمد بن التاج الكازروني المدني الشافعي）。彼が本項主と会い、サハーウィーに語った（情報源）。初版の統制外 student relation（本項主 active・#NEEDID passive、方法 لقي）は向きも相手も誤りのため除去。'
   trigger: rule
-  norm: لقيه
   phrase: ولقيه عبد الله بن عبد الوهاب الكازروني المدني وقال لي أنه شيخ الصوفية الآن بزبيد وأنه لم يتكهل
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D01941
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m3
+  kind: name
+  ref: AIND-D10678
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  quote: الشرف
+- id: m6
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m7
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m8
+  kind: name
+  ref: TMP-N-00159
+  quote: الزبيدي
+- id: m9
+  kind: person
+  ref: AIND-D01941
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: person
+  ref: AIND-D09365
+  quote: الجمال محمد بن محمد المزجاجي
+- id: m11
+  kind: person
+  ref: AIND-D01919
+  quote: والداعية إسماعيل الجبرتي
+  norm: الداعية اسماعيل الجبرتي
+- id: m12
+  kind: event
+  quote: ولقيه
+  norm: لقيه
+- id: m13
+  kind: person
+  ref: AIND-D04494
+  quote: عبد الله بن عبد الوهاب الكازروني المدني
+- id: m14
+  kind: office
+  ref: TMP-O-00077
+  quote: شيخ الصوفية
+- id: m15
+  kind: place
+  quote: بزبيد
+  ref: TMP-L-00041
+  norm: زبيد
 translation:
   ja: ムハンマド・ブン・イスマーイール・ブン・アビー・バクル、アル＝ジャマール・ブン・アッ＝シャラフ、ジャバルト出身でイエメン・ザビードの人。父から（スーフィーの道統を）受け、父はアル＝ジャマール・ムハンマド・ブン・ムハンマド・アル＝マズジャージーから、彼は導師（ダーイヤ）イスマーイール・アル＝ジャバルティーから受けた。アブドゥッラー・ブン・アブド・アル＝ワッハーブ・アル＝カーザルーニー・アル＝マダニーが彼と会い、私（サハーウィー）に、彼が今ザビードのスーフィーの長であり、まだ壮年に達していないと語った。
   en: Muḥammad b. Ismāʿīl b. Abī Bakr, al-Jamāl b. al-Sharaf, of Jabartī origin, al-Yamānī al-Zabīdī. He received (the Sufi path, khidma) from his father, his father from al-Jamāl Muḥammad b. Muḥammad al-Mazjājī, and he from the dāʿiya Ismāʿīl al-Jabartī. ʿAbd Allāh b. ʿAbd al-Wahhāb al-Kāzarūnī al-Madanī met him and told me that he is now the shaykh of the Sufis in Zabīd and that he has not yet reached middle age.

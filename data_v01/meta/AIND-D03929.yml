@@ -9,41 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00120
-    quote: الكازروني
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m9
   - id: n3
     type: shuhrah
-    quote: ابن عبد السلام
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد السلام
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000863
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي الخير محمد
     by: rule
-    norm: ابو الخير محمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: علي
     by: rule
+    mention: m6
 birth:
   id: b
   date:
@@ -52,7 +48,7 @@ birth:
   - ref: gn:104515
   note:
     en: Born in Mecca in Jumādā I 844 AH.
-  quote: سنة
+  mention: m11
 death:
   id: d
   date:
@@ -60,7 +56,7 @@ death:
     cert: medium
   note:
     en: Died in Dhū al-Qaʿda 865 or 868 AH; al-Sakhāwī considers the former more likely (والأول أقرب). No place of death is stated.
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: kin
@@ -69,50 +65,107 @@ relations:
   passive: AIND-D03929
   summary:
     ar: أبو الخير محمد الكازروني
-  quote: null
   note:
     ja: '【旧注記】ニスバ索引項 #AIND-D11238「رئيس المؤذنين محمد بن أبي الخير محمد بن علي … ثم خلفه ابناه عبد السلام وأبو الخير محمد」により兄弟 أبو الخير محمد بن محمد بن أبي الخير（後に息子 أبو عبد الله محمد、孫 أبو بكر=#AIND-D10864 と同職）と確認できるが、corpus の م 部に本伝を特定できず。 / كنى 部「أبو الخير ويسمى محمد بن محمد بن أبي الخير محمد بن علي … الكازروني الأصل المكي رئيس المؤذنين بالمسجد الحرام」（#AIND-D10946、生829）＝本項主の兄弟。ナサブ完全一致（再調査 2026-09-03）。'
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-000863
+  active: m13
   passive: AIND-D03929
   summary:
     ar: محمد بن أبي الخير محمد بن علي رئيس المؤذنين بالمسجد الحرام
-  quote: أبيهما
   note:
     ja: '【旧注記】父 = المسجد الحرام の رئيس المؤذنين（#AIND-D11238）。857年に本項主が父の後任。corpus に本伝を特定できず。 / TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。本人の立項なし（子 #AIND-D10946 の項でナサブ確認）。'
-  norm: ابيهما
 states:
 - id: s1
   type: office
-  ref: TMP-O-00090
   orgs:
   - ref: wd:Q428858
   dates:
   - ah: 857
     type: appointment
-  quote: رياسة المؤذنين
   note:
     ja: 857年に父の後任として就任（「بعد أبيهما」＝兄弟2人の父）。رئيس المؤذنين = TMP-O-00090。　規則22-1（2026-09-21 Waka 裁定）により placeName مكة（gn:104515）を除去。根拠は〈施設 المسجد الحرام の所在地〉からの補完で原文に地名の明示なし。
-  norm: رياسة المءذنين
+  mention: m12
 events:
 - id: e1
   type: residence
   places:
   - ref: gn:104515
-  quote: null
   note:
     en: Grew up in Mecca (نشأ بها).
+  mention: null
 - id: e2
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: حفظ القرآن
-  norm: حفظ القران
+  phrase: حفظ القرآن
+  mention: null
 notes:
 - text: 「فلم يولد له」＝子はなかった。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد السلام
+- id: m2
+  kind: name
+  ref: TMP-P-000863
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي الخير محمد
+  norm: ابو الخير محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: عبد الله
+- id: m6
+  kind: name
+  quote: علي
+- id: m7
+  kind: name
+  quote: ابن عبد السلام
+- id: m8
+  kind: name
+  ref: TMP-N-00120
+  quote: الكازروني
+- id: m9
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m10
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m11
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m12
+  kind: office
+  ref: TMP-O-00090
+  quote: رياسة المؤذنين
+  norm: رياسة المءذنين
+- id: m13
+  kind: person
+  ref: TMP-P-000863
+  quote: أبيهما
+  norm: ابيهما
+- id: m14
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m15
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m16
+  kind: year
+  value: '865'
+  quote: سنة
 translation:
   ja: アブドゥッサラーム・ブン・ムハンマド・ブン・アビー・アル＝ハイル・ムハンマド・ブン・アリー・ブン・アブドゥッラー・ブン・アリー・イブン・アブドゥッサラーム。アブー・アル＝ハイル・アル＝カーザルーニー・アル＝マッキーの兄弟。ヒジュラ暦844年ジュマーダー・アル＝ウーラー月にメッカで生まれ、そこで育ってクルアーンを暗記した。857年に彼ら（兄弟）の父の後を継いでマスジド・アル＝ハラームのムアッズィン長職に就いた。子はなかった。865年または868年のズー・アル＝カアダ月に没したが、前者（865年）の方が近い。
   en: ʿAbd al-Salām b. Muḥammad b. Abī al-Khayr Muḥammad b. ʿAlī b. ʿAbd Allāh b. ʿAlī ibn ʿAbd al-Salām, the brother of Abū al-Khayr al-Kāzarūnī al-Makkī. He was born in Mecca in Jumādā I 844 AH, grew up there and memorized the Qurʾān. In 857 AH he succeeded their father as chief of the muezzins (riyāsat al-muʾadhdhinīn) of the Masjid al-Ḥarām. He had no children. He died in Dhū al-Qaʿda of the year 865 or 868 AH, the former being closer to the truth.

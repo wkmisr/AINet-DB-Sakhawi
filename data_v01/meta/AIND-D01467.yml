@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00249
-    quote: الصيرفي
+    mention: m4
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: فرج الخواجا
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -31,16 +29,41 @@ death:
   note:
     ja: 原文「مات سنة تسع عشرة」は「19年」とのみあり世紀の綴りがない。al-Sakhāwī の年代範囲から819年（AH）と推定。cert 低。
     en: The source reads only "nineteen" (تسع عشرة) with no century; 819 AH is inferred from al-Sakhāwī's chronological scope. Low certainty.
-  quote: سنة
+  mention: m5
 events:
 - id: e1
   type: cultural
   desc_persons:
   - ref: AIND-D08351
-  quote: ذكره
   cert: medium
   note:
     ja: 第三者言及（Pattern A）。原文「ذكره ابن عزم」。イブン・アズム（TMP-P-000351）が本人について言及・記録した。旧の subtype="mentioned by" の personal relation を event type="cultural" に是正（§4-2）。TMP-P-000351 は前バッチ D00554/D00558/D00572 で既発行の番号を再利用（マスター本登録待ち）。
+  phrase: ذكره
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: فرج الخواجا
+- id: m4
+  kind: name
+  ref: TMP-N-00249
+  quote: الصيرفي
+- id: m5
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m6
+  kind: person
+  ref: AIND-D08351
+  label: cultural
+  quote: ابن عزم
 translation:
   ja: アハマド・ブン・ムハンマド・ブン・ファラジュ・アル=ハワージャ・アッ=サイラフィー。ヒジュラ暦819年に死去。イブン・アズムが彼について言及している。
   en: Aḥmad b. Muḥammad b. Faraj al-Khawāja al-Ṣayrafī. Died in 819 AH. Ibn ʿAzm mentioned him.

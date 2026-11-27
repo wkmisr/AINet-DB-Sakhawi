@@ -9,29 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00386
-    quote: الزرعي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد السلام
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m5
 death:
   id: d
   date:
     ah: 814
   note:
     en: Died in the latter part of the year 814 AH (أواخر سنة أربع عشرة), as stated by Ibn Ḥajar in the Inbāʾ. The end of 814 AH falls in early 1412 CE.
-  quote: سنة
+  mention: m7
 affiliations:
 - id: a1
   type: reside
@@ -45,34 +44,65 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: أحد سكان المجاهدية بدمشق
-  norm: احد سكان المجاهدية بدمشق
+  - mention: m4
+  phrase: أحد سكان المجاهدية بدمشق
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D03933#p1
-  quote: قاله
   note:
     ja: 'ابن حجي（الشهاب أحمد=#AIND-D00646 / النجم عمر=#AIND-D05831 の兄弟）は B59-63 §D-10b 裁定により #NEEDID 維持。初版は subtype="cited source" の personal relation。'
   trigger: rule
   phrase: كان خيرا أمينا موثوقا به فيما قرأته بخط ابن حجي
+  mention: m8
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00034
-  quote: مات في أواخر سنة أربع عشرة قاله شيخنا في إنبائه
   note:
     ja: Pattern A。初版は subtype="source" の personal relation。
-  norm: مات في اواخر سنة اربع عشرة قاله شيخنا في انباءه
+  phrase: مات في أواخر سنة أربع عشرة قاله شيخنا في إنبائه
+  mention: null
 persons:
 - id: p1
   label: ابن حجي
   for: e2
+mentions:
+- id: m1
+  kind: name
+  quote: عبد السلام
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00386
+  quote: الزرعي
+- id: m4
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m5
+  kind: assessment
+  quote: خيرا
+- id: m6
+  kind: person
+  label: mention
+  quote: ابن حجي
+- id: m7
+  kind: year
+  value: '814'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: قاله
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッサラーム・ブン・ムハンマド・アッ＝ザルイー。ダマスカスのアル＝ムジャーヒディーヤの住人の一人。イブン・ヒッジーの筆跡で私（サハーウィー）が読んだところによれば、善良で誠実、信頼のおける人物であった。814年の末に没した、と我らがシャイフ（イブン・ハジャル）が『インバー』で述べている。
   en: ʿAbd al-Salām b. Muḥammad al-Zurʿī, one of the residents of al-Mujāhidiyya in Damascus. He was good, trustworthy and reliable, according to what I read in the handwriting of Ibn Ḥijjī. He died in the latter part of the year 814 AH; so stated our shaykh (Ibn Ḥajar) in his Inbāʾ.

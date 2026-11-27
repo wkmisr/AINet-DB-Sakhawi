@@ -9,65 +9,96 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00475
-    quote: الفرنوي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بالأقصرائي
-    norm: الاقصراءي
     label: الأقصرائي
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 death:
   id: d
   date:
     ah: 880-08
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   note:
     ar: مات في شعبان سنة ثمانين بالقاهرة
     ja: 880年シャアバーン月＝1475年12月9日〜1476年1月6日（グレゴリオ暦。1 シャアバーン 880 → JD 2260135 → 1475-12-09）。月初基準により @when は 1475-12。初版は 1475（年精度）。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D10288
+  active: m6
   passive: AIND-D04420
-  quote: لخدمته لأمين الدين
   note:
     ja: 'أمين الدين ＝ الأمين الأقصرائي。corpus に本伝あり＝#AIND-D10288（يحيى بن محمد بن إبراهيم بن أحمد الأمين أبو زكريا بن الشمس أبي محمد الأقصرائي الأصل القاهري الحنفي、797年生）。初版の #TMP-P-000007（ID-Master 登録「الأمين الأقصرائي」）を統一規則3・10により AIND へ差し替え。'
-  norm: لخدمته لامين الدين
 - id: r2
   type: social
   subtype: friend
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D04420
-  quote: وكان يقصدني كثيرا
   note:
     ja: 著者サハーウィーのもとをしばしば訪れた（سمع 等の学統語はなく teacher 関係にはしない）。
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: وكان يكثر التردد إليها وإلى غيرها
-  norm: كان يكثر التردد اليها والي غيرها
+  - mention: m9
+  phrase: وكان يكثر التردد إليها وإلى غيرها
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00475
+  quote: الفرنوي
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: name
+  quote: بالأقصرائي
+  norm: الاقصراءي
+- id: m6
+  kind: person
+  ref: AIND-D10288
+  quote: لخدمته لأمين الدين
+  norm: لخدمته لامين الدين
+- id: m7
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m8
+  kind: year
+  value: '880'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: وكان يقصدني كثيرا
 translation:
   ja: アブドゥッラー・ブン・アフマド。出自はファルナウ、のちマッカの人。アミーン・アッ＝ディーンに仕えたことから、アル＝アクサラーイーの名で知られた。880年シャアバーン月にカイロで没した。カイロやその他の地へ足繁く通い、奔走と蓄財に熱心で、人びと、とりわけ俗世の権勢家たちと深く交わった。私（サハーウィー）のもとにもよく訪ねてきた。彼に神の慈悲がありますように。
   en: ʿAbd Allāh b. Aḥmad, of Farnawī origin, al-Makkī, well known as al-Aqṣarāʾī because of his service to Amīn al-Dīn. He died in Shaʿbān of the year eighty [880 AH] in Cairo. He used to travel frequently to Cairo and elsewhere, being most energetic in striving and acquiring, and closely mixing with people, especially the worldly elite. He used to come to me often. May God have mercy on him.

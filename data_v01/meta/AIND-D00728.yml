@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01890
-    quote: الينبعي
+    mention: m3
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: راشد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 819
   places:
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - role: burial
+    mention: m8
   note:
     en: He died after completing the Hajj pilgrimage, specifically during the first or second departure (nafr) from Mina. A monument was built on his grave.
     ja: 2026-09-24 Waka 裁定（★3 E5）により没地 مكة（gn:104515、ar・ar-Latn）を除去。原文「فأدركه أجله بعد الحج في النفر الأول أو الثاني」はミナーからの帰途の死で、没地はマッカと限らない。規則20（حج＝مكة）は hajj イベントに限る。埋葬地 المعلاة は原文明記のため保持。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: إمام الزيدية
@@ -41,23 +37,20 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D00728#p1
+  active: m5
   passive: AIND-D00728
-  quote: إمام الزيدية
   note:
     en: Appointed as Qadi of Yanbuʿ by the Imam of the Zaydiyya, who was also the ruler of Sanaa. He held this position for several years until his death. He was known for his reluctance to accept many of his opponents, despite his madhhab expertise.
     ja: '監査20260907: 本文から相手を一意に特定できず #NEEDID'
-  norm: امام الزيدية
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
   - ref: TMP-L-00081
   dates:
   - ah: 819
     type: retirement
-  quote: قاضيها
+  mention: m4
 affiliations:
 - id: a1
   type: madhhab
@@ -72,9 +65,9 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: وحج
   cert: high
   trigger: rule
+  mention: m6
 notes:
 - text: 彼は、彼と対立する学派の知識が豊富であるとみなされている人々であっても、その人々の多くを受け入れることに慎重な姿勢を示していた。
   lang: ja
@@ -82,6 +75,39 @@ notes:
 - text: He used to hold back from accepting many of those who differed from him, although he was credited with expertise in his own madhhab.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: راشد
+- id: m3
+  kind: name
+  ref: TMP-N-01890
+  quote: الينبعي
+- id: m4
+  kind: office
+  ref: wd:Q217029
+  quote: قاضيها
+- id: m5
+  kind: person
+  ref: AIND-D00728#p1
+  quote: إمام الزيدية
+  norm: امام الزيدية
+- id: m6
+  kind: event
+  quote: وحج
+- id: m7
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: アフマド・ブン・ラーシド・アル＝ヤンブイー。ザイディー派のイマームでありサナアの支配者であった者（彼自身もザイディー派であったため）よりヤンブーのカーディーに任じられ、数年その職を務め死没した。彼はそのマズハブにおける専門性にもかかわらず、多くの反対者の受け入れに消極的であった。彼は819年にハッジを行った後、巡礼の第一または第二のナフルで没し、アル＝ムアッラーに埋葬され、その墓には墓碑が建てられた。アル＝ファーシーが彼について言及している。
   en: Aḥmad b. Rāshid al-Yanbuʿī. He was appointed as qadi of Yanbuʿ by the Imam of the Zaydiyya, who was also the ruler of Sanaa (as Aḥmad himself was Zaydi). He served in this office for several years until his death. He was hesitant to accept many of his opponents, despite his expertise in his madhhab. He performed the Hajj pilgrimage in 819 H, and his demise occurred after the Hajj, during the first or second nafr (departure from Mina). He was buried in al-Muʿallā, and a monument was erected on his grave. Al-Fāsī mentioned him.

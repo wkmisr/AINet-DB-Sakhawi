@@ -9,46 +9,73 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00211
-    quote: القرافي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00241
-    quote: السعودي
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: بالأصيفر
-    norm: الاصيفر
     label: الأصيفر
+    mention: m4
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 852-04
   places:
-  - ref: wd:Q2066414
-    role: funeral
-    quote: القرافة
+  - role: funeral
+    mention: m8
   - ref: TMP-I-00184
     role: funeral
   note:
     ja: 852年ラビーウ・アル＝アーヒル月＝1448-06-13〜07-11（グレゴリオ暦）。@when を月初の 1448-06 に精密化（初版は 1448）。没地・埋葬地は原文に明記がない（「ودفن」に地名なし）ため、初版の burial placeName القرافة（葬礼の場所からの補完）を規則22(1) により除去し、葬礼を event として記録。 / جامع محمود（カラーファのマフムード・モスク）は ID-Master 未登録のため仮番号 TMP-I-00184 を発行。初版の affiliation type="other"（所属ではない）を廃し、葬礼 event に統合。 / 葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）
     ar: وصلى عليه بجامع محمود من القرافة ودفن
-  quote: سنة
   phrase: مات في ربيع الآخر سنة اثنتين وخمسين
+  mention: m7
 relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D02423
+  active: m5
   passive: AIND-D04677
   cert: medium
-  quote: السلطان
   note:
     ja: 「أحد من لكثير من الناس حتى السلطان فيه اعتقاد」。没年 852 の時点のスルタン＝الظاهر جقمق（在位 842〜857、#AIND-D02423）と読み cert medium（原文は「السلطان」のみで名を挙げない）。初版の統制外 subtype「reverer」・#NEEDID を是正。
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-N-00211
+  quote: القرافي
+- id: m3
+  kind: name
+  ref: TMP-N-00241
+  quote: السعودي
+- id: m4
+  kind: name
+  quote: بالأصيفر
+  norm: الاصيفر
+- id: m5
+  kind: person
+  ref: AIND-D02423
+  quote: السلطان
+- id: m6
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m7
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: القرافة
+  ref: wd:Q2066414
 translation:
   ja: アブドゥッラー・アル＝カラーフィー・アッ＝サウーディー、アル＝ウサイフィルとして知られる。多くの人々、さらにはスルタンまでもが篤く信奉した者の一人。852年ラビーウ・アル＝アーヒル月に没し、カラーファのジャーミウ・マフムードで葬礼が行われ、埋葬された。神が彼を憐れみたまえ。
   en: ʿAbd Allāh al-Qarāfī al-Saʿūdī, known as al-Uṣayfir. He was one of those in whom many people, even the Sultan, placed devout belief. He died in Rabīʿ II of the year 852; the funeral prayer was performed over him at the Mosque of Maḥmūd in al-Qarāfa, and he was buried, may God have mercy on him.

@@ -9,55 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عيسى
     by: rule
-    ref: TMP-P-000858
-    norm: عيسي
+    mention: m2
   - id: n4
     type: nasab
-    quote: سلطان
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 death:
   id: d
   date:
     ah: 805
   note:
     en: Died in the year five (سنة خمس, likely 805 AH).
-  quote: سنة
+  mention: m10
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D03719
-  passive: AIND-D07571
+  passive: m6
   methods:
   - TMP-S-00010
   fields:
   - TMP-S-00013
-  quote: الشمس محمد
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D03719
-  passive: AIND-D07571
+  passive: m7
   methods:
   - TMP-S-00025
   fields:
   - wd:Q484181
-  quote: ابن سلطان
 - id: r3
   type: scholarly
   subtype: teacher
@@ -67,20 +61,17 @@ relations:
   - TMP-S-00025
   fields:
   - wd:Q1866303
-  quote: null
 - id: r4
   type: kin
   subtype: son
   active: AIND-D07571
   passive: AIND-D03719
-  quote: null
   phrase: الشمس محمد
 - id: r5
   type: kin
   subtype: father
   active: TMP-P-000858
   passive: AIND-D03719
-  quote: null
   note:
     ja: 'TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。「عيسى بن سلطان الغزي」として発行。'
   phrase: عيسى بن سلطان
@@ -89,21 +80,18 @@ states:
   type: office
   ref: wd:Q932945
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
+  - mention: m8
   orgs:
   - ref: TMP-I-00130
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: wd:Q7492880
   orgs:
   - ref: wd:Q6400398
   cert: medium
-  quote: مشيخة
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البيبرسية の所在地〉からの補完で原文に地名の明示なし。
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -112,10 +100,49 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-000858
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: سلطان
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: person
+  ref: AIND-D07571
+  quote: الشمس محمد
+- id: m7
+  kind: person
+  ref: AIND-D07571
+  quote: ابن سلطان
+- id: m8
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
+- id: m9
+  kind: office
+  ref: wd:Q7492880
+  quote: مشيخة
+- id: m10
+  kind: year
+  value: '805'
+  quote: سنة
 translation:
   ja: アブドゥッラフマーン・ブン・イーサー・ブン・スルターン・アル＝ガッズィー・アッ＝シャーフィイー。後述する有名なアッ＝シャムス・ムハンマド・イブン・スルターンの父。息子は彼のもとで7つの朗誦法を朗読し、法学と文法学を学び、ガザのジャーウィリー・モスクで説教を行った。さらに、彼はバイバルス・ハーンカー（大ハーンカーかあるいはリバート）のシャイフ職に就いたとも言われており、多くのサラーフ（清廉な人々／サダート）と親交を結んだ。ヒジュラ暦805年に死去した。アッラーの慈悲あれ。
   en: ʿAbd al-Raḥmān b. ʿĪsā b. Sulṭān al-Ghazzī al-Shāfiʿī. He was the father of the famous al-Shams Muḥammad b. Sulṭān, who is mentioned below. His son recited the Quran to him according to the seven recitations, and studied fiqh and grammar under him. He delivered the sermon at the Jāwilī Mosque in Gaza, and it was even said that he was appointed to the shaykh-ship of the Baybarsiyya, either the grand Khanqah or the Ribāṭ. He accompanied a group of sayyids (Sufi masters). He died in the year 805 AH. May Allah have mercy on him.

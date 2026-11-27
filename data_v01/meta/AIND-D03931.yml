@@ -9,19 +9,17 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد السلام
     by: rule
+    mention: m1
 birth:
   id: b
   date:
     ah: 862-01-10
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m5
   note:
     en: Born on 10 Muharram 862 AH in Medina.
-  quote: سنة
+  mention: m4
 relations:
 - id: r1
   type: scholarly
@@ -33,48 +31,38 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: null
+    - mention: m5
   note:
     ja: 父=#AIND-D08660(#115 محمد بن محمد بن أحمد ناصر الدين أبو الفرج بن الجمال الكازروني المدني)。兄D03930のナサブ(عبد السلام...بن ناصر الدين أبي الفرج بن الجمال الكازروني)で閉合。父relationは別掲。
   phrase: فسمع على أبيه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D07182
+  active: m6
   passive: AIND-D03931
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: الفرج المراغي
+    - mention: m5
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D08834
+  active: m7
   passive: AIND-D03931
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: وأبي الفتح بن تقي
+    - mention: m5
   note:
     ja: أبو الفتح بن تقي=#AIND-D08834(#278 محمد بن محمد بن عبد السلام فتح الدين أبو الفتح بن التقي الكازروني المدني ويعرف بابن تقي)。一族索引D12210で閉合。
-  norm: ابو الفتح بن تقي
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D03931
   methods:
   - TMP-S-00014
@@ -84,17 +72,13 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
+    - mention: m5
   - type: learning
     date:
       ah: 894
       type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: ولازمني
+    - mention: m9
 - id: r5
   type: kin
   subtype: father
@@ -102,13 +86,11 @@ relations:
   passive: AIND-D03931
   summary:
     ar: أبوه
-  quote: null
 - id: r6
   type: kin
   subtype: brother
-  active: AIND-D03930
+  active: m2
   passive: AIND-D03931
-  quote: الذي قبله
   note:
     ja: 兄=#AIND-D03930(#520 عبد السلام الأول العز أبو السرور الكازروني المدني、没858)。同名兄弟(第一・第二)。
   phrase: أخو الذي قبله
@@ -116,12 +98,10 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m5
   note:
     en: Born and raised in Medina.
+  mention: null
 - id: e2
   type: visit
   date:
@@ -129,10 +109,51 @@ events:
     cert: high
     type: visit
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m9
   cert: high
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد السلام
+- id: m2
+  kind: person
+  ref: AIND-D03930
+  quote: الذي قبله
+- id: m3
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m4
+  kind: year
+  value: '862'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m6
+  kind: person
+  ref: AIND-D07182
+  quote: الفرج المراغي
+- id: m7
+  kind: person
+  ref: AIND-D08834
+  quote: وأبي الفتح بن تقي
+  norm: ابو الفتح بن تقي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: ولازمني
+- id: m9
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m10
+  kind: year
+  value: '894'
+  quote: سنة
 translation:
   ja: アブド・アッ＝サラーム第二（アッ＝サーニー）、前項の者（アブド・アッ＝サラーム第一）の弟。ヒジュラ暦862年ムハッラム月10日にマディーナで生まれ、同地で育ち、父、アブー・アル＝ファラジュ・アル＝マラーギー、アブー・アル＝ファトフ・イブン・タキーらから聴聞した。私（サハーウィー）が選ばれし御方（預言者）の御許に滞在（ムジャーワラ）していた間、彼は私に大いに常侍し、私は彼が私から聴聞したものとイジャーザについて書き付けてやり、その一部を『マディーナの人々の歴史（ターリーフ・アル＝マダニーイーン）』に収めた。ついで894年にマッカに来て、私の著作のいくつかを聴聞した。彼はもの静かで理解力があり、善良と敬虔で知られている。
   en: Abd al-Salam II, the brother of the one mentioned before him. He was born on the 10th of Muharram in the year 862 AH in Medina and grew up there. He heard hadith from his father, Abu al-Faraj al-Maraghi, Abu al-Fatah b. Taqi, and others. He associated with me closely during my stay (mujawara) near the Chosen One [i.e., Medina/the Prophet's Mosque], and I wrote down for him what he heard from me, and granted him an ijaza, some of which I included in 'Tarikh al-Madaniyyin' (History of the Medinese). Later, he arrived in Mecca in the year 894 AH and heard some of my works from me. He is quiet and discerning, spoken of for goodness and piety.

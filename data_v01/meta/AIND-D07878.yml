@@ -9,27 +9,25 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الخواص
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 805-06
     cert: medium
   places:
-  - ref: TMP-L-00380
-    quote: بالوراريق
-    norm: الوراريق
+  - mention: m6
   note:
     ja: 「مات بالوراريق في جمادى الآخرة سنة خمس」＝805年ジュマーダー第2月＝1403-01-05 開始（h2g.py）、月精度。一の位のみの年（「سنة خمس」）は直前の項（812年没）と同じく 80X と読む（cert medium）。初版の @when 1402 を 1403-01 に。الوراريق は ID-Master 未登録 → 新規 TMP-L-00380（綴りは原文どおり、規則25。既登録 TMP-L-00263「الوراق」（カイロ北郊の村）との関係は候補として Note に）。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: عبد الله
@@ -42,7 +40,6 @@ relations:
   subtype: father
   active: AIND-D07878#p1
   passive: AIND-D07878
-  quote: null
   note:
     ja: '父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c'')）。初版の #TMP-P-000490（汚染番号）を除去。'
 assessments:
@@ -57,18 +54,55 @@ assessments:
     norm: مصر
   note:
     ja: 「أحد المعتقدين أيضا بمصر」＝エジプト（مصر）で崇敬された聖者の一人。初版の residence event مصر は居住の記述ではないため、原文の地名はこの state に移した（規則22-2）。
-  quote: المعتقدين
   by: rule
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ذكره
+  - mention: m10
   note:
     ja: Pattern A。「أيضا」は直前の項 D07877「أرخه شيخنا في إنبائه」を受けるが、本項に書名はないため bibl を付けない。初版の統制外 relation「chronicler」（wd:Q471116）を mention event に置換。
   trigger: rule
   phrase: ذكره شيخنا أيضا
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: الخواص
+- id: m4
+  kind: assessment
+  quote: المعتقدين
+- id: m5
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m6
+  kind: place
+  quote: بالوراريق
+  ref: TMP-L-00380
+  norm: الوراريق
+- id: m7
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m8
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝ハウワース、これもエジプトで崇敬された聖者の一人。（80）5年ジュマーダー第2月にアル＝ワラーリークで没した。我らがシャイフ（イブン・ハジャル）も彼に言及している。
   en: Muḥammad b. ʿAbd Allāh al-Khawwāṣ, also one of the revered holy men in Egypt. He died at al-Warārīq in Jumādā II [80]5. Our shaykh (Ibn Ḥajar) also mentioned him.

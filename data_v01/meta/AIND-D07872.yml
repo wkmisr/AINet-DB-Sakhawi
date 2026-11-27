@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00212
-    quote: التركماني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00752
-    quote: القبيباتي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بالقواس
-    norm: القواس
     label: القواس
+    mention: m6
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -44,12 +40,10 @@ death:
   date:
     ah: 846-11-06
   places:
-  - ref: TMP-I-00258
-    quote: زاوية غربي المصلى ظاهر دمشق
-    norm: زاوية غربي المصلي ظاهر دمشق
+  - mention: m7
   note:
     ja: 「مات بزاويته عن أزيد من مائة فيما قيل ليلة الجمعة سادس ذي القعدة سنة ست وأربعين」＝846年ズー・アル＝カアダ月6日＝1443-03-17（h2g.py、金曜）。「ليلة الجمعة」は木曜の夜（金曜の前夜）で、6日が金曜にあたる刊本の記述と整合。初版の @when 1442 は誤り。没地は本文で「غربي المصلى ظاهر دمشق」とされる彼のザーウィヤ（TMP-I-00258）。初版の placeName دمشق は施設の所在地からの補完にあたるため除去し、ここに記す（規則22-1）。
-  quote: سنة
+  mention: m14
 persons:
 - id: p1
   label: عبد الله
@@ -62,19 +56,17 @@ relations:
   subtype: father
   active: AIND-D07872#p1
   passive: AIND-D07872
-  quote: null
   note:
     ja: '父 عبد الله は祖父名もラカブもない汎用名で corpus に本伝なし（規則3 (c'')）。初版の #TMP-P-000490（登録実体＝al-Zuhrī の祖父 عبد الله）は汚染番号のため除去。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000742
+  active: m9
   passive: AIND-D07872
   methods:
   - TMP-S-00034
   summary:
     ar: أبو بكر الموصلي
-  quote: بكر الموصلي
   note:
     ja: 「وكان ممن صاحب أبا بكر الموصلي دهرا وغيره من الأكابر」＝ダマスクスの著名スーフィー أبو بكر الموصلي（没797、既登録 TMP-P-000742、D04088 の祖父）。「وغيره من الأكابر」は人物を立てない。
 affiliations:
@@ -90,34 +82,86 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-I-00258
-    quote: زاوية غربي المصلى ظاهر دمشق
-    norm: زاوية غربي المصلي ظاهر دمشق
-  quote: له زاوية غربي المصلى ظاهر دمشق مقيم بها
+  - mention: m7
   note:
     ja: 本項主のザーウィヤ（ダマスクス郊外、المصلى の西）。所在は本文に明記。初版の placeName دمشق（gn:170654）はザーウィヤの所在地からの補完にあたるため、施設そのもの（新規 TMP-I-00258）に置換。
-  norm: له زاوية غربي المصلي ظاهر دمشق مقيم بها
+  phrase: له زاوية غربي المصلى ظاهر دمشق مقيم بها
+  mention: null
 - id: e2
   type: religious
   places:
-  - ref: wd:Q183562
-    quote: بالجامع الأموي
-    norm: الجامع الاموي
-  quote: وله أصحاب ومريدون وحلقة ذكر بالجامع الأموي عظيمة مقصود بالزيارة
+  - mention: m8
   note:
     ja: ウマイヤ・モスク（ID-Master 登録 wd:Q183562）でのズィクルの会。初版の affiliation（affiliated、wd:Q183562）は所属ではなく活動の場なので event に置換。
-  norm: وله اصحاب ومريدون وحلقة ذكر بالجامع الاموي عظيمة مقصود بالزيارة
+  phrase: وله أصحاب ومريدون وحلقة ذكر بالجامع الأموي عظيمة مقصود بالزيارة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D10669
-    corresp: wd:Q85461758
-    quote: التقي بن قاضي شهبة
-  quote: قال
+  - corresp: wd:Q85461758
+    mention: m11
   note:
     ja: 'Pattern A。التقي بن قاضي شهبة ＝ #AIND-D10669（أبو بكر بن أحمد بن محمد بن عمر … التقي … الأسدي الشهبي الدمشقي الشافعي、没851、ID-Master wd:Q85461758）。初版の relation「other」（active=wd:Q85461758）を mention event に置換（Pattern A は relation を立てない）。'
   trigger: rule
   phrase: 'قال التقي بن قاضي شهبة : وكان يجيد تعبير الرؤيا عن صلاح لا علم'
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00212
+  quote: التركماني
+- id: m4
+  kind: name
+  ref: TMP-N-00752
+  quote: القبيباتي
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  quote: بالقواس
+  norm: القواس
+- id: m7
+  kind: place
+  quote: زاوية غربي المصلى ظاهر دمشق
+  ref: TMP-I-00258
+  norm: زاوية غربي المصلي ظاهر دمشق
+- id: m8
+  kind: place
+  quote: بالجامع الأموي
+  ref: wd:Q183562
+  norm: الجامع الاموي
+- id: m9
+  kind: person
+  ref: TMP-P-000742
+  quote: بكر الموصلي
+- id: m10
+  kind: source
+  quote: قال
+- id: m11
+  kind: person
+  ref: AIND-D10669
+  quote: التقي بن قاضي شهبة
+- id: m12
+  kind: place
+  quote: بزاويته
+  ref: TMP-I-00258
+  norm: زاويته
+- id: m13
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m14
+  kind: year
+  value: '846'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アッ＝トゥルクマーニー・アル＝クバイバーティー・アッ＝ディマシュキー、アル＝カウワースとして知られる。敬虔・禁欲・篤信のシャイフで、ダマスクス郊外のムサッラーの西にザーウィヤを持ち、そこに住んでいた。彼には仲間と弟子たちがおり、ウマイヤ・モスクで大規模なズィクルの会を持ち、人々の参詣の対象であった。アブー・バクル・アル＝マウスィリーやその他の大人物たちに長年同伴した者の一人であった。アッ＝タキー・ブン・カーディー・シュフバは言う、「彼は学識によってではなく敬虔さによって、夢の解釈に秀でていた」。846年ズー・アル＝カアダ月6日金曜の夜、伝えられるところでは100歳余で自分のザーウィヤにおいて没した。彼に老衰の徴は現れなかった。神が彼を慈しまれんことを。
   en: 'Muḥammad b. ʿAbd Allāh al-Turkumānī al-Qubaybātī al-Dimashqī, known as al-Qawwās. A righteous, ascetic and devout shaykh who had a zāwiya west of al-Muṣallā outside Damascus, where he resided. He had companions and disciples, and a great dhikr circle at the Umayyad Mosque, and he was sought out for visitation. He was among those who kept company with Abū Bakr al-Mawṣilī for a long time, and with other great men. Al-Taqī b. Qāḍī Shuhba said: "He was skilled in the interpretation of dreams, through piety rather than learning." He died at his zāwiya, aged over a hundred as was said, on the eve of Friday 6 Dhū al-Qaʿda [8]46, and no senility had appeared in him. May God have mercy on him.'

@@ -9,49 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد العزيز
     by: rule
-    ref: TMP-P-001141
+    mention: m2
   - id: n4
     type: nasab
-    quote: إسمعيل
     by: rule
-    norm: اسمعيل
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07673
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m7
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001141
   passive: AIND-D07673
-  quote: null
   note:
     ja: 父は見出しナサブから祖父名 إسمعيل まで復元可能（統一規則3）。corpus に「عبد العزيز بن إسماعيل … الغزي الحنبلي」の本伝なし・ID-Master 未登録のため仮番号 TMP-P-001141 を発行。
   phrase: عبد العزيز بن إسمعيل
@@ -59,6 +51,35 @@ affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q233387
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001141
+  quote: عبد العزيز
+- id: m3
+  kind: name
+  quote: إسمعيل
+  norm: اسمعيل
+- id: m4
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m5
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・アブドゥルアズィーズ・ブン・イスマーイール・アル＝ガッズィー・アル＝ハンバリー。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿAbd al-ʿAzīz b. Ismāʿīl al-Ghazzī al-Ḥanbalī. He was among those who heard from me (al-Sakhāwī) in Mecca.

@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00241
-    quote: السعودي
+    mention: m5
   - id: n2
     type: laqab
-    quote: نور الدين
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: محمد بن عبد الله السعودي
@@ -36,7 +35,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D05457
   methods:
   - TMP-S-00028
@@ -44,7 +43,6 @@ relations:
     ar: ابن حجر
   works:
   - ref: TMP-T-00196
-  quote: شيخنا
   note:
     ja: '原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「ممن حضر عند شيخنا بعض الأمالي القديمة」。شيخنا＝イブン・ハジャル、『الأمالي القديمة』＝ #TMP-T-00196（ID-Master に本項を出現項として登録済み。初版の TMP-T-00030 はサハーウィー自身の أمالي）。原文にない field（الحديث）を除去。'
 - id: r2
@@ -52,9 +50,29 @@ relations:
   subtype: father
   active: AIND-D05457#p1
   passive: AIND-D05457
-  quote: null
   note:
     ja: '規則3。見出しナサブのみの汎用名（識別要素なし）、corpus に本伝なし → #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: نور الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00241
+  quote: السعودي
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アブドゥッラー、ヌール・アッ＝ディーン・アッ＝サウーディー。我らがシャイフ（イブン・ハジャル）のもとで『古い口述録（アル＝アマーリー・アル＝カディーマ）』の一部を聴講した者の一人。
   en: ʿAlī b. Muḥammad b. ʿAbd Allāh, Nūr al-Dīn al-Saʿūdī. He was among those who attended, with our shaykh (Ibn Ḥajar), some sessions of the old Amālī.

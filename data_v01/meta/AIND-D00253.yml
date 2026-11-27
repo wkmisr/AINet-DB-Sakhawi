@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00006
-    quote: البصري
+    mention: m5
   - id: n2
     type: laqab
-    quote: برهان الدين
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن زقرق
-    norm: ابن زقرق
     label: ابن زقرق
+    mention: m8
   - id: n4
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 persons:
 - id: p1
   label: ابن ظهيرة
@@ -47,27 +42,23 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D00253
-  passive: AIND-D04492
+  passive: m10
   methods:
   - TMP-S-00008
   context:
   - type: teaching
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: عبد الله البصري
+    - mention: m11
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D06545
+  active: m7
   passive: AIND-D00253
-  quote: محمد
 - id: r3
   type: social
   subtype: companion
-  active: AIND-D00253#p1
+  active: m12
   passive: AIND-D00253
-  quote: ابن ظهيرة
   note:
     en: عبد الله البصري was a companion of the qadi Ibn Ẓahīra in Mecca.
     ja: '監査20260907: 本文から相手を一意に特定できず #NEEDID'
@@ -80,8 +71,54 @@ events:
   type: cultural
   summary:
     en: composed the versified work 『اليسر』 (al-Yusr) on fiqh
-  quote: الفقه
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: برهان الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00006
+  quote: البصري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: AIND-D06545
+  quote: محمد
+- id: m8
+  kind: name
+  quote: بابن زقرق
+  norm: ابن زقرق
+- id: m9
+  kind: event
+  quote: الفقه
+- id: m10
+  kind: person
+  ref: AIND-D04492
+  quote: عبد الله البصري
+- id: m11
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m12
+  kind: person
+  ref: AIND-D00253#p1
+  quote: ابن ظهيرة
 translation:
   ja: イブラーヒーム・ブン・ムハンマド・ブン・アフマド（通称イブン・ズルクルク）、ブルハーン・アッ＝ディーン、バスラ出身のシャーフィイー派法学者。ムハンマドとその兄弟の父。法学について韻文の著作『アル＝ユスル』があり、その中で次のように述べた。「アル＝ユスルと名付けたのは、おそらくアッラーがターハーの権利において我々に容易さを授けてくださるからであろう」。マッカ在住でそのカーディー、イブン・ザヒーラの友であったアブドゥッラー・アル＝バスリーが、彼から学んだ者の一人である。
   en: 'Ibrāhīm b. Muḥammad b. Aḥmad, Burhān al-Dīn, al-Baṣrī, a Shāfiʿī scholar, known as Ibn Zurqurq. He was the father of Muḥammad and his brothers. He composed a versified work on fiqh named 『al-Yusr』, in which he stated: “He named it al-Yusr, perhaps God will grant us ease by the right of Ṭāhā.” Among those who learned from him was ʿAbd Allāh al-Baṣrī, who resided in Mecca and was a companion of its qadi, Ibn Ẓahīra.'

@@ -9,19 +9,19 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الزين
+    mention: m2
   - id: n2
     type: nisbah
-    quote: null
     label: الرومي
+    mention: null
   - id: n3
     type: nisbah
-    quote: null
     label: الظاهري
+    mention: null
   - id: n4
     type: ism
-    quote: هلال
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -37,33 +37,28 @@ death:
   note:
     ar: مات بالطاعون في جمادي الأولى سنة اربع وستين وهو في عشر المائة
     ja: 864年ジュマーダー1月、ペストにて。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D10176a
-  quote: الظاهرى برقوق
   note:
     ja: 'الظاهر برقوق = #AIND-D02178（主人）。'
-  norm: الظاهري برقوق
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m4
   passive: AIND-D10176a
-  quote: الأشرف برسباي
   note:
     ar: صار في أيام الأشرف برسباي شاد الحوش مدة
     ja: 'الأشرف برسباي = #AIND-D02168。'
-  norm: الاشرف برسباي
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D02464
+  active: m6
   passive: AIND-D10176a
-  quote: جوهر القنقباي
   note:
     ar: ثم زماما بعد موت جوهر القنقباي ببذل مال
     ja: '前任 زمام = #AIND-D02464（جوهر القنقباي … الطواشي الحبشي الخازندار الزمام、没844）。'
@@ -72,32 +67,68 @@ states:
   type: status
   label: الطواشي
   label_latn: al-ṭawāshī
-  quote: null
   note:
     ja: 宦官。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00131
   orgs:
   - label: الحوش
-  quote: شاد الحوش
   note:
     ja: الأشرف برسباي 時代。ref は汎用 شاد（TMP-O-00131）。
+  mention: m5
 - id: s3
   type: office
   ref: TMP-O-00074
   dates:
   - notAfter: 846
-  quote: null
   note:
     ja: جوهر القنقباي 没後（844）に金銭を納めて就任、846年に罷免。
+  mention: null
 events:
 - id: e1
   type: other
-  quote: واستمر مشتغلا بالزراعة والدواليب لشدة انهماكه في الدنيا المزرى بهيئته مع تقدمه في السن واشرافه على العمى وعدم بلوغه لطائل
   note:
     ja: 罷免後は農業と水車に従事、老齢・失明寸前でも世俗に執着した。
-  norm: استمر مشتغلا بالزراعة والدواليب لشدة انهماكه في الدنيا المزري بهيءته مع تقدمه في السن واشرافه علي العمي وعدم بلوغه لطاءل
+  phrase: واستمر مشتغلا بالزراعة والدواليب لشدة انهماكه في الدنيا المزرى بهيئته مع تقدمه في السن واشرافه على العمى وعدم بلوغه لطائل
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: هلال
+- id: m2
+  kind: name
+  quote: الزين
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: الظاهرى برقوق
+  norm: الظاهري برقوق
+- id: m4
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف برسباي
+  norm: الاشرف برسباي
+- id: m5
+  kind: office
+  ref: TMP-O-00131
+  quote: شاد الحوش
+- id: m6
+  kind: person
+  ref: AIND-D02464
+  quote: جوهر القنقباي
+- id: m7
+  kind: year
+  value: '746'
+  quote: سنة
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادي الأولى
+- id: m9
+  kind: year
+  value: '864'
+  quote: سنة
 translation:
   ja: ヒラール、ザイン〔・ッディーン〕・アッ＝ルーミー・アッ＝ザーヒリー（バルクークの奴隷）、宦官。アシュラフ・バルスバーイの時代にしばらくシャーッド・アル＝ハウシュとなり、次いでジャウハル・アル＝カンカバーイーの死後、金銭を納めてズィマームとなったが、846年に罷免された。老齢で失明寸前、大した地位に達しなかったにもかかわらず、その体面を損なうほど甚だしく世俗に没頭して、農業と水車に従事し続けた。864年ジュマーダー第1月に90代でペストで没した。
   en: Hilāl, al-Zayn al-Rūmī al-Ẓāhirī (mamluk of Barqūq), the eunuch. In the days of al-Ashraf Barsbāy he was shādd al-ḥawsh for a time, then zimām after the death of Jawhar al-Qunqubāʾī, by paying money; he was dismissed in 846 and remained occupied with farming and waterwheels, so absorbed in worldly affairs as to disgrace his standing, despite his advanced age, near-blindness and failure to attain any real rank. He died of plague in Jumādā I 864, in his nineties.

@@ -9,40 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00696
-    quote: الطهطاوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00441
-    quote: الصعيدي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بالخطيب
-    norm: الخطيب
     label: الخطيب
+    mention: m10
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: خليفة
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D03628
   methods:
   - TMP-S-00003
@@ -51,9 +46,7 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: مني
+    - mention: m8
 - id: r2
   type: scholarly
   subtype: teacher
@@ -66,21 +59,15 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: وبالمدينة
-      norm: المدينة
-  quote: null
+    - mention: m12
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m8
   orgs:
   - ref: TMP-L-00217
-  quote: للشهادة
-  norm: لشهادة
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -89,17 +76,62 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m8
   trigger: rule
+  mention: m7
 - id: e2
   type: visit
   places:
-  - ref: gn:109223
-    quote: وبالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m12
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  quote: خليفة
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00696
+  quote: الطهطاوي
+- id: m5
+  kind: name
+  ref: TMP-N-00441
+  quote: الصعيدي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: office
+  ref: TMP-O-00050
+  quote: للشهادة
+  norm: لشهادة
+- id: m10
+  kind: name
+  quote: بالخطيب
+  norm: الخطيب
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m12
+  kind: place
+  quote: وبالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブドゥルラフマーン・ブン・ハリーファ・ブン・アフマド・アッ＝タハターウィー・アッ＝サイードィー・アッ＝シャーフィイー。マッカに居住し、その地のバーブ・アッ＝サラーム（平和の門）において公証人（シャーヒド）の職に就いていた。ハティーブ（説教師）として知られる。マッカとマディーナにおいて私（サハーウィー）からハディースを聴聞した。
   en: ʿAbd al-Raḥmān b. Khalīfa b. Aḥmad al-Ṭahṭāwī al-Ṣaʿīdī al-Shāfiʿī. He resided in Mecca and sat for notary testimony (shahāda) at Bāb al-Salām there, and was known as al-Khaṭīb. He heard (ḥadīth) from me (al-Sakhāwī) in Mecca and in Medina.

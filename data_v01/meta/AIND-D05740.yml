@@ -9,27 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00321
-    quote: الغزولي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n3
     type: laqab
-    quote: البهائي
-    norm: البهاءي
+    mention: m2
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 815
   note:
     ja: 「مات سنة خمس عشرة」。815年＝1412-04-22〜1413-04-10。没地は本項に記載なし（#AIND-D05264 側は「ومات بدمشق」とするが他項の情報のため note 留め、規則23）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: مولاهم
@@ -38,9 +35,8 @@ relations:
 - id: r1
   type: social
   subtype: client
-  active: AIND-D05740#p1
+  active: m4
   passive: AIND-D05740
-  quote: مولاهم
   note:
     ja: '「البهائي الغزولي مولاهم」。「مولاهم」（彼らのマウラー）の係り先は直前の الغزولي（ガッズーリー家）とも البهائي（بهاء الدين の家）とも読め両義（【集約】内容検証A L-6）。主家は一族名のみで特定できないため #NEEDID 維持（規則3）。#AIND-D05264 側は「كان مملوكا تركيا اشتراه بهاء الدين」と主人 بهاء الدين を挙げる（ラカブ البهائي の由来）。'
 - id: r2
@@ -51,7 +47,6 @@ relations:
   summary:
     ar: علي بن عبد الله البهائي الدمشقي الغزولي
   cert: high
-  quote: null
   note:
     ja: 同一人物の二重立項。#AIND-D05264（علي بن عبد الله البهائي الدمشقي الغزولي「قال شيخنا في معجمه كان مملوكا تركيا اشتراه بهاء الدين فنشأ ذكيا وأحب الأدبيات … ومات بدمشق سنة خمس عشرة」）と、名・ラカブ البهائي・ニスバ الغزولي الدمشقي・没年815・文人（الأديب）がすべて一致。本項に転送指示は無いため REF 化せず二重立項型として両項を実項のまま保持し、possible_identity cert high（Waka 裁定 2026-09-08）。D05264 は本バッチ外のため片方向。
 states:
@@ -59,8 +54,35 @@ states:
   type: status
   label: الأديب
   label_latn: al-adīb
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: البهائي
+  norm: البهاءي
+- id: m3
+  kind: name
+  ref: TMP-N-00321
+  quote: الغزولي
+- id: m4
+  kind: person
+  ref: AIND-D05740#p1
+  quote: مولاهم
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: office
   quote: الأديب
   norm: الاديب
+- id: m7
+  kind: year
+  value: '815'
+  quote: سنة
 translation:
   ja: アリー・アル＝バハーイー・アル＝ガッズーリー（彼ら＝ガッズーリー家の被解放奴隷）、アッ＝ディマシュキー、文人（アディーブ）。815年に没した。
   en: ʿAlī al-Bahāʾī al-Ghazūlī, their mawlā (freedman; the family referred to is ambiguous), al-Dimashqī, the man of letters (adīb). He died in the year 815.

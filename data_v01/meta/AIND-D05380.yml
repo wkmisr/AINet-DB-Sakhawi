@@ -9,41 +9,39 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: نور الدين
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن الزاهد
+    mention: null
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06794
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: التاج
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: الزاهد
     by: rule
+    mention: m8
 relations:
 - id: r1
   type: kin
@@ -52,20 +50,17 @@ relations:
   passive: AIND-D05380
   summary:
     ar: التاج محمد بن أحمد بن عمر ابن الزاهد
-  quote: null
   note:
     ja: '父 ＝ #AIND-D06794（محمد بن أحمد بن عمر تاج الدين بن الزاهد والد علي الماضي、890年頃没。公証人・ジャウク朗誦者）。相手側が「والد علي الماضي」と名指し、ニスバ索引 #AIND-D11239「تاج الدين محمد بن الشهاب أحمد بن عمر وابنه علي بن خديجة سبطة الفقيه السعودي」とも一致。初版は父 relation 欠落。'
 - id: r2
   type: kin
   subtype: mother
-  active: TMP-P-001533
+  active: m10
   passive: AIND-D05380
   summary:
     ar: خديجة ابنة عائشة ابنة الفقيه السعودي
-  quote: أمه
   note:
     ja: 「أمه خديجة ابنة عائشة ابنة الفقيه」。初版の TMP-P-000292（登録＝D00136 の母 خديجة）は別人のため、新規 TMP-P-001533。
-  norm: امه
 - id: r3
   type: kin
   subtype: grandmother
@@ -73,16 +68,14 @@ relations:
   passive: AIND-D05380
   summary:
     ar: عائشة ابنة الفقيه السعودي
-  quote: null
   note:
     ja: '母方の祖母（أمه خديجة ابنة عائشة）。統制語彙に maternal_grandmother が無いため grandmother（repo 3件）を用い、母方であることを note に記す。初版の #NEEDID → TMP-P-001534。'
 - id: r4
   type: kin
   subtype: ancestor
-  active: AIND-D06787
+  active: m9
   passive: AIND-D05380
   cert: medium
-  quote: الفقيه السعودي
   note:
     ja: '「سبط الفقيه السعودي … ابنة عائشة ابنة الفقيه」＝母の母の父（母方の曾祖父。سبط は広義）。統制語彙 ancestor（repo 7件）を用いる。「الفقيه السعودي」はサハーウィーが #AIND-D06787（محمد بن أحمد بن عمر … الشمس النحريري ثم القاهري … المؤدب الضرير ، ويعرف بالسعودي、756生・849没）に対して固定的に用いる呼称（D06787 内のイブン・ハジャル引用「سمعت جارنا الفقيه السعودي」、D06645「فقيهنا الشمس محمد بن أحمد السعودي」、D09870「فقيهنا الشمس السعودي」、D01509「الشمس محمد بن أحمد بن عمر السعودي الفقيه」）。ニスバ索引 D11239 も本項主を「علي بن خديجة سبطة الفقيه السعودي」とする。規則26 の例外（corpus の複数用例で特定の一人を指す固定呼称）として D06787 に同定（cert medium、Waka 裁定 2026-10-19 ★2(a)）。暫定の TMP-P-001535 は取り下げ（欠番）。'
 - id: r5
@@ -93,9 +86,44 @@ relations:
   summary:
     ar: النجم محمد بن عمر بن أحمد بن الزاهد
   cert: medium
-  quote: null
   note:
     ja: '本項の原文には無く、ニスバ索引 #AIND-D11239「… وابنه علي بن خديجة سبطة الفقيه السعودي وعم أبيه النجم محمد بن عمر بن أحمد بن الزاهد」による（父の父方の叔父＝ #AIND-D08389 محمد بن عمر النجم بن الزاهد والد البدر محمد الآتي）。規則23、cert medium。 / 大叔父（祖父母の兄弟）。統制語彙に該当語がないため relative（2026-11-22 裁定）。'
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06794
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: نور الدين
+- id: m6
+  kind: name
+  quote: التاج
+- id: m7
+  kind: name
+  quote: الشهاب
+- id: m8
+  kind: name
+  quote: الزاهد
+- id: m9
+  kind: person
+  ref: AIND-D06787
+  quote: الفقيه السعودي
+- id: m10
+  kind: person
+  ref: TMP-P-001533
+  quote: أمه
+  norm: امه
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アフマド・ブン・ウマル、ヌール・アッ＝ディーン・ブン・アッ＝タージュ・ブン・アッ＝シハーブ・ブン・アッ＝ザーヒド、法学者アッ＝サウーディーの外孫。母はハディージャで、法学者（アッ＝サウーディー）の娘アーイシャの娘である。
   en: ʿAlī b. Muḥammad b. Aḥmad b. ʿUmar, Nūr al-Dīn b. al-Tāj b. al-Shihāb b. al-Zāhid, the daughter's-line descendant (sibṭ) of the jurist al-Saʿūdī; his mother is Khadīja, daughter of ʿĀʾisha, daughter of the jurist.

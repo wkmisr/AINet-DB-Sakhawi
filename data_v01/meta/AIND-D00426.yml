@@ -9,55 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05476
-    quote: القوصي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n3
     type: laqab
-    quote: شهاب الدين
+    mention: m4
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000517
+  active: m16
   passive: AIND-D00426
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:170654
-      quote: بدمشق
-      norm: دمشق
-  quote: محيي الدين بن الرحبي
+    - mention: m17
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D00426
-  passive: wd:Q471116
+  passive: m14
   methods:
   - TMP-S-00003
   fields:
@@ -65,31 +56,24 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00140
-      quote: بمدينة المهجم
-      norm: مدينة المهجم
-  quote: شيخنا
+    - mention: m18
 - id: r3
   type: social
   subtype: other
-  active: AIND-D09543
+  active: m12
   passive: AIND-D00426
   summary:
     ar: المجد الشيرازي — ناب عنه في بعض بلاد اليمن
-  quote: المجد الشيرازي
   note:
     en: Served as his deputy (in the judgeship) in parts of Yemen.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: وناب
+  - mention: m9
   note:
     ar: ناب في بعض بلادها عن المجد الشيرازي
-  norm: ناب
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -98,21 +82,18 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00082
-    quote: قوص
-  quote: فقطنها
+  - mention: m8
   note:
     en: Grew up here.
   trigger: rule
-  norm: قطنها
+  mention: m10
 - id: e2
   type: residence
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: null
+  - mention: m9
   note:
     en: Settled here after entering the country.
+  mention: null
 - id: e3
   type: religious
   subtype: hajj
@@ -122,36 +103,122 @@ events:
     type: religious
   places:
   - ref: gn:104515
-  quote: وحج
   cert: high
   trigger: rule
+  mention: m19
 - id: e4
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   cert: low
   note:
     en: Reported to have performed Hajj again, no specific date mentioned.
   trigger: rule
+  mention: m21
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   summary:
     ar: وكان كثير الفكاهة قاله شيخنا في معجمه... وحج معنا في سنة ست وثمانمائة ثم رجع إلى اليمن وبلغنا أنه حج أيضا
-  quote: قاله
   trigger: rule
+  mention: m13
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m22
   works:
   - label: عقوده
-  quote: قال
   trigger: rule
   phrase: قلت وهو في عقود المقريزي باختصار
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: شهاب الدين
+- id: m5
+  kind: name
+  ref: TMP-N-05476
+  quote: القوصي
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: place
+  quote: قوص
+  ref: TMP-L-00082
+- id: m9
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m10
+  kind: event
+  quote: فقطنها
+  norm: قطنها
+- id: m11
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m12
+  kind: person
+  ref: AIND-D09543
+  quote: المجد الشيرازي
+- id: m13
+  kind: source
+  quote: قاله
+- id: m14
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m15
+  kind: source
+  quote: قال
+- id: m16
+  kind: person
+  ref: TMP-P-000517
+  quote: محيي الدين بن الرحبي
+- id: m17
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m18
+  kind: place
+  quote: بمدينة المهجم
+  ref: TMP-L-00140
+  norm: مدينة المهجم
+- id: m19
+  kind: event
+  quote: وحج
+- id: m20
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m21
+  kind: event
+  quote: حج
+- id: m22
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: アフマド・ブン・イブラーヒーム・ブン・アフマド、シャハーブ・アッ＝ディーン・アル＝クースィー・アル＝ヤマニー、シャーフィイー派。「イブン・…」として知られた（通称は本文で欠落）。父はクースの人々の間で著名であった。彼はクースで育ち、そこでいくつかの役職に就いた後、イエメンに入り、そこに定住した。イエメンの一部の地域でアル=マジド・アッ=シーラーズィーの代理人を務めた。我らがシャイフ（イブン・ハジャル）は『ムアッジャム』の中で彼について、非常に冗談好きであったと述べている。シャイフは続けて言う。「彼は私（イブン・ハジャル）に、ダマスカスでムヒイー・アッ＝ディーン・ブン・アッ＝ラハビーから聴聞したと語ったので、私はアル＝マハジャムの町で彼からハディースを一つ聴聞し、『アル＝ブルダーニーヤート』に書き留めた。彼は806年に我々（イブン・ハジャルの一行）とともに巡礼を行い、その後イエメンに戻った。再び巡礼を行ったとも伝え聞いた」。私（サハーウィー）が言うに、彼はマクリーズィーの『ウクード』に簡潔に記載されている。彼は後述するアフマド・ブン・アブドゥッラー・アル=クーシー・アル=ミスリーとは異なる人物であり、名前は一致するが、ニスバと出身地は異なる。
   en: 'Aḥmad b. Ibrāhīm b. Aḥmad, Shihāb al-Dīn al-Qūṣī al-Yamanī al-Shāfiʿī, known as Ibn [...] (the byname is lacking in the text); his father was a well-known man of Qūṣ. He grew up there and held several positions. Then he entered Yemen and settled there, serving as a deputy in some of its regions on behalf of al-Majd al-Shīrāzī. Our shaykh (Ibn Ḥajar) mentioned in his dictionary (Muʿjam) that he was very humorous. He (Ibn Ḥajar) continued: ''He told me that he had heard from Muḥyī al-Dīn b. al-Raḥabī in Damascus, so I heard a single ḥadīth from him in the city of al-Mahjam, which I recorded in my Buldāniyāt. He performed Hajj with us in the year 806, then returned to Yemen, and we heard that he performed Hajj again.'' I (al-Sakhāwī) say that he is mentioned briefly in al-Maqrīzī''s ʿUqūd. He is not the Aḥmad b. ʿAbd Allāh al-Qūṣī al-Miṣrī who is mentioned later; they share the same name but differ in nisbah and origin.'

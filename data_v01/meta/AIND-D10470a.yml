@@ -9,25 +9,25 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: دغش
+    mention: m4
   - id: n2
     type: nisbah
-    quote: البهنسي
+    mention: m5
   - id: n3
     type: nisbah
-    quote: القاهري
+    mention: m6
   - id: n4
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: رسلان
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
 birth:
   id: b
   date:
@@ -48,7 +48,7 @@ death:
   note:
     ar: مات في جمادى الأولى سنة سبع وستين وقد زاحم الستين ودفن بتربة قشتمر خارج باب الجديد جوار مقصورة قراقجا الحسني بمقصورة أنشأها لنفسه فيها
     ja: '埋葬地 تربة قشتمر（カイロ、باب الجديد 外、قراقجا الحسني = #AIND-D06332 の مقصورة の隣に自ら建てた مقصورة）。ID-Master 未登録→ref 未付与。'
-  quote: سنة
+  mention: m15
 persons:
 - id: p1
   label: الغرس خليل بن خاص بك
@@ -57,32 +57,28 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D10470a#p1
+  active: m7
   passive: AIND-D10470a
-  quote: الغرس خليل بن خاص بك
   note:
     ar: فتقرب من الغرس خليل بن خاص بك
     ja: الغرس خليل بن خاص بك（アシュラフ・イーナールの義弟、大アミール）。corpus 本伝未確認→ref 未付与。
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m8
   passive: AIND-D10470a
-  quote: وصهره اينال
   note:
     ar: وصهره اينال بضميمته … فلما تسلطن صار ذا أمر ونهي
     ja: 'الأشرف إينال = #AIND-D02110（خليل بن خاص بك の姻戚）。即位（857）後に本項主は権勢を得た。'
-  norm: صهره اينال
   phrase: صهره اينال
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000666
+  active: m13
   passive: AIND-D10470a
   methods:
   - TMP-S-00039
   cert: medium
-  quote: المحرقي
   note:
     ar: مع الشهادة به تلقاها عن المحرقي
     ja: المحرقي = TMP-P-000666（فتح الدين المحرقي）と推定→cert medium。証人業（الشهادة）を彼から受け継いだ。
@@ -91,60 +87,120 @@ states:
   type: status
   label: ماوردي
   label_latn: māwardī
-  quote: null
   note:
     ja: 薔薇水商（ماوردي）。ID-Master 未登録→ref 未付与。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00032
-  quote: وتكلم في
   note:
     ja: cf. TMP-O-00118 استادار الذخيرة。
-  norm: تكلم في
+  mention: m10
 - id: s3
   type: office
-  ref: TMP-O-00032
   orgs:
   - ref: TMP-I-00079
-  quote: ناظر الذخيرة
+  mention: m11
 - id: s4
   type: office
   ref: TMP-O-00032
-  quote: null
+  mention: null
 - id: s5
   type: office
-  ref: TMP-O-00050
-  quote: الشهادة
   note:
     ja: 「مع الشهادة به」— 上記諸職の証人（会計証人）。
+  mention: m12
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: وحج
   trigger: rule
   phrase: وحج قبل رياسته
+  mention: m9
 - id: e3
   type: other
   summary:
     ar: وأثرى وابتني دارا هائلة وتكلم في العمائر السلطانية وغيرها … قصد في قضايا وعد في الاعيان مع عاميته
-  quote: null
   note:
     ja: 蓄財して巨邸を建て、スルタンの建築事業に関与、無学ながら名士に数えられた。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06332
-    quote: قراقجا الحسني
-  quote: ودفن بتربة قشتمر خارج باب الجديد جوار مقصورة قراقجا الحسني
+  - mention: m17
   note:
     ja: '埋葬地の隣接区画の主 قراقجا الحسني = #AIND-D06332（言及）。'
-  norm: دفن بتربة قشتمر خارج باب الجديد جوار مقصورة قراقجا الحسني
+  phrase: ودفن بتربة قشتمر خارج باب الجديد جوار مقصورة قراقجا الحسني
+  mention: null
 notes:
 - text: 「دغش بدال مهملة ثم معجمتين كعبس」。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: رسلان
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: دغش
+- id: m5
+  kind: name
+  quote: البهنسي
+- id: m6
+  kind: name
+  quote: القاهري
+- id: m7
+  kind: person
+  ref: AIND-D10470a#p1
+  quote: الغرس خليل بن خاص بك
+- id: m8
+  kind: person
+  ref: AIND-D02110
+  quote: وصهره اينال
+  norm: صهره اينال
+- id: m9
+  kind: event
+  quote: وحج
+- id: m10
+  kind: office
+  ref: TMP-O-00032
+  quote: وتكلم في
+  norm: تكلم في
+- id: m11
+  kind: office
+  ref: TMP-O-00032
+  quote: ناظر الذخيرة
+- id: m12
+  kind: office
+  ref: TMP-O-00050
+  quote: الشهادة
+- id: m13
+  kind: person
+  ref: TMP-P-000666
+  quote: المحرقي
+- id: m14
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m15
+  kind: year
+  value: '867'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بتربة قشتمر خارج باب الجديد
+  ref: None
+  norm: تربة قشتمر خارج باب الجديد
+- id: m17
+  kind: person
+  ref: AIND-D06332
+  quote: قراقجا الحسني
 translation:
   ja: ユースフ・ブン・ルスラーン・ブン・ムハンマド・ダグシュ（無点のダール、次に点付きの二文字、「アブス」の型）、バフナサー出身のカイロの人。美貌の薔薇水商で、ガルス〔・ッディーン〕・ハリール・ブン・ハーッス・バクとその姻戚イーナールに、その庇護のもとで近づき、〔イーナールの〕昇進の前に巡礼した。イーナールがスルタンになると、彼は命令する側の人となって富を築き、巨大な邸宅を建て、スルタンの建築事業などに口を出し、さらに宝庫、飲料庫、スルタンの厨房の監督官となり、それらの証人職も兼ねた——証人職はムフリキーから受け継いだ。訴訟で頼られ、無学ながら名士に数えられた。867年ジュマーダー第1月に60歳近くで没し、バーブ・アル＝ジャディード外のクシュタムル廟に、カラークジャー・アル＝ハサニーの区画の隣に自ら建てた区画に葬られた。神が彼と我々を赦したまえ。
   en: Yūsuf b. Ruslān b. Muḥammad Daghsh (dāl, then ghayn and shīn, on the pattern of ʿAbs), of Bahnasā origin, Cairene. He was a handsome rose-water seller who won the favour of al-Ghars Khalīl b. Khāṣṣ Bak and his in-law Īnāl under the latter's protection, and made the pilgrimage before Īnāl's rise; when Īnāl became sultan he came to command and forbid, grew rich, built an enormous house, had a say in the royal buildings and more, and was supervisor of the treasury store, the beverage-house and the royal kitchen, together with their notaryship, which he had received from al-Muḥriqī. He was resorted to in lawsuits and counted among the notables despite his lack of learning. He died in Jumādā I 867, nearing sixty, and was buried in the mausoleum of Qushtamur outside Bāb al-Jadīd, next to the enclosure of Qarāqajā al-Ḥasanī, in an enclosure he had built for himself.

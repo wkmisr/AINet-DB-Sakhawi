@@ -9,41 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00107
-    quote: المراغي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m7
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07182
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10690
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: الحسين وجيه الدين
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: الشيخ ناصر الدين أبي
     by: rule
-    norm: الشيخ ناصر الدين ابي
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D03739
   methods:
   - TMP-S-00003
@@ -52,10 +46,7 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m10
 - id: r2
   type: kin
   subtype: father
@@ -63,7 +54,6 @@ relations:
   passive: AIND-D03739
   summary:
     ar: محمد ناصر الدين أبو الفرج
-  quote: null
   note:
     ja: 「وجيه الدين」は**伝主本人**のラカブ（類型6-2 ラカブ連鎖）。父のラカブは「ناصر الدين أبو الفرج」、祖父は「الزين」。#AIND-D07182「محمد ناصر الدين أبو الفرج … ووالد الشمس محمد الآتي」で確定。
 - id: r3
@@ -73,23 +63,60 @@ relations:
   passive: AIND-D03739
   summary:
     ar: الزين أبو بكر المراغي
-  quote: null
 - id: r4
   type: kin
   subtype: brother
-  active: TMP-P-000874
+  active: m8
   passive: AIND-D03739
-  quote: محمد
   note:
     ja: 'TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。「أخو محمد الآتي」＝الشمس محمد بن ناصر الدين أبي الفرج المراغي（#AIND-D07182「ووالد الشمس محمد الآتي」、#AIND-D09061 の父「الشمس … الماضي أبوه」、#AIND-D10818「أخو محمد」）。م 部に本人の見出しを特定できず、TMP-P で発行。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m10
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D07182
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D10690
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: الحسين وجيه الدين
+- id: m5
+  kind: name
+  quote: الشيخ ناصر الدين أبي
+  norm: الشيخ ناصر الدين ابي
+- id: m6
+  kind: name
+  ref: TMP-N-00107
+  quote: المراغي
+- id: m7
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m8
+  kind: person
+  ref: TMP-P-000874
+  quote: محمد
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アブド・アッラフマーン・ブン・ムハンマド・ブン・アビー・バクル・ブン・アル＝フサイン、ワジーフ・アッディーン（・ブン・アッ＝シャイフ・ナースィル・アッディーン・アビー・アル＝ファラジュ・ブン・アッ＝ザイン・アル＝マラーギー・アル＝アスル・アル＝マダニー）、後述のムハンマドの兄弟。マディーナにて私（＝サハーウィー）から聴聞した。
   en: Abd al-Rahman b. Muhammad b. Abi Bakr b. al-Husayn, Wajih al-Din (b. al-Shaykh Nasir al-Din Abi al-Faraj b. al-Zayn al-Maraghi al-Asl al-Madani), the brother of Muhammad who is mentioned below. He heard from me (al-Sakhawi) in Medina.

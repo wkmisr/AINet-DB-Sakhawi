@@ -9,19 +9,17 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قجماس
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 866-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     ja: 「مات بها في رجب سنة ست وستين」＝866 年ラジャブ月（月初 1462-04-10、月精度）。「بها」＝見出しの مكة（規則22(3)）。初版の @when 1462 を月精度に。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: والد قجماس أمير الراكز بمكة
@@ -32,33 +30,56 @@ relations:
   subtype: father
   active: AIND-D06316#p1
   passive: AIND-D06316
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00099
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: أمير الراكز
+  - mention: m3
   note:
     ja: 見出し「أمير الراكز بمكة」＝ID-Master 登録 أمير الراكز（TMP-O-00099、実体一致。precheck の汚染注意は B22 での流用歴によるもので本項は登録実体どおり）。
-  norm: امير الراكز
+  mention: m2
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: Pattern A。没年 866（≤871）→ 振り分け規則により التقي بن فهد（#AIND-D09211）、cert low（規則43、cert は event 側）。初版の統制外 subtype「chronicled by」relation を event に。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: قجماس
+- id: m2
+  kind: office
+  ref: TMP-O-00099
+  quote: أمير الراكز
+  norm: امير الراكز
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '866'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: カジュマース、マッカのアミール・アッ＝ラーキズ。866年ラジャブ月に同地で没した。イブン・ファハドがその没年を記録している。
   en: Qajmās, amīr al-rākiz in Mecca. He died there in Rajab of the year 866. Ibn Fahd recorded his death date.

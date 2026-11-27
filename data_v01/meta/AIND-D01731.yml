@@ -9,34 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00099
-    quote: السرائي
-    norm: السراءي
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: الواعظ
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: ملك الكلام الفارسي والتركي والعربي
+    mention: null
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: شمس الأئمة
     by: rule
-    ref: TMP-P-000593
-    norm: شمس الاءمة
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000593
   passive: AIND-D01731
-  quote: null
   note:
     en: Father, Shams al-Aʾimma (al-Sarāʾī). Corrects Gemini's poisoned TMP-P-000087 (= Ibn Fahd / AIND-D09211).
   phrase: شمس الأئمة
@@ -44,37 +38,63 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D01731
-  passive: AIND-D01367
+  passive: m5
   methods:
   - TMP-S-00008
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00096
-      quote: خوارزم
-  quote: ابن عربشاه
+    - mention: m6
   note:
     en: Ibn ʿArabshāh (= AIND-D01367) met the subject in Khwārazm and took (knowledge) from him (فأخذ عنه); the subject is therefore the teacher and Ibn ʿArabshāh the pupil. Corrects Gemini's bogus student-relation to poisoned TMP-P-000066 and the direction, and resolves Ibn ʿArabshāh from poisoned TMP-P-000127 (= Ibn Fahd / AIND-D09211) to AIND-D01367.
 states:
 - id: s1
   type: office
   ref: TMP-O-00080
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00096
-    quote: خوارزم
-  quote: null
+  - mention: m6
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D01367
   summary:
     ar: قال ابن عربشاه إنه كان يقال له ملك الكلام الفارسي والتركي والعربي
-  quote: وقال
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-000593
+  quote: شمس الأئمة
+  norm: شمس الاءمة
+- id: m3
+  kind: name
+  ref: TMP-N-00099
+  quote: السرائي
+  norm: السراءي
+- id: m4
+  kind: name
+  quote: الواعظ
+- id: m5
+  kind: person
+  ref: AIND-D01367
+  quote: ابن عربشاه
+- id: m6
+  kind: place
+  quote: خوارزم
+  ref: TMP-L-00096
+- id: m7
+  kind: source
+  quote: وقال
   norm: قال
 translation:
   ja: アフマド・ブン・シャムス・アル=アインマ・アッ=サラーイー・アル=ワーイズ（説教師）。イブン・アラブシャーがホラズムで彼に会い、彼から（知識を）学んだ。そしてイブン・アラブシャーは、彼が「ペルシア語・トルコ語・アラビア語の言葉の王」と呼ばれていたと述べた。

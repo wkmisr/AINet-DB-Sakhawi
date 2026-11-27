@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00409
-    quote: البهنسي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n3
     type: laqab
-    quote: الجمال
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 death:
   id: d
   date:
@@ -39,8 +35,8 @@ death:
     cert: medium
   note:
     ja: 「سنة خمس」は一の位のみ → 805（cert medium。ダマスクスの大事件＝ティムールの侵攻 803 の後、イブン・ハジャル『الإنباء』の記事と整合）。ズー・アルカアダ805 ＝ 1403-06-01 開始、月精度 1403-06（h2g.py。初版の 1402 を是正）。没地は原文にない。
-  quote: سنة
   phrase: مات في ذي القعدة سنة خمس
+  mention: m18
 persons:
 - id: p1
   label: أحمد
@@ -53,54 +49,43 @@ relations:
   subtype: father
   active: AIND-D07036#p1
   passive: AIND-D07036
-  quote: null
   note:
     ja: '父は裸名 أحمد のみ → #NEEDID 維持（規則3・12）。'
 - id: r2
   type: social
   subtype: patron
-  active: TMP-P-000180
+  active: m9
   passive: AIND-D07036
-  quote: بالبرهان بن جماعة
   note:
     ja: 「اتصل بالبرهان بن جماعة فلما ولي قضاء الشام استنابه واعتمد عليه في أمور كثيرة」。البرهان بن جماعة ＝ ID-Master TMP-P-000180（قاضي القضاة、repo 先例 D08902c）。
-  norm: البرهان بن جماعة
   phrase: البرهان بن جماعة
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D03709
+  active: m16
   passive: AIND-D07036
-  quote: الجلال البلقيني
   note:
     ja: '「فر إلى القاهرة فاستنابه الجلال البلقيني」。الجلال البلقيني ＝ #AIND-D03709（عبد الرحمن بن عمر بن رسلان … الجلال أبو الفضل البلقيني、824没、repo 先例3件）。初版は #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: TMP-L-00002
-    quote: الشام
-  quote: استنابه
+  - mention: m11
   note:
     ja: 「فلما ولي قضاء الشام استنابه」＝ブルハーン・ブン・ジャマーアのシャーム法官就任に伴う代理（原文に الشام 明記）。
+  mention: m12
 - id: s2
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: فاستنابه
+  - mention: m8
   note:
     ja: 「فر إلى القاهرة فاستنابه الجلال البلقيني」＝直前の القاهرة を受ける（規則22(3)）。
-  norm: استنابه
+  mention: m15
 - id: s3
   type: status
   label: كان حسن المباشرة مواظبا عليها وعنده ظرف ونوادر وكان مقلا مع العفة
   label_latn: kāna ḥasan al-mubāshara muwāẓiban ʿalayhā wa-ʿindahu ẓarf wa-nawādir wa-kāna muqillan maʿa al-ʿiffa
-  quote: وكان حسن المباشرة مواظبا عليها وعنده ظرف ونوادر وكان مقلا مع العفة
-  norm: كان حسن المباشرة مواظبا عليها وعنده ظرف ونوادر وكان مقلا مع العفة
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -109,47 +94,120 @@ events:
 - id: e2
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m8
   works:
   - ref: TMP-T-00065
   methods:
   - TMP-S-00077
-  quote: اشتغل
   trigger: rule
   phrase: اشتغل بالقاهرة وحفظ المنهاج
+  mention: m7
 - id: e3
   type: political
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: ولي
+  - mention: m14
   note:
     ja: 「الكائنة العظمى بدمشق」＝ティムールによるダマスクス陥落（803）を指すと考えられるが原文に年号はないため日付は付けない。
   trigger: rule
   phrase: ولما وقعت الكائنة العظمى بدمشق فر إلى القاهرة
+  mention: m10
 - id: e4
   type: travel
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: فر إلى القاهرة
-  norm: فر الي القاهرة
+  - mention: m8
+  phrase: فر إلى القاهرة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m20
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版の統制外 subtype「chronicler」relation を event 化。
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m19
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الجمال
+- id: m4
+  kind: name
+  ref: TMP-N-00409
+  quote: البهنسي
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: event
+  quote: اشتغل
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m9
+  kind: person
+  ref: TMP-P-000180
+  quote: بالبرهان بن جماعة
+  norm: البرهان بن جماعة
+- id: m10
+  kind: event
+  quote: ولي
+- id: m11
+  kind: place
+  quote: الشام
+  ref: TMP-L-00002
+- id: m12
+  kind: office
+  ref: TMP-O-00096
+  quote: استنابه
+- id: m13
+  kind: office
+  quote: وكان حسن المباشرة مواظبا عليها وعنده ظرف ونوادر وكان مقلا مع العفة
+  norm: كان حسن المباشرة مواظبا عليها وعنده ظرف ونوادر وكان مقلا مع العفة
+- id: m14
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m15
+  kind: office
+  ref: TMP-O-00096
+  quote: فاستنابه
+  norm: استنابه
+- id: m16
+  kind: person
+  ref: AIND-D03709
+  quote: الجلال البلقيني
+- id: m17
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m18
+  kind: year
+  value: '805'
+  quote: سنة
+- id: m19
+  kind: source
+  quote: ذكره
+- id: m20
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アフマド・アル＝ジャマール・アル＝バフナスィー、のちアッ＝ディマシュキー、シャーフィイー派。カイロで学問に携わり『ミンハージュ』を暗記し、アル＝ブルハーン・ブン・ジャマーアと結びつき、彼がシャームの法官職に就くと彼を代理に任じ、多くの事柄で彼に頼った。職務の遂行が巧みで勤勉であり、洒脱で逸話に富み、貞潔とともに清貧であった。ダマスクスで大事件が起こると、カイロへ逃れ、アル＝ジャラール・アル＝バルキーニーが彼を代理に任じた。〔80〕5年ズー・アル＝カアダ月に没した。我らが師〔イブン・ハジャル〕が『インバー』で彼に言及している。
   en: Muḥammad b. Aḥmad al-Jamāl al-Bahnasī, then al-Dimashqī, al-Shāfiʿī. He studied in Cairo and memorised the Minhāj, and attached himself to al-Burhān b. Jamāʿa, who, when he was appointed to the judgeship of Syria, made him his deputy and relied on him in many matters. He was skilful in the conduct of business and assiduous in it, with wit and amusing anecdotes, and he was poor yet upright. When the great calamity befell Damascus he fled to Cairo, where al-Jalāl al-Bulqīnī made him his deputy. He died in Dhū al-Qaʿda of the year [80]5. Our shaykh [Ibn Ḥajar] mentioned him in his Inbāʾ.

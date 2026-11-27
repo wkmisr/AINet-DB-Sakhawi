@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: بلال
     by: rule
-    ref: TMP-P-001555
+    mention: m2
   - id: n4
     type: nasab
-    quote: قلاون
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -33,30 +31,62 @@ death:
     cert: medium
   note:
     ja: 「مات بها في شوال سنة خمس وخمسين」。「بها」の先行詞は見出しのニスバ المكي のみ（規則22(3)、cert medium）。855年シャウワール＝1451年11月。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001555
+  active: m5
   passive: AIND-D06211
-  quote: أبيه
   note:
     ja: 父。「وكان قلاوون سيد أبيه」＝قلاوون は父の主人（「ابن قلاون」は主人への帰属）。父は قلاوون の奴隷（マウラー）であった点が識別要素（規則3）。corpus に本伝なし（بلال 見出し D02216〜D02219 はいずれも別人）→ TMP-P-001555。主人 قلاوون（マッカ在住者か。D12667「ابن قلاون الشهير بكرتم مات بمكة سنة سبع وستين」は別の関係者か）は父の関係であり本項主の relation にしない。
-  norm: ابيه
   phrase: بلال بن قلاون المكي
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 規則43（没855 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外 biographer relation を Pattern A に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: TMP-P-001555
+  quote: بلال
+- id: m3
+  kind: name
+  quote: قلاون
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: person
+  ref: TMP-P-001555
+  quote: أبيه
+  norm: ابيه
+- id: m6
+  kind: month
+  value: 10
+  quote: شوال
+- id: m7
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: カースィム・ブン・ビラール・ブン・カラーウーン、アル＝マッキー。カラーウーンは彼の父の主人であった。855年シャウワール月にそこ（マッカ）で没した。イブン・ファハドがその没年を記している。
   en: Qāsim b. Bilāl b. Qalāwūn al-Makkī. Qalāwūn was his father's master. He died there (in Mecca) in Shawwāl 855. Ibn Fahd recorded his death date.

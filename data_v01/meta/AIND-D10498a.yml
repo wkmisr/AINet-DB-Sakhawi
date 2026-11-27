@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: null
     label: الغزي
+    mention: null
   - id: n2
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الشيخ على
     by: rule
-    norm: الشيخ علي
+    mention: m2
   - id: n4
     type: nasab
-    quote: سالم الغزى خطيب جامع
     by: rule
-    norm: سالم الغزي خطيب جامع
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
   active: AIND-D10498a
-  passive: AIND-D02697
+  passive: m4
   methods:
   - TMP-S-00003
   cert: medium
@@ -40,10 +38,7 @@ relations:
       ah: 844
       type: learning
     places:
-    - ref: TMP-L-00042
-      quote: بغزة
-      norm: غزة
-  quote: حسين الفتحي
+    - mention: m5
   note:
     ar: بها لقيه حسين الفتحي بغزة سنة أربع وأربعين فسمع خطبته بالجامع المذكور ثم كتبها منه
     ja: حسين الفتحي = TMP-P-000584（الفتحي、D00866 の師）と推定→cert medium。844年ガッザでフトバを聴き筆録。
@@ -52,14 +47,37 @@ states:
   type: office
   ref: wd:Q932945
   places:
-  - ref: TMP-L-00042
-    quote: بغزة
-    norm: غزة
+  - mention: m5
   orgs:
   - label: جامع سنجر الجاولي
-  quote: null
   note:
     ja: ガッザの جامع سنجر الجاولي は ID-Master 未登録→ref 未付与。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: الشيخ على
+  norm: الشيخ علي
+- id: m3
+  kind: name
+  quote: سالم الغزى خطيب جامع
+  norm: سالم الغزي خطيب جامع
+- id: m4
+  kind: person
+  ref: AIND-D02697
+  quote: حسين الفتحي
+- id: m5
+  kind: place
+  quote: بغزة
+  ref: TMP-L-00042
+  norm: غزة
+- id: m6
+  kind: year
+  value: '844'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・アッ＝シャイフ・アリー・ブン・サーリム・アル＝ガッズィー、サンジャル・アル＝ジャーウリー・モスクの説教師。フサイン・アル＝ファトヒーが844年にガッザで彼に会い、同モスクでその説教を聴いた後、彼からそれを書き取った。
   en: Yūsuf b. al-Shaykh ʿAlī b. Sālim al-Ghazzī, preacher of the mosque of Sanjar al-Jāwulī. Ḥusayn al-Fatḥī met him in Gaza in 844, heard his sermon in that mosque and then wrote it down from him.

@@ -9,121 +9,185 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00208
-    quote: الصفدي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00008
-    quote: المقدسي
+    mention: m11
   - id: n3
     type: laqab
-    quote: العلاء
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بابن النقيب
-    norm: ابن النقيب
     label: ابن النقيب
+    mention: m15
   - id: n5
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06756
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D01053
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: ضوء
     by: rule
+    mention: m6
   - id: n11
     type: nasab
-    quote: الكمال
     by: rule
+    mention: m8
   - id: n12
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m9
   - id: n13
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m12
 birth:
   id: b
   date:
     ah: 810
   note:
     ja: 「ولد سنة عشر وثمانمائة」＝810（1407-06-17〜1408-06-04、年精度 1407）。出生地は原文に無い。
-  quote: سنة
+  mention: m16
 death:
   id: d
   date:
     ah: 880-06-20
   note:
     ja: 「مات في يوم السبت عشري جمادى الثانية سنة ثمانين」＝880年ジュマーダー・アッ＝サーニヤ月20日土曜 ＝ 1475-10-30（h2g.py、表計算暦でも土曜）。初版の when="1475" を日精度に是正（規則18）。
-  quote: سنة
+  mention: m20
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06756
+  active: m13
   passive: AIND-D05374
   summary:
     ar: الكمال محمد بن أحمد بن علي بن محمد بن ضوء ابن النقيب
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」＝ #AIND-D06756（محمد بن أحمد بن علي بن محمد بن ضوء الكمال بن الشهاب بن العلاء الصفدي ثم المقدسي الحنفي والد العلاء على الماضي وجده ويعرف بابن النقيب、832没・63歳。「درس بالتنكزية والارغونية」）。初版の汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を是正。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D01053
+  active: m14
   passive: AIND-D05374
   summary:
     ar: الشهاب أحمد بن علي بن محمد بن ضوء ابن النقيب
-  quote: جده
   note:
     ja: '「والماضي جده」＝ #AIND-D01053（أحمد بن علي بن محمد بن ضوء الشهاب أبو عبد العزيز … الصفدي الأصل المقدسي الحنفي ويعرف بابن النقيب）。初版の #NEEDID を解消。'
 - id: r3
   type: social
   subtype: predecessor
-  active: AIND-D06756
+  active: m18
   passive: AIND-D05374
   summary:
     ar: أبوه الكمال محمد ابن النقيب
-  quote: أبيه
   note:
     ja: 「وولي مشيخة التنكزية وغيرها بعد أبيه」＝父を前任者として継いだ（規則29、先例 D04045）。
-  norm: ابيه
 states:
 - id: s1
   type: office
-  ref: wd:Q7492880
   orgs:
   - ref: TMP-I-00140
-  quote: مشيخة التنكزية
   note:
     ja: '先例 #AIND-D03892（مشيخة التنكزية → wd:Q7492880 ＋ orgName TMP-I-00140）に揃えた。初版の affiliation employed（#NEEDID）との二重符号化を解消（規則8）。placeName بيت المقدس は施設所在地・ニスバ由来のため除去（規則22(1)、D03892 の裁定と同じ）。「وغيرها」（その他の職）は不特定。'
   phrase: وولي مشيخة التنكزية وغيرها بعد أبيه
+  mention: m17
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06756
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D01053
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: ضوء
+- id: m7
+  kind: name
+  quote: العلاء
+- id: m8
+  kind: name
+  quote: الكمال
+- id: m9
+  kind: name
+  quote: الشهاب
+- id: m10
+  kind: name
+  ref: TMP-N-00208
+  quote: الصفدي
+- id: m11
+  kind: name
+  ref: TMP-N-00008
+  quote: المقدسي
+- id: m12
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m13
+  kind: person
+  ref: AIND-D06756
+  quote: أبوه
+  norm: ابوه
+- id: m14
+  kind: person
+  ref: AIND-D01053
+  quote: جده
+- id: m15
+  kind: name
+  quote: بابن النقيب
+  norm: ابن النقيب
+- id: m16
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m17
+  kind: office
+  ref: wd:Q7492880
+  quote: مشيخة التنكزية
+- id: m18
+  kind: person
+  ref: AIND-D06756
+  quote: أبيه
+  norm: ابيه
+- id: m19
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m20
+  kind: year
+  value: '880'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アフマド・ブン・アリー・ブン・ムハンマド・ブン・ダウ、アル＝アラー・ブン・アル＝カマール・ブン・アッ＝シハーブ、サファド出自のアル＝マクディスィー、ハナフィー派。父は後述、祖父は前述。先祖と同様にイブン・アン＝ナキーブとして知られる。810年に生まれ、父の後にタンキズィーヤのシャイフ職などに就いた。880年ジュマーダー・アッ＝サーニヤ月20日土曜に没した。
   en: ʿAlī b. Muḥammad b. Aḥmad b. ʿAlī b. Muḥammad b. Ḍawʾ, al-ʿAlāʾ b. al-Kamāl b. al-Shihāb, of Ṣafadī origin, al-Maqdisī, al-Ḥanafī; his father follows and his grandfather has been mentioned; known like his forebears as Ibn al-Naqīb. He was born in the year 810 and held the mashyakha of al-Tankiziyya and other posts after his father. He died on Saturday, the 20th of Jumādā al-Thāniya of the year 880.

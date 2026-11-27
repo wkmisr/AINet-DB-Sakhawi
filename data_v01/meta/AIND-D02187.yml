@@ -9,29 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00130
-    quote: الشامي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n3
     type: ism
-    quote: بركات
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D02187
   methods:
   - TMP-S-00003
@@ -40,16 +38,12 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m8
 - id: r2
   type: kin
   subtype: maternal_grandfather
-  active: TMP-P-000753
+  active: m6
   passive: AIND-D02187
-  quote: ابن عبد العزيز
   note:
     ja: 母方祖父=ابن عبد العزيز(マディーナの公証人一族العزيزي=D07658「محمد بن عبد السلام بن عبد العزيز العزيزي المدني أحد شهود الحرم」の同族)。個体特定不能=TMP-P-000753新規発行。
   phrase: سبط ابن عبد العزيز
@@ -58,20 +52,47 @@ states:
   type: office
   ref: TMP-O-00050
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m8
   note:
     ja: 「شاهد الحرم」＝預言者モスク(الحرم النبوي)付きの公証人。場所限定の変種だが本バッチ時点で1件のみのため TMP-O-00050 に統合し、placeNameと本注記で限定する(cf. أحد الخدام بالحجرة النبوية=TMP-O-00049 のような場所限定オフィスを別立てする前例もあり、件数が増えれば分離を再検討)。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: بركات
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  ref: TMP-N-00130
+  quote: الشامي
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: TMP-P-000753
+  quote: ابن عبد العزيز
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: バラカート・ブン・ムハンマド・ブン・ユースフ・アッ＝シャーミー・アル＝マダニー。イブン・アブド・アル＝アズィーズの外孫（スィブト）。ハラムの公証人の一人。マディーナにおいて私（サハーウィー）から（ハディースを）聴聞した。
   en: Barakāt b. Muḥammad b. Yūsuf al-Shāmī al-Madanī, maternal grandson of Ibn ʿAbd al-ʿAzīz. One of the witnesses (notaries) of the Haram. Among those who heard (hadith) from me in Medina.

@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-05506
-    quote: الصباغ
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04091
   methods:
   - TMP-S-00003
@@ -41,18 +38,49 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m9
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: نزيل
+  - mention: m7
   trigger: rule
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: عبد الوهاب
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: name
+  ref: TMP-N-05506
+  quote: الصباغ
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥルカーディル・ブン・イブラーヒーム・ブン・アブドゥルワッハーブ・アル＝ミスリー・アッ＝サッバーグ。ダマスカスの居留者。メッカにて私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd al-Qādir b. Ibrāhīm b. ʿAbd al-Wahhāb al-Miṣrī al-Ṣabbāgh, resident of Damascus. He was among those who heard from me (al-Sakhāwī) in Mecca.

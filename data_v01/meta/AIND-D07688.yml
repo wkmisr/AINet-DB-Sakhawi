@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00224
-    quote: الخانكي
+    mention: m6
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد العظيم
     by: rule
-    ref: AIND-D04033
+    mention: m2
   - id: n4
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m3
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n6
     type: nasab
-    quote: عبد العظيم
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07688
   methods:
   - TMP-S-00003
@@ -50,7 +46,6 @@ relations:
     phrase: سمع علي بقراءة أبيه ثلاثيات البخاري في ربيع الثاني سنة ست وتسعين
   works:
   - ref: TMP-T-00183
-  quote: علي
   note:
     ja: ラビーウ II 896 ＝ 1491-02-20〜03-20 → 月精度 1491-02。朗読者は父（#AIND-D04033、その本伝に「وسمع الثلاثيات خاصة معه ولده محمد」とある）。
 - id: r2
@@ -60,22 +55,59 @@ relations:
   passive: AIND-D07688
   methods:
   - TMP-S-00004
-  quote: null
   phrase: وأجزت له
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D04033
+  active: m8
   passive: AIND-D07688
-  quote: أبيه
   note:
     ja: 父＝#AIND-D04033（عبد العظيم بن يحيى بن أحمد بن عبد العظيم الكرستي الأصل الخانكي الشافعي ويعرف بابن عبد العظيم、858年生。「قرأ على … ثلاثيات البخاري وسمع الثلاثيات خاصة معه ولده محمد」）。ナサブ完全一致・896年の聴聞記事で双方向に閉合。
-  norm: ابيه
   phrase: سمع علي بقراءة أبيه
 notes:
 - text: '原文冒頭の「ولد」は、生年を導く「وُلد」（生まれた）ではなく「ولدٌ」（＝子ども・幼児）と読む。直後の「سمع علي بقراءة أبيه」＝父の朗読による聴聞は幼少者の描写であり、同バッチ #AIND-D07345 に「وله ولد عرض علي كتبا」（彼には子がいて、私に書物を提示した）の用例がある。したがって刊本に生年の脱落は存在せず、生年に関する date 要素・birth 要素は置かない。父 #AIND-D04033 は858年生で、896年の聴聞時に本項主が幼少であったことと整合する。初版・校閲の「刊本の脱落」とする記述は撤回する（裁定 §D-29）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04033
+  quote: عبد العظيم
+- id: m3
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عبد العظيم
+- id: m6
+  kind: name
+  ref: TMP-N-00224
+  quote: الخانكي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: person
+  ref: AIND-D04033
+  quote: أبيه
+  norm: ابيه
+- id: m9
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m10
+  kind: year
+  value: '896'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥルアズィーム・ブン・ヤフヤー・ブン・アフマド・ブン・アブドゥルアズィーム・アル＝ハーンキー。〔まだ〕幼い子であった。896年ラビーウ・アッ＝サーニー月に、父の朗読によって私（サハーウィー）から『ブハーリーの三伝承者ハディース集（スラースィヤート）』を聴聞し、私は彼にイジャーザを与えた。
   en: Muḥammad b. ʿAbd al-ʿAẓīm b. Yaḥyā b. Aḥmad b. ʿAbd al-ʿAẓīm al-Khānkī. He was a young child. He heard from me (al-Sakhāwī), through his father's recitation, the Thulāthiyyāt of al-Bukhārī in Rabīʿ al-Thānī of the year 896, and I granted him an ijāza.

@@ -9,54 +9,77 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00208
-    quote: الصفدي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00303
-    quote: الحسري
+    mention: m5
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D01282
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: علي
+    - mention: m7
 events:
 - id: e1
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: المجاورة
+  - mention: m7
   cert: low
   note:
     en: during the third jāwara
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  ref: TMP-N-00208
+  quote: الصفدي
+- id: m5
+  kind: name
+  ref: TMP-N-00303
+  quote: الحسري
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: event
+  quote: المجاورة
 translation:
   ja: 300. アフマド・ブン・ムハンマド・ブン・イスマーイール、アッ＝サファディー、アル＝ハスリー。メッカでの3度目のマジャーワラ中に、私（＝サハーウィー）から聴聞した一人。
   en: 300. Aḥmad b. Muḥammad b. Ismāʿīl al-Ṣafadī al-Ḥasrī. Among those who listened to me (al-Sakhāwī) in Mecca during the third *jāwara* (extended stay).

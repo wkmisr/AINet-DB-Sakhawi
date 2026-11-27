@@ -12,16 +12,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00492
-    quote: المحمودي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00065
-    quote: الناصري
+    mention: m3
   - id: n3
     type: ism
-    quote: قشتمر
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -35,14 +33,12 @@ death:
   date:
     ah: 857-07
   places:
-  - ref: TMP-L-00162
-    quote: البحيرة
-  - ref: TMP-L-00365
-    quote: تروحة
+  - mention: m6
+  - mention: m7
   note:
     ja: '857年ラジャブ月末（「أواخر رجب」＝月精度。ラジャブ月初 1453-07-17、月末 1453-08-15）、アラブ・ラビード族（عرب لبيد）との戦闘で戦死。没地「قتل بها」の بها＝直前の البحيرة（照応、規則22(3)）、戦闘地は「بالقرب من تروحة」＝原文の綴り تروحة のまま（規則25・46。ID-Master 未登録 → 仮 TMP-L-00365。ブハイラ地方の地名、同定は Waka）。初版の political event（同内容、placeName #NEEDID）を death に統合。'
-  quote: سنة
   phrase: وقتل بها في وقعة كانت بينه وبين عرب لبيد بالقرب من تروحة في أواخر رجب سنة سبع وخمسين وقد ناهز الستين
+  mention: m9
 persons:
 - id: p1
   label: والد قشتمر المحمودي الناصري
@@ -53,33 +49,65 @@ relations:
   subtype: father
   active: AIND-D06350#p1
   passive: AIND-D06350
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m4
   passive: AIND-D06350
   summary:
     ar: الناصر فرج
-  quote: فرج
   note:
     ja: 見出しのニスバ「الناصري فرج」＝主人はアン＝ナースィル・ファラジュ（#AIND-D06160）。初版の wd:Q374466（要照合wd、記憶由来の疑い）を AIND に置換（ブリーフ指示）。「المحمودي」は元の主人（محمود）由来のニスバ（名の特定不能、relation なし）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: TMP-L-00162
-    quote: البحيرة
-  quote: نيابة
+  - mention: m6
   note:
     ja: 'ブハイラ地方の代官職（在任中に戦死）。ID-Master に単独登録なし → repo 先例（نائب اسكندرية 型）どおり汎用 نائب TMP-O-00053＋地名。初版の #NEEDID と retirement date（没月を流用）を是正・除去。就任年の明記なし。'
+  mention: m5
 notes:
 - text: 「أو بدون راء」＝名は قشتمر または（ر なしの）قشتم → name_only に両形を立て、後者に cert medium。人物評「وكان أميرا عاقلا شجاعا كريما متواضعا جوادا مليح الشكل بشوشا محببا إلى الناس مشكورا في ولايته عارفا مقداما من محاسن أبناء جنسه رحمه الله」。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قشتمر
+- id: m2
+  kind: name
+  ref: TMP-N-00492
+  quote: المحمودي
+- id: m3
+  kind: name
+  ref: TMP-N-00065
+  quote: الناصري
+- id: m4
+  kind: person
+  ref: AIND-D06160
+  quote: فرج
+- id: m5
+  kind: office
+  ref: TMP-O-00053
+  quote: نيابة
+- id: m6
+  kind: place
+  quote: البحيرة
+  ref: TMP-L-00162
+- id: m7
+  kind: place
+  quote: تروحة
+  ref: TMP-L-00365
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '857'
+  quote: سنة
 translation:
   ja: カシュタムル——あるいはラーなしで（カシュタム）——アル＝マフムーディー・アン＝ナースィリー・ファラジュ。ブハイラの代官（ナーイブ）職に就き、857年ラジャブ月末、タルーハの近くで彼とアラブのラビード族との間に起こった戦闘において、同地で戦死した。60歳に近かった。賢明で勇敢、高貴で謙虚、気前がよく、容姿端麗で愛想がよく、人々に愛され、その統治を称えられ、物事に通じ果敢な、同輩中の美点ある人物の一人であった。アッラーの慈悲あれ。
   en: Qashtamur — or without the rāʾ (Qashtam) — al-Maḥmūdī al-Nāṣirī Faraj. He held the governorship (niyāba) of al-Buḥayra and was killed there, in a battle between him and the Arabs of Labīd near Tarūḥa, at the end of Rajab of the year 857, having nearly reached sixty. He was a sensible, brave, noble, humble and generous amir, handsome, cheerful, beloved by the people, praised in his governorship, knowledgeable and bold, one of the finest of his kind; may God have mercy on him.

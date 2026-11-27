@@ -9,54 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m6
   - id: n2
     type: laqab
-    quote: النور
+    mention: m4
   - id: n3
     type: kunyah
-    quote: أبو الحسن
-    norm: ابو الحسن
+    mention: m5
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001358
+  active: m11
   passive: AIND-D04957
   methods:
   - TMP-S-00008
-  quote: الملوي
   note:
     ja: 「أخذ عن الملوي」。الملوي ＝ الولي الملوي（ولي الدين الملوي。D04954「تفقه بالولي الملوي」、D05916・D07761 等に頻出するシャーフィイー派の師。D03599 の見出しナサブ「الشيخ ولي الدين محمد بن أحمد بن إبراهيم بن يوسف الملوي」）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001358。初版のニスバ番号 TMP-N-00725（الملوي）の person 位置流用を是正。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D07989
+  active: m10
   passive: AIND-D04957
-  quote: محمد الآتي
   note:
     ja: '「والد محمد الآتي」。息子 ＝ #AIND-D07989「محمد بن علي بن أحمد بن أبي بكر الشمس بن أبي الحسن المصري البندقداري الشافعي الشاذلي الماضي أبوه … ولد … سنة ثلاث وسبعين وسبعمائة بالبندقدارية … وأم بالبندقدارية محل سكنه」（869年没）。汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を差し替え。'
-  norm: محمد الاتي
 - id: r3
   type: identity
   subtype: possible_identity
@@ -65,7 +57,6 @@ relations:
   summary:
     ar: النور أبو الحسن الادمي ثم المصري الشافعي
   cert: high
-  quote: null
   note:
     ja: '本項主と #AIND-D04954 は名（علي بن أحمد بن أبي بكر النور أبو الحسن）・ニスバ（المصري）・学派・師（الملوي）が一致する。さらに本項主の息子 #AIND-D07989 の子 #AIND-D03773「عبد الرحمن بن محمد بن علي بن أحمد بن أبي بكر المصري … حفيد النور الأدمي … ويعرف بابن الأدمي」はサハーウィー自身が本項主を「النور الأدمي」と呼んでおり、D04954 の息子 #AIND-D03683「عبد الرحمن بن علي بن أحمد بن أبي بكر … بن النور أبي الحسن الأدمي … ولد … بالبندقدارية」も本項の「نزيل البندقدارية」と一致する。サハーウィーは本項で「رفيقا للادمي」と別人扱いしている（情報源は息子）ため REF 化せず二重立項型として保持し、同一人物の可能性を possible_identity で記録（→ISSUES §D99-1）。Waka 裁定（2026-10-05、要判断_B99-103 ★1(a)）: 同一人物とみて cert high。原文の「رفيقا للادمي الماضي قريبا」は本項主自身を指すことになるため colleague relation（active=#AIND-D04954）は削除し、この note に記録する。D04954 の収録時に鏡像の possible_identity を置く。'
 affiliations:
@@ -76,23 +67,71 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00304
-    quote: البندقدارية
-  quote: نزيل
+  - mention: m9
   note:
     ja: البندقدارية ＝ カイロの街区（D07989・D03683「بالبندقدارية من نواحي الصليبة」）。ID-Master にはニスバ البندقداري（TMP-N-02412）のみで地名登録なし → 新規 TMP-L-00304。初版の affiliation type="reside"（#NEEDID）を residence event に変換。
   trigger: rule
   phrase: نزيل البندقدارية
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: AIND-D07989
-    quote: ولده
-  quote: قاله
+  - mention: m13
   note:
     ja: Pattern A。本項の情報源は息子 محمد（#AIND-D07989）。
   trigger: rule
   phrase: قاله لي ولده
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: النور
+- id: m5
+  kind: name
+  quote: أبو الحسن
+  norm: ابو الحسن
+- id: m6
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: event
+  quote: نزيل
+- id: m9
+  kind: place
+  quote: البندقدارية
+  ref: TMP-L-00304
+- id: m10
+  kind: person
+  ref: AIND-D07989
+  quote: محمد الآتي
+  norm: محمد الاتي
+- id: m11
+  kind: person
+  ref: TMP-P-001358
+  quote: الملوي
+- id: m12
+  kind: source
+  quote: قاله
+- id: m13
+  kind: person
+  ref: AIND-D07989
+  quote: ولده
 translation:
   ja: アリー・ブン・アフマド・ブン・アビー・バクル、アン＝ヌール、アブー・アル＝ハサン、アル＝ミスリー、シャーフィイー派。アル＝ブンドゥクダーリーヤの住人で、後述するムハンマドの父。先に述べたばかりのアル＝アダミーの同学としてアル＝マッラウィーに学んだ。敬虔と善行を兼ね備えた、学派における名士の一人であった。彼の息子が私（サハーウィー）にそう語った。
   en: ʿAlī b. Aḥmad b. Abī Bakr, al-Nūr Abū al-Ḥasan, al-Miṣrī, the Shāfiʿī. He was a resident of al-Bunduqdāriyya and the father of Muḥammad, who is mentioned below. He studied under al-Mallawī as a fellow student of al-Adamī, mentioned just above. He was one of the notables of the madhhab, together with piety and goodness. His son told me this.

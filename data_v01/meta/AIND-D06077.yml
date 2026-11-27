@@ -9,70 +9,115 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00059
-    quote: التلمساني
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00087
-    quote: الخالدي
+    mention: m6
   - id: n4
     type: honorific
-    quote: الشيخ
+    mention: m7
   - id: n5
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n6
     type: nasab
-    quote: عباس
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 822-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     ja: 「مات بمكة في جمادى الأولى سنة اثنتين وعشرين」。822-05 ＝ 1419-06-04〜07-03、月初 1419-06（h2g.py。初版は年精度 1419）。
-  quote: سنة
+  mention: m10
 states:
 - id: s1
   type: status
   label: الشيخ العالم الفاضل الورع الزاهد
   label_latn: al-shaykh al-ʿālim al-fāḍil al-wariʿ al-zāhid
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D07216
-    quote: الجمال المرشدي
-  quote: ذكره
+  - mention: m12
   cert: medium
   note:
     ja: 'Pattern A。الجمال المرشدي ＝ #AIND-D07216（محمد الجمال أبو عبد الله الأنصاري … ويعرف بالمرشدي、763年マッカ生・829年マディーナ没の敬虔な伝承者。ID-Master の TMP-T-00195『مشيخة الجمال المرشدي』の主も同人）。本項主（822年マッカ没の敬虔なマグリブ人）の同時代人として整合するが、ラカブ＋ニスバのみの同定のため cert medium（規則26）。初版は統制外 subtype「praised by」の relation（#NEEDID）。'
   trigger: rule
   phrase: 'قال الجمال المرشدي : وقل أن رأيت على طريقته مثله في الورع والتقوى'
+  mention: m13
 - id: c2
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: قال
+  - mention: m14
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 822（≤871）→ 振り分け規則により #AIND-D09211、cert low。初版は統制外 subtype「chronicled by」の relation。'
   trigger: rule
   phrase: ذكره ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: عباس
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m5
+  kind: name
+  ref: TMP-N-00059
+  quote: التلمساني
+- id: m6
+  kind: name
+  ref: TMP-N-00087
+  quote: الخالدي
+- id: m7
+  kind: name
+  quote: الشيخ
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m10
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: person
+  ref: AIND-D07216
+  quote: الجمال المرشدي
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: イーサー・ブン・アッバース・ブン・ウマル・アル＝マグリビー・アッ＝ティリムサーニー・アル＝ハーリディー、シャイフにして学識あり徳高く、謹厳で禁欲的な人物。（8）22年ジュマーダー・アル＝ウーラー月にマッカで没した。アル＝ジャマール・アル＝ムルシディーは言った、「彼のような道を歩む者で、謹厳さと敬神において彼に匹敵する者を私はほとんど見たことがない」と。イブン・ファハドが彼について記している。
   en: 'ʿĪsā b. ʿAbbās b. ʿUmar al-Maghribī al-Tilimsānī al-Khālidī, the shaykh, the learned, virtuous, scrupulous and ascetic. He died in Mecca in Jumādā al-Ūlā of the year (8)22. Al-Jamāl al-Murshidī said: "Rarely have I seen anyone of his way who was his equal in scrupulousness and piety." Ibn Fahd mentioned him.'

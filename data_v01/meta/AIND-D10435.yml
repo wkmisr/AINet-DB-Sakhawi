@@ -9,36 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05484
-    quote: العيني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00770
-    quote: الشغري
+    mention: m5
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   places:
-  - ref: TMP-L-00410
-    quote: بالعين
-    norm: العين
+  - mention: m9
   note:
     ja: '「وإلا فمولده بالعين」＝生地は العين（見出しの「عين البندق من أعمال الشغر」）。ID-Master 未登録＝TMP-L-00410（初版は #NEEDID）。生年の記載なし。'
 death:
@@ -49,7 +43,7 @@ death:
   note:
     ar: مات في سنة خمس وثمانين فيما بلغني
     ja: 885年＝1480-03-22 開始（h2g.py、年精度）。「فيما بلغني」＝伝聞 → cert medium（初版は cert なし）。没地は原文になし。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: أحمد بن داود
@@ -62,15 +56,14 @@ relations:
   subtype: father
   active: AIND-D10435#p1
   passive: AIND-D10435
-  quote: null
   note:
     ja: 規則3 (c')。父 أحمد بن داود は corpus に本伝なし、識別要素なし。初版の grandfather relation（داود、#NEEDID）はナサブの機械的展開で、原文に祖父の描写はない＝除去し、祖父名は父の desc に含めた。
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -80,57 +73,101 @@ events:
   type: residence
   places:
   - ref: TMP-L-00411
-  quote: نزيل
   note:
     ja: '「ويقال له الشغري لكونه نشأ بها」＝الشغر で育ったので الشغري と呼ばれる。「بها」は直前の الشغر を指す（規則22(3)）。الشغر（アレッポ地方、オロンテス河畔の町。#AIND-D01521「بليدة من الحصون الغربية يجري عندها نهر العاصي」）は ID-Master の Location に未登録＝TMP-L-00411（初版は #NEEDID）。'
   trigger: rule
   phrase: نشأ بها
+  mention: m7
 - id: e2
   type: residence
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: نزيل
+  - mention: m8
   note:
     ja: 見出しの「نزيل حلب」（原文明記）。
   trigger: rule
   phrase: نزيل حلب
+  mention: m10
 - id: e3
   type: cultural
   works:
   - label: تصريف العزي
-  quote: رأيت له نظم تصريف العزي مع شرحه وشرح النظم
   note:
     ja: '著作（サハーウィーが実見）: 『تصريف العزي』（الزنجاني の語形論書）の韻文化、その注釈、およびその韻文への注釈。原本『تصريف العزي』自体は ID-Master 未登録（TMP-T-00227 は التفتازاني の注釈）＝bibl に ref を付けない。初版は英語 desc のみ。'
-  norm: رايت له نظم تصريف العزي مع شرحه وشرح النظم
+  phrase: رأيت له نظم تصريف العزي مع شرحه وشرح النظم
+  mention: null
 - id: e4
   type: cultural
   works:
   - ref: TMP-T-00112
-  quote: وكذا نظم المنهاج الأصلي
   note:
     ja: '著作: 『المنهاج الأصلي』（البيضاوي『منهاج الوصول』＝TMP-T-00112）の韻文化。ref は韻文化の対象書を指す。'
-  norm: كذا نظم المنهاج الاصلي
+  phrase: وكذا نظم المنهاج الأصلي
+  mention: null
 - id: e5
   type: cultural
   works:
   - ref: TMP-T-00065
-  quote: وقطعة من المنهاج الفرعي
   note:
     ja: '著作: 『المنهاج الفرعي』（النووي『منهاج الطالبين』＝TMP-T-00065）の一部の韻文化（「نظم」が前句から掛かる）。'
-  norm: قطعة من المنهاج الفرعي
+  phrase: وقطعة من المنهاج الفرعي
+  mention: null
 - id: e6
   type: cultural
   works:
   - ref: TMP-T-00121
-  quote: وشرح البهجة في ثمان مجلدات
   note:
     ja: '著作: 『البهجة』（TMP-T-00121）の注釈、8巻。'
-  norm: شرح البهجة في ثمان مجلدات
+  phrase: وشرح البهجة في ثمان مجلدات
+  mention: null
 notes:
 - text: 「وهو غير الشهاب الشغري نزيل حلب أيضا وصاحب الترجمة أفضلهما」＝同じくアレッポに住んだ الشهاب الشغري とは別人で、本項主のほうが優れる、という著者の断り。الشهاب الشغري＝#AIND-D01521「أحمد بن محمد بن محمد بن عمر الشهاب أبو العباس الشغري … الحلبي الشافعي … ثم رأيت له بعد دهر شرحا لجمع الجوامع والبهجة … مات قريبا من سنة خمس وثمانين」（ブリーフ候補、ラカブ＋ニスバ＋アレッポで閉合）。別人と明記されているので relation は立てない。ニスバ「العيني نسبة لعين البندق من أعمال الشغر」は由来説明。「وكان خيرا」は人物評（訳のみ）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  ref: TMP-N-05484
+  quote: العيني
+- id: m5
+  kind: name
+  ref: TMP-N-00770
+  quote: الشغري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: event
+  quote: نزيل
+- id: m8
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m9
+  kind: place
+  quote: بالعين
+  ref: TMP-L-00410
+  norm: العين
+- id: m10
+  kind: event
+  quote: نزيل
+- id: m11
+  kind: assessment
+  quote: خيرا
+- id: m12
+  kind: year
+  value: '885'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・アフマド・ブン・ダーウード・アル＝アイニー（シュグル管下のアイン・アル＝ブンドゥクにちなむ）、のちアッ＝シュグリー、シャーフィイー派、アレッポに住んだ。シュグルで育ったのでアッ＝シュグリーと呼ばれるが、生地はアル＝アインである。同じくアレッポに住んだアッ＝シハーブ・アッ＝シュグリーとは別人で、本項の人物のほうが二人のうちでは優れている。私は彼の著作として、『タスリーフ・アル＝イッズィー』の韻文化とその注釈、その韻文への注釈、また『アル＝ミンハージュ・アル＝アスリー』の韻文化、『アル＝ミンハージュ・アル＝ファルイー』の一部（の韻文化）、8巻からなる『アル＝バフジャ』の注釈を見た。善良な人であった。私に届いたところでは885年に没した。神よ彼を憐れみたまえ。
   en: Yūsuf b. Aḥmad b. Dāwūd al-ʿAynī—after ʿAyn al-Bunduq, in the district of al-Shughr—then al-Shughrī, the Shāfiʿī, resident of Aleppo. He is called al-Shughrī because he grew up there, though his birthplace was al-ʿAyn. He is not the same as al-Shihāb al-Shughrī, likewise a resident of Aleppo, and the subject of this entry is the better of the two. I have seen by him a versification of the Taṣrīf of al-ʿIzzī together with a commentary on it and a commentary on the versification, as well as a versification of al-Minhāj al-Aṣlī and of a portion of al-Minhāj al-Farʿī, and a commentary on al-Bahja in eight volumes. He was a good man. He died in the year 885, according to what has reached me; may God have mercy on him.

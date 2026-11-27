@@ -9,62 +9,53 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00296
-    quote: الجعبري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00262
-    quote: القباني
+    mention: m8
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001493
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m7
 death:
   id: d
   date:
     ah: 808-06
     cert: medium
   places:
-  - ref: TMP-L-00344
-    role: burial
+  - role: burial
     cert: medium
-    quote: بحوش الصوفية
-    norm: حوش الصوفية
+    mention: m19
   note:
     ja: 「مات في جمادى الآخر سنة ثمان」＝年は一の位のみ（「سنة ثمان」）＝808・cert medium（イブン・ハジャル『إنباء』に立項＝9世紀初頭で整合）。808年ジュマーダー2月＝月初 1405-12-03。埋葬地「دفن بحوش الصوفية」はマクリーズィー『عقود』の伝（「وأنه دفن بحوش الصوفية」）。سعيد السعداء のスーフィーであったことから السعيدية の可能性が高いが原文は無指定。集約で B121 D07217 の حوش الصوفية السعيدية（TMP-L-00344）に cert medium で統合し、校閲時の仮番号 取り下げた仮番号 B120-L02 は取り下げ（§D120-6）。没地の明記なし。
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: kin
   subtype: son
-  active: AIND-D08707
+  active: m9
   passive: AIND-D07172
   summary:
     ar: العماد محمد بن محمد بن أبي بكر الجعبري القباني
-  quote: والد
   note:
     ja: '「والد العماد محمد الآتي」＝ #AIND-D08707「محمد بن محمد بن أبي بكر بن إسماعيل بن عبد الله الشمس أو العماد الجعبري القاهري الحنبلي القباني الماضي أبوه」（780年頃生）。ナサブ5代一致。初版の #NEEDID を解消。'
 - id: r2
@@ -74,31 +65,26 @@ relations:
   passive: AIND-D07172
   summary:
     ar: أبو بكر بن إسماعيل بن عبد الله الجعبري
-  quote: null
   note:
     ja: 見出しナサブ「أبي بكر بن إسماعيل بن عبد الله … الجعبري」から曾祖父名まで復元（規則3）。corpus に本伝なし・ID-Master 未登録 → 仮番号 TMP-P-001493。初版は relation なし。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00034
-  quote: صناعة القبان
   note:
     ja: '「كان يتعانى صناعة القبان」＝秤量業（القباني、TMP-O-00034）。初版の #NEEDID と placeName القاهرة（原文なし）を是正。'
+  mention: m12
 - id: s2
   type: office
-  ref: TMP-O-00330
-  quote: تعبير الرؤيا
   note:
     ja: 見出しの「العابر」＋「وفاق في تعبير الرؤيا」＝夢解釈者。ID-Master に語根 عبر の Office なし → 仮番号 TMP-O-00330。初版はニスバ（#NEEDID）と office（#NEEDID）に二重に置いていた。placeName القاهرة（原文なし）を除去。
-  norm: تعبير الرءيا
+  mention: m14
 - id: s3
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00018
-  quote: صوفية
   note:
     ja: 「وتنزل … في صوفية سعيد السعداء」。初版の affiliation「affiliated」（二重符号化、規則8）と placeName القاهرة を除去。
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -106,34 +92,107 @@ affiliations:
 events:
 - id: e3
   type: learning
-  quote: وتنزل في دروس الحنابلة
   note:
     ja: ハンバル派の講義（給費）に加わった。師名・施設名の明記なし。
-  norm: تنزل في دروس الحنابلة
+  phrase: وتنزل في دروس الحنابلة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: 'Pattern A。شيخنا＝イブン・ハジャル、『إنباء الغمر』＝TMP-T-00034。『إنباء』では祖父名が إبراهيم とされる（転送見出し #AIND-D07162「محمد بن أبي بكر بن إبراهيم . فيمن اسم جده إسماعيل بن عبد الله」はこの異伝に対応）。初版の grandfather relation（إبراهيم、#NEEDID）は祖父名の異伝であって別の人物ではないため除去。初版の統制外 relation「biographer」を event に改めた。'
   trigger: rule
   phrase: 'قال شيخنا في إنبائه وقد سمي جده فيه إبراهيم : كان يتعانى صناعة القبان وتنزل في دروس الحنابلة وفي صوفية سعيد السعداء وفاق في تعبير الرؤيا'
+  mention: m10
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m17
   works:
   - ref: TMP-T-00122
-  quote: وحكى
   note:
     ja: Pattern A。マクリーズィー『درر العقود الفريدة』（TMP-T-00122）。初版の統制外 relation「biographer」（#NEEDID）を event に改めた。
   trigger: rule
-  norm: حكي
   phrase: وتبعه المقريزي في عقوده ، وحكى من المنامات التي عبرها وأنه دفن بحوش الصوفية
+  mention: m18
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001493
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  ref: TMP-N-00296
+  quote: الجعبري
+- id: m7
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m8
+  kind: name
+  ref: TMP-N-00262
+  quote: القباني
+- id: m9
+  kind: person
+  ref: AIND-D08707
+  quote: والد
+- id: m10
+  kind: source
+  quote: قال
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: office
+  ref: TMP-O-00034
+  quote: صناعة القبان
+- id: m13
+  kind: office
+  ref: wd:Q2892720
+  quote: صوفية
+- id: m14
+  kind: office
+  ref: TMP-O-00330
+  quote: تعبير الرؤيا
+  norm: تعبير الرءيا
+- id: m15
+  kind: month
+  value: 6
+  quote: جمادى الآخر
+- id: m16
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m17
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m18
+  kind: source
+  quote: وحكى
+  norm: حكي
+- id: m19
+  kind: place
+  quote: بحوش الصوفية
+  ref: TMP-L-00344
+  norm: حوش الصوفية
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・イスマーイール・ブン・アブドゥッラー、アッ＝シャムス・アル＝ジャアバリー・アル＝ハンバリー・アル＝カッバーニー・アル＝アービル、後述のアル＝イマード・ムハンマドの父。我らの師（イブン・ハジャル）は『インバー』で——そこでは彼の祖父はイブラーヒームと名づけられている——次のように述べた。「秤量の生業に携わり、ハンバル派の講義とサイード・アッ＝スアダーのスーフィーの給費に加わり、夢解釈に卓越した」。808年ジュマーダー・アル＝アーヒル月に没した。アル＝マクリーズィーは『ウクード』でこれに従い、彼が解釈した夢のいくつかを語り、彼がハウシュ・アッ＝スーフィーヤに埋葬されたと伝えた。
   en: 'Muḥammad b. Abī Bakr b. Ismāʿīl b. ʿAbd Allāh, al-Shams al-Jaʿbarī al-Ḥanbalī al-Qabbānī al-ʿĀbir, the father of al-ʿImād Muḥammad, mentioned below. Our shaykh said in his Inbāʾ—where his grandfather is named Ibrāhīm—: he practised the craft of the steelyard (qabbān), held stipends in the Ḥanbalī lessons and among the Sufis of Saʿīd al-Suʿadāʾ, and excelled in the interpretation of dreams. He died in Jumādā al-Ākhir of the year [80]8. Al-Maqrīzī followed him in his ʿUqūd, related some of the dreams he had interpreted, and (stated) that he was buried in Ḥawsh al-Ṣūfiyya.'

@@ -10,9 +10,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
 death:
   id: d
   date:
@@ -20,25 +19,23 @@ death:
     cert: medium
   note:
     en: Died after 820 AH or around that time ("after the year twenty or thereabouts"). Place of death not stated.
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: wd:Q730299
+  active: m6
   passive: AIND-D00401
   summary:
     ar: قرا يوسف — أمسكه ثم أطلقه وأعطاه بلاده واستمر تحت طاعته حتى مات
-  quote: قرا يوسف
   note:
     en: Initially fought Qara Yūsuf and was defeated and captured; Qara Yūsuf then released him and restored his lands, and he remained under his obedience until his death.
 states:
 - id: s1
   type: office
-  ref: TMP-O-00163
   places:
   - ref: TMP-L-00011
-  quote: ملك
+  mention: m5
 events:
 - id: e1
   type: other
@@ -47,14 +44,12 @@ events:
     cert: high
     type: other
   persons:
-  - ref: wd:Q8462
-    quote: تمرلنك
+  - mention: m3
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: قدم حلب صحبة تمرلنك لما دخل إلى البلاد الشامية
+  - mention: m2
   cert: high
-  norm: قدم حلب صحبة تمرلنك لما دخل الي البلاد الشامية
+  phrase: قدم حلب صحبة تمرلنك لما دخل إلى البلاد الشامية
+  mention: null
 - id: e2
   type: other
   date:
@@ -63,53 +58,97 @@ events:
     type: other
   places:
   - ref: TMP-L-00011
-  quote: null
   cert: medium
   note:
     en: Returned to his homeland (Shamākhī) after the campaign and continued to rule there.
+  mention: null
 - id: e3
   type: political
   places:
   - ref: TMP-L-00060
   summary:
     en: Suffered a defeat when Qara Yūsuf seized Tabrīz and its surroundings and prepared to fight him.
-  quote: أمسكه
   cert: low
   note:
     en: Occurred after 803 AH and before 820 AH.
   trigger: rule
-  norm: امسكه
+  mention: m7
 - id: e4
   type: political
   places:
   - ref: TMP-L-00011
   summary:
     en: Qara Yūsuf arrested him, then released him and returned his lands; he subsequently went to his lands and remained obedient to Qara Yūsuf.
-  quote: فتوجه
   cert: low
   note:
     en: Occurred after the defeat against Qara Yūsuf, and before his death around 820 AH.
   trigger: rule
-  norm: توجه
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: wd:Q57420531
-    quote: ابن خطيب الناصرية
-  quote: ذكره
+  - mention: m11
   trigger: rule
   phrase: ذكره ابن خطيب الناصرية
+  mention: m10
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: وكذا شيخنا في أنبائه لكن باختصار جدا
-  norm: كذا شيخنا في انباءه لكن باختصار جدا
+  phrase: وكذا شيخنا في أنبائه لكن باختصار جدا
+  mention: null
 notes:
 - text: 'Waka裁定D-4(2026-08-10): صاحب شماخي=シルワーンシャーのイブラーヒーム1世(Shaykh Ibrāhīm I of Shirvan、在位784-821H/1382-1417CE、シルワーン=現アゼルバイジャン、首都شماخي)。corresp=wd:Q2637299(WebSearch実照合済)。B20 D01845(Edigü)と同型のheadword corresp付与。'
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m3
+  kind: person
+  ref: wd:Q8462
+  quote: تمرلنك
+- id: m4
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m5
+  kind: office
+  ref: TMP-O-00163
+  quote: ملك
+- id: m6
+  kind: person
+  ref: wd:Q730299
+  quote: قرا يوسف
+- id: m7
+  kind: event
+  quote: أمسكه
+  norm: امسكه
+- id: m8
+  kind: event
+  quote: فتوجه
+  norm: توجه
+- id: m9
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q57420531
+  quote: ابن خطيب الناصرية
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: シャマーヒーおよびその周辺地域を支配するイブラーヒーム。803年にティムールがシャーム地方に入った際にハラブに入城した。その後、故国に戻り、その地の統治者として留まった。カラ・ユースフがタブリーズとその周辺地域を支配すると、イブラーヒームは軍隊を集めてカラ・ユースフとの戦いに備えたが、敗北した。しかし、カラ・ユースフがイブラーヒームを捕らえた後、彼を釈放し、その土地を与えた。イブラーヒームはそこに戻り、820年以降またはその頃に亡くなるまでカラ・ユースフの支配下にあった。イブン・ハティーブ・アン＝ナーシリーヤと、我らがシャイフ（イブン・ハジャル）が『インバーウ（アル＝グムル）』で言及しているが、ごく簡潔である。
   en: Ibrāhīm, the ruler of Shamākhī and its surrounding regions, entered Ḥalab in 803 AH when Timurlank entered the Syrian lands. He then returned to his homeland and continued as its ruler. When Qara Yūsuf seized Tabrīz and its surroundings, Ibrāhīm gathered his troops and prepared for battle, but he was defeated. However, after Qara Yūsuf captured him, he released him and returned his lands. Ibrāhīm returned there and remained under Qara Yūsuf's obedience until his death after 820 AH or around that time. Ibn Khaṭīb al-Nāṣiriyya mentioned him, as did our shaykh (Ibn Ḥajar) in his Inbāʾ (al-Ghumr), but very briefly.

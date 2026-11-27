@@ -9,32 +9,31 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: العلاء
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: null
     label: ابن البرجي
+    mention: null
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07352
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: البهاء
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: البرجي
     by: rule
+    mention: m6
 birth:
   id: b
   date:
@@ -48,36 +47,31 @@ death:
     ah: 875-09
   note:
     en: Died in Ramaḍān 875 AH, aged about seventy.
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07352
+  active: m7
   passive: AIND-D05569
   summary:
     ar: البهاء بن البرجي (الآتي أبوه)
-  quote: أبوه
   note:
     ja: 父 = البهاء محمد بن الحسن بن عبد الله البهاء بن البدر البرجي ثم القاهري الشافعي（#AIND-D07352、「زوجه ابنة السراج البلقيني」）。
-  norm: ابوه
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D12918
+  active: m9
   passive: AIND-D05569
   summary:
     ar: أمه بلقيس (ابنة البدر بن السراج البلقيني)
-  quote: أمه
   note:
     ja: 母 بلقيس ابنة البدر محمد بن السراج عمر بن رسلان البلقيني。父の項 D07352「فتزوج بلقيس ابنة أخيها بدر الدين بن السراج فأولدها أولادا」・ニスバ索引 D11510「فبلقيس تزوجها البهاء البرجي」で完全なナサブが確定。女性部に立項なし → 新規 TMP-P-000917（独立検証パスで補正。D12914 の بلقيس ابنة أحمد بن قشقار は別人）。
-  norm: امه
 - id: r3
   type: kin
   subtype: maternal_grandfather
-  active: TMP-P-000915
+  active: m8
   passive: AIND-D05569
-  quote: البدر بن السراج البلقيني
   note:
     ja: 母方祖父 البدر بن السراج البلقيني（بدر الدين محمد بن عمر بن رسلان、本書対象外）→ 新規 TMP-P-000915。父の項 D07352 末尾「استولد ابنة السراج البلقيني ابنه البدر محمد ثم ماتت فتزوج بلقيس ابنة أخيها بدر الدين بن السراج فأولدها أولادا」により、先妻＝السراج の娘（その子が البدر محمد=D09259）、後妻＝بلقيس ابنة البدر بن السراج（その子が本項主ら）で世代の食い違いはない（独立検証パスで確認、要判断から外す）。
   phrase: سبط البدر بن السراج البلقيني
@@ -88,26 +82,73 @@ relations:
   passive: AIND-D05569
   summary:
     ar: (أخو البدر محمد بعيزق)
-  quote: null
   note:
     ja: 兄弟 = البدر محمد بن محمد بن محمد بن البهاء … أخو علي ووالد أوحد الدين محمد … ويلقب ببعيزق（#AIND-D09259。同項が「أخو علي」と明記）。D07352 により D09259 は先妻（السراج の娘）の子＝本項主の異母兄弟。本項の原文には直接の言及がなく相手側からの閉合。
 - id: r5
   type: kin
   subtype: siblings_child
-  active: AIND-D09241
+  active: m10
   passive: AIND-D05569
-  quote: وعم أوحد الدين محمد بن البرجي
   note:
     ja: 甥 = أوحد الدين محمد بن محمد بن محمد بن محمد … ابن البرجي（#AIND-D09241、父は D09259）。本項主はその父方叔父。
-  norm: وعم اوحد الدين محمد بن البرجي
 states:
 - id: s1
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00018
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D07352
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: العلاء
+- id: m5
+  kind: name
+  quote: البهاء
+- id: m6
+  kind: name
+  quote: البرجي
+- id: m7
+  kind: person
+  ref: AIND-D07352
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: person
+  ref: TMP-P-000915
+  quote: البدر بن السراج البلقيني
+- id: m9
+  kind: person
+  ref: AIND-D12918
+  quote: أمه
+  norm: امه
+- id: m10
+  kind: person
+  ref: AIND-D09241
+  quote: وعم أوحد الدين محمد بن البرجي
+  norm: وعم اوحد الدين محمد بن البرجي
+- id: m11
+  kind: office
+  ref: wd:Q2892720
   quote: أحد صوفية سعيد السعداء
   norm: احد صوفية سعيد السعداء
+- id: m12
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m13
+  kind: year
+  value: '875'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・ムハンマド、アル＝アラー・ブン・アル＝バハー・イブン・アル＝ブルジー。父は後述。アル＝バドル・ブン・アッ＝シラージュ・アル＝ブルキーニーの娘の子で、母はバルキース。アウハド・アッ＝ディーン・ムハンマド・ブン・アル＝ブルジーの叔父。サイード・アッ＝スアダー（ハーンカー）のスーフィーの一人であった。875年ラマダーン月に約70歳で没した。神が彼を赦したまわんことを。
   en: ʿAlī b. Muḥammad b. Muḥammad, al-ʿAlāʾ b. al-Bahāʾ Ibn al-Burjī, whose father is mentioned below. He was the daughter's son of al-Badr b. al-Sirāj al-Bulqīnī, his mother being Balqīs, and the paternal uncle of Awḥad al-Dīn Muḥammad b. al-Burjī. He was one of the Sufis of Saʿīd al-Suʿadāʾ. He died in Ramaḍān 875, aged about seventy; may God pardon him.

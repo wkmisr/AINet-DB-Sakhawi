@@ -9,90 +9,72 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00492
-    quote: المحمودي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00065
-    quote: الناصري
+    mention: m3
   - id: n3
     type: ism
-    quote: تغرى
     by: rule
-    norm: تغري
+    mention: m1
 death:
   id: d
   date:
     ah: 836-11
   note:
     en: Died in battle against Qarā Yulūk in Dhu al-Qaʿdah 836 AH.
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: social
   subtype: rival
-  active: AIND-D11331
+  active: m9
   passive: AIND-D02271
-  quote: قرا يلوك
   note:
     en: 'He fought and died in battle against Qarā Yulūk (Qarā Yülük ʿUthmān, #AIND-D11331, own entry not yet in repo).'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00092
-  quote: رأس نوبة النوب
-  norm: راس نوبة النوب
+  mention: m4
 - id: s2
   type: office
   ref: TMP-O-00014
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m7
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00062
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: أتابكها
-  norm: اتابكها
+  - mention: m7
+  mention: m8
 events:
 - id: e1
   type: visit
   places:
-  - ref: TMP-L-00272
-    quote: بقبرس
-    norm: قبرس
-  quote: null
+  - mention: m6
   note:
     en: He led a military campaign here prior to his imprisonment.
+  mention: null
 - id: e2
   type: residence
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m7
   note:
     en: Appointed as amīr and later atābak here.
+  mention: null
 - id: e3
   type: political
   places:
-  - ref: TMP-L-00272
-    quote: بقبرس
-    norm: قبرس
+  - mention: m6
   summary:
     en: He was the leader of the military expedition that raided the Franks in Cyprus.
-  quote: حبس
   trigger: rule
+  mention: m5
 - id: e4
   type: political
   summary:
     en: He was imprisoned after his return from the Cypriot campaign, but was later released.
-  quote: null
+  mention: null
 notes:
 - text: وقرر أميرا بدمشق بل أتابكهاとあり、「ダマスクスのアミール、いや（正確には）アターベクに任じられた」とすべきで、アミールとして務めたのちにアターベクとなったわけではない。
   lang: ja
@@ -100,6 +82,54 @@ notes:
 - text: The text reads wa-qurrira amīran bi-Dimashq bal atābakahā, which is to be rendered "he was appointed amīr of Dimashq — rather, its atābak"; it does not mean that he served as amīr and only afterwards became atābak.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: تغرى
+  norm: تغري
+- id: m2
+  kind: name
+  ref: TMP-N-00492
+  quote: المحمودي
+- id: m3
+  kind: name
+  ref: TMP-N-00065
+  quote: الناصري
+- id: m4
+  kind: office
+  ref: TMP-O-00092
+  quote: رأس نوبة النوب
+  norm: راس نوبة النوب
+- id: m5
+  kind: event
+  quote: حبس
+- id: m6
+  kind: place
+  quote: بقبرس
+  ref: TMP-L-00272
+  norm: قبرس
+- id: m7
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m8
+  kind: office
+  ref: TMP-O-00062
+  quote: أتابكها
+  norm: اتابكها
+- id: m9
+  kind: person
+  ref: AIND-D11331
+  quote: قرا يلوك
+- id: m10
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m11
+  kind: year
+  value: '836'
+  quote: سنة
 translation:
   ja: タグリー・ビルディー・アル＝マフムーディー・アン＝ナースィリー。官職を歴任して昇進し、禁衛兵長（ラアス・ナウバ・アン＝ヌワブ）に任命された。キプロスでフランク族を襲撃した遠征軍の総司令官を務めた後、投獄された。その後釈放され、ダマスクスのアミール、さらにはそのアターベクに任命された。836年ズー・アル＝カアダ（1433年6月頃）にカラ・ユルクとの戦闘で没した。
   en: Taghrī Birdī al-Maḥmūdī al-Nāṣirī. He was promoted through various services until he was appointed as Chief of the Corps of Mamluks (Raʾs Nawbat al-Nuwab). After leading the expedition against the Franks in Cyprus, he was imprisoned, but later released and appointed as Amīr of Damascus, and eventually its Atābak. He died in battle against Qarā Yulūk in Dhu al-Qaʿdah, 836 AH.

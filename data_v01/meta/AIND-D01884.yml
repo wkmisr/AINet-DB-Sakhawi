@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: ازدمر
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -22,36 +22,30 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m2
   passive: AIND-D01884
   corresp: AIND-D06305
-  quote: الأشرف قايتباي
   note:
     en: Served as dawādār (in Aleppo) for Sultan al-Ashraf Qāytbāy.
-  norm: الاشرف قايتباي
 - id: r2
   type: social
   subtype: colleague
-  active: AIND-D10190
+  active: m6
   passive: AIND-D01884
-  quote: وردبش
   note:
     ja: وردبش=#AIND-D10190(وردبش الظاهري جقمق نائب حلب、889年殺害)。「صبرا」は人名の一部でなく副詞(捕殺)。旧TMP-P-000087汚染解消。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:299817
-    quote: طرسوس
-  quote: نائب
-  norm: ناءب
+  - mention: m4
+  mention: m3
 - id: s2
   type: office
   ref: TMP-O-00063
   places:
   - ref: gn:170063
-  quote: null
+  mention: null
 events:
 - id: e1
   type: other
@@ -60,12 +54,37 @@ events:
     cert: medium
     type: other
   persons:
-  - ref: wd:Q4895760
-    quote: علاء الدولة
+  - mention: m5
   - ref: AIND-D10190
-  quote: وقتله علاء الدولة مع وردبش صبرا
   cert: medium
-  norm: قتله علاء الدولة مع وردبش صبرا
+  phrase: وقتله علاء الدولة مع وردبش صبرا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: ازدمر
+- id: m2
+  kind: person
+  ref: AIND-D06305
+  quote: الأشرف قايتباي
+  norm: الاشرف قايتباي
+- id: m3
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m4
+  kind: place
+  quote: طرسوس
+  ref: gn:299817
+- id: m5
+  kind: person
+  ref: wd:Q4895760
+  quote: علاء الدولة
+- id: m6
+  kind: person
+  ref: AIND-D10190
+  quote: وردبش
 translation:
   ja: アズダマル。タルススのナーイブを務めた後、ハラブでアル＝アシュラフ・カーイトバーイのドゥワーダールとなった。アラー・アッ＝ダウラ（ズー・アル＝カドル侯）により、ワルダビシュとともに捕殺（サブラン）された。
   en: Azdamar, dawādār of al-Ashraf Qāytbāy in Aleppo after having been nāʾib of Tarsus. ʿAlāʾ al-Dawla (the Dhū al-Qadrid) killed him, together with Wardabish, in cold blood (ṣabran).

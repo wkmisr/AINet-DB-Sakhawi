@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00165
-    quote: الهندي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00237
-    quote: الطواشي
+    mention: m3
   - id: n3
     type: ism
-    quote: كافور
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 854-01
   places:
-  - ref: TMP-I-00250
-    role: burial
-    quote: بتربة معتقته خوند هاجر
-    norm: تربة معتقته خوند هاجر
+  - role: burial
+    mention: m7
   note:
     ja: '「مات في المحرم سنة أربع وخمسين ، ودفن بتربة معتقته خوند هاجر ابنة الأتابك منكلي بغا الشمسي زوجة الظاهر برقوق」。854年ムハッラム＝1450-02-23〜03-24（h2g.py、月精度）。没地の記載なし。埋葬地＝解放者 خوند هاجر（#AIND-D13655）の墓廟。ID-Master 未登録 → TMP-I-00250（repo 先例「تربة بكتمر الساقي」TMP-I-00230 等と同型）。初版の幻番号 #TMP-I-00000 を置換。'
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: والد كافور الهندي الطواشي
@@ -41,7 +37,6 @@ relations:
   subtype: father
   active: AIND-D06381#p1
   passive: AIND-D06381
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、宦官）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
@@ -51,21 +46,48 @@ relations:
   passive: AIND-D06381
   summary:
     ar: خوند هاجر ابنة منكلي بغا الشمسي
-  quote: null
   note:
     ja: '解放者（معتقته）＝主人（規則51）。خوند هاجر ＝ #AIND-D13655（هاجر ابنة منكلي بغا الشمسي … تزوجها الظاهر برقوق … ماتت بالطاعون في رجب سنة ثلاث وثلاثين）。初版の #NEEDID を置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00100
-  quote: رأس نوبة الجمدارية
   note:
     ja: ref は既登録 رأس نوبة الجمدارية（TMP-O-00100、実体一致。precheck の汚染注意は B22 の別流用に関するもの）。
-  norm: راس نوبة الجمدارية
+  mention: m4
 - id: s2
   type: office
   ref: TMP-O-00121
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: كافور
+- id: m2
+  kind: name
+  ref: TMP-N-00165
+  quote: الهندي
+- id: m3
+  kind: name
+  ref: TMP-N-00237
+  quote: الطواشي
+- id: m4
+  kind: office
+  ref: TMP-O-00100
+  quote: رأس نوبة الجمدارية
+  norm: راس نوبة الجمدارية
+- id: m5
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m6
+  kind: year
+  value: '854'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بتربة معتقته خوند هاجر
+  ref: TMP-I-00250
+  norm: تربة معتقته خوند هاجر
 translation:
   ja: カーフール・アル＝ヒンディー・アッ＝タワーシー（宦官）、ジャムダーリーヤ隊のラアス・ナウバ。サーキーを務めた。854年ムハッラム月に没し、彼の解放者であるホンド・ハージャル——アターバク・マンカリー・ブガー・アッ＝シャムシーの娘で、アッ＝ザーヒル・バルクークの妻——の墓廟に葬られた。
   en: Kāfūr al-Hindī al-Ṭawāshī (the eunuch), raʾs nawbat al-jamdāriyya. He had been a cupbearer (sāqī). He died in Muḥarram 854 and was buried in the turba of his manumitter Khwand Hājar, daughter of the atābak Mankalī Bughā al-Shamsī and wife of al-Ẓāhir Barqūq.

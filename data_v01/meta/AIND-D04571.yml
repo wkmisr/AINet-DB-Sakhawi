@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00164
-    quote: الكردي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m9
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001225
+    mention: m2
   - id: n6
     type: nasab
-    quote: خليل
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: بكتوت
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: بيرم
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: بكتوت
     by: rule
+    mention: m6
   - id: n10
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m11
 birth:
   id: b
   date:
@@ -56,14 +51,14 @@ birth:
     cert: medium
   note:
     en: Born in Ramaḍān 778 according to his own statement to al-Sakhāwī (qāla lī).
-  quote: سنة
+  mention: m13
 death:
   id: d
   date:
     ah: 866
   note:
     ja: 原文「وأنه مات سنة ست وستين」は「قال لي أنه …」の構文に引きずられた表現で、没年 866 は著者の記述として読む。
-  quote: سنة
+  mention: m16
 persons:
 - id: p1
   label: ابنة أخت ابن الظريف أمين الحكم
@@ -77,43 +72,36 @@ relations:
   subtype: father
   active: TMP-P-001225
   passive: AIND-D04571
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001225 を発行。汚染番号 TMP-P-000529（別人 محمد）を差し替え。
   phrase: محمد بن خليل بن بكتوت
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D07813
+  active: m10
   passive: AIND-D04571
-  quote: بن بيرم
   note:
     ja: 'الشمس بن بيرم الحنبلي ＝ #AIND-D07813（محمد بن عبد الله بن محمد بن خليل بن بكتوت بن بيرم بن بكتوت الشمس الكردي الأصل … القاهري الحسيني الحنبلي … ويعرف بابن بيرم）。ナサブ完全一致。初版の #NEEDID を解消。'
   phrase: والد الشمس بن بيرم الحنبلي
 - id: r3
   type: kin
   subtype: spouse
-  active: AIND-D04571#p1
+  active: m14
   passive: AIND-D04571
-  quote: أخت ابن الظريف أمين الحكم
   note:
     ja: '無名（ابن الظريف の姉妹の娘）のため #NEEDID 維持。'
-  norm: اخت ابن الظريف امين الحكم
 - id: r4
   type: kin
   subtype: daughter
-  active: AIND-D04571#p2
+  active: m15
   passive: AIND-D04571
-  quote: ابنته الموجودة الآن
   note:
     ja: '無名のため #NEEDID 維持。'
-  norm: ابنته الموجودة الان
 - id: r5
   type: kin
   subtype: relative
   active: AIND-D00185
   passive: AIND-D04571
-  quote: null
   note:
     ja: '妻の母方の叔父（姻戚）。ابن الظريف أمين الحكم ＝ #AIND-D00185（إبراهيم بن علي بن إسماعيل … البلبيسي الأصل القاهري الشافعي … ويعرف بابن الظريف … أضيفت إليه أمانة الحكم）。'
   phrase: ابن الظريف أمين الحكم
@@ -123,12 +111,74 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: TMP-T-00162
-  quote: حفظ القرآن وبعض القدوري
-  norm: حفظ القران وبعض القدوري
+  phrase: حفظ القرآن وبعض القدوري
+  mention: null
 - id: e2
   type: cultural
-  quote: ألم بالفرائض
-  norm: الم بالفراءض
+  phrase: ألم بالفرائض
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001225
+  quote: محمد
+- id: m3
+  kind: name
+  quote: خليل
+- id: m4
+  kind: name
+  quote: بكتوت
+- id: m5
+  kind: name
+  quote: بيرم
+- id: m6
+  kind: name
+  quote: بكتوت
+- id: m7
+  kind: name
+  ref: TMP-N-00164
+  quote: الكردي
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m10
+  kind: person
+  ref: AIND-D07813
+  quote: بن بيرم
+- id: m11
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m12
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m13
+  kind: year
+  value: '778'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: AIND-D04571#p1
+  quote: أخت ابن الظريف أمين الحكم
+  norm: اخت ابن الظريف امين الحكم
+- id: m15
+  kind: person
+  ref: AIND-D04571#p2
+  quote: ابنته الموجودة الآن
+  norm: ابنته الموجودة الان
+- id: m16
+  kind: year
+  value: '866'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・ハリール・ブン・バクトゥート・ブン・バイラム・ブン・バクトゥート、クルド系を本貫とするアル＝カーヒリー・アル＝フサイニー、ハンバリー派のアッ＝シャムス・ブン・バイラムの父。彼は私に、778年ラマダーン月に生まれたこと、クルアーンと『クドゥーリー』の一部を暗記したこと、相続法（ファラーイド）を少しかじったこと、アミーン・アル＝フクム（法廷財産管理官）のイブン・アッ＝ザリーフの姉妹の娘と結婚して現在も存命の娘をもうけたことを語った。866年に没した。
   en: ʿAbd Allāh b. Muḥammad b. Khalīl b. Baktūt b. Bayram b. Baktūt, of Kurdish origin, al-Qāhirī, al-Ḥusaynī, father of al-Shams b. Bayram al-Ḥanbalī. He told me that he was born in Ramaḍān 778, that he memorised the Qurʾān and part of al-Qudūrī, that he had some acquaintance with the law of inheritance (farāʾiḍ), and that he married the daughter of the sister of Ibn al-Ẓarīf, the amīn al-ḥukm, by whom he had his daughter, who is still living. He died in the year 866.

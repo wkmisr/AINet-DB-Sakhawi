@@ -9,20 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03698
-    quote: اللكاشي
+    mention: m2
   - id: n2
     type: ism
-    quote: سودون
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 830
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
+  - mention: m10
   note:
     ar: Died in around 830 AH (في حدود الثلاثين).
 persons:
@@ -33,78 +30,110 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D03233#p1
+  active: m3
   passive: AIND-D03233
-  quote: أقبغا
   note:
     en: His first master, after whom he attached himself to Amir Shaykh.
-  norm: اقبغا
 - id: r2
   type: social
   subtype: patron
   active: AIND-D03345
   passive: AIND-D03233
-  quote: null
   note:
     en: He attached himself to Amir Shaykh, who appointed him as an amir and then promoted him to Taqdima after becoming sultan.
   phrase: الأمير شيخ
 - id: r3
   type: social
   subtype: rival
-  active: AIND-D03422
+  active: m6
   passive: AIND-D03233
-  quote: ططر
   note:
     en: Sultan Ṭaṭar arrested and imprisoned him during his administration.
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m8
   passive: AIND-D03233
-  quote: الأشرف
   note:
     en: Sultan al-Ashraf Barsbāy released him from prison and granted him a Tablkhānāh in Tripoli.
-  norm: الاشرف
 states:
 - id: s1
   type: office
-  ref: TMP-O-00014
-  quote: بالأمير
-  norm: الامير
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00083
-  quote: التقدمة
+  mention: m5
 - id: s3
   type: office
-  ref: TMP-O-00016
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: بطبلخاناه
-  norm: طبلخاناه
+  - mention: m10
+  mention: m9
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:266826
-    quote: بطرابلس
-    norm: طرابلس
-  quote: فأقام
+  - mention: m10
   note:
     en: Resided in Tripoli after his release from prison until his death.
   trigger: rule
-  norm: اقام
+  mention: m11
 - id: e2
   type: political
   summary:
     en: Arrested and imprisoned by Sultan Ṭaṭar, and remained in prison until he was released by Sultan al-Ashraf Barsbāy.
-  quote: وحبسه
   note:
     en: Occurred during the regency/administration of Sultan Ṭaṭar.
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: سودون
+- id: m2
+  kind: name
+  ref: TMP-N-03698
+  quote: اللكاشي
+- id: m3
+  kind: person
+  ref: AIND-D03233#p1
+  quote: أقبغا
+  norm: اقبغا
+- id: m4
+  kind: office
+  ref: TMP-O-00014
+  quote: بالأمير
+  norm: الامير
+- id: m5
+  kind: office
+  ref: TMP-O-00083
+  quote: التقدمة
+- id: m6
+  kind: person
+  ref: AIND-D03422
+  quote: ططر
+- id: m7
+  kind: event
+  quote: وحبسه
   norm: حبسه
+- id: m8
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m9
+  kind: office
+  ref: TMP-O-00016
+  quote: بطبلخاناه
+  norm: طبلخاناه
+- id: m10
+  kind: place
+  quote: بطرابلس
+  ref: gn:266826
+  norm: طرابلس
+- id: m11
+  kind: event
+  quote: فأقام
+  norm: اقام
 translation:
   ja: スードゥン・アル＝ラッカーシー・アクブガー。最初［の主人アクブガー］ののち、アミール・シャイフに仕えた。シャイフがスルターンに即位すると彼をアミールに任命し、次いでタカッディマ（千人隊長）に昇進させた。タタール（タタル）が執政の時に彼を逮捕して投獄したが、のちにアル＝アシュラフ（バルスバーイ）が彼を釈放し、トリポリのタブルハーナー（四十人隊長）の禄を与えた。彼は830年頃に没するまでそこに留まった。彼は有力者の一人ではなかった。
   en: Sūdūn al-Lakkāshī, [mamlūk of] Aqbughā. After him [his first master Aqbughā], he attached himself to Amir Shaykh. When Shaykh became sultan, he appointed him as an amir, then promoted him to the rank of Taqdima (commander of a thousand). Ṭaṭar arrested and imprisoned him during his administration, until al-Ashraf [Barsbāy] released him and granted him a Tablkhānāh (command of forty) in Tripoli. He resided there until his death around the year 830 AH. He was not among the prominent notables.

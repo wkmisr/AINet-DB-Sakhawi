@@ -9,20 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00237
-    quote: الطواشي
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: سنبل الصغير
+    mention: m4
   - id: n4
     type: ism
-    quote: سنبل
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد سنبل الأشرفي
@@ -37,9 +34,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03188#p1
+  active: m8
   passive: AIND-D03188
-  quote: خوند
   note:
     ja: '規則3（単名の宦官。Waka 裁定 2026-10-21 B124-128 ★1）。父の名は原文に出ない → #NEEDID。'
 - id: r2
@@ -47,7 +43,6 @@ relations:
   subtype: patron
   active: AIND-D03188#p2
   passive: AIND-D03188
-  quote: null
   note:
     ja: '「كان خازندار أستاذه ومن المبجلين المقربين … ثم غضب عليه لبعض الأسباب وسلمه لشيخ عرب هوارة」＝主人（أستاذه、規則51）。主人ニスバ「الأشرفي」のみで、どの الأشرف（برسباي #AIND-D02168／إينال #AIND-D02110／قايتباي #AIND-D06305）かは本項から決まらない → #NEEDID。候補: #AIND-D06461（محسن … الأشرفي قايتباي الطواشي「استقر به خازنا عوض سنبل」）が本項主を指すなら قايتباي（ISSUES §D159-9）。初版の統制外 subtype「client」（desc「أستاذه」）を patron に（規則31: desc は続柄句でなく「أستاذ＋本項主の呼称」書式）。'
 - id: r3
@@ -55,60 +50,100 @@ relations:
   subtype: patron
   active: AIND-D03188#p3
   passive: AIND-D03188
-  quote: null
   note:
     ja: '「ممن حج في خدمة خوند」＝خوند（スルターンの正妻、名なし）に仕えて巡礼（規則56「كان في خدمة X」→ patron）。名がなく ID-Master の خوند 行（TMP-P-001484 خوند الكبرى زوجة برسباي 等）とも同定できない → #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00073
-  quote: خازندار
   note:
     ja: '「كان خازندار أستاذه」＝主人の財庫管理官。ID-Master 既登録 TMP-O-00073 خازندار（規則48）。初版の #NEEDID（label「خازندار أستاذه」）を置換。'
+  mention: m5
 - id: s2
   type: status
   label: من المبجلين المقربين
-  quote: ومن المبجلين المقربين
-  norm: من المبجلين المقربين
+  mention: m6
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   note:
     ja: 巡礼（規則20 により placeName مكة を許容）。年なし。
   trigger: rule
   phrase: ممن حج في خدمة خوند
+  mention: m7
 - id: e2
   type: political
-  quote: ثم غضب عليه لبعض الأسباب وسلمه لشيخ عرب هوارة
   note:
     ja: '主人の怒りを買い、ハウワーラ族のシャイフ（名なし）に引き渡された。シャイフは名がないので relation を立てない（規則14。初版の統制外 subtype「custodian」relation #NEEDID を除去）。'
-  norm: ثم غضب عليه لبعض الاسباب وسلمه لشيخ عرب هوارة
+  phrase: ثم غضب عليه لبعض الأسباب وسلمه لشيخ عرب هوارة
+  mention: null
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00039
-    quote: بالهند
-    norm: الهند
-  - ref: TMP-L-00079
-    quote: وسواكن
-    norm: سواكن
-  - ref: TMP-L-00049
-    quote: كعدن
-    norm: عدن
-  - ref: TMP-L-00172
-    quote: وهرموز
-    norm: هرموز
-  quote: وسندت بالهند وسواكن وغيرهما كعدن وهرموز بعد
+  - mention: m9
+  - mention: m10
+  - mention: m11
+  - mention: m12
   note:
     ja: その後インド・サワーキン・アデン・ホルムズ等に（渡った／転々とした）。刊本の動詞「وسندت」は不明瞭（規則25＝原文どおり保持、訳は文脈で補う）。初版の visit event ×4 を1本の travel event に統合（placeName 4件は保持、規則22(2)）。年なし。
-  norm: سندت بالهند وسواكن وغيرهما كعدن وهرموز بعد
+  phrase: وسندت بالهند وسواكن وغيرهما كعدن وهرموز بعد
+  mention: null
 notes:
 - text: 「ويقال له سنبل الصغير للتمييز عن آخر أكبر منه」＝同名の年長者（سنبل الكبير）と区別するための呼称。年長の سنبل は corpus に見出しなし（hw.py「سنبل」該当は本項のみ）。#AIND-D06461「محسن الفتحي … ثم الأشرفي قايتباي الطواشي الحبشي . استقر به خازنا عوض سنبل」の前任 سنبل は本項主（الأشرفي の خازندار）の可能性があるが、2人の سنبل がいるので同定しない（ISSUES §D159-9）。初版の honorific「الطواشي」（nisbah と二重）を除去。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: سنبل
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: name
+  ref: TMP-N-00237
+  quote: الطواشي
+- id: m4
+  kind: name
+  quote: سنبل الصغير
+- id: m5
+  kind: office
+  ref: TMP-O-00073
+  quote: خازندار
+- id: m6
+  kind: office
+  quote: ومن المبجلين المقربين
+  norm: من المبجلين المقربين
+- id: m7
+  kind: event
+  quote: حج
+- id: m8
+  kind: person
+  ref: AIND-D03188#p1
+  quote: خوند
+- id: m9
+  kind: place
+  quote: بالهند
+  ref: TMP-L-00039
+  norm: الهند
+- id: m10
+  kind: place
+  quote: وسواكن
+  ref: TMP-L-00079
+  norm: سواكن
+- id: m11
+  kind: place
+  quote: كعدن
+  ref: TMP-L-00049
+  norm: عدن
+- id: m12
+  kind: place
+  quote: وهرموز
+  ref: TMP-L-00172
+  norm: هرموز
 translation:
   ja: スンブル・アル＝アシュラフィー、宦官（アッ＝タワーシー）。年長の同名者と区別して「小スンブル（スンブル・アッ＝サギール）」と呼ばれる。主人の財庫管理官（ハーズィンダール）で、重んじられ側近とされた者の一人であり、ハワンド（王妃）に仕えて巡礼した者の一人であった。その後、（主人は）何らかの理由で彼に怒り、彼をハウワーラ族のアラブのシャイフに引き渡した。彼はその後インド、サワーキン、そのほかアデンやホルムズなどに（渡った）。
   en: Sunbul al-Ashrafī the eunuch (al-ṭawāshī), called Sunbul al-Ṣaghīr (the Younger) to distinguish him from another, older [Sunbul]. He was the treasurer (khāzindār) of his master and one of the honoured intimates, one of those who performed the pilgrimage in the service of Khawand (the sultan's consort). Then [his master] became angry with him for certain reasons and handed him over to the shaykh of the Hawwāra Arabs, and afterwards he was in India, Suakin, and elsewhere, such as Aden and Hormuz [the verb in the printed text, "wa-sunidat", is unclear].

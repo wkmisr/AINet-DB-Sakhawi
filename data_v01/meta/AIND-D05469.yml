@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n2
     type: laqab
-    quote: العلاء
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عرب
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -33,8 +32,8 @@ death:
     cert: medium
   note:
     ja: 「سنة اثنتين」は一の位のみ → 802（cert medium。『إنباء』の記事であり文脈上 80X）。802年サファル＝1399-10-11 開始（月精度 1399-10）。初版の @when 1399 を月精度に。
-  quote: سنة
   phrase: ومات في صفر سنة اثنتين
+  mention: m11
 persons:
 - id: p1
   label: محمد بن عرب القاهري
@@ -47,7 +46,6 @@ relations:
   subtype: father
   active: AIND-D05469#p1
   passive: AIND-D05469
-  quote: null
   note:
     ja: '規則3。見出しナサブのみの汎用名（識別要素なし）、corpus に本伝なし（「ابن عرب」の見出しは別家系 D00450・D00458）→ #NEEDID。初版は relation なし。'
 - id: r2
@@ -55,35 +53,71 @@ relations:
   subtype: maternal_grandfather
   active: TMP-P-001540
   passive: AIND-D05469
-  quote: null
   note:
     ja: 「سبط الكمال التركماني القاضي」＝母方の祖父（初版の subtype grandfather・#NEEDID を是正）。ラカブ・ニスバ・職（القاضي）の識別要素があるため仮番号 TMP-P-001540（規則12）。corpus に本伝なし（「الكمال التركماني」は本項のみ）、ID-Master 未登録。
   phrase: الكمال التركماني القاضي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
-  quote: ناب
   note:
     ja: 「ناب في الحكم」＝裁判代理官（#TMP-O-00096、実体一致）。初版の placeName「بعض البلاد」（地名ではない）を除去し desc に。
   phrase: ناب في الحكم ببعض البلاد
+  mention: m9
 - id: s2
   type: office
-  ref: TMP-O-00041
-  quote: القاضي
   phrase: بل ولي قضاء العسكر
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。初版は death の en note に埋め込んでいた。
   trigger: rule
   phrase: قال شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عرب
+- id: m4
+  kind: name
+  quote: العلاء
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: office
+  ref: TMP-O-00041
+  quote: القاضي
+- id: m7
+  kind: source
+  quote: قال
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m9
+  kind: office
+  ref: TMP-O-00096
+  quote: ناب
+- id: m10
+  kind: month
+  value: 2
+  quote: صفر
+- id: m11
+  kind: year
+  value: '802'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アラブ、アル＝アラー・アル＝カーヒリー、カーディーのアル＝カマール・アッ＝トゥルクマーニーの外孫。我らがシャイフ（イブン・ハジャル）は『インバー』で言う。「いくつかの地方で裁判代理を務め、さらには軍カーディー職に就いた。（80）2年サファル月に没した」。
   en: 'ʿAlī b. Muḥammad b. ʿArab, al-ʿAlāʾ al-Qāhirī, the daughter''s son of the qāḍī al-Kamāl al-Turkumānī. Our shaykh (Ibn Ḥajar) said in his Inbāʾ: "He served as deputy judge in some provinces, and indeed held the office of qāḍī al-ʿaskar (army judge); he died in Ṣafar of the year [80]2."'

@@ -9,40 +9,60 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00211
-    quote: القرافي
+    mention: m2
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m3
 death:
   id: d
   date:
     ah: 816
   note:
     ja: 没地の記載なし。816 ＝ 1413-04-12〜1414-04-01、年初 1413（h2g.py）。
-  quote: سنة
   phrase: مات سنة ست عشرة
+  mention: m6
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: TMP-L-00311
-    quote: دار التفاح
-  quote: نائب الحكم بمركز
+  - mention: m5
   note:
     ja: نائب الحكم＝TMP-O-00096（カノニカル職。ID-Master Note に「نائب الحكم بمركز دار…」の用例あり）。مركز＝裁判代理官の出張所。دار التفاح はミスル（フスタート）の地区名（corpus D05391「ولد … بدار التفاح بمصر」、D07986「جلس شاهدا بالقرب من دار التفاح」）で ID-Master 未登録のため仮番号 TMP-L-00311 を発行。初版の affiliation（employed、مركز دار التفاح）は state との二重符号化のため除去（規則8）、原文にない `date type="retirement"`（没年を退任日に転用）も除去。
-  norm: ناءب الحكم بمركز
+  mention: m4
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-N-00211
+  quote: القرافي
+- id: m3
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m4
+  kind: office
+  ref: TMP-O-00096
+  quote: نائب الحكم بمركز
+  norm: ناءب الحكم بمركز
+- id: m5
+  kind: place
+  quote: دار التفاح
+  ref: TMP-L-00311
+- id: m6
+  kind: year
+  value: '816'
+  quote: سنة
 translation:
   ja: アリー・アル＝カラーフィー、ハナフィー派。ダール・アッ＝トゥッファーフの出張所（マルカズ）の裁判代理官。（8）16年に没した。
   en: ʿAlī al-Qarāfī, the Ḥanafī, deputy judge (nāʾib al-ḥukm) at the court station (markaz) of Dār al-Tuffāḥ. He died in the year (8)16.

@@ -9,66 +9,60 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الرحيم
     by: rule
-    ref: AIND-D03881
+    mention: m2
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: بكتمر
     by: rule
+    mention: m5
   - id: n6
     type: nasab
-    quote: الحاجب
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 853
   note:
     en: Died young of the plague in the year 853 AH.
-  quote: سنة
   phrase: مات صغيرا في الطاعون سنة ثلاث وخمسين
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03881
+  active: m11
   passive: AIND-D04471
-  quote: عبد الرحيم
   note:
     ja: '父＝#AIND-D03881（刊本第471項 عبد الرحيم بن محمد بن عبد الله بن بكتمر الزيني بن ناصر الدين ابن جمال الدين بن الأمير الحاجب … ووالد عبد الرحمن الماضي وعبد الله وألف، ويعرف كسلفه بابن الحاجب、850年直前カイロ没）。ナサブ4代と子3人（عبد الرحمن・عبد الله・ألف）の列挙が本項と完全に一致。初版は #NEEDID。※既存 #AIND-D03644（兄 عبد الرحمن）の father relation は D03881 を見落として TMP-P-001106 を新規発行しており、名寄せが必要（ISSUES §Da-2）。'
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D12870
+  active: m8
   passive: AIND-D04471
-  quote: وأمه تركية رومية
   note:
     ja: 母＝#AIND-D12870（女性部第27項 أزدان رومية استولدها عبد الرحيم بن الحاجب ولده عبد الله ومات عنها …）。「عبد الرحيم بن الحاجب の子 عبد الله を産んだルーム人女奴隷 أزدان」と明記され、合同索引 D12243 にも「فعبد الله أمه رومية اسمها ازدان」とある。初版は active="" の空 relation。
-  norm: وامه تركية رومية
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D03644
+  active: m7
   passive: AIND-D04471
   summary:
     ar: أخو عبد الرحمن … لأبيه
-  quote: أخو
   note:
     ja: '兄＝#AIND-D03644（عبد الرحمن بن عبد الرحيم بن ناصر الدين محمد بن جمال الدين عبد الله ابن … بكتمر الحاجب、850年ラジャブ8日没〔一説に853年ペスト〕）。本項の「مات عبد الرحمن بعد أبيه عبد الرحيم بدون سنتين」とも整合。「لأبيه」＝父方の異母兄弟。初版は #NEEDID。'
-  norm: اخو
 - id: r4
   type: kin
   subtype: sister
@@ -76,19 +70,59 @@ relations:
   passive: AIND-D04471
   summary:
     ar: أخو … ألف لأبيه
-  quote: null
   note:
     ja: 姉妹＝#AIND-D12883（女性部第40項 ألف ابنة عبد الرحيم بن الناصري محمد بن الجمال عبد الله بن بكتمر الحاجب）。ألف は女性名であり、初版の subtype="brother" は誤り。父方の異母姉妹。
 - id: r5
   type: kin
   subtype: siblings_child
-  active: TMP-P-001117
+  active: m10
   passive: AIND-D04471
-  quote: ابن أخيه
   note:
     ja: 甥 محمد بن عبد الرحمن بن عبد الرحيم（兄 عبد الرحمن〔D03644〕の子、853年ペストで本項主と同日に没）。corpus に本伝なし・ID-Master 未登録（「محمد بن عبد الرحمن بن عبد الرحيم」で検索、corpus 内の同名句は別人〔محمد بن عبد الرحمن بن عبد الرحيم بن محمد بن يوسف بن أبي المعالي يحيى〕のみ）。3代ナサブと没年という識別要素があるため規則12により TMP-P-001117 を新規発行。
-  norm: ابن اخيه
   phrase: وكذا مات معه في يومه ابن أخيه محمد بن عبد الرحمن بن عبد الرحيم
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D03881
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: بكتمر
+- id: m6
+  kind: name
+  quote: الحاجب
+- id: m7
+  kind: person
+  ref: AIND-D03644
+  quote: أخو
+  norm: اخو
+- id: m8
+  kind: person
+  ref: AIND-D12870
+  quote: وأمه تركية رومية
+  norm: وامه تركية رومية
+- id: m9
+  kind: year
+  value: '853'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-001117
+  quote: ابن أخيه
+  norm: ابن اخيه
+- id: m11
+  kind: person
+  ref: AIND-D03881
+  quote: عبد الرحيم
 translation:
   ja: アブドゥッラー・ブン・アブドゥッラヒーム・ブン・ムハンマド・ブン・アブドゥッラー・ブン・バクタムル・ブン・アル＝ハージブ。アブドゥッラフマーンとアリフの父方の兄弟で、彼の母はトルコ系のルーム人女性であった。ヒジュラ暦853年のペストで幼くして没し、同じくその日に彼の甥ムハンマド・ブン・アブドゥッラフマーン・ブン・アブドゥッラヒームも共に没した。またアブドゥッラフマーンは、父アブドゥッラヒームの死後2年に満たずして没した。
   en: ʿAbd Allāh b. ʿAbd al-Raḥīm b. Muḥammad b. ʿAbd Allāh b. Baktamur b. al-Ḥājib. He was the paternal brother of ʿAbd al-Raḥmān and Alif, and his mother was a Turkish Rūmī woman. He died young of the plague in the year 853, and likewise his nephew Muḥammad b. ʿAbd al-Raḥmān b. ʿAbd al-Raḥīm died with him on the same day. ʿAbd al-Raḥmān died less than two years after his father ʿAbd al-Raḥīm.

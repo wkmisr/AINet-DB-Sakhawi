@@ -9,51 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00145
-    quote: البلبيسي
+    mention: m7
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن العماد
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001667
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: العماد
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 874-06
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  - ref: TMP-L-00344
-    role: burial
-    quote: بحوش سعيد السعداء
-    norm: حوش سعيد السعداء
+  - mention: m10
+  - role: burial
+    mention: m13
   note:
     ja: '「مات عند ولده بالقاهرة في جمادى الثانية سنة أربع وسبعين ودفن بحوش سعيد السعداء」。874年ジュマーダー・アル＝アーヒラ月＝1469-12-15 開始（月精度 → 1469-12。初版の @when 1469 を月精度に）。息子（#AIND-D08956）の家で没。埋葬地 حوش سعيد السعداء＝ID-Master 既登録 TMP-L-00344「حوش الصوفية السعيدية (بخانقاه سعيد السعداء، القاهرة)」（サイード・アッ＝スアダー・ハーンカー TMP-I-00018 付属の墓域）と同一とみて cert medium（先例 #AIND-D07172「حوش الصوفية」cert medium。corpus には「حوش سعيد السعداء」が 42 行出現＝別名登録の要否は ISSUES §D151-6）。初版の書式不正 #TMP-X-00000 ×2 を置換。'
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
@@ -62,29 +56,76 @@ relations:
   passive: AIND-D08172
   summary:
     ar: علي بن محمد بن محمد العماد ابن العماد البلبيسي
-  quote: null
   note:
     ja: '見出し「الشمس بن العماد البلبيسي」を字義どおり読めば父 علي のラカブ＝العماد（ラカブ＋家名＋祖父・曾祖父名で識別可 → 新規 TMP-P-001667、規則3）。ただし子の項 #AIND-D08956 は「ويعرف كهو بابن العماد وهو لقب جد والده」＝العماد は D08956 の父（本項主）の祖父のラカブとするため、「بن العماد」は家名「ابن العماد」の省略の可能性もある（規則25 で原文どおり読み、食い違いを note）。corpus に本伝なし（hw.py「علي بن محمد بن محمد」「البلبيسي」）、ID-Master 未登録。初版なし。'
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D08956
+  active: m9
   passive: AIND-D08172
   summary:
     ar: الشمس محمد بن محمد بن علي ابن العماد البلبيسي
-  quote: ولده
   note:
     ja: 「والد صاحبنا الشمس محمد الآتي」「مات عند ولده」＝#AIND-D08956「محمد بن محمد بن علي بن محمد بن محمد الشمس الحملي ثم البلبيسي القاهري الشافعي الماضي أبوه والآتي ولده محمد ويعرف كهو بابن العماد … ولد … سنة خمس وعشرين وثمانمائة ببلبيس」（未収録。「الماضي أبوه」で閉合、規則37。repo の D04043 で父・本項主で祖父として既使用）。初版の汚染番号 TMP-P-000063（登録＝الشمس محمد、D0031 の兄弟）を置換。
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m8
 notes:
 - text: '孫: #AIND-D04043 عبد الغفار بن الشمس محمد（収録済み、grandfather #AIND-D08172 で閉合）・#AIND-D09158 محمد بن محمد بن محمد بن علي … الشمس بن الشمس بن العماد البلبيسي（収録済み、853生）。「وكان خيرا أصيلا」は人物評（訳のみ）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001667
+  quote: علي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: العماد
+- id: m7
+  kind: name
+  ref: TMP-N-00145
+  quote: البلبيسي
+- id: m8
+  kind: assessment
+  quote: خيرا
+- id: m9
+  kind: person
+  ref: AIND-D08956
+  quote: ولده
+- id: m10
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m11
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m12
+  kind: year
+  value: '874'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: بحوش سعيد السعداء
+  ref: TMP-L-00344
+  norm: حوش سعيد السعداء
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・ムハンマド、アッ＝シャムス・ブン・アル＝イマード・アル＝ビルビースィー、後述の我らが友アッ＝シャムス・ムハンマドの父。善良で名門の出であった。（8）74年ジュマーダー・アル＝アーヒラ月にカイロの息子のもとで没し、サイード・アッ＝スアダーのハウシュ（墓域）に葬られた。神よ彼を憐れみ給え。
   en: Muḥammad b. ʿAlī b. Muḥammad b. Muḥammad, al-Shams b. al-ʿImād al-Bilbīsī, the father of our companion al-Shams Muḥammad, who will be mentioned. He was a good man of noble stock. He died at his son's (house) in Cairo in Jumādā al-Ākhira of the year [8]74 and was buried in the ḥawsh of Saʿīd al-Suʿadāʾ, may God have mercy on him.

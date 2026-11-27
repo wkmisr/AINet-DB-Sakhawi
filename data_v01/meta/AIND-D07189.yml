@@ -9,46 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m6
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن السمنودي
-    norm: ابن السمنودي
     label: ابن السمنودي
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001511
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: الزين
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D07189
   methods:
   - TMP-S-00008
   context:
   - type: learning
     phrase: ممن أخذ عني
-  quote: عني
   note:
     ja: 「ممن أخذ عني」＝本項主がサハーウィーから学んだ（規則2 の同型。active=師 wd:Q4120128）。
 - id: r2
@@ -58,9 +53,38 @@ relations:
   passive: AIND-D07189
   summary:
     ar: الزين أبو بكر بن سليمان المحلي
-  quote: null
   note:
     ja: 父 الزين أبو بكر بن سليمان المحلي（ابن السمنودي）。corpus の أبو بكر بن سليمان 見出し（#AIND-D10701・D10702・D10703・D10704＝الحلبي／المكي／الداديخي）はいずれもニスバが合わず本伝なし。ID-Master にも該当人物の登録なし（السمنودي で grep）。集約で父の扱いをチャンク間で統一（父自身のラカブ・クンヤ・職が原文にあり祖父名まで復元できる父、または曾祖父名まで復元でき固有のニスバ・家名がある父は TMP-P。規則3・12）し、TMP-P-001511 を発行（内容B M）。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001511
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: سليمان
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  quote: الزين
+- id: m6
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m7
+  kind: name
+  quote: بابن السمنودي
+  norm: ابن السمنودي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・スライマーン、アル＝シャムス・ブン・アル＝ザイン・アル＝マハッリー。イブン・アル＝サマンヌーディーとして知られる。私（サハーウィー）から学んだ者の一人。
   en: Muḥammad b. Abī Bakr b. Sulaymān, al-Shams b. al-Zayn al-Maḥallī, known as Ibn al-Samannūdī. He is among those who took [knowledge] from me (al-Sakhāwī).

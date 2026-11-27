@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: خواجا
     by: rule
+    mention: m3
 death:
   id: d
   date:
@@ -35,8 +32,8 @@ death:
     cert: medium
   note:
     ja: '一の位のみの年＝807年（80X、2026-09-24 Waka 裁定）、かつ「فيما أحسب」（サハーウィーの推定）＝cert medium。世紀の確認: 聴聞者 التقي الفاسي（#AIND-D06757）とイブン・ハジャルの活動期、師 الخلاطي は760年代のカイロの伝承者。807年初＝1404-07-19（h2g.py、年精度）。'
-  quote: سنة
   phrase: مات في سنة سبع فيما أحسب
+  mention: m11
 persons:
 - id: p1
   label: أحمد بن خواجا
@@ -49,15 +46,13 @@ relations:
   subtype: father
   active: AIND-D06661#p1
   passive: AIND-D06661
-  quote: null
   note:
     ja: 父 أحمد بن خواجا は corpus に本伝なし（hw.py「أحمد بن خواجا」は本項のみ）、識別要素なし＝#NEEDID（規則3 (c')）。初版は父 relation なし。
 - id: r2
   type: social
   subtype: other
-  active: TMP-P-001756
+  active: m7
   passive: AIND-D06661
-  quote: الخلاطي
   note:
     ja: '「ربيب الخلاطي」＝本項主は الخلاطي の継子（الخلاطي が継父）。継父の統制語彙がないので subtype other（先例 #AIND-D07339「ربيب الشمس السمرقندي العطار」）。الخلاطي: corpus に本伝なし。corpus の裸の「الخلاطي」は760年代のカイロの伝承者「المحب أبو العباس الخلاطي」を指す（#AIND-D00844「المحب أبي العباس الخلاطي」、#AIND-D00582「سمع بالقاهرة سنة ست وستين على المحب الخلاطي السنن للدارقطني」、#AIND-D00669・#AIND-D05146「سمع من／على الخلاطي سنن الدارقطني」ほか）＝本項の継父・師も同人と読み、ID-Master に Person 登録がないので仮 TMP-P-001756 を発行。初版はニスバ番号 TMP-N-00435 を人物位置に置いていた（precheck カテゴリ不一致）。'
 - id: r3
@@ -67,7 +62,6 @@ relations:
   passive: AIND-D06661
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: 「سمع عليه」＝継父 الخلاطي に聴聞した。初版はこの師弟関係を落としていた（訳文も「彼から聴聞がなされ」と向きが逆）。
   phrase: الخلاطي
@@ -75,44 +69,83 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D06661
-  passive: AIND-D06757
+  passive: m8
   methods:
   - TMP-S-00003
-  quote: التقي الفاسي
   note:
     ja: 「وحدث سمع منه التقي الفاسي وشيخنا」＝本項主が師。初版は subtype student＝teacher に統一（規則15）。
 - id: r5
   type: scholarly
   subtype: teacher
   active: AIND-D06661
-  passive: wd:Q471116
+  passive: m9
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: وشيخنا
   note:
     ja: 【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。
-  norm: شيخنا
 states:
 - id: s1
   type: office
-  ref: wd:Q242468
-  quote: الخياط
   note:
     ja: 見出しの「الخياط」＝仕立屋（生業、規則65 (a)。ID-Master「الخياطة」＝Q242468）。
+  mention: m6
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00104
-  quote: وذكره
   note:
     ja: Pattern A（イブン・ハジャル『معجم』＝TMP-T-00104）。「وآخرون」は名がない＝人物を立てない。初版は bibl を師弟 relation の中に置いていた。
   trigger: rule
-  norm: ذكره
   phrase: وذكره في معجمه وآخرون
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: خواجا
+- id: m4
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: office
+  ref: wd:Q242468
+  quote: الخياط
+- id: m7
+  kind: person
+  ref: TMP-P-001756
+  quote: الخلاطي
+- id: m8
+  kind: person
+  ref: AIND-D06757
+  quote: التقي الفاسي
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: وشيخنا
+  norm: شيخنا
+- id: m10
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m11
+  kind: year
+  value: '807'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ハワージャー、アル＝ハマウィー、のちアル＝ミスリー、仕立屋。アル＝ヒラーティーの継子で、彼に聴聞した。伝承を行ない、アッ＝タキー・アル＝ファースィーと私たちの師（イブン・ハジャル）が彼から聴聞した。師はその『ムウジャム』で彼に言及し、ほかの人々も言及している。私の考えでは（80）7年に没した。
   en: Muḥammad b. Aḥmad b. Khawājā, al-Ḥamawī then al-Miṣrī, the tailor, stepson of al-Khilāṭī, from whom he heard. He transmitted; al-Taqī al-Fāsī and our shaykh (Ibn Ḥajar) heard from him, and the latter mentioned him in his Muʿjam, as did others. He died in the year [80]7, as I reckon.

@@ -9,69 +9,59 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n2
     type: ism
-    quote: حسين
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي حامد محمد
     by: rule
-    norm: ابو حامد محمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي الخير
     by: rule
-    norm: ابو الخير
+    mention: m3
   - id: n5
     type: nasab
-    quote: أبي السعود
     by: rule
-    norm: ابو السعود
+    mention: m4
   - id: n6
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m5
   - id: n7
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m7
 birth:
   id: b
   date:
     ah: 864-09
   note:
     en: Born in Ramaḍān 864 H.
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D02742
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m11
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D00645
+  active: m12
   passive: AIND-D02742
   methods:
   - TMP-S-00014
-  quote: ولازم دروس أحمد بن حاتم المغربي
   note:
     ja: أحمد بن حاتم المغربي=#AIND-D00645(أحمد بن حاتم البسطي الفاسي المالكي)。同項に888〜894年マッカ在住(جاور)・マッカでフィクフ等を教授(أقرأ بمكة في الفقه)とあり、時期(本項主の受学期)・場所・法学派(マーリキー)が整合し閉合。
-  norm: لازم دروس احمد بن حاتم المغربي
   phrase: لازم دروس أحمد بن حاتم المغربي
 affiliations:
 - id: a1
@@ -81,13 +71,11 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: وزار
+  - mention: m15
   note:
     en: Visited Medina multiple times.
   trigger: rule
-  norm: زار
+  mention: m14
 - id: e2
   type: travel
   date:
@@ -95,18 +83,81 @@ events:
     cert: high
     type: travel
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: null
+  - mention: m15
   cert: high
   note:
     en: He was in our (al-Sakhāwī's) caravan in 898 AH, going and returning.
+  mention: null
 - id: e3
   type: cultural
   summary:
     en: He was seen writing out al-Jawjarī's commentary on al-Irshād.
-  quote: شرح
   trigger: rule
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: حسين
+- id: m2
+  kind: name
+  quote: أبي حامد محمد
+  norm: ابو حامد محمد
+- id: m3
+  kind: name
+  quote: أبي الخير
+  norm: ابو الخير
+- id: m4
+  kind: name
+  quote: أبي السعود
+  norm: ابو السعود
+- id: m5
+  kind: name
+  quote: ظهيرة
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: person
+  ref: AIND-D00645
+  quote: ولازم دروس أحمد بن حاتم المغربي
+  norm: لازم دروس احمد بن حاتم المغربي
+- id: m13
+  kind: event
+  quote: شرح
+- id: m14
+  kind: event
+  quote: وزار
+  norm: زار
+- id: m15
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m16
+  kind: year
+  value: '898'
+  quote: سنة
 translation:
   ja: フサイン・ブン・アブー・ハーミド・ムハンマド・ブン・アブー・アル＝ハイル・ブン・アブー・アッ＝サウード・ブン・ザヒーラ・アル＝マッキー・アル＝マーリキー。ヒジュラ暦864年ラマダーン月生。マッカで私（サハーウィー）から聴聞した者の一人で、アフマド・ブン・ハーティム・アル＝マグリビーの講義に常侍し、その他の者のもとにも少し出席した。私は彼がアル＝ジャウジャリーの『イルシャード』注釈を書き写しているのを見た。マディーナを一度ならず訪れ、898年には往路も帰路も私たちの隊商にいた。
   en: Ḥusayn b. Abī Ḥāmid Muḥammad b. Abī al-Khayr b. Abī al-Suʿūd b. Ẓahīra al-Makkī al-Mālikī. He was born in Ramaḍān 864 AH. He heard from me (al-Sakhāwī) in Mecca and assiduously attended the lessons of Aḥmad b. Ḥātim al-Maghribī, besides attending a little under others. I saw him writing out al-Jawjarī's commentary on al-Irshād. He visited Medina more than once, and was in our caravan in the year 898 AH, both going and returning.

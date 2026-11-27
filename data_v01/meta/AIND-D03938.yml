@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد الصادق
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m4
 death:
   id: d
   date:
     ah: 806-01
   note:
     en: 'Died in Muḥarram 806 AH as a martyr (shahīd), when the roof of his house collapsed on him and he perished under the rubble. The place is not stated explicitly (context: Damascus).'
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: ابنة السلاوي زوجة مخدومه التقي
@@ -39,19 +37,17 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D01539
+  active: m5
   passive: AIND-D03938
   methods:
   - TMP-S-00005
-  quote: التقي بن المنجا
   note:
     ja: '「كان من أصحاب التقي بن المنجا」。التقي بن المنجا = #AIND-D01539（أحمد بن محمد بن محمد بن المنجا … التقي بن الصلاح ابن الشرف … التنوخي الدمشقي الحنبلي）。初版は #NEEDID かつ field に幻番号 TMP-S-00000 を置いていた → 除去。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D01539
+  active: m10
   passive: AIND-D03938
-  quote: مخدومه التقي
   note:
     ja: 「مخدومه التقي」＝同一人物（#AIND-D01539）。
 - id: r3
@@ -59,19 +55,16 @@ relations:
   subtype: spouse
   active: AIND-D03938#p1
   passive: AIND-D03938
-  quote: null
   note:
     ja: السلاوي の娘で、主人 التقي بن المنجا の（元）妻。立項なし。
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: قضاء
+  - mention: m8
   note:
     ja: 「وشكرت سيرته」＝在職中の行状は称賛された。
+  mention: m7
 affiliations:
 - id: a1
   type: madhhab
@@ -80,31 +73,82 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: ثم قدم دمشق
+  - mention: m9
+  phrase: ثم قدم دمشق
+  mention: null
 - id: e2
   type: political
   places:
-  - ref: gn:170654
-    quote: دمشق
+  - mention: m9
   summary:
     en: Sought the judgeship (qaḍāʾ) of Damascus.
-  quote: ولي
   trigger: rule
   phrase: وسعى في قضاء دمشق
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m14
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は subtype="chronicler" の personal relation。
   trigger: rule
   phrase: ذكره شيخنا في انبائه
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الصادق
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m4
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m5
+  kind: person
+  ref: AIND-D01539
+  quote: التقي بن المنجا
+- id: m6
+  kind: event
+  quote: ولي
+- id: m7
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m8
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m9
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m10
+  kind: person
+  ref: AIND-D01539
+  quote: مخدومه التقي
+- id: m11
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m12
+  kind: year
+  value: '806'
+  quote: سنة
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッサーディク・ブン・ムハンマド・アッ＝ディマシュキー・アル＝ハンバリー。アッ＝タキー・ブン・アル＝ムンジャーの門人の一人であった。トリポリのカーディー職を務め、その行状は称賛された。その後ダマスカスに来て、主人であるアッ＝タキーの妻であったアッ＝サッラーウィーの娘と結婚し、ダマスカスのカーディー職を求めて奔走した。806年ムハッラム月、自宅の屋根が崩落して瓦礫の下で命を落とし、殉教者として没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: ʿAbd al-Ṣādiq b. Muḥammad al-Dimashqī al-Ḥanbalī. He was one of the companions of al-Taqī b. al-Munajjā. He held the judgeship of Tripoli, where his conduct was praised. He then came to Damascus, married the daughter of al-Sallāwī, the (former) wife of his master al-Taqī, and sought the judgeship of Damascus. He died a martyr in Muḥarram 806 AH when the roof of his house fell on him and he perished under the rubble. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

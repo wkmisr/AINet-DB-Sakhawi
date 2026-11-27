@@ -9,53 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05468
-    quote: السفطي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: الولوي محمد
     by: rule
-    ref: AIND-D07014
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: حجاج
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07014
+  active: m8
   passive: AIND-D01253
   summary:
     ar: محمد بن أحمد بن يوسف بن حجاج الولوي السفطي
-  quote: أبوه
   note:
     ja: 父=الولوي السفطي(著名カーディー)=AIND-D07014(256番、実伝記あり)。Gemini誤付与TMP-P-000087(=ابن فهد/D09211汚染)を是正。
-  norm: ابوه
 - id: r2
   type: kin
   subtype: uncle
-  active: AIND-D03506
+  active: m9
   passive: AIND-D01253
-  quote: عبد البر بن الشحنة
   note:
     ja: 原文「تدرب بخاله عبد البر بن الشحنة」=母方おじ(خال)として明記。是正先=AIND-D03506(عبد البر بن محمد...سري الدين أبو البركات...ابن الشحنة، حلبي ثم قاهري حنفي، سبط الولوي السفطي)。Gemini誤付与TMP-P-000066(=ابن الكويك/D08850汚染)を是正。【系図上の留保】系図索引D12398および136831によれば、عبد البرの母ألف(=AIND-D12886)は本人D01253の姉妹であり、その場合عبد البرは本人の甥(ابن الأخت)にあたるはず。原文の「خاله」(おじ)記載と系図索引の世代関係に矛盾があるが、al-Sakhāwī原文の記述を優先しuncleとして登録、矛盾はここに留保明記する。空descのteacher関係(TMP-P-000066)はこのخال関係の重複誤生成のため削除。
 - id: r3
@@ -65,7 +57,6 @@ relations:
   passive: AIND-D01253
   summary:
     ar: خديجة
-  quote: null
   note:
     ja: 姉妹=خديجة=AIND-D13016(172番)。原文本体は「خاصم أخته」と無名だが、系図索引D12398「أحمد بن الولوي...واختاه خديجة وألف」で2姉妹を同定。خديجة(長姉)は存命と索引に記載。
 - id: r4
@@ -75,7 +66,6 @@ relations:
   passive: AIND-D01253
   summary:
     ar: ألف
-  quote: null
   note:
     ja: 姉妹=ألف=AIND-D12886(40番、ألف ابنة الولوي محمد بن أحمد بن يوسف)。=عبد البر بن الشحنةの母(136831「أم عبد البر بن الشحنة هي ألف ابنة الولوي محمد...السفطي」)。末妹で索引D12398に死去と記載。空active=""をこの2姉妹に分割是正。
 notes:
@@ -85,6 +75,42 @@ notes:
 - text: He grew up undisciplined (ghayr mutaṣawwin), and quarrelled with his sister and others.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D07014
+  quote: الولوي محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: يوسف
+- id: m5
+  kind: name
+  quote: حجاج
+- id: m6
+  kind: name
+  ref: TMP-N-05468
+  quote: السفطي
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: person
+  ref: AIND-D07014
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: AIND-D03506
+  quote: عبد البر بن الشحنة
 translation:
   ja: アフマド・ブン・アル＝ワラウィー・ムハンマド・ブン・アフマド・ブン・ユースフ・ブン・ハッジャージュ・アッ＝サフティー（旧名）、アッ＝カーヒリー 父は彼が幼い頃に亡くなり、彼は特に叔父のアブド・アル＝バッル・ブン・アッ＝シャフナやその親族から指導を受けたが、礼儀をわきまえない人間として育ち、妹などと争った。 亡くなった。
   en: Aḥmad b. al-Walawī Muḥammad b. Aḥmad b. Yūsuf b. Ḥajjāj al-Safaṭī (originally), al-Qāhirī. His father died when he was young, and he grew up undisciplined, especially having been trained by his maternal uncle ʿAbd al-Barr b. al-Shaḥna and his relatives, but he quarrelled with his sister and others. He died.

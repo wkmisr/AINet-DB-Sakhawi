@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00144
-    quote: الطرابلسي
+    mention: m5
   - id: n2
     type: shuhrah
-    quote: بابن سلاتة
-    norm: ابن سلاتة
     label: ابن سلاتة
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: TMP-P-001514
-    norm: ابو بكر
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: صلح
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m6
 relations:
 - id: r1
   type: kin
@@ -47,7 +42,6 @@ relations:
   passive: AIND-D07209
   summary:
     ar: أبو بكر بن علي بن صلح الطرابلسي
-  quote: null
   note:
     ja: 父は見出しのナサブのみ。corpus に「أبو بكر بن علي بن صلح」の見出しなし、ID-Master に ابن سلاتة の登録なし 。集約で父の扱いをチャンク間で統一（父自身のラカブ・クンヤ・職が原文にあり祖父名まで復元できる父、または曾祖父名まで復元でき固有のニスバ・家名がある父は TMP-P。規則3・12）し、TMP-P-001514 を発行（内容B M）。
 states:
@@ -58,10 +52,9 @@ states:
   works:
   - ref: TMP-T-00241
   cert: medium
-  quote: وكان فيما بلغني يستحضر قواعد ابن رجب مع ذكاء وفهم
   note:
     ja: 「فيما بلغني」（伝聞）→ cert medium。『قواعد ابن رجب』（ابن رجب الحنبلي TMP-P-000905 の『القواعد』）は ID-Master 未登録 → TMP-T-00241。初版の「暗記」event（desc 英語のみ）を status に置換。
-  norm: كان فيما بلغني يستحضر قواعد ابن رجب مع ذكاء وفهم
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
@@ -72,10 +65,10 @@ events:
   date:
     ah: 854
     type: cultural
-  quote: رأيته كتب ببعض الاستدعاءات في سنة أربع وخمسين
   note:
     ja: 本項主がイスティドアー（イジャーザ請願書）に書き入れた（本項主＝行為者、規則28）。854年＝1450-02-23 開始、年精度 1450。初版の cert="high" を除去（原文に hedge なし）。
-  norm: رايته كتب ببعض الاستدعاءات في سنة اربع وخمسين
+  phrase: رأيته كتب ببعض الاستدعاءات في سنة أربع وخمسين
+  mention: null
 - id: e2
   type: teaching
   date:
@@ -83,10 +76,49 @@ events:
     type: teaching
   works:
   - ref: wd:Q1023470
-  quote: بل رأيت بعض المكيين قرأ عليه البخاري سنة تسع وستين وأجاز
   note:
     ja: マッカの人々の一部が彼に『ブハーリー』を読誦し、彼がイジャーザを与えた（本項主＝師）。相手は無名のため relation を立てない。869年＝1464-09-12 開始、年精度 1464。
-  norm: بل رايت بعض المكيين قرا عليه البخاري سنة تسع وستين واجاز
+  phrase: بل رأيت بعض المكيين قرأ عليه البخاري سنة تسع وستين وأجاز
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001514
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: صلح
+- id: m5
+  kind: name
+  ref: TMP-N-00144
+  quote: الطرابلسي
+- id: m6
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m7
+  kind: name
+  quote: بابن سلاتة
+  norm: ابن سلاتة
+- id: m8
+  kind: year
+  value: '854'
+  quote: سنة
+- id: m9
+  kind: year
+  value: '869'
+  quote: سنة
+- id: m10
+  kind: office
+  quote: وكان فيما بلغني يستحضر قواعد ابن رجب مع ذكاء وفهم
+  norm: كان فيما بلغني يستحضر قواعد ابن رجب مع ذكاء وفهم
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・アリー・ブン・スルフ・アッ＝タラーブルスィー、ハンバリー派。イブン・サラータ（無点のスィーン）として知られる。私は彼が（8）54年にいくつかのイスティドアー（イジャーザ請願書）に書き入れたのを見た。それどころか、（8）69年にマッカの人々の幾人かが彼に『ブハーリー』を読誦し、彼がイジャーザを与えたのを見た。私に伝わったところでは、彼は聡明さと理解力をもってイブン・ラジャブの『カワーイド』を諳んじていた。
   en: Muḥammad b. Abī Bakr b. ʿAlī b. Ṣulḥ al-Ṭarābulusī al-Ḥanbalī, known as Ibn Sallāta (with undotted sīn). I saw that he had written in some istidʿāʾāt (ijāza requests) in the year (8)54; indeed I saw some Meccans read al-Bukhārī to him in the year (8)69, and he granted ijāza. According to what reached me, he had Ibn Rajab's Qawāʿid at his command, with intelligence and understanding.

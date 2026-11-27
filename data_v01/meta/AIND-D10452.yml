@@ -9,22 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00101
-    quote: الأندلسي
-    norm: الاندلسي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00056
-    quote: التونسي
+    mention: m4
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 birth:
   id: b
   date:
@@ -42,12 +38,10 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D10452#p1
+  active: m5
   passive: AIND-D10452
-  quote: وأحمد
   note:
     ja: 規則3 (c')。父 أحمد は裸名。初版は父 relation なし＝追加。
-  norm: احمد
 - id: r2
   type: scholarly
   subtype: teacher
@@ -57,7 +51,6 @@ relations:
   - TMP-S-00008
   summary:
     ar: عمر القلجاني
-  quote: null
   note:
     ja: '「أخذ عن عمر وأحمد القلجانيين」。عمر＝corpus 本伝 #AIND-D05999「عمر بن محمد القلشاني بفتح القاف وسكون اللام ثم معجمة أو جيم المغربي التونسي … والد قاضي الجماعة محمد الآتي وأخو أحمد الماضي … وولي قضاء الجماعة بتونس … حتى مات سنة ثمان وأربعين」（未収録）。サハーウィー自身が「معجمة أو جيم」と両形（القلشاني／القلجاني）を示す。名・ニスバ・兄弟 أحمد との並記で閉合（規則57）。初版 #NEEDID・相手名なし。'
 - id: r3
@@ -67,36 +60,64 @@ relations:
   passive: AIND-D10452
   methods:
   - TMP-S-00008
-  quote: null
   note:
     ja: 'أحمد＝corpus 本伝 #AIND-D01379「أحمد بن محمد بن عبد الله بن محمد أبو العباس القلشاني المغربي المالكي أخو عمر الآتي … ولي قضاء الجماعة بتونس … حتى مات بعد الستين」（未収録）。名・ニスバ・兄弟 عمر との並記で閉合。初版 #NEEDID・相手名なし。'
   phrase: أحمد القلجاني
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D08475
+  active: m6
   passive: AIND-D10452
   methods:
   - TMP-S-00008
-  quote: ومحمد بن أبي القاسم المشدالي
   note:
     ja: 'corpus 本伝 #AIND-D08475「محمد بن أبي القسم بن محمد بن عبد الصمد … أبو عبد الله … المشدالي … الزواوي البجائي المغربي المالكي والد أبي الفضل محمد وأخيه أبي عبد الله … ذا وجاهة عند صاحب تونس」（未収録）。名・父のクンヤ名・ニスバで閉合（子の #AIND-D09017・#AIND-D09018 は محمد بن محمد＝別人）。「وغيرهم」は人物を立てない。初版 #NEEDID・相手名なし。'
-  norm: محمد بن ابي القاسم المشدالي
   phrase: محمد بن أبي القاسم المشدالي
 events:
 - id: e1
   type: cultural
-  quote: وبرع في أصول الدين وشارك في الفقه وأصوله والعربية وغيرها
-  norm: برع في اصول الدين وشارك في الفقه واصوله والعربية وغيرها
+  phrase: وبرع في أصول الدين وشارك في الفقه وأصوله والعربية وغيرها
+  mention: null
 - id: e2
   type: other
   date:
     ah: 890
     type: other
-  quote: وهو الآن في سنة تسعين حي زاد على الستين
   note:
     ja: 執筆時点（890年＝1485-01-27 開始、年精度）で存命、60歳を越えていた（年齢、規則59(d)）。初版の cert="high" を除去。
-  norm: وهو الان في سنة تسعين حي زاد علي الستين
+  phrase: وهو الآن في سنة تسعين حي زاد على الستين
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-00101
+  quote: الأندلسي
+  norm: الاندلسي
+- id: m4
+  kind: name
+  ref: TMP-N-00056
+  quote: التونسي
+- id: m5
+  kind: person
+  ref: AIND-D10452#p1
+  quote: وأحمد
+  norm: احمد
+- id: m6
+  kind: person
+  ref: AIND-D08475
+  quote: ومحمد بن أبي القاسم المشدالي
+  norm: محمد بن ابي القاسم المشدالي
+- id: m7
+  kind: year
+  value: '890'
+  quote: سنة
 translation:
   ja: ユースフ・ブン・アフマド、アル＝アンダルスィー、アッ＝トゥーニスィー。ウマルとアフマドの両カルジャーニー、ムハンマド・ブン・アビー・アル＝カースィム・アル＝マシャッダーリーらに学び、神学（ウスール・アッ＝ディーン）に秀で、法学とその法源学、アラビア語学などにも通じた。現在、（8）90年に存命で、60歳を越えている。
   en: Yūsuf b. Aḥmad, al-Andalusī, al-Tūnisī. He studied under ʿUmar and Aḥmad, the two Qaljānīs, Muḥammad b. Abī al-Qāsim al-Mashaddālī and others; he excelled in the principles of religion and was versed in jurisprudence and its principles, Arabic and other subjects. He is alive now, in the year [8]90, having passed sixty.

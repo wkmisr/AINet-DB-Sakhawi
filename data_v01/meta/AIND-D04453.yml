@@ -9,37 +9,34 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: شكر
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02560
+  active: m3
   passive: AIND-D04453
-  quote: السيد حسن بن عجلان
   note:
     ar: مولى السيد حسن بن عجلان
     ja: '主人 السيد حسن بن عجلان ＝ #AIND-D02560（حسن بن عجلان بن رميثة بن أبي نمى محمد、マッカのシャリーフ）。父 شكر は #AIND-D03328「شكر القائد الحسني عتيق السيد حسن بن عجلان ووالد بديد الماضي」で、本項主も同家の مولى。初版は #NEEDID。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02141
+  active: m4
   passive: AIND-D04453
-  quote: بديد
   note:
     ar: كان مع أخيه بديد
     ja: '兄弟 بديد ＝ #TMP-P-001062（بديد بن شكر الحسني المكي القائد شهاب الدين）。ID-Master の同番号の出現メモに「弟 عبد الله بن شكر ＝ #AIND-D04453『كان مع أخيه بديد』」と本項が明記されている。corpus の ب 部に بديد の本伝見出しはなく（D02142「بديد في أحمد بن مفتاح」は別人 D01649 への転送）欠番ウォッチ対象。初版は #NEEDID。'
 - id: r3
   type: social
   subtype: rival
-  active: AIND-D07156
+  active: m5
   passive: AIND-D04453
-  quote: السيد محمد بن بركات
   note:
     ar: في مباينة السيد محمد بن بركات
     ja: 'السيد محمد بن بركات ＝ #AIND-D07156（محمد بن بركات بن حسن بن عجلان السيد جمال الدين、マッカのシャリーフ。主人 حسن بن عجلان=D02560 の孫）。初版は #NEEDID。'
@@ -49,22 +46,52 @@ events:
   date:
     ah: 864
     type: political
-  quote: كان مع أخيه بديد في مباينة السيد محمد بن بركات فلما حلف الأخ امتنع السيد من تأمينه وأعاده إلى أخيه وذلك في سنة أربع وستين
   note:
     ja: 864年＝1459-11-06 起点（年のみ表記のため年初、グレゴリオ暦）。初版の cert="high" は既定値のため除去。
-  norm: كان مع اخيه بديد في مباينة السيد محمد بن بركات فلما حلف الاخ امتنع السيد من تامينه واعاده الي اخيه وذلك في سنة اربع وستين
+  phrase: كان مع أخيه بديد في مباينة السيد محمد بن بركات فلما حلف الأخ امتنع السيد من تأمينه وأعاده إلى أخيه وذلك في سنة أربع وستين
+  mention: null
 sources:
 - id: c1
   date:
     ah: 897
     type: cultural
   persons:
-  - ref: AIND-D03985
-    quote: ابن فهد
-  quote: جرده ابن فهد وهو في سنة سبع وتسعين في الأحياء
+  - mention: m7
   note:
     ja: 'Pattern A。897年時点で存命＝没年は885年より後にあたるため、統一規則の ابن فهد 振り分け（没年>885 → D03985）により #AIND-D03985（عبد العزيز بن عمر بن محمد ... العز أبو فارس ابن صاحبنا النجم أبي القسم الهاشمي المكي ويعرف كسلفه بابن فهد）。初版の #AIND-D09211 は不可。897年＝1491-11-13 起点（グレゴリオ暦）。'
-  norm: جرده ابن فهد وهو في سنة سبع وتسعين في الاحياء
+  phrase: جرده ابن فهد وهو في سنة سبع وتسعين في الأحياء
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: شكر
+- id: m3
+  kind: person
+  ref: AIND-D02560
+  quote: السيد حسن بن عجلان
+- id: m4
+  kind: person
+  ref: AIND-D02141
+  quote: بديد
+- id: m5
+  kind: person
+  ref: AIND-D07156
+  quote: السيد محمد بن بركات
+- id: m6
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m7
+  kind: person
+  ref: AIND-D03985
+  quote: ابن فهد
+- id: m8
+  kind: year
+  value: '897'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・シュクル。サイイド・ハサン・ブン・アジュラーンのマウラー（解放奴隷・被護者）。彼は兄弟のバディードとともにサイイド・ムハンマド・ブン・バラカートと対立していたが、その兄弟が（服従の）誓約をした際、サイイドは彼に安全保障を与えることを拒み、彼を兄弟のもとへ送り返した。それは864年のことである。イブン・ファハドが彼の項を書き出しており、彼は897年の時点で存命である。
   en: ʿAbd Allāh b. Shukr, the mawlā (freedman/client) of al-Sayyid Ḥasan b. ʿAjlān. He was with his brother Badīd in opposition to al-Sayyid Muḥammad b. Barakāt; when the brother swore [allegiance], the Sayyid refused to grant him safe-conduct and sent him back to his brother — that was in the year 864. Ibn Fahd excerpted his entry, and he is, in the year 897, among the living.

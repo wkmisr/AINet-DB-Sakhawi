@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00902
-    quote: الدوالي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001243
+    mention: m2
   - id: n5
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
 death:
   id: d
   cert: low
@@ -42,30 +38,62 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001243
+  active: m7
   passive: AIND-D04630
-  quote: أبوه
   note:
     ja: '「المذكور أبوه في المائة قبلها」＝父は前世紀（8世紀）の部に記載＝本書（9世紀）に本伝なし。見出しナサブから復元（統一規則3）。ID-Master 未登録のため新規 #TMP-P-001243（⚠汎用名）。'
-  norm: ابوه
   phrase: محمد بن موسى بن محمد الدوالي اليماني
 states:
 - id: s1
   type: office
   ref: wd:Q217029
-  quote: null
   note:
     ja: 「كان فقيها مرضي السيرة في قضائه」＝裁判職にあったことのみ判明。任地は原文に記載なし。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05108
-    quote: الخزرجي
-  quote: ذكره
+  - mention: m9
   note:
     ja: 'Pattern A。الخزرجي ＝ #AIND-D05108（علي بن الحسن بن أبي بكر … موفق الدين أبو الحسن الخزرجي الزبيدي اليمني المؤرخ、812年没。corpus 中「ذكره الخزرجي في تاريخ اليمن」型の言及者）。初版は subtype="mentioned by" の relation でニスバ番号 #TMP-N-00218 を person 位置に流用していた。'
   trigger: rule
   phrase: ذكره الخزرجي في أبيه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001243
+  quote: محمد
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  ref: TMP-N-00902
+  quote: الدوالي
+- id: m6
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m7
+  kind: person
+  ref: TMP-P-001243
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: AIND-D05108
+  quote: الخزرجي
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・ムーサー・ブン・ムハンマド・アッ＝ダワーリー・アル＝ヤマーニー。父は前世紀（の部）に記載されている。法学者で、裁判職における行状は称賛され、性格は善良であった。アル＝ハズラジーが父の伝記のなかで彼に言及している。今世紀の初頭に没したと私は思う。
   en: ʿAbd Allāh b. Muḥammad b. Mūsā b. Muḥammad al-Dawālī al-Yamānī, whose father is mentioned in the previous century. He was a jurist, of praiseworthy conduct in his judgeship and of good character. Al-Khazrajī mentioned him in the biography of his father. I think he died in the early years of this century.

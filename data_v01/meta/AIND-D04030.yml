@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05472
-    quote: الشريف
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m3
   - id: n3
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m5
   passive: AIND-D04030
   methods:
   - TMP-S-00003
@@ -42,7 +39,6 @@ relations:
   works:
   - ref: TMP-T-00127
   - ref: TMP-T-00147
-  quote: شيخنا
   note:
     ja: '「سمع على شيخنا」= ابن حجر（wd:Q471116）。初版は #NEEDID の relation を書名ごとに2件生成し、@when にヒジュラ暦を入れていた → 1件に統合し when-custom へ。『الخصال المكفرة』（ابن حجر 著）= TMP-T-00127。『جزء الجمعة』（للنسائي。corpus D02697/D02879/D03354/D04379 にも出現）は未登録 → 新規 TMP-T-00147。'
 affiliations:
@@ -52,14 +48,44 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D02697
-    quote: الفتحي
-  quote: ووصفه
+  - mention: m8
   note:
     ja: Pattern A（初版は subtype="informant" の personal relation）。الفتحي = TMP-P-000584（ID-Master 登録・سماع 記録の書き手）。「العالم」と評した。
   trigger: rule
-  norm: وصفه
   phrase: ووصفه الفتحي والسماع معه بالعالم
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  ref: TMP-N-05472
+  quote: الشريف
+- id: m3
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m4
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m6
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ووصفه
+  norm: وصفه
+- id: m8
+  kind: person
+  ref: AIND-D02697
+  quote: الفتحي
 translation:
   ja: アブドゥルアズィーズ・アッ＝シャリーフ・アル＝マグリビー・アル＝マーリキー。844年に我らがシャイフ（イブン・ハジャル）から『アル＝ヒサール・アル＝ムカッフィラ』と『ジュズウ・アル＝ジュムア』を聴聞した。アル＝ファトヒーは彼を、また彼と共に聴聞したことを「学者（アーリム）」と記している。
   en: ʿAbd al-ʿAzīz al-Sharīf al-Maghribī al-Mālikī. He heard from our shaykh (Ibn Ḥajar) in 844 AH al-Khiṣāl al-mukaffira and Juzʾ al-jumuʿa, and al-Fatḥī described him—and the audition together with him—with the term "the scholar (al-ʿālim)".

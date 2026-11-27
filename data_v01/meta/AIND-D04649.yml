@@ -9,25 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00488
-    quote: الهمداني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 birth:
   id: b
   date:
@@ -41,7 +38,7 @@ death:
     ah: 810-05
   note:
     ja: 「مات في جمادى الأولى سنة عشر وقد بلغ السبعين . قاله شيخنا في إنبائه」。810年ジュマーダー・アル＝ウーラー月初＝1407-10-13（h2g.py。初版は 1407）。没地は原文に記載なし。
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: محمد
@@ -54,28 +51,24 @@ relations:
   subtype: father
   active: AIND-D04649#p1
   passive: AIND-D04649
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q352842
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m7
   orgs:
   - ref: TMP-I-00182
-  quote: مدرس
   note:
     ja: '「مدرس الجوهرية بدمشق」。دمشق は原文明記（規則22-2）。الجوهرية（ダマスカスのハナフィー派マドラサ）は ID-Master 未登録のため新規 #TMP-I-00182。'
+  mention: m6
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -85,20 +78,65 @@ events:
   type: teaching
   summary:
     en: He was a good man, versed in his madhhab and in the Qurʾānic readings, and he taught recitation.
-  quote: كان خيرا عارفا بمذهبه وبالقراءات ويقرئ
-  norm: كان خيرا عارفا بمذهبه وبالقراءات ويقرء
+  phrase: كان خيرا عارفا بمذهبه وبالقراءات ويقرئ
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: قاله
   note:
     ja: Pattern A（没年記録の典拠）。初版には event なし。
   trigger: rule
   phrase: قاله شيخنا في إنبائه
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00488
+  quote: الهمداني
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: office
+  ref: wd:Q352842
+  quote: مدرس
+- id: m7
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m8
+  kind: assessment
+  quote: خيرا
+- id: m9
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m10
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: قاله
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・アル＝ハムダーニー・アッ＝ディマシュキー・アル＝ハナフィー、ダマスカスのジャウハリーヤの教授。善人で、自派の法学とクルアーン読誦諸法に通じ、読誦を教授していた。810年ジュマーダー・アル＝ウーラー月に、70歳に達して没した。我らの師（イブン・ハジャル）が『インバー』でそう述べている。
   en: ʿAbd Allāh b. Muḥammad al-Hamdānī al-Dimashqī al-Ḥanafī, professor at al-Jawhariyya in Damascus. He was a good man, versed in his madhhab and in the Qurʾānic readings, and he taught recitation. He died in Jumādā al-Ūlā of the year 810, having reached seventy. Our shaykh (Ibn Ḥajar) said so in his Inbāʾ.

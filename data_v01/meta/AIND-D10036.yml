@@ -9,50 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01722
-    quote: العشماوي
+    mention: m9
   - id: n2
     type: laqab
-    quote: الشرف
+    mention: m8
   - id: n3
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبرهيم
     by: rule
-    norm: ابرهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n6
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m5
   - id: n8
     type: nasab
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m6
   - id: n9
     type: nasab
-    quote: الشيخ حسن
     by: rule
+    mention: m7
   - id: n10
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m10
 persons:
 - id: p1
   label: إبراهيم بن أبي بكر بن موسى العشماوي
@@ -63,11 +55,10 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D10036
   methods:
   - TMP-S-00003
-  quote: مني
   note:
     ja: 「ممن سمع مني」（規則2）。場所の明記なし。
 - id: r2
@@ -75,15 +66,13 @@ relations:
   subtype: father
   active: AIND-D10036#p1
   passive: AIND-D10036
-  quote: null
   note:
     ja: 規則3 (c')。父 إبراهيم بن أبي بكر بن موسى は名＋ナサブ＋家名のみで識別要素がなく、corpus に見出しなし（hw.py「العشماوي」は D03481・D10036・D10199・索引 D11852 のみ）。
 - id: r3
   type: kin
   subtype: relative
-  active: AIND-D03481
+  active: m11
   passive: AIND-D10036
-  quote: عبد الباري
   note:
     ja: 「قريب عبد الباري الماضي」＝#AIND-D03481「عبد الباري بن أحمد بن عبد الغني بن عتيق بن الشيخ سعيد بن الشيخ حسن أبو النجا العشماوي القاهري الأزهري المالكي . ممن سمع مني بالقاهرة」（repo 収録済み）。両者のナサブは الشيخ حسن で合流する（続柄の明示なし＝relative）。初版の統制外 subtype「other」#NEEDID を置換。
 affiliations:
@@ -94,6 +83,53 @@ notes:
 - text: 'ニスバ索引 #AIND-D11852「العشماوي موسى بن إبرهيم بن أبي بكر .」は本項主を指す索引見出し。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: إبرهيم
+  norm: ابرهيم
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m5
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m6
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m7
+  kind: name
+  quote: الشيخ حسن
+- id: m8
+  kind: name
+  quote: الشرف
+- id: m9
+  kind: name
+  ref: TMP-N-01722
+  quote: العشماوي
+- id: m10
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m11
+  kind: person
+  ref: AIND-D03481
+  quote: عبد الباري
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムーサー・ブン・イブラーヒーム・ブン・アビー・バクル・ブン・ムーサー・ブン・アビー・バクル・ブン・イスマーイール・ブン・アッ＝シャイフ・ハサン、アッ＝シャラフ、アル＝アシュマーウィー、マーリク派、前述のアブド・アル＝バーリーの親族。私（サハーウィー）から聴聞した者の一人。
   en: Mūsā b. Ibrāhīm b. Abī Bakr b. Mūsā b. Abī Bakr b. Ismāʿīl b. al-Shaykh Ḥasan, al-Sharaf, al-ʿAshmāwī, the Mālikī, a relative of ʿAbd al-Bārī (mentioned above). One of those who heard from me (al-Sakhāwī).

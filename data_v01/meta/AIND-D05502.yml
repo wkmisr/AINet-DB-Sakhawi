@@ -9,42 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n2
     type: laqab
-    quote: العلاء
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن الحريري
+    mention: null
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علاء
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 birth:
   id: b
   date:
     ah: 739
-  quote: سنة
+  mention: m7
 death:
   id: d
   date:
     ah: 813
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: ابنته (زوجة الشهاب الغزي، ماتت بعده بقليل)
@@ -55,7 +53,6 @@ relations:
   subtype: daughter
   active: AIND-D05502#p1
   passive: AIND-D05502
-  quote: null
   note:
     ja: '名不詳の娘（الشهاب الغزي の妻。父の没後まもなく死去）。名不詳のため #NEEDID 維持。'
 - id: r2
@@ -63,7 +60,6 @@ relations:
   subtype: son-in-law
   active: TMP-P-000939
   passive: AIND-D05502
-  quote: null
   note:
     ja: 'الشهاب الغزي（娘婿）。候補は الشهاب أبو نعيم أحمد بن عبد الله بن بدر العامري الغزي ثم الدمشقي الشافعي（#AIND-D00888、生770）だが、ダマスクスの الغزي 家には الشرف الغزي 等もあり原文からは確定できない → #NEEDID 維持（§D-5 型）。'
   phrase: صاهره الشهاب الغزي على ابنته
@@ -76,21 +72,59 @@ events:
   type: cultural
   summary:
     en: He devoted himself to memorizing the sīra and maghāzī literature and retained a great deal of it.
-  quote: حفظ
   trigger: rule
   phrase: تعانى حفظ السير والمغازي وكان يستحضر منها شيئا كثيرا
+  mention: m8
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m11
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版は統制外 subtype「author of his biography source」の relation にしていた。
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علاء
+- id: m4
+  kind: name
+  quote: العلاء
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: year
+  value: '739'
+  quote: سنة
+- id: m8
+  kind: event
+  quote: حفظ
+- id: m9
+  kind: year
+  value: '813'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アラー、アル＝アラー・アッ＝ディマシュキー・アル＝ハナフィー、イブン・アル＝ハリーリー。739年に生まれ、ハナフィー派の学問に従事し、シーラ（預言者伝）とマガーズィー（遠征記）の暗記に努めて、その多くをそらんじていた。アッ＝シハーブ・アル＝ガッズィーが彼の娘を娶って婿となった。813年に没し、その娘もほどなくして亡くなった。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: ʿAlī b. Muḥammad b. ʿAlāʾ, al-ʿAlāʾ al-Dimashqī al-Ḥanafī, Ibn al-Ḥarīrī. Born in 739, he studied according to the Ḥanafī school and devoted himself to memorizing the sīra and maghāzī, retaining a great deal of them. Al-Shihāb al-Ghazzī became his son-in-law by marrying his daughter. He died in 813, and his daughter survived him only a little. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

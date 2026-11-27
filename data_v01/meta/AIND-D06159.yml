@@ -9,46 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00670
-    quote: المنفلوطي
+    mention: m6
   - id: n2
     type: ism
-    quote: فرج
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001544
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: حريز
     by: rule
+    mention: m5
   - id: n7
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001544
+  active: m8
   passive: AIND-D06159
-  quote: وأبوه
   note:
     ja: '「وأبوه أصغر الثلاثة」＝父 أحمد は الحسام・السراج と三兄弟の末弟。ナサブは曾祖父 محمد بن حريز まで復元でき家名 ابن حريز を持ち、兄弟 #AIND-D07238・#AIND-D05821 の本伝と家系索引 #AIND-D12258「ابن حريز … أحمد وعبد الرحيم والسراج عمر والحسام محمد بنو أبي بكر بن محمد بن حريز فلأحمد اسمعيل وفرح محمد وابنه」で裏付けられるため TMP-P を発行（規則3）。corpus に父自身の本伝なし・ID-Master 未登録。初版 #NEEDID を解消。'
-  norm: ابوه
   phrase: أحمد بن أبي بكر بن محمد بن حريز المنفلوطي
 - id: r2
   type: kin
@@ -57,7 +50,6 @@ relations:
   passive: AIND-D06159
   summary:
     ar: الحسام محمد بن أبي بكر بن محمد بن حريز
-  quote: null
   note:
     ja: '「ابن أخي الحسام والسراج」。الحسام＝#AIND-D07238「محمد بن أبي بكر بن محمد بن حريز … حسام الدين أبو عبد الله … المنفلوطي المصري المالكي أخو عمر الماضي ويعرف بابن حريز」（804年生、マーリキー派カーディー）。初版 #NEEDID「uncle」を解消。'
 - id: r3
@@ -67,42 +59,35 @@ relations:
   passive: AIND-D06159
   summary:
     ar: السراج عمر بن أبي بكر بن محمد بن حريز
-  quote: null
   note:
     ja: 'السراج＝#AIND-D05821「عمر بن أبي بكر بن محمد بن حريز … القاضي السراج أبو حفص بن المجد … المنفلوطي المصري المالكي أخو الحسام محمد الآتي」（819年生）。初版の #TMP-N-00095（ニスバ السراج の人物位置への流用）を解消。'
 - id: r4
   type: kin
   subtype: brother
-  active: TMP-P-001545
+  active: m9
   passive: AIND-D06159
   summary:
     ar: إسماعيل بن أحمد بن أبي بكر بن محمد بن حريز المنفلوطي
-  quote: إسماعيل
   note:
     ja: '「وهو أصغر أخويه إسماعيل ومحمد وإسماعيل أوجه」＝兄 إسماعيل（兄弟中で最も有力）。家系索引 #AIND-D12258「فلأحمد اسمعيل وفرح محمد」で裏付け。corpus に本伝なし → TMP-P。初版の #TMP-P-000528（ابن جماعة の息子 اسماعيل＝別人の汚染番号）を解消。'
-  norm: اسماعيل
 - id: r5
   type: kin
   subtype: brother
-  active: TMP-P-001546
+  active: m10
   passive: AIND-D06159
   summary:
     ar: محمد بن أحمد بن أبي بكر بن محمد بن حريز المنفلوطي
-  quote: ومحمد
   note:
     ja: '兄 محمد。corpus に本伝なし → TMP-P。初版の #TMP-P-000529（ابن جماعة の息子 محمد＝別人の汚染番号）を解消。'
-  norm: محمد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
   - ref: TMP-L-00089
     cert: medium
-  quote: وينوب في قضاء بناحيته ونحوها
   note:
     ja: 裁判代理官（نائب الحكم、カノニカル TMP-O-00096。初版の نائب القاضي TMP-O-00003 を改めた）。「بناحيته」の地はニスバ المنفلوطي から منفلوط に定まるため cert medium で保持（規則22(3)）。
-  norm: ينوب في قضاء بناحيته ونحوها
+  mention: m12
 - id: s2
   type: status
   label: وهو سنة تسع وتسعين في الأحياء
@@ -110,9 +95,9 @@ states:
   dates:
   - ah: 899
     type: status
-  quote: وهو @YY899 سنة تسع وتسعين في
   note:
     ja: 899年（1493-10-21 起点）時点で存命＝death を作らない。初版はこれを residence event（placeName منفلوط＝ニスバ由来）としていたため、state status に改めた（repo 先例「وهو الآن في الأحياء」）。
+  mention: m13
 affiliations:
 - id: a1
   type: madhhab
@@ -121,14 +106,72 @@ events:
 - id: e1
   type: cultural
   persons:
-  - ref: AIND-D04141
-    cert: medium
-    quote: المحيوي القرشي
+  - cert: medium
+    mention: m11
   works:
   - ref: TMP-T-00157
-  quote: له نظم فمنه تخميس البردة وهو عند صاحبنا المحيوي القرشي
   note:
     ja: '本項主の詩作（『ブルダ』のタフミース）とその所蔵者。「صاحبنا المحيوي القرشي」＝#AIND-D04141「عبد القادر بن عبد الوهاب … المحيوي القرشي المارداني الأصل القاهري الشافعي … ويعرف بالقرشي」（836年生、文芸愛好家）。corpus では #AIND-D05986 でも「قال الشعراء في رثائه القصائد الطنانة كالمحيوي القرشي」（894年）と同じ呼称で詩人として現れ、サハーウィーが特定の一人に固定的に用いる呼称と見て cert medium（規則26 例外2）。所蔵は本項主との関係ではないので relation にしない（初版の「friend」relation を除去）。'
+  phrase: له نظم فمنه تخميس البردة وهو عند صاحبنا المحيوي القرشي
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: فرج
+- id: m2
+  kind: name
+  ref: TMP-P-001544
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: حريز
+- id: m6
+  kind: name
+  ref: TMP-N-00670
+  quote: المنفلوطي
+- id: m7
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m8
+  kind: person
+  ref: TMP-P-001544
+  quote: وأبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: TMP-P-001545
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m10
+  kind: person
+  ref: TMP-P-001546
+  quote: ومحمد
+  norm: محمد
+- id: m11
+  kind: person
+  ref: AIND-D04141
+  quote: المحيوي القرشي
+- id: m12
+  kind: office
+  ref: TMP-O-00096
+  quote: وينوب في قضاء بناحيته ونحوها
+  norm: ينوب في قضاء بناحيته ونحوها
+- id: m13
+  kind: office
+  quote: وهو @YY899 سنة تسع وتسعين في
+- id: m14
+  kind: year
+  value: '899'
+  quote: سنة
 translation:
   ja: ファラジュ・ブン・アフマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・フライズ・アル＝マンファルーティー・アル＝マーリキー。アル＝フサームとアッ＝スィラージュの甥で、彼の父は三人のうちの末弟である。彼自身も二人の兄イスマーイールとムハンマドの末弟で、イスマーイールが（三人のうち）最も有力である。詩作があり、そのうちに『ブルダ』のタフミースがあって、それは我らの友アル＝ムヒーウィー・アル＝クラシーのもとにある。自分の地方とその周辺で裁判代理を務めている。899年の時点で存命である。
   en: Faraj b. Aḥmad b. Abī Bakr b. Muḥammad b. Ḥurayz al-Manfalūṭī al-Mālikī, nephew of al-Ḥusām and al-Sirāj; his father was the youngest of the three. He himself is the youngest of his two brothers Ismāʿīl and Muḥammad, Ismāʿīl being the most notable. He has poetry, including a takhmīs of al-Burda, which is in the possession of our friend al-Muḥyawī al-Qurashī. He acts as deputy judge in his district and its surroundings. In the year 899 he is among the living.

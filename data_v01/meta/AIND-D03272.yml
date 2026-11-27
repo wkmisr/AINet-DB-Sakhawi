@@ -9,21 +9,20 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: معين الدين
+    mention: m3
   - id: n2
     type: honorific
-    quote: القان
+    mention: m2
   - id: n3
     type: ism
-    quote: شاه
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: wd:Q8462
+  active: m4
   passive: AIND-D03272
-  quote: تيمور
   note:
     ja: تيمور（ティムール）= wd:Q8462（ID-Master 登録 تمرلنك、D02072 と同一運用）。
 - id: r2
@@ -34,106 +33,158 @@ relations:
   summary:
     ar: شاه رخ بن تيمور الطاغية معين الدين صاحب هراة وسمرقند
   cert: high
-  quote: null
   note:
     ja: corpus に同一人物の第2見出し AIND-D03298（شاه رخ بن تيمور … ملك الشرق على الاطلاق）がある。本項は『عقود』参照のみの短項で D03298 が本伝。要判断（重複見出しの統合方針）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00177
   places:
-  - ref: TMP-L-00249
-    quote: الشرق
-  quote: ملك
+  - mention: m6
   note:
     ja: ملك = 登録済み TMP-O-00177。「الشرق」（東方＝ティムール朝領域の総称）は ID-Master 未登録（بلاد الشرق TMP-L-00203 はメッカ東方の特定地で別）→ 新規 TMP-L-00249。
+  mention: m5
 - id: s2
   type: office
-  ref: wd:Q43292
   places:
-  - ref: TMP-L-00122
-    quote: ما وراء النهر
-  quote: وسلطان
+  - mention: m8
   note:
     ja: 汎用の君主称号 سلطان は ID-Master 未登録（repo では D00558=wd:Q175240、D03461=wd:Q43292 と不統一）→ 新規 TMP-O-00242 を発行し、以下 state 2〜9 で共用。要判断（wd への統一）。
-  norm: سلطان
+  mention: m7
 - id: s3
   type: office
   ref: wd:Q43292
   places:
-  - ref: TMP-L-00076
-    quote: وخراسان
-    norm: خراسان
-  quote: null
+  - mention: m9
+  mention: null
 - id: s4
   type: office
   ref: wd:Q43292
   places:
-  - ref: TMP-L-00096
-    quote: وخوارزم
-    norm: خوارزم
-  quote: null
+  - mention: m10
+  mention: null
 - id: s5
   type: office
   ref: wd:Q43292
   places:
-  - ref: TMP-L-00250
-    quote: وعراق العجم
-    norm: عراق العجم
-  quote: null
+  - mention: m11
   note:
     ja: عراق العجم（ペルシア・イラク）は ID-Master 未登録（العراق L-00053・بلاد العجم L-00004 は別）→ 新規 TMP-L-00250。
+  mention: null
 - id: s6
   type: office
   ref: wd:Q43292
   places:
-  - ref: TMP-L-00251
-    quote: ومازندران
-    norm: مازندران
-  quote: null
+  - mention: m12
   note:
     ja: مازندران は ID-Master 未登録 → 新規 TMP-L-00251。
+  mention: null
 - id: s7
   type: office
   ref: wd:Q43292
   places:
-  - ref: gn:1273294
-    quote: دلي
-  quote: null
+  - mention: m13
   note:
     ja: دلي = デリー（gn:1273294）。الهند は TMP-L-00039 登録済みだが本文の対象は「مملكة دلي」。
+  mention: null
 - id: s8
   type: office
   ref: wd:Q43292
   places:
-  - ref: TMP-L-00205
-    quote: وكرمان
-    norm: كرمان
-  quote: null
+  - mention: m14
   note:
     ja: كرمان = 登録済み TMP-L-00205。
+  mention: null
 - id: s9
   type: office
   ref: wd:Q43292
   places:
-  - ref: wd:Q12836408
-    quote: وأذربيجان
-    norm: اذربيجان
-  quote: null
+  - mention: m15
   note:
     ja: أذربيجان は repo 既存の wd:Q12836408（イラン・アゼルバイジャン地方）を踏襲。ID-Master 未登録のため登録要（要判断で確認依頼）。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m17
   works:
   - ref: TMP-T-00122
-  quote: ذكره
   note:
     ja: Pattern A（言及）。初版は統制外 subtype「biographer」の relation にしていた。المقريزي = wd:Q293604、『العقود』= TMP-T-00122（登録済み）。
   trigger: rule
   phrase: ذكره المقريزي في عقوده مطولا
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: شاه
+- id: m2
+  kind: name
+  quote: القان
+- id: m3
+  kind: name
+  quote: معين الدين
+- id: m4
+  kind: person
+  ref: wd:Q8462
+  quote: تيمور
+- id: m5
+  kind: office
+  ref: TMP-O-00177
+  quote: ملك
+- id: m6
+  kind: place
+  quote: الشرق
+  ref: TMP-L-00249
+- id: m7
+  kind: office
+  ref: wd:Q43292
+  quote: وسلطان
+  norm: سلطان
+- id: m8
+  kind: place
+  quote: ما وراء النهر
+  ref: TMP-L-00122
+- id: m9
+  kind: place
+  quote: وخراسان
+  ref: TMP-L-00076
+  norm: خراسان
+- id: m10
+  kind: place
+  quote: وخوارزم
+  ref: TMP-L-00096
+  norm: خوارزم
+- id: m11
+  kind: place
+  quote: وعراق العجم
+  ref: TMP-L-00250
+  norm: عراق العجم
+- id: m12
+  kind: place
+  quote: ومازندران
+  ref: TMP-L-00251
+  norm: مازندران
+- id: m13
+  kind: place
+  quote: دلي
+  ref: gn:1273294
+- id: m14
+  kind: place
+  quote: وكرمان
+  ref: TMP-L-00205
+  norm: كرمان
+- id: m15
+  kind: place
+  quote: وأذربيجان
+  ref: wd:Q12836408
+  norm: اذربيجان
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: シャー・ルフ・アル＝カーン、ムイーン・アッ＝ディーン、スルターン、ティムールの子。東方の王であり、マー・ワラー・アン＝ナフル、ホラーサーン、ホラズム、ペルシア・イラク（イラーク・アル＝アジャム）、マーザンダラーン、インドのデリー王国、キルマーン、アゼルバイジャンのスルターン。アル＝マクリーズィーが『ウクード』において彼について詳しく言及している。
   en: Shāh Rukh al-Qān Muʿīn al-Dīn, Sultan, son of Tīmūr. King of the East, and Sultan of Transoxiana, Khurāsān, Khwārazm, ʿIrāq al-ʿAjam, Māzandarān, the kingdom of Delhi in India, Kirmān, and Azerbaijan. Al-Maqrīzī mentioned him at length in his ʿUqūd.

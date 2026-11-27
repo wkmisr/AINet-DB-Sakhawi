@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01134
-    quote: الأصيلي
-    norm: الاصيلي
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: ابن البابا
+    mention: m4
   - id: n3
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: محمد الأصيلي
@@ -33,11 +31,10 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D07903
+  active: m5
   passive: AIND-D06246
   methods:
   - TMP-S-00028
-  quote: ابن الهمام
   note:
     ja: '「وحضر عند ابن الهمام」。ابن الهمام＝الكمال محمد بن عبد الواحد بن عبد الحميد السيواسي القاهري الحنفي＝#AIND-D07903（先例 D04027、索引 D12799）。初版は #NEEDID、field الفقه は原文に根拠なし→除去。'
 - id: r2
@@ -45,7 +42,6 @@ relations:
   subtype: father
   active: AIND-D06246#p1
   passive: AIND-D06246
-  quote: null
   note:
     ja: '父は見出しの「محمد」のみ（識別要素なし）→ #NEEDID（規則3）。'
 affiliations:
@@ -67,19 +63,38 @@ affiliations:
 events:
 - id: e1
   type: other
-  quote: نشأ في خدمة بيت ابن أصيل
   note:
     ja: '「بيت ابن أصيل」＝イブン・アシール家（أصيل الدين محمد بن عثمان بن أيوب الأشليمي＝#AIND-D07945 とその子ら أحمد #AIND-D01394・الشرف محمد #AIND-D08902・النور علي #AIND-D05464、孫 ناصر الدين محمد #AIND-D06885 ら。索引 D12153・D11436）。特定の一人への奉仕ではなく一家への奉仕のため relation は立てず event に（初版の統制外 subtype「client」・#NEEDID relation を置換）。先例 D04027（عبد العزيز بن عز الدين الأصيلي、同家の縁戚）。'
-  norm: نشا في خدمة بيت ابن اصيل
+  phrase: نشأ في خدمة بيت ابن أصيل
+  mention: null
 - id: e2
   type: other
-  quote: وتنزل في الجهات
   note:
     ja: 諸施設の禄を得た（先例 D04039）。
-  norm: تنزل في الجهات
+  phrase: وتنزل في الجهات
+  mention: null
 notes:
 - text: '学派: 「واشتغل أولا فيما زعم حنفيا … ثم شافعيا」＝本人の主張（زعم）では最初ハナフィー派（cert low）、のちシャーフィイー派。初版の毒 wd Q160851 → Q228986。'
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-01134
+  quote: الأصيلي
+  norm: الاصيلي
+- id: m4
+  kind: name
+  quote: ابن البابا
+- id: m5
+  kind: person
+  ref: AIND-D07903
+  quote: ابن الهمام
 translation:
   ja: カースィム・ブン・ムハンマド・アル＝アシーリー。イブン・アル＝バーバーとも呼ばれる。イブン・アシール家に仕えて育ち、アル＝カーミリーヤに出入りするようになり、諸施設の禄を得た。最初は、本人の主張によれば、ハナフィー派として学問に携わり、イブン・アル＝フマームのもとに出席したが、その後シャーフィイー派に転じた。しかし何事においても成果を上げず、それどころか悪行が多く、一般庶民に近い者であった。
   en: Qāsim b. Muḥammad al-Aṣīlī, also called Ibn al-Bābā. He grew up in the service of the house of Ibn Aṣīl, came to frequent al-Kāmiliyya, and obtained stipends in various institutions. He first studied, as he claimed, as a Ḥanafī, and attended Ibn al-Humām, then as a Shāfiʿī; but he produced nothing, rather he was full of mischief and closer to the common people.

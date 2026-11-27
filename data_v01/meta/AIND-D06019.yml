@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m3
   - id: n2
     type: laqab
-    quote: زين الدين
+    mention: m2
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m4
 states:
 - id: s1
   type: office
-  ref: TMP-O-00315
-  quote: نقيب الرسل
   note:
     ja: ID-Master・corpus 他項に無い職名のため仮番号 TMP-O-00315 を発行（ダマスクスのハンバル派法廷の使者（رسل）の長と解される）。
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00353
   orgs:
   - label: قضاة الحنابلة
-  quote: وخادم قضاة الحنابلة
   note:
     ja: ID-Master 未登録のため仮番号 TMP-O-00316 を発行。
-  norm: خادم قضاة الحنابلة
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -46,15 +41,45 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D10718
-    quote: البدري
+  - mention: m8
   works:
   - ref: TMP-T-00115
-  quote: كتب
   note:
     ja: Pattern A。البدري＝#AIND-D10718（التقي أبو بكر بن عبد الله ابن البدري、没894。幻番号 TMP-P-000719 は ID-Master で AIND-D10718 に名寄せ済み）、مجموعه＝『مجموع البدري』#TMP-T-00115（先例 D05xxx 群）。引用詩の「إدريس」は詩中の呼びかけ対象であり本項主との関係は原文に無いため relation を立てない。原文「حفضنا」は「خفضنا」（下げた）の誤植とみられ、詩は文法用語（خفض／رفع）の掛詞と解されるが、原文どおりに保持し訳文で補う（規則25）。
   trigger: rule
   phrase: كتب عنه البدري في مجموعه قوله
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: زين الدين
+- id: m3
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m4
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m5
+  kind: office
+  ref: TMP-O-00315
+  quote: نقيب الرسل
+- id: m6
+  kind: office
+  ref: TMP-O-00353
+  quote: وخادم قضاة الحنابلة
+  norm: خادم قضاة الحنابلة
+- id: m7
+  kind: source
+  quote: كتب
+- id: m8
+  kind: person
+  ref: AIND-D10718
+  quote: البدري
 translation:
   ja: ウマル・ザイン・アッ＝ディーン・アッ＝ディマシュキー・アル＝ハンバリー、使者たちのナキーブ（ナキーブ・アッ＝ルスル）にしてハンバル派カーディーたちの従僕（ハーディム）。アル＝バドリーが自身の『マジュムーウ』に彼の言葉として次の句を書き留めている。 「まことにイドリースは愛しき者、我らは長きにわたり彼に親しんできた。我らは彼にあって対立するものを下げ（抑え）、彼を高き所へと引き上げた。」
   en: 'ʿUmar Zayn al-Dīn al-Dimashqī al-Ḥanbalī, naqīb al-rusul (chief of the court messengers) and servant (khādim) of the Hanbali judges. Al-Badrī recorded in his Majmūʿ the following verses as his: "Indeed Idrīs is a beloved whom we have long been accustomed to; we lowered (kept down) what opposed him and raised him in station."'

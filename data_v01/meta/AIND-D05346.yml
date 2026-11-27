@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m5
   - id: n2
     type: honorific
-    quote: الأمير
-    norm: الامير
+    mention: m3
   - id: n3
     type: laqab
-    quote: علاء الدين
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: قراقجا
     by: rule
-    ref: AIND-D06332
+    mention: m2
 birth:
   id: b
   date:
@@ -41,28 +38,61 @@ death:
     ah: 853-02-18
   note:
     ja: 853-02-18＝1449-04-21（土曜、h2g.py で曜日一致）。ペスト（الطاعون）で父と同日に没。初版の @when 1449 を日精度に。
-  quote: سنة
   phrase: مات هو وأبوه في يوم واحد يوم السبت ثامن عشر صفر سنة ثلاث وخمسين بالطاعون
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06332
+  active: m7
   passive: AIND-D05346
   summary:
     ar: قراقجا الحسني الظاهري
-  quote: وأبوه
   note:
     ja: '「مات هو وأبوه في يوم واحد」。父＝#AIND-D06332（立項番号722「قراقجا الحسني الظاهري برقوق … رأس نوبة النوب … الأخورية الكبرى … مات هو وابن له في يوم السبت ثامن عشر صفر سنة ثلاث وخمسين بالطاعون … ودفنا في قبر واحد」、未受領）。同日・同死因で相互に閉合（規則37）。初版は #NEEDID。'
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أحد العشراوات
   note:
     ja: '「أحد العشراوات」＝十人長（أمير عشرة、TMP-O-00101）の一人。初版は #NEEDID。'
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06332
+  quote: قراقجا
+- id: m3
+  kind: name
+  quote: الأمير
+  norm: الامير
+- id: m4
+  kind: name
+  quote: علاء الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: أحد العشراوات
   norm: احد العشراوات
+- id: m7
+  kind: person
+  ref: AIND-D06332
+  quote: وأبوه
+  norm: ابوه
+- id: m8
+  kind: month
+  value: 2
+  quote: صفر
+- id: m9
+  kind: year
+  value: '853'
+  quote: سنة
 translation:
   ja: アリー・ブン・カラークジャー、アミール、アラー・アッ＝ディーン・アル＝ハサニー、十人長の一人。彼とその父は同じ日、853年サファル月18日土曜日にペストで没した。この者（アリー）は20歳に近かった。
   en: ʿAlī b. Qarāqujā, the amīr ʿAlāʾ al-Dīn al-Ḥasanī, one of the amīrs of ten. He and his father died on one and the same day, Saturday 18 Ṣafar of the year 853, of the plague; this one (ʿAlī) was close to twenty.

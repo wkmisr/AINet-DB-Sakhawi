@@ -9,23 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m3
   - id: n3
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 873-09
   note:
     ja: 「ومات بالطاعون في رمضان سنة ثلاث وسبعين」＝873 年ラマダーン月（1469-03-24 開始、月精度）にペストで没。没地の記載なし。初版の @when 1468 → 1469-03。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: والد قانباي الحسني الظاهري
@@ -34,37 +32,68 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m7
   passive: AIND-D06263
-  quote: الأشرف إينال
   note:
     ja: 「وهو من عتقاء الأشرف إينال」＝アル＝アシュラフ・イーナール（#AIND-D02110）の解放奴隷の一人（repo 先例どおり主人＝patron、active=主人）。初版の統制外 subtype「client」・無効番号 TMP-P-000000 を置換。ニスバ「الظاهري」の指すスルターンは原文から特定できないため relation は立てない。
-  norm: الاشرف اينال
 - id: r2
   type: kin
   subtype: father
   active: AIND-D06263#p1
   passive: AIND-D06263
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أحد أمراء العشرات
   note:
     ja: 「أحد أمراء العشرات」＝أمير عشرة（TMP-O-00101、規則48）。
-  norm: احد امراء العشرات
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00069
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ووالي
+  - mention: m6
   note:
     ja: 「ووالي القاهرة … باشر الولاية أقبح مباشرة」＝カイロのワーリーで、その職務執行は最悪であった。
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m3
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m4
+  kind: office
+  ref: TMP-O-00101
+  quote: أحد أمراء العشرات
+  norm: احد امراء العشرات
+- id: m5
+  kind: office
+  ref: TMP-O-00069
+  quote: ووالي
+- id: m6
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m7
+  kind: person
+  ref: AIND-D02110
+  quote: الأشرف إينال
+  norm: الاشرف اينال
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '873'
+  quote: سنة
 translation:
   ja: カーンバーイ・アル＝ハサニー・アッ＝ザーヒリー、十人隊アミールの一人でカイロのワーリー。彼はアル＝アシュラフ・イーナールの解放奴隷の一人であった。ワーリー職を最悪の仕方で執行し、873年ラマダーン月にペストで没した。
   en: Qānbāy al-Ḥasanī al-Ẓāhirī, one of the amīrs of ten and wālī of Cairo. He was one of the freedmen of al-Ashraf Īnāl. He exercised the office of wālī in the worst possible manner, and died of the plague in Ramaḍān of the year 873.

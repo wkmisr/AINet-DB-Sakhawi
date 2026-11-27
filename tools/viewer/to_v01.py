@@ -649,6 +649,7 @@ def convert(k, r):
                 if m_ and m_.group(3) in cmap: new[i_] = f'@C{m_.group(1)}[mention|{cmap[m_.group(3)]}]'
             CMAP[k] = cmap
 
+    if MENTIONS: to_mentions(k, meta, new)
     tr = TR.get(k)
     if tr: meta['translation'] = tr
     meta['provenance'] = provenance(r.get('generator'))
@@ -656,6 +657,117 @@ def convert(k, r):
     header = f"### $ {k}" if k.startswith('AIND') else f"### $ #{k}"
     md = header + '\n' + ' '.join(new) + '\n'
     return meta, md
+
+
+# ---- mentions (2026-11-27): a tag in the text carries only its kind, its span and a mention id -------------
+# @P12[father:AIND-D00280|r1]  ->  @P12[m3]   with  mentions: [{id: m3, kind: person, quote, norm, ref: AIND-D00280}]
+# Items point to the mention (`mention: m3`; a relation's partner side becomes m3); the ID and the quoted words
+# live on the mention only. Items that no tag places keep `mention: null` (the former `quote: null`).
+MENTIONS = os.environ.get('AIND_MENTIONS', '1') != '0'
+KIND = {'P': 'person', 'T': 'place', 'S': 'name', 'O': 'office', 'E': 'event', 'C': 'source', 'V': 'assessment',
+        'YB': 'year', 'YD': 'year', 'YY': 'year', 'YA': 'age', 'L': 'month'}
+TAG2 = re.compile(r'^@(P|T|S|O|E|C|V)(\d)(\d+)\[([^\]]*)\]$')
+
+
+def to_mentions(k, meta, new):
+    items = {}
+    for it in (meta.get('name') or {}).get('elements') or []: items[it['id']] = it
+    for sec in ('relations', 'states', 'affiliations', 'events', 'sources', 'assessments'):
+        for it in meta.get(sec) or []: items[it['id']] = it
+    for kk in ('birth', 'death'):
+        if meta.get(kk): items[meta[kk]['id']] = meta[kk]
+    holders = [meta.get('birth'), meta.get('death'), *(meta.get('states') or []), *(meta.get('events') or []),
+               *(meta.get('sources') or []), *(meta.get('affiliations') or []),
+               *[c for r_ in meta.get('relations') or [] for c in r_.get('context', [])]]
+    places = [pl for h in holders if h for pl in h.get('places') or []]
+    ments = []
+    def words(i, n):
+        out, j = [], i + 1
+        while len(out) < n and j < len(new):
+            if not new[j].startswith('@'): out.append(new[j])
+            j += 1
+        return ' '.join(out)
+    def move(src, m):                                   # the quoted words go from the item to the mention
+        for a in ('quote', 'norm'):
+            if src.get(a) is not None and a not in m: m[a] = src[a]
+            src.pop(a, None)
+    for i, t in enumerate(new):
+        m_ = TAG2.match(t); y_ = YR.match(t); l_ = LM.match(t)
+        if not (m_ or y_ or l_): continue
+        mid = f'm{len(ments) + 1}'
+        if m_:
+            code, p, n = m_.group(1), int(m_.group(2)), int(m_.group(3))
+            body, _, iid = m_.group(4).partition('|')
+            sub, rid = parse_br(body)
+            if rid == 'NEEDID': rid = None
+            m = {'id': mid, 'kind': KIND[code]}
+            if iid and iid not in items and iid in CMAP.get(k, {}): iid = CMAP[k][iid]   # event moved to sources
+            it = items.get(iid) if iid else None
+            if not it and iid: STAT['mention_iid_missing_' + code] += 1
+            if code == 'T':
+                m['quote'] = words(i, n)
+                if rid: m['ref'] = rid
+                for pl in places:
+                    if pl.get('ref') == rid and 'mention' not in pl:
+                        pl['mention'] = mid; pl.pop('ref', None); move(pl, m); STAT['mention_place'] += 1
+                m.pop('norm', None); nm = norm_ar(m['quote'], p)
+                if nm != m['quote']: m['norm'] = nm
+            elif code == 'P' and it is not None and iid[0] == 'r':
+                side = ('active' if rid and it.get('active') == rid else 'passive' if rid and it.get('passive') == rid
+                        else 'active' if it.get('active') != k else 'passive')
+                m['ref'] = it[side]; it[side] = mid; move(it, m); STAT['mention_rel'] += 1
+            elif code == 'P' and it is not None:                       # a person on an event / source
+                pe = next((pp for pp in it.get('persons') or [] if pp.get('ref') == rid and 'mention' not in pp), None)
+                if pe is not None:
+                    m['ref'] = pe.pop('ref'); pe['mention'] = mid; move(pe, m); STAT['mention_ev_person'] += 1
+                else:
+                    if rid: m['ref'] = rid
+                    m['quote'] = words(i, n); STAT['mention_unlinked_evperson'] += 1
+            elif it is not None:                                     # name element, office, event, source, assessment
+                if rid and it.get('ref') == rid: m['ref'] = it.pop('ref')
+                elif rid: m['ref'] = rid; STAT['mention_ref_differs' if it.get('ref') else 'mention_ref_tag_only'] += 1
+                it['mention'] = mid; move(it, m); STAT['mention_item'] += 1
+            else:
+                if rid: m['ref'] = rid
+                if sub and code in ('P', 'O', 'S'): m['label'] = sub          # the tag's own type when no item takes it
+                m['quote'] = words(i, n); STAT['mention_unlinked_' + code] += 1
+            if 'quote' not in m: m['quote'] = words(i, n)
+            new[i] = f'@{code}{p}{n}[{mid}]'
+        elif y_:
+            code, n = y_.group(1), int(y_.group(4)) if y_.group(4) else 1
+            m = {'id': mid, 'kind': KIND[code], 'value': y_.group(2).lstrip('0') + (('-' + y_.group(3).lstrip('0')) if y_.group(3) else '')}
+            it = meta.get('death') if code == 'YD' else meta.get('birth') if code == 'YB' else None
+            q = words(i, n)
+            if it is not None and it.get('quote') == q and 'mention' not in it:
+                it['mention'] = mid; move(it, m)
+            m.setdefault('quote', q)
+            new[i] = f'@Y0{n}[{mid}]' if code != 'YA' else f'@A0{n}[{mid}]'
+        else:
+            n = int(l_.group(1))
+            m = {'id': mid, 'kind': 'month', 'value': int(l_.group(2)), 'quote': words(i, n)}
+            new[i] = f'@L0{n}[{mid}]'
+        ments.append(m)
+    # items nobody placed: `quote: null` becomes `mention: null`; a verbatim phrase without a place stays as phrase
+    for it in items.values():
+        if 'mention' in it: continue
+        if it['id'][0] == 'r':                         # a relation is placed when a partner side is a mention
+            it.pop('quote', None); it.pop('norm', None); continue
+        if 'quote' in it:
+            q = it.pop('quote'); it.pop('norm', None)
+            if q is not None and it is not meta.get('birth') and it is not meta.get('death'):
+                it['phrase'] = q if not it.get('phrase') else q + ' / ' + it['phrase']
+            elif q is not None:
+                it['phrase'] = q
+            it['mention'] = None
+    for pl in places:                                  # a place quote that no tag claimed (should not happen)
+        if 'quote' in pl and 'mention' not in pl: pl['phrase'] = pl.pop('quote'); pl.pop('norm', None)
+    if ments:
+        out = {}
+        for kk, vv in meta.items():
+            if kk in ('translation', 'provenance') and 'mentions' not in out: out['mentions'] = ments
+            out[kk] = vv
+        if 'mentions' not in out: out['mentions'] = ments
+        meta.clear(); meta.update(out)
 
 
 CMAP = {}

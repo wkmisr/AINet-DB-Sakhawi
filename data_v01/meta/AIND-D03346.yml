@@ -9,27 +9,25 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: إمام الدين
-    norm: امام الدين
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: شيفكي
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05506
+  active: m3
   passive: AIND-D03346
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00001
-  quote: السيد الجرجاني
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D03346
-  passive: AIND-D03480
+  passive: m4
   methods:
   - TMP-S-00008
   fields:
@@ -37,28 +35,47 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: عبد الأول المرشدي
-  norm: عبد الاول المرشدي
+    - mention: m5
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m5
+  mention: null
 sources:
 - id: c1
   persons:
   - ref: AIND-D03480
-  quote: ترجمه
   note:
     en: ʿAbd al-Awwal al-Murshidī wrote a biographical notice of him.
   trigger: rule
   phrase: وهو ترجمه
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: شيفكي
+- id: m2
+  kind: name
+  quote: إمام الدين
+  norm: امام الدين
+- id: m3
+  kind: person
+  ref: AIND-D05506
+  quote: السيد الجرجاني
+- id: m4
+  kind: person
+  ref: AIND-D03480
+  quote: عبد الأول المرشدي
+  norm: عبد الاول المرشدي
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: source
+  quote: ترجمه
 translation:
   ja: シーフキー・イマーム・アッディーン。彼はアラビア語学においてきわめて博学であり、アッ＝サイイド・アル＝ジュルジャーニーから（学問を）受け取った人物の一人である。彼からはアブドゥルアウワル・アル＝ムルシディーがマッカで（学問を）受け取り、彼（アル＝ムルシディー）が彼の伝記を執筆した。
   en: Shīfkī Imām al-Dīn. He was deeply learned in Arabic philology, being among those who acquired knowledge from al-Sayyid al-Jurjānī. From him, ʿAbd al-Awwal al-Murshidī acquired knowledge in Mecca, and the latter wrote his biography.

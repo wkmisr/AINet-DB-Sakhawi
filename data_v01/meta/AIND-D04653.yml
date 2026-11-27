@@ -9,42 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00912
-    quote: الوجدي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00059
-    quote: التلمساني
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m5
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: منصور
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 855-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  - ref: TMP-I-00131
-    quote: ببيمارستانها
-    norm: بيمارستانها
-  - ref: TMP-L-00146
-    role: burial
-    quote: بالشبيكة
-    norm: الشبيكة
+  - mention: m6
+  - mention: m7
+  - role: burial
+    mention: m10
   note:
     ja: '「مات بمكة ببيمارستانها بالاستسقاء في جمادى الأولى سنة خمس وخمسين ودفن بالشبيكة」＝マッカの施療院（ID-Master #TMP-I-00131 البيمارستان بمكة）で水腫（استسقاء）により没。855年ジュマーダー・アル＝ウーラー月初＝1451-06-10（h2g.py。初版は 1451）。'
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: منصور
@@ -57,7 +48,6 @@ relations:
   subtype: father
   active: AIND-D04653#p1
   passive: AIND-D04653
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3・12）。'
 states:
@@ -66,9 +56,51 @@ states:
   ref: TMP-O-00289
   orgs:
   - ref: wd:Q428858
-  quote: null
   note:
     ja: '「السقا بالحرم」。マッカで没した人物のため الحرم ＝ المسجد الحرام（wd:Q428858、既定）。水運び人職は ID-Master に汎用の登録がなく（既存は نقيب السقاة O-00275・رأس نوبة السقاة O-00123・أحد الخواص من السقاة O-00121 のみ）新規 #TMP-O-00289。placeName は原文の「بالحرم」が施設のみのため付けない（規則22-1）。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: منصور
+- id: m3
+  kind: name
+  ref: TMP-N-00912
+  quote: الوجدي
+- id: m4
+  kind: name
+  ref: TMP-N-00059
+  quote: التلمساني
+- id: m5
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: place
+  quote: ببيمارستانها
+  ref: TMP-I-00131
+  norm: بيمارستانها
+- id: m8
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m9
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: بالشبيكة
+  ref: TMP-L-00146
+  norm: الشبيكة
 translation:
   ja: アブドゥッラー・ブン・マンスール・アル＝ワジュディー・アッ＝ティリムサーニー・アル＝マグリビー、ハラム（聖モスク）の水運び人（サッカー）。855年ジュマーダー・アル＝ウーラー月、マッカのその施療院（ビーマーリスターン）で水腫により没し、アッ＝シュバイカに葬られた。
   en: ʿAbd Allāh b. Manṣūr al-Wajdī al-Tilimsānī al-Maghribī, the water-carrier at the Ḥaram. He died in Mecca, in its hospital (bīmāristān), of dropsy in Jumādā al-Ūlā of the year 855, and was buried in al-Shabīka.

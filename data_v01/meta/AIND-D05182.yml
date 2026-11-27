@@ -9,65 +9,94 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00407
-    quote: المسيري
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بشبير
-    norm: شبير
     label: شبير
+    mention: m7
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الزين صدقة
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05182
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m10
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   places:
-  - ref: TMP-L-00044
-    quote: المحلة
+  - mention: m6
   orgs:
   - ref: TMP-I-00156
-  quote: المؤذن
   note:
     ja: 「المؤذن بجامع الغمري في المحلة」。ID-Master 登録の جامع الغمري（TMP-I-00072）は「カイロのガムリー・モスク」（D02327/D04031/D04174「بالقاهرة」）であり、本項の المحلة（al-Maḥalla al-Kubrā）のガムリー・モスク（corpus D00672「أم بجامع الغمري بالمحلة」・D01431「خطب بجامع الغمري بالمحلة」）は別実体 → 新規 TMP-I-00156。
-  norm: المءذن
+  mention: m5
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m10
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
   phrase: سمع مني بالقاهرة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: الزين صدقة
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  ref: TMP-N-00407
+  quote: المسيري
+- id: m5
+  kind: office
+  ref: wd:Q239718
+  quote: المؤذن
+  norm: المءذن
+- id: m6
+  kind: place
+  quote: المحلة
+  ref: TMP-L-00044
+- id: m7
+  kind: name
+  quote: بشبير
+  norm: شبير
+- id: m8
+  kind: event
+  quote: سمع
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アリー・ブン・アッ＝ザイン・サダカ・ブン・ユースフ・アル＝ミスィーリー、アル＝マハッラのアル＝ガムリー・モスクのムアッズィン。シュバイルとして知られる。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī ibn al-Zayn Ṣadaqa ibn Yūsuf al-Misīrī, the muezzin of the al-Ghamrī Mosque in al-Maḥalla, known as Shubayr. He was among those who heard from me (al-Sakhāwī) in Cairo.

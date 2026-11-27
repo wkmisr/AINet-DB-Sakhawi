@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد الغني
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد اللطيف
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04082
   methods:
   - TMP-S-00003
@@ -36,36 +35,63 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
 states:
 - id: s1
   type: office
-  ref: wd:Q242468
-  quote: الخياط
   note:
     ja: 仕立屋（ID-Master 登録 الخياطة=wd:Q242468）。初版は nisbah 位置（#NEEDID）に置いていた。
+  mention: m6
 events:
 - id: e1
   type: residence
   places:
   - ref: TMP-L-00007
-  quote: سكنا
   note:
     ja: 「الحسيني سكنا」＝居住地によるニスバ（カイロのフサイニーヤ地区、TMP-L-00007）。
   trigger: rule
+  mention: m5
 - id: e2
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغني
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: عبد اللطيف
+- id: m4
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m5
+  kind: event
+  quote: سكنا
+- id: m6
+  kind: office
+  ref: wd:Q242468
+  quote: الخياط
+- id: m7
+  kind: event
+  quote: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アブドゥルガニー・ブン・ユースフ・ブン・アブドゥッラティーフ、居住地によりアル＝フサイニー、仕立屋（アル＝ハイヤート）。カイロで私（サハーウィー）から（ハディースを）聴聞した者の一人。
   en: ʿAbd al-Ghanī b. Yūsuf b. ʿAbd al-Laṭīf, al-Ḥusaynī by residence, the tailor (al-Khayyāṭ). He was among those who heard from me (al-Sakhāwī) in Cairo.

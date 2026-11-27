@@ -9,37 +9,33 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: شعبان
     by: rule
-    ref: wd:Q286592
+    mention: m2
   - id: n3
     type: nasab
-    quote: حسين
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: قلاوون
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 801-03
     cert: medium
   places:
-  - ref: TMP-I-00031
-    role: burial
-    quote: بمدرسة جدته أم السلطان
-    norm: مدرسة جدته ام السلطان
-  - ref: TMP-L-00356
-    role: burial
-    quote: التبانة
+  - role: burial
+    mention: m7
+  - role: burial
+    mention: m8
   note:
     ja: 「مات في ربيع الأول سنة إحدى ودفن بمدرسة جدته أم السلطان من التبانة」。一の位のみの年＝801（cert medium、父 الأشرف شعبان 没778 と整合）。801年ラビーウ第一月＝1398年11月。埋葬地＝祖母 أم السلطان のマドラサ（TMP-I-00031、カイロの التبانة 地区）。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
@@ -48,7 +44,6 @@ relations:
   passive: AIND-D06220
   summary:
     ar: الأشرف شعبان بن حسين بن قلاوون
-  quote: null
   note:
     ja: '父＝マムルーク朝スルターン al-Ashraf Shaʿbān（在位764–778、ID-Master 登録 wd:Q286592、AIND 立項なし）。見出しナサブ「شعبان بن حسين بن قلاوون」で一意。初版は #NEEDID。'
 - id: r2
@@ -56,22 +51,58 @@ relations:
   subtype: grandmother
   active: TMP-P-001558
   passive: AIND-D06220
-  quote: null
   note:
     ja: 父方の祖母（الأشرف شعبان の母、通称 أم السلطان＝مدرسة أم السلطان の建立者）。ID-Master 未登録（施設 TMP-I-00031 のみ）→ TMP-P-001558。原文の呼称は「جدته أم السلطان」のみで名は書かれていない。
   phrase: أم السلطان
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: أرخه
+  - corresp: wd:Q257745
+    mention: m10
   note:
     ja: 初版の統制外 biographer relation を Pattern A に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه العيني
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: wd:Q286592
+  quote: شعبان
+- id: m3
+  kind: name
+  quote: حسين
+- id: m4
+  kind: name
+  quote: قلاوون
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بمدرسة جدته أم السلطان
+  ref: TMP-I-00031
+  norm: مدرسة جدته ام السلطان
+- id: m8
+  kind: place
+  quote: التبانة
+  ref: TMP-L-00356
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: カースィム・ブン・シャアバーン・ブン・フサイン・ブン・カラーウーン。（80）1年ラビーウ第一月に没し、タッバーナ地区にある祖母ウンム・アッ＝スルターンのマドラサに埋葬された。アル＝アイニーがその没年を記している。
   en: Qāsim b. Shaʿbān b. Ḥusayn b. Qalāwūn. He died in Rabīʿ I of the year (80)1 and was buried in the madrasa of his grandmother Umm al-Sulṭān in al-Tabbāna. Al-ʿAynī recorded his death date.

@@ -9,46 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00425
-    quote: العدني
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-05488
-    quote: بالرميدي
-    norm: الرميدي
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: null
     label: الرميدي
+    mention: null
   - id: n4
     type: ism
-    quote: ريحان
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 810-12
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m4
+  - role: burial
+    mention: m8
   note:
     en: Died in Dhu al-Hijjah 810 AH.
-  quote: سنة
+  mention: m7
 events:
 - id: e1
   type: visit
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: null
+  - mention: m4
   note:
     en: He frequented Mecca more than once.
+  mention: null
 - id: e2
   type: residence
   subtype: jāwara
@@ -57,15 +48,12 @@ events:
     cert: medium
     type: residence
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: وجاور
+  - mention: m4
   cert: medium
   note:
     en: Performed jawarah there for about three years continuously until his death.
   trigger: rule
-  norm: جاور
+  mention: m5
 sources:
 - id: c1
   persons:
@@ -73,11 +61,49 @@ sources:
     role: mentioner
   summary:
     ar: تقي الدين محمد الفاسي
-  quote: ذكره
   note:
     en: Mentioned by al-Fāsī in his history of Mecca.
     ja: 第三者による言及・記録(Pattern A)。
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: ريحان
+- id: m2
+  kind: name
+  ref: TMP-N-00425
+  quote: العدني
+- id: m3
+  kind: name
+  ref: TMP-N-05488
+  quote: بالرميدي
+  norm: الرميدي
+- id: m4
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m6
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m7
+  kind: year
+  value: '810'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m9
+  kind: source
+  quote: ذكره
 translation:
   ja: ライハーン・アル＝アダニー。アッ＝ルマイディーとして知られる。裕福で礼拝に熱心であり、善性と信仰心を持っていた。何度もマッカを往復し、そこに没するまで連続して3年間ほど隣住（ジャーワラ）した。810年ズー・アル＝ヒッジャ月にマッカで没し、アル＝ムアッラー墓地に埋葬された。アル＝ファースィーがマッカに関する著作で彼について言及している。
   en: Rayḥān al-ʿAdanī, known as al-Rumaydī. He was wealthy and devout, possessing goodness and piety. He frequented Mecca more than once, and performed jawarah (extended stay) there for about three years continuously until his death. He died in Dhu al-Hijjah, in the year 810 AH, in Mecca and was buried in al-Muʿallā. Al-Fāsī mentioned him in his work on Mecca.

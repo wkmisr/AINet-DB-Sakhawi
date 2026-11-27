@@ -9,32 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00205
-    quote: الزرندي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m7
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد اللطيف
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: الحسن
     by: rule
+    mention: m5
 persons:
 - id: p1
   label: عبد اللطيف
@@ -45,7 +43,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D06936
+  active: m9
   passive: AIND-D07737
   methods:
   - TMP-S-00003
@@ -54,27 +52,22 @@ relations:
     date:
       ah: 834
       type: learning
-  quote: الجمال الكازروني @YY834 سنة أربع وثلاثين
   note:
     ja: الجمال الكازروني＝#AIND-D06936（الجمال محمد بن أحمد الكازروني المدني、マディーナのカーディー）。834＝1430-09-28〜1431-09-17（年精度→年初の1430）。
-  norm: الجمال الكازروني @YY834 سنة اربع وثلاثين
   phrase: سمع على الجمال الكازروني سنة أربع وثلاثين وثمانمائة
 - id: r2
   type: kin
   subtype: grandson
-  active: AIND-D07736
+  active: m8
   passive: AIND-D07737
   cert: medium
-  quote: أظنه جد الذي قبله
   note:
     ja: 'サハーウィー自身の推測（أظنه → cert medium）。前項 #AIND-D07736（الشمس محمد بن عبد اللطيف بن الكمال أبي الفضل محمد … الزرندي、850年生）の祖父＝الكمال أبو الفضل محمد。D07736 の父 #AIND-D04349 の見出し「عبد اللطيف بن الكمال أبي الفضل محمد بن السراج عبد اللطيف بن محمد بن يوسف بن الحسن」は本項のナサブ（محمد بن عبد اللطيف بن محمد بن يوسف بن الحسن）と整合する。初版は subtype="other"・#NEEDID。'
-  norm: اظنه جد الذي قبله
 - id: r3
   type: kin
   subtype: father
   active: AIND-D07737#p1
   passive: AIND-D07737
-  quote: null
   note:
     ja: '父 عبد اللطيف بن محمد بن يوسف الزرندي（D04349 の見出しでは「السراج عبد اللطيف بن محمد بن يوسف بن الحسن」）。corpus に本伝なし。同定が D07736 との祖父関係（cert medium）に依存するため TMP-P は発行せず #NEEDID（ISSUES §Dg-7）。'
 - id: r4
@@ -85,9 +78,46 @@ relations:
   summary:
     ar: أبو الفضل بن عبد اللطيف بن محمد بن يوسف الزرندي المدني الشافعي
   cert: medium
-  quote: null
   note:
     ja: 'クンヤ部 #AIND-D11051 は本項主と同ナサブ（عبد اللطيف بن محمد بن يوسف الزرندي）で転送指示がなく二重立項型。#AIND-D04712 の父「الكمال أبو الفضل محمد بن السراج عبد اللطيف بن محمد بن يوسف الزرندي」は両項の名とクンヤを兼ね備える（B89-93 §D93-3）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد اللطيف
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: يوسف
+- id: m5
+  kind: name
+  quote: الحسن
+- id: m6
+  kind: name
+  ref: TMP-N-00205
+  quote: الزرندي
+- id: m7
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m8
+  kind: person
+  ref: AIND-D07736
+  quote: أظنه جد الذي قبله
+  norm: اظنه جد الذي قبله
+- id: m9
+  kind: person
+  ref: AIND-D06936
+  quote: الجمال الكازروني @YY834 سنة أربع وثلاثين
+  norm: الجمال الكازروني @YY834 سنة اربع وثلاثين
+- id: m10
+  kind: year
+  value: '834'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラティーフ・ブン・ムハンマド・ブン・ユースフ・ブン・アル＝ハサン・アッ＝ザランディー・アル＝マダニー。私（サハーウィー）は彼が前項の人物の祖父であると思う。ヒジュラ暦834年にアル＝ジャマール・アル＝カーザルーニーから聴聞した。
   en: Muḥammad b. ʿAbd al-Laṭīf b. Muḥammad b. Yūsuf b. al-Ḥasan al-Zarandī al-Madanī. I (al-Sakhāwī) think he is the grandfather of the preceding one. He heard from al-Jamāl al-Kāzarūnī in the year 834.

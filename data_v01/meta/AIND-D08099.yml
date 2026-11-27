@@ -9,56 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m8
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن المشرقي
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05200
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: حسن
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: العلاء
     by: rule
+    mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05200
+  active: m9
   passive: AIND-D08099
   summary:
     ar: علي بن عبد الرحمن بن حسن بن علي العلاء الغزي ابن المشرقي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝ #AIND-D05200「علي بن عبد الرحمن بن حسن بن علي بن منصور بن علي العلاء أبو الحسن البغدادي الأصل الغزي الشافعي ويعرف بابن المشرقي … مات في ربيع الأول سنة تسع وثمانين … ومولده كما قاله لي ولده الشمس محمد في سنة خمسين」（ナサブ4代・ラカブ・通称が一致、相手側に「ولده الشمس محمد」）。初版 #NEEDID を置換（ブリーフ指定）。'
-  norm: ابوه
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D08099
   methods:
   - TMP-S-00003
@@ -70,9 +66,52 @@ relations:
     phrase: حضر إلي في رمضان سنة خمس وتسعين فسمع مني المسلسل
   works:
   - ref: TMP-T-00019
-  quote: مني
   note:
     ja: 「حضر إلي في رمضان سنة خمس وتسعين فسمع مني المسلسل」（規則2）。895年ラマダーン月＝1490-07-28 開始（h2g.py、月精度）。初版の event @when「0895-09」（ヒジュラ値が @when に入っていた）を when-custom＋@when に修正。初版の field「الحديث」は規則2 により除去。
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05200
+  quote: علي
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: حسن
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: الشمس
+- id: m7
+  kind: name
+  quote: العلاء
+- id: m8
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m9
+  kind: person
+  ref: AIND-D05200
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m11
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アブドゥッラフマーン・ブン・ハサン・ブン・アリー、アッ＝シャムス・ブン・アル＝アラー・アル＝ガッズィー・ブン・アル＝マシュリキー。父は既出。895年ラマダーン月に私のもとに来て、私から『ムサルサル』を聴聞した。
   en: Muḥammad b. ʿAlī b. ʿAbd al-Raḥmān b. Ḥasan b. ʿAlī, al-Shams b. al-ʿAlāʾ al-Ghazzī b. al-Mashriqī; his father has been mentioned. He came to me in Ramaḍān [8]95 and heard the Musalsal from me.

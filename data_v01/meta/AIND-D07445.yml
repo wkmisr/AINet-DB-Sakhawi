@@ -9,74 +9,63 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m9
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m6
   - id: n4
     type: shuhrah
-    quote: بابن الفقيه سليمان
-    norm: ابن الفقيه سليمان
     label: ابن الفقيه سليمان
+    mention: m11
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001155
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m4
   - id: n9
     type: nasab
-    quote: عبد الملك
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: العلم
     by: rule
+    mention: m7
   - id: n11
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m10
 birth:
   id: b
   date:
     ah: 770
     cert: medium
   places:
-  - ref: gn:358048
-    quote: بدمياط
-    norm: دمياط
+  - mention: m14
   note:
     ar: ولد سنة سبعين وسبعمائة تقريبا بدمياط
     ja: 「تقريبا」のため cert medium。770年＝1368年（年初 1368-08-24、グレゴリオ暦・独立再計算）。
-  quote: سنة
+  mention: m13
 death:
   id: d
   date:
     notBefore: 842-11-26
     notAfter: 843-11-26
   places:
-  - ref: gn:358048
-    quote: بدمياط
-    norm: دمياط
+  - mention: m14
   note:
     ar: مات بدمياط في سادس عشري ذي القعدة سنة اثنتين أو ثلاث وأربعين
     ja: 842年または843年ズー・アル＝カアダ月26日＝1439-05-19（日曜）または 1440-05-08（金曜）。二択のため notBefore/notAfter で表現（初版は when-custom="0842" when="1438" で年ズレ・日精度欠落）。
@@ -84,32 +73,30 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000322
+  active: m16
   passive: AIND-D07445
   methods:
   - TMP-S-00006
   works:
   - ref: TMP-T-00110
   - ref: TMP-T-00065
-  quote: ناصر الدين بن الميلق
   note:
     ar: وحفظ … العمدة في أربعين يوما والمنهاج الفرعي وعرض على ناصر الدين بن الميلق وجماعة
     ja: 暗記した2書を ابن الميلق と「جماعة」（名不詳の複数、relation 化しない）に暗誦提示（عرض）。初版は同一師への2 relation に分割していたものを1本に統合。TMP-P-000322（ناصر الدين بن الميلق、ID-Master 登録済み。8世紀没で al-Ḍawʾ に本伝なし）。場所は原文に明示なし（ダミエッタ時代の記事だが「بها」等の照応がない）ため初版の learning event（دمياط）を除去（規則22）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-001156
+  active: m17
   passive: AIND-D07445
   methods:
   - TMP-S-00074
-  quote: قاضي بلده التاج عتيق
   note:
     ja: '「وبحث على قاضي بلده التاج عتيق」。التاج عتيق＝ダミエッタのカーディー。corpus D07204 にも「القاضيين التاج عتيق والعز بن سليم」として現れるが本伝なし・ID-Master 未登録のため新規 TMP-P-001156。方法「بحث」は ID-Master に該当 Subject がなく新規 TMP-S-00074。初版は #NEEDID・method「درس」・field「الفقه」（原文に分野の明示なし）だったものを是正。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D07445
-  passive: AIND-D05979
+  passive: m18
   methods:
   - TMP-S-00026
   cert: medium
@@ -119,10 +106,7 @@ relations:
       ah: 838
       type: teaching
     places:
-    - ref: gn:358048
-      quote: بدمياط
-      norm: دمياط
-  quote: ابن فهد
+    - mention: m14
   note:
     ar: لقيه ابن فهد والبقاعي في سنة ثمان وثلاثين بدمياط وكتبا عنه أشياء
     ja: 838年にダミエッタで本項主に会い詩などを書き取った（كتبا عنه）。ابن فهد 振り分け規約（「في معجمه」の明示なし・838年）により一旦 التقي بن فهد＝#AIND-D09211・cert low としたが、裁定反映（要判断_B88 §D-b3）で النجم عمر بن فهد＝#AIND-D05979・cert medium に改めた。初版の field（TMP-S-00040 أنشد、空 desc）を除去。
@@ -130,7 +114,7 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D07445
-  passive: AIND-D00207
+  passive: m19
   methods:
   - TMP-S-00026
   context:
@@ -139,31 +123,25 @@ relations:
       ah: 838
       type: teaching
     places:
-    - ref: gn:358048
-      quote: بدمياط
-      norm: دمياط
-  quote: والبقاعي
+    - mention: m14
   note:
     ja: البقاعي＝#AIND-D00207（初版の wd:Q12198099 を repo 確定IDに差し替え）。
-  norm: البقاعي
   phrase: البقاعي
 - id: r5
   type: kin
   subtype: father
-  active: TMP-P-001155
+  active: m12
   passive: AIND-D07445
   summary:
     ar: العلم الفقيه سليمان بن أحمد بن إبراهيم بن عبد الملك السنباطي
-  quote: وأبوه
   note:
     ja: 見出しナサブ「محمد بن سليمان بن أحمد بن إبراهيم بن عبد الملك الشمس بن العلم」から1段ずらして復元（ラカブ العلم）。「ويعرف بابن الفقيه سليمان وأبوه بالسنباطي」＝父は الفقيه سليمان・السنباطي として知られた。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001155（規則3）。
-  norm: ابوه
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m21
 affiliations:
 - id: a1
   type: madhhab
@@ -172,29 +150,117 @@ events:
 - id: e1
   type: learning
   places:
-  - ref: gn:358048
-    quote: بدمياط
-    norm: دمياط
+  - mention: m14
   methods:
   - TMP-S-00006
-  quote: وعرض
   note:
     ja: 「بها」＝دمياط（照応、規則22-3）。クルアーン暗記と9歳1か月での（タラーウィーフ）先導礼拝、العمدة の40日での暗記、المنهاج الفرعي の暗記。初版の「other」event（英語 desc・when-custom 0779・cert high）を原文 desc に置換し、逆算年は付けない。
   trigger: rule
-  norm: عرض
   phrase: وحفظ بها القرآن وصلى به وهو ابن تسع سنين وشهر ، والعمدة في أربعين يوما والمنهاج الفرعي
+  mention: m15
 - id: e2
   type: cultural
-  quote: وتعاني نظم الشعر من غير تقدم اشتغال له في العروض والنحو مع كون كله موزونا وعدم اللحن فيه
-  norm: تعاني نظم الشعر من غير تقدم اشتغال له في العروض والنحو مع كون كله موزونا وعدم اللحن فيه
+  phrase: وتعاني نظم الشعر من غير تقدم اشتغال له في العروض والنحو مع كون كله موزونا وعدم اللحن فيه
+  mention: null
 - id: e3
   type: cultural
   works:
   - label: المولد النبوي
-  quote: ونظم المولد النبوي وأشياء
   note:
     ja: 本項主の韻文作品。初版の placeName دمياط（原文に明示なし）を除去（規則22-1）。
-  norm: نظم المولد النبوي واشياء
+  phrase: ونظم المولد النبوي وأشياء
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001155
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m5
+  kind: name
+  quote: عبد الملك
+- id: m6
+  kind: name
+  quote: الشمس
+- id: m7
+  kind: name
+  quote: العلم
+- id: m8
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m9
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m10
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m11
+  kind: name
+  quote: بابن الفقيه سليمان
+  norm: ابن الفقيه سليمان
+- id: m12
+  kind: person
+  ref: TMP-P-001155
+  quote: وأبوه
+  norm: ابوه
+- id: m13
+  kind: year
+  value: '770'
+  quote: سنة
+- id: m14
+  kind: place
+  quote: بدمياط
+  ref: gn:358048
+  norm: دمياط
+- id: m15
+  kind: event
+  quote: وعرض
+  norm: عرض
+- id: m16
+  kind: person
+  ref: TMP-P-000322
+  quote: ناصر الدين بن الميلق
+- id: m17
+  kind: person
+  ref: TMP-P-001156
+  quote: قاضي بلده التاج عتيق
+- id: m18
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
+- id: m19
+  kind: person
+  ref: AIND-D00207
+  quote: والبقاعي
+  norm: البقاعي
+- id: m20
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m21
+  kind: assessment
+  quote: خيرا
+- id: m22
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m23
+  kind: year
+  value: '842'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・スライマーン・ブン・アフマド・ブン・イブラーヒーム・ブン・アブドゥルマリク、アッ＝シャムス・ブン・アル＝アラム、カイロ出自のダミエッタ人、シャーフィイー派。「イブン・アル＝ファキーフ・スライマーン（法学者スライマーンの子）」として知られ、父は「アッ＝スンバーティー」として知られた。770年頃ダミエッタに生まれ、同地でクルアーンを暗記し、9歳1か月でそれを（暗誦して）礼拝を先導した。『ウムダ』を40日で、さらに『ミンハージュ・アル＝ファルイー』を暗記し、ナースィルッディーン・ブン・アル＝マイラクや一団の人々に暗誦提示した。自分の町のカーディーであるアッ＝タージュ・アティークのもとで研究した。韻律学と文法を前もって学んだことがないのに作詩に励み、しかもそのすべてが韻律に適い、文法上の誤りもなかった。イブン・ファハドとアル＝ビカーイーは838年にダミエッタで彼に会い、彼から諸々を書き取った。そのうちには次のものがある。 「謙遜はあらゆる美徳の根源であり、学問はあらゆる卑しい者に誉れをもたらす。 自我によって（自分を）大きくされる者は（実は）小さくされているのだ。自我こそ仲間のうちで最悪の友である。 理性は若者に主から与えられる最大の恩恵であり、理性こそ最良の導き手である。」 また預言者生誕詩（マウリド・ナバウィー）などを詠んだ。善良で、堂々として輝きがあり、落ち着きと威厳を備えた人物であった。842年または843年のズー・アル＝カアダ月26日にダミエッタで没した。神よ彼に慈悲を。
   en: 'Muḥammad b. Sulaymān b. Aḥmad b. Ibrāhīm b. ʿAbd al-Malik, al-Shams b. al-ʿAlam, of Cairene origin, al-Dimyāṭī, al-Shāfiʿī; known as Ibn al-Faqīh Sulaymān, while his father was known as al-Sunbāṭī. He was born around the year 770 in Damietta, where he memorized the Qurʾān and led the prayer with it when he was nine years and one month old. He memorized al-ʿUmda in forty days, as well as al-Minhāj al-Farʿī, and presented them to Nāṣir al-Dīn b. al-Maylaq and a group of others. He studied by discussion under the judge of his town, al-Tāj ʿAtīq. He applied himself to composing poetry without any prior study of prosody or grammar, yet all of it was correctly metred and free of grammatical error. Ibn Fahd and al-Biqāʿī met him in the year 838 in Damietta and wrote down from him various pieces, among them: "Humility is the root of every beautiful thing, and knowledge brings honour to every lowly one. He whom the self makes great is in truth made small, for the self is the worst of friends

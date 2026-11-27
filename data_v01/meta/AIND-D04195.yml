@@ -9,68 +9,99 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00082
-    quote: الرهاوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: ناصر الدين محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عوض
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 884
   places:
-  - ref: TMP-L-00255
-    quote: ببلاد بجيلة
-    norm: بلاد بجيلة
-  - ref: TMP-L-00255
-    role: burial
-    quote: ببلاد بجيلة
-    norm: بلاد بجيلة
+  - mention: m9
+  - role: burial
+    mention: m9
   note:
     ja: بلاد بجيلة（バジーラ族の地、ヒジャーズ南部サラート山地）。ID-Master 未登録 → 新規 TMP-L-00255。
-  quote: سنة
+  mention: m8
 states:
 - id: s1
   type: status
   label: ويأتمنه الناس في ذلك
   label_latn: wa-yaʾtaminuhu al-nās fī dhālik
-  quote: ويأتمنه الناس في ذلك
-  norm: وياتمنه الناس في ذلك
+  mention: m7
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00255
-    quote: ببلاد بجيلة
-    norm: بلاد بجيلة
-  quote: يتردد
+  - mention: m9
   trigger: rule
   phrase: ممن كان يتردد في التجارة لبجيلة وغيرها
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   cert: medium
   note:
     ja: Pattern A（没年記録）。没884 → ابن فهد 規則②（871＜d≤885）＝النجم عمر بن فهد（#AIND-D05979、cert medium）。初版は統制外 subtype「biographer」の relation（D09211）にしていた。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: ناصر الدين محمد
+- id: m3
+  kind: name
+  quote: عوض
+- id: m4
+  kind: name
+  ref: TMP-N-00082
+  quote: الرهاوي
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: event
+  quote: يتردد
+- id: m7
+  kind: office
+  quote: ويأتمنه الناس في ذلك
+  norm: وياتمنه الناس في ذلك
+- id: m8
+  kind: year
+  value: '884'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: ببلاد بجيلة
+  ref: TMP-L-00255
+  norm: بلاد بجيلة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: アブドゥルカーディル・ブン・ナースィル・アッディーン・ムハンマド・ブン・アワド・アッ＝ラハーウィー・アル＝マッキー。バジーラ地方などに交易のために頻繁に往来し、人々からその点で信頼されていた人物。ヒジュラ暦884年にバジーラ地方で没し、同地に埋葬された。イブン・ファハドが彼の没年を記録している。
   en: Abd al-Qadir b. Nasir al-Din Muhammad b. Awad al-Rahawi al-Makki. He was among those who frequently traveled for trade to Bajila and other places, and people trusted him in that regard. He died in the year 884 AH in the land of Bajila and was buried there. His death was recorded by Ibn Fahd.

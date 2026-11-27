@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: شرف الدين
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: شاش
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 846-09
   places:
-  - ref: wd:Q2066414
-    role: burial
-    quote: بالقرافة
-    norm: القرافة
+  - role: burial
+    mention: m6
   note:
     ar: مات في رمضان سنة ست وأربعين ودفن بتربتهم بالقرافة
     ja: 846年ラマダーン月＝1443-01（月初 1443-01-12、グレゴリオ暦・独立再計算）。カラーファの一族の廟（تربتهم）に埋葬。没地の明示なし。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: شاش
@@ -43,26 +41,54 @@ relations:
   subtype: father
   active: AIND-D07470#p1
   passive: AIND-D07470
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00058
-  quote: null
   phrase: أحد الموقعين
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09832
-    corresp: wd:Q257745
-    quote: العيني
-  quote: ذكره
+  - corresp: wd:Q257745
+    mention: m8
   note:
     ja: Pattern A。初版の統制外 subtype「mentioned_by」relation を event に置換。
   trigger: rule
   phrase: ذكره العيني
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: شاش
+- id: m3
+  kind: name
+  quote: شرف الدين
+- id: m4
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m5
+  kind: year
+  value: '846'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بالقرافة
+  ref: wd:Q2066414
+  norm: القرافة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: AIND-D09832
+  quote: العيني
 translation:
   ja: ムハンマド・ブン・シャーシュ、シャラフッディーン。署名官（ムワッキウ）の一人。846年ラマダーン月に没し、カラーファ（墓地）にある彼らの（一族の）廟に埋葬された。アル＝アイニーが彼に言及している。
   en: Muḥammad b. Shāsh, Sharaf al-Dīn, one of the muwaqqiʿs (chancery clerks). He died in Ramaḍān of the year 846 and was buried in their family tomb in al-Qarāfa. Al-ʿAynī mentioned him.

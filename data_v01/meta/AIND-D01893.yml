@@ -9,42 +9,34 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: بالفقيه
-    norm: الفقيه
     label: الفقيه
+    mention: m3
   - id: n2
     type: ism
-    quote: أزدمر
     by: rule
-    norm: ازدمر
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02423
+  active: m2
   passive: AIND-D01893
   summary:
     ar: الظاهر جقمق
-  quote: الظاهري جقمق
 - id: r2
   type: social
   subtype: colleague
-  active: AIND-D06290
+  active: m8
   passive: AIND-D01893
-  quote: قانصوة الشامي
   note:
     ja: قانصوة الشامي=#AIND-D06290(قانصوه الأشرفي قايتباي قريبه ويعرف بالشامي)。旧TMP-P-000638流用解消。صحبة=同道(友誼断定なし)につきcolleague。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
-  norm: امير عشرة
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00016
-  quote: بطبلخاناه
-  norm: طبلخاناه
+  mention: m5
 events:
 - id: e1
   type: travel
@@ -52,21 +44,57 @@ events:
   - ref: AIND-D06290
     role: companion
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: سافر
+  - mention: m9
   note:
     en: Traveled to Aleppo in the company of Qansawh al-Shami.
   trigger: rule
+  mention: m7
 - id: e2
   type: political
   places:
-  - ref: gn:325363
-    quote: أذنة
-    norm: اذنة
+  - mention: m6
   summary:
     en: Participated in the battle of Adana.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: أزدمر
+  norm: ازدمر
+- id: m2
+  kind: person
+  ref: AIND-D02423
+  quote: الظاهري جقمق
+- id: m3
+  kind: name
+  quote: بالفقيه
+  norm: الفقيه
+- id: m4
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m5
+  kind: office
+  ref: TMP-O-00016
+  quote: بطبلخاناه
+  norm: طبلخاناه
+- id: m6
+  kind: place
+  quote: أذنة
+  ref: gn:325363
+  norm: اذنة
+- id: m7
+  kind: event
+  quote: سافر
+- id: m8
+  kind: person
+  ref: AIND-D06290
+  quote: قانصوة الشامي
+- id: m9
+  kind: place
+  quote: حلب
+  ref: gn:170063
 translation:
   ja: アズダマル・ミン・ヤシュバク（ヤシュバクから購われた者）、アッ＝ザーヒリー・ジャクマク（ジャクマクのマムルーク）。アル＝ファキーフとして知られる。昇進を重ね、アル＝アシュラフ・カーイトバーイの治世に十人隊長（アミール・アシャラ）となり、その後アダナの戦いから帰還した際にタブルハーナー級への昇格を授けられた。その後、カーンスーワ・アッ＝シャーミーに同道してハラブへ赴いた。
   en: Azdamar min Yashbak (purchased from Yashbak), al-Ẓāhirī Jaqmaq, known as al-Faqīh. He advanced through posts until he became an amir of ten in the reign of al-Ashraf Qāytbāy. Then he was granted a ṭablakhānāh upon his return from the battle of Adana. He then traveled to Aleppo in the company of Qansawh al-Shami.

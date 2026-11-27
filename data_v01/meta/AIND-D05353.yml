@@ -9,70 +9,61 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m9
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: مانع
     by: rule
-    ref: AIND-D06436
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عطية
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: منصور
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: جماز
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: شيحة
     by: rule
+    mention: m7
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06436
+  active: m11
   passive: AIND-D05353
-  quote: أبيه
   note:
     ja: '「رام بعد أبيه إمرة المدينة」。父 ＝ #AIND-D06436（مانع بن علي بن عطية بن منصور بن جماز بن شيحة الحسيني أمير المدينة ووالد أميرها أميان الماضي、839年ジュマーダー・アル＝アーヒラ月10日に حيدر بن دوغان に殺害）。ナサブ6代一致。初版の #NEEDID を解消（規則37）。'
-  norm: ابيه
   phrase: مانع بن علي بن عطية بن منصور بن جماز بن شيحة الحسيني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02071
+  active: m10
   passive: AIND-D05353
-  quote: أميان
   note:
     ja: '「أخو أميان الماضي」＝ #AIND-D02071（اميان … بن مانع بن علي بن عطية بن منصور … الحسيني المدني أميرها、839年の父の殺害後にマディーナのアミール）。初版の #NEEDID を解消。'
-  norm: اميان
 - id: r3
   type: social
   subtype: rival
-  active: AIND-D04894
+  active: m14
   passive: AIND-D05353
-  quote: والعجل بن عجلان
   note:
     ja: '「تجاذب في سنة تسع وثلاثين هو والعجل بن عجلان الماضي فيها」＝ #AIND-D04894（العجل بن عجلان بن نعير بن منصور بن جماز … الحسيني。同項に「تنازع بعد قتل مانع بن علي في إمرة للمدينة هو وعلي بن مانع في سنة تسع وثلاثين ولم تحصل لواحد منهما」とあり本項と整合）。初版の #NEEDID を解消。'
-  norm: العجل بن عجلان
   phrase: العجل بن عجلان
 events:
 - id: e1
@@ -84,14 +75,67 @@ events:
   - ref: AIND-D04894
     role: rival
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m12
   summary:
     en: After his father, he sought the emirate of Medina and contended for it with al-ʿAjl b. ʿAjlān in the year 839, but it was not attained by either of them.
-  quote: رام بعد أبيه إمرة المدينة وتجاذب في سنة تسع وثلاثين هو والعجل بن عجلان الماضي فيها فما تيسرت لهما
   note:
     ja: إمرة المدينة（TMP-O-00144 أمير المدينة）は求めたが得られなかったため state（office）にはしない。839 ＝ 1435-08-05〜1436-07-24、年精度 1435。
-  norm: رام بعد ابيه امرة المدينة وتجاذب في سنة تسع وثلاثين هو والعجل بن عجلان الماضي فيها فما تيسرت لهما
+  phrase: رام بعد أبيه إمرة المدينة وتجاذب في سنة تسع وثلاثين هو والعجل بن عجلان الماضي فيها فما تيسرت لهما
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D06436
+  quote: مانع
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: عطية
+- id: m5
+  kind: name
+  quote: منصور
+- id: m6
+  kind: name
+  quote: جماز
+- id: m7
+  kind: name
+  quote: شيحة
+- id: m8
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m9
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m10
+  kind: person
+  ref: AIND-D02071
+  quote: أميان
+  norm: اميان
+- id: m11
+  kind: person
+  ref: AIND-D06436
+  quote: أبيه
+  norm: ابيه
+- id: m12
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m13
+  kind: year
+  value: '839'
+  quote: سنة
+- id: m14
+  kind: person
+  ref: AIND-D04894
+  quote: والعجل بن عجلان
+  norm: العجل بن عجلان
 translation:
   ja: アリー・ブン・マーニウ・ブン・アリー・ブン・アティーヤ・ブン・マンスール・ブン・ジャンマーズ・ブン・シーハ・アル＝フサイニー・アル＝マダニー。前述のウミヤーンの兄弟。父の後にマディーナのアミール職を求め、839年に彼と前述のアル＝アジュル・ブン・アジュラーンとがそれをめぐって争ったが、二人にはそれが叶わなかった。
   en: ʿAlī b. Māniʿ b. ʿAlī b. ʿAṭiyya b. Manṣūr b. Jammāz b. Shīḥa al-Ḥusaynī al-Madanī, the brother of the aforementioned Umyān. After his father he sought the emirate of Medina, and in the year 839 he and the aforementioned al-ʿAjl b. ʿAjlān contended over it, but it was not attained by either of them.

@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: شعبان
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -26,7 +26,7 @@ birth:
   note:
     ar: ولد تقريبا سنة ثمانين وسبعمائة
     ja: 「تقريبا」のため cert medium。780年＝1378年（年初 1378-05-08、グレゴリオ暦・独立再計算）。
-  quote: سنة
+  mention: m6
 death:
   id: d
   date:
@@ -34,7 +34,7 @@ death:
   note:
     ar: ثم مات في حادي عشري شوال سنة أربع وأربعين
     ja: 844年シャウワール月21日＝1441-03-24（水曜、グレゴリオ暦・独立再計算）。初版の when="1440" を是正。没地の明示なし。
-  quote: سنة
+  mention: m10
 persons:
 - id: p1
   label: شعبان
@@ -47,49 +47,88 @@ relations:
   subtype: father
   active: AIND-D07475#p1
   passive: AIND-D07475
-  quote: null
   note:
     ja: '裸名のみのため #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00055
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: محتسب
+  - mention: m5
   note:
     ja: placeName القاهرة は原文「محتسب القاهرة」による（規則22-2）。20回以上、金銭の提供（بذل）によって就任。
   phrase: فولي الحسبة زيادة على عشرين مرة بالبذل بحيث كان يتبجح بذلك ويفتخر به
+  mention: m4
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03345
-    quote: المؤيد
-    norm: المءيد
-  quote: فولي
+  - mention: m8
   note:
     ja: المؤيد＝スルターン・アル＝ムアイヤド・シャイフ（#AIND-D03345）。初版の英語 desc・cert medium・placeName القاهرة（原文に明示なし）を原文 desc に置換（規則7・22-1）。
   trigger: rule
-  norm: ولي
   phrase: مع أن المؤيد ضربه مرة على رجليه وألزمه بعدم السعي فيها
+  mention: m7
 - id: e2
   type: other
-  quote: وما انفك إلى أن افتقر وصار تعتريه المفاصل
   note:
     ja: （ヒスバ職の追求を）やめず、ついに困窮し関節の病に冒された。初版の英語 desc を原文 desc に置換。
-  norm: وما انفك الي ان افتقر وصار تعتريه المفاصل
+  phrase: وما انفك إلى أن افتقر وصار تعتريه المفاصل
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: قال
+  - mention: m12
   note:
     ja: Pattern A。初版の統制外 subtype「other」relation を event に置換。
   trigger: rule
   phrase: قال المقريزي وكان لا فضل ولا فضيلة
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: شعبان
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: office
+  ref: TMP-O-00055
+  quote: محتسب
+- id: m5
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m6
+  kind: year
+  value: '780'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: فولي
+  norm: ولي
+- id: m8
+  kind: person
+  ref: AIND-D03345
+  quote: المؤيد
+  norm: المءيد
+- id: m9
+  kind: month
+  value: 10
+  quote: شوال
+- id: m10
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ムハンマド・ブン・シャアバーン、アッ＝シャムス、カイロのムフタスィブ（市場監督官）。780年頃に生まれた。学識に欠け、まったくの平民であったが、それにもかかわらず金銭の提供（バズル）によって20回以上もヒスバ職に就き、それを誇り自慢するほどであった。アル＝ムアイヤド（・シャイフ）が一度彼の両足を打ち、同職を求めないよう命じたにもかかわらず（である）。彼は困窮して関節の病に冒されるまで（それを）やめなかった。その後、844年シャウワール月21日に没した。アル＝マクリーズィーは「彼には何の長所も美点もなかった」と述べている。
   en: 'Muḥammad b. Shaʿbān, al-Shams, the muḥtasib of Cairo. He was born around the year 780. He was devoid of accomplishments, indeed a mere commoner; nevertheless he held the ḥisba more than twenty times through payment, to the point that he used to boast and pride himself on it, even though al-Muʾayyad once had him beaten on his feet and ordered him not to seek it again. He did not desist until he became impoverished and was afflicted with joint disease. He then died on the twenty-first of Shawwāl of the year 844. Al-Maqrīzī said: he had neither merit nor virtue.'

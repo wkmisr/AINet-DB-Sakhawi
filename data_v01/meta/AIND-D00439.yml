@@ -9,36 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00006
-    quote: البصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن المفرد
-    norm: ابن المفرد
     label: ابن المفرد
+    mention: m6
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D00439
   methods:
   - TMP-S-00003
@@ -50,17 +45,14 @@ relations:
       ah: 871
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m8
   works:
   - label: القول البديع
   - label: al-Qawl al-Badīʿ
-  quote: علي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D00439
   methods:
   - TMP-S-00003
@@ -69,12 +61,50 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m8
   works:
   - label: الأمالي
   - label: al-Amālī
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00006
+  quote: البصري
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: name
+  quote: بابن المفرد
+  norm: ابن المفرد
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: wd:Q4120128
   quote: ومني
 translation:
   ja: アフマド・ブン・イブラーヒーム・ブン・アブドゥッラー・アル＝バスリー、のちマッカの人（al-Baṣrī thumma al-Makkī）。「イブン・アル＝ムファッラド（ابن المفرد）」として知られる。〔ヒジュラ暦〕871年、二度目〔の滞在の折〕にマッカで、私（サハーウィー）のもとで聴聞した者の一人である。〔聴いたのは〕『アル＝カウル・アル＝バディーウ（al-Qawl al-Badīʿ）』の多くの部分、および私の『アマーリー（al-Amālī）』、その他である。

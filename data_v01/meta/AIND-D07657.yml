@@ -9,75 +9,112 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-04654
-    quote: القندهاري
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد السلام
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: راجح
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 867-04
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m7
   note:
     ar: مات بمكة شهيدا تحت هدم في ربيع الثاني سنة سبع وستين . أرخه ابن فهد
     ja: 867年ラビーウ第2月＝1463-01-02〜01-30 → 1463-01。倒壊物の下敷きで殉死。
-  quote: سنة
+  mention: m10
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: wd:Q125482
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m7
   orgs:
   - ref: TMP-I-00176
-  quote: ونائب إمام مقام الحنفية
   note:
     ja: '「بها」＝مكة（規則22(3)）。マッカ聖モスクのハナフィー派マカームのイマーム代理。職・機関とも ID-Master 未登録のため新規 #TMP-O-00285・#TMP-I-00176（既登録の المسجد الحرام＝wd:Q428858 内の礼拝所。repo D00743 は同職に TMP-O-00017「مدير ديوان」を流用しており要是正＝ISSUES §Df-6）。'
-  norm: ناءب امام مقام الحنفية
   phrase: ونائب إمام مقام الحنفية بها
+  mention: m8
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m7
   trigger: rule
   phrase: نزيل مكة
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    cert: low
-    quote: ابن فهد
-  quote: أرخه
+  - cert: low
+    mention: m12
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 867（≦871）→ ブリーフの振り分けにより التقي بن فهد＝#AIND-D09211、cert low。初版の biographer relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m11
 notes:
 - text: 「القندهاري نسبة لبعض قرى الهند」＝サハーウィーによるニスバ注記（インドの村への帰属）。
   lang: ja
   type: textual
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد السلام
+- id: m3
+  kind: name
+  quote: راجح
+- id: m4
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m5
+  kind: name
+  ref: TMP-N-04654
+  quote: القندهاري
+- id: m6
+  kind: event
+  quote: نزيل
+- id: m7
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m8
+  kind: office
+  ref: wd:Q125482
+  quote: ونائب إمام مقام الحنفية
+  norm: ناءب امام مقام الحنفية
+- id: m9
+  kind: month
+  value: 4
+  quote: ربيع الثاني
+- id: m10
+  kind: year
+  value: '867'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アブドゥッサラーム・ブン・ラージフ、アル＝クラシー・アル＝カンダハーリー――インドの或る村に因むニスバ――。マッカの寄留者で、同地のハナフィー派マカームのイマーム代理。〔八百〕六十七年ラビーウ第二月、マッカで倒壊物の下敷きとなり殉教者として没した。イブン・ファハドがその没年を記録した。
   en: Muḥammad b. ʿAbd al-Salām b. Rājiḥ al-Qurashī al-Qandahārī — a nisba referring to one of the villages of India. A resident of Mecca and deputy imam of the Ḥanafī station (maqām al-Ḥanafiyya) there. He died in Mecca as a martyr, [crushed] under a collapse, in Rabīʿ II of the year [8]67. Ibn Fahd recorded his death date.

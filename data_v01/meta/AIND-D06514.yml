@@ -9,29 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00891
-    quote: السيوفي
+    mention: m6
   - id: n3
     type: kunyah
-    quote: أبو الخير
-    norm: ابو الخير
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: إبراهيم بن عبد الله
@@ -44,29 +40,57 @@ relations:
   subtype: father
   active: AIND-D06514#p1
   passive: AIND-D06514
-  quote: null
   note:
     ja: 規則3 (c')。父は見出しナサブのみで識別要素なし。corpus 見出しの「السيوفي」「أبو الخير＋المحلي」に父・本項主の別項なし（hq.py）。初版は father relation なし。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D06514
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m8
   note:
     ja: 「ممن سمع مني بالقاهرة」（規則2）。
 notes:
 - text: '生没年・職の記載なし。「السيوفي」（刀剣の製造・販売に由来、ニスバ索引 #AIND-D11751）は見出しのニスバとして保持。クンヤ部に本項主の別項なし。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: أبو الخير
+  norm: ابو الخير
+- id: m5
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m6
+  kind: name
+  ref: TMP-N-00891
+  quote: السيوفي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・アブド・アッラー、アブー・アル＝ハイル・アル＝マハッリー・アッ＝スユーフィー。カイロで私から聴いた者の一人。
   en: Muḥammad b. Ibrāhīm b. ʿAbd Allāh, Abū al-Khayr al-Maḥallī al-Suyūfī. He was among those who heard from me in Cairo.

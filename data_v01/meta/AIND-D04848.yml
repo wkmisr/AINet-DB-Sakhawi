@@ -9,38 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00663
-    quote: السندبيسي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: laqab
-    quote: الفخر
+    mention: m3
   - id: n4
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 death:
   id: d
   date:
     ah: 870
     cert: medium
   places:
-  - ref: TMP-L-00037
-    quote: باليمن
-    norm: اليمن
+  - mention: m12
   note:
     en: He died in Yemen close to 870 (qarīb al-sabʿīn).
 persons:
@@ -60,53 +54,47 @@ relations:
   cert: medium
   works:
   - ref: TMP-T-00095
-  quote: null
   note:
     ja: '原文「حفظ القرآن وجوده على الزين بن القصاص」。الزين بن القصاص ＝ #AIND-D04075「عبد الغني بن محمد بن حامد … الزين الأنصاري القاهري المقرىء الشافعي ويعرف بابن القصاص」（815年頃生のカイロの読誦家。索引 #AIND-D12643 にも「عبد الغني بن محمد بن حامد」として列挙）。本項と同じ師系列（الزين عبد الغني الهيثمي → الشهاب السكندري と رفيقا للشهاب الزاوي）を D04075 自身が記す。cert medium。集約時に仮番号 仮TMP(96-09) を取り下げて差し替え。初版の method「مهر」・空の field を是正。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D04081
+  active: m7
   passive: AIND-D04848
   methods:
   - TMP-S-00010
   fields:
   - TMP-S-00013
   cert: medium
-  quote: الهيثمي
   note:
     ja: '原文「ثم تلاه للسبع على الهيثمي」。الهيثمي ＝ #AIND-D04081「عبد الغني بن يوسف بن أحمد بن مرتضى الزين الهيثمي القاهري الشافعي المقرىء」（803年頃生・886年没の読誦家）。#AIND-D04075 が「فتلا بالسبع … على الزين عبد الغني الهيثمي … ثم رفيقا للشهاب الزاوي على الشهاب السكندري … بالعشر」と本項と同一の師系列を記すことから同定、cert medium（集約時に #AIND-D01776 cert low から差し替え。§D96-5）。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D00623
+  active: m9
   passive: AIND-D04848
   methods:
   - TMP-S-00010
   fields:
   - TMP-S-00013
   - TMP-S-00012
-  quote: الشهاب السكندري
   note:
     ja: '原文「ورفيقا للشهاب الزواوي على الشهاب السكندري بل تلا عليه بعضه للعشر」。الشهاب السكندري ＝ #AIND-D00623（أحمد بن أبي بكر بن يوسف الشهاب … السكندري الأزهري الشافعي المقرئ ويعرف بالشهاب السكندري。B89 §D89-5 と同じ同定）。ID-Master の TMP-P-000236「الشهاب السكندري」は同一実体とみられ名寄せ要（ISSUES §D96-5）。七読誦（الزواوي と同席）と、一部の十読誦を1 relation に統合。'
 - id: r4
   type: social
   subtype: colleague
-  active: AIND-D00779
+  active: m8
   passive: AIND-D04848
   summary:
     ar: الشهاب الزواوي
   cert: medium
-  quote: للشهاب الزواوي
   note:
     ja: 'الشهاب السكندري のもとでの読誦の同席者。الشهاب الزواوي ＝ #AIND-D00779「أحمد بن صالح بن خلاسة الشهاب الزواوي المغربي المالكي نزيل جامع الأزهر」（855年没・70歳前後、転送見出し「أحمد الزواوي اثنان أحدهما المقيم بالأزهر وهو ابن صالح بن خلاسة」）と年代・カイロの文脈が合うため cert medium。'
-  norm: لشهاب الزواوي
 - id: r5
   type: kin
   subtype: father
   active: AIND-D04848#p1
   passive: AIND-D04848
-  quote: null
   note:
     ja: '父は裸名（أبو بكر）のみで識別要素がないため #NEEDID（統一規則3・12）。初版の汚染番号 TMP-P-000064（汎用名 أبو بكر、B59-63 で流用歴）を破棄。'
 affiliations:
@@ -117,13 +105,60 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: وسافر
+  - mention: m11
   trigger: rule
-  norm: سافر
   phrase: سافر لمكة وغيرها
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  quote: الفخر
+- id: m4
+  kind: name
+  ref: TMP-N-00663
+  quote: السندبيسي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: AIND-D04081
+  quote: الهيثمي
+- id: m8
+  kind: person
+  ref: AIND-D00779
+  quote: للشهاب الزواوي
+  norm: لشهاب الزواوي
+- id: m9
+  kind: person
+  ref: AIND-D00623
+  quote: الشهاب السكندري
+- id: m10
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m11
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: place
+  quote: باليمن
+  ref: TMP-L-00037
+  norm: اليمن
 translation:
   ja: ウスマーン・ブン・アビー・バクル、アル＝ファフル、アッ＝サンダビースィー、アル＝カーヒリー、アッ＝シャーフィイー。クルアーンを暗記し、アッ＝ザイン・ブン・アル＝カッサースのもとでそれをタジュウィード（整誦）し、ついでアル＝ハイサミーのもとで七読誦によりそれを読誦し、アッ＝シハーブ・アッ＝ザワーウィーと同席してアッ＝シハーブ・アッ＝サカンダリーのもとで読誦し、さらに彼のもとでその一部を十読誦により読誦した。生業に従事し、マッカその他へ旅し、870年近くにイエメンで没した。
   en: ʿUthmān b. Abī Bakr, al-Fakhr, al-Sandabīsī, al-Qāhirī, al-Shāfiʿī. He memorized the Qurʾān and perfected its recitation under al-Zayn b. al-Qaṣṣāṣ, then recited it according to the seven readings under al-Haythamī, and, as a companion of al-Shihāb al-Zawāwī, under al-Shihāb al-Sakandarī; indeed he recited part of it to him according to the ten readings. He earned his living, travelled to Mecca and elsewhere, and died in Yemen close to 870.

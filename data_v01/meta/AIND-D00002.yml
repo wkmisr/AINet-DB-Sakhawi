@@ -9,61 +9,51 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m4
   - id: n2
     type: ism
-    quote: آدم
     by: rule
-    norm: ادم
+    mention: m1
   - id: n3
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m5
 death:
   id: d
   date:
     ah: 887-12-05
   places:
-  - ref: gn:104515
-    quote: مكة
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - mention: m6
+  - role: burial
+    mention: m15
   note:
     en: Died on Wednesday night, 5 Dhu al-Hijjah 887 H. Funeral prayer was held the day after his death.
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000001
+  active: m8
   passive: AIND-D00002
   fields:
   - TMP-S-00001
-  quote: السراج معمر بن عبد القوي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000002
+  active: m9
   passive: AIND-D00002
-  quote: وعبد النبي المغربي
-  norm: عبد النبي المغربي
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D00002
   methods:
   - TMP-S-00003
@@ -72,25 +62,20 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
+    - mention: m6
   works:
   - ref: wd:Q1023470
-  quote: على
-  norm: علي
 - id: r4
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D00002
   methods:
   - TMP-S-00028
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: عندي
+    - mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -99,22 +84,81 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: قطنها
+  - mention: m6
   trigger: rule
+  mention: m7
 - id: e2
   type: learning
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m6
   methods:
   - TMP-S-00003
-  quote: وسمع
   note:
     en: Continuously studied under eminent scholars and visitors in Mecca.
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: آدم
+  norm: ادم
+- id: m2
+  kind: name
+  quote: سعيد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m5
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m6
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m7
+  kind: event
+  quote: قطنها
+- id: m8
+  kind: person
+  ref: TMP-P-000001
+  quote: السراج معمر بن عبد القوي
+- id: m9
+  kind: person
+  ref: TMP-P-000002
+  quote: وعبد النبي المغربي
+  norm: عبد النبي المغربي
+- id: m10
+  kind: event
+  quote: وسمع
   norm: سمع
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: على
+  norm: علي
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
+- id: m13
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m14
+  kind: year
+  value: '887'
+  quote: سنة
+- id: m15
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
 translation:
   ja: アダム・ブン・サイード・ブン・アビー・バクル・アル＝ジャバルティー・アル＝ハナフィー。マッカの居住者で、若くして同地で亡くなった。彼はマッカに滞在し、高名な学者たちやそこにやって来る学者たちの下で、フィクフ、ウースール・アル＝フィクフ、アラビア語、その他の分野で絶えず学びに励み、また美しく優雅な様式でクルアーンを朗誦した。彼のシャイフの中には、アラビア語のアッ＝シラージュ・ムアンマル・ブン・アブドゥルカウィー、そしてアブドゥンナビー・アル＝マグレビがいた。また、私がマッカにいた時、私から『アル＝サヒーフ』やその他の多くの書物を聴聞した。さらに、彼は私のもとでいくつかの授業に出席した。彼はヒジュラ暦887年ズルヒッジャ月5日の水曜日の夜に亡くなり、翌日彼のために葬儀の礼拝が行われ、アル＝ムアッラーに埋葬された。アッラーが彼に楽園をお与えになるように。
   en: Adam b. Saʿīd b. Abī Bakr al-Jabartī al-Ḥanafī, a resident of Mecca who died there as a young man. He dwelled there, continuously studying under its eminent scholars and those who came to it, in fiqh, its principles (usūl al-fiqh), Arabic, and other subjects, and for recitation in a beautiful and elegant manner. Among his shaykhs were al-Sirāj Muʿammar b. ʿAbd al-Qawī in Arabic, and ʿAbd al-Nabī al-Maghribī. He also heard from me (al-Sakhāwī), while I was in Mecca, much of al-Ṣaḥīḥ and other works. Moreover, he attended some lessons with me. He died on Wednesday night, the fifth of Dhū al-Ḥijja, in the year eight hundred and eighty-seven. Funeral prayers were performed for him the next day, and he was buried in al-Muʿallā. May God compensate him with Paradise.

@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00536
-    quote: اليوسفي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06568
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: منجك
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -44,29 +39,23 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06568
+  active: m7
   passive: AIND-D00241
-  quote: أبوه
-  norm: ابوه
   phrase: محمد بن إبراهيم بن منجك
 - id: r2
   type: kin
   subtype: mother
-  active: TMP-P-000972
+  active: m8
   passive: AIND-D00241
-  quote: أمه
-  norm: امه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00101
   places:
   - ref: TMP-L-00002
   dates:
   - ah: 869
     type: retirement
-  quote: أمرة عشرة
-  norm: امرة عشرة
+  mention: m10
 events:
 - id: e1
   type: political
@@ -78,10 +67,56 @@ events:
   - ref: TMP-L-00002
   summary:
     en: Dismissed from the command of ten (amīrat ʿashara) by al-Ẓāhir Khushqadam.
-  quote: أخرج
   cert: high
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  ref: AIND-D06568
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: منجك
+- id: m5
+  kind: name
+  ref: TMP-N-00536
+  quote: اليوسفي
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: person
+  ref: AIND-D06568
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: person
+  ref: TMP-P-000972
+  quote: أمه
+  norm: امه
+- id: m9
+  kind: event
+  quote: أخرج
   norm: اخرج
+- id: m10
+  kind: office
+  ref: TMP-O-00101
+  quote: أمرة عشرة
+  norm: امرة عشرة
+- id: m11
+  kind: year
+  value: '869'
+  quote: سنة
 translation:
   ja: イブラーヒーム・ブン・ムハンマド・ブン・イブラーヒーム・ブン・マンジャク・アル＝ユースフィー・アッ＝ディマシュキー。父親の伝記は後述。母親はアビシニア人で、彼自身は色黒であった。ザーヒル・フシュカダムは彼にシャームにおける十人長職からの解任を命じた（869年）。彼はその直後、アシュラフ・カーイトバーイの統治初期に死去した。
   en: Ibrāhīm b. Muḥammad b. Ibrāhīm b. Manjak al-Yūsufī al-Dimashqī. His father's biography will be mentioned later. His mother was Abyssinian, and he himself was dark-skinned. Al-Ẓāhir Khushqadam dismissed him from the command of ten in al-Shām in the year 869. He died shortly thereafter, in the early days of al-Ashraf Qāytbāy's reign.

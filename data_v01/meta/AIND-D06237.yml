@@ -9,57 +9,83 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m3
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الأمير كمشبغا
     by: rule
-    ref: AIND-D06409
-    norm: الامير كمشبغا
+    mention: m2
 death:
   id: d
   date:
     ah: 833
   note:
     ja: 「مات سنة ثلاث وثلاثين」＝833年（1429-10-09〜1430-09-27）。死地の明記なし。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06409
+  active: m4
   passive: AIND-D06237
   summary:
     ar: الأمير كمشبغا الحموي اليلبغاوي
-  quote: أبوه
   note:
     ja: '「الآتي أبوه」＝父 #AIND-D06409「كمشبغا الحموي اليلبغاوي والد رجب الماضي … عمله أتابك العساكر … واعتقله بإسكندرية حتى مات في أواخر رمضان سنة إحدى」（801没）。兄弟 رجب（#AIND-D02993、801年に父の前日に没）は本項に言及なし → note のみ。初版は #NEEDID。'
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00133
-  quote: الحجاب الصغار
   note:
     ja: 「كان أحد الحجاب الصغار في أيام الأشرف برسباي」＝アシュラフ・バルスバーイ（#AIND-D02168、在位825–841）の治世に小ハージブの一人。「في أيام」は時代の指示であり庇護関係ではないので、初版の patron relation（毒wd Q378194）を除去し本 note に。
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: 初版の統制外 chronicler relation を Pattern A に変換（bibl『إنباء الغمر』TMP-T-00034）。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: AIND-D06409
+  quote: الأمير كمشبغا
+  norm: الامير كمشبغا
+- id: m3
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m4
+  kind: person
+  ref: AIND-D06409
+  quote: أبوه
+  norm: ابوه
+- id: m5
+  kind: office
+  ref: TMP-O-00133
+  quote: الحجاب الصغار
+- id: m6
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: カースィム・ブン・アル＝アミール・クムシュブガー・アル＝ハマウィー。父は後述。アル＝アシュラフ・バルスバーイの時代に小ハージブの一人であった。833年に没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記している。
   en: Qāsim b. al-Amīr Kumushbughā al-Ḥamawī; his father is mentioned below. He was one of the minor chamberlains (al-ḥujjāb al-ṣighār) in the days of al-Ashraf Barsbāy. He died in 833. Our shaykh (Ibn Ḥajar) recorded his death date in his Inbāʾ.

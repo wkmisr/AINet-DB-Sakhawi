@@ -9,28 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00036
-    quote: اليماني
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: الأشخر
-    norm: الاشخر
+    mention: m2
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 851-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m4
   note:
     ja: 851年ムハッラム月＝1447-03-28〜04-26（グレゴリオ暦）。@when を月初の 1447-03 に精密化（初版は 1447）。
-  quote: سنة
   phrase: مات بمكة في المحرم سنة إحدى وخمسين
+  mention: m6
 notes:
 - text: corpus レコード末尾に転送見出し 1 本（『عبد الله الأقصرائي ، في الفرنوي قريبا .』）が連結されている。本項主の記述ではなく登録対象外（$$$ 型と同じ扱い）。
   lang: ja
@@ -38,15 +34,46 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: low
   note:
     ja: 'Pattern A（没年記録）。初版は統制外 subtype「chronicled by」の relation。没年 851（≦871・限定なし）→ 振り分け規則により التقي بن فهد ＝ #AIND-D09211、cert low。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: الأشخر
+  norm: الاشخر
+- id: m3
+  kind: name
+  ref: TMP-N-00036
+  quote: اليماني
+- id: m4
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m5
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m6
+  kind: year
+  value: '851'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥッラー・アル＝アシュハル（シーンとハーはともに点付き）・アル＝ヤマーニー。851年ムハッラム月にマッカで没した。イブン・ファハドがその没年を記録している。
   en: ʿAbd Allāh al-Ashkhar — with two dotted letters — al-Yamānī. He died in Mecca in Muḥarram of the year 851. Ibn Fahd recorded his death date.

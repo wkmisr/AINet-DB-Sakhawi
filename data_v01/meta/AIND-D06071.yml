@@ -9,32 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02385
-    quote: الحنديسي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00039
-    quote: البجائي
-    norm: البجاءي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m5
   - id: n4
     type: ism
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m6
 birth:
   id: b
   date:
@@ -54,34 +47,30 @@ relations:
   subtype: father
   active: AIND-D06071#p1
   passive: AIND-D06071
-  quote: null
   note:
     ja: '裸名のみ（祖父名なし）のため #NEEDID 維持（規則3）。'
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: wd:Q932945
   places:
-  - ref: gn:2505329
-    quote: بجاية
+  - mention: m9
   orgs:
   - ref: TMP-I-00221
-  quote: الخطابة
   note:
     ja: 「وناب في الخطابة بجامع بجاية الأعظم」。説教職（خطيب＝wd:Q932945）の代理。ビジャーヤの大ジャーミウは ID-Master 未登録のため仮 TMP-I-00221 を発行。初版の affiliation（employed）との二重符号化を state に統合（規則8）。
+  mention: m8
 - id: s2
   type: status
   label: شيخ بجاية وقدوة أهلها
   label_latn: shaykh Bijāya wa-qudwat ahlihā
   places:
-  - ref: gn:2505329
-    quote: بجاية
+  - mention: m9
   dates:
   - ah: 890
-  quote: شيخها
   note:
     ja: 「وهو الآن في سنة تسعين شيخها وقدوة أهلها」。執筆時点（890年）の記述。職ではなく地位・評価のため status（初版は office「شيخ بجاية」）。890 ＝ 1485-01-27〜1486-01-15、年初 1485（h2g.py）。
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -89,10 +78,54 @@ affiliations:
 events:
 - id: e1
   type: teaching
-  quote: تصدى
   trigger: rule
-  norm: تصدي
   phrase: تصدى للإفتاء والإقراء
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  ref: TMP-N-02385
+  quote: الحنديسي
+- id: m4
+  kind: name
+  ref: TMP-N-00039
+  quote: البجائي
+  norm: البجاءي
+- id: m5
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m6
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m7
+  kind: event
+  quote: تصدى
+  norm: تصدي
+- id: m8
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة
+- id: m9
+  kind: place
+  quote: بجاية
+  ref: gn:2505329
+- id: m10
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m11
+  kind: office
+  quote: شيخها
 translation:
   ja: イーサー・ブン・アフマド・アル＝ハンディースィー（無点のハーにファトハ、次にスクーンのヌーン、その後にカスラの無点のダール、次に下点の文字［ヤー］、次に無点のスィーン）、次いでアル＝ビジャーイー・アル＝マグリビー・アル＝マーリキー。法学・法源学・アラビア語学などに秀で、それらを暗記し、その意味を理解していた。加えて騎馬術とその諸種における卓越、そして敬虔さを備えていた。ファトワー発給と教授（イクラーウ）に携わり、ビジャーヤの大ジャーミウで説教職の代理を務めた。彼は現在、（8）90年において、同地のシャイフにして住民の模範であり、60歳を超えている。
   en: ʿĪsā b. Aḥmad al-Ḥandīsī (with fatḥa on the undotted ḥāʾ, then a quiescent nūn, after it an undotted dāl with kasra, then a letter dotted below [yāʾ], then an undotted sīn), then al-Bijāʾī al-Maghribī al-Mālikī. He excelled in jurisprudence, its principles, Arabic and other subjects, memorizing them and understanding their meanings, together with his horsemanship, his excellence in its various kinds, and his piety. He devoted himself to giving fatwās and teaching, and acted as deputy preacher at the Great Mosque of Bijāya. He is now, in the year (8)90, its shaykh and the exemplar of its people, being over sixty years of age.

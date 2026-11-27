@@ -9,37 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن فخير
-    norm: ابن فخير
     label: ابن فخير
+    mention: m6
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: فخر الدين
     by: rule
-    ref: TMP-P-001521
+    mention: m2
 death:
   id: d
   date:
     ah: 892-03
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 「مات بمكة في ربيع الأول سنة اثنتين وتسعين」（892-03＝1487-03-06〜04-04）。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: محمد بن مهنا
@@ -52,45 +46,86 @@ relations:
   passive: AIND-D05336
   summary:
     ar: فخر الدين ويقال له فخير بن محمد بن مهنا السكندري المكي
-  quote: null
   note:
     ja: '父。見出しナサブから復元（規則3、祖父名 محمد・曾祖父名 مهنا まで判明、通称 فخير が一族の شهرة ابن فخير の由来）。corpus に本伝なし（「فخير」の見出しは本項とニスバ索引 D12594 のみ。カイロのコプト系書記 ابن فخيرة 家 D04080 等は別家系）・ID-Master 未登録 → 新規 TMP-P-001521。初版は #NEEDID。'
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D05336#p1
+  active: m3
   passive: AIND-D05336
-  quote: محمد بن مهنا
   note:
     ja: 見出しナサブの祖父。corpus に本伝なし。
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-001522
+  active: m10
   passive: AIND-D05336
   summary:
     ar: أحمد بن فخر الدين ابن فخير المكي
-  quote: أحمد
   note:
     ja: '「وهو أكبر أخويه ويليه أحمد」＝本項主が3兄弟の最年長で、次が أحمد。ニスバ索引 #AIND-D12594「ابن فخير … علي وأحمد وعبد الكريم مكيون」（3人の合同索引項目＝規則11により充当しない）。corpus の أحمد 部に本伝なし・ID-Master 未登録 → 新規 TMP-P-001522。初版は #NEEDID。'
-  norm: احمد
 - id: r4
   type: kin
   subtype: brother
-  active: TMP-P-001523
+  active: m11
   passive: AIND-D05336
   summary:
     ar: عبد الكريم بن فخر الدين ابن فخير المكي الشاهد
-  quote: عبد الكريم الشاهد
   note:
     ja: '「ويليهما عبد الكريم الشاهد」＝末弟。索引 D12594 に「وثالثهم أصغرهم حفظ كتبا وعرضها وجلس مع الشهود بباب السلام وكتب أشياء منها عدة من تصانيفي」。corpus の عبد الكريم 部に本伝なし・ID-Master 未登録 → 新規 TMP-P-001523。初版は #NEEDID。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00012
-  quote: null
   note:
     ja: 「المكي العطار」。薬種商（TMP-O-00012、職として実体一致）。職の場所は原文に明示がないため placeName を付けない（規則22(1)）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001521
+  quote: فخر الدين
+- id: m3
+  kind: person
+  ref: AIND-D05336#p1
+  quote: محمد بن مهنا
+- id: m4
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: name
+  quote: بابن فخير
+  norm: ابن فخير
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m9
+  kind: year
+  value: '892'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-001522
+  quote: أحمد
+  norm: احمد
+- id: m11
+  kind: person
+  ref: TMP-P-001523
+  quote: عبد الكريم الشاهد
 translation:
   ja: アリー・ブン・ファフル・アッ＝ディーン——彼（父）はフハイルとも呼ばれる——ブン・ムハンマド・ブン・ムハンナー、アレクサンドリア出自のマッカ人、薬種商。イブン・フハイルとして知られる。892年ラビーウ第1月にマッカで没した。彼は二人の兄弟のうちで最年長で、次がアフマド、二人に続くのが証人（シャーヒド）のアブド・アル＝カリームである。
   en: ʿAlī b. Fakhr al-Dīn — who (the father) is also called Fukhayr — b. Muḥammad b. Muhannā, of Alexandrian origin, the Meccan, the druggist (al-ʿaṭṭār), known as Ibn Fukhayr. He died in Mecca in Rabīʿ I of the year 892. He was the eldest of his two brothers; next came Aḥmad, and after both of them ʿAbd al-Karīm the notary-witness.

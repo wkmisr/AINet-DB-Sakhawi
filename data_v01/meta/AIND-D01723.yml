@@ -9,21 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01141
-    quote: البانياسي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
 birth:
   id: b
   date:
@@ -37,7 +34,7 @@ death:
     ah: 803-08
   note:
     en: Died in Shaʿbān 803 AH at the age of 70.
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   for: r1
@@ -53,7 +50,6 @@ relations:
   - TMP-S-00025
   fields:
   - wd:Q1817983
-  quote: null
   note:
     ja: 原文「قرأ بالروايات」に師の名がない（#NEEDID 維持、規則12）。
 - id: r2
@@ -70,15 +66,13 @@ relations:
     date:
       notBefore: 770
       type: learning
-  quote: null
   note:
     ja: 原文「وسمع الحديث من سنة سبعين من بعض أصحاب الفخر وغيرهم」。師は「الفخر の弟子の一部ほか」としか書かれず名がない（#NEEDID 維持、規則12）。この句は名前ではないので desc から note に移した。event の @when="77X"（不正値）を「770年以降」＝notBefore-custom 0770／notBefore 1368（770年初＝1368-08-24、h2g.py）に改めた。
 - id: r3
   type: kin
   subtype: grandfather
-  active: TMP-P-000591
+  active: m9
   passive: AIND-D01723
-  quote: جده
   note:
     en: Some referred to his grandfather as Muḥammad (وسمى بعضهم جده محمدا) — a variant reported with low certainty.
   phrase: محمد
@@ -88,9 +82,44 @@ sources:
   - ref: wd:Q471116
   works:
   - label: إنباء الغمر
-  quote: ذكره
   trigger: rule
   phrase: ذكره شيخنا في أنبائه
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  ref: TMP-N-01141
+  quote: البانياسي
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: year
+  value: '770'
+  quote: سنة
+- id: m6
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m7
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: TMP-P-000591
+  quote: جده
 translation:
   ja: アフマド・ブン・ユースフ・アル=バーニヤースィー、後にアッ=ディマシュキー、クルアーン朗誦者。諸伝承（ローマ）で朗誦し、770年（代）よりアル=ファフルの学友の一部やその他の人々からハディースを聴聞した。803年シャアバーン月に70歳で死去した。我らがシャイフ（イブン・ハジャル）が自著『インバーゥ・アル=グムル』で彼に言及している。ある者たちは彼の祖父をムハンマドと呼んだ。
   en: Aḥmad b. Yūsuf al-Bānyāsī, then al-Dimashqī, the Qurʾān reciter. He recited in the [canonical] transmissions and heard ḥadīth from the year 70 (the 770s) onward from some of the companions of al-Fakhr and others. He died in Shaʿbān 803 AH at the age of 70. Our shaykh (Ibn Ḥajar) mentioned him in his 『Inbāʾ al-Ghumr』. Some referred to his grandfather as Muḥammad.

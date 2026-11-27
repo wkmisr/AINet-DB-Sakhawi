@@ -9,51 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00207
-    quote: الأيجي
-    norm: الايجي
+    mention: m11
   - id: n3
     type: laqab
-    quote: السيد
     label: الجلال
+    mention: m5
   - id: n4
     type: laqab
-    quote: الجلال
     label: السيد
+    mention: m6
   - id: n5
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07928
+    mention: m2
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: AIND-D04810
+    mention: m3
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: القطب
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: المحب
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: النور
     by: rule
+    mention: m9
 death:
   id: d
   date:
@@ -61,19 +56,17 @@ death:
     cert: medium
   note:
     ja: 「مات عنها شابا قريبا من سنة ستين」。「قريبا من N」型は年表現（統一規則4）＝ when-custom="0860" cert medium。860 ＝ 1455-12-20〜1456-12-07（h2g.py、年のみ→年初）。若くして（شابا）没。没地の記載なし。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07928
+  active: m12
   passive: AIND-D04600
   summary:
     ar: القطب محمد بن المحب عبد الله بن النور محمد الحسيني الأيجي
-  quote: أبيه
   note:
     ja: '見出しナサブから復元（統一規則3）。corpus に本伝未検出・ID-Master 未登録 → 新規 TMP-P-001235。祖父 المحب عبد الله بن النور は #AIND-D04810（عبيد الله … المحب بن النور الحسيني الإيجي … أخو الصفي عبد الرحمن والعفيف محمد والد العلاء محمد）に当たるとみられ（下記 grandfather relation）、D04810 が「والد العلاء محمد」とのみ記す点から القطب محمد は別の子（または別ラカブ）として TMP を発行。'
-  norm: ابيه
 - id: r2
   type: kin
   subtype: grandfather
@@ -82,7 +75,6 @@ relations:
   summary:
     ar: المحب عبد الله بن النور الحسيني الأيجي
   cert: medium
-  quote: null
   note:
     ja: 見出しナサブの祖父「المحب عبد الله بن النور」＝#AIND-D04810（「عبيد الله بن محمد بن عبد الله بن محمد بن عبد الله المحب بن النور الحسيني الإيجي … أخو الصفي عبد الرحمن」）。名が عبد الله／عبيد الله と揺れるが、ラカブ المحب・父 النور محمد・「ابنة عم أبيه الصفي عبد الرحمن」（الصفي が本項主の父の叔父＝祖父の兄弟）という本項の記述と整合するため cert medium。
 - id: r3
@@ -90,19 +82,69 @@ relations:
   subtype: spouse
   active: TMP-P-001236
   passive: AIND-D04600
-  quote: null
   note:
     ja: 「تزوج حليمة ابنة عم أبيه الصفي عبد الرحمن」＝父の叔父 الصفي عبد الرحمن の娘（父の従姉妹）。حليمة は ID-Master 未登録・本伝なし → 新規 TMP-P-001236。父 الصفي عبد الرحمن＝#AIND-D03763（عبد الرحمن بن محمد بن عبد الله بن محمد بن عبد الله بن هادي السيد صفي الدين أبو الفضل بن النور الحسيني الايجي ثم المكي、782年生）。corpus D03016（رميثة بن بركات）に「تزوج قبل بمكة عابدة ابنه حليمة ابنة السيد صفي الدين الايجي」と出現し、母娘が確認できる。
   phrase: حليمة ابنة عم أبيه الصفي عبد الرحمن
 - id: r4
   type: kin
   subtype: daughter
-  active: TMP-P-001237
+  active: m13
   passive: AIND-D04600
-  quote: عائدة
   note:
     ja: 「واستولدها عائدة」。ID-Master 未登録 → 新規 TMP-P-001237。corpus D03016（رميثة بن بركات بن حسن بن عجلان）が「عابدة ابنه حليمة ابنة السيد صفي الدين الايجي」と婚姻したと記す＝同一人物（عائدة／عابدة の綴り揺れ）とみられる。
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D07928
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D04810
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: السيد
+- id: m6
+  kind: name
+  quote: الجلال
+- id: m7
+  kind: name
+  quote: القطب
+- id: m8
+  kind: name
+  quote: المحب
+- id: m9
+  kind: name
+  quote: النور
+- id: m10
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m11
+  kind: name
+  ref: TMP-N-00207
+  quote: الأيجي
+  norm: الايجي
+- id: m12
+  kind: person
+  ref: AIND-D07928
+  quote: أبيه
+  norm: ابيه
+- id: m13
+  kind: person
+  ref: TMP-P-001237
+  quote: عائدة
   norm: عاءدة
+- id: m14
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド、アッ＝サイイド・アル＝ジャラール・ブン・アル＝クトゥブ・ブン・アル＝ムヒッブ・ブン・アン＝ヌール、アル＝フサイニー・アル＝イージー。学問に励んで秀でた。父の叔父アッ＝サフィー・アブドゥッラフマーンの娘（父の従姉妹）ハリーマと結婚し、彼女との間にアーイダをもうけた。（8）60年頃、若くして彼女を残して没した。
   en: ʿAbd Allāh b. Muḥammad b. ʿAbd Allāh b. Muḥammad, al-Sayyid al-Jalāl b. al-Quṭb b. al-Muḥibb b. al-Nūr, al-Ḥusaynī al-Ījī. He devoted himself to study and excelled. He married Ḥalīma, the daughter of his father's paternal uncle al-Ṣafī ʿAbd al-Raḥmān, and had by her a daughter, ʿĀʾida. He died, leaving her a widow, while still young, around the year (8)60.

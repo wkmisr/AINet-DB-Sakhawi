@@ -9,31 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00084
-    quote: الحسيني
+    mention: m4
   - id: n2
     type: laqab
-    quote: أمير المدينة
-    norm: امير المدينة
+    mention: m5
   - id: n3
     type: ism
-    quote: ضيغم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: خشرم
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: نجاد
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 850
   note:
     en: Killed shortly after being dismissed from the emirate of Medina in 850 AH.
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: خشرم
@@ -55,23 +53,19 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03404#p1
+  active: m7
   passive: AIND-D03404
-  quote: مانع
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D03404#p2
+  active: m10
   passive: AIND-D03404
-  quote: بأميان بن مانع
-  norm: اميان بن مانع
 - id: r3
   type: kin
   subtype: brother
-  active: TMP-P-001109
+  active: m6
   passive: AIND-D03404
   cert: medium
-  quote: ضغيم
   note:
     en: 'al-Sakhāwī hedges with "aẓunnuhu" (I think); the two entries give different grandfathers (Thābit b. Nuʿayr vs. Najād), so the fraternal identification with #AIND-D03401 is uncertain and NOT directly asserted (see possible_identity relation below).'
 - id: r4
@@ -80,7 +74,6 @@ relations:
   active: TMP-P-001109
   passive: AIND-D03401
   cert: low
-  quote: null
   note:
     ja: Waka裁定(2026-09-16、§D-9)により、祖父名の不一致(D03401=ثابت بن نعير、D03404=نجاد)を理由に#AIND-D03401への直接linkを避け、新規#TMP-P-001109(D03404言及の「ضغيم」)を発行した上でpossible_identity(cert=low)として#AIND-D03401と紐付け。最終判断は原典照合等による。
   phrase: أظنه أخا ضغيم الماضي قريبا
@@ -89,13 +82,11 @@ relations:
   subtype: cousin
   active: AIND-D03404#p3
   passive: AIND-D03404
-  quote: null
 - id: r6
   type: social
   subtype: other
   active: AIND-D03404#p4
   passive: AIND-D03404
-  quote: null
 states:
 - id: s1
   type: office
@@ -105,17 +96,16 @@ states:
   dates:
   - ah: 850
     type: retirement
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
   places:
   - ref: gn:109223
-  quote: وأقام
   note:
     en: Amir of Medina until 850 AH
   trigger: rule
-  norm: اقام
+  mention: m8
 - id: e2
   type: political
   date:
@@ -126,9 +116,51 @@ events:
   - ref: gn:109223
   summary:
     en: Dismissed from the emirate of Medina by Umyān b. Māniʿ, accepted a financial settlement to yield, and was killed shortly after departing.
-  quote: فقتل
   cert: high
   trigger: rule
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: ضيغم
+- id: m2
+  kind: name
+  quote: خشرم
+- id: m3
+  kind: name
+  quote: نجاد
+- id: m4
+  kind: name
+  ref: TMP-N-00084
+  quote: الحسيني
+- id: m5
+  kind: name
+  quote: أمير المدينة
+  norm: امير المدينة
+- id: m6
+  kind: person
+  ref: TMP-P-001109
+  quote: ضغيم
+- id: m7
+  kind: person
+  ref: AIND-D03404#p1
+  quote: مانع
+- id: m8
+  kind: event
+  quote: وأقام
+  norm: اقام
+- id: m9
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: AIND-D03404#p2
+  quote: بأميان بن مانع
+  norm: اميان بن مانع
+- id: m11
+  kind: event
+  quote: فقتل
   norm: قتل
 translation:
   ja: ザイガム・ブン・ハシュラム・ブン・ナジャード・アル＝フサイニー、マディーナのアミール。私（サハーウィー）は、彼が少し前に言及されたドガイムの兄弟ではないかと思う。従兄弟のマーニウの後にマディーナのアミールに就任し、しばらくの間そこに留まった。その後、ハジュラ暦850年に、前述のマーニウの息子ウムヤーンによって免職された。彼は、後任者が支払ったディルハムを受け取るまでは免職に従わなかったが、それを受け取るとマディーナを出発し、間もなくして殺害された。

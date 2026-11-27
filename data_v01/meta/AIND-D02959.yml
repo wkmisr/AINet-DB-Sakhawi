@@ -9,25 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00189
-    quote: الحمصي
+    mention: m4
   - id: n2
     type: ism
-    quote: داود
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: ناصر الدين محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: السابق
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000788
+  active: m5
   passive: AIND-D02959
   methods:
   - TMP-S-00003
@@ -37,15 +36,13 @@ relations:
     ar: أبو الغيث محمد ابن عبد الله بن الصائغ
   works:
   - ref: wd:Q1023470
-  quote: الغيث محمد ابن عبد الله بن الصائغ
   note:
     ja: أبو الغيث محمد بن عبد الله بن الصائغ はcorpus本伝未特定＝TMP発行。「أنا به الحجار」＝当該サマーゥの上位伝承者アル＝ハッジャール（7世紀末〜8世紀前半の高名なムスニド、9世紀外＝立項対象外）。
-  norm: الغيث محمد ابن عبد الله بن الصاءغ
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D02959
-  passive: AIND-D09466
+  passive: m6
   methods:
   - TMP-S-00008
   fields:
@@ -53,18 +50,14 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00062
-      quote: بحمص
-      norm: حمص
+    - mention: m8
   works:
   - ref: wd:Q1023470
-  quote: ابن موسى
-  norm: ابن موسي
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D02959
-  passive: AIND-D04932
+  passive: m7
   methods:
   - TMP-S-00008
   fields:
@@ -72,21 +65,49 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00062
-      quote: بحمص
-      norm: حمص
+    - mention: m8
   works:
   - ref: wd:Q1023470
-  quote: الموفق الأبي
-  norm: الموفق الابي
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00062
-    quote: بحمص
-    norm: حمص
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: داود
+- id: m2
+  kind: name
+  quote: ناصر الدين محمد
+- id: m3
+  kind: name
+  quote: السابق
+- id: m4
+  kind: name
+  ref: TMP-N-00189
+  quote: الحمصي
+- id: m5
+  kind: person
+  ref: TMP-P-000788
+  quote: الغيث محمد ابن عبد الله بن الصائغ
+  norm: الغيث محمد ابن عبد الله بن الصاءغ
+- id: m6
+  kind: person
+  ref: AIND-D09466
+  quote: ابن موسى
+  norm: ابن موسي
+- id: m7
+  kind: person
+  ref: AIND-D04932
+  quote: الموفق الأبي
+  norm: الموفق الابي
+- id: m8
+  kind: place
+  quote: بحمص
+  ref: TMP-L-00062
+  norm: حمص
 translation:
   ja: ダーウード・ブン・ナースィル・アッ＝ディーン・ムハンマド・ブン・アッ＝サービク・アル＝ヒムスィー。アブー・アル＝ガイス・ムハンマド・ブン・アブドゥッラー・ブン・アッ＝サーイクらから、アル＝ハッジャール伝承の『サヒーフ』の一部を聴聞した。ハフィズのイブン・ムーサーと、我らがシャイフであるアル＝ムワッファク・アル＝アビーがホムスで彼に面会し、彼からブハーリーのハディースをいくつか取得した後、彼は死去した。
   en: Dāwūd b. Nāṣir al-Dīn Muḥammad b. al-Sābiq al-Ḥimṣī. He heard a portion of the Ṣaḥīḥ (al-Bukhārī) transmitted via al-Ḥajjār from Abū al-Ghayth Muḥammad b. ʿAbd Allāh b. al-Ṣāʾigh and others. The Ḥāfiẓ Ibn Mūsā and our shaykh al-Muwaffaq al-Abī met him in Homs and received some Hadiths of al-Bukhārī from him, after which he died.

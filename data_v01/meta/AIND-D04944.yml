@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00238
-    quote: الفاقوسي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00145
-    quote: البلبيسي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00350
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 relations:
 - id: r1
   type: scholarly
@@ -49,13 +44,12 @@ relations:
     phrase: وقرأ على جل الصحيح في سنين
   works:
   - ref: wd:Q1023470
-  quote: null
   note:
     ja: 「قرأ على」の直後に人名が来ないため「عليّ」（私＝サハーウィーに）と読む。『الصحيح』＝『صحيح البخاري』（wd:Q1023470）。
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D04876
+  active: m10
   passive: AIND-D04944
   methods:
   - TMP-S-00025
@@ -63,13 +57,12 @@ relations:
   - TMP-S-00002
   works:
   - ref: wd:Q1023470
-  quote: الديمي
   note:
     ja: 'الديمي ＝ #AIND-D04876（عثمان بن محمد الفخر الديمي、本バッチ B97。ID-Master で旧 TMP-P-000215 から統合済み）。初版の #TMP-P-000215（幻番号）を是正。'
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D07210
+  active: m11
   passive: AIND-D04944
   methods:
   - TMP-S-00025
@@ -77,28 +70,23 @@ relations:
   - TMP-S-00002
   works:
   - ref: wd:Q1023470
-  quote: والبهاء المشهدي
   note:
     ja: 'البهاء المشهدي ＝ #AIND-D07210（محمد بن أبي بكر بن علي بن عبد الله … البهاء أبو الفتح ابن الزين المشهدي القاهري الأزهري الشافعي、811年生。索引 #AIND-D12033「المشهدي … وابنه البهاء محمد」）。初版の #NEEDID を解消。'
-  norm: البهاء المشهدي
   phrase: البهاء المشهدي
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D00350
+  active: m7
   passive: AIND-D04944
-  quote: الماضي أبوه
   note:
     ja: '父 ＝ #AIND-D00350（إبراهيم بن يوسف بن إبراهيم بن أحمد بن يوسف بن أبي الفتح البرهان الفاقوسي ثم البلبيسي الشافعي الرفاعي والد علي الآتي）。相手側が「والد علي الآتي」と明記し相互閉合。初版の #NEEDID を解消。'
-  norm: الماضي ابوه
 assessments:
 - id: v1
-  quote: إنسان خير سليم الفطرة جدا زائد الفاقة
-  norm: انسان خير سليم الفطرة جدا زاءد الفاقة
   label: إنسان خير سليم الفطرة جدا زائد الفاقة ونعم الرجل
   terms:
   - خير
   label_latn: insān khayr salīm al-fiṭra jiddan zāʾid al-fāqa wa-niʿma al-rajul
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -112,22 +100,70 @@ events:
   - TMP-S-00025
   fields:
   - TMP-S-00001
-  quote: قرأ
   trigger: rule
-  norm: قرا
   phrase: قرأ القرآن واشتغل يسيرا في العربية وغيرها
+  mention: m9
 - id: e2
   type: teaching
   places:
-  - ref: TMP-L-00087
-    cert: medium
-    quote: بلده
+  - cert: medium
+    mention: m12
   works:
   - ref: wd:Q1023470
-  quote: بل قرأه على العامة في بلده ولهم فيه اعتقاد
   note:
     ja: 「بلده」＝ニスバ البلبيسي の地 بلبيس（TMP-L-00087）。الفاقوسي は「الأصل」限定のため候補はニスバの地一つに定まる（規則22(3)、所有代名詞付き名詞は一律 cert medium）。
-  norm: بل قراه علي العامة في بلده ولهم فيه اعتقاد
+  phrase: بل قرأه على العامة في بلده ولهم فيه اعتقاد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D00350
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: يوسف
+- id: m4
+  kind: name
+  ref: TMP-N-00238
+  quote: الفاقوسي
+- id: m5
+  kind: name
+  ref: TMP-N-00145
+  quote: البلبيسي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: AIND-D00350
+  quote: الماضي أبوه
+  norm: الماضي ابوه
+- id: m8
+  kind: assessment
+  quote: إنسان خير سليم الفطرة جدا زائد الفاقة
+  norm: انسان خير سليم الفطرة جدا زاءد الفاقة
+- id: m9
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m10
+  kind: person
+  ref: AIND-D04876
+  quote: الديمي
+- id: m11
+  kind: person
+  ref: AIND-D07210
+  quote: والبهاء المشهدي
+  norm: البهاء المشهدي
+- id: m12
+  kind: place
+  quote: بلده
+  ref: TMP-L-00087
 translation:
   ja: アリー・ブン・イブラーヒーム・ブン・ユースフ、ファークース出身で、アル＝ビルビースィー、シャーフィイー派。父は前述。善良で、きわめて純朴な性質の、ひどく困窮した人物。クルアーンを読誦し、アラビア語学などを少し学び、何年もかけて私（サハーウィー）のもとで『サヒーフ』の大部分を読誦した。同様にアッ＝ダイミーとアル＝バハー・アル＝マシュハディーのもとでも読誦し、それどころか自分の町では一般の人々に向けてそれを読み上げ、彼らは彼を篤く信頼していた。実に立派な人物である。
   en: ʿAlī b. Ibrāhīm b. Yūsuf, of Fāqūsī origin, al-Bilbīsī al-Shāfiʿī; his father has been mentioned above. A good man, of a very sound and simple nature, and extremely poor. He recited the Qurʾān and studied Arabic and other subjects a little, and read most of the Ṣaḥīḥ under me over several years. He likewise read it under al-Daymī and al-Bahāʾ al-Mashhadī; indeed he read it to the common people in his town, and they held him in great esteem. What a fine man he was.

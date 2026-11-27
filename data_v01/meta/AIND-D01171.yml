@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-03275
-    quote: العدواتي
+    mention: m5
   - id: n2
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n3
     type: nasab
-    quote: قفيف
     by: rule
-    ref: TMP-P-001703
+    mention: m2
   - id: n4
     type: nasab
-    quote: فضيل
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: ذحير ثلاثتها بالتصغير
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -36,37 +33,32 @@ death:
   places:
   - label: الجموم
   - label: al-Jumūm
-  - ref: gn:104515
-    role: burial
-    quote: مكة
+  - role: burial
+    mention: m13
   note:
     en: He was killed together with his sister's son Muḥammad b. Budayr by al-Sharīf Muḥammad b. Barakāt. Their bodies were transported to Mecca and buried there.
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001703
+  active: m7
   passive: AIND-D01171
-  quote: بأبيه
   note:
     ja: '父。見出しナサブから復元。兄弟項 #AIND-D06446（B159-163）と共用の TMP-P-001703（刊本の綴り ذحير／دخين・العدواتي／العدواني の揺れは各項原文どおり）。'
-  norm: ابيه
   phrase: قفيف بن فضيل
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D07152
+  active: m6
   passive: AIND-D01171
-  quote: محمد بن بدير
   note:
     ja: '校閲: Gemini幻番号TMP-P-000087を破棄し#AIND-D07152（محمد بن بديد بن شكر الحسني المكي القائد）へ同定。D07152本文「فتك به صاحب مكة الجمال محمد بن بركات مع خال المترجم أحمد بن قفيف في آن واحد」（同日同所・خال=أحمد بن قفيف明記）で双方向完全閉合。بدير（本項）／بديد（D07152）は綴りの異同（ر/د混同）。'
 - id: r3
   type: social
   subtype: killer
-  active: AIND-D07156
+  active: m9
   passive: AIND-D01171
-  quote: الشريف محمد بن بركات
   note:
     en: Killed Aḥmad together with his sister's son Muḥammad b. Budayr (#AIND-D07152).
     ja: '校閲: wd:Q42502693はcorpus本伝#AIND-D07156（محمد بن بركات بن حسن بن عجلان السيد جمال الدين الحسني＝ヒジャーズの支配者シャリーフ）が存在するためAINDへ差替（本伝ありの場合wd不使用の規約）。またقتلهما（双数）の対象はأحمدと甥محمد بن بدير（D07152で確証）であり、Gemini読み「彼と父」は誤り。'
@@ -86,9 +78,60 @@ events:
   - label: عند مسجد الفتح بالقرب من الجموم من وادي مرفي
   summary:
     en: Killed together with his sister's son Muḥammad b. Budayr by al-Sharīf Muḥammad b. Barakāt at Masjid al-Fatḥ, near al-Jumūm in Wādī Marfī.
-  quote: قتلهما
   cert: high
   trigger: rule
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: TMP-P-001703
+  quote: قفيف
+- id: m3
+  kind: name
+  quote: فضيل
+- id: m4
+  kind: name
+  quote: ذحير ثلاثتها بالتصغير
+- id: m5
+  kind: name
+  ref: TMP-N-03275
+  quote: العدواتي
+- id: m6
+  kind: person
+  ref: AIND-D07152
+  quote: محمد بن بدير
+- id: m7
+  kind: person
+  ref: TMP-P-001703
+  quote: بأبيه
+  norm: ابيه
+- id: m8
+  kind: event
+  quote: قتلهما
+- id: m9
+  kind: person
+  ref: AIND-D07156
+  quote: الشريف محمد بن بركات
+- id: m10
+  kind: place
+  quote: الجموم
+  ref: None
+- id: m11
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m12
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m13
+  kind: place
+  quote: مكة
+  ref: gn:104515
 translation:
   ja: アフマド・ブン・クファイフ・ブン・フダイル・ブン・ズハイル（この三つの名はいずれも縮小形）、アル＝アダワーティー。ムハンマド・ブン・ブダイルの母方の叔父（ハール）で、父の名で知られる。彼（アフマド）と甥のムハンマド・ブン・ブダイルは、シャリーフ・ムハンマド・ブン・バラカートによって、ワーディー・マルフィーのアル＝ジュムーム近郊にあるマスジド・アル＝ファトフで、873年ムハッラム月7日木曜日に殺害された。両名の遺体はマッカに運ばれ、そこに埋葬された。
   en: Aḥmad b. Qufayf b. Fuḍayl b. Dhuḥayr (all three names in the diminutive) al-ʿAdawātī, maternal uncle of Muḥammad b. Budayr, known by his father. He and his sister's son Muḥammad b. Budayr were killed by al-Sharīf Muḥammad b. Barakāt near Masjid al-Fatḥ, close to al-Jumūm in Wādī Marfī, on Thursday, the 7th of Muḥarram in the year 873. Their bodies were transported to Mecca and buried there.

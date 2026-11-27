@@ -9,54 +9,47 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00751
-    quote: الماكسيني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000884
+    mention: m2
   - id: n5
     type: nasab
-    quote: أبي عبد الله
     by: rule
-    ref: TMP-P-000885
-    norm: ابو عبد الله
+    mention: m3
   - id: n6
     type: nasab
-    quote: سلامة
     by: rule
+    mention: m4
 death:
   id: d
   date:
     ah: 801-05
   note:
     en: He died in Jumada al-Ula, 801 AH.
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000850
+  active: m9
   passive: AIND-D03768
   methods:
   - TMP-S-00003
   fields:
   - TMP-S-00002
-  quote: ابن أبي التائب
-  norm: ابن ابي التاءب
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000851
+  active: m10
   passive: AIND-D03768
   methods:
   - TMP-S-00003
@@ -64,47 +57,40 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00150
-  quote: الزين عبد الغالب بن محمد الماكسيني
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D03768
-  passive: wd:Q471116
+  passive: m12
   methods:
   - TMP-S-00004
   fields:
   - TMP-S-00002
-  quote: شيخنا
 - id: r4
   type: kin
   subtype: father
-  active: TMP-P-000884
+  active: m8
   passive: AIND-D03768
-  quote: كأبيه
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「محمد بن أبي عبد الله بن سلامة الماكسيني الدمشقي」（「مؤذن جامعها ورئيسه كأبيه」＝父も同職）。'
-  norm: ابيه
   phrase: محمد
 - id: r5
   type: kin
   subtype: grandfather
-  active: TMP-P-000885
+  active: m16
   passive: AIND-D03768
   summary:
     ar: محمد (أبو عبد الله)
-  quote: جده
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「أبو عبد الله بن سلامة الماكسيني الدمشقي」（原文末尾「ورأيت من سمى جده محمدا」）。'
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   places:
   - ref: gn:170654
   orgs:
   - ref: wd:Q183562
-  quote: مؤذن
-  norm: مءذن
+  mention: m7
 - id: s2
   type: office
   ref: TMP-O-00090
@@ -112,19 +98,84 @@ states:
   - ref: gn:170654
   orgs:
   - ref: wd:Q183562
-  quote: null
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m15
   works:
   - ref: TMP-T-00122
-  quote: قال
   note:
     ja: 初版はこの言及を一切エンコードしていなかった（Pattern A完全欠落）。
   trigger: rule
   phrase: وتبعه المقريزي في عقوده
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-000884
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-P-000885
+  quote: أبي عبد الله
+  norm: ابو عبد الله
+- id: m4
+  kind: name
+  quote: سلامة
+- id: m5
+  kind: name
+  ref: TMP-N-00751
+  quote: الماكسيني
+- id: m6
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m7
+  kind: office
+  ref: wd:Q239718
+  quote: مؤذن
+  norm: مءذن
+- id: m8
+  kind: person
+  ref: TMP-P-000884
+  quote: كأبيه
+  norm: ابيه
+- id: m9
+  kind: person
+  ref: TMP-P-000850
+  quote: ابن أبي التائب
+  norm: ابن ابي التاءب
+- id: m10
+  kind: person
+  ref: TMP-P-000851
+  quote: الزين عبد الغالب بن محمد الماكسيني
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m14
+  kind: year
+  value: '801'
+  quote: سنة
+- id: m15
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m16
+  kind: person
+  ref: TMP-P-000885
+  quote: جده
 translation:
   ja: アブドゥルラフマーン・ブン・ムハンマド・ブン・アビー・アブドゥッラー・ブン・サラーマ・アル＝マークシーニー・アッ＝ディマシュキー。彼の父と同様に、ダマスカスのウマイヤ・モスクのムアッジン（礼拝告知者）であり、その長を務めた。イブン・アビー・アッ＝ターイブ、およびアッ＝ザイン・アブドゥルガーリブ・ブン・ムハンマド・アル＝マークシーニーから、彼の『マシヤハ（師父目録）』などを聴聞した。ハディースを伝承し、我らがシャイフ（イブン・ハジャル）は「彼は私に何度もイジャーザ（伝承認可）を与えてくれた」と述べた。彼は801年ジュマーダー・アル＝ウーラーに没した。アル＝マクリーズィーもその著書『アル＝ウクード』でこれに従っている。なお、彼の祖父をムハンマドと命名している記述を見たことがある。
   en: 'Abd al-Rahman b. Muhammad b. Abi Abd Allah b. Salamah al-Makasini al-Dimashqi, the muezzin of the Great Mosque of Damascus and its chief, like his father. He heard from Ibn Abi al-Ta''ib and from al-Zayn Abd al-Ghalib b. Muhammad al-Makasini, studying the latter''s Mashyakha and other works. He transmitted hadith, and our shaykh (Ibn Hajar) said: ''He granted me ijaza more than once.'' He died in Jumada al-Ula in the year 801 AH, which al-Maqrizi also followed in his Uqud. I saw some who named his grandfather Muhammad.'

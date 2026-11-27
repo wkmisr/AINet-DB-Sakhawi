@@ -9,56 +9,50 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: السراج
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00213
-    quote: الزمزمي
+    mention: m7
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد العزيز
     by: rule
-    ref: AIND-D03971
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد السلام
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m4
 death:
   id: d
   date:
     ah: 893-07
   note:
     ja: 「مات في رجب سنة ثلاث وتسعين وأنا بمكة」。893年ラジャブ月 ＝ 1488-06-20〜1488-07-19（h2g.py、月のみ→月初）。「وأنا بمكة」はサハーウィー自身の所在（当時マッカ滞在中）であり本項主の没地の明記ではないため、初版の没地 placeName مكة を除去（規則22(1)）。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D03971
   passive: AIND-D05869
-  quote: null
   note:
     ja: '父 ＝ #AIND-D03971（عبد العزيز بن عبد السلام بن موسى بن أبي بكر بن أكبر العز الشيرازي الأصل المكي الشافعي … ويعرف بالزمزمي）。ナサブ4代（عبد العزيز بن عبد السلام بن موسى）とニスバ الزمزمي が一致。初版は father relation なし。'
   phrase: عبد العزيز بن عبد السلام بن موسى
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07675
+  active: m8
   passive: AIND-D05869
-  quote: محمد
   note:
     ja: '「أخو محمد الآتي」＝ #AIND-D07675（محمد بن عبد العزيز بن عبد السلام بن موسى بن أبي بكر الجمال بن العز الشيرازي الأصل المكي الزمزمي الشافعي نزيل القاهرة والماضي أبوه）。初版の汚染番号 TMP-P-000529（ابن جماعة の息子 محمد）を差し替え。同じ父の子に أبو بكر（#AIND-D10732）・سلامة（#AIND-D13242）もいるが本項に記述がないため relation は立てない。'
 events:
@@ -66,37 +60,87 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: ممن حفظ القرآن
-  norm: ممن حفظ القران
+  phrase: ممن حفظ القرآن
+  mention: null
 - id: e2
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وسافر
+  - mention: m10
   trigger: rule
-  norm: سافر
   phrase: وسافر إلى القاهرة والشام واليمن
+  mention: m9
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00002
-    quote: والشام
-    norm: الشام
-  quote: null
+  - mention: m11
+  mention: null
 - id: e4
   type: travel
   places:
-  - ref: TMP-L-00037
-    quote: واليمن
-    norm: اليمن
-  quote: null
+  - mention: m12
+  mention: null
 - id: e5
   type: cultural
-  quote: وله نظم كأخيه
   note:
     ja: 兄弟 محمد（#AIND-D07675）と同様に詩作があった。
-  norm: وله نظم كاخيه
+  phrase: وله نظم كأخيه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: AIND-D03971
+  quote: عبد العزيز
+- id: m3
+  kind: name
+  quote: عبد السلام
+- id: m4
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m5
+  kind: name
+  quote: السراج
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: TMP-N-00213
+  quote: الزمزمي
+- id: m8
+  kind: person
+  ref: AIND-D07675
+  quote: محمد
+- id: m9
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: place
+  quote: والشام
+  ref: TMP-L-00002
+  norm: الشام
+- id: m12
+  kind: place
+  quote: واليمن
+  ref: TMP-L-00037
+  norm: اليمن
+- id: m13
+  kind: month
+  value: 7
+  quote: رجب
+- id: m14
+  kind: year
+  value: '893'
+  quote: سنة
 translation:
   ja: ウマル・ブン・アブド・アル＝アズィーズ・ブン・アブド・アッ＝サラーム・ブン・ムーサー、アッ＝シラージュ・アル＝マッキー・アッ＝ザムザミー。後述のムハンマドの兄弟。クルアーンを暗記した者の一人で、カイロ、シャーム、イエメンへ旅し、兄弟と同じく詩作がある。893年ラジャブ月、私（サハーウィー）がマッカにいたときに没した。
   en: ʿUmar b. ʿAbd al-ʿAzīz b. ʿAbd al-Salām b. Mūsā, al-Sirāj al-Makkī al-Zamzamī, the brother of Muḥammad, mentioned below. He was among those who memorised the Qurʾān; he travelled to Cairo, Syria and Yemen, and composed poetry like his brother. He died in Rajab of the year 893 while I (al-Sakhāwī) was in Mecca.

@@ -9,68 +9,58 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00058
-    quote: المغربي
+    mention: m9
   - id: n3
     type: nisbah
-    ref: TMP-N-00056
-    quote: التونسي
+    mention: m10
   - id: n4
     type: honorific
-    quote: الشريف
+    mention: m6
   - id: n5
     type: kunyah
-    quote: أبو محفوظ
-    norm: ابو محفوظ
+    mention: m7
   - id: n6
     type: shuhrah
-    quote: بابن الرفا
-    norm: ابن الرفا
     label: ابن الرفا
+    mention: m14
   - id: n7
     type: ism
-    quote: محرز
     by: rule
+    mention: m1
   - id: n8
     type: nasab
-    quote: مسعود
     by: rule
+    mention: m2
   - id: n9
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n10
     type: nasab
-    quote: زياد
     by: rule
+    mention: m4
   - id: n11
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m5
   - id: n12
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m11
 birth:
   id: b
   date:
     ah: 795
     cert: medium
   places:
-  - ref: gn:2464470
-    quote: بتونس
-    norm: تونس
+  - mention: m19
   note:
     ar: ذكره البقاعي وقال إنه ولد سنة خمس وتسعين وسبعمائة بتونس
     ja: 795＝1392-11-25 開始、年精度 1392（h2g.py。初版 @when="1393" は誤年）。生年・生地は البقاعي の言（「قال إنه」）＝cert medium（標準規則）。
-  quote: سنة
+  mention: m18
 persons:
 - id: p1
   label: مسعود بن موسى بن زياد
@@ -83,16 +73,14 @@ relations:
   subtype: father
   active: AIND-D06460#p1
   passive: AIND-D06460
-  quote: null
   note:
     ja: '規則3 (c'')。父 مسعود بن موسى بن زياد بن إبراهيم は corpus に本伝なし（hw.py「مسعود بن موسى」該当なし）、ID-Master 未登録。父自身に識別要素なし → #NEEDID。初版は father relation なし。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
-  quote: مفتي
   note:
     ja: 「إمام عالم مفتي」のうち職として明確な مفتي（TMP-O-00004）。「إمام عالم」は人物評（導師・学者）として本注に留める。初版が state に付けた placeName إسكندرية（#NEEDID）は原文の職に地の明記がないので除去（規則22(1)）。
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -101,28 +89,98 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:361058
-    quote: إسكندرية
-    norm: اسكندرية
-  quote: نزيل
+  - mention: m13
   note:
     ja: '見出し「نزيل إسكندرية」。gn:361058（ID-Master 登録 الاسكندرية。初版は #NEEDID）。'
   trigger: rule
   phrase: نزيل إسكندرية
+  mention: m12
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: ذكره
+  - mention: m17
   note:
     ja: 'Pattern A。البقاعي ＝ #AIND-D00207（頻出確定ID）。生年・生地の情報源。初版の統制外 relation（subtype other）を置換。'
   trigger: rule
   phrase: ذكره البقاعي
+  mention: m16
 notes:
 - text: '原文末尾「ومات .」は没年が空欄＝death 要素を作らない（ブリーフ指示）。通称「ابن الرفا」は #AIND-D10812（أبو بكر … الدمشقي الصالحي الحنفي الناسخ ويعرف في بلده بابن الرفا）とは別人（出身・学派が異なる）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محرز
+- id: m2
+  kind: name
+  quote: مسعود
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: زياد
+- id: m5
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m6
+  kind: name
+  quote: الشريف
+- id: m7
+  kind: name
+  quote: أبو محفوظ
+  norm: ابو محفوظ
+- id: m8
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m9
+  kind: name
+  ref: TMP-N-00058
+  quote: المغربي
+- id: m10
+  kind: name
+  ref: TMP-N-00056
+  quote: التونسي
+- id: m11
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m12
+  kind: event
+  quote: نزيل
+- id: m13
+  kind: place
+  quote: إسكندرية
+  ref: gn:361058
+  norm: اسكندرية
+- id: m14
+  kind: name
+  quote: بابن الرفا
+  norm: ابن الرفا
+- id: m15
+  kind: office
+  ref: TMP-O-00004
+  quote: مفتي
+- id: m16
+  kind: source
+  quote: ذكره
+- id: m17
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
+- id: m18
+  kind: year
+  value: '795'
+  quote: سنة
+- id: m19
+  kind: place
+  quote: بتونس
+  ref: gn:2464470
+  norm: تونس
 translation:
   ja: ムフリズ・ブン・マスウード・ブン・ムーサー・ブン・ズィヤード・ブン・イブラーヒーム、アッ＝シャリーフ・アブー・マフフーズ・アル＝ハサニー・アル＝マグリビー・アッ＝トゥーニスィー・アル＝マーリキー、アレクサンドリアに住み、イブン・アッ＝ラッファーとして知られる。導師、学者、ムフティー。アル＝ビカーイーが彼に言及し、795年にチュニスで生まれたと述べ、没年は（空欄）。
   en: Muḥriz b. Masʿūd b. Mūsā b. Ziyād b. Ibrāhīm, al-Sharīf Abū Maḥfūẓ al-Ḥasanī al-Maghribī al-Tūnisī al-Mālikī, resident of Alexandria, known as Ibn al-Raffā. An imam, scholar and muftī. Al-Biqāʿī mentioned him and said that he was born in the year 795 in Tunis, and that he died [year left blank].

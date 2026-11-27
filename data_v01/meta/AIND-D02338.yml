@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00208
-    quote: الصفدي
+    mention: m2
   - id: n2
     type: ism
-    quote: جار
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 840-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: سنة
+  - mention: m9
+  mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000249
+  active: m4
   passive: AIND-D02338
   methods:
   - TMP-S-00003
@@ -37,11 +34,10 @@ relations:
     date:
       ah: 837
       type: learning
-  quote: ابن سلامة
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D09211
+  active: m5
   passive: AIND-D02338
   methods:
   - TMP-S-00003
@@ -50,24 +46,65 @@ relations:
     date:
       ah: 837
       type: learning
-  quote: والتقي بن فهد
-  norm: التقي بن فهد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
-  quote: القائد
-  norm: القاءد
+  mention: m3
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m11
   note:
     en: Ibn Fahd chronicled him.
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: جار
+- id: m2
+  kind: name
+  ref: TMP-N-00208
+  quote: الصفدي
+- id: m3
+  kind: office
+  ref: TMP-O-00094
+  quote: القائد
+  norm: القاءد
+- id: m4
+  kind: person
+  ref: TMP-P-000249
+  quote: ابن سلامة
+- id: m5
+  kind: person
+  ref: AIND-D09211
+  quote: والتقي بن فهد
+  norm: التقي بن فهد
+- id: m6
+  kind: year
+  value: '837'
+  quote: سنة
+- id: m7
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m8
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: source
+  quote: أرخه
   norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ジャール・アッラー・ブン・ムバーラク・アッ＝サファディー・アル＝カーイド。イブン・サラマとタキー・ブン・ファハドに837年に聴聞した。840年ムハッラム月にメッカで没した。イブン・ファハドが彼について記録した。
   en: Jār Allāh b. Mubārak al-Ṣafadī al-Qāʾid. He heard from Ibn Salāma and al-Taqī b. Fahd in the year 837. He died in Muḥarram 840 in Mecca. Ibn Fahd chronicled him.

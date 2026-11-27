@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: ولي الدين
+    mention: m2
   - id: n2
     type: kunyah
-    quote: أبو عبد الله
-    norm: ابو عبد الله
+    mention: m3
   - id: n3
     type: shuhrah
-    quote: null
     label: ابن صالح
+    mention: null
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: صالح
     by: rule
-    ref: AIND-D03752
+    mention: m4
 death:
   id: d
   date:
@@ -38,33 +36,28 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05583
+  active: m11
   passive: AIND-D07587
   methods:
   - TMP-S-00003
-  quote: أبي الحسن سبط الزبير
   note:
     ja: 'أبو الحسن سبط الزبير = #AIND-D05583（علي بن محمد بن موسى بن منصور النور أبو الحسن المحلي المدني الشافعي سبط الزبير الأسواني、生754）。兄 #AIND-D07586 の本伝「وكذا سمع على أبي الحسن المحلي سبط الزبير」と同一の師。'
-  norm: ابو الحسن سبط الزبير
   phrase: ممن سمع على أبي الحسن سبط الزبير وغيره
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07586
+  active: m5
   passive: AIND-D07587
-  quote: الذي قبله
   note:
     ja: '前項 = #AIND-D07586（刊本第9項 محمد بن عبد الرحمن بن محمد بن صالح بن إسمعيل … فتح الدين أبو الفتح بن ناصر الدين أبي الفرج … الكناني … المدني الشافعي … ويعرف كسلفه بابن صلح、生799・没860。マディーナのカーディー・ハティーブ・イマーム、「فترك القضاء لأخيه الآتي」＝本項主）。'
   phrase: أخو الذي قبله
 - id: r3
   type: kin
   subtype: siblings_child
-  active: AIND-D08822
+  active: m8
   passive: AIND-D07587
-  quote: لابن أخيه صلاح الدين محمد
   note:
     ja: '甥 صلاح الدين محمد = #AIND-D08822（刊本第266項 محمد صلاح الدين بن صالح أخو الذي قبله、生841。兄 فتح الدين #AIND-D07586 の息子、#AIND-D10662・D13821 で「القاضي صلاح الدين بن صالح」）。'
-  norm: ابن اخيه صلاح الدين محمد
   phrase: ابن أخيه صلاح الدين محمد
 - id: r4
   type: kin
@@ -74,30 +67,75 @@ relations:
   summary:
     ar: أبوه
   cert: medium
-  quote: null
   note:
     ja: '本項の「بن صالح」は一族の通称（ابن صالح）であり父名ではない（初版は父を「صالح」と誤認）。兄 #AIND-D07586 の見出し「محمد بن عبد الرحمن بن محمد بن صالح … بن ناصر الدين أبي الفرج … الماضي أبوه」により父 = #AIND-D03752（刊本第344項 عبد الرحمن بن محمد بن صالح بن إسماعيل ناصر الدين أبو الفرج ابن التقي الكناني المدني الشافعي والد أبي الفتح محمد الآتي … ويعرف بابن صالح）。他項経由のため cert="medium"（規則23）。なお #AIND-D03757「عبد الرحمن بن القاضي أبي عبد الله محمد بن القاضي ناصر الدين عبد الرحمن بن محمد بن صالح」は本項主の息子。'
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   dates:
   - ah: 844
     type: appointment
-  quote: القضاء
   note:
     ja: '任地は本項に明記がない。兄 #AIND-D07586 の本伝「وناب في القضاء والخطابة والإمامة ببلده طيبة … فترك القضاء لأخيه الآتي」によりマディーナのカーディー職と分かるが、他項由来の属性は placeName にしない（規則23）。'
   phrase: ولي القضاء استقلالا حين استعفى أخوه منه في سنة أربع وأربعين فدام حتى استعفى هو أيضا منه وتركه لابن أخيه صلاح الدين محمد
+  mention: m6
 - id: s2
   type: office
-  ref: wd:Q932945
-  quote: الخطابة
   phrase: وشارك في الخطابة والإمامة وكان جيد الخطابة
+  mention: m9
 - id: s3
   type: office
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: ولي الدين
+- id: m3
+  kind: name
+  quote: أبو عبد الله
+  norm: ابو عبد الله
+- id: m4
+  kind: name
+  ref: AIND-D03752
+  quote: صالح
+- id: m5
+  kind: person
+  ref: AIND-D07586
+  quote: الذي قبله
+- id: m6
+  kind: office
+  ref: wd:Q217029
+  quote: القضاء
+- id: m7
+  kind: year
+  value: '844'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: AIND-D08822
+  quote: لابن أخيه صلاح الدين محمد
+  norm: ابن اخيه صلاح الدين محمد
+- id: m9
+  kind: office
+  ref: wd:Q932945
+  quote: الخطابة
+- id: m10
+  kind: office
   ref: wd:Q125482
   quote: والإمامة
   norm: الامامة
+- id: m11
+  kind: person
+  ref: AIND-D05583
+  quote: أبي الحسن سبط الزبير
+  norm: ابو الحسن سبط الزبير
+- id: m12
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: ムハンマド・ワリーユッディーン・アブー・アブディッラー・イブン・サーリフ。前項の人物の兄弟。兄が844年にカーディー職を辞任した際に単独でその職に就き、自身もまた辞任してその職を甥のサラーフッディーン・ムハンマドに譲るまで、それを保った。説教師職（ヒターバ）とイマーム職も分担し、説教に優れていた。アブー・アル＝ハサン・スィブト・アッ＝ズバイルらから聴聞した者の一人である。ほどなくして874年のジュマーダー（第一または第二）月に没した。
   en: Muḥammad Walī al-Dīn Abū ʿAbd Allāh Ibn Ṣāliḥ, the brother of the preceding. He held the judgeship in his own right when his brother resigned from it in 844, and continued until he too resigned and left it to his nephew Ṣalāḥ al-Dīn Muḥammad. He also shared in the offices of preacher (khaṭīb) and imam, and was a good preacher. He was among those who heard from Abū al-Ḥasan Sibṭ al-Zubayr and others. Not long afterwards he died, in one of the two Jumādās of 874.

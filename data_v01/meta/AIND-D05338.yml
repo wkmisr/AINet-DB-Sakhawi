@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00696
-    quote: الطهطاوي
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الفقيه
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: الفقيه الطهطاوي
@@ -31,25 +30,41 @@ relations:
   subtype: father
   active: AIND-D05338#p1
   passive: AIND-D05338
-  quote: null
   note:
     ja: '父。原文「علي بن الفقيه الطهطاوي واسم أبيه ...」＝父の名は刊本で欠字（...）。名不詳のため #NEEDID（規則3）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m4
   passive: AIND-D05338
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m5
   note:
     ja: 「ممن سمع مني بمكة」（規則2）。
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: الفقيه
+- id: m3
+  kind: name
+  ref: TMP-N-00696
+  quote: الطهطاوي
+- id: m4
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アリー・ブン・アル＝ファキーフ・アッ＝タフターウィー、その父の名は（空白）。マッカで私から聴聞した者の一人。
   en: ʿAlī b. al-Faqīh al-Ṭahṭāwī, his father's name being (blank). He is among those who heard from me in Mecca.

@@ -9,40 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00873
-    quote: الغزاوي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00176
-    quote: البوتيجي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n4
     type: shuhrah
-    quote: بالمؤذن
     cert: medium
-    norm: المءذن
     label: المؤذن
+    mention: m8
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
 death:
   id: d
   date:
     notBefore: 892-03
     notAfter: 892-04
   places:
-  - ref: TMP-I-00034
-    quote: بالبيمارستان
-    norm: البيمارستان
+  - mention: m11
   note:
     ja: 「ومات بالبيمارستان في أحد الربيعين سنة اثنتين وتسعين」。892年ラビーウ1月（1487-03-06開始）またはラビーウ2月（1487-05-03終了）＝notBefore 1487-03／notAfter 1487-05（h2g.py）。カイロの「البيمارستان」＝البيمارستان المنصوري（#TMP-I-00034、repo 先例 D04094 の死地と同じ扱い）。初版の placeName القاهرة（施設所在地からの補完）を除去（規則22(1)）。
 persons:
@@ -55,9 +48,8 @@ relations:
 - id: r1
   type: kin
   subtype: cousin
-  active: TMP-P-001570
+  active: m7
   passive: AIND-D07279
-  quote: سليمان بن سيد البناء
   note:
     ja: 「وابن عمه سليمان بن سيد البناء」＝父方の従兄弟（repo の統制語彙 cousin）。corpus に「سليمان بن سيد」の見出しなし（D00757・D03172 の البناء は ابن عقبة 家＝別人）、ID-Master 未登録 → TMP-P-001570。
 - id: r2
@@ -65,7 +57,6 @@ relations:
   subtype: father
   active: AIND-D07279#p1
   passive: AIND-D07279
-  quote: null
   note:
     ja: 父。見出しの「بن أبي بكر」のみで識別要素なし（規則3 (c')）。
 states:
@@ -73,45 +64,93 @@ states:
   type: status
   label: الفاعل أحد العوام
   label_latn: al-fāʿil, aḥad al-ʿawāmm
-  quote: الفاعل أحد العوام
   note:
     ja: 「الفاعل أحد العوام」＝（建設の）日雇い労働者、庶民の一人。ID-Master に該当する Office 登録なし（فاعل 未登録）のため status として保持。
-  norm: الفاعل احد العوام
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00353
   places:
-  - ref: TMP-L-00295
-    quote: الكداشين
+  - mention: m10
   orgs:
   - ref: TMP-I-00245
-  quote: خادم زاوية
   note:
     ja: '「خادم زاوية الشيخ تركي من الكداشين」。施設 زاوية الشيخ تركي（カイロ北郊 الكداشين、D08339「منزل زوجته المجاور لزاوية الشيخ تركي من الكداشين وحمل إلى زاويتهم بالقرب من خانقاه سرياقوس」）は ID-Master 未登録 → TMP-I-00245。職 خادم زاوية は ID-Master 未登録（خادم الرباط O-00200・خادم البيمارستان O-00279 等の施設別 خادم 職と同型）→ TMP-O-00353（初版の汎用 #NEEDID）。الكداشين は原文明記（TMP-L-00295）。初版の placeName القاهرة・affiliation employed（二重符号化）を除去。'
+  mention: m9
 events:
 - id: e1
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   note:
     ja: 巡礼（複数回）。placeName مكة は規則20の例外。
   trigger: rule
   phrase: وقد حج وجاور غير مرة
+  mention: m12
 - id: e2
   type: residence
   subtype: jāwara
-  quote: وجاور
   note:
     ja: 滞留（مجاورة、複数回）。原文に地名の明記がないため placeName を付けない（規則20）。
   trigger: rule
-  norm: جاور
   phrase: وقد حج وجاور غير مرة
+  mention: m13
 notes:
 - text: 「ويعرف بالمؤذن」は名の末尾に置かれる定型（本項主の通称）と読み shuhrah に cert medium を付けた。直前の従兄弟 سليمان بن سيد البناء の通称とも読めるため（初版の読み）、確定しない。ニスバ「الغزاوي الأصل البوتيجي ثم القاهري」からの residence event 3件（初版）は規則22(1)により除去。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: TMP-N-00873
+  quote: الغزاوي
+- id: m4
+  kind: name
+  ref: TMP-N-00176
+  quote: البوتيجي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: office
+  quote: الفاعل أحد العوام
+  norm: الفاعل احد العوام
+- id: m7
+  kind: person
+  ref: TMP-P-001570
+  quote: سليمان بن سيد البناء
+- id: m8
+  kind: name
+  quote: بالمؤذن
+  norm: المءذن
+- id: m9
+  kind: office
+  ref: TMP-O-00353
+  quote: خادم زاوية
+- id: m10
+  kind: place
+  quote: الكداشين
+  ref: TMP-L-00295
+- id: m11
+  kind: place
+  quote: بالبيمارستان
+  ref: TMP-I-00034
+  norm: البيمارستان
+- id: m12
+  kind: event
+  quote: حج
+- id: m13
+  kind: event
+  quote: وجاور
+  norm: جاور
 translation:
   ja: ムハンマド・ブン・アブー・バクル、ガザ出自（アル＝ガッザーウィー・アル＝アスル）でアブーティージュの人、のちカイロの人、日雇い労働者（アル＝ファーイル）で庶民の一人、建築職人サイイドの子スライマーンの従兄弟で、アル＝ムアッズィンとして知られた。アル＝キダーシーンのシャイフ・トゥルキーのザーウィヤの奉仕者。892年の二つのラビーウ月のいずれかに施療院（ビーマーリスターン）で没した。彼は一度ならず巡礼し滞留した。
   en: Muḥammad b. Abī Bakr, of Gazan origin, al-Būtījī then al-Qāhirī, a day-labourer (al-fāʿil), one of the common people, cousin of Sulaymān b. Sayyid the builder, and known as al-Muʾadhdhin. Servant (khādim) of the zāwiya of Shaykh Turkī at al-Kidāshīn. He died in the Bīmāristān in one of the two Rabīʿ months of 892. He had performed the pilgrimage and sojourned more than once.

@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00114
-    quote: الظاهري
+    mention: m2
   - id: n2
     type: ism
-    quote: قرم
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -29,8 +28,8 @@ death:
     ah: 864-07
   note:
     ja: 864年ラジャブ月（1460-05-01 開始、月精度）、90代で。没地の記載なし。
-  quote: سنة
   phrase: حتى مات في رجب سنة أربع وستين وهو في عشر المائة
+  mention: m7
 persons:
 - id: p1
   label: والد قرم خجا الظاهري برقوق
@@ -41,41 +40,37 @@ relations:
   subtype: father
   active: AIND-D06343#p1
   passive: AIND-D06343
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D02178
+  active: m3
   passive: AIND-D06343
   summary:
     ar: الظاهر برقوق
-  quote: برقوق
   note:
     ja: 見出しのニスバ「الظاهري برقوق」＋「كان من خاصكيته」＝主人はアッ＝ザーヒル・バルクーク（#AIND-D02178）。初版のプレースホルダ TMP-P-000000 を置換。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيته
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: バルクークの死（801年）後に十人長となり、しばらく務めたのち職を退いた（年の明記なし）。
+  mention: m5
 assessments:
 - id: v1
-  quote: دينا
   terms:
   - دين
   by: rule
+  mention: m10
 - id: v2
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m11
 events:
 - id: e1
   type: religious
@@ -84,23 +79,63 @@ events:
   - ref: gn:104515
   summary:
     ar: بعد أن حج … غير مرة
-  quote: حج
   note:
     ja: 複数回の巡礼。placeName مكة は規則20の例外（حج の語義）。年の明記なし。
   trigger: rule
+  mention: m8
 - id: e2
   type: residence
   subtype: jāwara
-  quote: وجاور
   note:
     ja: 複数回のムジャーワラ。原文に地名がないため placeName を付けない（規則20「جاور には placeName を付けない」。初版の مكة を除去）。
   trigger: rule
-  norm: جاور
   phrase: وجاور غير مرة
+  mention: m9
 notes:
 - text: 「وكان دينا خيرا ذا أنسة في الفقه وغيره رحمه الله」＝敬虔で善良、法学などに親しみがあった。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قرم
+- id: m2
+  kind: name
+  ref: TMP-N-00114
+  quote: الظاهري
+- id: m3
+  kind: person
+  ref: AIND-D02178
+  quote: برقوق
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+- id: m5
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m6
+  kind: month
+  value: 7
+  quote: رجب
+- id: m7
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m8
+  kind: event
+  quote: حج
+- id: m9
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m10
+  kind: assessment
+  quote: دينا
+- id: m11
+  kind: assessment
+  quote: خيرا
 translation:
   ja: クルム・フジャー・アッ＝ザーヒリー・バルクーク。彼（バルクーク）のハースィキーの一人で、その（主人の）後に十人長（アミール・アシャラ）となってしばらく務め、その後職を退き、864年ラジャブ月に90代で没するまで（そのままであった）。それまでにハッジとムジャーワラ（聖地滞在）を何度も行っていた。敬虔で善良な人物で、法学などに親しみがあった。アッラーの慈悲あれ。
   en: Qurm Khujā al-Ẓāhirī Barqūq. He was one of his (Barqūq's) khāṣṣakīs, then after him he was made an amir of ten for a period, then withdrew, until he died in Rajab of the year 864 in his nineties, having performed the pilgrimage and the mujāwara (residence at the holy cities) more than once. He was pious and good, with some familiarity with jurisprudence and other subjects; may God have mercy on him.

@@ -9,33 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01319
-    quote: السنيكي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m6
   - id: n4
     type: laqab
-    quote: نور الدين
+    mention: m2
   - id: n5
     type: kunyah
-    quote: أبو الحسن
-    norm: ابو الحسن
+    mention: m3
   - id: n6
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 birth:
   id: b
   date:
@@ -49,12 +43,12 @@ death:
     ah: 888-04-09
   note:
     ja: 「مات في ليلة الجمعة تاسع ربيع الآخر سنة ثمان وثمانين وقد قارب السبعين」。888-04-09 ＝ 1483-05-26（h2g.py。曜日は暦の判別に使わない）。没地は原文に明記なし。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D10313
+  active: m10
   passive: AIND-D05717
   methods:
   - TMP-S-00028
@@ -62,27 +56,23 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
-  quote: المناوي
+    - mention: m9
   note:
     ja: '「قدم القاهرة فقرأ القرآن وحضر دروس المناوي وغيره」。المناوي ＝ 幻番号 TMP-P-000321 の名寄せ先 #AIND-D10313（الشرف يحيى بن محمد المناوي、シャーフィイー派大カーディー、871年没）。同時代のカイロで「دروس المناوي」といえば الشرف المناوي が通例で、同学の زكريا الأنصاري も彼に師事したが、呼称のみの同定のため cert medium（規則26）。placeName القاهرة は「قدم القاهرة فـ…」の等位接続による（規則22(3)）。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m11
   passive: AIND-D05717
   methods:
   - TMP-S-00003
-  quote: شيخنا
   note:
     ja: 「بل سمع على شيخنا رفيقا لبلديه الزين زكريا」。شيخنا ＝ イブン・ハジャル（wd:Q471116）。場所は原文に明示なし（初版の placeName القاهرة は除去）。
 - id: r3
   type: social
   subtype: colleague
-  active: AIND-D03042
+  active: m12
   passive: AIND-D05717
-  quote: الزين زكريا
   note:
     ja: '「رفيقا لبلديه الزين زكريا وعاش حتى أدرك ولايته فلم يحصل منه على طائل」。同郷（سنيكة 出身）の الزين زكريا ＝ #AIND-D03042（زكريا بن محمد الأنصاري السنيكي、「ولد … بسنيكة من الشرقية」）とイブン・ハジャルのもとで同学。本項主は زكريا の（大カーディー）就任まで生きたが、何の利益も得られなかった。初版の subtype friend → colleague（رفيق の repo 慣行）。'
 affiliations:
@@ -93,13 +83,67 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: قدم
+  - mention: m9
   note:
     ja: 【集約】「قدم القاهرة」は到来の記述なので residence → travel（D05733 の同句の処理と統一。内容検証A L-4）。ニスバ「ثم القاهري」からの居住は補わない（規則22(1)）。
   trigger: rule
   phrase: قدم القاهرة
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: نور الدين
+- id: m3
+  kind: name
+  quote: أبو الحسن
+  norm: ابو الحسن
+- id: m4
+  kind: name
+  ref: TMP-N-01319
+  quote: السنيكي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: event
+  quote: قدم
+- id: m9
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m10
+  kind: person
+  ref: AIND-D10313
+  quote: المناوي
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: person
+  ref: AIND-D03042
+  quote: الزين زكريا
+- id: m13
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m14
+  kind: year
+  value: '888'
+  quote: سنة
 translation:
   ja: アリー、ヌール・アッ＝ディーン・アブー・アル＝ハサン・アッ＝スナイキー、のちアル＝カーヒリー、アル＝アズハリー、アッ＝シャーフィイー。カイロに来てクルアーンを読み、アル＝マナーウィーらの講義に出席し、さらに同郷のアッ＝ザイン・ザカリーヤーと同伴して我らがシャイフ（イブン・ハジャル）から聴聞した。彼は（ザカリーヤーの）就任を見るまで生きたが、極度の貧困と盲目と隠棲にもかかわらず、彼から何の利益も得られなかった。（8）88年ラビーウ・アル＝アーヒル月9日の金曜の夜に没した。70歳近くであった。神の慈悲あれ。
   en: ʿAlī, Nūr al-Dīn Abū al-Ḥasan al-Sunaykī, then al-Qāhirī al-Azharī al-Shāfiʿī. He came to Cairo, read the Qurʾān and attended the lessons of al-Manāwī and others; moreover he heard from our shaykh (Ibn Ḥajar) as a companion of his fellow townsman al-Zayn Zakariyyā. He lived long enough to see the latter's appointment (to office), yet obtained nothing of substance from him, despite his extreme poverty, his blindness and his seclusion. He died on the eve of Friday, 9 Rabīʿ al-Ākhir (8)88, having nearly reached seventy. May God have mercy on him.

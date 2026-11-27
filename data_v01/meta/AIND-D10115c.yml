@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    quote: الصوفي
+    mention: m3
   - id: n2
     type: ism
-    quote: ناصر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -25,7 +25,7 @@ death:
   note:
     ar: مات في رجب سنة ثلاث وثلاثين مطعونا
     ja: 833年ラジャブ、ペストにて。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: ابن محمد البسامي
@@ -37,20 +37,18 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000026
+  active: m6
   passive: AIND-D10115c
   methods:
   - TMP-S-00003
-  quote: التنوخي
   note:
     ar: وسمع على التنوخي وغيره
     ja: التنوخي = TMP-P-000026。
 - id: r2
   type: identity
   subtype: possible_identity
-  active: AIND-D10115c#p1
+  active: m5
   passive: AIND-D10115c
-  quote: الشهاب بن المحمرة
   note:
     ar: ويحرر إن كان غير ابن محمد البسامي الآتي
     ja: 後出の ناصر بن محمد البسامي と同一人物の可能性（サハーウィー自身が要検討とする）。corpus ناصر 部に該当見出し未確認→ref 未付与。
@@ -65,11 +63,44 @@ sources:
 - id: c1
   persons:
   - ref: AIND-D10115c#p2
-  quote: قال
   note:
     ja: Pattern A。الشهاب بن المحمرة、corpus 本伝なし・ID-Master 未登録→ref 未付与。
   trigger: rule
   phrase: قال الشهاب بن المحمرة أنه لم يكن بها أحد على طريق الصوفية مثله
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: ناصر
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: الصوفي
+- id: m4
+  kind: source
+  quote: قال
+- id: m5
+  kind: person
+  ref: AIND-D10115c#p1
+  quote: الشهاب بن المحمرة
+- id: m6
+  kind: person
+  ref: TMP-P-000026
+  quote: التنوخي
+- id: m7
+  kind: month
+  value: 7
+  quote: رجب
+- id: m8
+  kind: year
+  value: '833'
+  quote: سنة
+- id: m9
+  kind: person
+  label: possible_identity
+  quote: ابن محمد البسامي
 translation:
   ja: ナースィル・ブン・アブドゥッラー・アッ＝スーフィー、サイード・アッ＝スアダーのスーフィーの一人。シハーブ・イブン・アル＝ムハンマラは、そこにスーフィーの道において彼のような者はいなかったと述べた。タヌーヒーらから聴聞した。833年ラジャブ月にペストで没した。後出のイブン・ムハンマド・アル＝バッサーミーと別人かどうか要検討。
   en: Nāṣir b. ʿAbd Allāh al-Ṣūfī, one of the Sufis of Saʿīd al-Suʿadāʾ. Al-Shihāb Ibn al-Muḥammara said there was no one there like him on the Sufi path. He heard from al-Tanūkhī and others. He died of plague in Rajab 833. It should be checked whether he is other than Ibn Muḥammad al-Bassāmī (below).

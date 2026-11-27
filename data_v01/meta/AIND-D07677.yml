@@ -9,45 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00027
-    quote: الهاشمي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00098
-    quote: النويري
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00192
-    quote: اليمني
+    mention: m4
   - id: n4
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 birth:
   id: b
   date:
     ah: 816
   places:
-  - ref: TMP-L-00050
-    cert: medium
-    quote: بتعز
-    norm: تعز
-  - ref: TMP-L-00041
-    cert: medium
-    quote: زبيد
+  - cert: medium
+    mention: m9
+  - cert: medium
+    mention: m10
   note:
     ar: ولد سنة ست عشرة وثمانمائة بتعز أو زبيد من اليمن
     ja: 生地は「تعز أو زبيد」の二者択一のため両地名を cert medium で併記。816年＝1413-04-12〜1414-03-31 → 年初 1413。
-  quote: سنة
+  mention: m8
 death:
   id: d
   places:
-  - ref: TMP-L-00094
-    quote: التكرور
+  - mention: m17
   note:
     ar: ثم إلى المغرب ثم التكرور ومات
     ja: 没年の記載なし。兄 عمر の本伝（#AIND-D05872）は「ومات هناك في السنة التي تليها أو في التي بعدها」（833 か 834）、甥 عبد الله（#AIND-D04520）は「فماتا بها قبل سنة ست وثلاثين」と記すが、本項主自身の没年は原文にないため属性を付けない。
@@ -55,41 +47,35 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03979
+  active: m7
   passive: AIND-D07677
   summary:
     ar: محمد بن عبد العزيز بن علي بن أحمد بن عبد العزيز الهاشمي النويري
-  quote: أبيه
   note:
     ja: 父＝#AIND-D03979（عبد العزيز بن علي بن أحمد بن عبد العزيز … العز أبو المعالي بن النور الهاشمي العقيلي النويري المكي الشافعي、778年生）。初版は「علي」を父として汚染番号 TMP-P-000530 を充てていたが、見出し脱落の「بن」を補えば父は عبد العزيز（本項は محمد بن عبد العزيز の部）。
-  norm: ابيه
 - id: r2
   type: kin
   subtype: mother
-  active: TMP-P-001139
+  active: m6
   passive: AIND-D07677
-  quote: قمرا الهندية
   note:
     ja: '母は固有名（قمرا）＋ニスバ（الهندية）で描写されるため統一規則12により仮番号 TMP-P-001139 を発行（先例: TMP-P-000988 عزيرة／TMP-P-001030）。'
   phrase: وأمه قمرا الهندية فتاة أبيه
 - id: r3
   type: kin
   subtype: brother
-  active: AIND-D05872
+  active: m12
   passive: AIND-D07677
-  quote: عمر
   note:
     ja: '兄 عمر ＝ #AIND-D05872（عمر بن عبد العزيز بن علي بن أحمد بن عبد العزيز السراج … النويري المكي、796年生、832年初にマッカ→カイロ→マグリブ→タクルールへ赴きそこで没）。初版の TMP-P-000664（ティムールの子 عمر）は汚染流用。'
   phrase: وسافر مع أخويه عمر وعبد الرحمن إلى القاهرة في سنة اثنتين وثلاثين ثم إلى المغرب ثم التكرور
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D03646
+  active: m13
   passive: AIND-D07677
-  quote: وعبد الرحمن
   note:
     ja: '兄 عبد الرحمن ＝ #AIND-D03646（عبد الرحمن بن عبد العزيز بن علي بن أحمد بن عبد العزيز الوجيه بن القاضي عز الدين الهاشمي العقيلي النويري المكي المالكي、812年生、カイロ→チュニスへ）。'
-  norm: عبد الرحمن
   phrase: وسافر مع أخويه عمر وعبد الرحمن إلى القاهرة في سنة اثنتين وثلاثين
 events:
 - id: e1
@@ -98,29 +84,97 @@ events:
     ah: 832
     type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: وسافر
+  - mention: m14
   trigger: rule
-  norm: سافر
   phrase: وسافر مع أخويه عمر وعبد الرحمن إلى القاهرة في سنة اثنتين وثلاثين
+  mention: m11
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00040
-    quote: المغرب
-  quote: ثم إلى المغرب
-  norm: ثم الي المغرب
+  - mention: m16
+  phrase: ثم إلى المغرب
+  mention: null
 - id: e3
   type: travel
   places:
-  - ref: TMP-L-00094
-    quote: التكرور
-  quote: ثم التكرور ومات
+  - mention: m17
+  phrase: ثم التكرور ومات
+  mention: null
 notes:
 - text: corpus の見出しは「محمد عبد العزيز بن علي بن أحمد بن عبد العزيز …」で محمد と عبد العزيز の間の「بن」が脱落している。本項は刊本 96 番＝「محمد بن عبد العزيز」の連続（95 محمد بن عبد العزيز بن عبد الواحد／98 محمد بن عبد العزيز بن محمد）の中にあり、父 عبد العزيز بن علي بن أحمد بن عبد العزيز النويري（#AIND-D03979）と兄弟 عمر（#AIND-D05872）・عبد الرحمن（#AIND-D03646）の本伝から「محمد بن عبد العزيز بن علي」と復元できるため、persName では「بن」を補った（要判断 §Dd-2）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-N-00027
+  quote: الهاشمي
+- id: m3
+  kind: name
+  ref: TMP-N-00098
+  quote: النويري
+- id: m4
+  kind: name
+  ref: TMP-N-00192
+  quote: اليمني
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: TMP-P-001139
+  quote: قمرا الهندية
+- id: m7
+  kind: person
+  ref: AIND-D03979
+  quote: أبيه
+  norm: ابيه
+- id: m8
+  kind: year
+  value: '816'
+  quote: سنة
+- id: m9
+  kind: place
+  quote: بتعز
+  ref: TMP-L-00050
+  norm: تعز
+- id: m10
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m11
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m12
+  kind: person
+  ref: AIND-D05872
+  quote: عمر
+- id: m13
+  kind: person
+  ref: AIND-D03646
+  quote: وعبد الرحمن
+  norm: عبد الرحمن
+- id: m14
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m15
+  kind: year
+  value: '832'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: المغرب
+  ref: TMP-L-00040
+- id: m17
+  kind: place
+  quote: التكرور
+  ref: TMP-L-00094
 translation:
   ja: ムハンマド・〔ブン・〕アブドゥルアズィーズ・ブン・アリー・ブン・アフマド・ブン・アブドゥルアズィーズ・アル＝ハーシミー・アン＝ヌワイリー・アル＝ヤマニー・アル＝マッキー。母は父の女奴隷であったインド人のカムラー。816年にイエメンのタイッズまたはザビードで生まれた。832年に二人の兄ウマルおよびアブドゥッラフマーンとともにカイロへ旅し、次いでマグリブ、次いでタクルールへ赴き、没した。
   en: Muḥammad [b.] ʿAbd al-ʿAzīz b. ʿAlī b. Aḥmad b. ʿAbd al-ʿAzīz al-Hāshimī al-Nuwayrī al-Yamanī al-Makkī. His mother was Qamrā al-Hindiyya, a slave-girl of his father. He was born in the year 816 in Taʿizz or Zabīd in Yemen, and travelled with his two brothers ʿUmar and ʿAbd al-Raḥmān to Cairo in the year 832, then to the Maghrib, then to Takrūr, and died.

@@ -9,14 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: إسماعيل
     by: rule
-    norm: اسماعيل
+    mention: m1
   - id: n2
     type: nasab
-    quote: زايد
     by: rule
-    ref: TMP-P-001026
+    mention: m2
 death:
   id: d
   date:
@@ -25,7 +23,7 @@ death:
   - ref: TMP-L-00162
   note:
     en: Died in late Dhū al-Ḥijja.
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: أحد مشايخ العربان بالبحيرة
@@ -36,17 +34,36 @@ relations:
   subtype: father
   active: TMP-P-001026
   passive: AIND-D01948
-  quote: null
   phrase: زايد
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D01948#p1
+  active: m3
   passive: AIND-D01948
-  quote: أحد مشايخ العربان بالبحيرة
   note:
     ja: '監査20260907: 本文から相手を一意に特定できず #NEEDID'
+mentions:
+- id: m1
+  kind: name
+  quote: إسماعيل
+  norm: اسماعيل
+- id: m2
+  kind: name
+  ref: TMP-P-001026
+  quote: زايد
+- id: m3
+  kind: person
+  ref: AIND-D01948#p1
+  quote: أحد مشايخ العربان بالبحيرة
   norm: احد مشايخ العربان بالبحيرة
+- id: m4
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m5
+  kind: year
+  value: '853'
+  quote: سنة
 translation:
   ja: イスマーイール・ブン・ザーイド・ブン・アラブ人諸シャイフの一人（ブハイラ出身）。853年ズー・アルヒッジャ月下旬に亡くなった。
   en: Ismāʿīl b. Zāyid b. (the one who was) one of the shaykhs of the Bedouin in al-Buḥayra. He died in late Dhū al-Ḥijja in the year 853.

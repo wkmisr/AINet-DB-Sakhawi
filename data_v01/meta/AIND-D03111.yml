@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01116
-    quote: البليني
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m3
   - id: n3
     type: ism
-    quote: سعيد
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 848-02
   note:
     ja: 848年サファル月＝1444-05-29〜1444-06-26（h2g.py）、月精度で @when=1444-05（初版 1444 は年精度で不一致）。没地の記載なし。
-  quote: سنة
   phrase: مات في صفر سنة ثمان وأربعين
+  mention: m6
 persons:
 - id: p1
   label: والد سعيد البليني
@@ -37,29 +35,57 @@ relations:
   subtype: father
   active: AIND-D03111#p1
   passive: AIND-D03111
-  quote: null
   note:
     ja: '規則3（単名の項）。父の名は原文に出ない。同じ البليني القائد の #AIND-D05581「علي بن محمد بن مفلح البليني القائد」・#AIND-D05625「علي بن محمد الحبشي البليني القائد」・#AIND-D03108「سعيد بن محمد بن مفلح البليني حفيد مولى بقية بن رميثة」は同族か不明で、本項主との続柄は原文にない。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
-  quote: القائد
   note:
     ja: 見出し語「القائد」＝マッカの隊長職（ID-Master TMP-O-00094、出現 D02203）。
-  norm: القاءد
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد・本項主の没年 848（≤871）→ 振り分け規則により التقي بن فهد＝#AIND-D09211、cert low（event 側、規則43・58）。初版の統制外 subtype「biographer」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: سعيد
+- id: m2
+  kind: name
+  ref: TMP-N-01116
+  quote: البليني
+- id: m3
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m4
+  kind: office
+  ref: TMP-O-00094
+  quote: القائد
+  norm: القاءد
+- id: m5
+  kind: month
+  value: 2
+  quote: صفر
+- id: m6
+  kind: year
+  value: '848'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: サイード・アル＝バリーニー・アル＝マッキー、隊長（アル＝カーイド）。848年サファル月に没した。イブン・ファハドがその没年を記している。
   en: Saʿīd al-Balīnī al-Makkī, the commander (al-qāʾid). He died in Ṣafar of the year 848. Ibn Fahd recorded his death date.

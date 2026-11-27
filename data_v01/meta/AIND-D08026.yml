@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00193
-    quote: السفطي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بابن مشيمش
-    norm: ابن مشيمش
     label: ابن مشيمش
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الفقيه علي
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 persons:
 - id: p1
   label: الفقيه علي بن أحمد السفطي
@@ -41,18 +38,39 @@ relations:
   subtype: father
   active: AIND-D08026#p1
   passive: AIND-D08026
-  quote: null
   note:
     ja: '父「الفقيه علي بن أحمد」：汎用名＋汎称 الفقيه のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。#AIND-D05620「علي بن محمد الكاتب ويلقب مشيمش」（書家、索引 #AIND-D11368「مشيمش بالتصغير أحد الكتاب اسمه علي بن محمد」）は父名が محمد で一致せず別人。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D08026
   methods:
   - TMP-S-00003
-  quote: مني
   phrase: ممن سمع مني
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الفقيه علي
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00193
+  quote: السفطي
+- id: m5
+  kind: name
+  quote: بابن مشيمش
+  norm: ابن مشيمش
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アル＝ファキーフ・アリー・ブン・アフマド・アッ＝サフティー、イブン・ムシャイミシュとして知られる。私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. al-Faqīh ʿAlī b. Aḥmad al-Safṭī, known as Ibn Mushaymish. One of those who heard from me.

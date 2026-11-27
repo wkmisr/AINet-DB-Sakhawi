@@ -9,62 +9,83 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00168
-    quote: القمني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00776
-    quote: البنهاوي
+    mention: m4
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000893
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000893
   passive: AIND-D05635
-  quote: null
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「محمد القمني البنهاوي الأصل」。'
   phrase: محمد
 - id: r2
   type: social
   subtype: colleague
-  active: TMP-P-000821
+  active: m6
   passive: AIND-D05635
   summary:
     ar: الزين عبد القادر بن شعبان
-  quote: للزين عبد القادر بن شعبان
   note:
     en: He worked alongside al-Zayn ʿAbd al-Qādir b. Shaʿbān as a professional witness (shahāda) at the Mosque of Aslam.
-  norm: لزين عبد القادر بن شعبان
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
   orgs:
   - ref: TMP-I-00108
-  quote: بالشهادة
-  norm: الشهادة
+  mention: m5
 - id: s2
   type: office
   ref: wd:Q932945
   orgs:
   - ref: TMP-I-00108
-  quote: null
+  mention: null
 - id: s3
   type: office
   ref: TMP-O-00193
-  quote: null
+  mention: null
 - id: s4
   type: office
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-000893
+  quote: محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00168
+  quote: القمني
+- id: m4
+  kind: name
+  ref: TMP-N-00776
+  quote: البنهاوي
+- id: m5
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m6
+  kind: person
+  ref: TMP-P-000821
+  quote: للزين عبد القادر بن شعبان
+  norm: لزين عبد القادر بن شعبان
+- id: m7
+  kind: office
   ref: TMP-O-00194
   quote: وأقرأ
   norm: اقرا

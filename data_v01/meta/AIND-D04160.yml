@@ -9,15 +9,15 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الحباك
+    mention: m3
   - id: n2
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: social
@@ -27,7 +27,6 @@ relations:
   summary:
     ar: استقر في مشيخة القراء بالمجامع والمحافل … عقب محمد بن المحتسب
   cert: medium
-  quote: null
   note:
     ja: 'محمد بن المحتسب = マッカの ابن المحتسب 家（索引 D12708: يوسف بن حسين … ينوب في حسبة مكة وابناه أبو عبد الله محمد وأحمد وابن أولهما محمد）。#AIND-D09566（محمد بن يوسف بن حسين أبو عبد الله … المكي والد محمد … ويعرف بابن المحتسب）と同定、ただしその子 محمد（本伝なし）の可能性も残るため cert medium。同家は D01710（المقرئ بالحرم）のとおりハラムの朗誦家系。'
 states:
@@ -35,49 +34,64 @@ states:
   type: office
   ref: wd:Q239718
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m5
   orgs:
   - ref: wd:Q428858
-  quote: null
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00249
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m5
   orgs:
   - ref: TMP-I-00143
-  quote: null
   note:
     ja: マドラサの صفة（前廊）でのクルアーン朗誦役。新規 TMP-O-00249。
+  mention: null
 - id: s3
   type: office
-  ref: TMP-O-00250
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: مشيخة القراء بالمجامع والمحافل
+  - mention: m5
   note:
     ja: 集会・会合（特に墓前）での朗誦師団の長。新規 TMP-O-00250。
+  mention: m6
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m5
   trigger: rule
+  mention: m4
 - id: e2
   type: other
   places:
-  - ref: gn:104515
-    quote: مكة
+  - mention: m5
   summary:
     ar: وأول شيء باشره في ذلك على قبر زوجة أخي
-  quote: null
   note:
     ja: 著者（サハーウィー）の兄弟の妻の墓前での朗誦が初仕事。人物は名不詳。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: الحباك
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: office
+  ref: TMP-O-00250
+  quote: مشيخة القراء بالمجامع والمحافل
 translation:
   ja: アブドゥルカーディル・ブン・アリー・アル＝ハッバーク。マッカの居住者であり、マスジド・アル＝ハラームのムアッジンのひとり、かつ（マッカの）スルターニーヤ・マドラサのクッブの朗誦者（クッラー・アッ＝スッファ）のひとり。さらに彼は、ムハンマド・ブン・アル＝ムフタシブの後を継いで、諸集会や諸会合、特に墓所における読誦師の長（マシヤハト・アル＝クッラー）の職に就任した。彼がこの職において最初に行った仕事は、私の兄弟の妻の墓前での読誦であった。
   en: ʿAbd al-Qādir b. ʿAlī al-Ḥabbāk. A resident of Mecca, one of the muezzins of the Sacred Mosque, and one of the readers of the Suffa at the Sulṭāniyya Madrasa. Rather, he settled in the position of chief of readers (mashyakhat al-qurrāʾ) in assemblies and gatherings, especially at graves, succeeding Muḥammad b. al-Muḥtasib. The first thing he undertook in this capacity was at the grave of my brother's wife.

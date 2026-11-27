@@ -9,31 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00885
-    quote: النطوبسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: ناصر الدين
+    mention: m4
   - id: n4
     type: shuhrah
-    quote: المادح
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: عبد الله بن علي النطوبسي
@@ -44,17 +41,14 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D07798
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
   note:
     ja: 「ممن سمع مني بالقاهرة」（規則2）。
 - id: r2
@@ -62,7 +56,6 @@ relations:
   subtype: father
   active: AIND-D07798#p1
   passive: AIND-D07798
-  quote: null
   note:
     ja: '見出しナサブのみ（識別要素なし）。corpus に該当見出しなし → #NEEDID（規則3）。初版なし。'
 affiliations:
@@ -78,6 +71,40 @@ notes:
 - text: 「المادح」（頌詩詠唱者）は repo 先例どおり shuhrah として保持（ID-Master の職 مادح الحرم TMP-O-00286 はマディーナの預言者モスクの職で本項と異なるため state にしない）。初版の visit event القاهرة は teacher relation 内の learning event と重複するため除去。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: ناصر الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00885
+  quote: النطوبسي
+- id: m6
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m7
+  kind: name
+  quote: المادح
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アブド・アッラー・ブン・アリー、ナースィル・アッ＝ディーン、アン＝ナトゥーブスィー、アル＝アズハリー、アル＝マーディフ（頌詩詠唱者）。カイロで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿAbd Allāh b. ʿAlī, Nāṣir al-Dīn, al-Naṭūbisī, al-Azharī, al-Mādiḥ (the panegyrist). He is among those who heard from me (al-Sakhāwī) in Cairo.

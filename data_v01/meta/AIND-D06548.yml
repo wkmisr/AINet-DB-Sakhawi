@@ -9,52 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00278
-    quote: الأرموي
-    norm: الارموي
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00037
-    quote: الصالحي
+    mention: m8
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m5
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 804
     cert: medium
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
+  - mention: m12
   note:
     ja: 「سنة أربع」は一の位のみ＝804（cert medium。イブン・ハジャルが聴き『إنباء الغمر』に載せる＝9世紀初頭）。804年＝1401-08-20 開始（h2g.py、年精度）。初版は cert なし。
-  quote: سنة
   phrase: ومات بدمشق سنة أربع
+  mention: m13
 persons:
 - id: p1
   label: إبراهيم بن محمد بن عبد الله
@@ -68,9 +61,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06548#p1
+  active: m9
   passive: AIND-D06548
-  quote: فاطمة ابنة العز
   note:
     ja: 規則3 (c')。父 إبراهيم بن محمد بن عبد الله（الأرموي）は汎用名で識別要素なし。corpus 見出しに本伝なし、ID-Master も「الأرموي」「D06548」で該当なし（TMP-P-000545 محمد بن أحمد الصالحي・#AIND-D04093 عبد القادر الأرموي は別人）。初版は father relation なし。
 - id: r2
@@ -80,39 +72,36 @@ relations:
   passive: AIND-D06548
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: '「سمع من فاطمة ابنة العز وغيرها」。候補は二人いて原文からは決まらない（規則26・61 (c)）: (a) 既登録 TMP-P-000543「فاطمة ابنة العز إبراهيم」（#AIND-D01198「وفاطمة ابنة العز إبراهيم」で登録。corpus #AIND-D04093「حبيبة ابنة العز إبراهيم بن عبد الله بن أبي عمر وأسمع على أختها فاطمة ابنة العز」・#AIND-D03134「فاطمة ابنة العز إبراهيم بن أبي عمر」の8世紀のムスニダ）／(b) 女性部 #AIND-D13481「فاطمة ابنة محمد بن أحمد بن محمد بن عثمان بن المنجا أم الحسن ابنة العز التنوخية الدمشقية , ولدت سنة اثنتي عشرة وسبعمائة تقريبا」（見出しに「ابنة العز」を持つダマスクスの女性伝承者）。サハーウィーの裸の「فاطمة ابنة العز」は corpus の他の用例（#AIND-D01059・#AIND-D03754・#AIND-D04875・#AIND-D08561・#AIND-D13479）では8世紀前半〜半ばの師で (a) とみられるが、本項は聴講の年代が書かれていない＝#NEEDID のまま候補を記す（ISSUES §D170-6）。「وغيرها」は人物を立てない。'
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D06548
-  passive: wd:Q471116
+  passive: m11
   methods:
   - TMP-S-00003
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: '「سمع منه شيخنا وآخرون」＝本項主が師、イブン・ハジャル（wd:Q471116）が学生（規則15: 師弟は常に teacher、active=師）。初版は subtype="student"。「وآخرون」は人物を立てない。【集約 2026-11-18】原文の呼称は「شيخنا」。desc は相手の名前のみ（規則31）＝「ابن حجر」（機械 L・オーケストレーター決定4）。'
 events:
 - id: e1
   type: teaching
-  quote: وحدث
   trigger: rule
-  norm: حدث
   phrase: وحدث سمع منه شيخنا وآخرون
+  mention: m10
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00104
-  quote: ذكره
   note:
     ja: Pattern A。「ذكره في المعجم والأنباء」の主語は直前の شيخنا＝イブン・ハジャル（wd:Q471116）。『المجمع المؤسس للمعجم المفهرس』（TMP-T-00104）。
   trigger: rule
   phrase: ذكره في المعجم
+  mention: m14
 - id: c2
   persons:
   - ref: wd:Q471116
@@ -120,13 +109,67 @@ sources:
   - ref: TMP-T-00034
   summary:
     ar: ذكره في … الأنباء
-  quote: null
   note:
     ja: Pattern A。『إنباء الغمر』（TMP-T-00034）。初版は ref のない cultural event 1件（英語 desc）。
+  mention: null
 notes:
 - text: '本項を指す転送見出し: #AIND-D06562「محمد بن إبراهيم ابن محمد بن الأرموي ثم الصالحي . مضى فيمن جده محمد بن عبد الله بن إبراهيم بن محمد」（同チャンクで REF 化）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  ref: TMP-N-00278
+  quote: الأرموي
+  norm: الارموي
+- id: m8
+  kind: name
+  ref: TMP-N-00037
+  quote: الصالحي
+- id: m9
+  kind: person
+  ref: AIND-D06548#p1
+  quote: فاطمة ابنة العز
+- id: m10
+  kind: event
+  quote: وحدث
+  norm: حدث
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m12
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m13
+  kind: year
+  value: '804'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: ذكره
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アブドゥッラー・ブン・イブラーヒーム・ブン・ムハンマド、アル＝ウルマウィー、のちアッ＝サーリヒー。ファーティマ・ビント・アル＝イッズらから聴き、ハディースを伝えた。我らの師（イブン・ハジャル）らが彼から聴いた。（80）4年にダマスクスで没した。（我らの師は）彼を『ムウジャム』と『インバー』で挙げている。
   en: Muḥammad b. Ibrāhīm b. Muḥammad b. ʿAbd Allāh b. Ibrāhīm b. Muḥammad al-Urmawī, then al-Ṣāliḥī. He heard from Fāṭima bt. al-ʿIzz and others, and transmitted ḥadīth; our shaykh (Ibn Ḥajar) and others heard from him. He died in Damascus in the year [80]4. He (our shaykh) mentioned him in the Muʿjam and the Inbāʾ.

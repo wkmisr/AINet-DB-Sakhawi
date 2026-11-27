@@ -9,19 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04494
-    quote: الكلبكي
+    mention: m4
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: اسنبغا
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: اسنبغا
@@ -32,18 +31,15 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07133
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m8
     phrase: ممن سمع علي بالقاهرة
-  quote: علي
   note:
     ja: 「ممن سمع علي بالقاهرة」＝「عليّ（私＝サハーウィーに）」（規則2）。field（الحديث）は原文になく除去。
 - id: r2
@@ -51,18 +47,46 @@ relations:
   subtype: father
   active: AIND-D07133#p1
   passive: AIND-D07133
-  quote: null
   note:
     ja: '父は裸名（اسنبغا）のみ → #NEEDID（規則3・12）。corpus の اسنبغا 諸項（D02012〜D02015）とは結び付けない。初版は relation なし。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00007
-    quote: الحسينية
-  quote: نزيل
+  - mention: m6
   trigger: rule
   phrase: نزيل الحسينية
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: اسنبغا
+- id: m3
+  kind: name
+  quote: ناصر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-04494
+  quote: الكلبكي
+- id: m5
+  kind: event
+  quote: نزيل
+- id: m6
+  kind: place
+  quote: الحسينية
+  ref: TMP-L-00007
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ムハンマド・ブン・アスンブガー、ナースィル・アッ＝ディーン・アル＝カルバキー、アル＝フサイニーヤの寓居者。カイロで私（サハーウィー）に聴聞した者の一人。
   en: Muḥammad b. Asunbughā, Nāṣir al-Dīn al-Kalbakī, resident of al-Ḥusayniyya. He was among those who heard from me in Cairo.

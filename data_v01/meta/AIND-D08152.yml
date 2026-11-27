@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00224
-    quote: الخانكي
+    mention: m7
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05335
+    mention: m2
   - id: n5
     type: nasab
-    quote: فتح
     by: rule
-    ref: TMP-P-001520
+    mention: m3
   - id: n6
     type: nasab
-    quote: أوحد
     by: rule
-    norm: اوحد
+    mention: m4
   - id: n7
     type: nasab
-    quote: النور
     by: rule
+    mention: m6
 persons:
 - id: p1
   label: أبي الغيث
@@ -45,25 +41,21 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05335
+  active: m9
   passive: AIND-D08152
   summary:
     ar: علي بن فتح بن أوحد النور الخانكي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝#AIND-D05335「علي بن فتح بن أوحد النور الخانكي حفيد شيخ الخانقاه السرياقوسية كان ووالد محمد الآتي . ناب في القضاء بها عن صهره عز الدين المنوفي … مات في ربيع الثاني سنة تسعين」（収録済み。D05335 側に son #AIND-D08152 あり＝相互閉合、規則37）。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
-  active: TMP-P-001520
+  active: m10
   passive: AIND-D08152
   summary:
     ar: فتح بن أوحد الخانكي
-  quote: وجده
   note:
     ja: '見出しナサブの祖父 فتح بن أوحد＝ID-Master 既登録 TMP-P-001520「فتح بن أوحد الخانكي (والد النور علي)」（D05335 の父として発行。corpus に本伝なし）。初版の #NEEDID を解消。'
-  norm: جده
 - id: r3
   type: kin
   subtype: ancestor
@@ -72,21 +64,19 @@ relations:
   summary:
     ar: محمد ابن أوحد
   cert: medium
-  quote: null
   note:
     ja: '「وحفيد شيخ الخانقاه الماضي أبوه وجده」。サルヤークースのハーンカーのシャイフ＝#AIND-D07144「محمد ابن أوحد استقر في مشيخة الخانقاه الناصرية بسرياقوس بعد موت الشمس القليوبي في سنة اثنتي عشرة … فرغب عنها للمحب الأشقر」（未収録）。父の項 D05335 では「حفيد شيخ الخانقاه السرياقوسية」の祖父として #AIND-D07144 を cert medium で充当済み（集約 2026-10-19）＝本項主から見ると曾祖父（「ابن أوحد」は家名で、فتح は D07144 の子）。本項の「حفيد」「جده」は広義（先祖）と読み、subtype ancestor（repo 統制語彙）・cert medium。'
 - id: r4
   type: kin
   subtype: maternal_grandfather
-  active: TMP-P-001519
+  active: m8
   passive: AIND-D08152
-  quote: العز المنوفي
   note:
     ja: '「سبط العز المنوفي」＝母方祖父。ID-Master 既登録 TMP-P-001519「عز الدين المنوفي (قاضي الخانكة، صهر النور علي بن فتح الخانكي وجد ابنه محمد لأمه)」（D05335 の father-in-law として発行、Note に D08152 記載済み。候補 #AIND-D08835 は保留）。初版の grandfather #NEEDID を maternal_grandfather に。'
 - id: r5
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m11
   passive: AIND-D08152
   methods:
   - TMP-S-00003
@@ -99,7 +89,54 @@ relations:
       ja: '「سمع عليّ」＝サハーウィーのもとで聴聞（規則2）。「بقراءة أبي الغيث」の أبو الغيث は読み手であって師ではない（規則33）＝persName のみ。候補: #AIND-D11013「أبو الغيث الخانكي هو البدر والشمس محمد بن علي بن محمد بن الركن محمد الفارسكوري ثم النبهاني الخانكي」（同じ الخانكة の人物）だが限定語がなく確定できない。'
   works:
   - ref: wd:Q4120006
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D05335
   quote: علي
+- id: m3
+  kind: name
+  ref: TMP-P-001520
+  quote: فتح
+- id: m4
+  kind: name
+  quote: أوحد
+  norm: اوحد
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  quote: النور
+- id: m7
+  kind: name
+  ref: TMP-N-00224
+  quote: الخانكي
+- id: m8
+  kind: person
+  ref: TMP-P-001519
+  quote: العز المنوفي
+- id: m9
+  kind: person
+  ref: AIND-D05335
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: TMP-P-001520
+  quote: وجده
+  norm: جده
+- id: m11
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m12
+  kind: person
+  label: learning
+  quote: أبي الغيث
 translation:
   ja: ムハンマド・ブン・アリー・ブン・ファトフ・ブン・アウハド、アッ＝シャムス・ブン・アン＝ヌール・アル＝ハーンキー。アル＝イッズ・アル＝ムヌーフィーの娘の子（外孫）で、ハーンカーのシャイフの孫。父と祖父は既述。アブー・アル＝ガイスの朗読により私のもとで『シファー』を聴聞した。
   en: Muḥammad b. ʿAlī b. Fatḥ b. Awḥad, al-Shams b. al-Nūr al-Khānkī, the daughter's son of al-ʿIzz al-Munūfī and the grandson of the shaykh of the khānqāh; his father and his grandfather have been mentioned. He heard al-Shifāʾ from me through the recitation of Abū al-Ghayth.

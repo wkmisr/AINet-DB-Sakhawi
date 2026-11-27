@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالطويل
-    norm: الطويل
     label: الطويل
+    mention: m5
   - id: n3
     type: ism
-    quote: قراجا
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 885-02
     cert: medium
   places:
-  - ref: gn:281184
-    quote: بيت المقدس
+  - mention: m11
   note:
     ja: 885年サファル月（1480-04-21 開始、月精度）。「ظنا」は月（صفر）にかかる推定で、年 885 は確定＝cert medium は月の精度に対するもの。没地は「فأقام به حتى مات」の照応代名詞 به＝بيت المقدس（規則22(3)、cert 不要）。
-  quote: سنة
   phrase: فأقام به حتى مات في صفر ظنا سنة خمس وثمانين
+  mention: m14
 persons:
 - id: p1
   label: والد قراجا الأشرفي إينال
@@ -43,7 +39,6 @@ relations:
   subtype: father
   active: AIND-D06323#p1
   passive: AIND-D06323
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、キプロス捕虜出身のマムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
@@ -54,78 +49,124 @@ relations:
   summary:
     ar: بدرية ابنة الأشرف إينال
   cert: medium
-  quote: null
   note:
     ja: '本項には記載なし。女性部 #AIND-D12903「بدرية ابنة الاشرف اينال … واتصلت أمهم بعد أبيهم بقراجا الطويل نائب حماة」（879年没）が「قراجا الطويل نائب حماة」＝本項主（الطويل・نيابة حماة の両方が一致）と再婚したと明記＝他項にのみある情報による relation（規則23、cert medium）。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02110
+  active: m3
   passive: AIND-D06323
   summary:
     ar: الأشرف إينال
-  quote: إينال
   note:
     ja: '見出しのニスバ「الأشرفي إينال」＝主人はアル＝アシュラフ・イーナール（#AIND-D02110）。repo 先例（D06257 ほか）どおり patron。初版は #NEEDID。'
-  norm: اينال
 states:
 - id: s1
   type: office
-  ref: TMP-O-00083
-  quote: أحد المقدمين
-  norm: احد المقدمين
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:170017
-    quote: حماة
-  quote: نيابة
+  - mention: m9
   note:
     ja: 「ولي نيابة حماة فأقام بها مدة ، وعسف وتجبر」。在任期間の明記なし。
+  mention: m8
 events:
 - id: e1
   type: other
   places:
-  - ref: TMP-L-00272
-    quote: قبرس
-  quote: من سبي قبرس
+  - mention: m4
   note:
     ja: キプロス遠征（829年）の捕虜出身。原文明記の地名 قبرس（TMP-L-00272）。
+  phrase: من سبي قبرس
+  mention: null
 - id: e2
   type: residence
   places:
-  - ref: gn:170017
-    quote: حماة
-  quote: فأقام
+  - mention: m9
   note:
     ja: 照応代名詞 بها＝حماة（規則22(3)）。
   trigger: rule
-  norm: اقام
   phrase: فأقام بها مدة
+  mention: m10
 - id: e3
   type: political
   places:
-  - ref: gn:281184
-    quote: بيت المقدس
-  quote: ولي
+  - mention: m11
   note:
     ja: 「الدوادار الكبير」は名が無く、本項主の追放時期も明記されない。没年 885 直前の大ダワーダールは يشبك من مهدي（#AIND-D10359、872年に الدوادارية الكبرى に就任、885年没）が候補だが D10359 本文に本項主の言及はなく、追放の年も不明のため relation は立てず（#NEEDID も立てず）note に留める（ブリーフ指示）。初版の rival relation（#TMP-P-000500＝関係専用の汚染番号）を除去。
   trigger: rule
   phrase: ثم غضب عليه الدوادار الكبير فرسم بنفيه إلى بيت المقدس
+  mention: m7
 - id: e4
   type: residence
   places:
-  - ref: gn:281184
-    quote: بيت المقدس
-  quote: فأقام
+  - mention: m11
   trigger: rule
-  norm: اقام
   phrase: فأقام به حتى مات
+  mention: m12
 notes:
 - text: '#AIND-D01236（أحمد بن محمد بن أحمد بن محمد بن عثمان … ابن أصيل）本文に「واتهم بإخفاء وديعة كانت عند أبيه لقراجا الطويل」とあり、本項主（قراجا الطويل）の寄託物に関する言及がある（関係は立てない）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قراجا
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D02110
+  quote: إينال
+  norm: اينال
+- id: m4
+  kind: place
+  quote: قبرس
+  ref: TMP-L-00272
+- id: m5
+  kind: name
+  quote: بالطويل
+  norm: الطويل
+- id: m6
+  kind: office
+  ref: TMP-O-00083
+  quote: أحد المقدمين
+  norm: احد المقدمين
+- id: m7
+  kind: event
+  quote: ولي
+- id: m8
+  kind: office
+  ref: TMP-O-00053
+  quote: نيابة
+- id: m9
+  kind: place
+  quote: حماة
+  ref: gn:170017
+- id: m10
+  kind: event
+  quote: فأقام
+  norm: اقام
+- id: m11
+  kind: place
+  quote: بيت المقدس
+  ref: gn:281184
+- id: m12
+  kind: event
+  quote: فأقام
+  norm: اقام
+- id: m13
+  kind: month
+  value: 2
+  quote: صفر
+- id: m14
+  kind: year
+  value: '885'
+  quote: سنة
 translation:
   ja: カラージャー・アル＝アシュラフィー・イーナール。キプロスの捕虜出身で、アッ＝タウィール（のっぽ）として知られる。ムカッダム（千人隊長）の一人。ハマーのナーイブ（総督）職に任じられ、そこにしばらく滞在したが、横暴に振る舞い傲慢であった。その後、大ダワーダールの怒りを買い、ベイト・アル＝マクディス（エルサレム）への追放を命じられた。そこに滞在し、885年の——推定ではサファル月に——没した。
   en: Qarājā al-Ashrafī Īnāl. He was among the captives of Cyprus and was known as al-Ṭawīl (the Tall). One of the muqaddams, he was appointed governor (nāʾib) of Ḥamāh, where he remained for a period, acting oppressively and arrogantly. Then the Grand Dawādār became angry with him and ordered his exile to Bayt al-Maqdis (Jerusalem), where he remained until he died, in Ṣafar — presumably — of the year 885.

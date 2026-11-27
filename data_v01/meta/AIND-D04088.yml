@@ -9,66 +9,58 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00023
-    quote: الموصلي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الشيخ القدوة إبراهيم
     by: rule
-    ref: AIND-D00088
-    norm: الشيخ القدوة ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: الشيخ القدوة الكبير
     by: rule
-    ref: TMP-P-000742
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   date:
     ah: 788
   note:
     en: According to his own handwriting, he was born in the year 788 AH.
-  quote: سنة
+  mention: m8
 death:
   id: d
   date:
     ah: 862-01-15
   note:
     en: He died in the middle of Muharram, 862 AH (منتصف المحرم سنة اثنتين وستين).
-  quote: سنة
+  mention: m16
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D13339
+  active: m9
   passive: AIND-D04088
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q1023470
   - ref: TMP-T-00124
-  quote: عائشة ابنة ابن عبد الهادي
   note:
     ja: ثلاثيات الدارمي=TMP-T-00124新規発行(既存のالثلاثيات=T-00018は別書の汎称のため分離、B28「広義で近い程度では統合しない」裁定準用)。
-  norm: عاءشة ابنة ابن عبد الهادي
   phrase: سمع الصحيح وثلاثيات الدارمي على عائشة ابنة ابن عبد الهادي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000739
+  active: m12
   passive: AIND-D04088
   methods:
   - TMP-S-00003
@@ -78,10 +70,7 @@ relations:
       ah: 808
       type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: عبد الله محمد المغربي
+    - mention: m10
   note:
     ja: أبو عبد الله محمد المغربي=808年マディーナ滞在の学者(本項のみ出現)。corpus独立立項なし=TMP-P-000739新規発行。
   phrase: لقي بالمدينة النبوية في سنة ثمان وثمانمائة أبا عبد الله محمد المغربي فسمع عليه
@@ -89,21 +78,19 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D04088
-  passive: wd:Q4120128
+  passive: m14
   methods:
   - TMP-S-00004
   fields:
   - TMP-S-00002
-  quote: لي
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D00088
+  active: m13
   passive: AIND-D04088
   summary:
     ar: الشيخ القدوة إبراهيم بن الشيخ أبي بكر الموصلي
   cert: medium
-  quote: والده
   note:
     ja: 父=#AIND-D00088(إبراهيم بن أبي بكر الماحوزي الدمشقي、没814タブーク。イブン・ハジャルが「ابن الشيخ أبي بكر الموصلي」と明言)。ダマスクスのスーフィー・巡礼20回・父の道統(طريقة والده)などが本項の「الشيخ القدوة」「خلف والده」と整合。الماحوزي/الموصلي表記差ゆえcert=medium。
 - id: r5
@@ -113,7 +100,6 @@ relations:
   passive: AIND-D04088
   summary:
     ar: الشيخ القدوة الكبير الشهير أبو بكر بن محمد بن أبي بكر الموصلي
-  quote: null
   note:
     ja: 祖父=著名スーフィーأبو بكر الموصلي(没797=9世紀前のためcorpus立項なし。D10447「صحب أبا بكر الموصلي」等に頻出)=TMP-P-000742新規発行。
 affiliations:
@@ -128,17 +114,81 @@ events:
     cert: high
     type: learning
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m10
   methods:
   - TMP-S-00025
-  quote: قرأته
   cert: high
   note:
     en: He traveled to Medina and met his teacher there in the year 808 AH.
   trigger: rule
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D00088
+  quote: الشيخ القدوة إبراهيم
+  norm: الشيخ القدوة ابراهيم
+- id: m3
+  kind: name
+  ref: TMP-P-000742
+  quote: الشيخ القدوة الكبير
+- id: m4
+  kind: name
+  ref: TMP-N-00023
+  quote: الموصلي
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: event
+  quote: قرأته
   norm: قراته
+- id: m8
+  kind: year
+  value: '788'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: AIND-D13339
+  quote: عائشة ابنة ابن عبد الهادي
+  norm: عاءشة ابنة ابن عبد الهادي
+- id: m10
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m11
+  kind: year
+  value: '808'
+  quote: سنة
+- id: m12
+  kind: person
+  ref: TMP-P-000739
+  quote: عبد الله محمد المغربي
+- id: m13
+  kind: person
+  ref: AIND-D00088
+  quote: والده
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m15
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m16
+  kind: year
+  value: '862'
+  quote: سنة
 translation:
   ja: アブドゥルカーディル・ブン・アル＝シャイフ・アル＝クドワ・イブラーヒーム・ブン・アル＝シャイフ・アル＝クドワ・アル＝カビール・アル＝シャヒール・アブー・バクル・ブン・ムハンマド・ブン・アブー・バクル、モースル出自、ダマスクス在住、シャーフィイー派。本人の自筆によれば、ヒジュラ暦788年に誕生した。『サヒーフ・アル＝ブハーリー』と『ダーリミーの三ハディース（スラースィイヤート）』をアーイシャ・ビント・イブン・アブドゥルハーディーから聴聞した。ヒジュラ暦808年には預言者の町マディーナにてアブー・アブドゥッラー・ムハンマド・アル＝マグリビーに面会して彼からハディースを聴聞し、のちに伝承した。父の後を継ぎ、極めて善良な人物であった。私（サハーウィー）にイジャーザ（伝承認可）を与えてくれた。ヒジュラ暦862年のムハッラム月半ばに逝去した。神が彼と我らを慈しまんことを。
   en: Abd al-Qadir b. al-Shaykh al-Qudwa Ibrahim b. al-Shaykh al-Qudwa al-Kabir al-Shahir Abu Bkhr b. Muhammad b. Abu Bakr, of Mosul origin, of Damascus, al-Shafi'i. He was born, as I read in his own handwriting, in the year 788 AH. He heard al-Sahih (Sahih al-Bukhari) and the Thulathiyyat of al-Darimi from Aisha bint Ibn Abd al-Hadi. In the year 808 AH, he met Abu Abd Allah Muhammad al-Maghribi in Medina, heard hadith from him, and transmitted it. He succeeded his father and was one of the best of people. He granted me (al-Sakhawi) an ijaza. He died in the middle of Muharram in the year 862 AH. May Allah have mercy on him and on us.

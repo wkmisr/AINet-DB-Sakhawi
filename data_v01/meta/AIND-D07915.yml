@@ -9,43 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00222
-    quote: الزبيري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00776
-    quote: البنهاوي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الوهاب
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 birth:
   id: b
   date:
     ah: 744
   note:
     ja: 「ولد كما قرأته بخطه سنة أربع وأربعين وسبعمائة」＝自筆による（cert なし）。744年＝1343-06-03 開始（年精度 1343）。
-  quote: سنة
+  mention: m7
 death:
   id: d
   date:
     ah: 820-03
   note:
     ja: 「مات في ربيع الأول سنة عشرين」。820-03-01＝1417-04-27（月精度）。
-  quote: سنة
+  mention: m18
 persons:
 - id: p1
   label: عبد الوهاب بن عبد الله
@@ -58,32 +55,28 @@ relations:
   subtype: father
   active: AIND-D07915#p1
   passive: AIND-D07915
-  quote: null
   note:
     ja: '見出しナサブのみ（識別要素なし）。corpus に該当見出しなし → #NEEDID（規則3 (c'')）。初版なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000105
+  active: m12
   passive: AIND-D07915
   methods:
   - TMP-S-00003
   works:
   - ref: TMP-T-00254
-  quote: البياني
   note:
     ja: イブン・ハジャル『معجم』の引用「أنه سمع من البياني وابن القاري وغيرهما ومما سمعه على أولهما جزء حياة الأنبياء في قبورهم للبيهقي」。البياني＝ID-Master 既登録 TMP-P-000105。書 جزء حياة الأنبياء في قبورهم（アル＝バイハキー）は ID-Master Text 未登録（سنن البيهقي TMP-T-00057 のみ）→ 仮 TMP-T-00254。「وغيرهما」は立てない。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000124
+  active: m13
   passive: AIND-D07915
   methods:
   - TMP-S-00003
-  quote: وابن القاري
   note:
     ja: ابن القاري＝ID-Master 既登録 TMP-P-000124。
-  norm: ابن القاري
   phrase: ابن القاري
 - id: r4
   type: scholarly
@@ -94,28 +87,25 @@ relations:
   - TMP-S-00004
   summary:
     ar: البدر محمد
-  quote: null
   note:
     ja: 「أجاز في استدعاء ابني محمد」はイブン・ハジャル『معجم』引用中の一人称＝イブン・ハジャルの息子 البدر محمد＝#AIND-D06758「محمد بن أحمد بن علي بن محمد بن محمد بن علي بن أحمد البدر أبو المعالي ابن شيخنا العسقلاني … ولد في صفر سنة خمس عشرة وثمانمائة … وأجاز له خلق من الشام ومصر وغيرهما」（815生。本項主は 820 没なので、831 生のサハーウィーの息子ではありえない）。本項主が師（active）、受領者がイブン・ハジャルの息子（passive）。初版の汚染番号 TMP-P-000529（汎用 محمد）を置換。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
-  quote: وناب
   note:
     ja: 「وناب في الحكم」（イブン・ハジャルの記述の引用）。TMP-O-00096 はこの語形のカノニカル職（precheck の汚染注意は実体一致＝維持）。
-  norm: ناب
+  mention: m14
 assessments:
 - id: v1
-  quote: ساكنا
   terms:
   - ساكن
   by: rule
+  mention: m15
 - id: v2
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m16
 affiliations:
 - id: a1
   type: madhhab
@@ -125,35 +115,104 @@ events:
   type: learning
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
   phrase: واشتغل في الفقه
+  mention: m11
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00104
   summary:
     ar: وذكره شيخنا في معجمه فقال أنه سمع من البياني وابن القاري …
-  quote: وذكره
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル、「معجمه」＝『المجمع المؤسس للمعجم المفهرس』TMP-T-00104。本項の師承・職・評価・イジャーザ・没年の記述はすべてこの引用。初版の統制外 relation「mentioned_by」を event に変換。
   trigger: rule
-  norm: ذكره
+  mention: m8
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
+  - mention: m19
   works:
   - ref: TMP-T-00122
-  quote: فقال
   note:
     ja: Pattern A。المقريزي（wd:Q293604）『درر العقود الفريدة』（TMP-T-00122）がイブン・ハジャルの没年記載に従った。初版の統制外 relation「followed_by」を event に変換。
   trigger: rule
-  norm: قال
   phrase: وتبعه المقريزي في عقوده
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الوهاب
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  ref: TMP-N-00222
+  quote: الزبيري
+- id: m5
+  kind: name
+  ref: TMP-N-00776
+  quote: البنهاوي
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: year
+  value: '744'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: source
+  quote: فقال
+  norm: قال
+- id: m11
+  kind: event
+  quote: سمع
+- id: m12
+  kind: person
+  ref: TMP-P-000105
+  quote: البياني
+- id: m13
+  kind: person
+  ref: TMP-P-000124
+  quote: وابن القاري
+  norm: ابن القاري
+- id: m14
+  kind: office
+  ref: TMP-O-00096
+  quote: وناب
+  norm: ناب
+- id: m15
+  kind: assessment
+  quote: ساكنا
+- id: m16
+  kind: assessment
+  quote: خيرا
+- id: m17
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m18
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m19
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
 translation:
   ja: ムハンマド・ブン・アブドゥルワッハーブ・ブン・アブドゥッラー・アッ＝ズバイリー・アル＝バンハーウィー・アッ＝シャーフィイー。彼の自筆で私が読んだところでは744年に生まれた。我らがシャイフ（イブン・ハジャル）は『ムウジャム』で彼に言及し、次のように述べた。「彼はアル＝バヤーニーとイブン・アル＝カーリーほかから聴聞し、前者から聴いたものにはアル＝バイハキーの『墓中の預言者たちの生命についての一部』がある。法学に携わり、裁判の代理を務めた。穏やかで善良だが、いささか迂闊なところのある人物であった。私の息子ムハンマドの（イジャーザ）請願書にイジャーザを与えた。彼が伝承したことは私の知るところではない。」820年ラビーウ・アル＝アウワル月に没した。アル＝マクリーズィーは『ウクード』でこれ（イブン・ハジャルの記述）に従った。
   en: Muḥammad b. ʿAbd al-Wahhāb b. ʿAbd Allāh al-Zubayrī al-Banhāwī al-Shāfiʿī. He was born, as I read in his own hand, in the year 744. Our shaykh (Ibn Ḥajar) mentioned him in his Muʿjam, saying that he heard from al-Bayānī, Ibn al-Qārī and others, and that among what he heard from the first of them was al-Bayhaqī's Juzʾ Ḥayāt al-anbiyāʾ fī qubūrihim; he occupied himself with fiqh and served as deputy judge; he was a quiet, good man with some heedlessness in him; "he granted ijāza in the petition of my son Muḥammad, and I do not know that he transmitted." He died in Rabīʿ al-Awwal of the year 820, and al-Maqrīzī followed him (Ibn Ḥajar) in his ʿUqūd.

@@ -9,48 +9,41 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00026
-    quote: الحريري
+    mention: m7
   - id: n4
     type: laqab
-    quote: نور الدين
+    mention: m4
   - id: n5
     type: shuhrah
-    quote: بابن أبي أصبع
-    norm: ابن ابي اصبع
     label: ابن أبي أصبع
+    mention: m8
   - id: n6
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 death:
   id: d
   date:
     ah: 888-06
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
+  - mention: m10
   note:
     ja: 「حتى كانت منيته بها في جمادى الثانية سنة ثمان وثمانين」＝888年ジュマーダー・アッ＝サーニヤ月（1483-07-16〜08-13、月精度 1483-07）。「بها」は直前の مكة（規則22(3)）。初版の when="1483" を月精度に是正。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: محمد بن أحمد
@@ -63,32 +56,75 @@ relations:
   subtype: father
   active: AIND-D05392#p1
   passive: AIND-D05392
-  quote: null
   note:
     ja: 見出しナサブのみ（規則3）。
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: كان
   note:
     ja: '絹などの商い。ID-Master の Office は تاجر（wd:Q215536）のみ（صناعة الحرير TMP-O-00233 は製造業で別物）。初版の #NEEDID を解消。'
   phrase: كان يتعانى التجارة في الحرير وغيره
+  mention: m9
 - id: s2
   type: status
-  quote: null
   phrase: وكان عاقلا عشيرا
+  mention: null
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: وتكرر سفره لمكة بسببها
+  - mention: m10
   note:
     ja: 商売のためのマッカ往来（巡礼ではないため hajj にしない）。
-  norm: تكرر سفره لمكة بسببها
+  phrase: وتكرر سفره لمكة بسببها
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: نور الدين
+- id: m5
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: TMP-N-00026
+  quote: الحريري
+- id: m8
+  kind: name
+  quote: بابن أبي أصبع
+  norm: ابن ابي اصبع
+- id: m9
+  kind: office
+  ref: wd:Q215536
+  quote: كان
+- id: m10
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m11
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m12
+  kind: year
+  value: '888'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アフマド、ヌール・アッ＝ディーン・アッ＝サカンダリー・アル＝カーヒリー・アル＝ハリーリー。イブン・アビー・アスバウとして知られる。絹などの商いに従事し、そのためにマッカへの旅を繰り返し、ついに888年ジュマーダー・アッ＝サーニヤ月に同地で最期を迎えた。思慮深く付き合いのよい人であった。アッラーが彼を赦し、慈しみたまわんことを。
   en: ʿAlī b. Muḥammad b. Aḥmad, Nūr al-Dīn al-Sakandarī al-Qāhirī al-Ḥarīrī, known as Ibn Abī Aṣbaʿ. He engaged in the trade of silk and other goods and repeatedly travelled to Mecca for that reason, until his death came there in Jumādā al-Thāniya of the year 888. He was sensible and sociable; may God pardon him and have mercy on him.

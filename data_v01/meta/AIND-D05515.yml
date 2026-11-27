@@ -9,61 +9,54 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00217
-    quote: المزي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن جديا
-    norm: ابن جديا
     label: ابن جديا
+    mention: m6
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000125
+  active: m11
   passive: AIND-D05515
   methods:
   - TMP-S-00014
   cert: medium
-  quote: يواظب ابن أميلة
   note:
     ja: إبراهيم العجلوني の紹介文（ترجمه）による＝伝聞のため cert="medium"。
-  norm: يواظب ابن اميلة
   phrase: كان يواظب ابن أميلة
 - id: r2
   type: scholarly
   subtype: teacher
-  active: TMP-P-000125
+  active: m13
   passive: AIND-D05515
   methods:
   - TMP-S-00004
   cert: low
-  quote: ابن أميلة
   note:
     ja: 本人の主張にサハーウィーが「فالله أعلم」と留保 → cert="low"。
-  norm: ابن اميلة
   phrase: وقال أن ابن أميلة أجاز له فالله أعلم
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D05515
-  passive: wd:Q4120128
+  passive: m7
   methods:
   - TMP-S-00004
   context:
@@ -71,41 +64,89 @@ relations:
     date:
       ah: 850
       type: teaching
-  quote: لي
   phrase: استجازه لي إبراهيم العجلوني في سنة خمسين
 - id: r4
   type: social
   subtype: other
-  active: TMP-P-000941
+  active: m8
   passive: AIND-D05515
   summary:
     ar: استجازه لي إبراهيم العجلوني (وسيط الإجازة) وترجمه
-  quote: إبراهيم العجلوني
   note:
     ja: 'إبراهيم العجلوني（イジャーザの仲介者・紹介文の筆者。D05503 と同じ）。候補 D00019/D00018/D00290 で確定不能 → #NEEDID 維持。初版の統制外 subtype「intermediary for ijāza」を other に。'
-  norm: ابراهيم العجلوني
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   orgs:
   - ref: TMP-I-00136
-  quote: أذن
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName المزة（#TMP-L-00240）を除去。根拠は〈ニスバ المزي／施設 الجامع المرجاني の所在地〉からの補完で原文に地名の明示なし。
-  norm: اذن
   phrase: كان إذا أذن على المنارة يسمع من جولان فلما ضعف وصار يؤذن على البئر التي بباب الجامع المرجاني كان يسمع من المقصورة
+  mention: m12
 sources:
 - id: c1
   persons:
   - ref: TMP-P-000941
   summary:
     ar: ترجمه (إبراهيم العجلوني) بأنه كان يواظب ابن أميلة …
-  quote: وترجمه
   note:
     ja: Pattern A（紹介文の筆者）。
   trigger: rule
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00217
+  quote: المزي
+- id: m5
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m6
+  kind: name
+  quote: بابن جديا
+  norm: ابن جديا
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: لي
+- id: m8
+  kind: person
+  ref: TMP-P-000941
+  quote: إبراهيم العجلوني
+  norm: ابراهيم العجلوني
+- id: m9
+  kind: year
+  value: '850'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: وترجمه
   norm: ترجمه
+- id: m11
+  kind: person
+  ref: TMP-P-000125
+  quote: يواظب ابن أميلة
+  norm: يواظب ابن اميلة
+- id: m12
+  kind: office
+  ref: wd:Q239718
+  quote: أذن
+  norm: اذن
+- id: m13
+  kind: person
+  ref: TMP-P-000125
+  quote: ابن أميلة
+  norm: ابن اميلة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・アリー・アル＝ミッズィー・アッ＝ディマシュキー、イブン・ジャドヤーとして知られる。850年にイブラーヒーム・アル＝アジュルーニーが私（サハーウィー）のために彼からイジャーザを求め、彼を「イブン・ウマイラに常に付き従っていた」と紹介した。また彼については、光塔でアザーンを唱えるとジャウラーン（ゴラン）から聞こえ、衰えてアル＝マルジャーニー・モスクの門の井戸のところでアザーンを唱えるようになると、マクスーラから聞こえた、と語り伝えられていたという。彼はイブン・ウマイラが自分にイジャーザを与えたと言ったが、神がもっともよく知りたまう。
   en: ʿAlī b. Muḥammad b. ʿAlī al-Mizzī al-Dimashqī, known as Ibn Jadyā. Ibrāhīm al-ʿAjlūnī obtained an ijāza from him on my behalf in the year 850 and described him as one who constantly attended Ibn Umayla; it used to be related of him that when he gave the call to prayer from the minaret it could be heard from the Jawlān (Golan), and when he grew weak and began giving the call at the well by the gate of the Marjānī Mosque, it could be heard from the maqṣūra. He claimed that Ibn Umayla had granted him an ijāza—and God knows best.

@@ -9,43 +9,34 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00060
-    quote: الخجندي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: إبراهيم
     by: rule
-    ref: AIND-D00045
-    norm: ابراهيم
+    mention: m2
   - id: n5
     type: nasab
-    quote: الجلال أحمد
     by: rule
-    ref: AIND-D01532
-    norm: الجلال احمد
+    mention: m3
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m7
 birth:
   id: b
   places:
-  - ref: gn:109223
-    quote: بالمدينة النبوية
-    norm: المدينة النبوية
+  - mention: m8
   note:
     ar: ولد بالمدينة النبوية ونشأ بها
 death:
@@ -58,7 +49,7 @@ death:
   note:
     ar: وقدرت وفاته بها مطعونا سنة ثلاث وستين
     ja: 「قدرت وفاته」＝サハーウィーの推定 → cert medium。863年＝1458年11月8日〜1459年10月27日。死因ペスト。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: scholarly
@@ -71,7 +62,6 @@ relations:
   - TMP-S-00026
   summary:
     ar: واشتغل على أبيه … وجود الخط عند أبيه
-  quote: null
   note:
     ja: '師＝父 #AIND-D00045（学問と書法）。'
 - id: r2
@@ -85,7 +75,6 @@ relations:
   - TMP-S-00026
   summary:
     ar: وجود الخط عند … السيد علي شيخ باسطية المدينة
-  quote: null
   note:
     ja: 'السيد علي شيخ باسطية المدينة ＝ corpus 他項の「السيد نور الدين علي شيخ الباسطية المدنية」（D00136）・「السيد علي المكتب شيخ الباسطية」（D08421、同じフジャンディー家の弟子）・「السيد علي الشيرازي شيخ الباسطية العجمية」（D00196）。＝ #AIND-D04942（علي بن إبراهيم بن محمد السيد الزين الحسيني العجمي الجويمي … الشيرازي الشافعي المكتب شيخ الباسطية بالمدينة النبوية ويدعى بضياء、生785頃）。'
 - id: r3
@@ -93,7 +82,6 @@ relations:
   subtype: father
   active: AIND-D00045
   passive: AIND-D04375
-  quote: null
   note:
     ja: '父 = #AIND-D00045（إبراهيم بن أحمد بن محمد … الأديب برهان الدين أبو محمد ابن العلامة جلال الدين أبي الطاهر … الخجندي … المدني الحنفي）。'
   phrase: إبراهيم بن الجلال أحمد
@@ -102,7 +90,6 @@ relations:
   subtype: grandfather
   active: AIND-D01532
   passive: AIND-D04375
-  quote: null
   note:
     ja: '祖父 = #AIND-D01532（الجلال أبو الطاهر أحمد بن محمد الخجندي ثم المدني、HANDOVER 確定ID）。'
   phrase: الجلال أحمد بن محمد الخجندي
@@ -111,8 +98,7 @@ states:
   type: status
   label: وشارك في الفضيلة وجود الخط … وكتب به أشياء
   label_latn: wa-shāraka fī al-faḍīla wa-jawwada al-khaṭṭ
-  quote: وشارك في الفضيلة وجود الخط
-  norm: شارك في الفضيلة وجود الخط
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -129,18 +115,66 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: فأقام
+  - mention: m10
   trigger: rule
-  norm: اقام
   phrase: ودخل القاهرة فأقام بها
+  mention: m11
 - id: e2
   type: residence
   places:
   - ref: gn:361058
-  quote: وباسكندرية مدة
-  norm: باسكندرية مدة
+  phrase: وباسكندرية مدة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D00045
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  ref: AIND-D01532
+  quote: الجلال أحمد
+  norm: الجلال احمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  ref: TMP-N-00060
+  quote: الخجندي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m8
+  kind: place
+  quote: بالمدينة النبوية
+  ref: gn:109223
+  norm: المدينة النبوية
+- id: m9
+  kind: office
+  quote: وشارك في الفضيلة وجود الخط
+  norm: شارك في الفضيلة وجود الخط
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: event
+  quote: فأقام
+  norm: اقام
+- id: m12
+  kind: year
+  value: '863'
+  quote: سنة
 translation:
   ja: アブド・アッラー・ブン・イブラーヒーム・ブン・アル＝ジャラール・アフマド・ブン・ムハンマド・アル＝フジャンディー・アル＝マダニー・アル＝ハナフィー。預言者の町マディーナで生まれ育ち、父のもとで学問に励んで学識を身につけ、父およびマディーナのバースィティーヤのシャイフであるアッ＝サイイド・アリーのもとで書法を極め、それで多くを書写した。カイロに入って滞在し、アレクサンドリアにもしばらく滞在し、同地でペストに罹って没したと推定される。863年のことである。神の慈悲がありますように。
   en: ʿAbd Allāh b. Ibrāhīm b. al-Jalāl Aḥmad b. Muḥammad al-Khujandī al-Madanī al-Ḥanafī. He was born in Medina and grew up there, studied under his father and shared in learning, perfected his handwriting under his father and under al-Sayyid ʿAlī, shaykh of the Bāsiṭiyya of Medina, and copied many things in it. He entered Cairo and stayed there, and in Alexandria for a time; his death there, of the plague, I estimate in the year 863. May God have mercy on him.

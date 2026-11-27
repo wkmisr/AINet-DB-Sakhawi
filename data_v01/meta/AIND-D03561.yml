@@ -9,35 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00833
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: الجمال
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D03561
   methods:
   - TMP-S-00003
@@ -46,16 +42,12 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m8
 - id: r2
   type: kin
   subtype: father
   active: AIND-D00833
   passive: AIND-D03561
-  quote: null
   note:
     ja: '見出しナサブ「… بن أحمد بن عبد الرحمن بن الجمال المصري المكي」＝ ID-Master TMP-P-001297（Note に子 عبد الرحمن・عبد الله）。corpus 本伝 #AIND-D00833（「دخل الهند … واستولد بها أولادا」）との名寄せは B169-173 ★1-5 で裁定待ち。'
   phrase: أحمد بن عبد الرحمن بن الجمال المصري المكي
@@ -63,10 +55,40 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: AIND-D00833
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥッラフマーン・ブン・アフマド・ブン・アブドゥッラフマーン・ブン・アル＝ジャマール・アル＝ミスリー・アル＝マッキー。マッカ（メッカ）にて私（サハーウィー）から（ハディースを）聴聞した者の一人である。
   en: ʿAbd al-Raḥmān b. Aḥmad b. ʿAbd al-Raḥmān b. al-Jamāl al-Miṣrī al-Makkī. He was among those who heard (ḥadīth) from me in Mecca.

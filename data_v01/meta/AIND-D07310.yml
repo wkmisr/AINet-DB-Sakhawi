@@ -9,8 +9,8 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -24,8 +24,8 @@ death:
     ah: 853-03-10
   note:
     ja: 853年3月10日 ＝ 1449-05-12（h2g.py、土曜＝原文の曜日と一致）。死因ペスト（853年の大疫）。
-  quote: سنة
   phrase: مات في يوم السبت عاشر ربيع الأول سنة ثلاث وخمسين بالطاعون عن أربع سنين
+  mention: m5
 persons:
 - id: p1
   label: أم ولد
@@ -34,22 +34,19 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D02423
+  active: m2
   passive: AIND-D07310
   summary:
     ar: الظاهر جقمق
-  quote: الذي قبله
   note:
     ja: 【集約 2026-10-25】desc を「والد محمد (الظاهر جقمق)」から相手の名に（規則31）。 原文に父名はないが、本項は「أخو الذي قبله」＝#AIND-D07309「محمد بن جقمق الأمير ناصر الدين أبو المعالي بن الظاهر أبي سعيد … أخو المنصور عثمان」の兄弟であり、父はスルターン الظاهر جقمق（#AIND-D02423）に確定（ブリーフ指定・先例 D07313）。
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D07310#p1
+  active: m3
   passive: AIND-D07310
-  quote: أم ولد
   note:
     ja: '母はウンム・ワラド（名不詳）→ #NEEDID。'
-  norm: ام ولد
 - id: r3
   type: kin
   subtype: brother
@@ -57,7 +54,6 @@ relations:
   passive: AIND-D07310
   summary:
     ar: محمد بن جقمق
-  quote: null
   note:
     ja: '【集約 2026-10-25】desc を本項主側の続柄句「أخو الذي قبله」から相手の名に（規則31）。 #AIND-D07309（محمد بن جقمق الأمير ناصر الدين أبو المعالي بن الظاهر … أخو المنصور عثمان、847年没。未受領）。父 الظاهر جقمق を共有する異母兄弟。'
 - id: r4
@@ -67,7 +63,6 @@ relations:
   passive: AIND-D07310
   summary:
     ar: محمد بن جقمق
-  quote: null
   note:
     ja: '【集約 2026-10-25】desc を本項主側の続柄句「أخو الذي قبله」から相手の名に（規則31）。 #AIND-D07311（محمد أخو الأولين من أم ولد أيضا、853年サファル没）。父 الظاهر جقمق を共有する異母兄弟。'
 - id: r5
@@ -77,7 +72,6 @@ relations:
   passive: AIND-D07310
   summary:
     ar: محمد بن جقمق
-  quote: null
   note:
     ja: '【集約 2026-10-25】desc を本項主側の続柄句「أخو الذي قبله」から相手の名に（規則31）。 #AIND-D07312（محمد رابع الثلاثة قبله من أم ولد أيضا、853年サファル没）。父 الظاهر جقمق を共有する異母兄弟。'
 - id: r6
@@ -87,9 +81,29 @@ relations:
   passive: AIND-D07310
   summary:
     ar: محمد بن جقمق
-  quote: null
   note:
     ja: '【集約 2026-10-25】desc を本項主側の続柄句「أخو الذي قبله」から相手の名に（規則31）。 #AIND-D07313（محمد خامس الأربعة قبله、854年没、repo 収録済みで本項主を brother 参照）。父 الظاهر جقمق を共有する異母兄弟。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: person
+  ref: AIND-D02423
+  quote: الذي قبله
+- id: m3
+  kind: person
+  ref: AIND-D07310#p1
+  quote: أم ولد
+  norm: ام ولد
+- id: m4
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m5
+  kind: year
+  value: '853'
+  quote: سنة
 translation:
   ja: ムハンマド、前項の人物の兄弟。母はウンム・ワラド（子を産んだ女奴隷）。853年ラビーウ・アル＝アウワル月10日土曜日にペストで4歳にて没した。
   en: Muḥammad, brother of the preceding one; his mother was an umm walad. He died of the plague on Saturday, 10 Rabīʿ al-Awwal 853, at the age of four.

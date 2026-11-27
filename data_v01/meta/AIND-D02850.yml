@@ -9,23 +9,21 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: خضر
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: ناصر الفراش
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 882-04
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     ja: 882-04＝1477-07-22 開始、月精度 1477-07（h2g.py）。初版 @when="1477"（年精度）を月精度に。
-  quote: سنة
+  mention: m5
 persons:
 - id: p1
   label: ناصر
@@ -38,16 +36,35 @@ relations:
   subtype: father
   active: AIND-D02850#p1
   passive: AIND-D02850
-  quote: null
   note:
     ja: '規則3 (c'')。父 ناصر は裸名のみで識別要素なし。corpus に本伝なし（hw.py「ناصر الفراش」「خضر بن ناصر」該当は本項のみ）、ID-Master 未登録 → #NEEDID。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00033
-  quote: null
   note:
     ja: 見出しの職名「الفراش」（従僕・敷物係）。初版は nisbah（#NEEDID）としていたが職なので state（ID-Master 既登録 TMP-O-00033 فراش、repo 先例 D03555・D03576）。勤務先は原文に明記なし（マッカで没したが、聖モスクの فراش とは書かれていない＝orgName を付けない、規則22(1)）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: خضر
+- id: m2
+  kind: name
+  quote: ناصر الفراش
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 4
+  quote: ربيع الآخر
+- id: m5
+  kind: year
+  value: '882'
+  quote: سنة
 translation:
   ja: ハディル・ブン・ナースィル、アル＝ファッラーシュ（従僕）。882年ラビーウ・アル＝アーヒル月にマッカで没した。
   en: Khaḍir b. Nāṣir al-Farrāsh (the attendant). He died in Mecca in Rabīʿ al-Ākhir of the year 882.

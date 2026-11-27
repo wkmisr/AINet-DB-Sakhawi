@@ -9,88 +9,76 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01251
-    quote: المسوفي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: TMP-P-001198
+    mention: m2
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
 birth:
   id: b
   date:
     ah: 827
   note:
     ja: 827＝1423-12-14〜1424-12-01 → 年初の 1423（初版 1424 は誤り）。
-  quote: سنة
   phrase: ولد في سنة سبع وعشرين وثمانمائة
+  mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D07744
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: المدينة
-  quote: مني
+    - mention: m10
   note:
     ja: 「هناك」＝المدينة（照応、規則22-3）。
   phrase: ولما كنت هناك سمع مني
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001198
+  active: m9
   passive: AIND-D07744
   summary:
     ar: عبد الله بن إبراهيم … وقدم مع أبيه المدينة
-  quote: أبيه
   note:
     ja: '父 عبد الله بن إبراهيم المسوفي（本項主が2〜3歳の頃＝829／830年頃にマディーナへ移住）。corpus に本伝なし・ID-Master 未登録。名＋父名＋ニスバのみだが、マディーナ移住という識別要素があるため TMP-P-001198 を新規発行（規則3 但書、⚠汎用名）。初版は #NEEDID。'
-  norm: ابيه
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D08856
+  active: m7
   passive: AIND-D07744
-  quote: والآتي ولده محمد
   note:
     ja: 子＝#AIND-D08856（項番300 محمد بن محمد بن عبد الله بن إبراهيم الشمس بن الشمس المسوفي الأصل المدني المالكي الماضي أبوه、859年マディーナ生）。「الماضي أبوه」が本項に対応。初版の TMP-P-000529（ابن جماعة 家の محمد 専用番号）は汚染流用のため破棄。
-  norm: الاتي ولده محمد
 states:
 - id: s1
   type: office
-  ref: TMP-O-00286
   places:
-  - ref: gn:109223
-    quote: المدينة
+  - mention: m10
   orgs:
   - ref: TMP-I-00120
   summary:
     ar: المادح بحرمها … وصار مادح الحرم مع سكون وخير
-  quote: مادح الحرم
   note:
     ja: 預言者モスク（الحرم النبوي＝TMP-I-00120）の頌詩詠唱者。ID-Master に該当 Office なし → TMP-O-00286 を新規発行。placeName المدينة は「بحرمها」の照応による（規則22-3）。
+  mention: m11
 events:
 - id: e1
   type: residence
@@ -100,25 +88,73 @@ events:
     cert: medium
     type: residence
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: وقدم مع أبيه المدينة وهو ابن سنتين أو ثلاث
+  - mention: m10
   cert: medium
   note:
     ja: 827年生・2〜3歳時の移住＝829〜830年頃（cert medium）。以後マディーナ在住（مادح الحرم）。
-  norm: قدم مع ابيه المدينة وهو ابن سنتين او ثلاث
+  phrase: وقدم مع أبيه المدينة وهو ابن سنتين أو ثلاث
+  mention: null
 - id: e2
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: فقرأ القرآن
-  norm: قرا القران
+  phrase: فقرأ القرآن
+  mention: null
 - id: e3
   type: cultural
-  quote: وكتب لي من نظم ولده قصيدة
   note:
     ja: 子 محمد（#AIND-D08856）作の頌詩をサハーウィーのために書き写した。
-  norm: كتب لي من نظم ولده قصيدة
+  phrase: وكتب لي من نظم ولده قصيدة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001198
+  quote: عبد الله
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-01251
+  quote: المسوفي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: person
+  ref: AIND-D08856
+  quote: والآتي ولده محمد
+  norm: الاتي ولده محمد
+- id: m8
+  kind: year
+  value: '827'
+  quote: سنة
+- id: m9
+  kind: person
+  ref: TMP-P-001198
+  quote: أبيه
+  norm: ابيه
+- id: m10
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m11
+  kind: office
+  ref: TMP-O-00286
+  quote: مادح الحرم
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・ブン・イブラーヒーム、アッ＝シャムス、アル＝マスーフィー、のちにアル＝マダニー。マディーナの聖域（ハラム）の頌詩詠唱者で、その子ムハンマドは後述する。ヒジュラ暦827年に生まれ、2歳か3歳のときに父と共にマディーナに来て、クルアーンを読誦（学習）し、落ち着きと善良さを備えたハラムの頌詩詠唱者となった。私（サハーウィー）がそこにいたとき、彼は私から聴聞し、その子の作った一篇のカスィーダを私のために書いてくれた。
   en: Muḥammad b. ʿAbd Allāh b. Ibrāhīm, al-Shams, al-Masūfī, then al-Madanī, the panegyrist (mādiḥ) at its Sanctuary, whose son Muḥammad is mentioned below. He was born in the year 827 and came with his father to Medina when he was two or three years old; he learned to recite the Qurʾān and became the panegyrist of the Sanctuary, with composure and goodness. When I (al-Sakhāwī) was there he heard from me and wrote out for me a qaṣīda composed by his son.

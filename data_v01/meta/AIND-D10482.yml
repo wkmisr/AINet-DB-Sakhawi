@@ -9,16 +9,15 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00137
-    quote: المقري
+    mention: m3
   - id: n2
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -26,8 +25,8 @@ death:
     cert: medium
   note:
     ja: 一の位のみの年「سنة اثنتين」→ 802、cert medium（イブン・ハジャル『إنباء』の記事＝9世紀初頭）。802年ラビーウ第1月＝1399-11-09〜12-08（h2g.py）、月精度で @when=1399-11（初版 1399）。没地は原文になし＝初版の placeName مصر を除去（規則22(1)。「بمصر」は居住していた廟の所在）。
-  quote: سنة
   phrase: مات في ربيع الأول سنة اثنتين
+  mention: m6
 persons:
 - id: p1
   label: عبد الله
@@ -40,7 +39,6 @@ relations:
   subtype: father
   active: AIND-D10482#p1
   passive: AIND-D10482
-  quote: null
   note:
     ja: 父 عبد الله は裸名で識別要素なし＝#NEEDID（規則3 (c')）。初版は father relation なし。
 assessments:
@@ -54,27 +52,55 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
+  - mention: m4
   orgs:
   - ref: TMP-I-00288
-  quote: كان مقيما بمشهد ابن أبي بكر بمصر
   note:
     ja: ミスル（フスタート）の「イブン・アビー・バクルの廟」。ID-Master 未登録（المشهد الحسيني TMP-I-00247・المشهد النفيسي TMP-I-00269 は別）→ TMP-I-00288。初版の affiliation「reside」#NEEDID は本 event に統合（規則8）。
-  norm: كان مقيما بمشهد ابن ابي بكر بمصر
+  phrase: كان مقيما بمشهد ابن أبي بكر بمصر
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A（イブン・ハジャル『إنباء الغمر』）。初版の統制外 relation「mentioned by」を置換。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00137
+  quote: المقري
+- id: m4
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m5
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m6
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ユースフ・ブン・アブドゥッラー・アル＝ムクリー。ミスルのイブン・アビー・バクルの廟（マシュハド）に住んでおり、人々は彼に信を寄せていた。（80）2年ラビーウ第1月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Yūsuf b. ʿAbd Allāh al-Muqrī. He lived at the shrine (mashhad) of Ibn Abī Bakr in Miṣr, and the people had faith in him. He died in Rabīʿ I of the year [80]2. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

@@ -9,30 +9,26 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00638
-    norm: احمد
+    mention: m2
   - id: n3
     type: nasab
-    quote: جار الله البناء
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 885-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m6
   note:
     ja: 885年ラジャブ月＝1480-09-15〜10-14（h2g.py）、月精度で @when=1480-09（初版は年のみの 1480）。
-  quote: سنة
   phrase: مات في رجب سنة خمس وثمانين بمكة
+  mention: m5
 relations:
 - id: r1
   type: kin
@@ -42,28 +38,58 @@ relations:
   summary:
     ar: أحمد بن جار الله المكي
   cert: medium
-  quote: null
   note:
     ja: '父の候補＝#AIND-D00638「أحمد بن جار الله المكي البناء الشهير بالحمة . مات بها في ربيع الآخر سنة اثنتين وثمانين .」（repo 収録済み）。本項主のナサブ（بن أحمد بن جار الله）・生業 البناء（石工）・マッカ・年代（父882年没、子885年没）が合う。corpus の見出しで أحمد بن جار الله は3人（السنبسي #AIND-D00636、الشيباني #AIND-D00637、البناء #AIND-D00638）で、البناء はこの1人。ただしどちらの項も相手に触れない（「الماضي أبوه」「والد محمد」の語がない）＝ナサブと生業による同定なので cert medium（ISSUES §D172-6）。直前の #AIND-D06636（السنبسي）・#AIND-D06637（الشيباني）はそれぞれ別の أحمد بن جار الله の子。初版は父 relation なし。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00187
-  quote: null
   note:
     ja: 見出しの「البناء」＝石工・建築工（TMP-O-00187、職業・生業）。初版は零番号 TMP-N-00000 のニスバとして置いていた。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m8
   cert: medium
   note:
     ja: 'Pattern A。没年 885（871＜885≦885）＝振り分け規則により النجم عمر #AIND-D05979、cert medium（cert は event 側、規則43・58）。النجم عمر 自身も885年ラマダーン月7日没（#AIND-D05979「مات … سابع رمضان سنة خمس وثمانين」）で、本項主の死（同年ラジャブ月）の2か月後。初版は統制外 relation「chronicler」で #AIND-D09211（التقي、#AIND-D09211「مات … سابع ربيع الأول سنة إحدى وسبعين」＝871年没で、885年の死を記録できない）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D00638
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: جار الله البناء
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '885'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アフマド・ブン・ジャール・アッラー、石工。（8）85年ラジャブ月にマッカで没した。イブン・ファハドが彼の没年を記した。
   en: Muḥammad b. Aḥmad b. Jār Allāh, the builder. He died in Rajab of the year [8]85 in Mecca. Ibn Fahd recorded the date of his death.

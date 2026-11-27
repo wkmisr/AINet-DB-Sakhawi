@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00098
-    quote: النويري
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n3
     type: ism
-    quote: ناصر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: مفتاح
     by: rule
+    mention: m2
 death:
   id: d
   date:
@@ -30,8 +28,8 @@ death:
     cert: medium
   note:
     ja: '一の位だけの年「سنة سبع」＝807、cert medium（2026-09-24 Waka）。807年ラマダーン月＝1405-03-12 開始（h2g.py）、月精度で @when=1405-03（初版の 1404 を是正）。世紀の裏付け: 情報源 التقي الفاسي（#AIND-D06757）は本伝によれば775年生・832年没。「وهو في عشر الخمسين」＝40歳代（年齢、規則59(d)。幅が10年あるので生年は作らない）。没地は原文に明記されない（「كان يتردد إلى القاهرة … فأدركه أجله」＝カイロへ往来していて寿命が尽きた、とあるのみ）＝初版の placeName（القاهرة）を除去（規則22(1)）。'
-  quote: سنة
   phrase: فأدركه أجله في رمضان سنة سبع وهو في عشر الخمسين
+  mention: m9
 persons:
 - id: p1
   label: مفتاح
@@ -44,47 +42,84 @@ relations:
   subtype: father
   active: AIND-D10118#p1
   passive: AIND-D10118
-  quote: null
   note:
     ja: 規則3 (c')。父 مفتاح は名のみ。corpus の مفتاح 見出しに النويري 家の該当なし（hw.py「مفتاح」）。「لمصالح أهله بيت النويري」から、النويري 家に属する家（解放奴隷の家系か）とみられるが原文は明言しない。
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   places:
   - ref: gn:104515
     cert: medium
   orgs:
   - ref: TMP-I-00282
-  quote: مؤذن منارة باب الندوة
   note:
     ja: '「مؤذن منارة باب الندوة بها . أقام كذلك سنين」＝数年その職にあった。ミナレットは ID-Master 未登録（先例 منارة باب العمرة＝TMP-I-00217 と同型）＝仮番号 TMP-I-00282。「بها」の先行詞は直前のニスバ「المكي」しかない＝مكة、cert medium（規則22(3) の所有代名詞の場合に準じる。ブリーフ D08129 の扱い）。初版の state は ref #NEEDID、同内容の affiliation type="employed" を併置＝除去（規則8）。'
-  norm: مءذن منارة باب الندوة
+  mention: m5
 events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: يتردد
+  - mention: m7
   note:
     ja: 一家（بيت النويري）の用向きでカイロへ往来していた。「بيت النويري」は家（特定の個人ではない）＝relation を立てない。初版は type="visit"（英文 note のみ）。
   trigger: rule
   phrase: وكان يتردد إلى القاهرة لمصالح أهله بيت النويري
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: الفاسي
-  quote: ذكره
+  - mention: m11
   note:
     ja: Pattern A。الفاسي＝التقي الفاسي（#AIND-D06757、頻出確定ID）。初版の統制外 subtype「mentioned by」relation を event に変換。
   trigger: rule
   phrase: ذكره الفاسي
+  mention: m10
 notes:
 - text: 初版の residence event（مكة、ニスバ・在職地からの補完）は除去（規則22(1)。在職地は state の placeName に cert medium で示した）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ناصر
+- id: m2
+  kind: name
+  quote: مفتاح
+- id: m3
+  kind: name
+  ref: TMP-N-00098
+  quote: النويري
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: office
+  ref: wd:Q239718
+  quote: مؤذن منارة باب الندوة
+  norm: مءذن منارة باب الندوة
+- id: m6
+  kind: event
+  quote: يتردد
+- id: m7
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m8
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m9
+  kind: year
+  value: '807'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: AIND-D06757
+  quote: الفاسي
 translation:
   ja: ナースィル・ブン・ミフターフ・アン＝ヌワイリー・アル＝マッキー、同地のバーブ・アン＝ナドワのミナレットのムアッズィン。数年その職にあった。一家であるヌワイリー家の用向きでカイロへ往来していたが、（80）7年ラマダーン月に寿命が尽きた。40歳代であった。アル＝ファースィーが彼に言及している。
   en: Nāṣir b. Miftāḥ al-Nuwayrī al-Makkī, muezzin of the minaret of Bāb al-Nadwa there. He remained in that capacity for years. He used to go back and forth to Cairo on the business of his household, the Nuwayrī family, and his appointed time overtook him in Ramaḍān of the year [80]7, when he was in his forties. Al-Fāsī mentioned him.

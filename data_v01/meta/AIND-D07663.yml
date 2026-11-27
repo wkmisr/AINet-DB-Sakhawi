@@ -9,19 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00241
-    quote: السعودي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد السلام
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: عبد السلام
@@ -32,20 +31,36 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m5
   passive: AIND-D07663
   methods:
   - TMP-S-00003
-  quote: مني
   phrase: ممن سمع مني
 - id: r2
   type: kin
   subtype: father
   active: AIND-D07663#p1
   passive: AIND-D07663
-  quote: null
   note:
     ja: '父は裸名（عبد السلام السعودي）のみで識別要素なし → #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد السلام
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00241
+  quote: السعودي
+- id: m5
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アブドゥッサラーム、アッ＝シャムス・アッ＝サウーディー。私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. ʿAbd al-Salām, al-Shams al-Saʿūdī. He was among those who heard from me (al-Sakhāwī).

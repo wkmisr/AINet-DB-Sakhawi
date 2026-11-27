@@ -9,32 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02613
-    quote: التواتي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m4
   - id: n3
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 807
     cert: medium
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m7
   note:
     ja: '原文「مات بالقاهرة سنة سبع」（ابن خطيب الناصرية・『إنباء الغمر』による）は一の位のみ。2026-09-24 Waka 裁定: 一の位のみの年は基本的に 80X → 807 年（807-01-01＝1404-07-19、h2g.py）。裁定の「基本的に」に対応して cert="medium"（旧 cert low、旧 note の「807／817／827／837」の留保は本裁定で解消）。'
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: عمر
@@ -47,83 +43,136 @@ relations:
   subtype: father
   active: AIND-D04533#p1
   passive: AIND-D04533
-  quote: null
   note:
     ja: '父は裸名（عمر）のみで祖父名も無く、corpus に本伝を特定できないため #NEEDID（統一規則3）。初版の #TMP-P-000664（登録＝ティムールの息子 عمر、汚染番号）を除去。'
 assessments:
 - id: v1
-  quote: صالحا
   terms:
   - صالح
   by: rule
+  mention: m5
 - id: v2
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m6
 events:
 - id: e1
   type: cultural
-  quote: كان صالحا خيرا عليه آثار الزهد والخير
-  norm: كان صالحا خيرا عليه اثار الزهد والخير
+  phrase: كان صالحا خيرا عليه آثار الزهد والخير
+  mention: null
 - id: e2
   type: residence
   subtype: jāwara
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: مجاورا
+  - mention: m13
   note:
     ja: イブン・ハジャルの引用文中の記述。地名 المدينة は原文に明示（規則22-2）。
   trigger: rule
   phrase: أقام بالمدينة مجاورا بها
+  mention: m14
 - id: e3
   type: visit
   places:
-  - ref: gn:352261
-    role: destination
-    quote: مصر
-  quote: وكان يتردد إلى مصر والشام
+  - role: destination
+    mention: m15
   note:
   - lang: ar
     type: frequency
     text: يتردد
-  norm: كان يتردد الي مصر والشام
+  phrase: وكان يتردد إلى مصر والشام
+  mention: null
 - id: e4
   type: visit
   places:
-  - ref: TMP-L-00002
-    role: destination
-    quote: والشام
-    norm: الشام
-  quote: وكان يتردد إلى مصر والشام
+  - role: destination
+    mention: m16
   note:
   - lang: ar
     type: frequency
     text: يتردد
-  norm: كان يتردد الي مصر والشام
+  phrase: وكان يتردد إلى مصر والشام
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q57420531
-    quote: ابن خطيب الناصرية
-  quote: ذكره
+  - mention: m10
   note:
     ja: Pattern A。初版は統制外 subtype「mentioned_by」の relation。
   trigger: rule
   phrase: ذكره ابن خطيب الناصرية
+  mention: m9
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: قال
   note:
     ja: Pattern A。初版は統制外 subtype「mentioned_by」の relation。
   trigger: rule
   phrase: 'وكذا قال شيخنا في إنبائه : كان من أهل الخير والصلاح أقام بالمدينة مجاورا بها وكان يتردد إلى مصر والشام فكانت منيته بالقاهرة'
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  ref: TMP-N-02613
+  quote: التواتي
+- id: m4
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m5
+  kind: assessment
+  quote: صالحا
+- id: m6
+  kind: assessment
+  quote: خيرا
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m8
+  kind: year
+  value: '807'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: ذكره
+- id: m10
+  kind: person
+  ref: wd:Q57420531
+  quote: ابن خطيب الناصرية
+- id: m11
+  kind: source
+  quote: قال
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m13
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m14
+  kind: event
+  quote: مجاورا
+- id: m15
+  kind: place
+  quote: مصر
+  ref: gn:352261
+- id: m16
+  kind: place
+  quote: والشام
+  ref: TMP-L-00002
+  norm: الشام
 translation:
   ja: アブドゥッラー・ブン・ウマル・アッ＝タウワーティー――二つのター（ت）の間に重いワーウ（重子音の و）がある――・アル＝マダニー。敬虔で善良な人物であり、禁欲（ズフド）と善行の跡が彼には見られた。（八百）七年にカイロで没した。イブン・ハティーブ・アン＝ナースィリーヤが彼に言及しており、また我らがシャイフ（イブン・ハジャル）も『インバー』の中で次のように述べている。「彼は善行と敬虔の人であり、マディーナに滞在して隣留（ムジャーワラ）し、エジプトとシャームを行き来していたが、その最期はカイロであった。」
   en: 'ʿAbd Allāh b. ʿUmar al-Tawwātī—with two tāʾs and a doubled wāw between them—al-Madanī. He was a righteous, good man, on whom the marks of asceticism and goodness were visible. He died in Cairo in the year [80]7. Ibn Khaṭīb al-Nāṣiriyya mentioned him, and our shaykh (Ibn Ḥajar) likewise said in his Inbāʾ: "He was one of the people of goodness and righteousness; he resided in Medina as a mujāwir, and used to travel back and forth to Egypt and Syria, and his death took place in Cairo."'

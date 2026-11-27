@@ -9,36 +9,33 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    ref: TMP-N-05493
-    quote: البزاز
+    mention: m4
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: حسب الله
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 848-12
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     en: He died in Mecca in the month of Dhu al-Hijjah, 848 AH. His death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D09163
+  active: m5
   passive: AIND-D05688
   methods:
   - TMP-S-00003
@@ -51,7 +48,6 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00141
-  quote: ابن الجزري
 events:
 - id: e1
   type: visit
@@ -60,27 +56,66 @@ events:
     cert: high
     type: visit
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m7
   cert: high
   note:
     en: Died there in Dhu al-Hijjah 848 AH.
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m11
   note:
     en: He recorded the death of the subject.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: حسب الله
+- id: m4
+  kind: name
+  ref: TMP-N-05493
+  quote: البزاز
+- id: m5
+  kind: person
+  ref: AIND-D09163
+  quote: ابن الجزري
+- id: m6
+  kind: year
+  value: '823'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m9
+  kind: year
+  value: '848'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリ・ブン・ユースフ・ブン・ハスブ・アッラー・アル＝バッザーズ。823年にイブン・アル＝ジャザリーの下で、彼の著作『ナシュル』の完読を聴聞した。848年ズー・アル＝ヒッジャ月にマッカで死去した。イブン・ファハドがその死を記録している。
   en: Ali b. Yusuf b. Hasb Allah al-Bazzaz. He heard the conclusion of the recitation of al-Nashr under Ibn al-Jazari in the year 823 AH, and died in Mecca in Dhu al-Hijjah, 848 AH. His death was recorded by Ibn Fahd.

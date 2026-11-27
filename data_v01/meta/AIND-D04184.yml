@@ -9,35 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00817
-    quote: الفرياني
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الشمس محمد
     by: rule
-    ref: TMP-P-000928
+    mention: m2
   - id: n5
     type: nasab
-    quote: الجمال عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: الشهاب أحمد
     by: rule
-    norm: الشهاب احمد
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 relations:
 - id: r1
   type: scholarly
@@ -46,32 +41,27 @@ relations:
   passive: AIND-D04184
   methods:
   - label: تردد إلي
-  quote: null
 - id: r2
   type: social
   subtype: other
-  active: AIND-D00207
+  active: m9
   passive: AIND-D04184
-  quote: للبقاعي
   note:
     ja: 'البقاعي = #AIND-D00207。通い・写字奉仕のため teacher ではなく other。'
-  norm: لبقاعي
   phrase: وكذا للبقاعي بل نسخ له
 - id: r3
   type: kin
   subtype: father
   active: TMP-P-000928
   passive: AIND-D04184
-  quote: null
   note:
     ja: 父は corpus 本伝なし → 新規 TMP-P-000928。
   phrase: الشمس محمد بن الجمال عبد الله بن الشهاب أحمد الفرياني
 - id: r4
   type: kin
   subtype: maternal_grandfather
-  active: AIND-D06479
+  active: m8
   passive: AIND-D04184
-  quote: ابن الخص
   note:
     ja: '= #AIND-D06479（محمد بن إبراهيم بن أحمد الشمس القاهري الشهير بابن الخص）。「سبط」＝母方の孫。'
   phrase: سبط ابن الخص
@@ -79,21 +69,17 @@ states:
 - id: s1
   type: office
   ref: wd:Q932945
-  quote: null
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00050
   places:
-  - ref: TMP-L-00084
-    quote: المقس
+  - mention: m11
   orgs:
   - ref: TMP-I-00145
-  quote: وجلس
-  norm: جلس
+  mention: m10
 - id: s3
   type: office
-  ref: wd:Q2892720
-  quote: الصوفية
+  mention: m12
 affiliations:
 - id: a1
   type: madhhab
@@ -110,9 +96,59 @@ events:
   - label: الظاهرية
   works:
   - ref: wd:Q1023470
-  quote: ممن سمع في البخاري بالظاهرية
   note:
     ja: 'الظاهرية はカイロの الظاهرية برقوق（TMP-I-00029）／الظاهرية القديمة بيبرس のいずれか限定できず → #NEEDID（B68 §D-6 継続、要判断）。'
+  phrase: ممن سمع في البخاري بالظاهرية
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: TMP-P-000928
+  quote: الشمس محمد
+- id: m3
+  kind: name
+  quote: الجمال عبد الله
+- id: m4
+  kind: name
+  quote: الشهاب أحمد
+  norm: الشهاب احمد
+- id: m5
+  kind: name
+  ref: TMP-N-00817
+  quote: الفرياني
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D06479
+  quote: ابن الخص
+- id: m9
+  kind: person
+  ref: AIND-D00207
+  quote: للبقاعي
+  norm: لبقاعي
+- id: m10
+  kind: office
+  ref: TMP-O-00050
+  quote: وجلس
+  norm: جلس
+- id: m11
+  kind: place
+  quote: المقس
+  ref: TMP-L-00084
+- id: m12
+  kind: office
+  ref: wd:Q2892720
+  quote: الصوفية
 translation:
   ja: アブドゥルカーディル・ブン・アッ＝シャムス・ムハンマド・ブン・アル＝ジャマール・アブドゥッラー・ブン・アッ＝シハーブ・アフマド。アル＝フィリヤーン（フィリヤーナ）を家系上のルーツとし、カイロに居住する、シャーフィイー派の学者。イブン・アル＝ハッスの娘方初孫。ザーヒリーヤ・マドラサにおいて『サヒーフ・アル＝ブハーリー』のハディースを聴聞した。私（サハーウィー）のもとにわずかに通い、またビカーイーのもとにも通って、むしろ彼の（著作）の写本を作製した。説教を行い、アル＝マクスのマジュリス・アッ＝ツータにおいて公証人（シャーヒド）として席に着き、またスーフィーに任命された。
   en: ʿAbd al-Qādir b. al-Shams Muḥammad b. al-Jamāl ʿAbd Allāh b. al-Shihāb Aḥmad, of Firyānī origin, residing in Cairo, Shāfiʿī. Maternal grandson of Ibn al-Khaṣṣ. He was among those who heard the Ṣaḥīḥ al-Bukhārī at the al-Ẓāhiriyya Madrasa. He frequented me (al-Sakhāwī) briefly, and likewise al-Biqāʿī, for whom he actually copied manuscripts. He delivered sermons, sat as a witness (shāhid) in the session of al-Tūta in al-Maqs, and was appointed as a Sufi.

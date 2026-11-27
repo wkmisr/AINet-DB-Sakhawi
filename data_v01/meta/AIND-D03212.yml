@@ -9,45 +9,61 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00564
-    quote: الخاصكي
+    mention: m2
   - id: n2
     type: ism
-    quote: سودون
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: kin
   subtype: son
-  active: AIND-D07465
+  active: m3
   passive: AIND-D03212
-  quote: الناصري محمد
   note:
     ja: 子＝#AIND-D07465（محمد بن سودون دقماق ناصر الدين … والماضي أبوه、B88 収録）。本項「والد الناصري محمد」と D07465「والماضي أبوه」が双方向に閉合。
 - id: r2
   type: kin
   subtype: father-in-law
-  active: TMP-P-001100
+  active: m4
   passive: AIND-D03212
   cert: medium
-  quote: ناصر الدين ابن العطار
   note:
     ja: 原文「والد الناصري محمد سبط ناصر الدين ابن العطار أمه عائشة」の「سبط …」「أمه عائشة」は息子 محمد の属性（D07465「أمه عائشة ابنة الأمير ناصر الدين محمد بن العطار」、D13333「تزوجها سودون دقماق … واستولدها الأول ناصر الدين محمد」）。ناصر الدين ابن العطار は息子の母方祖父＝本項主の妻の父であり、本項主の祖父ではない。岳父関係は他項（D07465・D13333）による補完のため cert medium（統一規則23）。
 - id: r3
   type: kin
   subtype: spouse
-  active: AIND-D13333
+  active: m5
   passive: AIND-D03212
   cert: medium
-  quote: عائشة
   note:
     ja: 「أمه عائشة」は息子 محمد の母（本項主の母ではない）。عائشة＝#AIND-D13333（عائشة ابنة الأمير ناصر الدين محمد … بن العطار、「تزوجها سودون دقماق وطيبغا البدري الخاصكيين واستولدها الأول ناصر الدين محمد」）で、本項主の妻。婚姻は D13333 の記述による補完のため cert medium（統一規則23）。
-  norm: عاءشة
 states:
 - id: s1
   type: office
   ref: TMP-O-00015
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: سودون
+- id: m2
+  kind: name
+  ref: TMP-N-00564
+  quote: الخاصكي
+- id: m3
+  kind: person
+  ref: AIND-D07465
+  quote: الناصري محمد
+- id: m4
+  kind: person
+  ref: TMP-P-001100
+  quote: ناصر الدين ابن العطار
+- id: m5
+  kind: person
+  ref: AIND-D13333
+  quote: عائشة
+  norm: عاءشة
 translation:
   ja: スードゥン・ドゥクマーク・アル＝ハースキー。アン＝ナースィリー・ムハンマドの父。このムハンマドはナースィル・アッ＝ディーン・イブン・アル＝アッタールの母方の孫で、その母はアーイシャである。彼は小作農（フェッラーヒーン）の一団に殺害された。
   en: Sūdūn Duqmāq al-Khāṣṣakī, the father of al-Nāṣirī Muḥammad, the maternal grandson of Nāṣir al-Dīn Ibn al-ʿAṭṭār, whose mother was ʿĀʾisha. He was killed by a group of his peasants.

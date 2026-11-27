@@ -9,45 +9,40 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m7
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي القسم
     by: rule
-    ref: TMP-P-000541
-    norm: ابو القسم
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: جوشن
     by: rule
+    mention: m6
 death:
   id: d
   date:
     ah: 871-07
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m11
   note:
     ja: 「مات بمكة في رجب سنة إحدى وسبعين . أرخه ابن فهد」（871-07＝1467-02-15〜03-16）。
-  quote: سنة
+  mention: m13
 relations:
 - id: r1
   type: kin
@@ -56,7 +51,6 @@ relations:
   passive: AIND-D05341
   summary:
     ar: أبو القسم بن محمد بن علي بن محمد بن جوشن المكي
-  quote: null
   note:
     ja: '父＝ID-Master 既登録 TMP-P-000541「أبو القسم بن محمد بن علي بن محمد بن جوشن المكي」（#AIND-D01424 أحمد بن محمد بن علي بن محمد بن جوشن المكي「أخو أبي القسم وعبد الكريم」の兄弟として登録、ナサブ完全一致）。corpus に父の本伝なし（#AIND-D11088 أبو القسم بن محمد بن علي بن حسين … ابن جوشن は「بن حسين」系の別人）。初版は #NEEDID。 / TMP-P-000541 أبو القسم بن محمد بن علي بن محمد بن جوشن は #AIND-D11088（أبو القسم بن محمد بن علي بن حسين … ويعرف بابن جوشن、マッカ商人、840没）と同一人の可能性が高い（D08478 で祖父名が「بن حسين أو محمد」と揺れる）が確証なし＝possible_identity（Waka 裁定 2026-11-06、名寄せ監査 2026-11-05）。D11088 収録時に possible_identity relation を立てる。'
 - id: r2
@@ -69,7 +63,6 @@ relations:
   fields:
   - TMP-S-00013
   cert: medium
-  quote: null
   note:
     ja: '「تلا للسبع على الشوايطي」。الشوايطي＝الشهاب أحمد بن علي بن عمر … الكلاعي الحميري الشوايطي اليمني ثم المكي（#AIND-D01037、781年生・863年マッカ没、マッカの朗誦家。ニスバ索引 #AIND-D11778「الشوايطي أحمد بن علي بن عمر وابناه محمد وعلي」）。息子2人（#AIND-D06752・#AIND-D04999「ابن الشوائطي」）は「ابن」付きで呼ばれるため父と判断、ただし通称のみのため cert medium（規則26）。初版はニスバ番号 TMP-N-00502 を person 位置に流用。'
 - id: r3
@@ -82,45 +75,97 @@ relations:
   fields:
   - TMP-S-00013
   cert: medium
-  quote: null
   note:
     ja: 「وأذن له」＝朗誦の教授許可。初版の method「أجاز」を原文どおり「أذن له」に。
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
-  quote: ممن
+  mention: m8
 events:
 - id: e1
   type: cultural
   summary:
     ar: ممن تكسب بالتجارة … مع اشتغال يسير
-  quote: null
+  mention: null
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: وسافر
+  - mention: m10
   trigger: rule
-  norm: سافر
   phrase: وسافر لأجلها إلى اليمن وغيرها
+  mention: m9
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m15
   cert: low
   note:
     ja: Pattern A。没年 871 ≤ 871 のため ابن فهد 振り分け規則により التقي بن فهد（#AIND-D09211）、cert low。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m14
 notes:
 - text: 'sister 候補 #AIND-D13466（فاطمة ابنة أبي القسم بن محمد بن علي بن محمد بن جوشن المكي）: 本項原文に言及はないが、女性部 #AIND-D13466「فاطمة ابنة أبي القسم بن محمد بن علي بن محمد بن جوشن المكي . ماتت بها في المحرم سنة اثنتين وثمانين」はナサブ5代が本項主と完全一致し同父と特定できるため、規則23・38により cert medium で補う。なお父の兄弟 أحمد（#AIND-D01424、874年没）・عبد الكريم（#AIND-D04286、商人、イエメンに往来）は本項主の叔父にあたるが、相手側に本項主への言及がないため note 留め。 【集約 2026-10-19】規則23 は相手側本文が本項主を特定して関係を明記する場合に限り relation を補う。本項・相手側のいずれにも言及がなくナサブ一致からの推論にとどまるため、relation を note に移した（内容B L、チャンク間の方針割れ(2)の統一）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-000541
+  quote: أبي القسم
+  norm: ابو القسم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: جوشن
+- id: m7
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m8
+  kind: office
+  ref: wd:Q215536
+  quote: ممن
+- id: m9
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m10
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m11
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m12
+  kind: month
+  value: 7
+  quote: رجب
+- id: m13
+  kind: year
+  value: '871'
+  quote: سنة
+- id: m14
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m15
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・アビー・アル＝カースィム・ブン・ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・ジャウシャン・アル＝マッキー。商業で生計を立て、そのためにイエメンその他へ旅した者の一人。わずかながら学問にも従事し、それどころかアッ＝シャワーイティーに七読誦法で読誦し、彼から（教授の）許可を得た。871年ラジャブ月にマッカで没した。イブン・ファハドがその没年を記した。
   en: ʿAlī b. Abī al-Qāsim b. Muḥammad b. ʿAlī b. Muḥammad b. Jawshan al-Makkī. He was among those who earned their living by trade and travelled for it to Yemen and elsewhere, with a little study; indeed he recited (the Qurʾān) according to the seven readings to al-Shawāyiṭī, who gave him permission (to teach). He died in Mecca in Rajab of the year 871. Ibn Fahd recorded his death date.

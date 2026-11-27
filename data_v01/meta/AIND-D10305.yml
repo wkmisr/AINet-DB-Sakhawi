@@ -9,79 +9,67 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00145
-    quote: البلبيسي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m11
   - id: n3
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m12
   - id: n4
     type: laqab
-    quote: الشرف
+    mention: m8
   - id: n5
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07999
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05465
+    mention: m3
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n9
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m6
   - id: n11
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m7
   - id: n12
     type: nasab
-    quote: المحب
     by: rule
+    mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D07999
+  active: m14
   passive: AIND-D10305
   summary:
     ar: المحب محمد بن علي بن أحمد بن عثمان البلبيسي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝#AIND-D07999「محمد بن علي بن أحمد بن عثمان بن عبد الرحمن بن عثمان المحب بن النور البلبيسي الأصل القاهري الأزهري إمامه وابن أئمته … وأم بعد أبيه بالجامع … مات في ثامن عشري رمضان سنة تسع وثمانين … واستقر ابنه يحيى في الإمامة وكان قد ناب عنه في حياته」（ブリーフ候補、ナサブ6代＋相手側本文が本項主を名指し＝閉合。repo 未収録）。初版は #NEEDID。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D05465
+  active: m15
   passive: AIND-D10305
   summary:
     ar: النور علي
-  quote: وجده
   note:
     ja: '「الماضي … جده」＝#AIND-D05465「علي بن محمد بن عثمان بن عبد الرحمن بن عثمان نور الدين حفيد شيخ القراء الفخر … البلبيسي ثم القاهري الأزهري الشافعي المقرئ والد المحب محمد الآتي ويعرف بإمام الأزهر … مات في يوم الأحد منتصف المحرم سنة أربع وستين」（repo 未収録。ID-Master「النور الإمام」＝AIND-D05465）。相手側の「والد المحب محمد الآتي」で閉合。D05465 の見出しは父を محمد、本項・D07999 は أحمد とするが、サハーウィー自身が転送見出し #AIND-D08596「محمد بن علي بن محمد بن عثمان البلبيسي . مضى فيمن جده أحمد بن عثمان بن عبد الرحمن فيحرر أيهما الصواب」でこの食い違いを留保している＝同一人物であることは動かない。初版は #NEEDID。'
-  norm: جده
 - id: r3
   type: kin
   subtype: ancestor
@@ -89,40 +77,35 @@ relations:
   passive: AIND-D10305
   summary:
     ar: الفخر عثمان بن عبد الرحمن بن عثمان
-  quote: null
   note:
     ja: 見出しナサブ末尾の「عثمان بن عبد الرحمن بن عثمان」＝#AIND-D04856「عثمان بن عبد الرحمن بن عثمان الفخر البلبيسي ثم القاهري الشافعي المقرئ ويعرف بالفخر إمام الأزهر . ولد سنة خمس وعشرين وسبعمائة … مات في ثاني ذي القعدة سنة أربع」（repo 未収録）。祖父の項 D05465 が「حفيد شيخ القراء الفخر」とする＝本項主の高祖父（父の曾祖父）。規則37（見出しナサブで特定できる父祖）により ancestor で立てた。「الماضي … جد أبيه」は字義どおりなら曾祖父 أحمد（または محمد）بن عثمان を指すが、その人の本伝は corpus にない（hw.py「بن عثمان＋البلبيسي」・本文検索「بن عثمان بن عبد الرحمن」で該当なし）。同じ句は父の項 D07999 にもあり、そこでは「جد أبيه」が الفخر عثمان に当たる＝本項の句は父の項からの持ち越しとみられる（ISSUES §D166-6）。初版は「أحمد بن عثمان بن عبد الرحمن」を統制外 subtype other・#NEEDID で立てていた＝置換。
 - id: r4
   type: social
   subtype: predecessor
-  active: AIND-D07999
+  active: m16
   passive: AIND-D10305
   summary:
     ar: المحب محمد
   cert: medium
-  quote: أبيه
   note:
     ja: 「وأم نيابة عن أبيه ثم استقلالا」＝父の代理としてイマームを務め、のち単独で。本項は「خلف」の語を使わないが、父の項 D07999「واستقر ابنه يحيى في الإمامة وكان قد ناب عنه في حياته」が継承を明記する＝predecessor（規則29 の型）を cert medium で補った（規則23）。
-  norm: ابيه
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: wd:Q125482
   orgs:
   - ref: wd:Q312342
-  quote: إمامه
   note:
     ja: 「الأزهري إمامه وابن أئمته … وأم نيابة عن أبيه ثم استقلالا」＝アズハル・モスク（wd:Q312342）のイマーム職（wd:Q125482）。初版の placeName القاهرة は施設の所在地・ニスバからの補完＝除去（規則22(1)）。同じ内容の affiliation（type employed、الأزهر）は二重符号化＝除去（規則8）。
-  norm: امامه
+  mention: m13
 - id: s2
   type: office
   ref: wd:Q125482
   orgs:
   - ref: wd:Q312342
-  quote: null
   note:
     ja: 「ثم استقلالا」＝父の代理のあと本任（規則65 (f)、代理と本任は state を分ける）。
+  mention: null
 events:
 - id: e1
   type: learning
@@ -130,24 +113,95 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00027
-  quote: حفظ
   note:
     ja: クルアーンを暗記し、タジュウィード（正しい読誦）を修めた。師の名は原文になし。初版に欠落。
   trigger: rule
   phrase: حفظ القرآن وجوده
+  mention: m17
 - id: e2
   type: other
   persons:
-  - ref: AIND-D03042
-    quote: القاضي زكريا
-  quote: ونوزع من جماعة من المجاورين لكونه قاصرا فبادر القاضي زكريا وحكم بصحة الصلاة خلفه ومنع من يتعرض له مراعاة لسلفه
+  - mention: m18
   note:
     ja: 未成年（قاصر）であることを理由にアズハルの寄宿者（المجاورون）の一団から異議が出たが、カーディー・ザカリーヤーが速やかに「彼の後ろでの礼拝は有効」と判決し、先祖への配慮から彼に手出しすることを禁じた。القاضي زكريا＝#AIND-D03042「زكريا بن محمد بن أحمد بن زكريا الزين الأنصاري السنبكي القاهري الأزهري الشافعي القاضي」（ブリーフ候補・repo 未収録。祖父の項 D05465 に「وممن قرأ عليه الزين زكريا」）。判決・保護は任官・後援と同じく event 内 persName で表す（規則53）。初版の統制外 relation（subtype other）を置換。年の明記なし。
-  norm: نوزع من جماعة من المجاورين لكونه قاصرا فبادر القاضي زكريا وحكم بصحة الصلاة خلفه ومنع من يتعرض له مراعاة لسلفه
+  phrase: ونوزع من جماعة من المجاورين لكونه قاصرا فبادر القاضي زكريا وحكم بصحة الصلاة خلفه ومنع من يتعرض له مراعاة لسلفه
+  mention: null
 notes:
 - text: 見出しの「الشرف ابن المحب」＝ラカブ الشرف、父のラカブ المحب（父 D07999 は「المحب بن النور」）。初版が「ابن المحب」を shuhrah としていたのは通称の明記（ويعرف بـ）がないため外した。没年の記載なし（存命中の項）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  ref: AIND-D07999
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D05465
+  quote: علي
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عثمان
+- id: m6
+  kind: name
+  quote: عبد الرحمن
+- id: m7
+  kind: name
+  quote: عثمان
+- id: m8
+  kind: name
+  quote: الشرف
+- id: m9
+  kind: name
+  quote: المحب
+- id: m10
+  kind: name
+  ref: TMP-N-00145
+  quote: البلبيسي
+- id: m11
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m12
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m13
+  kind: office
+  ref: wd:Q125482
+  quote: إمامه
+  norm: امامه
+- id: m14
+  kind: person
+  ref: AIND-D07999
+  quote: أبوه
+  norm: ابوه
+- id: m15
+  kind: person
+  ref: AIND-D05465
+  quote: وجده
+  norm: جده
+- id: m16
+  kind: person
+  ref: AIND-D07999
+  quote: أبيه
+  norm: ابيه
+- id: m17
+  kind: event
+  quote: حفظ
+- id: m18
+  kind: person
+  ref: AIND-D03042
+  quote: القاضي زكريا
 translation:
   ja: ヤフヤー・ブン・ムハンマド・ブン・アリー・ブン・アフマド・ブン・ウスマーン・ブン・アブド・アッ＝ラフマーン・ブン・ウスマーン、アッ＝シャラフ、アル＝ムヒッブの子、ビルバイス出身の家系でカイロの人、アズハルの人で、そのイマームであり、代々のイマームの子。父・祖父・父の祖父は既出。クルアーンを暗記してその読誦を修め、父の代理として、のちには単独でイマームを務めた。未成年であることを理由に寄宿者の一団から異議を唱えられたが、カーディー・ザカリーヤーが速やかに彼の後ろでの礼拝は有効であると判決し、その先祖への配慮から、彼に手出しする者を禁じた。
   en: Yaḥyā b. Muḥammad b. ʿAlī b. Aḥmad b. ʿUthmān b. ʿAbd al-Raḥmān b. ʿUthmān, al-Sharaf, son of al-Muḥibb, of Bilbays origin, the Cairene, of al-Azhar, its imam and the son of its imams; his father, his grandfather and his father’s grandfather have been mentioned above. He memorized the Qurʾān and perfected its recitation, and led the prayer as deputy for his father and then in his own right. A group of the resident students contested him because he was a minor, but the qāḍī Zakariyyā acted promptly, ruled that prayer behind him was valid, and forbade anyone to interfere with him, out of regard for his forebears.

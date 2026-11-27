@@ -9,77 +9,65 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00093
-    quote: العثماني
+    mention: m11
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m12
   - id: n4
     type: laqab
-    quote: عفيف الدين
+    mention: m8
   - id: n5
     type: kunyah
-    quote: أبو الطيب
-    norm: ابو الطيب
+    mention: m9
   - id: n6
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07827
+    mention: m2
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
-    ref: AIND-D04615
+    mention: m3
   - id: n9
     type: nasab
-    quote: أبي عبد الله محمد
     by: rule
-    norm: ابو عبد الله محمد
+    mention: m4
   - id: n10
     type: nasab
-    quote: الرضي محمد
     by: rule
+    mention: m5
   - id: n11
     type: nasab
-    quote: أبي بكر عبد الله
     by: rule
-    norm: ابو بكر عبد الله
+    mention: m6
   - id: n12
     type: nasab
-    quote: خليل
     by: rule
+    mention: m7
 birth:
   id: b
   date:
     ah: 809-02
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m14
   note:
     ja: 「ولد بمكة في صفر سنة تسع وثمانمائة」。809-02 ＝ 1406-07-27〜08-24（h2g.py）。
-  quote: سنة
+  mention: m16
 death:
   id: d
   date:
     ah: 882-05
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m14
   note:
     ja: 「ومات بها في جمادى الأولى سنة اثنتين وثمانين」。「بها」＝مكة（出生地の照応）。882-05 ＝ 1477-08-20〜09-18（h2g.py）。
-  quote: سنة
+  mention: m18
 relations:
 - id: r1
   type: kin
@@ -88,7 +76,6 @@ relations:
   passive: AIND-D04591
   summary:
     ar: أبو عبد الله محمد بن عبد الله بن أبي عبد الله محمد بن الرضي محمد بن أبي بكر بن خليل
-  quote: null
   note:
     ja: 見出しナサブの父＝#AIND-D07827（刊本 محمد بن عبد الله 部 234 番「محمد بن عبد الله بن أبي عبد الله محمد بن الرضى محمد بن أبي بكر بن خليل القرشي الأموي العثماني المكي الماضي حفيده قريبا」、805年にイジャーザ、マッカ没）。ナサブ5代・ニスバが一致。
 - id: r2
@@ -98,7 +85,6 @@ relations:
   passive: AIND-D04591
   summary:
     ar: عبد الله بن أبي عبد الله محمد بن الرضي محمد بن أبي بكر بن خليل
-  quote: null
   note:
     ja: '祖父＝#AIND-D04615（刊本 230 番「عبد الله بن أبي عبد الله محمد بن الرضي محمد بن أبي بكر بن خليل العسقلاني المكي」。「العسقلاني」は العثماني の誤植とみられる）。REF #AIND-D04585「يأتي فيمن جده عبد الله ابن محمد بن محمد」の転送先は本項。'
 - id: r3
@@ -109,7 +95,6 @@ relations:
   summary:
     ar: محمد بن عبد الله بن محمد بن عبد الله بن أبي عبد الله محمد بن الرضي محمد ابن أبي بكر بن خليل
   cert: medium
-  quote: null
   note:
     ja: '規則23: #AIND-D07816（刊本 محمد بن عبد الله 部 223 番、834年マッカ生「تكسب بالشهادة بباب السلام」、870年代シリアでペスト没）のナサブが本項主を一意に指し、同じ باب السلام の証人職を継ぐ。本項本文に言及はないため cert medium。同じく #AIND-D03102（سعيد بن عبد الله بن أبي عبد الله محمد …、837年没）・#AIND-D03637 はナサブ上、本項主の叔父・従兄弟にあたるが本項に言及がないため relation は立てない。'
 states:
@@ -117,12 +102,81 @@ states:
   type: office
   ref: TMP-O-00050
   places:
-  - ref: TMP-L-00217
-    quote: بباب السلام
-    norm: باب السلام
-  quote: null
+  - mention: m13
   note:
     ja: 「أحد العدول بباب السلام」＝マッカ聖モスクのバーブ・アッ＝サラームで公証人（شاهد／عدل）を務めた。職 ref は初版の TMP-O-00186（ID-Master 登録「عدل」＝D05617 マグリブの公証人）ではなく汎用 الشاهد | الشهادة＝TMP-O-00050（ブリーフ頻出確定ID）。باب السلام は ID-Master で Location（TMP-L-00217、「orgName ではなく placeName」注記）のため placeName に置き、affiliation（規則8 二重符号化）を除去。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D07827
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D04615
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: أبي عبد الله محمد
+  norm: ابو عبد الله محمد
+- id: m5
+  kind: name
+  quote: الرضي محمد
+- id: m6
+  kind: name
+  quote: أبي بكر عبد الله
+  norm: ابو بكر عبد الله
+- id: m7
+  kind: name
+  quote: خليل
+- id: m8
+  kind: name
+  quote: عفيف الدين
+- id: m9
+  kind: name
+  quote: أبو الطيب
+  norm: ابو الطيب
+- id: m10
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m11
+  kind: name
+  ref: TMP-N-00093
+  quote: العثماني
+- id: m12
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m13
+  kind: place
+  quote: بباب السلام
+  ref: TMP-L-00217
+  norm: باب السلام
+- id: m14
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m15
+  kind: month
+  value: 2
+  quote: صفر
+- id: m16
+  kind: year
+  value: '809'
+  quote: سنة
+- id: m17
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m18
+  kind: year
+  value: '882'
+  quote: سنة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥッラー・ブン・アビー・アブドゥッラー・ムハンマド・ブン・アッ＝ラディー・ムハンマド・ブン・アビー・バクル・アブドゥッラー・ブン・ハリール、アフィーフ・アッ＝ディーン・アブー・アッ＝タイイブ・アル＝クラシー・アル＝ウスマーニー・アル＝マッキー。バーブ・アッ＝サラームの公証人（ウドゥール）の一人。809年サファル月にマッカで生まれ、（8）82年ジュマーダー・アル＝ウーラー月に同地で没した。
   en: ʿAbd Allāh b. Muḥammad b. ʿAbd Allāh b. Abī ʿAbd Allāh Muḥammad b. al-Raḍī Muḥammad b. Abī Bakr ʿAbd Allāh b. Khalīl, ʿAfīf al-Dīn Abū al-Ṭayyib al-Qurashī al-ʿUthmānī al-Makkī, one of the notary witnesses (ʿudūl) at Bāb al-Salām. He was born in Mecca in Ṣafar 809 and died there in Jumādā I (8)82.

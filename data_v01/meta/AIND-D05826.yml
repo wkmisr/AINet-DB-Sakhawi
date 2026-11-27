@@ -9,31 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02140
-    quote: الصيداوي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن المبيض
-    norm: ابن المبيض
     label: ابن المبيض
+    mention: m6
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n6
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 persons:
 - id: p1
   label: بعض الجماعة
@@ -42,23 +37,21 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D05826#p1
+  active: m9
   passive: AIND-D05826
   methods:
   - TMP-S-00009
-  quote: بعض الجماعة
   note:
     ja: '「أقام بالقاهرة يسيرا واشتغل على بعض الجماعة」。相手は無名の複数（「何人かの学者」）のため #NEEDID（規則12）。場所はカイロ滞在中の学習とみられるが「بالقاهرة」は「أقام」の句のため placeName は置かない（規則22）。初版は relation なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m10
   passive: AIND-D05826
   methods:
   - TMP-S-00025
   works:
   - ref: wd:Q886659
-  quote: علي
   note:
     ja: 「وقرأ علي صحيح مسلم」の علي は「عليّ（私に）」（規則2。原文にない field（الحديث）と、「أقام بالقاهرة」から補った event placeName القاهرة を除去）。
 - id: r3
@@ -70,7 +63,6 @@ relations:
   - TMP-S-00074
   works:
   - ref: TMP-T-00208
-  quote: null
   note:
     ja: 「وبحثا شرحي لهداية ابن الجزري وصحبه معه」＝ サハーウィー自身の『ابن الجزري の الهداية（في علم الرواية）注釈』を討究（بحثا）の形で読み、それ（注釈書の写し）を携えて行った。method は TMP-S-00074（先例 D04657・D07445）。書名は ID-Master 未登録（الهداية T-00066 は المرغيناني の法学書で別物）のため仮番号 TMP-T-00208（corpus では D03532・D08808・D11013 にも「شرحي لهداية ابن الجزري」「شرحي للهداية الجزرية」として出現）。初版の field（القراءات、wd:Q1817983）は誤り（『الهداية』はハディース学の作品）のため除去。「صحبه معه」を初版は「サハーウィーに随行した」と読み friend relation を立てていたが、目的語 ه は直前の書を指すと読み（写しの持ち帰り）、relation を除去（別読みは note に留める）。
 affiliations:
@@ -81,13 +73,51 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: أقام
+  - mention: m8
   trigger: rule
-  norm: اقام
   phrase: أقام بالقاهرة يسيرا
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: TMP-N-02140
+  quote: الصيداوي
+- id: m4
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: name
+  quote: بابن المبيض
+  norm: ابن المبيض
+- id: m7
+  kind: event
+  quote: أقام
+  norm: اقام
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m9
+  kind: person
+  ref: AIND-D05826#p1
+  quote: بعض الجماعة
+- id: m10
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
 translation:
   ja: ウマル・ブン・アビー・バクル・アッ＝サイダーウィー・アッ＝ディマシュキー・アッ＝シャーフィイー、イブン・アル＝ムバイイドとして知られる。有為で敬虔、物静かな若者。カイロにしばらく滞在し、幾人かの学者のもとで学び、私に『サヒーフ・ムスリム』を読誦し、またイブン・アル＝ジャザリーの『ヒダーヤ』に対する私の注釈を討究の形で読み、それを携えて行った。
   en: ʿUmar b. Abī Bakr al-Ṣaydāwī al-Dimashqī al-Shāfiʿī, known as Ibn al-Mubayyiḍ. A capable, pious and quiet young man. He stayed in Cairo for a short while, studied under some of the scholars, read Ṣaḥīḥ Muslim before me and, by way of study, my commentary on the Hidāya of Ibn al-Jazarī, and took it with him.

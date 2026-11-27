@@ -9,45 +9,41 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00509
-    quote: الياسوفي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m2
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 death:
   id: d
   date:
     ah: 874-06
   note:
     ja: 874年ジュマーダー第二月＝1469-12-15 開始（h2g.py、月精度）。初版の @when 1469（年精度）を月精度に。没地は原文にない。
-  quote: سنة
   phrase: مات في جمادى الآخرة سنة أربع وسبعين
+  mention: m18
 persons:
 - id: p1
   label: إبراهيم بن محمد بن محمد
@@ -60,77 +56,61 @@ relations:
   subtype: father
   active: AIND-D06555#p1
   passive: AIND-D06555
-  quote: null
   note:
     ja: 規則3 (c')。父 إبراهيم بن محمد بن محمد（الياسوفي）は汎用名で識別要素なし。corpus 全文「الياسوفي」23件に該当なし（大半は الصدر سليمان الياسوفي）、ID-Master 未登録。初版は father relation なし。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D08536
+  active: m10
   passive: AIND-D06555
-  quote: محمد
   note:
     ja: 「ووالد محمد الآتي」＝#AIND-D08536「محمد بن محمد بن ابراهيم الشمس الياسوفي ثم الدمشقي الشافعي الماضي أبوه」（相互閉合、repo 未収録）。初版の汚染番号 TMP-P-000529（登録＝ابن جماعة 家の محمد）を置換。
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D10444
+  active: m12
   passive: AIND-D06555
   summary:
     ar: الباعوني
   cert: medium
-  quote: للباعوني
   note:
     ja: '「باشر النقابة للباعوني بدمشق」＝ダマスクスで الباعوني のもとでナキーブを務めた（規則56 の「仕えた」型）。初版は TMP-N-00066（ニスバ番号＝カテゴリ不一致）。裸の「الباعوني」だが、ナキーブを置く立場＝ダマスクスのカーディーであった الباعوني は、本項主（874年没、خشقدم の治世に活動）の年代では #AIND-D10444「يوسف بن أحمد بن ناصر … الجمال أبو المحاسن بن الشهاب الباعوني … وناب في قضاء دمشق عن البهاء بن حجي ثم استقل به في سنة سبع وأربعين … وبه ختم المعتبرون من قضاة دمشق」（880年没）に限られる。#AIND-D01229 も「صهر الجمال الباعوني ونقيبه … وباشر النقابة عند صهره」と同じ الجمال のナキーブ職を記す。兄 #AIND-D00050 البرهان إبراهيم はカーディー職を固辞（「فامتنع وصمم」）、父 #AIND-D01673 الشهاب أحمد もダマスクスのカーディーであったが「مات في ثالث أو رابع المحرم سنة ست عشرة بدمشق」（816年没）＝874年没の本項主がそのナキーブであったとは考えにくい。ニスバ＋職（ダマスクスのカーディー）の2点で閉合するが原文は裸のニスバ＝cert medium（ISSUES §D170-5）。'
-  norm: لباعوني
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D02830
+  active: m16
   passive: AIND-D06555
-  quote: بالظاهر خشقدم
   note:
     ja: '「ولكنه اختص بالظاهر خشقدم لسابق معرفة به」（اختص＝規則56）。الظاهر خشقدم＝#AIND-D02830。初版は #NEEDID。'
-  norm: الظاهر خشقدم
   phrase: الظاهر خشقدم
 states:
 - id: s1
   type: office
   ref: TMP-O-00096
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: null
+  - mention: m9
   note:
     ja: 見出し「أحد النواب بالقاهرة」＋「فكان قضاة مصر يستنيبونه لذلك」＝法学者の نواب（カーディー代理）＝TMP-O-00096（規則65 (f)）。初版の TMP-O-00003 は retired（00096 に統合）。
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00067
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: النقابة
+  - mention: m13
   note:
     ja: 「باشر النقابة للباعوني بدمشق」。カーディーのナキーブ。原文は「النقابة」のみ＝汎用 نقيب（TMP-O-00067）。既登録の نقيب الحكم（TMP-O-00352）は「نقيب الحكم」と明記された職＝流用しない（規則65 (d)）。
+  mention: m11
 - id: s3
   type: office
-  ref: TMP-O-00055
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: حسبتها
+  - mention: m13
   note:
     ja: 「بل وباشر حسبتها」＝「ها」は直前の دمشق（照応、規則22(3)）。
+  mention: m14
 - id: s4
   type: office
-  ref: TMP-O-00064
-  quote: وأستادارية ناظر الخاص
   note:
     ja: 「وأستادارية ناظر الخاص」＝ناظر الخاص（名は原文にない）のウスターダール。本項主の職は أستادار（TMP-O-00064）で、ناظر الخاص は他人の職＝本項主の state にも orgName にもしない（初版は orgName に職の番号 TMP-O-00085 を付けていた）。場所は原文にない。
-  norm: استادارية ناظر الخاص
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -139,6 +119,80 @@ notes:
 - text: 「وغير ذلك ولم يكن محمودا」＝ほかの職も務めたが評判は良くなかった（サハーウィーの評）。ニスバ由来の residence event（دمشق・القاهرة）は除去（規則22(1)）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: الشمس
+- id: m6
+  kind: name
+  ref: TMP-N-00509
+  quote: الياسوفي
+- id: m7
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m10
+  kind: person
+  ref: AIND-D08536
+  quote: محمد
+- id: m11
+  kind: office
+  ref: TMP-O-00067
+  quote: النقابة
+- id: m12
+  kind: person
+  ref: AIND-D10444
+  quote: للباعوني
+  norm: لباعوني
+- id: m13
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m14
+  kind: office
+  ref: TMP-O-00055
+  quote: حسبتها
+- id: m15
+  kind: office
+  ref: TMP-O-00064
+  quote: وأستادارية ناظر الخاص
+  norm: استادارية ناظر الخاص
+- id: m16
+  kind: person
+  ref: AIND-D02830
+  quote: بالظاهر خشقدم
+  norm: الظاهر خشقدم
+- id: m17
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m18
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・イブラーヒーム・ブン・ムハンマド・ブン・ムハンマド、アッ＝シャムス、ヤースーフ出自、アッ＝ディマシュキー、アッ＝シャーフィイー。カイロの（カーディー）代理の一人で、後出のムハンマドの父。ダマスクスでアル＝バーウーニーのためにナキーブ職を務め、さらに同地のヒスバ、ナーズィル・アル＝ハーッスのウスターダール職その他も務めた。評判の良い人ではなかったが、以前からの面識ゆえにアッ＝ザーヒル・フシュカダムに近侍し、そのためエジプトのカーディーたちは彼を代理に任じていた。74年ジュマーダー第二月に没した。神が彼を赦されんことを。
   en: Muḥammad b. Ibrāhīm b. Muḥammad b. Muḥammad, al-Shams, al-Yāsūfī by origin, al-Dimashqī al-Shāfiʿī, one of the deputy judges in Cairo and father of the Muḥammad who will come below. He served as naqīb for al-Bāʿūnī in Damascus, and indeed held its ḥisba, the office of ustādār to the nāẓir al-khāṣṣ, and other posts. He was not well regarded, but he became close to al-Ẓāhir Khushqadam because of an earlier acquaintance with him, and for that reason the judges of Egypt used to appoint him as their deputy. He died in Jumādā II of the year 74; may God pardon him.

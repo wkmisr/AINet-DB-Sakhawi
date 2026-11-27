@@ -9,67 +9,60 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00006
-    quote: البصري
+    mention: m11
   - id: n3
     type: shuhrah
-    quote: بابن شكر
-    norm: ابن شكر
     label: ابن شكر
+    mention: m12
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسين
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: شكر
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: علي
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m7
   - id: n11
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m8
   - id: n12
     type: nasab
-    quote: سليمان
     by: rule
+    mention: m9
 death:
   id: d
   date:
     ah: 840-12
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m13
   note:
     ar: مات بمكة في ذي الحجة سنة أربعين أيضا
     ja: 840-12＝1437-06-15 開始、月精度 1437-06。「أيضا」は直前の D08062（840没）を受ける。
-  quote: سنة
+  mention: m15
 persons:
 - id: p1
   label: علي بن حسين بن شكر
@@ -82,21 +75,81 @@ relations:
   subtype: father
   active: AIND-D08063#p1
   passive: AIND-D08063
-  quote: null
   note:
     ja: '規則3 (c'')。父 علي بن حسين بن شكر الحسني البصري は corpus に本伝なし（hw.py「شكر」の見出しは D03252 سيف بن شكر・D03328 شكر القائد 等マッカの別家系のみ）、ID-Master 未登録。ラカブ等の識別要素なし → #NEEDID。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m17
   cert: low
   note:
     ja: 'Pattern A。没年 840（≤871）＝ابن فهد 振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の chronicler relation を置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: حسين
+- id: m4
+  kind: name
+  quote: شكر
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: علي
+- id: m7
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m8
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m9
+  kind: name
+  quote: سليمان
+- id: m10
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m11
+  kind: name
+  ref: TMP-N-00006
+  quote: البصري
+- id: m12
+  kind: name
+  quote: بابن شكر
+  norm: ابن شكر
+- id: m13
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m14
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m15
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m16
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m17
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アリー・ブン・フサイン・ブン・シュクル・ブン・ムハンマド・ブン・アリー・ブン・ヤフヤー・ブン・アフマド・ブン・スライマーン、アル＝ハサニー、アル＝バスリー、イブン・シュクルとして知られる。彼もまた840年ズー・アル＝ヒッジャ月にマッカで没した。イブン・ファハドが没年を記している。
   en: Muḥammad b. ʿAlī b. Ḥusayn b. Shukr b. Muḥammad b. ʿAlī b. Yaḥyā b. Aḥmad b. Sulaymān al-Ḥasanī al-Baṣrī, known as Ibn Shukr. He too died in Mecca in Dhū al-Ḥijja of the year 840. Ibn Fahd recorded his date of death.

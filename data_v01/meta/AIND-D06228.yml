@@ -9,36 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00001
-    quote: الكيلاني
+    mention: m5
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: الخواجا شيخ علي
     by: rule
-    ref: AIND-D05451
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الكريم
     by: rule
+    mention: m4
 birth:
   id: b
   date:
     ah: 820
   places:
-  - ref: gn:109223
-    quote: بالمدينة النبوية
-    norm: المدينة النبوية
+  - mention: m7
   note:
     ja: 「ولد في سنة عشرين وثمانمائة بالمدينة النبوية」。
-  quote: سنة
+  mention: m6
 death:
   id: d
   date:
@@ -46,14 +42,13 @@ death:
     cert: low
   note:
     ja: 「وسافر إلى كنباية من بلاد الهند في سنة اثنتين وخمسين ففقد في البحر」＝852年、インドのカンバーヤへの航海中に海上で行方不明。死亡の明記ではないため cert low（repo 先例 D01892「فقد في سنة أربع وعشرين」→ death cert low）。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D05451
   passive: AIND-D06228
-  quote: null
   note:
     ja: '父＝#AIND-D05451「علي بن محمد بن عبد الكريم بن حسن الخواجا العلاء الكيلاني ثم المكي ويعرف بالشيخ علي」（848年アデンで没、享年103）。ナサブ4代・称号 الخواجا شيخ علي が一致（規則37）。兄弟 #AIND-D01054（أحمد، 生807マッカ「ويعرف أبوه بالخواجا شيخ علي」）・#AIND-D04274（عبد الكريم، 生810マッカ）は本項に言及なしのため note のみ。初版は father relation 欠落。'
   phrase: الخواجا شيخ علي بن محمد بن عبد الكريم الكيلاني
@@ -64,37 +59,86 @@ events:
     ah: 820
     type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: فقطنها
+  - mention: m8
   note:
     ja: 生年（820）のうちにマッカへ移り定住。
   trigger: rule
-  norm: قطنها
   phrase: وانتقل إلى مكة في أثنائها فقطنها
+  mention: m9
 - id: e2
   type: travel
   date:
     ah: 852
     type: travel
   places:
-  - ref: TMP-L-00067
-    quote: كنباية
-  quote: وسافر
+  - mention: m11
   trigger: rule
-  norm: سافر
   phrase: سافر إلى كنباية من بلاد الهند
+  mention: m10
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: ذكره
+  - mention: m14
   cert: low
   note:
     ja: 規則43（852 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外「biographical mention」relation を Pattern A に変換。
   trigger: rule
   phrase: ذكره ابن فهد
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: AIND-D05451
+  quote: الخواجا شيخ علي
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: عبد الكريم
+- id: m5
+  kind: name
+  ref: TMP-N-00001
+  quote: الكيلاني
+- id: m6
+  kind: year
+  value: '820'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بالمدينة النبوية
+  ref: gn:109223
+  norm: المدينة النبوية
+- id: m8
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m9
+  kind: event
+  quote: فقطنها
+  norm: قطنها
+- id: m10
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m11
+  kind: place
+  quote: كنباية
+  ref: TMP-L-00067
+- id: m12
+  kind: year
+  value: '852'
+  quote: سنة
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: カースィム・ブン・アル＝ハワージャ・シャイフ・アリー・ブン・ムハンマド・ブン・アブドゥルカリーム、アル＝キーラーニー。820年に預言者の町マディーナで生まれ、その年のうちにマッカへ移って定住した。852年にインド地方のカンバーヤへ旅立ったが、海上で行方不明となった。イブン・ファハドが彼に言及している。
   en: Qāsim b. al-Khawājā Shaykh ʿAlī b. Muḥammad b. ʿAbd al-Karīm al-Kīlānī. He was born in 820 in Medina and moved to Mecca in the course of that year, settling there. In 852 he travelled to Cambay (Kanbāya) in India and was lost at sea. Ibn Fahd mentioned him.

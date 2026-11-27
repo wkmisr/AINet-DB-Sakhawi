@@ -9,27 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00017
-    quote: العجمي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 882-01
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ja: 「مات بمكة في المحرم سنة اثنتين وثمانين」＝882年ムハッラム月＝1477-04-24 開始（h2g.py）、月精度。初版の @when 1477 を 1477-04 に。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: عبد الله
@@ -42,30 +39,62 @@ relations:
   subtype: father
   active: AIND-D07880#p1
   passive: AIND-D07880
-  quote: null
   note:
     ja: '父 عبد الله（العجمي、聖モスクの水運び人「السقاء بالمسجد الحرام كأبيه」）。職の情報はあるが祖父名まで復元できず、corpus に本伝もないため #NEEDID（規則3）。父の職は本項主の state にしない（他人の職）。初版の #TMP-P-000490（汚染番号）を除去。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00289
   orgs:
   - ref: wd:Q428858
-  quote: السقاء
   note:
     ja: '「السقاء بالمسجد الحرام كأبيه」＝聖モスクの水運び人（既登録 TMP-O-00289 السقا | سقا الحرم、先例 D04653）。初版 #NEEDID を置換。初版の state 内 placeName مكة（施設の所在地からの補完）と affiliation employed（المسجد الحرام、state と二重）を除去（規則22-1・8）。'
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: medium
   note:
     ja: 'Pattern A。没年 882（871＜882≦885）のため振り分け規則により النجم عمر بن فهد #AIND-D05979、cert medium（event 側、規則43）。初版の統制外 relation「recorded_by」（#AIND-D09211）を置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-00017
+  quote: العجمي
+- id: m4
+  kind: office
+  ref: TMP-O-00289
+  quote: السقاء
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '882'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アブドゥッラー・アル＝アジャミー、父と同じく聖モスクの水運び人。882年ムハッラム月にマッカで没した。イブン・ファハドが彼の没年を記している。
   en: Muḥammad b. ʿAbd Allāh al-ʿAjamī, water-carrier at the Sacred Mosque like his father. He died in Mecca in Muḥarram [8]82. Ibn Fahd dated him.

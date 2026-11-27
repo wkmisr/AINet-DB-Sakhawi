@@ -9,44 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00049
-    quote: الأنصاري
-    norm: الانصاري
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00218
-    quote: الخزرجي
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m9
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001217
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: عبد المعطى
     by: rule
-    norm: عبد المعطي
+    mention: m6
 birth:
   id: b
   date:
@@ -54,15 +47,14 @@ birth:
     cert: low
   note:
     ja: '逆算生年（cert low）: 803年に「بلغ الخمسين أو جازها ظنا」（推定50歳前後かそれ以上）から 803−50＝753頃。原文に生年の記載はない。'
-  quote: سنة
+  mention: m15
 death:
   id: d
   date:
     ah: 803
     cert: medium
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
+  - mention: m13
   note:
     en: He died in Yemen at the beginning of the year "three" (read as 803), having reached the age of fifty or, conjecturally, somewhat more.
     ja: 「سنة ثلاث」は一の位のみの表記 → 803、cert medium（2026-09-24 Waka 裁定）。没地「بها」＝直前の「رجع إليها」の إليها ＝ اليمن（「عاد لمكة ثم رجع إليها」の先行詞は文脈上 اليمن。照応、規則22(3)）。
@@ -70,21 +62,18 @@ relations:
 - id: r1
   type: kin
   subtype: brother
-  active: TMP-P-001218
+  active: m10
   passive: AIND-D04552
-  quote: القطب محمد
   note:
     ja: 'القطب محمد بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الأنصاري الخزرجي المكي。corpus の同父の子として #AIND-D08564「محمد بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي … الجمال أبو الفضل بن الجمال أبي عبد الله」（812年没）・#AIND-D11055「أبو الفضل بن محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الكمال … ويعرف بابن الصفي」（814年ザビード没）があるが、いずれもラカブが القطب ではなく同定できないため仮番号 TMP-P-001218 を発行（規則12、ISSUES §D89-3）。初版の #NEEDID を解消。'
   phrase: أخو القطب محمد
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001217
+  active: m11
   passive: AIND-D04552
-  quote: ويعرف أبوهما بابن الصفى
   note:
     ja: '父 ＝ الجمال أبو عبد الله محمد بن أحمد بن عبد الله بن محمد بن عبد المعطي الأنصاري الخزرجي المكي، ويعرف بابن الصفي（#AIND-D08564・#AIND-D11055 の父としても現れ、#AIND-D00844 の師「محمد بن أحمد بن عبد المعطي」も同一人物とみられる。801年以前没のため本伝なし）。初版の TMP-P-000373「ابن الصفى」は #AIND-D01359（アレクサンドリアの ابن شافع の師）で発行された注記なしの別文脈の番号であり、マッカのこの人物とは同定できないため仮番号 TMP-P-001217 を新規発行（ISSUES §D89-3）。'
-  norm: ويعرف ابوهما بابن الصفي
 - id: r3
   type: kin
   subtype: ancestor
@@ -92,45 +81,107 @@ relations:
   passive: AIND-D04552
   summary:
     ar: الصفي الطبري (جد أبيه لأمه)
-  quote: null
   note:
     ja: 父の母方祖父（本項主の曾祖父）。初版の subtype="grandfather" は誤り（祖父ではない）のため ancestor に修正。الصفي الطبري（マッカの الطبري 家、corpus では「ابن الصفي الطبري」「عثمان بن الصفي الطبري」として子が現れる。8世紀前半の人物で本伝なし）に仮番号 TMP-P-001219 を発行。
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: وسكن
+  - mention: m13
   trigger: rule
-  norm: سكن
   phrase: سكن اليمن سنين
+  mention: m12
 - id: e2
   type: visit
   places:
-  - ref: gn:104515
-    quote: لمكة
-    norm: مكة
-  quote: ثم عاد لمكة
+  - mention: m14
+  phrase: ثم عاد لمكة
+  mention: null
 - id: e3
   type: visit
   places:
-  - ref: TMP-L-00037
-    quote: اليمن
-  quote: ثم رجع إليها وبها توفي
+  - mention: m13
   note:
     ja: 「إليها」＝اليمن（照応、規則22(3)）。
-  norm: ثم رجع اليها وبها توفي
+  phrase: ثم رجع إليها وبها توفي
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D06757
-    quote: القاسي
-  quote: قاله
+  - mention: m17
   note:
     ja: Pattern A。「القاسي」は「الفاسي」の OCR 誤読（التقي الفاسي＝#AIND-D06757、マッカ史『العقد الثمين』の著者。「في مكة」＝マッカ史における記載）。
   trigger: rule
   phrase: قاله القاسي في مكة
+  mention: m16
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001217
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: عبد الله
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عبد المعطى
+  norm: عبد المعطي
+- id: m7
+  kind: name
+  ref: TMP-N-00049
+  quote: الأنصاري
+  norm: الانصاري
+- id: m8
+  kind: name
+  ref: TMP-N-00218
+  quote: الخزرجي
+- id: m9
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m10
+  kind: person
+  ref: TMP-P-001218
+  quote: القطب محمد
+- id: m11
+  kind: person
+  ref: TMP-P-001217
+  quote: ويعرف أبوهما بابن الصفى
+  norm: ويعرف ابوهما بابن الصفي
+- id: m12
+  kind: event
+  quote: وسكن
+  norm: سكن
+- id: m13
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m14
+  kind: place
+  quote: لمكة
+  ref: gn:104515
+  norm: مكة
+- id: m15
+  kind: year
+  value: '753'
+  quote: سنة
+- id: m16
+  kind: source
+  quote: قاله
+- id: m17
+  kind: person
+  ref: AIND-D06757
+  quote: القاسي
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アフマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・アブド・アル＝ムウティー・アル＝アンサーリー・アル＝ハズラジー・アル＝マッキー。アル＝クトゥブ・ムハンマドの兄弟で、彼ら二人の父は、その母方の祖父アッ＝サフィー・アッ＝タバリーにちなんでイブン・アッ＝サフィーとして知られていた。聴聞し、イエメンに数年住んだのち、マッカに戻り、さらにイエメンへ帰ってそこで（八百）三年の初めに没した。推定では50歳に達していたか、それを超えていた。アル＝ファースィーがマッカ（史）でそう述べている。
   en: ʿAbd Allāh b. Muḥammad b. Aḥmad b. ʿAbd Allāh b. Muḥammad b. ʿAbd al-Muʿṭī al-Anṣārī al-Khazrajī al-Makkī, brother of al-Quṭb Muḥammad; their father was known as Ibn al-Ṣafī after his maternal grandfather al-Ṣafī al-Ṭabarī. He heard (ḥadīth), lived in Yemen for some years, then returned to Mecca, then went back to Yemen and died there at the beginning of the year (80)3, having reached the age of fifty or, conjecturally, passed it. Al-Fāsī said so in (his history of) Mecca.

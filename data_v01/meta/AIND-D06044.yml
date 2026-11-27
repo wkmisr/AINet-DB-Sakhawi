@@ -9,21 +9,17 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00164
-    quote: الكردي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-02144
-    quote: الأباريقي
-    norm: الاباريقي
+    mention: m4
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
 death:
   id: d
   date:
@@ -33,46 +29,83 @@ death:
     role: burial
   note:
     ja: 「مات في سلخ ذي القعدة سنة ستين ودفنه المناوي بتربته المجاورة لباب مقام الشافعي القبلي المسمى بباب الصعيد」。سلخ ＝ 月末日。860-11-29 ＝ 1456-11-07（30日なら 11-08。先例どおり29日で符号化）。没地は原文に明記なし（初版の القاهرة は推定のため除去）。埋葬地 ＝ الشرف المناوي（#AIND-D10313）の墓廟（新規 TMP-I-00218。所在は مقام الشافعي（#TMP-I-00173）の南門「باب الصعيد」に隣接）。
-  quote: سنة
+  mention: m8
 relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D10313
+  active: m6
   passive: AIND-D06044
   summary:
     ar: الشرف المناوي
-  quote: وللشرف المناوي
   note:
     ja: '「وللشرف المناوي فمن يليه فيه اعتقاد … ودفنه المناوي بتربته」＝ الشرف المناوي とその下の人々が本項主を篤く信じ、المناوي が自分の墓廟に本項主を葬った。الشرف المناوي ＝ #AIND-D10313（يحيى بن محمد … الشرف أبو زكريا … المناوي القاهري الشافعي、798年生・871年没。本項主の没年 860 と整合）。同名の #AIND-D10815（أبو بكر … الشرف بن التاج المناوي、809年没）は年代が合わない。信奉関係は先例 D04677・D05812 の subtype other。初版の統制外 subtype「venerator」＋#NEEDID を是正。'
-  norm: لشرف المناوي
 states:
 - id: s1
   type: office
   ref: TMP-O-00323
-  quote: null
   note:
     ja: '「كان بمصر يبيع الأباريق المدهونة」。ID-Master に水差し売りの職は未登録（الأباريقي TMP-N-02144 はニスバ）のため新規 TMP-O-00323 を発行（職業由来ニスバを Office にも立てた先例: النجار＝TMP-O-00300）。'
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
-  quote: كان بمصر يبيع الأباريق المدهونة
-  norm: كان بمصر يبيع الاباريق المدهونة
+  - mention: m5
+  phrase: كان بمصر يبيع الأباريق المدهونة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: TMP-P-000342
-    quote: المنير
-  quote: أرخه
+  - mention: m10
   note:
     ja: Pattern A。「المنير」＝ ID-Master 登録の ابن المنير（TMP-P-000342、表記「المنير | ابن المنير」。言及者として D01144 等にも出現）。本項は「المنير」のみの表記。初版の統制外 subtype「historian」relation を event に置換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه المنير
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-N-00164
+  quote: الكردي
+- id: m3
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m4
+  kind: name
+  ref: TMP-N-02144
+  quote: الأباريقي
+  norm: الاباريقي
+- id: m5
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m6
+  kind: person
+  ref: AIND-D10313
+  quote: وللشرف المناوي
+  norm: لشرف المناوي
+- id: m7
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m8
+  kind: year
+  value: '860'
+  quote: سنة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: TMP-P-000342
+  quote: المنير
 translation:
   ja: ウマル・アル＝クルディー、のちにアル＝ミスリー、アル＝アバーリーキー。ミスル（エジプト）で釉薬を塗った水差し（アバーリーク）を売っていた。アッ＝シャラフ・アル＝ムナーウィーとその下の人々は彼を篤く信じていた。（8）60年ズー・アル＝カアダ月の末日に没し、アル＝ムナーウィーが、バーブ・アッ＝サイード（上エジプト門）と呼ばれるシャーフィイー廟の南門に隣接する自身の墓廟に彼を葬った。アル＝ムニールがその没年月日を記している。
   en: ʿUmar al-Kurdī, later al-Miṣrī, al-Abārīqī. He was in Miṣr (Egypt) selling glazed ewers (abārīq), and al-Sharaf al-Munāwī and those below him held him in devout regard. He died on the last day of Dhū al-Qaʿda of the year (8)60, and al-Munāwī buried him in his own tomb adjoining the southern gate of the shrine of al-Shāfiʿī, called Bāb al-Ṣaʿīd. Al-Munīr recorded his death date.

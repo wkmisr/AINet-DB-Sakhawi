@@ -9,28 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m5
   - id: n2
     type: laqab
-    quote: التقي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: رمضان
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m6
 persons:
 - id: p1
   label: رمضان بن عبد الله المصري
@@ -43,28 +41,54 @@ relations:
   subtype: father
   active: AIND-D07394#p1
   passive: AIND-D07394
-  quote: null
   note:
     ja: '見出しナサブから復元。corpus に本伝なし（#AIND-D00735「أحمد بن رمضان بن عبد الله الشهاب السليماني ثم الحلبي」はニスバが異なり兄弟とは断定できない）、識別要素なし → #NEEDID（規則3）。初版は father relation なし。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D07394
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m8
     phrase: ممن سمع مني بمكة
-  quote: مني
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: رمضان
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: التقي
+- id: m5
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m6
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: ムハンマド・ブン・ラマダーン・ブン・アブドゥッラー、アッ＝タキー、アル＝ミスリー、ハナフィー派。マッカで私（サハーウィー）から聴聞した者の一人。
   en: Muḥammad b. Ramaḍān b. ʿAbd Allāh al-Taqī al-Miṣrī al-Ḥanafī. He was among those who heard (ḥadīth) from me in Mecca.

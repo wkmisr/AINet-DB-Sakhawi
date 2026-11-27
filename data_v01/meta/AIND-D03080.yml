@@ -9,64 +9,82 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m4
   - id: n2
     type: ism
-    quote: سعد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-000878
-    norm: احمد
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D03080
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m7
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-000878
+  active: m5
   passive: AIND-D03080
-  quote: بابن ناصر
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「أحمد بن علي المكي البنا ويعرف بابن ناصر」。'
-  norm: ابن ناصر
   phrase: أحمد
 states:
 - id: s1
   type: office
   ref: TMP-O-00187
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m7
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m7
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: سعد
+- id: m2
+  kind: name
+  ref: TMP-P-000878
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m5
+  kind: person
+  ref: TMP-P-000878
+  quote: بابن ناصر
+  norm: ابن ناصر
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: サアド・ブン・アフマド・ブン・アリー・アル＝マッキー・アル＝バンナー。彼の父はイブン・ナーシルとして知られる。マッカで私から（ハディースを）聴聞した者の一人である。
   en: Saʿd b. Aḥmad b. ʿAlī al-Makkī al-Bannāʾ. His father was known as Ibn Nāṣir. He was among those who heard from me (al-Sakhāwī) in Mecca.

@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n2
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n3
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: عمران
     by: rule
+    mention: m4
 death:
   id: d
   date:
@@ -37,7 +35,7 @@ death:
     cert: medium
   note:
     ja: 「مات بها في رمضان سنة سبعين」。「بها」の先行詞は本項内にはなく見出しのニスバ المكي に依る＝B149-153 D08129 の裁定（ニスバしか先行詞がない「بها」は規則22(3) の所有代名詞に準じて cert medium）に揃えて مكة cert medium。870-09＝1466-04-26〜1466-05-25（月精度。初版の @when 1465 は年初の値で誤り、規則18）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: حسن بن عمر بن عمران
@@ -50,47 +48,84 @@ relations:
   subtype: father
   active: AIND-D10058#p1
   passive: AIND-D10058
-  quote: null
   note:
     ja: '見出し「موسى بن حسن بن عمر بن عمران المكي」の父 حسن بن عمر بن عمران المكي。候補: #AIND-D02610「465 حسن بن عمر بن محمد بن موسى بن عمران المكي الوكيل بأبواب الحكام . مات بمكة في شوال سنة سبع وثلاثين」（中間2代 محمد بن موسى を省いた形と読めば一致し、本項主の名 موسى は高祖父名と一致する。hw.py「بن عمران」＋「المكي」で حسن بن عمر はこの1人）。【集約 2026-11-05】一致は名・父名・遠祖 عمران・ニスバ المكي のみで、ラカブ・職による閉合がない（父の職「الوكيل بأبواب الحكام」は本項に出ない）＝規則26・57 の下限未満。校閲の #AIND-D02610 cert medium を #NEEDID にし、D02610 は候補として本 note に留める（内容B M、オーケストレーター決定7、§D157-7）。父自身に識別要素がないので TMP-P も発行しない（規則3 (c'')）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D00196
+  active: m10
   passive: AIND-D10058
   summary:
     ar: البرهاني
   cert: medium
-  quote: للبرهاني
   note:
     ja: '「ينتمي للبرهاني القاضي」＝「仕えた・属した」型（規則56、patron）。البرهاني القاضي ＝ #AIND-D00196（إبراهيم بن علي بن محمد بن محمد بن حسين … بن ظهيرة … البرهان … ، マッカのカーディー）。repo 先例 #AIND-D05931「لازم خدمة البرهاني القاضي」も D00196 を patron としている。870年のマッカで「البرهاني القاضي」はこの人物に固定される呼称（規則26 例外2）なので cert medium。初版の統制外 relation「associated person」（#NEEDID）を置換。【集約 2026-11-05】desc は相手の呼称「البرهاني」のみとし、職名 القاضي（原文「ينتمي للبرهاني القاضي」）は本 note に（規則31、内容B L・機械 L、決定8）。'
-  norm: لبرهاني
 states:
 - id: s1
   type: office
   ref: TMP-O-00355
-  quote: null
   note:
     ja: '「وكان متسببا」＝生業（商い）に従事する者。TMP-O-00355（先例 #AIND-D07308）。'
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00387
-  quote: الإعلام بتمييز الجراحات
   note:
     ja: '「وقدمه في الإعلام بتمييز الجراحات」＝カーディー（البرهاني）が本項主を、傷害の鑑別（傷の種類・程度の判定）を法廷に報告する役に起用した。ID-Master の Office に該当なし（語根 علم・جرح で grep: كتابة العلامة O-00214・رئيس الجرائحية O-00365 は別実体）＝TMP-O-00387。初版はこの句を「イブン・ファハドが『الإعلام』（書名）で紹介した」と誤読して event にしていた。'
-  norm: الاعلام بتمييز الجراحات
+  mention: m11
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 'Pattern A。没年 870（≤871）＝振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43・58）。初版の統制外 relation「chronicler」を置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  quote: عمران
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m7
+  kind: year
+  value: '870'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m10
+  kind: person
+  ref: AIND-D00196
+  quote: للبرهاني
+  norm: لبرهاني
+- id: m11
+  kind: office
+  ref: TMP-O-00387
+  quote: الإعلام بتمييز الجراحات
+  norm: الاعلام بتمييز الجراحات
 translation:
   ja: ムーサー・ブン・ハサン・ブン・ウマル・ブン・イムラーン・アル＝マッキー。870年ラマダーン月に同地（マッカ）で没した。イブン・ファハドがその没年を記録している。彼は生業に従事する者（ムタサッビブ）で、カーディーのアル＝ブルハーニーに属し、彼（アル＝ブルハーニー）は彼を傷害の鑑別を（法廷に）報告する役に起用した。
   en: Mūsā b. Ḥasan b. ʿUmar b. ʿImrān al-Makkī. He died there (in Mecca) in Ramaḍān of the year 870. Ibn Fahd recorded his date (of death). He was a tradesman (mutasabbib) attached to al-Burhānī the judge, who put him forward for giving (court) notification on the assessment of wounds.

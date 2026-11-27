@@ -9,29 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: كرتباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 889-01
   places:
-  - ref: TMP-L-00151
-    quote: مصلى المؤمني
-    norm: مصلي المءمني
-  - ref: TMP-I-00137
-    role: burial
-    quote: بتربة السلطان
-    norm: تربة السلطان
+  - mention: m8
+  - role: burial
+    mention: m9
   note:
     ja: '889年ムハッラム月（1484-02-08〜03-08、h2g.py）没。葬礼は مصلى المؤمني（カイロ砂漠墓域の礼拝所、ID-Master TMP-L-00151）、埋葬は「تربة السلطان」＝時のスルターン（アル＝アシュラフ・カーイトバーイ、872〜901在位）の墓廟＝ID-Master 既登録 TMP-I-00137「تربة الأشرف قايتباي」（カイロ北墓地の廟複合体）。兄弟 جانم の本伝 #AIND-D02391 でも「مشى الامراء … إلى تربة السلطان فدفن بالقبة الكبرى منها」と同じ呼称。市内の المدرسة الأشرفية قايتباي（wd:Q138136028）とは別実体（ID-Master の注記どおり）。初版 #NEEDID。'
-  quote: سنة
   phrase: مات في المحرم سنة تسع وثمانين وصلى عليه في مصلى المؤمني ودفن بتربة السلطان
+  mention: m7
 persons:
 - id: p1
   label: والد كرتباي الأشرفي قايتباي
@@ -42,26 +36,23 @@ relations:
   subtype: father
   active: AIND-D06387#p1
   passive: AIND-D06387
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02391
+  active: m5
   passive: AIND-D06387
   cert: medium
-  quote: جانم
   note:
     ja: '「وأخو جانم」。corpus の جانم الأشرفي قايتباي は2人: #AIND-D02391「جانم الاشرفي قايتباي ابن أخي السلطان … مات مسموما … في ربيع الآخر سنة أربع وثمانين … وصلى عليه بمصلى المؤمنين … إلى تربة السلطان فدفن بالقبة الكبرى منها」と #AIND-D02392「جانم الاشرفي قايتباي ويعرف بالأشقر أحد العشرات … مات في المحرم سنة اثنتين وثمانين」。本項主が「قريبه（スルターンの親族）」とされ、同じ مصلى المؤمني で葬礼・تربة السلطان に埋葬されている点が D02391（スルターンの甥）と整合するので D02391 を充て、確証はないので cert medium（規則26、ISSUES §D139-1）。初版の幻番号 TMP-P-000000 を置換。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m3
   passive: AIND-D06387
   summary:
     ar: الأشرف قايتباي
-  quote: قايتباي
   note:
     ja: 主人ニスバ「الأشرفي قايتباي」＋「أحد خاصكيته」＝スルターン・アル＝アシュラフ・カーイトバーイ（#AIND-D06305）のハーッサキー（規則51）。初版の統制外 subtype「client」を patron に。corresp wd:Q557847 は ID-Master 未確認のため除去（先例 D06197）。
 - id: r4
@@ -71,20 +62,57 @@ relations:
   passive: AIND-D06387
   summary:
     ar: الأشرف قايتباي
-  quote: null
   note:
     ja: 「بل قريبه」＝むしろ（マムルークというより）カーイトバーイの親族。続柄の詳細は原文に無い。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيته
   note:
     ja: 「أحد خاصكيته」。勤務地は原文に明記されないので初版の placeName القاهرة を除去（規則22）。
+  mention: m4
 notes:
 - text: 'corpus #AIND-D02284（تمراز الشمسي الأشرفي برسباي العزيزي）の本文に「انفصل عنها بكرتباي الاشرفي قايتباي」（البحيرة の職を كرتباي الأشرفي قايتباي に交代）とあり本項主を指す可能性があるが、年代（889年ジュマーダー1月以降の記述）と本項主の没月（889年ムハッラム）の整合が取れないため relation・state は立てない（note のみ）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: كرتباي
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+- id: m5
+  kind: person
+  ref: AIND-D02391
+  quote: جانم
+- id: m6
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m7
+  kind: year
+  value: '889'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: مصلى المؤمني
+  ref: TMP-L-00151
+  norm: مصلي المءمني
+- id: m9
+  kind: place
+  quote: بتربة السلطان
+  ref: TMP-I-00137
+  norm: تربة السلطان
 translation:
   ja: クルトバーイ・アル＝アシュラフィー・カーイトバーイ。彼（カーイトバーイ）のハーッサキーの一人、というよりその親族であり、ジャーニムの兄弟。889年ムハッラム月に没し、ムサッラー・アル＝ムウミニーで葬礼が行われ、スルターンの墓廟に葬られた。
   en: Kurtbāy al-Ashrafī Qāytbāy, one of his (Qāytbāy's) khāṣṣakīs, or rather his relative, and the brother of Jānim. He died in Muḥarram of the year 889; the funeral prayer was performed over him at Muṣallā al-Muʾminī and he was buried in the Sultan's mausoleum.

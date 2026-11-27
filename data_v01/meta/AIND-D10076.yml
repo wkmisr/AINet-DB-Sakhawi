@@ -9,42 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00152
-    quote: البوصيري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n4
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n5
     type: nasab
-    quote: عمران
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
     ah: 856
   note:
     ja: 856＝1452-02-01〜1453-01-20（h2g.py）、年精度 1452。
-  quote: سنة
   phrase: مات سنة ست وخمسين وثمانمائة
+  mention: m9
 persons:
 - id: p1
   label: عمران بن موسى
@@ -57,20 +52,17 @@ relations:
   subtype: father
   active: AIND-D10076#p1
   passive: AIND-D10076
-  quote: null
   note:
     ja: 規則3 (c')。父 عمران بن موسى البوصيري は識別要素がなく corpus に見出しなし（hw.py「عمران」「البوصيري」は本項と甥 D06779 のみ。「عمران بن موسى」は別家系 D04857・D05313・D09468 のみ）。
 - id: r2
   type: kin
   subtype: siblings_child
-  active: AIND-D06779
+  active: m8
   passive: AIND-D10076
   summary:
     ar: ناصر الدين محمد بن أحمد بن عمران
-  quote: ناصر الدين محمد بن أحمد ين عمران
   note:
     ja: 「عم ناصر الدين محمد بن أحمد بن عمران الماضي」＝本項主は甥の叔父。甥＝#AIND-D06779「محمد بن أحمد بن عمران ناصر الدين البوصيري ثم القاهري الحنفي مباشر مدرسة الجائي」。ナサブ（بن أحمد بن عمران）＋ラカブ＋ニスバ（البوصيري ثم القاهري）で閉合。原文の「ين عمران」は刊本の「بن」の誤植と見られるが source note は原文のまま（規則25）。repo 統制語彙 siblings_child（31件、active＝甥）。
-  norm: ناصر الدين محمد بن احمد ين عمران
 affiliations:
 - id: a1
   type: madhhab
@@ -79,6 +71,42 @@ notes:
 - text: '「مباشر المدرسة الألجيهية」は直前の甥 ناصر الدين محمد … الماضي にかかる同格句と読む（甥の本伝 #AIND-D06779 が「مباشر مدرسة الجائي」と同じ職を記す）。他人の職なので本項主の state・affiliation にしない（初版の state مباشر・affiliation employed を除去）。本項主の職と読む可能性は §D158-3 に記録。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: عمران
+- id: m3
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00152
+  quote: البوصيري
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D06779
+  quote: ناصر الدين محمد بن أحمد ين عمران
+  norm: ناصر الدين محمد بن احمد ين عمران
+- id: m9
+  kind: year
+  value: '856'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・イムラーン・ブン・ムーサー、アッ＝シャラフ、アル＝ブースィーリー、のちアル＝カーヒリー、アッ＝シャーフィイー。前述の、アル＝アルジーヒーヤ学院の管理官（ムバーシル）ナースィル・アッ＝ディーン・ムハンマド・ブン・アフマド・ブン・イムラーンの叔父。856年に没した。
   en: Mūsā b. ʿImrān b. Mūsā, al-Sharaf al-Būṣīrī, then al-Qāhirī, al-Shāfiʿī, paternal uncle of the aforementioned Nāṣir al-Dīn Muḥammad b. Aḥmad b. ʿImrān, the administrator (mubāshir) of al-Madrasa al-Aljīhiyya. He died in the year 856.

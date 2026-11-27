@@ -9,71 +9,103 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04025
-    quote: الكشطوخي
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: laqab
-    quote: الفخر
+    mention: m5
   - id: n4
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00958
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D04838
   methods:
   - TMP-S-00006
   works:
   - ref: TMP-T-00095
-  quote: علي
   note:
     ja: 原文「ممن حفظ القرآن وكتبا عرضها علي في آخرين」。クルアーンと（書名不詳の）諸書を暗記し、他の者たちとともに私（サハーウィー）に提示した。初版の field（القراءات）は原文に根拠がないため除去。
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D00958
+  active: m8
   passive: AIND-D04838
   summary:
     ar: أحمد بن عثمان بن أحمد الكشطوخي الماضي
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」。父 ＝ #AIND-D00958「أحمد بن عثمان بن أحمد القجطوخي ثم القاهري الأزهري المالكي أبو عثمان … وهو قارئ الحديث عند تغري بردي القادري الاستادار」（ニスバの綴り الكشطوخي／القجطوخي は刊本の揺れ。同じく تغري بردي الاستادار に仕えた点も一致）。'
-  norm: ابوه
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D02273
+  active: m10
   passive: AIND-D04838
-  quote: تغري بردى الاستادار
   note:
     ja: '原文「ثم لزم كأبيه خدمة تغري بردى الاستادار」。تغري بردي الأستادار ＝ #AIND-D02273（تغرى بردي من يلباي الظاهري القادري … الاستادار。repo D04013 の同定先例）。初版の subtype「client」（#NEEDID）を規則15に沿って patron（active＝相手）に是正。'
-  norm: تغري بردي الاستادار
 events:
 - id: e1
   type: cultural
-  quote: حضر بعض الدروس
+  phrase: حضر بعض الدروس
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: AIND-D00958
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: الفخر
+- id: m6
+  kind: name
+  ref: TMP-N-04025
+  quote: الكشطوخي
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: person
+  ref: AIND-D00958
+  quote: أبوه
+  norm: ابوه
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m10
+  kind: person
+  ref: AIND-D02273
+  quote: تغري بردى الاستادار
+  norm: تغري بردي الاستادار
 translation:
   ja: ウスマーン・ブン・アフマド・ブン・ウスマーン・ブン・アフマド、アル＝ファフル、アル＝カシュトゥーヒー、のちアル＝カーヒリー。その父は前出。クルアーンと諸書を暗記し、他の者たちとともにそれらを私（サハーウィー）に提示した者の一人で、いくつかの講義に出席した。その後、父と同じくアスタダールのタグリー・ビルディーへの奉仕に専従した。
   en: ʿUthmān b. Aḥmad b. ʿUthmān b. Aḥmad, al-Fakhr, al-Kashṭūkhī, then al-Qāhirī. His father was mentioned above. He was among those who memorized the Qurʾān and some books and presented them to me (al-Sakhāwī) along with others, and he attended some lessons. Then, like his father, he devoted himself to the service of Taghrī Birdī al-Ustādār.

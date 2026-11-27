@@ -9,70 +9,108 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشرف
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن النجيب
-    norm: ابن النجيب
     label: ابن النجيب
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: نجيب
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 803
     cert: medium
   places:
-  - ref: wd:Q1477613
-    quote: قلعة الروم
+  - mention: m8
   note:
     ja: 原文「سنة ثلاث」は一の位のみ。2026-09-24 Waka 裁定により 803 年（cert medium）。ابن خطيب الناصرية（843没）の記述を『إنباء الغمر』（773〜850年を扱う）が踏襲していることと整合。803年＝1400-08-31〜1401-08-19（グレゴリオ暦）、年初 1400。قلعة الروم（ユーフラテス河畔の城塞、別名 قلعة المسلمين。corpus D04835「قلعة المسلمين المعروفة بقلعة الروم」）は ID-Master 未登録のため仮番号 TMP-L-00291 を発行。
-  quote: سنة
   phrase: مات في قلعة الروم سنة ثلاث
+  mention: m9
 states:
 - id: s1
   type: office
-  ref: TMP-O-00045
   places:
   - ref: gn:170063
-  quote: ناظر الجيش
   note:
     ja: 「بها」の先行詞はニスバ الحلبي の地 حلب のみ（他に候補なし）。規則22(3) の照応（先行詞がニスバに限られる）として cert="medium" で保持。
   phrase: ناظر الجيش بها
+  mention: m6
 sources:
 - id: c1
   persons:
-  - ref: wd:Q57420531
-    quote: ابن خطيب الناصرية
-  quote: ذكره
+  - mention: m11
   note:
     ja: Pattern A。初版は統制外 subtype「biographer」の relation。
   trigger: rule
   phrase: ذكره ابن خطيب الناصرية مطولا
+  mention: m10
 - id: c2
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m12
   works:
   - ref: TMP-T-00034
-  quote: وتبعه شيخنا في أنبائه
   note:
     ja: Pattern A。شيخنا＝ابن حجر（wd:Q471116）、أنبائه＝『إنباء الغمر』（#TMP-T-00034）。
-  norm: تبعه شيخنا في انباءه
+  phrase: وتبعه شيخنا في أنبائه
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  quote: نجيب
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: الشرف
+- id: m5
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m6
+  kind: office
+  ref: TMP-O-00045
+  quote: ناظر الجيش
+- id: m7
+  kind: name
+  quote: بابن النجيب
+  norm: ابن النجيب
+- id: m8
+  kind: place
+  quote: قلعة الروم
+  ref: wd:Q1477613
+- id: m9
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m10
+  kind: source
+  quote: ذكره
+- id: m11
+  kind: person
+  ref: wd:Q57420531
+  quote: ابن خطيب الناصرية
+- id: m12
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥッラー・ブン・ナジーブ・ブン・アブドゥッラー、アッ＝シャラフ・アル＝ハラビー。同地（ハラブ）の軍務監督官（ナーズィル・アル＝ジャイシュ）で、イブン・アン＝ナジーブとして知られる。善良で信仰篤く、理性的で物静か、大柄で長たる風格があり、貧者と義人を愛する人であった。〔8〕03年にカルアト・アッ＝ルームで没した。イブン・ハティーブ・アン＝ナースィリーヤが彼について詳しく記し、我らが師（イブン・ハジャル）もその『インバー』でそれに従った。
   en: ʿAbd Allāh b. Najīb b. ʿAbd Allāh, al-Sharaf al-Ḥalabī, the army inspector (nāẓir al-jaysh) there [in Aleppo], known as Ibn al-Najīb. He was a good, pious, sensible and calm man, a stout man of leading stature, who loved the poor and the righteous. He died in Qalʿat al-Rūm in the year [8]03. Ibn Khaṭīb al-Nāṣiriyya mentioned him at length, and our shaykh [Ibn Ḥajar] followed him in his Inbāʾ.

@@ -9,107 +9,92 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00244
-    quote: العباسي
+    mention: m11
   - id: n2
     type: nisbah
-    ref: TMP-N-00081
-    quote: الحموي
+    mention: m12
   - id: n3
     type: laqab
-    quote: محيي الدين
+    mention: m8
   - id: n4
     type: kunyah
-    quote: أبو الفضل
-    norm: ابو الفضل
+    mention: m9
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03553
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    ref: AIND-D00657
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: حسين
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: داود
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: سالم
     by: rule
+    mention: m6
   - id: n11
     type: nasab
-    quote: معالي
     by: rule
+    mention: m7
   - id: n12
     type: nasab
-    quote: الموفق أبي ذر
     by: rule
-    norm: الموفق ابي ذر
+    mention: m10
   - id: n13
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m13
 death:
   id: d
   date:
     ah: 882
   places:
-  - ref: gn:170654
-    quote: دمشق
+  - mention: m18
   note:
     ar: ومات بدمشق حين رجوعه من القاهرة إلى بلده في طاعون سنة اثنتين وثمانين رحمه الله
     ja: '原文「سنة اثنتين وثمانين」は百位を省く著者の常套。父 #AIND-D03553（831年生、879年にダマスカスの نظر الجيش）・祖父 #AIND-D00657（795年生）から 9 世紀＝882年と確定（初版の 782／1380 は誤り）。882年＝1477-04-24〜1478-04-12 → 年初 1477（h2g.py）。'
-  quote: سنة
+  mention: m21
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03553
+  active: m14
   passive: AIND-D07533
   summary:
     ar: الموفق أبو ذر العباسي الحموي الماضي أبوه
-  quote: أبوه
   note:
     ja: 父＝#AIND-D03553（عبد الرحمن بن أحمد بن حسن بن داود بن سالم بن معالي موفق الدين أبو ذر بن الشهاب العباسي الحموي ثم الدمشقي الحنبلي、831年生・893年没）。同項「ثم تركه لولده الأكبر أبي الفضل محمد واستقر هو في نظر الجيش بدمشق سنة تسع وسبعين」で本項主（ハマーのカーディー職を継いだ長子 أبو الفضل محمد）に閉合。年は本項 878／父項 879 で1年の異同（note）。見出しの「حسين」は父・祖父の本伝では「حسن」。
-  norm: ابوه
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D00657
+  active: m15
   passive: AIND-D07533
   summary:
     ar: أحمد بن حسين بن داود الماضي جده
-  quote: وجده
   note:
     ja: 祖父＝#AIND-D00657（أحمد بن حسن بن داود بن سالم بن معالي الشهاب العباسي الحموي الحنبلي、795年生、825年からハマーのカーディー）。
-  norm: جده
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:170017
-    quote: حماة
+  - mention: m17
   dates:
   - ah: 878
     type: appointment
-  quote: قضاء
   note:
     ja: '「ولي قضاء حماة حين انتقل أبوه إلى دمشق على نظر جيشها سنة ثمان وسبعين」＝878年（父項では879年）。退任年は原文になく、初版の retirement 782 を除去。ref #NEEDID → wd:Q217029（قاض | قضاء）。'
+  mention: m16
 affiliations:
 - id: a1
   type: madhhab
@@ -118,13 +103,94 @@ events:
 - id: e1
   type: travel
   places:
-  - ref: gn:360630
-    role: origin
-    quote: القاهرة
-  quote: حين رجوعه من القاهرة إلى بلده
+  - role: origin
+    mention: m20
   note:
     ja: カイロからの帰途にダマスカスで没した（没地は death 側）。初版の visit event（دمشق）は death と二重のため除去、residence event（حماة＝職の所在）も除去（統一規則8・22）。
-  norm: حين رجوعه من القاهرة الي بلده
+  phrase: حين رجوعه من القاهرة إلى بلده
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D03553
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  ref: AIND-D00657
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: حسين
+- id: m5
+  kind: name
+  quote: داود
+- id: m6
+  kind: name
+  quote: سالم
+- id: m7
+  kind: name
+  quote: معالي
+- id: m8
+  kind: name
+  quote: محيي الدين
+- id: m9
+  kind: name
+  quote: أبو الفضل
+  norm: ابو الفضل
+- id: m10
+  kind: name
+  quote: الموفق أبي ذر
+  norm: الموفق ابي ذر
+- id: m11
+  kind: name
+  ref: TMP-N-00244
+  quote: العباسي
+- id: m12
+  kind: name
+  ref: TMP-N-00081
+  quote: الحموي
+- id: m13
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m14
+  kind: person
+  ref: AIND-D03553
+  quote: أبوه
+  norm: ابوه
+- id: m15
+  kind: person
+  ref: AIND-D00657
+  quote: وجده
+  norm: جده
+- id: m16
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m17
+  kind: place
+  quote: حماة
+  ref: gn:170017
+- id: m18
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m19
+  kind: year
+  value: '878'
+  quote: سنة
+- id: m20
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m21
+  kind: year
+  value: '882'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・ブン・アフマド・ブン・フサイン・ブン・ダーウード・ブン・サーリム・ブン・マアーリー、ムヒー・アッ＝ディーン・アブー・アル＝ファドル・イブン・アル＝ムワッファク・アビー・ザッル、アル＝アッバースィー・アル＝ハマウィー・アル＝ハンバリー。その父と祖父は前述。父がダマスカスの軍務監督（ナザル・アル＝ジャイシュ）に就くためダマスカスへ移った（八百）七十八年に、ハマーのカーディー職に就いた。カイロから故郷へ帰る途中、（八百）八十二年の疫病の際にダマスカスで没した。神が彼を憐れみたまわんことを。
   en: Muḥammad b. ʿAbd al-Raḥmān b. Aḥmad b. Ḥusayn b. Dāwūd b. Sālim b. Maʿālī, Muḥyī al-Dīn Abū al-Faḍl b. al-Muwaffaq Abī Dharr, al-ʿAbbāsī al-Ḥamawī al-Ḥanbalī. His father and grandfather have been mentioned above. He was appointed to the judgeship of Ḥamā when his father moved to Damascus to take up the supervision of its army (naẓar al-jaysh) in the year (8)78. He died in Damascus, on his way back from Cairo to his hometown, in the plague of the year (8)82. May God have mercy on him.

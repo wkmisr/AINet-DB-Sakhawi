@@ -9,34 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02151
-    quote: الخلاوي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00802
-    quote: العجلاني
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: راشد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 857-06
   places:
-  - ref: TMP-L-00372
-    quote: بالليث
-    norm: الليث
-  - ref: TMP-L-00037
-    quote: اليمن
+  - mention: m7
+  - mention: m8
   note:
     ja: '857年ジュマーダー2月（1453-06-18〜07-16、h2g.py）、「イエメンの地のアッ＝ライス」で没。الليث（紅海沿岸、マッカ南方の町）は ID-Master の Location に未登録（الليثي はニスバ、corpus の他の الليث は الليث بن سعد の廟）→ 新規 TMP-L-00372（初版 #NEEDID）。اليمن は既登録 TMP-L-00037（原文明記のため併記、規則22(2)）。'
-  quote: سنة
   phrase: مات في جمادى الآخرة سنة سبع وخمسين بالليث من بلاد اليمن
+  mention: m6
 persons:
 - id: p1
   label: راشد الخلاوي العجلاني
@@ -49,28 +44,65 @@ relations:
   subtype: father
   active: AIND-D07387#p1
   passive: AIND-D07387
-  quote: null
   note:
     ja: '父 راشد は名のみで識別要素が無い → #NEEDID（規則3）。corpus の #AIND-D05145「علي بن راشد بن عرفة نور الدين العجلاني القائد」の父 راشد بن عرفة と同一人物の可能性はあるが、ニスバ الخلاوي を共有せず確証なし（note のみ）。初版は father relation なし。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00094
-  quote: null
   note:
     ja: '「أحد القواد」＝マッカの القواد の一人（ID-Master 既登録 TMP-O-00094、初版 #NEEDID）。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m10
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 857（≤871）→ 振り分け規則により #AIND-D09211（التقي بن فهد）、cert low（規則43）。初版の統制外 subtype「chronicled by」relation を event に置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: راشد
+- id: m3
+  kind: name
+  ref: TMP-N-02151
+  quote: الخلاوي
+- id: m4
+  kind: name
+  ref: TMP-N-00802
+  quote: العجلاني
+- id: m5
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m6
+  kind: year
+  value: '857'
+  quote: سنة
+- id: m7
+  kind: place
+  quote: بالليث
+  ref: TMP-L-00372
+  norm: الليث
+- id: m8
+  kind: place
+  quote: اليمن
+  ref: TMP-L-00037
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・ラーシド・アル＝ハラーウィー・アル＝アジュラーニー、カーイドたちの一人。857年ジュマーダー2月、イエメンの地のアッ＝ライスで没した。イブン・ファハドがその没年を記している。
   en: Muḥammad b. Rāshid al-Khalāwī al-ʿAjlānī, one of the qāʾids. He died in Jumādā II of the year 857 at al-Layth in the land of Yemen. Ibn Fahd recorded the date of his death.

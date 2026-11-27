@@ -9,38 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00139
-    quote: الدميري
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-02609
-    quote: الشروطي
+    mention: m8
   - id: n4
     type: laqab
-    quote: الجمال
+    mention: m4
   - id: n5
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الملك
     by: rule
-    ref: TMP-P-001119
+    mention: m2
   - id: n7
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n8
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m7
 persons:
 - id: p1
   label: وأجاز له باستدعاء ابن فهد المؤرخ بتاسع عشر رجب سنة ست وثلاثين خلق
@@ -49,11 +43,10 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m9
   passive: AIND-D04490
   methods:
   - TMP-S-00003
-  quote: شيخنا
   phrase: سمع على شيخنا أشياء مع الراعي وغيره
 - id: r2
   type: scholarly
@@ -67,32 +60,27 @@ relations:
     date:
       ah: 836-07-19
       type: learning
-  quote: null
   note:
     ja: 'イジャーザの授与者は「خلق」（多数の人々、無名）であり Ibn Ḥajar ではない（初版は active=wd:Q471116 としていたが、構文上「أجاز له … خلق」の主語は خلق）。無名集団のため #NEEDID。'
 - id: r3
   type: social
   subtype: colleague
-  active: AIND-D09054
+  active: m10
   passive: AIND-D04490
-  quote: مع الراعي
   note:
     ja: 'الراعي ＝ #AIND-D09054（刊本第499項 محمد بن محمد بن محمد بن إسماعيل أبو عبد الله المغربي الأندلسي ثم القاهري المالكي ويعرف بالراعي、862年没）。Ibn Ḥajar のもとで同席した学友（corpus には「سمع على شيخنا رفيقا لصاحبه الراعي」の同型句あり）。初版の #TMP-N-00485 はニスバ番号の person 位置への流用（precheck カテゴリ不一致）。'
 - id: r4
   type: social
   subtype: other
-  active: AIND-D09211
+  active: m11
   passive: AIND-D04490
-  quote: باستدعاء ابن فهد المؤرخ
   note:
     ja: 歴史家 ابن فهد（836年時点の「المؤرخ」＝التقي ابن فهد、#AIND-D09211）が本項主のためにイジャーザを申請（استدعاء）した。初版の統制外 subtype「ijaza petitioner」→ other。
-  norm: باستدعاء ابن فهد المءرخ
 - id: r5
   type: kin
   subtype: father
   active: TMP-P-001119
   passive: AIND-D04490
-  quote: null
   note:
     ja: 父 عبد الملك بن إبراهيم الدميري（見出しナサブから1段ずらして復元、統一規則3）。corpus に本伝なし・ID-Master 未登録のため TMP-P-001119 を新規発行。
   phrase: عبد الملك بن إبراهيم
@@ -102,19 +90,74 @@ states:
   ref: TMP-O-00050
   orgs:
   - ref: wd:Q7404512
-  quote: null
   phrase: وهو أحد شهود الصالحية
+  mention: null
 - id: s2
   type: office
-  ref: TMP-O-00078
   orgs:
   - ref: wd:Q7404512
-  quote: موقعيها
   phrase: بل صار من قدماء موقعيها وليس بالمتقن
+  mention: m14
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001119
+  quote: عبد الملك
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: الجمال
+- id: m5
+  kind: name
+  ref: TMP-N-00139
+  quote: الدميري
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m8
+  kind: name
+  ref: TMP-N-02609
+  quote: الشروطي
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: person
+  ref: AIND-D09054
+  quote: مع الراعي
+- id: m11
+  kind: person
+  ref: AIND-D09211
+  quote: باستدعاء ابن فهد المؤرخ
+  norm: باستدعاء ابن فهد المءرخ
+- id: m12
+  kind: month
+  value: 7
+  quote: رجب
+- id: m13
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m14
+  kind: office
+  ref: TMP-O-00078
+  quote: موقعيها
 translation:
   ja: アブドゥッラー・ブン・アブドゥルマリク・ブン・イブラーヒーム、アル＝ジャマール、アッ＝ダミーリー、のちにアル＝カーヒリー、アル＝マーリキー、公正証書作成人（アッ＝シュルーティー）。我らがシャイフ（イブン・ハジャル）からアッ＝ラーイーらとともに幾つかのものを聴聞し、歴史家イブン・ファハドの申請により、ヒジュラ暦836年ラジャブ月19日付で多数の人々が彼にイジャーザを与えた。彼はサーリヒーヤ学院の公証人の一人で、さらにはその古参の書記官の一人となったが、精確ではなかった。
   en: ʿAbd Allāh b. ʿAbd al-Malik b. Ibrāhīm al-Jamāl al-Damīrī, then al-Qāhirī, al-Mālikī, the notary (al-Shurūṭī). He heard several things from our shaykh (Ibn Ḥajar) together with al-Rāʿī and others, and a multitude granted him an ijāza at the request of the historian Ibn Fahd, dated the 19th of Rajab 836. He was one of the notary-witnesses of the Ṣāliḥiyya and indeed became one of its senior clerks (muwaqqiʿ), though he was not meticulous.

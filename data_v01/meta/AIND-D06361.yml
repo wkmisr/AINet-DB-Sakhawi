@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00455
-    quote: القونوي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m3
   - id: n3
     type: ism
-    quote: قطلو
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: صديق بن علي القونوي الرومي
@@ -30,17 +28,15 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06361#p1
+  active: m7
   passive: AIND-D06361
-  quote: ابن حمام
   note:
     ja: '父 صديق بن علي は見出しナサブのみで識別要素（ラカブ・職）がなく、corpus に本伝なし（hw.py「صديق بن علي」該当なし）→ #NEEDID（規則3、B119-123 (c'')）。初版は father relation なし。'
 - id: r2
   type: kin
   subtype: son
-  active: TMP-P-001599
+  active: m6
   passive: AIND-D06361
-  quote: عبد الرحمن
   note:
     ja: '「والد عبد الرحمن الماضي」。corpus の عبد الرحمن 部に「عبد الرحمن بن قطلو بك／قطلوبك」の見出しは無い（grep「بن قطلوبك|بن قطلو بك|بن قطلبك」該当は D10727「أبو بكر بن عبد الرحمن بن قطلوبك . مات بالقاهرة في طاعون سنة سبع وتسعين」＝本項主の孫にあたる人物のみ）。ID-Master にも未登録 → 仮番号 TMP-P-001599。初版の幻番号 #TMP-P-000000 を置換。'
 - id: r3
@@ -49,40 +45,71 @@ relations:
   active: AIND-D06361#p2
   passive: AIND-D06361
   cert: low
-  quote: null
   note:
     ja: '【★2 (b) 2026-10-26: 「صهر」の向きが原文から決まらないので subtype を relative に（Waka 裁定）。】「صهر ابن حمام」。ابن حمام（マッカ）は corpus に2人: ニスバ索引 #AIND-D12272「ابن حمام محمد بن عبد الله بن إبرهيم」が指す #AIND-D07740（محمد بن عبد الله بن إبراهيم بن حمام الشمس الشامي ثم المكي المؤدب بها、842年没）と、その子 #AIND-D01366（أحمد بن محمد بن عبد الله بن إبراهيم بن حمام الشهاب الدمشقي ثم المكي ويعرف بابن حمام、商人、855年没）。どちらを指すか、また صهر の向き（婿か義兄弟か）も原文から決まらない → #NEEDID・cert low。subtype は repo 先例（D02131「صهر يشبك الفقيه」→ father-in-law cert medium）に揃えた。ISSUES §D138-2。'
 states:
 - id: s1
   type: office
   ref: wd:Q215536
-  quote: null
   note:
     ja: 「وأحد التجار」。初版の placeName مكة（商業の地としては原文に明示なし）を除去（規則22(1)）。
+  mention: null
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: نزيل
+  - mention: m5
   trigger: rule
   phrase: نزيل مكة
+  mention: m4
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: ذكره
+  - mention: m9
   cert: low
   note:
     ja: 'Pattern A。規則43: 没年不明 → #AIND-D09211（التقي بن فهد）、cert low を event 側に。初版の統制外 relation（mentioned_in_work）を変換。'
   trigger: rule
   phrase: ذكره ابن فهد
+  mention: m8
 notes:
 - text: 「مات .」＝没年の記載なし（原文が途切れた形。death 要素は作らない、規則45）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قطلو
+- id: m2
+  kind: name
+  ref: TMP-N-00455
+  quote: القونوي
+- id: m3
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m4
+  kind: event
+  quote: نزيل
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: person
+  ref: TMP-P-001599
+  quote: عبد الرحمن
+- id: m7
+  kind: person
+  ref: AIND-D06361#p1
+  quote: ابن حمام
+- id: m8
+  kind: source
+  quote: ذكره
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: クトル・バク・ブン・スィッディーク・ブン・アリー・アル＝クーナウィー・アッ＝ルーミー。マッカの寄留者で商人の一人、前述のアブド・アッ＝ラフマーンの父、イブン・ハンマームの姻戚。イブン・ファハドが彼に言及している。没した（没年の記載なし）。
   en: Quṭlū Bak b. Ṣiddīq b. ʿAlī al-Qūnawī al-Rūmī. A resident (nazīl) of Mecca and one of the merchants, father of ʿAbd al-Raḥmān mentioned above, and related by marriage (ṣihr) to Ibn Ḥammām. Ibn Fahd mentioned him. He died (no date given).

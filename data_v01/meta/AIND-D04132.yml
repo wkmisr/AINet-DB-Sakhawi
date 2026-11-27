@@ -9,43 +9,41 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الرحيم
     by: rule
-    ref: AIND-D03852
+    mention: m2
   - id: n3
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n4
     type: nasab
-    quote: الناصري محمد
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m5
   - id: n6
     type: nasab
-    quote: عثمان الزين
     by: rule
+    mention: m6
   - id: n7
     type: nasab
-    quote: النجمي
     by: rule
+    mention: m7
   - id: n8
     type: nasab
-    quote: البارزي
     by: rule
+    mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D04132
   methods:
   - TMP-S-00003
@@ -54,55 +52,45 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m14
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D10715
+  active: m16
   passive: AIND-D04132
   methods:
   - TMP-S-00028
-  quote: التقي بن قاضي عجلون التقسيم
   note:
     ja: 'التقي بن قاضي عجلون = #AIND-D10715（أبو بكر بن عبد الله بن عبد الرحمن … التقي الدمشقي الشافعي）。「التقسيم」はダマスクスで行われた法学書（ミンハージュ）の分担講読形式（書名ではない）のため bibl は立てない。'
   phrase: حضر عند التقي بن قاضي عجلون التقسيم
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D03852
+  active: m12
   passive: AIND-D04132
   summary:
     ar: عبد الرحيم بن أحمد بن الناصري محمد … الزين بن النجمي بن البارزي
-  quote: لأبيه
   note:
     ja: '= #AIND-D03852（عبد الرحيم بن أحمد بن محمد بن محمد بن عثمان بن محمد … الزين بن البارزي）。'
-  norm: ابيه
 - id: r4
   type: kin
   subtype: brother
-  active: AIND-D07634
+  active: m9
   passive: AIND-D04132
-  quote: أخو محمد
   note:
     ja: '= #AIND-D07634（محمد بن عبد الرحيم بن أحمد … الجمال أبو البقاء ابن الزين بن البارزي）。初版の TMP-P-000529 は汚染番号（再使用禁止）。異母兄弟。'
-  norm: اخو محمد
 - id: r5
   type: kin
   subtype: brother
-  active: AIND-D10487
+  active: m10
   passive: AIND-D04132
-  quote: ويوسف
   note:
     ja: '= #AIND-D10487（يوسف بن عبد الرحيم بن أحمد … الجمال أبو المحاسن بن البارزي … أخواه لأبيه خاصة محمد وعبد القادر）。異母兄弟（閉合）。'
 - id: r6
   type: kin
   subtype: sister
-  active: AIND-D13435
+  active: m11
   passive: AIND-D04132
-  quote: وشقيق فاطمة
   note:
     ja: '= #AIND-D13435（فاطمة ابنة الزينى عبد الرحيم … بن البارزي شقيقة عبد القادر، أمهما تركية）。同母姉妹（閉合）。'
 states:
@@ -110,19 +98,78 @@ states:
   type: status
   label: اشتغل قليلا ولم يتصون
   label_latn: ishtaghala qalīlan wa-lam yataṣawwan
-  quote: واشتغل قليلا
-  norm: اشتغل قليلا
+  mention: m15
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: null
+  - mention: m14
+  mention: null
 notes:
 - text: 「أمهما تركية」＝本項主と فاطمة の母はトルコ人女性（名不詳）。名ではないため mother relation は立てない。
   lang: ja
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: AIND-D03852
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: الناصري محمد
+- id: m5
+  kind: name
+  quote: محمد
+- id: m6
+  kind: name
+  quote: عثمان الزين
+- id: m7
+  kind: name
+  quote: النجمي
+- id: m8
+  kind: name
+  quote: البارزي
+- id: m9
+  kind: person
+  ref: AIND-D07634
+  quote: أخو محمد
+  norm: اخو محمد
+- id: m10
+  kind: person
+  ref: AIND-D10487
+  quote: ويوسف
+- id: m11
+  kind: person
+  ref: AIND-D13435
+  quote: وشقيق فاطمة
+- id: m12
+  kind: person
+  ref: AIND-D03852
+  quote: لأبيه
+  norm: ابيه
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m14
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m15
+  kind: office
+  quote: واشتغل قليلا
+  norm: اشتغل قليلا
+- id: m16
+  kind: person
+  ref: AIND-D10715
+  quote: التقي بن قاضي عجلون التقسيم
 translation:
   ja: アブドゥルカーディル・ブン・アブドゥルラヒーム・ブン・アフマド・ブン・アン＝ナースィリー・ムハンマド・ブン・ムハンマド・ブン・ウトマーン・アッ＝ザイン・ブン・アン＝ナジュミー・ブン・アル＝バーリズィー。ムハンマドとユースフの兄弟、またファーティマの同母兄弟（彼ら二人の母はトルコ人女性で、父方の異母兄弟）である。カイロで私（サハーウィー）からハディースを聴聞した。またクルアーン、『アル＝ウムダ』、『アル＝ミンハージ』、およびアラビア語文法の『アルフィーヤ』を暗記し、学者たち（ジャマーア）に提示した。少しの間勉学に勤しみ、アッ＝タキー・ブン・カーディー・アジュルーンのもとで『アッ＝タクスィーム』の講義を聴講した。身を慎むことはなかった（行儀が良くなかった）。
   en: Abd al-Qadir ibn Abd al-Rahim ibn Ahmad ibn al-Nasiri Muhammad ibn Muhammad ibn Uthman al-Zayn ibn al-Najmi ibn al-Barizi. He was the brother of Muhammad and Yusuf, and the full brother of Fatima; their mother was a Turkish woman, and they were half-brothers from his father's side. He is among those who heard Hadith from me (al-Sakhawi) in Cairo. He memorized the Qur'an, al-Umda, al-Minhaj, and Alfiyyat al-Nahw, presented them to a group of scholars, studied a little, and attended the classes of al-Taqsim under al-Taqi ibn Qadi Ajlun. He did not maintain a self-controlled lifestyle.

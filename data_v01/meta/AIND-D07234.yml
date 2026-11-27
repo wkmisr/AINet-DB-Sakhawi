@@ -9,61 +9,52 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00107
-    quote: المراغي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m9
   - id: n3
     type: laqab
-    quote: الكمال
+    mention: m6
   - id: n4
     type: kunyah
-    quote: أبو الفضل
-    norm: ابو الفضل
+    mention: m7
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: أبي بكر
     by: rule
-    ref: AIND-D10818
-    norm: ابو بكر
+    mention: m2
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D07182
+    mention: m3
   - id: n8
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n9
     type: nasab
-    quote: الحسين
     by: rule
+    mention: m5
 birth:
   id: b
   date:
     ah: 858
   note:
     ja: '「ولد سنة ثمان وخمسين وثمانمائة سنة مات والده بالمدينة」。858年＝1454-01-10〜1454-12-30（年精度）。出生地は原文に明記なし（「بالمدينة」は父の没地にかかる）ため placeName を置かない。父 #AIND-D10818 の本伝も「مات … في شهر ربيع الأول سنة ثمان وخمسين」で整合。'
-  quote: سنة
+  mention: m10
 death:
   id: d
   date:
     ah: 894
   places:
-  - ref: TMP-L-00038
-    quote: بالروم
-    norm: الروم
+  - mention: m16
   note:
     ja: 「ومات بالروم وكان دخلها لقبض أوقافهم فمات بها سنة أربع وتسعين」。894年＝1488-12-14〜1489-12-03 → 年精度 @when 1488（初版 1489 は年初の誤り）。「بها」は直前の الروم を指す（cert 不要）。
-  quote: سنة
+  mention: m18
 relations:
 - id: r1
   type: scholarly
@@ -72,7 +63,6 @@ relations:
   passive: AIND-D07234
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: 「وسمع على جده」。祖父 ناصر الدين أبو الفرج محمد بن أبي بكر بن الحسين المراغي＝#AIND-D07182（「الماضي جده」）。
 - id: r2
@@ -82,17 +72,15 @@ relations:
   passive: AIND-D07234
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: '「وسمع على جده وابنه أخي جده فاطمة ابنة أبي اليمن المراغي」。「وابنه أخي جده」は「وابنة أخي جده」（祖父の兄弟の娘）と読む＝فاطمة ابنة أبي اليمن محمد بن أبي بكر بن الحسين المراغي＝#AIND-D13487（女性部「فاطمة ابنة الجمال أبي اليمن محمد بن الزين أبي بكر بن الحسين أم الحسين ابنة المراغي … وماتت في سنة ثمان وسبعين」）。初版は統制外 subtype「other」の #NEEDID relation にしていた。'
 - id: r3
   type: kin
   subtype: father
-  active: AIND-D10818
+  active: m11
   passive: AIND-D07234
   summary:
     ar: أبو بكر بن محمد بن أبي بكر بن الحسين المراغي
-  quote: والده
   note:
     ja: 父＝#AIND-D10818「أبو بكر بن محمد بن الزين أبي بكر بن الحسين بن عمر الزين بن ناصر الدين أبي الفرج بن الزين العثماني المراغي المدني الشافعي أخو محمد ووالد الكمال أبي الفضل محمد الماضيين … ومات بداء البرسام في شهر ربيع الأول سنة ثمان وخمسين」（クンヤ部、未受領）。見出しナサブと「والد الكمال أبي الفضل محمد」・没年858（本項「سنة مات والده」）が一致（規則37）。初版の汚染番号 TMP-P-000064（أبو بكر 汎用）を解消。
 - id: r4
@@ -102,15 +90,13 @@ relations:
   passive: AIND-D07234
   summary:
     ar: أبو الفرج محمد بن أبي بكر بن الحسين المراغي
-  quote: null
   note:
     ja: 「حفيد أبي الفرج بن الزين المراغي … الماضي جده」＝#AIND-D07182（محمد ناصر الدين أبو الفرج … ولد في صفر سنة ست وثمانمائة بالمدينة）。曾祖父 الزين أبو بكر بن الحسين المراغي＝#AIND-D10690 は relation にせず note のみ。
 - id: r5
   type: kin
   subtype: son
-  active: AIND-D03515
+  active: m19
   passive: AIND-D07234
-  quote: عبد الحفيظ
   note:
     ja: 「وخلف ابنه عبد الحفيظ」＝#AIND-D03515「عبد الحفيظ بن الكمال أبي الفضل بن الزين أبي بكر بن ناصر الدين أبي الفرج محمد بن أبي بكر بن الحسين المراغي المدني . ممن سمع مني بالمدينة」（repo 収録済。repo 側は父を TMP-P-000726 としており、TMP-P-000726 は本項 AIND-D07234 と名寄せ要＝ISSUES §D131-1）。
 - id: r6
@@ -121,53 +107,122 @@ relations:
   summary:
     ar: مريم
   cert: medium
-  quote: null
   note:
     ja: '本項には言及なし。女性部 #AIND-D13609「مريم ابنة الكمال أبي الفضل بن أبي الفرج محمد بن أبي بكر بن الحسين المراغي المدنية أخت عبد الحفيظ وأم الحسين . ممن سمعت مني بالمدينة」の見出しナサブ（父 الكمال أبو الفضل・祖父 أبو الفرج は1段省略）と「أخت عبد الحفيظ」で本項主の娘と特定（規則23・37、cert medium）。'
 events:
 - id: e1
   type: residence
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
-  quote: ونشأ بها
+  - mention: m12
   note:
     ja: 「بها」は直前の「مات والده بالمدينة」の المدينة を指す（規則22(3)）。
-  norm: نشا بها
+  phrase: ونشأ بها
+  mention: null
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00039
-    quote: الهند
-  quote: وسافر
+  - mention: m14
   trigger: rule
-  norm: سافر
   phrase: وسافر إلى الهند فدام مدة
+  mention: m13
 - id: e3
   type: other
   date:
     notBefore: 888
     notAfter: 889
     type: other
-  quote: ثم قدم في سنة ثمان أو تسع وثمانين
   note:
     ja: 帰還先は原文に明記なし（placeName を置かない。初版は المدينة を補っていた）。888年＝1483-02-18〜1484-02-07、889年＝1484-02-08〜1485-01-26 → notBefore 1483／notAfter 1485（年精度）。
-  norm: ثم قدم في سنة ثمان او تسع وثمانين
+  phrase: ثم قدم في سنة ثمان أو تسع وثمانين
+  mention: null
 - id: e4
   type: travel
   date:
     notAfter: 894
     type: travel
   places:
-  - ref: TMP-L-00038
-    quote: بالروم
-    norm: الروم
-  quote: دخلها
+  - mention: m16
   note:
     ja: ルームに入った年は明記されないが「فمات بها سنة أربع وتسعين」から没年と同年以前。【集約 2026-10-25】894 は没年であり入国年ではないので、校閲時の when-custom 0894 を notAfter-custom 0894（年末 1489-12-03 → 年精度 1489、h2g.py）に改めた（日付の作り込みの解消、内容B[9]）。
   trigger: rule
   phrase: وكان دخلها لقبض أوقافهم
+  mention: m17
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D10818
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: AIND-D07182
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  quote: الحسين
+- id: m6
+  kind: name
+  quote: الكمال
+- id: m7
+  kind: name
+  quote: أبو الفضل
+  norm: ابو الفضل
+- id: m8
+  kind: name
+  ref: TMP-N-00107
+  quote: المراغي
+- id: m9
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m10
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m11
+  kind: person
+  ref: AIND-D10818
+  quote: والده
+- id: m12
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
+- id: m13
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m14
+  kind: place
+  quote: الهند
+  ref: TMP-L-00039
+- id: m15
+  kind: year
+  value: '858'
+  quote: سنة
+- id: m16
+  kind: place
+  quote: بالروم
+  ref: TMP-L-00038
+  norm: الروم
+- id: m17
+  kind: event
+  quote: دخلها
+- id: m18
+  kind: year
+  value: '894'
+  quote: سنة
+- id: m19
+  kind: person
+  ref: AIND-D03515
+  quote: عبد الحفيظ
 translation:
   ja: ムハンマド・ブン・アビー・バクル・ブン・ムハンマド・ブン・アビー・バクル・ブン・アル＝フサイン、アル＝カマール・アブー・アル＝ファドル、アブー・アル＝ファラジュ・ブン・アッ＝ザイン・アル＝マラーギーの孫。マラーガに出自をもち、マディーナの人。その祖父は前述。858年、父がマディーナで没した年に生まれ、そこで育ち、祖父と、祖父の兄弟の娘であるファーティマ・ビント・アビー・アル＝ヤマン・アル＝マラーギーから聴聞した。インドへ旅してしばらく滞在し、その後888年あるいは889年に戻ってきた。ルーム（アナトリア）で没した。彼らのワクフ（の収益）を徴収するためにそこへ入っており、894年にそこで没した。息子アブド・アル＝ハフィーズを遺した。
   en: 'Muḥammad b. Abī Bakr b. Muḥammad b. Abī Bakr b. al-Ḥusayn, al-Kamāl Abū al-Faḍl, grandson of Abū al-Faraj b. al-Zayn al-Marāghī, of Marāgha origin, the Medinan; his grandfather has been mentioned above. He was born in 858, the year his father died in Medina, and grew up there. He heard from his grandfather and from his grandfather''s brother''s daughter, Fāṭima bt. Abī al-Yaman al-Marāghī. He travelled to India and stayed there for a while, then came back in 888 or 889. He died in al-Rūm (Anatolia): he had entered it to collect their endowments, and died there in 894. He left a son, ʿAbd al-Ḥafīẓ.'

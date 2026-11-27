@@ -9,31 +9,29 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: طرخان
     by: rule
-    ref: TMP-P-001384
+    mention: m2
   - id: n3
     type: nasab
-    quote: شهري الحاجب الكبير بحلب
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 830-07
   note:
     ja: 「مات في رجب سنة ثلاثين」。830年ラジャブ月 ＝ 1427-05-07〜1427-06-05（h2g.py、月のみ→月初）。没地の記載なし（初版の حلب は在職地からの補完 → 除去、規則22(1)）。
-  quote: سنة
+  mention: m5
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001384
   passive: AIND-D05856
-  quote: null
   note:
     ja: '父 طرخان、祖父 شهري。見出しから祖父名まで復元できるため規則3により仮番号 TMP-P-001384 を発行（集約時、内容検証A M-5。校閲時は #NEEDID）。corpus（hw.py「طرخان」「شهري」）・ID-Master に該当なし。初版は father relation なし。'
   phrase: طرخان بن شهري
@@ -43,22 +41,47 @@ states:
   ref: TMP-O-00066
   places:
   - ref: gn:170063
-  quote: null
   note:
     ja: 「الحاجب الكبير بحلب」。原文に明記された地名のため placeName を保持（規則22(2)、B94-98 ★2 の裁定「الحاجب بحلب は伝記主の職」）。職名「الحاجب الكبير」は ID-Master 未登録（既登録は حاجب O-00065・حاجب الحجاب O-00066・حاجب ثاني O-00120・الحاجب الصغير O-00133）→ 規則25により原文どおり新規 TMP-O-00305。حاجب الحجاب（O-00066）との統合は Waka 判断（§D105-4）。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、أنبائه ＝ TMP-T-00034『إنباء الغمر』。初版の teacher relation（原文に師弟関係なし）を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في أنبائه
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001384
+  quote: طرخان
+- id: m3
+  kind: name
+  quote: شهري الحاجب الكبير بحلب
+- id: m4
+  kind: month
+  value: 7
+  quote: رجب
+- id: m5
+  kind: year
+  value: '830'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウマル・ブン・タルハーン・ブン・シャフリー、ハラブの大ハージブ（アル＝ハージブ・アル＝カビール）。830年ラジャブ月に没した。我らがシャイフ（イブン・ハジャル）が『インバー』にその没年を記している。
   en: ʿUmar b. Ṭarkhān b. Shahrī, the grand chamberlain (al-ḥājib al-kabīr) of Aleppo. He died in Rajab of the year 830. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

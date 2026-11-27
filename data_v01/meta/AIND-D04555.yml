@@ -10,79 +10,69 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-00626
-    quote: null
+    mention: null
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n3
     type: laqab
-    quote: العفيف
+    mention: m6
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06881
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: أبي الفضل
     by: rule
-    norm: ابو الفضل
+    mention: m4
   - id: n8
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: الجمال
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: الكمال
     by: rule
+    mention: m9
   - id: n12
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m11
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m14
   passive: AIND-D04555
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m15
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D01222
+  active: m12
   passive: AIND-D04555
-  quote: أحمد الماضي
   note:
     ja: 'أحمد الماضي ＝ #AIND-D01222（أحمد بن محمد بن أحمد بن أبي الفضل ويسمى محمدا بن عبد الله … الشهاب بن الجمال الحراري الأصل المكي الحنفي أخو عبد الله الآتي、ナサブ・ニスバ完全一致、相互に言及）。初版の #NEEDID を解消。'
-  norm: احمد الماضي
   phrase: أخو أحمد الماضي
 - id: r3
   type: kin
@@ -92,22 +82,77 @@ relations:
   summary:
     ar: عبد الكبير
   cert: medium
-  quote: null
   note:
     ja: '規則23 による補完（cert medium）: #AIND-D04239「عبد الكبير بن محمد بن أحمد العلاء أبو القسم بن الجمال الحرازي المكي الحنفي أخو أحمد وعبد الله وهو الأصغر」が本項主を兄として名指しする（父 #AIND-D06881 を共有）。D04239 側では兄 عبد الله に TMP-P-001037 が発行されており、本項主への名寄せ要（ISSUES §D89-4）。'
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D06881
+  active: m13
   passive: AIND-D04555
-  quote: والآتي أبوهما
   note:
     ja: '父 ＝ #AIND-D06881（محمد بن أحمد بن محمد بن عبد الله بن محمد بن أحمد بن قاسم … جمال الدين بن شهاب الدين أبي العباس بن كمال الدين أبي الفضل بن العفيف … القرشي العمري الحرازي الأصل المكي الحنفي والد أحمد وعبد الله、830年マッカ生）。転送見出し #AIND-D06803「محمد بن أحمد بن أبي الفضل العمري الحراري المكي الحنفي . يأتي فيمن جده محمد بن عبد الله」が本項の父名形（أبو الفضل＝محمد）と D06881 を結ぶ。汚染番号 TMP-P-000529（別人 محمد）を差し替え。ニスバ「الحراري」（corpus に ±±± の疑義マーク）は父・弟の項では「الحرازي」（TMP-N-00325）と綴られ、同一の一族ニスバの綴り揺れとみられる（名寄せはせず note 留め）。'
-  norm: الاتي ابوهما
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q228986
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: AIND-D06881
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: أبي الفضل
+  norm: ابو الفضل
+- id: m5
+  kind: name
+  quote: عبد الله
+- id: m6
+  kind: name
+  quote: العفيف
+- id: m7
+  kind: name
+  quote: الجمال
+- id: m8
+  kind: name
+  quote: الشهاب
+- id: m9
+  kind: name
+  quote: الكمال
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m12
+  kind: person
+  ref: AIND-D01222
+  quote: أحمد الماضي
+  norm: احمد الماضي
+- id: m13
+  kind: person
+  ref: AIND-D06881
+  quote: والآتي أبوهما
+  norm: الاتي ابوهما
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m15
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アフマド・ブン・アビー・アル＝ファドル・ブン・アブドゥッラー、アル＝アフィーフ・ブン・アル＝ジャマール・ブン・アッ＝シハーブ・ブン・アル＝カマール、ハラール（ハラーズ）を本貫とするアル＝マッキー、アル＝ハナフィー。前述のアフマドの兄弟で、彼ら二人の父は後述される。マッカで私（サハーウィー）から聴聞した者の一人。
   en: ʿAbd Allāh b. Muḥammad b. Aḥmad b. Abī al-Faḍl b. ʿAbd Allāh, al-ʿAfīf b. al-Jamāl b. al-Shihāb b. al-Kamāl, of Ḥarārī (Ḥarāzī) origin, al-Makkī, al-Ḥanafī, brother of the aforementioned Aḥmad; their father is to be mentioned below. He was among those who heard from me (al-Sakhāwī) in Mecca.

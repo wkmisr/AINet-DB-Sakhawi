@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00489
-    quote: الطريني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m5
   - id: n3
     type: laqab
-    quote: السراج
+    mention: m3
   - id: n4
     type: shuhrah
-    quote: بالطريني
-    norm: الطريني
     label: الطريني
+    mention: m8
   - id: n5
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n7
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m6
 death:
   id: d
   date:
@@ -43,7 +39,7 @@ death:
     cert: medium
   note:
     ja: 「مات في يوم الاثنين ثامن عشري ذي الحجة سنة اثنتين ورأيت من أرخها سنة عشرين وأظنه غلطا」。Waka 裁定（2026-10-12、要判断_B109-113 ★1）により 822年と読む（「اثنتين」と異説「عشرين」を合わせて「اثنتين وعشرين」の意と解する。読みに確信がないため cert medium）。822年ズー・アル＝ヒッジャ月28日 ＝ 1420-01-24（h2g.py、月曜で原文の曜日と一致）。一の位のみの年として 802（1400-08-29、金曜）と読む余地もある。サハーウィーは820年とする説を誤りと判断。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: محمد
@@ -55,31 +51,27 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D05992
-  passive: AIND-D10786
+  passive: m9
   methods:
   - TMP-S-00008
-  quote: أبو بكر
   note:
     ja: 「أخذ عنه ابنه أبو بكر」＝本項主が師（active）、弟子＝息子 أبو بكر（#AIND-D10786）。
-  norm: ابو بكر
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D05992
-  passive: AIND-D08853
+  passive: m10
   methods:
   - TMP-S-00008
   fields:
   - wd:Q484181
-  quote: الولوي السنباطي
   note:
     ja: '「وممن أخذ عنه الولوي السنباطي الفقه」＝本項主が師。弟子 ＝ #AIND-D08853「محمد بن محمد بن عبد اللطيف … الولوي … المحلي المولد ثم السنباطي ثم القاهري المالكي ويعرف بقاضي سنباط」（787–861、マーリク派、マハッラ生まれ＝本項主と同地・同学派で整合）。同名の #AIND-D07869（ولي الدين السنباطي المالكي، 881年没）があるが、D08853 側の本伝に「وأخذ الفقه بالمحلة عن السراج عمر الطريني」と本項主が名指しされ閉合するため cert は付けない（規則26。検証後訂正 2026-10-10: 校閲の cert medium を除去。المحلة は他項の情報のため placeName にしない、規則23）。'
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D08374
+  active: m7
   passive: AIND-D05992
-  quote: محمد
   note:
     ja: '「والد محمد وأبي بكر」。息子 محمد ＝ #AIND-D08374「محمد بن عمر بن محمد الشمس الطريني المحلي المالكي الماضي أبوه ووالد محمد وعمر وأخو أبي بكر」（861年没）。初版の汚染番号 TMP-P-000529 を差し替え。'
 - id: r4
@@ -87,7 +79,6 @@ relations:
   subtype: son
   active: AIND-D10786
   passive: AIND-D05992
-  quote: null
   note:
     ja: '息子 أبو بكر ＝ #AIND-D10786「أبو بكر بن عمر بن محمد الزين المحلى الطريني المالكي الماضي أخوه محمد وأبوهما … وتفقه بأبيه」。初版の汚染番号 TMP-P-000064 を差し替え。ニスバ索引 #AIND-D11809「الطريني … والسراج عمر بن محمد وابناه أبو بكر ومحمد」も一致。'
   phrase: أبو بكر
@@ -96,7 +87,6 @@ relations:
   subtype: father
   active: AIND-D05992#p1
   passive: AIND-D05992
-  quote: null
   note:
     ja: '父は裸名 محمد のみ → #NEEDID 維持（規則3・12）。'
 states:
@@ -104,9 +94,9 @@ states:
   type: status
   label: فقيه
   label_latn: faqīh
-  quote: null
   note:
     ja: 「وكان فقيها فاضلا زاهدا」。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -114,10 +104,61 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: وله مؤلف في تعبير الرؤيا
   note:
     ja: 夢解釈に関する著作（書名不明）。
-  norm: وله مءلف في تعبير الرءيا
+  phrase: وله مؤلف في تعبير الرؤيا
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: السراج
+- id: m4
+  kind: name
+  ref: TMP-N-00489
+  quote: الطريني
+- id: m5
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m6
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m7
+  kind: person
+  ref: AIND-D08374
+  quote: محمد
+- id: m8
+  kind: name
+  quote: بالطريني
+  norm: الطريني
+- id: m9
+  kind: person
+  ref: AIND-D10786
+  quote: أبو بكر
+  norm: ابو بكر
+- id: m10
+  kind: person
+  ref: AIND-D08853
+  quote: الولوي السنباطي
+- id: m11
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m12
+  kind: year
+  value: '822'
+  quote: سنة
+- id: m13
+  kind: year
+  value: '920'
+  quote: سنة
 translation:
   ja: ウマル・ブン・ムハンマド・アッ＝シラージュ・アッ＝トゥライニー・アル＝マハッリー・アル＝マーリキー、ムハンマドとアブー・バクルの父で、アッ＝トゥライニーとして知られる。学識と敬虔さで知られ、夢解釈に関する著作がある。優れた禁欲的な法学者で、息子のアブー・バクルが彼から学び、彼から法学を学んだ者にはアル＝ワラウィー・アッ＝スンバーティーがいる。（8）22年ズー・アル＝ヒッジャ月28日月曜日に没した。私はそれを（8）20年とする者を見たが、誤りだと思う。
   en: ʿUmar b. Muḥammad al-Sirāj al-Ṭuraynī al-Maḥallī al-Mālikī, the father of Muḥammad and Abū Bakr, known as al-Ṭuraynī. He was known for learning and righteousness, and has a work on the interpretation of dreams. He was an excellent, ascetic jurist; his son Abū Bakr studied under him, and among those who took fiqh from him was al-Walawī al-Sunbāṭī. He died on Monday, the twenty-eighth of Dhū al-Ḥijja of the year (8)22; I have seen someone who dated it to the year (8)20, but I think that is an error.

@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00776
-    quote: البنهاوي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: laqab
-    quote: البدر
+    mention: m3
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n6
     type: nasab
-    quote: الشهاب
     by: rule
+    mention: m4
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 death:
   id: d
   date:
@@ -56,24 +52,20 @@ relations:
   subtype: father
   active: AIND-D07027#p1
   passive: AIND-D07027
-  quote: null
   note:
     ja: '父は「أحمد … الشهاب」のみ（ラカブ＋裸名）→ #NEEDID 維持（規則3・12）。【集約】B117 #AIND-D07067「محمد بن الشهاب أحمد البنهاوي التاجر」（841年没）の父と名・ラカブ・ニスバが一致し、同一人物（両項主が兄弟）の可能性があるが確証なし（両項とも #NEEDID で統一）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D06885
+  active: m8
   passive: AIND-D07027
-  quote: ناصر الدين بن أصيل
   note:
     ja: '「أخو ناصر الدين بن أصيل لأمه」＝同母兄弟。ناصر الدين بن أصيل ＝ #AIND-D06885（محمد بن أحمد بن محمد بن عثمان بن أيوب ناصر الدين بن الشهاب بن أصيل الدين … الأشليمي الأصل القاهري الشافعي）。D13340 も「البدر البنهاوي اخو ناصر الدين بن أصيل لأمه」と呼ぶ。'
-  norm: ناصر الدين بن اصيل
 - id: r3
   type: kin
   subtype: father-in-law
-  active: AIND-D07903
+  active: m9
   passive: AIND-D07027
-  quote: ابن الهمام
   note:
     ja: 「صهر ابن الهمام على ابنته الكبرى」＝الكمال بن الهمام（#AIND-D07903 محمد بن عبد الواحد بن عبد الحميد … الكمال بن همام الدين السيواسي、861没）の長女の夫。「حج معه وجاور」の同行者もこの人物。「وما اكتسب من صهره حبة」＝学問の伝授はなかったと明記されるため teacher relation は立てない。
 - id: r4
@@ -83,7 +75,6 @@ relations:
   passive: AIND-D07027
   summary:
     ar: ابنة ابن الهمام الكبرى
-  quote: null
   note:
     ja: 'イブン・アル＝フマームの長女 ＝ #AIND-D13340「عائشة ابنة الكمال محمد بن عبد الواحد بن الهمام . وتزوجها البدر البنهاوي اخو ناصر الدين بن أصيل لأمه」（女性部）。同項により名は عائشة、856年の巡礼に父・夫と同行したと分かるが他項の情報のため note 留め。'
 - id: r5
@@ -94,7 +85,6 @@ relations:
   summary:
     ar: محمد بن محمد بن عبد الله البندر البنهاوي
   cert: high
-  quote: null
   note:
     ja: '#AIND-D08879「محمد بن محمد بن عبد الله البندر [البدر] البنهاوي الأصل القاهري الشافعي أخو ناصر الدين بن أصيل لأمه وزوج ابنة الكمال بن الهمام الكبرى ويعرف بالبنهاوي … وحج مع صهره الكمال وكان مفرط السمن … مات في سنة سبع وسبعين」は、同母兄弟・妻・巡礼同行・極端な肥満の4点が本項と一致し同一人物の二重立項（ナサブ محمد بن أحمد ⇄ محمد بن محمد بن عبد الله、没年「بعد الستين ظنا」⇄ 877 が食い違う）。転送指示がないため REF 化せず二重立項型、cert high（§D115-4）。D08879 側の逆方向 relation は申し送り。'
 states:
@@ -102,8 +92,7 @@ states:
   type: status
   label: كان مفرط السمن جدا بعيدا عن الفهم وكل فضيلة
   label_latn: kāna mufriṭ al-siman jiddan baʿīdan ʿan al-fahm wa-kull faḍīla
-  quote: وكان مفرط السمن جدا بعيدا عن الفهم وكل فضيلة
-  norm: كان مفرط السمن جدا بعيدا عن الفهم وكل فضيلة
+  mention: m11
 affiliations:
 - id: a1
   type: madhhab
@@ -114,11 +103,53 @@ events:
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   note:
     ja: 「معه」＝ابن الهمام（#AIND-D07903）。جاور の placeName は規則20により付けない（初版の residence/jāwara event の مكة を除去）。
   trigger: rule
   phrase: حج معه وجاور
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: البدر
+- id: m4
+  kind: name
+  quote: الشهاب
+- id: m5
+  kind: name
+  ref: TMP-N-00776
+  quote: البنهاوي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: person
+  ref: AIND-D06885
+  quote: ناصر الدين بن أصيل
+  norm: ناصر الدين بن اصيل
+- id: m9
+  kind: person
+  ref: AIND-D07903
+  quote: ابن الهمام
+- id: m10
+  kind: event
+  quote: حج
+- id: m11
+  kind: office
+  quote: وكان مفرط السمن جدا بعيدا عن الفهم وكل فضيلة
+  norm: كان مفرط السمن جدا بعيدا عن الفهم وكل فضيلة
 translation:
   ja: ムハンマド・ブン・アフマド、アル＝バドル・ブン・アッ＝シハーブ・アル＝バンハーウィー・アル＝カーヒリー・アッ＝シャーフィイー。ナースィル・アッ＝ディーン・ブン・アスィールの同母兄弟で、イブン・アル＝フマームの長女を娶った彼の婿（スィフル）。彼〔イブン・アル＝フマーム〕とともに巡礼し、〔マッカに〕滞在した。極端に肥満し、理解力とあらゆる美徳から程遠く、岳父から一粒も得るところがなかった。おそらく860年以後に没した。
   en: Muḥammad b. Aḥmad, al-Badr b. al-Shihāb al-Banhāwī al-Qāhirī al-Shāfiʿī, the brother of Nāṣir al-Dīn b. Aṣīl on his mother's side and the son-in-law of Ibn al-Humām through his eldest daughter. He performed the pilgrimage with him and stayed on [in Mecca]. He was extremely obese, far removed from understanding and from every virtue, and did not gain a single grain from his father-in-law. He died after [the year] 860, presumably.

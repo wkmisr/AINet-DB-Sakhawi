@@ -9,56 +9,81 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00062
-    quote: الدمياطي
+    mention: m5
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D08850
+  active: m7
   passive: AIND-D05786
   methods:
   - TMP-S-00003
-  quote: ابن الكويك
   note:
     ja: 'ابن الكويك ＝ #AIND-D08850（الشرف أبو الطاهر محمد بن محمد بن عبد اللطيف … ابن الكويك、ID-Master 統合済）。同型の repo 先例 #AIND-D07526「رفيق أبي الطيب بن البدراني على ابن الكويك」に倣う。初版の #NEEDID を解消。'
 - id: r2
   type: social
   subtype: colleague
-  active: AIND-D07363
+  active: m6
   passive: AIND-D05786
   summary:
     ar: أبو الطيب بن البدراني
-  quote: الطيب بن البدراني
   note:
     ja: 'أبو الطيب بن البدراني ＝ #AIND-D07363（محمد الشمس أبو الطيب … ويعرف بابن الفقيه حسن、782年生、ダミエッタ定住、「سمع … على الشرف بن الكويك」。ID-Master の TMP-P-001075「الشمس محمد بن الفقيه حسن البدراني」も同一人物 → 本伝 AIND を優先、名寄せ要）。本項主も الدمياطي で整合。先例 #AIND-D07526 と同じ充当。初版の #NEEDID を解消。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D03005
-    quote: الزين رضوان
-  quote: أثبته الزين رضوان كذلك بدون زائد
+  - mention: m8
   note:
     ja: 'Pattern A（第三者による記載）。الزين رضوان ＝ #AIND-D03005（رضوان بن محمد بن يوسف … الزين … العقبي）。「كذلك بدون زائد」＝ 見出しどおりの名で、追加情報なしに記載。初版の統制外 subtype「recorder」relation を event に変換。'
-  norm: اثبته الزين رضوان كذلك بدون زاءد
+  phrase: أثبته الزين رضوان كذلك بدون زائد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m5
+  kind: name
+  ref: TMP-N-00062
+  quote: الدمياطي
+- id: m6
+  kind: person
+  ref: AIND-D07363
+  quote: الطيب بن البدراني
+- id: m7
+  kind: person
+  ref: AIND-D08850
+  quote: ابن الكويك
+- id: m8
+  kind: person
+  ref: AIND-D03005
+  quote: الزين رضوان
 translation:
   ja: ウマル・ブン・アフマド・ブン・アフマド・アル＝ハラビー・アッ＝ディムヤーティー。イブン・アル＝クワイクのもとでの聴聞においてアブー・アッ＝タイイブ・イブン・アル＝バドラーニーに同行した。アッ＝ザイン・リドワーンも同様に、何も付け加えずに彼を記載している。
   en: ʿUmar b. Aḥmad b. Aḥmad al-Ḥalabī al-Dimyāṭī. He accompanied Abū al-Ṭayyib b. al-Badrānī in hearing under Ibn al-Kuwayk, and al-Zayn Riḍwān likewise recorded him without any addition.

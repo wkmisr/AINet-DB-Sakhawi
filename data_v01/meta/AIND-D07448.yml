@@ -9,34 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: shuhrah
-    quote: بابن حماد
-    norm: ابن حماد
     label: ابن حماد
+    mention: m7
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001157
+    mention: m2
   - id: n6
     type: nasab
-    quote: حماد
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 death:
   id: d
   date:
@@ -44,7 +40,7 @@ death:
   note:
     ar: وحج وجاور ثم عاد فبمجرد وصوله لمنزله مات وذلك في مستهل جمادى الآخرة سنة خمس وسبعين
     ja: 875年ジュマーダー・アル＝アーヒラ月朔日＝1470-12-04（日曜、グレゴリオ暦・独立再計算）。没地は「منزله」（自宅）とのみあり、都市名の明示がない（アレクサンドリアはニスバからの推定）ため placeName を置かない（規則22-1）。初版の placeName الاسكندرية を除去。
-  quote: سنة
+  mention: m13
 persons:
 - id: p1
   label: حماد
@@ -55,27 +51,25 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D08403
+  active: m8
   passive: AIND-D07448
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00024
   - TMP-S-00007
-  quote: الشمس جنيبات
   note:
     ja: 'الشمس جنيبات＝#AIND-D08403（محمد بن عوض بن عبد الرحمن … الشمس أبو عبد الله السكندري المالكي الفرضي والد شعبان الماضي ويعرف بجنيبات）。ニスバ・ラカブ・通称・専門（فرضي）・息子 شعبان の存在すべてが一致。初版は #NEEDID を2 relation に分けていたものを1本（field 2件）に統合。'
 - id: r2
   type: scholarly
   subtype: teacher
-  active: AIND-D03317
+  active: m9
   passive: AIND-D07448
   methods:
   - TMP-S-00008
   fields:
   - TMP-S-00022
   - TMP-S-00075
-  quote: شعبان ولد الشمس شيخه
   note:
     ar: وفي علم الميقات وكذا في الشروط أخذهما عن شعبان ولد الشمس شيخه وتكسب بها
     ja: شعبان ولد الشمس＝#AIND-D03317（شعبان بن محمد بن عوض … ناصر الدين أبو البركات بن الشمس السكندري المالكي … ويعرف بابن جنيبات、生806・没877）。分野「الشروط」（公証文書学）は ID-Master に該当 Subject がなく新規 TMP-S-00075。
@@ -86,7 +80,6 @@ relations:
   passive: AIND-D07448
   summary:
     ar: سليمان بن حماد السكندري
-  quote: null
   note:
     ja: '見出しナサブ「محمد بن سليمان بن حماد … السكندري」から1段ずらして復元（規則3：祖父名 حماد まで復元可）。corpus に本伝なし・ID-Master 未登録のため新規 TMP-P-001157（⚠汎用名、同名別人への流用禁止）。初版は #NEEDID。祖父 حماد は裸名のため #NEEDID 維持。'
 - id: r4
@@ -94,20 +87,19 @@ relations:
   subtype: grandfather
   active: AIND-D07448#p1
   passive: AIND-D07448
-  quote: null
 states:
 - id: s1
   type: status
   label: بارع في الفرائض والحساب
   label_latn: bāriʿ fī al-farāʾiḍ wa-l-ḥisāb
-  quote: null
   phrase: كان بارعا في الفرائض والحساب
+  mention: null
 assessments:
 - id: v1
-  quote: خيرا
   terms:
   - خير
   by: rule
+  mention: m10
 affiliations:
 - id: a1
   type: madhhab
@@ -128,8 +120,8 @@ events:
   - ref: TMP-I-00166
   works:
   - ref: wd:Q1023470
-  quote: بل يقرأ فيه البخاري
-  norm: بل يقرا فيه البخاري
+  phrase: بل يقرأ فيه البخاري
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
@@ -137,18 +129,66 @@ events:
   - ref: gn:104515
   summary:
     ar: وكان خيرا حج وجاور
-  quote: وجاور
   note:
     ja: placeName مكة は規則20の例外（حج）。「جاور」には placeName を付けない（規則20）。時期は没（875年）の直前だが原文に年の明示なし。
   trigger: rule
-  norm: جاور
+  mention: m11
 - id: e3
   type: residence
   subtype: jāwara
-  quote: وجاور ثم عاد
   note:
     ja: 初版の placeName مكة（規則20：جاور に placeName 不可）と、ニスバ由来の travel event（الاسكندرية、when-custom 0875-06）を除去（規則22-1）。帰還の記事は death の note に含める。
-  norm: جاور ثم عاد
+  phrase: وجاور ثم عاد
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001157
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: حماد
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: name
+  quote: بابن حماد
+  norm: ابن حماد
+- id: m8
+  kind: person
+  ref: AIND-D08403
+  quote: الشمس جنيبات
+- id: m9
+  kind: person
+  ref: AIND-D03317
+  quote: شعبان ولد الشمس شيخه
+- id: m10
+  kind: assessment
+  quote: خيرا
+- id: m11
+  kind: event
+  quote: وجاور
+  norm: جاور
+- id: m12
+  kind: month
+  value: 6
+  quote: جمادى الآخرة
+- id: m13
+  kind: year
+  value: '875'
+  quote: سنة
 translation:
   ja: ムハンマド・ブン・スライマーン・ブン・ハンマード、アッ＝シャムス、アッ＝サカンダリー（アレクサンドリア人）、シャーフィイー派。「イブン・ハンマード」として知られる。相続法（ファラーイド）と算術に卓越しており、この二つをアッ＝シャムス・ジュナイバートから取得した。また礼拝時刻学（ミーカート）および公証文書学（シュルート）を、自分の師であるアッ＝シャムスの息子シャアバーンから取得し、これらで生計を立てた。サフワーン・モスクで職務に従事し、さらにそこで『ブハーリー（サヒーフ）』を読誦した。善良な人物で、ハッジを行いマッカに滞在（ムジャーワラ）した後、帰還したが、自宅に到着するや否や没した。それは875年ジュマーダー・アル＝アーヒラ月の朔日であった。神よ彼に慈悲を。
   en: Muḥammad b. Sulaymān b. Ḥammād, al-Shams al-Sakandarī al-Shāfiʿī, known as Ibn Ḥammād. He excelled in the law of inheritance and in arithmetic, both of which he took from al-Shams Junaybāt; and he took the science of timekeeping (mīqāt) as well as notarial drafting (shurūṭ) from Shaʿbān, the son of al-Shams, his teacher, and earned his living by them. He held a post in the Ṣafwān Mosque, and indeed used to read al-Bukhārī there. He was a good man; he performed the pilgrimage and sojourned (in Mecca), then returned, and died the moment he reached his home, at the beginning of Jumādā al-Ākhira of the year 875; may God have mercy on him.

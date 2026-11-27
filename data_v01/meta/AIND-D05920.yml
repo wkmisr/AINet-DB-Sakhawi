@@ -9,26 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00277
-    quote: السمنودي
+    mention: m4
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m2
   - id: n4
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n5
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m5
 birth:
   id: b
   date:
@@ -42,66 +39,59 @@ death:
     ah: 827
   note:
     ja: 827 ＝ 1423-12-14〜1424-12-01、年初 1423（h2g.py）。初版の when="1424" を是正。没地は原文にない。
-  quote: سنة
   phrase: مات سنة سبع وعشرين وقد جاز المائة
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: son
-  active: AIND-D03713
+  active: m6
   passive: AIND-D05920
   summary:
     ar: عبد الرحمن بن عمر بن عيسى السمنودي
-  quote: والد
   note:
     ja: '「والد عبد الرحمن الماضي」。息子 = #AIND-D03713（عبد الرحمن بن عمر بن عيسى السمنودي الآتي أبوه … وهو ممن أخذه عن أبيه）で相互に閉合。初版の #NEEDID を差し替え。'
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D05920
-  passive: AIND-D03976
+  passive: m7
   methods:
   - TMP-S-00008
   fields:
   - wd:Q484181
   - TMP-S-00024
   - TMP-S-00022
-  quote: كالعز عبد العزيز بن عبد الواحد المناوي
   note:
     ja: '「انتفع به أهل تلك النواحي كالعز عبد العزيز بن عبد الواحد المناوي فإنه أخذ عنه الفقه والفرائض والميقات بل كان جل انتفاعه به」。弟子 = #AIND-D03976（عبد العزيز بن عبد الواحد … العز … المناوي السمنودي、本伝に「تفقه بالفقيه عمر بن عيسى السمنودي وعنه أخذ الميقات والفرائض وبه انتفع」）で相互に閉合。本項主が師（active）、弟子が passive（規則15）。初版の #NEEDID 3本（分野別）を一本化。'
-  norm: العز عبد العزيز بن عبد الواحد المناوي
   phrase: العز عبد العزيز بن عبد الواحد المناوي
 - id: r3
   type: scholarly
   subtype: teacher
   active: AIND-D05920
-  passive: AIND-D08814
+  passive: m8
   methods:
   - TMP-S-00016
-  quote: الكمال إمام الكاملية
   note:
     ja: '「وكذا لقيه الكمال إمام الكاملية صحبة والده」。الكمال إمام الكاملية ＝ #AIND-D08814（محمد بن محمد بن عبد الرحمن … الكمال … إمام الكاملية、808年生）。父（#AIND-D07565 الشمس محمد بن عبد الرحمن）に伴われて面会。ID-Master の TMP-P-000284「إمام الكاملية」は関係専用番号で、本伝 #AIND-D08814 と名寄せ要（§D107-7）。'
-  norm: الكمال امام الكاملية
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D05920
-  passive: AIND-D10447
+  passive: m9
   methods:
   - label: لقي ولقن
   cert: medium
-  quote: والجمال يوسف الصفي
   note:
     ja: '「والجمال يوسف الصفي فلقنه : يا أيها الراضي بأحكامنا …」。الجمال يوسف الصفي ＝ #AIND-D10447（يوسف بن أحمد بن يوسف الجمال الصفي … القاهري المالكي … ويعرف بالشيخ يوسف الصفي）。本項主が彼に詩句を口授（لقن）した。لقن は ID-Master の Subject に未登録のため method は ref なし。別読み: 「لقيه الكمال … صحبة والده والجمال يوسف الصفي فلقنه」を「الكمال が父と الجمال يوسف الصفي に伴われて本項主に会い、本項主が（الكمال に）口授した」と読むこともでき（#AIND-D10447 本伝に「ممن أخذ عنه كإمام الكاملية」とあり الكمال は يوسف الصفي の弟子）、その場合この relation は立たず口授の相手は #AIND-D08814 となる。両読み可能のため集約時に cert medium（内容検証B L-16）。'
-  norm: الجمال يوسف الصفي
   phrase: الجمال يوسف الصفي
 states:
 - id: s1
   type: office
   ref: TMP-O-00185
-  quote: null
   note:
     ja: 「كان فقيها ذا معرفة بالفرائض والميقات」。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -114,9 +104,51 @@ events:
     cert: medium
   summary:
     ar: 'فلقنه : يا أيها الراضي بأحكامنا لا بد أن تحمد عقبى الرضا / فوض إلينا وابق مستسلما فالراحة العظمى لمن فوضا / وإن تعلقت بأسبابنا فلا تكن عن بابنا معرضا / فإن فينا خلقا باقيا من كل ما يأتي وما قد مضى / لا ينعم المرء بمحبوبه حتى يرى الخيرة فيما قضى'
-  quote: null
   note:
     ja: الجمال يوسف الصفي に口授した詩（神への委託＝تفويض と満足を説く5行）。口授の相手は別読みでは الكمال إمام الكاملية（#AIND-D08814）＝ relation n="3" の note 参照（cert medium）。
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  ref: TMP-N-00277
+  quote: السمنودي
+- id: m5
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m6
+  kind: person
+  ref: AIND-D03713
+  quote: والد
+- id: m7
+  kind: person
+  ref: AIND-D03976
+  quote: كالعز عبد العزيز بن عبد الواحد المناوي
+  norm: العز عبد العزيز بن عبد الواحد المناوي
+- id: m8
+  kind: person
+  ref: AIND-D08814
+  quote: الكمال إمام الكاملية
+  norm: الكمال امام الكاملية
+- id: m9
+  kind: person
+  ref: AIND-D10447
+  quote: والجمال يوسف الصفي
+  norm: الجمال يوسف الصفي
+- id: m10
+  kind: year
+  value: '827'
+  quote: سنة
 translation:
   ja: ウマル・ブン・イーサー・ブン・ウマル・アッ＝サマンヌーディー・アッ＝シャーフィイー。前述のアブド・アッ＝ラフマーンの父。相続法（ファラーイド）と礼拝時刻学（ミーカート）の知識をもつ法学者で、敬虔と禁欲を兼ね、奇跡（カラーマート）と高貴な徳性で語られた。その地方の人々が彼から益を得た。たとえばアル＝イッズ・アブド・アル＝アズィーズ・ブン・アブド・アル＝ワーヒド・アル＝ムナーウィーは彼から法学・相続法・礼拝時刻学を受け、むしろ益の大半は彼から得たものであった。同様にアル＝カマール（カーミリーヤのイマーム）も父に伴われて彼に会い、またアル＝ジャマール・ユースフ・アッ＝サフィーも会って、彼は彼に次の詩を口授した。「我らの裁定に満足する者よ、満足の末は必ず讃えることになる。我らに委ね、服従し続けよ、委ねた者にこそ最大の安らぎがある。我らの縄に縋るなら、我らの門から顔を背けるな。我らのうちには、来るものも過ぎたもののすべてに（わたる）とこしえの創造がある。人は、定められたことのうちに善き選択を見るまでは、愛するものを享受できない。」（8）27年に没し、百歳を越えていた。
   en: 'ʿUmar b. ʿĪsā b. ʿUmar al-Samannūdī al-Shāfiʿī, father of the aforementioned ʿAbd al-Raḥmān. He was a jurist with knowledge of inheritance law (farāʾiḍ) and timekeeping (mīqāt), combined with piety and asceticism, spoken of for his miracles (karāmāt) and noble qualities. The people of those parts benefited from him, such as al-ʿIzz ʿAbd al-ʿAzīz b. ʿAbd al-Wāḥid al-Manāwī, who took from him jurisprudence, inheritance law and timekeeping; indeed the greater part of his benefit came from him. Likewise al-Kamāl, the imām of al-Kāmiliyya, met him in the company of his father, as did al-Jamāl Yūsuf al-Ṣafī, to whom he dictated: "O you who are content with Our decrees, you will surely praise the outcome of contentment. / Entrust (your affairs) to Us and remain submissive, for the greatest ease belongs to the one who entrusts. / And if you cling to Our means, do not turn away from Our door. / For in Us there is an everlasting creation (encompassing) all that comes and all that has passed.

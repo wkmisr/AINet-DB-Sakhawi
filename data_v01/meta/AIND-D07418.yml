@@ -9,23 +9,21 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00100
-    quote: الحضرمي
+    mention: m4
   - id: n3
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: الشيخ سعد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: الشيخ سعد
@@ -38,71 +36,105 @@ relations:
   subtype: father
   active: AIND-D07418#p1
   passive: AIND-D07418
-  quote: null
   note:
     ja: '父は「الشيخ سعد」の裸名のみ、corpus に本伝なし → #NEEDID（規則3）。初版の desc「سعد الشمس」は誤り（الشمس は本項主のラカブ）。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07182
+  active: m6
   passive: AIND-D07418
   summary:
     ar: أبو الفرج المراغي
-  quote: الفرج المراغي
   note:
     ja: 「أخو أبي الفرج المراغي لأمه」＝異父（同母）兄弟。أبو الفرج المراغي＝#AIND-D07182（محمد ناصر الدين أبو الفرج … 806年マディーナ生、頻出確定ID）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: AIND-D06936
+  active: m7
   passive: AIND-D07418
   methods:
   - TMP-S-00003
-  quote: الجمال الكازروني
   note:
     ja: الجمال الكازروني＝#AIND-D06936「محمد بن أحمد بن محمد بن محمود … الجمال المحب والشمس أبو عبد الله … الكازروني الأصل المدني الشافعي」（757年マディーナ生。ID-Master で الجمال الكازروني＝D06936 に名寄せ済み。マッカの D08619 は別人）。初版どおり。原文にない field الحديث を除去。
 - id: r4
   type: scholarly
   subtype: teacher
-  active: AIND-D07181
+  active: m8
   passive: AIND-D07418
   methods:
   - TMP-S-00003
-  quote: الفتح المراغي
   note:
     ja: أبو الفتح المراغي＝#AIND-D07181（محمد الشرف أبو الفتح، 775年マディーナ生、頻出確定ID）。初版の幻番号 TMP-P-000003（ID-Master 未登録）を置換。
 - id: r5
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m11
   passive: AIND-D07418
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: القاهرة
+    - mention: m10
     phrase: ورافق أخاه المشار إليه في السفر إلى القاهرة فسمع معه على شيخنا أشياء
-  quote: شيخنا
   note:
     ja: شيخنا＝イブン・ハジャル。placeName القاهرة は「في السفر إلى القاهرة فسمع」の接続による（規則22(3)）。
 events:
 - id: e1
   type: travel
   persons:
-  - ref: AIND-D07182
-    quote: أخاه
-    norm: اخاه
+  - mention: m9
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: ورافق أخاه المشار إليه في السفر إلى القاهرة
-  norm: رافق اخاه المشار اليه في السفر الي القاهرة
+  - mention: m10
+  phrase: ورافق أخاه المشار إليه في السفر إلى القاهرة
+  mention: null
 notes:
 - text: 「مات .」＝没年の記載なし（刊本の空白）→ death 要素を立てない（規則45）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الشيخ سعد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00100
+  quote: الحضرمي
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: AIND-D07182
+  quote: الفرج المراغي
+- id: m7
+  kind: person
+  ref: AIND-D06936
+  quote: الجمال الكازروني
+- id: m8
+  kind: person
+  ref: AIND-D07181
+  quote: الفتح المراغي
+- id: m9
+  kind: person
+  ref: AIND-D07182
+  quote: أخاه
+  norm: اخاه
+- id: m10
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m11
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アッ＝シャイフ・サアド、アッ＝シャムス・アル＝ハドラミー・アル＝マダニー、アブー・ル＝ファラジュ・アル＝マラーギーの同母兄弟。アル＝ジャマール・アル＝カーザルーニーとアブー・ル＝ファトフ・アル＝マラーギーから聴聞し、前述の兄弟に同行してカイロへ旅し、彼とともに我らがシャイフ（イブン・ハジャル）から若干のものを聴聞した。没した。（没年の記載なし）
   en: Muḥammad b. al-Shaykh Saʿd, al-Shams al-Ḥaḍramī al-Madanī, the uterine brother of Abū al-Faraj al-Marāghī. He heard from al-Jamāl al-Kāzarūnī and Abū al-Fatḥ al-Marāghī, and accompanied his aforementioned brother on the journey to Cairo, where he heard some things with him from our shaykh (Ibn Ḥajar). He died [date blank].

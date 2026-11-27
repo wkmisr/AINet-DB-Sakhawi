@@ -9,41 +9,68 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: البرهان
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 849-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m6
   note:
     en: He died in Dhu al-Qaʿda, 849 AH. His death was recorded by Ibn Fahd.
-  quote: سنة
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m8
   note:
     en: His death was recorded by Ibn Fahd.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: البرهان
+- id: m3
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m4
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m5
+  kind: year
+  value: '849'
+  quote: سنة
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m8
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・アル＝ブルハーン・アル＝ミスリー。ハジュリ暦849年ズルカアダ月にマッカ（メッカ）で没した。イブン・ファハドが彼の逝去を記録している。
   en: Ali b. al-Burhan al-Misri. He died in Dhu al-Qaʿda, 849 AH, in Mecca. His death was recorded by Ibn Fahd.

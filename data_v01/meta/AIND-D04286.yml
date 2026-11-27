@@ -9,65 +9,96 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n2
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: جوشن
     by: rule
+    mention: m5
 death:
   id: d
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m9
   note:
     ar: مات بمكة وقد خلف دورا ونخيلا
     ja: 没年の記載なし。
 states:
 - id: s1
   type: office
-  ref: wd:Q215536
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: التاجر
+  - mention: m9
+  mention: m7
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00037
-    quote: لليمن
-    norm: ليمن
-  quote: التاجر المتردد فيها لليمن
+  - mention: m8
+  phrase: التاجر المتردد فيها لليمن
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
+  - mention: m10
   works:
   - label: ذيله
-  quote: جرده ابن فهد في ذيله
   cert: low
   note:
     ja: 'Pattern A。没年不明 → 規則により #AIND-D09211 cert low。初版は統制外 subtype「biographer reference」の relation。'
+  phrase: جرده ابن فهد في ذيله
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: جوشن
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: office
+  ref: wd:Q215536
+  quote: التاجر
+- id: m8
+  kind: place
+  quote: لليمن
+  ref: TMP-L-00037
+  norm: ليمن
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブド・アル＝カリーム・ブン・ムハンマド・ブン・アリー・ブン・ムハンマド・ブン・ジャウシャン・アル＝マッキー、同地（マッカ）からイエメンへ行き来していた商人。マッカで没し、家々とナツメヤシを遺した。イブン・ファフドがその『補遺（ザイル）』で名前のみ挙げている。
   en: ʿAbd al-Karīm b. Muḥammad b. ʿAlī b. Muḥammad b. Jawshan al-Makkī, the merchant who used to travel from there to Yemen. He died in Mecca, having left houses and palm trees. Ibn Fahd listed him bare in his Dhayl.

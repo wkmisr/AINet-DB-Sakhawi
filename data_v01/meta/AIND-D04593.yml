@@ -9,42 +9,37 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00139
-    quote: الدميري
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m9
   - id: n3
     type: laqab
-    quote: العفيف
+    mention: m7
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001039
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m5
   - id: n9
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m6
 death:
   id: d
   date:
@@ -53,14 +48,13 @@ death:
   - ref: gn:104515
   note:
     ja: 「مات بها في المحرم سنة خمس وخمسين」。「بها」＝مكة（ニスバ المكي の照応、規則22(3)）。855-01 ＝ 1451-02-12〜03-13（h2g.py）。
-  quote: سنة
+  mention: m12
 relations:
 - id: r1
   type: kin
   subtype: siblings_child
-  active: AIND-D04283
+  active: m10
   passive: AIND-D04593
-  quote: عبد الكريم بن محمد الماضي
   note:
     ja: '「عم عبد الكريم بن محمد الماضي」＝甥は #AIND-D04283（刊本 عبد الكريم 部 866 番「عبد الكريم بن محمد بن عبد الله بن محمد بن موسى الدميري المكي العطار … والصواب أن جده محمد بن عبد الله بن موسى بن عيسى」、876年マッカ没）。同じ الدميري المكي 家で、#AIND-D04747（عبد الواحد … ابن أخي عبد الكريم بن محمد الماضي）も同族。初版 #NEEDID を解消。'
 - id: r2
@@ -71,21 +65,71 @@ relations:
   summary:
     ar: محمد بن عبد الله بن محمد بن موسى بن عيسى الدميري
   cert: medium
-  quote: null
   note:
     ja: 見出しナサブの父。本項主が عبد الكريم（#AIND-D04283）の عم であれば、その父は D04283 の祖父＝TMP-P-001039（محمد بن عبد الله بن موسى بن عيسى الدميري المكي、D04283 の「والصواب أن جده …」から発行済み）に当たる。ナサブは本項「محمد بن عبد الله بن محمد بن موسى」と D04283「محمد بن عبد الله بن موسى」で1代分ずれる（サハーウィー自身が D04283 で異伝を指摘）ため cert medium。
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m14
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 855（≦871）→ ブリーフの振り分けにより التقي بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「informant」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001039
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عبد الله
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m6
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m7
+  kind: name
+  quote: العفيف
+- id: m8
+  kind: name
+  ref: TMP-N-00139
+  quote: الدميري
+- id: m9
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m10
+  kind: person
+  ref: AIND-D04283
+  quote: عبد الكريم بن محمد الماضي
+- id: m11
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m12
+  kind: year
+  value: '855'
+  quote: سنة
+- id: m13
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m14
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アブドゥッラー・ブン・ムハンマド・ブン・アブドゥッラー・ブン・ムハンマド・ブン・ムーサー・ブン・イーサー、アル＝アフィーフ・アッ＝ダミーリー・アル＝マッキー。前述のアブドゥルカリーム・ブン・ムハンマドの父方の叔父。（8）55年ムハッラム月に同地（マッカ）で没した。イブン・ファハドがその没年月を記録している。
   en: ʿAbd Allāh b. Muḥammad b. ʿAbd Allāh b. Muḥammad b. Mūsā b. ʿĪsā, al-ʿAfīf al-Damīrī al-Makkī, the paternal uncle of ʿAbd al-Karīm b. Muḥammad, mentioned above. He died there (in Mecca) in Muḥarram (8)55; Ibn Fahd recorded his death.

@@ -9,62 +9,88 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04094
-    quote: الشغراوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00160
-    quote: المنوفي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: شهاب
     by: rule
-    ref: TMP-P-001064
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D05180
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m9
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001064
+  active: m6
   passive: AIND-D05180
-  quote: بأبيه
   note:
     ja: 父 شهاب بن علي الشغراوي المنوفي：見出しナサブから祖父名まで復元可、かつ「ويعرف بأبيه」（規約5、独立検証パスで統一）。corpus に見出しなし・ID-Master 未登録 → 新規 TMP-P-001064。
-  norm: ابيه
   phrase: شهاب بن علي
 events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m9
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
   phrase: سمع مني بالقاهرة
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001064
+  quote: شهاب
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-04094
+  quote: الشغراوي
+- id: m5
+  kind: name
+  ref: TMP-N-00160
+  quote: المنوفي
+- id: m6
+  kind: person
+  ref: TMP-P-001064
+  quote: بأبيه
+  norm: ابيه
+- id: m7
+  kind: event
+  quote: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: アリー・ブン・シハーブ・ブン・アリー・アッ＝シャグラーウィー・アル＝マヌーフィー。父の名で知られる。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Shihāb b. ʿAlī al-Shaghrāwī al-Manūfī, known by his father's name. He is among those who heard from me (al-Sakhāwī) in Cairo.

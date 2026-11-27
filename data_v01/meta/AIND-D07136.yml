@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00206
-    quote: الجندي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: الطنبغا
     by: rule
+    mention: m2
   - id: n5
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m5
 persons:
 - id: p1
   label: الطنبغا
@@ -37,14 +35,13 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D07136
   methods:
   - TMP-S-00003
   context:
   - type: learning
     phrase: ممن سمع على شيخنا
-  quote: شيخنا
   note:
     ja: 「ممن سمع على شيخنا」＝イブン・ハジャル（wd:Q471116）に聴聞した者の一人。
 - id: r2
@@ -52,13 +49,34 @@ relations:
   subtype: father
   active: AIND-D07136#p1
   passive: AIND-D07136
-  quote: null
   note:
     ja: '父は裸名（الطنبغا）のみ → #NEEDID 維持（規則3・12）。'
 affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: الطنبغا
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00206
+  quote: الجندي
+- id: m5
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・アッ＝トゥンブガー、アッ＝シャムス・アル＝ジュンディー、マーリク派。我らがシャイフ（イブン・ハジャル）に聴聞した者の一人。
   en: Muḥammad b. al-Ṭunbughā, al-Shams al-Jundī, the Mālikī. He was among those who heard from our shaykh (Ibn Ḥajar).

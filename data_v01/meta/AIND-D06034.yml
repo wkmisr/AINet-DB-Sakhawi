@@ -9,48 +9,70 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00131
-    quote: الزيني
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-02091
-    quote: القجاجقي
+    mention: m3
   - id: n3
     type: nisbah
-    ref: TMP-N-00237
-    quote: الطواشي
+    mention: m4
   - id: n4
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D06034
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m7
   note:
     ja: 「ممن سمع مني بالمدينة」（規則2。field は付けない）。
 states:
 - id: s1
   type: office
   subtype: deputy
-  ref: TMP-O-00093
   orgs:
   - ref: TMP-I-00120
-  quote: نائب شيخ الخدام بالحرم المدني
   note:
     ja: 預言者モスク（الحرم المدني＝#TMP-I-00120 الحرم النبوي）の宦官長（مشيخة الخدام＝TMP-O-00093）の代理。ID-Master 未登録のため仮番号 TMP-O-00318 を発行（corpus D09991「مقبل الزين الزيني الطواشي نائب شيخ الخدام」にも同職）。初版の affiliation type="employed"（#NEEDID）は state との二重符号化（規則8）のため除去。state の placeName المدينة は施設所在地からの補完（規則22(1)）のため置かない。（2026-11 の官職 ID 整理で ref は TMP-O-00093 に移った）
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-N-00131
+  quote: الزيني
+- id: m3
+  kind: name
+  ref: TMP-N-02091
+  quote: القجاجقي
+- id: m4
+  kind: name
+  ref: TMP-N-00237
+  quote: الطواشي
+- id: m5
+  kind: office
+  ref: TMP-O-00093
+  quote: نائب شيخ الخدام بالحرم المدني
   norm: ناءب شيخ الخدام بالحرم المدني
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ウマル・アッ＝ザイニー・アル＝カジャージュキー・アッ＝タワーシー、マディーナの聖域（預言者モスク）における奉仕者長（シャイフ・アル＝フッダーム）の代理。マディーナで私から聴聞した者の一人。
   en: ʿUmar al-Zaynī al-Qajājiqī al-Ṭawāshī, deputy of the chief of the servants (shaykh al-khuddām) at the sanctuary of Medina. He was among those who heard from me in Medina.

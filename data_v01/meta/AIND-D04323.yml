@@ -9,29 +9,28 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n2
     type: ism
-    quote: عبد اللطيف
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد القادر
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n5
     type: nasab
-    quote: زايد
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D04323
   methods:
   - TMP-S-00003
@@ -40,27 +39,22 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m9
     phrase: ممن سمع مني بمكة
-  quote: مني
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D10981
+  active: m6
   passive: AIND-D04323
-  quote: أبي سعد الآتي
   note:
     ja: '= #AIND-D10981（أبو سعد بن عبد القادر بن علي بن زايد المكي أخو عبد اللطيف）。相互に閉合。'
-  norm: ابو سعد الاتي
   phrase: أخو أبي سعد الآتي
 states:
 - id: s1
   type: status
   label: وهو مبارك
   label_latn: wa-huwa mubārak
-  quote: وهو مبارك
+  mention: m12
 events:
 - id: e1
   type: learning
@@ -68,20 +62,63 @@ events:
   - ref: TMP-T-00095
   methods:
   - TMP-S-00003
-  quote: سمع
   note:
     ja: クルアーンと諸書の暗記・提示（提示の相手は原文に明記なし → teacher relation にしない）。初版は active 空の teacher relation 2件、bibl に Subject 番号 TMP-S-00026 を流用。
   trigger: rule
   phrase: وحفظ القرآن وكتبا عرضها
+  mention: m7
 - id: e2
   type: visit
   places:
-  - ref: gn:109223
-    quote: المدينة
-  quote: وزار
+  - mention: m11
   trigger: rule
-  norm: زار
   phrase: وزار المدينة
+  mention: m10
+mentions:
+- id: m1
+  kind: name
+  quote: عبد اللطيف
+- id: m2
+  kind: name
+  quote: عبد القادر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: زايد
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: person
+  ref: AIND-D10981
+  quote: أبي سعد الآتي
+  norm: ابو سعد الاتي
+- id: m7
+  kind: event
+  quote: سمع
+- id: m8
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m10
+  kind: event
+  quote: وزار
+  norm: زار
+- id: m11
+  kind: place
+  quote: المدينة
+  ref: gn:109223
+- id: m12
+  kind: office
+  quote: وهو مبارك
 translation:
   ja: アブド・アッ＝ラティーフ・ブン・アブド・アル＝カーディル・ブン・アリー・ブン・ザーイド・アル＝マッキー。後述のアブー・サアドの兄弟。マッカで私（サハーウィー）から聴聞した者の一人で、クルアーンと諸書を暗記して提示（暗誦）し、マディーナを参詣した。祝福された人物である。
   en: ʿAbd al-Laṭīf b. ʿAbd al-Qādir b. ʿAlī b. Zāyid al-Makkī, brother of Abū Saʿd (mentioned below). He was among those who heard from me in Mecca; he memorized the Qurʾān and books which he recited (for examination), and visited Medina. He is a blessed man.

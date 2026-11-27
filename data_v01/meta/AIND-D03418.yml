@@ -9,45 +9,39 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m2
   - id: n2
     type: ism
-    quote: طرباي
     by: rule
+    mention: m1
 relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06305
+  active: m3
   passive: AIND-D03418
   corresp: AIND-D06305
   summary:
     ar: الأشرف قايتباي
-  quote: قايتباي
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D02317
+  active: m4
   passive: AIND-D03418
-  quote: أخوه تنم
   note:
     ja: تنم=#AIND-D02317(تنم الاشرفي قايتباي、أرسله أستاذه لنيابة جدة=本項の「قضاء أمر جدة」と整合)。
-  norm: اخوه تنم
 states:
 - id: s1
   type: office
   ref: TMP-O-00053
   places:
-  - ref: TMP-L-00036
-    quote: جدة
+  - mention: m5
   dates:
   - ah: 896
     type: appointment
   - ah: 897
     type: retirement
-  quote: null
+  mention: null
 events:
 - id: e1
   type: residence
@@ -56,12 +50,10 @@ events:
     cert: high
     type: residence
   places:
-  - ref: TMP-L-00036
-    quote: جدة
-  quote: فأقام
+  - mention: m5
   cert: high
   trigger: rule
-  norm: اقام
+  mention: m7
 - id: e2
   type: residence
   date:
@@ -69,13 +61,46 @@ events:
     cert: high
     type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m8
   cert: high
   note:
     en: Stayed there until 897 H
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: طرباي
+- id: m2
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m3
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي
+- id: m4
+  kind: person
+  ref: AIND-D02317
+  quote: أخوه تنم
+  norm: اخوه تنم
+- id: m5
+  kind: place
+  quote: جدة
+  ref: TMP-L-00036
+- id: m6
+  kind: year
+  value: '896'
+  quote: سنة
+- id: m7
+  kind: event
+  quote: فأقام
+  norm: اقام
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: Ṭarabāy al-Ashrafī Qāytbāy。彼の兄弟の Tanam が、896年にジッダの職務を終えた後に旅立つ際、彼を（ジッダの）代理に任命した。そこで彼はジッダに滞在し、次いでメッカに移り、翌年（897年）に彼らの後任が到着するまでそこに留まった。彼はクルアーンの朗誦に優れ、タワーフ（カアバ神殿の鼎巡）を巧みに行い、勇敢で侠気のある人物であった。
   en: Ṭarabāy al-Ashrafī Qāytbāy. His brother Tanam appointed him as deputy upon his departure after settling the affairs of Jeddah in the year 896 AH. Thus, he resided there (in Jeddah), and then in Mecca, until their replacement arrived in the following year (897 AH). He is among those who excel in recitation, perform the circumambulation (tawāf) beautifully, and behave with chivalry.

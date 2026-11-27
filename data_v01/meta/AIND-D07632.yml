@@ -9,39 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m3
   - id: n2
     type: shuhrah
-    quote: بابن أمين الدولة
-    norm: ابن امين الدولة
     label: ابن أمين الدولة
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m2
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-000031
+  active: m6
   passive: AIND-D07632
   methods:
   - TMP-S-00004
-  quote: الصلاح بن أبي عمر
   note:
     ja: الصلاح بن أبي عمر＝#TMP-P-000031（ID-Master 登録済み）。「وغيره」は無名のため relation を立てない。
-  norm: الصلاح بن ابي عمر
   phrase: له إجازة من الصلاح بن أبي عمر وغيره
 - id: r2
   type: scholarly
   subtype: teacher
   active: AIND-D07632
-  passive: AIND-D06758
+  passive: m7
   methods:
   - TMP-S-00004
   context:
@@ -49,23 +45,49 @@ relations:
     date:
       notBefore: 830
       type: teaching
-  quote: لابن شيخنا
   note:
     ja: ابن شيخنا＝イブン・ハジャルの息子（TMP-P-000277）。「بعد الثلاثين」＝830年以降（規則4により notBefore。830年初＝1426-11-11 → 1426）。初版の when="after 830" は不正な値のため是正。
-  norm: ابن شيخنا
   phrase: وأجاز لابن شيخنا وغيره بعد الثلاثين
 states:
 - id: s1
   type: office
   label: قيم مصارع معالج
   label_latn: qayyim maṣāriʿ muʿālij
-  quote: قيم مصارع معالج
   note:
     ja: '原文「قيم مصارع معالج」を「قيّم مصارعَ」（イダーファ）＝レスリング場（مصارع＝مصرع の複数）の管理人、「معالج」＝施術者（接骨・治療を行う者）と読む（2026-09-24 Waka 裁定 ★7-1、引き継ぎ担当の読み）。3語を無接続で並べた「管理人・格闘家・施術者」の読みは、サハーウィーが職業を列挙するときに接続詞 و を省かないため採らない。語義に不確実さが残り職としての同定はできないため、label は原文どおり、ref は #NEEDID のまま（ISSUES §Df-3）。'
+  mention: m5
 notes:
 - text: 原文末尾「واسم جده」は目的語を欠いたまま項が終わる（刊本の欠落）。祖父名は不明。
   lang: ja
   type: textual
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m4
+  kind: name
+  quote: بابن أمين الدولة
+  norm: ابن امين الدولة
+- id: m5
+  kind: office
+  quote: قيم مصارع معالج
+- id: m6
+  kind: person
+  ref: TMP-P-000031
+  quote: الصلاح بن أبي عمر
+  norm: الصلاح بن ابي عمر
+- id: m7
+  kind: person
+  ref: AIND-D06758
+  quote: لابن شيخنا
+  norm: ابن شيخنا
 translation:
   ja: ムハンマド・ブン・アブドゥッラフマーン・アル＝ハラビー。イブン・アミーン・アッ＝ダウラとして知られる。レスリング場の管理人で、施術（接骨・治療）も行った〔語義に不確実さが残る〕。アッ＝サラーフ・イブン・アビー・ウマルらからのイジャーザを持ち、〔八百〕三十年以降に我らがシャイフ（イブン・ハジャル）の息子らにイジャーザを与えた。彼の祖父の名は〔原文欠〕。
   en: Muḥammad b. ʿAbd al-Raḥmān al-Ḥalabī, known as Ibn Amīn al-Dawla. Custodian of the wrestling grounds and a practitioner (bone-setter) [reading uncertain]. He held an ijāza from al-Ṣalāḥ b. Abī ʿUmar and others, and he granted an ijāza to the son of our shaykh (Ibn Ḥajar) and others after [the year 8]30. And his grandfather's name [text breaks off].

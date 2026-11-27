@@ -9,27 +9,25 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00802
-    quote: العجلاني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-05501
-    quote: البهلوان
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: رشيد
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 859-02
   note:
     ja: 「مات في صفر سنة تسع وخمسين」＝859年サファル月（1455-01-30〜02-27、h2g.py）→ 月初 1455-01。没地は原文に無い。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: رشيد العجلاني
@@ -42,7 +40,6 @@ relations:
   subtype: father
   active: AIND-D07391#p1
   passive: AIND-D07391
-  quote: null
   note:
     ja: '父 رشيد は名のみで識別要素が無い → #NEEDID（規則3）。初版はカテゴリ不一致の地名番号 TMP-L-00058（登録＝رشيد、ロゼッタ）を人物位置に流用 → 置換。'
 - id: r2
@@ -53,29 +50,60 @@ relations:
   summary:
     ar: وبير بن محمد بن رشيد القائد
   cert: medium
-  quote: null
   note:
     ja: 'corpus #AIND-D10186「وبير بن محمد بن رشيد القائد نائب السيد علي بن عنان بن مغامس بن رميثة بن أبي نمي . قتل في شعبان سنة تسع وعشرين … قاله ابن فهد」の見出しナサブ「محمد بن رشيد القائد」が本項主（マッカの القائد、العجلاني）と一致し、corpus に他の「محمد بن رشيد القائد」は無い（D07392 はダマスクスの محتسب）。子の見出しナサブによる親子 relation（規則23・37）だが、名＋職のみの一致なので cert medium。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
-  quote: القائد
   note:
     ja: 見出しの「القائد」（ID-Master 既登録 TMP-O-00094）。
-  norm: القاءد
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 'Pattern A。限定語のない ابن فهد、本項主の没年 859（≤871）→ 振り分け規則により #AIND-D09211（التقي بن فهد）、cert low（規則43）。初版の統制外 subtype「chronicled by」relation を event に置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: رشيد
+- id: m3
+  kind: name
+  ref: TMP-N-00802
+  quote: العجلاني
+- id: m4
+  kind: name
+  ref: TMP-N-05501
+  quote: البهلوان
+- id: m5
+  kind: office
+  ref: TMP-O-00094
+  quote: القائد
+  norm: القاءد
+- id: m6
+  kind: month
+  value: 2
+  quote: صفر
+- id: m7
+  kind: year
+  value: '859'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・ラシード・アル＝アジュラーニー・アル＝バフラワーン、カーイド。859年サファル月に没した。イブン・ファハドがその没年を記している。
   en: Muḥammad b. Rashīd al-ʿAjlānī al-Bahlawān, the qāʾid. He died in Ṣafar of the year 859. Ibn Fahd recorded the date of his death.

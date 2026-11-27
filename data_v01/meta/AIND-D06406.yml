@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01338
-    quote: التنمي
+    mention: m2
   - id: n2
     type: ism
-    quote: كمشبغا
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 830
   note:
     ja: 830年＝1426-11-11〜1427-10-30（h2g.py）、年精度で @when=1426。
-  quote: سنة
   phrase: مات سنة ثلاثين
+  mention: m5
 persons:
 - id: p1
   label: والد كمشبغا التنمي
@@ -33,24 +32,41 @@ relations:
   subtype: father
   active: AIND-D06406#p1
   passive: AIND-D06406
-  quote: null
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00338
   places:
-  - ref: TMP-L-00328
-    quote: قلعة دمشق
-  quote: نائب
+  - mention: m4
   note:
     ja: '汎用 نائب（TMP-O-00053）＋ラベル、所在は原文の施設名 قلعة دمشق（ID-Master Location TMP-L-00328）を placeName に（先例 #AIND-D05921「نائب قلعة حلب」＋placeName wd:Q206231、#AIND-D06142）。初版の placeName دمشق（gn:170654）は施設名からの補完、orgName は Location 番号の種類違いのため除去（規則22(1)、precheck 方針）。'
-  norm: ناءب
+  mention: m3
 notes:
 - text: 'ニスバ「التنمي」はスルターン名を伴わない主人ニスバ。主人は تنم الحسني نائب الشام（#AIND-D02315、没802）の可能性が高い（corpus #AIND-D06357「قطلوبغا العلاء التنمي تنم الحسني نائب الشام」）が、本項の原文は主人を名指ししないので patron relation は立てない（先例 #AIND-D02165「برسباي التنمي」・#AIND-D02201「بشير … التنمي」は patron なし）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: كمشبغا
+- id: m2
+  kind: name
+  ref: TMP-N-01338
+  quote: التنمي
+- id: m3
+  kind: office
+  ref: TMP-O-00338
+  quote: نائب
+  norm: ناءب
+- id: m4
+  kind: place
+  quote: قلعة دمشق
+  ref: TMP-L-00328
+- id: m5
+  kind: year
+  value: '830'
+  quote: سنة
 translation:
   ja: クムシュブガー・アッ＝タナミー。ダマスクス城塞の代官（ナーイブ）。830年に没した。
   en: Kumushbughā al-Tanamī, deputy (nāʾib) of the Citadel of Damascus. He died in the year 830.

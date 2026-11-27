@@ -9,49 +9,45 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: ابن الأمانة
+    mention: null
   - id: n2
     type: ism
-    quote: عبد العزيز
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D08568
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06691
+    mention: m3
   - id: n5
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n6
     type: nasab
-    quote: عبد العزيز
     by: rule
+    mention: m5
   - id: n7
     type: nasab
-    quote: المحب
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: البدر
     by: rule
+    mention: m7
   - id: n9
     type: nasab
-    quote: الأمانة
     by: rule
-    norm: الامانة
+    mention: m8
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m14
   passive: AIND-D04002
   methods:
   - TMP-S-00028
@@ -61,49 +57,40 @@ relations:
     - ref: TMP-I-00029
     note:
       ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 البرقوقية の所在地〉からの補完で原文に地名の明示なし。
-  quote: عندي
   note:
     ja: 「حضر عندي بالبرقوقية」。
 - id: r2
   type: kin
   subtype: father
-  active: AIND-D08568
+  active: m9
   passive: AIND-D04002
   summary:
     ar: محمد بن محمد بن أحمد بن عبد العزيز المحب أبو اليمن ابن الأمانة
-  quote: أبوه
   note:
     ja: '父「الآتي أبوه」= #AIND-D08568（محمد بن محمد بن أحمد بن عبد العزيز بن عثمان المحب أبو اليمن بن البدر … والد عبد العزيز … ويعرف بابن الأمانة）で双方向閉合。初版の TMP-P-000529 は汚染流用。'
-  norm: ابوه
 - id: r3
   type: kin
   subtype: grandfather
-  active: AIND-D06691
+  active: m10
   passive: AIND-D04002
   summary:
     ar: محمد بن أحمد بن عبد العزيز البدر ابن الأمانة
-  quote: وجده
   note:
     ja: '祖父「الآتي … وجده」= #AIND-D06691（محمد بن أحمد بن عبد العزيز بن عثمان البدر أبو محمد الأنصاري الأبياري … ويعرف بابن الأمانة）。初版の TMP-P-000529 は汚染流用。'
-  norm: جده
 - id: r4
   type: kin
   subtype: uncle
-  active: AIND-D03987
+  active: m11
   passive: AIND-D04002
-  quote: والماضي سميه
   note:
     ja: '「والماضي سميه وغيره من أعمامه」＝同名の叔父 = #AIND-D03987（عبد العزيز بن محمد بن أحمد بن عبد العزيز العز أبو البقا … ابن الأمانة）。他の叔父は #AIND-D03729（عبد الرحمن）・#AIND-D04338（عبد اللطيف）ほか。'
-  norm: الماضي سميه
   phrase: الماضي سميه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00050
-  quote: بالشهادة
   note:
     ja: 「وتكسب بالشهادة ولم يتصون ولا تثبت」。
-  norm: الشهادة
+  mention: m13
 affiliations:
 - id: a1
   type: study
@@ -124,18 +111,74 @@ events:
   - ref: wd:Q23975647
   works:
   - ref: wd:Q1023470
-  quote: أحضر في البخاري في الظاهرية القديمة
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 الظاهرية القديمة の所在地〉からの補完で原文に地名の明示なし。
-  norm: احضر في البخاري في الظاهرية القديمة
+  phrase: أحضر في البخاري في الظاهرية القديمة
+  mention: null
 - id: e2
   type: religious
   subtype: hajj
   places:
   - ref: gn:104515
-  quote: حج
   trigger: rule
   phrase: ولما كبر حج
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عبد العزيز
+- id: m2
+  kind: name
+  ref: AIND-D08568
+  quote: محمد
+- id: m3
+  kind: name
+  ref: AIND-D06691
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عبد العزيز
+- id: m6
+  kind: name
+  quote: المحب
+- id: m7
+  kind: name
+  quote: البدر
+- id: m8
+  kind: name
+  quote: الأمانة
+  norm: الامانة
+- id: m9
+  kind: person
+  ref: AIND-D08568
+  quote: أبوه
+  norm: ابوه
+- id: m10
+  kind: person
+  ref: AIND-D06691
+  quote: وجده
+  norm: جده
+- id: m11
+  kind: person
+  ref: AIND-D03987
+  quote: والماضي سميه
+  norm: الماضي سميه
+- id: m12
+  kind: event
+  quote: حج
+- id: m13
+  kind: office
+  ref: TMP-O-00050
+  quote: بالشهادة
+  norm: الشهادة
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: عندي
 translation:
   ja: アブドゥルアズィーズ・ブン・ムハンマド・ブン・ムハンマド・ブン・アフマド・ブン・アブドゥルアズィーズ、ブン・アル＝ムヒッブ・ブン・アル＝バドル、イブン・アル＝アマーナ。父と祖父は後述され、同名の叔父やその他の叔父たちは前述されている。幼くして（カイロの）旧ザーヒリーヤで『ブハーリー』（の聴聞）に同席させられた。長じてハッジを行い、公証人（シャハーダ）で生計を立てたが、身持ちを慎まず、（証言に）堅実さもなかった。ときに職禄付きの講義に出席することもあり、バルクーキーヤで私（サハーウィー）のもとにも出席した。
   en: ʿAbd al-ʿAzīz b. Muḥammad b. Muḥammad b. Aḥmad b. ʿAbd al-ʿAzīz b. al-Muḥibb b. al-Badr, Ibn al-Amāna. His father and grandfather are mentioned below, and his namesake and his other paternal uncles above. As a child he was brought to hear al-Bukhārī at the old Ẓāhiriyya. When he grew up he performed the Ḥajj and earned his living as a notary-witness, but was neither scrupulous nor reliable. He sometimes attended the stipendiary lessons, and even attended my lessons at the Barqūqiyya.

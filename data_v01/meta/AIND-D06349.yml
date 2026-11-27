@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00187
-    quote: المؤيدي
-    norm: المءيدي
+    mention: m2
   - id: n2
     type: ism
-    quote: قشتمر
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 830
   note:
     ja: 830年（1426-11-11 開始、年精度）、トルクメンとアレッポ軍との戦闘で戦死。戦闘の場所は原文にない（「عسكر حلب」はアレッポ軍の意）ため没地の placeName は付けない（初版の حلب を除去、規則22(1)）。
-  quote: سنة
   phrase: فدام حتى قتل في وقعة كانت بين التركمان وعسكر حلب في سنة ثلاثين
+  mention: m13
 persons:
 - id: p1
   label: والد قشتمر المؤيدي
@@ -34,17 +32,15 @@ relations:
   subtype: father
   active: AIND-D06349#p1
   passive: AIND-D06349
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 - id: r2
   type: social
   subtype: patron
-  active: AIND-D03345
+  active: m3
   passive: AIND-D06349
   summary:
     ar: المؤيد شيخ
-  quote: شيخ
   note:
     ja: 見出し「قشتمر المؤيدي شيخ أحد خاصكيته وصغار دواداريته」＝主人はアル＝ムアイヤド・シャイフ（#AIND-D03345、824年没）。初版のプレースホルダ TMP-P-000000 を置換。
 - id: r3
@@ -54,76 +50,118 @@ relations:
   passive: AIND-D06349
   summary:
     ar: فارس دوادار ططر
-  quote: null
   note:
     ja: '「عزله ططر بدواداره فارس」＝タタルが自身のダワーダール・ファーリスをもって本項主をアレクサンドリア代官職から交代させた（「عزله بفلان」＝X で解任＝後任）。فارس＝corpus 本伝 #AIND-D06143「فارس أحد المقدمين بمصر . كان دوادار الظاهر ططر في حال إمرته فلما ملك أعطاه طبلخانات ثم ولي نيابة إسكندرية」（826年没）＝両項の記述が整合。初版の統制外 subtype「subordinate officer」（TMP-P-000000）を successor に改めた。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيته
+  mention: m4
 - id: s2
   type: office
-  ref: TMP-O-00063
-  quote: دواداريته
   note:
     ja: المؤيد شيخ の小ダワーダールの一人（在任年なし）。
+  mention: m5
 - id: s3
   type: office
   ref: TMP-O-00053
   places:
-  - ref: gn:361058
-    quote: بإسكندرية
-    norm: اسكندرية
-  quote: null
+  - mention: m6
   note:
     ja: المؤيد شيخ の死（824年）後、その子 المظفر أحمد（#AIND-D00775、824年在位）の名で就任し、ططر（#AIND-D03422）により解任（824年）。アレクサンドリア総督職は repo 先例（D06143・D06293）どおり汎用 نائب TMP-O-00053＋地名。
+  mention: null
 - id: s4
   type: office
-  ref: TMP-O-00062
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: الأتابك
+  - mention: m11
   note:
     ja: الأشرف（برسباي）により任命、830年の戦死まで在任（就任年なし）。
-  norm: الاتابك
+  mention: m10
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03422
-    quote: ططر
-  quote: عزله
+  - mention: m8
   note:
     ja: ططر＝الظاهر ططر（#AIND-D03422）。解任・逮捕・投獄（年なし。ططر の執権〜在位は824年）。初版の統制外 subtype「rival」relation（TMP-P-000000）を event の persName に統合。拘禁の場所は原文にない（初版の placeName الاسكندرية を除去）。
   trigger: rule
   phrase: عزله ططر بدواداره فارس ثم قبض عليه وحبسه
+  mention: m7
 - id: e2
   type: political
   persons:
-  - ref: AIND-D02168
-    cert: medium
-    quote: الأشرف
-    norm: الاشرف
-  quote: قتل
+  - cert: medium
+    mention: m9
   note:
     ja: 「الأشرف」＝文脈（ططر の後、830年以前）から الأشرف برسباي（#AIND-D02168、825〜841年在位）だが裸のラカブのため cert medium（規則26）。初版の patron relation（TMP-P-000000）は任命の記述のみなので relation にせず event の persName に。
   trigger: rule
   phrase: إلى أن أخرجه الأشرف وعمله الأتابك حلب
+  mention: m12
 - id: e3
   type: residence
   places:
-  - ref: gn:170063
-    quote: حلب
-  quote: وتوجه إليها فدام حتى قتل
+  - mention: m11
   note:
     ja: 照応代名詞 إليها＝حلب（規則22(3)）。初版の residence event الاسكندرية（職からの補完）は除去。
-  norm: توجه اليها فدام حتي قتل
+  phrase: وتوجه إليها فدام حتى قتل
+  mention: null
 notes:
 - text: 「وكان أشقر معتدل القد ساكنا لا بأس به」＝赤毛で中背、物静かで悪くない人物（人物評）。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قشتمر
+- id: m2
+  kind: name
+  ref: TMP-N-00187
+  quote: المؤيدي
+  norm: المءيدي
+- id: m3
+  kind: person
+  ref: AIND-D03345
+  quote: شيخ
+- id: m4
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيته
+- id: m5
+  kind: office
+  ref: TMP-O-00063
+  quote: دواداريته
+- id: m6
+  kind: place
+  quote: بإسكندرية
+  ref: gn:361058
+  norm: اسكندرية
+- id: m7
+  kind: event
+  quote: عزله
+- id: m8
+  kind: person
+  ref: AIND-D03422
+  quote: ططر
+- id: m9
+  kind: person
+  ref: AIND-D02168
+  quote: الأشرف
+  norm: الاشرف
+- id: m10
+  kind: office
+  ref: TMP-O-00062
+  quote: الأتابك
+  norm: الاتابك
+- id: m11
+  kind: place
+  quote: حلب
+  ref: gn:170063
+- id: m12
+  kind: event
+  quote: قتل
+- id: m13
+  kind: year
+  value: '830'
+  quote: سنة
 translation:
   ja: カシュタムル・アル＝ムアイヤディー・シャイフ。彼（アル＝ムアイヤド・シャイフ）のハースィキーの一人で、小ダワーダールの一人。その死後、その子アル＝ムザッファル・アフマドの名でアレクサンドリアのナーイブ（代官）となったが、タタルが自身のダワーダールのファーリスをもって彼を解任し、次いで彼を捕らえて投獄した。やがてアル＝アシュラフ（バルスバーイ）が彼を釈放してアレッポのアターバクに任じ、彼はアレッポに赴いてそこに留まり、830年にトルクメンとアレッポ軍との間に起こった戦闘で戦死した。赤毛で中背、物静かで、悪くない人物であった。
   en: Qashtamur al-Muʾayyadī Shaykh. He was one of his (al-Muʾayyad Shaykh's) khāṣṣakīs and one of his junior dawādārs. After his (master's) death he served as governor (nāʾib) of Alexandria on behalf of his son al-Muẓaffar Aḥmad; Ṭaṭar removed him, replacing him with his own dawādār Fāris, then arrested and imprisoned him, until al-Ashraf (Barsbāy) released him and made him atābak of Aleppo. He went there and remained until he was killed in a battle between the Turkmens and the army of Aleppo in the year 830. He was fair-haired, of medium build, calm, and not a bad man.

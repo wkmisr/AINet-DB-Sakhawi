@@ -9,21 +9,20 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00100
-    quote: الحضرمي
+    mention: m3
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 830
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: عمر
@@ -36,19 +35,39 @@ relations:
   subtype: father
   active: AIND-D05325#p1
   passive: AIND-D05325
-  quote: null
   note:
     ja: 父。裸名（規則3、#NEEDID）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00004
   places:
-  - ref: TMP-L-00049
-    quote: عدن
-  quote: مفتي
+  - mention: m5
   note:
     ja: '「مفتي عدن」（地名は原文明示、規則22(2)）。なお未受領の #AIND-D06710（قاضي عدن جمال الدين أبا حميش、798–861）本文に「أخذ عنه فقهاء عدن كالفقيه موفق الدين علي بن عمر بن عفيف الحضرمي」とあり本項主と同一人物の可能性があるが、年代（本項主 830 年没）と祖父名の確証がないため relation は立てず note に留める（規則23・26）。'
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  ref: TMP-N-00100
+  quote: الحضرمي
+- id: m4
+  kind: office
+  ref: TMP-O-00004
+  quote: مفتي
+- id: m5
+  kind: place
+  quote: عدن
+  ref: TMP-L-00049
+- id: m6
+  kind: year
+  value: '830'
+  quote: سنة
 translation:
   ja: アリー・ブン・ウマル・アル＝ハドラミー、アデンのムフティー。830年に没した。
   en: ʿAlī b. ʿUmar al-Ḥaḍramī, muftī of Aden. He died in the year 830.

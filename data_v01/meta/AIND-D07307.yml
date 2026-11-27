@@ -9,29 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00054
-    quote: البعلي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00555
-    quote: اليونيني
+    mention: m5
   - id: n3
     type: shuhrah
-    quote: بابن الشويخ
-    norm: ابن الشويخ
     label: ابن الشويخ
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: جعفر
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: جعفر بن علي البعلي اليونيني
@@ -44,7 +41,6 @@ relations:
   subtype: father
   active: AIND-D07307#p1
   passive: AIND-D07307
-  quote: null
   note:
     ja: '父 جعفر بن علي：汎用名＋ニスバのみで本伝なし → #NEEDID（規則3 (c'')）。初版の grandfather relation（汚染番号 TMP-P-000530＝別人の علي）は除去。corpus の #AIND-D02417「جعفر بن محمد بن جعفر البعلي الحنبلي ويعرف بابن الشويخ」（795年バアルバクで聴聞）は同じ通称の同族とみられるが父名が合わず（جعفر بن محمد）、本項主の父とは同定しない。'
 - id: r2
@@ -54,7 +50,6 @@ relations:
   passive: AIND-D07307
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: '「سمع على بشر وعمر ابني إبراهيم البعلي」。بشر بن إبراهيم البعلي ＝ ID-Master 既登録 TMP-P-001356（بشر بن إبراهيم بن بشر البعلي الفامي、D00354・D03824・D08915 の師）。初版の #NEEDID を解消。'
 - id: r3
@@ -64,24 +59,22 @@ relations:
   passive: AIND-D07307
   methods:
   - TMP-S-00003
-  quote: null
   note:
     ja: عمر بن إبراهيم البعلي（بشر の兄弟）。corpus に本伝なし・ID-Master 未登録（TMP-P-000415 عمر بن إبراهيم النقبي は別人）→ 新規 TMP-P-001578。
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-001579
+  active: m7
   passive: AIND-D07307
   methods:
   - TMP-S-00003
-  quote: الطاهر محمد بن عبد الغني الدريبي
   note:
     ja: أبو الطاهر محمد بن عبد الغني الدريبي。corpus に本伝なし（hw.py「الدريبي」は本項のみ）・ID-Master 未登録（ニスバ الدريبي TMP-N-04540 のみ）→ 新規 TMP-P-001579。
 - id: r5
   type: scholarly
   subtype: teacher
   active: AIND-D07307
-  passive: AIND-D09466
+  passive: m8
   methods:
   - TMP-S-00003
   context:
@@ -89,15 +82,13 @@ relations:
     date:
       ah: 815
       type: teaching
-  quote: كابن موسى
   note:
     ja: '「سمع منه الفضلاء كابن موسى … وكان سماعهما في سنة خمس عشرة」。ابن موسى ＝ #AIND-D09466（محمد بن موسى … المراكشي الأصل المكي … ويعرف بابن موسى、幻番号 TMP-P-000034 の名寄せ先）。815 ＝ 1412-04-22〜1413-04-11、年初 1412。'
-  norm: ابن موسي
 - id: r6
   type: scholarly
   subtype: teacher
   active: AIND-D07307
-  passive: AIND-D04932
+  passive: m10
   methods:
   - TMP-S-00003
   context:
@@ -105,10 +96,8 @@ relations:
     date:
       ah: 815
       type: teaching
-  quote: الأبي
   note:
     ja: '「شيخنا الأبي」＝ #AIND-D04932（علي بن إبراهيم بن علي بن راشد الموفق … ويعرف بالإبي、幻番号 TMP-P-000035 の名寄せ先）。直後に固有名があるので「شيخنا」はイブン・ハジャルを指さない。先例 D04862（同じ815年の ابن موسى・الأبي の聴聞）。'
-  norm: الابي
 - id: r7
   type: scholarly
   subtype: teacher
@@ -116,42 +105,93 @@ relations:
   passive: TMP-P-000221
   methods:
   - TMP-S-00004
-  quote: null
   note:
     ja: '「وقال شيخنا في معجمه أجاز في استدعاء ابنتي رابعة」。رابعة ＝ ID-Master 登録 TMP-P-000221（イブン・ハジャルの娘）。先例 D04862。初版の #NEEDID を解消。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00265
   places:
-  - ref: gn:277130
-    quote: ببعلبك
-    norm: بعلبك
+  - mention: m14
   orgs:
   - ref: TMP-I-00246
-  quote: شيخ زاوية عبد الله اليونيني
   note:
     ja: 施設限定 شيخ 職（先例 TMP-O-00265・00274・00334）。ID-Master の Office を語根 شيخ／زاوية で grep、該当なし → 新規 TMP-O-00354。施設 زاوية عبد الله اليونيني（بعلبك）は ID-Master 未登録 → 新規 TMP-I-00246。placeName بعلبك は原文明記（規則22(2)）。初版の affiliation employed（同内容）は規則8により除去。
   phrase: وكان شيخ زاوية عبد الله اليونيني ببعلبك
+  mention: m13
 events:
 - id: e1
   type: cultural
-  quote: وحدث
-  norm: حدث
+  phrase: وحدث
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: وشيخنا
-    norm: شيخنا
+  - mention: m9
   works:
   - ref: TMP-T-00104
-  quote: وقال
   note:
     ja: Pattern A。شيخنا ＝ ابن حجر（wd:Q471116）、「معجمه」＝ TMP-T-00104。先例 D04862。
   trigger: rule
-  norm: قال
   phrase: وقال شيخنا في معجمه أجاز في استدعاء ابنتي رابعة
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: جعفر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00054
+  quote: البعلي
+- id: m5
+  kind: name
+  ref: TMP-N-00555
+  quote: اليونيني
+- id: m6
+  kind: name
+  quote: بابن الشويخ
+  norm: ابن الشويخ
+- id: m7
+  kind: person
+  ref: TMP-P-001579
+  quote: الطاهر محمد بن عبد الغني الدريبي
+- id: m8
+  kind: person
+  ref: AIND-D09466
+  quote: كابن موسى
+  norm: ابن موسي
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: وشيخنا
+  norm: شيخنا
+- id: m10
+  kind: person
+  ref: AIND-D04932
+  quote: الأبي
+  norm: الابي
+- id: m11
+  kind: year
+  value: '815'
+  quote: سنة
+- id: m12
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m13
+  kind: office
+  ref: TMP-O-00265
+  quote: شيخ زاوية عبد الله اليونيني
+- id: m14
+  kind: place
+  quote: ببعلبك
+  ref: gn:277130
+  norm: بعلبك
 translation:
   ja: ムハンマド・ブン・ジャアファル・ブン・アリー・アル＝バアリー・アル＝ユーニーニー、イブン・アッ＝シュワイフとして知られる。ビシュルとウマルのイブラーヒーム・アル＝バアリーの二子、およびアブー・アッ＝ターヒル・ムハンマド・ブン・アブド・アル＝ガニー・アッ＝ドゥライビーから聴聞した。ハディースを伝え、イブン・ムーサーや我らの師アル＝ウッビーら俊秀が彼から聴聞した。二人の聴聞は815年のことであった。我らの師は『ムウジャム』で「彼は私の娘ラービアのための要請書（イスティドアー）においてイジャーザを与えた」と述べている。彼はバアルバクのアブドゥッラー・アル＝ユーニーニーのザーウィヤのシャイフであった。
   en: 'Muḥammad b. Jaʿfar b. ʿAlī al-Baʿlī al-Yūnīnī, known as Ibn al-Shuwaykh. He heard from Bishr and ʿUmar, the two sons of Ibrāhīm al-Baʿlī, and from Abū al-Ṭāhir Muḥammad b. ʿAbd al-Ghanī al-Duraybī. He transmitted, and eminent scholars such as Ibn Mūsā and our shaykh al-Ubbī heard from him; their hearing was in the year 815. Our shaykh said in his Muʿjam: "He granted an ijāza in the request (istidʿāʾ) for my daughter Rābiʿa." He was the shaykh of the zāwiya of ʿAbd Allāh al-Yūnīnī in Baalbek.'

@@ -9,60 +9,53 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00487
-    quote: الدمنهوري
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00123
-    quote: السكندري
+    mention: m8
   - id: n3
     type: shuhrah
-    quote: بابن مرزوق
-    norm: ابن مرزوق
     label: ابن مرزوق
+    mention: m10
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عبد الرزاق
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
   - id: n9
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m6
   - id: n10
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m9
 birth:
   id: b
   date:
     ah: 775
     cert: low
   places:
-  - ref: gn:361058
-    cert: medium
-    quote: بالثغر
-    norm: الثغر
+  - cert: medium
+    mention: m12
   note:
     ja: 「ولد سنة خمس وسبعين وسبعمائة تقريبا بالثغر」＝775年頃（1373-07-01 開始、h2g.py、年精度、「تقريبا」＝cert low）。「الثغر」は原文どおり保持し、ニスバ السكندري を伴うエジプトの用法どおりアレクサンドリア（ID-Master 登録「الاسكندرية」gn:361058）に cert medium で同定（repo に「الثغر」の先例なし）。
-  quote: سنة
+  mention: m11
 persons:
 - id: p1
   label: علي بن عبد الرزاق بن محمد
@@ -75,7 +68,6 @@ relations:
   subtype: father
   active: AIND-D08108#p1
   passive: AIND-D08108
-  quote: null
   note:
     ja: '父 علي بن عبد الرزاق は長いナサブをもつが父自身に識別要素がなく、corpus に本伝なし（hw.py「مرزوق」の見出しは別家系のみ）、ID-Master 未登録のため #NEEDID（規則3 (c'')）。'
 affiliations:
@@ -85,13 +77,64 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00207
-    quote: البقاعي
-  quote: ذكره
+  - mention: m14
   note:
     ja: 'Pattern A。البقاعي＝ #AIND-D00207（頻出確定ID）。「مجردا」＝名のみ（詳細なし）で挙げた。初版の統制外 relation「other」を event に置換。'
   trigger: rule
   phrase: ذكره البقاعي مجردا
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: علي
+- id: m3
+  kind: name
+  quote: عبد الرزاق
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  quote: يوسف
+- id: m7
+  kind: name
+  ref: TMP-N-00487
+  quote: الدمنهوري
+- id: m8
+  kind: name
+  ref: TMP-N-00123
+  quote: السكندري
+- id: m9
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m10
+  kind: name
+  quote: بابن مرزوق
+  norm: ابن مرزوق
+- id: m11
+  kind: year
+  value: '775'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: بالثغر
+  ref: gn:361058
+  norm: الثغر
+- id: m13
+  kind: source
+  quote: ذكره
+- id: m14
+  kind: person
+  ref: AIND-D00207
+  quote: البقاعي
 translation:
   ja: ムハンマド・ブン・アリー・ブン・アブドゥッラッザーク・ブン・ムハンマド・ブン・アフマド・ブン・ユースフ、ダマンフール出自、アッ＝サカンダリー、マーリク派、イブン・マルズークとして知られる。775年頃にアッ＝サグル（アレクサンドリア）で生まれた。アル＝ビカーイーが名のみを挙げている。
   en: Muḥammad b. ʿAlī b. ʿAbd al-Razzāq b. Muḥammad b. Aḥmad b. Yūsuf, of Damanhūrī origin, al-Sakandarī, al-Mālikī, known as Ibn Marzūq. He was born in about the year 775 at al-Thaghr (Alexandria). Al-Biqāʿī mentioned him by name only.

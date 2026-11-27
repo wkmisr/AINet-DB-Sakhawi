@@ -9,30 +9,27 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00021
-    quote: الغزي
+    mention: m3
   - id: n2
     type: honorific
-    quote: الشيخ الصالح
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: بلال
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 836-02-01
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
+  - mention: m5
   note:
     ja: 「مات بمصر في مستهل صفر سنة ست وثلاثين . أرخه ابن فهد」。مستهل＝月初（1日）：836年サファル月1日＝1432年10月6日（h2g.py。初版の 1432 を日精度に）。地名 مصر は原文どおり gn:352261（規則22(1)、القاهرة に読み替えない）。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: بلال
@@ -45,21 +42,53 @@ relations:
   subtype: father
   active: AIND-D07289#p1
   passive: AIND-D07289
-  quote: null
   note:
     ja: '父。見出しの「بن بلال」のみ（汎用名）→ #NEEDID（規則3）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 規則43（没836 ≤ 871 → التقي بن فهد D09211、cert low）。初版の統制外 other relation を Pattern A に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: بلال
+- id: m3
+  kind: name
+  ref: TMP-N-00021
+  quote: الغزي
+- id: m4
+  kind: name
+  quote: الشيخ الصالح
+- id: m5
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m6
+  kind: month
+  value: 2
+  quote: صفر
+- id: m7
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・ビラール・アル＝ガッズィー、敬虔なシャイフ。836年サファル月の初日にミスル（エジプト）で没した。イブン・ファハドがその没年を記している。
   en: Muḥammad b. Bilāl al-Ghazzī, the pious shaykh. He died in Miṣr at the beginning of Ṣafar 836. Ibn Fahd recorded his death date.

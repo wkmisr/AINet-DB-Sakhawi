@@ -9,40 +9,33 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00153
-    quote: المرشدي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: nisbah
-    ref: TMP-N-00165
-    quote: الهندي
+    mention: m7
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: nasab
-    quote: صالح
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: الشيخ محمد
     by: rule
-    ref: TMP-P-000961
+    mention: m3
   - id: n7
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m4
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 birth:
   id: b
   places:
@@ -51,29 +44,25 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m12
   passive: AIND-D00780
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
-  quote: مني
+    - mention: m13
 - id: r2
   type: kin
   subtype: grandfather
   active: TMP-P-000961
   passive: AIND-D00780
-  quote: null
   phrase: الشيخ محمد بن أبي بكر
 states:
 - id: s1
   type: office
   ref: TMP-O-00006
-  quote: null
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -82,31 +71,86 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m13
+  mention: null
 - id: e2
   type: travel
   places:
-  - ref: TMP-L-00037
-    quote: لليمن
-    norm: ليمن
-  quote: وسافر
+  - mention: m11
   trigger: rule
-  norm: سافر
+  mention: m10
 - id: e3
   type: travel
   places:
   - label: مندوه
-  quote: سافر
   trigger: rule
+  mention: m14
 - id: e4
   type: cultural
   summary:
     en: memorized the Qurʾān
-  quote: حفظ
   trigger: rule
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: صالح
+- id: m3
+  kind: name
+  ref: TMP-P-000961
+  quote: الشيخ محمد
+- id: m4
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m5
+  kind: name
+  ref: TMP-N-00153
+  quote: المرشدي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  ref: TMP-N-00165
+  quote: الهندي
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: event
+  quote: حفظ
+- id: m10
+  kind: event
+  quote: وسافر
+  norm: سافر
+- id: m11
+  kind: place
+  quote: لليمن
+  ref: TMP-L-00037
+  norm: ليمن
+- id: m12
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m13
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m14
+  kind: event
+  quote: سافر
+- id: m15
+  kind: place
+  quote: مندوه
+  ref: None
 translation:
   ja: アフマド・ブン・サーリフ・ブン・アッ＝シャイフ・ムハンマド・ブン・アビー・バクル・アル＝ムルシディー・アル＝マッキー、ヒンドゥー生まれでシャーフィイー派の法学者。コーランを暗記し、公文書作成の仕事や若干の事業で生計を立てた。その仕事のためにイエメンなどへ旅行し、メッカで私（サハーウィー）からハディースを聴聞した後、生計を立てるためマンドゥーに旅立った。
   en: Aḥmad b. Ṣāliḥ b. al-Shaykh Muḥammad b. Abī Bakr al-Murshidī al-Makkī, of Indian birth, Shāfiʿī. He memorized the Qurʾān and earned a living through drafting legal documents and some trade. He traveled to Yemen and other places for this purpose and listened (to ḥadīth) from me (al-Sakhāwī) in Mecca. He then traveled to Mandūh for his livelihood.

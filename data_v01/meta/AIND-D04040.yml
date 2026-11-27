@@ -9,41 +9,36 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00163
-    quote: الميدومي
+    mention: m8
   - id: n2
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m9
   - id: n3
     type: laqab
-    quote: التاج
+    mention: m6
   - id: n4
     type: kunyah
-    quote: أبو الخير
-    norm: ابو الخير
+    mention: m7
   - id: n5
     type: ism
-    quote: عبد الغفار
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد الرحيم
     by: rule
-    ref: TMP-P-000870
+    mention: m2
   - id: n7
     type: nasab
-    quote: الزكي أبي بكر
     by: rule
-    norm: الزكي ابي بكر
+    mention: m3
   - id: n8
     type: nasab
-    quote: عمر
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: يوسف
     by: rule
+    mention: m5
 relations:
 - id: r1
   type: kin
@@ -52,18 +47,15 @@ relations:
   passive: AIND-D04040
   summary:
     ar: عبد الرحيم بن الزكي أبي بكر بن عمر بن يوسف الميدومي
-  quote: null
   note:
     ja: '【旧注記】立項未特定（叔父 #AIND-D00606 の項に「الآتي أبوه」とある祖父 الزكي أبو بكر は ب 部に本伝ありのはず）。 / TMP発行ルール（2026-09-02 Waka裁定: 名前に識別要素があれば立項がなくても TMP-P を発行）。'
 - id: r2
   type: kin
   subtype: uncle
-  active: AIND-D00606
+  active: m10
   passive: AIND-D04040
-  quote: الشهاب أحمد الماضي
   note:
     ja: '叔父 = #AIND-D00606（أحمد بن أبي بكر بن عمر بن يوسف الشهاب بن الزكي القرشي العبدري الميدومي الأصل المصري الشافعي … ويعرف بالميدومي）。'
-  norm: الشهاب احمد الماضي
 - id: r3
   type: social
   subtype: patron
@@ -71,37 +63,84 @@ relations:
   passive: AIND-D04040
   summary:
     ar: عمل فيها أمين الحكم للأسيوطي
-  quote: null
   note:
     ja: 'الأسيوطي = القاضي ولي الدين الأسيوطي = #AIND-D00491（أحمد بن أحمد بن عبد الخالق … ولي الدين … الأسيوطي الأصل القاهري、シャーフィイー派大カーディー）。初版は nisbah 番号 TMP-N-00162 を person 位置に流用し、subtype も統制外（deputy）。本項主はその配下の أمين الحكم。'
 - id: r4
   type: social
   subtype: patron
-  active: AIND-D03042
+  active: m14
   passive: AIND-D04040
-  quote: ثم لزكريا
   note:
     ja: 'زكريا = الزين زكريا الأنصاري = #AIND-D03042（886年以降の大カーディー）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00096
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
-  quote: ناب
+  - mention: m12
+  mention: m11
 - id: s2
   type: office
-  ref: TMP-O-00211
   places:
-  - ref: gn:352261
-    quote: بمصر
-    norm: مصر
-  quote: أمين الحكم
+  - mention: m12
   note:
     ja: 裁判所の財産管理官（アミーン・アル＝フクム）。corpus D00185「أمانة الحكم」にも出現。ID-Master 未登録 → 新規 TMP-O-00211。
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الغفار
+- id: m2
+  kind: name
+  ref: TMP-P-000870
+  quote: عبد الرحيم
+- id: m3
+  kind: name
+  quote: الزكي أبي بكر
+  norm: الزكي ابي بكر
+- id: m4
+  kind: name
+  quote: عمر
+- id: m5
+  kind: name
+  quote: يوسف
+- id: m6
+  kind: name
+  quote: التاج
+- id: m7
+  kind: name
+  quote: أبو الخير
+  norm: ابو الخير
+- id: m8
+  kind: name
+  ref: TMP-N-00163
+  quote: الميدومي
+- id: m9
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m10
+  kind: person
+  ref: AIND-D00606
+  quote: الشهاب أحمد الماضي
+  norm: الشهاب احمد الماضي
+- id: m11
+  kind: office
+  ref: TMP-O-00096
+  quote: ناب
+- id: m12
+  kind: place
+  quote: بمصر
+  ref: gn:352261
+  norm: مصر
+- id: m13
+  kind: office
+  ref: TMP-O-00211
+  quote: أمين الحكم
   norm: امين الحكم
+- id: m14
+  kind: person
+  ref: AIND-D03042
+  quote: ثم لزكريا
 translation:
   ja: アブドゥルガッファール・ブン・アブドゥッラヒーム・ブン・アッ＝ザキー・アビー・バクル・ブン・ウマル・ブン・ユースフ、アッ＝タージュ・アブー・アル＝ハイル、マイドゥーム出自でミスル（フスタート）の人。前述のアッ＝シハーブ・アフマドの甥。ミスルでカーディー代理を務め、そこでアル＝アスユーティーの、次いでザカリヤーの裁判財産管理官（アミーン・アル＝フクム）を務めた。
   en: ʿAbd al-Ghaffār b. ʿAbd al-Raḥīm b. al-Zakī Abī Bakr b. ʿUmar b. Yūsuf, al-Tāj Abū al-Khayr, of Maydūm origin, al-Miṣrī, nephew of the aforementioned al-Shihāb Aḥmad. He served as deputy judge in Miṣr and worked there as amīn al-ḥukm for al-Asyūṭī and then for Zakariyyā.

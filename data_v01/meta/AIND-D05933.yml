@@ -9,51 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00012
-    quote: الدمشقي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00137
-    quote: المقري
+    mention: m10
   - id: n3
     type: laqab
-    quote: السراج
+    mention: m7
   - id: n4
     type: shuhrah
-    quote: بابن اللبان
-    norm: ابن اللبان
     label: ابن اللبان
+    mention: m11
   - id: n5
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001408
+    mention: m2
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
   - id: n9
     type: nasab
-    quote: الحسن
     by: rule
+    mention: m5
   - id: n10
     type: nasab
-    quote: جامع
     by: rule
+    mention: m6
   - id: n11
     type: nasab
-    quote: الشمس أبا المعالي
     by: rule
-    norm: الشمس ابا المعالي
+    mention: m8
 birth:
   id: b
   date:
@@ -67,17 +61,16 @@ death:
     ah: 830-08
   note:
     ja: 830-08 ＝ 1427-06-06〜07-04、月初 1427-06（h2g.py）。没地は原文にない。
-  quote: سنة
   phrase: مات في شعبان سنة ثلاثين عن نحو ثمانين سنة
+  mention: m17
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001408
+  active: m12
   passive: AIND-D05933
   summary:
     ar: الشمس أبو المعالي محمد بن أحمد بن علي بن الحسن بن جامع
-  quote: والده
   note:
     ja: '見出し「السراج بن الشمس أبا المعالي」。クンヤ أبو المعالي は父のもの（ニスバ索引 #AIND-D12696「ابن اللبان عمر بن أبي المعالي محمد بن أحمد بن علي بن الحسن المقري ابن المقري」）。父もダマスクスの قارئ。corpus に本伝なし（D00886 أحمد بن عبد الله … ابن اللبان は別人）・ID-Master 未登録 → TMP-P-001408。'
 - id: r2
@@ -89,34 +82,30 @@ relations:
   - TMP-S-00008
   fields:
   - wd:Q1817983
-  quote: null
   note:
     ja: 「أخذ القراءات عن والده」。師＝父（TMP-P-001408）。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000297
+  active: m13
   passive: AIND-D05933
   methods:
   - TMP-S-00010
   fields:
   - TMP-S-00012
-  quote: الشمس العسقلاني
   note:
     ja: 「وتلا بالعشر على الشمس العسقلاني فيما أفاده ابن الجزري」。الشمس العسقلاني ＝ TMP-P-000297（ID-Master 登録名一致）。イブン・アル＝ジャザリーの伝聞による（mention event 参照）。
 - id: r4
   type: scholarly
   subtype: teacher
-  active: TMP-P-000674
+  active: m21
   passive: AIND-D05933
   methods:
   - TMP-S-00003
   works:
   - ref: wd:Q886659
-  quote: أحمد بن عبد الكريم البعلي
   note:
     ja: 「وقال أنه سمع صحيح مسلم على أحمد بن عبد الكريم البعلي」（イブン・ハジャル『معجم』の記載による）。أحمد بن عبد الكريم البعلي ＝ TMP-P-000674（D02525 でも同書の師）。末尾の「أجاز لنا」はイブン・ハジャルの معجم からの引用文中の語（本項主は830年没、サハーウィーは831年生で、サハーウィーへの إجازة は不可能）。校閲時は البعلي → イブン・ハジャルと読んだが、イブン・ハジャル『المعجم المفهرس』の各項は収録理由として「（本項主が）我々にイジャーザを与えた」と記すのが定型であり、البعلي の活動は770年代（D03720「سنة اثنتين وسبعين وسبعمائة」）で773年生のイブン・ハジャルへの授与者としては不自然なため、集約時に本項主 → イブン・ハジャルの إجازة と読み替え、student relation n="5" を追加した（内容検証B M-10、§D108-2）。初版の field（الحديث）は原文になく除去。
-  norm: احمد بن عبد الكريم البعلي
 - id: r5
   type: scholarly
   subtype: teacher
@@ -127,52 +116,127 @@ relations:
   fields:
   - wd:Q1817983
   cert: medium
-  quote: null
   note:
     ja: 規則23。#AIND-D06012「عمر بن يعقوب بن أحمد أبو حفص الطيبي ثم الدمشقي المقرئ الضرير أخذ القراءات عن الزين عمر بن اللبان الماضي بأخذه لها عن أبيه」。「الماضي」のあるダマスクスの ابن اللبان 家の عمر で「父から諸読誦法を取得」した点が本項と一致するが、相手側のラカブは الزين（本項は السراج）→ cert medium。なお「الماضي」が指しうる عمر بن اللبان は corpus で本項のみ（内容検証B M-15）。ID-Master の TMP-P-000458「الزين بن اللبان」（D00420 の師、ダマスクス）・TMP-P-000363「ابن اللبان」（D00730 の師）は本項主と同一人物の候補（ラカブ الزين／السراج の揺れ）＝名寄せ候補として ID-Master要対応に記載。
 - id: r6
   type: scholarly
   subtype: teacher
   active: AIND-D05933
-  passive: wd:Q471116
+  passive: m19
   methods:
   - TMP-S-00004
-  quote: شيخنا
   note:
     ja: 「أجاز لنا」（イブン・ハジャル『معجم』引用末尾）。『المعجم المفهرس』の定型により本項主がイブン・ハジャル（我々）にイジャーザを与えたと読む（集約時に追加、内容検証B M-10）。別読み（البعلي → イブン・ハジャル）は n="3" の note を参照。
 assessments:
 - id: v1
-  quote: ساكنا
   terms:
   - ساكن
   by: rule
+  mention: m15
 events:
 - id: e1
   type: cultural
-  quote: وتصدر للإقراء وكان ساكنا سليم الباطن عالية في الشطرنج
-  norm: تصدر للاقراء وكان ساكنا سليم الباطن عالية في الشطرنج
+  phrase: وتصدر للإقراء وكان ساكنا سليم الباطن عالية في الشطرنج
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09163
-    quote: ابن الجزري
-  quote: ذكره
+  - mention: m14
   note:
     ja: Pattern A。ابن الجزري ＝ الشمس محمد بن محمد الجزري（wd:Q4120093、repo 先例多数。ID-Master では TMP-P-000069 と要名寄せ印）。初版の統制外 subtype「other」relation を event に変換。
   trigger: rule
   phrase: فيما أفاده ابن الجزري
+  mention: m18
 - id: c2
   persons:
   - ref: wd:Q471116
   works:
   - ref: TMP-T-00034
   - ref: TMP-T-00104
-  quote: وقال
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034、معجمه ＝ TMP-T-00104『المعجم المفهرس』。初版の統制外 subtype「other」relation を event に変換。
   trigger: rule
-  norm: قال
   phrase: ذكره شيخنا في إنبائه وأورده في معجمه باختصار
+  mention: m20
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001408
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: الحسن
+- id: m6
+  kind: name
+  quote: جامع
+- id: m7
+  kind: name
+  quote: السراج
+- id: m8
+  kind: name
+  quote: الشمس أبا المعالي
+  norm: الشمس ابا المعالي
+- id: m9
+  kind: name
+  ref: TMP-N-00012
+  quote: الدمشقي
+- id: m10
+  kind: name
+  ref: TMP-N-00137
+  quote: المقري
+- id: m11
+  kind: name
+  quote: بابن اللبان
+  norm: ابن اللبان
+- id: m12
+  kind: person
+  ref: TMP-P-001408
+  quote: والده
+- id: m13
+  kind: person
+  ref: TMP-P-000297
+  quote: الشمس العسقلاني
+- id: m14
+  kind: person
+  ref: AIND-D09163
+  quote: ابن الجزري
+- id: m15
+  kind: assessment
+  quote: ساكنا
+- id: m16
+  kind: month
+  value: 8
+  quote: شعبان
+- id: m17
+  kind: year
+  value: '830'
+  quote: سنة
+- id: m18
+  kind: source
+  quote: ذكره
+- id: m19
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m20
+  kind: source
+  quote: وقال
+  norm: قال
+- id: m21
+  kind: person
+  ref: TMP-P-000674
+  quote: أحمد بن عبد الكريم البعلي
+  norm: احمد بن عبد الكريم البعلي
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・アフマド・ブン・アリー・ブン・アル＝ハサン・ブン・ジャーミウ、アッ＝シラージュ・ブン・アッ＝シャムス・アブー・アル＝マアーリー、アッ＝ディマシュキー、クルアーン読誦家。イブン・アッ＝ラッバーンとして知られる。父から諸読誦法を取得し、イブン・アル＝ジャザリーが伝えるところでは、アッ＝シャムス・アル＝アスカラーニーのもとで十読誦法により朗誦した。読誦教授の座に就き、穏やかで心の清い人で、チェス（シャトランジ）に長じていた。（8）30年シャアバーン月に約80歳で没した。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及し、『ムウジャム』にも簡略に収めて、彼がアフマド・ブン・アブドゥルカリーム・アル＝バアリーのもとで『サヒーフ・ムスリム』を聴聞したと述べている。彼（本項主）は我々にイジャーザを与えた。
   en: ʿUmar b. Muḥammad b. Aḥmad b. ʿAlī b. al-Ḥasan b. Jāmiʿ, al-Sirāj b. al-Shams Abū al-Maʿālī, al-Dimashqī, the Qurʾān reciter, known as Ibn al-Labbān. He took the readings from his father and recited according to the ten readings to al-Shams al-ʿAsqalānī, as Ibn al-Jazarī reports. He presided over the teaching of recitation; he was calm and pure of heart, and excelled at chess. He died in Shaʿbān of the year (8)30, aged about eighty. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and included him briefly in his Muʿjam, saying that he heard Ṣaḥīḥ Muslim from Aḥmad b. ʿAbd al-Karīm al-Baʿlī. He granted us (Ibn Ḥajar) an ijāza.

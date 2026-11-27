@@ -9,68 +9,59 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m8
   - id: n3
     type: ism
-    quote: مبارك
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: ميلب
     by: rule
-    ref: AIND-D10112a
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05354
+    mention: m3
   - id: n6
     type: nasab
-    quote: مبارك
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: رميثة
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: أبي نمي
     by: rule
-    norm: ابو نمي
+    mention: m6
 death:
   id: d
   date:
     ah: 866-12-29
   places:
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
+  - role: burial
+    mention: m14
   note:
     ar: مات يوم الخميس تاسع عشري ذي الحجة سنة ست وستين وهو قادم إلى مكة من وادي مر ودفن بالمعلاة
     ja: 866-12-29＝1462-10-03（h2g.py。曜日は暦の判別に使わない。初版 @when="1462" は年精度）。没地は「ワーディー・マッルからマッカへ向かう途上」で固有の地点ではないため、初版の placeName وادي مر（没地扱い）は death から外し、下の travel event に移した（規則22(2)）。埋葬 المعلاة（wd:Q42004）。
-  quote: سنة
+  mention: m11
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D10112a
   passive: AIND-D06449
-  quote: null
   note:
     ja: '規則3・37。父＝corpus 本伝 #AIND-D10112a「ميلب بن علي بن مبارك بن رميئة بن أبي نمي الحسني . مات بخليص في ليلة الجمعة ساد عشرى رجب سنة تسع وثلاثين وحمل إلى مكة فدفن بالحجون بالقرب من قبر خاله وأمه سعدانة ابنة عجلان بن رميثة . أرخه ابن فهد」（839没、repo 収録済み。兄弟項 #AIND-D06133 فارس بن ميلب も同番号を father に使用）。見出しナサブ5代で閉合。初版は father relation なし。'
   phrase: ميلب بن علي بن مبارك بن رميثة
 - id: r2
   type: kin
   subtype: grandfather
-  active: AIND-D05354
+  active: m9
   passive: AIND-D06449
-  quote: جده
   note:
     ja: '「الماضي جده」＝既出の祖父 ＝ #AIND-D05354「علي بن مبارك بن رميثة بن أبي نمي الحسني المكي ، كان يأمل إمرتها … واستمر هذا بالقاهرة حتى مات في آخر سنة خمس عشرة وهو معتقل بقلعة الجبل ، ذكره الفاسي في مكة مطولا」（815没、repo 未収録）。ナサブ4代一致。初版の #NEEDID を置換。'
   phrase: علي بن مبارك بن رميثة
@@ -82,37 +73,95 @@ relations:
   summary:
     ar: أم المسعود ابنة ميلب
   cert: medium
-  quote: null
   note:
     ja: '相手側の名指しによる（規則23）: 女性部 #AIND-D13814「أم المسعود ابنة ميلب الحسني أخت مبارك وأم شار بن إبراهيم . ماتت في شوال سنة ثمانين بمكة」（repo 未収録）が「أخت مبارك」と本項主（ميلب الحسني の子 مبارك）を名指し。本項には姉妹の記載がないので cert medium。'
 events:
 - id: e1
   type: travel
   places:
-  - ref: TMP-L-00194
-    quote: وادي مر
-  - ref: gn:104515
-    quote: مكة
-  quote: وهو قادم إلى مكة من وادي مر
+  - mention: m13
+  - mention: m12
   note:
     ja: 死亡時の状況（ワーディー・マッル（TMP-L-00194）からマッカへ向かう途上）。原文の地名を落とさないため event として置く（規則22(2)）。日付は death と同じだが event 側には写さない（規則18 (e)）。初版の visit event（when-custom 0866-12-29・cert high）を置換。
-  norm: وهو قادم الي مكة من وادي مر
+  phrase: وهو قادم إلى مكة من وادي مر
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m16
   cert: low
   note:
     ja: 'Pattern A。没年 866 ≤ 871 → ابن فهد 振り分け規則により التقي بن فهد #AIND-D09211、cert low（event 側、規則43）。初版の統制外 relation（subtype other）を置換。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m15
 notes:
 - text: '同父の兄弟 #AIND-D06133「فارس بن ميلب بن علي بن مبارك بن رميثة بن أبي نمي الشريف الحسني أمه فاطمة ابنة الشريف عنان بن مغامس … مات في رجب سنة ست وسبعين」（repo 収録済み）は本項・相手項とも名指しがないので relation は立てない（父が AIND で共通、規則23）。父の母 سعدانة ابنة عجلان（#AIND-D13238、TMP-P-000950）は本項主の祖母。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: مبارك
+- id: m2
+  kind: name
+  ref: AIND-D10112a
+  quote: ميلب
+- id: m3
+  kind: name
+  ref: AIND-D05354
+  quote: علي
+- id: m4
+  kind: name
+  quote: مبارك
+- id: m5
+  kind: name
+  quote: رميثة
+- id: m6
+  kind: name
+  quote: أبي نمي
+  norm: ابو نمي
+- id: m7
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m8
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m9
+  kind: person
+  ref: AIND-D05354
+  quote: جده
+- id: m10
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m11
+  kind: year
+  value: '866'
+  quote: سنة
+- id: m12
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m13
+  kind: place
+  quote: وادي مر
+  ref: TMP-L-00194
+- id: m14
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m15
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m16
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムバーラク・ブン・マイラブ・ブン・アリー・ブン・ムバーラク・ブン・ルマイサ・ブン・アビー・ヌマイ・アル＝ハサニー・アル＝マッキー。祖父は既出。866年ズー・ル＝ヒッジャ月29日木曜日、ワーディー・マッルからマッカへ向かう途上で没し、アル＝ムアッラー墓地に葬られた。イブン・ファハドが没年を記録した。
   en: Mubārak b. Maylab b. ʿAlī b. Mubārak b. Rumaytha b. Abī Numayy al-Ḥasanī al-Makkī; his grandfather has been mentioned above. He died on Thursday, 29 Dhū al-Ḥijja 866, while on his way to Mecca from Wādī Marr, and was buried in al-Muʿallā. Ibn Fahd recorded his death.

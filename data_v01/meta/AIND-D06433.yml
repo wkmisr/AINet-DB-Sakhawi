@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00293
-    quote: السيفي
+    mention: m2
   - id: n2
     type: nisbah
-    ref: TMP-N-00382
-    quote: المظفري
+    mention: m3
   - id: n3
     type: ism
-    quote: ماميه
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد ماميه السيفي بيبغا المظفري
@@ -36,9 +34,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D06433#p1
+  active: m7
   passive: AIND-D06433
-  quote: الطنبذي
   note:
     ja: 規則3（単名のマムルーク。原文に父名なし）。
 - id: r2
@@ -46,16 +43,14 @@ relations:
   subtype: patron
   active: AIND-D02237
   passive: AIND-D06433
-  quote: null
   note:
     ja: '見出し「السيفي بيبغا المظفري」＝主人 سيف الدين بيبغا المظفري のマムルーク（主人ニスバ、規則51）。corpus 本伝 #AIND-D02237「106 بيبغا المظفري التركي . كان من مماليك الظاهر وتأمر في دولة الناصر وعمل الأتابكية … مات … سنة ثلاث وثلاثين」（名＋ニスバで閉合、corpus の بيبغا はこの1項のみ）。初版にはなし。'
   phrase: بيبغا المظفري
 - id: r3
   type: social
   subtype: successor
-  active: AIND-D06305
+  active: m5
   passive: AIND-D06433
-  quote: قايتباي المحمودي
   note:
     ja: 「واستقر فيها بعد نفيه أو موته قايتباي المحمودي」＝第三ダワーダール職の後任。#AIND-D06305（スルターン الأشرف قايتباي الجركسي المحمودي）の本文「وصيره خاصكيا ثم دوادارا ثالثا بعد ماميه المظفري صهر الشهابي بن العيني」が本項主を名指し（名・ニスバ・職・姻戚の4点で閉合）。「بعد نفيه أو موته」＝本項主の追放か死かはサハーウィーも不確か（没年なし）。
 - id: r4
@@ -63,7 +58,6 @@ relations:
   subtype: spouse
   active: AIND-D06433#p2
   passive: AIND-D06433
-  quote: null
   note:
     ja: '「تزوج بإحدى بنات الطنبذي واستولدها أولادا」＝名不詳の妻（人物が描写されているので #NEEDID で保持、規則12・60(d)）。初版の幻番号 TMP-P-000000 を置換。'
 - id: r5
@@ -71,7 +65,6 @@ relations:
   subtype: father-in-law
   active: AIND-D06433#p3
   passive: AIND-D06433
-  quote: null
   note:
     ja: '妻の父「الطنبذي」。corpus の الطنبذي は複数（#AIND-D01133 البدر أحمد بن عمر الطنبذي（学者、740年頃生）、#AIND-D01419 الشهاب أحمد بن محمد … الطنبذي ابن عرب（875没）、ニスバ索引 #AIND-D11814 の「نور الدين علي بن التاجر الشهير」＝商人 النور الطنبذي（#AIND-D06052・#AIND-D01185 に言及、本伝なし）ほか）で、ジャクマク期のダワーダールの岳父を特定する根拠がない → #NEEDID（規則26、候補は ISSUES §D160-6）。'
 - id: r6
@@ -79,38 +72,66 @@ relations:
   subtype: daughter
   active: AIND-D06433#p4
   passive: AIND-D06433
-  quote: null
   note:
     ja: 「منهم زوجة الشهابي حفيد العيني أم أولاده」＝名不詳の娘（#NEEDID で保持、規則12）。初版の幻番号 TMP-P-000000 を置換。
 - id: r7
   type: kin
   subtype: son-in-law
-  active: AIND-D00846
+  active: m8
   passive: AIND-D06433
-  quote: الشهابي
   note:
     ja: '【集約 2026-11-08】desc を「الشهابي حفيد العيني」から名「الشهابي」に（続柄語 حفيد は note へ、規則31。内容A L・機械 L、決定14）。娘の夫「الشهابي حفيد العيني」＝#AIND-D00846「أحمد بن عبد الرحيم بن محمود بن أحمد الشهاب بن الزين بن شيخنا البدر العيني … القاهري الحنفي . ولد في حدود سنة خمسين وثمانمائة … صيره من مقدمي الألوف」（ニスバ索引 #AIND-D11875「وابنه عبد الرحيم وابنه الشهابي أحمد」、#AIND-D13261「أم الشهابي أحمد حفيد العيني」、#AIND-D06305「ماميه المظفري صهر الشهابي بن العيني」で閉合）。向き: active（الشهابي）は passive（本項主）の娘婿＝`son-in-law`（規則52）。初版の幻番号 TMP-P-000000 を置換。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00063
-  quote: دوادارا
   note:
     ja: '「كان دوادارا ثالثا في أيام الظاهر جقمق」＝汎用 دوادار（TMP-O-00063）に序数付きラベル（repo 先例 #AIND-D02010・#AIND-D03286「دوادار ثاني」）。初版の幻番号 TMP-O-00000 を置換。「في أيام الظاهر جقمق」（#AIND-D02423、在位842–857）は在職の時期で主従関係ではないため patron にしない（規則53、先例 #AIND-D10004「في أيام الأشرف برسباي」＝relation なし）＝初版の patron #AIND-D02423 を除去。'
+  mention: m4
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00402
-    quote: الغنامية
-  quote: وكان يسكن بقرب الغنامية
+  - mention: m6
   note:
     ja: 'الغنامية（カイロの施設・街区名。corpus では #AIND-D08565「نزيل الغنامية」にも出る）は ID-Master・repo に未登録 → 新規 TMP-L-00402（規則25）。初版の幻番号 TMP-L-00000 を置換。'
-  norm: كان يسكن بقرب الغنامية
+  phrase: وكان يسكن بقرب الغنامية
+  mention: null
 notes:
 - text: 「ممن يذكر بالخير والفروسية」は人物評＝訳文のみ。初版の political event「Was exiled or died …」は後任 relation の note に吸収して除去。没年の記載なし＝death を作らない。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: ماميه
+- id: m2
+  kind: name
+  ref: TMP-N-00293
+  quote: السيفي
+- id: m3
+  kind: name
+  ref: TMP-N-00382
+  quote: المظفري
+- id: m4
+  kind: office
+  ref: TMP-O-00063
+  quote: دوادارا
+- id: m5
+  kind: person
+  ref: AIND-D06305
+  quote: قايتباي المحمودي
+- id: m6
+  kind: place
+  quote: الغنامية
+  ref: TMP-L-00402
+- id: m7
+  kind: person
+  ref: AIND-D06433#p1
+  quote: الطنبذي
+- id: m8
+  kind: person
+  ref: AIND-D00846
+  quote: الشهابي
 translation:
   ja: マーミヤ・アッ＝サイフィー・バイブガー・アル＝ムザッファリー。アッ＝ザーヒル・ジャクマクの時代に第三ダワーダールであり、彼の追放または死の後にカーイトバーイ・アル＝マフムーディーがその職に就いた。アル＝ガンナーミーヤの近くに住み、善良さと騎士ぶりで知られた者の一人。アッ＝タンバズィーの娘の一人を娶って子をもうけ、その中にはアル＝アイニーの孫アッ＝シハービーの妻（彼の子らの母）がいる。
   en: Māmiya al-Sayfī Baybughā al-Muẓaffarī. He was third dawādār in the days of al-Ẓāhir Jaqmaq, and after his exile or death Qāytbāy al-Maḥmūdī was installed in that office. He lived near al-Ghannāmiyya and was among those remembered for goodness and horsemanship. He married one of the daughters of al-Ṭanbadhī and had children by her, among them the wife of al-Shihābī, the grandson of al-ʿAynī, the mother of his children.

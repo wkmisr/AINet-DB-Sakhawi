@@ -9,19 +9,18 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الزردكاش
+    mention: m2
   - id: n2
     type: ism
-    quote: شاهين
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 840
     cert: medium
   places:
-  - ref: gn:266826
-    quote: طرابلس
+  - mention: m9
   note:
     ar: مات في حدود الأربعين
     ja: 「حدود الأربعين」＝840年頃のため cert="medium"。没地は「دام بها بطالا إلى أن مات」からトリポリ。
@@ -29,68 +28,103 @@ relations:
 - id: r1
   type: social
   subtype: other
-  active: AIND-D01001
+  active: m12
   passive: AIND-D03283
-  quote: وورثه الشهاب أحمد بن علي بن اينال لكونه مولى لأبيه أو جده
   note:
     ja: 'الشهاب أحمد بن علي بن إينال = #AIND-D01001（أحمد بن علي بن إينال شهاب الدين بن العلاء بن الأتابك اليوسفي、没855）。本項主が彼の父 علي または祖父 إينال の解放奴隷（مولى）であったため遺産を相続した。'
-  norm: وورثه الشهاب احمد بن علي بن اينال لكونه مولي لابيه او جده
 states:
 - id: s1
   type: office
-  ref: TMP-O-00083
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
-  quote: أحد المقدمين
+  - mention: m4
   note:
     ja: 登録済み المقدم（TMP-O-00083、D01702「أحد المقدمين بمصر」）を充当。
-  norm: احد المقدمين
+  mention: m3
 - id: s2
   type: office
-  ref: TMP-O-00066
   places:
-  - ref: gn:170654
-    quote: دمشق
-  quote: حاجب حجاب
+  - mention: m6
+  mention: m5
 - id: s3
   type: office
-  ref: TMP-O-00053
   places:
-  - ref: gn:170017
-    quote: حماة
-  quote: نائب
-  norm: ناءب
+  - mention: m8
+  mention: m7
 - id: s4
   type: office
   ref: TMP-O-00053
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: null
+  - mention: m9
+  mention: null
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D03422
-    quote: ططر
+  - mention: m11
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: عزله
+  - mention: m9
   note:
     ja: ططر = الظاهر ططر（#AIND-D03422、在位824）によるトリポリ副王職からの解任。初版は統制外 subtype「dismissing ruler」の relation にしていたが、解任は個人関係ではないため event political に変更。
   trigger: rule
   phrase: إلى أن عزله ططر عنها ودام بها بطالا
+  mention: m10
 - id: e2
   type: residence
   places:
-  - ref: gn:266826
-    quote: طرابلس
-  quote: null
+  - mention: m9
   note:
     en: Remained in Tripoli without office after his dismissal until his death.
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: شاهين
+- id: m2
+  kind: name
+  quote: الزردكاش
+- id: m3
+  kind: office
+  ref: TMP-O-00083
+  quote: أحد المقدمين
+  norm: احد المقدمين
+- id: m4
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m5
+  kind: office
+  ref: TMP-O-00066
+  quote: حاجب حجاب
+- id: m6
+  kind: place
+  quote: دمشق
+  ref: gn:170654
+- id: m7
+  kind: office
+  ref: TMP-O-00053
+  quote: نائب
+  norm: ناءب
+- id: m8
+  kind: place
+  quote: حماة
+  ref: gn:170017
+- id: m9
+  kind: place
+  quote: طرابلس
+  ref: gn:266826
+- id: m10
+  kind: event
+  quote: عزله
+- id: m11
+  kind: person
+  ref: AIND-D03422
+  quote: ططر
+- id: m12
+  kind: person
+  ref: AIND-D01001
+  quote: وورثه الشهاب أحمد بن علي بن اينال لكونه مولى لأبيه أو جده
+  norm: وورثه الشهاب احمد بن علي بن اينال لكونه مولي لابيه او جده
 translation:
   ja: シャーヒーン・アッ＝ザルダカーシュ。カイロの千人長（ムカッダム）の一人であった。その後ダマスカスの侍従長（ハージブ・アル＝フッジャーブ）となり、次いでハマー、次いでトリポリの副王（ナーイブ）となったが、タタルが彼を解任した。以後無官のままトリポリに留まり、840年頃に没した。アッ＝シハーブ・アフマド・ブン・アリー・ブン・イーナールが、彼がその父または祖父の解放奴隷であったことを理由に遺産を相続した。
   en: Shāhīn al-Zardakāsh. He was one of the commanders (muqaddams) in Cairo, then became grand chamberlain (ḥājib al-ḥujjāb) of Damascus, then governor (nāʾib) of Ḥamāh, then of Tripoli, until Ṭaṭar dismissed him from it. He remained in Tripoli without office until he died around 840 AH. Al-Shihāb Aḥmad b. ʿAlī b. Īnāl inherited from him, since he had been a client (mawlā) of Aḥmad's father or grandfather.

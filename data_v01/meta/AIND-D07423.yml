@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m5
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m3
   - id: n5
     type: nasab
-    quote: صلح
     by: rule
+    mention: m4
 persons:
 - id: p1
   label: سعيد بن أبي بكر بن صلح المدني
@@ -38,25 +36,48 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D07423
   methods:
   - TMP-S-00008
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: عني
+    - mention: m7
 - id: r2
   type: kin
   subtype: father
   active: AIND-D07423#p1
   passive: AIND-D07423
-  quote: null
   note:
     ja: '父 سعيد بن أبي بكر：汎用名のみ。corpus に本伝なし（hw.py「بن أبي بكر بن صلح」該当なし）、ID-Master 未登録 → #NEEDID（規則3 (c'')）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: سعيد
+- id: m3
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m4
+  kind: name
+  quote: صلح
+- id: m5
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: عني
+- id: m7
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: ムハンマド・ブン・サイード・ブン・アビー・バクル・ブン・スルフ・アル＝マダニー。マディーナで私（サハーウィー）から学んだ者の一人。
   en: Muḥammad b. Saʿīd b. Abī Bakr b. Ṣulḥ al-Madanī. Among those who took (knowledge) from me (al-Sakhāwī) in Medina.

@@ -9,51 +9,45 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00259
-    quote: اللقاني
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00014
-    quote: الأزهري
-    norm: الازهري
+    mention: m10
   - id: n3
     type: laqab
-    quote: الشرف
+    mention: m8
   - id: n4
     type: ism
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m1
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m2
   - id: n6
     type: nasab
-    quote: عوض
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: عطية
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
   - id: n9
     type: nasab
-    quote: محمد
     by: rule
+    mention: m6
   - id: n10
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m7
   - id: n11
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m11
 death:
   id: d
   date:
@@ -61,8 +55,8 @@ death:
     cert: medium
   note:
     ja: '「سنة عشر」＝一の位のみ → 810、cert medium（2026-09-24 Waka）。息子 #AIND-D09469（840没）・弟子 الكلوتاتي（#AIND-D00959）の年代と整合。810＝1407-06-17〜1408-06-04、年精度 1407（h2g.py）。'
-  quote: سنة
   phrase: مات سنة عشر
+  mention: m20
 persons:
 - id: p1
   label: عمر بن عوض بن عطية
@@ -75,21 +69,19 @@ relations:
   subtype: father
   active: AIND-D10077#p1
   passive: AIND-D10077
-  quote: null
   note:
     ja: 規則3 (c')。父 عمر بن عوض اللقاني は汎用名で識別要素がなく corpus に見出しなし（hw.py「اللقاني」）。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D09469
+  active: m12
   passive: AIND-D10077
-  quote: الشمس محمد
   note:
     ja: 「والد الشمس محمد الماضي」＝#AIND-D09469「محمد بن موسى بن عمر بن عوض بن عطية بن أحمد بن محمد بن عبد الرحمن الشرف بن الشرف اللقاني الأزهري المالكي الآتي أبوه」（840没）。ナサブ7代一致。初版の TMP-P-000063（汎用 الشمس محمد、関係専用の汚染番号）を除去。
 - id: r3
   type: scholarly
   subtype: teacher
-  active: TMP-P-000104
+  active: m14
   passive: AIND-D10077
   methods:
   - TMP-S-00003
@@ -98,35 +90,31 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:281184
-      quote: القدس
+    - mention: m13
   works:
   - ref: wd:Q1187931
   - ref: wd:Q1023470
-  quote: الزيتاوي
   note:
     ja: '「سمع السنن لابن ماجه في القدس على إبرهيم الزيتاوي والبخاري بنزول」＝エルサレムで إبراهيم الزيتاوي から『スナン・イブン・マージャ』を、また『ブハーリー』を低い伝承経路（بنزول）で聴聞。الزيتاوي＝TMP-P-000104（ID-Master 登録「الزيتاوي」、repo D00218・D07702 が同番号を使用。corpus では D06083「سمع ببيت المقدس من الزيتاوي ابن ماجه」も同人）。初版の #NEEDID（2 relation）を1本に統合。'
 - id: r4
   type: scholarly
   subtype: teacher
   active: AIND-D10077
-  passive: AIND-D00959
+  passive: m15
   methods:
   - TMP-S-00025
   cert: medium
   works:
   - ref: wd:Q1187931
-  quote: الكلوتاتي
   note:
     ja: 「وحدث ببعض ابن ماجه قرأ ذلك عليه الكلوتاتي」＝本項主が師、読み手 الكلوتاتي が学生（規則15）。الكلوتاتي＝#AIND-D00959（الشهاب أحمد بن عثمان … الكلوتاتي القاهري الحنفي المحدث、名寄せ済み旧 TMP-P-000074。corpus で単独の「الكلوتاتي」は一貫してこの伝承収集家＝規則26 例外2 により cert medium）。初版のニスバ番号 TMP-N-00240（カテゴリ不一致）を置換。
 - id: r5
   type: scholarly
   subtype: teacher
   active: AIND-D10077
-  passive: AIND-D01494
+  passive: m17
   methods:
   - TMP-S-00004
-  quote: الشمني
   note:
     ja: 「وأجاز لشيخنا الشمني」＝我らがシャイフ التقي الشمني（#AIND-D01494、801生・872没）にイジャーザを与えた。D01494 側のイジャーザ授与者列挙は「… وآخرون」で名を挙げないが、「شيخنا الشمني」はサハーウィーの師 التقي で確定。初版のニスバ番号 TMP-N-00127（カテゴリ不一致）を置換。
 states:
@@ -134,11 +122,10 @@ states:
   type: office
   ref: TMP-O-00050
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: null
+  - mention: m18
   note:
     ja: 「وكان من عدول القاهرة」。地名は原文に明記（規則22(2)）。
+  mention: null
 affiliations:
 - id: a1
   type: madhhab
@@ -146,17 +133,91 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: لشيخنا
-    norm: شيخنا
+  - mention: m16
   works:
   - ref: TMP-T-00034
-  quote: وذكره
   note:
     ja: Pattern A。شيخنا＝Ibn Ḥajar（wd:Q471116）、『إنباء الغمر』（TMP-T-00034）。イブン・ハジャルは曾祖父（遠祖）にちなみ「موسى بن عطية」と呼び、法学者（الفقه）と評した。初版は未符号化（訳文のみ）。
   trigger: rule
-  norm: ذكره
   phrase: وذكره شيخنا في إنبائه فقال موسى بن عطية نسبة لجده الأعلى ووصفه بالفقه
+  mention: m19
+mentions:
+- id: m1
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m2
+  kind: name
+  quote: عمر
+- id: m3
+  kind: name
+  quote: عوض
+- id: m4
+  kind: name
+  quote: عطية
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  quote: محمد
+- id: m7
+  kind: name
+  quote: عبد الرحمن
+- id: m8
+  kind: name
+  quote: الشرف
+- id: m9
+  kind: name
+  ref: TMP-N-00259
+  quote: اللقاني
+- id: m10
+  kind: name
+  ref: TMP-N-00014
+  quote: الأزهري
+  norm: الازهري
+- id: m11
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m12
+  kind: person
+  ref: AIND-D09469
+  quote: الشمس محمد
+- id: m13
+  kind: place
+  quote: القدس
+  ref: gn:281184
+- id: m14
+  kind: person
+  ref: TMP-P-000104
+  quote: الزيتاوي
+- id: m15
+  kind: person
+  ref: AIND-D00959
+  quote: الكلوتاتي
+- id: m16
+  kind: person
+  ref: wd:Q471116
+  quote: لشيخنا
+  norm: شيخنا
+- id: m17
+  kind: person
+  ref: AIND-D01494
+  quote: الشمني
+- id: m18
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m19
+  kind: source
+  quote: وذكره
+  norm: ذكره
+- id: m20
+  kind: year
+  value: '810'
+  quote: سنة
 translation:
   ja: ムーサー・ブン・ウマル・ブン・アウド・ブン・アティーヤ・ブン・アフマド・ブン・ムハンマド・ブン・アブドゥッラフマーン、アッ＝シャラフ、アル＝ラッカーニー、アル＝アズハリー、アル＝マーリキー。前述のアッ＝シャムス・ムハンマドの父。エルサレムでイブラーヒーム・アッ＝ザイターウィーからイブン・マージャの『スナン』を、また低い伝承経路で『ブハーリー』を聴聞した。イブン・マージャ（の『スナン』）の一部を伝承し、アル＝カルーターティーがそれを彼の前で読んだ。我らがシャイフ・アッ＝シュムンニーにイジャーザを与えた。カイロの公証人（ウドゥール）の一人であった。我らがシャイフ（イブン・ハジャル）は『インバー』で彼に言及し、曾祖父（遠祖）にちなんで「ムーサー・ブン・アティーヤ」と呼び、法学（に通じた者）と評した。（8）10年に没した。
   en: Mūsā b. ʿUmar b. ʿAwaḍ b. ʿAṭiyya b. Aḥmad b. Muḥammad b. ʿAbd al-Raḥmān, al-Sharaf al-Laqānī al-Azharī al-Mālikī, father of the aforementioned al-Shams Muḥammad. He heard the Sunan of Ibn Māja in Jerusalem from Ibrāhīm al-Zaytāwī, and (heard) al-Bukhārī through a low chain of transmission (bi-nuzūl). He transmitted part of Ibn Māja, which al-Kulūtātī read before him, and he granted an ijāza to our shaykh al-Shumunnī. He was one of the notary-witnesses (ʿudūl) of Cairo. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ, calling him Mūsā b. ʿAṭiyya after his distant ancestor, and described him as (versed in) jurisprudence. He died in the year (8)10.

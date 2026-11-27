@@ -9,37 +9,33 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n2
     type: nasab
-    quote: عبد الرحمن
     by: rule
-    ref: AIND-D03630
+    mention: m2
   - id: n3
     type: nasab
-    quote: داود
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: الكويز
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D00817
   methods:
   - TMP-S-00003
-  quote: شيخنا
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D07548
+  active: m5
   passive: AIND-D00817
-  quote: صلاح الدين محمد
   note:
     ja: Gemini衝突番号(TMP-P-000066=D08850)破棄。→兄صلاح الدين محمدに新規TMP-P-000580発行(الآتي=後出、統合予定。要ID-Master登録)。
 - id: r3
@@ -47,10 +43,32 @@ relations:
   subtype: father
   active: AIND-D03630
   passive: AIND-D00817
-  quote: null
   note:
     ja: '父＝#AIND-D03630（عبد الرحمن بن داود … الزين … ويعرف بابن الكويز）。本項見出しのナサブと、兄弟 #AIND-D07548（「الماضي أبوه وجده」）の父同定で閉合。'
   phrase: عبد الرحمن بن داود بن الكويز
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D03630
+  quote: عبد الرحمن
+- id: m3
+  kind: name
+  quote: داود
+- id: m4
+  kind: name
+  quote: الكويز
+- id: m5
+  kind: person
+  ref: AIND-D07548
+  quote: صلاح الدين محمد
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アフマド・ブン・アブドゥッラフマーン・ブン・ダーウード・ブン・アル＝クワイズ。後述するサラーフッディーン・ムハンマドの兄弟。我らがシャイフ（イブン・ハジャル）に聴聞したと私は思われる。
   en: Aḥmad b. ʿAbd al-Raḥmān b. Dāwūd b. al-Kuwayz, brother of Ṣalāḥ al-Dīn Muḥammad (mentioned below). I believe he heard from our shaykh (Ibn Ḥajar).

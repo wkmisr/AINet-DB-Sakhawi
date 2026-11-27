@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00033
-    quote: القبطي
+    mention: m4
   - id: n2
     type: laqab
-    quote: سعد الدين
+    mention: m2
   - id: n3
     type: shuhrah
-    quote: بابن السكر والليمون
-    norm: ابن السكر والليمون
     label: ابن السكر والليمون
+    mention: m6
   - id: n4
     type: ism
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m1
   - id: n5
     type: nasab
-    quote: فخر الدين
     by: rule
-    ref: AIND-D11146
+    mention: m3
 birth:
   id: b
   date:
@@ -36,7 +32,7 @@ birth:
   note:
     ar: ولد في رجب سنة أربع وستين وثمانمائة
     ja: 864年ラジャブ＝1460-05-01〜05-30（月精度、h2g.py）。初版の @when="1460"（年精度）・cert="high" を是正。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: كاتب السر
@@ -48,27 +44,23 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D11146
+  active: m5
   passive: AIND-D00360
-  quote: أبوه
   note:
     ja: '父＝ #AIND-D11146「فخر الدين بن السكر والليمون القبطي ولي نظر الديوان المفرد ثم نظر الدولة وتزوج خديجة ابنة التقي البلقيني بعد ناصر الدين النبراوي ومات عنها في سنة خمس وسبعين بعد أن أولدها إبرهيم الماضي وكان حين موته مميزا」（ラカブ部の単独項、未収録）。ラカブ・ニスバ・通称 ابن السكر والليمون・妻 خديجة・子 إبراهيم で閉合（規則57）。「القبطي أبوه」＝ニスバ القبطي は父にかかる（コプト出身）。父の職（نظر الديوان المفرد・نظر الدولة）は本項主の state にしない。初版の TMP-P-001420（太田氏「فخر الدين القبطي」Note「AIND-D00360の母」←誤り）は D11146 と名寄せ要（ISSUES §D159-4）。'
-  norm: ابوه
   phrase: فخر الدين القبطي
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D13024
+  active: m7
   passive: AIND-D00360
-  quote: خديجة ابنة التقي بن البدر بن السراج البلقيني
   note:
     ja: '母＝ #AIND-D13024「خديجة ابنة التقي محمد بن البدر محمد بن عمر بن رسلان البلقيني أخت الولوي أحمد لأبيه . تزوجها … ثم فخر الدين بن السكر والليمون فأولدها إبراهيم … ماتت … في ذي القعدة سنة خمس وتسعين」（女性部、未収録）。ナサブ3代＋夫 فخر الدين بن السكر والليمون＋子 إبراهيم で閉合。初版の TMP-P-001421（太田氏、Note「AIND-D00360の父」←誤り）は D13024 と名寄せ要（ISSUES §D159-4）。「ونشأ في كنف أمه」＝母の庇護下で育った。'
 - id: r3
   type: social
   subtype: patron
-  active: AIND-D00360#p1
+  active: m11
   passive: AIND-D00360
-  quote: كاتب السر
   note:
     ja: '「وكان بباب كاتب السر وولده لاعتنائهما بأمه وقتا」＝機密書記長とその息子の門に一時仕えた（規則56・60(d)。相手は職名のみで名がない → #NEEDID）。候補: 母 #AIND-D13024 の本文「وانتمت لخدمة الزيني بن مزهر فكانت مرتقية به محروسة بحمايته」により الزيني أبو بكر بن مزهر（#AIND-D10854、831生、893没の كاتب السر）とその子 البدري محمد بن مزهر（#AIND-D07251）が有力だが、本項原文に名がなく規則26 により同定しない（ISSUES §D159-4）。'
 - id: r4
@@ -76,53 +68,108 @@ relations:
   subtype: patron
   active: AIND-D00360#p2
   passive: AIND-D00360
-  quote: null
   note:
     ja: 同上「وولده」＝機密書記長の息子。候補は البدري بن مزهر（#AIND-D07251）、同定しない。
 - id: r5
   type: social
   subtype: predecessor
-  active: AIND-D00340
+  active: m14
   passive: AIND-D00360
   cert: medium
-  quote: إبراهيم بن مخاطة
   note:
     ja: '「وقد استقر بعد الشرف إبراهيم بن مخاطة الماضي قريبا في أوقاف الصرغتمشية」。候補は「الماضي قريبا」の إبراهيم بن مخاطة 2件: #AIND-D00340「إبراهيم بن موسى سعد الدين بن الرئيس شرف الدين بن مخاطة … وتكلم في أوقاف الصرغتمشية وغيرها … مات في رجب سنة ست وتسعين … وكثر ذكره بالسوء سيما من جماعة الصرغتمشية」と #AIND-D00333「إبراهيم بن مخاطة سعد الدين أخو الشرف موسى وعم إبراهيم الآتيين كان أحد كتاب المماليك ومعه عدة مباشرات … ومات في ذي الحجة سنة سبع وسبعين」。D00340 は名＋家名 بن مخاطة＋職（أوقاف الصرغتمشية）＋没年896（本項主の「وقد استقر بعد」と整合）で閉合するが、ラカブは سعد الدين であり本項の「الشرف」は父 شرف الدين のラカブ（混同か）＝ cert medium（規則57 の2点以上は満たす）。D00333（877没、職の記載なし）は合わない。初版の TMP-P-001422（太田氏「إبراهيم بن مخاطة」）を置換（ISSUES §D159-4）。'
-  norm: ابراهيم بن مخاطة
 states:
 - id: s1
   type: office
-  ref: TMP-O-00298
   orgs:
   - ref: TMP-I-00059
-  quote: أوقاف الصرغتمشية
   note:
     ja: 「استقر … في أوقاف الصرغتمشية」。ID-Master 既登録 TMP-O-00312（太田氏、本項のために登録、Note「管財人の語は示されない」）。施設 الصرغتمشية＝TMP-I-00059。初版の affiliation employed（state と二重、規則8）を除去。年なし。
-  norm: اوقاف الصرغتمشية
+  mention: m15
 - id: s2
   type: status
   label: ويذكر بحذق وذكاء في بابه مع حرص
-  quote: ويذكر بحذق وذكاء في بابه مع حرص
+  mention: m12
 events:
 - id: e1
   type: learning
-  quote: وتدرب
   trigger: rule
-  norm: تدرب
   phrase: وتدرب في الكتابة
+  mention: m10
 - id: e2
   type: other
-  quote: ثم خدم بعض الأمراء
   note:
     ja: アミールは名なし＝relation を立てない（規則14）。
-  norm: ثم خدم بعض الامراء
+  phrase: ثم خدم بعض الأمراء
+  mention: null
 - id: e3
   type: political
-  quote: استقر
   note:
     ja: 「أميره」は名なし。初版の placeName القاهرة（原文になし）を除去（規則22(1)）。
   trigger: rule
   phrase: وتعرض له أميره بالغرامة مرة بعد أخرى وكاد أن يتضعضع
+  mention: m13
+mentions:
+- id: m1
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m2
+  kind: name
+  quote: سعد الدين
+- id: m3
+  kind: name
+  ref: AIND-D11146
+  quote: فخر الدين
+- id: m4
+  kind: name
+  ref: TMP-N-00033
+  quote: القبطي
+- id: m5
+  kind: person
+  ref: AIND-D11146
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: name
+  quote: بابن السكر والليمون
+  norm: ابن السكر والليمون
+- id: m7
+  kind: person
+  ref: AIND-D13024
+  quote: خديجة ابنة التقي بن البدر بن السراج البلقيني
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '864'
+  quote: سنة
+- id: m10
+  kind: event
+  quote: وتدرب
+  norm: تدرب
+- id: m11
+  kind: person
+  ref: AIND-D00360#p1
+  quote: كاتب السر
+- id: m12
+  kind: office
+  quote: ويذكر بحذق وذكاء في بابه مع حرص
+- id: m13
+  kind: event
+  quote: استقر
+- id: m14
+  kind: person
+  ref: AIND-D00340
+  quote: إبراهيم بن مخاطة
+  norm: ابراهيم بن مخاطة
+- id: m15
+  kind: office
+  ref: TMP-O-00298
+  quote: أوقاف الصرغتمشية
+  norm: اوقاف الصرغتمشية
 translation:
   ja: イブラーヒーム、サアド・アッディーン・ブン・ファフル・アッディーン。父はコプト（出身）で、イブン・アッ＝スッカル・ワ・ッ＝ライムーンとして知られる。母はハディージャ、タキー（・アッディーン）・ブン・バドル（・アッディーン）・ブン・スィラージュ（・アッディーン）・アル＝ブルキーニーの娘。864年ラジャブ月に生まれ、母の庇護のもとで育ち、書記術の訓練を受けた。機密書記長とその息子が彼の母に目をかけていたため、一時その門に仕えた。その後、アミールたちの何人かに仕えた。その職務における巧みさと賢さ、そして熱心さで知られる。最近、少し前に述べたシャラフ・イブラーヒーム・ブン・ムハータの後任としてサルガトミシュ学院のワクフ（管理）に就いたが、彼のアミールが度々彼に罰金を科し、没落しかけた。
   en: Ibrāhīm Saʿd al-Dīn b. Fakhr al-Dīn; his father was a Copt (al-Qibṭī), and he is known as Ibn al-Sukkar wa-l-Laymūn. His mother was Khadīja, daughter of al-Taqī b. al-Badr b. al-Sirāj al-Bulqīnī. He was born in Rajab 864 and grew up under his mother's care. He trained in scribal writing and was for a time at the gate of the confidential secretary (kātib al-sirr) and his son, because of their regard for his mother; then he served some of the amirs. He is noted for skill and intelligence in his field, together with diligence. He has recently been appointed, after al-Sharaf Ibrāhīm b. Mukhāṭa, mentioned shortly before, to the awqāf of al-Ṣarghatmishiyya, but his amir subjected him to fines time after time, and he nearly collapsed.

@@ -9,32 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05472
-    quote: الشريف
+    mention: m4
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عقيل
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: خرص
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 861-12-14
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m5
   note:
     ar: مات بمكة في مغرب ليلة الأربعاء رابع عشر ذي الحجة سنة إحدى وستين . أرخه ابن فهد
     ja: 「مغرب ليلة الأربعاء」＝水曜夜（火曜の日没時）＝ヒジュラ暦14日の始まり。861-12-14＝1457-11-11（水曜、h2g.py）で原文の曜日と一致。
-  quote: سنة
+  mention: m7
 persons:
 - id: p1
   label: عقيل بن خرص
@@ -47,21 +44,53 @@ relations:
   subtype: father
   active: AIND-D07972#p1
   passive: AIND-D07972
-  quote: null
   note:
     ja: '規則3。父 عقيل بن خرص は corpus に本伝なし（hw.py「عقيل」「خرص」該当なし）・ID-Master 未登録。父自身に識別要素がないため #NEEDID。同じ خرص を祖父名にもつ #AIND-D00706「أحمد بن خرص الجميعي القائد」（865年マッカ没）は父の兄弟の可能性があるが原文に根拠なし。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m9
   cert: low
   note:
     ja: 'Pattern A。没年 861（≤871）＝振り分け規則により #AIND-D09211（التقي）cert low（cert は event 側、規則43）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عقيل
+- id: m3
+  kind: name
+  quote: خرص
+- id: m4
+  kind: name
+  ref: TMP-N-05472
+  quote: الشريف
+- id: m5
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m6
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m7
+  kind: year
+  value: '861'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ムハンマド・ブン・アキール・ブン・ハルス、シャリーフ。861年ズー・アル＝ヒッジャ月14日水曜の夜の日没時にマッカで没した。イブン・ファハドが没年を記している。
   en: Muḥammad b. ʿAqīl b. Kharṣ, the Sharīf. He died in Mecca at sunset on the eve of Wednesday 14 Dhū al-Ḥijja 861. Ibn Fahd recorded his date of death.

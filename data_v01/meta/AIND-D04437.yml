@@ -9,36 +9,30 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00096
-    quote: البرماوي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: بابن حجاج
-    norm: ابن حجاج
     label: ابن حجاج
+    mention: m9
   - id: n4
     type: ism
-    quote: عبد الله
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: حجاج
     by: rule
-    ref: TMP-P-001111
+    mention: m2
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m3
   - id: n7
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m4
 death:
   id: d
   date:
@@ -56,49 +50,41 @@ relations:
   methods:
   - TMP-S-00026
   cert: medium
-  quote: null
   note:
     ja: '【裁定 2026-09-18（§Da-3／§D-V6）】الوسيمي の人物ID として corpus の #AIND-D12121「الوسيمي بفتح ثم مهملة مكسورة محمد بن أحمد بن أبي بكر بن محمد بن محمود العمري الكاتب」を採用する。同項はニスバ索引見出しだが単独の人物を特定しており、統一規則11が禁ずる「3人以上を束ねた合同索引」には当たらない（先例: ابن عزم=#AIND-D12540、الخوافي=#AIND-D11632、ابن الأزرق=#AIND-D12143 等が人物ID として使用されている）。当該ナサブでの独立本伝は corpus に存在しないため、この索引見出しが corpus 上で唯一の ID となる。校閲時に発行した #TMP-P-001112 は取り下げ（ID-Master 未貼付のまま欠番として残す）。初版が active に流用していたニスバ番号 #TMP-N-00982（＝الوسيمي のニスバ）は人物位置に不適（precheck カテゴリ不一致）。「فيما قيل」（伝聞）のため cert="medium"。原文に「الخط」の語はないため初版の field desc（الخط）は除去。'
   phrase: وكتب فيما قيل على الوسيمي وغيره
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-001111
+  active: m11
   passive: AIND-D04437
-  quote: أبيه
   note:
     ja: '見出しナサブから1段ずらして祖父名（أحمد بن موسى）まで復元できるため、統一規則3により新規 TMP-P を発行（初版 #NEEDID）。原文末尾「ورأيت شهادة أبيه على الفخر البلبيسي إمام الأزهر سنة ست وثمانين وسبعمائة ووصفه بشيخنا」＝786年（＝1384年）に父がアズハルのイマーム الفخر البلبيسي について証言し、彼を「我らがシャイフ」と記した、はこの父に関する情報。【裁定 2026-09-18（§Da-4）】الفخر البلبيسي إمام الأزهر ＝ #AIND-D04856（عثمان بن عبد الرحمن بن عثمان الفخر البلبيسي ثم القاهري الشافعي المقرئ ويعرف بالفخر إمام الأزهر、725年ビルバイス生・804年ズー・アルカアダ2日没、享年80）。校閲時の「corpus に本伝なし・801H 以前没のため立項対象外」という判断は誤りで、corpus には長文の実項がある。したがって新規 TMP-P は発行せず（統一規則3・10）、ID は #AIND-D04856 とする。ただしこの証言は本項主ではなく父に関する情報であり、本項主を含まない relation を立てる先例が repo に無い（2,359件中、唯一の例外 D03404 は possible_identity で別型）ため、relation は立てず本 note に ID を明記するに留める。'
-  norm: ابيه
   phrase: حجاج بن أحمد بن موسى
 - id: r3
   type: kin
   subtype: son
-  active: AIND-D07764
+  active: m8
   passive: AIND-D04437
-  quote: البدر محمد الآتي
   note:
     ja: 'البدر محمد الآتي ＝ #AIND-D07764（محمد بن عبد الله بن حجاج بدر الدين البرماوي الأصل القاهري الماضي أبوه）。相手項が「الماضي أبوه」で本項を指し閉合。初版は #NEEDID。'
-  norm: البدر محمد الاتي
   phrase: والد البدر محمد الآتي
 states:
 - id: s1
   type: office
-  ref: TMP-O-00269
-  quote: المكتب
   note:
     ar: المكتب … وبرع وتصدى لتعليمها
     ja: 'المكتب＝書法を教える者。ID-Master に該当 Office なし（كاتب المنسوب=O-00218 は能書家、معلم الأبناء=O-00245 は初等教師で別）ため新規仮番号を発行（初版 #NEEDID）。'
+  mention: m7
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: ووصفه
+  - mention: m10
   note:
     ja: Pattern A（تقريظ＝賛辞の付与）。初版は subtype「patron」の relation ＋ 別 event に二重記載していたため統合。
   trigger: rule
-  norm: وصفه
   phrase: وكتب درجا قرضه له شيخنا وغيره
+  mention: m13
 notes:
 - text: 諸方面の職掌（الجهات）に俸禄口を得たが、私の得た情報では（فيما بلغني＝伝聞）貧しかった。
   lang: ja
@@ -106,6 +92,60 @@ notes:
 - text: He was given stipendiary posts in the [administrative] departments (al-jihāt), but according to what reached me (fīmā balaghanī) he was poor.
   lang: en
   type: personalia
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الله
+- id: m2
+  kind: name
+  ref: TMP-P-001111
+  quote: حجاج
+- id: m3
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m4
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m5
+  kind: name
+  ref: TMP-N-00096
+  quote: البرماوي
+- id: m6
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m7
+  kind: office
+  ref: TMP-O-00269
+  quote: المكتب
+- id: m8
+  kind: person
+  ref: AIND-D07764
+  quote: البدر محمد الآتي
+  norm: البدر محمد الاتي
+- id: m9
+  kind: name
+  quote: بابن حجاج
+  norm: ابن حجاج
+- id: m10
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m11
+  kind: person
+  ref: TMP-P-001111
+  quote: أبيه
+  norm: ابيه
+- id: m12
+  kind: year
+  value: '786'
+  quote: سنة
+- id: m13
+  kind: source
+  quote: ووصفه
+  norm: وصفه
 translation:
   ja: アブドゥッラー・ブン・ハッジャージュ・ブン・アフマド・ブン・ムーサー・アル＝ビルマーウィー・アル＝カーヒリー、書法教師（アル＝ムクティブ）。後述するアル＝バドル・ムハンマドの父。イブン・ハッジャージュとして知られる。伝えられるところでは、アル＝ワスィーミーらのもとで書を学び、これに秀でて、その教授に専心した。彼が作成した巻物（ダルジュ）には、我らがシャイフ（イブン・ハジャル）らが賛辞（タクリーズ）を寄せた。諸方面の職掌（ジハート）に俸禄口を得たが、私の得た情報では貧しかった。850年頃に没した。また私は、彼の父が786年にアズハルのイマームであるアル＝ファフル・アル＝バルビースィーについて行った証言〔文書〕を目にしたが、そこで彼〔父〕は彼〔アル＝ファフル〕を「我らがシャイフ」と記していた。
   en: ʿAbd Allāh b. Ḥajjāj b. Aḥmad b. Mūsā al-Birmāwī al-Qāhirī, the writing-master (al-muktib), father of al-Badr Muḥammad, mentioned below, and known as Ibn Ḥajjāj. He wrote, so it is said, under al-Wasīmī and others, excelled at it, and devoted himself to teaching it. He wrote a scroll (darj) for which our shaykh (Ibn Ḥajar) and others wrote commendations (taqrīẓ). He was given stipendiary posts in the [administrative] departments (al-jihāt) but, according to what reached me, he was poor. He died around the year fifty [850 AH]. I also saw a testimony of his father concerning al-Fakhr al-Bilbīsī, imam of al-Azhar, dated 786 AH, in which he described him as "our shaykh".

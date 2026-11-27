@@ -9,65 +9,58 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m10
   - id: n2
     type: nisbah
-    ref: TMP-N-00156
-    quote: القادري
+    mention: m11
   - id: n3
     type: laqab
-    quote: الشمس
+    mention: m6
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001654
+    mention: m2
   - id: n6
     type: nasab
-    quote: حسين
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: شرشيق
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: النور
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: العز
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: الشمس الأكحل
     by: rule
-    norm: الشمس الاكحل
+    mention: m9
 death:
   id: d
   date:
     ah: 840-02-04
   places:
-  - ref: TMP-I-00263
-    role: burial
-    quote: بزاوية عدي بن مسافر
-    norm: زاوية عدي بن مسافر
-  - ref: TMP-L-00167
-    role: burial
-    quote: باب القرافة
+  - role: burial
+    mention: m15
+  - role: burial
+    mention: m16
   note:
     ar: مات في رابع صفر سنة أربعين بالطاعون ودفن بزاوية عدي بن مسافر بالقرب من باب القرافة
     ja: 840-02-04＝1436-08-27（土曜）。死因はペスト（الطاعون）。没地は原文に明記なし（初版の القاهرة は埋葬地からの補完＝規則22(1) により除去）。埋葬地 زاوية عدي بن مسافر（باب القرافة＝TMP-L-00167 の近く）は ID-Master 未登録 → TMP-I-00263（زاوية を placeName で使う先例 TMP-I-00064・00071）。【集約 2026-11-03】位置説明句「بالقرب من باب القرافة」の باب القرافة（TMP-L-00167）も原文明記の地名として placeName（type burial、埋葬地の位置）に補った（規則22(2)、機械 L、オーケストレーター決定17）。
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
@@ -76,18 +69,75 @@ relations:
   passive: AIND-D08062
   summary:
     ar: النور علي بن حسين بن محمد بن شرشيق
-  quote: null
   note:
     ja: 規則3。父 النور علي بن العز حسين بن الشمس محمد الأكحل بن شرشيق الحسني القادري は corpus に本伝なし（hw.py「علي بن حسين」+「شرشيق」「الأكحل」該当なし。D05449 علي بن محمد بن عبد القادر بن علي بن محمد الأكحل は別支系）、ID-Master 未登録（「شرشيق」「الأكحل」該当なし）。ラカブ النور と家名 شرشيق／الأكحل で識別できるので新規 TMP-P-001654。
 - id: r2
   type: kin
   subtype: son
-  active: AIND-D10083
+  active: m12
   passive: AIND-D08062
-  quote: الشرف موسى
   note:
     ja: '「والد الشرف موسى الآتي」＝ #AIND-D10083「موسى بن محمد بن علي بن حسين بن محمد الأكحل بن شرشيق الشرف ابن الشمس بن النور بن العز الحسني القادري … مات بالطاعون في سنة إحدى وأربعين بعد أبيه بيسير جدا ودفن بزاوية عدي بن مسافر」（841没、未収録。repo D10092a が祖父として参照）。ナサブ5代と الآتي／「بعد أبيه」で閉合（cert なし）。D10083 の「أخو حسن الماضيين وأبوهما」の حسن も本項主の子だが本項に名指しなし＝relation を立てない。孫 #AIND-D09472（زين العابدين محمد بن موسى … شيخ الطائفة القادرية、885没）。'
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001654
+  quote: علي
+- id: m3
+  kind: name
+  quote: حسين
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: شرشيق
+- id: m6
+  kind: name
+  quote: الشمس
+- id: m7
+  kind: name
+  quote: النور
+- id: m8
+  kind: name
+  quote: العز
+- id: m9
+  kind: name
+  quote: الشمس الأكحل
+  norm: الشمس الاكحل
+- id: m10
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m11
+  kind: name
+  ref: TMP-N-00156
+  quote: القادري
+- id: m12
+  kind: person
+  ref: AIND-D10083
+  quote: الشرف موسى
   norm: الشرف موسي
+- id: m13
+  kind: month
+  value: 2
+  quote: صفر
+- id: m14
+  kind: year
+  value: '840'
+  quote: سنة
+- id: m15
+  kind: place
+  quote: بزاوية عدي بن مسافر
+  ref: TMP-I-00263
+  norm: زاوية عدي بن مسافر
+- id: m16
+  kind: place
+  quote: باب القرافة
+  ref: TMP-L-00167
 translation:
   ja: ムハンマド・ブン・アリー・ブン・フサイン・ブン・ムハンマド・ブン・シャルシーク、アッ＝シャムス・ブン・アン＝ヌール・ブン・アル＝イッズ・ブン・アッ＝シャムス・アル＝アクハル、アル＝ハサニー、アル＝カーディリー。後述のアッ＝シャラフ・ムーサーの父。840年サファル月4日にペストで没し、バーブ・アル＝カラーファの近くのアディー・ブン・ムサーフィルのザーウィヤに葬られた。アッラーが彼を憐れみたまうように。
   en: Muḥammad b. ʿAlī b. Ḥusayn b. Muḥammad b. Sharshīq, al-Shams b. al-Nūr b. al-ʿIzz b. al-Shams al-Akḥal, al-Ḥasanī al-Qādirī, father of al-Sharaf Mūsā, who follows. He died of the plague on 4 Ṣafar 840 and was buried in the zāwiya of ʿAdī b. Musāfir near Bāb al-Qarāfa; may God have mercy on him.

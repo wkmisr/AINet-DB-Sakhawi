@@ -9,24 +9,21 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01703
-    quote: الشلبي
+    mention: m2
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 867-02
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m3
   note:
     ja: 867-02 ＝ 1462-11-04〜12-03、月初 1462-11（h2g.py）。
-  quote: سنة
   phrase: مات بمكة في صفر سنة سبع وستين
+  mention: m5
 persons:
 - id: p1
   label: حمدان
@@ -35,23 +32,53 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D05753#p1
+  active: m8
   passive: AIND-D05753
-  quote: حمدان
   note:
     ja: '「وهو ابن حمدان」。父は裸名のみ（祖父名・ニスバなし）のため #NEEDID 維持（規則3・12）。corpus に「علي بن حمدان الشلبي」の本伝なし。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: أرخه
+  - mention: m7
   cert: low
   note:
     ja: Pattern A。限定語のない ابن فهد、本項主の没年 867（≤871）→ ابن فهد 振り分け規則により التقي محمد بن فهد＝#AIND-D09211、cert low。初版の統制外 subtype「other」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن فهد
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-N-01703
+  quote: الشلبي
+- id: m3
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m4
+  kind: month
+  value: 2
+  quote: صفر
+- id: m5
+  kind: year
+  value: '867'
+  quote: سنة
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
+- id: m8
+  kind: person
+  ref: AIND-D05753#p1
+  quote: حمدان
 translation:
   ja: アリー・アッ＝シャラビー。（8）67年サファル月にマッカで没した。イブン・ファハドがその没年月を記録している。彼はハムダーンの子である。
   en: ʿAlī al-Shalabī. He died in Mecca in Ṣafar (8)67. Ibn Fahd recorded his death. He is the son of Ḥamdān.

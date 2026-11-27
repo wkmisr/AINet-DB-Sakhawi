@@ -9,37 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00031
-    quote: المصري
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-01184
-    quote: البديوي
+    mention: m5
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001362
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: شقير
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 832-01-30
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m7
   note:
     ja: 「مات بمكة في ليلة سلخ المحرم سنة اثنتين وثلاثين」。سلخ المحرم ＝ ムハッラム月末日（表暦では30日）の夜。832-01-30 ＝ 1428-11-18（h2g.py、火曜）。その「夜」は前日夕刻から始まるため厳密には 1428-11-17 の夜。初版の 832-01-29／1429 を訂正。
-  quote: سنة
+  mention: m9
 persons:
 - id: p1
   label: شقير (ويعرف بجده)
@@ -50,11 +44,10 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001362
+  active: m6
   passive: AIND-D04975
   summary:
     ar: أحمد بن شقير الحمصاني
-  quote: والده
   note:
     ja: 「الحمصاني والده」＝父がアル＝ヒムサーニー（ニスバは父に係り本項主のものではない）。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001362（⚠汎用名。識別要素はニスバ الحمصاني と父名 شقير のみ）。初版の TMP-P-000000 を差し替え。
 - id: r2
@@ -62,7 +55,6 @@ relations:
   subtype: grandfather
   active: AIND-D04975#p1
   passive: AIND-D04975
-  quote: null
   note:
     ja: '祖父 شقير は裸名のみで #NEEDID（規則3）。「ويعرف بجده」＝祖父の名（ابن شقير）で知られるが、通称の綴りが原文にないため shuhrah は立てず desc に記録（repo 先例 D04083）。'
 sources:
@@ -72,10 +64,47 @@ sources:
     cert: low
   summary:
     ar: أرخهما ابن فهد
-  quote: null
   cert: medium
   note:
     ja: '次項 #AIND-D04976 末尾の「أرخهما ابن فهد」（双数）は本項と次項の2人を指すと読み、本項にも cert medium で付す（他項由来、規則23 に準じる）。限定語のない ابن فهد、没年 832（≤871）→ #AIND-D09211、cert low。'
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001362
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: شقير
+- id: m4
+  kind: name
+  ref: TMP-N-00031
+  quote: المصري
+- id: m5
+  kind: name
+  ref: TMP-N-01184
+  quote: البديوي
+- id: m6
+  kind: person
+  ref: TMP-P-001362
+  quote: والده
+- id: m7
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '832'
+  quote: سنة
 translation:
   ja: アリー・ブン・アフマド・ブン・シュカイル、エジプト出自のアル＝バディーウィー。父はアル＝ヒムサーニーで、本人は祖父の名で知られる。（8）32年ムハッラム月末日の夜にマッカで没した。
   en: ʿAlī b. Aḥmad b. Shuqayr, of Egyptian origin, al-Badīwī. His father was al-Ḥimṣānī, and he was known by his grandfather's name. He died in Mecca on the night of the last day of Muḥarram (8)32.

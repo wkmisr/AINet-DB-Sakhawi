@@ -9,37 +9,32 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00585
-    quote: الجزيري
+    mention: m6
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m7
   - id: n3
     type: laqab
-    quote: إمام الدين
-    norm: امام الدين
+    mention: m4
   - id: n4
     type: kunyah
-    quote: أبو المعالي
-    norm: ابو المعالي
+    mention: m5
   - id: n5
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n6
     type: nasab
-    quote: عبد القادر
     by: rule
+    mention: m2
   - id: n7
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n8
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m8
 persons:
 - id: p1
   label: عبد القادر بن علي الجزيري
@@ -50,7 +45,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: AIND-D06796
+  active: m10
   passive: AIND-D07707
   methods:
   - TMP-S-00025
@@ -58,14 +53,12 @@ relations:
   - wd:Q484181
   works:
   - ref: TMP-T-00065
-  quote: الأمين بن النجار
   note:
     ja: '「ممن قرأ المنهاج عند الأمين بن النجار إمام الغمري」。الأمين بن النجار＝corpus 本伝 #AIND-D06796「محمد بن أحمد بن عيسى بن أحمد بن موسى الأمين البدراني الأصل الدمياطي القاهري الشافعي إمام جامع الغمري بها وخطيبه ويعرف بابن النجار حرفة أبيه . ولد في رابع عشر ذي الحجة سنة خمس وأربعين」（ニスバ索引 #AIND-D12782「وابن النجار الشافعي أمين الدين محمد بن أحمد بن عيسى بن أحمد」）。ラカブ・通称・職が一致（cert なし）。校閲時の ID-Master 既登録 TMP-P-000703（Note「本伝なし」）は D06796 と名寄せ要（集約 2026-10-26、内容A H-1、決定2）。「إمام الغمري」（ガムリー・モスクのイマーム）は الأمين の職であり本項主の所属ではない。المنهاج＝منهاج الطالبين TMP-T-00065（初版の wd:Q6806081 はナワウィーの『ムスリム注釈』で別書）。'
-  norm: الامين بن النجار
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m13
   passive: AIND-D07707
   methods:
   - TMP-S-00006
@@ -79,7 +72,6 @@ relations:
       ja: 891年ジュマーダー・アッ＝サーニヤ月22日＝1486-07-04（h2g.py では日曜。原文の「يوم السبت」と1日ずれるが、暦の判別には使えないため日付はそのまま）。「الجماعة」（面々）は名なし＝relation を立てない。
   works:
   - ref: TMP-T-00065
-  quote: مني
 - id: r3
   type: scholarly
   subtype: teacher
@@ -92,7 +84,6 @@ relations:
     phrase: وسمع مني المسلسل بشرطه
   works:
   - ref: TMP-T-00019
-  quote: null
 - id: r4
   type: scholarly
   subtype: teacher
@@ -100,13 +91,11 @@ relations:
   passive: AIND-D07707
   methods:
   - TMP-S-00004
-  quote: null
 - id: r5
   type: kin
   subtype: father
   active: AIND-D07707#p1
   passive: AIND-D07707
-  quote: null
   note:
     ja: '父 عبد القادر بن علي：汎用名のみ、corpus に本伝なし → #NEEDID（規則3 (c'')）。機械検査の候補 #AIND-D04151「عبد القادر بن علي بن عمر الدنجيهي الأزهري الشافعي الحريري」（およびニスバ索引 #AIND-D11657「الدنجيهي عبد القادر بن علي بن عمر الحريري بباب الأزهر」）は rasm（الجزيري／الحريري）が近いだけでニスバ الدنجيهي・الأزهري が本項主にない＝同定せず（集約 2026-10-26、機械 M21）。'
 affiliations:
@@ -118,10 +107,60 @@ events:
   type: learning
   methods:
   - TMP-S-00025
-  quote: قرأ
   trigger: rule
-  norm: قرا
   phrase: وكذا حفظ غيره واشتغل في الفقه والعربية وفهم
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: عبد القادر
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: إمام الدين
+  norm: امام الدين
+- id: m5
+  kind: name
+  quote: أبو المعالي
+  norm: ابو المعالي
+- id: m6
+  kind: name
+  ref: TMP-N-00585
+  quote: الجزيري
+- id: m7
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m8
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m9
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m10
+  kind: person
+  ref: AIND-D06796
+  quote: الأمين بن النجار
+  norm: الامين بن النجار
+- id: m11
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m12
+  kind: year
+  value: '891'
+  quote: سنة
+- id: m13
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: ムハンマド・ブン・アブド・アル＝カーディル・ブン・アリー、イマーム・アッ＝ディーン、アブー・アル＝マアーリー、アル＝ジャズィーリー、アル＝カーヒリー、シャーフィイー派。ガムリー〔・モスク〕のイマームであるアル＝アミーン・イブン・アン＝ナッジャールのもとで『ミンハージュ』を読み、次いで891年ジュマーダー・アッ＝サーニヤ月22日の土曜日に、私（サハーウィー）を皮切りとして面々に対してそれを提示〔暗誦〕した。私から『ムサルサル』をその条件どおりに聴聞し、私は彼にイジャーザを与えた。同様に他の書も暗記し、法学とアラビア語学に励み、理解を得た。
   en: Muḥammad b. ʿAbd al-Qādir b. ʿAlī, Imām al-Dīn Abū al-Maʿālī al-Jazīrī al-Qāhirī al-Shāfiʿī. He is among those who read al-Minhāj with al-Amīn b. al-Najjār, imam of al-Ghamrī (mosque), and then presented it (from memory) to the scholars, beginning with me (al-Sakhāwī), on Saturday 22 Jumādā II 891. He heard al-Musalsal from me under its condition, and I granted him an ijāza. He likewise memorised other works, occupied himself with jurisprudence and Arabic, and gained understanding.

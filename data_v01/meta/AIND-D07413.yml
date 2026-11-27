@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00354
-    quote: السلطاني
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00017
-    quote: العجمي
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: سراج الدين محمد
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: سراج الدين محمد السلطاني العجمي
@@ -35,7 +33,6 @@ relations:
   subtype: father
   active: AIND-D07413#p1
   passive: AIND-D07413
-  quote: null
   note:
     ja: '父はラカブ＋汎用名＋ニスバのみ、corpus に本伝なし → #NEEDID（規則3）。'
 states:
@@ -43,14 +40,36 @@ states:
   type: office
   ref: wd:Q215536
   places:
-  - ref: gn:104515
-    quote: مكة
-  quote: null
+  - mention: m5
   phrase: أحد تجار مكة
+  mention: null
 notes:
 - text: 「مات في جمادى الأولى سنة .」＝没年が欠落（刊本の空白）。規則45 により death 要素を立てず、月（ジュマーダー・アル＝ウーラー）のみここに記す。初版の residence مكة は state の「تجار مكة」と重複のため除去。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: سراج الدين محمد
+- id: m3
+  kind: name
+  ref: TMP-N-00354
+  quote: السلطاني
+- id: m4
+  kind: name
+  ref: TMP-N-00017
+  quote: العجمي
+- id: m5
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m6
+  kind: month
+  value: 5
+  quote: جمادى الأولى
 translation:
   ja: ムハンマド・ブン・スィラージュ・アッ＝ディーン・ムハンマド・アッ＝スルターニー・アル＝アジャミー、マッカの商人の一人。ジュマーダー・アル＝ウーラー月に没した。（年は欠落）
   en: Muḥammad b. Sirāj al-Dīn Muḥammad al-Sulṭānī al-ʿAjamī, one of the merchants of Mecca. He died in Jumādā al-Ūlā of the year [blank].

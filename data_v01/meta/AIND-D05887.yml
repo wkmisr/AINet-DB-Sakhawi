@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01516
-    quote: العلبي
+    mention: m3
   - id: n2
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الله
     by: rule
+    mention: m2
   - id: n4
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m4
 death:
   id: d
   date:
@@ -31,7 +29,7 @@ death:
     cert: medium
   note:
     ja: 「مات في رمضان سنة ثلاث」。一の位のみの年 → 803、cert medium（2026-09-24 Waka）。イブン・ハジャル『إنباء』に載る人物であることとも整合。803-09 ＝ 1401-04-24〜05-23、月初 1401-04（初版の 1400 を修正）。没地は原文に明記なし。
-  quote: سنة
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -52,22 +50,51 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: wd:Q108806953
-  quote: يشغل الأبناء في القرآن وفي التنبيه ويشرح لهم بحيث انتفع به جماعة
   note:
     ja: ウマイヤ・モスクで少年たちにクルアーンと『التنبيه』（الشيرازي、wd:Q108806953）を教え解説した。初版の affiliation type="teach"（同一施設の二重符号化）を event に改めた。
-  norm: يشغل الابناء في القران وفي التنبيه ويشرح لهم بحيث انتفع به جماعة
+  phrase: يشغل الأبناء في القرآن وفي التنبيه ويشرح لهم بحيث انتفع به جماعة
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル（wd:Q471116）、إنبائه ＝ TMP-T-00034『إنباء الغمر』。初版は death note 内の言及のみで event 未作成。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: عبد الله
+- id: m3
+  kind: name
+  ref: TMP-N-01516
+  quote: العلبي
+- id: m4
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m5
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m6
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ウマル・ブン・アブドゥッラー・アル＝ウラビー・アッ＝シャーフィイー。熱心に学問に励み、ウマイヤ・モスクにこもって少年たちにクルアーンと『アッ＝タンビーフ』を教え、彼らに解説したので、多くの人々が彼から益を得た。静かで、人付き合いを避ける人であった。（80）3年ラマダーン月に没した。我らがシャイフが『インバー』で彼について記している。
   en: ʿUmar b. ʿAbd Allāh al-ʿUlabī al-Shāfiʿī. He studied a great deal and secluded himself in the Umayyad Mosque, teaching the youths the Qurʾān and al-Tanbīh and explaining them to them, so that a number of people benefited from him; he was quiet and withdrawn. He died in Ramaḍān (80)3. Our shaykh mentioned him in his Inbāʾ.

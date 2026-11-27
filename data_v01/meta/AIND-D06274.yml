@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00065
-    quote: الناصري
+    mention: m2
   - id: n2
     type: shuhrah
-    quote: بالأعمش
-    norm: الاعمش
     label: الأعمش
+    mention: m4
   - id: n3
     type: ism
-    quote: قانباي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 860-11
   note:
     ja: 「حتى مات في ذي القعدة سنة ستين」＝860 年ズー・アル＝カアダ月（1456-10-10 開始、月精度）。没地の記載なし。初版の @when 1456 → 1456-10。
-  quote: سنة
+  mention: m12
 persons:
 - id: p1
   label: والد قانباي الناصري فرج الأعمش
@@ -35,9 +33,8 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D06160
+  active: m3
   passive: AIND-D06274
-  quote: فرج
   note:
     ja: 見出しのニスバ「الناصري فرج」＝主人はアン＝ナースィル・ファラジュ（#AIND-D06160）。repo 先例どおり patron。初版の統制外 subtype「client」・無効番号 TMP-P-000000 を置換。
   phrase: الناصري فرج
@@ -46,51 +43,92 @@ relations:
   subtype: father
   active: AIND-D06274#p1
   passive: AIND-D06274
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكيا
   note:
     ja: 「صار في أيام الأشرف برسباي خاصكيا」＝アル＝アシュラフ・バルスバーイ（#AIND-D02168、825〜841 在位）の治世に。初版の appointment 825／retirement 841（在位年からの推定）と placeName القاهرة（原文になし）を除去（規則22）。
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: أمير عشرة
   note:
     ja: 「ثم في أيام الظاهر أمير عشرة」＝الظاهر＝バルスバーイとイーナールの間のスルターン＝الظاهر جقمق（#AIND-D02423、842〜857 在位）の治世に。初版の appointment 842／retirement 857（推定）と placeName القاهرة を除去。
-  norm: امير عشرة
+  mention: m6
 - id: s3
   type: office
-  ref: TMP-O-00107
-  quote: من رؤوس النوب
   note:
     ja: 「ثم من رؤوس النوب」＝汎用 رأس نوبة（TMP-O-00107、規則48）。初版の appointment 857／retirement 860（推定）と placeName القاهرة を除去。
-  norm: من رءوس النوب
+  mention: m7
 - id: s4
   type: office
-  ref: TMP-O-00338
   places:
-  - ref: TMP-L-00193
-    quote: القلعة
-  quote: نائب
+  - mention: m9
   note:
     ja: 「في أيام الأشرف إينال نائب القلعة」＝アル＝アシュラフ・イーナール（#AIND-D02110、857〜865 在位）の治世に城塞副官。repo 先例 D02053（نائب القلعة → 汎用 نائب TMP-O-00053＋placeName القلعة TMP-L-00006）に従う（初版は無効番号 TMP-O-00000）。初版の appointment 857／retirement 860（推定）を除去。「واستمر عليهما حتى مات」＝この職と追加のイクターの両方を没するまで保持した。
-  norm: ناءب
+  mention: m8
 events:
 - id: e1
   type: political
   persons:
-  - ref: AIND-D10602
-    quote: يونس العلائي
-    norm: يونس العلاءي
-  quote: ثم زيد أقطاع يونس العلائي ، واستمر عليهما حتى مات
+  - mention: m10
   note:
     ja: يونس العلائي＝#AIND-D10602「يونس العلائي الناصري فرج . صار خاصكيا بعد المؤيد ثم أمره الظاهر جقمق عشرة وصيره من رؤوس النوب وناب في نيابة القلعة … ثم أرسله خجداشه الأشرف إينال نائب إسكندرية」（864 没。同じ主人のマムルークで城塞副官の前任者、イーナールによりアレクサンドリアへ転出）。そのイクターが本項主に加増された。イクターの移転は職の継承ではないため relation（初版の統制外 subtype「fief companion」・TMP-P-000000）は立てず、event の persName で参照。
-  norm: ثم زيد اقطاع يونس العلاءي ، واستمر عليهما حتي مات
+  phrase: ثم زيد أقطاع يونس العلائي ، واستمر عليهما حتى مات
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قانباي
+- id: m2
+  kind: name
+  ref: TMP-N-00065
+  quote: الناصري
+- id: m3
+  kind: person
+  ref: AIND-D06160
+  quote: فرج
+- id: m4
+  kind: name
+  quote: بالأعمش
+  norm: الاعمش
+- id: m5
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكيا
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: أمير عشرة
+  norm: امير عشرة
+- id: m7
+  kind: office
+  ref: TMP-O-00107
+  quote: من رؤوس النوب
+  norm: من رءوس النوب
+- id: m8
+  kind: office
+  ref: TMP-O-00338
+  quote: نائب
+  norm: ناءب
+- id: m9
+  kind: place
+  quote: القلعة
+  ref: TMP-L-00193
+- id: m10
+  kind: person
+  ref: AIND-D10602
+  quote: يونس العلائي
+  norm: يونس العلاءي
+- id: m11
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m12
+  kind: year
+  value: '860'
+  quote: سنة
 translation:
   ja: カーンバーイ・アン＝ナースィリー・ファラジュ、アル＝アアマシュ（目のかすんだ者）として知られる。アル＝アシュラフ・バルスバーイの治世にハーッサキーとなり、次いでアッ＝ザーヒル（ジャクマク）の治世に十人隊アミール、次いでラアス・ナウバの一人となり、アル＝アシュラフ・イーナールの治世に城塞の副官（ナーイブ・アル＝カルア）となった。次いでユーヌス・アル＝アラーイーのイクターを加増され、860年ズー・アル＝カアダ月に没するまでその両方を保持した。
   en: Qānbāy al-Nāṣirī Faraj, known as al-Aʿmash (the bleary-eyed). In the days of al-Ashraf Barsbāy he became a khāṣṣakī, then in the days of al-Ẓāhir (Jaqmaq) an amīr of ten, then one of the ruʾūs al-nuwab, and in the days of al-Ashraf Īnāl deputy of the Citadel (nāʾib al-qalʿa). Then the iqṭāʿ of Yūnus al-ʿAlāʾī was added to his, and he continued to hold both until he died in Dhū al-Qaʿda of the year 860.

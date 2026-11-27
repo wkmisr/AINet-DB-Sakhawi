@@ -9,35 +9,31 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00719
-    quote: النمراوي
+    mention: m4
   - id: n2
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D02633
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: مني
+    - mention: m8
 - id: r2
   type: scholarly
   subtype: teacher
@@ -48,19 +44,15 @@ relations:
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
-  quote: null
+    - mention: m8
 - id: r3
   type: social
   subtype: other
-  active: AIND-D02576
+  active: m5
   passive: AIND-D02633
   relationship_type:
     ja: 婿（義兄弟）
   cert: medium
-  quote: بلديه البدر حسن بن علي بن حسن
   note:
     en: '"Ṣihr" of al-Badr Ḥasan b. ʿAlī b. Ḥasan "al-māḍī" — two adjacent candidates share this name: al-Badr al-Safaṭī (AIND-D02576) and al-Badr al-Mubāshirī (AIND-D02577); linked to D02576 (Cairo circle of al-Sakhāwī); confirmed by editorial decision (Waka, 2026-08-10).'
   phrase: صهر بلديه البدر حسن بن علي بن حسن
@@ -68,14 +60,11 @@ events:
 - id: e1
   type: learning
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m8
   methods:
   - TMP-S-00025
-  quote: قرأ
   trigger: rule
-  norm: قرا
+  mention: m6
 - id: e2
   type: cultural
   works:
@@ -83,8 +72,39 @@ events:
   - ref: TMP-T-00120
   summary:
     en: He recited the Qurʾān and Hadiyyat al-Nāṣiḥ.
-  quote: قرأ القرآن وهدية الناصح
-  norm: قرا القران وهدية الناصح
+  phrase: قرأ القرآن وهدية الناصح
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00719
+  quote: النمراوي
+- id: m5
+  kind: person
+  ref: AIND-D02576
+  quote: بلديه البدر حسن بن علي بن حسن
+- id: m6
+  kind: event
+  quote: قرأ
+  norm: قرا
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ハサン・ブン・ムハンマド・ブン・アリー・アン＝ニムラーウィー。同郷人であるアル＝バドル・ハサン・ブン・アリー・ブン・ハサン（既出）の婿（スィフル）。クルアーンと『ハディーヤ・アン＝ナースィフ』を読誦し、カイロで私（サハーウィー）から聴聞し、時にいくつかの講義にも出席した。
   en: Ḥasan b. Muḥammad b. ʿAlī al-Nimrāwī. The brother-in-law (or son-in-law) of his compatriot al-Badr Ḥasan b. ʿAlī b. Ḥasan (aforementioned). He recited the Qurʾān and Hadiyyat al-Nāṣiḥ, heard from me (al-Sakhāwī) in Cairo, and sometimes attended some of the lessons.

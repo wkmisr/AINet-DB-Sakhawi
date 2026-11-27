@@ -9,25 +9,23 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01453
-    quote: الخامي
+    mention: m4
   - id: n2
     type: shuhrah
-    quote: بعسل نحل
-    norm: عسل نحل
     label: عسل نحل
+    mention: m6
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: سالم
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: محمد بن سالم الخامي
@@ -38,7 +36,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D05431
   methods:
   - TMP-S-00003
@@ -48,7 +46,6 @@ relations:
       ah: 895
       type: learning
     phrase: ممن سمع مني في سنة خمس وتسعين
-  quote: مني
   note:
     ja: 規則2。895年＝1489-12-04 開始（年精度 1489）。初版の @when="0895"（ヒジュラ年の誤置）を是正。地の記載なし。
 - id: r2
@@ -56,25 +53,53 @@ relations:
   subtype: father
   active: AIND-D05431#p1
   passive: AIND-D05431
-  quote: null
   note:
     ja: '規則3。見出しナサブのみの汎用名（識別要素なし）、corpus に本伝なし → #NEEDID。'
 states:
 - id: s1
   type: office
-  ref: wd:Q239718
   orgs:
   - ref: TMP-I-00072
     cert: medium
-  quote: المؤذن
   note:
     ja: 「المؤذن بالغمري」。ID-Master の ニスバ番号 TMP-N-00134（الغمري）が施設位置に流用されていたので、施設 جامع الغمري（#TMP-I-00072、カイロ）に差し替え。原文に所在地の限定語はなく、al-Maḥalla の同名モスク（#TMP-I-00156）の可能性も残るため同定は暫定（cert medium。【集約 2026-10-19】属性を付与、内容A L）。
-  norm: المءذن
+  mention: m5
 events:
 - id: e1
   type: cultural
-  quote: وله حرص على الجماعة
-  norm: وله حرص علي الجماعة
+  phrase: وله حرص على الجماعة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: سالم
+- id: m4
+  kind: name
+  ref: TMP-N-01453
+  quote: الخامي
+- id: m5
+  kind: office
+  ref: wd:Q239718
+  quote: المؤذن
+  norm: المءذن
+- id: m6
+  kind: name
+  quote: بعسل نحل
+  norm: عسل نحل
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m8
+  kind: year
+  value: '895'
+  quote: سنة
 translation:
   ja: アリー・ブン・ムハンマド・ブン・サーリム・アル＝ハーミー、アル＝ガムリー（・モスク）のムアッズィン。「アサル・ナフル（蜂蜜）」として知られる。895年に私（サハーウィー）から聴聞した者の一人で、集団礼拝への熱意があった。
   en: ʿAlī b. Muḥammad b. Sālim al-Khāmī, the muezzin at al-Ghamrī (mosque), known as ʿAsal Naḥl ("honey of bees"). He was among those who heard from me (al-Sakhāwī) in the year 895, and he was keen on the congregational prayer.

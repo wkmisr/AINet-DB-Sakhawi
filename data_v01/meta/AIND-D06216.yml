@@ -9,44 +9,63 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00016
-    quote: الرومي
+    mention: m3
   - id: n2
     type: ism
-    quote: قاسم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: زيرك
     by: rule
-    ref: AIND-D03047
+    mention: m2
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D03047
+  active: m5
   passive: AIND-D06216
   cert: medium
-  quote: أبوه
   note:
     ja: '父。「نزيل مكة أبوه」＝マッカ在住は父の属性。corpus の زيرك 見出しは #AIND-D03047「زيرك الرومي القاسمي قاسم . مولى محظوظ في التجارة … ترقى في التجارة وقدم بسببها القاهرة كثيرا」のみ（主人 قاسم الرومي＝#AIND-D06255 は880年マッカ没、D06054「عنبر فتى زيرك . ممن سمع مني بمكة」もマッカ在住を示す）。珍名＋ニスバが一致するが D03047 にマッカ在住・息子の明記はないため cert medium（規則26）。'
-  norm: ابوه
   phrase: زيرك الرومي نزيل مكة
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D06216
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: مكة
-  quote: مني
+    - mention: m4
   note:
     ja: 「ممن سمع مني بها」（بها＝مكة、規則2）。初版の field（الحديث）は原文になく除去。
+mentions:
+- id: m1
+  kind: name
+  quote: قاسم
+- id: m2
+  kind: name
+  ref: AIND-D03047
+  quote: زيرك
+- id: m3
+  kind: name
+  ref: TMP-N-00016
+  quote: الرومي
+- id: m4
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m5
+  kind: person
+  ref: AIND-D03047
+  quote: أبوه
+  norm: ابوه
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
 translation:
   ja: カースィム・ブン・ズィーラク・アッ＝ルーミー。その父はマッカの寄留者。そこ（マッカ）で私から聴聞した者の一人。
   en: Qāsim b. Zīrak al-Rūmī; his father was a resident of Mecca. He is among those who heard from me there.

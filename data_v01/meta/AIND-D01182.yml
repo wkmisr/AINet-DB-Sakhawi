@@ -9,58 +9,51 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: الصفي
+    mention: m6
   - id: n2
     type: kunyah
-    quote: أبو اللطائف
-    norm: ابو اللطاءف
+    mention: m7
   - id: n3
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06520
+    mention: m2
   - id: n5
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m4
   - id: n7
     type: nasab
-    quote: سعيد
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: الشمس الوزير
     by: rule
+    mention: m8
   - id: n9
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m9
   - id: n10
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m11
   - id: n11
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m13
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m14
   passive: AIND-D01182
   methods:
   - TMP-S-00006
@@ -71,11 +64,10 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00044
-  quote: علي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m17
   passive: AIND-D01182
   methods:
   - TMP-S-00006
@@ -86,7 +78,6 @@ relations:
       type: learning
   works:
   - ref: TMP-T-00144
-  quote: مني
 - id: r3
   type: scholarly
   subtype: teacher
@@ -97,34 +88,29 @@ relations:
   works:
   - label: المسلسل بالأولية
   - label: al-Musalsal bi-l-Awwaliyya
-  quote: null
   note:
     ja: '校閲: Gemini付与のTMP-T-00106は次発行起点の先取り幻番号（B2-1と同型）のため破棄。المسلسل بالأوليةの既存T番号をID-Masterで要照会。'
 - id: r4
   type: kin
   subtype: father
-  active: AIND-D06520
+  active: m10
   passive: AIND-D01182
-  quote: أبوه
   note:
     ja: '校閲: 要検証番号TMP-P-000518を破棄し#AIND-D06520（محمد بن إبراهيم بن عثمان بن سعيد الشمس الخراشي القاهري المالكي ويعرف بالخطيب الوزيري＝باب الوزير居住に由来）へ同定。ナサブ（بن إبراهيم بن عثمان بن سعيد）完全一致＋D11219転送「الخطيب الوزيري محمد بن إبراهيم بن عثمان بن سعيد」。なおGeminiのdesc「محمد الحنفي」は誤り（父はマーリキー派。原文「الوزير المالكيِّ أبوه، الحنفيِّ هو」＝父がマーリキー、本人がハナフィー）。'
-  norm: ابوه
   phrase: الشمس الوزير المالكي
 - id: r5
   type: kin
   subtype: grandfather
-  active: TMP-P-000559
+  active: m12
   passive: AIND-D01182
-  quote: جده
   note:
     ja: '校閲: 要検証番号TMP-P-000519を破棄し新規TMP-P-000559を発行（corpus本伝不在。D06475のالسمديسي＝سعد الدين محمد شيخ الجانبكيةは別人）。「أحمدの母方祖父」というGemini解釈はD06520本文（القلعيが「تزوج أخت زوجته」＝D06520の妻の姉妹と結婚）により確証: D06520の妻がالسدميسيの娘。なおالسدميسي／السمديسي（D06520・D11731）は字順異同、要フラグ。'
   phrase: نور الدين السدميسي الحنفي
 - id: r6
   type: social
   subtype: companion
-  active: TMP-P-000558
+  active: m18
   passive: AIND-D01182
-  quote: المحب القلعي
   note:
     en: Accompanied him at the sessions; treasurer (khāzin) of al-Muʾayyadiyya.
     ja: '校閲: Gemini幻番号TMP-P-000515を破棄。المحب القلعيはcorpus本伝不在（出現はD01182とD06520のみ）のため新規TMP-P-000558を発行。D06520本文「وممن لازمه المحب القلعي لكونه تزوج أخت زوجته」＝أحمدの母方叔母の夫（父の相婿）であり、幼いأحمدの同伴者である背景と整合。'
@@ -132,6 +118,76 @@ affiliations:
 - id: a1
   type: madhhab
   ref: wd:Q48221
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  ref: AIND-D06520
+  quote: محمد
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: عثمان
+- id: m5
+  kind: name
+  quote: سعيد
+- id: m6
+  kind: name
+  quote: الصفي
+- id: m7
+  kind: name
+  quote: أبو اللطائف
+  norm: ابو اللطاءف
+- id: m8
+  kind: name
+  quote: الشمس الوزير
+- id: m9
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m10
+  kind: person
+  ref: AIND-D06520
+  quote: أبوه
+  norm: ابوه
+- id: m11
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m12
+  kind: person
+  ref: TMP-P-000559
+  quote: جده
+- id: m13
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m14
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m15
+  kind: month
+  value: 3
+  quote: ربيع الأول
+- id: m16
+  kind: year
+  value: '890'
+  quote: سنة
+- id: m17
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m18
+  kind: person
+  ref: TMP-P-000558
+  quote: المحب القلعي
 translation:
   ja: アフマド・ブン・ムハンマド・ブン・イブラーヒーム・ブン・ウスマーン・ブン・サイード、アッ＝サフィー、アブー・アル＝ラターイフ、ブン・アッ＝シャムス・アル＝ワズィール、マーリキー派。彼の父はマーリキー派で、彼自身は母方の祖父ヌール・アッ＝ディーン・アッ＝サドミースィー・アル＝ハナフィーゆえにハナフィー派であった。彼はヒジュラ暦890年ラビーウ・アル＝アウワル月に『アル＝アルバアイン・アン＝ナワウィーヤ』と『アル＝カンズ』を私（＝サハーウィー）に提示し、また『アル＝ムサルサル・ビ＝ル＝アウワリーヤ』を私から聴聞した。彼にはアル＝ムアイヤディーヤの宝物庫管理者（ハーズィン）であるアル＝ムヒッブ・アル＝カルイーが同伴していた。彼は賢明で機知に富む人物である。
   en: Aḥmad b. Muḥammad b. Ibrāhīm b. ʿUthmān b. Saʿīd al-Ṣafī Abū al-Laṭāʾif b. al-Shams al-Wazīr al-Mālikī. His father was a Mālikī, while he himself was a Ḥanafī on account of his maternal grandfather Nūr al-Dīn al-Sadmīsī al-Ḥanafī. In Rabīʿ al-Awwal in the year ninety (890 AH), he presented to me (al-Sakhāwī) al-Arbaʿīn al-Nawawiyya and al-Kanz, and he heard from me al-Musalsal bi-l-Awwaliyya. Al-Muḥibb al-Qalʿī, the treasurer (khāzin) of al-Muʾayyadiyya, was with him. He is intelligent and discerning.

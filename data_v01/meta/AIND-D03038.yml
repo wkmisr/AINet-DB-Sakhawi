@@ -9,55 +9,86 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-05474
-    quote: العمري
+    mention: m4
   - id: n2
     type: ism
-    quote: زربة
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: تبل
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: منصور
     by: rule
+    mention: m3
 death:
   id: d
   date:
     ah: 863-11
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
+  - mention: m8
   note:
     en: Documented by Ibn Fahd.
-  quote: سنة
+  mention: m7
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: القائد
-  norm: القاءد
+  - mention: m8
+  mention: m5
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m10
   note:
     en: His death was recorded by the historian Ibn Fahd.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m9
+mentions:
+- id: m1
+  kind: name
+  quote: زربة
+- id: m2
+  kind: name
+  quote: تبل
+- id: m3
+  kind: name
+  quote: منصور
+- id: m4
+  kind: name
+  ref: TMP-N-05474
+  quote: العمري
+- id: m5
+  kind: office
+  ref: TMP-O-00094
+  quote: القائد
+  norm: القاءد
+- id: m6
+  kind: month
+  value: 11
+  quote: ذي القعدة
+- id: m7
+  kind: year
+  value: '863'
+  quote: سنة
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m10
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ザルバ・ブン・トゥバル・ブン・マンスール・アル＝ウマリー・アル＝カーイド（司令官）。863年ズー・アル＝カアタ（11月）にマッカで没した。イブン・ファハドがこれを記録している。
   en: Zarba b. Tubal b. Manṣūr al-ʿUmarī, the commander. He died in Dhū al-Qaʿda, the year 863, in Mecca. His biography was recorded by Ibn Fahd.

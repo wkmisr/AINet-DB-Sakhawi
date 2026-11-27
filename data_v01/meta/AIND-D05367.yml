@@ -9,58 +9,50 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00223
-    quote: القسطلاني
+    mention: m11
   - id: n2
     type: laqab
-    quote: الأكبر
-    norm: الاكبر
+    mention: m2
   - id: n3
     type: shuhrah
-    quote: بابن الزين
-    norm: ابن الزين
     label: ابن الزين
+    mention: m13
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: AIND-D06650
+    mention: m3
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: حسن
     by: rule
+    mention: m5
   - id: n8
     type: nasab
-    quote: الزين محمد
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: الأمين محمد
     by: rule
-    norm: الامين محمد
+    mention: m7
   - id: n10
     type: nasab
-    quote: القطب أبي بكر محمد
     by: rule
-    norm: القطب ابي بكر محمد
+    mention: m8
   - id: n11
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m9
   - id: n12
     type: nasab
-    quote: علي
     by: rule
+    mention: m10
 relations:
 - id: r1
   type: kin
@@ -69,17 +61,15 @@ relations:
   passive: AIND-D05367
   summary:
     ar: الجمال أبو عبد الله محمد بن أحمد بن حسن بن الزين القسطلاني
-  quote: null
   note:
     ja: '見出しナサブから、父 ＝ #AIND-D06650（محمد بن أحمد بن حسن بن الزين محمد بن الأمين محمد بن القطب … الجمال أبو عبد الله القيسي القسطلاني المكي الحنفي والد الكمال محمد الآتي ويعرف بابن الزين、801没・40歳前後）。兄弟項 #AIND-D08556 に「والماضي أخوه علي وأبوهما」とあり整合（規則37）。初版は父 relation 欠落。'
 - id: r2
   type: kin
   subtype: brother
-  active: AIND-D08556
+  active: m12
   passive: AIND-D05367
   summary:
     ar: أبو البركات محمد
-  quote: البركات محمد
   note:
     ja: '「أخو أبي البركات محمد الآتي」＝ #AIND-D08556（محمد بن محمد بن أحمد بن حسن بن الزين … الكمال أبو البركات بن الجمال أبي عبد الله القيسي القسطلاني … المالكي、801生。同項「والماضي أخوه علي وأبوهما」）。#AIND-D08650（محمد أمين الدين أبو البركات بن الزين、848生）は別世代の別人。初版の #NEEDID を解消。'
 notes:
@@ -89,14 +79,69 @@ notes:
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: بيض
+  - mention: m15
   cert: low
   note:
     ja: 'Pattern A。「بيض له」（空白のまま＝没年未記載）。没年不明＝ابن فهد 振り分け規則により #AIND-D09211、cert low。初版の統制外 relation「biographer」を event に改めた。'
   trigger: rule
   phrase: بيض له ابن فهد
+  mention: m14
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: الأكبر
+  norm: الاكبر
+- id: m3
+  kind: name
+  ref: AIND-D06650
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: حسن
+- id: m6
+  kind: name
+  quote: الزين محمد
+- id: m7
+  kind: name
+  quote: الأمين محمد
+  norm: الامين محمد
+- id: m8
+  kind: name
+  quote: القطب أبي بكر محمد
+  norm: القطب ابي بكر محمد
+- id: m9
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m10
+  kind: name
+  quote: علي
+- id: m11
+  kind: name
+  ref: TMP-N-00223
+  quote: القسطلاني
+- id: m12
+  kind: person
+  ref: AIND-D08556
+  quote: البركات محمد
+- id: m13
+  kind: name
+  quote: بابن الزين
+  norm: ابن الزين
+- id: m14
+  kind: source
+  quote: بيض
+- id: m15
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・アル＝アクバル・ブン・ムハンマド・ブン・アフマド・ブン・ハサン・ブン・アッ＝ザイン・ムハンマド・ブン・アル＝アミーン・ムハンマド・ブン・アル＝クトゥブ・アビー・バクル・ムハンマド・ブン・アフマド・ブン・アリー・アル＝カスタッラーニー。後述するアブー・アル＝バラカート・ムハンマドの兄弟で、イブン・アッ＝ザインとして知られる。イブン・ファハドは彼について（没年を）空白のままにしており、彼がこの世紀の人物であるかは要検証である。
   en: ʿAlī al-Akbar b. Muḥammad b. Aḥmad b. Ḥasan b. al-Zayn Muḥammad b. al-Amīn Muḥammad b. al-Quṭb Abī Bakr Muḥammad b. Aḥmad b. ʿAlī al-Qasṭallānī, the brother of Abū al-Barakāt Muḥammad, who follows, and known as Ibn al-Zayn. Ibn Fahd left a blank for him, and whether he belongs to this century remains to be verified.

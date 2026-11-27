@@ -9,22 +9,20 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: null
     label: ابن فرو
+    mention: null
   - id: n2
     type: ism
-    quote: عبد الكريم
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001042
+    mention: m2
   - id: n4
     type: nasab
-    quote: فرو شيخ الأميرية ومستأجر
     by: rule
-    norm: فرو شيخ الاميرية ومستاجر
+    mention: m3
 death:
   id: d
   date:
@@ -32,17 +30,15 @@ death:
   note:
     ar: مات في حياة أبيه في رمضان سنة خمس وتسعين
     ja: 895年ラマダーン月＝1490年7月19日〜8月16日。父の存命中に没。
-  quote: سنة
+  mention: m6
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: TMP-P-001042
+  active: m4
   passive: AIND-D04294
-  quote: أبيه
   note:
     ja: 父 محمد بن فرو（ابن فرو شيخ الأميرية）。ニスバ索引 D12601「ابن فرو شيخ الأميرية عبد الكريم بن محمد وأبوه والأول أشبه مات في حياته بعد أن حج أبوه في سنة أربع وتسعين」により父も同じ通称・職（شيخ الأميرية）で、894年に巡礼。corpus に本伝なし・ID-Master 未登録 → 新規 TMP-P-001042。
-  norm: ابيه
   phrase: محمد بن فرو
 states:
 - id: s1
@@ -50,9 +46,9 @@ states:
   ref: wd:Q7492880
   orgs:
   - ref: TMP-I-00150
-  quote: null
   note:
     ja: 汎用 مشيخة（wd:Q7492880）＋対象施設 orgName。
+  mention: null
 - id: s2
   type: status
   label: مستأجر منية خلف وقف الصرغتمشية
@@ -61,15 +57,43 @@ states:
   - ref: TMP-L-00260
   orgs:
   - ref: TMP-I-00059
-  quote: وكان ألين من أبيه وأشبه
   note:
     ja: الصرغتمشية（TMP-I-00059）のワクフ村 منية خلف（原文「منية خلفا」）の借地人。منية خلف は ID-Master 未登録 → 新規 TMP-L-00260。
-  norm: وكان الين من ابيه واشبه
+  mention: m7
 - id: s3
   type: status
   label: وكان ألين من أبيه وأشبه
   label_latn: wa-kāna alyana min abīhi wa-ashbah
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الكريم
+- id: m2
+  kind: name
+  ref: TMP-P-001042
+  quote: محمد
+- id: m3
+  kind: name
+  quote: فرو شيخ الأميرية ومستأجر
+  norm: فرو شيخ الاميرية ومستاجر
+- id: m4
+  kind: person
+  ref: TMP-P-001042
+  quote: أبيه
+  norm: ابيه
+- id: m5
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m6
+  kind: year
+  value: '895'
+  quote: سنة
+- id: m7
+  kind: office
+  quote: وكان ألين من أبيه وأشبه
+  norm: وكان الين من ابيه واشبه
 translation:
   ja: アブド・アル＝カリーム・ブン・ムハンマド・ブン・ファルウ、アル＝アミーリーヤのシャイフで、アッ＝サルガトミシーヤのワクフ地ミニヤト・ハラフの借地人。父の存命中の895年ラマダーン月に没した。父より温和で、（父より）ましな人物であった。神が彼を赦したまいますように。
   en: ʿAbd al-Karīm b. Muḥammad b. Farw, shaykh of al-Amīriyya and lessee of Minyat Khalaf, the waqf of al-Ṣarghatmashiyya. He died during his father's lifetime in Ramaḍān of the year [8]95; he was gentler and better than his father. May God pardon him.

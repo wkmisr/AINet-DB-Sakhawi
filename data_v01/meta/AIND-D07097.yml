@@ -9,74 +9,63 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00050
-    quote: الكناني
+    mention: m7
   - id: n2
     type: nisbah
-    ref: TMP-N-00145
-    quote: البلبيسي
+    mention: m8
   - id: n3
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m9
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: المجد إسماعيل
     by: rule
-    ref: AIND-D01924
-    norm: المجد اسماعيل
+    mention: m2
   - id: n6
     type: nasab
-    quote: إبراهيم
     by: rule
-    norm: ابراهيم
+    mention: m3
   - id: n7
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n8
     type: nasab
-    quote: علي
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: موسى
     by: rule
-    norm: موسي
+    mention: m6
   - id: n10
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m10
 death:
   id: d
   date:
     ah: 802
   note:
     ja: '「مات قبل أبيه بشهرين في أول سنة اثنتين」＝802年初頭（父 #AIND-D01924 は802年ラビーウ・アル＝アウワル月初めに没）。802年＝1399-09-11 開始、年精度 1399。一の位のみの年は父の没年（802）から 802 で確定。'
-  quote: سنة
+  mention: m14
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D01924
+  active: m11
   passive: AIND-D07097
-  quote: أبوه
   note:
     ja: '「الماضي أبوه」＝ #AIND-D01924（إسماعيل بن إبراهيم بن محمد بن علي بن موسى المجد أبو الفداء الكناني البلبيسي الأصل القاهري الحنفي القاضي、728/729生・802没）。ナサブ5代一致。初版の #NEEDID を解消（規則37）。'
-  norm: ابوه
   phrase: المجد إسماعيل بن إبراهيم بن محمد بن علي بن موسى الكناني البلبيسي
 states:
 - id: s1
   type: status
   label: كان قد اشتغل ومهر
   label_latn: kāna qad ishtaghala wa-mahara
-  quote: وكان قد اشتغل ومهر
-  norm: كان قد اشتغل ومهر
+  mention: m15
 affiliations:
 - id: a1
   type: madhhab
@@ -84,15 +73,73 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m13
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。شيخنا ＝ イブン・ハジャル、『إنباء الغمر』＝ TMP-T-00034。初版の統制外 relation「mentioned by」を event に改めた。
   trigger: rule
   phrase: ذكره شيخنا في إنبائه
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D01924
+  quote: المجد إسماعيل
+  norm: المجد اسماعيل
+- id: m3
+  kind: name
+  quote: إبراهيم
+  norm: ابراهيم
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: علي
+- id: m6
+  kind: name
+  quote: موسى
+  norm: موسي
+- id: m7
+  kind: name
+  ref: TMP-N-00050
+  quote: الكناني
+- id: m8
+  kind: name
+  ref: TMP-N-00145
+  quote: البلبيسي
+- id: m9
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m10
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m11
+  kind: person
+  ref: AIND-D01924
+  quote: أبوه
+  norm: ابوه
+- id: m12
+  kind: source
+  quote: ذكره
+- id: m13
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m14
+  kind: year
+  value: '802'
+  quote: سنة
+- id: m15
+  kind: office
+  quote: وكان قد اشتغل ومهر
+  norm: كان قد اشتغل ومهر
 translation:
   ja: ムハンマド・ブン・アル＝マジュド・イスマーイール・ブン・イブラーヒーム・ブン・ムハンマド・ブン・アリー・ブン・ムーサー、アル＝キナーニー、ビルバイス出身でカイロ在住、ハナフィー派。父については前述した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及し、「父より2か月前、（8）02年の初めに没した。学問に励み、熟達していた」と述べている。
   en: 'Muḥammad b. al-Majd Ismāʿīl b. Ibrāhīm b. Muḥammad b. ʿAlī b. Mūsā al-Kinānī, of Bilbaysī origin, al-Qāhirī, the Ḥanafī; his father has been mentioned above. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ and said: he died two months before his father, at the beginning of the year (8)02, and he had engaged in study and become proficient.'

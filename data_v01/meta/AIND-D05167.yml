@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00003
-    quote: الجبرتي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00055
-    quote: المدني
+    mention: m6
   - id: n3
     type: laqab
-    quote: النور
+    mention: m4
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: سليمان
     by: rule
-    ref: TMP-P-001063
+    mention: m2
   - id: n6
     type: nasab
-    quote: عثمان
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m7
 persons:
 - id: p1
   label: عثمان
@@ -46,23 +42,19 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m9
   passive: AIND-D05167
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:109223
-      quote: بالمدينة
-      norm: المدينة
-  quote: مني
+    - mention: m10
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001063
   passive: AIND-D05167
-  quote: null
   note:
     ja: 父 سليمان بن عثمان الجبرتي المدني：見出しナサブから祖父名まで復元可（規約5、独立検証パスで統一）。corpus に見出しなし・ID-Master 未登録 → 新規 TMP-P-001063。
   phrase: سليمان بن عثمان
@@ -71,7 +63,6 @@ relations:
   subtype: grandfather
   active: AIND-D05167#p1
   passive: AIND-D05167
-  quote: null
   note:
     ja: '祖父 عثمان：裸の名（ナサブ上位不明）のため #NEEDID 維持。'
 affiliations:
@@ -82,14 +73,50 @@ events:
 - id: e1
   type: learning
   places:
-  - ref: gn:109223
-    quote: بالمدينة
-    norm: المدينة
+  - mention: m10
   methods:
   - TMP-S-00003
-  quote: سمع
   trigger: rule
   phrase: سمع مني بالمدينة النبوية
+  mention: m8
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-001063
+  quote: سليمان
+- id: m3
+  kind: name
+  quote: عثمان
+- id: m4
+  kind: name
+  quote: النور
+- id: m5
+  kind: name
+  ref: TMP-N-00003
+  quote: الجبرتي
+- id: m6
+  kind: name
+  ref: TMP-N-00055
+  quote: المدني
+- id: m7
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m8
+  kind: event
+  quote: سمع
+- id: m9
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m10
+  kind: place
+  quote: بالمدينة
+  ref: gn:109223
+  norm: المدينة
 translation:
   ja: アリー・ブン・スライマーン・ブン・ウスマーン・アン＝ヌール・アル＝ジャバルティー・アル＝マダニー・アッ＝シャーフィイー。預言者の町（マディーナ）で私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Sulaymān b. ʿUthmān al-Nūr al-Jabartī al-Madanī al-Shāfiʿī. He was among those who heard from me (al-Sakhāwī) in the Prophet's City (Medina).

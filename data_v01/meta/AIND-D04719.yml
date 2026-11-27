@@ -9,48 +9,66 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00052
-    quote: المليجي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00010
-    quote: القاهري
+    mention: m5
   - id: n3
     type: ism
-    quote: عبد المنعم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمود
     by: rule
-    ref: TMP-P-001255
+    mention: m2
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-001255
   passive: AIND-D04719
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号発行（汎用名、TSV に流用禁止を明記）。
   phrase: محمود بن علي المليجي
 - id: r2
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m6
   passive: AIND-D04719
   methods:
   - TMP-S-00008
   works:
   - ref: TMP-T-00030
-  quote: شيخنا
   note:
     ja: شيخنا ＝ Ibn Ḥajar（wd:Q471116）。الأمالي ＝ TMP-T-00030（ID-Master 登録名 الأمالي と一致、precheck の名前不一致は翻字のみ）。
   phrase: ممن أخذ عن شيخنا في الأمالي وغيرها
+mentions:
+- id: m1
+  kind: name
+  quote: عبد المنعم
+- id: m2
+  kind: name
+  ref: TMP-P-001255
+  quote: محمود
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  ref: TMP-N-00052
+  quote: المليجي
+- id: m5
+  kind: name
+  ref: TMP-N-00010
+  quote: القاهري
+- id: m6
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アブドゥルムンイム・ブン・マフムード・ブン・アリー・アル＝マリージー、後にアル＝カーヒリー。我らがシャイフ（イブン・ハジャル）から『アマーリー』などを学んだ一人。
   en: ʿAbd al-Munʿim b. Maḥmūd b. ʿAlī al-Malījī, then al-Qāhirī. He was among those who studied the Amālī and other works under our shaykh (Ibn Ḥajar).

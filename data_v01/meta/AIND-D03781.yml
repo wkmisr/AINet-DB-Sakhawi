@@ -10,37 +10,34 @@ name:
   - id: n1
     type: nisbah
     ref: TMP-N-01194
-    quote: null
+    mention: null
   - id: n2
     type: nisbah
-    ref: TMP-N-00675
-    quote: المديني
+    mention: m5
   - id: n3
     type: laqab
-    quote: الزين
+    mention: m4
   - id: n4
     type: ism
-    quote: عبد الرحمن
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-000886
+    mention: m2
   - id: n6
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n7
     type: madhhab
-    quote: الشافعي
     by: rule
-    ref: wd:Q82245
+    mention: m6
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D03781
   methods:
   - TMP-S-00025
@@ -48,7 +45,6 @@ relations:
   - TMP-S-00002
   works:
   - ref: TMP-T-00061
-  quote: علي
   note:
     ja: نخبة الفكر＝TMP-T-00061。「شرحها」（نزهة النظر）は別書だが ID-Master 未登録のため本書に含めて付与。
 - id: r2
@@ -56,24 +52,20 @@ relations:
   subtype: father
   active: TMP-P-000886
   passive: AIND-D03781
-  quote: null
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「محمد بن علي السروي المديني」。'
   phrase: محمد
 states:
 - id: s1
   type: office
-  ref: wd:Q2892720
   orgs:
   - ref: TMP-I-00018
-  quote: صوفية
   note:
     ja: 規則22-1（2026-09-21 Waka 裁定）により placeName القاهرة（gn:360630）を除去。根拠は〈施設 سعيد السعداء の所在地〉からの補完で原文に地名の明示なし。
+  mention: m9
 - id: s2
   type: office
-  ref: TMP-O-00029
-  quote: لتعليم
-  norm: تعليم
+  mention: m8
 affiliations:
 - id: a1
   type: madhhab
@@ -89,7 +81,42 @@ events:
   type: other
   summary:
     en: He suffered from visual impairment and eventually went blind.
-  quote: null
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد الرحمن
+- id: m2
+  kind: name
+  ref: TMP-P-000886
+  quote: محمد
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: الزين
+- id: m5
+  kind: name
+  ref: TMP-N-00675
+  quote: المديني
+- id: m6
+  kind: name
+  ref: wd:Q82245
+  quote: الشافعي
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: علي
+- id: m8
+  kind: office
+  ref: TMP-O-00029
+  quote: لتعليم
+  norm: تعليم
+- id: m9
+  kind: office
+  ref: wd:Q2892720
+  quote: صوفية
 translation:
   ja: アブドゥルラフマーン・ブン・ムハンマド・ブン・アリー・アッ＝ザイン・アッ＝サルウィー・アル＝マディーニー・アッ＝シャーフィイー。私（サハーウィー）のもとで『ヌフバ（・アル＝フィクル）』とその注釈書を朗読した者の一人であり、少しの間勉学に励んで理解を深め、善良さと誠実さをもって児童の教育に携わった。視力が衰え、ついには失明した。彼はサイード・アッ＝スアダー・ハーンカーのスーフィーの一人である。
   en: Abd al-Rahman bin Muhammad bin Ali al-Zayn al-Sarwi al-Madini al-Shafi'i. He was among those who read to me (al-Sakhawi) 'Nukhbat al-Fikr' and its commentary. He studied for a short while, understood well, and undertook the education of children with goodness and righteousness. His vision weakened, and he eventually became blind. He was one of the Sufis of Sa'id al-Su'ada.

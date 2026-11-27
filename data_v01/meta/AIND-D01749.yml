@@ -9,60 +9,49 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m3
   - id: n2
     type: laqab
-    quote: الشهاب
+    mention: m2
   - id: n3
     type: shuhrah
-    quote: بخازوق
-    norm: خازوق
     label: خازوق
+    mention: m5
   - id: n4
     type: ism
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m1
   - id: n5
     type: madhhab
-    quote: الحنبلي
     by: rule
-    ref: wd:Q233387
+    mention: m4
 death:
   id: d
   date:
     ah: 838
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
-  quote: سنة
+  - mention: m7
+  mention: m14
 relations:
 - id: r1
   type: social
   subtype: successor
-  active: TMP-P-000627
+  active: m10
   passive: AIND-D01749
-  quote: بابن الرسام
   note:
     en: 'Dismissed from the Ḥanbalī qāḍī-ship of Aleppo in 835 H and replaced by Ibn al-Rassām (i.e. Ibn al-Rassām succeeded him). Provisional TMP-P-000627 — ★HOLD: the Ḥanbalī who took the Aleppo Ḥanbalī qāḍī-ship from D01749 in 835 H. No matching headword found in the master txt (the Rassām entries D01105 al-Miṣrī / D03616 al-Dimashqī / D12343 ʿAbd al-Kāfī etc. are none of them an Aleppan Ḥanbalī qāḍī; body ref "al-Shihāb b. al-Rassām al-Ḥanbalī" is a different context). Disambiguate against the full repo / printed edition before registration.'
-  norm: ابن الرسام
   phrase: ابن الرسام
 states:
 - id: s1
   type: office
-  ref: wd:Q217029
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
+  - mention: m7
   dates:
   - ah: 835
     type: retirement
-  quote: قضاء
   note:
     en: Qāḍī of the Ḥanbalīs in Aleppo, held repeatedly; dismissed in 835 H.
+  mention: m6
 affiliations:
 - id: a1
   type: madhhab
@@ -71,31 +60,25 @@ events:
 - id: e1
   type: visit
   places:
-  - ref: gn:360630
-    quote: القاهرة
-  quote: فدخل
+  - mention: m12
   note:
     en: Entered Cairo seeking reinstatement after his dismissal in 835 H.
   trigger: rule
-  norm: دخل
+  mention: m11
 - id: e2
   type: other
   places:
-  - ref: gn:170654
-    quote: بدمشق
-    norm: دمشق
-  quote: null
+  - mention: m13
   note:
     en: Fell ill in Damascus while returning toward Aleppo.
+  mention: null
 - id: e3
   type: residence
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
-  quote: null
+  - mention: m7
   note:
     en: Entered Aleppo in a litter due to illness and resided there a short while before his death.
+  mention: null
 - id: e4
   type: political
   date:
@@ -104,19 +87,80 @@ events:
     type: political
   summary:
     en: Dismissed from the qāḍī office and replaced by Ibn al-Rassām.
-  quote: وصرف
   cert: high
   trigger: rule
-  norm: صرف
+  mention: m8
 sources:
 - id: c1
   persons:
   - ref: wd:Q471116
-  quote: ذكره
   note:
     en: Our shaykh (Ibn Ḥajar al-ʿAsqalānī) also mentioned him.
   trigger: rule
   phrase: ذكره شيخنا أيضا
+  mention: m15
+mentions:
+- id: m1
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m2
+  kind: name
+  quote: الشهاب
+- id: m3
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m4
+  kind: name
+  ref: wd:Q233387
+  quote: الحنبلي
+- id: m5
+  kind: name
+  quote: بخازوق
+  norm: خازوق
+- id: m6
+  kind: office
+  ref: wd:Q217029
+  quote: قضاء
+- id: m7
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m8
+  kind: event
+  quote: وصرف
+  norm: صرف
+- id: m9
+  kind: year
+  value: '835'
+  quote: سنة
+- id: m10
+  kind: person
+  ref: TMP-P-000627
+  quote: بابن الرسام
+  norm: ابن الرسام
+- id: m11
+  kind: event
+  quote: فدخل
+  norm: دخل
+- id: m12
+  kind: place
+  quote: القاهرة
+  ref: gn:360630
+- id: m13
+  kind: place
+  quote: بدمشق
+  ref: gn:170654
+  norm: دمشق
+- id: m14
+  kind: year
+  value: '838'
+  quote: سنة
+- id: m15
+  kind: source
+  quote: ذكره
 translation:
   ja: アフマド・アッ＝シハーブ・アル＝ハラビー・アル＝ハンバリー、ハーズークとして知られる。ハラブ（アレッポ）でハンバリー派のカーディー職を何度も務め、835年にイブン・アッ＝ラッサームによって解任（後任交代）された。その後、復職を求めてカイロに入ったが、しばらくは叶わなかった。（帰路）ダマスカスで病に倒れ、病のために輿に乗ってハラブに入った。ほどなくして838年に亡くなった。我らがシャイフ（イブン・ハジャル）も彼について言及している。
   en: Aḥmad al-Shihāb al-Ḥalabī al-Ḥanbalī, known as Khāzūq. He repeatedly held the office of qāḍī of the Ḥanbalīs in Aleppo and was dismissed in 835 H, being replaced by Ibn al-Rassām. He then entered Cairo seeking reinstatement, which did not come about for some time. On his return he fell ill in Damascus and entered Aleppo in a litter because of his illness. He remained a short while, then died in 838 H. Our shaykh (Ibn Ḥajar al-ʿAsqalānī) also mentioned him.

@@ -9,23 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-04533
-    quote: اللطيفي
+    mention: m3
   - id: n2
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: بهادر
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 819
   note:
     ja: 「مات في سنة تسع عشرة ذكره شيخنا في انبائه」。819年＝1416-03-10〜1417-02-26（年精度→1416、h2g.py）。
-  quote: سنة
+  mention: m6
 persons:
 - id: p1
   label: بهادر
@@ -38,7 +37,6 @@ relations:
   subtype: father
   active: AIND-D07283#p1
   passive: AIND-D07283
-  quote: null
   note:
     ja: '父。見出しの「بن بهادر」のみ（マムルーク系の汎用名、corpus の بهادر 見出し D02223〜D02226 に手掛かりなし）→ #NEEDID（規則3）。'
 states:
@@ -46,33 +44,60 @@ states:
   type: office
   ref: TMP-O-00014
   places:
-  - ref: TMP-L-00037
-    quote: باليمن
-    norm: اليمن
-  quote: null
+  - mention: m4
   note:
     ja: 「أحد الأمراء باليمن」。地名は原文明記（規則22(2)）。
+  mention: null
 - id: s2
   type: office
   ref: TMP-O-00053
   places:
-  - ref: TMP-L-00184
-    quote: وصاب
-  quote: null
+  - mention: m5
   note:
     ja: 「وقد ناب في وصاب وغيرها」。وصاب（イエメンの山地、TMP-L-00184）は原文明記。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m8
   works:
   - ref: TMP-T-00034
-  quote: ذكره
   note:
     ja: Pattern A。初版の統制外 subtype「mentioned_by」relation を置換。
   trigger: rule
   phrase: ذكره شيخنا في انبائه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: بهادر
+- id: m3
+  kind: name
+  ref: TMP-N-04533
+  quote: اللطيفي
+- id: m4
+  kind: place
+  quote: باليمن
+  ref: TMP-L-00037
+  norm: اليمن
+- id: m5
+  kind: place
+  quote: وصاب
+  ref: TMP-L-00184
+- id: m6
+  kind: year
+  value: '819'
+  quote: سنة
+- id: m7
+  kind: source
+  quote: ذكره
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・バハードゥル・アッ＝ラティーフィー。イエメンのアミールの一人で、ウサーブなどで代官（ナーイブ）を務め、善き人々を愛した。819年に没した。我らがシャイフ（イブン・ハジャル）が『インバー』で彼に言及している。
   en: Muḥammad b. Bahādur al-Laṭīfī. One of the amirs in Yemen; he served as deputy (nāʾib) in Wuṣāb and elsewhere, and was fond of the people of piety. He died in the year 819. Our shaykh (Ibn Ḥajar) mentioned him in his Inbāʾ.

@@ -9,29 +9,26 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00855
-    quote: البلخي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00109
-    quote: المحلي
+    mention: m5
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n5
     type: nasab
-    quote: عمر
     by: rule
+    mention: m3
   - id: n6
     type: madhhab
-    quote: المالكي
     by: rule
-    ref: wd:Q48221
+    mention: m6
 birth:
   id: b
   date:
@@ -39,12 +36,12 @@ birth:
     cert: medium
   note:
     ja: 「ولد تقريبا سنة ثلاثين وثمانمائة」（تقريبا → cert medium）。830 ＝ 1426-11-11〜1427-10-30、年のみのため年初 1426（初版は 1427）。
-  quote: سنة
+  mention: m7
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m8
   passive: AIND-D05970
   methods:
   - TMP-S-00006
@@ -52,7 +49,6 @@ relations:
     ar: ابن حجر
   works:
   - ref: TMP-T-00047
-  quote: شيخنا
   note:
     ja: '原文の呼称は「شيخنا」（規則31：desc は相手の名前のみ） / 「وعرض على شيخنا وغيره نبذة من المختصر للشيخ خليل وغيره」。شيخنا ＝ ابن حجر（wd:Q471116）。『المختصر』＝ TMP-T-00047（مختصر خليل）。初版の bibl #NEEDID を解消し、原文にない field（الفقه）を除去（規則7）。'
 - id: r2
@@ -67,30 +63,26 @@ relations:
   context:
   - type: teaching
     places:
-    - ref: TMP-L-00044
-      quote: بالمحلة
-      norm: المحلة
+    - mention: m10
   works:
   - ref: TMP-T-00217
-  quote: null
   note:
     ja: '「كتبت عنه منه بالمحلة ما أودعته في المعجم وغيره」。サハーウィーがマハッラ（TMP-L-00044）で本項主からその詩を書き取った（كتبت عنه）＝本項主が伝達者（active）。先例 #AIND-D05586。「المعجم」＝サハーウィー自身の『معجم』（ID-Master 未登録 → TMP-T-00217、§D109-4）。原文にない field（الأدب）を除去（規則7）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00313
-  quote: null
   note:
     ja: 鍛冶職（見出し「الحداد」）。ID-Master の「الحداد」は TMP-T-00114（書名）のみで職業としての登録がないため TMP-O-00313 を発行。初版は nisbah に TMP-T-00114（書名番号）を誤充当していた（precheck カテゴリ不一致）。
+  mention: null
 - id: s2
   type: status
   label: عامي يتعاطى نظم الشعر
   label_latn: ʿāmmī yataʿāṭā naẓm al-shiʿr
-  quote: عامي يتعاطى نظم الشعر
   note:
     ja: 見出しの「الأديب」はこの記述に対応する評語で、ラカブではないため初版の laqab を除去し status に。
-  norm: عامي يتعاطي نظم الشعر
   phrase: ولكنه لم يشتغل بل هو عامي يتعاطى نظم الشعر
+  mention: m9
 affiliations:
 - id: a1
   type: madhhab
@@ -101,10 +93,49 @@ events:
   works:
   - ref: TMP-T-00095
   - ref: TMP-T-00110
-  quote: وحفظ بعض القرآن وجميع العمدة
   note:
     ja: 『العمدة』＝ ID-Master TMP-T-00110。
-  norm: حفظ بعض القران وجميع العمدة
+  phrase: وحفظ بعض القرآن وجميع العمدة
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: عمر
+- id: m4
+  kind: name
+  ref: TMP-N-00855
+  quote: البلخي
+- id: m5
+  kind: name
+  ref: TMP-N-00109
+  quote: المحلي
+- id: m6
+  kind: name
+  ref: wd:Q48221
+  quote: المالكي
+- id: m7
+  kind: year
+  value: '830'
+  quote: سنة
+- id: m8
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m9
+  kind: office
+  quote: عامي يتعاطى نظم الشعر
+  norm: عامي يتعاطي نظم الشعر
+- id: m10
+  kind: place
+  quote: بالمحلة
+  ref: TMP-L-00044
+  norm: المحلة
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・ウマル、バルフ出身、アル＝マハッリー、アル＝マーリキー、鍛冶屋、文人。830年頃に生まれ、クルアーンの一部と『ウムダ』の全部を暗記し、我らの師（イブン・ハジャル）らにシャイフ・ハリールの『ムフタサル』の抜粋などを提示した。しかし学問に従事することはなく、詩作にたずさわる庶民である。私はマハッラで彼からその詩を書き取り、『ムウジャム』などに収めた。
   en: ʿUmar b. Muḥammad b. ʿUmar, of Balkhī origin, al-Maḥallī al-Mālikī, the blacksmith, the man of letters. He was born around the year 830, memorized part of the Qurʾān and the whole of al-ʿUmda, and presented to our shaykh and others a selection from the Mukhtaṣar of al-Shaykh Khalīl and other works. He did not, however, pursue study; rather he is a commoner who engages in composing poetry. I wrote down from him in al-Maḥalla verses which I have included in the Muʿjam and elsewhere.

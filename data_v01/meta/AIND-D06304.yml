@@ -9,16 +9,14 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00141
-    quote: الأشرفي
-    norm: الاشرفي
+    mention: m3
   - id: n2
     type: laqab
-    quote: نعجة
+    mention: m2
   - id: n3
     type: ism
-    quote: قانم
     by: rule
+    mention: m1
 birth:
   id: b
   date:
@@ -32,7 +30,7 @@ death:
     ah: 871-05
   note:
     ja: 「مات في جمادى الأولى سنة إحدى وسبعين」＝871 年ジュマーダー第一月（月初 1466-12-18、月精度）。初版の @when 1466 を月精度に。没地の記載なし。
-  quote: سنة
+  mention: m8
 persons:
 - id: p1
   label: والد قانم الملقب نعجة الأشرفي
@@ -41,11 +39,10 @@ relations:
 - id: r1
   type: social
   subtype: patron
-  active: AIND-D02168
+  active: m4
   passive: AIND-D06304
   summary:
     ar: الأشرف برسباي
-  quote: برسباي
   note:
     ja: '見出しのニスバ「الأشرفي برسباي」＋「كان من خاصكية سيده」＝主人はアル＝アシュラフ・バルスバーイ（#AIND-D02168）。初版は #NEEDID。「ثم تأمر عشرة في أيام إينال」のイーナール（#AIND-D02110）は在職時期の表現であって主人ではないため、初版の第2の patron relation は除去し state の note に記す。'
 - id: r2
@@ -53,24 +50,53 @@ relations:
   subtype: father
   active: AIND-D06304#p1
   passive: AIND-D06304
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項、マムルーク）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
-  ref: TMP-O-00015
-  quote: خاصكية
+  mention: m5
 - id: s2
   type: office
-  ref: TMP-O-00101
-  quote: عشرة
   note:
     ja: 「ثم تأمر عشرة في أيام إينال إلى أن مات」＝アル＝アシュラフ・イーナール（#AIND-D02110、在位857–865）の治世に十人長となり、没時（871）まで在任。初版の date appointment 857／retirement 865（イーナールの在位年を就任・退任年に読み替えたもの）は原文に無いため除去。
+  mention: m6
 notes:
 - text: '「وكان مسرفا على نفسه عفا الله عنه」＝（宗教的に）放縦な生活を送った、神が赦したまえ（人物評）。転送見出し REF #AIND-D06295「قانم الأشرفي برسباي وهو قانم نعبة」（B130 で REF 化、通称の綴りは点が異なる نعبة／نعجة）が本項を転送先としている。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: قانم
+- id: m2
+  kind: name
+  quote: نعجة
+- id: m3
+  kind: name
+  ref: TMP-N-00141
+  quote: الأشرفي
+  norm: الاشرفي
+- id: m4
+  kind: person
+  ref: AIND-D02168
+  quote: برسباي
+- id: m5
+  kind: office
+  ref: TMP-O-00015
+  quote: خاصكية
+- id: m6
+  kind: office
+  ref: TMP-O-00101
+  quote: عشرة
+- id: m7
+  kind: month
+  value: 5
+  quote: جمادى الأولى
+- id: m8
+  kind: year
+  value: '871'
+  quote: سنة
 translation:
   ja: カーニム、ナアジャ（牝羊）と渾名された者、アル＝アシュラフィー・バルスバーイ。主人の近侍（ハーッサキーヤ）の一人であり、ついでイーナールの治世に十人長（アミール・アシャラ）となり、871年ジュマーダー第一月に没するまでその地位にあった。60歳に近づいていたか、少し超えていた。自らに対して放縦であった。アッラーが彼を赦したまわんことを。
   en: Qānim, nicknamed Naʿja (ewe), al-Ashrafī Barsbāy. He was one of the khāṣṣakiyya of his master, then was made an amīr of ten in the days of Īnāl, until he died in Jumādā I of the year 871, having approached sixty or passed it by a little. He was dissolute with himself; may God pardon him.

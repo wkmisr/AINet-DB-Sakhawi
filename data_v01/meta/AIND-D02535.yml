@@ -9,24 +9,24 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: حسن
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: حسن
     by: rule
+    mention: m2
   - id: n3
     type: nasab
-    quote: علي
     by: rule
+    mention: m3
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
+    mention: m4
   - id: n5
     type: nasab
-    quote: جوشن
     by: rule
+    mention: m5
 death:
   id: d
   date:
@@ -34,22 +34,52 @@ death:
     cert: medium
   note:
     en: Death date Rajab 874 H on the authority of Ibn Fahd ("arrakhahu fī Rajab sanat arbaʿ wa-sabʿīn").
-  quote: سنة
+  mention: m9
 notes:
 - text: ⚠没年が التقي محمد بن فهد(#AIND-D09211، d.871 ربيع الأول)の没後にあたり التقي には帰属不能のため、النجم عمر بن فهد(#AIND-D05979، 812-885)へ付替え(要判断§D-1裁定 Waka 2026-08-21)。cert=medium。(没=0874)
   lang: ja
 sources:
 - id: c1
   persons:
-  - ref: AIND-D05979
-    cert: medium
-    quote: ابن فهد
-  quote: وأرخه
+  - cert: medium
+    mention: m6
   note:
     en: 'Pattern A (third-party mention): Ibn Fahd wrote the name thus and dated him; converted from a relation to a one-way event.'
   trigger: rule
-  norm: ارخه
   phrase: كذا كتبه ابن فهد وأرخه في رجب سنة أربع وسبعين
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: حسن
+- id: m2
+  kind: name
+  quote: حسن
+- id: m3
+  kind: name
+  quote: علي
+- id: m4
+  kind: name
+  quote: محمد
+- id: m5
+  kind: name
+  quote: جوشن
+- id: m6
+  kind: person
+  ref: AIND-D05979
+  quote: ابن فهد
+- id: m7
+  kind: source
+  quote: وأرخه
+  norm: ارخه
+- id: m8
+  kind: month
+  value: 7
+  quote: رجب
+- id: m9
+  kind: year
+  value: '874'
+  quote: سنة
 translation:
   ja: ハサン・ブン・ハサン・ブン・アリー・ブン・ムハンマド・ブン・ジャウシャン。イブン・ファハドがこのように（名を）書き記し、その没年月を874年ラジャブ月と記録した。
   en: Ḥasan b. Ḥasan b. ʿAlī b. Muḥammad b. Jawshan. Ibn Fahd wrote it thus and dated him in Rajab of the year [8]74.

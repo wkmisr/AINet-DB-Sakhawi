@@ -9,44 +9,38 @@ name:
   elements:
   - id: n1
     type: shuhrah
-    quote: الأشخر
-    norm: الاشخر
+    mention: m5
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: أبي بكر
     by: rule
-    norm: ابو بكر
+    mention: m2
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001055
+    mention: m3
   - id: n5
     type: nasab
-    quote: علي
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: TMP-P-001055
+  active: m8
   passive: AIND-D05089
   methods:
   - TMP-S-00011
-  quote: جده العلامة الأوحد محمد
   note:
     ja: 原文「ونقل عنه عن جده العلامة الأوحد محمد شيئا」＝本項主が祖父 محمد（بن علي الأشخر）から伝承。祖父は corpus に本伝なし（الأشخر は D04667「عبد الله الأشخر اليماني」と本項のみ）、ID-Master 未登録 → 新規 TMP-P-001055（仮番号、名は見出しから「محمد بن علي الأشخر」に復元）。
-  norm: جده العلامة الاوحد محمد
 - id: r2
   type: kin
   subtype: grandfather
   active: TMP-P-001055
   passive: AIND-D05089
-  quote: null
   note:
     ja: 初版は汚染番号 TMP-P-000529（汎用 محمد）を流用。
   phrase: محمد بن علي الأشخر
@@ -54,11 +48,10 @@ relations:
   type: scholarly
   subtype: teacher
   active: AIND-D05089
-  passive: AIND-D04864
+  passive: m7
   methods:
   - TMP-S-00011
   cert: medium
-  quote: الناشري
   note:
     ja: '原文「نقل عنه … شيئا」＝الناشري が本項主から伝承（本項主＝師）。الناشري ＝ العفيف الناشري（عثمان بن عمر، #AIND-D04864「… العفيف الناشري المقري الشافعي … له تصنيف في الناشريين سماه البستان الزاهر في طبقات علماء بني ناشر طالعته」、生804/805・没848）と判断: 本項主が834年にザビードの「彼ら（ナーシリー家）」を訪れた際に成人として面会・伝承しうるのは العفيف で、حمزة الناشري（#AIND-D02778、生833）は年齢上不可。ID-Master の TMP-P-000694（العفيف الناشري、「言及者専用」）は corpus 本伝 D04864 を持つため規約4(a)により #AIND-D04864 を採用（pending_B80 に名寄せ提案）。初版は passive にニスバ番号 TMP-N-00138 を誤用。'
 events:
@@ -68,25 +61,66 @@ events:
     ah: 834
     type: visit
   places:
-  - ref: TMP-L-00041
-    quote: زبيد
-  quote: قدم
+  - mention: m10
   note:
     ja: 834年＝1430年9月19日〜1431年9月7日。
   trigger: rule
   phrase: قدم عليهم زبيد سنة أربع وثلاثين
+  mention: m9
 sources:
 - id: c1
   persons:
   - ref: AIND-D04864
     cert: medium
-  quote: وصفه
   cert: medium
   note:
     ja: Pattern A（第三者評価）。言及者の同定は上記 student relation の note を参照（cert medium）。
   trigger: rule
-  norm: صفه
   phrase: وصفه الناشري بالفقيه الصالح
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: أبي بكر
+  norm: ابو بكر
+- id: m3
+  kind: name
+  ref: TMP-P-001055
+  quote: محمد
+- id: m4
+  kind: name
+  quote: علي
+- id: m5
+  kind: name
+  quote: الأشخر
+  norm: الاشخر
+- id: m6
+  kind: source
+  quote: وصفه
+  norm: صفه
+- id: m7
+  kind: person
+  ref: AIND-D04864
+  quote: الناشري
+- id: m8
+  kind: person
+  ref: TMP-P-001055
+  quote: جده العلامة الأوحد محمد
+  norm: جده العلامة الاوحد محمد
+- id: m9
+  kind: event
+  quote: قدم
+- id: m10
+  kind: place
+  quote: زبيد
+  ref: TMP-L-00041
+- id: m11
+  kind: year
+  value: '834'
+  quote: سنة
 translation:
   ja: アリー・ブン・アブー・バクル・ブン・ムハンマド・ブン・アリー・アル＝アシュハル。アン＝ナーシリーは彼を「敬虔な法学者」と評し、彼から、彼の祖父である唯一無二の大学者ムハンマドの伝として若干の事柄を伝えている。また伝記の主は834年にザビードの彼らのもとにやって来た、と述べている。
   en: ʿAlī b. Abī Bakr b. Muḥammad b. ʿAlī al-Ashkhar. Al-Nāshirī described him as a righteous jurist, transmitted from him some material on the authority of his grandfather, the unique scholar Muḥammad, and stated that the subject of this entry came to them in Zabīd in the year 834 AH.

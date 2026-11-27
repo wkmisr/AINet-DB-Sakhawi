@@ -9,51 +9,46 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00022
-    quote: الحلبي
+    mention: m10
   - id: n2
     type: laqab
-    quote: ناصر الدين
+    mention: m7
   - id: n3
     type: shuhrah
-    quote: بابن السفاح
-    norm: ابن السفاح
     label: ابن السفاح
+    mention: m13
   - id: n4
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-001656
+    mention: m2
   - id: n6
     type: nasab
-    quote: صلح
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m4
   - id: n8
     type: nasab
-    quote: عمر
     by: rule
+    mention: m5
   - id: n9
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m6
   - id: n10
     type: nasab
-    quote: العلاء
     by: rule
+    mention: m8
   - id: n11
     type: nasab
-    quote: الصلاح
     by: rule
+    mention: m9
 relations:
 - id: r1
   type: kin
@@ -62,32 +57,76 @@ relations:
   passive: AIND-D08090
   summary:
     ar: العلاء علي بن صالح بن أحمد بن عمر
-  quote: null
   note:
     ja: 規則3。父 العلاء علي بن صلاح الدين صالح بن أحمد بن عمر ابن السفاح الحلبي は corpus に本伝なし（hw.py「السفاح」の見出し D00776・D03348・D05788・D07484・D08796・索引 D12395 に علي بن صالح の項はない。D00776 は叔父 الشهاب أحمد بن صالح の項で「أخو ناصر الدين محمد」のみ）、ID-Master 未登録（「السفاح」「علي بن صالح」該当なし）。ラカブ・家名・祖父名で識別できるので新規 TMP-P-001656。初版の TMP-P-000530（登録＝علي、関係専用の汚染番号）を除去。
 - id: r2
   type: kin
   subtype: cousin
-  active: AIND-D05788
+  active: m11
   passive: AIND-D08090
-  quote: عمر بن أحمد
   note:
     ja: '「ابن عم عمر بن أحمد … ابني صالح」＝ #AIND-D05788「عمر بن أحمد بن صلح بن أحمد بن عمر … الزين بن الشهاب بن الصلاح … الحلبي الشافعي … ويعرف كل منهم بابن السفاح」（795生、未収録）。叔父 الشهاب أحمد بن صالح ＝ #AIND-D00776 の子。双子の弟 #AIND-D03348（صالح بن أحمد بن صالح）も従兄弟だが本項に名指しなし＝note。'
-  norm: عمر بن احمد
 - id: r3
   type: kin
   subtype: cousin
-  active: AIND-D08796
+  active: m12
   passive: AIND-D08090
-  quote: ومحمد بن محمد
   note:
     ja: '「ومحمد بن محمد ابني صالح」＝ #AIND-D08796「محمد بن محمد بن صالح بن أحمد بن عمر بن أحمد ناصر الدين بن ناصر الدين بن صلاح الدين الحلبي ثم القاهري الشافعي ابن عم عمر بن أحمد ومحمد بن علي ويعرف كسلفه بابن السفاح」（未受領）。相手側が「ابن عم … محمد بن علي」と本項主を名指し（閉合）。叔父 ناصر الدين محمد بن صالح ＝ #AIND-D07484。'
-  norm: محمد بن محمد
   phrase: محمد بن محمد
 notes:
 - text: '「ابن عم عمر بن أحمد ومحمد بن محمد ابني صالح」は「صالح の二人の息子（أحمد と محمد）の子である عمر بن أحمد と محمد بن محمد の従兄弟」と読む（ابني صالح は双数属格で أحمد・محمد にかかる）。初版の「uncle صالح」relation は誤り（صالح は祖父＝見出しナサブの「صلح بن أحمد بن عمر」）。叔父 ＝ #AIND-D00776（الشهاب أحمد بن صالح）・#AIND-D07484（ناصر الدين محمد بن صالح、كاتب سر حلب）。家名索引 #AIND-D12395（ابن السفاح）は合同索引＝ID に使わない（規則11）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: TMP-P-001656
+  quote: علي
+- id: m3
+  kind: name
+  quote: صلح
+- id: m4
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m5
+  kind: name
+  quote: عمر
+- id: m6
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m7
+  kind: name
+  quote: ناصر الدين
+- id: m8
+  kind: name
+  quote: العلاء
+- id: m9
+  kind: name
+  quote: الصلاح
+- id: m10
+  kind: name
+  ref: TMP-N-00022
+  quote: الحلبي
+- id: m11
+  kind: person
+  ref: AIND-D05788
+  quote: عمر بن أحمد
+  norm: عمر بن احمد
+- id: m12
+  kind: person
+  ref: AIND-D08796
+  quote: ومحمد بن محمد
+  norm: محمد بن محمد
+- id: m13
+  kind: name
+  quote: بابن السفاح
+  norm: ابن السفاح
 translation:
   ja: ムハンマド・ブン・アリー・ブン・サーリフ・ブン・アフマド・ブン・ウマル・ブン・アフマド、ナースィル・アッ＝ディーン・ブン・アル＝アラー・ブン・アッ＝サラーフ、アル＝ハラビー。サーリフの二人の息子〔＝孫〕であるウマル・ブン・アフマドとムハンマド・ブン・ムハンマドの従兄弟。祖先と同じくイブン・アッ＝サッファーフとして知られる。
   en: Muḥammad b. ʿAlī b. Ṣāliḥ b. Aḥmad b. ʿUmar b. Aḥmad, Nāṣir al-Dīn b. al-ʿAlāʾ b. al-Ṣalāḥ al-Ḥalabī, cousin of ʿUmar b. Aḥmad and of Muḥammad b. Muḥammad, the two sons [i.e. grandsons] of Ṣāliḥ. Like his forebears he was known as Ibn al-Saffāḥ.

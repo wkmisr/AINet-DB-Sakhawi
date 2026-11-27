@@ -9,24 +9,22 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: جوهر المدير في الجيش
     by: rule
+    mention: m2
 death:
   id: d
   date:
     ah: 836-09
   places:
-  - ref: gn:170063
-    quote: بحلب
-    norm: حلب
+  - mention: m5
   note:
     ar: مات في رمضان سنة ست وثلاثين بحلب
     ja: 836年ラマダーン月＝1433-04-30 起点（月初、グレゴリオ暦）。初版の when="1432" は誤り（836年ラマダーンは1433年4〜5月）。
-  quote: سنة
+  mention: m4
 persons:
 - id: p1
   label: جوهر
@@ -39,29 +37,54 @@ relations:
   subtype: father
   active: AIND-D07320#p1
   passive: AIND-D07320
-  quote: null
   note:
     ja: '父 جوهر は裸名のみ・祖父名復元不可のため統一規則3により #NEEDID。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00271
-  quote: null
   note:
     ja: '軍の管理官（مدير）。既存の مدير ديوان（TMP-O-00017）とは対象が異なるため新規 TMP-O-00271 を発行。初版は #NEEDID。'
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m7
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A（没年記録）。初版は統制外 subtype「chronicler」の relation。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في أنبائه
+  mention: m6
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  quote: جوهر المدير في الجيش
+- id: m3
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m4
+  kind: year
+  value: '836'
+  quote: سنة
+- id: m5
+  kind: place
+  quote: بحلب
+  ref: gn:170063
+  norm: حلب
+- id: m6
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m7
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ムハンマド・ブン・ジャウハル。軍の管理官（アル＝ムディール・フィー・アル＝ジャイシュ）。836年ラマダーン月にアレッポで没した。我らのシャイフ（イブン・ハジャル）が『インバー』にその没年を記録している。
   en: Muḥammad b. Jawhar, the administrator (mudīr) in the army. He died in Ramaḍān 836 in Aleppo. Our shaykh (Ibn Ḥajar) recorded his death date in his Inbāʾ.

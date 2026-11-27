@@ -9,33 +9,29 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00232
-    quote: التركي
+    mention: m3
   - id: n2
     type: laqab
-    quote: الزين
+    mention: m2
   - id: n3
     type: ism
-    quote: قطلوبغا
     by: rule
+    mention: m1
   - id: n4
     type: madhhab
-    quote: الحنفي
     by: rule
-    ref: wd:Q228986
+    mention: m4
 death:
   id: d
   date:
     ah: 803-05-15
     cert: medium
   places:
-  - ref: gn:360630
-    quote: بالقاهرة
-    norm: القاهرة
+  - mention: m6
   note:
     ja: 「سنة ثلاث」＝一の位のみ → 803（標準規則、cert medium。イブン・ハジャルの『إنباء』に載る＝9世紀初頭で整合）。المقريزي の追記「في نصف جمادى الأولى」＝ジュマーダー第1月15日 → 803-05-15＝1401-01-10（日精度）。初版の @when 1400 は誤り（803年5月は 1401年1月）。没地 القاهرة は原文明記。
-  quote: سنة
   phrase: مات بالقاهرة سنة ثلاث . أرخه شيخنا أيضا ، زاد المقريزي في نصف جمادى الأولى
+  mention: m7
 persons:
 - id: p1
   label: والد قطلوبغا الزين التركي
@@ -46,24 +42,22 @@ relations:
   subtype: father
   active: AIND-D06356#p1
   passive: AIND-D06356
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3）。'
 states:
 - id: s1
   type: office
   ref: TMP-O-00004
-  quote: null
   note:
     ja: ハナフィー派のムフティー。場所の明記なし（初版の placeName القاهرة＝没地からの補完を除去、規則22(1)）。
+  mention: null
 - id: s2
   type: status
   label: أحد مشايخهم
   label_latn: aḥad mashāyikhihim
-  quote: أحد مشايخهم
   note:
     ja: ハナフィー派の長老の一人。
-  norm: احد مشايخهم
+  mention: m5
 affiliations:
 - id: a1
   type: madhhab
@@ -71,22 +65,63 @@ affiliations:
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
-  quote: أرخه
+  - mention: m9
   note:
     ja: Pattern A。書名の明記なし（bibl なし）。初版の統制外 subtype「documented_by」relation を mention event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا أيضا
+  mention: m8
 - id: c2
   persons:
-  - ref: wd:Q293604
-    quote: المقريزي
-  quote: زاد المقريزي في نصف جمادى الأولى
+  - mention: m10
   note:
     ja: Pattern A。المقريزي（wd:Q293604）が没月日（ジュマーダー第1月15日）を追記。初版の統制外 documented_by relation を mention event に変換。
-  norm: زاد المقريزي في نصف جمادي الاولي
+  phrase: زاد المقريزي في نصف جمادى الأولى
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: قطلوبغا
+- id: m2
+  kind: name
+  quote: الزين
+- id: m3
+  kind: name
+  ref: TMP-N-00232
+  quote: التركي
+- id: m4
+  kind: name
+  ref: wd:Q228986
+  quote: الحنفي
+- id: m5
+  kind: office
+  quote: أحد مشايخهم
+  norm: احد مشايخهم
+- id: m6
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
+- id: m7
+  kind: year
+  value: '803'
+  quote: سنة
+- id: m8
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m9
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m10
+  kind: person
+  ref: wd:Q293604
+  quote: المقريزي
+- id: m11
+  kind: month
+  value: 5
+  quote: جمادى الأولى
 translation:
   ja: クトルブガー・アッ＝ザイン・アッ＝トゥルキー、ハナフィー派のムフティーで、彼ら（ハナフィー派）の長老の一人。（8）03年にカイロで没した。我らがシャイフ（イブン・ハジャル）もその没年を記しており、アル＝マクリーズィーは「ジュマーダー第1月の半ば」と付け加えている。
   en: 'Quṭlūbughā al-Zayn al-Turkī, the Ḥanafī muftī, one of their shaykhs. He died in Cairo in the year [8]03. Our shaykh (Ibn Ḥajar) also recorded his death date, and al-Maqrīzī added: in the middle of Jumādā I.'

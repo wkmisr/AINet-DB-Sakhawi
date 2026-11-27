@@ -9,13 +9,12 @@ name:
   elements:
   - id: n1
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n2
     type: nasab
-    quote: شاهين نائب قلعة دمشق
     by: rule
-    norm: شاهين ناءب قلعة دمشق
+    mention: m2
 death:
   id: d
   date:
@@ -25,27 +24,49 @@ death:
   note:
     ar: مات بها في ليلة الخميس ثاني عشري رمضان سنة إحدى وتسعين
     ja: 891年ラマダーン月22日＝1486年9月21日（木曜。「ليلة الخميس」＝木曜の前夜、曜日一致）。ダマスクス（「بها」＝城塞の所在地）で没。
-  quote: سنة
+  mention: m4
 states:
 - id: s1
   type: office
   ref: TMP-O-00338
   places:
   - ref: TMP-L-00328
-  quote: null
   note:
     ja: 城塞副官職は汎用 نائب（TMP-O-00053）＋所在地で表現（repo D02246/D03289 の運用に従う）。قلعة دمشق は ID-Master 未登録のため orgName ref を置かない。
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D00710
-    quote: ابن اللبودي
-  quote: أرخه
+  - mention: m6
   note:
     ja: 'Pattern A（没年記録）。ابن اللبودي ＝ #AIND-D00710（canonical、ブリーフ確定ID）。初版は統制外 subtype「chronicler」の relation（#NEEDID）。'
   trigger: rule
-  norm: ارخه
   phrase: أرخه ابن اللبودي
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  quote: شاهين نائب قلعة دمشق
+  norm: شاهين ناءب قلعة دمشق
+- id: m3
+  kind: month
+  value: 9
+  quote: رمضان
+- id: m4
+  kind: year
+  value: '891'
+  quote: سنة
+- id: m5
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m6
+  kind: person
+  ref: AIND-D00710
+  quote: ابن اللبودي
 translation:
   ja: アリー・ブン・シャーヒーン、ダマスクス城塞のナーイブ（副官）。891年ラマダーン月22日の木曜の夜、同地で没した。イブン・アッ＝ラブーディーが彼の没年を記録している。
   en: ʿAlī ibn Shāhīn, the deputy (nāʾib) of the Citadel of Damascus. He died there on the eve of Thursday, the 22nd of Ramaḍān of the year 891 AH. Ibn al-Labūdī recorded his death.

@@ -9,20 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00377
-    quote: الحكمي
+    mention: m4
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m3
   - id: n3
     type: ism
-    quote: يوسف
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m2
 persons:
 - id: p1
   label: أحمد
@@ -35,7 +33,6 @@ relations:
   subtype: father
   active: AIND-D10450#p1
   passive: AIND-D10450
-  quote: null
   note:
     ja: 規則3 (c')。父 أحمد は裸名。corpus の見出し「يوسف＋الحكمي」は本項のみ。
 events:
@@ -43,18 +40,39 @@ events:
   type: cultural
   works:
   - ref: TMP-T-00095
-  quote: شيخ صالح يحفظ القرآن ويلازم الجماعات
-  norm: شيخ صالح يحفظ القران ويلازم الجماعات
+  phrase: شيخ صالح يحفظ القرآن ويلازم الجماعات
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D04864
-    quote: العفيف الناشري
-  quote: ذكره
+  - mention: m6
   note:
     ja: 'Pattern A。العفيف الناشري＝corpus 本伝 #AIND-D04864「عثمان بن عمر بن أبي بكر … العفيف الناشري المقري الشافعي … له تصنيف في الناشريين سماه البستان الزاهر في طبقات علماء بني ناشر」。本項はラカブ＋ニスバを明記（裸の「العفيف」ではない）＝cert なし。初版の統制外 relation「biographer」を event に変換。書名は原文になし＝bibl を付けない。'
   trigger: rule
   phrase: ذكره العفيف الناشري مختصرا
+  mention: m5
+mentions:
+- id: m1
+  kind: name
+  quote: يوسف
+- id: m2
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: الشمس
+- id: m4
+  kind: name
+  ref: TMP-N-00377
+  quote: الحكمي
+- id: m5
+  kind: source
+  quote: ذكره
+- id: m6
+  kind: person
+  ref: AIND-D04864
+  quote: العفيف الناشري
 translation:
   ja: ユースフ・ブン・アフマド、アッ＝シャムス、アル＝ハカミー。敬虔なシャイフで、クルアーンを暗記し、集団礼拝を欠かさない。アル＝アフィーフ・アン＝ナーシリーが簡略に言及している。
   en: Yūsuf b. Aḥmad, al-Shams, al-Ḥakamī. A pious shaykh who knows the Qurʾān by heart and regularly attends the congregational prayers. Al-ʿAfīf al-Nāshirī mentioned him briefly.

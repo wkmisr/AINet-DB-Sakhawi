@@ -9,21 +9,19 @@ name:
   elements:
   - id: n1
     type: laqab
-    quote: العماد
+    mention: m4
   - id: n2
     type: ism
-    quote: يحيى
     by: rule
-    norm: يحيي
+    mention: m1
   - id: n3
     type: nasab
-    quote: محمد
     by: rule
+    mention: m2
   - id: n4
     type: nasab
-    quote: أبي بكر قريط
     by: rule
-    norm: ابو بكر قريط
+    mention: m3
 persons:
 - id: p1
   label: محمد بن أبي بكر
@@ -34,13 +32,12 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m5
   passive: AIND-D10293
   methods:
   - TMP-S-00008
   summary:
     ar: ابن حجر
-  quote: شيخنا
   note:
     ja: 「ممن أخذ عن شيخنا」。شيخنا＝イブン・ハジャル（wd:Q471116）。初版は相手名の desc なし。
 - id: r2
@@ -48,7 +45,6 @@ relations:
   subtype: father
   active: AIND-D10293#p1
   passive: AIND-D10293
-  quote: null
   note:
     ja: '規則3 (c'')。父 محمد بن أبي بكر は識別要素のない汎用名、corpus に本伝なし（hw.py「قريط」＝本項と #AIND-D05012「علي بن أحمد بن علي المحلي … ويعرف بابن القريط」（ナサブ・学派とも合わない）のみ）。初版は father relation なし。'
 affiliations:
@@ -59,6 +55,25 @@ notes:
 - text: 見出しの「قريط」はナサブの後に置かれた語で、本項主の通称か、祖父 أبو بكر のあだ名かが原文から決まらない（「ويعرف بـ」の句はない）。persName full には原文どおり残し、初版の shuhrah「قريط」（本項主の通称と断定）は外した。没年の記載なし。
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: يحيى
+  norm: يحيي
+- id: m2
+  kind: name
+  quote: محمد
+- id: m3
+  kind: name
+  quote: أبي بكر قريط
+  norm: ابو بكر قريط
+- id: m4
+  kind: name
+  quote: العماد
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: ヤフヤー・ブン・ムハンマド・ブン・アビー・バクル・クライト、アル＝イマード、ハナフィー派。我らの師（イブン・ハジャル）に学んだ者の一人。
   en: Yaḥyā b. Muḥammad b. Abī Bakr Qurayṭ, al-ʿImād, the Ḥanafī. He was among those who studied under our shaykh (Ibn Ḥajar).

@@ -9,47 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m9
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m10
   - id: n3
     type: ism
-    quote: عمر
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: محمد
     by: rule
-    ref: TMP-P-001430
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: أبي البركات محمد
     by: rule
-    norm: ابو البركات محمد
+    mention: m4
   - id: n7
     type: nasab
-    quote: أبي السعود محمد
     by: rule
-    norm: ابو السعود محمد
+    mention: m5
   - id: n8
     type: nasab
-    quote: حسين
     by: rule
+    mention: m6
   - id: n9
     type: nasab
-    quote: علي
     by: rule
+    mention: m7
   - id: n10
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m8
 relations:
 - id: r1
   type: kin
@@ -58,29 +53,73 @@ relations:
   passive: AIND-D05978
   summary:
     ar: محمد بن محمد بن أبي البركات محمد بن أبي السعود محمد بن ظهيرة
-  quote: null
   note:
     ja: '見出しナサブから1段ずらして復元（規則3）。قاضي القضاة الكمال أبو البركات محمد بن ظهيرة の孫で、その子（#AIND-D09081 التقي・#AIND-D09082 الجلال أبو السعادات・#AIND-D09083 أبو الفتح・#AIND-D09084 الجمال أبو السعود・النجم أبو المعالي 等）のいずれかの息子「محمد」。原文に父のラカブ・クンヤがなく、どの系統か特定できない（例: #AIND-D09201 الجمال أبو المكارم بن النجم أبي المعالي بن الكمال أبي البركات は同型のナサブだが本項主への言及なし）。corpus に本伝未特定・ID-Master 未登録 → TMP-P-001430（§D109-6）。初版に父 relation なし。候補: 母 أم هانئ（#AIND-D13831）は #AIND-D13131「زينب ابنة النجم محمد بن أبي البركات」・#AIND-D13132「زينب أخت التي قبلها وأمها أم هانيء ابنة القاضي عزالدين النويري」により النجم أبو المعالي محمد بن الكمال أبي البركات（846年没）の妻であるため、父は النجم محمد بن أبي البركات 本人（見出しの「محمد بن محمد بن أبي البركات」と1代ずれる）か、その子 النجم محمد（D13044・D13732）の可能性がある。確証がないため仮番号を維持（規則26）。'
 - id: r2
   type: kin
   subtype: mother
-  active: AIND-D13831
+  active: m11
   passive: AIND-D05978
-  quote: أم هاني ابنة العز النويري
   note:
     ja: '「أمه أم هاني ابنة العز النويري」＝ #AIND-D13831「أم هانئ ابنة العز محمد بن أحمد بن أبي الفضل محمد بن أحمد بن عبد العزيز النويري المكية」（810年生、842年ズー・アル＝ヒッジャ月没）。corpus 女性部で名＋父のラカブ العز＋النويري が一致するのは同項のみ（D13132「أمها أم هانيء ابنة القاضي عزالدين النويري」も同人）。初版の #NEEDID を解消（検証後訂正 2026-10-10: 校閲の仮番号 TMP-P-NEW109-04 は取り下げ）。'
-  norm: ام هاني ابنة العز النويري
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: بيض
+  - mention: m13
   cert: low
   note:
     ja: 'Pattern A。「بيض له」＝イブン・ファハドが（没年等を）空欄にした。限定語のない ابن فهد、没年不明（幼少で没したらしい）→ 振り分け規則により #AIND-D09211、cert low。初版は統制外 subtype「biographer」relation。「كأنه مات صغيرا」はサハーウィーの推測のため death 要素は立てない。'
   trigger: rule
   phrase: بيض له ابن فهد وكأنه مات صغيرا
+  mention: m12
+mentions:
+- id: m1
+  kind: name
+  quote: عمر
+- id: m2
+  kind: name
+  ref: TMP-P-001430
+  quote: محمد
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: أبي البركات محمد
+  norm: ابو البركات محمد
+- id: m5
+  kind: name
+  quote: أبي السعود محمد
+  norm: ابو السعود محمد
+- id: m6
+  kind: name
+  quote: حسين
+- id: m7
+  kind: name
+  quote: علي
+- id: m8
+  kind: name
+  quote: ظهيرة
+- id: m9
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m10
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m11
+  kind: person
+  ref: AIND-D13831
+  quote: أم هاني ابنة العز النويري
+  norm: ام هاني ابنة العز النويري
+- id: m12
+  kind: source
+  quote: بيض
+- id: m13
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: ウマル・ブン・ムハンマド・ブン・ムハンマド・ブン・アビー・アル＝バラカート・ムハンマド・ブン・アビー・アッ＝スウード・ムハンマド・ブン・フサイン・ブン・アリー・ブン・ザヒーラ、アル＝クラシー、アル＝マッキー。母はアル＝イッズ・アン＝ヌワイリーの娘ウンム・ハーニー。イブン・ファハドは彼について空欄を残しており、幼くして没したらしい。
   en: ʿUmar b. Muḥammad b. Muḥammad b. Abī al-Barakāt Muḥammad b. Abī al-Suʿūd Muḥammad b. Ḥusayn b. ʿAlī b. Ẓahīra al-Qurashī al-Makkī; his mother was Umm Hānī, daughter of al-ʿIzz al-Nuwayrī. Ibn Fahd left his entry blank, and it seems he died young.

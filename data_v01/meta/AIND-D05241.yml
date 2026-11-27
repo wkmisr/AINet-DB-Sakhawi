@@ -9,39 +9,35 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00005
-    quote: القرشي
+    mention: m8
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: عبد الكريم
     by: rule
-    ref: AIND-D04272
+    mention: m2
   - id: n4
     type: nasab
-    quote: علي
     by: rule
-    ref: AIND-D05240
+    mention: m3
   - id: n5
     type: nasab
-    quote: عبد الكريم
     by: rule
+    mention: m4
   - id: n6
     type: nasab
-    quote: أحمد
     by: rule
-    norm: احمد
+    mention: m5
   - id: n7
     type: nasab
-    quote: عطية
     by: rule
+    mention: m6
   - id: n8
     type: nasab
-    quote: ظهيرة
     by: rule
+    mention: m7
 persons:
 - id: p1
   label: وأمه زبيدية
@@ -50,9 +46,8 @@ relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04272
+  active: m9
   passive: AIND-D05241
-  quote: الذي قبله
   note:
     ja: '父 = #AIND-D04272（عبد الكريم بن علي بن عبد الكريم بن أحمد بن عطية بن ظهيرة أبو محمد القرشي المكي、788年以降にイジャーザ）。ナサブ完全一致。repo の D04272 でも父 = #AIND-D05240 と整合。'
   phrase: عبد الكريم بن علي بن عبد الكريم بن أحمد بن عطية بن ظهيرة
@@ -61,30 +56,71 @@ relations:
   subtype: grandfather
   active: AIND-D05240
   passive: AIND-D05241
-  quote: null
   note:
     ja: '「حفيد الذي قبله」＝直前項 #AIND-D05240（علي بن عبد الكريم بن أحمد بن عطية بن ظهيرة نور الدين أبو الحسن القرشي المكي、没806）の孫。本項ナサブ第3位「علي بن عبد الكريم بن أحمد بن عطية」が一致。'
   phrase: حفيد الذي قبله
 - id: r3
   type: kin
   subtype: mother
-  active: AIND-D05241#p1
+  active: m10
   passive: AIND-D05241
-  quote: وأمه زبيدية
   note:
     ja: '母はザビード出身の女性（名不詳）→ #NEEDID。'
-  norm: وامه زبيدية
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    quote: ابن فهد
-  quote: بيض
+  - mention: m12
   cert: low
   note:
     ja: Pattern A。没年不明のため التقي بن فهد（#AIND-D09211）cert low（規約11）。
   trigger: rule
   phrase: بيض له ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D04272
+  quote: عبد الكريم
+- id: m3
+  kind: name
+  ref: AIND-D05240
+  quote: علي
+- id: m4
+  kind: name
+  quote: عبد الكريم
+- id: m5
+  kind: name
+  quote: أحمد
+  norm: احمد
+- id: m6
+  kind: name
+  quote: عطية
+- id: m7
+  kind: name
+  quote: ظهيرة
+- id: m8
+  kind: name
+  ref: TMP-N-00005
+  quote: القرشي
+- id: m9
+  kind: person
+  ref: AIND-D04272
+  quote: الذي قبله
+- id: m10
+  kind: person
+  ref: AIND-D05241#p1
+  quote: وأمه زبيدية
+  norm: وامه زبيدية
+- id: m11
+  kind: source
+  quote: بيض
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリー・ブン・アブド・アル＝カリーム・ブン・アリー・ブン・アブド・アル＝カリーム・ブン・アフマド・ブン・アティーヤ・ブン・ザヒーラ・アル＝クラシー。前項の人物の孫。母はザビード出身の女性。イブン・ファハドは彼のために〔伝記の〕余白を残した。
   en: ʿAlī b. ʿAbd al-Karīm b. ʿAlī b. ʿAbd al-Karīm b. Aḥmad b. ʿAṭiyya b. Ẓahīra al-Qurashī, the grandson of the preceding; his mother was a woman of Zabīd. Ibn Fahd left a blank for him.

@@ -9,20 +9,19 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02707
-    quote: القلندري
+    mention: m2
   - id: n2
     type: ism
-    quote: علي
     by: rule
+    mention: m1
 death:
   id: d
   date:
     ah: 823
   note:
     ja: 没地の記載なし。823 ＝ 1420-01-26〜1421-01-13、年初 1420（h2g.py）。
-  quote: سنة
   phrase: مات سنة ثلاث وعشرين
+  mention: m3
 affiliations:
 - id: a1
   type: affiliated
@@ -36,21 +35,39 @@ affiliations:
 events:
 - id: e1
   type: cultural
-  quote: وأحد من يعتقد
-  norm: احد من يعتقد
+  phrase: وأحد من يعتقد
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: wd:Q471116
-    quote: شيخنا
+  - mention: m5
   works:
   - ref: TMP-T-00034
-  quote: أرخه
   note:
     ja: Pattern A。شيخنا＝イブン・ハジャル（wd:Q471116）、『إنباء الغمر』＝TMP-T-00034。初版の統制外 subtype「biographer」relation を event に変換。
   trigger: rule
-  norm: ارخه
   phrase: أرخه شيخنا في إنبائه
+  mention: m4
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-N-02707
+  quote: القلندري
+- id: m3
+  kind: year
+  value: '823'
+  quote: سنة
+- id: m4
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
 translation:
   ja: アリー・アル＝カランダリー。サフラー（カイロ北郊の墓地）の外にあるザーウィヤの主で、（聖者として）信奉された人々の一人。（8）23年に没した。我らが師（イブン・ハジャル）が『インバー』にその没年を記録している。
   en: ʿAlī al-Qalandarī, master of the zāwiya outside al-Ṣaḥrāʾ (the northern cemetery of Cairo) and one of those who were venerated. He died in the year (8)23. Our shaykh (Ibn Ḥajar) recorded his death in his Inbāʾ.

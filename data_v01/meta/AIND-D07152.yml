@@ -9,53 +9,42 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00079
-    quote: الحسني
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m5
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: بديد
     by: rule
-    ref: AIND-D02141
+    mention: m2
   - id: n5
     type: nasab
-    quote: شكر
     by: rule
-    ref: AIND-D03328
+    mention: m3
 death:
   id: d
   date:
     ah: 873-01-07
   places:
-  - ref: TMP-I-00232
-    quote: مسجد الفتح
-  - ref: TMP-L-00194
-    quote: بطن مر
-  - ref: wd:Q42004
-    role: burial
-    quote: بالمعلاة
-    norm: المعلاة
-  - ref: TMP-I-00233
-    role: burial
-    quote: بتربة جده شكر
-    norm: تربة جده شكر
+  - mention: m10
+  - mention: m11
+  - role: burial
+    mention: m15
+  - role: burial
+    mention: m16
   note:
     ja: '「قتل في صبيحة الخميس سابع المحرم سنة ثلاث وسبعين بقرب مسجد الفتح من بطن مر」＝873年ムハッラム月7日（木）朝＝1468-08-06（h2g、曜日一致）。初版の when 1468（年精度）を日精度に。殺害地 مسجد الفتح（TMP-I-00232 新規。D01171 では「عند مسجد الفتح بالقرب من الجموم من وادي مر」）・بطن مر（＝وادي مر／مر الظهران、ID-Master TMP-L-00194。初版 #NEEDID）。遺骸は同日中にマッカへ運ばれ金曜夜に المعلاة（wd:Q42004）の祖父 شكر の墓廟（TMP-I-00233 新規）に埋葬。'
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
   active: AIND-D02141
   passive: AIND-D07152
-  quote: null
   note:
     ja: '父 بديد ＝ corpus #AIND-D02141「بدير ويسمى أحمد بن سكر شهاب الدين الحسني نسبة لحسن بن عجلان لكون والده عتيقه … مات في جمادى الأولى سنة تسع وستين … ودفن بالمعلاة على والده」（集約で差し替え。刊本の見出しは「بدير／سكر」と点の揺れ。照合根拠: 祖父 #AIND-D03328「شكر … عتيق السيد حسن بن عجلان ووالد بديد الماضي」の「الماضي」が ب 部の本伝を指す／弟 #AIND-D04453「كان مع أخيه بديد في مباينة السيد محمد بن بركات」＝D02141 の離反・誓約記事／D13235「القائد شهاب الدين بديد」＝ラカブ一致／D01171「خال محمد بن بدير」＝本項主自身を同じ綴りで呼ぶ）。地の文の綴り بديد は改めない（規則25）。校閲時の既登録 TMP-P-001062（Note「欠番ウォッチ」）は D02141 への名寄せ提案（要判断）。初版は relation なし。'
   phrase: بديد بن شكر الحسني المكي القائد
@@ -64,36 +53,30 @@ relations:
   subtype: grandfather
   active: AIND-D03328
   passive: AIND-D07152
-  quote: null
   note:
     ja: '「بتربة جده شكر」。شكر ＝ #AIND-D03328「شكر القائد الحسني عتيق السيد حسن بن عجلان ووالد بديد الماضي ووزير مكة … مات بها（مكة）… سنة خمس وأربعين」（規則37）。初版の #NEEDID を差し替え。'
   phrase: شكر
 - id: r3
   type: kin
   subtype: maternal_uncle
-  active: AIND-D01171
+  active: m14
   passive: AIND-D07152
-  quote: أحمد بن قفيف
   note:
     ja: '「مع خال المترجم أحمد بن قفيف」。أحمد بن قفيف ＝ #AIND-D01171「أحمد بن قفيف بن فضيل بن ذحير … العدواتي خال محمد بن بدير … قتلهما الشريف محمد بن بركات عند مسجد الفتح … يوم الخميس سابع المحرم سنة ثلاث وسبعين」（収録済み、本項主を siblings_child として参照）。初版の subtype uncle・#NEEDID を是正。母は D13556「قندولة ابنة قفيف … العدواني امرأة بديد」（870没）とみられるが本項に記載なし＝note 留め。'
-  norm: احمد بن قفيف
 - id: r4
   type: social
   subtype: killer
-  active: AIND-D07156
+  active: m13
   passive: AIND-D07152
-  quote: محمد بن بركات
   note:
     ja: '「فتك به صاحب مكة الجمال محمد بن بركات مع خال المترجم أحمد بن قفيف في آن واحد」。محمد بن بركات ＝ #AIND-D07156（本バッチ B120「محمد بن بركات بن حسن بن عجلان السيد جمال الدين الحسني … ملك الحجاز」。D01171 でも killer として同番号）。初版の統制外 subtype「rival」・#NEEDID を是正（repo 先例 D01171 の killer）。'
   phrase: صاحب مكة الجمال محمد بن بركات
 states:
 - id: s1
   type: office
-  ref: TMP-O-00094
-  quote: القائد
   note:
     ja: 見出しの「القائد」＝マッカの隊長（TMP-O-00094）。初版は laqab としていたが職名（規則5）。
-  norm: القاءد
+  mention: m6
 events:
 - id: e1
   type: political
@@ -101,17 +84,81 @@ events:
     ah: 873-01-07
     type: political
   places:
-  - ref: TMP-I-00232
-    quote: مسجد الفتح
-  - ref: TMP-L-00194
-    quote: بطن مر
-  - ref: gn:104515
-    quote: مكة
-  quote: قتل
+  - mention: m10
+  - mention: m11
+  - mention: m12
   note:
     ja: 初版の英語 desc を原文句に。
   trigger: rule
   phrase: فتك به صاحب مكة الجمال محمد بن بركات مع خال المترجم أحمد بن قفيف في آن واحد وحملا في بقية يومهما إلى مكة فدفنا ليلة الجمعة بالمعلاة بتربة جده شكر وأسف الناس عليه
+  mention: m7
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D02141
+  quote: بديد
+- id: m3
+  kind: name
+  ref: AIND-D03328
+  quote: شكر
+- id: m4
+  kind: name
+  ref: TMP-N-00079
+  quote: الحسني
+- id: m5
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m6
+  kind: office
+  ref: TMP-O-00094
+  quote: القائد
+  norm: القاءد
+- id: m7
+  kind: event
+  quote: قتل
+- id: m8
+  kind: month
+  value: 1
+  quote: المحرم
+- id: m9
+  kind: year
+  value: '873'
+  quote: سنة
+- id: m10
+  kind: place
+  quote: مسجد الفتح
+  ref: TMP-I-00232
+- id: m11
+  kind: place
+  quote: بطن مر
+  ref: TMP-L-00194
+- id: m12
+  kind: place
+  quote: مكة
+  ref: gn:104515
+- id: m13
+  kind: person
+  ref: AIND-D07156
+  quote: محمد بن بركات
+- id: m14
+  kind: person
+  ref: AIND-D01171
+  quote: أحمد بن قفيف
+  norm: احمد بن قفيف
+- id: m15
+  kind: place
+  quote: بالمعلاة
+  ref: wd:Q42004
+  norm: المعلاة
+- id: m16
+  kind: place
+  quote: بتربة جده شكر
+  ref: TMP-I-00233
+  norm: تربة جده شكر
 translation:
   ja: ムハンマド・ブン・ブダイド・ブン・シュクル・アル＝ハサニー・アル＝マッキー、隊長（カーイド）。873年ムハッラム月7日木曜日の朝、バトン・マッルのマスジド・アル＝ファトフの近くで殺された。マッカの主アル＝ジャマール・ムハンマド・ブン・バラカートが、本項主の母方の叔父アフマド・ブン・クファイフともども同時に彼を討ったのである。二人はその日のうちにマッカへ運ばれ、金曜日の夜にアル＝マアラーの、彼の祖父シュクルの墓廟に葬られた。人々は彼の死を惜しんだ。
   en: 'Muḥammad b. Budayd b. Shukr al-Ḥasanī al-Makkī, the qāʾid (commander). He was killed on the morning of Thursday 7 Muḥarram 873 near Masjid al-Fatḥ in Baṭn Marr: the lord of Mecca, al-Jamāl Muḥammad b. Barakāt, struck him down together with the subject''s maternal uncle Aḥmad b. Qufayf at one and the same time. The two were carried to Mecca in what remained of their day and buried on the eve of Friday at al-Muʿallā, in the turba of his grandfather Shukr; and people grieved for him.'

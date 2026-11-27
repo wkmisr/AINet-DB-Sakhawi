@@ -9,52 +9,43 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00101
-    quote: الأندلسي
-    norm: الاندلسي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: shuhrah
-    quote: بالجيادي
-    norm: الجيادي
     label: الجيادي
+    mention: m7
   - id: n4
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n5
     type: nasab
-    quote: يوسف
     by: rule
-    ref: TMP-P-000895
+    mention: m2
   - id: n6
     type: nasab
-    quote: العباس
     by: rule
+    mention: m3
   - id: n7
     type: nasab
-    quote: عيسى
     by: rule
-    norm: عيسي
+    mention: m4
 death:
   id: d
   date:
     ah: 847-12
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: سنة
+  - mention: m8
+  mention: m10
 relations:
 - id: r1
   type: kin
   subtype: father
   active: TMP-P-000895
   passive: AIND-D05692
-  quote: null
   note:
     ja: 'TMP発行ルール（Waka 裁定 §E-1 (a)、2026-09-03: 裸の名で記された近親も本項主のナサブから復元した形で TMP-P を発行）。復元形「يوسف بن العباس بن عيسى الأندلسي الأصل المكي المؤدب」（原文「المؤدب والده」。「ويعرف بالجيادي」は本項主に付く呼称のため復元形に含めない）。'
   phrase: يوسف
@@ -62,24 +53,69 @@ events:
 - id: e1
   type: residence
   places:
-  - ref: gn:104515
-    quote: بمكة
-    norm: مكة
-  quote: null
+  - mention: m8
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09211
-    role: mentioner
+  - role: mentioner
     cert: low
-    quote: ابن فهد
-  quote: أرخه
+    mention: m12
   note:
     en: Recorded his death.
     ja: 第三者による言及・記録(Pattern A)。没年が871以前のため التقي محمد بن فهد(#AIND-D09211، d.871)に帰属可能だが、النجم عمر(#AIND-D05979)の年代記も同時期を遡及的に収録しうるため確定はしない。既存repo運用(没年≤871は D09211)を踏襲。cert=low。
   trigger: rule
-  norm: ارخه
   phrase: ابن فهد
+  mention: m11
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: TMP-P-000895
+  quote: يوسف
+- id: m3
+  kind: name
+  quote: العباس
+- id: m4
+  kind: name
+  quote: عيسى
+  norm: عيسي
+- id: m5
+  kind: name
+  ref: TMP-N-00101
+  quote: الأندلسي
+  norm: الاندلسي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: name
+  quote: بالجيادي
+  norm: الجيادي
+- id: m8
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m9
+  kind: month
+  value: 12
+  quote: ذي الحجة
+- id: m10
+  kind: year
+  value: '847'
+  quote: سنة
+- id: m11
+  kind: source
+  quote: أرخه
+  norm: ارخه
+- id: m12
+  kind: person
+  ref: AIND-D09211
+  quote: ابن فهد
 translation:
   ja: アリ・ブン・ユースフ・ブン・アル＝アッバース・ブン・イーサー。アンダルスに出自を持つマッカの人。父親は教育者（ムアッディブ）であった。アル＝ジヤーディーとして知られる。ヒジュラ暦847年ズー・アル＝ヒッジャ月にマッカで没した。イブン・ファハドがその死を記録している。
   en: ʿAlī b. Yūsuf b. al-ʿAbbās b. ʿĪsā, of Andalusian origin, of Mecca. His father was a tutor (al-Muʾaddib). He was known as al-Jayyādī. He died in Mecca in Dhu al-Hijjah, in the year 847 AH. Ibn Fahd recorded his death.

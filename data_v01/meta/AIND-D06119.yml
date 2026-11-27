@@ -9,21 +9,18 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00076
-    quote: السعدي
+    mention: m3
   - id: n2
     type: nisbah
-    ref: TMP-N-00606
-    quote: الطائفي
-    norm: الطاءفي
+    mention: m4
   - id: n3
     type: ism
-    quote: غانم
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: مقبول
     by: rule
+    mention: m2
 persons:
 - id: p1
   label: مقبول السعدي الطائفي
@@ -34,7 +31,7 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q471116
+  active: m5
   passive: AIND-D06119
   methods:
   - TMP-S-00003
@@ -44,14 +41,11 @@ relations:
       ah: 824
       type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m6
     note:
       ja: 「ممن سمع من شيخنا بمكة في سنة أربع وعشرين المسلسل وغيره」＝824年（年精度、1421-01-15 開始）メッカでイブン・ハジャルから『المسلسل』等を聴聞。
   works:
   - ref: TMP-T-00019
-  quote: شيخنا
   note:
     ja: شيخنا＝イブン・ハジャル（wd:Q471116）。初版の field（الحديث）は原文に根拠がないため除去（規則2 準用）。
 - id: r2
@@ -59,9 +53,37 @@ relations:
   subtype: father
   active: AIND-D06119#p1
   passive: AIND-D06119
-  quote: null
   note:
     ja: '規則3。初版の TMP-P-000000（無効番号）を除去。父は裸名＋ニスバで識別要素なく corpus に本伝なし → #NEEDID。'
+mentions:
+- id: m1
+  kind: name
+  quote: غانم
+- id: m2
+  kind: name
+  quote: مقبول
+- id: m3
+  kind: name
+  ref: TMP-N-00076
+  quote: السعدي
+- id: m4
+  kind: name
+  ref: TMP-N-00606
+  quote: الطائفي
+  norm: الطاءفي
+- id: m5
+  kind: person
+  ref: wd:Q471116
+  quote: شيخنا
+- id: m6
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
+- id: m7
+  kind: year
+  value: '824'
+  quote: سنة
 translation:
   ja: ガーニム・ブン・マクブール・アッ＝サアディー・アッ＝ターイフィー。824年にメッカで我らの師（イブン・ハジャル）から『アル＝ムサルサル』その他を聴聞した者の一人。
   en: Ghānim b. Maqbūl al-Saʿdī al-Ṭāʾifī. One of those who heard al-Musalsal and other works from our shaykh (Ibn Ḥajar) in Mecca in the year 824.

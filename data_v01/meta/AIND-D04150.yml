@@ -9,26 +9,24 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00160
-    quote: المنوفي
+    mention: m4
   - id: n2
     type: ism
-    quote: عبد القادر
     by: rule
+    mention: m1
   - id: n3
     type: nasab
-    quote: علي
     by: rule
-    ref: TMP-P-000935
+    mention: m2
   - id: n4
     type: nasab
-    quote: عبد الرحمن
     by: rule
+    mention: m3
 relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m7
   passive: AIND-D04150
   methods:
   - TMP-S-00025
@@ -40,52 +38,86 @@ relations:
       ah: 892-06
       type: learning
     places:
-    - ref: TMP-L-00254
-      quote: بمنوف
-      norm: منوف
+    - mention: m8
   works:
   - ref: TMP-T-00110
-  quote: لقيني
   note:
     ja: عمدة الأحكام = عمدة الأحكام للمقدسي（ID-Master 登録の العمدة TMP-T-00110）。منوف（ミヌーフ、デルタ中部の町）は ID-Master 未登録 → 新規 TMP-L-00254。
   phrase: لقيني بمنوف في جمادى الثانية سنة اثنتين وتسعين فقرأ على الباب الأول من عمدة الأحكام قراءة حسنة وكتبت له اجازة
 - id: r2
   type: kin
   subtype: father
-  active: TMP-P-000935
+  active: m6
   passive: AIND-D04150
   summary:
     ar: علي، والخياط أبوه
-  quote: أبوه
   note:
     ja: 父 علي بن عبد الرحمن المنوفي الخياط（ナサブ＋ニスバ＋職）。corpus 本伝なし → 新規 TMP-P-000935（§E-1(a)）。初版の TMP-P-000530 は汚染番号。
-  norm: ابوه
 states:
 - id: s1
   type: office
-  ref: TMP-O-00029
   places:
-  - ref: TMP-L-00254
-    quote: بمنوف
-    norm: منوف
-  quote: معلم الأبناء
+  - mention: m8
   note:
     ja: 子供の教師（初等教師）。ID-Master 未登録（معلم الرمح・معلم الدلالين は別）→ 新規 TMP-O-00245。
-  norm: معلم الابناء
+  mention: m5
 - id: s2
   type: status
   label: رأيت من يثني على خيره
   label_latn: raʾaytu man yuthnī ʿalā khayrih
-  quote: رأيت من يثني على خيره
-  norm: رايت من يثني علي خيره
+  mention: m11
 events:
 - id: e1
   type: residence
   places:
-  - ref: TMP-L-00254
-    quote: بمنوف
-    norm: منوف
-  quote: null
+  - mention: m8
+  mention: null
+mentions:
+- id: m1
+  kind: name
+  quote: عبد القادر
+- id: m2
+  kind: name
+  ref: TMP-P-000935
+  quote: علي
+- id: m3
+  kind: name
+  quote: عبد الرحمن
+- id: m4
+  kind: name
+  ref: TMP-N-00160
+  quote: المنوفي
+- id: m5
+  kind: office
+  ref: TMP-O-00029
+  quote: معلم الأبناء
+  norm: معلم الابناء
+- id: m6
+  kind: person
+  ref: TMP-P-000935
+  quote: أبوه
+  norm: ابوه
+- id: m7
+  kind: person
+  ref: wd:Q4120128
+  quote: لقيني
+- id: m8
+  kind: place
+  quote: بمنوف
+  ref: TMP-L-00254
+  norm: منوف
+- id: m9
+  kind: month
+  value: 6
+  quote: جمادى الثانية
+- id: m10
+  kind: year
+  value: '892'
+  quote: سنة
+- id: m11
+  kind: office
+  quote: رأيت من يثني على خيره
+  norm: رايت من يثني علي خيره
 translation:
   ja: アブドゥルカーディル・ブン・アリー・ブン・アブドゥッラフマーン・アル＝ムヌーフィー。ムヌーフ（ミヌーフ）における子供たちの教師であり、彼の父は仕立屋であった。彼はヒジュラ暦892年ジュマーダー・アル＝アーヒラ（第2ジュマーダー月）にムヌーフで私（サハーウィー）に面会し、『ウムダ・アル＝アフカーム』の第1章を優れた朗読で私に読み聞かせたので、彼にイジャーザ（伝承許可）を書いて与えた。彼の善行を称賛する者を目にした。
   en: ʿAbd al-Qādir b. ʿAlī b. ʿAbd al-Raḥmān al-Munūfī. A teacher of children there (in Minūf), whose father was a tailor. He met me (al-Sakhāwī) in Minūf in Jumādā al-Thāniya, year 892, and read to me the first chapter of 『ʿUmdat al-Aḥkām』 with an excellent recitation, for which I wrote him an ijāza. I have seen those who praise his goodness.

@@ -9,26 +9,22 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00554
-    quote: الطلخاوي
+    mention: m4
   - id: n2
     type: nisbah
-    ref: TMP-N-00128
-    quote: الجوجري
+    mention: m5
   - id: n3
     type: ism
-    quote: عثمان
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: أحمد
     by: rule
-    ref: TMP-P-001296
-    norm: احمد
+    mention: m2
   - id: n5
     type: nasab
-    quote: عباس
     by: rule
+    mention: m3
 persons:
 - id: p1
   label: عباس
@@ -39,24 +35,20 @@ relations:
 - id: r1
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m6
   passive: AIND-D04836
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:360630
-      quote: بالقاهرة
-      norm: القاهرة
+    - mention: m7
     phrase: ممن سمع مني بالقاهرة
-  quote: مني
 - id: r2
   type: kin
   subtype: father
   active: TMP-P-001296
   passive: AIND-D04836
-  quote: null
   note:
     ja: 見出しナサブから1段ずらして復元（統一規則3）。corpus に本伝なし・ID-Master 未登録のため仮番号 TMP-P-001296 を発行（汎用名、TSV に流用禁止を明記）。
   phrase: أحمد بن عباس الطلخاوي
@@ -65,7 +57,35 @@ relations:
   subtype: grandfather
   active: AIND-D04836#p1
   passive: AIND-D04836
-  quote: null
+mentions:
+- id: m1
+  kind: name
+  quote: عثمان
+- id: m2
+  kind: name
+  ref: TMP-P-001296
+  quote: أحمد
+  norm: احمد
+- id: m3
+  kind: name
+  quote: عباس
+- id: m4
+  kind: name
+  ref: TMP-N-00554
+  quote: الطلخاوي
+- id: m5
+  kind: name
+  ref: TMP-N-00128
+  quote: الجوجري
+- id: m6
+  kind: person
+  ref: wd:Q4120128
+  quote: مني
+- id: m7
+  kind: place
+  quote: بالقاهرة
+  ref: gn:360630
+  norm: القاهرة
 translation:
   ja: ウスマーン・ブン・アフマド・ブン・アッバース・アッ＝タルハーウィー・アル＝ジャウジャリー。カイロで私（サハーウィー）から聴聞した者の一人。
   en: ʿUthmān b. Aḥmad b. ʿAbbās al-Ṭalkhāwī al-Jawjarī. He was among those who heard from me (al-Sakhāwī) in Cairo.

@@ -9,64 +9,91 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-02006
-    quote: الخزاعي
+    mention: m5
   - id: n2
     type: nisbah
-    ref: TMP-N-00002
-    quote: المكي
+    mention: m6
   - id: n3
     type: ism
-    quote: علي
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: حسين
     by: rule
-    ref: AIND-D02749
+    mention: m2
   - id: n5
     type: nasab
-    quote: محمد
     by: rule
+    mention: m3
   - id: n6
     type: nasab
-    quote: نافع
     by: rule
+    mention: m4
 relations:
 - id: r1
   type: kin
   subtype: brother
-  active: TMP-P-001058
+  active: m7
   passive: AIND-D05129
-  quote: محمد الآتي
   note:
     ja: 兄弟 محمد بن حسين بن محمد بن نافع الخزاعي المكي。「الآتي」だが corpus の محمد 部に見出しを特定できず（「محمد بن حسين بن محمد بن نافع」で本部・索引とも不検出）、ID-Master 未登録 → 本項見出しから祖父名まで復元した形で TMP-P を新規発行（仮番号 TMP-P-001058）＋欠番ウォッチ。初版の汚染番号 TMP-P-000529（汎用 محمد）流用を解消。
-  norm: محمد الاتي
   phrase: أخو محمد الآتي
 - id: r2
   type: kin
   subtype: father
   active: AIND-D02749
   passive: AIND-D05129
-  quote: null
   note:
     ja: '父（見出しナサブから）＝ #AIND-D02749（حسين بن محمد بن نافع البدر الخزاعي المكي . دخل بلاد العجم والهند … مات … بمكة في ربيع الأول سنة خمس وثمانين）。ナサブ3代・ニスバ الخزاعي المكي が完全一致。原文に父への明示言及はないため補填として注記。'
   phrase: حسين بن محمد بن نافع
 - id: r3
   type: scholarly
   subtype: teacher
-  active: wd:Q4120128
+  active: m8
   passive: AIND-D05129
   methods:
   - TMP-S-00003
   context:
   - type: learning
     places:
-    - ref: gn:104515
-      quote: بمكة
-      norm: مكة
+    - mention: m9
     phrase: ممن سمع مني بمكة
+mentions:
+- id: m1
+  kind: name
+  quote: علي
+- id: m2
+  kind: name
+  ref: AIND-D02749
+  quote: حسين
+- id: m3
+  kind: name
+  quote: محمد
+- id: m4
+  kind: name
+  quote: نافع
+- id: m5
+  kind: name
+  ref: TMP-N-02006
+  quote: الخزاعي
+- id: m6
+  kind: name
+  ref: TMP-N-00002
+  quote: المكي
+- id: m7
+  kind: person
+  ref: TMP-P-001058
+  quote: محمد الآتي
+  norm: محمد الاتي
+- id: m8
+  kind: person
+  ref: wd:Q4120128
   quote: مني
+- id: m9
+  kind: place
+  quote: بمكة
+  ref: gn:104515
+  norm: مكة
 translation:
   ja: アリー・ブン・フサイン・ブン・ムハンマド・ブン・ナーフィウ・アル＝フザーイー・アル＝マッキー。後述のムハンマドの兄弟。マッカで私（サハーウィー）から聴聞した者の一人。
   en: ʿAlī b. Ḥusayn b. Muḥammad b. Nāfiʿ al-Khuzāʿī al-Makkī, brother of Muḥammad (mentioned below). He was among those who heard from me (al-Sakhāwī) in Mecca.

@@ -9,12 +9,11 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-00527
-    quote: الميقاتي
+    mention: m2
   - id: n2
     type: ism
-    quote: خشقدم
     by: rule
+    mention: m1
 persons:
 - id: p1
   label: والد خشقدم الميقاتي
@@ -25,19 +24,32 @@ relations:
   subtype: father
   active: AIND-D02832#p1
   passive: AIND-D02832
-  quote: null
   note:
     ja: '父の名は原文に無い（単名の項）→ #NEEDID（規則3、Waka 裁定 2026-10-21 B124-128 ★1）。'
 sources:
 - id: c1
   persons:
-  - ref: AIND-D08351
-    quote: ابن عزم
-  quote: قال
+  - mention: m4
   note:
     ja: 'Pattern A。ابن عزم＝本伝 #AIND-D08351（合同索引 D12540 は規則11により使わない。Waka 裁定 2026-10-21 B124-128 ★2）。原文は「قال ابن عزم صاحبنا .」で終わり、発言内容は記されていない（刊本のまま。何も補わない＝規則45）。初版の friend relation（#AIND-D12540）は「صاحبنا」＝サハーウィーの友人を本項主との関係に読み替えた誤りのため除去。'
   trigger: rule
   phrase: قال ابن عزم صاحبنا
+  mention: m3
+mentions:
+- id: m1
+  kind: name
+  quote: خشقدم
+- id: m2
+  kind: name
+  ref: TMP-N-00527
+  quote: الميقاتي
+- id: m3
+  kind: source
+  quote: قال
+- id: m4
+  kind: person
+  ref: AIND-D08351
+  quote: ابن عزم
 translation:
   ja: フシュカダム・アル＝ミーカーティー。我らの友人イブン・アズムが（彼について）述べた。
   en: Khushqadam al-Mīqātī. Our companion Ibn ʿAzm said (concerning him).

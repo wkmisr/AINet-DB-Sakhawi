@@ -9,109 +9,156 @@ name:
   elements:
   - id: n1
     type: nisbah
-    ref: TMP-N-01542
-    quote: القوصوني
+    mention: m5
   - id: n2
     type: laqab
-    quote: الشمس
+    mention: m4
   - id: n3
     type: ism
-    quote: محمد
     by: rule
+    mention: m1
   - id: n4
     type: nasab
-    quote: عبد الوهاب
     by: rule
-    ref: AIND-D04770
+    mention: m2
   - id: n5
     type: nasab
-    quote: صدقة
     by: rule
+    mention: m3
 birth:
   id: b
   date:
     ah: 834
   note:
     ja: 「ولد سنة أربع وثلاثين وثمانمائة」。834年＝1430-09-28 開始（年精度 1430）。出生地の明記なし。
-  quote: سنة
+  mention: m9
 relations:
 - id: r1
   type: kin
   subtype: father
-  active: AIND-D04770
+  active: m7
   passive: AIND-D07912
   summary:
     ar: عبد الوهاب بن صدقة القوصوني الطبيب
-  quote: أبوه
   note:
     ja: '「الطبيب ابن الطبيب الماضي أبوه」＝#AIND-D04770「عبد الوهاب بن صدقة القوصوني القاهري الطبيب والد الرئيس الشمس محمد … ومات سنة خمس وثلاثين」（収録済み。D04770 側に son relation #AIND-D07912 あり）。「ومات أبوه في التي تليها」＝父は翌835年に没（D04770 と一致。父の death は本項では作らない）。初版の #NEEDID を解消。'
-  norm: ابوه
 - id: r2
   type: kin
   subtype: maternal_uncle
-  active: AIND-D04458
+  active: m8
   passive: AIND-D07912
   summary:
     ar: الجمال عبد الله بن عبد الحق
-  quote: الجمال بن عبد
   note:
     ja: 「وابن أخت الجمال بن عبد الحق」＝母方の叔父（خال）。الجمال بن عبد الحق＝#AIND-D04458「عبد الله بن عبد الحق بن إبراهيم … رئيس الجرائحية جمال الدين بن رئيس الأطباء شمس الدين القاهري ويعرف بابن عبد الحق」（未収録。ラカブ＋通称＋医家の家系の3点で閉合、規則57）。初版の subtype「uncle」（#NEEDID）→ maternal_uncle（repo 統制語彙）。
 states:
 - id: s1
   type: office
-  ref: TMP-O-00108
-  quote: الطبيب
   note:
     ja: 「الطبيب ابن الطبيب」。TMP-O-00108（طبيب、実体一致＝維持）。初版の placeName القاهرة（原文になし）を除去（規則22(1)）。
+  mention: m6
 - id: s2
   type: office
-  ref: TMP-O-00314
-  quote: الرياسة
   note:
     ja: '「وتنزل في الجهات ثم ترقى إلى الرياسة」＝医師の長（رياسة الطب）＝ID-Master TMP-O-00314（رياسة الطب | رئيس الأطباء）。父の項 D04770・索引 D11953 でも「الرئيس」「الريس」。初版の #NEEDID を解消、placeName القاهرة を除去。'
+  mention: m11
 events:
 - id: e1
   type: learning
   methods:
   - TMP-S-00027
-  quote: فحفظ
   trigger: rule
-  norm: حفظ
   phrase: فنشأ فحفظ القرآن وغيره ، وتدرب في الصناعة وتميز فيها ودار على المرضى
+  mention: m10
 - id: e3
   type: other
   places:
-  - ref: TMP-I-00123
-    quote: جامع الخطيري
-  quote: وأنشأ دارا بالقرب من جامع الخطيري ثم احتاج لبيعها
+  - mention: m13
   note:
     ja: جامع الخطيري（ブーラーク）＝ID-Master TMP-I-00123。初版の placeName القاهرة（原文になし）を原文の施設名に置換（規則22(2)）。
-  norm: انشا دارا بالقرب من جامع الخطيري ثم احتاج لبيعها
+  phrase: وأنشأ دارا بالقرب من جامع الخطيري ثم احتاج لبيعها
+  mention: null
 - id: e4
   type: other
   places:
-  - ref: TMP-L-00383
-    quote: حارة زويلة
-  - ref: TMP-L-00384
-    quote: الخرنفش
-  quote: وكذا أنشأ بيتا برأس حارة زويلة بالقرب من الخرنفش
+  - mention: m14
+  - mention: m15
   note:
     ja: حارة زويلة（カイロのズワイラ街区。D10255「ولد … بحارة زويلة」にも出現）・الخرنفش（カイロのハランフシュ地区）は ID-Master 未登録 → 仮 TMP-L-00383・04。
-  norm: كذا انشا بيتا براس حارة زويلة بالقرب من الخرنفش
+  phrase: وكذا أنشأ بيتا برأس حارة زويلة بالقرب من الخرنفش
+  mention: null
 sources:
 - id: c1
   persons:
-  - ref: AIND-D09828
-    quote: المظفر الأمشاطي
-    norm: المظفر الامشاطي
-  quote: وممن نوه به المظفر الأمشاطي
+  - mention: m12
   note:
     ja: 'المظفر الأمشاطي＝#AIND-D09828「محمود بن أحمد بن حسن بن إسماعيل … مظفر الدين … ويعرف كهو بابن الأمشاطي」（医師、転送見出し D09948「مظفر الامشاطى . في محمود بن أحمد بن حسن」。الجمال الأمشاطي #AIND-D10458 とは別人）。「نوه به」＝推挙・称揚＝主人でない者による引き立て（規則53）→ patron relation でなく event＋persName。初版の patron relation（#NEEDID）を置換。'
-  norm: ممن نوه به المظفر الامشاطي
+  phrase: وممن نوه به المظفر الأمشاطي
+  mention: null
 notes:
 - text: 'ニスバ索引 #AIND-D11953「القوصوني نسبة لجامع قوصون محمد بن عبد الوهاب بن صدقة الريس وأبوه …」＝本項主（القوصوني はカイロの جامع قوصون に由来）。母方祖父＝#AIND-D03516「عبد الحق بن إبراهيم شمس الدين الطبيب والد الجمال عبد الله . ممن ولي رياسة الطب」（相手側が本項主を名指ししないため note）。居住地はニスバ・施設からの推定になるため residence event を立てない（規則22(1)）。'
   lang: ja
   type: editorial
+mentions:
+- id: m1
+  kind: name
+  quote: محمد
+- id: m2
+  kind: name
+  ref: AIND-D04770
+  quote: عبد الوهاب
+- id: m3
+  kind: name
+  quote: صدقة
+- id: m4
+  kind: name
+  quote: الشمس
+- id: m5
+  kind: name
+  ref: TMP-N-01542
+  quote: القوصوني
+- id: m6
+  kind: office
+  ref: TMP-O-00108
+  quote: الطبيب
+- id: m7
+  kind: person
+  ref: AIND-D04770
+  quote: أبوه
+  norm: ابوه
+- id: m8
+  kind: person
+  ref: AIND-D04458
+  quote: الجمال بن عبد
+- id: m9
+  kind: year
+  value: '834'
+  quote: سنة
+- id: m10
+  kind: event
+  quote: فحفظ
+  norm: حفظ
+- id: m11
+  kind: office
+  ref: TMP-O-00314
+  quote: الرياسة
+- id: m12
+  kind: person
+  ref: AIND-D09828
+  quote: المظفر الأمشاطي
+  norm: المظفر الامشاطي
+- id: m13
+  kind: place
+  quote: جامع الخطيري
+  ref: TMP-I-00123
+- id: m14
+  kind: place
+  quote: حارة زويلة
+  ref: TMP-L-00383
+- id: m15
+  kind: place
+  quote: الخرنفش
+  ref: TMP-L-00384
 translation:
   ja: ムハンマド・ブン・アブドゥルワッハーブ・ブン・サダカ、アッ＝シャムス・アル＝クースーニー、医師、医師の子で、その父は既述。アル＝ジャマール・ブン・アブドゥルハックの姉妹の子。834年に生まれ、父はその翌年に没した。成長するとクルアーンなどを暗記し、医術の修練を積んでそれに秀で、患者を回診し、諸職に就き、ついで（医師の）長（リヤーサ）に昇った。人々は彼の落ち着き・礼節・分別・治療の巧みさを称えた。彼を引き立てた者にアル＝ムザッファル・アル＝アムシャーティーがいる。彼はアル＝ハティーリー・モスクの近くに邸宅を建てたが、のちに売却せざるを得なくなった。同じくハーラト・ズワイラの入口、アル＝ハランフシュの近くにも家を建てた。
   en: Muḥammad b. ʿAbd al-Wahhāb b. Ṣadaqa, al-Shams al-Qūṣūnī, the physician, son of the physician whose entry came above, and sister's son of al-Jamāl b. ʿAbd al-Ḥaqq. He was born in the year 834, and his father died in the following year. He grew up, memorized the Qurʾān and other texts, trained in the craft (of medicine), excelled in it, made the rounds of the sick, held various posts, and then rose to the headship (of the physicians). People praised his composure, manners, intelligence and skill in treatment. Among those who spoke highly of him was al-Muẕaffar al-Amshāṭī. He built a house near the Khaṭīrī mosque but later had to sell it, and likewise built a house at the head of Ḥārat Zuwayla near al-Kharanfish.
