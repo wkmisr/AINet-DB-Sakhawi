@@ -28,4 +28,4 @@
 - `persons_registry.tsv` は Google シート「1. Sakhawi_PersonList」（2026-11-23 取得）から `init` で一度だけ作った。担当者・Token・生没年・学派の列は移していない。
 - AIND番号の人物の名前は、処理済みレコードがあればその `persName type="full"`（4,295件）、なければ人物一覧の名前（9,763件）、どちらもなければ見出し（2件）から入れた。レコード側の名前は、YAMLへの移行のときに外す（典拠表だけに置く）。
 - `import_idmaster.py` で Google シート「2. ID-Master」（2026-11-23 取得）を取り込んだ。Person 行のうちAIND番号のものは、その人物の別名と注記に移した。注記に「旧TMP-P-…から統合」とあるものは、旧番号を `merged` の行として復元した。
-- そのまま取り込めなかった行は `import_idmaster_rulings.tsv` にある（裁定が済んだら消す）。
+- そのまま取り込めなかった20行は、2026-11-27 に Waka が裁定した。裁定の記録は `docs/archive/authority_audit_20261123/import_idmaster_rulings_resolved.tsv`、変更は各行の `history` にある。
