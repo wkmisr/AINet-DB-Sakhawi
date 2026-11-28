@@ -273,6 +273,25 @@ def extract_used(xml_dirs, idmaster_path, precheck_path=None):
                     if u != uri:
                         rec(u)["idm_notes"].append(f"{idv or '-'} {ar}")
 
+    # (2b) 典拠表の same_as 欄(人物の外部 ID はレコードに書かず、ここにだけ持つ。WK 裁定 2026-11-28)
+    for fn, kind_of in (("persons_registry.tsv", lambda r: "P"),
+                        ("entities_registry.tsv", lambda r: CAT_KIND.get(r.get("category", "")))):
+        path = os.path.join(REPO, "authority", fn)
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f, delimiter="\t"):
+                for tok in (row.get("same_as") or "").split():
+                    uri = uri_of(tok)
+                    if not uri:
+                        continue
+                    r = rec(uri)
+                    name = row.get("name_ar") or row.get("label_ar") or ""
+                    r["idmaster"].append(f"same_as|{row['id']}|{' '.join(name.split()[:6])}")
+                    k = kind_of(row)
+                    if k:
+                        r["kinds"][k] += 1
+
     # (3) precheck の拒否・許可リスト
     mod = load_precheck_module(precheck_path)
     if mod is not None:
