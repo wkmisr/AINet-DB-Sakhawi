@@ -4,14 +4,14 @@
 
 | 道具（4.2節） | コマンド |
 |---|---|
-| 1 名前の検索 | `idtool.py search "الشرف بن مفلح"` |
-| 2 系譜のずらし | `idtool.py genealogy AIND-D01906 father`（father, son, brother, grandfather, paternal_uncle, cousin, siblings_child など） |
+| 1 名前の検索 | `idtool.py search "الشرف المناوي"` |
+| 2 系譜のずらし | `idtool.py genealogy AIND-D06528 father`（father, son, brother, grandfather, paternal_uncle, cousin, siblings_child など） |
 | 3 逆引き | `idtool.py reverse AIND-D04627`（XMLの参照、本文中の「ابن X」形の言及） |
-| 4 隣接する伝記 | `idtool.py neighbours AIND-D10588 -n 2` |
-| 5 伝記の閲覧 | `idtool.py read AIND-D10588` |
+| 4 隣接する伝記 | `idtool.py neighbours AIND-D06501 -n 2` |
+| 5 伝記の閲覧 | `idtool.py read AIND-D06501` |
 | 6 典拠表の検索 | `idtool.py authority "ابن الجزري"`（TMP-P と Wikidata の人物。`--all` で伝記のある人物の別名も引く。典拠表の注記も返す。読み先は main の `authority/persons_registry.tsv`） |
 | 全文の検索（2026-11-29 追加） | `idtool.py text "بابن حسان" ["二つ目の語句" …]`（すべての語句を本文に含む項。通称が見出しの外にしか出ない人物を探す。指針 6.3 の `text`） |
-| 事前検索（1＋2＋「الذي قبله」） | `idtool.py search "حفيد الذي قبله" --record AIND-D10588 [--kind brother]` |
+| 事前検索（1＋2＋「الذي قبله」） | `idtool.py search "أخو الذي قبله" --record AIND-D06501 [--kind brother]` |
 
 出力は1行1件の JSON。`features AIND-Dxxxxx` で、見出しから取り出した名前要素を確認できる。転送の見出し・統合済みの番号は、結果に `status` と `target`（転送先・統合先）が付く（2026-11-29 追加）。
 
@@ -31,7 +31,7 @@
 
 主担当が「見つからない」「対象外」とした言及の検証は、`identify.system.md` をそのまま使って検証役に探し直させる（設計書 4.4節）。
 
-指示文の例には、試行の10伝（`AIND_gold10_form`）の本文を使っていない。指針と指示文を書くときにも10伝の本文は読んでいない（取り決め集の語が10伝に出るかどうかだけを機械で確かめた）。
+指示文の例には、試行の10伝（`AIND_gold10_form`）の本文を使っていない。指針と指示文を書くときにも、10伝は見出しのほかは読んでいない（取り決め集の語が10伝に出るかどうかだけを機械で確かめた）。この README の例も10伝以外に替えた。
 
 まだないもの：三社を呼ぶ実行スクリプト（入力の組み立て、道具の呼び出しの記録、上限の管理）、採点スクリプト、対象外の一覧。
 

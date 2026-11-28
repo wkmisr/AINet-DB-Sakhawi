@@ -1,13 +1,13 @@
 """Command-line front end to the identification tools (design v5, sec. 4.2).
 
-  python3 tools/identify/idtool.py search "الشرف بن مفلح" [--record AIND-D01906] [--kind father] [-k 20]
-  python3 tools/identify/idtool.py genealogy AIND-D01906 father
-  python3 tools/identify/idtool.py neighbours AIND-D10588 [-n 2]
-  python3 tools/identify/idtool.py read AIND-D10588
+  python3 tools/identify/idtool.py search "الشرف المناوي" [--record AIND-D06528] [--kind father] [-k 20]
+  python3 tools/identify/idtool.py genealogy AIND-D06528 father
+  python3 tools/identify/idtool.py neighbours AIND-D06501 [-n 2]
+  python3 tools/identify/idtool.py read AIND-D06501
   python3 tools/identify/idtool.py reverse AIND-D04627
   python3 tools/identify/idtool.py authority "ابن الجزري" [--all]
   python3 tools/identify/idtool.py text "ويعرف بابن حسان" ["second phrase" ...] [--record AIND-D07217]
-  python3 tools/identify/idtool.py features AIND-D01906
+  python3 tools/identify/idtool.py features AIND-D06528
 
 With --record, `search` runs the full pre-search (name + genealogy shift + "الذي قبله"), excluding
 the record itself. Output is JSON lines so that a model harness can read it.
