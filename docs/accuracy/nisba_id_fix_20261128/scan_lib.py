@@ -30,3 +30,18 @@ for fp in glob.glob(f'{REPO}/Individuals/*/*.xml'):
     t=ET.parse(fp).getroot()
     D=t.get('{http://www.w3.org/XML/1998/namespace}id')
     full=''
+    # （2026-11-28 校閲で補った。元のファイルはここで切れていた）
+    for el in t.iter('persName'):
+        if el.get('type')=='full': full=el.text or ''
+    for el in t.iter('persName'):
+        if el.get('type')!='nisbah': continue
+        r=el.get('ref')
+        if r: occ.append((el.text or '', r.lstrip('#'), D, full))
+        else: noref.append((el.text or '', D, full))
+if __name__=='__main__':
+    mis=[(w,i,D) for w,i,D,_ in occ if i in reg and norm(w) not in {norm(re.sub(r'\s*\(.*?\)\s*','',f)) for f in reg_forms(reg[i])}]
+    w2=collections.defaultdict(set)
+    for w,i,D,_ in occ: w2[norm(w)].add(i)
+    dead=[(w,i,D) for w,i,D,_ in occ if i not in reg or reg[i]['status']!='active']
+    print('nisbah',len(occ)+len(noref),'noref',len(noref),'mismatch',len(mis),
+          'split',sum(1 for v in w2.values() if len(v)>1),'non-active or unknown ref',len(dead))
