@@ -147,6 +147,10 @@ def build():
             if x['id'] in R or x['id'] in EN: problems.append(f'{x["id"]}: removed number is in use again')
     for rec, x in sorted(X.items()):
         if x['corresp']: problems.append(f'{rec}: the record has a corresp attribute (external IDs go to same_as in the registry)')
+    same = {tok: k for reg in (R, EN) for k, r in reg.items() for tok in (r.get('same_as') or '').split()}
+    for rec, x in sorted(X.items()):
+        for v in sorted(x['refs'] & set(same)):
+            problems.append(f'{rec}: points at {v}, which is the same_as of {same[v]} (point at {same[v]} instead)')
     cited = {}
     for rec, x in X.items():
         for v in x['refs']:
