@@ -524,16 +524,50 @@ Index.reverse = reverse
 # ---- authority search (4.2 no. 6) -------------------------------------------------------------
 
 def load_registry(path=None):
-    """persons_registry.tsv (authority/ on the authority-registry branch, PR #120, not yet on main).
-    Falls back to `git show` of that branch."""
-    import subprocess, csv, io
+    """authority/persons_registry.tsv (on main since PR #120). Cells may contain line breaks."""
+    import csv
+    csv.field_size_limit(10 ** 8)
     path = path or os.path.join(REPO, 'authority', 'persons_registry.tsv')
-    if os.path.exists(path):
-        txt = open(path, encoding='utf-8').read()
-    else:
-        txt = subprocess.run(['git', '-C', REPO, 'show', 'origin/authority-registry-20261123:authority/persons_registry.tsv'],
-                             capture_output=True, text=True).stdout
-    return list(csv.DictReader(io.StringIO(txt), delimiter='\t'))
+    with open(path, encoding='utf-8', newline='') as fh:
+        return list(csv.DictReader(fh, delimiter='\t'))
+
+
+def registry_row(self, pid):
+    """Registry status of one ID: {status, target, same_as, aliases} (None if the ID is not registered)."""
+    if not hasattr(self, 'reg_by_id'):
+        self.reg_by_id = {r['id']: r for r in load_registry()}
+    r = self.reg_by_id.get(pid)
+    if not r:
+        return None
+    return {k: r.get(k, '') for k in ('status', 'target', 'same_as', 'aliases') if r.get(k)}
+
+
+Index.registry_row = registry_row
+
+
+# ---- full-text search (guideline sec. 6: names that occur only in the body of an entry) ------
+
+def text_search(self, words, k=20, exclude=None):
+    """Entries whose full text contains every one of `words` (each a word or a phrase), after the same
+    normalisation as the name index. Returns (total, [(id, snippet)]) in corpus order."""
+    if not hasattr(self, 'ntext'):
+        self.ntext = {e['id']: ' ' + ' '.join(tokens(e['text'])) + ' ' for e in self.persons}
+    qs = [' ' + ' '.join(tokens(w)) + ' ' for w in words if w.strip()]
+    qs = [q for q in qs if q.strip()]
+    if not qs:
+        return 0, []
+    hits = []
+    for e in self.persons:
+        if exclude and e['id'] in exclude:
+            continue
+        t = self.ntext[e['id']]
+        if all(q in t for q in qs):
+            i = t.find(qs[0])
+            hits.append((e['id'], t[max(0, i - 60):i + len(qs[0]) + 90].strip()))
+    return len(hits), hits[:k]
+
+
+Index.text_search = text_search
 
 
 def authority_search(self, phrase, k=20, include_aind=False):
@@ -556,7 +590,8 @@ def authority_search(self, phrase, k=20, include_aind=False):
         if common:
             scored.append((sum(math.log(n / (self.reg_df[x] + 1)) for x in common), r))
     scored.sort(key=lambda kv: -kv[0])
-    return [(r['id'], round(s, 2), r.get('name_ar', ''), r.get('aliases', '')) for s, r in scored[:k]]
+    return [(r['id'], round(s, 2), r.get('name_ar', ''), r.get('aliases', ''), (r.get('note') or '')[:300])
+            for s, r in scored[:k]]
 
 
 Index.authority_search = authority_search

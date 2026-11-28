@@ -5,7 +5,8 @@
   python3 tools/identify/idtool.py neighbours AIND-D10588 [-n 2]
   python3 tools/identify/idtool.py read AIND-D10588
   python3 tools/identify/idtool.py reverse AIND-D04627
-  python3 tools/identify/idtool.py authority "ابن الجزري"
+  python3 tools/identify/idtool.py authority "ابن الجزري" [--all]
+  python3 tools/identify/idtool.py text "ويعرف بابن حسان" ["second phrase" ...] [--record AIND-D07217]
   python3 tools/identify/idtool.py features AIND-D01906
 
 With --record, `search` runs the full pre-search (name + genealogy shift + "الذي قبله"), excluding
@@ -22,9 +23,17 @@ def main():
     ap.add_argument('args', nargs='*')
     ap.add_argument('--record'); ap.add_argument('--kind'); ap.add_argument('-k', type=int, default=20)
     ap.add_argument('-n', type=int, default=1)
+    ap.add_argument('--all', action='store_true', help='authority: include persons with an entry (AIND)')
     a = ap.parse_args()
     ix = A.Index()
-    head = lambda p: {'id': p, 'heading': ix.persons[ix.pos[p]]['name']}
+    def head(p):
+        d = {'id': p, 'heading': ix.persons[ix.pos[p]]['name']}
+        r = ix.registry_row(p) or {}
+        if r.get('status') and r['status'] != 'active':      # transfer heading, merged or retired ID
+            d['status'] = r['status']
+            if r.get('target'):
+                d['target'] = r['target']
+        return d
     out = []
     if a.cmd == 'search':
         q = ' '.join(a.args)
@@ -43,7 +52,11 @@ def main():
         r = ix.reverse(a.args[0])
         out = [{'xml_refs': r['xml'], 'text_hits': r['text'], 'text_patterns': r['text_patterns']}]
     elif a.cmd == 'authority':
-        out = [{'id': i, 'score': s, 'name': n, 'aliases': al} for i, s, n, al in ix.authority_search(' '.join(a.args), k=a.k)]
+        out = [{'id': i, 'score': s, 'name': n, 'aliases': al, 'note': nt}
+               for i, s, n, al, nt in ix.authority_search(' '.join(a.args), k=a.k, include_aind=a.all)]
+    elif a.cmd == 'text':
+        total, hits = ix.text_search(a.args, k=a.k, exclude={a.record} if a.record else None)
+        out = [{'total': total, 'shown': len(hits)}] + [dict(head(p), snippet=sn) for p, sn in hits]
     elif a.cmd == 'features':
         f = ix.feat[a.args[0]]
         out = [{k: sorted(v) for k, v in f.items()} | {'nasab': A.nasab_list(ix.persons[ix.pos[a.args[0]]]['name'])}]

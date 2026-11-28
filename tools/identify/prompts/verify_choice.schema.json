@@ -1,0 +1,127 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "aind/verify-choice-output/0.1",
+ "title": "AIND verification by blind choice (guideline sec. 9)",
+ "type": "object",
+ "properties": {
+  "record": {
+   "type": "string",
+   "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+  },
+  "mention": {
+   "type": "string",
+   "pattern": "^m[0-9]+$"
+  },
+  "choice": {
+   "type": "string",
+   "pattern": "^(AIND-D[0-9]{5}[a-z]?|none|cannot_decide)$"
+  },
+  "certainty": {
+   "enum": [
+    "high",
+    "medium",
+    "low"
+   ]
+  },
+  "basis": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "pointer",
+     "nasab",
+     "laqab",
+     "kunya",
+     "nisba",
+     "shuhra",
+     "office",
+     "place",
+      "madhhab",
+     "date",
+     "kin",
+     "teacher_student",
+     "work",
+     "mutual",
+     "fixed_epithet",
+     "convention"
+    ]
+   },
+   "uniqueItems": true
+  },
+  "evidence": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "entry": {
+      "type": "string",
+      "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+     },
+     "quote": {
+      "type": "string",
+      "minLength": 1
+     }
+    },
+    "required": [
+     "entry",
+     "quote"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "standing": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+   }
+  },
+  "excluded": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+     },
+     "reason": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "reason"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "flags": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "transfer_followed",
+     "transfer_unresolved",
+     "index_entry",
+     "announced_entry_missing",
+     "pointer_inconsistent",
+     "spelling_differs",
+     "nasab_differs",
+     "durar_candidate",
+     "budget_exhausted",
+     "speaker_unclear",
+     "registry_row_doubtful"
+    ]
+   },
+   "uniqueItems": true
+  },
+  "note": {
+   "type": "string"
+  }
+ },
+ "required": [
+  "record",
+  "mention",
+  "choice"
+ ],
+ "additionalProperties": false
+}
