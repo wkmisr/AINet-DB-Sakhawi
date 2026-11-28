@@ -1,11 +1,11 @@
-"""典拠表の残りの整理（Waka 裁定 2026-11-28）。裁定表は rulings_20261128.json（45行）。
+"""典拠表の残りの整理（WK 裁定 2026-11-28）。裁定表は rulings_20261128.json（45行）。
 usage: python3 apply_20261128.py REPO
 A 法学派：分類 Madhhab を新設（4行）。B 本伝のある人物の wd は persons_registry の same_as。
 C 本伝のない人物の wd を登録、السمهودي は TMP-P-001088 のまま。D 既存 TMP と同じ gn・wd は TMP に付け替え、same_as に記録。
 E gn・wd を登録。F 同表記の重複の統合・退役・表記の直し。G 書式の崩れ、転送項への参照、分類 Other。
 """
 import sys, glob, re, csv, collections
-REPO = sys.argv[1]; DATE = '2026-11-28'; TAG = f'{DATE} Waka 裁定（典拠表の残り）: '
+REPO = sys.argv[1]; DATE = '2026-11-28'; TAG = f'{DATE} WK 裁定（典拠表の残り）: '
 csv.field_size_limit(10**9)
 def read(p):
     rows = list(csv.reader(open(p, encoding='utf-8', newline=''), delimiter='\t'))
@@ -82,7 +82,7 @@ for d in ('D00101', 'D01332'):
 padd('wd:Q471116', 'wd:Q39048909', 'علي بن عجلان', 'ʿAlī b. ʿAjlān（マッカのアミール、797年没）。本伝なし。D02463・D02481 の relation の相手')
 padd('wd:Q39048909', 'wd:Q764947', 'سعد الدين التفتازاني', 'al-Taftāzānī（792年没）。本伝なし。ニスバは TMP-N-00230')
 sub('D03437', '"wd:Q12188541"', '"#TMP-P-001088"', 1, 'rival の相手 wd:Q12188541 を #TMP-P-001088（السيد السمهودي）に付け替えた（同定が確実でないので TMP で保持、規則26）')
-P['TMP-P-001088'][pi['note']] += f' 【{DATE}】候補: wd:Q12188541（نور الدين السمهودي）。確証がないので TMP のまま保持（Waka 裁定）'
+P['TMP-P-001088'][pi['note']] += f' 【{DATE}】候補: wd:Q12188541（نور الدين السمهودي）。確証がないので TMP のまま保持（WK 裁定）'
 hist(P['TMP-P-001088'], pi, 'D03437 の参照を wd:Q12188541 から付け替え')
 # D
 for old, new, nf in [('gn:346030', 'TMP-L-00407', 1), ('gn:415189', 'TMP-L-00049', 1), ('gn:349715', 'TMP-L-00226', 1),
@@ -120,7 +120,7 @@ eset('wd:Q5612976', '分類を Other から Office に', category='Office')
 
 for f, t in texts.items():
     if f not in notes: continue
-    rs = ('    <respStmt><resp xml:lang="ja">修正・追記</resp><note xml:lang="ja">典拠表の残りの整理（Waka 裁定 2026-11-28）。' + '。'.join(notes[f]) +
+    rs = ('    <respStmt><resp xml:lang="ja">修正・追記</resp><note xml:lang="ja">典拠表の残りの整理（WK 裁定 2026-11-28）。' + '。'.join(notes[f]) +
           f'。</note><persName>Kumakura</persName><date when="{DATE}"/></respStmt>\n')
     i = t.rindex('</person>'); open(f, 'w', encoding='utf-8').write(t[:i] + rs + t[i:])
 write(EP, eh, er); write(PP, ph, pr)
