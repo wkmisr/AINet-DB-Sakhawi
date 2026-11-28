@@ -11,7 +11,7 @@
     <listRelation>
         <relation type="personal" subtype="father" active="#TMP-P-001744" passive="#AIND-D12854"><desc xml:lang="ar">الصدر أحمد بن البدر محمد بن زيد</desc><note xml:lang="ja">父 الصدر أحمد。corpus に本伝なし（hw.py「بن زيد」＋「البعلي」は #AIND-D04623 عبد الله بن محمد بن محمد بن محمد بن زيد الجمال بن النور بن الصدر البعلي ほか＝別人）。本伝のある姉妹 #AIND-D13146 と共有する父で、ラカブと祖父名がある＝仮番号（規則3）。初版は #NEEDID。</note></relation>
         <relation type="personal" subtype="sister" active="#AIND-D13146" passive="#AIND-D12854" cert="medium"><desc xml:lang="ar">سارة</desc><note xml:lang="ja">#AIND-D13146「سارة ابنة الصدر أحمد بن البدر محمد بن زيد البعلي أخت أمة الله الماضية وأم قاضي الحنابلة ببعلبك . أحضرت في الثانية سنة خمس وتسعين وسبعمائة على ابن الزعبوب الصحيح … اجازت لنا ، وماتت قريب الستين」。父のナサブが同一で、本項の「خالة قاضي الحنابلة ببعلبك」と対応する（سارة がその母）。ただし D13146 は姉妹を「أمة الله الماضية」と呼び「آمنة」とは書かない（女性部の أمة الله 2項 #AIND-D12895・#AIND-D12896 は別の父）＝名の食い違いを残して cert medium（規則23、§D168-8）。本項の原文には姉妹の名は出ない。</note></relation>
-        <relation type="personal" subtype="nephew" active="#NEEDID" passive="#AIND-D12854"><desc xml:lang="ar">قاضي الحنابلة ببعلبك</desc><note xml:lang="ja">「خالة قاضي الحنابلة ببعلبك」＝本項主がおば（خالة）の側。相手（姉妹 سارة の子）は名が出ない＝#NEEDID、subtype は相手が本項主の何にあたるか＝甥（nephew、規則15）。初版は統制外 subtype「siblings_child」。</note></relation>
+        <relation type="personal" subtype="siblings_child" active="#NEEDID" passive="#AIND-D12854"><desc xml:lang="ar">قاضي الحنابلة ببعلبك</desc><note xml:lang="ja">「خالة قاضي الحنابلة ببعلبك」＝本項主がおば（خالة）の側。相手（姉妹 سارة の子）は名が出ない＝#NEEDID、subtype は相手が本項主の何にあたるか＝甥（nephew、規則15）。初版は統制外 subtype「siblings_child」。</note></relation>
         <relation type="personal" subtype="teacher" n="1" active="#TMP-P-000256" passive="#AIND-D12854">
             <desc xml:lang="ar">أبو الفرج عبد الرحمن بن محمد بن الزعبوب</desc>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
@@ -50,5 +50,11 @@
         <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）1件を subtype="teacher" に変更（向きは不変）。</note>
         <persName>claude-opus-5-5-relation-unify</persName>
         <date when="2026-11-16"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation subtype「nephew」→「siblings_child」。親族の表記を統制語彙に統一（2026-11-22 裁定）。</note>
     </respStmt>
 </person>

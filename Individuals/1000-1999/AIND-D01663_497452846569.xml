@@ -11,20 +11,20 @@
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
             <bibl xml:lang="ar" ref="wd:Q12217063">سنن الدارقطني</bibl>
             <bibl xml:lang="ar-Latn" ref="wd:Q12217063">al-Sunan li-l-Dāraquṭnī</bibl>
-            <event type="learning" when="0837"/>
+            <event type="learning" when-custom="0837" when="1433"/>
         </relation>
         <relation type="personal" subtype="teacher" n="2" active="#TMP-P-000449" passive="#AIND-D01663"><desc xml:lang="ar">البدر حسين البوصيري</desc>
             <desc type="method" ref="#TMP-S-00011" xml:lang="ar">روى | رواية</desc>
             <bibl xml:lang="ar" ref="wd:Q12217063">سنن الدارقطني</bibl>
             <bibl xml:lang="ar-Latn" ref="wd:Q12217063">al-Sunan li-l-Dāraquṭnī</bibl>
-            <event type="learning" when="0837"/>
+            <event type="learning" when-custom="0837" when="1433"/>
         </relation>
         <relation type="personal" subtype="teacher" n="3" active="#NEEDID" passive="#AIND-D01663"><desc xml:lang="ar">علي（836年シャームで聴聞。原文「وكذا سمع بالشام في التي قبلها علي」。人物特定不能・要精査）</desc>
             <desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc>
-            <event type="learning" when="0836"><placeName ref="#TMP-L-00002">الشام</placeName></event>
+            <event type="learning" when-custom="0836" when="1432"><placeName ref="#TMP-L-00002">الشام</placeName></event>
         <note xml:lang="ja">監査20260907: 本文から相手を一意に特定できず #NEEDID</note></relation>
     </listRelation>
-    <event type="study" n="1" when-custom="0836" cert="high"><placeName ref="#TMP-L-00002">الشام</placeName></event>
+    <event type="learning" n="1" when-custom="0836" cert="high"><desc type="method" ref="#TMP-S-00003" xml:lang="ar">سمع | السماع</desc><placeName ref="#TMP-L-00002">الشام</placeName></event>
     <event type="other" n="1">
         <desc xml:lang="en">Sought temporary employment/livelihood for a period.</desc>
     </event>
@@ -43,5 +43,11 @@
         <note xml:lang="ja">teacher n=2のTMP-P-000403汚染を除去しactive空欄+desc「البدر حسين البوصيري」保持。n=3のسخاوي誤帰属疑い（原文「سمع بالشام...علي」）はID-Master精査タスクに記録</note>
         <persName>Wakako Kumakura</persName>
         <date when="2026-06-19"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) @when にあったヒジュラ暦の年 3 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ） (2) event type study → learning (3) 学習の方法 سمع | السماع（中心語「وسمع」から規則で）</note>
     </respStmt>
 </person>

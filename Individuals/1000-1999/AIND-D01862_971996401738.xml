@@ -5,8 +5,6 @@
     <sex value="M"/>
     <listRelation>
         <relation type="personal" subtype="patron" n="1" active="#AIND-D06305" corresp="#AIND-D06305" passive="#AIND-D01862"><desc xml:lang="ar">الأشرف قايتباي</desc><note xml:lang="en">Served as one of Sultan al-Ashraf Qāytbāy's khāṣṣakīya.</note></relation>
-        <relation type="personal" subtype="event-related" n="2" active="#AIND-D01884" passive="#AIND-D01862"><desc xml:lang="ar">ازدمر</desc><note xml:lang="en">Azdmar, nāʾib of Tarsus (then dawādār of Aleppo), whose killing led to Arkamās's appointment as dawādār in Aleppo.</note></relation>
-        <relation type="personal" subtype="event-related" n="3" active="#AIND-D02366" passive="#AIND-D01862"><desc xml:lang="ar">جانبك الطويل</desc><note xml:lang="en">Jānbak al-Ṭawīl, whose death led to Arkamās's appointment as dawādār in al-Shām.</note></relation>
     </listRelation>
     <state n="1" type="office" ref="#TMP-O-00015">
         <label xml:lang="ar">خاصكية</label>
@@ -37,6 +35,8 @@
         <desc xml:lang="en">Transferred to his dawādārīya (chancery) in al-Shām following the death of Jānbak al-Ṭawīl.</desc>
         <note xml:lang="en">Occurred after the death of Jānbak al-Ṭawīl.</note>
     </event>
+    <event type="political" n="3"><persName ref="#AIND-D01884" role="participant">ازدمر</persName><note xml:lang="en">Azdmar, nāʾib of Tarsus (then dawādār of Aleppo), whose killing led to Arkamās's appointment as dawādār in Aleppo.</note></event>
+    <event type="political" n="4"><persName ref="#AIND-D02366" role="participant">جانبك الطويل</persName><note xml:lang="en">Jānbak al-Ṭawīl, whose death led to Arkamās's appointment as dawādār in al-Shām.</note></event>
     <note type="source" xml:lang="ar">أركماس من طرباي الأشرف قايتباي أحد خاصكيته
 ثم أبعده لنيابة طرابلس ثم نقله لدواداريته بحلب بعد قتل ازدمر نائب طرسوس ثم لدواداريته بالشام بعد موت جانبك الطويل وسافر مع المجردين .</note>
     <note type="translation" xml:lang="ja">スルタン・アル＝アシュラフ・カーイトバーイの親衛隊員の一人であったアルカマース・ミン・トルバーイは、その後トリポリの副知事職に左遷された。タールスース副知事のイーズディマルが殺害された後、アレッポの書記長官職に転任し、ジャンバク・アル＝タウィールが死亡した後にはシャームの書記長官職に転任し、派遣部隊とともに旅をした。</note>
@@ -65,5 +65,11 @@
         <resp xml:lang="ja">校閲</resp>
         <persName>claude-fable-5</persName>
         <date when="2026-07-31"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「event-related」(#AIND-D01884) を political event の persName（role=participant） に移した。出来事にあたる記述は relation でなく event の persName（2026-11-22 裁定）。 relation「event-related」(#AIND-D02366) を political event の persName（role=participant） に移した。出来事にあたる記述は relation でなく event の persName（2026-11-22 裁定）。</note>
     </respStmt>
 </person>

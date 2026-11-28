@@ -23,7 +23,7 @@
         </relation>
         <relation type="personal" subtype="teacher" n="4" active="#AIND-D02961" passive="#AIND-D00900">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
-            <event type="teaching" when="0803"/>
+            <event type="teaching" when-custom="0803" when="1400"/>
             <desc xml:lang="ar">الطاوسي</desc>
             <note xml:lang="ja">初版は4件すべてで person 位置に nisbah 番号 TMP-N-00496（=الطاوسي）を流用（カテゴリ不一致）。報告者「الطاوسي」＝AIND-D00900（أحمد بن عبد الله ... أبو الفتوح الطاوسي）と同定。決め手は D00900 本文が本項の主題を逐語で反復すること（「ولازم الثاني كثيرا في الكافيتين وشروحهما وشرح الشمسية في المنطق بل وبعض الكشاف」／「الثاني」＝الشهاب داود اللاري＝本項）。§D-1裁定(Waka 2026-08-18)で確定。なお初版の空 desc(type=field / ref=#TMP-S-00000)はID-Master未登録の幻番号のため4件とも破棄。</note>
         </relation>
@@ -49,5 +49,11 @@
         <note xml:lang="ja">師弟 relation の表記統一（規則15改訂: subtype は active が passive の何にあたるかを示す。師弟は常に teacher・active=師）。subtype="student"（active=本項主）4件を subtype="teacher" に変更（向きは不変）。</note>
         <persName>claude-opus-5-5-relation-unify</persName>
         <date when="2026-11-16"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) @when にあったヒジュラ暦の年 1 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ）</note>
     </respStmt>
 </person>

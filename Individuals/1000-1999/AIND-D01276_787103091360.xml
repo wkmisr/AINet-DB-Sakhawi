@@ -7,7 +7,7 @@
     <listRelation>
         <relation type="personal" subtype="teacher" n="1" active="#AIND-D01276" passive="#AIND-D09211">
             <desc type="method" ref="#TMP-S-00006" xml:lang="ar">عرض</desc>
-            <event type="teaching" when="0822"><placeName ref="gn:104515">مكة</placeName></event>
+            <event type="teaching" when-custom="0822" when="1419"><placeName ref="gn:104515">مكة</placeName></event>
             <note xml:lang="en">"Ibn Fahd presented (ʿaraḍa) to him ... and he granted him ijāza": Ibn Fahd (#AIND-D09211) is the student who did the ʿarḍ; the subject is the teacher. Project convention (subtype=student, active=teacher/passive=student) → active=subject, passive=Ibn Fahd.</note>
             <note xml:lang="ja">2026-11-16 の統一規則で師弟は常に subtype="teacher"（active=師）とした（向きは不変）。上の注記の「subtype=student」の慣行は改訂前のもの。</note>
         </relation>
@@ -43,5 +43,11 @@
         <note xml:lang="ja">relation 内の旧注記（subtype=student の慣行）が 2026-11-16 の統一と矛盾しないよう、改訂の旨を relation に追記。</note>
         <persName>claude-opus-5-5-relation-unify</persName>
         <date when="2026-11-16"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) @when にあったヒジュラ暦の年 1 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ）</note>
     </respStmt>
 </person>

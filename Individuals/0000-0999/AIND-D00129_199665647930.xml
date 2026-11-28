@@ -8,10 +8,9 @@
     <persName type="laqab" xml:lang="ar">البرهان</persName>
     <sex value="M"/>
     <listRelation>
-        <relation type="personal" subtype="teacher" n="1" active="wd:Q4120128"
-            passive="#AIND-D00129">
+        <relation type="personal" subtype="teacher" n="1" active="wd:Q4120128" passive="#AIND-D00129">
             <desc type="method" ref="#TMP-S-00028" xml:lang="ar">حضر | الحضور</desc>
-            <event type="learning" when="0871">
+            <event type="learning" when-custom="0871" when="1466">
                 <placeName ref="gn:104515">مكة</placeName>
             </event>
         </relation>
@@ -26,10 +25,10 @@
         <placeName ref="gn:104515">مكة</placeName>
         <note xml:lang="en">performed hajj with al-Rajabiyya</note>
     </event>
-    <event type="study" n="2" when-custom="0871" cert="high">
+    <event type="learning" n="2" when-custom="0871" cert="high">
         <placeName ref="gn:104515">مكة</placeName>
         <note xml:lang="en">attended some sessions with al-Sakhāwī there</note>
-    </event>
+    <persName ref="wd:Q4120128" role="teacher">عندي</persName></event>
     <state n="1" type="office" ref="#TMP-O-00064">
         <label xml:lang="ar">استادار</label>
         <label xml:lang="ar-Latn">Ustādār</label>
@@ -38,8 +37,7 @@
 استادار تمرباي الناصري ممن حج مع الرجبية سنة إحدى وسبعين وحضر عندي
 هناك بعض المجالس وكان ساكنا بل كاد الامشاطي أن يصفه بالخير ومات قبل
 الثمانين أو بعيدها .</note>
-    <note type="translation" xml:lang="ja"
-        >イブラーヒーム・ブン・スライマーン・ブン・サーリム。渾名（ブルハーン）を持つファザーリー。ナーシリー朝のタムルバーイのウスターダール。871年にラジャビーヤと共にハッジを履行し、その際私（＝サハーウィー）のもとでいくつかの講義を聴講した。穏やかな人物で、アル=アムシャーティーが彼を良い人物だと評しかけたほどだったという。800年頃の少し前か少し後に死去した。</note>
+    <note type="translation" xml:lang="ja">イブラーヒーム・ブン・スライマーン・ブン・サーリム。渾名（ブルハーン）を持つファザーリー。ナーシリー朝のタムルバーイのウスターダール。871年にラジャビーヤと共にハッジを履行し、その際私（＝サハーウィー）のもとでいくつかの講義を聴講した。穏やかな人物で、アル=アムシャーティーが彼を良い人物だと評しかけたほどだったという。800年頃の少し前か少し後に死去した。</note>
     <note type="translation" xml:lang="en">Ibrāhīm b. Sulaymān b. Sālim, al-Burhān al-Fazārī,
         Ustādār of Tamurbāy al-Nāṣirī. He performed the hajj with al-Rajabiyya in 871 H and attended
         some of my sessions there. He was a tranquil person, and al-Amshāṭī almost described him as
@@ -63,5 +61,17 @@
             D11441等)で一意特定できず、保留TMP-P-000471を発行(status=unidentified_attested)。</note>
         <persName>Claude Opus 4.8</persName>
         <date when="2026-06-23"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">★9：出来事の関係者を、既存の relation の相手（同じ ID）で event の persName（@role）に結んだ（2026-11-22 裁定）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) @when にあったヒジュラ暦の年 1 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ） (2) event type study → learning</note>
     </respStmt>
 </person>
