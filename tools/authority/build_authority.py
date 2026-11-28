@@ -124,6 +124,7 @@ def build():
         if aid not in R: problems.append(f'{aid}: in corpus, not in registry')
     for aid, r in R.items():
         if r['status'] in ('active', 'transfer') and not r['name_ar']: problems.append(f'{aid}: no name')
+        if r['name_ar'].startswith('[') or '±' in r['name_ar'] or '★' in r['name_ar']: problems.append(f'{aid}: name_ar is a token list or carries a collation mark')
         if not aid.startswith('AIND-D'):
             pass
         elif aid not in C and r['status'] not in ('merged', 'retired'):
@@ -151,6 +152,7 @@ def build():
         if v in ('NEEDID', ''): continue
         row = R.get(v) or EN.get(v)
         why = 'not registered' if row is None else ('' if row['status'] == 'active' else row['status'] + (' -> ' + row['target'] if row['target'] else ''))
+        if row is not None and why: problems.append(f'{v}: cited by a record ({" ".join(sorted(cited[v])[:3])}) but its status is {why}')
         if why: unres.append(dict(ref=v, problem=why, records=len(cited[v]), examples=' '.join(sorted(cited[v])[:5])))
     ev = [dict(e, use_count=len(cited.get(k, ()))) for k, e in sorted(EN.items(), key=lambda t: (t[1]['category'], t[0]))]
     view = []
