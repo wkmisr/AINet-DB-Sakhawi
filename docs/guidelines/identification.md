@@ -455,7 +455,7 @@ third party can check the grounds, not that the run can be repeated bit for bit.
 | 2.4, 6.3 | Rules 10, 32, 38, 61 (a), 63 (c)(d), 66 (b)(c); design v5, external review of 2026-11-24 |
 | 2.5 | WK 2026-10-26 (no Wikidata or GeoNames numbers from memory) |
 | 3.2 | Rule 11 with WK 2026-09-18 and 2026-10-21; the transfer rulings of 2026-09-08, 2026-11-11, 2026-11-28 |
-| 3.3 | WK 2026-11-28 (external IDs only in `same_as`; references point to the AIND number) |
+| 3.3 | WK 2026-11-28 and 2026-11-29 (AIND is the canonical ID; external IDs only in `same_as`) |
 | 4 | Design v5, sec. 4.1; `propose_registry` from rules 3 and 12 |
 | 5.2 (kin) | Rules 23 and 37 |
 | 5.3 | The certainty scale of the briefs (أظنه = medium) |
@@ -465,17 +465,29 @@ third party can check the grounds, not that the run can be repeated bit for bit.
 | 7.3 | Design v5, sec. 4.3 |
 | 9 | Design v5, sec. 4.4 and 5 |
 
-## Appendix B. Open points (for WK)
+## Appendix B. Rulings on this guideline and open points
 
-1. Persons with a biography are answered with the AIND number (sec. 3.3). The records up to now
-   use `wd:Q471116` for Ibn Ḥajar and `wd:Q4120128` for al-Sakhāwī. Scoring must treat the two
-   forms as equal until the registry rows are joined.
-2. `registry_id` on `not_found` and `out_of_scope` (sec. 4.4, 4.5) is an addition to design v5.
+Ruled by WK on 2026-11-29:
+
+1. A person with a biography is answered with the AIND number, which is the canonical ID; a
+   Wikidata number belongs in the registry's `same_as` column (sec. 3.3). The records up to now
+   use `wd:Q471116` for Ibn Ḥajar and `wd:Q4120128` for al-Sakhāwī; until the registry rows are
+   joined and the records re-pointed, scoring treats the two forms as equal.
+2. `registry_id` on `not_found` and `out_of_scope`, and `propose_registry` (sec. 4.4, 4.5).
 3. `certainty: low` only by convention (sec. 4.1).
-4. Unnamed «السلطان» (sec. 7.4): the records up to now leave it without a reference.
-5. Double entries (sec. 3.2): which of the two is the answer.
-6. The cap on tool calls (sec. 6.4) is provisional.
-7. The index parts (about 1,780 headings, AIND-D11136 – D12843) are all `active` in the registry,
-   whether they are a person's only entry, a pointer to a biography, or a list of several persons.
-   Identification will meet them constantly (sec. 3.2).
-8. The out-of-scope list (sec. 4.5) does not exist yet.
+4. An unnamed «السلطان» or «صاحب مكة» is identified only if the same passage fixes the year or
+   the reign, with `medium`; otherwise `undetermined` (sec. 7.4).
+5. Double entries: the entry whose text matches the mention, the other in `other_entries`
+   (sec. 3.2).
+6. `conventions.md` is given to all three vendors in the trial as it stands, although some of its
+   names occur in the ten trial biographies.
+
+Open:
+
+- The cap on tool calls (sec. 6.4) is provisional; to be set from the trial.
+- The index parts (about 1,780 headings, AIND-D11136 – D12843) are all `active` in the registry,
+  whether they are a person's only entry, a pointer to a biography, or a list of several persons.
+  Identification will meet them constantly (sec. 3.2).
+- The out-of-scope list (sec. 4.5) does not exist yet.
+- The registry's `wd:` rows for persons who have a biography are still to be joined to the AIND
+  rows (ruling 1).
