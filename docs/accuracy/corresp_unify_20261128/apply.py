@@ -41,6 +41,12 @@ SULTANS = {  # corresp carried the AIND number itself; the Wikidata number comes
     'AIND-D03298': 'wd:Q553204',    # شاه رخ
     'AIND-D06160': 'wd:Q698037',    # فرج بن برقوق
 }
+SULTAN_SOURCE = {  # where the number came from, for the registry's history (it was not in the records)
+    'AIND-D02423': '引き継ぎ v13.15 の D-3形式の記録と台帳 wd_entities.tsv から。レコードにはなかった',
+    'AIND-D02168': '引き継ぎ v13.18 の記録と台帳 wd_entities.tsv から。レコードにはなかった',
+    'AIND-D03298': '引き継ぎ v13.15 の D-3形式の記録と台帳 wd_entities.tsv から。レコードにはなかった',
+    'AIND-D06160': '台帳 wd_entities.tsv から。レコードにも引き継ぎにも記録はなかった',
+}
 TAG = re.compile(r'<(\w+)\b([^<>]*?)\s+corresp="([^"]*)"([^<>]*)>')
 NOTE = ('外部 ID の一本化（WK 裁定 {d}）。corresp 属性を外した（{n}か所：{what}）。'
         '人物と Wikidata 番号の対応は典拠表 authority/persons_registry.tsv の same_as 欄に持つ。')
@@ -95,7 +101,7 @@ def main(mode):
             if r['id'] in add:
                 r['same_as'] = add[r['id']]
                 r['history'] = (r['history'] + ' | ' if r['history'] else '') + \
-                    f'{DATE} WK 裁定（外部 ID の一本化）: same_as に {add[r["id"]]}（レコードの corresp から移した）'
+                    f'{DATE} WK 裁定（外部 ID の一本化）: same_as に {add[r["id"]]}（{SULTAN_SOURCE.get(r["id"], "レコードの corresp から移した")}）'
         open(B.REG, 'w', encoding='utf-8', newline='').write(B.dump(reg, B.REG_COLS))
 
 if __name__ == '__main__':

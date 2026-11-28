@@ -14,7 +14,7 @@ WK 裁定 2026-11-28。作業は Claude Fable 5.2。
 
 | 対象 | 数 | 内容 |
 |---|---|---|
-| corresp に Wikidata 番号（relation・persName） | 84か所 | 属性を外した。うち 62か所は العيني（wd:Q257745） |
+| corresp に Wikidata 番号（relation・persName） | 84か所 | 属性を外した。うち 64か所は العيني（wd:Q257745） |
 | corresp に Wikidata 番号（person 要素） | 3か所 | 属性を外した（AIND-D00401・D01845・D02400。番号は same_as に既にあった） |
 | corresp に AIND 番号（ref・active と同じ番号の重ね書き） | 43か所 | 属性を外した。スルタン級の 6人への参照 |
 | 計 | 130か所・118 レコード | 各レコードに respStmt を足した |
@@ -47,7 +47,15 @@ WK 裁定 2026-11-28。作業は Claude Fable 5.2。
   - ref・active・passive をタグの中だけから読む。注の文章が昔の属性を引用している箇所（`ref="#TMP-I-00000"`、`active="#NEEDED"`、`active="#TMP-P-000087"`）を参照として拾い、「典拠表にない参照」として 3件報告していた。3 → 0。
   - `check` に検査を足した：レコードに corresp 属性がないこと。
 - `docs/authority/authority_lib.py`：台帳の「使用中の番号」に、両方の典拠表の same_as 欄を数える。レコードから外した番号が台帳から落ちないようにするため。
-- `app.py`：出力のときに `corresp="wd:…"` を付ける処理を外した（付けると `check` に落ちる）。
+- `app.py`：出力のときに `corresp="wd:…"` を付ける処理を外した（付けると `check` に落ちる）。校閲者に見せる「正」候補（`WD_GN_SUGGESTIONS`）からも「+ corresp=…」を外した。
+- `docs/lod_prototype/xml2ttl.py`：owl:sameAs を person の corresp からでなく、典拠表の same_as 欄から出す。
+
+## 独立校閲のあとの手当て（WK 裁定 2026-11-28「いずれも推奨通り」）
+
+- 典拠表の履歴：スルタン 4人（AIND-D02423・D02168・D03298・D06160）の「レコードの corresp から移した」を、番号の出どころ（引き継ぎ文書と台帳、فرج は台帳だけ）に直した。この 4人の番号はレコードにはなかった。
+- この README の العيني の数を 62 → 64 に。
+- `app.py` の候補とコメント、`xml2ttl.py`、`build_authority.py` の corresp 検査（空白＋二重引用符の形だけでなく、改行・タブのあとや単引用符も拾う）。
+- 校閲結果は Project doc「外部ID一本化PR132_校閲結果_20261128」。
 
 ## 確かめたこと
 
@@ -60,5 +68,7 @@ WK 裁定 2026-11-28。作業は Claude Fable 5.2。
 
 - `docs/authority/used_uris.tsv`・`review_queue.tsv` の作り直し。ID-Master の書き出しが要るので、Mac で `python3 docs/authority/update_authority.py` を実行する。
 - `docs/tools/precheck_aind_v12.py`：メッセージに「#AIND-… + corresp="wd:…" 形式へ」が残っている。また「person/@corresp の没年と Wikidata の没年の差」の検査は、見る対象がなくなった。XML のバッチ処理は止めているので、パイプライン再設計のなかで扱う。
+- `docs/tools/quarantine_wd_gn_xml.py`：レコードに `corresp="wd:…"` を書き足す処理（1.6 と AIND_FIRST）が残っている。動かすと corresp が戻る（`check` で止まる）。precheck と同じく、パイプライン再設計のなかで扱う。
+- `docs/authority/authority_lib.py` の person/@corresp の種別判定（害はない。再設計のときに外す）。
 - 過去の校閲ブリーフ・検証報告・引き継ぎ文書にある D-3形式・العيني の参照形の記述（履歴）。
 - レコードの注の文章にある「corresp=…」の記述（履歴）。

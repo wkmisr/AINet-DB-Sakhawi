@@ -2507,4 +2507,5 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - WK 裁定 2026-11-28。人物と Wikidata 番号の対応は典拠表の same_as 欄にだけ持ち、レコードの corresp 属性は使わない（D-3形式・العيني の参照形を改める。AIND 番号を正とする点は同じ）。
 - Individuals 118 ファイル・130か所の corresp を外した（Wikidata 番号 87、ref・active と同じ AIND 番号の重ね書き 43）。persons_registry の same_as に 8行。
 - build_authority.py: 参照をタグの中だけから読む（注の文章を参照と数えていた。典拠表にない参照 3 → 0）、check に「corresp 属性がないこと」。authority_lib.py: 台帳が same_as 欄も数える。app.py: 出力に corresp を付けない。
+- 独立校閲後の手当て（WK 裁定 2026-11-28）: スルタン 4人の典拠表の履歴を番号の出どころどおりに直した。app.py の候補表示から「+ corresp=…」を外した。xml2ttl.py は owl:sameAs を典拠表の same_as 欄から出す。corresp の検査を書き方の違いに強くした。
 - 詳細: `docs/accuracy/corresp_unify_20261128/README.md`。

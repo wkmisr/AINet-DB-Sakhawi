@@ -1427,9 +1427,9 @@ WD_GN_SUGGESTIONS = {
     "Q1140365": "Q2175237 (Sunan al-Nasāʾī / al-Sunan al-Ṣughrā)",
     "Q940817":  "Q1187931 (Sunan Ibn Mājah)",
     "Q900871":  "Q1050556 (al-Muwaṭṭaʾ)",
-    "Q561280":  "AIND-D06305 + corresp=wd:Q557847 (Qāytbāy。D-3裁定=AIND優先)",
+    "Q561280":  "AIND-D06305 (Qāytbāy。D-3裁定=AIND優先)",
     "Q282218":  "AIND-D03345 (al-Muʾayyad Shaykh)",
-    "Q412004":  "AIND-D06305 + corresp=wd:Q557847 (al-Ashraf Qāytbāy)",
+    "Q412004":  "AIND-D06305 (al-Ashraf Qāytbāy)",
     "Q368154":  "Q312342 (al-Azhar)",
     "Q259":     "Q12836408 (Azerbaijan region)",
     "Q285077":  "AIND-D02178 (al-Ẓāhir Barqūq)",
@@ -1562,7 +1562,7 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
                 "suggest": "",
             })
             return
-        # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は build_xml が付与する
+        # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は付けない(WK 裁定 2026-11-28)
         if mq and key in WD_TO_AIND_REDIRECT:
             container[id_field] = WD_TO_AIND_REDIRECT[key]
             review.append({
