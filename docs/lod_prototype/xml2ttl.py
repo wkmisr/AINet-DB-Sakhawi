@@ -73,9 +73,7 @@ def convert(g, path):
     p = AIND[pid]; rec = REC[pid]
     g.add((p, RDF.type, CRM.E21_Person))
     if root.get("type"): g.add((p, V.recordType, Literal(root.get("type"))))
-    if root.get("corresp"):
-        u = ref2uri(root.get("corresp"))
-        if u: g.add((p, OWL.sameAs, u))
+    # owl:sameAs comes from the registry's same_as column (see same_as() below), not from the record
     # names
     for i, pn in enumerate(root.findall("persName")):
         t = pn.get("type") or "name"
@@ -187,6 +185,21 @@ def idmaster(g, tsv):
                     if v.strip(): g.add((u, RDFS.label, Literal(v.strip(), lang=lang)))
             if row.get("Category"): g.add((u, V.category, V["cat_" + slug(row["Category"])]))
 
+def same_as(g):
+    """owl:sameAs for every person in the graph, from authority/persons_registry.tsv (same_as column).
+    External IDs are kept there only (WK 裁定 2026-11-28); records carry no corresp."""
+    import csv
+    reg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "authority", "persons_registry.tsv")
+    if not os.path.exists(reg): return
+    seen = set(g.subjects()) | set(g.objects())
+    with open(reg, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            p = AIND[row["id"]]
+            if p not in seen: continue
+            for tok in (row.get("same_as") or "").split():
+                u = ref2uri(tok)
+                if u: g.add((p, OWL.sameAs, u))
+
 def main():
     src, out = sys.argv[1], sys.argv[2]
     tsv = [a[6:] for a in sys.argv[3:] if a.startswith("--idm=")]
@@ -203,6 +216,7 @@ def main():
         try: convert(g, f); n += 1
         except Exception as e: errs.append((f, repr(e)))
     if tsv: idmaster(g, tsv[0])
+    same_as(g)
     g.serialize(out, format="turtle")
     print("records", n, "triples", len(g), "errors", len(errs))
     for e in errs[:10]: print(e)

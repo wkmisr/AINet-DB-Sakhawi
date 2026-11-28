@@ -1427,9 +1427,9 @@ WD_GN_SUGGESTIONS = {
     "Q1140365": "Q2175237 (Sunan al-Nasāʾī / al-Sunan al-Ṣughrā)",
     "Q940817":  "Q1187931 (Sunan Ibn Mājah)",
     "Q900871":  "Q1050556 (al-Muwaṭṭaʾ)",
-    "Q561280":  "AIND-D06305 + corresp=wd:Q557847 (Qāytbāy。D-3裁定=AIND優先)",
+    "Q561280":  "AIND-D06305 (Qāytbāy。D-3裁定=AIND優先)",
     "Q282218":  "AIND-D03345 (al-Muʾayyad Shaykh)",
-    "Q412004":  "AIND-D06305 + corresp=wd:Q557847 (al-Ashraf Qāytbāy)",
+    "Q412004":  "AIND-D06305 (al-Ashraf Qāytbāy)",
     "Q368154":  "Q312342 (al-Azhar)",
     "Q259":     "Q12836408 (Azerbaijan region)",
     "Q285077":  "AIND-D02178 (al-Ẓāhir Barqūq)",
@@ -1468,12 +1468,9 @@ GN_PAIR_DENY = [
 ]
 
 # wd で来ても AIND を正とする人物(B28 D-3裁定 2026-07-31: قايتباي)。
-# 検疫時に ID を AIND へ差替え、XML 出力時に corresp="wd:..." を自動付与する。
+# 検疫時に ID を AIND へ差替える。corresp は付けない(WK 裁定 2026-11-28: 外部 ID は典拠表の same_as 欄)。
 WD_TO_AIND_REDIRECT = {
     "Q557847": "AIND-D06305",   # al-Ashraf Qāytbāy(本伝同定=B28)
-}
-AIND_CORRESP = {
-    "AIND-D06305": "wd:Q557847",
 }
 
 _WD_ID_FORM_RE = re.compile(r"^(?:wd:)?(Q\d+)$")
@@ -1565,12 +1562,12 @@ def verify_and_quarantine_wd_gn_ids(d, records=None, silent=False):
                 "suggest": "",
             })
             return
-        # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は build_xml が付与する
+        # (1.6) AIND 優先人物への差替(D-3裁定)。corresp は付けない(WK 裁定 2026-11-28)
         if mq and key in WD_TO_AIND_REDIRECT:
             container[id_field] = WD_TO_AIND_REDIRECT[key]
             review.append({
                 "section": section, "field": id_field, "name": name_raw,
-                "id": f"{raw} → {WD_TO_AIND_REDIRECT[key]}(+corresp {raw}。D-3裁定による自動差替)",
+                "id": f"{raw} → {WD_TO_AIND_REDIRECT[key]}(D-3裁定による自動差替)",
             })
             return
         # (2) geonames 既知誤指しペア
@@ -4294,13 +4291,7 @@ def build_xml(d):
 
     x.append("</person>")
     xml_out = "\n".join(x)
-    # D-3裁定(2026-07-31): AIND 優先人物の参照に corresp="wd:..." を自動付与
-    for _aind, _wd in AIND_CORRESP.items():
-        for _attr in ("active", "passive", "ref"):
-            xml_out = xml_out.replace(
-                f'{_attr}="#{_aind}"',
-                f'{_attr}="#{_aind}" corresp="{_wd}"',
-            )
+    # corresp="wd:..." は付けない(WK 裁定 2026-11-28: 人物の外部 ID は典拠表の same_as 欄にだけ持つ)
     return xml_out
 
 xml_str = build_xml(d)
