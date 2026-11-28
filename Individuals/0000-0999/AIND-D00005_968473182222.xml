@@ -4,12 +4,11 @@
     <persName type="name_only" xml:lang="ar">أبجد</persName>
     <sex value="M"/>
     <listRelation>
-        <relation type="personal" subtype="teacher" n="1" active="#TMP-P-000005" passive="#AIND-D00005">
+        <relation type="personal" subtype="teacher" n="1" active="#AIND-D04179" passive="#AIND-D00005">
             <desc type="method" ref="#TMP-S-00005" xml:lang="ar">صحبة وانتباه</desc>
         </relation>
     </listRelation>
-    <event type="travel" n="1"><placeName ref="gn:281184">بيت المقدس</placeName><note type="inference" xml:lang="en">He traveled in the company of al-Zayn ʿAbd al-Qādir al-Nawawī al-Maqdisī</note></event>
-    <event type="travel" n="2"><placeName ref="gn:104515">مكة</placeName><note type="inference" xml:lang="en">He traveled in the company of al-Zayn ʿAbd al-Qādir al-Nawawī al-Maqdisī</note></event>
+    <event type="travel" n="1"><placeName ref="gn:281184" role="origin">بيت المقدس</placeName><placeName ref="gn:104515" role="destination">مكة</placeName><persName ref="#AIND-D04179" role="companion">الزين عبد القادر النووي المقدسي</persName><note type="frequency" xml:lang="ar">يكثر</note></event>
     <note type="personalia" xml:lang="en">He was a majdhūb man</note>
     <note type="personalia" xml:lang="ja">「マジズーブ」の男であった。</note>
     <note type="source" xml:lang="ar">أبجد رجل مجذوب كان يكثر التنقل من بيت المقدس
@@ -26,5 +25,17 @@
         <persName>claude-opus-5-personalia-a</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">personalia注記の和訳(ja)を追補。既存の他言語注記の言い換えではなく、note type=source のアラビア語原文から翻訳した。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">★1：出発地・到着地で2件に分かれていた travel を1件に統合（placeName role=origin／destination）、同行者を persName（role=companion、#TMP-P-000005）に、「يكثر」を note type="frequency" に（2026-11-22 裁定）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) الزين عبد القادر النووي المقدسي：TMP-P-000005 → #AIND-D04179（本伝「عبد القادر بن محمد بن حسن الزين النووي الأصل المقدسي」でラカブ・ニスバ2つが閉合。Waka 2026-11-22 ビューアーで決定）</note>
     </respStmt>
 </person>

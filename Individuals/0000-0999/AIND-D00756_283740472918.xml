@@ -10,25 +10,20 @@
     <listRelation>
         <relation type="personal" subtype="teacher" n="1" active="wd:Q471116" passive="#AIND-D00756">
             <desc type="method" ref="#TMP-S-00004" xml:lang="ar">أجاز | إجازة</desc>
-            <event type="learning" when="0802"/>
+            <event type="learning" when-custom="0802" when="1399"/>
         </relation>
         <relation type="personal" subtype="brother" active="#AIND-D03640" passive="#AIND-D00756">
             <desc xml:lang="ar">عبد الرحمن بن سليمان بن أبي عمر الزين القرشي المقدسي الصالحي
                 الحنبلي</desc>
         </relation>
-        <relation type="personal" subtype="仲介者" n="2" active="#AIND-D09354" passive="#AIND-D00756">
-            <desc xml:lang="ar">الصرخدي</desc>
-            <note xml:lang="en">al-Ṣarkhadī requested an Ijaza for him</note>
-        </relation>
     </listRelation>
+    <event type="cultural" subtype="ijaza" n="1"><persName ref="#AIND-D09354" role="mediator">الصرخدي</persName><note xml:lang="en">al-Ṣarkhadī requested an Ijaza for him</note>
+        </event>
     <note type="source" xml:lang="ar">أحمد بن سليمان بن عبد الرحمن بن العز محمد بن
 التقي سليمان بن حمزة بن أحمد بن عمر بن أبي عمر المقدسي ثم الصالحي
 الحنبلي أخو عبد الرحمن الآتي . ذكره شيخنا في معجمه وقال أنها أجاز له
 في استدعاء الصرخدي سنة اثنتين وبيض له .</note>
-    <note type="translation" xml:lang="ja"
-            >アフマド・b・スライマーン・b・アブドゥッラフマーン・b・アル＝イッズ・ムハンマド・b・アット＝タキー・スライマーン・b・ハムザ・b・アフマド・b・ウマル・b・アビー・ウマル、アル＝マクディスィー、のちアッ＝サーリヒー、ハンバリー派。後述のアブドゥッラフマーンの兄弟。わが師〔イブン・ハジャル〕が自著の人名録（<span
-            dir="rtl">معجم</span>）において彼に言及し、こう述べた——彼〔女〕は802年、アッ＝サルハディーの請願状（<span dir="rtl"
-            >استدعاء</span>）において〔私に〕イジャーザを与えた、と。そして〔師は彼について〕空白のままにした〔記載を完成させなかった〕。</note>
+    <note type="translation" xml:lang="ja">アフマド・b・スライマーン・b・アブドゥッラフマーン・b・アル＝イッズ・ムハンマド・b・アット＝タキー・スライマーン・b・ハムザ・b・アフマド・b・ウマル・b・アビー・ウマル、アル＝マクディスィー、のちアッ＝サーリヒー、ハンバリー派。後述のアブドゥッラフマーンの兄弟。わが師〔イブン・ハジャル〕が自著の人名録（<span dir="rtl">معجم</span>）において彼に言及し、こう述べた——彼〔女〕は802年、アッ＝サルハディーの請願状（<span dir="rtl">استدعاء</span>）において〔私に〕イジャーザを与えた、と。そして〔師は彼について〕空白のままにした〔記載を完成させなかった〕。</note>
     <note type="translation" xml:lang="en">Aḥmad b. Sulaymān b. ʿAbd al-Raḥmān b. al-ʿIzz Muḥammad
         b. al-Taqī Sulaymān b. Ḥamza b. Aḥmad b. ʿUmar b. Abī ʿUmar al-Maqdisī, then al-Ṣāliḥī, the
         Ḥanbalī — brother of ʿAbd al-Raḥmān (treated below). Our shaykh (Ibn Ḥajar) mentions him in
@@ -44,5 +39,17 @@
         <note xml:lang="ja">人物同定を行い、relation情報を修正した</note>
         <persName>Wakako Kumakura</persName>
         <date when="2026-06-11"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「仲介者」(#AIND-D09354) を cultural/ijaza event の persName（role=mediator） に移した。出来事にあたる記述は relation でなく event の persName（2026-11-22 裁定）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) @when にあったヒジュラ暦の年 1 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ）</note>
     </respStmt>
 </person>

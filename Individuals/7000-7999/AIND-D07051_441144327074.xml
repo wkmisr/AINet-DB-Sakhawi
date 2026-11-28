@@ -9,15 +9,14 @@
     <death when-custom="0866-04" when="1462-01">
         <placeName xml:lang="ar" ref="gn:352261">مصر</placeName>
         <note xml:lang="ja">「مات في ربيع الثاني سنة ست وستين بمصر」。866年ラビーウ・アッ＝サーニー月＝1462-01-12〜02-09（h2g.py）。月精度。مصر は原文どおり gn:352261（規則22(1)）。</note>
+        <note xml:lang="ar">صلى عليه بجامع عمرو</note>
+        <orgName type="funeral" ref="wd:Q683511">جامع عمرو</orgName>
+        <note xml:lang="ja">葬礼の礼拝がアムル・モスク（wd:Q683511、ID-Master 登録済み）で行われた。初版の affiliation type="other"（同モスク所属）は原文に根拠がなく除去し、funeral event に。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="father" active="#NEEDID" passive="#AIND-D07051"><desc xml:lang="ar">أحمد التاج</desc><note xml:lang="ja">父は見出しの「أحمد … التاج」（名＋ラカブ）のみ → #NEEDID 維持（規則3・12）。</note></relation>
     </listRelation>
-    <event type="religious" subtype="funeral" n="1">
-        <desc xml:lang="ar">صلى عليه بجامع عمرو</desc>
-        <orgName ref="wd:Q683511">جامع عمرو</orgName>
-        <note xml:lang="ja">葬礼の礼拝がアムル・モスク（wd:Q683511、ID-Master 登録済み）で行われた。初版の affiliation type="other"（同モスク所属）は原文に根拠がなく除去し、funeral event に。</note>
-    </event>
     <state n="1" type="status">
         <label xml:lang="ar">معتقدا في العامة</label>
         <label xml:lang="ar-Latn">muʿtaqadan fī al-ʿāmma</label>
@@ -43,5 +42,11 @@
         <note xml:lang="ja">原文 note を挿入。統制外 subtype「chronicler」relation（المنير）を Pattern A mention event に変換。affiliation（جامع عمرو）を除去し funeral event に。status「معتقدا في العامة」を追加。父 relation（#NEEDID）追加。death @when を月精度 1462-01 に。訳文の「ビン」→「ブン」、「ハジュリー暦」「（フスタート）」等の補いを除去。</note>
         <persName>claude-b116-review</persName>
         <date when="2026-10-14"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

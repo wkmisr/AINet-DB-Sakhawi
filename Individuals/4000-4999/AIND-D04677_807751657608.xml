@@ -9,16 +9,15 @@
     <death when-custom="0852-04" when="1448-06">
         <desc xml:lang="ar">مات في ربيع الآخر سنة اثنتين وخمسين</desc>
         <note xml:lang="ja">852年ラビーウ・アル＝アーヒル月＝1448-06-13〜07-11（グレゴリオ暦）。@when を月初の 1448-06 に精密化（初版は 1448）。没地・埋葬地は原文に明記がない（「ودفن」に地名なし）ため、初版の burial placeName القرافة（葬礼の場所からの補完）を規則22(1) により除去し、葬礼を event として記録。</note>
+        <note xml:lang="ar">وصلى عليه بجامع محمود من القرافة ودفن</note>
+        <orgName type="funeral" ref="#TMP-I-00184">جامع محمود</orgName>
+        <placeName type="funeral" ref="wd:Q2066414">القرافة</placeName>
+        <note xml:lang="ja">جامع محمود（カラーファのマフムード・モスク）は ID-Master 未登録のため仮番号 TMP-I-00184 を発行。初版の affiliation type="other"（所属ではない）を廃し、葬礼 event に統合。</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="other" n="1" active="#AIND-D02423" passive="#AIND-D04677" cert="medium"><desc xml:lang="ar">السلطان</desc><note xml:lang="ja">「أحد من لكثير من الناس حتى السلطان فيه اعتقاد」。没年 852 の時点のスルタン＝الظاهر جقمق（在位 842〜857、#AIND-D02423）と読み cert medium（原文は「السلطان」のみで名を挙げない）。初版の統制外 subtype「reverer」・#NEEDID を是正。</note></relation>
     </listRelation>
-    <event type="religious" subtype="funeral" n="1" when-custom="0852-04" when="1448-06">
-        <desc xml:lang="ar">وصلى عليه بجامع محمود من القرافة ودفن</desc>
-        <orgName ref="#TMP-I-00184">جامع محمود</orgName>
-        <placeName ref="wd:Q2066414">القرافة</placeName>
-        <note xml:lang="ja">جامع محمود（カラーファのマフムード・モスク）は ID-Master 未登録のため仮番号 TMP-I-00184 を発行。初版の affiliation type="other"（所属ではない）を廃し、葬礼 event に統合。</note>
-    </event>
     <note type="source" xml:lang="ar">عبد الله القرافي السعودي ويعرف بالأصيفر .
 أحد من لكثير من الناس حتى السلطان فيه اعتقاد . مات في ربيع الآخر سنة
 اثنتين وخمسين وصلى عليه بجامع محمود من القرافة ودفن رحمه الله .</note>
@@ -40,5 +39,11 @@
         <note xml:lang="ja">機械検査: funeral event の when-custom="0852-04" に対応する西暦 @when（1448-06、death と同値）が欠けていたため付与。内容は無変更。</note>
         <persName>claude-b89-93-verify</persName>
         <date when="2026-09-25"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

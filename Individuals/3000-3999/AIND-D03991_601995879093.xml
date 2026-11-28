@@ -8,6 +8,9 @@
     <sex value="M"/>
     <death when-custom="0891-10" when="1486-10">
         <note xml:lang="en">He died in Shawwāl 891 AH; the funeral prayer was performed for him after the Friday prayer at al-Azhar.</note>
+        <placeName type="funeral" ref="wd:Q312342">الأزهر</placeName>
+        <note xml:lang="ar">وصلى عليه بعد صلاة الجمعة بالأزهر</note>
+        <note xml:lang="ja">葬儀（صلاة الجنازة 等）は出来事にしない規則（アプリ v20.2）により、event subtype="funeral" から死亡の欄に移した。場所は type="funeral"、人物は role="funeral_prayer"／"funeral_attendee"（Waka 裁定 2026-11-22）</note>
     </death>
     <listRelation>
         <relation type="personal" subtype="teacher" n="1" active="wd:Q4120128" passive="#AIND-D03991">
@@ -17,7 +20,6 @@
         </relation>
         <relation type="personal" subtype="father" active="#AIND-D07488" passive="#AIND-D03991"><desc xml:lang="ar">محمد بن صالح النمراوي ثم القاهري</desc><note xml:lang="ja">父「الآتي أبوه」= #AIND-D07488（محمد بن صالح النمراوي ثم القاهري والد عبد العزيز الماضي ويعرف بابن صالح）で双方向閉合。</note></relation>
     </listRelation>
-    <event type="other" subtype="funeral" n="1"><placeName ref="wd:Q312342">الأزهر</placeName><desc xml:lang="ar">وصلى عليه بعد صلاة الجمعة بالأزهر</desc></event>
     <note xml:lang="ja">「وباسمه بعض جهات منتقلة له عن أبيه وغيره」＝父などから引き継いだ禄（جهات）を名義上有した。</note>
     <note type="source" xml:lang="ar">عبد العزيز بن محمد بن صالح النمراوي الأصل
 القاهري الآتي أبوه ويعرف كهو بابن صالح . شاب يميل لظرف وسكون وانجماع
@@ -42,5 +44,11 @@
         <persName>claude-opus-5-greg2</persName>
         <date when="2026-09-18"/>
         <note xml:lang="ja">death/@when をユリウス暦 1486-09 からグレゴリオ暦 1486-10 に是正（0891-10）</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) 葬儀の event 1 件を死亡の欄に移した</note>
     </respStmt>
 </person>

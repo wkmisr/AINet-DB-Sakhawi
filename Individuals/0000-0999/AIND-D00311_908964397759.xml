@@ -18,18 +18,18 @@
             <bibl xml:lang="ar" ref="wd:Q1023470">الصحيح</bibl>
             <bibl xml:lang="ar-Latn" ref="wd:Q1023470">al-Ṣaḥīḥ</bibl>
             <event type="learning"><placeName ref="#TMP-L-00041">زبيد</placeName></event>
+            <note xml:lang="en">Yūsuf al-Muqrī was his chief (رئيسه) in Zabīd, Yemen.</note>
         </relation>
         <relation type="personal" subtype="teacher" n="2" active="wd:Q4120128" passive="#AIND-D00311">
             <desc type="method" ref="#TMP-S-00025" xml:lang="ar">قرأ | القراءة</desc>
             <desc type="field" ref="#TMP-S-00002" xml:lang="ar">الحديث | علم الحديث</desc>
             <bibl xml:lang="ar" ref="wd:Q1023470">الصحيح</bibl>
             <bibl xml:lang="ar-Latn" ref="wd:Q1023470">al-Ṣaḥīḥ</bibl>
-            <event type="learning" when="0898"><placeName ref="gn:104515">مكة</placeName></event>
+            <event type="learning" when-custom="0898" when="1492"><placeName ref="gn:104515">مكة</placeName></event>
         </relation>
-        <relation type="personal" subtype="chief / head" n="3" active="#AIND-D10558" passive="#AIND-D00311"><desc xml:lang="ar">يوسف المقرى</desc><note xml:lang="en">Yūsuf al-Muqrī was his chief (رئيسه) in Zabīd, Yemen.</note></relation>
     </listRelation>
     <event type="religious" subtype="hajj" n="1" when-custom="0897" cert="high"><placeName ref="gn:104515">مكة</placeName></event>
-    <event type="residence" n="2" when-custom="0897-898" cert="low"><placeName ref="gn:104515">مكة</placeName><note xml:lang="en">Remained residing in Mecca and visiting al-Sakhāwī occasionally, until he left for ziyāra with a caravan.</note></event>
+    <event type="residence" n="2" notBefore-custom="0897" notAfter-custom="0898" notBefore="1491" notAfter="1493"><placeName ref="gn:104515">مكة</placeName><note xml:lang="en">Remained residing in Mecca and visiting al-Sakhāwī occasionally, until he left for ziyāra with a caravan.</note><note xml:lang="ja">「لقيني بمكة في سنة سبع وتسعين… في أول التي تليها」→ 897〜898（Waka 裁定 2026-11-22）</note></event>
     <event type="cultural" n="1" when-custom="0898" cert="high">
         <placeName ref="gn:104515">مكة</placeName>
         <desc xml:lang="en">He aimed to recite extensively from the beginning of the reading, with prolix speech that mostly served no purpose, making it difficult to reconcile with al-Sakhāwī's own teaching method.</desc>
@@ -52,5 +52,17 @@ He was a learned man who performed the Hajj and visited (Yemen), where he met hi
         <persName>claude-b154-158-rulings</persName>
         <date when="2026-11-05"/>
         <note xml:lang="ja">B154-158 裁定（Waka 2026-11-05） ★1-9: teacher n=1・chief / head n=3 の TMP-P-000960 → #AIND-D10558（يوسف بن يونس الجبائي … ويعرف بالمقري وبالفقيه يوسف。原文「رئيسه الفقيه يوسف المقرى」）。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">relation「chief / head」(#AIND-D10558) は同じ相手の teacher relation と重複（「رئيسه الفقيه يوسف المقرى فقرأ عليه」）のため除去し、注記を teacher に移した。</note>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（トリプル書き出しに向けた整備・2026-11-22 Waka 裁定と既定の規則の反映）</resp>
+        <persName>claude-opus-5-5-triples-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">(1) マッカ滞在「897-898」→ 897〜898 (2) @when にあったヒジュラ暦の年 1 件を when-custom に移し、西暦を計算して @when に（app.py 2026-11-02 改修前のデータ）</note>
     </respStmt>
 </person>

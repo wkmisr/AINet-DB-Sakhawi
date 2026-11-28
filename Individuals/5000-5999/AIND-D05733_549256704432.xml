@@ -19,12 +19,12 @@
         </relation>
     </listRelation>
     <event type="travel" n="1">
-        <placeName ref="#TMP-L-00038">الروم</placeName>
+        <placeName ref="#TMP-L-00038" role="destination">الروم</placeName>
         <desc xml:lang="ar">قدم من بلاده إلى الروم</desc>
         <note xml:lang="ja">「بلاده」はニスバ الأرزنجاني の指すアルズィンジャーン（息子の本伝 #AIND-D10383 に「ولد … بأرزنجان」）。出発地は placeName にせず note に留める。</note>
     </event>
     <event type="travel" n="2" when-custom="0815" when="1412" cert="medium">
-        <placeName ref="gn:360630">القاهرة</placeName>
+        <placeName ref="gn:360630" role="destination">القاهرة</placeName>
         <desc xml:lang="ar">ثم إلى القاهرة في أول سلطنة المؤيد</desc>
         <note xml:lang="ja">「في أول سلطنة المؤيد」＝アル＝ムアイヤド・シャイフ（#AIND-D03345）の即位（815年シャアバーン月＝1412年11月）直後。年は治世開始からの推定のため cert medium。初版は residence event（cert medium）としていたが、原文は到来（قدم）のみ。</note>
     </event>
@@ -72,5 +72,11 @@
         <note xml:lang="ja">内容検証A L-9 を適用: en 訳「in the Holy City」（原文「وجاور」にない地の補い）を「(presumably in Mecca)」の hedge に。</note>
         <persName>claude-b99-103-triage</persName>
         <date when="2026-10-04"/>
+    </respStmt>
+    <respStmt>
+        <resp xml:lang="ja">修正（統制語彙外 relation の整理・誤りの型 P1/P2/P6 の是正、2026-11-22 Waka 裁定）</resp>
+        <persName>claude-opus-5-5-vocab-20261122</persName>
+        <date when="2026-11-22"/>
+        <note xml:lang="ja">★7：「قدم من بلاده إلى …」の到着地の placeName に role=destination（出発地「بلاده」は地名でない、2026-11-22 裁定）。</note>
     </respStmt>
 </person>
