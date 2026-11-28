@@ -15,8 +15,17 @@ Rows that are not broken but carry ±±± or a working memo (and AIND-D08578, wh
 
 Only name_ar and history change. Rows with a record (XML) are never touched.
 
+to_review.tsv lists the rebuilt rows a person should look at again, with the reason (function reasons):
+  more than 30 words / no full stop / not in the corpus / the name breaks off (a gap in the print: the value
+  ends in بن, ابن, و or هو before the full stop) / a full stop attached to a word, so the rule did not cut there.
+  The last two were added after the review of PR #130 (WK ruling 2026-11-28); their values are not changed.
+
   fix_name_ar.py report <dir>   write the tables to <dir>, change nothing
   fix_name_ar.py apply <dir>    write the tables and update the registry
+  fix_name_ar.py review <dir>   rewrite <dir>/to_review.tsv from <dir>/rebuilt.tsv, change nothing else
+
+After apply the registry has no broken rows left, so report and apply would write empty tables: both refuse
+to run then. Use review to rebuild to_review.tsv from the rebuilt.tsv written at apply time.
 """
 import ast, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +36,27 @@ STOP = re.compile(r'\s\.(?=\s|$)')
 MEMO = re.compile(r'\[[^\]]*order false[^\]]*\]')            # the working memo left in AIND-D08570
 EXTRA = {'AIND-D08578'}                                      # no mark, but the words were corrected in PR #128
 INDEX = ('AIND-D11191', 'AIND-D12845')                          # the index part of vol. 11
+OPEN_END = {'بن', 'ابن', 'و', 'هو'}                          # a name that ends in one of these breaks off (gap in the print)
+UNCUT = {'AIND-D08832', 'AIND-D08978'}                       # full stop attached to the last word of the name (no space in the corpus)
+REVIEW_COLS = ['id', 'section', 'cut', 'words', 'new', 'reason']
+
+def reasons(x):
+    """Why a rebuilt row goes to to_review.tsv ('' = it does not). x: id, cut, words, new."""
+    out = []
+    if x['cut'] == 'tokens':
+        out.append('corpus にない')
+    if x['cut'] == 'none':
+        out.append('句点なし')
+    if int(x['words']) > 30:
+        out.append('30語超')
+    if x['cut'] == 'period' and x['new'].split()[-1] in OPEN_END:
+        out.append('欠字で名前が途中')
+    if x['id'] in UNCUT:
+        out.append('句点に空白がなく切れていない')
+    return '／'.join(out)
+
+def review_rows(rebuilt):
+    return [dict(x, reason=reasons(x)) for x in rebuilt if reasons(x)]
 
 def norm(s):
     return re.sub(r'\s+', ' ', s.replace('★', '').replace('±±±', '')).strip()
@@ -75,15 +105,22 @@ def plan():
     return R, rebuilt, cleaned
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3 or sys.argv[1] not in ('report', 'apply'):
+    if len(sys.argv) != 3 or sys.argv[1] not in ('report', 'apply', 'review'):
         sys.exit(__doc__)
-    R, rebuilt, cleaned = plan()
     d = sys.argv[2]; os.makedirs(d, exist_ok=True)
     w = lambda n, rows, cols: open(os.path.join(d, n), 'w', encoding='utf-8', newline='').write(B.dump(rows, cols))
+    if sys.argv[1] == 'review':
+        rev = review_rows(B.read_tsv(os.path.join(d, 'rebuilt.tsv')))
+        w('to_review.tsv', rev, REVIEW_COLS)
+        print('to_review', len(rev))
+        sys.exit()
+    R, rebuilt, cleaned = plan()
+    if not rebuilt and not cleaned:
+        sys.exit('nothing to rebuild or clean (already applied); tables left as they are. To rebuild to_review.tsv, use: review <dir>')
     w('rebuilt.tsv', rebuilt, ['id', 'section', 'cut', 'words', 'new', 'old'])
-    w('to_review.tsv', [x for x in rebuilt if x['cut'] != 'period' or x['words'] > 30], ['id', 'section', 'cut', 'words', 'new'])
+    w('to_review.tsv', review_rows(rebuilt), REVIEW_COLS)
     w('cleaned.tsv', cleaned, ['id', 'differs', 'old', 'new', 'marks_only'])
-    print('rebuilt', len(rebuilt), 'cleaned', len(cleaned), 'to_review', sum(1 for x in rebuilt if x['cut'] != 'period' or x['words'] > 30))
+    print('rebuilt', len(rebuilt), 'cleaned', len(cleaned), 'to_review', len(review_rows(rebuilt)))
     if sys.argv[1] == 'apply':
         ch = {x['id']: x for x in rebuilt + cleaned}
         for r in R:
