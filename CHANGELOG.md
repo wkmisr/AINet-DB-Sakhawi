@@ -2515,3 +2515,9 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - WK 裁定 2026-11-28。本伝があり典拠表の same_as に Wikidata 番号を持つ 4人（السراج البلقيني・ابن قاضي شهبة・الشمس البساطي・ابن ناصر الدين）を、レコードが Wikidata 番号で直接指していた 20か所・14 ファイルを AIND 番号に付け替えた。
 - build_authority.py: check に「same_as にある番号をレコードが直接指していないこと」。
 - 詳細: `docs/accuracy/sameas_direct_refs_20261128/README.md`。
+
+# 変更ログ: 著作の番号の付け替えと判定の記録（2026-11-28）
+
+- WK 裁定 2026-11-28。刊本（版）の Wikidata 項目を著作の番号に使っていた 2件を著作の項目に付け替えた：علوم الحديث لابن الصلاح wd:Q120635850 → wd:Q6058980、لامية الأفعال wd:Q115616574 → wd:Q12236919（5か所・3 ファイル）。entities_registry は版の 2行を merged に、wd:Q12236919 を追加。
+- `docs/authority/verified.tsv` に判定 17行（要照合表の毒・毒疑い・要修正・要確認の行。どれもレコードでの使用 0）。
+- 詳細: `docs/accuracy/work_ids_verdicts_20261128/README.md`。
