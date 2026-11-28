@@ -2509,3 +2509,9 @@ repo `Individuals/` との**完全同名重複4件**（`AIND-D03448_111090343419
 - build_authority.py: 参照をタグの中だけから読む（注の文章を参照と数えていた。典拠表にない参照 3 → 0）、check に「corresp 属性がないこと」。authority_lib.py: 台帳が same_as 欄も数える。app.py: 出力に corresp を付けない。
 - 独立校閲後の手当て（WK 裁定 2026-11-28）: スルタン 4人の典拠表の履歴を番号の出どころどおりに直した。app.py の候補表示から「+ corresp=…」を外した。xml2ttl.py は owl:sameAs を典拠表の same_as 欄から出す。corresp の検査を書き方の違いに強くした。
 - 詳細: `docs/accuracy/corresp_unify_20261128/README.md`。
+
+# 変更ログ: same_as にある番号への直接の参照を AIND 番号に付け替え（2026-11-28）
+
+- WK 裁定 2026-11-28。本伝があり典拠表の same_as に Wikidata 番号を持つ 4人（السراج البلقيني・ابن قاضي شهبة・الشمس البساطي・ابن ناصر الدين）を、レコードが Wikidata 番号で直接指していた 20か所・14 ファイルを AIND 番号に付け替えた。
+- build_authority.py: check に「same_as にある番号をレコードが直接指していないこと」。
+- 詳細: `docs/accuracy/sameas_direct_refs_20261128/README.md`。
