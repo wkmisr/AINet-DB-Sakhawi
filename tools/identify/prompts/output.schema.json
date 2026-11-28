@@ -1,0 +1,559 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "aind/identification-output/0.1",
+ "title": "AIND identification: answer for one biography (guideline sec. 8)",
+ "type": "object",
+ "properties": {
+  "record": {
+   "type": "string",
+   "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+  },
+  "guideline": {
+   "const": "identification/0.1"
+  },
+  "results": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "mention": {
+      "type": "string",
+      "pattern": "^m[0-9]+$"
+     },
+     "verdict": {
+      "enum": [
+       "identified",
+       "same_as_mention",
+       "undetermined",
+       "not_found",
+       "out_of_scope",
+       "extraction_error"
+      ]
+     },
+     "id": {
+      "type": "string",
+      "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+     },
+     "certainty": {
+      "enum": [
+       "high",
+       "medium",
+       "low"
+      ]
+     },
+     "basis": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "pointer",
+        "nasab",
+        "laqab",
+        "kunya",
+        "nisba",
+        "shuhra",
+        "office",
+        "place",
+      "madhhab",
+        "date",
+        "kin",
+        "teacher_student",
+        "work",
+        "mutual",
+        "fixed_epithet",
+        "convention"
+       ]
+      },
+      "uniqueItems": true
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "entry": {
+         "type": "string",
+         "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+        },
+        "quote": {
+         "type": "string",
+         "minLength": 1
+        }
+       },
+       "required": [
+        "entry",
+        "quote"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "same_as": {
+      "type": "string",
+      "pattern": "^m[0-9]+$"
+     },
+     "candidates": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "string",
+         "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+        },
+        "for": {
+         "type": "string"
+        },
+        "against": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "id",
+        "for",
+        "against"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "decides": {
+      "type": "string",
+      "description": "undetermined: what would decide between the candidates"
+     },
+     "registry_id": {
+      "type": "string",
+      "pattern": "^(TMP-P-[0-9]{6}|wd:Q[0-9]+)$"
+     },
+     "propose_registry": {
+      "type": "boolean"
+     },
+     "ground": {
+      "enum": [
+       "list",
+       "death_before_801",
+       "early_figure",
+       "author_of_classic",
+       "not_a_person",
+       "group",
+       "subject",
+       "span"
+      ]
+     },
+     "other_entries": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^AIND-D[0-9]{5}[a-z]?$"
+      }
+     },
+     "pointer": {
+      "type": "object",
+      "properties": {
+       "phrase": {
+        "type": "string"
+       },
+       "consistent": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "phrase",
+       "consistent"
+      ],
+      "additionalProperties": false
+     },
+     "mutual": {
+      "enum": [
+       "yes",
+       "no",
+       "not_checked"
+      ]
+     },
+     "checks": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "read",
+        "names",
+        "variants",
+        "text",
+        "sections",
+        "kin",
+        "authority",
+        "mutual"
+       ]
+      },
+      "uniqueItems": true
+     },
+     "rejected": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "reason": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "id",
+        "reason"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "flags": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "transfer_followed",
+        "transfer_unresolved",
+        "index_entry",
+        "announced_entry_missing",
+        "pointer_inconsistent",
+        "spelling_differs",
+        "nasab_differs",
+        "durar_candidate",
+        "budget_exhausted",
+        "speaker_unclear",
+        "registry_row_doubtful"
+       ]
+      },
+      "uniqueItems": true
+     },
+     "note": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "mention",
+     "verdict"
+    ],
+    "additionalProperties": false,
+    "allOf": [
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "identified"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "id",
+        "certainty",
+        "basis",
+        "evidence",
+        "checks"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "same_as"
+          ]
+         },
+         {
+          "required": [
+           "registry_id"
+          ]
+         },
+         {
+          "required": [
+           "ground"
+          ]
+         },
+         {
+          "required": [
+           "candidates"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "same_as_mention"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "same_as"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "id"
+          ]
+         },
+         {
+          "required": [
+           "certainty"
+          ]
+         },
+         {
+          "required": [
+           "registry_id"
+          ]
+         },
+         {
+          "required": [
+           "ground"
+          ]
+         },
+         {
+          "required": [
+           "candidates"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "undetermined"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "candidates",
+        "checks"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "id"
+          ]
+         },
+         {
+          "required": [
+           "certainty"
+          ]
+         },
+         {
+          "required": [
+           "same_as"
+          ]
+         },
+         {
+          "required": [
+           "ground"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "not_found"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "checks"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "id"
+          ]
+         },
+         {
+          "required": [
+           "certainty"
+          ]
+         },
+         {
+          "required": [
+           "same_as"
+          ]
+         },
+         {
+          "required": [
+           "ground"
+          ]
+         },
+         {
+          "required": [
+           "candidates"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "out_of_scope"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "ground"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "id"
+          ]
+         },
+         {
+          "required": [
+           "certainty"
+          ]
+         },
+         {
+          "required": [
+           "same_as"
+          ]
+         },
+         {
+          "required": [
+           "candidates"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "extraction_error"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "required": [
+        "ground"
+       ],
+       "not": {
+        "anyOf": [
+         {
+          "required": [
+           "id"
+          ]
+         },
+         {
+          "required": [
+           "certainty"
+          ]
+         },
+         {
+          "required": [
+           "same_as"
+          ]
+         },
+         {
+          "required": [
+           "candidates"
+          ]
+         },
+         {
+          "required": [
+           "registry_id"
+          ]
+         }
+        ]
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "out_of_scope"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "properties": {
+        "ground": {
+         "enum": [
+          "list",
+          "death_before_801",
+          "early_figure",
+          "author_of_classic"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "if": {
+       "properties": {
+        "verdict": {
+         "const": "extraction_error"
+        }
+       },
+       "required": [
+        "verdict"
+       ]
+      },
+      "then": {
+       "properties": {
+        "ground": {
+         "enum": [
+          "not_a_person",
+          "group",
+          "subject",
+          "span"
+         ]
+        }
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "required": [
+  "record",
+  "guideline",
+  "results"
+ ],
+ "additionalProperties": false
+}

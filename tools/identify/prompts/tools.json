@@ -1,0 +1,198 @@
+{
+ "version": "identification/0.1",
+ "note": "Vendor-neutral tool definitions (JSON Schema parameters). The harness converts them to each vendor's function-calling format and maps them to tools/identify/idtool.py. verify_choice uses only `read` and `neighbours`.",
+ "tools": [
+  {
+   "name": "search_names",
+   "description": "Search the headings of all entries for a name phrase. The index knows the ism, the father's and forefathers' names, the laqab in both forms (الشمس / شمس الدين), the kunya, nisbas and the by-name given in the heading (ويعرف بـ). It absorbs hamza, alif maqsura, ta marbuta and the proclitics و ب ل ك. It does not absorb dotting variants: search those yourself. With `record` (and `kin` if the mention is a kin term) it also shifts the nasab of that record's subject and looks at the neighbouring entries, as the pre-search does. Returns up to `k` entries with a score and what matched. A hit means the names resemble each other, not that the person is the same.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Arabic name phrase, as printed or reduced (e.g. laqab and nisba only)."
+     },
+     "record": {
+      "type": "string",
+      "description": "AIND ID of the biography being worked on; turns on the nasab shift and excludes the record itself."
+     },
+     "kin": {
+      "type": "string",
+      "enum": [
+       "father",
+       "mother",
+       "son",
+       "daughter",
+       "brother",
+       "sister",
+       "grandfather",
+       "grandson",
+       "paternal_uncle",
+       "cousin",
+       "siblings_child",
+       "ancestor",
+       "descendant"
+      ],
+      "description": "What the person searched for is to the subject of `record`."
+     },
+     "k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20
+     }
+    },
+    "required": [
+     "query"
+    ]
+   }
+  },
+  {
+   "name": "genealogy",
+   "description": "Entries whose nasab stands in the given relation to the nasab of `record`'s subject (the father is the entry whose nasab equals the subject's without its first name, and so on). Ranked by how much of the nasab and how many nisbas agree. Namesakes and cousins fit the same pattern: read before accepting. Not available for `mother`.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "record": {
+      "type": "string"
+     },
+     "kin": {
+      "type": "string",
+      "enum": [
+       "father",
+       "son",
+       "daughter",
+       "brother",
+       "sister",
+       "grandfather",
+       "grandson",
+       "paternal_uncle",
+       "cousin",
+       "siblings_child",
+       "ancestor",
+       "descendant"
+      ]
+     },
+     "k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20
+     }
+    },
+    "required": [
+     "record",
+     "kin"
+    ]
+   }
+  },
+  {
+   "name": "neighbours",
+   "description": "The headings of the `n` entries before and after an entry, in the order of the book. For «الذي قبله», «أخو اللذين قبله», «قريبا», and for relatives who stand together because they share a name and father.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 2
+     }
+    },
+    "required": [
+     "id"
+    ]
+   }
+  },
+  {
+   "name": "read",
+   "description": "The full text of one entry. For a transfer heading the result has `status: transfer` and `target` (the entry it sends to); `merged` and `retired` IDs are not to be used.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "AIND ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   }
+  },
+  {
+   "name": "search_text",
+   "description": "Entries whose full text (heading and body) contains every one of the given words or phrases, after the same normalisation as the name index. Use it for by-names given only in the body (ويعرف بـ…), for name and nisba together, and to see how a designation is used across the book. Returns the total number of entries and the first `k` with a snippet around the first phrase.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "phrases": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "minItems": 1,
+      "maxItems": 4
+     },
+     "exclude": {
+      "type": "string",
+      "description": "AIND ID to leave out (the record being worked on)."
+     },
+     "k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20
+     }
+    },
+    "required": [
+     "phrases"
+    ]
+   }
+  },
+  {
+   "name": "reverse",
+   "description": "Entries that refer to a given person: `xml_refs` are reviewed records that link to the person; `text_hits` are entries whose text contains the person's «ابن X» by-name (a suggestion, not an identification). Incomplete: most of the book has not been reviewed yet.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "AIND or TMP-P ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   }
+  },
+  {
+   "name": "authority",
+   "description": "Search the registry of persons by name or alias. Without `include_entries` it returns persons who have no entry in the book (TMP-P-…, wd:…) and the out-of-scope list; with it, also aliases of persons who have an entry (AIND-D…). `note` is the registry's own note, often in Japanese; it may warn against reusing a row. A row is a label, not evidence.",
+   "parameters": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string"
+     },
+     "include_entries": {
+      "type": "boolean",
+      "default": false
+     },
+     "k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50,
+      "default": 20
+     }
+    },
+    "required": [
+     "query"
+    ]
+   }
+  }
+ ]
+}
