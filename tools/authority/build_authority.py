@@ -26,6 +26,7 @@ ENT_VIEW = os.path.join(OUT, 'entities_view.tsv')
 UNRES = os.path.join(OUT, 'unresolved_refs.tsv')
 ENT_COLS = ['id', 'category', 'status', 'target', 'label_ar', 'label_latn', 'variants', 'same_as', 'class', 'note', 'history']
 REFRE = re.compile(r'(?:ref|active|passive)="([^"]*)"')
+TAG = re.compile(r'<[^<>]+>')    # attributes are read inside tags only: notes quote old attributes as text (ref="#TMP-I-00000")
 H = re.compile(r'^###\$(?:(AIND-D\w+) \| )?(\d{12})\$# (\$+) ?(.*)')
 KIND = {'$': 'male', '$$': 'female', '$$$': 'transfer'}
 AID = re.compile(r'AIND-D\d{5}[a-z]?')
@@ -61,7 +62,7 @@ def xmls():
                 return (lo + '/' + hi) if (lo or hi) else ''
             mad = sorted(set(re.findall(r'<affiliation[^>]*type="madhhab"[^>]*ref="([^"]*)"', t)))
             tgt = re.search(r'<note type="reference" target="#(AIND-D\w+)"', t)
-            out[m[2]] = dict(refs=set(v.lstrip('#') for mm in REFRE.finditer(t) for v in mm[1].split()), ref=bool(m[1]), birth=date('birth'), death=date('death'),
+            out[m[2]] = dict(refs=set(v.lstrip('#') for tag in TAG.finditer(t) for mm in REFRE.finditer(tag[0]) for v in mm[1].split()), ref=bool(m[1]), birth=date('birth'), death=date('death'),
                              madhhab=' | '.join(mad), target=tgt[1] if tgt else '')
     return out
 
